@@ -1,0 +1,1 @@
+# Qodana GitHub Application

@@ -1,0 +1,1 @@
+# Qodana TeamCity Plugin

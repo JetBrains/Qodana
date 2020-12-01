@@ -1,0 +1,2 @@
+# Qodana Docker Image
+
