@@ -1,6 +1,6 @@
 # Qodana TeamCity Plugin
 
-Qodana TeamCity Plugin let you add static analysis to your build pipeline with a couple of clicks.
+Qodana TeamCity Plugin lets you add static analysis to your builds chain.
 
 The plugin provides:
 * Build runner
