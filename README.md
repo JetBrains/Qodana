@@ -1,4 +1,4 @@
-# Qodana
+# Qodana ![](https://github.com/katerinared/Qodana/blob/main/TeamCity%20Plugin/resources/project-official-brightgreen.svg)
 
 ![](https://github.com/katerinared/Qodana/blob/main/TeamCity%20Plugin/resources/alert_QD1.png)
 ![](https://github.com/katerinared/Qodana/blob/main/TeamCity%20Plugin/resources/thumbmail-fixed.png)
