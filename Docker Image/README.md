@@ -6,7 +6,7 @@
 
 Supported tags: 2020.3-eap, latest (points to 2020.3-eap)
 
-##General
+## General
 
 This image allows you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your 
 code base. In the course of time Qodana will support all languages and technologies covered by IntelliJ IDEs. We will 
@@ -32,7 +32,7 @@ results of most common checks performed on your code base. Then you will be able
 
 ### Quick start with a recommended profile
 
-####To run analysis locally
+*To run analysis locally*
 1) Pull the image from Docker Hub Registry 
    ```
    docker pull jetbrains/qodana:2020.3-eap
@@ -66,7 +66,7 @@ results of most common checks performed on your code base. Then you will be able
    it in `docker run` again. 
    
 
-####To run analysis in CI
+*To run analysis in CI*
 1) Ensure the image will be pulled from the Docker Hub Registry
    ```
     docker pull jetbrains/qodana:2020.3-eap
