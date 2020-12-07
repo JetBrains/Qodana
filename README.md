@@ -1,6 +1,6 @@
 ![](https://github.com/katerinared/Qodana-11/blob/main/TeamCity%20Plugin/resources/eap-alert.png)
 
-![](https://github.com/katerinared/Qodana-11/blob/main/TeamCity%20Plugin/resources/banner-main.svg)
+![](https://github.com/katerinared/Qodana-11/blob/main/TeamCity%20Plugin/resources/banner-main.png)
 
 ### ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg)
 
