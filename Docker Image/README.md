@@ -41,7 +41,7 @@ results of most common checks performed on your code base. Then you will be able
    docker run -v <project-folder>/:/data/project/ \
               -v <output-folder>/:/data/results/ \
               -p 8080:8080 \
-   qodana:2020.3-eap --show-report
+   jetbrains/qodana:2020.3-eap --show-report
    ```
    Please note, that `project-folder` and `output-folder` are the full local paths on your machines to the project 
    source code folder, and the analysis results folder accordingly.
@@ -55,7 +55,7 @@ results of most common checks performed on your code base. Then you will be able
    ```
    docker run -v <project-folder>/:/data/project/ \
               -v <output-folder>/:/data/results/ \             
-   qodana:2020.3-eap 
+   jetbrains/qodana:2020.3-eap 
    ```
    
    The `output-folder` will contain the [all necessary data](../General/output.md#basic-output). 
@@ -99,7 +99,7 @@ Using additional parameter you command will be looked like
               -v <output-folder>/:/data/results/ \
               -v <inspection-profile.xml>:/data/profile.xml
               -p 8080:8080 \
-    qodana:2020.3-eap --show-report
+               jetbrains/qodana:2020.3-eap --show-report
    ```
 - For CI-based execution
 ```
