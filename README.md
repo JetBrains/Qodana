@@ -2,8 +2,8 @@
 
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg)
 
-![](https://github.com/katerinared/Qodana/blob/main/TeamCity%20Plugin/resources/alert_QD1.png)
-![](https://github.com/katerinared/Qodana/blob/main/TeamCity%20Plugin/resources/thumbmail-fixed.png)
+![](resources/alert_QD1.png)
+![](resources/thumbmail-fixed.png)
 
 Qodana is a code quality monitoring tool to identify and suggest fixes for bugs, security vulnerabilities, duplications, and imperfections. It brings all the smart features you love in the IntelliJ IDEs into your project pipelines. It takes different shapes: Docker for any CI, GitHub application, TeamCity plugin, or a separate cloud service, but has a common goal: guiding users towards more robust, more maintainable, and healthier code.
 
