@@ -17,8 +17,7 @@ The image gives you the following options optimized for different scenarios:
 * Single shot analysis performed, for example, locally.
 We will refer the first option as a *CI-based execution* and the second as a *local* one. If you are more 
   interested in the first choice and have established continuous integration (CI) support for your project, this page will guide your through all possibilities. If you don't have any CI for your project we encourage you to try 
-  JetBrains TeamCity either on-premise or in cloud. In this case you can switch to our [TeamCity plugin]
-  (https://github.com/JetBrains/Qodana/tree/main/TeamCity%20Plugin) as it gives more options. 
+  JetBrains TeamCity either on-premise or in cloud. In this case you can switch to our [TeamCity plugin](https://github.com/JetBrains/Qodana/tree/main/TeamCity%20Plugin) as it gives more options. 
 
 
 If you are familiar with [IntelliJ IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
