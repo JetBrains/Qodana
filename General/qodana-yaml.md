@@ -2,17 +2,17 @@
 
 ###Qodana.yaml
 
-Qodana runs could be customized with qodana.yaml file stored under root of your project.
-Configuration through qodana.yaml is only supported by Qodana product.
-It isn't supported by any other JetBrains products like IDEA, PhpStorm, etc.
+Qodana runs can be customized with the `qodana.yaml` file stored under your project's root folder.
+Note that configuration through `qodana.yaml` is only supported by Qodana product.
+It is not supported by any other JetBrains products like IDEA, PhpStorm, etc.
 
 #### Setup profile
-Setup profile by name
+Setup profile by name:
 ```
 profile:
     name: %name%
 ```
-Setup profile by path
+Setup profile by path:
 ```
 profile:
     path: relative/path/in/your/project.xml
@@ -28,7 +28,7 @@ exclude:
       - asm/Visitor.java
       - benchmarks
 ```
-Exclude paths from analysis for all inspections by id:
+Exclude paths from analysis for all inspections by ID:
 ```
 exclude:
   - name: Annotator
