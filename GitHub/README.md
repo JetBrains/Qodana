@@ -1,1 +1,3 @@
-# Qodana GitHub Application
+# Qodana GitHub Actions & Application
+
+

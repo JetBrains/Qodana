@@ -1,6 +1,6 @@
 # Qodana. Supported Technologies
 
-With time, Qodana will support all languages and technologies covered by IntelliJ IDEs. 
+With time, Qodana will support all languages and technologies covered by JetBrains IDEs. 
 
 The current (2020.3.x) version lets you fully analyse:
 
@@ -20,5 +20,5 @@ Also, we started to work on smooth integration for [Python](https://www.python.o
 
 If you have any particular interest in a certain language or technologies, please don't hesitate to contact us at 
 qodana-support@jetbrains.com or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We want 
-eagerly your feedback on what's already there and any features you miss. The more you tell us about your needs, the 
+eagerly your feedback on what's already there and any features we miss. The more you tell us about your needs, the 
 closer we will be to fit you!

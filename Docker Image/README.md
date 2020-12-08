@@ -9,10 +9,10 @@ Supported tags: 2020.3-eap, latest (points to 2020.3-eap)
 ## General
 
 This image allows you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your 
-code base. In the course of time Qodana will support all languages and technologies covered by IntelliJ IDEs. We will 
+code base. In the course of time Qodana will support all languages and technologies covered by JetBrains IDEs. We will 
 add them on a one-by-one basis and describe what one can expect on [each area](../Technologies/README.md). 
 
-The image gives you the following options optimized for different scenarios:
+We provide two options optimized for different scenarios:
 - Running the analysis on a regular basis as a part of your continuous integration (*CI-based execution*)
 - Single shot analysis (performed *locally*, for example) 
 
@@ -21,7 +21,7 @@ If you prefer the first option and have established continuous integration (CI) 
   JetBrains TeamCity either on-premise or in cloud. In this case you can switch to our [TeamCity plugin](https://github.com/JetBrains/Qodana/tree/main/TeamCity%20Plugin) as it gives more options. 
 
 
-If you are familiar with [IntelliJ IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
+If you are familiar with [JetBrains IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
 and know what to expect from the static analysis outside the editor, you can start with the [using existing profile](README.md#using-existing-profile) section. 
 
 
