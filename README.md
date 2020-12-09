@@ -15,5 +15,4 @@ add them one by one, and describe what you can expect in [each area](General/sup
 
  - If you want to have a cloud service, start with TeamCity Cloud and contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com). We will add the Qodana plugin to your installation.
 
-Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss. The more you tell us about your needs, the
-better we will be to fit you!
+Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss.
