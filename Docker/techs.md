@@ -82,3 +82,9 @@ Qodana allows checking only changed files.
 docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' <image-name> -changes
 ```
 You can adjust the ```idea.required.plugins.id``` value and keep only the cvs plugin suitable for your project.
+
+### Turn off user statistics
+
+```
+docker run  -e IDE_PROPERTIES_PROPERTY="-Didea.headless.enable.statistics=false" <image-name> 
+```
