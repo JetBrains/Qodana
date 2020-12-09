@@ -26,7 +26,7 @@ Examples of execution tuning:
 
 - Gradle extra settings
    ```
-   docker run ... -v <project-folder>/gradle.properties:/root/.gradle/gradle.properties <image-name>
+   docker run ... -v <source-folder>/gradle.properties:/root/.gradle/gradle.properties <image-name>
    ```
 
 - Change Heap size (default is 80% of host RAM)

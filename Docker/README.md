@@ -11,8 +11,7 @@ Supported tags: 2020.3-eap, latest (points to 2020.3-eap)
 ## General
 
 This Docker image lets you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your 
-code base. In the course of time Qodana will support all languages and technologies covered by JetBrains IDEs. We will 
-add them one by one and describe what you can expect in [each area](../General/supported-technologies.md). 
+code base. The current version [supports](../General/supported-technologies.md) PHP, Java and Kotlin, more languages and technologies are coming.
 
 We provide two options optimized for different scenarios:
 - Running the analysis on a regular basis as a part of your continuous integration (*CI-based execution*)
@@ -36,16 +35,16 @@ results of most common checks performed on your code base and then [adjust them]
 *To run analysis locally*
 1) Pull the image from Docker Hub Registry: 
    ```
-   docker pull jetbrains/qodana:2020.3-eap
+   docker pull jetbrains/qodana
    ```
 2) Run the following command:
    ```
-   docker run -v <project-folder>/:/data/project/ \
+   docker run -v <source-folder>/:/data/project/ \
               -v <output-folder>/:/data/results/ \
               -p 8080:8080 \
-   jetbrains/qodana:2020.3-eap --show-report
+   jetbrains/qodana --show-report
    ```
-   Note that `project-folder` and `output-folder` are the full local paths on your machines to the project 
+   Note that `source-folder` and `output-folder` are the full local paths on your machines to the project 
    source code folder and the analysis results folder accordingly.
    
    This command will run the analysis on your source code and start the web server to give you a convenient way to 
@@ -54,9 +53,9 @@ results of most common checks performed on your code base and then [adjust them]
 
    In case you don't need the user interface and prefer to study raw data, use the following command: 
    ```
-   docker run -v <project-folder>/:/data/project/ \
+   docker run -v <source-folder>/:/data/project/ \
               -v <output-folder>/:/data/results/ \             
-   jetbrains/qodana:2020.3-eap 
+   jetbrains/qodana 
    ```
    
    The `output-folder` will contain [all the necessary data](../General/output.md#basic-output). You can further tune the command as described in the [technical guide](techs.md).
@@ -67,21 +66,20 @@ results of most common checks performed on your code base and then [adjust them]
 *To run analysis in CI*
 1) Ensure the image is pulled from the Docker Hub Registry:
    ```
-    docker pull jetbrains/qodana:2020.3-eap
+    docker pull jetbrains/qodana
    ```
 2) Use the following command as the task:
    ```
     docker run \ 
-        -v <project-folder>/:/data/project/ \
+        -v <source-folder>/:/data/project/ \
         -v <output-folder>/:/data/results/ \
-        jetbrains/qodana:2020.3-eap
+        jetbrains/qodana
    ```
   
-   Note that `project-folder` and `output-folder` are the full paths to the project 
-   source code folder and the analysis results folder accordingly. 
+   Note that `source-folder` and `output-folder` are the full paths to the project 
+   source code folder, and the analysis results folder accordingly. 
    The `output-folder` will contain the [following output](../General/output.md#basic-output).
    
-
    
 ### Using existing profile
 
@@ -94,19 +92,19 @@ xml>:/data/profile.xml` to the `docker run` command or via a [qodana.yaml](#conf
 With the additional parameter provided, the resulting command will look as follows:
 - For local execution with results in the UI:
  ```
-    docker run -v <project-folder>/:/data/project/ \
+    docker run -v <source-folder>/:/data/project/ \
               -v <output-folder>/:/data/results/ \
               -v <inspection-profile.xml>:/data/profile.xml
               -p 8080:8080 \
-               jetbrains/qodana:2020.3-eap --show-report
+               jetbrains/qodana --show-report
    ```
 - For CI-based execution:
 ```
     docker run \ 
-        -v <project-folder>/:/data/project/ \
+        -v <source-folder>/:/data/project/ \
         -v <output-folder>/:/data/results/ \
         -v <inspection-profile.xml>:/data/profile.xml
-        jetbrains/qodana:2020.3-eap
+        jetbrains/qodana
    ```
 ### Configure via qodana.yaml
 
@@ -114,6 +112,13 @@ The `qodana.yaml` file will be
 automatically recognised and used for the analysis configuration, so that you don't need to pass any additional parameters.
 The references to the inspection profiles will be resolved in [a particular order](techs.md#order-of-resolving-profile). To learn about the format, refer to the [qodana.yaml](../General/qodana-yaml.md) documentation.
 
-### License
-Qodana Docker image is provided under the JetBrains Terms of Services, JetBrains EAP policy, and JetBrains privacy policy.
+### Usage statistics
+According to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) we may use third-party services to analyze feature usage for the further user experience improving. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). 
+You can deprecate the usage statistic reporting y adjusting the options of the docker command you use. Please refer to [this](techs.md) guide. 
 
+### License
+Using Qodana docker image you agree to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+The docker image includes evaluation license which will expire in 30-day. Please ensure you pull a new image on time. 
+
+## Contact
+Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss.

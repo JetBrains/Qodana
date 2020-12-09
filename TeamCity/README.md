@@ -50,7 +50,7 @@ we are working to provide the cross-configuration option as well.
 ### Configuration
 
 The main Qodana functionality comes from the 'engine' shaped into the Docker image. If you want to go beyond the 
-boundaries of the default settings, refer to the [Docker image guide](../Docker%20Image/README.md). Note that you don't need to write `docker run` on your own, since the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties. 
+boundaries of the default settings, refer to the [Docker image guide](../Docker/README.md). Note that you don't need to write `docker run` on your own, since the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties. 
 
 ### Advanced Configuration 
 
@@ -63,3 +63,8 @@ reports tests in four different ways:
 - per inspection type/per module (if this information is available)
 - per inspection type/per file
 
+### License
+Using Qodana plugin you agree to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+
+## Contact
+Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss.

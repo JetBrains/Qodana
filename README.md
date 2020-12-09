@@ -4,15 +4,33 @@
 
 **Qodana** is a code quality monitoring tool to identify and suggest fixes for bugs, security vulnerabilities, duplications, and imperfections. 
 It brings all the smart features you love in the JetBrains IDEs into your project pipelines. 
-It takes different shapes: [Docker for any CI](Docker%20Image/README.md), [GitHub actions & application](GitHub/README.md), [TeamCity plugin](TeamCity%20Plugin/README.md), or a separate [cloud service](As%20a%20Service/README.md), but has a common goal: guiding users towards more robust, more maintainable, and healthier code.
+It takes different shapes: [Docker for any CI](Docker/README.md), [GitHub actions & application](GitHub/README.md), [TeamCity plugin](TeamCity%20Plugin/README.md), or a separate [cloud service](As%20a%20Service/README.md), but has a common goal: guiding users towards more robust, more maintainable, and healthier code.
 
-**Qodana** will support all languages and technologies covered by JetBrains IDEs. We will
-add them one by one, and describe what you can expect in [each area](General/supported-technologies.md). 
+It works with PHP, Java and Kotlin projects today, and eventually will support [languages and technologies](General/supported-technologies.md) covered by JetBrains IDEs.
 
- - Check your PHP or Java/Kotlin projects today locally or on GitHub.
+### Analyse project locally
 
- - If you use TeamCity, add the Qodana plugin to your installation and then add a simple step to your builds.
+Pull the image from Docker hub
+```
+docker pull jetbrains/qodana
+```
+and run the analysis locally
 
- - If you want to have a cloud service, start with TeamCity Cloud and contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com). We will add the Qodana plugin to your installation.
+```
+docker run -v <source-folder>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report 
+```
 
+The `source-folder` should point to the root of your project. 
+Check the results in your browser at http://localhost:8080.
+ 
+Please read [Docker guide](/Docker/README.md) for more options and details related to the execution.
+
+### Run at GitHub
+
+You can setup a workflow in your GitHub repository using the GitHub action we published. 
+
+### License
+Using Qodana you agree to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+
+## Contact
 Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss.
