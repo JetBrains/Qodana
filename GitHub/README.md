@@ -2,7 +2,7 @@
 
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg)
 
-![EAP](../resources/alert_QD1.png)
+![EAP](../resources/eap-alert.png)
 
 ## General
 
