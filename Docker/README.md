@@ -4,7 +4,7 @@
 ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg)
 ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana.svg)
 
-![EAP](../resources/alert_QD1.png)
+![EAP](../resources/eap-alert.png)
 
 Supported tags: 2020.3-eap, latest (points to 2020.3-eap)
 
@@ -120,5 +120,5 @@ You can deprecate the usage statistic reporting y adjusting the options of the d
 Using Qodana docker image you agree to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
 The docker image includes evaluation license which will expire in 30-day. Please ensure you pull a new image on time. 
 
-## Contact
+### Contact
 Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss.
