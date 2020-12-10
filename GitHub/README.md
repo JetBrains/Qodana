@@ -12,7 +12,9 @@ And now with Qodana  App and Actions available in GitHub, all these features are
 
 ## Qodana Github App
 
-Qodana Github App is a great way to improve the code quality of your Github repository. It can be installed on specific repositories or whole organizations by an organization owner or a repository admin.
+![Qodana Github App](../resources/qodana-app-banner.png)
+
+**Qodana Github App** is a great way to improve the code quality of your Github repository. It can be installed on specific repositories or whole organizations by an organization owner or a repository admin.
 Once you install the app in your repository, it starts with monitoring all pull-requests in it.
 
 If there is a problem in your pull request, Qodana App will add a comment to each problematic line.
