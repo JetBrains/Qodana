@@ -84,7 +84,7 @@ docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subv
 You can adjust the ```idea.required.plugins.id``` value and keep only the cvs plugin suitable for your project.
 
 ### Turn off user statistics
-To deprecate [the usage statistics reporting](README.md#Usage statistics), adjust the `idea.headless.enable.statistics` value: 
+To deprecate [the usage statistics reporting](README.md#usage-statistics), adjust the `idea.headless.enable.statistics` value: 
 ```
 docker run  -e IDE_PROPERTIES_PROPERTY="-Didea.headless.enable.statistics=false" <image-name> 
 ```
