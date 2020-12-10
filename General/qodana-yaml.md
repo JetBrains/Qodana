@@ -1,6 +1,6 @@
-#Qodana. Configuration 
+# Qodana. Configuration 
 
-###Qodana.yaml
+### Qodana.yaml
 
 Qodana runs can be customized with the `qodana.yaml` file stored under your project's root folder.
 Note that configuration through `qodana.yaml` is only supported by Qodana product.
