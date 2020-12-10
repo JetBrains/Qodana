@@ -11,7 +11,7 @@ Supported tags: 2020.3-eap, latest (points to 2020.3-eap)
 ## General
 
 This Docker image lets you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your 
-code base. The current version [supports](../General/supported-technologies.md) PHP, Java and Kotlin, more languages and technologies are coming.
+code base. The current version [supports PHP, Java and Kotlin](../General/supported-technologies.md), more languages and technologies are coming.
 
 We provide two options optimized for different scenarios:
 - Running the analysis on a regular basis as a part of your continuous integration (*CI-based execution*)
@@ -113,12 +113,12 @@ automatically recognised and used for the analysis configuration, so that you do
 The references to the inspection profiles will be resolved in [a particular order](techs.md#order-of-resolving-profile). To learn about the format, refer to the [qodana.yaml](../General/qodana-yaml.md) documentation.
 
 ### Usage statistics
-According to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) we may use third-party services to analyze feature usage for the further user experience improving. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). 
-You can deprecate the usage statistic reporting y adjusting the options of the docker command you use. Please refer to [this](techs.md) guide. 
+According to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) we may use third-party services to analyze features usage for further improving the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html).
+You can deprecate the usage statistics reporting by adjusting the options of the docker command you use. Refer to [this guide](techs.md) for details. 
 
 ### License
-Using Qodana docker image you agree to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
-The docker image includes evaluation license which will expire in 30-day. Please ensure you pull a new image on time. 
+By using the Qodana Docker image, you agree to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+The Docker image includes evaluation license, which will expire in 30 days. Please ensure you pull a new image on time.
 
 ### Contact
 Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss.

@@ -9,15 +9,15 @@ The current (2020.3.x) version lets you analyse:
 * [Kotlin](https://kotlinlang.org) projects, included [Kotlin-JS](https://kotlinlang.org/docs/reference/js-overview.html)
 * [PHP](https://www.php.net) projects
 
-For Java and Kotlin steps you don't need any preliminary step. 
+For Java and Kotlin, you don't need any preliminary step. 
 
-For you PHP project, if you use PHP Composer, please add the following step before you run analysis. 
+For a PHP project, if you use PHP Composer, add the following step before you run analysis.
 
 ```
  docker run --rm --interactive=false --tty=false --user=1001 -v <source-folder>:/app composer:latest install
 ```
 
-If you need to change the language level, please place the following content into `<source-folder>/.idea/php.xml`
+If you need to change the language level, place the following content into `<source-folder>/.idea/php.xml`
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
