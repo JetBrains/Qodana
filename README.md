@@ -4,7 +4,7 @@
 
 **Qodana** is a code quality monitoring tool to identify and suggest fixes for bugs, security vulnerabilities, duplications, and imperfections. 
 It brings all the smart features you love in the JetBrains IDEs into your project pipelines. 
-It takes different shapes: [Docker for any CI](Docker/README.md), [GitHub actions & application](GitHub/README.md), [TeamCity plugin](TeamCity%20Plugin/README.md), or a separate [cloud service](As%20a%20Service/README.md), but has a common goal: guiding users towards more robust, more maintainable, and healthier code.
+It takes different shapes: [Docker for any CI](Docker/README.md), [GitHub actions & application](GitHub/README.md), [TeamCity plugin](TeamCity/README.md), or a separate [cloud service](Service/README.md), but has a common goal: guiding users towards more robust, more maintainable, and healthier code.
 
 It works with PHP, Java and Kotlin projects today, and eventually will support [languages and technologies](General/supported-technologies.md) covered by JetBrains IDEs.
 
