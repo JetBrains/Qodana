@@ -43,3 +43,29 @@ exclude:
       - benchmarks
       - tools
 ```
+
+#### Add fail threshold to use in quality gateways 
+
+```
+failThreshold: <number>
+```
+
+#### Full example
+```
+version: 1.0
+failThreshold: 0
+profile:
+  name: qodana.recommended
+exclude:
+    - name: Annotator
+    - name: AnotherInspectionId
+paths:
+  - relative/path
+  - another/relative/path
+- name: All
+paths:
+  - asm-test/src/main/java/org
+  - asm
+  - benchmarks
+  - tools
+```
