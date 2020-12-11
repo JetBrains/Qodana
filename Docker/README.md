@@ -25,7 +25,7 @@ If you are familiar with [JetBrains IDEs code inspections](https://www.jetbrains
 and know what to expect from the static analysis outside the editor, you can start with the "[Using existing profile](#Using-existing-profile)" section.
 
 If you are just starting in the field, we recommend proceeding with the [default setup](#Quick-start-with-recommended-profile) we provide. You will see the 
-results of the most common checks performed on your code base. Later, you can [adjust them](#Configure-via-qodana.yaml) to suit your needs better.
+results of the most common checks performed on your code base. Later, you can [adjust them](#Configure-via-qodanayaml) to suit your needs better.
 
 ### Quick start with recommended profile
 
@@ -81,7 +81,7 @@ This section is intended for users familiar with configuring code analysis via [
 inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
 
 You can pass the reference to the existing profile either via the additional parameter `-v <inspection-profile.
-xml>:/data/profile.xml` to the `docker run` command or via [`qodana.yaml`](#configure-via-qodanayaml) added to your project's root directory.
+xml>:/data/profile.xml` to the `docker run` command or via [`qodana.yaml`](#Configure-via-qodanayaml) added to your project's root directory.
 
 With the additional parameter provided, the resulting command will look as follows:
 

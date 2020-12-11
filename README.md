@@ -17,10 +17,10 @@ docker pull jetbrains/qodana
 
 and run the analysis locally:
 ```
-docker run -v <source-folder>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report 
+docker run -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report 
 ```
 
-where `source-folder` should point to the root of your project.
+where `source-directory` should point to the root of your project.
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
  
