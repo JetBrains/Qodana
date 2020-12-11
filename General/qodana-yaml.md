@@ -2,24 +2,26 @@
 
 ### Qodana.yaml
 
-Qodana runs can be customized with the `qodana.yaml` file stored under your project's root folder.
-Note that configuration through `qodana.yaml` is only supported by Qodana product.
-It is not supported by any other JetBrains products like IDEA, PhpStorm, etc.
+Qodana runs can be customized with the `qodana.yaml` file stored under your project's root directory.
+Note that configuration through `qodana.yaml` is only supported by the Qodana product.
+It is not supported by any other JetBrains products like IDEA and PhpStorm.
 
-#### Setup profile
-Setup profile by name:
+#### Set up profile
+
+Set up a profile by the name:
 ```
 profile:
     name: %name%
 ```
-Setup profile by path:
+Set up a profile by the path:
 ```
 profile:
     path: relative/path/in/your/project.xml
 ```
 
 #### Exclude paths
-Exclude paths from analysis for all inspections:
+
+Exclude paths from the analysis scope for all inspections:
 ```
 exclude:
   - name: All
@@ -28,7 +30,8 @@ exclude:
       - asm/Visitor.java
       - benchmarks
 ```
-Exclude paths from analysis for all inspections by ID:
+
+Exclude paths from the analysis scope for all inspections by ID:
 ```
 exclude:
   - name: Annotator
@@ -44,8 +47,9 @@ exclude:
       - tools
 ```
 
-#### Add fail threshold to use in quality gateways 
+#### Fail threshold
 
+Add fail threshold to use in quality gateways:
 ```
 failThreshold: <number>
 ```

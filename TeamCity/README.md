@@ -1,12 +1,12 @@
 # Qodana TeamCity Plugin
 
-Qodana TeamCity Plugin lets you add static analysis to your build chain.
+The Qodana plugin for TeamCity lets you add static analysis to your build chain.
 
 The plugin provides:
 * Build runner
 * Convenient UI
-* Integration with TeamCity tests support
-* Smart and flexible builds comparison
+* Integration with TeamCity test support
+* Smart and flexible build comparison
 * Pliable build failure conditions
 
 The plugin lets you add the code quality checks in the TeamCity pipeline or even start from scratch with static code analysis.
@@ -15,18 +15,18 @@ The plugin lets you add the code quality checks in the TeamCity pipeline or even
 
 ### Quick Start Guide
 
-Download and install the Qodana plugin form JetBrains Marketplace on your TeamCity server or contact the server's administrator to do this.
+Download and install the [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana) from JetBrains Marketplace on your TeamCity server or contact the server's administrator to do this.
 
 With the plugin installed, add the Qodana runner to your build. If your project language is included in the list of 
 fully [supported technologies](../General/supported-technologies.md), no further preparation is needed. You can 
-have your first analysis with default setting right away.   
+run your first analysis with default setting right away.   
 
 ![](../resources/qodana-build-runner.png)
 
-Ensure the checkbox is selected and start the build.
+Make sure the "Code Inspections" option is enabled and start the build.
 ![](../resources/qodana-build-runner-settings.png)
 
-If you use DSL to configure your build, add this section to your build configuration description.
+If you use DSL to configure your build, add this section to your build configuration description:
 ```
  steps {
     ...
@@ -34,28 +34,28 @@ If you use DSL to configure your build, add this section to your build configura
  }    
 ```
 
-If your projects rely on technologies that are not fully supported, you may need additional steps in your build to download dependencies and so on.
+If your projects rely on technologies that are not fully supported, you may require additional steps in your build: for example, to download dependencies.
 
-Temporary limitation: having more than one Qodana build step in the build is not supported in the current version. If you 
-need to aggregate the analysis of several builds into one, use the TeamCity Composite Build Configuration feature.
+>Temporary limitation: only one Qodana build step can be added to the configuration. If you 
+need to aggregate the analysis of several builds into one, use the TeamCity [Composite Build Configuration](https://www.jetbrains.com/help/teamcity/composite-build-configuration.html) feature.
 
-After the build is finished, you will see the *Qodana* tab on your build overview page. Note that the tab 
-can be hidden under the *More* section. To see it in all builds with such step, mark the *Qodana* tab with a star.
+After the build is finished, you will see the **Qodana** tab on the **Build Overview** page. Note that the tab 
+can be hidden under the **More** section. To see it in all builds with this step, mark the **Qodana** tab with a star.
 
-Almost all [UI features](../UI/README.md) of the *Qodana* tab are similar between all Qodana tools we provide. They are 
-sufficient for exploring the results of a single run, but the *TeamCity* tab gives even more. You can easily compare two 
-builds and focus on the difference. Now the comparison is limited to a single build configuration, but 
-we are working to provide the cross-configuration option as well. 
+Almost all [UI features](../UI/README.md) of the **Qodana** tab are similar between all Qodana tools we provide. They are 
+sufficient for exploring the results of a single run, but the tab in TeamCity offers even more. You can easily compare two 
+builds and focus on the difference. Now, the comparison is limited to a single build configuration, but 
+we are working on providing the cross-configuration option as well.
 
 ### Configuration
 
 The main Qodana functionality comes from the 'engine' shaped into the Docker image. If you want to go beyond the 
-boundaries of the default settings, refer to the [Docker image guide](../Docker/README.md). Note that you don't need to write `docker run` on your own, since the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties. 
+boundaries of the default settings, refer to the [Docker image guide](../Docker/README.md). Note that you don't need to write `docker run` on your own: the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties. 
 
 ### Advanced Configuration 
 
-Advanced configuration lets you report all found problems via the TeamCity standard tests mechanism. It means 
-you can assign investigations, mute, see history, and everything else you are doing with tests in TeamCity. Qodana 
+Advanced configuration allows you to report all found problems via the standard TeamCity tests mechanism. It means 
+you can assign investigations, must, see history, and do everything else you can do with regular tests in TeamCity. Qodana 
 reports tests in four different ways:
 
 - per problem
@@ -64,7 +64,9 @@ reports tests in four different ways:
 - per inspection type/per file
 
 ### License
-By using the Qodana plugin, you agree to [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+
+By using the Qodana plugin, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
 
 ## Contact
-Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss.
+
+Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We are eager to receive your feedback on the existing Qodana functionality and learn what other features you miss in it.
