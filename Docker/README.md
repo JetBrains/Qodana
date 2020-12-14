@@ -37,10 +37,10 @@ To run analysis __locally__:
    ```
 2) Run the following command:
    ```
-   docker run -v <source-directory>/:/data/project/ \
-              -v <output-directory>/:/data/results/ \
-              -p 8080:8080 \
-   jetbrains/qodana --show-report
+   docker run -it -p 8080:8080 \
+      -v <source-directory>/:/data/project/ \
+      -v <output-directory>/:/data/results/ \         
+      jetbrains/qodana --show-report
    ```
    where `source-directory` and `output-directory` are full local paths to, respectively, the project source code directory and the analysis results directory.
    
@@ -87,11 +87,11 @@ With the additional parameter provided, the resulting command will look as follo
 
 - For local execution with the results in the UI:
      ```
-        docker run -v <source-directory>/:/data/project/ \
-                  -v <output-directory>/:/data/results/ \
-                  -v <inspection-profile.xml>:/data/profile.xml
-                  -p 8080:8080 \
-                   jetbrains/qodana --show-report
+        docker run -it -p 8080:8080 \
+            -v <source-directory>/:/data/project/ \
+            -v <output-directory>/:/data/results/ \
+            -v <inspection-profile.xml>:/data/profile.xml
+            jetbrains/qodana --show-report
        ```
 - For CI-based execution:
     ```
