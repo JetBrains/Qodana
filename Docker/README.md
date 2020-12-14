@@ -107,6 +107,18 @@ With the additional parameter provided, the resulting command will look as follo
 The `qodana.yaml` file will be automatically recognised and used for the analysis configuration, so that you don't need to pass any additional parameters.  
 The references to the inspection profiles will be resolved [in a particular order](techs.md#order-of-resolving-profile). To learn about the format, refer to the [`qodana.yaml` documentation](../General/qodana-yaml.md).
 
+### Plugins management
+
+Paid plugins are yet unsupported, each vendor must clarify licenseing terms for CI usage and collaborate with us to make it work.
+
+Your custom plugin can be added by mounting it to the container plugins' directory using the follwoing command:
+
+```
+docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
+```
+
+Please refer to [this guide](techs.md) for more details.
+
 ### Usage statistics
 
 According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features for further improving the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to [this guide](techs.md) for details.
