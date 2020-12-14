@@ -55,7 +55,7 @@ boundaries of the default settings, refer to the [Docker image guide](../Docker/
 ### Advanced Configuration 
 
 Advanced configuration allows you to report all found problems via the standard TeamCity tests mechanism. It means 
-you can assign investigations, must, see history, and do everything else you can do with regular tests in TeamCity. Qodana 
+you can assign investigations, mute, see history, and do everything else you can do with regular tests in TeamCity. Qodana 
 reports tests in four different ways:
 
 - per problem
