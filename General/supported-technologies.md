@@ -6,18 +6,18 @@ The current (2020.3.x) version lets you analyse:
 
 * [Java](https://www.java.com) projects based on [Gradle](https://gradle.org/), [Maven](https://maven.apache.org/) or [Jetbrains Project 
   System (JPS)](https://github.com/JetBrains/JPS)
-* [Kotlin](https://kotlinlang.org) projects, included [Kotlin-JS](https://kotlinlang.org/docs/reference/js-overview.html)
+* [Kotlin](https://kotlinlang.org) projects, including [Kotlin-JS](https://kotlinlang.org/docs/reference/js-overview.html)
 * [PHP](https://www.php.net) projects
 
-For Java and Kotlin, you don't need any preliminary step. 
+For Java and Kotlin, no preliminary steps are required.
 
-For a PHP project, if you use PHP Composer, add the following step before you run analysis.
+For a PHP project, if you use PHP Composer, add the following step before you run the analysis:
 
 ```
- docker run --rm --interactive=false --tty=false --user=1001 -v <source-folder>:/app composer:latest install
+ docker run --rm --interactive=false --tty=false --user=1001 -v <source-directory>:/app composer:latest install
 ```
 
-If you need to change the language level, place the following content into `<source-folder>/.idea/php.xml`
+If you need to change the language level, place the following content into `<source-directory>/.idea/php.xml`:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -26,12 +26,11 @@ If you need to change the language level, place the following content into `<sou
 </project>
 ```
 
-If your project contains a frontend part written in Javascript or Typescript, then the qualitative analysis will be possible only 
-if the project's folder contains downloaded dependencies, and it is ready to be built. We are working to make this 
-process simpler and will provide smooth support at least for the projects based on [npm](https://www.npmjs.com).
+If your project contains a frontend part written in Javascript or Typescript, the qualitative analysis will be possible only 
+if the project's directory contains downloaded dependencies and the project is ready to be built. We are working on simplifying this process. We will provide a smooth support at least for the projects based on [npm](https://www.npmjs.com).
  
-Also, we started to work on smooth integration for [Python](https://www.python.org/) projects, stay tuned!
+Also, we have started working on the smooth integration for [Python](https://www.python.org/) projects, stay tuned!
 
 If you have any particular interest in a certain language or technology, don't hesitate to contact us at
-[qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We eagerly want your feedback on what's already there and if there are any features that we miss. The more you tell us about your needs, the
-better we will be to fit you!
+[qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We are eager to receive your feedback on the existing Qodana functionality and learn what other features you miss in it. The more you tell us about your needs, the
+better Qodana will fit you!
