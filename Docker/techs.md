@@ -59,8 +59,19 @@ Qodana checks the configuration parameters for resolving the inspection profile 
 
 ### Plugins management
 
-The Qodana image contains all bundled Idea Ultimate plugins. A significant number of plugins is disabled by default; the list of disabled plugins is stored in `/root/.config/idea/disabled_plugins.txt`.  
-Enabled plugins: Java, Kotlin, PHP, and their libraries/frameworks' plugins. Gradle and Maven plugins are also enabled.
+The Qodana image contains all bundled Idea Ultimate plugins + bundled PhpStorm plugins. 
+
+Paid plugins are yet unsupported, each vendor must clarify licensing terms for CI usage and collaborate with us to make it work
+
+You can add any free IntellJ platform plugins or your custom plugin using the following command:
+
+```
+docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% <image-name>
+```
+
+To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole list of disabled plugins in `/root/.config/idea/disabled_plugins.txt`.
+
+By default are enabled: Java, Kotlin, PHP, and their libraries/frameworks' plugins. Gradle and Maven plugins are also enabled.
 
 To change the plugins list, do any of the following:
 - Override `disabled_plugins.txt` by mounting your own file:
@@ -75,12 +86,6 @@ or
     ```
     docker run ... -e IDE_PROPERTIES_PROPERTY=' -Didea.suppressed.plugins.id=com.intellij.spring.security' <image-name> 
     ```
-
-Any custom plugin can be added to the IDEA instance by mounting it to the plugins' directory.
-If your plugin's `%pluginName%` directory is ```/your/custom/path/%pluginName%```, this plugin can be mounted with:
-```
-docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% <image-name>
-```
 
 ### Analyze changes
 

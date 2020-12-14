@@ -111,7 +111,7 @@ The references to the inspection profiles will be resolved [in a particular orde
 
 Paid plugins are yet unsupported, each vendor must clarify licenseing terms for CI usage and collaborate with us to make it work.
 
-Your custom plugin can be added by mounting it to the container plugins' directory using the follwoing command:
+Any free IntellJ platform plugins or your custom plugin can be added by mounting it to the container plugins' directory using the follwoing command:
 
 ```
 docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
