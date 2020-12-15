@@ -40,7 +40,7 @@ To run analysis __locally__:
 2) Run the following command:
 
    ```
-   docker run --rm -p 8080:8080 \
+   docker run --rm -it -p 8080:8080 \
       -v <source-directory>/:/data/project/ \
       -v <output-directory>/:/data/results/ \
       jetbrains/qodana --show-report
@@ -53,7 +53,7 @@ To run analysis __locally__:
    In case you don't need the user interface and prefer to study raw data, use the following command:
 
    ```
-   docker run --rm -v <source-directory>/:/data/project/ \
+   docker run --rm -it -v <source-directory>/:/data/project/ \
               -v <output-directory>/:/data/results/ \
    jetbrains/qodana
    ```
@@ -93,7 +93,7 @@ With the additional parameter provided, the resulting command will look as follo
 
 - For local execution with the results in the UI:
      ```
-        docker run --rm -p 8080:8080 \
+        docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
             -v <inspection-profile.xml>:/data/profile.xml

@@ -17,7 +17,7 @@ docker pull jetbrains/qodana
 
 and run the analysis locally:
 ```
-docker run --rm -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report
+docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report
 ```
 
 where `source-directory` should point to the root of your project.
