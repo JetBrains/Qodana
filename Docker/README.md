@@ -31,13 +31,8 @@ results of the most common checks performed on your code base. Later, you can [a
 
 To run analysis __locally__:
 
-1) Pull the image from Docker Hub: 
    ```
-   docker pull jetbrains/qodana
-   ```
-2) Run the following command:
-   ```
-   docker run -it -p 8080:8080 \
+   docker run --rm -it -p 8080:8080 \
       -v <source-directory>/:/data/project/ \
       -v <output-directory>/:/data/results/ \         
       jetbrains/qodana --show-report
@@ -58,13 +53,8 @@ To run analysis __locally__:
    If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
    
 
-To run analysis __in CI__:
+To run analysis __in CI__, use the following command as the task:
 
-1) Pull the image from Docker Hub:
-   ```
-    docker pull jetbrains/qodana
-   ```
-2) Use the following command as the task:
    ```
     docker run \ 
         -v <source-directory>/:/data/project/ \
@@ -87,7 +77,7 @@ With the additional parameter provided, the resulting command will look as follo
 
 - For local execution with the results in the UI:
      ```
-        docker run -it -p 8080:8080 \
+        docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
             -v <inspection-profile.xml>:/data/profile.xml
