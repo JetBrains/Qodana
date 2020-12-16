@@ -10,75 +10,81 @@ Supported tags: [`2020.3-eap`](https://hub.docker.com/layers/jetbrains/qodana/20
 
 ## General
 
-The Qodana Docker image lets you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your 
+The Qodana Docker image lets you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your
 code base. The current version [supports PHP, Java, and Kotlin](../General/supported-technologies.md); the support for more languages and technologies are on its way.
 
 We provide two options optimized for different scenarios:
 - Running the analysis on a regular basis as a part of your continuous integration (*CI-based execution*)
-- Single-shot analysis (for example, performed *locally*) 
+- Single-shot analysis (for example, performed *locally*)
 
-If you prefer the first option and have established a continuous integration (CI) support for your project, this page 
+If you prefer the first option and have established a continuous integration (CI) support for your project, this page
   will guide your through all available possibilities.  
   If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](https://github.com/JetBrains/Qodana/tree/main/TeamCity%20Plugin) as it gives more options.
 
 If you are familiar with [JetBrains IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
 and know what to expect from the static analysis outside the editor, you can start with the "[Using existing profile](#Using-existing-profile)" section.
 
-If you are just starting in the field, we recommend proceeding with the [default setup](#Quick-start-with-recommended-profile) we provide. You will see the 
+If you are just starting in the field, we recommend proceeding with the [default setup](#Quick-start-with-recommended-profile) we provide. You will see the
 results of the most common checks performed on your code base. Later, you can [adjust them](#Configure-via-qodanayaml) to suit your needs better.
 
 ### Quick start with recommended profile
 
 To run analysis __locally__:
 
-1) Pull the image from Docker Hub: 
+1) Pull the image from Docker Hub (only necessary to get the latest version):
+
    ```
    docker pull jetbrains/qodana
+
    ```
 2) Run the following command:
+
    ```
-   docker run -it -p 8080:8080 \
+   docker run --rm -it -p 8080:8080 \
       -v <source-directory>/:/data/project/ \
-      -v <output-directory>/:/data/results/ \         
+      -v <output-directory>/:/data/results/ \
       jetbrains/qodana --show-report
    ```
+
    where `source-directory` and `output-directory` are full local paths to, respectively, the project source code directory and the analysis results directory.
-   
+
    This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [UI section](../UI/README.md) of this guide for details.
 
-   In case you don't need the user interface and prefer to study raw data, use the following command: 
+   In case you don't need the user interface and prefer to study raw data, use the following command:
+
    ```
-   docker run -v <source-directory>/:/data/project/ \
-              -v <output-directory>/:/data/results/ \             
-   jetbrains/qodana 
+   docker run --rm -it -v <source-directory>/:/data/project/ \
+              -v <output-directory>/:/data/results/ \
+   jetbrains/qodana
    ```
-   
+
    The `output-directory` will contain [all the necessary results](../General/output.md#basic-output). You can further tune the command as described in the [technical guide](techs.md).
-   
+
    If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
-   
 
-To run analysis __in CI__:
+To run analysis __in CI__, use the following command as the task:
 
-1) Pull the image from Docker Hub:
+1) Pull the image from Docker Hub (only necessary to get the latest version):
+
    ```
     docker pull jetbrains/qodana
    ```
+
 2) Use the following command as the task:
+
    ```
-    docker run \ 
+    docker run --rm \
         -v <source-directory>/:/data/project/ \
         -v <output-directory>/:/data/results/ \
         jetbrains/qodana
    ```
-  
+
    where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory. 
    The output of `output-directory` is described [here](../General/output.md#basic-output).
-   
+
 ### Using existing profile
 
-This section is intended for users familiar with configuring code analysis via [IntelliJ 
-inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
+This section is intended for users familiar with configuring code analysis via [IntelliJ inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
 
 You can pass the reference to the existing profile either via the additional parameter `-v <inspection-profile.
 xml>:/data/profile.xml` to the `docker run` command or via [`qodana.yaml`](#Configure-via-qodanayaml) added to your project's root directory.
@@ -87,7 +93,7 @@ With the additional parameter provided, the resulting command will look as follo
 
 - For local execution with the results in the UI:
      ```
-        docker run -it -p 8080:8080 \
+        docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
             -v <inspection-profile.xml>:/data/profile.xml
@@ -95,7 +101,7 @@ With the additional parameter provided, the resulting command will look as follo
        ```
 - For CI-based execution:
     ```
-        docker run \ 
+        docker run --rm \
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
             -v <inspection-profile.xml>:/data/profile.xml
