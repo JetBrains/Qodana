@@ -45,7 +45,7 @@ Examples of execution tuneup:
    docker run ... <image-name> --save-report
    ```
 
-- Display a report in HTML. After the inspection is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. Press Ctrl-C when done.
+- Display a report in HTML. After the inspection is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
    ```
    docker run ... -p 8080:8080 <image-name> --show-report
    ```

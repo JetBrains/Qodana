@@ -53,7 +53,7 @@ Add fail threshold to use as quality gate:
 ```
 failThreshold: <number>
 ```
-When this number of problems is reached, inspection would do `exit 255`. Could be used to make CI step fail.
+When this number of problems is reached, container would do `exit 255`. Could be used to make CI step fail.
 
 #### Full example
 ```

@@ -48,7 +48,7 @@ To run analysis __locally__:
 
    where `source-directory` and `output-directory` are full local paths to, respectively, the project source code directory and the analysis results directory.
 
-   This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [UI section](../UI/README.md) of this guide for details. Press `Ctrl-C` in docker console when you are done, to stop the web server.
+   This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [UI section](../UI/README.md) of this guide for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
    In case you don't need the user interface and prefer to study raw data, use the following command:
 
@@ -73,7 +73,7 @@ To run analysis __in CI__:
    ```
    where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory. 
    The output of `output-directory` is described [here](../General/output.md#basic-output).  
-   Consider using [fail-thresold](https://github.com/JetBrains/Qodana/blob/main/General/qodana-yaml.md#fail-threshold) to make build fail on certain number of problems reached .
+   Consider using [fail-thresold](https://github.com/JetBrains/Qodana/blob/main/General/qodana-yaml.md#fail-threshold) to make build fail on certain number of problems reached.
    
  - Example for GitHub Action (`.github/workflows/qodana.yml`):
    ```yaml
