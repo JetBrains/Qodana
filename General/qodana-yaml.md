@@ -49,10 +49,11 @@ exclude:
 
 #### Fail threshold
 
-Add fail threshold to use in quality gateways:
+Add fail threshold to use as quality gate:
 ```
 failThreshold: <number>
 ```
+When this number of problems is reached, inspection would do `exit 255`. Could be used to make CI step fail.
 
 #### Full example
 ```

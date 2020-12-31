@@ -14,7 +14,7 @@ For Java and Kotlin, no preliminary steps are required.
 For a PHP project, if you use PHP Composer, add the following step before you run the analysis:
 
 ```
- docker run --rm --interactive=false --tty=false --user=1001 -v <source-directory>:/app composer:latest install
+ docker run --rm -v <source-directory>:/app composer:latest install
 ```
 
 If you need to change the language level, place the following content into `<source-directory>/.idea/php.xml`:

@@ -8,6 +8,30 @@
 - **/data/profile.xml**   -- used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving profile](#Order-of-resolving-profile).
 
 ### Configuring
+Available arguments:
+```
+$ docker run jetbrains/qodana
+Usage:
+  entrypoint [OPTIONS]
+
+Application Options:
+  -i, --project-dir= Project folder to inspect  (default: current work dir
+                     /data/project)
+  -o, --results-dir= Save results to folder (default: /data/results)
+  -r, --report-dir=  Save html report to folder (default: /data/results/report)
+  -s, --save-report  Generate html report
+  -w, --show-report  Serve html report on port 8080
+
+Help Options:
+  -h, --help         Show this help message
+
+IDEA Inspect Options:
+  -d                 Directory to be inspected. Whole project is inspected by default
+  -profileName       Name of a profile defined in project
+  -profilePath       Absolute path to the profile file
+  -changes           Inspect uncommitted changes and report new problems
+No project files found to inspect at '/data/project'!
+```
 
 Examples of execution tuneup:
 
@@ -16,12 +40,12 @@ Examples of execution tuneup:
    docker run ... -v <inspection-profile.xml>:/data/profile.xml <image-name>
    ```
 
-- Save a report in HTML. The HTML report will be stored in a separate `report/` subdirectory under the `results` directory.
+- Save a report in HTML. By default, the HTML report will be stored in a separate `report/` subdirectory under the `results` directory. This location could be configured with `--report-dir`.
    ```
    docker run ... <image-name> --save-report
    ```
 
-- Display a report in HTML. After the inspection is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results.
+- Display a report in HTML. After the inspection is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. Press Ctrl-C when done.
    ```
    docker run ... -p 8080:8080 <image-name> --show-report
    ```
