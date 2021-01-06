@@ -66,10 +66,9 @@ exclude:
     paths:
       - relative/path
       - another/relative/path
-      - name: All
+  - name: All
     paths:
       - asm-test/src/main/java/org
-      - asm
       - benchmarks
       - tools
 ```
