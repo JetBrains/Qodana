@@ -61,15 +61,14 @@ failThreshold: 0
 profile:
   name: qodana.recommended
 exclude:
-    - name: Annotator
-    - name: AnotherInspectionId
-paths:
-  - relative/path
-  - another/relative/path
-- name: All
-paths:
-  - asm-test/src/main/java/org
-  - asm
-  - benchmarks
-  - tools
+  - name: Annotator
+  - name: AnotherInspectionId
+    paths:
+      - relative/path
+      - another/relative/path
+  - name: All
+    paths:
+      - asm-test/src/main/java/org
+      - benchmarks
+      - tools
 ```
