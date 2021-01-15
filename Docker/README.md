@@ -31,7 +31,7 @@ results of the most common checks performed on your code base. Later, you can [a
 
 To run analysis __locally__:
 
-1) Pull the image from Docker Hub (only necessary to get the latest version):
+1) Pull the image from Docker Hub (only necessary to update the `latest` version):
 
    ```
    docker pull jetbrains/qodana
@@ -48,50 +48,68 @@ To run analysis __locally__:
 
    where `source-directory` and `output-directory` are full local paths to, respectively, the project source code directory and the analysis results directory.
 
-   This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [UI section](../UI/README.md) of this guide for details.
+   This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [UI section](../UI/README.md) of this guide for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
    In case you don't need the user interface and prefer to study raw data, use the following command:
 
    ```
-   docker run --rm -it -v <source-directory>/:/data/project/ \
-              -v <output-directory>/:/data/results/ \
-   jetbrains/qodana
+   docker run --rm -it \
+      -v <source-directory>/:/data/project/ \
+      -v <output-directory>/:/data/results/ \
+      jetbrains/qodana
    ```
 
    The `output-directory` will contain [all the necessary results](../General/output.md#basic-output). You can further tune the command as described in the [technical guide](techs.md).
 
    If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
 
-To run analysis __in CI__, use the following command as the task:
-
-1) Pull the image from Docker Hub (only necessary to get the latest version):
-
-   ```
-    docker pull jetbrains/qodana
-   ```
-
-2) Use the following command as the task:
-
+To run analysis __in CI__:
+ - Use the following command as the task in generic Shell executor:
    ```
     docker run --rm \
         -v <source-directory>/:/data/project/ \
         -v <output-directory>/:/data/results/ \
         jetbrains/qodana
    ```
-
    where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory. 
-   The output of `output-directory` is described [here](../General/output.md#basic-output).
+   The output of `output-directory` is described [here](../General/output.md#basic-output).  
+   Consider using [fail-thresold](https://github.com/JetBrains/Qodana/blob/main/General/qodana-yaml.md#fail-threshold) to make build fail on certain number of problems reached.
+   
+ - Example for GitHub Action (`.github/workflows/qodana.yml`):
+   ```yaml
+   jobs:
+     qodana:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - uses: docker://jetbrains/qodana
+           with:
+             args: --results-dir=/github/workspace/qodana --save-report --report-dir=/github/workspace/qodana/report
+         - uses: actions/upload-artifact@v2
+           with:
+             path: qodana
+   ```
+   
+ - Example for GitLab CI (`.gitlab-ci.yml`):
+    ```yaml
+    qodana:
+      image: 
+        name: jetbrains/qodana
+        entrypoint: [sh, -c]
+      script:
+        - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
+      artifacts:
+        paths:
+          - qodana
+    ```
 
 ### Using existing profile
 
 This section is intended for users familiar with configuring code analysis via [IntelliJ inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
 
-You can pass the reference to the existing profile either via the additional parameter `-v <inspection-profile.
-xml>:/data/profile.xml` to the `docker run` command or via [`qodana.yaml`](#Configure-via-qodanayaml) added to your project's root directory.
+You can pass the reference to the existing profile via [multiple ways](https://github.com/JetBrains/Qodana/blob/main/Docker/techs.md#order-of-resolving-profile). Here are some examples:
 
-With the additional parameter provided, the resulting command will look as follows:
-
-- For local execution with the results in the UI:
+- Mapping profile to `/data/profile.xml` inside of container:
      ```
         docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
@@ -99,13 +117,13 @@ With the additional parameter provided, the resulting command will look as follo
             -v <inspection-profile.xml>:/data/profile.xml
             jetbrains/qodana --show-report
        ```
-- For CI-based execution:
-    ```
-        docker run --rm \
+  
+- Using name of profile in your project `.idea/inspectionProfiles/` folder:
+     ```
+        docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
-            -v <inspection-profile.xml>:/data/profile.xml
-            jetbrains/qodana
+            jetbrains/qodana --show-report -profileName php.extended
        ```
 
 ### Configure via qodana.yaml
