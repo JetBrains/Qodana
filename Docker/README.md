@@ -71,9 +71,9 @@ To run analysis __in CI__:
         -v <output-directory>/:/data/results/ \
         jetbrains/qodana
    ```
-   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory. 
+   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.  
    The output of `output-directory` is described [here](../General/output.md#basic-output).  
-   Consider using [fail-thresold](https://github.com/JetBrains/Qodana/blob/main/General/qodana-yaml.md#fail-threshold) to make build fail on certain number of problems reached.
+   Consider using [fail-thresold](../General/qodana-yaml.md#fail-threshold) to make build fail on certain number of problems reached. [Running as non-root](techs.md#run-as-non-root) is also supported.
    
  - Example for GitHub Action (`.github/workflows/qodana.yml`):
    ```yaml
