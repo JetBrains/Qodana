@@ -30,10 +30,10 @@ To view the report in the already generated `report/` folder:
     # or
     python3 -m http.server
     ```
-
-- PHP
+ - PHP  
     If you have PHP installed, you can serve current folder content via:
     ```
+    cd report/
     php -S localhost:8000
     ```
 Report would be available at [http://localhost:8000](http://localhost:8000), you can stop the web server by pressing `Ctrl-C`.
