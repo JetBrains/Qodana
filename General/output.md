@@ -12,8 +12,12 @@
 
 ## UI-compatible output
 
-In addition to programmatic output you can also generate human readable output in HTML format (`--save-report`). Unfortunately due to js security restrictions this cannot be currently viewed via file:// protocol (double-click on index.html). For convenience, we provide `--show-report` argument to serve HTML report via http:// protol locally.  
-In case you want to view UI in already generated `report/` folder:
+In addition to programmatic output, you can generate human readable output in the HTML format by using the `--save-report` argument. 
+
+### Local run
+
+Due to JavaScript security restrictions, the generated report cannot be viewed via the `file://` protocol (that is, by double-clicking the `index.html` file). Instead, you can use the `--show-report` argument to serve the HTML report locally via the `http://` protocol.
+To view the report in the already generated `report/` folder:
  - Docker
     ```
     docker run -it --rm -p 8000:80 -v $(pwd)/report:/usr/share/nginx/html nginx
@@ -26,6 +30,18 @@ In case you want to view UI in already generated `report/` folder:
     # or
     python3 -m http.server
     ```
+
+- PHP
+    If you have PHP installed, you can serve current folder content via:
+    ```
+    php -S localhost:8000
+    ```
 Report would be available at [http://localhost:8000](http://localhost:8000), you can stop the web server by pressing `Ctrl-C`.
 
-In case of [GitLab CI](https://github.com/JetBrains/Qodana/tree/main/Docker#quick-start-with-recommended-profile) you can directly view the report by opening `report/index.html` from artifacts. For [Github Action](https://github.com/JetBrains/Qodana/tree/main/Docker#quick-start-with-recommended-profile) consider uploading artifacts to some [s3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/static-website-hosting.html) or using [Qodana Github App](https://github.com/JetBrains/Qodana/blob/main/GitHub/README.md#qodana-github-app) instead.
+### GitLab CI
+
+In case of [GitLab CI](https://github.com/JetBrains/Qodana/tree/main/Docker#quick-start-with-recommended-profile), you can directly view the report by opening `report/index.html` from artifacts. 
+
+### Github action
+
+For [Github Action](https://github.com/JetBrains/Qodana/tree/main/Docker#quick-start-with-recommended-profile), consider uploading artifacts to some [s3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/static-website-hosting.html) or using [Qodana Github App](https://github.com/JetBrains/Qodana/blob/main/GitHub/README.md#qodana-github-app) instead.
