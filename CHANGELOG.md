@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### v2020.3.X-eap
+### v2020.3.68-eap
 -  [QD-651](https://youtrack.jetbrains.com/issue/QD-651) support running container as non-root
 
 ### v2020.3.64-eap
