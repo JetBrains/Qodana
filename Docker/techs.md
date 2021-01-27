@@ -119,6 +119,17 @@ docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subv
 ```
 You can adjust the `idea.required.plugins.id` value and keep only the CVS plugin suitable for your project.
 
+### Run as non-root
+
+By default, container runs as `root` user, so Qodana would be able to read any bind-mounted volumes with project and write the results. Which also leads to files in `results/` folder owned by `root` after the run.  
+To avoid this you can run container as current user:
+```
+docker run -u $UID ...
+# or
+docker run -u $(id -u):$(id -g) ...
+```
+Please note that in this case `results/` folder on host should already be created and owned by you. Either docker would create it as `root` and Qodana would be unable to write to it.
+
 ### Turn off user statistics
 
 To disable the [reporting of usage statistics](README.md#usage-statistics), adjust the `idea.headless.enable.statistics` value: 
