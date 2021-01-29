@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### v2020.3.72-eap
+-  [QD-675](https://youtrack.jetbrains.com/issue/QD-675) fix for gradle cache in project folder
+
 ### v2020.3.68-eap
 -  [QD-651](https://youtrack.jetbrains.com/issue/QD-651) support running container as non-root
 
