@@ -1,14 +1,17 @@
-# Qodana. Docker Image Paths and Configuration Options
+[//]: # (title: Docker Image Paths and Configuration Options)
 
-### Docker image paths
+## Docker image paths
+
 - **/data/project**       -- root directory of the project to be analyzed
 - **/data/results**       -- directory to store the analysis results, needs to be empty before the Qodana run
 - **/root/.config/idea**  -- idea configuration directory
 - **/opt/idea**           -- directory of the idea distributive
-- **/data/profile.xml**   -- used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving profile](#Order-of-resolving-profile).
+- **/data/profile.xml**   -- used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving profile](#Order+of+resolving+profile).
 
-### Configuring
+## Configuring
+
 Available arguments:
+
 ```
 $ docker run jetbrains/qodana
 Usage:
@@ -71,7 +74,7 @@ Examples of execution tuneup:
    ```
 
 
-### Order of resolving profile
+## Order of resolving profile
 
 Qodana checks the configuration parameters for resolving the inspection profile in this order:
 1. Profile with the name `%name%` from the command line option `-profileName %name%`.
@@ -81,7 +84,7 @@ Qodana checks the configuration parameters for resolving the inspection profile 
 5. Profile mounted to `/data/profile.xml`.
 6. Fall back to using the embedded `qodana.recommended` profile.
 
-### Plugins management
+## Plugins management
 
 The Qodana image contains all bundled Idea Ultimate plugins + bundled PhpStorm plugins. 
 
@@ -111,7 +114,7 @@ or
     docker run ... -e IDE_PROPERTIES_PROPERTY=' -Didea.suppressed.plugins.id=com.intellij.spring.security' <image-name> 
     ```
 
-### Analyze changes
+## Analyze changes
 
 Qodana allows checking only changed files:
 ```
@@ -119,20 +122,23 @@ docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subv
 ```
 You can adjust the `idea.required.plugins.id` value and keep only the CVS plugin suitable for your project.
 
-### Run as non-root
+## Run as non-root
 
 By default, container runs as `root` user, so Qodana would be able to read any bind-mounted volumes with project and write the results. Which also leads to files in `results/` folder owned by `root` after the run.  
 To avoid this you can run container as current user:
+
 ```
 docker run -u $UID ...
 # or
 docker run -u $(id -u):$(id -g) ...
 ```
+
 Please note that in this case `results/` folder on host should already be created and owned by you. Either docker would create it as `root` and Qodana would be unable to write to it.
 
-### Turn off user statistics
+## Turn off user statistics
 
-To disable the [reporting of usage statistics](README.md#usage-statistics), adjust the `idea.headless.enable.statistics` value: 
+To disable the [reporting of usage statistics](docker-readme.md#Usage+statistics), adjust the `idea.headless.enable.statistics` value: 
+
 ```
 docker run  -e IDE_PROPERTIES_PROPERTY="-Didea.headless.enable.statistics=false" <image-name> 
 ```

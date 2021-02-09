@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE product-profile
+        SYSTEM "https://helpserver.labs.jb.gg/help/product-profile.dtd">
+<product-profile id="qd" name="Qodana" start-page="README.md" status="eap">
+
+    <toc-element id="getting-started.md" toc-title="Getting started">
+        <toc-element id="supported-technologies.md"/>
+        <toc-element id="output.md"/>
+        <toc-element id="qodana-yaml.md"/>
+        <toc-element id="ui-overview.md"/>
+        <toc-element id="CHANGELOG.md"/>
+    </toc-element>
+
+    <toc-element id="docker-readme.md">
+        <toc-element id="docker-techs.md"/>
+    </toc-element>
+
+    <toc-element id="github-overview.md"/>
+
+    <toc-element id="service.md"/>
+
+    <toc-element id="teamcity-plugin.md"/>
+
+</product-profile>

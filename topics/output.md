@@ -1,4 +1,4 @@
-# Qodana. Output formats
+[//]: # (title: Output formats)
 
 ## Basic output
 

@@ -1,4 +1,4 @@
-# Qodana TeamCity Plugin
+[//]: # (title: TeamCity Plugin)
 
 The Qodana plugin for TeamCity lets you add static analysis to your build chain.
 
@@ -11,20 +11,20 @@ The plugin provides:
 
 The plugin lets you add the code quality checks in the TeamCity pipeline or even start from scratch with static code analysis.
 
-![Build Tab](../resources/tab.png)
+![Build Tab](tab.png)
 
-### Quick Start Guide
+## Quick Start Guide
 
 Download and install the [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana) from JetBrains Marketplace on your TeamCity server or contact the server's administrator to do this.
 
 With the plugin installed, add the Qodana runner to your build. If your project language is included in the list of 
-fully [supported technologies](../General/supported-technologies.md), no further preparation is needed. You can 
+fully [supported technologies](supported-technologies.md), no further preparation is needed. You can 
 run your first analysis with default setting right away.   
 
-![](../resources/qodana-build-runner.png)
+![](qodana-build-runner.png)
 
 Make sure the "Code Inspections" option is enabled and start the build.
-![](../resources/qodana-build-runner-settings.png)
+![](qodana-build-runner-settings.png)
 
 If you use DSL to configure your build, add this section to your build configuration description:
 ```
@@ -42,17 +42,17 @@ need to aggregate the analysis of several builds into one, use the TeamCity [Com
 After the build is finished, you will see the **Qodana** tab on the **Build Overview** page. Note that the tab 
 can be hidden under the **More** section. To see it in all builds with this step, mark the **Qodana** tab with a star.
 
-Almost all [UI features](../UI/README.md) of the **Qodana** tab are similar between all Qodana tools we provide. They are 
+Almost all [UI features](ui-overview.md) of the **Qodana** tab are similar between all Qodana tools we provide. They are 
 sufficient for exploring the results of a single run, but the tab in TeamCity offers even more. You can easily compare two 
 builds and focus on the difference. Now, the comparison is limited to a single build configuration, but 
 we are working on providing the cross-configuration option as well.
 
-### Configuration
+## Configuration
 
 The main Qodana functionality comes from the 'engine' shaped into the Docker image. If you want to go beyond the 
-boundaries of the default settings, refer to the [Docker image guide](../Docker/README.md). Note that you don't need to write `docker run` on your own: the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties. 
+boundaries of the default settings, refer to the [Docker image guide](docker-readme.md). Note that you don't need to write `docker run` on your own: the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties. 
 
-### Advanced Configuration 
+## Advanced Configuration 
 
 Advanced configuration allows you to report all found problems via the standard TeamCity tests mechanism. It means 
 you can assign investigations, mute, see history, and do everything else you can do with regular tests in TeamCity. Qodana 
@@ -63,7 +63,7 @@ reports tests in four different ways:
 - per inspection type/per module (if this information is available)
 - per inspection type/per file
 
-### License
+## License
 
 By using the Qodana plugin, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
 

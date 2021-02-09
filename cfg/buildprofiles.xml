@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildprofiles>
+    <variables>
+        <download-page/>
+        <search-scope/>
+        <fallback-url>https://www.jetbrains.com/help/qodana/</fallback-url>
+        <help-app-version>3</help-app-version>
+        <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
+        <hide-last-modified>true</hide-last-modified>
+        <config-showDownloadButton>true</config-showDownloadButton>
+        <config-disqus-id>jetbrains</config-disqus-id>
+        <config-disqus-show>false</config-disqus-show>
+        <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
+        <config-feedback-enabled>true</config-feedback-enabled>
+        <config-feedback-widget>true</config-feedback-widget>
+        <config-webmaster>https://confluence.jetbrains.com/display/QD/Feedback</config-webmaster>
+        <config-feedback-support>https://qodana-support.jetbrains.com/</config-feedback-support>
+        <config-sideblocks>true</config-sideblocks>
+        <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
+        <enable-browser-edits>true</enable-browser-edits>
+        <browser-edits-url>https://github.com/JetBrains/qodana-documentation/edit/2020.3/topics/</browser-edits-url>
+        <disable-prev-next-links>true</disable-prev-next-links>
+        <disable-variable-interpolation>true</disable-variable-interpolation>
+    </variables>
+
+    <build-profile product="qd"/>
+</buildprofiles>

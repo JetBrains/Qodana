@@ -1,10 +1,8 @@
-# Qodana GitHub Actions & Application
+[//]: # (title: GitHub Actions & Application)
 
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg)
 
-![EAP](../resources/eap-alert.png)
-
-## General
+![EAP](eap-alert.png)
 
 Tools created by JetBrains are capable of detecting dozens of error-types and inconsistencies in your repository. 
 Their flexible mechanisms of resolving problems allow you to easier improve the code structure, conform your code to numerous guidelines and standards, detect performance issues, and so on. 
@@ -12,7 +10,7 @@ And now with the Qodana App and Actions available in GitHub, all these features 
 
 ## Qodana Github App
 
-![Qodana Github App](../resources/qodana-app-banner.png)
+![Qodana Github App](qodana-app-banner.png)
 
 **Qodana Github App** is a great way to improve the code quality of your Github repository. It can be installed to specific repositories or whole organizations by an organization owner or a repository admin.  
 Once you install the app to your repository, it starts monitoring all its pull requests.
@@ -42,10 +40,10 @@ Anyone with the write permission to a repository can set up a continuous code in
 
 Read the guidelines in [this repository](https://github.com/JetBrains/qodana-action).
 
-![Qodana Github Action](../resources/qodana-github-action-result.png)
+![Qodana Github Action](qodana-github-action-result.png)
 
 
-#### Contact
+## Contact
 
 We are just beginning our journey and, as in case with any new project, we are eager to hear your feedback!
 Please, contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD).

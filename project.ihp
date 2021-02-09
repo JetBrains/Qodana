@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ihp
+        SYSTEM "https://helpserver.labs.jb.gg/help/ihp.dtd">
+<ihp version="2.0">
+    <settings>
+        <caps for="toc-element">sentence</caps>
+        <id-generator-method>URL_ENCODE_PLUS</id-generator-method>
+    </settings>
+    <module name="qd-docs"/>
+    <vars src="v.list"/>
+    <topics dir="topics"/>
+    <images dir="images" version="2020.3"
+            web-path="/img/qodana/2020.3/"/>
+    <categories src="c.list"/>
+    <product src="qd.tree" web-path="/qodana/2020.3/"
+             teamcity-build-path="" version="2020.3" keymaps-mode="none"/>
+</ihp>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vars
+        SYSTEM "https://helpserver.labs.jb.gg/help/vars.dtd">
+
+<vars>
+
+    <var name="dbIcon" value="dbe.png" type="string"/>
+
+    <var name="sample"
+
+         value="Sometext"
+         type="string"
+    />
+    <var name="language"
+         product="rm"
+         value="Ruby"
+         type="string"
+    />
+    <var name="language"
+         product="cl"
+         value="C/C++"
+         type="string"
+    />
+    <var name="language"
+         product="py,pe"
+         value="Python"
+         type="string"
+    />
+    <!-- <var name="language"
+          product="fx"
+          value="ActionScript"
+          type="string"
+     />-->
+    <var name="language"
+         product="ij"
+         value="Java"
+         type="string"
+    />
+    <var name="language"
+         product="ac"
+         value="Objective-C"
+         type="string"
+    />
+    <var name="language"
+         product="ps"
+         value="PHP"
+         type="string"
+    />
+    <var name="framework"
+         product="rm"
+         value="Rails"
+         type="string"
+    />
+    <!--
+        <var name="framework"
+             product="pp"
+             value="Django"
+             type="string"
+        />
+    -->
+    <var name="framework"
+         product="py"
+         value="Django"
+         type="string"
+    />
+    <var name="SDK"
+         product="rm"
+         value="Ruby"
+         type="string"
+    />
+    <!--
+        <var name="SDK"
+             product="pp"
+             value="Python"
+             type="string"
+        />
+    -->
+    <!--<var name="symbols"
+         product="fx"
+         value="Classes and Interfaces"
+         type="string"
+    />-->
+    <var name="symbols"
+         product="ij"
+         value="Classes, Interfaces, Enumerations and Annotations"
+         type="string"
+    />
+    <var name="product"
+         value="$p1//product-profile[@id=$p2]/@name"
+         type="xpath"
+    />
+    <!--product="all" after type-->
+    <var name="customSeeAlsoTitle"
+         type="xpath"
+         value="string-join(for $t in $p1//product-profile[@id=$p2]//helptoc-element[@ref=$p4]/ancestor-or-self::helptoc-element[parent::helptoc-element]
+        return jb:getTocElementTitle($t/@ref),' | ')"/>
+    <var name="NUM-SIB"
+
+         value="count($p3/preceding-sibling::*[name()=name($p3) and jb:isIncluded(.)=true()])+1"
+         type="xpath"
+    />
+    <var name="NUM"
+
+         value="count($p3/preceding::*[name()=name($p3) and jb:isIncluded(.)=true()])+1"
+         type="xpath"
+    />
+    <var name="ctrl"
+
+         platform="primary"
+         value="Ctrl"
+         type="string"/>
+    <var name="ctrl"
+         platform="secondary"
+         value="Command"
+         type="string"/>
+    <!--    <var name="locatingInExplorer"
+             product="10"
+             value="Locating Current File in Solution Explorer"
+             type="string"
+        />-->
+    <var name="locatingInExplorer"
+         product="dpk"
+         value="Locating Symbols in Assembly Explorer"
+         type="string"
+    />
+    <!-- <var name="explorer"
+          product="10"
+          value="Solution Explorer"
+          type="string"
+     />-->
+    <var name="explorer"
+         product="dpk"
+         value="Assembly Explorer"
+         type="string"
+    />
+    <!--<var name="editor"
+         product="10"
+         value="code editor"
+         type="string"
+    />-->
+    <var name="editor"
+         product="dpk"
+         value="code viewer"
+         type="string"
+    />
+    <var name="platform"
+
+         value="normalize-space($p3/prefix)"
+         type="xpath"
+    />
+    <var name="currentId"
+
+         value="$p1//product-profile[@id=$p2]/@id"
+         type="xpath"
+    />
+    <var name="interface"
+         product="!ac"
+         value="interface"
+         type="string"
+    />
+    <var name="interface"
+         product="ac"
+         value="protocol"
+         type="string"
+    />
+    <var name="properties"
+         product="ac"
+         value="Strings"
+         type="string"
+    />
+    <var name="properties"
+         product="!ac"
+         value="properties"
+         type="string"
+    />
+    <var name="pcnt"
+         value="%"
+         type="string"/>
+    <var name="settings"
+         value="Settings"
+         platform="primary"
+         type="string"/>
+
+    <var name="settings"
+         value="Preferences"
+         platform="secondary"
+         type="string"/>
+
+    <var name="pjt" value="project" type="string"/>
+
+    <var name="Project"
+         product="!db"
+         value="Project"
+         type="string"/>
+
+    <var name="Project"
+         product="db"
+         value="Files"
+         type="string"/>
+
+    <var name="project_lower" value="project" type="string"/>
+
+    <var name="methods"
+         value="methods"
+         type="string"
+         product="!cl"/>
+    <var name="methods"
+         value="functions"
+         type="string"
+         product="cl"/>
+    <var name="method"
+         value="method"
+         type="string"
+         product="!cl"/>
+    <var name="method"
+         value="Function"
+         product="cl"/>
+
+    <var name="edition"
+         value="Ultimate"
+         product="ij"
+         type="string"/>
+
+    <var name="edition"
+         value="Professional"
+         product="py"
+         type="string"/>
+
+    <var name="console"
+         value="IRB console"
+         product="rm"
+         type="string"/>
+
+    <var name="console"
+         value="console"
+         product="py"
+         type="string"/>
+
+    <var product="!ac" name="settingsLower" value="settings" platform="primary"/>
+    <var product="!ac" name="settingsLower" value="preferences" platform="secondary"/>
+    <var product="ac" name="settingsLower" value="preferences"/>
+
+    <var product="ij" name="pluginRepositoryUrl" value="http://plugins.jetbrains.com/idea"/>
+    <var product="ps" name="pluginRepositoryUrl" value="http://plugins.jetbrains.com/phpStorm"/>
+    <var product="ws" name="pluginRepositoryUrl" value="http://plugins.jetbrains.com/webStorm"/>
+    <var product="rm" name="pluginRepositoryUrl" value="http://plugins.jetbrains.com/ruby"/>
+    <var product="py" name="pluginRepositoryUrl" value="http://plugins.jetbrains.com/pycharm"/>
+
+    <var product="ij" name="deploying_apps_title" value="Deploying your application"/>
+    <var product="py,rm" name="deploying_apps_title" value="Deploying Your Code"/>
+    <var product="ws" name="deploying_apps_title" value="Using Remote Environments"/>
+    <var product="ac,cl,ps" name="deploying_apps_title" value="Managing Files on Web Servers"/>
+
+    <var type="string" name="project_view" value="Project view"/>
+
+    <!--current product version-->
+    <var name="product-version" type="xpath" value=" $p1//ihp/product[@src=concat($p2,'.tree')]/@version"/>
+
+    <var product="cl" name="cygwin_min_ver" value="2.8" type="string"/>
+    <var product="cl" name="lldb_bundled_ver" value="6.0" type="string"/>
+    <var product="cl" name="gdb_custom_ver" value="7.8.x-8.1.x" type="string"/>
+    <var product="cl" name="gdb_bundled_mac_ver" value="8.0.1" type="string"/>
+    <var product="cl" name="gdb_bundled_linwin_ver" value="8.2" type="string"/>
+
+    <var type="string" name="dir_based_settings" value="settings"/>
+
+    <var type="string" name="directory" value="directory" product="!ac"/>
+    <var type="string" name="directory" value="group" product="ac"/>
+
+    <var type="string" name="directories" value="directories" product="!ac"/>
+    <var type="string" name="directories" value="groups" product="ac"/>
+
+    <var name="project_window" value="Project tool window"/>
+    <var name="RunToCursor" value="Run to Cursor"/>
+    <var name="accessibility_custom_title" value="Configuring Accessibility Features" product="cl"/>
+    <var name="accessibility_custom_title" value="Accessibility" product="!cl"/>
+    <var name="accessibility_custom_title" value="Configure accessibility features" product="db"/>
+    <var name="finding_in_file_custom_title" value="Search for a target within a file" product="ij"/>
+    <var name="finding_in_file_custom_title" value="Finding and replacing text in a file" product="!ij"/>
+    <var name="finding_in_project_custom_title" value="Search for a target and usages within a project" product="ij"/>
+    <var name="finding_in_project_custom_title" value="Finding and replacing text in a project" product="!ij"/>
+
+</vars>
