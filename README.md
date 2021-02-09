@@ -1,4 +1,4 @@
-![](https://jb.gg/badges/official-flat-square.svg)  
+[![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 ![](resources/eap-alert.png)
 ![](resources/banner-main.png)
 
