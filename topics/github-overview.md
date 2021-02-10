@@ -1,4 +1,4 @@
-[//]: # (title: GitHub Actions & Application)
+[//]: # (title: GitHub Actions and Application)
 
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg)
 
@@ -21,6 +21,7 @@ To get a deep summary, you can open the Qodana analytics results' page.
 Explore the Qodana results in this [pull request](https://github.com/JetBrains/qodana-examples/pull/1/checks?check_run_id=1523719524) to the qodana-examples repository.
 
 ### How to start
+{id="how-to-start-github-app"}
 
 1. Install Qodana App from Marketplace to your repository: [Qodana Github App](https://github.com/marketplace/qodana).
 2. Make sure you are a public member of JetBrains or the Qodana-demo organization.
@@ -37,6 +38,7 @@ Qodana Github Action is a more general tool for easier continuous code inspectio
 Anyone with the write permission to a repository can set up a continuous code inspection with Qodana using GitHub Actions. 
 
 ### How to start
+{id="how-to-start-github-action"}
 
 Read the guidelines in [this repository](https://github.com/JetBrains/qodana-action).
 
