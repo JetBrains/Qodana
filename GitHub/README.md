@@ -28,7 +28,7 @@ Explore the Qodana results in this [pull request](https://github.com/JetBrains/q
 ### How to start
 
 1. At the moment the Qodana Github App is available to a limited number of users.
-If you want to get the access to the Qodana Github App analysis, contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD).
+If you want to get the access to the Qodana Github App analysis, contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). Please include your Github login in the request.
 2. Make sure you are a [public member](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership) of the [Qodana-demo organization](https://github.com/Qodana-demo).
 3. Install [Qodana Github App](https://github.com/apps/qodana/) to your repository.
 4. Create a new pull request and wait for the results.
