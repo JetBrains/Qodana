@@ -32,7 +32,7 @@ If you want to get the access to the Qodana Github App analysis, contact us at [
 2. Make sure you are a [public member](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership) of the [Qodana-demo organization](https://github.com/Qodana-demo).
 3. Install [Qodana Github App](https://github.com/apps/qodana/) to your repository.
 4. Create a new pull request and wait for the results.
-   * The build output will be accessible within a *Checks* tab on your pull request.
+   * The build output will be displayed on the *Checks* tab of your pull request.
 
 
 ## Qodana Github Action
