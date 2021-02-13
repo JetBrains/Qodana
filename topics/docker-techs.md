@@ -34,7 +34,6 @@ IDEA Inspect Options:
   -profileName       Name of a profile defined in project
   -profilePath       Absolute path to the profile file
   -changes           Inspect uncommitted changes and report new problems
-No project files found to inspect at '/data/project'!
 ```
 
 Examples of execution tuneup:
