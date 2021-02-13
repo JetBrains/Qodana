@@ -12,8 +12,9 @@
 
 Available arguments:
 
-```
+```shell
 $ docker run jetbrains/qodana
+
 Usage:
   entrypoint [OPTIONS]
 
@@ -39,37 +40,44 @@ No project files found to inspect at '/data/project'!
 Examples of execution tuneup:
 
 - Override the default inspection profile:
-   ```
+   
+  ```shell
    docker run ... -v <inspection-profile.xml>:/data/profile.xml <image-name>
    ```
 
 - Save a report in HTML. By default, the HTML report will be stored in a separate `report/` subdirectory under the `results` directory. This location could be configured with `--report-dir`.
-   ```
+   
+  ```shell
    docker run ... <image-name> --save-report
    ```
 
 - Display a report in HTML. After the inspection is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
-   ```
+  
+   ```shell
    docker run ... -p 8080:8080 <image-name> --show-report
    ```
 
 - Extra Gradle settings:
-   ```
+   
+  ```shell
    docker run ... -v <source-directory>/gradle.properties:/root/.gradle/gradle.properties <image-name>
    ```
 
 - Change the Heap size (default is 80% of host RAM):
-   ```
+   
+  ```shell
    docker run ... -e _JAVA_OPTIONS=-Xmx6g <image-name>
    ```
 
 - Log INFO messages to STDOUT. By default, the log level for STDOUT is WARN.
-   ```
+   
+  ```shell
    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.log.config.file=info.xml' <image-name>
    ```
 
 - Use own `idea.properties` file:
-   ```
+   
+  ```shell
    docker run ... -e IDEA_PROPERTIES=/data/project/idea.properties <image-name>
    ```
 
@@ -92,7 +100,7 @@ Paid plugins are yet unsupported, each vendor must clarify licensing terms for C
 
 You can add any free IntellJ platform plugins or your custom plugin using the following command:
 
-```
+```shell
 docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% <image-name>
 ```
 
@@ -102,24 +110,29 @@ By default are enabled: Java, Kotlin, PHP, and their libraries/frameworks' plugi
 
 To change the plugins list, do any of the following:
 - Override `disabled_plugins.txt` by mounting your own file:
-    ```
+    
+  ```shell
         docker run ... -v $empty_file$:/root/.config/idea/disabled_plugins.txt <image-name>
     ```
 - Use IDE properties `idea.required.plugins.id` and `idea.suppressed.plugins.id`:
-    ```
+    
+  ```shell
     docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=JavaScript,org.intellij.grails' <image-name> 
     ```
-or
-    ```
-    docker run ... -e IDE_PROPERTIES_PROPERTY=' -Didea.suppressed.plugins.id=com.intellij.spring.security' <image-name> 
+    or
+    
+    ```shell
+        docker run ... -e IDE_PROPERTIES_PROPERTY=' -Didea.suppressed.plugins.id=com.intellij.spring.security' <image-name> 
     ```
 
 ## Analyze changes
 
 Qodana allows checking only changed files:
-```
+
+```shell
 docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' <image-name> -changes
 ```
+
 You can adjust the `idea.required.plugins.id` value and keep only the CVS plugin suitable for your project.
 
 ## Run as non-root
@@ -127,7 +140,7 @@ You can adjust the `idea.required.plugins.id` value and keep only the CVS plugin
 By default, container runs as `root` user, so Qodana would be able to read any bind-mounted volumes with project and write the results. Which also leads to files in `results/` folder owned by `root` after the run.  
 To avoid this you can run container as current user:
 
-```
+```shell
 docker run -u $UID ...
 # or
 docker run -u $(id -u):$(id -g) ...
@@ -139,6 +152,6 @@ Please note that in this case `results/` folder on host should already be create
 
 To disable the [reporting of usage statistics](docker-readme.md#Usage+statistics), adjust the `idea.headless.enable.statistics` value: 
 
-```
+```shell
 docker run  -e IDE_PROPERTIES_PROPERTY="-Didea.headless.enable.statistics=false" <image-name> 
 ```

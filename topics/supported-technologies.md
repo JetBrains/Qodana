@@ -11,13 +11,13 @@ For Java and Kotlin, no preliminary steps are required.
 
 For a PHP project, if you use PHP Composer, add the following step before you run the analysis:
 
-```
+```shell
  docker run --rm -v <source-directory>:/app composer:latest install
 ```
 
 If you need to change the language level, place the following content into `<source-directory>/.idea/php.xml`:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="PhpProjectSharedConfiguration" php_language_level="<desired level>" />

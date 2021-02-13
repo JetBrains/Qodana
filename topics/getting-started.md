@@ -13,12 +13,14 @@ Qodana already supports PHP, Java, and Kotlin projects, and will eventually supp
 ## Analyse project locally
 
 To start, pull the image from Docker Hub (only necessary to get the latest version):
-```
+
+```shell
 docker pull jetbrains/qodana
 ```
 
 and run the analysis locally:
-```
+
+```shell
 docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report
 ```
 

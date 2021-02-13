@@ -21,13 +21,16 @@ With the plugin installed, add the Qodana runner to your build. If your project 
 fully [supported technologies](supported-technologies.md), no further preparation is needed. You can 
 run your first analysis with default setting right away.   
 
-![](qodana-build-runner.png)
+<img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner"/>  
 
 Make sure the "Code Inspections" option is enabled and start the build.
-![](qodana-build-runner-settings.png)
+
+<img src="qodana-build-runner-settings.png" width="650" alt="Qodana Build Runner Settings"/>
+
 
 If you use DSL to configure your build, add this section to your build configuration description:
-```
+
+```JSON
  steps {
     ...
     qodana {}
@@ -52,7 +55,7 @@ we are working on providing the cross-configuration option as well.
 The main Qodana functionality comes from the 'engine' shaped into the Docker image. If you want to go beyond the 
 boundaries of the default settings, refer to the [Docker image guide](docker-readme.md). Note that you don't need to write `docker run` on your own: the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties. 
 
-## Advanced Configuration 
+### Advanced Configuration 
 
 Advanced configuration allows you to report all found problems via the standard TeamCity tests mechanism. It means 
 you can assign investigations, mute, see history, and do everything else you can do with regular tests in TeamCity. Qodana 

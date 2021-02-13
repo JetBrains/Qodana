@@ -31,13 +31,13 @@ To run analysis __locally__:
 
 1) Pull the image from Docker Hub (only necessary to update the `latest` version):
 
-   ```
+   ```shell
    docker pull jetbrains/qodana
-
    ```
+   
 2) Run the following command:
 
-   ```
+   ```shell
    docker run --rm -it -p 8080:8080 \
       -v <source-directory>/:/data/project/ \
       -v <output-directory>/:/data/results/ \
@@ -50,7 +50,7 @@ To run analysis __locally__:
 
    In case you don't need the user interface and prefer to study raw data, use the following command:
 
-   ```
+   ```shell
    docker run --rm -it \
       -v <source-directory>/:/data/project/ \
       -v <output-directory>/:/data/results/ \
@@ -63,33 +63,37 @@ To run analysis __locally__:
 
 To run analysis __in CI__:
  - Use the following command as the task in generic Shell executor:
-   ```
-    docker run --rm \
-        -v <source-directory>/:/data/project/ \
-        -v <output-directory>/:/data/results/ \
-        jetbrains/qodana
-   ```
-   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.  
-   The output of `output-directory` is described [here](output.md#Basic+output).  
-   Consider using [fail-thresold](qodana-yaml.md#Fail+threshold) to make build fail on certain number of problems reached. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
+   
+    ```shell
+        docker run --rm \
+            -v <source-directory>/:/data/project/ \
+            -v <output-directory>/:/data/results/ \
+            jetbrains/qodana
+    ```
+   
+    where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.  
+   
+    The output of `output-directory` is described [here](output.md#Basic+output). Consider using [fail-thresold](qodana-yaml.md#Fail+threshold) to make build fail on certain number of problems reached. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
    
  - Example for GitHub Action (`.github/workflows/qodana.yml`):
-   ```yaml
-   jobs:
-     qodana:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v2
-         - uses: docker://jetbrains/qodana
-           with:
-             args: --results-dir=/github/workspace/qodana --save-report --report-dir=/github/workspace/qodana/report
-         - uses: actions/upload-artifact@v2
-           with:
-             path: qodana
-   ```
+   
+    ```yaml
+       jobs:
+         qodana:
+           runs-on: ubuntu-latest
+           steps:
+             - uses: actions/checkout@v2
+             - uses: docker://jetbrains/qodana
+               with:
+                 args: --results-dir=/github/workspace/qodana --save-report --report-dir=/github/workspace/qodana/report
+             - uses: actions/upload-artifact@v2
+               with:
+                 path: qodana
+       ```
    
  - Example for GitLab CI (`.gitlab-ci.yml`):
-    ```yaml
+    
+   ```yaml
     qodana:
       image: 
         name: jetbrains/qodana
@@ -108,7 +112,8 @@ This section is intended for users familiar with configuring code analysis via [
 You can pass the reference to the existing profile via [multiple ways](https://github.com/JetBrains/Qodana/blob/main/Docker/techs.md#order-of-resolving-profile). Here are some examples:
 
 - Mapping profile to `/data/profile.xml` inside of container:
-     ```
+     
+  ```shell
         docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
@@ -117,7 +122,8 @@ You can pass the reference to the existing profile via [multiple ways](https://g
        ```
   
 - Using name of profile in your project `.idea/inspectionProfiles/` folder:
-    ```
+    
+  ```shell
         docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
@@ -135,7 +141,7 @@ Paid plugins are yet unsupported, each vendor must clarify licenseing terms for 
 
 Any free IntellJ platform plugins or your custom plugin can be added by mounting it to the container plugins' directory using the follwoing command:
 
-```
+```shell
 docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
 ```
 
