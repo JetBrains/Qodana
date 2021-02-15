@@ -95,7 +95,7 @@ docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% 
 
 To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole list of disabled plugins in `/root/.config/idea/disabled_plugins.txt`.
 
-By default are enabled: Java, Kotlin, PHP, and their libraries/frameworks' plugins. Gradle and Maven plugins are also enabled.
+By default are enabled: Java, Kotlin for Server Side, PHP, and their libraries/frameworks' plugins. Gradle and Maven plugins are also enabled.
 
 To change the plugins list, do any of the following:
 - Override `disabled_plugins.txt` by mounting your own file:

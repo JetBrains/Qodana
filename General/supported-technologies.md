@@ -6,7 +6,7 @@ The current (2020.3.x) version lets you analyse:
 
 * [Java](https://www.java.com) projects based on [Gradle](https://gradle.org/), [Maven](https://maven.apache.org/) or [Jetbrains Project 
   System (JPS)](https://github.com/JetBrains/JPS)
-* [Kotlin](https://kotlinlang.org) projects, including [Kotlin-JS](https://kotlinlang.org/docs/reference/js-overview.html)
+* [Kotlin for Server Side](https://kotlinlang.org/lp/server-side/)
 * [PHP](https://www.php.net) projects
 
 For Java and Kotlin, no preliminary steps are required.
