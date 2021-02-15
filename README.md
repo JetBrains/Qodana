@@ -6,7 +6,7 @@
 It brings all the smart features you love in the JetBrains IDEs into your project pipelines.
 It takes different shapes: [Docker for any CI](Docker/README.md), [GitHub actions & application](GitHub/README.md), a [TeamCity plugin](TeamCity/README.md), and a separate [cloud service](Service/README.md). They all share a common goal: guiding users towards more robust, more maintainable, and healthier code.
 
-Qodana already supports PHP, Java, and Kotlin projects, and will eventually support all [languages and technologies](General/supported-technologies.md) covered by JetBrains IDEs.
+Qodana already supports Kotlin for Server Side, Java, and PHP projects, and will eventually support all [languages and technologies](General/supported-technologies.md) covered by JetBrains IDEs.
 
 ### Analyse project locally
 
