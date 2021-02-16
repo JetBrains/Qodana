@@ -28,7 +28,7 @@ where `source-directory` should point to the root of your project.
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
-Please read our [Docker guide](/topics/docker-readme.md) for more options and details related to the Qodana execution.
+Please read our [Docker guide](docker-readme.md) for more options and details related to the Qodana execution.
 
 ## Run at GitHub
 
