@@ -7,12 +7,12 @@
         <help-app-version>3</help-app-version>
         <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
         <hide-last-modified>true</hide-last-modified>
-        <config-showDownloadButton>true</config-showDownloadButton>
+        <config-showDownloadButton>false</config-showDownloadButton>
         <config-disqus-id>jetbrains</config-disqus-id>
         <config-disqus-show>false</config-disqus-show>
         <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
-        <config-feedback-enabled>true</config-feedback-enabled>
-        <config-feedback-widget>true</config-feedback-widget>
+        <config-feedback-enabled>false</config-feedback-enabled>
+        <config-feedback-widget>false</config-feedback-widget>
         <config-webmaster>https://confluence.jetbrains.com/display/QD/Feedback</config-webmaster>
         <config-feedback-support>https://qodana-support.jetbrains.com/</config-feedback-support>
         <config-sideblocks>true</config-sideblocks>
