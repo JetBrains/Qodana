@@ -95,7 +95,7 @@ To run analysis __in CI__:
     qodana:
       image: 
         name: jetbrains/qodana
-        entrypoint: [sh, -c]
+        entrypoint: ['']
       script:
         - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
       artifacts:
