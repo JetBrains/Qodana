@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### v2021.1.x-eap
+- [QD-644](https://youtrack.jetbrains.com/issue/QD-644) support Lombok
+
 ### v2020.3.72-eap
 -  [QD-675](https://youtrack.jetbrains.com/issue/QD-675) fix for gradle cache in project folder
 
