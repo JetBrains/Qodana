@@ -19,7 +19,7 @@ Application Options:
                      /data/project)
   -o, --results-dir= Save results to folder (default: /data/results)
   -r, --report-dir=  Save html report to folder (default: /data/results/report)
-  -c, --cache-dir=   Set cache folder (default: /data/cache)
+      --cache-dir=   Set cache folder (default: /data/cache)
   -s, --save-report  Generate html report
   -w, --show-report  Serve html report on port 8080
 
@@ -84,7 +84,7 @@ Qodana checks the configuration parameters for resolving the inspection profile 
 
 ### Plugins management
 
-The Qodana image contains selected Idea Ultimate plugins + PhpStorm plugin. 
+The Qodana image contains selected Idea Ultimate plugins + PHP plugin. 
 
 Paid plugins are yet unsupported, each vendor must clarify licensing terms for CI usage and collaborate with us to make it work
 
