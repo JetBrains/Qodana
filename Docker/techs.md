@@ -19,6 +19,7 @@ Application Options:
                      /data/project)
   -o, --results-dir= Save results to folder (default: /data/results)
   -r, --report-dir=  Save html report to folder (default: /data/results/report)
+      --cache-dir=   Set cache folder (default: /data/cache)
   -s, --save-report  Generate html report
   -w, --show-report  Serve html report on port 8080
 
@@ -83,7 +84,7 @@ Qodana checks the configuration parameters for resolving the inspection profile 
 
 ### Plugins management
 
-The Qodana image contains all bundled Idea Ultimate plugins + bundled PhpStorm plugins. 
+The Qodana image contains selected Idea Ultimate plugins + PHP plugin. 
 
 Paid plugins are yet unsupported, each vendor must clarify licensing terms for CI usage and collaborate with us to make it work
 
@@ -129,6 +130,26 @@ docker run -u $UID ...
 docker run -u $(id -u):$(id -g) ...
 ```
 Please note that in this case `results/` folder on host should already be created and owned by you. Either docker would create it as `root` and Qodana would be unable to write to it.
+
+### Cache dependencies
+
+You can decrease the time for Qodana run by persisting cache from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies. 
+
+By default, Qodana would save caches to folder `/data/cache` inside container. This location could be changed via `--cache-dir` cli argument. The data inside is per-repository, so you can pass cache from `branch-a` to build checking `branch-b`. In this case only new dependencies would be downloaded, if they were added. The cache feature is available starting from `2021.1-eap` image.
+
+Example for **local** run:
+   ```
+   docker run --rm -it -p 8080:8080 \
+      -v <source-directory>/:/data/project/ \
+      -v <output-directory>/:/data/results/ \
+      -v <cache-directory>/:/data/cache/ \
+      jetbrains/qodana --show-report
+   ```
+In this case mapping the same `<cache-directory>` would speedup second run.
+
+In **GitHub** workflow you can utilise [actions/cache](https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows), see [full example](README.md#to-run-analysis-__in-ci__).
+
+**GitLab** CI also has [cache](https://docs.gitlab.com/ee/ci/caching/) which could be stored [only inside](https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths) project dir. We recommend you to exclude cache folder from inspections in this case via [qodana.yaml](../General/qodana-yaml.md#exclude-paths).
 
 ### Turn off user statistics
 

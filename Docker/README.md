@@ -6,7 +6,7 @@
 
 ![EAP](../resources/eap-alert.png)
 
-Supported tags: [`2020.3-eap`](https://hub.docker.com/layers/jetbrains/qodana/2020.3-eap/images/sha256-2085028591a87b68f81c62278c6ea715a8043b30654fd791d7eda10651bc3709?context=explore), [`latest`](https://hub.docker.com/layers/jetbrains/qodana/latest/images/sha256-2085028591a87b68f81c62278c6ea715a8043b30654fd791d7eda10651bc3709?context=explore) (points to `2020.3-eap`)
+Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2020.3-eap), [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
 ## General
 
@@ -29,7 +29,7 @@ results of the most common checks performed on your code base. Later, you can [a
 
 ### Quick start with recommended profile
 
-To run analysis __locally__:
+#### To run analysis __locally__:
 
 1) Pull the image from Docker Hub (only necessary to update the `latest` version):
 
@@ -63,7 +63,7 @@ To run analysis __locally__:
 
    If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
 
-To run analysis __in CI__:
+####  To run analysis __in CI__:
  - Use the following command as the task in generic Shell executor:
    ```
     docker run --rm \
@@ -75,16 +75,23 @@ To run analysis __in CI__:
    The output of `output-directory` is described [here](../General/output.md#basic-output).  
    Consider using [fail-thresold](../General/qodana-yaml.md#fail-threshold) to make build fail on certain number of problems reached. [Running as non-root](techs.md#run-as-non-root) is also supported.
    
- - Example for GitHub Action (`.github/workflows/qodana.yml`):
+ - Example for GitHub Workflow (`.github/workflows/qodana.yml`):
    ```yaml
    jobs:
      qodana:
        runs-on: ubuntu-latest
        steps:
          - uses: actions/checkout@v2
+         - uses: actions/cache@v2
+           with:
+             path: ~/work/_temp/_github_home/cache
+             key: ${{ runner.os }}-qodana-${{ github.ref }}
+             restore-keys: |
+               ${{ runner.os }}-qodana-${{ github.ref }}
+               ${{ runner.os }}-qodana-   
          - uses: docker://jetbrains/qodana
            with:
-             args: --results-dir=/github/workspace/qodana --save-report --report-dir=/github/workspace/qodana/report
+             args: --cache-dir=/github/home/cache --results-dir=/github/workspace/qodana --save-report --report-dir=/github/workspace/qodana/report
          - uses: actions/upload-artifact@v2
            with:
              path: qodana
