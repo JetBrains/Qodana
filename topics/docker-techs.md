@@ -23,6 +23,7 @@ Application Options:
                      /data/project)
   -o, --results-dir= Save results to folder (default: /data/results)
   -r, --report-dir=  Save html report to folder (default: /data/results/report)
+      --cache-dir=   Set cache folder (default: /data/cache)
   -s, --save-report  Generate html report
   -w, --show-report  Serve html report on port 8080
 
@@ -39,43 +40,43 @@ IDEA Inspect Options:
 Examples of execution tuneup:
 
 - Override the default inspection profile:
-   
+
   ```shell
    docker run ... -v <inspection-profile.xml>:/data/profile.xml <image-name>
    ```
 
 - Save a report in HTML. By default, the HTML report will be stored in a separate `report/` subdirectory under the `results` directory. This location could be configured with `--report-dir`.
-   
+
   ```shell
    docker run ... <image-name> --save-report
    ```
 
 - Display a report in HTML. After the inspection is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
-  
+
    ```shell
    docker run ... -p 8080:8080 <image-name> --show-report
    ```
 
 - Extra Gradle settings:
-   
+
   ```shell
    docker run ... -v <source-directory>/gradle.properties:/root/.gradle/gradle.properties <image-name>
    ```
 
 - Change the Heap size (default is 80% of host RAM):
-   
+
   ```shell
    docker run ... -e _JAVA_OPTIONS=-Xmx6g <image-name>
    ```
 
 - Log INFO messages to STDOUT. By default, the log level for STDOUT is WARN.
-   
+
   ```shell
    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.log.config.file=info.xml' <image-name>
    ```
 
 - Use own `idea.properties` file:
-   
+
   ```shell
    docker run ... -e IDEA_PROPERTIES=/data/project/idea.properties <image-name>
    ```
@@ -93,9 +94,9 @@ Qodana checks the configuration parameters for resolving the inspection profile 
 
 ## Plugins management
 
-The Qodana image contains all bundled Idea Ultimate plugins + bundled PhpStorm plugins. 
+The Qodana image contains selected Idea Ultimate plugins + PHP plugin.
 
-Paid plugins are yet unsupported, each vendor must clarify licensing terms for CI usage and collaborate with us to make it work
+Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate with us to make it work.
 
 You can add any free IntellJ platform plugins or your custom plugin using the following command:
 
@@ -105,21 +106,21 @@ docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% 
 
 To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole list of disabled plugins in `/root/.config/idea/disabled_plugins.txt`.
 
-By default are enabled: Java, Kotlin, PHP, and their libraries/frameworks' plugins. Gradle and Maven plugins are also enabled.
+By default are enabled: Java, Kotlin for Server Side, PHP, and their libraries/frameworks' plugins. Gradle and Maven plugins are also enabled.
 
 To change the plugins list, do any of the following:
 - Override `disabled_plugins.txt` by mounting your own file:
-    
+
   ```shell
         docker run ... -v $empty_file$:/root/.config/idea/disabled_plugins.txt <image-name>
     ```
 - Use IDE properties `idea.required.plugins.id` and `idea.suppressed.plugins.id`:
-    
+
   ```shell
     docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=JavaScript,org.intellij.grails' <image-name> 
     ```
-    or
-    
+  or
+
     ```shell
         docker run ... -e IDE_PROPERTIES_PROPERTY=' -Didea.suppressed.plugins.id=com.intellij.spring.security' <image-name> 
     ```
@@ -136,8 +137,8 @@ You can adjust the `idea.required.plugins.id` value and keep only the CVS plugin
 
 ## Run as non-root
 
-By default, container runs as `root` user, so Qodana would be able to read any bind-mounted volumes with project and write the results. Which also leads to files in `results/` folder owned by `root` after the run.  
-To avoid this you can run container as current user:
+By default, the container runs as `root` user, so Qodana would be able to read any bind-mounted volumes with the project and write the results. Which also leads to files in `results/` folder owned by `root` after the run.  
+To avoid this, you can run container as a current user:
 
 ```shell
 docker run -u $UID ...
@@ -145,11 +146,31 @@ docker run -u $UID ...
 docker run -u $(id -u):$(id -g) ...
 ```
 
-Please note that in this case `results/` folder on host should already be created and owned by you. Either docker would create it as `root` and Qodana would be unable to write to it.
+Note that in this case, the `results/` folder on host should already be created and owned by you. Otherwise, Docker will create it as `root` and Qodana will be unable to write to it.
+
+### Cache dependencies
+
+You can decrease the time for Qodana run by persisting cache from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
+
+By default, Qodana would save caches to folder `/data/cache` inside container. This location could be changed via `--cache-dir` cli argument. The data inside is per-repository, so you can pass cache from `branch-a` to build checking `branch-b`. In this case, only new dependencies would be downloaded, if they were added. The cache feature is available starting from `2021.1-eap` image.
+
+Example for **local** run:
+   ```
+   docker run --rm -it -p 8080:8080 \
+      -v <source-directory>/:/data/project/ \
+      -v <output-directory>/:/data/results/ \
+      -v <cache-directory>/:/data/cache/ \
+      jetbrains/qodana --show-report
+   ```
+In this case mapping the same `<cache-directory>` would speedup second run.
+
+In **GitHub** workflow you can utilise [actions/cache](https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows), see [full example](docker-readme.md#Run+analysis+in+CI).
+
+**GitLab** CI also has [cache](https://docs.gitlab.com/ee/ci/caching/) which can be stored [only inside](https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths) the project directory. In this case, we recommend excluding the cache folder from inspection via [qodana.yaml](qodana-yaml.md#Exclude+paths).
 
 ## Turn off user statistics
 
-To disable the [reporting of usage statistics](docker-readme.md#Usage+statistics), adjust the `idea.headless.enable.statistics` value: 
+To disable the [reporting of usage statistics](docker-readme.md#Usage+statistics), adjust the `idea.headless.enable.statistics` value:
 
 ```shell
 docker run  -e IDE_PROPERTIES_PROPERTY="-Didea.headless.enable.statistics=false" <image-name> 

@@ -1,23 +1,21 @@
 [//]: # (title: Qodana Docker Image)
 
-![official JetBrains project](https://jb.gg/badges/official-flat-square.svg)
-![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg)
-![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana.svg)
+![official JetBrains project](https://jb.gg/badges/official-flat-square.svg) ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana.svg)
 
 ![EAP](eap-alert.png)
 
-Supported tags: [`2020.3-eap`](https://hub.docker.com/layers/jetbrains/qodana/2020.3-eap/images/sha256-2085028591a87b68f81c62278c6ea715a8043b30654fd791d7eda10651bc3709?context=explore), [`latest`](https://hub.docker.com/layers/jetbrains/qodana/latest/images/sha256-2085028591a87b68f81c62278c6ea715a8043b30654fd791d7eda10651bc3709?context=explore) (points to `2020.3-eap`)
+Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2020.3-eap), [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
 The Qodana Docker image lets you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your
-code base. The current version [supports PHP, Java, and Kotlin](supported-technologies.md); the support for more languages and technologies are on its way.
+code base. The current version [supports PHP, Java, and Kotlin for Server Side](supported-technologies.md); support for more languages and technologies is on its way.
 
 We provide two options optimized for different scenarios:
 - Running the analysis on a regular basis as a part of your continuous integration (*CI-based execution*)
 - Single-shot analysis (for example, performed *locally*)
 
-If you prefer the first option and have established a continuous integration (CI) support for your project, this page
-  will guide your through all available possibilities.  
-  If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](https://github.com/JetBrains/Qodana/tree/main/TeamCity%20Plugin) as it gives more options.
+If you prefer the first option and have established continuous integration (CI) support for your project, this page
+will describe all available possibilities.  
+If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](https://github.com/JetBrains/Qodana/tree/main/TeamCity%20Plugin) as it gives more options.
 
 If you are familiar with [JetBrains IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
 and know what to expect from the static analysis outside the editor, you can start with the "[Using existing profile](#Using+existing+profile)" section.
@@ -27,14 +25,14 @@ results of the most common checks performed on your code base. Later, you can [a
 
 ## Quick start with recommended profile
 
-To run analysis __locally__:
+### Run analysis locally
 
 1) Pull the image from Docker Hub (only necessary to update the `latest` version):
 
    ```shell
    docker pull jetbrains/qodana
    ```
-   
+
 2) Run the following command:
 
    ```shell
@@ -61,58 +59,66 @@ To run analysis __locally__:
 
    If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
 
-To run analysis __in CI__:
- - Use the following command as the task in generic Shell executor:
-   
-    ```shell
-        docker run --rm \
-            -v <source-directory>/:/data/project/ \
-            -v <output-directory>/:/data/results/ \
-            jetbrains/qodana
-    ```
-   
-    where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.  
-   
-    The output of `output-directory` is described [here](output.md#Basic+output). Consider using [fail-thresold](qodana-yaml.md#Fail+threshold) to make build fail on certain number of problems reached. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
-   
- - Example for GitHub Action (`.github/workflows/qodana.yml`):
-   
-    ```yaml
-       jobs:
-         qodana:
-           runs-on: ubuntu-latest
-           steps:
-             - uses: actions/checkout@v2
-             - uses: docker://jetbrains/qodana
-               with:
-                 args: --results-dir=/github/workspace/qodana --save-report --report-dir=/github/workspace/qodana/report
-             - uses: actions/upload-artifact@v2
-               with:
-                 path: qodana
-       ```
-   
- - Example for GitLab CI (`.gitlab-ci.yml`):
-    
-   ```yaml
+### Run analysis in CI
+
+- Use the following command as the task in generic Shell executor:
+
+   ```shell
+       docker run --rm \
+           -v <source-directory>/:/data/project/ \
+           -v <output-directory>/:/data/results/ \
+           jetbrains/qodana
+   ```
+
+  where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.
+
+  The output of `output-directory` is described [here](output.md#Basic+output). Consider using [fail-thresold](qodana-yaml.md#Fail+threshold) to make the build fail on a certain number of problems reached. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
+
+- Example for GitHub Workflow (`.github/workflows/qodana.yml`):
+  
+```yaml
+  jobs:
     qodana:
-      image: 
-        name: jetbrains/qodana
-        entrypoint: [sh, -c]
-      script:
-        - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
-      artifacts:
-        paths:
-          - qodana
-    ```
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/cache@v2
+          with:
+            path: ~/work/_temp/_github_home/cache
+            key: ${{ runner.os }}-qodana-${{ github.ref }}
+            restore-keys: |
+              ${{ runner.os }}-qodana-${{ github.ref }}
+              ${{ runner.os }}-qodana-   
+        - uses: docker://jetbrains/qodana
+          with:
+            args: --cache-dir=/github/home/cache --results-dir=/github/workspace/qodana --save-report --report-dir=/github/workspace/qodana/report
+        - uses: actions/upload-artifact@v2
+          with:
+            path: qodana
+  ```
+
+- Example for GitLab CI (`.gitlab-ci.yml`):
+
+```yaml
+    qodana:
+     image: 
+       name: jetbrains/qodana
+       entrypoint: ['']
+     script:
+       - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
+     artifacts:
+       paths:
+         - qodana
+```
 
 ## Using existing profile
 
 This section is intended for users familiar with configuring code analysis via [IntelliJ inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
 
-You can pass the reference to the existing profile via [multiple ways](https://github.com/JetBrains/Qodana/blob/main/Docker/techs.md#order-of-resolving-profile). Here are some examples:
+You can pass the reference to the existing profile in [multiple ways](https://github.com/JetBrains/Qodana/blob/main/Docker/techs.md#order-of-resolving-profile). Here are some examples:
 
 - Mapping profile to `/data/profile.xml` inside of container:
-     
+
   ```shell
         docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
@@ -120,9 +126,9 @@ You can pass the reference to the existing profile via [multiple ways](https://g
             -v <inspection-profile.xml>:/data/profile.xml
             jetbrains/qodana --show-report
        ```
-  
+
 - Using name of profile in your project `.idea/inspectionProfiles/` folder:
-    
+
   ```shell
         docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
@@ -137,9 +143,9 @@ The references to the inspection profiles will be resolved [in a particular orde
 
 ## Plugins management
 
-Paid plugins are yet unsupported, each vendor must clarify licenseing terms for CI usage and collaborate with us to make it work.
+Paid plugins are not yet supported. Each vendor must clarify licenseing terms for CI usage and collaborate with us to make it work.
 
-Any free IntellJ platform plugins or your custom plugin can be added by mounting it to the container plugins' directory using the follwoing command:
+Any free IntellJ platform plugins or your custom plugin can be added by mounting it to the container plugins' directory using the following command:
 
 ```shell
 docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
@@ -149,12 +155,12 @@ Please refer to [this guide](docker-techs.md) for more details.
 
 ## Usage statistics
 
-According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features for further improving the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to [this guide](docker-techs.md) for details.
+According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features to further improve the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to [this guide](docker-techs.md) for details.
 
 ## License
 
 By using the Qodana Docker image, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).  
-The Docker image includes evaluation license, which will expire in 30 days. Please ensure you pull a new image on time.
+The Docker image includes the evaluation license, which will expire in 30 days. Please ensure you pull a new image on time.
 
 ## Contact
 
