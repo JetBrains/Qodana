@@ -9,9 +9,9 @@ Their flexible mechanisms of resolving problems allow you to easier improve the 
 
 And now with the Qodana App and Actions available in GitHub, all these features are just around the corner!
 
-The [Qodana Github App](#qodana-github-app) supports only public repositories. For private repositories use the [Qodana Github Action](#qodana-github-action).
+The [Qodana GitHub App](github-overview.md#Qodana+GitHub+App) supports only public repositories. For private repositories use the [Qodana GitHub Action](github-overview.md#Qodana+GitHub+Action).
 
-## Qodana Github App
+## Qodana GitHub App
 
 ![Qodana Github App](qodana-app-banner.png)
 
@@ -34,7 +34,7 @@ Explore the Qodana results in this [pull request](https://github.com/JetBrains/q
    * The build output will be displayed on the *Checks* tab of your pull request.
 
 
-## Qodana Github Action
+## Qodana GitHub Action
 
 **Qodana Github Action** is a more general tool for easier continuous code inspection.
 Anyone with the write permission to a repository can set up a continuous code inspection with Qodana using GitHub Actions.
