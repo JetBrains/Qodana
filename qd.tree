@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE product-profile
         SYSTEM "https://helpserver.labs.jb.gg/help/product-profile.dtd">
-<product-profile id="qd" name="Qodana" start-page="getting-started.md" status="eap">
+<product-profile id="qd" name="Qodana" start-page="getting-started.md" status="release">
 
     <toc-element id="getting-started.md" toc-title="Getting started">
         <toc-element id="supported-technologies.md"/>
