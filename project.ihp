@@ -6,7 +6,7 @@
         <caps for="toc-element">sentence</caps>
         <id-generator-method>URL_ENCODE_PLUS</id-generator-method>
     </settings>
-    <module name="Qodana"/>
+    <module name="qd-docs"/>
     <vars src="v.list"/>
     <topics dir="topics"/>
     <images dir="images" version="2020.3"
