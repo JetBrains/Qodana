@@ -21,6 +21,7 @@
         <browser-edits-url>https://github.com/JetBrains/Qodana/edit/2021.1/</browser-edits-url>
         <disable-prev-next-links>true</disable-prev-next-links>
         <disable-variable-interpolation>true</disable-variable-interpolation>
+        <config-versions-switcher>https://data.services.jetbrains.com/help-versions</config-versions-switcher>
     </variables>
 
     <build-profile product="qd"/>
