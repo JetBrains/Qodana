@@ -14,4 +14,7 @@
     <categories src="c.list"/>
     <product src="qd.tree" web-path="/qodana/2021.1/"
              teamcity-build-path="Documentation_Teamware_Qodana" version="2021.1" keymaps-mode="none"/>
+
+    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/2021.1/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="2021.1" keymaps-mode="none"/>
 </ihp>
