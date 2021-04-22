@@ -19,6 +19,9 @@
 
     <toc-element id="service.md"/>
 
-    <toc-element id="teamcity-plugin.md"/>
+    <toc-element id="teamcity-plugin-overview.md">
+        <toc-element id="teamcity-plugin-quick-start.md"/>
+        <toc-element id="teamcity-plugin-configuration.md"/>
+    </toc-element>
 
 </product-profile>
