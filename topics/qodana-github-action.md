@@ -1,4 +1,4 @@
-[//]: # (title: Qodana GitHub Action and Application)
+[//]: # (title: Qodana GitHub Action)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
