@@ -19,9 +19,9 @@
             
     <toc-element id="docker-images.md">
         <toc-element id="qodana-docker-readme.md">
-            <toc-element id="qodana-docker-tech.md"/>
+            <toc-element id="qodana-docker-techs.md"/>
         <toc-element id="clone-finder-docker-readme.md">
-            <toc-element id="clone-finder-docker-tech.md">
+            <toc-element id="clone-finder-docker-techs.md">
         <!---<toc-element id="license-audit-docker-readme.md"> !--->
     </toc-element>
 
