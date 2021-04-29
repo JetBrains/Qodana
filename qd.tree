@@ -11,6 +11,12 @@
         <toc-element id="CHANGELOG.md"/>
     </toc-element>
         
+    <toc-element id="linters.md" toc-title="About Qodana Linters">
+         <toc-element id="about-qodana.md">
+         <toc-element id="about-clone-finder.md">
+         <!---<toc-element id="about-license-audit.md"> !--->
+    </toc-element>
+            
     <toc-element id="docker-images.md">
         <toc-element id="qodana-docker-readme.md">
             <toc-element id="qodana-docker-tech.md"/>
