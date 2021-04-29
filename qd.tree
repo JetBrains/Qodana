@@ -18,10 +18,10 @@
         <!---<toc-element id="license-audit-docker-readme.md"> !--->
     </toc-element>
 
-    <toc-element id="github-actions.md">
-        <toc-element id="qodana-github-actions.md">
-        <toc-element id="clone-finder-github-actions.md">
-        <!---<toc-element id="license-audit-github-actions.md"> !--->
+    <toc-element id="github-action.md">
+        <toc-element id="qodana-github-action.md">
+        <toc-element id="clone-finder-github-action.md">
+        <!---<toc-element id="license-audit-github-action.md"> !--->
     </toc-element> 
     
     <toc-element id="qodana-github-application.md"/>
