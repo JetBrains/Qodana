@@ -11,12 +11,12 @@ We provide a Docker image for the [Qodana linter](about-qodana.md) to support di
 - Single-shot analysis (for example, performed *locally*).
 
 If you are familiar with [JetBrains IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
-and know what to expect from the static analysis outside the editor, you can start with the [Using existing profile](#Using+existing+profile) section.
+and know what to expect from the static analysis outside the editor, you can skip the following section and continue from [Using an existing profile](#Using+an+existing+profile).
 
-If you are just starting in the field, we recommend proceeding with the [default setup](#Quick+start+with+recommended+profile) we provide. You will see the
+If you are just starting in the field, we recommend proceeding with the [default setup](#Quick+start+with+the+recommended+profile) we provide. You will see the
 results of the most common checks performed on your code base. Later, you can [adjust them](#Configure+via+qodana.yaml) to suit your needs better.
 
-## Quick start with recommended profile
+## Quick start with the recommended profile
 
 ### Run analysis locally
 
@@ -48,7 +48,7 @@ results of the most common checks performed on your code base. Later, you can [a
       jetbrains/qodana
    ```
 
-   The `output-directory` will contain [all the necessary results](qodana-output.md#Basic+output). You can further tune the command as described in the [technical guide](docker-techs.md).
+   The `output-directory` will contain [all the necessary results](qodana-output.md#Basic+output). You can further tune the command as described in the [technical guide](qodana-docker-techs.md).
 
    If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
 
@@ -65,7 +65,7 @@ results of the most common checks performed on your code base. Later, you can [a
 
   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.
 
-  The output of `output-directory` is described [here](qodana-output.md#Basic+output). Consider using [fail-thresold](qodana-yaml.md#Fail+threshold) to make the build fail on a certain number of problems reached. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
+  The output of `output-directory` is described [here](qodana-output.md#Basic+output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on a certain number of problems reached. [Running as non-root](qodana-docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/qodana.yml`):
   
@@ -104,7 +104,7 @@ results of the most common checks performed on your code base. Later, you can [a
          - qodana
 ```
 
-## Using existing profile
+## Using an existing profile
 
 This section is intended for users familiar with configuring code analysis via [IntelliJ inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
 
@@ -132,23 +132,23 @@ You can pass the reference to the existing profile in [multiple ways](https://gi
 ## Configure via qodana.yaml
 
 The `qodana.yaml` file will be automatically recognised and used for the analysis configuration, so that you don't need to pass any additional parameters.  
-The references to the inspection profiles will be resolved [in a particular order](docker-techs.md#Order+of+resolving+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
+The references to the inspection profiles will be resolved [in a particular order](qodana-docker-techs.md#Order+of+resolving+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
 
 ## Plugins management
 
-Paid plugins are not yet supported. Each vendor must clarify licenseing terms for CI usage and collaborate with us to make it work.
+Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate with us to make it work.
 
-Any free IntellJ platform plugins or your custom plugin can be added by mounting it to the container plugins' directory using the following command:
+Any free IntelliJ platform plugins or your custom plugin can be added by mounting it to the container plugins' directory using the following command:
 
 ```shell
 docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
 ```
 
-Please refer to [this guide](docker-techs.md) for more details.
+Please refer to the [technical guide](qodana-docker-techs.md) for more details.
 
 ## Usage statistics
 
-According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features to further improve the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to [this guide](docker-techs.md) for details.
+According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features to further improve the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to the [technical guide](qodana-docker-techs.md) for details.
 
 ## License
 

@@ -3,17 +3,19 @@
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)  
 ![](eap-alert.png)
 ![](banner-main.png)
+## About 
+**Qodana** is a code quality monitoring platform that allows you to evaluate the integrity of code you own, contract, or purchase.
+It brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs plus continues adding project-level checks like clone detection and license audit (coming soon). 
 
-**Qodana** is a code quality monitoring platform that allows companies to evaluate on multiple levels the quality of code they own, contract, or purchase.
-It brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs plus adds project-level checks like clone detection.
+Qodana allows you to get an overview of the project quality, set quality targets, and track progress on them. You can quickly adjust the list of checks applied for the project and include or remove directories from the analysis.
 
-Qodana includes a number of linters which take different shapes: [Docker images for any CI](docker-images.md), [GitHub action](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md). They all share a common goal: ensuring that companies have more robust, more maintainable, and healthier code.
+Qodana platform includes a number of linters which are available as [Docker images for any CI](docker-images.md), [GitHub Actions](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md).
 
 Qodana linters support PHP, Java, and Kotlin and will eventually include all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs.
 
-Learn more about [Qodana linters](linters.md), the [UI](ui-overview.md), or continue to the next section to make your first steps with Qodana.
+Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.
 
-## Qodana quick start guide
+## Quick start guide
 
 ### Analyse a project locally
 
