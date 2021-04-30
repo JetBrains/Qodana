@@ -6,19 +6,12 @@
 
 Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2020.3-eap), [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
-The Qodana Docker image lets you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your
-code base. The current version [supports PHP, Java, and Kotlin for Server Side](supported-technologies.md); support for more languages and technologies is on its way.
-
-We provide two options optimized for different scenarios:
-- Running the analysis on a regular basis as a part of your continuous integration (*CI-based execution*)
-- Single-shot analysis (for example, performed *locally*)
-
-If you prefer the first option and have established continuous integration (CI) support for your project, this page
-will describe all available possibilities.  
-If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](https://github.com/JetBrains/Qodana/tree/main/TeamCity%20Plugin) as it gives more options.
+We provide a Docker image for the [Qodana linter](about-qodana.md) to support different usage scenarios:
+- Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
+- Single-shot analysis (for example, performed *locally*).
 
 If you are familiar with [JetBrains IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
-and know what to expect from the static analysis outside the editor, you can start with the "[Using existing profile](#Using+existing+profile)" section.
+and know what to expect from the static analysis outside the editor, you can start with the [Using existing profile](#Using+existing+profile) section.
 
 If you are just starting in the field, we recommend proceeding with the [default setup](#Quick+start+with+recommended+profile) we provide. You will see the
 results of the most common checks performed on your code base. Later, you can [adjust them](#Configure+via+qodana.yaml) to suit your needs better.
@@ -55,7 +48,7 @@ results of the most common checks performed on your code base. Later, you can [a
       jetbrains/qodana
    ```
 
-   The `output-directory` will contain [all the necessary results](output.md#Basic+output). You can further tune the command as described in the [technical guide](docker-techs.md).
+   The `output-directory` will contain [all the necessary results](qodana-output.md#Basic+output). You can further tune the command as described in the [technical guide](docker-techs.md).
 
    If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
 
@@ -72,7 +65,7 @@ results of the most common checks performed on your code base. Later, you can [a
 
   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.
 
-  The output of `output-directory` is described [here](output.md#Basic+output). Consider using [fail-thresold](qodana-yaml.md#Fail+threshold) to make the build fail on a certain number of problems reached. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
+  The output of `output-directory` is described [here](qodana-output.md#Basic+output). Consider using [fail-thresold](qodana-yaml.md#Fail+threshold) to make the build fail on a certain number of problems reached. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/qodana.yml`):
   

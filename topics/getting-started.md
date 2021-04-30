@@ -5,12 +5,13 @@
 ![](banner-main.png)
 
 **Qodana** is a code quality monitoring platform that allows companies to evaluate on multiple levels the quality of code they own, contract, or purchase.
-It brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs plus adds project-level checks like clone detection and license audit.
-Qodana takes different shapes: [Docker for any CI](docker-images.md), [GitHub action](github-action.md) & [application](qodana-github-application.md), a [TeamCity plugin](teamcity-plugins.md), and a separate [cloud service](service.md). They all share a common goal: ensuring that companies have more robust, more maintainable, and healthier code.
+It brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs plus adds project-level checks like clone detection.
 
-Qodana already supports PHP, Java, and Kotlin projects, and will eventually support all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs.
+Qodana includes a number of linters which take different shapes: [Docker images for any CI](docker-images.md), [GitHub action](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md). They all share a common goal: ensuring that companies have more robust, more maintainable, and healthier code.
 
---To try it out, proceed to the quick start guide below. Or first read more about all [Qodana linters](linters.md), the [UI](ui-overview.md), and [output](output.md).
+Qodana linters support PHP, Java, and Kotlin and will eventually include all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs.
+
+Learn more about [Qodana linters](linters.md), the [UI](ui-overview.md), or continue to the next section to make your first steps with Qodana.
 
 ## Qodana quick start guide
 

@@ -3,3 +3,4 @@
 ## Basic output
 
 Should be provded
+? copy "A sample report" from external blog post

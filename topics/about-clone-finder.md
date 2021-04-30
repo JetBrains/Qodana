@@ -2,32 +2,42 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-Qodana Clone Finder detects duplicates in code repositories. While static analysis within IntelliJ IDEs allows to find copied code within one project on an individual workstation, the new linter allows to search for code copies across multiple repositories, helping to avoid
+Qodana Clone Finder lets you check a queried project against a number of reference projects and lists all duplicate functions ranked by their importance. It is aimed to prevent problems rather than face them. By supporting CI integration, Clone Finder makes clone detection a routine check and allows finding borrowed code as early as possible.
+
+The current version [supports PHP, Java, and Kotlin for Server Side](supported-technologies.md); support for more languages and technologies is on its way.
+
+## Features
+
+Clone Finder uses a [block-based bag-of-tokens approach to clone detection](https://arxiv.org/pdf/2002.05204.pdf) that applies different similarity thresholds depending on the function size and token length, thus yielding diverse relevant results.
+
+### Types of clones detected
+* Identical code fragments with possible variations in whitespaces, layout, and comments
+* Syntactically equivalent fragments with some variations in identifiers, literals, types, whitespaces, layout and comments
+* Syntactically similar code with inserted, deleted, or updated statements.
+
+You can see a sample report in [Clone Finder Output](clone-finder-output.md).
+
+### Helps to avoid the following problems
+<!---update!--->
 * Penalties for unlicensed use of third-party code
 * Excessive project maintenance costs
 * Not fixing vulnerabilities in all instances of copied code.
 
-<!---Qodana Clone Finder allows to find code clones on the function level in six different languages: Java, Kotlin, Python, JavaScript, TypeScript, and Go.
-It uses a [block-based bag-of-tokens approach to clone detection](https://arxiv.org/pdf/2002.05204.pdf) that applies different similarity thresholds depending on the function size and token length, thus yielding diverse relevant results.
-Clone Finder uses a logistic regression model trained on a dataset of 200 pairs of clones using three metrics: number of identifiers, entropy of the identifiers, and average length of the identifiers. Types of clones detected:
-Clone Finder uses a logistic regression model trained on a dataset of 200 pairs of clones using three metrics: number of identifiers, entropy of the identifiers, and average length of the identifiers, finding the following types of clones:...
+## Distribution
 
-Clone Finder workflow
-1. Identifies the programming language.
-2. Parses code, extracts ASTs and then the following information for each function:
-* path to the file
-* identifier names
-* path to the function
-* all lines of code for the function.
-3. Searches for similar sets of identifiers taking into account the function size and the identifier frequency.
-As a result, Clone Finder lists per each component of the queried project:
-* clones
-* language
-* score
-* topic
-* license.!--->
+We provide the Clone Finder linter in a number of formats---.
 
-Qodana Clone Finder finds the following types of clones between a queried project and selected reference projects:
-* Identical code fragments but may have some variations in whitespace, layout, and comments
-* Syntactically equivalent fragments with some variations in identifiers, literals, types, whitespace, layout and comments
-* Syntactically similar code with inserted, deleted, or updated statements.
+[Docker image](clone-finder-docker-readme.md) supports different usage scenarios:
+- Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
+- Single-shot analysis (for example, performed *locally*)
+
+If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](clone-finder-teamcity-plugin.md) as it gives more options.
+
+
+
+
+
+
+
+
+
