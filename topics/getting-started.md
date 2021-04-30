@@ -6,15 +6,15 @@
 
 **Qodana** is a code quality monitoring platform that allows companies to evaluate on multiple levels the quality of code they own, contract, or purchase.
 It brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs plus adds project-level checks like clone detection and license audit.
-Qodana takes different shapes: [Docker for any CI](docker-images.md), [GitHub actions](github-action.md) & [application](qodana-github-application.md), a [TeamCity plugin](teamcity-plugins.md), and a separate [cloud service](service.md). They all share a common goal: ensuring that companies have more robust, more maintainable, and healthier code.
+Qodana takes different shapes: [Docker for any CI](docker-images.md), [GitHub action](github-action.md) & [application](qodana-github-application.md), a [TeamCity plugin](teamcity-plugins.md), and a separate [cloud service](service.md). They all share a common goal: ensuring that companies have more robust, more maintainable, and healthier code.
 
 Qodana already supports PHP, Java, and Kotlin projects, and will eventually support all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs.
 
-Next, you can proceed to the quick start guide below for the Qodana linter or read more about all [Qodana linters](linters.md), the [UI](ui-overview.md), and [output](output.md).
+--To try it out, proceed to the quick start guide below. Or first read more about all [Qodana linters](linters.md), the [UI](ui-overview.md), and [output](output.md).
 
 ## Qodana quick start guide
 
-### Analyse project locally
+### Analyse a project locally
 
 To start, pull the image from Docker Hub (only necessary to get the latest version):
 
@@ -32,11 +32,11 @@ where `source-directory` should point to the root of your project.
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
-Please read our [Docker guide](docker-readme.md) for more options and details related to the Qodana execution.
+Please read our [Docker guide](docker-images.md) for more options and details related to the Qodana execution.
 
 ### Run at GitHub
 
-You can set up a workflow in your GitHub repository using the [GitHub action](github-overview.md) we published.
+You can set up a workflow in your GitHub repository using the [GitHub action](github-action.md) we published.
 
 ## License
 
