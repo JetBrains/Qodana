@@ -23,9 +23,9 @@ We provide a Docker image for the [Clone Finder linter](about-clone-finder.md) t
 
    ```shell
    docker run --rm -it -p 8080:8080 \
-      -v "/<queried-project-directory>/:/data/project/" \
-      -v "/<reference-projects-directory>/:/data/versus/" \ 
-      -v "/<output-directory>/:/data/results/" \
+      -v <queried-project-directory>/:/data/project/ \
+      -v <reference-projects-directory>/:/data/versus/ \ 
+      -v <output-directory>/:/data/results/ \
       jetbrains/qodana-clone-finder --show-report
    ```
 
@@ -49,9 +49,9 @@ In case you don't need the user interface and prefer to study raw data, use the 
 
    ```shell
    docker run --rm -it \
-      -v "/<source-directory>/:/data/project/" \
-      -v "/<queried-projects-directory>/:/data/versus/" \ 
-      -v "/<output-directory>/:/data/results/" \
+      -v <source-directory>/:/data/project/ \
+      -v <queried-projects-directory>/:/data/versus/ \ 
+      -v <output-directory>/:/data/results/ \
       jetbrains/qodana-clone-finder 
    ```
 
@@ -67,9 +67,9 @@ If reference projects are not located under the same root directory, you can use
 Example: 
 ```shell 
 docker run --rm -it -p 8080:8080\
-  -v "/project:/data/project" \
-  -v "/somepath/versus_project1:/data/versus/project1" \
-  -v "/anotherpath/versus_project2:/data/versus/project2" \
+  -v <project_folder>/project/:/data/project/ \
+  -v somepath/versus_project1/:/data/versus/project1/ \
+  -v anotherpath/versus_project2/:/data/versus/project2/ \
   jetbrains/qodana-clone-finder  --show-report
 ```
 
@@ -79,9 +79,9 @@ docker run --rm -it -p 8080:8080\
 
    ```shell
    docker run --rm -it \
-      -v "/<queried-project-directory>:/data/project" \
-      -v "/<reference-projects-directory>/:/data/versus" \ 
-      -v "/<output-directory>/:/data/results" \
+      -v <queried-project-directory>/:/data/project/ \
+      -v <reference-projects-directory>/:/data/versus/ \ 
+      -v <output-directory>/:/data/results/ \
       jetbrains/qodana-clone-finder 
    ```
 
