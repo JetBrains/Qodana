@@ -9,11 +9,26 @@ It brings into your CI/CD pipelines all the smart features you love in the JetBr
 
 Qodana allows you to get an overview of the project quality, set quality targets, and track progress on them. You can quickly adjust the list of checks applied for the project and include or remove directories from the analysis.
 
-Qodana platform includes a number of linters which are available as [Docker images for any CI](docker-images.md), [GitHub Actions](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md).
+Qodana includes
+- Command-line tools (linters): project working copy analysis locally or in any CI
+    - [Linters](linters.md)
+    - [Docker images](docker-images.md)
+- UX/UI: role-based reporting, workflows
+    - [Web UI](ui-overview.md) 
+    - [Project audit results]()
+- ?Configuration
+    - qodana.yaml
+- Plugins: extensibility and integration
+    - [TeamCity plugins](teamcity-plugins.md)
+    - [GitHub Actions](github-action.md) & [application](qodana-github-application.md)
+- Cloud service: trends, history
+    - [Cloud service](service.md)
+
+<!---a number of linters which are available as [Docker images for any CI](docker-images.md), [GitHub Actions](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md). Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.
+Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.!--->
 
 Qodana linters support PHP, Java, and Kotlin and will eventually include all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs.
 
-Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.
 
 ## Quick start guide
 
