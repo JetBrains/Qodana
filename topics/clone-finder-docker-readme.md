@@ -90,8 +90,31 @@ where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<ou
 The content of `<output-directory>` is described in [Clone Finder Output](clone-finder-output.md#Basic+output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/clone-finder-qodana.yml`):
---- to be provided ---
 
+```shell
+name: Qodana - Clone Finder
+on:
+  workflow_dispatch:
+jobs:
+  qodana:
+    runs-on: ubuntu-latest
+    steps:
+      # clone your project to ./project/
+      - uses: actions/checkout@v2
+        with:
+          path: ./project/
+      # clone the repositories to ./versus/
+      - uses: actions/checkout@v2
+        with:
+          repository: JetBrains-Research/buckwheat
+          path: ./versus/buckwheat
+      # run qodana-clone-finder
+      - name: Qodana - Clone Finder
+        uses: jetbrains/qodana-clone-finder-action@main
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ${{ github.workspace }}/qodana
+```
 
 - Example for GitLab CI (`.gitlab-ci.yml`):
 
