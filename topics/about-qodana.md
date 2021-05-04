@@ -20,5 +20,5 @@ Qodana is packed into a ready-to-use [Docker image](qodana-docker-readme.md) whi
 - Single-shot analysis (for example, performed *locally*)
 - --[GitHub Action](qodana-github-action.md)
 
-If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](https://github.com/JetBrains/Qodana/tree/main/TeamCity%20Plugin) as it gives more options.
+If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](qodana-teamcity-plugin.md) as it gives more options.
 <!---broken link!--->
