@@ -16,14 +16,16 @@ $ docker run jetbrains/qodana-clone-finder
 Usage:
   entrypoint [OPTIONS]
 
-Application options:
-  -w, --show-report  Serve an HTML report on port 8080
-  -l, --language [PHP|Java|Kotlin]
-        One or more languages to search clones in.
-  --verbose Show logs and debugging info.
-
-Help options:
-  --help         Show this help message
+Application & help options:
+  -i, --project-dir DIRECTORY     Project folder to compare
+  -o, --results-dir PATH          Save results to folder
+  -v, --versus-dir DIRECTORY      Folders to compare project with
+  -s, --save-report               Generate HTML report
+  -w, --show-report               Serve html report on port 8080
+  -l, --language [PHP|Go|JavaScript|TypeScript|Java|Kotlin|Python]
+                                  One or more languages to search clones with
+  --verbose                       Show logs and debugging info
+  --help                          Show this message and exit
 ```
 
 Examples of execution tuneup:
