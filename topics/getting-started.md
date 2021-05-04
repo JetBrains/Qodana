@@ -9,25 +9,28 @@ It brings into your CI/CD pipelines all the smart features you love in the JetBr
 
 Qodana allows you to get an overview of the project quality, set quality targets, and track progress on them. You can quickly adjust the list of checks applied for the project and include or remove directories from the analysis.
 
-Qodana includes
-- Command-line tools (linters): project working copy analysis locally or in any CI
-    - [Linters](linters.md)
-    - [Docker images](docker-images.md)
-- UX/UI: role-based reporting, workflows
-    - [Web UI](ui-overview.md) 
-    - [Project audit results]()
-- ?Configuration
-    - qodana.yaml
-- Plugins: extensibility and integration
-    - [TeamCity plugins](teamcity-plugins.md)
-    - [GitHub Actions](github-action.md) & [application](qodana-github-application.md)
-- Cloud service: trends, history
-    - [Cloud service](service.md)
+### Components
+Qodana includes a growing number of command-line tools ([linters](linters.md)) which provide project analysis locally or in any CI. 
+
+### Results
+The [project audit results]() are available as JSON files and 
+[web reports](ui-overview.md) featuring
+- role-based reporting
+- workflows
+- easy navigation from diagrams to code.
+
+### Distribution
+To facilitate integration, extensibility, and advanced reporting, Qodana linters are supplied in a number of distribution formats and web services: 
+- [Docker images](docker-images.md)
+- [Plugins](teamcity-plugins.md)
+- [GitHub Actions](github-action.md) & [application](qodana-github-application.md)
+- [Cloud service](service.md)
 
 <!---a number of linters which are available as [Docker images for any CI](docker-images.md), [GitHub Actions](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md). Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.
 Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.!--->
 
-Qodana linters support PHP, Java, and Kotlin and will eventually include all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs.
+### Supported languages
+PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
 
 
 ## Quick start guide
