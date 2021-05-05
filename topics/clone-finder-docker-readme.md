@@ -118,7 +118,8 @@ jobs:
 
 - Example for GitLab CI (`.gitlab-ci.yml`):
 
-`--- to be provided ---
+
+[//]: # "to be provided"
 
 
 ## Usage statistics

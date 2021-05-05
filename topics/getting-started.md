@@ -53,8 +53,8 @@ To facilitate integration, extensibility, and advanced reporting, Qodana linters
 - [GitHub Actions](github-action.md) & [application](qodana-github-application.md)
 - [Cloud service](service.md)
 
-<!---a number of linters which are available as [Docker images for any CI](docker-images.md), [GitHub Actions](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md). Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.
-Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.!--->
+[//]: # "a number of linters which are available as [Docker images for any CI](docker-images.md), [GitHub Actions](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md). Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.
+Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.!"
 
 ### Supported languages
 PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.

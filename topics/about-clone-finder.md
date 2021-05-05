@@ -18,7 +18,9 @@ Clone Finder uses a [block-based bag-of-tokens approach to clone detection](http
 You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 
 ### Helps to avoid the following problems
-<!---update!--->
+
+[//]: # "update!"
+
 * Penalties for unlicensed use of third-party code
 * Excessive project maintenance costs
 * Not fixing vulnerabilities in all instances of copied code.

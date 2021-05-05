@@ -8,4 +8,4 @@ First, it does help improve code outside an IDE both on a local machine or a bui
 
 Second, on top of bug-detection Qodana continuously extends its number of linters to provide complete Project Audit. 
 
-<!--- provide Project Audit featuring such tools as Taint Analysis, License Audit, Clone Finder, and --Project Compliance.!--->
+[//]: # "provide Project Audit featuring such tools as Taint Analysis, License Audit, Clone Finder, and --Project Compliance.!"
