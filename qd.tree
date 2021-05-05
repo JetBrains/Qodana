@@ -10,11 +10,14 @@
     </toc-element>
         
     <toc-element id="linters.md" toc-title="About Qodana Linters">
-         <toc-element id="about-qodana.md"/>
+         <toc-element id="about-qodana.md">
              <toc-element id="qodana-output.md"/>
-         <toc-element id="about-clone-finder.md"/>
-             <toc-element id="clone-finder-output.md"/>
+         </toc-element>
+         <toc-element id="about-clone-finder.md">
+            <toc-element id="clone-finder-output.md"/>
+         </toc-element>
     </toc-element>
+
     <toc-element id="project-audit.md">
         <toc-element id="ui-overview.md"/>
     </toc-element>
@@ -22,8 +25,10 @@
     <toc-element id="docker-images.md">
         <toc-element id="qodana-docker-readme.md">
             <toc-element id="qodana-docker-techs.md"/>
-        <toc-element id="clone-finder-docker-readme.md"/>
+        </toc-element>
+        <toc-element id="clone-finder-docker-readme.md">
             <toc-element id="clone-finder-docker-techs.md"/>
+        </toc-element>
     </toc-element>
 
     <toc-element id="github-action.md">
@@ -36,9 +41,10 @@
     <toc-element id="service.md"/>
 
     <toc-element id="teamcity-plugins.md">
-        <toc-element id="qodana-teamcity-plugin.md"/>
+        <toc-element id="qodana-teamcity-plugin.md">
             <toc-element id="teamcity-plugin-quick-start.md"/>
             <toc-element id="teamcity-plugin-configuration.md"/>
+        </toc-element>
         <toc-element id="clone-finder-teamcity-plugin.md"/>
     </toc-element>
 
