@@ -87,7 +87,7 @@ docker run --rm -it -p 8080:8080\
 
 where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<output-directory>` are full paths to the directories that contain, respectively, the project source code, one or more projects to compare against, and the analysis results.
   
-The content of `<output-directory>` is described in [Clone Finder Output](clone-finder-output.md#Basic+output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](docker-techs.md#Run+as+non-root) is also supported.
+The content of `<output-directory>` is described in [Clone Finder Output](clone-finder-output.md#Basic+output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](clone-finder-docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/clone-finder-qodana.yml`):
 

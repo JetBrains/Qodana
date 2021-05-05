@@ -170,7 +170,7 @@ In **GitHub** workflow you can utilise [actions/cache](https://docs.github.com/e
 
 ## Turn off user statistics
 
-To disable the [reporting of usage statistics](docker-readme.md#Usage+statistics), adjust the `idea.headless.enable.statistics` value:
+To disable the [reporting of usage statistics](qodana-docker-readme.md#Usage+statistics), adjust the `idea.headless.enable.statistics` value:
 
 ```shell
 docker run  -e IDE_PROPERTIES_PROPERTY="-Didea.headless.enable.statistics=false" <image-name> 
