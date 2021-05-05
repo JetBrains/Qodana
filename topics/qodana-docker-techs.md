@@ -164,7 +164,7 @@ Example for **local** run:
    ```
 In this case mapping the same `<cache-directory>` would speedup second run.
 
-In **GitHub** workflow you can utilise [actions/cache](https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows), see [full example](docker-readme.md#Run+analysis+in+CI).
+In **GitHub** workflow you can utilise [actions/cache](https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows), see [full example](qodana-docker-readme.md#Run+analysis+in+CI).
 
 **GitLab** CI also has [cache](https://docs.gitlab.com/ee/ci/caching/) which can be stored [only inside](https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths) the project directory. In this case, we recommend excluding the cache folder from inspection via [qodana.yaml](qodana-yaml.md#Exclude+paths).
 
