@@ -111,7 +111,7 @@ This section is intended for users familiar with configuring code analysis via [
 
 You can pass the reference to the existing profile in [multiple ways](https://github.com/JetBrains/Qodana/blob/main/Docker/techs.md#order-of-resolving-profile). Here are some examples:
 
-- Mapping profile to `/data/profile.xml` inside of container:
+- Mapping the profile to `/data/profile.xml` inside the container:
 
   ```shell
         docker run --rm -it -p 8080:8080 \
@@ -121,7 +121,7 @@ You can pass the reference to the existing profile in [multiple ways](https://gi
             jetbrains/qodana --show-report
        ```
 
-- Using name of profile in your project `.idea/inspectionProfiles/` folder:
+- Using the name of the profile in your project `.idea/inspectionProfiles/` folder:
 
   ```shell
         docker run --rm -it -p 8080:8080 \

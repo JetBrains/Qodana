@@ -1,6 +1,7 @@
-[//]: # (title: Output formats for Clone Finder)
+[//]: # (title: Clone Finder Output Formats)
+
+[![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 ## Basic output
 
 Should be provded
-? copy "A sample report" from external blog post

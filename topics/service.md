@@ -1,4 +1,4 @@
-[//]: # (title: Qodana as a service)
+[//]: # (title: Qodana as a Service)
 
 If you need static analysis as a standalone cloud service, we recommend using [TeamCity Cloud](https://www.jetbrains.com/teamcity/cloud/) with the Qodana plugin. After creating your TeamCity Cloud instance, please contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) - we will add the plugin to it!
 

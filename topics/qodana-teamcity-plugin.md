@@ -1,4 +1,4 @@
-[//]: # (title: TeamCity Plugin)
+[//]: # (title: Qodana TeamCity Plugin)
 
 The Qodana plugin for TeamCity lets you add static analysis to your build chain.
 

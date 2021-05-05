@@ -27,14 +27,15 @@ You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 
 ## Distribution
 
-We provide the Clone Finder linter in a number of formats---.
+We provide the Clone Finder linter in a number of distribution formats.
 
-Clone Finder is packed into a ready-to-use [Docker image](clone-finder-docker-readme.md) which supports different usage scenarios:
-- Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
-- Single-shot analysis (for example, performed *locally*)
-- - --[GitHub Action](clone-finder-github-action.md)
+1. Clone Finder is packed into a ready-to-use [Docker image](clone-finder-docker-readme.md) which supports different usage scenarios:
+    - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
+    - Single-shot analysis (for example, performed *locally*)
 
-If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](clone-finder-teamcity-plugin.md) as it gives more options.
+2. If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](clone-finder-teamcity-plugin.md) as it gives more options.
+
+3. Try out Clone Finder features on GitHub as [GitHub Action](clone-finder-github-action.md).
 
 
 
