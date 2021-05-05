@@ -4,10 +4,10 @@
 
 ![EAP](eap-alert.png)
 
-Tools created by JetBrains are capable of detecting dozens of error-types and inconsistencies in your repository.
-Their flexible mechanisms of resolving problems allow you to easier improve the code structure, conform your code to numerous guidelines and standards, detect performance issues, and so on.
+Tools created by JetBrains are capable of detecting dozens of error types and inconsistencies in your repository.
+Their flexible mechanisms of resolving problems simplify improving the code structure, conforming your code to numerous guidelines and standards, detecting performance issues, and so on.
 
-And now with the Qodana App and Actions available in GitHub, all these features are just around the corner!
+And now with the Qodana App and Actions available on GitHub, all these features are just around the corner!
 
 While the [Qodana GitHub App](qodana-github-application.md) supports only public repositories, for private repositories use the Qodana GitHub Action as described in this section.
 

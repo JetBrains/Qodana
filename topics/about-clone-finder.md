@@ -19,7 +19,7 @@ You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 
 ### Helps to avoid the following problems
 
-[//]: # "update!"
+[//]: # "sync with the blog post!"
 
 * Penalties for unlicensed use of third-party code
 * Excessive project maintenance costs
@@ -35,7 +35,7 @@ We provide the Clone Finder linter in a number of distribution formats.
 
 2. If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](clone-finder-teamcity-plugin.md) as it gives more options.
 
-3. Try out Clone Finder features on GitHub as [GitHub Action](clone-finder-github-action.md).
+3. Try out Clone Finder features on GitHub as a [GitHub Action](clone-finder-github-action.md).
 
 
 
