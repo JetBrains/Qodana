@@ -13,7 +13,7 @@ We provide a Docker image for the [Qodana linter](about-qodana.md) to support di
 If you are familiar with [JetBrains IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
 and know what to expect from the static analysis outside the editor, you can skip the following section and continue from [Using an existing profile](#Using+an+existing+profile).
 
-If you are just starting in the field, we recommend proceeding with the [default setup](#Quick-start-with-the-recommended-profile) we provide. You will see the
+If you are just starting in the field, we recommend proceeding with the [default setup](#Quick+start+with+the+recommended+profile) we provide. You will see the
 results of the most common checks performed on your code base. Later, you can [adjust them](#Configure+via+qodana.yaml) to suit your needs better.
 
 ## Quick start with the recommended profile
