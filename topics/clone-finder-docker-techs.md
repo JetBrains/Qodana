@@ -41,3 +41,13 @@ Examples of execution tuneup:
   docker run ... <image-name> -l <language-name>
   ```
 
+## Run as non-root
+
+By default, the container runs as `root` user, so Qodana would be able to read any bind-mounted volumes with the project and write the results. Which also leads to files in `results/` folder owned by `root` after the run.  
+To avoid this, you can run container as a current user:
+
+```shell
+docker run -u $UID ...
+# or
+docker run -u $(id -u):$(id -g) ...
+```
