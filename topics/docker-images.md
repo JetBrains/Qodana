@@ -1,1 +1,1 @@
-# Qodana Docker Images
+[//]: # (title: Qodana Docker Images)
