@@ -1,4 +1,4 @@
-[//]: # (title: Spin web server to see Qodana results)
+[//]: # (title: HTML report)
 
 ### Local run
 
@@ -27,4 +27,3 @@ To view the report in the already generated `report/` folder:
    ```
 
 The report is available at [http://localhost:8000](http://localhost:8000). You can stop the web server by pressing `Ctrl-C`.
-

@@ -4,13 +4,13 @@
 
 ## Basic output
 
-<description required>
+description required
 
 An example of the Clone Finder command-line summary output:
 ```
 ---- Qodana - Clone Finder ----
 
-<description required>
+description required
 
 ```
 Full Clone Finder results are available in the file `report.json` located in the `results-dir` folder.
