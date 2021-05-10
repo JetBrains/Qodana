@@ -18,4 +18,4 @@ Full Clone Finder results are available in the file `report.json` located in the
 ## UI-compatible output
 
 In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
-See [HTML report section](html-report.md) for details.
+See [HTML report](html-report.md) section for details.
