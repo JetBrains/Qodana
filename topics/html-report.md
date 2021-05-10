@@ -1,7 +1,5 @@
 [//]: # (title: HTML report)
 
-### Local run
-
 Due to JavaScript security restrictions, the generated report cannot be viewed via the `file://` protocol (that is, by double-clicking the `index.html` file). Instead, you can use the `--show-report` argument to serve the HTML report locally via the `http://` protocol.
 To view the report in the already generated `report/` folder:
 - Docker
