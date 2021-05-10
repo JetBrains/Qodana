@@ -25,40 +25,5 @@ Full Qodana results are available in the file `results-allProblems.json` located
 
 ## UI-compatible output
 
-In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument. 
-
-### Local run
-
-Due to JavaScript security restrictions, the generated report cannot be viewed via the `file://` protocol (that is, by double-clicking the `index.html` file). Instead, you can use the `--show-report` argument to serve the HTML report locally via the `http://` protocol.
-To view the report in the already generated `report/` folder:
- - Docker
-    
-   ```shell
-    docker run -it --rm -p 8000:80 -v $(pwd)/report:/usr/share/nginx/html nginx
-    ```  
- - Python  
-    If you have python installed, you can serve current folder content via:
-    
-   ```shell
-    cd report/
-    python2 -m SimpleHTTPServer
-    # or
-    python3 -m http.server
-    ```
- - PHP  
-    If you have PHP installed, you can serve current folder content via:
-    
-   ```shell
-    cd report/
-    php -S localhost:8000
-    ```
-
-The report is available at [http://localhost:8000](http://localhost:8000). You can stop the web server by pressing `Ctrl-C`.
-
-### GitLab CI
-
-In case of [GitLab CI](https://github.com/JetBrains/Qodana/tree/main/Docker#quick-start-with-recommended-profile), you can directly view the report by opening `report/index.html` from artifacts. 
-
-### GitHub action
-
-For [Github Action](https://github.com/JetBrains/Qodana/tree/main/Docker#quick-start-with-recommended-profile), consider uploading artifacts to some [s3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/static-website-hosting.html) or using [Qodana Github App](https://github.com/JetBrains/Qodana/blob/main/GitHub/README.md#qodana-github-app) instead.
+In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
+See [HTML report section](html-report.md) for details.
