@@ -1,4 +1,4 @@
-[//]: # (title: Qodana Docker Image)
+[//]: # (title: Qodana IntelliJ Docker Image)
 
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg) ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana.svg)
 
@@ -6,7 +6,7 @@
 
 Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2020.3-eap), [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
-We provide a Docker image for the [Qodana linter](about-qodana.md) to support different usage scenarios:
+We provide a Docker image for the [Qodana IntelliJ linter](about-qodana.md) to support different usage scenarios:
 - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
 - Single-shot analysis (for example, performed *locally*).
 
@@ -153,7 +153,7 @@ According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/
 
 ## License
 
-By using the Qodana Docker image, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).  
+By using the Qodana IntelliJ Docker image, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).  
 The Docker image includes the evaluation license, which will expire in 30 days. Please ensure you pull a new image on time.
 
 ## Contact

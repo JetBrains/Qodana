@@ -18,7 +18,7 @@ the surrounding code. If you have JetBrains Toolbox installed, the **Open in IDE
 If you think that the problem is irrelevant, you can adjust the analysis based on the presumed reason:
 
 * The analysis of the file containing the error, or even the directory containing this file, doesn't make sense in your project.
-  *For example, it's actually not the source code but some generated or downloaded content*
+  *For example, it's actually not the source code but some generated or downloaded content.*
   
   In this case, you can *exclude* a file or directory from the future analysis. Click the file path to navigate to *File explorer* where you can recheck the condition and mark the file/directory as *excluded*.
 
@@ -32,7 +32,7 @@ If you think that the problem is irrelevant, you can adjust the analysis based o
     
 If you excluded either type/category or file/directory, the UI will remind you to save changes. Download the `qodana.yaml` file and store it under your project's root directory.
 
-## Files Explorer
+## File Explorer
 
 The second tab in the Problems table shows problems grouped by files and directories.
 

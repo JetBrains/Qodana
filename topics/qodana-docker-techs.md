@@ -3,7 +3,7 @@
 ## Docker image paths
 
 - **/data/project**       -- root directory of the project to be analyzed
-- **/data/results**       -- directory to store the analysis results, needs to be empty before the Qodana run
+- **/data/results**       -- directory to store the analysis results, needs to be empty before running Qodana IntelliJ
 - **/root/.config/idea**  -- idea configuration directory
 - **/opt/idea**           -- directory of the idea distributive
 - **/data/profile.xml**   -- used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving profile](#Order+of+resolving+profile).
@@ -84,7 +84,7 @@ Examples of execution tuneup:
 
 ## Order of resolving profile
 
-Qodana checks the configuration parameters for resolving the inspection profile in this order:
+Qodana IntelliJ checks the configuration parameters for resolving the inspection profile in this order:
 1. Profile with the name `%name%` from the command line option `-profileName %name%`.
 2. Profile by the path `%path%` from the command line option `-profilePath %path%`.
 3. Profile with the name `%name%` from `qodana.yaml`.
@@ -94,7 +94,7 @@ Qodana checks the configuration parameters for resolving the inspection profile 
 
 ## Plugins management
 
-The Qodana image contains selected Idea Ultimate plugins + PHP plugin.
+The Qodana IntelliJ image contains selected IDEA Ultimate plugins + a PHP plugin.
 
 Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate with us to make it work.
 
@@ -127,7 +127,7 @@ To change the plugins list, do any of the following:
 
 ## Analyze changes
 
-Qodana allows checking only changed files:
+Qodana IntelliJ allows checking only changed files:
 
 ```shell
 docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' <image-name> -changes
@@ -137,7 +137,7 @@ You can adjust the `idea.required.plugins.id` value and keep only the CVS plugin
 
 ## Run as non-root
 
-By default, the container is run as the `root` user so that Qodana can read any volumes bind-mounted with the project and write the results. As a result, files in the `results/` folder are owned by the `root` after the run.  
+By default, the container is run as the `root` user so that Qodana IntelliJ can read any volumes bind-mounted with the project and write the results. As a result, files in the `results/` folder are owned by the `root` after the run.  
 To avoid this, you can run the container as a regular user:
 
 ```shell
@@ -146,13 +146,13 @@ docker run -u $UID ...
 docker run -u $(id -u):$(id -g) ...
 ```
 
-Note that in this case, the `results/` folder on host should already be created and owned by you. Otherwise, Docker will create it as `root` and Qodana will not be able to write to it.
+Note that in this case, the `results/` folder on host should already be created and owned by you. Otherwise, Docker will create it as `root` and Qodana IntelliJ will not be able to write to it.
 
 ### Cache dependencies
 
-You can decrease the time for Qodana run by persisting cache from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
+You can decrease the time for a Qodana IntelliJ run by persisting cache from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
 
-By default, Qodana would save caches to folder `/data/cache` inside container. This location could be changed via `--cache-dir` cli argument. The data inside is per-repository, so you can pass cache from `branch-a` to build checking `branch-b`. In this case, only new dependencies would be downloaded, if they were added. The cache feature is available starting from `2021.1-eap` image.
+By default, Qodana IntelliJ  would save caches to folder `/data/cache` inside container. This location could be changed via `--cache-dir` cli argument. The data inside is per-repository, so you can pass cache from `branch-a` to build checking `branch-b`. In this case, only new dependencies would be downloaded, if they were added. The cache feature is available starting from `2021.1-eap` image.
 
 Example for **local** run:
    ```

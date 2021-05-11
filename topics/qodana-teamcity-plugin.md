@@ -1,6 +1,6 @@
-[//]: # (title: Qodana TeamCity Plugin)
+[//]: # (title: Qodana IntelliJ TeamCity Plugin)
 
-The Qodana plugin for TeamCity lets you add static analysis to your build chain.
+The Qodana IntelliJ plugin for TeamCity lets you add static analysis to your build chain.
 
 The plugin provides:
 * Build runner
@@ -16,7 +16,7 @@ The plugin lets you add the code quality checks in the TeamCity pipeline or even
 
 ## License
 
-By using the Qodana plugin, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+By using the Qodana IntelliJ plugin, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
 
 ## Contact
 

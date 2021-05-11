@@ -7,12 +7,12 @@ The Qodana Clone Finder plugin for TeamCity lets you extend Qodana static analys
 ## Quick start
 
 * Ensure you have [Qodana](qodana-teamcity-plugin.md) plugin installed
-* Install Qodana Clone Finder plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/15498-qodana)
+* Install the Qodana Clone Finder plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/15498-qodana)
 
 The Clone Finder plugin extends Qodana build runner simplifing [Clone Finder docker image](clone-finder-docker-readme.md) usage.
 Qodana UI will provide the handly way to inspect the results.
 
-In sections Checks you will find two inspections provided by Clone Finder:
+In the **Checks** section, you will find two inspections provided by Clone Finder:
 * Code Fragments/Clones 
 * Code Fragments/Clones with license violation
 
