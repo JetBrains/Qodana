@@ -6,6 +6,8 @@ In this section, you will learn how to configure HTML report parameters and trac
 
 ## HTML report structure
 
+![](general.png)
+
 1. **Sunburst diagram**   
   The interactive sunburst diagram gives you an idea of how bad the situation is, what problems are the most prominent, and lets you drill down into the cause of the issue. This chart is a result of our initial research and experiments. We believe that this visual representation dramatically enhances understanding of the data, which allows us to create more insightful views. 
    
@@ -15,7 +17,8 @@ In this section, you will learn how to configure HTML report parameters and trac
 3. **Checks total and configuration**
 
     For more information, see [Adjust your inspection profile](#Adjust+your+inspection+profile) below.
-   [//]: # "check the link"
+   
+[//]: # "check the link"
 3. **Problem explorer**
 
 4. **File explorer**
@@ -26,17 +29,16 @@ In this section, you will learn how to configure HTML report parameters and trac
 
     Code duplicates detected by Clone Finder are displayed in a [diff view](clone-finder-output.md#A+sample+decorated+diff), which is also decorated to make it easy to compare several copies.  
 
-![](general.png)
-
-Below the function diff in the Problem and File explorers, you can
-* **Open the respective file in the IDE**
- 
-  If you have JetBrains Toolbox installed, click the **Open file in IDE** button to open the file you are viewing in the editor.
+    Below the code fragment view in the Problem and File explorers, you can
+    * **Open the respective file in the IDE**
+     
+      If you have JetBrains Toolbox installed, click the **Open file in IDE** button to open the file you are viewing in the editor.
+      
+    * **Remove this item and similar problems from the future analysis**
+        
+      Click **More** and select the necessary option, as described in [Adjust the analysis scope](#Adjust-the-analysis-scope) below.
   
-* **Remove this item and similar problems from the future analysis**
-    
-  For more information, see [Adjust the analysis scope](#Adjust-the-analysis-scope) below.
-  [//]: # "check the link"
+[//]: # "check the link"
 
 ## Adjust your inspection profile 
 

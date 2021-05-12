@@ -1,6 +1,5 @@
-[//]: # (title: HTML Report)
+[//]: # (title: How to Open an HTML Report)
 
-## Open an HTML report in your browser
 Due to JavaScript security restrictions, the generated report cannot be viewed via the `file://` protocol (that is, by double-clicking the `index.html` file). Instead, you can use the `--show-report` argument to serve the HTML report locally via the `http://` protocol.
 If you have Docker, Python, or PHP installed, you can view the report in the already generated `report/` folder as follows:
 - Docker
@@ -24,6 +23,3 @@ If you have Docker, Python, or PHP installed, you can view the report in the alr
    ```
 
 The report is available at [http://localhost:8000](http://localhost:8000). You can stop the web server by pressing `Ctrl-C`.
-
-## A sample report
-[//]: # "copy from the blog post!"
