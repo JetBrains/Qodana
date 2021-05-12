@@ -8,7 +8,7 @@
 - **/opt/idea**           -- directory of the idea distributive
 - **/data/profile.xml**   -- used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving profile](#Order+of+resolving+profile).
 
-## Configuring
+## Configuratiom
 
 Available arguments:
 
@@ -82,7 +82,7 @@ Examples of execution tuneup:
    ```
 
 
-## Order of resolving profile
+## Order of resolving a profile
 
 Qodana IntelliJ checks the configuration parameters for resolving the inspection profile in this order:
 1. Profile with the name `%name%` from the command line option `-profileName %name%`.

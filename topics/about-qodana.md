@@ -42,7 +42,7 @@ PHP, Java, and Kotlin are already supported. Eventually, all [languages and tech
 
 ## License
 
-By using Qodana, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+By using Qodana linters, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
 
 ## Contact
 

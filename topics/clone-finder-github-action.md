@@ -9,7 +9,7 @@ The **Clone Finder GitHub Action** lets you include [Qodana Clone Finder](about-
 ## How to start
 {id="how-to-start-github-action"}
 
-Follow the guidelines for the [Qodana Clone Finder Github Action](https://github.com/marketplace/actions/qodana-clone-finder) on GitHub Marketplace.
+Follow the guidelines for the [Qodana Clone Finder GitHub Action](https://github.com/marketplace/actions/qodana-clone-finder) on GitHub Marketplace.
 
 ## Contact
 

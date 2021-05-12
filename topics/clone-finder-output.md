@@ -18,4 +18,13 @@ Full Clone Finder results are available in the file `report.json` located in the
 ## UI-compatible output
 
 In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
-See [HTML report](html-report.md) section for details.
+
+### Learn more
+
+* How to open a generated report in your browser: [HTML Report](html-report.md)
+
+* Basic structure and configuration of Qodana HTML reports: [UI Overview](ui-overview.md)
+
+* More information on command-line arguments for Clone Finder: [Docker Image Paths and Configuration Options](clone-finder-docker-techs.md)
+
+### A sample decorated diff

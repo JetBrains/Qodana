@@ -2,11 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-[//]: # "sync with the blog post!"
-
 Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance. The tool is designed to prevent problems rather than face the consequences down the line. By supporting CI integration, Clone Finder makes clone detection a routine check and reports borrowed code before it can lead to trouble.
-
-The current version [supports PHP, Java, and Kotlin for Server Side](supported-technologies.md); support for more languages and technologies is on its way.
 
 ## Features
 
@@ -19,11 +15,11 @@ Clone Finder uses a [block-based bag-of-tokens approach to clone detection](http
 
 You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 
-### Helps to avoid the following problems
+### Types of problems prevented
 
 * Penalties for the unlicensed use of third-party code
-* Excessive project maintenance costs due to overgrown codebase
-* Increased security risks because fixing detected vulnerabilities across all instances of the copied code can be difficult.
+* Excessive project maintenance costs due to overgrown codebases
+* Increased security risks because fixing detected vulnerabilities across all instances of the copied code can be difficult
 
 ## Try it now
 
@@ -49,18 +45,18 @@ where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<ou
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
-Please read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Qodana execution.
+Please read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Clone Finder execution.
 
 ### Run at GitHub
 
-You can set up a workflow in your GitHub repository using the [GitHub action](qodana-github-action.md) we published.
+You can set up a workflow in your GitHub repository using the [GitHub action](clone-finder-github-action.md) we published.
 
 ### Supported languages
 PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
 
 ## License
 
-By using Qodana, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+By using Qodana linters, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
 
 ## Contact
 
