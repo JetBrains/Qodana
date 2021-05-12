@@ -33,16 +33,17 @@ To facilitate integration, extensibility, and advanced reporting, Qodana linters
 
 ### Analyse a project locally
 
-To start, check Qodana [linters](linters.md) and pick the one you need. We don't pack all of them in Qodana-uber linter as it can be overwhelming.
+Start with [Qodana IntelliJ linter](about-qodana.md) or check other [linters](linters.md) we provide.
+
+```shell
+docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report
+```
+where `source-directory` should point to the root of your project. Please read our [Docker guide](docker-readme.md) for more options and details related to the Qodana execution.
+
+You will be able to check results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
 For all linters the procedure is the same generally, but due to the nature of analysis it can be more or less additional options required.
 We provide a detailed guide for every [linter](linters.md) with a lot of examples. It will be something as simple as
-
-```shell
-docker run --rm -it -p 8080:8080 <picked-linter-options> <qodana-linter name> --show-report
-```
-
-You will be able to check results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
 ### Run at GitHub
 
