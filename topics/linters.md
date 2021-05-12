@@ -8,4 +8,13 @@ First, it does help improve code outside an IDE both on a local machine or a bui
 
 Second, on top of bug-detection Qodana continuously extends its number of linters to provide complete Project Audit. 
 
-[//]: # "provide Project Audit featuring such tools as Taint Analysis, License Audit, Clone Finder, and --Project Compliance.!"
+Linters you can try right now:
+* [Qodana IntelliJ](about-qodana.md) - all 'smarts' from IntelliJ IDEs
+* [Qodana Clone Finder](about-clone-finder.md) - code duplication detection across different projects
+  
+Linter coming soon:
+* Qodana License Audit - third-party licenses compatibility verification
+
+Check the linter you want to try and follow the guidelines!
+
+

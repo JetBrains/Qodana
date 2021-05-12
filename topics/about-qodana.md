@@ -2,26 +2,48 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-The Qodana IntelliJ  linter lets you perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your
+The Qodana IntelliJ linter lets you perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your
 codebase. It brings all the smarts from IntelliJ IDEs: 
 
-[//]: # "list!"
+* anomalous code and probable bug detection
+* dead code elimination
+* spelling problems highlighting
+* overall code structure improvement
+* coding best practices introduction
 
-Qodana IntelliJ comprises two main parts: a nicely packaged GUI-less IntelliJ IDEA engine tailored for use in a CI pipeline as a typical linter tool and an interactive web-based reporting UI.
+## Try it now
 
-The current version [supports PHP, Java, and Kotlin for Server Side](supported-technologies.md); support for more languages and technologies is on its way.
+### Analyse a project locally
 
-## Distribution
+To start, pull the image from Docker Hub (only necessary to get the latest version):
 
-Modern CI-centric workflows require having a reliable quality gate in your build pipeline.
-It was technically possible to run JetBrains IDE inspections for the whole project in headless batch mode well before the CI era. However, integrating an IDE into the CI pipeline as a typical linter proved difficult.
+```shell
+docker pull jetbrains/qodana
+```
 
-1. Qodana IntelliJ is packed into a ready-to-use [Docker image](qodana-docker-readme.md) which supports different usage scenarios:
-    - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
-    - Single-shot analysis (for example, performed *locally*)
+and run the analysis locally:
 
-2. If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](qodana-teamcity-plugin.md) as it gives more options.
+```shell
+docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report
+```
 
-[//]: # "broken link!"
+where `source-directory` should point to the root of your project.
 
-3. Try out Qodana IntelliJ on GitHub as a [GitHub Action](qodana-github-action.md) or [GitHub Application](qodana-github-application.md).
+Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
+
+Please read our [Docker guide](docker-images.md) for more options and details related to the Qodana execution.
+
+### Run at GitHub
+
+You can set up a workflow in your GitHub repository using the [GitHub action](github-action.md) we published.
+
+### Supported languages
+PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
+
+## License
+
+By using Qodana, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+
+## Contact
+
+Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We are eager to receive your feedback on the existing Qodana functionality and learn what other features you miss in it.

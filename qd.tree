@@ -30,7 +30,7 @@
         </toc-element>
     </toc-element>
 
-    <toc-element id="github-action.md">
+    <toc-element id="github-actions.md">
         <toc-element id="qodana-github-action.md"/>
         <toc-element id="clone-finder-github-action.md"/>
     </toc-element> 

@@ -22,26 +22,47 @@ You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 ### Helps to avoid the following problems
 
 * Penalties for the unlicensed use of third-party code
-* Excessive project maintenance costs due to overgrown codebases
+* Excessive project maintenance costs due to overgrown codebase
 * Increased security risks because fixing detected vulnerabilities across all instances of the copied code can be difficult.
 
-## Distribution
+## Try it now
 
-We provide the Clone Finder linter in a number of distribution formats.
+### Analyse a project locally
 
-1. Clone Finder is packed into a ready-to-use [Docker image](clone-finder-docker-readme.md) which supports different usage scenarios:
-    - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
-    - Single-shot analysis (for example, performed *locally*)
+To start, pull the image from Docker Hub (only necessary to get the latest version):
 
-2. If you don't have any CI for your project, we encourage you to try a free version of JetBrains [TeamCity](https://www.jetbrains.com/teamcity/), either in-cloud (currently in Beta) or on-premise. In this case, you can switch to our [TeamCity plugin](clone-finder-teamcity-plugin.md) as it gives more options.
+```shell
+docker pull jetbrains/qodana-clone-finder
+```
 
-3. Try out Clone Finder features on GitHub as a [GitHub Action](clone-finder-github-action.md).
+and run the analysis locally:
 
+```shell
+   docker run --rm -it -p 8080:8080 \
+      -v <queried-project-directory>/:/data/project/ \
+      -v <reference-projects-directory>/:/data/versus/ \ 
+      -v <output-directory>/:/data/results/ \
+      jetbrains/qodana-clone-finder --show-report
+   ```
 
+where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<output-directory>` are full local paths to the directories that contain, respectively, the project source code, one or more projects to compare against, and the analysis results.
 
+Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
+Please read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Qodana execution.
 
+### Run at GitHub
 
+You can set up a workflow in your GitHub repository using the [GitHub action](qodana-github-action.md) we published.
 
+### Supported languages
+PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
 
+## License
+
+By using Qodana, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
+
+## Contact
+
+Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We are eager to receive your feedback on the existing Qodana functionality and learn what other features you miss in it.
 

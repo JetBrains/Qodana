@@ -32,7 +32,7 @@ We provide a Docker image for the [Clone Finder linter](about-clone-finder.md) t
 where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<output-directory>` are full local paths to the directories that contain, respectively, the project source code, one or more projects to compare against, and the analysis results.
 
 Example of project structure:
-```
+```shell
 /
 ├── project
 │   └── project_working_directory (sources, downloaded dependencies etc)
@@ -115,12 +115,6 @@ jobs:
         with:
           path: ${{ github.workspace }}/qodana
 ```
-
-- Example for GitLab CI (`.gitlab-ci.yml`):
-
-
-[//]: # "to be provided"
-
 
 ## Usage statistics
 

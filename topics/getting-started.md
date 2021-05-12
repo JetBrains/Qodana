@@ -9,53 +9,47 @@ It brings into your CI/CD pipelines all the smart features you love in the JetBr
 
 Qodana allows you to get an overview of the project quality, set quality targets, and track progress on them. You can quickly adjust the list of checks applied for the project and include or remove directories from the analysis.
 
-## Quick start guide
-
-### Analyse a project locally
-
-To start, pull the image from Docker Hub (only necessary to get the latest version):
-
-```shell
-docker pull jetbrains/qodana
-```
-
-and run the analysis locally:
-
-```shell
-docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report
-```
-
-where `source-directory` should point to the root of your project.
-
-Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
-
-Please read our [Docker guide](docker-images.md) for more options and details related to the Qodana execution.
-
-### Run at GitHub
-
-You can set up a workflow in your GitHub repository using the [GitHub action](github-action.md) we published.
-
 ## Qodana at a glance
 ### Components
 Qodana includes a growing number of command-line tools ([linters](linters.md)) which provide project analysis locally or in any CI.
 
 ### Results
-The [inspection results](results.md) are available as JSON files and
-[web reports](ui-overview.md).
+Every linter provides two types of output:
+* [inspection results](results.md) are available as JSON files and
+* [Qodana UI](ui-overview.md) web report for interactive result investigation and configuration adjustment
+
+Qodana UI can be part of your CI user interface in case when CI supports the UI extension. If it doesn't you can spin Qodana UI on your own following our [guidelines](html-report.md).
+
+Qodana Cloud UI that comes in summer 2021 will let you see comparative analysis of your projects, aggregated results, trends, smart dashboards and even more. Stay tuned!
 
 ### Distribution
 To facilitate integration, extensibility, and advanced reporting, Qodana linters are supplied in a number of distribution formats and web services:
 - [Docker images](docker-images.md)
 - [Plugins](teamcity-plugins.md)
-- [GitHub actions](github-action.md) & [application](qodana-github-application.md)
+- [GitHub actions](github-actions.md) & [application](qodana-github-application.md)
 - [Cloud service](service.md)
 
-[//]: # "a number of linters which are available as [Docker images for any CI](docker-images.md), [GitHub Actions](github-action.md) & [application](qodana-github-application.md), [TeamCity plugins](teamcity-plugins.md), and a separate [cloud service](service.md). Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.
-Learn more about [Qodana linters](linters.md) and the [web-based UI](ui-overview.md), or continue to the next section to make your first steps check your code with Qodana.!"
+## Try it now
+
+### Analyse a project locally
+
+To start, check Qodana [linters](linters.md) and pick the one you need. We don't pack all of them in Qodana-uber linter as it can be overwhelming.
+
+For all linters the procedure is the same generally, but due to the nature of analysis it can be more or less additional options required.
+We provide a detailed guide for every [linter](linters.md) with a lot of examples. It will be something as simple as
+
+```shell
+docker run --rm -it -p 8080:8080 <picked-linter-options> <qodana-linter name> --show-report
+```
+
+You will be able to check results in your browser at [`http://localhost:8080`](http://localhost:8080).
+
+### Run at GitHub
+
+We published a dedicated GitHub Action for every Qodana [linter](linters.md) so you can easily include it in any GitHub workflow.
 
 ### Supported languages
 PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
-
 
 ## License
 
