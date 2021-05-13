@@ -4,12 +4,12 @@
 
 ![EAP](eap-alert.png)
 
-The **Clone Finder GitHub Action** lets you include [Qodana Clone Finder](about-clone-finder.md) into any GitHub pipelines. 
+The **Clone Finder GitHub action** lets you include [Qodana Clone Finder](about-clone-finder.md) into any GitHub pipelines. 
 
 ## How to start
 {id="how-to-start-github-action"}
 
-Follow the guidelines for the [Qodana Clone Finder GitHub Action](https://github.com/marketplace/actions/qodana-clone-finder) on GitHub Marketplace.
+Follow the guidelines for the [Qodana Clone Finder GitHub action](https://github.com/marketplace/actions/qodana-clone-finder) on GitHub Marketplace.
 
 ## Contact
 

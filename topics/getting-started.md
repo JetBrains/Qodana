@@ -15,12 +15,12 @@ Qodana includes a growing number of command-line tools ([linters](linters.md)) w
 
 ### Results
 Every linter provides two types of output:
-* [inspection results](results.md) are available as JSON files and
-* [Qodana UI](ui-overview.md) web report for interactive result investigation and configuration adjustment
+* JSON files separately described per each linter in the [Results](results.md) chapter
+* web report for interactive result investigation and configuration adjustment described in [UI Overview](ui-overview.md)
 
-Qodana UI can be part of your CI user interface in case when CI supports the UI extension. If it doesn't you can spin Qodana UI on your own following our [guidelines](html-report.md).
+Qodana UI can be part of your CI user interface in case your CI supports the UI extension. If it doesn't, you can spin Qodana UI on your own following our [guidelines](html-report.md).
 
-Qodana Cloud UI that comes in summer 2021 will let you see comparative analysis of your projects, aggregated results, trends, smart dashboards and even more. Stay tuned!
+Qodana Cloud UI that comes in summer 2021 will let you see comparative analysis of your projects, aggregated results, trends, smart dashboards, and even more. Stay tuned!
 
 ### Distribution
 To facilitate integration, extensibility, and advanced reporting, Qodana linters are supplied in a number of distribution formats and web services:
@@ -40,14 +40,15 @@ docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains
 ```
 where `source-directory` should point to the root of your project. Please read our [Docker guide](qodana-docker-readme.md) for more options and details related to the Qodana execution.
 
-You will be able to check results in your browser at [`http://localhost:8080`](http://localhost:8080).
+You will be able to [check results in your browser](html-report.md) at [`http://localhost:8080`](http://localhost:8080).
 
-For all linters the procedure is the same generally, but due to the nature of analysis it can be more or less additional options required.
-We provide a detailed guide for every [linter](linters.md) with a lot of examples. It will be something as simple as
+For all linters the procedure is basically the same, the differences and complete steps are provided in the detailed guides for every [distribution format](#Distribution).
+
+[//]: # "check the link"
 
 ### Run at GitHub
 
-We published a dedicated GitHub Action for every Qodana [linter](linters.md) so you can easily include it in any GitHub workflow.
+We published a dedicated GitHub action for every Qodana [linter](linters.md) so you can easily include it in any GitHub workflow.
 
 ### Supported languages
 PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.

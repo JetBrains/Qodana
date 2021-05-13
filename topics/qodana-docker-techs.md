@@ -127,7 +127,7 @@ To change the plugins list, do any of the following:
 
 ## Analyze changes
 
-Qodana IntelliJ allows checking only changed files:
+Qodana IntelliJ allows you to check only changed files:
 
 ```shell
 docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' <image-name> -changes

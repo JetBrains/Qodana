@@ -1,8 +1,8 @@
-[//]: # (title: Clone Finder TeachekcmCity Plugin)
+[//]: # (title: Clone Finder TeamCity Plugin)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-The Qodana Clone Finder plugin for TeamCity lets you extend Qodana static analysis with [clone finder](about-clone-finder.md) functionality.
+The Qodana Clone Finder plugin for TeamCity lets you extend Qodana static analysis with the [Clone Finder](about-clone-finder.md) functionality.
 
 ## Quick start
 

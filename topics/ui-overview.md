@@ -1,6 +1,6 @@
 [//]: # (title: UI Overview)
 
-The current version of Qodana UI focuses on the single-shot analysis. It allows browsing and acting on results as well as reconfiguring the list of checks.
+The current version of Qodana UI focuses on the single-shot analysis. It makes it easy to act on results and customize checks.
 
 In this section, you will learn how to configure HTML report parameters and track detected problems in files. For information on how to open such reports in your browser, see [HTML Report](html-report.md).
 
