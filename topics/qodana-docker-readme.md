@@ -133,7 +133,7 @@ You can pass the reference to the existing profile in [multiple ways](https://gi
 ## Configure via qodana.yaml
 
 The `qodana.yaml` file will be automatically recognised and used for the analysis configuration, so that you don't need to pass any additional parameters.  
-The references to the inspection profiles will be resolved [in a particular order](qodana-docker-techs.md#Order+of+resolving+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
+The references to the inspection profiles will be resolved [in a particular order](qodana-docker-techs.md#Order+of+resolving+a+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
 
 ## Plugins management
 

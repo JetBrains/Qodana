@@ -11,14 +11,14 @@ In this section, you will learn how to configure HTML report parameters and trac
 1. **Sunburst diagram**   
   The interactive sunburst diagram gives you an idea of how bad the situation is, what problems are the most prominent, and lets you drill down into the cause of the issue. 
    
-2. **Filter set**
-
-    To the right of the sunburst diagram, you can specify the files and folders, the linter, the types and categories of problems.
-3. **Checks total and configuration**
+2. **Checks total and configuration**
 
     On top of the diagram, you can see the totals for detected problems and conducted checks as well as click the gear icon to [configure the inspection profile](#Adjust+your+inspection+profile).
    
 [//]: # "check the link"
+3. **Filter set**
+
+   To the right of the sunburst diagram, you can specify the files and folders, the linter, the types and categories of problems.
 4. **Problem explorer**
 
     On the **Problems** tab below the sunburst diagram, detected problems are annotated, classified, and grouped by source files.

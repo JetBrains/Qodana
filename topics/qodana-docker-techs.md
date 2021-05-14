@@ -6,9 +6,9 @@
 - **/data/results**       -- directory to store the analysis results, needs to be empty before running Qodana IntelliJ
 - **/root/.config/idea**  -- idea configuration directory
 - **/opt/idea**           -- directory of the idea distributive
-- **/data/profile.xml**   -- used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving profile](#Order+of+resolving+profile).
+- **/data/profile.xml**   -- used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving a profile](#Order+of+resolving+a+profile).
 
-## Configuratiom
+## Configuration
 
 Available arguments:
 
