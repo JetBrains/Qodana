@@ -3,4 +3,4 @@
 ## List of Qodana GitHub actions available
 
 * [Qodana Code Inspection](https://github.com/marketplace/actions/qodana-code-inspection) 
-* Qodana Clone Finder linter 
+* Qodana Clone Finder 

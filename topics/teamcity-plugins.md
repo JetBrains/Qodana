@@ -8,7 +8,7 @@ Qodana plugins for TeamCity are an example of how fine-tuned our linters’ inte
 If you have your own installation of TeamCity, you can install the following Qodana plugins from JetBrains Marketplace:
 
 * [Code Inspection plugin](https://plugins.jetbrains.com/plugin/15498-qodana)
-* Clone Finder plugin
+* [Clone Finder plugin](https://plugins.jetbrains.com/plugin/16784-qodana-clone-finder)
 
 ## Qodana reporting features in TeamCity
 
