@@ -52,3 +52,11 @@ docker run -u $UID ...
 docker run -u $(id -u):$(id -g) ...
 ```
 Note that in this case, the `results/` folder on host should already be created and owned by you. Otherwise, Docker will create it as `root` and Qodana will not be able to write to it.
+
+## Turn off user statistics
+
+To disable the [reporting of usage statistics](clone-finder-docker-readme.md#Usage+statistics), add ```DISABLE_STAT_COLLECTION``` environment variable:
+
+```shell
+docker run -e DISABLE_STAT_COLLECTION=true <image-name> 
+```

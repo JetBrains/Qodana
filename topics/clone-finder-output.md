@@ -2,18 +2,41 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-## Basic output
+### Default output
 
-description required
+Full Clone Finder results are available in the file `report.json` located in the `results-dir` folder.
+
+### UI-compatible output
+
+In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
+See [HTML report](html-report.md) section for details.
+
+```shell
+├── asset-manifest.json  //UI
+├── index.html //UI
+├── preview.html //UI
+├── results // folder with inspectiond descriptions
+│   ├── descriptions
+│   │   └── <inspection name>.json // Inspection description
+│   ├── metaInformation.json // Metadata data about found problems
+│   ├── projectStructure
+│   │   └── <inspection name>.json // Inspection description
+│   └── result-allProblems.json // All found probelms
+└── versions // UI
+```
+
+### Command-line summary output
 
 An example of the Clone Finder command-line summary output:
+``` shell
+┏━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━┓
+┃ Repository ┃ Clones ┃ Functions ┃
+┡━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━┩
+│ buckwheat  │ 6      │ 72        │
+│ http4k     │ 0      │ 3519      │
+│ ideavim    │ 0      │ 4494      │
+└────────────┴────────┴───────────┘
 ```
----- Qodana - Clone Finder ----
-
-description required
-
-```
-Full Clone Finder results are available in the file `report.json` located in the `results-dir` folder.
 
 ## UI-compatible output
 

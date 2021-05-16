@@ -60,7 +60,35 @@ failThreshold: <number>
 
 When this number of problems is reached, container would do `exit 255`. Can be used to make the CI step fail.
 
-## Full example
+## Clone Finder License Override 
+
+```yaml
+version: 1.0
+profile:
+  name: qodana.recommended
+inspections:
+  CloneFinder:
+    failThreshold: 100
+    licenseOverrides:
+      - from: MIT
+        to: GPL-3.0-only
+        forwardCompatible: true
+        backwardCompatible: false
+exclude:
+  - name: CloneFinder
+    paths:
+      - copied_file_2.py
+```
+ 
+* **forwardCompatible** describes the compatibility from referenced project to the queried project
+* **backwardCompatible** describes the compatibility from queried project to the referenced project
+
+In this example the behaviour will be:
+If in the referenced project ('from' project) the code will be covered with GPL-3.0-only license and in queried project ('to' project) the license will be set to MIT, then the analysis will report license mismatch, otherwise there will be no warning for the clone found.
+
+In case when Clone Finder default license compatibility matrix suited yur needs you don't need any license overrides provided in qodana.yaml. 
+
+## Example with different include and exclude options
 
 ```yaml
 version: 1.0
@@ -79,3 +107,4 @@ exclude:
       - benchmarks
       - tools
 ```
+
