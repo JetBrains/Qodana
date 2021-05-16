@@ -145,7 +145,7 @@ Any free IntelliJ platform plugins or your custom plugin can be added by mountin
 docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
 ```
 
-Please refer to the [technical guide](qodana-docker-techs.md) for more details.
+Refer to the [technical guide](qodana-docker-techs.md) for more details.
 
 ## Usage statistics
 
@@ -154,7 +154,7 @@ According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/
 ## License
 
 By using the Qodana IntelliJ Docker image, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).  
-The Docker image includes the evaluation license, which will expire in 30 days. Please ensure you pull a new image on time.
+The Docker image includes the evaluation license, which will expire in 30 days. Ensure you pull a new image on time.
 
 ## Contact
 

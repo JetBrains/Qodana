@@ -45,7 +45,7 @@ where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<ou
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
-Please read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Clone Finder execution.
+Read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Clone Finder execution.
 
 ### Run at GitHub
 
