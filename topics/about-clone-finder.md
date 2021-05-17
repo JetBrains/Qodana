@@ -10,6 +10,7 @@ Clone Finder uses a [block-based bag-of-tokens approach to clone detection](http
 
 ### Clone comparison and similarity score calculation
 {id="similarity-score"}
+
 Plagiarism Detector uses a logistic regression model trained on a dataset of 200 pairs of clones using three metrics: number of identifiers, entropy of the identifiers, and average length of the identifiers, finding the following types of clones:
 * Identical code fragments with possible variations in whitespaces, layout, and comments
 * Syntactically equivalent fragments with some variations in identifiers, literals, types, whitespaces, layout and comments
