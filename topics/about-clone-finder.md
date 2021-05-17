@@ -2,7 +2,10 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance. The tool is designed to prevent problems rather than face the consequences down the line. By supporting CI integration, Clone Finder makes clone detection a routine check and reports borrowed code before it can lead to trouble.
+Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance. 
+In future, search by classes and files will be added.
+
+The tool is designed to prevent problems rather than face the consequences down the line. By supporting CI integration, Clone Finder makes clone detection a routine check and reports borrowed code before it can lead to trouble.
 
 ## Features
 
