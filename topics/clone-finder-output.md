@@ -2,7 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-### Default output
+## Basic output
 
 Full Clone Finder results are available in the file `report.json` located in the `results-dir` folder.
 
