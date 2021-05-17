@@ -14,7 +14,7 @@ If you have your own installation of TeamCity, you can install the following Qod
 
 After extending your build with Qodana, you’ll get the following capabilities:
 
-- An interactive report in a separate build tab
+- View an interactive report in a separate build tab
 - Compare problems and checks applied between builds
 - Report discovered problems as standard TeamCity tests so that you can assign investigations to the responsible team members
 - Use flexible build failure conditions

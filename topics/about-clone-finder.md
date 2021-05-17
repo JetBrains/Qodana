@@ -8,7 +8,8 @@ Qodana Clone Finder compares a queried project against a number of reference pro
 
 Clone Finder uses a [block-based bag-of-tokens approach to clone detection](https://arxiv.org/pdf/2002.05204.pdf) that applies different similarity thresholds depending on the function size and token length, thus yielding diverse relevant results.
 
-### Types of clones detected
+### Clone comparison and similarity score calculation
+Plagiarism Detector uses a logistic regression model trained on a dataset of 200 pairs of clones using three metrics: number of identifiers, entropy of the identifiers, and average length of the identifiers, finding the following types of clones:
 * Identical code fragments with possible variations in whitespaces, layout, and comments
 * Syntactically equivalent fragments with some variations in identifiers, literals, types, whitespaces, layout and comments
 * Syntactically similar code with inserted, deleted, or updated statements.

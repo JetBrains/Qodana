@@ -7,7 +7,21 @@
 
 Full Clone Finder results are available in the file `report.json` located in the `results-dir` folder.
 
-### UI-compatible output
+
+## Command-line output summary
+
+An example of the Clone Finder command-line summary output:
+``` shell
+┏━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━┓
+┃ Repository ┃ Clones ┃ Functions ┃
+┡━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━┩
+│ buckwheat  │ 6      │ 72        │
+│ http4k     │ 0      │ 3519      │
+│ ideavim    │ 0      │ 4494      │
+└────────────┴────────┴───────────┘
+```
+
+## UI-compatible output
 {id="clone-finder-ui-output"}
 
 In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
@@ -26,31 +40,6 @@ See [HTML report](html-report.md) section for details.
 │   └── result-allProblems.json // All found probelms
 └── versions // UI
 ```
-
-### Command-line summary output
-
-An example of the Clone Finder command-line summary output:
-``` shell
-┏━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━┓
-┃ Repository ┃ Clones ┃ Functions ┃
-┡━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━┩
-│ buckwheat  │ 6      │ 72        │
-│ http4k     │ 0      │ 3519      │
-│ ideavim    │ 0      │ 4494      │
-└────────────┴────────┴───────────┘
-```
-
-## UI-compatible output
-
-In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
-
-### Learn more
-
-* How to open a generated report in your browser: [HTML Report](html-report.md)
-
-* Basic structure and configuration of Qodana HTML reports: [UI Overview](ui-overview.md)
-
-* More information on command-line arguments for Clone Finder: [Docker Image Paths and Configuration Options](clone-finder-docker-techs.md)
 
 ### A sample decorated diff
 In addition to the sunburst diagram and other features of Qodana's [web report](ui-overview.md), Clone Finder makes the analysis of code duplicates more helpful and convenient.
@@ -76,3 +65,11 @@ By the way, to supplement this feature, we are working on another tool that will
 5. Language
 
     Displays the programming language of the clones. The EAP version of Clone Finder supports PHP, Java, and Kotlin.
+
+## Learn more
+
+* How to open a generated report in your browser: [HTML Report](html-report.md)
+
+* Basic structure and configuration of Qodana HTML reports: [UI Overview](ui-overview.md)
+
+* More information on command-line arguments for Clone Finder: [Docker Image Paths and Configuration Options](clone-finder-docker-techs.md)

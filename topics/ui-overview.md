@@ -21,7 +21,7 @@ In this section, you will learn how to configure HTML report parameters and trac
    
 4. **Problem explorer**
 
-    On the **Problems** tab below the sunburst diagram, detected problems are annotated, classified, and grouped by source files.
+    On the **Problems** tab below the sunburst diagram, detected problems are annotated, classified, and grouped by problem type and (optionally) path and file.
 
 5. **File explorer**
 
