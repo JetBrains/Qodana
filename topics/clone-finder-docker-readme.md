@@ -55,7 +55,7 @@ In case you don't need the user interface and prefer to study raw data, use the 
       jetbrains/qodana-clone-finder 
    ```
 
-The `<output-directory>` will contain [all the necessary results](clone-finder-output.md#Basic+output). You can further tune the command as described in the [technical guide](clone-finder-docker-techs.md).
+The `<output-directory>` will contain [all the necessary results](clone-finder-output.md#clone-finder-basic-output). You can further tune the command as described in the [technical guide](clone-finder-docker-techs.md).
 
 If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in `docker run` again.
 
@@ -87,7 +87,7 @@ docker run --rm -it -p 8080:8080\
 
 where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<output-directory>` are full paths to the directories that contain, respectively, the project source code, one or more projects to compare against, and the analysis results.
   
-The content of `<output-directory>` is described in [Clone Finder Output](clone-finder-output.md#Basic+output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](clone-finder-docker-techs.md#Run+as+non-root) is also supported.
+The content of `<output-directory>` is described in [Clone Finder Output](clone-finder-output.md#clone-finder-basic-output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](clone-finder-docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/clone-finder-qodana.yml`):
 
