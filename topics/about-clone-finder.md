@@ -11,10 +11,10 @@ The tool is designed to prevent problems rather than face the consequences down 
 
 Clone Finder uses a [block-based bag-of-tokens approach to clone detection](https://arxiv.org/pdf/2002.05204.pdf) that applies different similarity thresholds depending on the function size and token length, thus yielding diverse relevant results.
 
-### Clone comparison and similarity score calculation
-{id="similarity-score"}
+### Clone types and importance score calculation
+{id="importance-score"}
 
-Plagiarism Detector uses a logistic regression model trained on a dataset of 200 pairs of clones using three metrics: number of identifiers, entropy of the identifiers, and average length of the identifiers, finding the following types of clones:
+Clone Finder uses a logistic regression model to estimate the importance score of clones based on features like the number of identifiers, entropy of the identifiers, and average length of the identifiers, finding the following types of clones:
 * Identical code fragments with possible variations in whitespaces, layout, and comments
 * Syntactically equivalent fragments with some variations in identifiers, literals, types, whitespaces, layout and comments
 * Syntactically similar code with inserted, deleted, or updated statements.

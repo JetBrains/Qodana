@@ -26,7 +26,7 @@ The Qodana Cloud UI that comes in summer 2021 will let you see comparative analy
 To facilitate integration, extensibility, and advanced reporting, Qodana linters are supplied in a number of distribution formats and web services:
 - [Docker images](docker-images.md)
 - [Plugins](teamcity-plugins.md)
-- [GitHub actions](github-actions.md) & [application](qodana-github-application.md)
+- [GitHub actions](github-actions.md)  and [application](qodana-github-application.md)
 - [Cloud service](service.md)
 
 ## Try it now

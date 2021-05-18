@@ -25,7 +25,7 @@ An example of the Clone Finder command-line summary output:
 {id="clone-finder-ui-output"}
 
 In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
-See [HTML report](html-report.md) section for details.
+See [HTML Report](html-report.md) section for details.
 
 ```shell
 ├── asset-manifest.json  //UI

@@ -81,6 +81,7 @@ When viewing a code fragment with a detected problem, you may decide that it is 
       - Above the code fragment view, click the file path to navigate to File explorer where you can mark the file/directory as **excluded**.
 
 ![](problem-area.png)
+
 ![](folder-marked.png)
 
 
@@ -88,6 +89,7 @@ When viewing a code fragment with a detected problem, you may decide that it is 
 
       *Reason*: You suppose that the type of the error or its category is not relevant or want to get back to it later.  
       *Howto*: Under the code fragment view, click **More actions** and select the necessary option.
+   
       ![](more-actions.png)
 
 **Note**: If you exclude either type/category or file/directory, the UI will remind you to save the changes. Download the `qodana.yaml` file and store it under your project's root directory.
