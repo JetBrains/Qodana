@@ -14,7 +14,7 @@ The Qodana UI will provide the handy way to inspect the results.
 
 In the [inspection profile](ui-overview.md#Adjust+your+inspection+profile), you will find two inspections provided by Clone Finder:
 * Code Fragments/Clone 
-* Code Fragments/Clone with different licenses
+* Code Fragments/Clone with license mismatch
 
 [//]: # "![Build Tab](tab.png) - irrelevant"
 
