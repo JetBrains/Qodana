@@ -46,8 +46,9 @@ In addition to the sunburst diagram and other features of Qodana's [web report](
 - The detected clones are prioritized and displayed in the order of their importance.
 - When you expand an item, the duplicate code fragments are provided with decorated code diffs and are annotated with tags, licenses, languages, and file paths.
 
-[//]: # "![](php-diff.png)"
+![](php-diff.png "Figure 1. A diff example in PHP.")
 
+![](java-diff.png "Figure 2. A diff example in Java with a license mismatch warning.")
 Clone Finder highlights similar lines and presents the following information to help you investigate the problem:
 1. Score
 
