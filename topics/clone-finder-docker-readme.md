@@ -35,12 +35,13 @@ Example of project structure:
 ```shell
 /
 ├── project
-│   └── project_working_directory (sources, downloaded dependencies etc)
+│   └── project_source_code
 └── versus
     ├── project1
     │   └── source_code
     └── project2
     │   └── source_code
+    ...
 ```
 
 This command runs the analysis on your source code and starts the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the the [UI section](ui-overview.md) of this guide for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
@@ -68,8 +69,8 @@ Example:
 ```shell 
 docker run --rm -it -p 8080:8080\
   -v <project_folder>/project/:/data/project/ \
-  -v somepath/versus_project1/:/data/versus/project1/ \
-  -v anotherpath/versus_project2/:/data/versus/project2/ \
+  -v /somepath/versus_project1/:/data/versus/project1/ \
+  -v /anotherpath/versus_project2/:/data/versus/project2/ \
   jetbrains/qodana-clone-finder  --show-report
 ```
 
