@@ -55,7 +55,7 @@ Clone Finder highlights similar lines and presents the following information to 
     Lists all detected duplicate functions ranked by their importance.
 2. Tags
 
-    Categorizes detected copies using 256 topics (see Figure 2 for a dendrogram of supported topics).
+    Categorizes detected copies using 256 topics (see Figure 3 for a dendrogram of supported topics).
 3. Licenses
 
     Lists licenses related to duplicate code fragments detected in the compared projects.
@@ -66,6 +66,8 @@ By the way, to supplement this feature, we are working on another tool that will
 5. Language
 
     Displays the programming language of the clones. The EAP version of Clone Finder supports PHP, Java, and Kotlin.
+
+![](topic-tree.png.png "Figure 3. Topics dendrogram.")
 
 ## Learn more
 
