@@ -67,7 +67,7 @@ By the way, to supplement this feature, we are working on another tool that will
 
     Displays the programming language of the clones. The EAP version of Clone Finder supports PHP, Java, and Kotlin.
 
-![](topic-tree.png.png "Figure 3. Topics dendrogram.")
+![](topic-tree.png "Figure 3. Topics dendrogram.")
 
 ## Learn more
 
