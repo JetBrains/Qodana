@@ -47,8 +47,11 @@ In addition to the sunburst diagram and other features of Qodana's [web report](
 - When you expand an item, the duplicate code fragments are provided with decorated code diffs and are annotated with tags, licenses, languages, and file paths.
 
 ![](php-diff.png "Figure 1. A diff example in PHP.")
+<figcaption>A diff example in PHP.</figcaption>
 
 ![](java-diff.png "Figure 2. A diff example in Java with a license mismatch warning.")
+<figcaption>A diff example in Java with a license mismatch warning.</figcaption>
+
 Clone Finder highlights similar lines and presents the following information to help you investigate the problem:
 1. Score
 
@@ -68,6 +71,7 @@ By the way, to supplement this feature, we are working on another tool that will
     Displays the programming language of the clones. The EAP version of Clone Finder supports PHP, Java, and Kotlin.
 
 ![](topic-tree.png "Figure 3. Topics dendrogram.")
+<figcaption>Topics dendrogram.</figcaption>
 
 ## Learn more
 

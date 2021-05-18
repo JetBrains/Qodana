@@ -17,17 +17,17 @@ With the plugin installed, add the Qodana runner to your build.
 
 Make sure the **Clone Finder** option is enabled and provide the following required parameters:
 
-* Queried project - the project source code
-* Referenced project directories - one or more projects to compare against
-* Languages - languages to perform search
+* Queried project&mdash;the project source code
+* Referenced project directories&mdash;one or more projects to compare against
+* Languages&mdash;languages to perform search
 
 <img src="clone-finder-runner-settings.png" width="650" alt="Qodana Clone Finder Build Runner Settings"/>
 
-The example above shows that the project ```phpunit``` will be compared to the project ```pest``` and the analysis will be performed for PHP language.
+The example above shows that the project ```phpunit``` will be compared to the project ```pest``` and the analysis will be performed for the PHP language.
 
-In this example VCS roots are configured with the following mappings:
-* ```phpunit``` sources will be checkouted to the ```phpunit``` folder (=>phpunit)
-* ```pest``` sources will be checkouted to the ```pest``` folder (=>pest)
+In this example, VCS roots are configured with the following mappings:
+* ```phpunit``` sources will be checked out to the ```phpunit``` folder (=>phpunit)
+* ```pest``` sources will be checked out to the ```pest``` folder (=>pest)
 
 If you use DSL to configure your build, add this section to your build configuration description:
 
