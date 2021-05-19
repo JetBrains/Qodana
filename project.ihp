@@ -9,12 +9,12 @@
     <module name="qd-docs"/>
     <vars src="v.list"/>
     <topics dir="topics"/>
-    <images dir="images" version="2021.1"
-            web-path="https://resources.jetbrains.com/help/img/qodana/2021.1/"/>
+    <images dir="images" version="linguist"
+            web-path="https://resources.jetbrains.com/help/img/qodana/linguist/"/>
     <categories src="c.list"/>
-    <product src="qd.tree" web-path="/qodana/2021.1/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2021.1" keymaps-mode="none"/>
+    <product src="qd.tree" web-path="/qodana/linguist/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="linguist" keymaps-mode="none"/>
 
-    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/2021.1/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2021.1" keymaps-mode="none"/>
+    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/linguist/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="linguist" keymaps-mode="none"/>
 </ihp>
