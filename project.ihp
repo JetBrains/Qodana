@@ -10,7 +10,7 @@
     <vars src="v.list"/>
     <topics dir="topics"/>
     <images dir="images" version="linguist"
-            web-path="https://resources.jetbrains.com/help/img/qodana/linguist/"/>
+            web-path="https://resources.jetbrains.com/help/img/qodana/2021.1/"/>
     <categories src="c.list"/>
     <product src="qd.tree" web-path="/qodana/linguist/"
              teamcity-build-path="Documentation_Teamware_Qodana" version="linguist" keymaps-mode="none"/>
