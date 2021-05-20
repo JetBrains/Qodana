@@ -46,13 +46,13 @@ The influx of messages per day and the numerous channels can lead to a lot of no
 
 ## Common Channels
 
-This is a list of some of the most popular channels, as well as a sample of the types of channels available.
+This is a list of some of the most popular channels as well as a sample of the types of channels available.
 
-* #getting-started. For more beginner questions – helping set up Qodana in your project. Better ask here than in #general if you’re new to Qodana
-* #intellij-linter. Everything related to Qodana IntelliJ linter – feedback, issues, bugs, feature requests and so on
-* #clone-finder. Everything related to Qodana Clone Finder – feedback, issues, bugs, feature requests and so on
-* #feed. Post links to interesting things about static analysis in general and related technologies
-* #random. For random things.
+* `#getting-started`. For more beginner questions – helping set up Qodana in your project. Better ask here than in `#general` if you’re new to Qodana
+* `#intellij-linter`. Everything related to Qodana IntelliJ linter – feedback, issues, bugs, feature requests and so on
+* `#clone-finder`. Everything related to Qodana Clone Finder – feedback, issues, bugs, feature requests and so on
+* `#feed`. Post links to interesting things about static analysis in general and related technologies
+* `#random`. For random things.
 
 ## Copyright
 
