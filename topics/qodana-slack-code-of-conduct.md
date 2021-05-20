@@ -30,7 +30,7 @@ The influx of messages per day and the numerous channels can lead to a lot of no
 
 * Remember this is a Slack team for Qodana. If you have generic questions that are about a technology (which may or may not be used with Qodana), maybe it’s better to use another forum, such as StackOverflow.
 * This Slack is not an official support channel. It is a place where the community hang out along with some members of the JetBrains/Qodana team. For official support, please contact [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or use [YouTrack](https://youtrack.jetbrains.com/newIssue?project=QD). Still, you can ask and share whatever bothers you and we will try to do something about it.
-* Find the right channel to ask your question. There are channels for pretty much every topic. For a list of several primary channels, see [below](qodana-slack-code-of-conduct.md#common-channels).
+* Find the right channel to ask your question. There are channels for pretty much every topic. For a list of several primary channels, see [below](qodana-slack-code-of-conduct.md#Common+Channels).
 * When you ask a question, be patient. Don’t repeat it. Or at least not immediately.
 * Do not ping or mention someone directly to get your questions answered, specially project owners, whether the project is Qodana or other, unless they specifically indicate that you can.
 * Don’t split messages into multiple ones. Ask it all in a single message.
