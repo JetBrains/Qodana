@@ -2,7 +2,7 @@
 
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg) ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana.svg)
 
-![EAP](eap-alert.png)
+><include src="lib_qd.md" include-id="eap-warning"/>
 
 Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2020.3-eap), [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
@@ -119,7 +119,7 @@ You can pass the reference to the existing profile in [multiple ways](https://gi
             -v <output-directory>/:/data/results/ \
             -v <inspection-profile.xml>:/data/profile.xml
             jetbrains/qodana --show-report
-       ```
+   ```
 
 - Using the name of the profile in your project `.idea/inspectionProfiles/` folder:
 
@@ -128,7 +128,7 @@ You can pass the reference to the existing profile in [multiple ways](https://gi
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
             jetbrains/qodana --show-report -profileName php.extended
-    ```
+  ```
 
 ## Configure via qodana.yaml
 
@@ -152,10 +152,9 @@ Refer to the [technical guide](qodana-docker-techs.md) for more details.
 According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features to further improve the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to the [technical guide](qodana-docker-techs.md) for details.
 
 ## License
+ 
+<include src="lib_qd.md" include-id="license-info">
+<var name="product" value="Qodana IntelliJ Docker image"/>
+</include> 
 
-By using the Qodana IntelliJ Docker image, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).  
-The Docker image includes the evaluation license, which will expire in 30 days. Ensure you pull a new image on time.
-
-## Contact
-
-Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We are eager to receive your feedback on the existing Qodana functionality and learn what other features you miss in it.
+The Docker image includes the evaluation license, which will expire in 30 days. Make sure to pull a new image on time.

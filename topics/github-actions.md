@@ -1,4 +1,4 @@
-[//]: # (title: GithHub Actions)
+[//]: # (title: GitHub Actions)
 
 ## List of Qodana GitHub actions available
 

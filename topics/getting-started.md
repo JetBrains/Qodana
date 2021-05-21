@@ -1,7 +1,8 @@
 [//]: # (title: Qodana)
 
-[![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)  
-![](eap-alert.png)
+[![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+><include src="lib_qd.md" include-id="eap-warning"/>
+
 ![](banner-main.png)
 
 **Qodana** is a code quality monitoring platform that allows you to evaluate the integrity of code you own, contract, or purchase.
@@ -16,7 +17,7 @@ Qodana includes a growing number of command-line tools ([linters](linters.md)) w
 ### Results
 Every linter provides two types of output:
 * JSON files separately described per each linter in the [Results](results.md) chapter
-* web report for interactive result investigation and configuration adjustment described in [UI Overview](ui-overview.md)
+* Web report for interactive results investigation and configuration adjustment described in [UI Overview](ui-overview.md)
 
 The Qodana UI can be part of your CI user interface in case your CI supports the UI extension. If it doesn't, you can spin the Qodana UI on your own following our [guidelines](html-report.md).
 
@@ -53,8 +54,4 @@ PHP, Java, and Kotlin are already supported. Eventually, all [languages and tech
 
 ## License
 
-By using Qodana, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).
-
-## Contact
-
-Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We are eager to receive your feedback on the existing Qodana functionality and learn what other features you miss in it.
+<include src="lib_qd.md" include-id="license-info"/>
