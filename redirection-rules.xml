@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/stardust/redirection-rules.dtd">
+<rules>
+    <rule id="4d0d5387">
+        <accepts>teamcity-plugin.html</accepts>
+    </rule>
+</rules>
