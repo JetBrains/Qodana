@@ -9,6 +9,7 @@ If you have your own installation of TeamCity, you can install the following Qod
 
 * [Code Inspection plugin](https://plugins.jetbrains.com/plugin/15498-qodana)
 * [Clone Finder plugin](https://plugins.jetbrains.com/plugin/16784-qodana-clone-finder)
+* [License Audit plugin]()
 
 ## Qodana reporting features in TeamCity
 

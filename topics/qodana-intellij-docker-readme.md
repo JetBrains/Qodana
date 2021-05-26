@@ -6,7 +6,7 @@
 
 Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2020.3-eap), [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
-We provide a Docker image for the [Qodana IntelliJ linter](about-qodana.md) to support different usage scenarios:
+We provide a Docker image for the [Qodana IntelliJ linter](about-qodana-intellij.md) to support different usage scenarios:
 - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
 - Single-shot analysis (for example, performed *locally*).
 
@@ -49,7 +49,7 @@ results of the most common checks performed on your code base. Later, you can [a
       jetbrains/qodana
    ```
 
-   The `output-directory` will contain [all the necessary results](qodana-output.md#Basic+output). You can further tune the command as described in the [technical guide](qodana-docker-techs.md).
+   The `output-directory` will contain [all the necessary results](qodana-intellij-output.md#Basic+output). You can further tune the command as described in the [technical guide](qodana-intellij-docker-techs.md).
 
    If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
 
@@ -66,7 +66,7 @@ results of the most common checks performed on your code base. Later, you can [a
 
   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.
 
-  The output of `output-directory` is described [here](qodana-output.md#Basic+output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on a certain number of problems reached. [Running as non-root](qodana-docker-techs.md#Run+as+non-root) is also supported.
+  The output of `output-directory` is described [here](qodana-intellij-output.md#Basic+output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on a certain number of problems reached. [Running as non-root](qodana-intellij-docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/qodana.yml`):
   
@@ -133,7 +133,7 @@ You can pass the reference to the existing profile in [multiple ways](https://gi
 ## Configure via qodana.yaml
 
 The `qodana.yaml` file will be automatically recognised and used for the analysis configuration, so that you don't need to pass any additional parameters.  
-The references to the inspection profiles will be resolved [in a particular order](qodana-docker-techs.md#Order+of+resolving+a+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
+The references to the inspection profiles will be resolved [in a particular order](qodana-intellij-docker-techs.md#Order+of+resolving+a+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
 
 ## Plugins management
 
@@ -145,11 +145,11 @@ Any free IntelliJ platform plugins or your custom plugin can be added by mountin
 docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
 ```
 
-Refer to the [technical guide](qodana-docker-techs.md) for more details.
+Refer to the [technical guide](qodana-intellij-docker-techs.md) for more details.
 
 ## Usage statistics
 
-According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features to further improve the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to the [technical guide](qodana-docker-techs.md) for details.
+According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features to further improve the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to the [technical guide](qodana-intellij-docker-techs.md) for details.
 
 ## License
 

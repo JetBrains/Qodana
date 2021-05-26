@@ -26,19 +26,19 @@ The Qodana Cloud UI that comes in summer 2021 will let you see comparative analy
 To facilitate integration, extensibility, and advanced reporting, Qodana linters are supplied in a number of distribution formats and web services:
 - [Docker images](docker-images.md)
 - [Plugins](teamcity-plugins.md)
-- [GitHub actions](github-actions.md)  and [application](qodana-github-application.md)
+- [GitHub actions](github-actions.md)  and [application](qodana-intellij-github-application.md)
 - [Cloud service](service.md)
 
 ## Try it now
 
 ### Analyse a project locally
 
-Start with [Qodana IntelliJ linter](about-qodana.md) or check other [linters](linters.md) we provide.
+Start with [Qodana IntelliJ linter](about-qodana-intellij.md) or check other [linters](linters.md) we provide.
 
 ```shell
 docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana --show-report
 ```
-where `source-directory` should point to the root of your project. Read our [Docker guide](qodana-docker-readme.md) for more options and details related to the Qodana execution.
+where `source-directory` should point to the root of your project. Read our [Docker guide](qodana-intellij-docker-readme.md) for more options and details related to the Qodana execution.
 
 You will be able to [check results in your browser](html-report.md) at [`http://localhost:8080`](http://localhost:8080).
 

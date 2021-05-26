@@ -9,7 +9,7 @@ Their flexible mechanisms of resolving problems simplify improving the code stru
 
 And now with Qodana app and actions available on GitHub, all these features are just around the corner!
 
-While the [Qodana IntelliJ GitHub app](qodana-github-application.md) supports only public repositories, for private repositories use the Qodana IntelliJ GitHub action as described in this section.
+While the [Qodana IntelliJ GitHub app](qodana-intellij-github-application.md) supports only public repositories, for private repositories use the Qodana IntelliJ GitHub action as described in this section.
 
 The **Qodana IntelliJ GitHub action** is a more general tool for easier continuous code inspection.
 Anyone with the write permission to a repository can set up a continuous code inspection with Qodana using GitHub actions.

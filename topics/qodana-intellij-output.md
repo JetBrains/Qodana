@@ -33,4 +33,4 @@ In addition to programmatic output, you can generate human-readable output in th
 
 * Basic structure and configuration of Qodana HTML reports: [UI Overview](ui-overview.md)
 
-* More information on command-line arguments for the Qodana IntelliJ linter: [Docker Image Paths and Configuration Options](qodana-docker-techs.md)
+* More information on command-line arguments for the Qodana IntelliJ linter: [Docker Image Paths and Configuration Options](qodana-intellij-docker-techs.md)
