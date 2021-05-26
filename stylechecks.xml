@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE style-checks
+        SYSTEM "https://resources.jetbrains.com/stardust/style-checker.dtd">
+<style-checks>
+    <style-check replacement="checkbox">
+        <lookup>check-box</lookup>
+        <lookup>check box</lookup>
+    </style-check>
+    <style-check replacement="click">
+        <lookup>click on</lookup>
+    </style-check>
+    <style-check replacement="add-on">
+        <lookup>addon</lookup>
+        <lookup>add on</lookup>
+    </style-check>
+    <style-check replacement="and so on">
+        <lookup>etc.</lookup>
+    </style-check>
+    <style-check replacement="for example">
+        <lookup>e.g.</lookup>
+    </style-check>
+    <style-check replacement="that is">
+        <lookup>i.e.</lookup>
+    </style-check>
+    <style-check replacement="auto-completion">
+        <lookup>autocompletion</lookup>
+        <lookup>auto completion</lookup>
+    </style-check>
+    <style-check replacement="auto-detection">
+        <lookup>autodetection</lookup>
+        <lookup>auto detection</lookup>
+    </style-check>
+    <style-check replacement="auto-import">
+        <lookup>autoimport</lookup>
+        <lookup>auto import</lookup>
+    </style-check>
+    <style-check replacement="auto-insertion">
+        <lookup>autoinsertion</lookup>
+        <lookup>auto insertion</lookup>
+    </style-check>
+    <style-check replacement="auto-hide">
+        <lookup>autohide</lookup>
+        <lookup>auto hide</lookup>
+    </style-check>
+    <style-check replacement="auto-stash">
+        <lookup>autostash</lookup>
+        <lookup>auto stash</lookup>
+    </style-check>
+    <style-check replacement="breakpoint">
+        <lookup>break point</lookup>
+    </style-check>
+    <style-check replacement="bugfix">
+        <lookup>bug fix</lookup>
+        <lookup>bug-fix</lookup>
+    </style-check>
+    <style-check replacement="catalog">
+        <lookup>catalogue</lookup>
+    </style-check>
+    <style-check replacement="changelist">
+        <lookup>change list</lookup>
+        <lookup>change-list</lookup>
+    </style-check>
+    <style-check replacement="context menu">
+        <lookup>shortcut menu</lookup>
+        <lookup>right-click menu</lookup>
+    </style-check>
+    <style-check replacement="data">
+        <lookup>datum</lookup>
+    </style-check>
+    <style-check replacement="database">
+        <lookup>data base</lookup>
+    </style-check>
+    <style-check replacement="dialog">
+        <lookup>dialog box</lookup>
+        <lookup>dialogue</lookup>
+    </style-check>
+    <style-check replacement="double-click">
+        <lookup>doubleclick</lookup>
+        <lookup>double click</lookup>
+    </style-check>
+    <style-check replacement="double-check">
+        <lookup>doublecheck</lookup>
+        <lookup>double check</lookup>
+    </style-check>
+    <style-check replacement="drag">
+        <lookup>drag and drop</lookup>
+        <lookup>drag-and-drop</lookup>
+    </style-check>
+    <style-check replacement="field">
+        <lookup>text box</lookup>
+    </style-check>
+    <style-check replacement="filename">
+        <lookup>file name</lookup>
+        <lookup>file-name</lookup>
+    </style-check>
+    <style-check replacement="file type">
+        <lookup>filetype</lookup>
+    </style-check>
+    <style-check replacement="hotfix">
+        <lookup>hot fix</lookup>
+        <lookup>hot-fix</lookup>
+    </style-check>
+    <style-check replacement="hot swap">
+        <lookup>hotwasp</lookup>
+        <lookup>hot-wasp</lookup>
+    </style-check>
+    <style-check replacement="inline">
+        <lookup>in-line</lookup>
+    </style-check>
+    <style-check replacement="list">
+        <lookup>drop-down list</lookup>
+        <lookup>list box</lookup>
+    </style-check>
+    <style-check replacement="login">
+        <lookup>log-in</lookup>
+    </style-check>
+    <style-check replacement="list">
+        <lookup>drop-down list</lookup>
+        <lookup>list box</lookup>
+        <lookup>drop-down box</lookup>
+    </style-check>
+    <style-check replacement="from the menu">
+        <lookup>on the menu</lookup>
+    </style-check>
+    <style-check replacement="from the main menu">
+        <lookup>on the main menu</lookup>
+    </style-check>
+    <style-check replacement="from the context menu">
+        <lookup>on the context menu</lookup>
+    </style-check>
+    <style-check replacement="context menu">
+        <lookup>shortcut menu</lookup>
+        <lookup>right-click menu</lookup>
+    </style-check>
+    <style-check replacement="menu">
+        <lookup>menu bar</lookup>
+    </style-check>
+    <style-check replacement="namespace">
+        <lookup>name space</lookup>
+        <lookup>name-space</lookup>
+    </style-check>
+    <style-check replacement="computer">
+        <lookup>PC</lookup>
+    </style-check>
+    <style-check replacement="plugin">
+        <lookup>plug-in</lookup>
+    </style-check>
+    <style-check replacement="popup">
+        <lookup>pop-up</lookup>
+    </style-check>
+    <style-check replacement="press">
+        <lookup>depress</lookup>
+        <lookup>punch</lookup>
+        <lookup>strike</lookup>
+    </style-check>
+    <style-check replacement="option">
+        <lookup>radio button</lookup>
+    </style-check>
+    <style-check replacement="right-click">
+        <lookup>rightclick</lookup>
+    </style-check>
+    <style-check replacement="runtime">
+        <lookup>run-time</lookup>
+    </style-check>
+    <style-check replacement="shortcut">
+        <lookup>shortcut key</lookup>
+    </style-check>
+    <style-check replacement="stack trace">
+        <lookup>stacktrace</lookup>
+        <lookup>stack-trace</lookup>
+    </style-check>
+    <style-check replacement="tool window">
+        <lookup>toolwindow</lookup>
+    </style-check>
+    <style-check replacement="toolbar">
+        <lookup>tool bar</lookup>
+    </style-check>
+    <style-check replacement="toolbox">
+        <lookup>tool box</lookup>
+    </style-check>
+    <style-check replacement="tooltip">
+        <lookup>tool tip</lookup>
+    </style-check>
+    <style-check replacement="username">
+        <lookup>user name</lookup>
+    </style-check>
+    <style-check replacement="web page">
+        <lookup>webpage</lookup>
+    </style-check>
+    <style-check replacement="in doing so">
+        <lookup>so doing</lookup>
+    </style-check>
+    <style-check replacement="quick-fix">
+        <lookup>quickfix</lookup>
+        <lookup>quick fix</lookup>
+    </style-check>
+    <style-check>
+        <lookup>a.k.a</lookup>
+        <lookup>in question</lookup>
+        <lookup>please</lookup>
+        <lookup>simply</lookup>
+    </style-check>
+    <style-check replacement="the">
+        <lookup>the the</lookup>
+    </style-check>
+    <style-check replacement="position the caret">
+        <lookup>place the cursor</lookup>
+        <lookup>position the cursor</lookup>
+    </style-check>
+    <style-check replacement="caret at">
+        <lookup>caret in</lookup>
+        <lookup>caret on</lookup>
+    </style-check>
+    <style-check replacement="caret at">
+        <lookup>caret in</lookup>
+        <lookup>caret on</lookup>
+    </style-check>
+    <style-check replacement="and later">
+        <lookup>and higher</lookup>
+    </style-check>
+    <style-check replacement="and later">
+        <lookup>and above</lookup>
+    </style-check>
+    <style-check replacement="or later">
+        <lookup>or higher</lookup>
+    </style-check>
+    <style-check replacement="or later">
+        <lookup>or above</lookup>
+    </style-check>
+    <style-check replacement="indexes">
+        <lookup>indices</lookup>
+    </style-check>
+    <style-check replacement="gutter">
+        <lookup>left gutter</lookup>
+    </style-check>
+    <style-check replacement="scrollbar">
+        <lookup>right gutter</lookup>
+    </style-check>
+    <style-check replacement="%product%">
+        <lookup>DataGrip</lookup>
+        <lookup>Database Plugin</lookup>
+        <lookup>AppCode</lookup>
+        <lookup>IntelliJ IDEA</lookup>
+        <lookup>IntelliJ IDEA Community</lookup>
+        <lookup>PyCharm</lookup>
+        <lookup>PyCharm Community</lookup>
+        <lookup>PyCharm Edu</lookup>
+        <lookup>PhpStorm</lookup>
+        <lookup>MPS</lookup>
+        <lookup>RubyMine</lookup>
+        <lookup>WebStorm</lookup>
+        <lookup>Clion</lookup>
+        <lookup>GoLand</lookup>
+        <lookup>Educational Products</lookup>
+    </style-check>
+</style-checks>

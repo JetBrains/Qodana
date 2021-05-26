@@ -1,7 +1,9 @@
 [//]: # (title: Qodana Clone Finder Docker Image)
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg) ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana.svg)
 
-![EAP](eap-alert.png)
+><include src="lib_qd.md" include-id="eap-warning"/>
+
+<var name="product" value="Qodana Clone Finder"/>
 
 Supported tags:  [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana-clone-finder/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana-clone-finder/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
@@ -44,7 +46,7 @@ Example of project structure:
     ...
 ```
 
-This command runs the analysis on your source code and starts the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the the [UI section](ui-overview.md) of this guide for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
+This command runs the analysis on your source code and starts the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [UI section](ui-overview.md) of this guide for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
 In case you don't need the user interface and prefer to study raw data, use the following command:
 
@@ -123,9 +125,6 @@ According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/
 
 ## License
 
-By using the Qodana Clone Finder Docker image, you agree to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html) and [JetBrains privacy policy](https://www.jetbrains.com/company/privacy.html).  
-The Docker image includes the evaluation license, which will expire in 30 days. Ensure you pull a new image on time.
-
-## Contact
-
-Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We are eager to receive your feedback on the existing Qodana functionality and learn what other features you miss in it.
+<include src="lib_qd.md" include-id="license-info">
+    <var name="product" value="Qodana Clone Finder Docker image"/>
+</include>
