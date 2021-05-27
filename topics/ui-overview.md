@@ -11,7 +11,7 @@ In this section, you will learn how to configure HTML report parameters and trac
 1. **Sunburst diagram**   
   The interactive sunburst diagram gives you an idea of how bad the situation is, what problems are the most prominent, and lets you drill down into the cause of the issue. 
    
-2. **Checks total and configuration**
+2. **Checks total and Profile settings**
 
     Above the diagram, you can see the totals for detected problems and conducted checks as well as click the gear icon to [configure the inspection profile](#Adjust+your+inspection+profile).
    
@@ -44,15 +44,15 @@ In this section, you will learn how to configure HTML report parameters and trac
   
 ## Adjust your inspection profile 
 
-We believe that the ability to see what was checked is as important as the list of problems found. For example, if you haven't checked for 
-typos, you can be happy to see zero typos in your project. There may be many of them&mdash;you just don't check. 
+We believe that the ability to see what was checked is as important as the list of problems found. For example, if you haven't checked for typos, you can be happy to see zero typos in your project. There may be many of them&mdash;you just don't check. 
 
-Click the gear icon next to the **Checks** total to see what's included in the analysis and  explore what you can add. Our recommended profile includes the most common inspections, but as you know your project better&mdash;you can fine-tune your 
-experience. 
+Click the gear icon next to the **Checks** total to open the **Profile settings** window and see what's included in the analysis and explore what you can add. Our recommended profile contains the most common inspections, but you know your project better&mdash;so you can fine-tune your experience. 
 
 ![](profile-settings.png)
 
-Click an inspection to learn more about it and enable or disable it. The UI will remind you to download and save `qodana.yaml` into your project root directory.
+Click an inspection to learn more about it and enable or disable it. When profile settings have been changed, the UI reminds you to download and save `qodana.yaml` into your project root directory.
+
+**Note**: You can also edit profile settings in `qodana.yaml` directly. Learn more in [qodana.yaml](qodana-yaml.md). 
 
 ![](profile-save.png)
 
@@ -66,7 +66,10 @@ We are working on supporting the so-called *technical debt*, which will help in 
 
 ## Adjust the analysis scope
 
-When viewing a code fragment with a detected problem, you may decide that it is irrelevant. You can make sure that more problems of the same type are omitted in the future:
+### Reduce the scope of analyzed issues
+{id="reduce-analysis-scope"}
+
+When viewing a code fragment with a detected problem, you may decide that it is irrelevant. You can make sure that more problems of the same type are omitted in the future. For this purpose, you can edit [qodana.yaml](qodana-yaml.md) or use the Problem and File explorers in the UI as shown below.
 
 1. **Exclude a file or directory from the future analysis**
 
@@ -93,3 +96,12 @@ When viewing a code fragment with a detected problem, you may decide that it is 
       ![](more-actions.png)
 
 **Note**: If you exclude either type/category or file/directory, the UI will remind you to save the changes. Download the `qodana.yaml` file and store it under your project's root directory.
+
+### Enable excluded or hidden problems
+You can reverse the exclusions you made:
+
+* In the **Profile settings** window, see the list of inspections and excluded/hidden items (if any). Modify the settings as necessary as shown in [Adjust your inspection profile](#Adjust+your+inspection+profile) above.
+* In the **Profile settings** window, download [qodana.yaml](qodana-yaml.md), edit it as necessary and put it in the project root directory.
+* Under the Filter set, turn **Show hidden problems** on. Now in the Problem explorer, all detected problems are listed. You can reverse the exclusion of certain problems from further checks on the **More actions** menu of the respective items.
+
+[//]: # "add 2 screenshots: 1) Filter set + Show hidden problems; 2) More actions + Enable problem type"

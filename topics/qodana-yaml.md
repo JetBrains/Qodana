@@ -2,9 +2,9 @@
 
 Qodana runs can be customized with the `qodana.yaml` file stored under your project's root directory.
 Note that configuration through `qodana.yaml` is only supported by the Qodana product.
-It is not supported by any other JetBrains products like IDEA and PhpStorm.
+It is not supported by any other JetBrains products like IDEA or PhpStorm.
 
-## Set up profile
+## Set up a profile
 
 Set up a profile by the name:
 
@@ -33,7 +33,8 @@ exclude:
       - benchmarks
 ```
 
-Exclude paths from the analysis scope for all inspections by ID:
+Exclude paths from the analysis scope for all inspections by the ID:
+[//]: # "how do i get the id?"
 
 ```yaml
 exclude:
@@ -52,15 +53,15 @@ exclude:
 
 ## Fail threshold
 
-Add fail threshold to use as quality gate:
+Add a fail threshold to use as a quality gate:
 
 ```yaml
 failThreshold: <number>
 ```
 
-When this number of problems is reached, container would do `exit 255`. Can be used to make the CI step fail.
+When this number of problems is reached, the container executes `exit 255`. Can be used to make the CI step fail.
 
-## Clone Finder License Override 
+## Clone Finder license override 
 
 ```yaml
 version: 1.0
@@ -88,7 +89,7 @@ If in the referenced project ('from' project) the code will be covered with GPL-
 
 In case when Clone Finder default license compatibility matrix suited yur needs you don't need any license overrides provided in qodana.yaml. 
 
-## Example with different include and exclude options
+## An example with different exclude options
 
 ```yaml
 version: 1.0
