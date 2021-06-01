@@ -1,28 +1,29 @@
 [//]: # (title: Qodana.yaml)
 
-Qodana runs can be customized with the `qodana.yaml` file stored under your project's root directory.
-Note that configuration through `qodana.yaml` is only supported by the Qodana product.
-It is not supported by any other JetBrains products like IDEA or PhpStorm.
+Using the Problem explorer in the [UI report](ui-overview.md), you can specify what types of problems and what files shouldn't be reported (exclusions). This information is stored in `qodana.yaml` as overrides to default profile settings. The file is stored under your project's root directory. In this section, you can learn how to customize profile settings _manually_.
+
+[//]: # "Note that configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IDEA or PhpStorm."
 
 ## Set up a profile
+[//]: # "How do I set a profile on my own? What values are possible? How do I use the .xml?"
 
-Set up a profile by the name:
+By the name:
 
 ```yaml
 profile:
     name: %name%
 ```
 
-Set up a profile by the path:
+By the path:
 
 ```yaml
 profile:
     path: relative/path/in/your/project.xml
 ```
 
-## Exclude paths
+## Exclude paths from the analysis scope
 
-Exclude paths from the analysis scope for all inspections:
+For all inspections:
 
 ```yaml
 exclude:
@@ -33,8 +34,9 @@ exclude:
       - benchmarks
 ```
 
-Exclude paths from the analysis scope for all inspections by the ID:
-[//]: # "how do i get the id?"
+For inspections specified by the ID:
+
+[//]: # "how do i get the an inspection ID? Does this example also show how to exclude an inspection for all paths (Annotator)?"
 
 ```yaml
 exclude:
@@ -59,9 +61,19 @@ Add a fail threshold to use as a quality gate:
 failThreshold: <number>
 ```
 
+[//]: # "Explain exit 255"
+
 When this number of problems is reached, the container executes `exit 255`. Can be used to make the CI step fail.
 
+The default value is `10000`.
+
 ## Clone Finder license override 
+
+You need to specify license overrides when....
+
+[//]: # "Clarify!"
+
+When Clone Finder default license compatibility matrix suits your needs, you don't need any license overrides provided in `qodana.yaml`.
 
 ```yaml
 version: 1.0
@@ -80,16 +92,20 @@ exclude:
     paths:
       - copied_file_2.py
 ```
+[//]: # "Clarify!"
+
+* **forwardCompatible** sets whether you can copy code from a reference project under the `to` license to the queried project under the `from` license
+* **backwardCompatible**  sets whether you can copy from a reference project under the `from` license to the queried project under the `to` license
+  
+In the example above, the behaviour is as follows:
+
+If in the reference project (`from` project) the code is covered with the `GPL-3.0-only` license and in the queried project (`to` project) the license is set to `MIT`, then a license mismatch is reported, otherwise there will be no warning for the clone found.
+
  
-* **forwardCompatible** describes the compatibility from referenced project to the queried project
-* **backwardCompatible** describes the compatibility from queried project to the referenced project
-
-In this example the behaviour will be:
-If in the referenced project ('from' project) the code will be covered with GPL-3.0-only license and in queried project ('to' project) the license will be set to MIT, then the analysis will report license mismatch, otherwise there will be no warning for the clone found.
-
-In case when Clone Finder default license compatibility matrix suited yur needs you don't need any license overrides provided in qodana.yaml. 
 
 ## An example with different exclude options
+
+[//]: # "It is almost the same as in 'For inspections specified by the ID:'"
 
 ```yaml
 version: 1.0
