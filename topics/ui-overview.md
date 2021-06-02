@@ -100,8 +100,8 @@ When viewing a code fragment with a detected problem, you may decide that it is 
 ### Enable excluded or hidden problems
 You can reverse the exclusions you made:
 
-* In the **Profile settings** window, see the list of inspections and excluded/hidden items (if any). Modify the settings as necessary as shown in [Adjust your inspection profile](#Adjust+your+inspection+profile) above.
-* In the **Profile settings** window, download [qodana.yaml](qodana-yaml.md), edit it as necessary and put it in the project root directory.
-* Under the Filter set, turn **Show hidden problems** on. Now in the Problem explorer, all detected problems are listed. You can reverse the exclusion of certain problems from further checks on the **More actions** menu of the respective items.
+* In the **Profile settings** window, see the list of inspections and excluded/hidden items (if any). Modify the settings as necessary as shown in [Adjust your inspection profile](#Adjust+your+inspection+profile) above. Then download [qodana.yaml](qodana-yaml.md), put it in the project root directory, and run Qodana again with this new configuration.
+* In the **Profile settings** window, download [qodana.yaml](qodana-yaml.md), edit it as necessary and put it in the project root directory,then run Qodana again with this new configuration.
+* For problems and paths excluded during this session and not saved in qodana.yaml: Under the Filter set, turn **Show hidden problems** on. Now in the Problem explorer, all detected problems are listed. You can reverse the exclusion of certain problems from further checks on the **More actions** menu of the respective items.
 
 [//]: # "add 2 screenshots: 1) Filter set + Show hidden problems; 2) More actions + Enable problem type"

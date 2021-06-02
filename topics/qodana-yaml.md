@@ -1,20 +1,21 @@
 [//]: # (title: Qodana.yaml)
 
-Using the Problem explorer in the [UI report](ui-overview.md), you can specify what types of problems and what files shouldn't be reported (exclusions). This information is stored in `qodana.yaml` as overrides to default profile settings. The file is stored under your project's root directory. In this section, you can learn how to customize profile settings _manually_.
+Information stored in **qodana.yaml** overrides default profile settings and default configurations of Qodana linters. Namely, you can specify a profile name, exclude paths from the analysis scope, disable or enable inspections from your profile, and so on. You can specify all such overrides directly in the [UI report](ui-overview.md): in the Problem explorer for specific reported problems and paths, and in profile settings for inspections. All changes made via the UI are automatically imported into **qodana.yaml**, which should be saved to the project's root directory if you want to run subsequent checks with such updated configuration. Alternatively, you can read or edit the configuration file manually. This section will guide you through necessary settings.
 
-[//]: # "Note that configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IDEA or PhpStorm."
+**Note**: Configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IDEA or PhpStorm.
 
 ## Set up a profile
-[//]: # "How do I set a profile on my own? What values are possible? How do I use the .xml?"
 
-By the name:
+The default profile is `qodana.recommended`. You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the **.xml** file with this profile is available in the working directory where the VCS stores your project before building it.
+
+Set up a profile by the name:
 
 ```yaml
 profile:
     name: %name%
 ```
 
-By the path:
+Set up a profile by the path:
 
 ```yaml
 profile:
@@ -23,6 +24,8 @@ profile:
 
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}
+
+It is possible to specify that files in a certain directory are not analyzed. You can do it for a certain inspection or for all inspections.
 
 For all inspections:
 
@@ -36,8 +39,6 @@ exclude:
 ```
 
 For inspections specified by the ID:
-
-[//]: # "how do i get the an inspection ID? Does this example also show how to exclude an inspection for all paths (Annotator)?"
 
 ```yaml
 exclude:
@@ -54,6 +55,8 @@ exclude:
       - tools
 ```
 
+**Note**: You can find specific inspection IDs: 1) in the Profile settings in the UI report, 2) in the **.xml** file with your profile.  
+
 ## Fail threshold
 
 Add a fail threshold to use as a quality gate:
@@ -68,13 +71,11 @@ When this number of problems is reached, the container executes `exit 255`. Can 
 
 The default value is `10000`.
 
-## Clone Finder license override 
+## Clone Finder license overrides 
 
-[//]: # "You need to specify license overrides when...."
+[//]: # "Check if the new parameters are implemented"
 
-[//]: # "Clarify!"
-
-When Clone Finder default license compatibility matrix suits your needs, you don't need any license overrides provided in `qodana.yaml`.
+You need license overrides when you want to stop seeing warnings about certain mismatched licenses in Clone Finder's reports. For example, Clone Finder's default license compatibility matrix specifies that a queried project with the **GPL-3.0-only** license may not use code from projects with the **ISC** license. That's why Qodana Clone Finder will show a warning for duplicate code fragments with such mismatched licenses. However, if your legal advisor says it is OK, you can specify to ignore warnings for this specific license in reference projects. You can do so in the UI report via the Problem explorer or directly in `qodana.yaml` as shown in the example below.
 
 ```yaml
 version: 1.0
@@ -83,36 +84,28 @@ profile:
 inspections:
   CloneFinder:
     failThreshold: 100
-    licenseOverrides:
-      - from: MIT
-        to: GPL-3.0-only
-        forwardCompatible: true
-        backwardCompatible: false
+    licenseRules:
+      - source: GPL-3.0-only
+        target: ISC
+        compatible: true
 exclude:
   - name: CloneFinder
     paths:
       - copied_file_2.py
 ```
-[//]: # "Clarify!"
 
-* **forwardCompatible** sets whether you can copy code from a reference project under the `to` license to the queried project under the `from` license
-* **backwardCompatible**  sets whether you can copy from a reference project under the `from` license to the queried project under the `to` license
-  
-In the example above, the behaviour is as follows:
-
-If in the reference project (`from` project) the code is covered with the `GPL-3.0-only` license and in the queried project (`to` project) the license is set to `MIT`, then a license mismatch is reported, otherwise there will be no warning for the clone found.
-
+In the example above, using code from **ISC** reference projects (`target`) is allowed in the **GPL-3.0-only** queried project (`source`), although this combination is listed as incompatible, for example, in [choosealicense.com/appendix/](https://choosealicense.com/appendix/).
  
 
-## An example with different exclude options
-
-[//]: # "It is almost the same as in 'For inspections specified by the ID:'"
+## An example with different configuration options
 
 ```yaml
 version: 1.0
 failThreshold: 0
 profile:
   name: qodana.recommended
+include:
+  - name: SomeInspectionId
 exclude:
   - name: Annotator
   - name: AnotherInspectionId
@@ -126,3 +119,8 @@ exclude:
       - tools
 ```
 
+In the example above, 
+* `SomeInspectionId` inspection is enabled (although it is disabled in the profile)
+* `Annotator` inspection is disabled for all paths
+* `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
+* no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
