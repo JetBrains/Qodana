@@ -22,6 +22,7 @@ profile:
 ```
 
 ## Exclude paths from the analysis scope
+{id="exclude-paths"}
 
 For all inspections:
 
