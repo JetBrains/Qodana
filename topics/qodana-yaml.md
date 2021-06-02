@@ -70,7 +70,7 @@ The default value is `10000`.
 
 ## Clone Finder license override 
 
-You need to specify license overrides when....
+[//]: # "You need to specify license overrides when...."
 
 [//]: # "Clarify!"
 
