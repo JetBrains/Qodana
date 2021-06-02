@@ -11,14 +11,14 @@
     </toc-element>
         
     <toc-element id="linters.md" toc-title="About Qodana Linters">
-         <toc-element id="about-qodana-intellij.md"/>
+         <toc-element id="about-qodana-intellij.md" accepts-web-file-names="about-qodana.html"/>
          <toc-element id="about-clone-finder.md"/>
         <toc-element id="about-license-audit.md" hidden="true"/>
     </toc-element>
 
     <toc-element id="results.md">
         <toc-element id="ui-overview.md"/>
-        <toc-element id="qodana-intellij-output.md"/>
+        <toc-element id="qodana-intellij-output.md" accepts-web-file-names="output.html,qodana-output.html"/>
         <toc-element id="clone-finder-output.md"/>
         <toc-element id="license-audit-output.md" hidden="true"/>
         <toc-element id="html-report.md"/>
