@@ -2,7 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-> <include src="lib_qd.md" include-id="eap-warning"/>
+> <include src="lib_qd.xml" include-id="eap-warning"/>
 
 The **Clone Finder GitHub action** lets you include [Qodana Clone Finder](about-clone-finder.md) into any GitHub pipelines. 
 

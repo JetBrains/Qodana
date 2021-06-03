@@ -7,4 +7,4 @@ It doesn't necessarily mean the code is poorly composed&mdash;it means that the 
 
 ## License
 
-<include src="lib_qd.md" include-id="license-info"/>
+<include src="lib_qd.xml" include-id="license-info"/>

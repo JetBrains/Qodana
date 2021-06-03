@@ -2,7 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-><include src="lib_qd.md" include-id="eap-warning"/>
+><include src="lib_qd.xml" include-id="eap-warning"/>
 
 Tools created by JetBrains are capable of detecting dozens of error types and inconsistencies in your repository.
 Their flexible mechanisms of resolving problems simplify improving the code structure, conforming your code to numerous guidelines and standards, detecting performance issues, and so on.

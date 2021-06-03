@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       id="lib_qd" title="Library of includes"
+       is-library="true">
+
+<chunk id="eap-warning">
+
+ %product% is currently in Early Access, which means it may be not reliable, work not as intended, and contain errors. Any use of the EAP product is at your own risk.
+ <include src="lib_qd.xml" include-id="contact-info"/>
+
+</chunk>
+
+<chunk id="contact-info">
+
+ Your feedback is very welcome in
+ <a href="https://youtrack.jetbrains.com/newIssue?project=QD">our issue tracker</a> or at <a href="mailto:qodana-support@jetbrains.com">
+ qodana-support@jetbrains.com</a>.
+
+</chunk>
+
+<chunk id="license-info">
+
+By using %product%, you agree to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP user
+ agreement</a> and <a href="https://www.jetbrains.com/company/privacy.html">JetBrains privacy
+ policy</a>.
+
+</chunk>
+
+</topic>

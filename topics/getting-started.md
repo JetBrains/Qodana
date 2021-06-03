@@ -1,7 +1,7 @@
 [//]: # (title: Qodana)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-><include src="lib_qd.md" include-id="eap-warning"/>
+><include src="lib_qd.xml" include-id="eap-warning"/>
 
 ![](banner-main.png)
 
@@ -54,4 +54,4 @@ PHP, Java, and Kotlin are already supported. Eventually, all [languages and tech
 
 ## License
 
-<include src="lib_qd.md" include-id="license-info"/>
+<include src="lib_qd.xml" include-id="license-info"/>

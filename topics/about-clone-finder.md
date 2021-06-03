@@ -62,6 +62,6 @@ PHP, Java, and Kotlin are already supported. Eventually, all [languages and tech
 
 ## License
 
-<include src="lib_qd.md" include-id="license-info">
+<include src="lib_qd.xml" include-id="license-info">
     <var name="product" value="Qodana linters"/>
 </include>

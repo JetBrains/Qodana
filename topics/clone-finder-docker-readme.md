@@ -1,7 +1,7 @@
 [//]: # (title: Qodana Clone Finder Docker Image)
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg) ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana.svg)
 
-><include src="lib_qd.md" include-id="eap-warning"/>
+><include src="lib_qd.xml" include-id="eap-warning"/>
 
 <var name="product" value="Qodana Clone Finder"/>
 
@@ -125,6 +125,6 @@ According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/
 
 ## License
 
-<include src="lib_qd.md" include-id="license-info">
+<include src="lib_qd.xml" include-id="license-info">
     <var name="product" value="Qodana Clone Finder Docker image"/>
 </include>

@@ -2,7 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-><include src="lib_qd.md" include-id="eap-warning"/>
+><include src="lib_qd.xml" include-id="eap-warning"/>
 
 Qodana is more than just another static analysis plugin/UI/CI linter. It is a platform that allows companies to perform multi-level evaluations of the quality of code they own, contract, or purchase.
 

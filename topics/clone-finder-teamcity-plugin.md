@@ -68,6 +68,6 @@ Check the [Qodana UI](ui-overview.md) to see all features available in the UI.
 
 ## License
 
-<include src="lib_qd.md" include-id="license-info">
+<include src="lib_qd.xml" include-id="license-info">
     <var name="product" value="Qodana Clone Finder TeamCity plugin"/>
 </include>
