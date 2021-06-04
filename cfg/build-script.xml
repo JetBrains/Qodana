@@ -13,5 +13,11 @@
                       image-bundle="true"
                       local-update-images="true"/>
         </product>
+
+        <product id="qd_tc_cf" master="project.ihp" family="idea">
+            <artifact type="web2" platform="primary" local-update="true" local-update-path="qodana_tc"
+                      image-bundle="true"
+                      local-update-images="true"/>
+        </product>
     </builds>
 </root>

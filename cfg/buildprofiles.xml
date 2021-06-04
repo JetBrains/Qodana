@@ -34,4 +34,13 @@
         <noindex-content-in-eap>false</noindex-content-in-eap>
         <noindex-content-in-release>false</noindex-content-in-release>
     </build-profile>
+
+    <build-profile product="qd_tc_cf">
+        <variables>
+            <images-prefix-override>img/</images-prefix-override>
+        </variables>
+        <noindex-content-in-deprecated>false</noindex-content-in-deprecated>
+        <noindex-content-in-eap>false</noindex-content-in-eap>
+        <noindex-content-in-release>false</noindex-content-in-release>
+    </build-profile>
 </buildprofiles>
