@@ -2,11 +2,11 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-The Qodana Clone Finder plugin for TeamCity lets you extend Qodana static analysis with the [Clone Finder](about-clone-finder.md) functionality.
+The Qodana Clone Finder plugin for TeamCity lets you extend Qodana static analysis with the [Clone Finder](https://www.jetbrains.com/help/qodana/about-clone-finder.html) functionality.
 
 ## Quick start
 
-* Ensure you have the [Qodana](qodana-teamcity-plugin.md) plugin for IntelliJ Inspection installed
+* Ensure you have the [Qodana](https://www.jetbrains.com/help/qodana/qodana-teamcity-plugin.html) plugin for IntelliJ Inspection installed
 * Install the Qodana Clone Finder plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/15498-qodana)
 
 Use [TeamCity VCS roots](https://www.jetbrains.com/help/teamcity/vcs-root.html) to add all required project source to the build.  
@@ -58,13 +58,13 @@ sufficient for exploring the results of a single run, but the tab in TeamCity of
 builds and focus on the difference. Now, the comparison is limited to a single build configuration, but
 we are working on providing the cross-configuration option as well.
 
-In the [inspection profile](ui-overview.md#Adjust+your+inspection+profile), you will find two inspections provided by Clone Finder:
+In the [inspection profile](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile), you will find two inspections provided by Clone Finder:
 * Code Fragments/Clone 
 * Code Fragments/Clone with license mismatch
 
 [//]: # "![Build Tab](tab.png) - irrelevant"
 
-Check the [Qodana UI](ui-overview.md) to see all features available in the UI.
+Check the [Qodana UI](https://www.jetbrains.com/help/qodana/ui-overview.html) to see all features available in the UI.
 
 ## License
 
