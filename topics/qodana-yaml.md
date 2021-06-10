@@ -1,12 +1,13 @@
 [//]: # (title: Qodana.yaml)
 
-Information stored in **qodana.yaml** overrides default profile settings and default configurations of Qodana linters. Namely, you can specify a profile name, exclude paths from the analysis scope, disable or enable inspections from your profile, and so on. You can specify all such overrides directly in the [UI report](ui-overview.md): in the Problem explorer for specific reported problems and paths, and in profile settings for inspections. All changes made via the UI are automatically imported into **qodana.yaml**, which should be saved to the project's root directory if you want to run subsequent checks with such updated configuration. Alternatively, you can read or edit the configuration file manually. This section will guide you through necessary settings.
+Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. Namely, you can specify a certain profile name, exclude paths from the analysis scope, disable or enable inspections included in your profile, and so on. You can specify such overrides directly in the [UI report](ui-overview.md): in the Problem explorer for specific reported problems and paths, and in profile settings for inspections. All changes made via the UI are automatically imported into `qodana.yaml`, which file should be saved to the project's root directory if you want to run subsequent checks with the same configuration. Alternatively, you can read or edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
 
 **Note**: Configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IDEA or PhpStorm.
 
 ## Set up a profile
 
-The default profile is `qodana.recommended`. You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the **.xml** file with this profile is available in the working directory where the VCS stores your project before building it.
+The default profile is `qodana.recommended`. You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the **.xml** file with this profile is available in the working directory where the VCS stores your project before building it. Here you can find IDEA profiles for embedding to Qodana docker images: [github.com/JetBrains/qodana-profiles](https://github.com/JetBrains/qodana-profiles).
+
 
 Set up a profile by the name:
 
@@ -39,6 +40,7 @@ exclude:
 ```
 
 For inspections specified by the ID:
+{id="exclude-inspection"}
 
 ```yaml
 exclude:
@@ -55,7 +57,7 @@ exclude:
       - tools
 ```
 
-**Note**: You can find specific inspection IDs: 1) in the Profile settings in the UI report, 2) in the **.xml** file with your profile.  
+**Note**: You can find specific inspection IDs: 1) in the Profile settings in the UI report, 2) in the .xml file with your inspection profile.
 
 ## Fail threshold
 

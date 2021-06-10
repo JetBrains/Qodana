@@ -21,7 +21,9 @@ results of the most common checks performed on your code base. Later, you can [a
 
 ### Run analysis locally
 
-1) Pull the image from Docker Hub (only necessary to update the `latest` version):
+1) Pull the image from Docker Hub (only necessary to update to the `latest` version):
+
+[//]: # "?"
 
    ```shell
    docker pull jetbrains/qodana
@@ -36,11 +38,11 @@ results of the most common checks performed on your code base. Later, you can [a
       jetbrains/qodana --show-report
    ```
 
-   where `source-directory` and `output-directory` are full local paths to, respectively, the project source code directory and the analysis results directory.
+where `source-directory` and `output-directory` are full local paths to, respectively, the project source code directory and the analysis results directory.
 
-   This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [UI section](ui-overview.md) of this guide for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
+This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here you can also reconfigure the analysis. See the [UI section](ui-overview.md) of this guide for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
-   In case you don't need the user interface and prefer to study raw data, use the following command:
+If you don't need the user interface and prefer to study raw data, use the following command:
 
    ```shell
    docker run --rm -it \
@@ -49,13 +51,13 @@ results of the most common checks performed on your code base. Later, you can [a
       jetbrains/qodana
    ```
 
-   The `output-directory` will contain [all the necessary results](qodana-intellij-output.md#Basic+output). You can further tune the command as described in the [technical guide](qodana-intellij-docker-techs.md).
+The `output-directory` will contain [all the necessary results](qodana-intellij-output.md#Basic+output). You can further tune the command as described in the [technical guide](qodana-intellij-docker-techs.md).
 
-   If you run the analysis several times in a row, make sure you've cleaned the results' directory before using it in `docker run` again.
+If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in `docker run` again.
 
 ### Run analysis in CI
 
-- Use the following command as the task in generic Shell executor:
+- Use the following command as a task in a generic Shell executor:
 
    ```shell
        docker run --rm \
@@ -64,9 +66,9 @@ results of the most common checks performed on your code base. Later, you can [a
            jetbrains/qodana
    ```
 
-  where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the analysis results directory.
+  where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the [analysis results directory](qodana-intellij-output.md#Basic+output).
 
-  The output of `output-directory` is described [here](qodana-intellij-output.md#Basic+output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on a certain number of problems reached. [Running as non-root](qodana-intellij-docker-techs.md#Run+as+non-root) is also supported.
+ Consider using a [fail threshold](qodana-yaml.md#Fail+threshold) to make the build fail when a certain number of problems is reached. [Running as non-root](qodana-intellij-docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/qodana.yml`):
   
@@ -132,7 +134,7 @@ You can pass the reference to the existing profile in [multiple ways](https://gi
 
 ## Configure via qodana.yaml
 
-The `qodana.yaml` file will be automatically recognised and used for the analysis configuration, so that you don't need to pass any additional parameters.  
+The `qodana.yaml` file will be automatically recognized and used for the analysis configuration, so that you don't need to pass any additional parameters.  
 The references to the inspection profiles will be resolved [in a particular order](qodana-intellij-docker-techs.md#Order+of+resolving+a+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
 
 ## Plugins management

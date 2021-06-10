@@ -31,19 +31,24 @@ Help Options:
   -h, --help         Show this help message
 
 IDEA Inspect Options:
-  -d                 Directory to be inspected. Whole project is inspected by default
+  -d                 Directory to be inspected. Otherwise, the whole project is inspected by default
   -profileName       Name of a profile defined in project
   -profilePath       Absolute path to the profile file
   -changes           Inspect uncommitted changes and report new problems
 ```
 
+[//]: # "Why "uncommited changes"? I heard that -changes allows to see "changes only" "
+
 Examples of execution tuneup:
 
-- Override the default inspection profile:
+- Override the default inspectio    n profile:
 
   ```shell
    docker run ... -v <inspection-profile.xml>:/data/profile.xml <image-name>
    ```
+Do not specify any profile to use the default `qodana.recommended`.
+
+[//]: # "Is the last line OK? Why the command does not use -profileName??"
 
 - Save a report in HTML. By default, the HTML report will be stored in a separate `report/` subdirectory under the `results` directory. This location could be configured with `--report-dir`.
 
@@ -90,7 +95,7 @@ Qodana IntelliJ checks the configuration parameters for resolving the inspection
 3. Profile with the name `%name%` from `qodana.yaml`.
 4. Profile by the path `%path%` from `qodana.yaml`.
 5. Profile mounted to `/data/profile.xml`.
-6. Fall back to using the embedded `qodana.recommended` profile.
+6. Fall back to using the default `qodana.recommended` profile.
 
 ## Plugins management
 
@@ -135,6 +140,8 @@ docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subv
 
 You can adjust the `idea.required.plugins.id` value and keep only the CVS plugin suitable for your project.
 
+[//]: # "todo: describe  problem with useMirrors in the VCS - a TeamCity problem"
+
 ## Run as non-root
 
 By default, the container is run as the `root` user so that Qodana IntelliJ can read any volumes bind-mounted with the project and write the results. As a result, files in the `results/` folder are owned by the `root` after the run.  
@@ -146,7 +153,7 @@ docker run -u $UID ...
 docker run -u $(id -u):$(id -g) ...
 ```
 
-Note that in this case, the `results/` folder on host should already be created and owned by you. Otherwise, Docker will create it as `root` and Qodana IntelliJ will not be able to write to it.
+Note that in this case the `results/` folder on host should already be created and owned by you. Otherwise, Docker will create it as `root` and Qodana IntelliJ will not be able to write to it.
 
 ### Cache dependencies
 

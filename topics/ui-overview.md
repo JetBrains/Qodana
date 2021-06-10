@@ -105,3 +105,6 @@ You can reverse the exclusions you made:
 * For problems and paths excluded during this session and not saved in qodana.yaml: Under the Filter set, turn **Show hidden problems** on. Now in the Problem explorer, all detected problems are listed. You can reverse the exclusion of certain problems from further checks on the **More actions** menu of the respective items.
 
 [//]: # "add 2 screenshots: 1) Filter set + Show hidden problems; 2) More actions + Enable problem type"
+
+[//]: # "### Filter out analysis options
+Using the Filter set to the right of the sunburst diagram problems, paths, linters. Save your customized filter set if you want to start with the same settings when you run the analysis next time. --Where is it stored?--"
