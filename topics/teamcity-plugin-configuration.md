@@ -3,7 +3,6 @@
 The main Qodana functionality comes from the 'engine' shaped into the Docker image. If you want to go beyond the boundaries of the default settings, refer to the [Docker image guide](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-readme.html). Note that you don't need to write `docker run` on your own: the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties.
 
 ## Add Qodana analysis to your project on TeamCity
-{id="add-qodana-runner"}
 
 ### Prerequisites
 
@@ -69,12 +68,13 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 [//]: # "" 
 
 
-## Add more Qodana runners to your build
+## Add more runners to your build
 You can add [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) so that their inspections are added to your build steps.
 
 When viewing specific build analysis results later, you can disable certain runners and inspections and save such configuration for future reports in [`qodana.yaml`](qodana-yaml.md).
 
-### Prerequisites
+### Prerequisites for adding more runners
+
 - Install the Qodana plugin.
 - Install the plugins for Clone Finder or License Audit as necessary.
 
