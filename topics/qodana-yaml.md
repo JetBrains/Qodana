@@ -146,7 +146,7 @@ where `key` is project license, dependency license specified in `allowed` or `pr
 
 ### Override dependency license
 
-Override dependency license if you are not agree with detected dependency license:
+Override a dependency license if it has been detected incorrectly:
 
 ```yaml
 inspections:
