@@ -162,7 +162,7 @@ where `name` is dependency name, `version` is dependency version and `licenses` 
 
 ### Ignore dependency license
 
-Ignore dependency license if you do not want to see problems connected with this dependency license:
+Ignore a dependency license to hide the related problems from the view:
 
 ```yaml
 inspections:
