@@ -35,7 +35,7 @@ You can set up a workflow in your GitHub repository using the [GitHub actions](l
 
 Read our [License Audit Output](license-audit-output.md) to find information about all inspections and ways to resolve problem.
 
-### Supported languages
+### Supported technologies
 
 PHP Composer, npm, pip (requirements.txt or setup.py is required), pipenv, poetry, yarn are already supported.
 
