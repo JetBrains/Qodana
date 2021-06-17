@@ -169,12 +169,11 @@ inspections:
   LicenseAudit:
     dependencyIgnores:
       - name: "numpy"
-        version: "1.19.1"
         licenses:
           - "GPL-3.0-only"
 ```
 
-where `name` is dependency name, `version` is dependency version and `licenses` - list of dependency licenses ignored for dependency.
+where `name` is dependency name, `licenses` - list of dependency licenses ignored for dependency.
 
 ### Monorepo support
 
@@ -255,7 +254,6 @@ inspections:
 
     dependencyIgnores:
       - name: "numpy"
-        version: "1.19.1"
         licenses:
           - "GPL-3.0-only"
 
