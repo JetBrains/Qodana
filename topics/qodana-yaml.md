@@ -1,4 +1,4 @@
-[//]: # (title: Qodana.yaml)
+[//]: # (title: Configure a Profile via qodana.yaml)
 
 Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. Namely, you can specify a certain profile name, exclude paths from the analysis scope, disable or enable inspections included in your profile, and so on. You can specify such overrides directly in the [UI report](ui-overview.md): in the Problem explorer for specific reported problems and paths, and in profile settings for inspections. All changes made via the UI are automatically imported into `qodana.yaml`, which file should be saved to the project's root directory if you want to run subsequent checks with the same configuration. Alternatively, you can read or edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
 

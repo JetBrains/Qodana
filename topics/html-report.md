@@ -1,4 +1,4 @@
-[//]: # (title: How to Open an HTML Report)
+[//]: # (title: Open an HTML Report)
 
 Due to JavaScript security restrictions, the generated report cannot be viewed via the `file://` protocol (that is, by double-clicking the `index.html` file). Instead, you can use the `--show-report` argument to serve the HTML report locally via the `http://` protocol.
 If you have Docker, Python, or PHP installed, you can view the report in the already generated `report/` folder as follows:
