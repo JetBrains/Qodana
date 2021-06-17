@@ -7,8 +7,8 @@ Qodana plugins for TeamCity are an example of how fine-tuned our linters’ inte
 
 If you have your own installation of TeamCity, you can install the following Qodana plugins from JetBrains Marketplace:
 
-* [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana)&mdash;provides the Qodana IntelliJ linter, Qodana UI and extension point for other linters support
-* [Clone Finder plugin](https://plugins.jetbrains.com/plugin/16784-qodana-clone-finder)&mdash;adds the Qodana Clone Finder linter support
+* [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana)&nbsp;&mdash; provides the Qodana IntelliJ linter, Qodana UI and extension point for other linters support
+* [Clone Finder plugin](https://plugins.jetbrains.com/plugin/16784-qodana-clone-finder)&nbsp;&mdash; adds the Qodana Clone Finder linter support
 * [License Audit plugin]()
 
 ## Qodana reporting features in TeamCity
@@ -25,4 +25,4 @@ After extending your build with Qodana, you’ll get the following capabilities:
 
 The screenshot above shows a report for failed inspections grouped by type. In this example, 17 problems related to *PhpHierarchyChecksInpections* were grouped together. You can also choose grouping by file or module, or create a separate assignable failed “test” for every problem that is found.
 
-For more about Qodana HTML reports, see the [Results](results.md) chapter.
+For more about Qodana HTML reports, see the [Qodana Inspection Results](results.md) chapter.

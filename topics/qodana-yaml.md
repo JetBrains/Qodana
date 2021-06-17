@@ -1,12 +1,12 @@
 [//]: # (title: Configure a Profile via qodana.yaml)
 
-Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. Namely, you can specify a certain profile name, exclude paths from the analysis scope, disable or enable inspections included in your profile, and so on. You can specify such overrides directly in the [UI report](ui-overview.md): in the Problem explorer for specific reported problems and paths, and in profile settings for inspections. All changes made via the UI are automatically imported into `qodana.yaml`, which file should be saved to the project's root directory if you want to run subsequent checks with the same configuration. Alternatively, you can read or edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
+Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. You can specify such overrides in the [HTML report](results.md), and the changes are imported to `qodana.yaml` automatically. To run subsequent checks with this customized configuration, save the file to the project's root directory. Alternatively, you can edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
 
 **Note**: Configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IDEA or PhpStorm.
 
 ## Set up a profile
 
-The default profile is `qodana.recommended`. You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the **.xml** file with this profile is available in the working directory where the VCS stores your project before building it. Here you can find IDEA profiles for embedding to Qodana docker images: [github.com/JetBrains/qodana-profiles](https://github.com/JetBrains/qodana-profiles).
+The default profile is `qodana.recommended`. You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the `.xml` file with this profile is in the working directory where the VCS stores your project before building it. Here you can find IDEA profiles for embedding to Qodana Docker images: [github.com/JetBrains/qodana-profiles](https://github.com/JetBrains/qodana-profiles).
 
 
 Set up a profile by the name:
@@ -57,7 +57,9 @@ exclude:
       - tools
 ```
 
-**Note**: You can find specific inspection IDs: 1) in the Profile settings in the UI report, 2) in the .xml file with your inspection profile.
+You can find specific inspection IDs: 1) in the Profile settings in the HTML report, 2) in the `.xml` file with your inspection profile.
+
+**Note**: Exclusion by `paths` is currently not supported by License Audit.
 
 ## Fail threshold
 
@@ -69,15 +71,43 @@ failThreshold: <number>
 
 [//]: # "Explain exit 255"
 
-When this number of problems is reached, the container executes `exit 255`. Can be used to make the CI step fail.
+When this number of problems is reached, the container executes `exit 255`. Can be used to make the CI step fail. The default value is `10000`.
 
-The default value is `10000`.
+
+## An example with different configuration options
+
+```yaml
+version: 1.0
+failThreshold: 0
+profile:
+  name: qodana.recommended
+include:
+  - name: SomeInspectionId
+exclude:
+  - name: Annotator
+  - name: AnotherInspectionId
+    paths:
+      - relative/path
+      - another/relative/path
+  - name: All
+    paths:
+      - asm-test/src/main/java/org
+      - benchmarks
+      - tools
+```
+
+In the example above,
+* `SomeInspectionId` inspection is enabled (although it is disabled in the profile)
+* `Annotator` inspection is disabled for all paths
+* `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
+* no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
+
 
 ## Clone Finder license overrides 
 
 [//]: # "Check if the new parameters are implemented"
 
-You need license overrides when you want to stop seeing warnings about certain mismatched licenses in Clone Finder's reports. For example, Clone Finder's default license compatibility matrix specifies that a queried project with the **GPL-3.0-only** license may not use code from projects with the **ISC** license. That's why Qodana Clone Finder will show a warning for duplicate code fragments with such mismatched licenses. However, if your legal advisor says it is OK, you can specify to ignore warnings for this specific license in reference projects. You can do so in the UI report via the Problem explorer or directly in `qodana.yaml` as shown in the example below.
+You need license overrides when you want to stop seeing warnings about certain mismatched licenses in Clone Finder's reports. For example, Clone Finder's default license compatibility matrix specifies that a queried project with the **GPL-3.0-only** license may not use code from projects with the **ISC** license. That's why Qodana Clone Finder will show a warning for duplicate code fragments with such mismatched licenses. However, if your legal advisor says it is OK, you can specify to ignore warnings for this specific license in reference projects. You can do so in the HTML report via the Problem explorer or directly in `qodana.yaml` as shown in the example below.
 
 ```yaml
 version: 1.0
@@ -98,14 +128,14 @@ exclude:
 
 In the example above, using code from **ISC** reference projects (`target`) is allowed in the **GPL-3.0-only** queried project (`source`), although this combination is listed as incompatible, for example, in [choosealicense.com/appendix/](https://choosealicense.com/appendix/).
 
-## License Audit Configuration
+## License Audit configuration
 
-Use license identifiers from [SPDX License List](https://spdx.org/licenses/).
+Use license identifiers from the [SPDX License List](https://spdx.org/licenses/).
 
-### Exclude inspections
+### Exclude an inspection
 By default, Qodana License Audit includes all supported inspections.
 
-Exclude inspections from analysis:
+Exclude inspections from the analysis:
 
 ```yaml
 version: 1.0
@@ -119,9 +149,9 @@ exclude:
   - name: UnrecognizedProjectLicense
 ```
 
-### Allowed and prohibited licenses
+### Allow or prohibit a license
 
-Override predefined list of licences:
+Override the predefined licence compatibility matrix:
 
 ```yaml
 inspections:
@@ -142,11 +172,11 @@ inspections:
           - "MIT"
 ```
 
-where `key` is project license, dependency license specified in `allowed` or `prohibited`.
+where `key` is the project license(s); the dependency licenses are specified in `allowed` or `prohibited`.
 
-### Override dependency license
+### Override a dependency license
 
-Override a dependency license if it has been detected incorrectly:
+Override a dependency license ID if it has been detected incorrectly:
 
 ```yaml
 inspections:
@@ -158,26 +188,34 @@ inspections:
            - "BSD-3-Clause"
 ```
 
-where `name` is dependency name, `version` is dependency version and `licenses` - list of new redefined dependency licenses used by License Audit.
+where `name` is the dependency name, `version` is the dependency version, and `licenses`&nbsp;&mdash; the redefined dependency license(s).
 
-### Ignore dependency license
+In the example above, you 'tell' License Audit to detect BSD-3-Clause and no other licenses for numpy (only 1.19.1).
 
-Ignore a dependency license to hide the related problems from the view:
+### Ignore a dependency license
+
+Ignore a dependency license to hide the related problems from the report:
 
 ```yaml
 inspections:
   LicenseAudit:
     dependencyIgnores:
+      - name: "enry"
+        licenses:
+          - "UNKNOWN"
+          
       - name: "numpy"
         licenses:
           - "GPL-3.0-only"
 ```
 
-where `name` is dependency name, `licenses` - list of dependency licenses ignored for dependency.
+where `name` is the dependency name, `licenses`&nbsp;&mdash; the list of dependency licenses ignored for the specified dependency.
+
+In the example above, in the analyzed project, the dependency numpy, version 1.19.1 has the GPL-3.0 license (which is supposedly prohibited for this project) and the license for enry (0.1.1) is not recognized. The problems with these dependencies will be ignored in the reports, and you won't see the prohibited and unrecognized license problems you've seen before.
 
 ### Monorepo support
 
-By default, Qodana License Audit runs on the given project root, but you can customize this behavior if you have different applications with different package managers declared in subdirectories. Specify `paths` – paths of the directories you want to run the tool relative to your project root.
+By default, Qodana License Audit looks for package manager manifests on the given project root. If you have applications with different package managers declared in subdirectories, use `paths` to specify such subdirectories relative to your project root.
 
 ```yaml
 inspections:
@@ -187,7 +225,7 @@ inspections:
       - "ui/"
 ```
 
-If you want the root of your project to be scanned by the tool when you've specified paths in the configuration, don't forget to include `.` path.
+If you want to scan both specific paths for package manager manifests  _and_ the root of your project, include `.` to the list of paths (for root).
 
 ### Dependency scopes
 
@@ -217,7 +255,7 @@ inspections:
           - "all"
 ```
 
-Other package managers supported do not allow specifying scopes.
+Other package managers supported do not allow specifying the scopes.
 
 ### Detector options
 
@@ -232,11 +270,12 @@ inspections:
       deep: false
 ```
 
-* **threshold** – license detection threshold value from 0.0 to 1.0 to
-* **includeText** – include license text license was detected by to the report or not
-* **deep** – run deep license detection – check every file and always detect licenses from dependencies, even when they were declared on package level.
+where
+* `threshold` is the license detection threshold value from 0.0 to 1.0
+* `includeText` specifies whether to add the license text by which the license ID was recognized to the report or not
+* `deep` specifies whether to run a deep license detection: check every file and always detect licenses from dependencies, even when they were declared on the package level
 
-### Example with different options
+### An example with different License Audit overrides
 
 ```yaml
 failThreshold: 100
@@ -262,31 +301,3 @@ inspections:
         scopes:
           - "runtime"
 ```
-
-## An example with different configuration options
-
-```yaml
-version: 1.0
-failThreshold: 0
-profile:
-  name: qodana.recommended
-include:
-  - name: SomeInspectionId
-exclude:
-  - name: Annotator
-  - name: AnotherInspectionId
-    paths:
-      - relative/path
-      - another/relative/path
-  - name: All
-    paths:
-      - asm-test/src/main/java/org
-      - benchmarks
-      - tools
-```
-
-In the example above, 
-* `SomeInspectionId` inspection is enabled (although it is disabled in the profile)
-* `Annotator` inspection is disabled for all paths
-* `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
-* no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`

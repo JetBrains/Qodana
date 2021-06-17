@@ -25,7 +25,7 @@ An example of the Clone Finder command-line summary output:
 {id="clone-finder-ui-output"}
 
 In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
-See [HTML Report](html-report.md) section for details.
+See [Open an HTML Report](html-report.md) for details.
 
 ```shell
 ├── asset-manifest.json  //UI
@@ -75,7 +75,7 @@ Topics dendrogram.
 
 ## Learn more
 
-* How to open a generated report in your browser: [HTML Report](html-report.md)
+* How to open a generated report in your browser: [Open an HTML Report](html-report.md)
 
 * Basic structure and configuration of Qodana HTML reports: [UI Overview](ui-overview.md)
 

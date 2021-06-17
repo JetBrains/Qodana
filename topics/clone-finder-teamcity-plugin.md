@@ -17,9 +17,9 @@ With the plugin installed, add the Qodana runner to your build.
 
 Make sure the **Clone Finder** option is enabled and provide the following required parameters:
 
-* Queried project&mdash;the project source code
-* Referenced project directories&mdash;one or more projects to compare against
-* Languages&mdash;languages to perform search
+* Queried project&nbsp;&mdash; the project source code
+* Referenced project directories&nbsp;&mdash; one or more projects to compare against
+* Languages&nbsp;&mdash; languages to perform search
 
 <img src="clone-finder-runner-settings.png" width="650" alt="Qodana Clone Finder Build Runner Settings"/>
 

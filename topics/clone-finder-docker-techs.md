@@ -2,9 +2,9 @@
 
 ## Docker image paths
 
-- **/data/project**&mdash;root directory of the project to be analyzed
-- **/data/versus**&mdash;directory containing projects to compare against 
-- **/data/results**&mdash;directory to store the analysis results, needs to be empty before each Qodana run
+- **/data/project**&nbsp;&mdash; root directory of the project to be analyzed
+- **/data/versus**&nbsp;&mdash; directory containing projects to compare against 
+- **/data/results**&nbsp;&mdash; directory to store the analysis results, needs to be empty before each Qodana run
 
 ## Configuration
 

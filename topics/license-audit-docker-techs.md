@@ -2,12 +2,12 @@
 
 ## Docker image paths
 
-- **/data/project**&mdash;root directory of the project to be analyzed
-- **/data/results**&mdash;directory to store the analysis results, needs to be empty before each Qodana run
+- **/data/project**&nbsp;&mdash; root directory of the project to be analyzed
+- **/data/results**&nbsp;&mdash; directory to store the analysis results, needs to be empty before each Qodana run
 
 ## Configuration
 
-**Available arguments:**
+Available arguments:
 
 ```shell
 $ docker run jetbrains/qodana-license-audit
@@ -22,7 +22,7 @@ Application & help options:
  -w, --show-report               Serve an HTML report on port 8080
 ```
 
-**Examples of execution tuneup:**
+Examples of execution tuneup:
 
 - Display a report in HTML. After the Clone Finder analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
@@ -30,17 +30,15 @@ Application & help options:
    docker run ... -p 8080:8080 <image-name> --show-report
    ```
 
-**Install and use a different version of language:**
+Install and use a different version of a language:
 
-The default installed versions of languages in License Audit image
+The default installed versions of languages in the License Audit image
 
 ```shell
-PYTHON_VERSION= "3.8.10"
 PHP_VERSION = "7.4.16"
-NOVE_VERSION = "15.7.0"
-RUBY_VERSION = "2.6.0"
 JAVA_VERSION = "openjdk@1.14"
 ```
+[//]: # "not supported in EAP: PYTHON_VERSION= 3.8.10 NOVE_VERSION = 15.7.0 RUBY_VERSION = 2.6.0"
 
 ## Run as non-root
 

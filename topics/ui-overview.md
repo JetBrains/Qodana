@@ -44,9 +44,9 @@ In this section, you will learn how to configure HTML report parameters and trac
   
 ## Adjust your inspection profile 
 
-We believe that the ability to see what was checked is as important as the list of problems found. For example, if you haven't checked for typos, you can be happy to see zero typos in your project. There may be many of them&mdash;you just don't check. 
+We believe that the ability to see what was checked is as important as the list of problems found. For example, if you haven't checked for typos, you can be happy to see zero typos in your project. There may be many of them&nbsp;&mdash; you just don't check. 
 
-Click the gear icon next to the **Checks** total to open the **Profile settings** window and see what's included in the analysis and explore what you can add. Our recommended profile contains the most common inspections, but you know your project better&mdash;so you can fine-tune your experience. 
+Click the gear icon next to the **Checks** total to open the **Profile settings** window and see what's included in the analysis and explore what you can add. Our recommended profile contains the most common inspections, but you know your project better&nbsp;&mdash; so you can fine-tune your experience. 
 
 ![](profile-settings.png)
 

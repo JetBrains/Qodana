@@ -26,11 +26,11 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 
 3. Select **Add build step** and for **Runner type**, specify **Qodana**.
 
-   Specify additional parameters for Qodana's `docker run` command, which you can also see in the [readme for Qodana IntelliJ Docker Image](qodana-intellij-docker-readme.md).
+   In the following steps, specify additional parameters for Qodana's `docker run` command, which you can also see in the [readme for Qodana IntelliJ Docker Image](qodana-intellij-docker-readme.md).
 
 4. Select the checkbox next to **Code Inspections** (stands for the Qodana IntelliJ linter).
 
-   You can disable certain inspections later using [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your UI report.
+   You can disable certain inspections later using [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
 
 5. For **Root of the project for the analysis**, specify the path to your project root where its configuration files are located. Leave empty for ??the **Checkout directory** specified on the **Version Control Settings** tab (system agent working directory).
 
@@ -51,7 +51,7 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
      
    - **Path to IntelliJ profile** and specify the path to the necessary .xml file in your working directory. Not recommended because in this case you will not be able to edit this profile from IntelliJ IDEA.
     
-      IDEA profiles include customized sets of [inspections](https://www.jetbrains.com/help/idea/code-inspection.html). You can enable and disable them in [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or in the [Profile settings](ui-overview.md#Adjust+your+inspection+profile) of your UI report.
+      IDEA profiles include customized sets of [inspections](https://www.jetbrains.com/help/idea/code-inspection.html). You can enable and disable them via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or in the [Profile settings](ui-overview.md#Adjust+your+inspection+profile) of your HTML report.
      
 
 8. For **Disabled plugins**, select
