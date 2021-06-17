@@ -97,7 +97,171 @@ exclude:
 ```
 
 In the example above, using code from **ISC** reference projects (`target`) is allowed in the **GPL-3.0-only** queried project (`source`), although this combination is listed as incompatible, for example, in [choosealicense.com/appendix/](https://choosealicense.com/appendix/).
- 
+
+## License Audit Configuration
+
+Use license identifiers from [SPDX License List](https://spdx.org/licenses/).
+
+### Exclude inspections
+By default, Qodana License Audit includes all supported inspections.
+
+Exclude inspections from analysis:
+
+```yaml
+version: 1.0
+profile:
+  name: qodana.recommended
+exclude:
+  - name: NoDependencyLicenses
+  - name: ProhibitedDependencyLicense
+  - name: UncategorizedDependencyLicense
+  - name: UnrecognizedDependencyLicense
+  - name: UnrecognizedProjectLicense
+```
+
+### Allowed and prohibited licenses
+
+Override predefined list of licences:
+
+```yaml
+inspections:
+  LicenseAudit:
+    rules:
+      - key:
+          - "PROPRIETARY-LICENSE"
+          - "MIT"
+        prohibited:
+          - "Apache-2.0"
+        allowed:
+          - "MIT"
+          - "BSD-3-Clause"
+          - "ISC"
+
+      - key: "Apache-2.0"
+        prohibited:
+          - "MIT"
+```
+
+where `key` is project license, dependency license specified in `allowed` or `prohibited`.
+
+### Override dependency license
+
+Override a dependency license if it has been detected incorrectly:
+
+```yaml
+inspections:
+ LicenseAudit:
+   dependencyOverrides:
+       - name: "numpy"
+         version: "1.19.1"
+         licenses:
+           - "BSD-3-Clause"
+```
+
+where `name` is dependency name, `version` is dependency version and `licenses` - list of new redefined dependency licenses used by License Audit.
+
+### Ignore dependency license
+
+Ignore a dependency license to hide the related problems from the view:
+
+```yaml
+inspections:
+  LicenseAudit:
+    dependencyIgnores:
+      - name: "numpy"
+        licenses:
+          - "GPL-3.0-only"
+```
+
+where `name` is dependency name, `licenses` - list of dependency licenses ignored for dependency.
+
+### Monorepo support
+
+By default, Qodana License Audit runs on the given project root, but you can customize this behavior if you have different applications with different package managers declared in subdirectories. Specify `paths` – paths of the directories you want to run the tool relative to your project root.
+
+```yaml
+inspections:
+  LicenseAudit:
+    paths:
+      - "."
+      - "ui/"
+```
+
+If you want the root of your project to be scanned by the tool when you've specified paths in the configuration, don't forget to include `.` path.
+
+### Dependency scopes
+
+#### Gradle
+
+By default, Qodana License Audit runs Gradle with `runtime` and `runtimeClasspath` configurations. You can specify the wanted Gradle configurations in `dependencyScopes` section.
+
+```yaml
+inspections:
+  LicenseAudit:
+    dependencyScopes:
+      - type: "gradle"
+        scopes:
+          - "runtime"
+```
+
+#### npm, yarn
+
+By default, npm or yarn exclude all non-development dependencies. To include development or test dependencies, put `all` to the configuration.
+
+```yaml
+inspections:
+  LicenseAudit:
+    dependencyScopes:
+      - type: "yarn"
+        scopes:
+          - "all"
+```
+
+Other package managers supported do not allow specifying scopes.
+
+### Detector options
+
+Default detector options:
+
+```yaml
+inspections:
+  LicenseAudit:
+    detectorOptions:
+      threshold: 0.8
+      includeText: true
+      deep: false
+```
+
+* **threshold** – license detection threshold value from 0.0 to 1.0 to
+* **includeText** – include license text license was detected by to the report or not
+* **deep** – run deep license detection – check every file and always detect licenses from dependencies, even when they were declared on package level.
+
+### Example with different options
+
+```yaml
+failThreshold: 100
+profile:
+  name: qodana.recommended
+inspections:
+  LicenseAudit:
+    rules:
+      - key:
+          - "PROPRIETARY-LICENSE"
+        prohibited:
+          - "Apache-2.0"
+        allowed:
+          - "BSD-3-Clause"
+
+    dependencyIgnores:
+      - name: "numpy"
+        licenses:
+          - "GPL-3.0-only"
+
+    dependencyScopes:
+      - type: "gradle"
+        scopes:
+          - "runtime"
+```
 
 ## An example with different configuration options
 
