@@ -37,18 +37,17 @@ IDEA Inspect Options:
   -changes           Inspect uncommitted changes and report new problems
 ```
 
-[//]: # "Why "uncommited changes"? I heard that -changes allows to see "changes only" "
+[//]: # "Why uncommitted changes? I heard that -changes allows to see changes only "
 
-Examples of execution tuneup:
+### Examples of execution tuneup
+{id="qodana-execution-tuneup"}
 
-- Override the default inspectio    n profile:
+- Override the default inspection profile:
 
   ```shell
    docker run ... -v <inspection-profile.xml>:/data/profile.xml <image-name>
    ```
-Do not specify any profile to use the default `qodana.recommended`.
-
-[//]: # "Is the last line OK? Why the command does not use -profileName??"
+Do not specify any profile to use the default `qodana.recommended`. For more options of how to specify a profile, see [Order of resolving a profile](#Order+of+resolving+a+profile).
 
 - Save a report in HTML. By default, the HTML report will be stored in a separate `report/` subdirectory under the `results` directory. This location could be configured with `--report-dir`.
 

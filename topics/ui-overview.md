@@ -52,7 +52,7 @@ Click the gear icon next to the **Checks** total to open the **Profile settings*
 
 Click an inspection to learn more about it and enable or disable it. When profile settings have been changed, the UI reminds you to download and save `qodana.yaml` into your project root directory.
 
-**Note**: You can also edit profile settings in `qodana.yaml` directly. Learn more in [qodana.yaml](qodana-yaml.md). 
+> You can also edit profile settings via [`qodana.yaml`](qodana-yaml.md). 
 
 ![](profile-save.png)
 
@@ -95,7 +95,7 @@ When viewing a code fragment with a detected problem, you may decide that it is 
    
       ![](more-actions.png)
 
-**Note**: If you exclude either type/category or file/directory, the UI will remind you to save the changes. Download the `qodana.yaml` file and store it under your project's root directory.
+> If you exclude either type/category or file/directory, the UI will remind you to save the changes if you want to use them in future checks. Download the `qodana.yaml` file and store it under your project's root directory.
 
 ### Enable excluded or hidden problems
 You can reverse the exclusions you made:
