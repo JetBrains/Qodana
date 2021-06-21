@@ -13,7 +13,7 @@ Full License Audit results are available in the file `report.json` located in th
 
 An example of the Clone Finder command-line summary output:
 ``` shell
-
+...
 ```
 [//]: # "add"
 
@@ -24,7 +24,7 @@ In addition to programmatic output, you can generate a human-readable report in 
 See [Open an HTML Report](html-report.md) for details.
 
 ```shell
-
+...
 ```
 [//]: # "add"
 
