@@ -24,7 +24,9 @@ Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When
 
 4. For **Run**, select **Custom script**.
 
-5. In the **Custom script** editor, write a script that adds a custom `qodana.yaml` to the working directory. For example,
+5. In the **Custom script** editor, write a script that adds a custom `qodana.yaml` to the working directory. 
+
+   In the example below, the script appends the following inspection exclusions to the configuration file:
 
 ```
 #!/bin/sh
@@ -33,9 +35,16 @@ FILE="./qodana.yaml"
 
 /bin/cat <<EOM >$FILE
 exclude:
+  - name: Annotator
+  - name: AnotherInspectionId
+    paths:
+      - relative/path
+      - another/relative/path
+  - name: CloneFinder
+  - name: ProhibitedDependencyLicense
 ```
    
-  
+[//]: # "OK?"  
 
 
 ### Add a Qodana runner
