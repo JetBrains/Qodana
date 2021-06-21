@@ -25,7 +25,7 @@ Full Qodana results are available in the file `results-allProblems.json` located
 
 ## UI-compatible output
 
-In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
+In addition to programmatic output, you can generate a human-readable report in the HTML format by using the `--save-report` argument.
 
 ### Learn more
 

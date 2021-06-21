@@ -24,7 +24,7 @@ An example of the Clone Finder command-line summary output:
 ## UI-compatible output
 {id="clone-finder-ui-output"}
 
-In addition to programmatic output, you can generate human-readable output in the HTML format by using the `--save-report` argument.
+In addition to programmatic output, you can generate a human-readable report in the HTML format by using the `--save-report` argument.
 See [Open an HTML Report](html-report.md) for details.
 
 ```shell
@@ -42,7 +42,7 @@ See [Open an HTML Report](html-report.md) for details.
 ```
 
 ### A sample decorated diff
-In addition to the sunburst diagram and other features of Qodana's [web report](ui-overview.md), Clone Finder makes the analysis of code duplicates more helpful and convenient.
+In addition to the sunburst diagram and other features of Qodana's [HTML report](ui-overview.md), Clone Finder makes the analysis of code duplicates more helpful and convenient.
 - The detected clones are prioritized and displayed in the order of their importance.
 - When you expand an item, the duplicate code fragments are provided with decorated code diffs and are annotated with tags, licenses, languages, and file paths.
 

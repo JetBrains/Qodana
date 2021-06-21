@@ -48,6 +48,7 @@ IDEA Inspect Options:
    docker run ... -v <inspection-profile.xml>:/data/profile.xml <image-name>
    ```
 Do not specify any profile to use the default `qodana.recommended`. For more options of how to specify a profile, see [Order of resolving a profile](#Order+of+resolving+a+profile).
+For more about profiles available, see [Set up a profile](qodana-yaml.md#Set+up+a+profile).
 
 - Save a report in HTML. By default, the HTML report will be stored in a separate `report/` subdirectory under the `results` directory. This location could be configured with `--report-dir`.
 

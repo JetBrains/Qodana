@@ -14,6 +14,8 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 ### (Optional) Add a configuration script
 {id="add-script"}
 
+Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When using a CI system, you need to put this file to the working directory manually. Alternatively, you can write a script that will do it for you.
+
 1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
 2. Select **Add build step | Command Line**.
@@ -22,9 +24,18 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 
 4. For **Run**, select **Custom script**.
 
-5. In the  **Custom script** editor, write a custom `qodana.yaml` script that will be added to your working directory. 
+5. In the **Custom script** editor, write a script that adds a custom `qodana.yaml` to the working directory. For example,
+
+```
+#!/bin/sh
+
+FILE="./qodana.yaml"
+
+/bin/cat <<EOM >$FILE
+exclude:
+```
    
-   Alternatively, you can put a custom `qodana.yaml` file to the root of your repository or, for repositories that are not yours, to the root of a forked repository.
+  
 
 
 ### Add a Qodana runner
@@ -40,8 +51,6 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
    >You can disable certain inspections later via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
 
 4. For **Root of the project for the analysis**, specify the path to your project root where its configuration files are located. Leave empty for the **Checkout directory** specified on the **Version Control Settings** tab (system agent working directory).
-
-[//]: # "Checkout directory - correct?"
 
 5. For **Image name:tag**, specify an image name. 
    
@@ -67,8 +76,6 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
    - **Custom** or **File** to specify your own list of the plugins to disable. However, currently there is no need to disable any plugins.
      
 8. For **Additional parameters for JVM**, you can specify [more parameters](qodana-intellij-docker-techs.md#qodana-execution-tuneup) to run the Docker image such as the logging level.
-
-[//]: # "link correct? maybe better to join steps ## 8 and 9?"
 
 9. In **Additional arguments for Docker run**, you can specify any arguments accepted by the Docker image of the Qodana IntelliJ linter. For example, `-d` or `-changes` as you can see in the [docker techs for Qodana IntelliJ](qodana-intellij-docker-techs.md#Configuration).
 
@@ -98,7 +105,7 @@ When viewing analysis results for a specific build later, you can disable certai
 
 ## Advanced configuration
 
-[//]: # "delete? supplement?"
+[//]: # "delete? supplement? ...todo: Failure Conditions based on Qodana metrics"
 
 Advanced configuration lets you report all found problems via the standard TeamCity tests mechanism. It means
 you can assign investigations, mute, see history, and do everything else you can do with regular tests in TeamCity. Qodana IntelliJ reports tests in four different ways:
@@ -114,5 +121,5 @@ On TeamCity, open your project build page and go to the **Build Log** tab. Here 
 
 For more details, go to the **Artifacts** tab, where more detailed logs for TeamCity and Qodana are provided.
 
-For more about TeamCity logs, see [TeamCity Documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
+For more about TeamCity logs, see [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
 
