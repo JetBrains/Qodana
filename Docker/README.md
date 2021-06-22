@@ -11,7 +11,7 @@ Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?pa
 ## General
 
 The Qodana Docker image lets you to perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your
-code base. The current version [supports PHP, Java, and Kotlin for Server Side](../General/supported-technologies.md); the support for more languages and technologies are on its way.
+code base. The current version [supports PHP, Python, Java, and Kotlin for Server Side](../General/supported-technologies.md); the support for more languages and technologies are on its way.
 
 We provide two options optimized for different scenarios:
 - Running the analysis on a regular basis as a part of your continuous integration (*CI-based execution*)
