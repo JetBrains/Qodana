@@ -16,7 +16,7 @@ Qodana includes a growing number of command-line tools ([linters](linters.md)) w
 
 ### Results
 Every linter provides two types of output:
-* JSON files separately described per each linter in the [Results](results.md) chapter
+* JSON files separately described per each linter in the [Qodana Inspection Results](results.md) chapter
 * Web report for interactive results investigation and configuration adjustment described in [UI Overview](ui-overview.md)
 
 The Qodana UI can be part of your CI user interface in case your CI supports the UI extension. If it doesn't, you can spin the Qodana UI on your own following our [guidelines](html-report.md).

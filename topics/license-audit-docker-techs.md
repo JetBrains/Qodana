@@ -22,7 +22,12 @@ Application & help options:
  -w, --show-report               Serve an HTML report on port 8080
 ```
 
-Examples of execution tuneup:
+The command structure:
+```shell
+docker run <Docker options> <image name:tag> <Audit options>
+````
+
+### License Audit options: Examples of execution tuneup
 
 - Display a report in HTML. After the Clone Finder analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
@@ -30,15 +35,29 @@ Examples of execution tuneup:
    docker run ... -p 8080:8080 <image-name> --show-report
    ```
 
-Install and use a different version of a language:
+### Docker options: Specify a different language version
 
-The default installed versions of languages in the License Audit image
-
+The default installed versions of languages in the License Audit image:
 ```shell
+PYTHON_VERSION = "3.8.10"
 PHP_VERSION = "7.4.16"
+NODE_VERSION = "15.7.0"
+RUBY_VERSION = "2.6.0"
 JAVA_VERSION = "openjdk@1.14"
 ```
-[//]: # "not supported in EAP: PYTHON_VERSION= 3.8.10 NOVE_VERSION = 15.7.0 RUBY_VERSION = 2.6.0"
+
+If your project requires another version, pass the environment variable of the language version with other Docker options to `docker run`:
+
+```shell
+docker run --rm -it -p 8080:8080 \
+-v /project/:/data/project \
+-v /results/:/data/results/ \
+-e PYTHON_VERSION=3.7.10 jetbrains/qodana-license-audit:latest --show-report
+```
+
+Then it will be installed on the container launch and used to obtain dependencies.
+
+[//]: # "todo: change to Install language version + You need to do it one time (when implemented)"
 
 ## Run as non-root
 
