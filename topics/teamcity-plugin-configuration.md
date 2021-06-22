@@ -42,6 +42,8 @@ exclude:
       - another/relative/path
   - name: CloneFinder
   - name: ProhibitedDependencyLicense
+  
+EOM  
 ```
    
 [//]: # "OK?"  
