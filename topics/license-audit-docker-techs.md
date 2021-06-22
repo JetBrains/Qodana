@@ -24,7 +24,7 @@ Application & help options:
 
 The command structure:
 ```shell
-docker run <Docker options> <image name:tag> <Audit options>
+docker run <docker-options> <image-name:tag> <audit-options>
 ````
 
 ### License Audit options: Examples of execution tuneup
