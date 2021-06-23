@@ -1,12 +1,16 @@
 [//]: # (title: Configure a Profile via qodana.yaml)
 
-Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. You can specify such overrides in the [HTML report](results.md), and the changes are imported to `qodana.yaml` automatically. To run subsequent checks with this customized configuration, save the file to the project's root directory. Alternatively, you can edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
+Qodana runs are configured via the `qodana.yaml` configuration file. Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. You can specify such overrides in the [HTML report](results.md), and the changes are imported to `qodana.yaml` automatically. To run subsequent checks with this customized configuration, save the file to the project's root directory. Alternatively, you can edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
 
-**Note**: Configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IDEA or PhpStorm.
+> Configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IntelliJ IDEA or PhpStorm.
 
 ## Set up a profile
 
-The default profile is `qodana.recommended`. You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the `.xml` file with this profile is in the working directory where the VCS stores your project before building it. Here you can find IDEA profiles for embedding to Qodana Docker images: [github.com/JetBrains/qodana-profiles](https://github.com/JetBrains/qodana-profiles).
+Out of the box, Qodana provides several predefined profiles: 
+ * `qodana.recommended` - the default profile containing a preselected set of IntelliJ IDEA Java and Kotlin inspections.
+ * `empty` - an empty profile containing no inspections, which can be used as a basis for manual configuration.
+
+You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the `.xml` file with this profile is in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 
 
 Set up a profile by the name:
@@ -26,7 +30,7 @@ profile:
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}
 
-It is possible to specify that files in a certain directory are not analyzed. You can do it for a certain inspection or for all inspections.
+You can specify that the files in a certain directory are not analyzed. This can be done for a certain inspection or for all inspections.
 
 For all inspections:
 
@@ -57,9 +61,22 @@ exclude:
       - tools
 ```
 
-You can find specific inspection IDs: 1) in the Profile settings in the HTML report, 2) in the `.xml` file with your inspection profile.
+You can find specific inspection IDs in the Profile settings in the HTML report or in the `.xml` file with your inspection profile.
 
-**Note**: Exclusion by `paths` is currently not supported by License Audit.
+> Exclusion by `paths` is currently not supported by License Audit.
+
+## Include an inspection into the analysis scope
+
+If an inspection is not contained in the selected profile, you can include it into the analysis scope explicitly via the `include` directive.
+
+```yaml
+profile:
+    name: empty
+include:
+  - name: SomeInspectionId
+```
+
+In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included into the analysis scope. As a result, only the check performed by the `SomeInspectionId` inspection will be included in the Qodana run.
 
 ## Fail threshold
 
@@ -97,7 +114,7 @@ exclude:
 ```
 
 In the example above,
-* `SomeInspectionId` inspection is enabled (although it is disabled in the profile)
+* `SomeInspectionId` inspection is explicitly enabled, although it is disabled in the profile
 * `Annotator` inspection is disabled for all paths
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
