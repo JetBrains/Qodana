@@ -37,13 +37,37 @@ In addition to the sunburst diagram and other features of Qodana's [HTML report]
 ### Follow up on detection results
 {id="results-review"}
 
-Find below a recommended course of action for each inspection type.
+Find below a recommended course of action for each inspection type. 
+
+**Note**:
+- To override detection results, add the recommended settings to  [`qodana.yaml`](qodana-yaml.md#License+Audit+configuration) and save the configuration file to the root of the analyzed project.
+- To report a problem, go to **More actions | Report** at the bottom of the problem card.
 
 #### No dependency licenses
 Try to find the dependency license, get legal advice, and
-- Manually assign a license ID to this dependency in the configuration (dependencyOverride)
+- Manually assign a license ID to this dependency in the configuration, for example:
 
-- Ignore: hide this warning by ignoring the dependency in the configuration (dependencyIgnores)
+    ```yaml
+    inspections:
+     LicenseAudit:
+       dependencyOverrides:
+           - name: "numpy"
+             version: "1.19.1"
+             licenses:
+               - "BSD-3-Clause"
+    ```
+
+- Ignore: hide this warning by ignoring the dependency in the configuration 
+
+    ```yaml
+    inspections:
+      LicenseAudit:
+        dependencyIgnores:
+          - name: "enry"
+            licenses:
+              - "UNKNOWN"
+    ```
+
 - Take action: remove the dependency | fix the dependency license file
 - Report: License Audit has not found an existing dependency license
 
@@ -51,9 +75,28 @@ Try to find the dependency license, get legal advice, and
 #### Unrecognized dependency license
 
 Try to find the dependency license, get legal advice, and
-- Manually assign a license ID to this dependency (dependencyOverride)
+- Manually assign a license ID to this dependency in the configuration, for example:
 
-- Ignore: hide this warning by ignoring the dependency in the configuration (dependencyIgnores)
+    ```yaml
+    inspections:
+     LicenseAudit:
+       dependencyOverrides:
+           - name: "numpy"
+             version: "1.19.1"
+             licenses:
+               - "BSD-3-Clause"
+    ```
+
+- Ignore: hide this warning by ignoring the dependency in the configuration
+
+    ```yaml
+    inspections:
+      LicenseAudit:
+        dependencyIgnores:
+          - name: "enry"
+            licenses:
+              - "UNKNOWN"
+    ```
 - Take action: remove the dependency | fix the dependency license file
 - Report: License Audit has not recognized a valid dependency license
 
@@ -61,10 +104,34 @@ Try to find the dependency license, get legal advice, and
 Check the dependency license, get legal advice, and
 
 - Manually add the license to the allowed list
+
+    ```yaml
+    inspections:
+      LicenseAudit:
+        rules:
+          - key:
+              - "PROPRIETARY-LICENSE"
+              - "MIT"
+            allowed:
+              - "ISC"
+    ```
   
-- Ignore: hide this warning by ignoring the dependency in the configuration (dependencyIgnores)
+- Ignore: hide this warning by ignoring the dependency in the configuration 
+
+    ```yaml
+    inspections:
+      LicenseAudit:
+        dependencyIgnores:
+          - name: "numpy"
+            licenses:
+              - "GPL-3.0-only"
+    ```
+  
 - Take action: remove the dependency
-- ----Report???
+- Report: License Audit should list the reported dependency license as compatible with the given project license <reasons why>
+
+[//]: # "?"
+
 
 #### Unrecognized project license
 - Specify in your project files explicitly which licenses you want to use
@@ -76,7 +143,28 @@ Check the dependency license, get legal advice, and
 
 - Manually add the license to the allowed list: 
 
-- Ignore: hide this warning by ignoring the dependency in the configuration (dependencyIgnores)
+    ```yaml
+    inspections:
+      LicenseAudit:
+        rules:
+          - key:
+              - "PROPRIETARY-LICENSE"
+              - "MIT"
+            allowed:
+              - "ISC"
+    ```
+
+- Ignore: hide this warning by ignoring the dependency in the configuration - Ignore: hide this warning by ignoring the dependency in the configuration
+
+    ```yaml
+    inspections:
+      LicenseAudit:
+        dependencyIgnores:
+          - name: "numpy"
+            licenses:
+              - "GPL-3.0-only"
+    ```
+
 - Take action: remove the dependency
 - Report: License Audit is mistaken that the reported dependency license is not compatible with the given project license
 
