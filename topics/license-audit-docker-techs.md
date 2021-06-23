@@ -22,12 +22,7 @@ Application & help options:
  -w, --show-report               Serve an HTML report on port 8080
 ```
 
-The command structure:
-```shell
-docker run <docker-options> <image-name:tag> <audit-options>
-````
-
-### License Audit options: Examples of execution tuneup
+### Examples of execution tuneup
 
 - Display a report in HTML. After the Clone Finder analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
@@ -35,7 +30,7 @@ docker run <docker-options> <image-name:tag> <audit-options>
    docker run ... -p 8080:8080 <image-name> --show-report
    ```
 
-### Docker options: Specify a different language version
+### Specify a different language version
 
 The default installed versions of languages in the License Audit image:
 ```shell
@@ -46,7 +41,7 @@ RUBY_VERSION = "2.6.0"
 JAVA_VERSION = "openjdk@1.14"
 ```
 
-If your project requires another version, pass the environment variable of the language version with other Docker options to `docker run`:
+If your project requires another version, pass the environment variable with the language version to `docker run`:
 
 ```shell
 docker run --rm -it -p 8080:8080 \
@@ -57,7 +52,7 @@ docker run --rm -it -p 8080:8080 \
 
 Then it will be installed on the container launch and used to obtain dependencies.
 
-[//]: # "todo: change to Install language version + You need to do it one time (when implemented)"
+[//]: # "todo: (when implemented) change to Install language version + You need to do it one time "
 
 ## Run as non-root
 

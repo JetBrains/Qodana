@@ -4,6 +4,9 @@
 
 Qodana License Audit is designed to help software projects avoid problems with incompatible third-party licenses. More than 1600 licenses are detected. Users can create their own include and ignore lists as well as other overrides of the default detector’s logic.
 
+## Supported package managers
+list 1-15
+
 
 ## Try it now
 
