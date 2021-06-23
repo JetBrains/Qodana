@@ -23,12 +23,20 @@ An example of the Clone Finder command-line summary output:
 In addition to programmatic output, you can generate a human-readable report in the HTML format by using the `--save-report` argument.
 See [Open an HTML Report](html-report.md) for details.
 
+You can [save and share the report](#Save+and+share+the+results).
+
 ```shell
 ...
 ```
 [//]: # "add"
 
-In addition to the sunburst diagram and other features of Qodana's [HTML report](ui-overview.md), ---
+License Audit extends the [Qodana UI](ui-overview.md) features to make license analysis more helpful and convenient.
+
+1. A sunburst diagram offers a quick overview of the problems detected.
+2. From the diagram, you can navigate to a complete list of detected problems.
+3. You can view the list of detected dependencies and their licenses.
+
+--Now let's see the details of a license report.
 
 ### 5 problem types (inspections)
 
@@ -132,7 +140,6 @@ Check the dependency license, get legal advice, and
 
 [//]: # "?"
 
-
 #### Unrecognized project license
 - Specify in your project files explicitly which licenses you want to use
 
@@ -170,6 +177,13 @@ Check the dependency license, get legal advice, and
 
 ### View all third-party licenses
 
+### Save and share the results
+
+1. In your report, open the Project audit window and go to the **Third-party licenses** tab.
+2. Click the downward arrow to the right of the search field and select the necessary output format:
+  - HTML
+  - CSV
+  - JSON
 
 ## Learn more
 
