@@ -128,7 +128,7 @@ Check the dependency license, get legal advice, and
     ```
   
 - Take action: remove the dependency
-- Report: License Audit should list the reported dependency license as compatible with the given project license <reasons why>
+- Report: License Audit should list the reported dependency license as compatible with the given project license (reasons why)
 
 [//]: # "?"
 
