@@ -2,11 +2,16 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-Qodana License Audit is designed to help software projects avoid problems with incompatible third-party licenses. More than 1600 licenses are detected. Users can create their own include and ignore lists as well as other overrides of the default detector’s logic.
+---Qodana License Audit is designed to help software projects avoid problems with incompatible third-party licenses. More than 1600 licenses are detected. Users can create their own include and ignore lists as well as other overrides of the default detector’s logic.
 
 ## Supported package managers
 list 1-15
 
+PHP Composer, npm, pip (requirements.txt or setup.py is required), pipenv, poetry, yarn are already supported.
+
+## Supported inspections
+
+Read [License Audit Output Formats](license-audit-output.md) to find information about all inspections and possible ways to resolve reported problems.
 
 ## Try it now
 
@@ -33,14 +38,6 @@ Read our [Docker guide](license-audit-docker-readme.md) for more options and det
 ### Run at GitHub
 
 You can set up a workflow in your GitHub repository using the [GitHub actions](license-audit-github-action.md) we published.
-
-### Supported inspections
-
-Read our [License Audit Output](license-audit-output.md) to find information about all inspections and ways to resolve problem.
-
-### Supported technologies
-
-PHP Composer, npm, pip (requirements.txt or setup.py is required), pipenv, poetry, yarn are already supported.
 
 ## License
 
