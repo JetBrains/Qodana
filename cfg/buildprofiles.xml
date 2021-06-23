@@ -28,7 +28,7 @@
         <variables>
             <config-feedback-enabled>true</config-feedback-enabled>
             <config-feedback-widget>true</config-feedback-widget>
-            <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
+            <config-feedback-url>https://forms-service.jetbrains.com/feedback</config-feedback-url>
         </variables>
     </build-profile>
 
