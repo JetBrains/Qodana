@@ -87,7 +87,7 @@ Try to find the dependency license, get legal advice, and
                - "BSD-3-Clause"
     ```
 
-- Ignore: hide this warning by ignoring the dependency in the configuration
+- Ignore: hide this warning by ignoring the dependency in the configuration, for example:
 
     ```yaml
     inspections:
@@ -103,7 +103,7 @@ Try to find the dependency license, get legal advice, and
 #### Uncategorized dependency license
 Check the dependency license, get legal advice, and
 
-- Manually add the license to the allowed list
+- Manually add the license to the allowed list, for example:
 
     ```yaml
     inspections:
@@ -116,7 +116,7 @@ Check the dependency license, get legal advice, and
               - "ISC"
     ```
   
-- Ignore: hide this warning by ignoring the dependency in the configuration 
+- Ignore: hide this warning by ignoring the dependency in the configuration, for example: 
 
     ```yaml
     inspections:
@@ -141,7 +141,7 @@ Check the dependency license, get legal advice, and
 #### Prohibited dependency license
 Check the dependency license, get legal advice, and
 
-- Manually add the license to the allowed list: 
+- Manually add the license to the allowed list, for example: 
 
     ```yaml
     inspections:
@@ -154,7 +154,7 @@ Check the dependency license, get legal advice, and
               - "ISC"
     ```
 
-- Ignore: hide this warning by ignoring the dependency in the configuration - Ignore: hide this warning by ignoring the dependency in the configuration
+- Ignore: hide this warning by ignoring the dependency in the configuration, for example:
 
     ```yaml
     inspections:
