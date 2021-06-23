@@ -37,47 +37,48 @@ In addition to the sunburst diagram and other features of Qodana's [HTML report]
 ### Follow up on detection results
 {id="results-review"}
 
-#### No dependency licenses
-   Try to find the [dependency](link) license, get legal advice,
-- manually assign the license to this dependency in the configuration (override detection results - dependencyOverride)
+Find below a recommended course of action for each inspection type.
 
-- ignore (Ignore problems for dependencies - dependencyIgnores):  hide this warning by ignoring the dependency in the configuration
-- take action: delete the dependency/ fix the dependency license file
-- report:  LA has not found an existing dependency license
+#### No dependency licenses
+Try to find the dependency license, get legal advice, and
+- Manually assign a license ID to this dependency in the configuration (dependencyOverride)
+
+- Ignore: hide this warning by ignoring the dependency in the configuration (dependencyIgnores)
+- Take action: remove the dependency | fix the dependency license file
+- Report: License Audit has not found an existing dependency license
 
 
 #### Unrecognized dependency license
 
-= #1 (кроме report)
-Try to find the [dependency](link) license, get legal advice,
-- manually assign it to this dependency in the configuration (override detection results - dependencyOverride)
+Try to find the dependency license, get legal advice, and
+- Manually assign a license ID to this dependency (dependencyOverride)
 
-- ignore (Ignore problems for dependencies - dependencyIgnores):  hide this warning by ignoring the dependency in the configuration
-- take action: delete the dependency| fix the dependency license file
-- report:  LA has not recognized a valid dependency license
+- Ignore: hide this warning by ignoring the dependency in the configuration (dependencyIgnores)
+- Take action: remove the dependency | fix the dependency license file
+- Report: License Audit has not recognized a valid dependency license
 
 #### Uncategorized dependency license
-   Check the [dependency](link) license {x}, get legal advice
+Check the dependency license, get legal advice, and
 
-- manually add the license to the allowed list: project license {y}, dependency license {z}
-
-- ignore (Ignore problems for dependencies - dependencyIgnores):  hide this warning by excluding the dependency from the analysis scope
-- take action: delete the dependency
-- ----report
+- Manually add the license to the allowed list
+  
+- Ignore: hide this warning by ignoring the dependency in the configuration (dependencyIgnores)
+- Take action: remove the dependency
+- ----Report???
 
 #### Unrecognized project license
 - Specify in your project files explicitly which licenses you want to use
 
-- report: LA has not recognized an existing and valid project license
+- Report: License Audit has not recognized an existing and valid project license
 
 #### Prohibited dependency license
-   Check the dependency license, get legal advice, and
+Check the dependency license, get legal advice, and
 
-- manually add the license to the allowed list: project license {y}, dependency license {z}
+- Manually add the license to the allowed list: 
 
-- ignore (Ignore problems for dependencies - dependencyIgnores):  hide this warning by ignoring the dependency in the configuration
-- take action - get rid of the incompatible dependency
-- report: LA is mistaken that the reported dependency license is not compatible with the given project license
+- Ignore: hide this warning by ignoring the dependency in the configuration (dependencyIgnores)
+- Take action: remove the dependency
+- Report: License Audit is mistaken that the reported dependency license is not compatible with the given project license
 
 ### View all third-party licenses
 
