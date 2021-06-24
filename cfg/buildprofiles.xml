@@ -26,8 +26,8 @@
 
     <build-profile product="qd">
         <variables>
-            <config-feedback-enabled>true</config-feedback-enabled>
-            <config-feedback-widget>true</config-feedback-widget>
+            <config-feedback-enabled>false</config-feedback-enabled>
+            <config-feedback-widget>false</config-feedback-widget>
             <config-feedback-url>https://forms-service.jetbrains.com/feedback</config-feedback-url>
         </variables>
     </build-profile>
