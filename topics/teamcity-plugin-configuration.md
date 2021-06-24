@@ -7,7 +7,7 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 ### Prerequisites
 
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
-- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html).
+- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html). Also check specific requirements for each linter in [About Qodana Linters](linters.md).
 - The [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana) is installed on your TeamCity server (you can do it yourself or contact the server's administrator to do this).
 
 
@@ -48,7 +48,7 @@ EOM
 [//]: # "OK?"  
 
 
-### Add a Qodana runner
+### Add the Qodana runner
 
 1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
@@ -89,24 +89,26 @@ EOM
 
 9. In **Additional arguments for Docker run**, you can specify any arguments accepted by the Docker image of the Qodana IntelliJ linter. For example, `-d` or `-changes` as you can see in the [docker techs for Qodana IntelliJ](qodana-intellij-docker-techs.md#Configuration).
 
-10. Click **Save**. Now you can run a build with new Qodana inspection parameters you specified.
+10. Click **Save**. Now you can run a build with new inspection parameters you specified.
 
 
-## Add more runners to your build
-You can add inspections by [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) to your build steps.
+## Use other runners in your build
 
-### Prerequisites for adding more runners
+You can also run inspections by [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) on your builds.
 
-- The Qodana plugin for teamCity is installed.
-- The Clone Finder or License Audit plugins for teamCity are installed as necessary.
+**Prerequisites**
 
-### Add the Clone Finder runner
+- The Qodana plugin for TeamCity is installed.
+- The Clone Finder or License Audit plugins for TeamCity are installed as necessary.
 
-....
+1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
-### Add the License Audit runner 
+2. Click the **Qodana** build step to edit its configuration.
 
-....
+3. On the page with the build step for Qodana, select the checkbox next to the necessary plugin and specify other settings as necessary. 
+   
+4. Click **Save**. Now you can run a build with new inspection parameters you specified.
+
 
 ## Advanced configuration
 
