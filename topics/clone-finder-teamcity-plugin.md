@@ -47,10 +47,14 @@ If you use DSL to configure your build, add this section to your build configura
  }    
 ```
 
-> Temporary limitation: only one Qodana build step can be added to the configuration. If you
+<note>
+
+Temporary limitation: only one Qodana build step can be added to the configuration. If you
 need to aggregate the analysis of several builds into one, use the TeamCity [Composite Build Configuration](https://www.jetbrains.com/help/teamcity/composite-build-configuration.html) feature.
 
-After the build is finished, you will see the **Qodana** tab on the **Build Overview** page. Note that the tab
+</note>
+
+> After the build is finished, you will see the **Qodana** tab on the **Build Overview** page. Note that the tab
 can be hidden under the **More** section. To see it in all builds with this step, mark the **Qodana** tab with a star.
 
 Almost all [UI features](https://www.jetbrains.com/help/qodana/ui-overview.html) of the **Qodana** tab are similar among all Qodana tools we provide. They are

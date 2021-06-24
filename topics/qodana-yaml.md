@@ -3,7 +3,9 @@
 Qodana runs are configured via the `qodana.yaml` configuration file. Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. You can specify such overrides in the [HTML report](results.md), and the changes are imported to `qodana.yaml` automatically. To run subsequent checks with this customized configuration, save the file to the project's root directory. Alternatively, you can edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
 
 <note>
+
 Configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IntelliJ IDEA or PhpStorm.
+
 </note>
 
 ## Set up a profile
@@ -66,7 +68,9 @@ exclude:
 You can find specific inspection IDs in the Profile settings in the HTML report or in the `.xml` file with your inspection profile.
 
 <note>
+
 Exclusion by `paths` is currently not supported by License Audit.
+
 </note>
 
 ## Include an inspection into the analysis scope

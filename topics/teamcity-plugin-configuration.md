@@ -28,7 +28,7 @@ Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When
 
    In the example below, the script appends the following inspection exclusions to the configuration file:
 
-```
+```shell
 #!/bin/sh
 
 FILE="./qodana.yaml"
@@ -58,7 +58,7 @@ EOM
 
 3. Select the checkbox next to **Code Inspections** (stands for the Qodana IntelliJ linter).
 
-   >You can disable certain inspections later via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
+   > You can disable certain inspections later via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
 
 4. For **Root of the project for the analysis**, specify the path to your project root where its configuration files are located. Leave empty for the **Checkout directory** specified on the **Version Control Settings** tab (system agent working directory).
 
@@ -74,11 +74,11 @@ EOM
    - **Default** (`qodana.recommended`). 
    - **Name of embedded profile** and specify the name of a profile available for your project in IntelliJ IDEA.
      
-     >Make sure that the `.idea` directory with this profile's `.xml` file is added to your working directory.
+     > Make sure that the `.idea` directory with this profile's `.xml` file is added to your working directory.
      
    - **Path to IntelliJ profile** and specify the path to the necessary `.xml` file in your working directory. Not recommended because in this case you will not be able to edit this profile from IntelliJ IDEA.
     
-      >IDEA profiles include customized sets of [inspections](https://www.jetbrains.com/help/idea/code-inspection.html). You can enable and disable them via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or in the [Profile settings](ui-overview.md#Adjust+your+inspection+profile) of your HTML report.
+      > IDEA profiles include customized sets of [inspections](https://www.jetbrains.com/help/idea/code-inspection.html). You can enable and disable them via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or in the [Profile settings](ui-overview.md#Adjust+your+inspection+profile) of your HTML report.
      
 
 7. For **Disabled plugins**, select
@@ -94,11 +94,6 @@ EOM
 
 ## Add more runners to your build
 You can add inspections by [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) to your build steps.
-
-When viewing analysis results for a specific build later, you can disable certain runners and inspections via [`qodana.yaml`](qodana-yaml.md) and update the [configuration script](#add-script).
-
-[//]: # "correct?"
-
 
 ### Prerequisites for adding more runners
 
