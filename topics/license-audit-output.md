@@ -47,9 +47,12 @@ License Audit extends the [Qodana UI](ui-overview.md) features to make license a
 
 Find below a recommended course of action for each inspection type. 
 
-**Note**:
+<note>
+
 - To override detection results, add the recommended settings to  [`qodana.yaml`](qodana-yaml.md#License+Audit+configuration) and save the configuration file to the root of the analyzed project.
+
 - To report a problem, go to **More actions | Report** at the bottom of the problem card.
+</note>
 
 #### No dependency licenses
 Try to find the dependency license, get legal advice, and
