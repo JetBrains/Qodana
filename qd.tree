@@ -20,7 +20,7 @@
         <toc-element id="ui-overview.md"/>
         <toc-element id="qodana-intellij-output.md" accepts-web-file-names="output.html,qodana-output.html"/>
         <toc-element id="clone-finder-output.md"/>
-        <toc-element id="license-audit-output.md"/>
+        <toc-element id="license-audit-output.md" show-structure-for="chapter" show-structure-depth="3"/>
         <toc-element id="html-report.md"/>
     </toc-element>
 
