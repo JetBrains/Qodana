@@ -14,19 +14,18 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 ### (Optional) Add a configuration script
 {id="add-script"}
 
-Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When using a CI system, you need to put this file to the working directory manually. Alternatively, you can write a script that will do it for you.
+Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When using a CI system, the file is copied to the working directory from the project root automatically. Alternatively, you can write a script that writes a custom `qodana.yaml` to the working directory.
 
 1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
 2. Select **Add build step | Command Line**.
 
-3. For **Step name**, specify an optional name, for example, "Add qodana.yaml".
+3. For **Step name**, specify a name, for example, "Add qodana.yaml".
 
 4. For **Run**, select **Custom script**.
 
-5. In the **Custom script** editor, write a script that adds a custom `qodana.yaml` to the working directory. 
-
-   In the example below, the script appends the following inspection exclusions to the configuration file:
+5. In the **Custom script** editor, write a script that adds a custom `qodana.yaml` to the working directory. For example,
+ 
 
 ```shell
 #!/bin/sh
@@ -34,6 +33,9 @@ Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When
 FILE="./qodana.yaml"
 
 /bin/cat <<EOM >$FILE
+version: 1.0
+profile:
+  name: qodana.recommended
 exclude:
   - name: Annotator
   - name: AnotherInspectionId
@@ -44,8 +46,6 @@ exclude:
   - name: ProhibitedDependencyLicense
 EOM  
 ```
-   
-[//]: # "OK?"  
 
 
 ### Add the Qodana runner
@@ -105,7 +105,7 @@ You can also run inspections by [Clone Finder](about-clone-finder.md) or [Licens
 
 2. Click the **Qodana** build step to edit its configuration.
 
-3. On the page with the build step for Qodana, select the checkbox next to the necessary plugin and specify other settings as necessary. 
+3. On the page with the build step for Qodana, select the checkbox next to the respective linter and specify other settings as necessary. 
    
 4. Click **Save**. Now you can run a build with new inspection parameters you specified.
 
