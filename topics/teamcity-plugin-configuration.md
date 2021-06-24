@@ -11,7 +11,7 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 - The [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana) is installed on your TeamCity server (you can do it yourself or contact the server's administrator to do this).
 
 
-### (Optional) Add a configuration script
+### (Optional) Add a configuration file
 {id="add-script"}
 
 Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When using a CI system, the file is copied to the working directory from the project root automatically. Alternatively, you can write a script that writes a custom `qodana.yaml` to the working directory.
@@ -28,11 +28,7 @@ Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When
  
 
 ```shell
-#!/bin/sh
-
-FILE="./qodana.yaml"
-
-/bin/cat <<EOM >$FILE
+cat <<EOM >qodana.yaml
 version: 1.0
 profile:
   name: qodana.recommended
@@ -99,7 +95,7 @@ You can also run inspections by [Clone Finder](about-clone-finder.md) or [Licens
 **Prerequisites**
 
 - The Qodana plugin for TeamCity is installed.
-- The Clone Finder or License Audit plugins for TeamCity are installed as necessary.
+- The Clone Finder or License Audit plugins for TeamCity are installed.
 
 1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
