@@ -22,8 +22,10 @@ If you use DSL to configure your build, add this section to your build configura
 
 If your projects rely on technologies that are not fully supported, you may require additional steps in your build: for example, to download dependencies.
 
-> Temporary limitation: only one Qodana build step can be added to the configuration. If you
+<note>
+Temporary limitation: only one Qodana build step can be added to the configuration. If you
 need to aggregate the analysis of several builds into one, use the TeamCity [Composite Build Configuration](https://www.jetbrains.com/help/teamcity/composite-build-configuration.html) feature.
+</note>
 
 [//]: # "todo: remove after aggregation is implemented"
 
