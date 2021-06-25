@@ -7,7 +7,7 @@
 Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2020.3-eap), [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
 We provide a Docker image for the [Qodana IntelliJ linter](about-qodana-intellij.md) to support different usage scenarios:
-- Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
+- Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*).
 - Single-shot analysis (for example, performed *locally*).
 
 If you are familiar with [JetBrains IDEs code inspections](https://www.jetbrains.com/help/idea/code-inspection.html)

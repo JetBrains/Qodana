@@ -30,7 +30,8 @@ Application & help options:
    docker run ... -p 8080:8080 <image-name> --show-report
    ```
 
-### Specify a different language version
+### Specify the language version required by your project
+{id="specify-project-language-version"}
 
 The default installed versions of languages in the License Audit image:
 ```shell

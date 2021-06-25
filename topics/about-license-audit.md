@@ -26,10 +26,10 @@ docker pull jetbrains/qodana-license-audit
 and run the analysis locally:
 
 ```shell
-docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana-license-audit --show-report
+docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 -e <language-version> jetbrains/qodana-license-audit --show-report
 ```
 
-where `source-directory` should point to the root of your project.
+where `source-directory` points to the root of your project, `language-version` [specifies your project's language version](license-audit-docker-techs.md#specify-project-language-version).
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 

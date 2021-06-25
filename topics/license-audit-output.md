@@ -184,9 +184,9 @@ Check the dependency license, get legal advice, and
 
 1. In your report, open the Project audit window and go to the **Third-party licenses** tab.
 2. Click the downward arrow to the right of the search field and select the necessary output format:
-  - HTML
-  - CSV
-  - JSON
+    * HTML
+    * CSV
+    * JSON
 
 ## Learn more
 

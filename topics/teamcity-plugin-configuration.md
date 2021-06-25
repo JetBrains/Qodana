@@ -94,15 +94,17 @@ You can also run inspections by [Clone Finder](about-clone-finder.md) or [Licens
 
 **Prerequisites**
 
-- The Qodana plugin for TeamCity is installed.
-- The Clone Finder or License Audit plugins for TeamCity are installed.
+   * The Qodana plugin for TeamCity is installed.
+   * The Clone Finder or License Audit plugins for TeamCity are installed.
 
 1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
 2. Click the **Qodana** build step to edit its configuration.
 
-3. On the page with the build step for Qodana, select the checkbox next to the respective linter and specify other settings as necessary. 
-   
+3. On the page with the build step for Qodana, select the checkbox next to the respective linter and specify other settings as necessary.
+
+   > For License Audit, [specify your project's language version](license-audit-docker-techs.md#specify-project-language-version).
+
 4. Click **Save**. Now you can run a build with new inspection parameters you specified.
 
 
