@@ -2,7 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-The Qodana Clone Finder plugin for TeamCity lets you extend Qodana static analysis with the [Clone Finder](https://www.jetbrains.com/help/qodana/about-clone-finder.html) functionality.
+The Qodana Clone Finder plugin for TeamCity lets you extend Qodana static analysis with the [Clone Finder](about-clone-finder.md) functionality.
 
 ## Quick start
 
@@ -11,7 +11,7 @@ The Qodana Clone Finder plugin for TeamCity lets you extend Qodana static analys
 
 Use [TeamCity VCS roots](https://www.jetbrains.com/help/teamcity/vcs-root.html) to add all required project source to the build.  
 
-With the plugin installed, add the Qodana runner to your build. 
+With the plugin installed, [add the Qodana runner to your build](teamcity-plugin-configuration.md). 
 
 <img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner"/>  
 
@@ -54,21 +54,17 @@ need to aggregate the analysis of several builds into one, use the TeamCity [Com
 
 </note>
 
-> After the build is finished, you will see the **Qodana** tab on the **Build Overview** page. Note that the tab
-can be hidden under the **More** section. To see it in all builds with this step, mark the **Qodana** tab with a star.
+> After the build is finished, you will see the **Qodana** tab on the **Build Overview** page. Note that the tab can be hidden under the **More** section. To see it in all builds with this step, mark the **Qodana** tab with a star.
 
-Almost all [UI features](https://www.jetbrains.com/help/qodana/ui-overview.html) of the **Qodana** tab are similar among all Qodana tools we provide. They are
-sufficient for exploring the results of a single run, but the tab in TeamCity offers even more. You can easily compare two
-builds and focus on the difference. Now, the comparison is limited to a single build configuration, but
-we are working on providing the cross-configuration option as well.
+Almost all [UI features](results.md) of the **Qodana** tab are similar across all Qodana tools we provide. They are sufficient for exploring the results of a single run, but the tab in TeamCity offers even more. You can easily compare two builds and focus on the difference. Now, the comparison is limited to a single build configuration, but we are working on providing the cross-configuration option as well.
 
-In the [inspection profile](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile), you will find two inspections provided by Clone Finder:
+In the [inspection profile](ui-overview.md#Adjust+your+inspection+profile), you will find two inspections provided by Clone Finder:
 * Code Fragments/Clone 
 * Code Fragments/Clone with license mismatch
 
 [//]: # "![Build Tab](tab.png) - irrelevant"
 
-Check the [Qodana UI](https://www.jetbrains.com/help/qodana/ui-overview.html) to see all features available in the UI.
+Check the chapter about [Qodana Inspection Results](results.md) to see all features available in the UI.
 
 ## License
 

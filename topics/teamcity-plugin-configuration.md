@@ -60,7 +60,7 @@ EOM
 
 5. For **Image name:tag**, specify an image name. 
    
-   **Public image (EAP)** points to the default `jetbrains/qodana:latest`. 
+   **Public Image (Latest)** points to the default `jetbrains/qodana:latest`. 
    
    **Custom** allows to specify your own value in the field that appears below.
    
@@ -103,7 +103,7 @@ You can also run inspections by [Clone Finder](about-clone-finder.md) or [Licens
 
 3. On the page with the build step for Qodana, select the checkbox next to the respective linter and specify other settings as necessary.
 
-   > For License Audit, [specify your project's language version](license-audit-docker-techs.md#specify-project-language-version).
+   > For more information, see topics about [Clone Finder TeamCity plugin](clone-finder-teamcity-plugin.md) and [License Audit TeamCity plugin](license-audit-teamcity-plugin.md).
 
 4. Click **Save**. Now you can run a build with new inspection parameters you specified.
 

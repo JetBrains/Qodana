@@ -14,6 +14,8 @@ The plugin lets you add the code quality checks in the TeamCity pipeline or even
 ![Build Tab](tab.png)
 
 
+For more information on how to set up the build steps for Qodana, see [TeamCity Plugin Configuration](teamcity-plugin-configuration.md)
+
 ## License
 
 <include src="lib_qd.xml" include-id="license-info">

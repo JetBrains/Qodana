@@ -148,6 +148,11 @@ Check the dependency license, get legal advice, and
 
 - Report: License Audit has not recognized an existing and valid project license
 
+#### No project licenses
+- Specify in your project files explicitly which licenses you want to use
+
+- Report: License Audit has not recognized an existing and valid project license
+
 #### Prohibited dependency license
 Check the dependency license, get legal advice, and
 

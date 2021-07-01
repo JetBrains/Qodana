@@ -55,6 +55,17 @@ Then it will be installed on the container launch and used to obtain dependencie
 
 [//]: # "todo: (when implemented) change to Install language version + You need to do it one time "
 
+### Specify the Gradle version
+
+If Gradle in your project is used without the [Gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html), pass the environment option with the Gradle version for License Audit to obtain your Gradle project dependencies:
+
+```shell
+docker run --rm -it -p 8080:8080 \
+-v /project/:/data/project \
+-v /results/:/data/results/ \
+-e GRADLE_VERSION=6.8.3 jetbrains/qodana-license-audit:latest --show-report
+```
+
 ## Run as non-root
 
 By default, the container is run as the `root` user so that Qodana can read any volumes bind-mounted with the project and write the results. As a result, files in the `results/` folder are owned by the `root` after the run.  

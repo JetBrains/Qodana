@@ -172,6 +172,7 @@ exclude:
   - name: UncategorizedDependencyLicense
   - name: UnrecognizedDependencyLicense
   - name: UnrecognizedProjectLicense
+  - name: NoProjectLicenses
 ```
 
 ### Allow or prohibit a license
@@ -197,7 +198,7 @@ inspections:
           - "MIT"
 ```
 
-where `key` is the project license(s); the dependency licenses are specified in `allowed` or `prohibited`.
+where `key` is the project license(s); the value `PROPRIETARY-LICENSE` stands for any license whose ID is not listed in the SPDX registry; the dependency licenses are specified in `allowed` or `prohibited`.
 
 ### Override a dependency license
 
