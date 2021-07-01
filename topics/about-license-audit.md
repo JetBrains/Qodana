@@ -2,12 +2,17 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
----Qodana License Audit is designed to help software projects avoid problems with incompatible third-party licenses. More than 1600 licenses are detected. Users can create their own include and ignore lists as well as other overrides of the default detector’s logic.
+Qodana License Audit is designed to help software projects avoid problems with incompatible third-party licenses. More than 1600 licenses are detected. Users can create their own include and ignore lists as well as other overrides of the default detector’s logic.
 
-## Supported package managers
-list 1-15
+## Supported technologies
 
-PHP Composer, npm, pip (requirements.txt or setup.py is required), pipenv, poetry, yarn are already supported.
+**Package managers/build systems**: Composer, Gradle (see [exceptions and workarounds](license-audit-docker-techs.md#gradle-known-issues)), npm, pip (requirements.txt or setup.py is required), Pipenv, Poetry, Yarn.
+
+<warning>
+
+Android projects are not supported.
+
+</warning>
 
 ## Supported inspections
 

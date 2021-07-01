@@ -55,16 +55,19 @@ Then it will be installed on the container launch and used to obtain dependencie
 
 [//]: # "todo: (when implemented) change to Install language version + You need to do it one time "
 
-### Specify the Gradle version
+### Known issues with Gradle projects
+{id="gradle-known-issues"}
 
-If Gradle in your project is used without the [Gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html), pass the environment option with the Gradle version for License Audit to obtain your Gradle project dependencies:
+1. If your project's Gradle version is different from the default `6.8.3` in the License Audit image _AND_ no [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) is used, License Audit will be able to obtain your Gradle project dependencies, if you pass the environment option with the Gradle version:
 
-```shell
-docker run --rm -it -p 8080:8080 \
--v /project/:/data/project \
--v /results/:/data/results/ \
--e GRADLE_VERSION=6.8.3 jetbrains/qodana-license-audit:latest --show-report
-```
+  ```shell
+  docker run --rm -it -p 8080:8080 \
+  -v /project/:/data/project \
+  -v /results/:/data/results/ \
+  -e GRADLE_VERSION=7.1 jetbrains/qodana-license-audit:latest --show-report
+  ```
+
+2. In case of error `Could not find or load main class org.gradle.wrapper.GradleWrapperMain`, push the Gradle Wrapper to the project repository.
 
 ## Run as non-root
 
