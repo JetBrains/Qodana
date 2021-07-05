@@ -7,36 +7,74 @@
 
 Full License Audit results are available in the file `report.json` located in the `results-dir` folder.
 
-[//]: # "verify"
-
 ## Command-line output summary
 
-An example of the Clone Finder command-line summary output:
+An example of the License Audit command-line summary output:
 ``` shell
-...
+1/4 Gathering project metadata...
+┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ Dependency Type    ┃ Count ┃
+┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ gradle             │  39   │
+└────────────────────┴───────┘
+2/4 Obtaining licenses for 39 dependencies...
+┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ License Type       ┃ Count ┃
+┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ Permissive         │  26   │
+│ Unstated License   │   2   │
+│ Copyleft           │   2   │
+│ Public Domain      │   3   │
+│ Copyleft Limited   │   1   │
+└────────────────────┴───────┘
+3/4 Checking project with licenses (Apache-2.0) and dependencies for problems...
+┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ Problem Type       ┃ Count ┃
+┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ Unrecognized       │   3   │
+│ dependency license │       │
+│ Prohibited         │   2   │
+│ dependency license │       │
+│ No dependency      │   4   │
+│ licenses           │       │
+│ Uncategorized      │   4   │
+│ dependency license │       │
+└────────────────────┴───────┘
+✨   Done!
 ```
-[//]: # "add"
 
 ## UI-compatible output
-{id="license-audit-ui-output"}
+{id="clone-finder-ui-output"}
 
 In addition to programmatic output, you can generate a human-readable report in the HTML format by using the `--save-report` argument.
 See [Open an HTML Report](html-report.md) for details.
 
-You can [save and share the report](#Save+and+share+the+results).
-
 ```shell
-...
+├── asset-manifest.json  // UI
+├── index.html // UI
+├── preview.html // UI
+├── results
+│   ├── License_Audit
+│   │   ├── licenseRules.json  // License rules based on project qodana.yaml
+│   │   ├── licenseTexts.md  // All dependency licenses texts
+│   │   └── projectMetadata.json  // Project and dependency licenses metadata
+│   ├── descriptions
+│   │   └── License_Audit.json
+│   ├── metaInformation.json  // Found problems metadata
+│   ├── projectStructure
+│   │   └── Code_Inspection.json  // Inspection description
+│   ├── qodana.yaml  // Project's qodana.yaml 
+│   └── result-allProblems.json  // All found problems
+└── versions // UI
 ```
-[//]: # "add"
 
 License Audit extends the [Qodana UI](ui-overview.md) features to make license analysis more helpful and convenient.
 
 1. A sunburst diagram offers a quick overview of the problems detected.
 2. From the diagram, you can navigate to a complete list of detected problems.
-3. You can view the list of detected dependencies and their licenses.
+3. Project audit window provides a view of project license, dependency licenses and the current allowed/prohibited licenses configuration.
 
---Now let's see the details of a license report.
+[//]: # "TODO discuss"
 
 ### 5 problem types (inspections)
 
@@ -56,9 +94,9 @@ Find below a recommended course of action for each inspection type.
 
 #### No dependency licenses
 Try to find the dependency license, get legal advice, and
-- Manually assign a license ID to this dependency in the configuration, for example:
+- Manually assign an [SPDX license ID](https://spdx.org/licenses/) to this dependency in the configuration, for example:
 
-    ```yaml
+```yaml
     inspections:
      LicenseAudit:
        dependencyOverrides:
@@ -66,29 +104,30 @@ Try to find the dependency license, get legal advice, and
              version: "1.19.1"
              licenses:
                - "BSD-3-Clause"
-    ```
+```
 
 - Ignore: hide this warning by ignoring the dependency licenses in the configuration 
 
-    ```yaml
+```yaml
     inspections:
       LicenseAudit:
         dependencyIgnores:
           - name: "enry"
             licenses:
-              - "UNKNOWN"
-    ```
+              - "NONE"
+```
 
-- Take action: remove the dependency | fix the dependency license file
+- Take action: remove the dependency
+- Disable the check: do it in [the Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not found an existing dependency license
 
 
 #### Unrecognized dependency license
 
 Try to find the dependency license, get legal advice, and
-- Manually assign a license ID to this dependency in the configuration, for example:
+- Manually assign a [SPDX license ID](https://spdx.org/licenses/) to this dependency in the configuration, for example:
 
-    ```yaml
+```yaml
     inspections:
      LicenseAudit:
        dependencyOverrides:
@@ -96,27 +135,28 @@ Try to find the dependency license, get legal advice, and
              version: "1.19.1"
              licenses:
                - "BSD-3-Clause"
-    ```
+```
 
 - Ignore: hide this warning by ignoring the dependency licenses in the configuration, for example:
 
-    ```yaml
+```yaml
     inspections:
       LicenseAudit:
         dependencyIgnores:
           - name: "enry"
             licenses:
               - "UNKNOWN"
-    ```
-- Take action: remove the dependency | fix the dependency license file
+```
+- Take action: remove the dependency
+- Disable the check: do it in [the Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not recognized a valid dependency license
 
 #### Uncategorized dependency license
 Check the dependency license, get legal advice, and
 
-- Manually add the license to the allowed list, for example:
+- Manually add the [SPDX license ID](https://spdx.org/licenses/) to the allowed list, for example:
 
-    ```yaml
+```yaml
     inspections:
       LicenseAudit:
         rules:
@@ -125,32 +165,31 @@ Check the dependency license, get legal advice, and
               - "MIT"
             allowed:
               - "ISC"
-    ```
+```
   
 - Ignore: hide this warning by ignoring the dependency licenses in the configuration, for example: 
 
-    ```yaml
+```yaml
     inspections:
       LicenseAudit:
         dependencyIgnores:
           - name: "numpy"
             licenses:
               - "GPL-3.0-only"
-    ```
+```
   
 - Take action: remove the dependency
+- Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit should list the reported dependency license as compatible with the given project license (reasons why)
 
-[//]: # "?"
-
 #### Unrecognized project license
-- Specify in your project files explicitly which licenses you want to use
-
+- Specify in your project files explicitly which licenses you want to use – add a LICENSE file. 
+- Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not recognized an existing and valid project license
 
 #### No project licenses
-- Specify in your project files explicitly which licenses you want to use
-
+- Specify in your project files explicitly which licenses you want to use – add a LICENSE file.
+- Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not recognized an existing and valid project license
 
 #### Prohibited dependency license
@@ -158,7 +197,7 @@ Check the dependency license, get legal advice, and
 
 - Manually add the license to the allowed list, for example: 
 
-    ```yaml
+```yaml
     inspections:
       LicenseAudit:
         rules:
@@ -167,23 +206,22 @@ Check the dependency license, get legal advice, and
               - "MIT"
             allowed:
               - "ISC"
-    ```
+```
 
 - Ignore: hide this warning by ignoring the dependency licenses in the configuration, for example:
 
-    ```yaml
+```yaml
     inspections:
       LicenseAudit:
         dependencyIgnores:
           - name: "numpy"
             licenses:
               - "GPL-3.0-only"
-    ```
+```
 
 - Take action: remove the dependency
+- Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit is mistaken that the reported dependency license is not compatible with the given project license
-
-### View all third-party licenses
 
 ### Save and share the results
 
