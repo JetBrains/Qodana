@@ -2,19 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-Qodana License Audit is designed to help software projects avoid problems with incompatible third-party licenses. More than 1600 licenses are detected. Users can create their own include and ignore lists as well as other overrides of the default detector’s logic.
-
-## Supported technologies
-
-**Package managers/build systems**: Composer, Gradle (see [exceptions and workarounds](license-audit-docker-techs.md#gradle-known-issues)), npm, pip (requirements.txt or setup.py is required), Pipenv, Poetry, Yarn.
-
-<warning>
-
-Android projects are not supported.
-
-</warning>
-
-## Supported inspections
+Qodana License Audit can help software projects avoid problems with incompatible third-party licenses. The tool can detect more than 1600 licenses and works with several package managers. Like any other Qodana linter, License Audit is a CI-first tool: users can set up a Continuous License Compliance pipeline and tune it up to their needs.
 
 Read [License Audit Output Formats](license-audit-output.md) to find information about all inspections and possible ways to resolve reported problems.
 
@@ -31,10 +19,10 @@ docker pull jetbrains/qodana-license-audit
 and run the analysis locally:
 
 ```shell
-docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 -e <language-version> jetbrains/qodana-license-audit --show-report
+docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains/qodana-license-audit --show-report
 ```
 
-where `source-directory` points to the root of your project, `language-version` [specifies your project's language version](license-audit-docker-techs.md#specify-project-language-version).
+where `source-directory` points to the root of your project.
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
@@ -43,6 +31,10 @@ Read our [Docker guide](license-audit-docker-readme.md) for more options and det
 ### Run at GitHub
 
 You can set up a workflow in your GitHub repository using the [GitHub actions](license-audit-github-action.md) we published.
+
+### Supported languages
+
+PHP with Composer, Java and Kotlin with Gradle, Python with Pip, Pipenv and Poetry, JavaScript and TypeScript with NPM and Yarn. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
 
 ## License
 

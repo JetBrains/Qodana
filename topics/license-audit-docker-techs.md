@@ -20,54 +20,67 @@ Application & help options:
  -o, --results-dir PATH          Save results to the folder
  -s, --save-report               Generate an HTML report
  -w, --show-report               Serve an HTML report on port 8080
+ -h, --host                      Specify host to serve UI at
+ -p, --port                      Specify port to serve UI on
 ```
 
 ### Examples of execution tuneup
 
-- Display a report in HTML. After the Clone Finder analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
+- Display a report in HTML. After the License Audit analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the webserver by pressing `Ctrl-C` in the Docker console.
 
-   ```shell
-   docker run ... -p 8080:8080 <image-name> --show-report
-   ```
-
-### Specify the language version required by your project
-{id="specify-project-language-version"}
-
-The default installed versions of languages in the License Audit image:
 ```shell
-PYTHON_VERSION = "3.8.10"
-PHP_VERSION = "7.4.16"
-NODE_VERSION = "15.7.0"
-RUBY_VERSION = "2.6.0"
-JAVA_VERSION = "openjdk@1.14"
+   docker run ... -p 8080:8080 <image-name> --show-report
 ```
 
-If your project requires another version, pass the environment variable with the language version to `docker run`:
+### Specify tools versions required by your project
+{id="specify-project-tools-version"}
+
+The default installed versions of tools (languages SDKs or build systems) in the License Audit image are:
+```shell
+JAVA_VERSION="11.0.11.hs-adpt"
+KOTLIN_VERSION="1.5.10"
+GRADLE_VERSION="6.8.3"
+PHP_VERSION="7.4.16"
+PYTHON_VERSION="3.8.10"
+NODE_VERSION="15.7.0"
+```
+
+If your project requires other tool version, pass the environment variable with the tool name and it's version to `docker run`:
 
 ```shell
 docker run --rm -it -p 8080:8080 \
--v /project/:/data/project \
--v /results/:/data/results/ \
--e PYTHON_VERSION=3.7.10 jetbrains/qodana-license-audit:latest --show-report
+    -v /project/:/data/project \
+    -v /results/:/data/results \
+    -e PYTHON_VERSION=3.7.10 \
+    jetbrains/qodana-license-audit:latest --show-report
 ```
 
 Then it will be installed on the container launch and used to obtain dependencies.
 
-[//]: # "todo: (when implemented) change to Install language version + You need to do it one time "
+#### Find available tools versions
+
+Run the command to find available versions for the wanted tool
+
+```shell
+docker run --rm -it jetbrains/qodana-license-audit:latest list <tool>
+```
+
+where `<tool>` is a tool name, which can be `java`, `kotlin`, `gradle`, `php`, `python` or `node`.
 
 ### Known issues with Gradle projects
 {id="gradle-known-issues"}
 
-1. If your project's Gradle version is different from the default `6.8.3` in the License Audit image _AND_ no [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) is used, License Audit will be able to obtain your Gradle project dependencies, if you pass the environment option with the Gradle version:
+1. In case if your project has no [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) included  and your project requires a Gradle version other than the default `6.8.3`, set `GRADLE_VERSION` image environment variable:
 
-  ```shell
-  docker run --rm -it -p 8080:8080 \
-  -v /project/:/data/project \
-  -v /results/:/data/results/ \
-  -e GRADLE_VERSION=7.1 jetbrains/qodana-license-audit:latest --show-report
-  ```
+```shell
+docker run --rm -it -p 8080:8080 \
+    -v /project/:/data/project \
+    -v /results/:/data/results \
+    -e GRADLE_VERSION=5.6.1   
+    jetbrains/qodana-license-audit:latest --show-report
+```
 
-2. In case of error `Could not find or load main class org.gradle.wrapper.GradleWrapperMain`, push the Gradle Wrapper to the project repository.
+2. In case of error, `Could not find or load main class org.gradle.wrapper.GradleWrapperMain`, push [the Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) to the project repository.
 
 ## Run as non-root
 
@@ -79,5 +92,12 @@ docker run -u $UID ...
 # or
 docker run -u $(id -u):$(id -g) ...
 ```
+Note that in this case, the `results/` folder on the host should already be created and owned by you. Otherwise, Docker will create it as `root,` and Qodana will not be able to write to it.
 
-Note that in this case, the `results/` folder on host should already be created and owned by you. Otherwise, Docker will create it as `root` and Qodana will not be able to write to it.
+## Turn off user statistics
+
+To disable the [reporting of usage statistics](clone-finder-docker-readme.md#Usage+statistics), add ```DISABLE_STAT_COLLECTION``` environment variable:
+
+```shell
+docker run -e DISABLE_STAT_COLLECTION=true <image-name> 
+```
