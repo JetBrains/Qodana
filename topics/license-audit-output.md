@@ -72,7 +72,7 @@ License Audit extends the [Qodana UI](ui-overview.md) features to make license a
 
 1. A sunburst diagram offers a quick overview of the problems detected.
 2. From the diagram, you can navigate to a complete list of detected problems.
-3. Project audit window provides a view of project license, dependency licenses and the current allowed/prohibited licenses configuration.
+3. Project audit window provides a view of project license, dependency licenses, and the current allowed/prohibited licenses configuration.
 
 [//]: # "TODO discuss"
 
@@ -90,6 +90,7 @@ Find below a recommended course of action for each inspection type.
 - To override detection results, add the recommended settings to  [`qodana.yaml`](qodana-yaml.md#License+Audit+configuration) and save the configuration file to the root of the analyzed project.
 
 - To report a problem, go to **More actions | Report** at the bottom of the problem card.
+
 </note>
 
 #### No dependency licenses
@@ -125,7 +126,7 @@ Try to find the dependency license, get legal advice, and
 #### Unrecognized dependency license
 
 Try to find the dependency license, get legal advice, and
-- Manually assign a [SPDX license ID](https://spdx.org/licenses/) to this dependency in the configuration, for example:
+- Manually assign an [SPDX license ID](https://spdx.org/licenses/) to this dependency in the configuration, for example:
 
 ```yaml
     inspections:
@@ -148,7 +149,7 @@ Try to find the dependency license, get legal advice, and
               - "UNKNOWN"
 ```
 - Take action: remove the dependency
-- Disable the check: do it in [the Checks window](ui-overview.md#Adjust+your+inspection+profile)
+- Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not recognized a valid dependency license
 
 #### Uncategorized dependency license

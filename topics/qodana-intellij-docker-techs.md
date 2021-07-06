@@ -2,11 +2,11 @@
 
 ## Docker image paths
 
-- **/data/project**       -- root directory of the project to be analyzed
-- **/data/results**       -- directory to store the analysis results, needs to be empty before running Qodana IntelliJ
-- **/root/.config/idea**  -- idea configuration directory
-- **/opt/idea**           -- directory of the idea distributive
-- **/data/profile.xml**   -- used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving a profile](#Order+of+resolving+a+profile).
+- **/data/project**       &mdash; root directory of the project to be analyzed
+- **/data/results**       &mdash; directory to store the analysis results, needs to be empty before running Qodana IntelliJ
+- **/root/.config/idea**  &mdash; idea configuration directory
+- **/opt/idea**           &mdash; directory of the idea distributive
+- **/data/profile.xml**   &mdash; used if a profile wasn't configured by run options or via `qodana.yaml`. See [Order of resolving a profile](#Order+of+resolving+a+profile).
 
 ## Configuration
 

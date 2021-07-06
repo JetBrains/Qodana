@@ -11,8 +11,8 @@ Configuration through `qodana.yaml` is only supported by the Qodana product. It 
 ## Set up a profile
 
 Out of the box, Qodana provides several predefined profiles: 
- * `qodana.recommended` - the default profile containing a preselected set of IntelliJ IDEA Java and Kotlin inspections.
- * `empty` - an empty profile containing no inspections, which can be used as a basis for manual configuration.
+ * `qodana.recommended`&nbsp;&mdash; the default profile containing a preselected set of IntelliJ IDEA Java and Kotlin inspections.
+ * `empty`&nbsp;&mdash; an empty profile containing no inspections, which can be used as a basis for manual configuration.
 
 You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the `.xml` file with this profile is in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 

@@ -45,7 +45,7 @@ PYTHON_VERSION="3.8.10"
 NODE_VERSION="15.7.0"
 ```
 
-If your project requires other tool version, pass the environment variable with the tool name and it's version to `docker run`:
+If your project requires another tool version, pass the environment variable with the tool's name and its version to `docker run`:
 
 ```shell
 docker run --rm -it -p 8080:8080 \
@@ -65,12 +65,12 @@ Run the command to find available versions for the wanted tool
 docker run --rm -it jetbrains/qodana-license-audit:latest list <tool>
 ```
 
-where `<tool>` is a tool name, which can be `java`, `kotlin`, `gradle`, `php`, `python` or `node`.
+where `tool` is a tool name, which can be `java`, `kotlin`, `gradle`, `php`, `python` or `node`.
 
 ### Known issues with Gradle projects
 {id="gradle-known-issues"}
 
-1. In case if your project has no [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) included  and your project requires a Gradle version other than the default `6.8.3`, set `GRADLE_VERSION` image environment variable:
+1. If your project has no [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) included and requires a Gradle version other than the default `6.8.3`, set the `GRADLE_VERSION` image environment variable:
 
 ```shell
 docker run --rm -it -p 8080:8080 \
@@ -80,7 +80,7 @@ docker run --rm -it -p 8080:8080 \
     jetbrains/qodana-license-audit:latest --show-report
 ```
 
-2. In case of error, `Could not find or load main class org.gradle.wrapper.GradleWrapperMain`, push [the Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) to the project repository.
+2. In case of the error `Could not find or load main class org.gradle.wrapper.GradleWrapperMain`, push the [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) to the project repository.
 
 ## Run as non-root
 
@@ -96,7 +96,7 @@ Note that in this case, the `results/` folder on the host should already be crea
 
 ## Turn off user statistics
 
-To disable the [reporting of usage statistics](clone-finder-docker-readme.md#Usage+statistics), add ```DISABLE_STAT_COLLECTION``` environment variable:
+To disable the [reporting of usage statistics](clone-finder-docker-readme.md#Usage+statistics), add the `DISABLE_STAT_COLLECTION` environment variable:
 
 ```shell
 docker run -e DISABLE_STAT_COLLECTION=true <image-name> 
