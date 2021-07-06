@@ -127,7 +127,7 @@ To change the plugins list, do any of the following:
   or
 
     ```shell
-        docker run ... -e IDE_PROPERTIES_PROPERTY=' -Didea.suppressed.plugins.id=com.intellij.spring.security' <image-name> 
+        docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.suppressed.plugins.id=com.intellij.spring.security' <image-name> 
     ```
 
 ## Analyze changes
@@ -169,7 +169,7 @@ Example for **local** run:
       -v <cache-directory>/:/data/cache/ \
       jetbrains/qodana --show-report
    ```
-In this case mapping the same `<cache-directory>` would speedup second run.
+In this case mapping the same `<cache-directory>` would speed up the second run.
 
 In **GitHub** workflow you can utilise [actions/cache](https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows), see [full example](qodana-intellij-docker-readme.md#Run+analysis+in+CI).
 
