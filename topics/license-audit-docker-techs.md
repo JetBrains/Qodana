@@ -20,7 +20,8 @@ Application & help options:
  -o, --results-dir PATH          Save results to the folder
  -s, --save-report               Generate an HTML report
  -w, --show-report               Serve an HTML report on port 8080
- -t  --tools-versions            Show available tools versions to install
+ -h, --host                      Specify host to serve UI at
+ -p, --port                      Specify port to serve UI on
 ```
 
 ### Examples of execution tuneup
@@ -49,7 +50,7 @@ If your project requires other tool version, pass the environment variable with 
 ```shell
 docker run --rm -it -p 8080:8080 \
     -v /project/:/data/project \
-    -v /results/:/data/results/ \
+    -v /results/:/data/results \
     -e PYTHON_VERSION=3.7.10 \
     jetbrains/qodana-license-audit:latest --show-report
 ```
@@ -74,7 +75,7 @@ where `<tool>` is a tool name, which can be `java`, `kotlin`, `gradle`, `php`, `
 ```shell
 docker run --rm -it -p 8080:8080 \
     -v /project/:/data/project \
-    -v /results/:/data/results/ \
+    -v /results/:/data/results \
     -e GRADLE_VERSION=5.6.1   
     jetbrains/qodana-license-audit:latest --show-report
 ```
