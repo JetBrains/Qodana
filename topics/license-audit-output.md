@@ -72,13 +72,17 @@ License Audit extends the [Qodana UI](ui-overview.md) features to make license a
 
 1. A sunburst diagram offers a quick overview of the problems detected.
 2. From the diagram, you can navigate to a complete list of detected problems.
-3. Project audit window provides a view of project license, dependency licenses, and the current allowed/prohibited licenses configuration.
-
-[//]: # "TODO discuss"
-
-### 5 problem types (inspections)
+3. The Project audit window provides a view of the project license, dependency licenses, and the current allowed/prohibited licenses configuration.
+4. All detected problems are tagged with license SPDX identifiers, so you can aggregate all issues related to a certain third-party license.
 
 ### Analyze detected problems
+
+To make an informed decision, view all details about the reported problem in one place. Each problem contains the following information:
+
+1. Dependency name.
+2. License SPDX identifier.
+3. Type of problem.
+4. [Advice](#results-review) for each type of problem.
 
 ### Follow up on detection results
 {id="results-review"}
@@ -87,7 +91,7 @@ Find below a recommended course of action for each inspection type.
 
 <note>
 
-- To override detection results, add the recommended settings to  [`qodana.yaml`](qodana-yaml.md#License+Audit+configuration) and save the configuration file to the root of the analyzed project.
+- To override the detection results, add the recommended settings to  [`qodana.yaml`](qodana-yaml.md#License+Audit+configuration) and save the configuration file to the root of the analyzed project.
 
 - To report a problem, go to **More actions | Report** at the bottom of the problem card.
 
