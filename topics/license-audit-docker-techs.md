@@ -61,7 +61,7 @@ Then it will be installed on the container launch and used to obtain dependencie
 Run the command to find available versions for the wanted tool
 
 ```shell
-docker run --rm -it jetbrains/qodana-license-audit:latest --tools-versions <tool>
+docker run --rm -it jetbrains/qodana-license-audit:latest list <tool>
 ```
 
 where `<tool>` is a tool name, which can be `java`, `kotlin`, `gradle`, `php`, `python` or `node`.
