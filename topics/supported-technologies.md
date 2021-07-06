@@ -6,6 +6,7 @@ With time, Qodana will support all languages and technologies covered by JetBrai
   System (JPS)](https://github.com/JetBrains/JPS)
 * [Kotlin](https://kotlinlang.org) projects, including [Kotlin-JS](https://kotlinlang.org/docs/reference/js-overview.html)
 * [PHP](https://www.php.net) projects
+* [Python](https://www.python.org/) projects
 
 For Java and Kotlin, no preliminary steps are required.
 
