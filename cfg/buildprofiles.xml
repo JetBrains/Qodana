@@ -14,7 +14,7 @@
         <config-feedback-enabled>false</config-feedback-enabled>
         <config-feedback-widget>false</config-feedback-widget>
         <config-webmaster>webmaster@jetbrains.com</config-webmaster>
-        <config-feedback-support>https://qodana-support.jetbrains.com/</config-feedback-support>
+        <config-feedback-support>https://qodana-support@jetbrains.com/</config-feedback-support>
         <config-sideblocks>true</config-sideblocks>
         <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
         <enable-browser-edits>true</enable-browser-edits>
