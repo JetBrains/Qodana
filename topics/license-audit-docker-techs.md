@@ -16,12 +16,13 @@ Usage:
  entrypoint [OPTIONS]
 
 Application & help options:
- -i, --project-dir DIRECTORY     Project to run License Audit on
- -o, --results-dir PATH          Save results to the folder
+ -i, --project-dir PATH          Project folder to inspect (default: /data/project)
+ -o, --results-dir PATH          Save results to the folder (default: /data/results)
+ -r, --report-dir PATH           Save HTML report to the folder (default: /data/results/report)
  -s, --save-report               Generate an HTML report
- -w, --show-report               Serve an HTML report on port 8080
- -h, --host                      Specify host to serve UI at
- -p, --port                      Specify port to serve UI on
+ -w, --show-report               Serve an HTML report
+ -h, --host STRING               Specify host to serve UI at (default: localhost)
+ -p, --port INTEGER              Specify port to serve UI on (default: 8080)
 ```
 
 ### Examples of execution tuneup
