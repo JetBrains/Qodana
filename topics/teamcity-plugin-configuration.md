@@ -90,12 +90,12 @@ EOM
 
 ## Use other runners in your build
 
-You can also run inspections by [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) on your builds.
+You can also run inspections by [Clone Finder](about-clone-finder.md).
 
 **Prerequisites**
 
    * The Qodana plugin for TeamCity is installed.
-   * The Clone Finder or License Audit plugins for TeamCity are installed.
+   * The Clone Finder plugin for TeamCity is installed.
 
 1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
@@ -103,7 +103,7 @@ You can also run inspections by [Clone Finder](about-clone-finder.md) or [Licens
 
 3. On the page with the build step for Qodana, select the checkbox next to the respective linter and specify other settings as necessary.
 
-   > For more information, see topics about [Clone Finder TeamCity plugin](clone-finder-teamcity-plugin.md) and [License Audit TeamCity plugin](license-audit-teamcity-plugin.md).
+   > See  [Clone Finder TeamCity plugin](clone-finder-teamcity-plugin.md) for details.
 
 4. Click **Save**. Now you can run a build with new inspection parameters you specified.
 
