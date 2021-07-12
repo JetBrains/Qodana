@@ -13,7 +13,6 @@ Second, on top of the IntelliJ Inspection functionality, Qodana is extending its
 Linters you can try right now:
 * [Qodana IntelliJ](about-qodana-intellij.md)&nbsp;&mdash; all 'smarts' from IntelliJ IDEs
 * [Qodana Clone Finder](about-clone-finder.md)&nbsp;&mdash; code duplication detection across different projects
-* [Qodana License Audit](about-license-audit.md)&nbsp;&mdash; third-party licenses compatibility verification
 
 Check the linter you want to try to and follow the guidelines!
 

@@ -4,11 +4,6 @@
 
 ><include src="lib_qd.xml" include-id="eap-warning"/>
 
-Tools created by JetBrains are capable of detecting dozens of error types and inconsistencies in your repository.
-Their flexible mechanisms of resolving problems simplify improving the code structure, conforming your code to numerous guidelines and standards, detecting performance issues, and so on.
-
-With Qodana app and actions available on GitHub, all these features are just around the corner!
-
 While the [Qodana IntelliJ GitHub app](qodana-intellij-github-application.md) supports only public repositories, for private repositories use the Qodana IntelliJ GitHub action as described in this section.
 
 The **Qodana IntelliJ GitHub action** is a more general tool for easier continuous code inspection.
