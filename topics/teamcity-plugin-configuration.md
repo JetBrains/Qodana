@@ -28,7 +28,7 @@ Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When
 
    In the example below, the script appends the following inspection exclusions to the configuration file:
 
-```
+```shell
 #!/bin/sh
 
 FILE="./qodana.yaml"
@@ -94,7 +94,7 @@ EOM
 
 
 ## Add more runners to your build
-You can add inspections by [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) to your build steps.
+You can add inspections by [Clone Finder](about-clone-finder.md) to your build steps.
 
 When viewing analysis results for a specific build later, you can disable certain runners and inspections via [`qodana.yaml`](qodana-yaml.md) and update the [configuration script](#add-script).
 
@@ -104,15 +104,7 @@ When viewing analysis results for a specific build later, you can disable certai
 ### Prerequisites for adding more runners
 
 - The Qodana plugin for teamCity is installed.
-- The Clone Finder or License Audit plugins for teamCity are installed as necessary.
-
-### Add the Clone Finder runner
-
-....
-
-### Add the License Audit runner 
-
-....
+- The Clone Finder plugin for teamCity is installed.
 
 ## Advanced configuration
 
@@ -133,4 +125,3 @@ On TeamCity, open your project build page and go to the **Build Log** tab. Here 
 For more details, go to the **Artifacts** tab, where more detailed logs for TeamCity and Qodana are provided.
 
 For more about TeamCity logs, see [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
-
