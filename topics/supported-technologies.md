@@ -7,8 +7,8 @@ With time, Qodana will support all languages and technologies covered by JetBrai
 * [Java](https://www.java.com) projects based on [Gradle](https://gradle.org/), [Maven](https://maven.apache.org/) or [Jetbrains Project
   System (JPS)](https://github.com/JetBrains/JPS), no preliminary steps are required.
 * [Kotlin for Server Side](https://kotlinlang.org/lp/server-side/), no preliminary steps are required.
-* [PHP](https://www.php.net) projects, see [below](#php)
-* [Python](https://python.org) projects, see [below](#python)
+* [PHP](https://www.php.net) projects, see [below](#php).
+* [Python](https://python.org) projects, see [below](#python).
 
 If your project contains a frontend part written in Javascript or Typescript, the qualitative analysis will be possible only
 if the project's directory contains downloaded dependencies and the project is ready to be built. We are working on simplifying this process and will provide smooth support at least for the projects based on [npm](https://www.npmjs.com).

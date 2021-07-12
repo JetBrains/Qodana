@@ -10,8 +10,3 @@ The **Clone Finder GitHub action** lets you include [Qodana Clone Finder](about-
 {id="how-to-start-github-action"}
 
 Follow the guidelines for the [Qodana Clone Finder GitHub action](https://github.com/marketplace/actions/qodana-clone-finder) on GitHub Marketplace.
-
-## Contact
-
-We are just beginning our journey and, as in case with any new project, we are eager to hear your feedback!
-Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD).
