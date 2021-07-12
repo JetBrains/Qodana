@@ -27,8 +27,6 @@ If you need to change the language level, place the following content into `<sou
 If your project contains a frontend part written in Javascript or Typescript, the qualitative analysis will be possible only 
 if the project's directory contains downloaded dependencies and the project is ready to be built. We are working on simplifying this process. We will provide smooth support at least for the projects based on [npm](https://www.npmjs.com).
  
-Also, we have started working on the smooth integration for [Python](https://www.python.org/) projects, stay tuned!
-
 If you have any particular interest in a certain language or technology, don't hesitate to contact us at
 [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD). We are eager to receive your feedback on the existing Qodana functionality and learn what other features you miss in it. The more you tell us about your needs, the
 better Qodana will fit you!
