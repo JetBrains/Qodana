@@ -38,7 +38,7 @@
     <toc-element id="github-actions.md">
         <toc-element id="qodana-intellij-github-action.md" accepts-web-file-names="github-overview.html,qodana-github-action.html"/>
         <toc-element id="clone-finder-github-action.md"/>
-        <toc-element id="license-audit-github-action.md"/>
+        <toc-element id="license-audit-github-action.md" hidden="true"/>
     </toc-element>
 
     <toc-element id="qodana-intellij-github-application.md" accepts-web-file-names="qodana-github-application.html"/>
