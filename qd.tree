@@ -13,14 +13,14 @@
     <toc-element id="linters.md" toc-title="About Qodana Linters">
          <toc-element id="about-qodana-intellij.md" accepts-web-file-names="about-qodana.html"/>
          <toc-element id="about-clone-finder.md"/>
-        <toc-element id="about-license-audit.md" hidden="true"/>
+        <toc-element id="about-license-audit.md"/>
     </toc-element>
 
     <toc-element id="results.md">
         <toc-element id="ui-overview.md"/>
         <toc-element id="qodana-intellij-output.md" accepts-web-file-names="output.html,qodana-output.html"/>
         <toc-element id="clone-finder-output.md"/>
-        <toc-element id="license-audit-output.md" hidden="true"/>
+        <toc-element id="license-audit-output.md"/>
         <toc-element id="html-report.md"/>
     </toc-element>
 
@@ -31,15 +31,14 @@
         <toc-element id="clone-finder-docker-readme.md">
             <toc-element id="clone-finder-docker-techs.md"/>
         </toc-element>
-        <toc-element id="license-audit-docker-readme.md" hidden="true">
-            <toc-element id="license-audit-docker-techs.md" hidden="true"/>
-        </toc-element>
+        <toc-element id="license-audit-docker-techs.md"/>
+        <toc-element id="license-audit-docker-readme.md" hidden="true"/>
     </toc-element>
 
     <toc-element id="github-actions.md">
         <toc-element id="qodana-intellij-github-action.md" accepts-web-file-names="github-overview.html,qodana-github-action.html"/>
         <toc-element id="clone-finder-github-action.md"/>
-        <toc-element id="license-audit-github-action.md" hidden="true"/>
+        <toc-element id="license-audit-github-action.md"/>
     </toc-element>
 
     <toc-element id="qodana-intellij-github-application.md" accepts-web-file-names="qodana-github-application.html"/>

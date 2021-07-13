@@ -94,7 +94,7 @@ EOM
 
 
 ## Add more runners to your build
-You can add inspections by [Clone Finder](about-clone-finder.md) to your build steps.
+You can add inspections by [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) to your build steps.
 
 When viewing analysis results for a specific build later, you can disable certain runners and inspections via [`qodana.yaml`](qodana-yaml.md) and update the [configuration script](#add-script).
 
@@ -104,7 +104,7 @@ When viewing analysis results for a specific build later, you can disable certai
 ### Prerequisites for adding more runners
 
 - The Qodana plugin for teamCity is installed.
-- The Clone Finder plugin for teamCity is installed.
+- The Clone Finder or License Audit plugins for teamCity are installed as necessary.
 
 ## Advanced configuration
 
