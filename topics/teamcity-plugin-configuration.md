@@ -7,31 +7,33 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 ### Prerequisites
 
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
-- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html). Also check specific requirements for each linter in [About Qodana Linters](linters.md).
+- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html).
 - The [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana) is installed on your TeamCity server (you can do it yourself or contact the server's administrator to do this).
 
 
-### (Optional) Add a configuration file
+### (Optional) Add a configuration script
 {id="add-script"}
 
-Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When using a CI system, the file is copied to the working directory from the project root automatically. Alternatively, you can write a script that writes a custom `qodana.yaml` to the working directory.
+Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When using a CI system, you need to put this file to the working directory manually. Alternatively, you can write a script that will do it for you.
 
 1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
 2. Select **Add build step | Command Line**.
 
-3. For **Step name**, specify a name, for example, "Add qodana.yaml".
+3. For **Step name**, specify an optional name, for example, "Add qodana.yaml".
 
 4. For **Run**, select **Custom script**.
 
-5. In the **Custom script** editor, write a script that adds a custom `qodana.yaml` to the working directory. For example,
- 
+5. In the **Custom script** editor, write a script that adds a custom `qodana.yaml` to the working directory. 
+
+   In the example below, the script appends the following inspection exclusions to the configuration file:
 
 ```shell
-cat <<EOM >qodana.yaml
-version: 1.0
-profile:
-  name: qodana.recommended
+#!/bin/sh
+
+FILE="./qodana.yaml"
+
+/bin/cat <<EOM >$FILE
 exclude:
   - name: Annotator
   - name: AnotherInspectionId
@@ -40,11 +42,14 @@ exclude:
       - another/relative/path
   - name: CloneFinder
   - name: ProhibitedDependencyLicense
+  
 EOM  
 ```
+   
+[//]: # "OK?"  
 
 
-### Add the Qodana runner
+### Add a Qodana runner
 
 1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
 
@@ -54,13 +59,13 @@ EOM
 
 3. Select the checkbox next to **Code Inspections** (stands for the Qodana IntelliJ linter).
 
-   > You can disable certain inspections later via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
+   >You can disable certain inspections later via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
 
 4. For **Root of the project for the analysis**, specify the path to your project root where its configuration files are located. Leave empty for the **Checkout directory** specified on the **Version Control Settings** tab (system agent working directory).
 
 5. For **Image name:tag**, specify an image name. 
    
-   **Public Image (Latest)** points to the default `jetbrains/qodana:latest`. 
+   **Public image (EAP)** points to the default `jetbrains/qodana:latest`. 
    
    **Custom** allows to specify your own value in the field that appears below.
    
@@ -70,11 +75,11 @@ EOM
    - **Default** (`qodana.recommended`). 
    - **Name of embedded profile** and specify the name of a profile available for your project in IntelliJ IDEA.
      
-     > Make sure that the `.idea` directory with this profile's `.xml` file is added to your working directory.
+     >Make sure that the `.idea` directory with this profile's `.xml` file is added to your working directory.
      
    - **Path to IntelliJ profile** and specify the path to the necessary `.xml` file in your working directory. Not recommended because in this case you will not be able to edit this profile from IntelliJ IDEA.
     
-      > IDEA profiles include customized sets of [inspections](https://www.jetbrains.com/help/idea/code-inspection.html). You can enable and disable them via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or in the [Profile settings](ui-overview.md#Adjust+your+inspection+profile) of your HTML report.
+      >IDEA profiles include customized sets of [inspections](https://www.jetbrains.com/help/idea/code-inspection.html). You can enable and disable them via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or in the [Profile settings](ui-overview.md#Adjust+your+inspection+profile) of your HTML report.
      
 
 7. For **Disabled plugins**, select
@@ -85,28 +90,21 @@ EOM
 
 9. In **Additional arguments for Docker run**, you can specify any arguments accepted by the Docker image of the Qodana IntelliJ linter. For example, `-d` or `-changes` as you can see in the [docker techs for Qodana IntelliJ](qodana-intellij-docker-techs.md#Configuration).
 
-10. Click **Save**. Now you can run a build with new inspection parameters you specified.
+10. Click **Save**. Now you can run a build with new Qodana inspection parameters you specified.
 
 
-## Use other runners in your build
+## Add more runners to your build
+You can add inspections by [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) to your build steps.
 
-You can also run inspections by [Clone Finder](about-clone-finder.md).
+When viewing analysis results for a specific build later, you can disable certain runners and inspections via [`qodana.yaml`](qodana-yaml.md) and update the [configuration script](#add-script).
 
-**Prerequisites**
+[//]: # "correct?"
 
-   * The Qodana plugin for TeamCity is installed.
-   * The Clone Finder plugin for TeamCity is installed.
 
-1. On TeamCity left navigation panel, select your project and go to **Edit configuration | Build Steps**.
+### Prerequisites for adding more runners
 
-2. Click the **Qodana** build step to edit its configuration.
-
-3. On the page with the build step for Qodana, select the checkbox next to the respective linter and specify other settings as necessary.
-
-   > See  [Clone Finder TeamCity plugin](clone-finder-teamcity-plugin.md) for details.
-
-4. Click **Save**. Now you can run a build with new inspection parameters you specified.
-
+- The Qodana plugin for teamCity is installed.
+- The Clone Finder or License Audit plugins for teamCity are installed as necessary.
 
 ## Advanced configuration
 
@@ -127,4 +125,3 @@ On TeamCity, open your project build page and go to the **Build Log** tab. Here 
 For more details, go to the **Artifacts** tab, where more detailed logs for TeamCity and Qodana are provided.
 
 For more about TeamCity logs, see [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
-
