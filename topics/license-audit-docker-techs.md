@@ -24,7 +24,7 @@ Application & help options:
 
 Examples of execution tuneup:
 
-- Display a report in HTML. After the Clone Finder analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
+- Display a report in HTML. After the License Audit analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
    ```shell
    docker run ... -p 8080:8080 <image-name> --show-report
