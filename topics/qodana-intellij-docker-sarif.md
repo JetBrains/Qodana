@@ -86,8 +86,8 @@ Object contains:
 ### results
 List of [Result object](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541076)
 
-##Tool object
-###Tool example
+## Tool object
+### Tool example
 ```json
 {
   "driver": {
