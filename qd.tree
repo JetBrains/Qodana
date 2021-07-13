@@ -31,8 +31,9 @@
         <toc-element id="clone-finder-docker-readme.md">
             <toc-element id="clone-finder-docker-techs.md"/>
         </toc-element>
-        <toc-element id="license-audit-docker-techs.md"/>
-        <toc-element id="license-audit-docker-readme.md" hidden="true"/>
+        <toc-element id="license-audit-docker-readme.md">
+            <toc-element id="license-audit-docker-techs.md"/>
+        </toc-element>
     </toc-element>
 
     <toc-element id="github-actions.md">
