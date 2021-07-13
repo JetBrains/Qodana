@@ -155,7 +155,7 @@ SARIF severity values could be one of the strings:
 - __note__ - in any other case
 Origin IDEA inspection severity is stored in same object "propertyBag" field.
 
-##Result object
+## Result object
 ### Result example
 ```json
 {
