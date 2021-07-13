@@ -153,6 +153,7 @@ SARIF severity values could be one of the strings:
 - __error__ - if IDEA inspection severity was "ERROR"
 - __warning__ - if IDEA inspection severity was "WARNING"
 - __note__ - in any other case
+ 
 Origin IDEA inspection severity is stored in same object "propertyBag" field.
 
 ## Result object
