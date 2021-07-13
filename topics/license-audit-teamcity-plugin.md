@@ -78,5 +78,5 @@ Check the chapter about [Qodana Inspection Results](results.md) to see all featu
 ## License
 
 <include src="lib_qd.xml" include-id="license-info">
-    <var name="product" value="Qodana Clone Finder TeamCity plugin"/>
+    <var name="product" value="Qodana License Audit TeamCity plugin"/>
 </include>
