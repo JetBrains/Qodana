@@ -46,7 +46,7 @@ The `<output-directory>` will contain [all the necessary results](license-audit-
 
 If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in `docker run` again.
 
-By default, Qodana License Audit comes with a set of pre-installed tools versions (Java 11, Gradle 6, Python 3 and [others](license-audit-docker-techs.md#specify-project-tools-version)), you can explicitly specify which tool versions to use for your project. 
+By default, Qodana License Audit comes with a set of pre-installed tools versions (Java 11, Gradle 6, Python 3 and [others](license-audit-docker-techs.md#Configuration)), you can explicitly specify which tool versions to use for your project. 
 ```shell
 docker run --rm -it \
     -e <language-version> =3.7.10
