@@ -51,7 +51,7 @@
         <toc-element id="teamcity-plugin-configuration.md"/>
         <toc-element id="qodana-teamcity-plugin.md" accepts-web-file-names-ref="4d0d5387"/>
         <toc-element id="clone-finder-teamcity-plugin.md"/>
-        <toc-element id="license-audit-teamcity-plugin.md" hidden="true"/>
+        <toc-element id="license-audit-teamcity-plugin.md"/>
     </toc-element>
 
 </product-profile>
