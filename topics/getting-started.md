@@ -47,7 +47,7 @@ For all linters the procedure is basically the same, the differences and complet
 
 ### Run at GitHub
 
-We published a dedicated GitHub action for every Qodana [linter](linters.md) so you can easily include it in any GitHub workflow.
+We published a dedicated GitHub action for [every Qodana linter](github-actions.md) so you can easily include it in any GitHub workflow.
 
 ### Supported languages
 Java, Kotlin, PHP, and Python are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
