@@ -18,7 +18,9 @@
 
     <toc-element id="results.md">
         <toc-element id="ui-overview.md"/>
-        <toc-element id="qodana-intellij-output.md" accepts-web-file-names="output.html,qodana-output.html"/>
+        <toc-element id="qodana-intellij-output.md" accepts-web-file-names="output.html,qodana-output.html">
+            <toc-element id="qodana-intellij-docker-sarif.md"/>
+        </toc-element>
         <toc-element id="clone-finder-output.md"/>
         <toc-element id="license-audit-output.md"/>
         <toc-element id="html-report.md"/>
