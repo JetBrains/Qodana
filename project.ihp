@@ -21,4 +21,7 @@
 
     <product src="qd_tc_cf.tree" web-path="/qodana-clone-finder-teamcity-plugin/2021.2/"
              teamcity-build-path="Documentation_Teamware_Qodana" version="2021.2" keymaps-mode="none"/>
+
+    <product src="qd_tc_la.tree" web-path="/qodana-license-audit-teamcity-plugin/2021.2/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="2021.2" keymaps-mode="none"/>
 </ihp>
