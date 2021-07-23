@@ -4,4 +4,4 @@
 
 * [Qodana Code Inspection](https://github.com/marketplace/actions/qodana-code-inspection) 
 * [Qodana Clone Finder](https://github.com/marketplace/actions/qodana-clone-finder)
-* Qodana License Audit
+* [Qodana License Audit](https://github.com/marketplace/actions/qodana-license-audit)
