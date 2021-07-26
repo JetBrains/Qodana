@@ -55,11 +55,11 @@ EOM
 
 2. Select **Add build step** and for **Runner type**, specify **Qodana**.
 
-   In the following steps, specify additional parameters for Qodana's `docker run` command, which you can also see in the [Qodana IntelliJ Docker Image readme](qodana-intellij-docker-readme.md).
+   In the following steps, specify additional parameters for Qodana's `docker run` command, which you can also see in the [Qodana IntelliJ Docker Image readme](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-readme.html).
 
 3. Select the checkbox next to **Code Inspections** (stands for the Qodana IntelliJ linter).
 
-   >You can disable certain inspections later via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
+   >You can disable certain inspections later via [`qodana.yaml`](https://www.jetbrains.com/help/qodana/qodana-yaml.html#exclude-paths) or [Profile settings](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile) in your HTML report.
 
 4. For **Root of the project for the analysis**, specify the path to your project root where its configuration files are located. Leave empty for the **Checkout directory** specified on the **Version Control Settings** tab (system agent working directory).
 
@@ -79,24 +79,24 @@ EOM
      
    - **Path to IntelliJ profile** and specify the path to the necessary `.xml` file in your working directory. Not recommended because in this case you will not be able to edit this profile from IntelliJ IDEA.
     
-      >IDEA profiles include customized sets of [inspections](https://www.jetbrains.com/help/idea/code-inspection.html). You can enable and disable them via [`qodana.yaml`](qodana-yaml.md#exclude-inspection) or in the [Profile settings](ui-overview.md#Adjust+your+inspection+profile) of your HTML report.
+      >IDEA profiles include customized sets of [inspections](https://www.jetbrains.com/help/idea/code-inspection.html). You can enable and disable them via [`qodana.yaml`](https://www.jetbrains.com/help/qodana/qodana-yaml.html#exclude-paths) or in the [Profile settings](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile) of your HTML report.
      
 
 7. For **Disabled plugins**, select
    - **Default** or **None** to use all the plugins of the IntelliJ Platform included in the Qodana Docker image.
    - **Custom** or **File** to specify your own list of the plugins to disable. However, currently there is no need to disable any plugins.
      
-8. For **Additional parameters for JVM**, you can specify [more parameters](qodana-intellij-docker-techs.md#qodana-execution-tuneup) to run the Docker image such as the logging level.
+8. For **Additional parameters for JVM**, you can specify [more parameters](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-techs.html#qodana-execution-tuneup) to run the Docker image such as the logging level.
 
-9. In **Additional arguments for Docker run**, you can specify any arguments accepted by the Docker image of the Qodana IntelliJ linter. For example, `-d` or `-changes` as you can see in the [docker techs for Qodana IntelliJ](qodana-intellij-docker-techs.md#Configuration).
+9. In **Additional arguments for Docker run**, you can specify any arguments accepted by the Docker image of the Qodana IntelliJ linter. For example, `-d` or `-changes` as you can see in the [docker techs for Qodana IntelliJ](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-techs.html#Configuration).
 
 10. Click **Save**. Now you can run a build with new Qodana inspection parameters you specified.
 
 
 ## Add more runners to your build
-You can add inspections by [Clone Finder](about-clone-finder.md) or [License Audit](about-license-audit.md) to your build steps.
+You can add inspections by [Clone Finder](https://www.jetbrains.com/help/qodana/about-clone-finder.html) or [License Audit](https://www.jetbrains.com/help/qodana/about-license-audit.html) to your build steps.
 
-When viewing analysis results for a specific build later, you can disable certain runners and inspections via [`qodana.yaml`](qodana-yaml.md) and update the [configuration script](#add-script).
+When viewing analysis results for a specific build later, you can disable certain runners and inspections via [`qodana.yaml`](https://www.jetbrains.com/help/qodana/qodana-yaml.html) and update the [configuration script](#add-script).
 
 [//]: # "correct?"
 
