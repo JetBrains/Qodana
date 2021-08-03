@@ -160,3 +160,9 @@ According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/
 </include> 
 
 The Docker image includes the evaluation license, which will expire in 30 days. Make sure to pull a new image on time.
+
+<seealso>
+    <category ref="external">
+        <a href="https://rpadovani.com/gitlab-jetbrains-qodana">'Integrating JetBrains Qodana with GitLab pipelines' by Riccardo Padovani</a>
+    </category>
+</seealso>
