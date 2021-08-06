@@ -111,7 +111,7 @@ If you run the analysis several times in a row, make sure you've cleaned the res
 
 This section is intended for users familiar with configuring code analysis via [IntelliJ inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
 
-You can pass the reference to the existing profile in [multiple ways](https://github.com/JetBrains/Qodana/blob/main/Docker/techs.md#order-of-resolving-profile). Here are some examples:
+You can pass the reference to the existing profile in [multiple ways](qodana-intellij-docker-techs.md#Order+of+resolving+a+profile). Here are some examples:
 
 - Mapping the profile to `/data/profile.xml` inside the container:
 
