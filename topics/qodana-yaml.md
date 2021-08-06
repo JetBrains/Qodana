@@ -11,8 +11,10 @@ Configuration through `qodana.yaml` is only supported by the Qodana product. It 
 ## Set up a profile
 
 Out of the box, Qodana provides several predefined profiles: 
- * `qodana.recommended`&nbsp;&mdash; the default profile containing a preselected set of IntelliJ IDEA Java and Kotlin inspections.
- * `empty`&nbsp;&mdash; an empty profile containing no inspections, which can be used as a basis for manual configuration.
+* `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
+* `qodana.recommended`: the default profile containing a preselected set of IntelliJ IDEA Java and Kotlin inspections.
+* `kotlin.only`: a profile containing a preselected set of IntelliJ IDEA Kotlin inspections.
+* `php.default`: a profile containing a preselected set of IntelliJ IDEA PHP inspections.
 
 You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the `.xml` file with this profile is in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 
@@ -34,7 +36,7 @@ profile:
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}
 
-You can specify that the files in a certain directory are not analyzed. This can be done for a certain inspection or for all inspections.
+You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once.
 
 For all inspections:
 
@@ -69,16 +71,18 @@ You can find specific inspection IDs in the Profile settings in the HTML report 
 
 ## Include an inspection into the analysis scope
 
-If an inspection is not contained in the selected profile, you can include it into the analysis scope explicitly via the `include` directive.
+You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis.
 
 ```yaml
 profile:
     name: empty
 include:
   - name: SomeInspectionId
+    paths:
+    - tools
 ```
 
-In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included into the analysis scope. As a result, only the check performed by the `SomeInspectionId` inspection will be included in the Qodana run.
+In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included into the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
 
 ## Fail threshold
 
@@ -207,7 +211,7 @@ inspections:
            - "BSD-3-Clause"
 ```
 
-where `name` is the dependency name, `version` is the dependency version, and `licenses`&nbsp;&mdash; the redefined dependency license(s).
+where `name` is the dependency name, `version` is the dependency version, and `licenses` is the list of redefined dependency licenses.
 
 In the example above, you 'tell' License Audit to detect BSD-3-Clause and no other licenses for numpy (only 1.19.1).
 
@@ -228,7 +232,7 @@ inspections:
           - "GPL-3.0-only"
 ```
 
-where `name` is the dependency name, `licenses`&nbsp;&mdash; the list of dependency licenses ignored for the specified dependency.
+where `name` is the dependency name, `licenses` is the list of dependency licenses ignored for the specified dependency.
 
 In the example above, in the analyzed project, the dependency numpy, version 1.19.1 has the GPL-3.0 license (which is supposedly prohibited for this project) and the license for enry (0.1.1) is not recognized. The problems with these dependencies will be ignored in the reports, and you won't see the prohibited and unrecognized license problems you've seen before.
 
