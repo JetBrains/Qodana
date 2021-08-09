@@ -5,7 +5,6 @@
 
 ## Basic output
 {id="license-audit-basic-output"}
-
 Full License Audit results are available in the file `report.json` located in the `results-dir` folder.
 
 ## Command-line output summary
@@ -46,7 +45,6 @@ An example of the License Audit command-line summary output:
 
 ## UI-compatible output
 {id="license-audit-ui-output"}
-
 In addition to programmatic output, you can generate a human-readable report in the HTML format by using the `--save-report` argument.
 See [Open an HTML Report](html-report.md) for details.
 
@@ -87,7 +85,6 @@ To make an informed decision, view all details about the reported problem in one
 
 ### Follow up on detection results
 {id="results-review"}
-
 Find below a recommended course of action for each inspection type. 
 
 <note>
@@ -131,7 +128,6 @@ Try to find the dependency license, get legal advice, and
 
 #### Unrecognized dependency license
 {id="UnrecognizedDependencyLicense"}
-
 Try to find the dependency license, get legal advice, and
 - Manually assign an [SPDX license ID](https://spdx.org/licenses/) to this dependency in the configuration, for example:
 
@@ -161,7 +157,6 @@ Try to find the dependency license, get legal advice, and
 
 #### Uncategorized dependency license
 {id="UncategorizedDependencyLicense"}
-
 Check the dependency license, get legal advice, and
 
 - Manually add the [SPDX license ID](https://spdx.org/licenses/) to the allowed list, for example:
@@ -194,21 +189,18 @@ Check the dependency license, get legal advice, and
 
 #### Unrecognized project license
 id={"UnrecognizedProjectLicense"}
-
 - Specify in your project files explicitly which licenses you want to use – add a LICENSE file. 
 - Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not recognized an existing and valid project license
 
 #### No project licenses
 id={"NoProjectLicenses"}
-
 - Specify in your project files explicitly which licenses you want to use – add a LICENSE file.
 - Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not recognized an existing and valid project license
 
 #### Prohibited dependency license
 id={"ProhibitedDependencyLicense"}
-
 Check the dependency license, get legal advice, and
 
 - Manually add the license to the allowed list, for example: 
