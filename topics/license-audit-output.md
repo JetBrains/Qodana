@@ -97,6 +97,7 @@ Find below a recommended course of action for each inspection type.
 
 #### No dependency licenses
 {id="NoDependencyLicenses"}
+
 Try to find the dependency license, get legal advice, and
 - Manually assign an [SPDX license ID](https://spdx.org/licenses/) to this dependency in the configuration, for example:
 
@@ -128,6 +129,7 @@ Try to find the dependency license, get legal advice, and
 
 #### Unrecognized dependency license
 {id="UnrecognizedDependencyLicense"}
+
 Try to find the dependency license, get legal advice, and
 - Manually assign an [SPDX license ID](https://spdx.org/licenses/) to this dependency in the configuration, for example:
 
@@ -157,6 +159,7 @@ Try to find the dependency license, get legal advice, and
 
 #### Uncategorized dependency license
 {id="UncategorizedDependencyLicense"}
+
 Check the dependency license, get legal advice, and
 
 - Manually add the [SPDX license ID](https://spdx.org/licenses/) to the allowed list, for example:
@@ -188,19 +191,23 @@ Check the dependency license, get legal advice, and
 - Report: License Audit should list the reported dependency license as compatible with the given project license (reasons why)
 
 #### Unrecognized project license
-id={"UnrecognizedProjectLicense"}
+{id="UnrecognizedProjectLicense"}
+
+Do any of the following:
 - Specify in your project files explicitly which licenses you want to use – add a LICENSE file. 
 - Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not recognized an existing and valid project license
 
 #### No project licenses
-id={"NoProjectLicenses"}
+{id="NoProjectLicenses"}
+
 - Specify in your project files explicitly which licenses you want to use – add a LICENSE file.
 - Disable the check: do it in the [Checks window](ui-overview.md#Adjust+your+inspection+profile)
 - Report: License Audit has not recognized an existing and valid project license
 
 #### Prohibited dependency license
-id={"ProhibitedDependencyLicense"}
+{id="ProhibitedDependencyLicense"}
+
 Check the dependency license, get legal advice, and
 
 - Manually add the license to the allowed list, for example: 
