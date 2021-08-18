@@ -1,6 +1,14 @@
 [//]: # (title: Changelog)
 
+## v2021.2.11-eap
+- based on the IntelliJ IDEA 2021.2
+- [QD-1157](https://youtrack.jetbrains.com/issue/QD-1157) fix qodana.yaml multi-linter parsing
+- [QD-1063](https://youtrack.jetbrains.com/issue/QD-1063) fix Kotlin language version configuration
+- [QD-739](https://youtrack.jetbrains.com/issue/QD-739) fix the build freeze on 1 CPU
+- reduce unwanted logs output in CLI
+
 ## v2021.1.17-eap
+- based on the IntelliJ IDEA 2021.1
 - [QD-729](https://youtrack.jetbrains.com/issue/QD-729) add --cache-dir support
 
 ## v2020.3.72-eap
