@@ -2,6 +2,7 @@
 
 ## v2021.2.11-eap
 - based on the IntelliJ IDEA 2021.2
+- added SARIF output support
 - [QD-1157](https://youtrack.jetbrains.com/issue/QD-1157) fix qodana.yaml multi-linter parsing
 - [QD-1063](https://youtrack.jetbrains.com/issue/QD-1063) fix Kotlin language version configuration
 - [QD-739](https://youtrack.jetbrains.com/issue/QD-739) fix the build freeze on 1 CPU
