@@ -38,7 +38,7 @@ Read our [Docker guide](docker-images.md) for more options and details related t
 You can set up a workflow in your GitHub repository using the [GitHub actions](github-actions.md) we published.
 
 ### Supported languages
-PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
+Java, Kotlin, and PHP are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
 
 ## License
 
