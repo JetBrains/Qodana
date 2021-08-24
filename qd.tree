@@ -27,8 +27,8 @@
     </toc-element>
 
     <toc-element id="docker-images.md">
-        <toc-element id="qodana-intellij-docker-readme.md" accepts-web-file-names="docker-readme.html,qodana-docker-readme.html">
-            <toc-element id="qodana-intellij-docker-techs.md" accepts-web-file-names="docker-techs.html,qodana-docker-techs.html"/>
+        <toc-element id="qodana-intellij-docker-readme.md" accepts-web-file-names-ref="23895494">
+            <toc-element id="qodana-intellij-docker-techs.md" accepts-web-file-names-ref="1e77e8d0" show-structure-depth="3"/>
         </toc-element>
         <toc-element id="clone-finder-docker-readme.md">
             <toc-element id="clone-finder-docker-techs.md"/>
