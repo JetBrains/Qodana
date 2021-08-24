@@ -237,9 +237,9 @@ The original Intellij IDEA inspection severity is stored in the same object's `p
 - `message` - an object of type [Message](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540897) with a single field `text`, which contains the result/problem description in the format of an Intellij IDEA message string.
 - `partialFingerprints` - a technical field contains hashes for comparing results between different runs. Used in the _baseline_ feature.
 - `baselineState` - the field only appears if a linter was executed in baseline mode and can be any of the following:
-    - `new` - a problem was absent in the baseline report but exists in the current.
-    - `absent` - a problem is absent in current report but exists in the baseline
-    - `unchanged` - same problem appears in both reports
+  - `new`: The problem was detected only in the current run but not in the baseline run.
+  - `absent`: The problem was detected only in the baseline run but not in the current run.
+  - `unchanged`: The problem was detected both in the current run and in the baseline run.
 - `properties` - a `propertyBag` with the `ideaSeverity` field with the original Intellij IDEA inspection severity as a value.
 - `locations` - the list of [Location](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541108) objects. Always contains a single element.
 

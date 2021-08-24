@@ -21,8 +21,6 @@ Every linter provides two types of output:
 
 The Qodana UI can be part of your CI user interface in case your CI supports the UI extension. If it doesn't, you can spin the Qodana UI on your own following our [guidelines](html-report.md).
 
-The Qodana Cloud UI that comes in summer 2021 will let you see comparative analysis of your projects, aggregated results, trends, smart dashboards, and even more. Stay tuned!
-
 ### Distribution
 To facilitate integration, extensibility, and advanced reporting, Qodana linters are supplied in a number of distribution formats and web services:
 - [Docker images](docker-images.md)
@@ -41,7 +39,7 @@ docker run --rm -it -v <source-directory>/:/data/project/ -p 8080:8080 jetbrains
 ```
 where `source-directory` should point to the root of your project. Read our [Docker guide](qodana-intellij-docker-readme.md) for more options and details related to the Qodana execution.
 
-You will be able to [check results in your browser](html-report.md) at [`http://localhost:8080`](http://localhost:8080).
+You will be able to [check results in your browser](html-report.md) at `http://localhost:8080`.
 
 For all linters the procedure is basically the same, the differences and complete steps are provided in the detailed guides for every [distribution format](#Distribution).
 
