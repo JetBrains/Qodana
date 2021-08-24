@@ -20,6 +20,9 @@ results of the most common checks performed on your code base. Later, you can [a
 {id="quick-start-recommended-profile"}
 
 ### Run analysis locally
+<note>
+<include src="lib_qd.xml" include-id="docker-ram-note"/>
+</note>
 
 1) Pull the image from Docker Hub (only necessary to update to the `latest` version):
 

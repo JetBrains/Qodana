@@ -28,4 +28,8 @@ By using %product%, you agree to the <a href="https://www.jetbrains.com/legal/ag
 
 </chunk>
 
+<chunk id="docker-ram-note">
+Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker Desktop runtime memory limit, which by default is set to 2 GB. See the Docker documentation for <a href="https://docs.docker.com/desktop/windows/#resources">Windows</a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
+</chunk>
+
 </topic>
