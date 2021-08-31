@@ -97,7 +97,7 @@ Add the following to the `build.gradle` configuration file:
   ```
   </tab>
 
-  <tab title="Kotlin">
+  <tab title="Kotlin DSL">
 
 Add the following to the `build.gradle.kts` configuration file:
 
