@@ -1,6 +1,7 @@
 [//]: # (title: Qodana)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+
 ><include src="lib_qd.xml" include-id="eap-warning"/>
 
 ![](banner-main.png)
@@ -24,7 +25,7 @@ The Qodana UI can be part of your CI user interface in case your CI supports the
 ### Distribution
 To facilitate integration, extensibility, and advanced reporting, Qodana linters are supplied in a number of distribution formats and web services:
 - [Docker images](docker-images.md)
-- [Plugins](teamcity-plugins.md)
+- [Plugins](qodana_plugins.md)
 - [GitHub actions](github-actions.md)  and [application](qodana-intellij-github-application.md)
 - [Cloud service](service.md)
 
