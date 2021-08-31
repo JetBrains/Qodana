@@ -46,6 +46,12 @@ After the Gradle Qodana plugin is applied, you can run the provided tasks.
 | `stopInspections` | stops the Qodana Docker container |
 | `cleanInspections` | cleans up the Qodana output directory |
 
+<note>
+
+<include src="lib_qd.xml" include-id="docker-ram-note"/>
+
+</note>
+
 ## Gradle plugin configuration
 
 To configure the plugin, use the following options in the top level `qodana { }` configuration node:
@@ -72,7 +78,6 @@ To configure the plugin, use the following options in the top level `qodana { }`
 For the detailed description of the Qodana IntelliJ Docker image configuration, see [Docker Image Configuration](qodana-intellij-docker-techs.md).
 
 </tip>
-
 
 ### Example
 
