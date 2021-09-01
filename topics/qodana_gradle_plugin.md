@@ -11,7 +11,7 @@ Add the following to the `build.gradle` configuration file:
 
   ```groovy
   plugins {
-      id "org.jetbrains.qodana" version "0.1.5"
+      id "org.jetbrains.qodana" version "0.1.8"
   }
   ```
 
@@ -22,7 +22,7 @@ Add the following to the `build.gradle.kts` configuration file:
 
   ```kotlin
   plugins {
-      id("org.jetbrains.qodana") version "0.1.5"
+      id("org.jetbrains.qodana") version "0.1.8"
   }
   ```
 
@@ -36,15 +36,34 @@ For details on working with Gradle in IntelliJ IDEA, see the [IntelliJ IDEA Grad
 
 </tip>
 
+## 'qodana { }' extension configuration
+
+To configure the plugin, use the following options in the top level `qodana { }` configuration node.
+
+| Name                  | Description                                                               | Type      | Default Value                    |
+| --------------------- | ------------------------------------------------------------------------- | --------- | -------------------------------- |
+| `autoUpdate`          | Automatically pull the latest Qodana Docker image before running the inspection. | `Boolean` | `true`                           |
+| `cachePath`           | Path to the cache directory.                                              | `String`  | `null`                           |
+| `dockerContainerName` | Name of the Qodana Docker container.                                      | `String`  | `idea-inspections`               |
+| `dockerImageName`     | Name of the Qodana Docker image.                                          | `String`  | `jetbrains/qodana:latest`        |
+| `executable`          | Docker executable name.                                                   | `String`  | `docker`                         |
+| `projectPath`         | Path to the project folder to inspect.                                    | `String`  | `project.projectDir`             |
+| `resultsPath`         | Path to directory to store the execution results.                           | `String`  | `"${projectPath}/build/results"` |
+| `saveReport`          | Generate HTML report.                                                     | `Boolean` | `false`                          |
+| `showReport`          | Serve an HTML report on `showReportPort` port.                            | `Boolean` | `false`                          |
+| `showReportPort`      | Default port used to serve the HTML report.                                 | `Int`     | `8080`                           | 
+
 ## Gradle Qodana tasks
 
-After the Gradle Qodana plugin is applied, you can run the provided tasks. 
+After the Gradle Qodana plugin is applied and configured, you can run the provided tasks:
+ - [](#runInspections)
+ - [](#updateInspections)
+ - [](#stopInspections)
+ - [](#cleanInspections)
 
-| Task | Description |
-|--|--|
-| `runInspections` | starts Qodana inspections in a Docker container |
-| `stopInspections` | stops the Qodana Docker container |
-| `cleanInspections` | cleans up the Qodana output directory |
+### runInspections
+
+Starts Qodana code analysis in a Docker container. The task runs according to the `qodana { }` extension configuration but also provides [additional properties](#Properties) and [helper methods](#Helper+methods) to configure the Docker image.
 
 <note>
 
@@ -52,26 +71,24 @@ After the Gradle Qodana plugin is applied, you can run the provided tasks.
 
 </note>
 
-## Gradle plugin configuration
+#### Properties
 
-To configure the plugin, use the following options in the top level `qodana { }` configuration node:
+| Name                  | Description                                                                                                                      | Type           | Default Value |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- |
+| `profilePath`         | Path to the profile file to be mounted as `/data/profile.xml`.                                                                   | `String`       | `null`        |
+| `disabledPluginsPath` | Path to the list of plugins to be disabled in the Qodana IDE instance to be mounted as `/root/.config/idea/disabled_plugins.txt` | `String`       | `null`        |
+| `changes`             | Inspect uncommitted changes and report new problems.                                                                             | `Boolean`      | `false`       |
+| `jvmParameters`       | JVM parameters to start the IntelliJ IDEA JVM with.                                                                                                | `List<String>` | `empty`       |
 
-| Option | Description |
-|--|--|
-| `projectPath` | path to the project on local machine |
-| `resultsPath` | path to the directory to store the analysis results |
-| `profilePath` | path to the profile file |
-| `disabledPluginsPath` | path to file that describes disabled IDEA plugins |
-| `jvmParameters` | JVM parameters to start IDEA JVM |
-| `bind(local port, docker port)` | binds the ports between the local machine and the Docker container |
-| `mount(local path, docker path)` | mounts a directory between the local machine and the Docker container |
-| `env(name, value)` | defines an environment variable |
-| `dockerImageName` | name of the Qodana Docker image |
-| `dockerContainerName` | Docker container name to identify the Qodana container |
-| `dockerPortBindings` | bounded Docker and local ports |
-| `dockerVolumeBindings` | mounted Docker and local directories |
-| `dockerEnvParameters` | defined environment variables |
-| `dockerArguments` | custom Docker arguments to start a Qodana Docker container |
+#### Helper methods
+
+| Name                                            | Description                                           |
+| ----------------------------------------------- | ----------------------------------------------------- |
+| `bind(localPort: Int, dockerPort: Int)`         | Adds a new port binding.                                |
+| `mount(localPath: String, dockerPath: String)`  | Mounts a local directory to the given Docker path.      |
+| `env(name: String, value: String)`              | Adds an environment variable.                         |
+| `dockerArg(argument: String)`                   | Adds a Docker argument to the executed command.       |
+| `arg(argument: String)`                         | Adds a Docker image argument to the executed command. |
 
 <tip>
 
@@ -79,7 +96,19 @@ For the detailed description of the Qodana IntelliJ Docker image configuration, 
 
 </tip>
 
-### Example
+### updateInspections
+
+Pulls the latest Qodana Inspections Docker container. The task automatically runs before `runInspections` if the `qodana.autoUpdate` property is set to `true`.
+
+### stopInspections
+
+Stops the Qodana Inspections Docker container.
+
+### cleanInspections
+
+Cleans up the Qodana Inspections output directory.
+
+## Example
 
 <tabs>
   <tab title="Groovy"> 
@@ -89,7 +118,7 @@ Add the following to the `build.gradle` configuration file:
   ```groovy
   plugins {
       // applies the Gradle Qodana plugin to use it in the project
-      id "org.jetbrains.qodana" version "0.1.5"
+      id "org.jetbrains.qodana" version "0.1.8"
   }
   
   qodana {
@@ -109,7 +138,7 @@ Add the following to the `build.gradle.kts` configuration file:
   ```kotlin
   plugins {
       // applies the Gradle Qodana plugin to use it in the project
-      id("org.jetbrains.qodana") version "0.1.5"
+      id("org.jetbrains.qodana") version "0.1.8"
   }
   
   qodana {
