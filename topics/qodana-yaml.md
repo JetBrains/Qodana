@@ -96,6 +96,11 @@ failThreshold: <number>
 
 When this number of problems is reached, the container executes `exit 255`. Can be used to make the CI step fail. The default value is `10000`.
 
+<note>
+
+When running in [baseline mode](qodana-intellij-docker-techs.md#Run+in+baseline+mode), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
+
+</note>
 
 ## An example with different configuration options
 

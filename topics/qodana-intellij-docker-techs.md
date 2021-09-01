@@ -173,7 +173,7 @@ The [SARIF output report](qodana-intellij-docker-sarif.md) will contain the per-
 Qodana IntelliJ lets you configure a "quality gate", that is, the number of problems that will act as a threshold. If the threshold number is reached, the inspection run is terminated. 
 
 ```shell
-   docker run ... <image-name> --fail-threshold 200
+   docker run ... <image-name> --fail-threshold <number>
 ```
 
 When running in [baseline mode](#Run+in+baseline+mode), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
