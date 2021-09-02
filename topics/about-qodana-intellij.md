@@ -41,13 +41,10 @@ Check the results in your browser at [`http://localhost:8080`](http://localhost:
 
 > For details on running Qodana in Docker, see the [Docker guide](docker-images.md). 
 
- <seealso>
- <category ref="next_steps">
-   <a href="qodana-intellij-docker-readme.md"/>
-   <a href="qodana-intellij-github-action.md"/>
-   <a href="qodana-intellij-github-application.md"/>
-   <a href="service.md"/>
-   <a href="qodana_plugins.md"/>
-  </category>
- </seealso>
+## Next steps
 
+- <a href="qodana-intellij-docker-readme.md"/>
+- <a href="qodana-intellij-github-action.md"/>
+- <a href="qodana-intellij-github-application.md"/>
+- <a href="service.md"/>
+- <a href="qodana_plugins.md"/>

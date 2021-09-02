@@ -39,11 +39,8 @@ Check the results in your browser at [`http://localhost:8080`](http://localhost:
 
 Read our [Docker guide](license-audit-docker-readme.md) for more options and details related to the License Audit execution.
 
-  <seealso>
-  <category ref="next_steps">
-   <a href="license-audit-docker-readme.md"/>
-   <a href="license-audit-github-action.md"/>
-   <a href="license-audit-teamcity-plugin.md"/>
-  </category>
- </seealso>
+## Next steps
 
+- <a href="license-audit-docker-readme.md"/>
+- <a href="license-audit-github-action.md"/>
+- <a href="license-audit-teamcity-plugin.md"/>

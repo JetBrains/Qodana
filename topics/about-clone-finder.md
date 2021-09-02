@@ -60,11 +60,9 @@ where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<ou
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
 Read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Clone Finder execution.
- 
-<seealso>
-  <category ref="next_steps">
-   <a href="clone-finder-docker-readme.md"/>
-   <a href="clone-finder-github-action.md"/>
-    <a href="clone-finder-teamcity-plugin.md"/>
-  </category>
- </seealso>
+
+## Next steps
+
+- <a href="clone-finder-docker-readme.md"/>
+- <a href="clone-finder-github-action.md"/>
+-  <a href="clone-finder-teamcity-plugin.md"/>

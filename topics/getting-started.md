@@ -1,8 +1,12 @@
 [//]: # (title: Get started with Qodana)
 
+<note>
+
 <include src="lib_qd.xml" include-id="supported-techs">
 <var name="linter" value="Qodana"/>
 </include>
+
+</note>
 
 ## Analyse a project locally
 
@@ -20,16 +24,12 @@ with `source-directory` pointing to the root of your project.
 You can [check results in your browser](html-report.md) at `http://localhost:8080`.
 
 
- <seealso>
+ ## Next steps
 
-  <category ref="next_steps">
-   <a href="docker-images.md"/>
-   <a href="github-actions.md"/>
-   <a href="qodana-intellij-github-application.md"/>
-   <a href="service.md"/>
-   <a href="qodana_plugins.md"/>
-  </category>
- </seealso>
-
+ - <a href="docker-images.md"/>
+ - <a href="github-actions.md"/>
+ - <a href="qodana-intellij-github-application.md"/>
+ - <a href="service.md"/>
+ - <a href="qodana_plugins.md"/>
 
  

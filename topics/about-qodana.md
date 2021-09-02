@@ -40,11 +40,8 @@ Your feedback is very welcome in
 <a href="https://youtrack.jetbrains.com/newIssue?project=QD">our issue tracker</a> or at <a href="mailto:qodana-support@jetbrains.com">
 qodana-support@jetbrains.com</a>.
 
- <seealso>
-  <category ref="get_started">
-   <a href="getting-started.md"/>
-  </category>
-  <category ref="lang_fw_tech">
-   <a href="supported-technologies.md"/>
-  </category>
- </seealso>
+## Next steps
+
+- <a href="getting-started.md"/>
+  
+- <a href="supported-technologies.md"/>
