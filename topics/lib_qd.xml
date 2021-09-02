@@ -32,4 +32,18 @@ By using %product%, you agree to the <a href="https://www.jetbrains.com/legal/ag
 Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for <a href="https://docs.docker.com/desktop/windows/#resources">Windows</a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
 </chunk>
 
+
+ <chunk id="supported-techs">
+  <var name="linter" value="Qodana"/>
+  <var name="supported-techs" value="Java, Kotlin, and PHP projects"/>
+  %linter% supports <a href="supported-technologies.md">%supported-techs%</a>. Eventually, all languages and technologies covered by JetBrains IDEs will be added.
+ </chunk>
+
+ <seealso>
+  <category ref="next_steps">
+   <a href="license-audit-docker-readme.md"/>
+   <a href="license-audit-github-action.md"/>
+   <a href="license-audit-teamcity-plugin.md"/>
+  </category>
+ </seealso>
 </topic>

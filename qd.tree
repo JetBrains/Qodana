@@ -3,11 +3,14 @@
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
 <product-profile id="qd" name="Qodana" start-page="getting-started.md" status="release">
 
-    <toc-element id="getting-started.md" toc-title="Getting Started">
+    <toc-element id="about-qodana.md">
         <toc-element id="supported-technologies.md"/>
-        <toc-element id="qodana-yaml.md"/>
-        <toc-element id="qodana-slack-code-of-conduct.md"/>
         <toc-element id="CHANGELOG.md"/>
+        <toc-element id="qodana-slack-code-of-conduct.md"/>
+    </toc-element>
+
+    <toc-element id="getting-started.md" toc-title="Getting Started">
+        <toc-element id="qodana-yaml.md"/>
     </toc-element>
         
     <toc-element id="linters.md">

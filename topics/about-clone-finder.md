@@ -2,6 +2,14 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<note>
+
+<include src="lib_qd.xml" include-id="supported-techs">
+    <var name="linter" value="Qodana Clone Finder"/>
+    </include>
+
+</note>
+
 Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance. 
 In future, search by classes and files will be added.
 
@@ -52,16 +60,11 @@ where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<ou
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
 Read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Clone Finder execution.
-
-### Run at GitHub
-
-You can set up a workflow in your GitHub repository using the [GitHub action](clone-finder-github-action.md) we published.
-
-### Supported languages
-PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
-
-## License
-
-<include src="lib_qd.xml" include-id="license-info">
-    <var name="product" value="Qodana linters"/>
-</include>
+ 
+<seealso>
+  <category ref="next_steps">
+   <a href="clone-finder-docker-readme.md"/>
+   <a href="clone-finder-github-action.md"/>
+    <a href="clone-finder-teamcity-plugin.md"/>
+  </category>
+ </seealso>
