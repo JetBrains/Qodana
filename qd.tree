@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE product-profile
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-<product-profile id="qd" name="Qodana" start-page="getting-started.md" status="release">
+<product-profile id="qd" name="Qodana" start-page="welcome.xml" status="release">
+
+    <toc-element id="welcome.xml"/>
 
     <toc-element id="about-qodana.md">
         <toc-element id="supported-technologies.md"/>
@@ -12,7 +14,7 @@
     <toc-element id="getting-started.md" toc-title="Getting Started">
         <toc-element id="qodana-yaml.md"/>
     </toc-element>
-        
+
     <toc-element id="linters.md">
          <toc-element id="about-qodana-intellij.md" accepts-web-file-names="about-qodana.html"/>
          <toc-element id="about-clone-finder.md"/>
