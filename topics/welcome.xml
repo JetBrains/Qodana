@@ -59,8 +59,6 @@
                     <a href="service.md"
                        description="Use Qodana as a cloud service"/>
                 </link-collection>
-            </group>
-            <group type="links" display="wide">
                 <link-collection>
                 <title>Inspection results</title>
                 <a href="ui-overview.md"
