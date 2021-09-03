@@ -19,9 +19,9 @@
             <a href="getting-started.md"
                description="Learn how to get started with Qodana in a few simple steps"
                type="install"/>
-            <a href="supported-technologies.md"
+            <!--<a href="supported-technologies.md"
                description="Qodana supports Java, Kotlin, and PHP projects."
-               type="thumb-up"/>
+               type="thumb-up"/>-->
         </tip-group>
 
         <main-group>
@@ -46,19 +46,22 @@
 
         <custom-groups>
             <group type="links" display="wide">
-                <title>Distribution formats</title>
-                <a href="docker-images.md"
-                   description="Run Qodana locally or in any CI"/>
-                <a href="github-actions.md"
-                   description="Run Qodana code inspection on any GitHub repository"/>
-                <a href="qodana-intellij-github-application.md"
-                   description="Examine incoming pull GitHub requests"/>
-                <a href="qodana_plugins.md"
-                   description="Integrate Qodana into various CI systems"/>
-                <a href="service.md"
-                   description="Use Qodana as a cloud service"/>
+                <link-collection>
+                    <title>Distribution formats</title>
+                    <a href="docker-images.md"
+                       description="Run Qodana locally or in any CI"/>
+                    <a href="github-actions.md"
+                       description="Run Qodana code inspection on any GitHub repository"/>
+                    <a href="qodana-intellij-github-application.md"
+                       description="Examine incoming pull GitHub requests"/>
+                    <a href="qodana_plugins.md"
+                       description="Integrate Qodana into various CI systems"/>
+                    <a href="service.md"
+                       description="Use Qodana as a cloud service"/>
+                </link-collection>
             </group>
             <group type="links" display="wide">
+                <link-collection>
                 <title>Inspection results</title>
                 <a href="ui-overview.md"
                    description="The Qodana UI focuses on the single-shot analysis, making it easy to act on results and customize checks."/>
@@ -70,8 +73,8 @@
                    description="Explore the Qodana License Audit run output"/>
                 <a href="qodana-intellij-docker-sarif.md"
                    description="Explore the Qodana IntelliJ run SARIF-compliant output"/>
+                </link-collection>
             </group>
         </custom-groups>
     </section-starting-page>
-
 </topic>

@@ -24,7 +24,7 @@ with `source-directory` pointing to the root of your project.
 You can [check results in your browser](html-report.md) at `http://localhost:8080`.
 
 
- ## Next steps
+## Next steps
 
  - <a href="docker-images.md"/>
  - <a href="github-actions.md"/>
