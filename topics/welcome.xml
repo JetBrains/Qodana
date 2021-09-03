@@ -19,9 +19,6 @@
             <a href="getting-started.md"
                description="Learn how to get started with Qodana in a few simple steps"
                type="install"/>
-            <!--<a href="supported-technologies.md"
-               description="Qodana supports Java, Kotlin, and PHP projects."
-               type="thumb-up"/>-->
         </tip-group>
 
         <main-group>
@@ -45,7 +42,7 @@
         </highlighted-group>
 
         <custom-groups>
-            <group type="links" display="wide">
+            <group type="links" display="normal">
                 <link-collection>
                     <title>Distribution formats</title>
                     <a href="docker-images.md"
@@ -71,6 +68,15 @@
                    description="Explore the Qodana License Audit run output"/>
                 <a href="qodana-intellij-docker-sarif.md"
                    description="Explore the Qodana IntelliJ run SARIF-compliant output"/>
+                </link-collection>
+                <link-collection>
+                    <title>Learn more</title>
+                    <a href="supported-technologies.md"
+                       description="Run Qodana on Java, Kotlin, and PHP projects"
+                    />
+                    <a href="CHANGELOG.md"
+                       description="See what's new in Qodana"
+                    />
                 </link-collection>
             </group>
         </custom-groups>
