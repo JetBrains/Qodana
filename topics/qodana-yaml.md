@@ -41,6 +41,7 @@ profile:
 You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once. To exclude all paths in a project from the inspection scope, omit the `paths` node.
 
 #### Example
+{id="exclude-example"}
 
 Exclude all inspections for specified project paths:
 
@@ -78,6 +79,7 @@ You can find specific inspection IDs in the Profile settings in the HTML report 
 You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
 
 #### Example
+{id="include-example"}
 
 In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included into the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
 
