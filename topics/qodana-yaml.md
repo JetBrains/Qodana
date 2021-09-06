@@ -33,10 +33,10 @@ profile:
     path: relative/path/in/your/project.xml
 ```
 
-## Exclude paths from the analysis scope
+### Exclude paths from the analysis scope
 {id="exclude-paths"}
 
-You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once.
+You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once. To exclude all paths in a project from the inspection scope, omit the `paths` node.
 
 For all inspections:
 
@@ -69,9 +69,9 @@ exclude:
 
 You can find specific inspection IDs in the Profile settings in the HTML report or in the `.xml` file with your inspection profile.
 
-## Include an inspection into the analysis scope
+### Include an inspection into the analysis scope
 
-You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis.
+You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
 
 ```yaml
 profile:
@@ -84,7 +84,7 @@ include:
 
 In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included into the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
 
-## Fail threshold
+### Set a fail threshold
 
 Add a fail threshold to use as a quality gate:
 
@@ -102,7 +102,7 @@ When running in [baseline mode](qodana-intellij-docker-techs.md#Run+in+baseline+
 
 </note>
 
-## An example with different configuration options
+### An example with different configuration options
 
 ```yaml
 version: 1.0
@@ -125,7 +125,7 @@ exclude:
 ```
 
 In the example above,
-* `SomeInspectionId` inspection is explicitly enabled, although it is disabled in the profile
+* `SomeInspectionId` inspection is explicitly enabled for all paths, although it is disabled in the profile
 * `Annotator` inspection is disabled for all paths
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
