@@ -71,7 +71,7 @@ If you run the analysis several times in a row, make sure you've cleaned the res
 
   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the [analysis results directory](qodana-intellij-output.md#Basic+output).
 
- Consider using a [fail threshold](qodana-yaml.md#Fail+threshold) to make the build fail when a certain number of problems is reached. [Running as non-root](qodana-intellij-docker-techs.md#Run+as+non-root) is also supported.
+ Consider using a [fail threshold](qodana-yaml.md#Set+a+fail+threshold) to make the build fail when a certain number of problems is reached. [Running as non-root](qodana-intellij-docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/qodana.yml`):
   

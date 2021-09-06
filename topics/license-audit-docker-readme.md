@@ -69,7 +69,7 @@ docker run --rm -it \
 
 where `<source-directory<` and `<output-directory>` are full local paths to the directories that contain, respectively, the project source code and the analysis results.
 
-The content of `<output-directory>` is described in [License Audit Output](license-audit-output.md#license-audit-basic-output). Consider using [fail-threshold](qodana-yaml.md#Fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](license-audit-docker-techs.md#Run+as+non-root) is also supported.
+The content of `<output-directory>` is described in [License Audit Output](license-audit-output.md#license-audit-basic-output). Consider using [fail-threshold](qodana-yaml.md#Set+a+fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](license-audit-docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/qodana-license-audit.yml`):
 
