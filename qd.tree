@@ -5,7 +5,7 @@
 
     <toc-element id="getting-started.md" toc-title="Getting Started">
         <toc-element id="supported-technologies.md"/>
-        <toc-element id="qodana-yaml.md"/>
+        <toc-element id="qodana-yaml.md" show-structure-depth="2"/>
         <toc-element id="qodana-slack-code-of-conduct.md"/>
         <toc-element id="CHANGELOG.md"/>
     </toc-element>
