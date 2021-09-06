@@ -5,7 +5,7 @@
 The [Gradle Qodana plugin](https://github.com/JetBrains/gradle-qodana-plugin) provides the Gradle interface to run code inspections from Intellij IDEA. To get started, apply the Gradle plugin `org.jetbrains.qodana` in the Gradle configuration file.
 
  <tabs>
-  <tab title="Groovy">
+  <tab title="Groovy" group-key="groovy">
 
 Add the following to the `build.gradle` configuration file:
 
@@ -16,7 +16,7 @@ Add the following to the `build.gradle` configuration file:
   ```
 
   </tab>
-  <tab title="Kotlin DSL">
+  <tab title="Kotlin DSL" group-key="kotlin-dsl">
 
 Add the following to the `build.gradle.kts` configuration file:
 
@@ -111,7 +111,7 @@ Cleans up the Qodana Inspections output directory.
 ## Example
 
 <tabs>
-  <tab title="Groovy"> 
+  <tab title="Groovy" group-key="groovy"> 
 
 Add the following to the `build.gradle` configuration file:
 
@@ -131,7 +131,7 @@ Add the following to the `build.gradle` configuration file:
   ```
   </tab>
 
-  <tab title="Kotlin DSL">
+  <tab title="Kotlin DSL" group-key="kotlin-dsl">
 
 Add the following to the `build.gradle.kts` configuration file:
 
