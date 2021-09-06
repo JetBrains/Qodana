@@ -312,7 +312,7 @@ where
 * `includeText` specifies whether to add the license text by which the license ID was recognized to the report or not
 * `deep` specifies whether to run a deep license detection: check every file and always detect licenses from dependencies, even when they were declared on the package level
 
-### An example with different License Audit overrides
+### Example of different License Audit overrides
 
 ```yaml
 failThreshold: 100
