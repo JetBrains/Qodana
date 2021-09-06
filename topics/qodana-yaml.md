@@ -1,6 +1,8 @@
 [//]: # (title: Configure a Profile via qodana.yaml)
 
-Qodana runs are configured via the `qodana.yaml` configuration file. Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. You can specify such overrides in the [HTML report](results.md), and the changes are imported to `qodana.yaml` automatically. To run subsequent checks with this customized configuration, save the file to the project's root directory. Alternatively, you can edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
+Qodana runs are configured via the `qodana.yaml` configuration file. Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. You can specify such overrides in the [HTML report](results.md), and the changes are imported to `qodana.yaml` automatically. 
+
+To run subsequent checks with this customized configuration, save the file to the project's root directory. Alternatively, you can edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
 
 <note>
 
@@ -38,7 +40,9 @@ profile:
 
 You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once. To exclude all paths in a project from the inspection scope, omit the `paths` node.
 
-For all inspections:
+#### Example
+
+Exclude all inspections for specified project paths:
 
 ```yaml
 exclude:
@@ -49,7 +53,7 @@ exclude:
       - benchmarks
 ```
 
-For inspections specified by the ID:
+Exclude inspections specified by ID for specified project paths:
 {id="exclude-inspection"}
 
 ```yaml
@@ -73,16 +77,19 @@ You can find specific inspection IDs in the Profile settings in the HTML report 
 
 You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
 
-```yaml
-profile:
-    name: empty
-include:
-  - name: SomeInspectionId
-    paths:
-    - tools
-```
+#### Example
 
 In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included into the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
+
+```yaml
+  profile:
+  name: empty
+include:
+  - name: SomeInspectionId
+  paths:
+  - tools
+```
+
 
 ### Set a fail threshold
 
@@ -94,7 +101,7 @@ failThreshold: <number>
 
 [//]: # "Explain exit 255"
 
-When this number of problems is reached, the container executes `exit 255`. Can be used to make the CI step fail. The default value is `10000`.
+When this number of problems is reached, the container executes `exit 255`. This can be used to make a CI step fail. The default value is `10000`.
 
 <note>
 
@@ -102,7 +109,7 @@ When running in [baseline mode](qodana-intellij-docker-techs.md#Run+in+baseline+
 
 </note>
 
-### An example with different configuration options
+### Example of different configuration options
 
 ```yaml
 version: 1.0
