@@ -4,7 +4,7 @@
 
 The [Gradle Qodana plugin](https://github.com/JetBrains/gradle-qodana-plugin) provides the Gradle interface to run code inspections from Intellij IDEA. To get started, apply the Gradle plugin `org.jetbrains.qodana` in the Gradle configuration file.
 
- <tabs>
+ <tabs group="languages">
   <tab title="Groovy" group-key="groovy">
 
 Add the following to the `build.gradle` configuration file:
@@ -110,7 +110,7 @@ Cleans up the Qodana Inspections output directory.
 
 ## Example
 
-<tabs>
+<tabs group="languages">
   <tab title="Groovy" group-key="groovy"> 
 
 Add the following to the `build.gradle` configuration file:
