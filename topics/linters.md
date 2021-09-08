@@ -1,4 +1,4 @@
-[//]: # (title: About Qodana Linters)
+[//]: # (title: Qodana linters)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 

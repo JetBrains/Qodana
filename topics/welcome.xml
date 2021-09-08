@@ -3,11 +3,11 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Welcome to Qodana"
+       title="Discover Qodana"
        id="welcome">
 
     <section-starting-page>
-        <title>Welcome to Qodana</title>
+        <title>Discover Qodana</title>
         <description>
             These topics will help you get started with Qodana.
         </description>

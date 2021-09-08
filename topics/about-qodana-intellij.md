@@ -1,6 +1,8 @@
-[//]: # (title: About Qodana IntelliJ)
+[//]: # (title: Qodana IntelliJ)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+
+<var name="linter" value="Qodana IntelliJ"/>
 
 <note>
 
@@ -17,6 +19,15 @@ The Qodana IntelliJ linter lets you perform [static analysis](https://en.wikiped
 * spelling problems highlighting
 * overall code structure improvement
 * coding best practices introduction
+
+<tip>
+
+<include src="lib_qd.xml" include-id="qodana-playground-tip">
+<var name="linter" value="Qodana IntelliJ"/>
+</include>
+
+</tip>
+
 
 ## Try it now
 

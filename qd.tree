@@ -4,18 +4,16 @@
 <product-profile id="qd" name="Qodana" start-page="welcome.xml" status="release">
 
 
+    <toc-element id="welcome.xml">
+        <toc-element id="getting-started.md" />
+        <toc-element id="qodana-yaml.md"/>
+    </toc-element>
+
     <toc-element id="about-qodana.md">
         <toc-element id="supported-technologies.md"/>
         <toc-element id="CHANGELOG.md"/>
-        <toc-element id="qodana-slack-code-of-conduct.md"/>
+        <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
     </toc-element>
-
-    <toc-element id="welcome.xml">
-        <toc-element id="getting-started.md" toc-title="Try Qodana now">
-            <toc-element id="qodana-yaml.md"/>
-        </toc-element>
-    </toc-element>
-
 
     <toc-element id="linters.md">
          <toc-element id="about-qodana-intellij.md" accepts-web-file-names="about-qodana.html"/>
@@ -57,9 +55,10 @@
 
     <toc-element title="Qodana Plugins" id="qodana_plugins.md">
         <toc-element id="teamcity-plugins.md">
-            <toc-element id="teamcity-plugin-quick-start.md"/>
             <toc-element id="teamcity-plugin-configuration.md"/>
-            <toc-element id="qodana-teamcity-plugin.md" accepts-web-file-names-ref="4d0d5387"/>
+            <toc-element id="qodana-teamcity-plugin.md" accepts-web-file-names-ref="4d0d5387">
+                <toc-element id="teamcity-plugin-quick-start.md"/>
+            </toc-element>
             <toc-element id="clone-finder-teamcity-plugin.md"/>
             <toc-element id="license-audit-teamcity-plugin.md"/>
         </toc-element>

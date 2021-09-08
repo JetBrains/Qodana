@@ -39,11 +39,9 @@ Running analysis locally is a resource-intensive operation. If you experience is
   %linter% supports <a href="supported-technologies.md">%supported-techs%</a>. Eventually, all languages and technologies covered by JetBrains IDEs will be added.
  </chunk>
 
- <seealso>
-  <category ref="next_steps">
-   <a href="license-audit-docker-readme.md"/>
-   <a href="license-audit-github-action.md"/>
-   <a href="license-audit-teamcity-plugin.md"/>
-  </category>
- </seealso>
+ <chunk id="qodana-playground-tip">
+  <var name="linter" value="Qodana"/>
+  <a href="https://qodana.teamcity.com/overview?mode=builds">Qodana Playground</a> provides several example projects analyzed via %linter%.
+ </chunk>
+
 </topic>

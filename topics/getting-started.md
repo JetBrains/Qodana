@@ -1,4 +1,4 @@
-[//]: # (title: Get started with Qodana)
+[//]: # (title: Getting started)
 
 <note>
 

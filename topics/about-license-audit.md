@@ -1,4 +1,4 @@
-[//]: # (title: About Qodana License Audit)
+[//]: # (title: Qodana License Audit)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
@@ -16,6 +16,14 @@ Qodana License Audit helps software projects avoid problems with incompatible th
 
 For details about all inspections and ways to resolve problem, see [License Audit Output](license-audit-output.md).
 
+
+<tip>
+
+<include src="lib_qd.xml" include-id="qodana-playground-tip">
+    <var name="linter" value="Qodana License Audit"/>
+</include>
+
+</tip>
 
 ## Try it now
 
