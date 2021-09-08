@@ -7,11 +7,11 @@ The [Gradle Qodana plugin](https://github.com/JetBrains/gradle-qodana-plugin) pr
  <tabs group="languages">
   <tab title="Groovy" group-key="groovy">
 
-Add the following to the `build.gradle` configuration file:
+Add the following to the `build.gradle` configuration file.
 
   ```groovy
   plugins {
-      id "org.jetbrains.qodana" version "0.1.8"
+      id "org.jetbrains.qodana" version "<plugin-version>"
   }
   ```
 
@@ -22,12 +22,18 @@ Add the following to the `build.gradle.kts` configuration file:
 
   ```kotlin
   plugins {
-      id("org.jetbrains.qodana") version "0.1.8"
+      id("org.jetbrains.qodana") version "<plugin-version>"
   }
   ```
 
   </tab>
  </tabs>
+
+<note>
+
+The latest Gradle Qodana plugin version is currently `0.1.12`. 
+
+</note>
 
 
 <tip>
