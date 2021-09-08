@@ -1,4 +1,4 @@
-[//]: # (title: Qodana IntelliJ Output Formats)
+[//]: # (title: Qodana IntelliJ output formats)
 
 ## Basic output
 

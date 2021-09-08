@@ -1,4 +1,4 @@
-[//]: # (title: UI Overview)
+[//]: # (title: User interface overview)
 
 The Qodana UI focuses on the single-shot analysis, making it easy to act on results and customize checks.
 

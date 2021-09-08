@@ -1,4 +1,4 @@
-[//]: # (title: License Audit TeamCity Plugin)
+[//]: # (title: License Audit TeamCity plugin)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
