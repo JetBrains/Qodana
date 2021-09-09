@@ -13,15 +13,15 @@ Use [TeamCity VCS roots](https://www.jetbrains.com/help/teamcity/vcs-root.html) 
 
 With the plugin installed, add the Qodana runner to your build. 
 
-<img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner"/>  
+<img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner" border-effect="line"/>  
 
 Make sure the **Clone Finder** option is enabled and provide the following required parameters:
 
-* Queried project&nbsp;&mdash; the project source code
-* Referenced project directories&nbsp;&mdash; one or more projects to compare against
-* Languages&nbsp;&mdash; languages to perform search
+* Queried project: the project source code
+* Referenced project directories: one or more projects to compare against
+* Languages: languages to perform search
 
-<img src="clone-finder-runner-settings.png" width="650" alt="Qodana Clone Finder Build Runner Settings"/>
+<img src="clone-finder-runner-settings.png" width="650" alt="Qodana Clone Finder Build Runner Settings" border-effect="line"/>
 
 The example above shows that the project ```phpunit``` will be compared to the project ```pest``` and the analysis will be performed for the PHP language.
 
