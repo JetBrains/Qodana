@@ -1,4 +1,4 @@
-[//]: # (title: Qodana TeamCity Plugin)
+[//]: # (title: Qodana TeamCity plugin)
 
 The Qodana plugin for TeamCity lets you add static analysis to your build chain.
 
@@ -11,7 +11,7 @@ The plugin provides:
 
 The plugin lets you add the code quality checks in the TeamCity pipeline or even start from scratch with static code analysis.
 
-![Build Tab](tab.png)
+<img src="tab.png" alt="the Build tab" border-effect="line" width="700"/>
 
 
 ## License

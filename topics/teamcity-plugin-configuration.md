@@ -1,4 +1,4 @@
-[//]: # (title: TeamCity Plugin Configuration)
+[//]: # (title: TeamCity plugin configuration)
 
 The main Qodana functionality comes from the 'engine' shaped into the Docker image. If you want to go beyond the boundaries of the default settings, refer to the [Docker image guide](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-readme.html). Note that you don't need to write `docker run` on your own: the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties.
 

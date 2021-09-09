@@ -1,6 +1,16 @@
-[//]: # (title: About Qodana Clone Finder)
+[//]: # (title: Qodana Clone Finder)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+
+<var name="linter" value="Qodana Clone Finder"/>
+
+<note>
+
+<include src="lib_qd.xml" include-id="supported-techs">
+    <var name="linter" value="Qodana Clone Finder"/>
+    </include>
+
+</note>
 
 Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance. 
 In future, search by classes and files will be added.
@@ -27,6 +37,15 @@ You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 * Excessive project maintenance costs due to overgrown codebases
 * Increased security risks because fixing detected vulnerabilities across all instances of the copied code can be difficult
 
+<tip>
+
+<include src="lib_qd.xml" include-id="qodana-playground-tip">
+    <var name="qodana-playground-url" value="https://qodana.teamcity.com/project/Hosted_Root_CloneFinderExample?mode=builds#all-projects"/>
+    <var name="linter" value="Qodana Clone Finder"/>
+</include>
+
+</tip>
+
 ## Try it now
 
 ### Analyse a project locally
@@ -51,17 +70,8 @@ where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<ou
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
-Read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Clone Finder execution.
+## Next steps
 
-### Run at GitHub
-
-You can set up a workflow in your GitHub repository using the [GitHub action](clone-finder-github-action.md) we published.
-
-### Supported languages
-PHP, Java, and Kotlin are already supported. Eventually, all [languages and technologies](supported-technologies.md) covered by JetBrains IDEs will be added.
-
-## License
-
-<include src="lib_qd.xml" include-id="license-info">
-    <var name="product" value="Qodana linters"/>
-</include>
+- <a href="clone-finder-docker-readme.md">Configure %linter% Docker image</a>
+- <a href="clone-finder-github-action.md">Run %linter% on GitHub</a>
+-  <a href="clone-finder-teamcity-plugin.md">Run %linter% on TeamCity</a>

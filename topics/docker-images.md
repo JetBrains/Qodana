@@ -1,4 +1,4 @@
-[//]: # (title: Qodana Docker Images)
+[//]: # (title: Qodana Docker images)
 
 ## List of Qodana linters available as Docker images
 

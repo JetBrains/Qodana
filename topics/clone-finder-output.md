@@ -1,4 +1,4 @@
-[//]: # (title: Clone Finder Output Formats)
+[//]: # (title: Clone Finder output formats)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 

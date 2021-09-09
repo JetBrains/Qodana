@@ -1,4 +1,4 @@
-[//]: # (title: License Audit TeamCity Plugin)
+[//]: # (title: License Audit TeamCity plugin)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
@@ -7,15 +7,14 @@ The Qodana License Audit plugin for TeamCity lets you extend Qodana static analy
 ## Quick start
 
 * Ensure you have the [Qodana](https://www.jetbrains.com/help/qodana/qodana-teamcity-plugin.html) plugin for IntelliJ Inspection installed
-* Install the Qodana License Audit plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/15498-qodana)
+* Install the Qodana License Audit plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/17283-qodana-license-audit)
 
-[//]: # "TODO: update the plugin link"
 
 Use [TeamCity VCS roots](https://www.jetbrains.com/help/teamcity/vcs-root.html) to add all required project source to the build.
 
 With the plugin installed, [add the Qodana runner to your build](https://www.jetbrains.com/help/qodana/teamcity-plugin-configuration.html).
 
-<img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner"/>  
+<img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner" border-effect="line"/>  
 
 **Specify the build settings**
 
@@ -26,7 +25,6 @@ With the plugin installed, [add the Qodana runner to your build](https://www.jet
     - (Optional) [Your project's tools versions](https://www.jetbrains.com/help/qodana/license-audit-docker-techs.html#specify-project-tools-version), for example, `-e PYTHON_VERSION=3.7.10`
     - (Optional) Using verbose License Audit build output with `-e QODANA_VERBOSE=true` 
 
-[//]: # "TODO: discuss the variable QODANA_VERBOSE naming"
 
 Also use qodana.yaml and qodana.license.rules.json in your project to configure the tool.
 

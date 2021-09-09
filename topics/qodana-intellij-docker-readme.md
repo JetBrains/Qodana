@@ -1,4 +1,4 @@
-[//]: # (title: Qodana IntelliJ Docker Image)
+[//]: # (title: Qodana IntelliJ Docker image)
 
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg) ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana.svg)
 

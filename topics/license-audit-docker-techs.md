@@ -1,4 +1,4 @@
-[//]: # (title: Docker Image Paths and Configuration Options)
+[//]: # (title: Docker image configuration)
 
 ## Docker image paths
 

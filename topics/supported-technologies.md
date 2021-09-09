@@ -1,4 +1,4 @@
-[//]: # (title: Supported Technologies)
+[//]: # (title: Supported technologies)
 
 ><include src="lib_qd.xml" include-id="eap-warning"/>
 

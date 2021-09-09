@@ -4,11 +4,11 @@ Download and install the [Qodana IntelliJ plugin](https://plugins.jetbrains.com/
 
 With the plugin installed, add the Qodana runner to your build. If your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html), no further preparation is needed. You can run your first analysis with the default settings right away.
 
-<img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner"/>  
+<img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner" border-effect="line"/>  
 
 Make sure the **Code Inspections** option is enabled and start the build.
 
-<img src="qodana-build-runner-settings.png" width="650" alt="Qodana Build Runner Settings"/>
+<img src="qodana-build-runner-settings.png" width="650" alt="Qodana Build Runner Settings" border-effect="line"/>
 
 
 If you use DSL to configure your build, add this section to your build configuration description:
@@ -22,7 +22,7 @@ If you use DSL to configure your build, add this section to your build configura
 
 If your projects rely on technologies that are not fully supported, you may require additional steps in your build: for example, to download dependencies.
 
-> Temporary limitation: only one Qodana build step can be added to the configuration. If you
+> Currently, only one Qodana build step can be added to the configuration. If you
 need to aggregate the analysis of several builds into one, use the TeamCity [Composite Build Configuration](https://www.jetbrains.com/help/teamcity/composite-build-configuration.html) feature.
 
 [//]: # "todo: remove after aggregation is implemented"

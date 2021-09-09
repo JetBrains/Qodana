@@ -1,4 +1,4 @@
-[//]: # (title: Qodana Plugins)
+[//]: # (title: Qodana plugins)
 
 Qodana provides several plugins facilitating integration with various CI systems.
 

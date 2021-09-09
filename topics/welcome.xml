@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Discover Qodana"
+       id="welcome">
+
+    <section-starting-page>
+        <title>Discover Qodana</title>
+        <description>
+            These topics will help you get started with Qodana.
+        </description>
+
+        <tip-group>
+            <a href="about-qodana.md"
+               description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks like clone detection and license audit."
+               type="start"/>
+            <a href="getting-started.md"
+               description="Learn how to get started with Qodana in a few simple steps"
+               type="install"/>
+        </tip-group>
+
+        <main-group>
+            <title>Qodana linters</title>
+            <a href="about-qodana-intellij.md"
+               description="The Qodana IntelliJ linter lets you perform static analysis of your codebase."/>
+            <a href="about-clone-finder.md"
+               description="Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance."/>
+            <a href="about-license-audit.md"
+               description="Qodana License Audit helps software projects avoid problems with incompatible third-party licenses."/>
+        </main-group>
+
+        <highlighted-group>
+            <title>How-to guides</title>
+            <a href="qodana-yaml.md"
+               description="Qodana runs are configured via the `qodana.yaml` configuration file."/>
+            <a href="html-report.md"
+               description="View the Qodana run results in the browser"/>
+            <a href="qodana-intellij-docker-readme.md"
+               description="Configure the Qodana IntelliJ Docker image"/>
+        </highlighted-group>
+
+        <custom-groups>
+            <group type="links" display="normal">
+                <link-collection>
+                    <title>Distribution formats</title>
+                    <a href="docker-images.md"
+                       description="Run Qodana locally or in any CI"/>
+                    <a href="github-actions.md"
+                       description="Run Qodana code inspection on any GitHub repository"/>
+                    <a href="qodana-intellij-github-application.md"
+                       description="Examine incoming pull GitHub requests"/>
+                    <a href="qodana_plugins.md"
+                       description="Integrate Qodana into various CI systems"/>
+                    <a href="service.md"
+                       description="Use Qodana as a cloud service"/>
+                </link-collection>
+                <link-collection>
+                <title>Inspection results</title>
+                <a href="ui-overview.md"
+                   description="The Qodana UI focuses on the single-shot analysis, making it easy to act on results and customize checks."/>
+                <a href="qodana-intellij-output.md"
+                   description="Explore the Qodana IntelliJ run output"/>
+                <a href="clone-finder-output.md"
+                   description="Explore the Qodana Clone Finder run output"/>
+                <a href="license-audit-output.md"
+                   description="Explore the Qodana License Audit run output"/>
+                <a href="qodana-intellij-docker-sarif.md"
+                   description="Explore the Qodana IntelliJ run SARIF-compliant output"/>
+                </link-collection>
+                <link-collection>
+                    <title>Learn more</title>
+                    <a href="supported-technologies.md"
+                       description="Run Qodana on Java, Kotlin, and PHP projects"
+                    />
+                    <a href="CHANGELOG.md"
+                       description="See what's new in Qodana"
+                    />
+                </link-collection>
+            </group>
+        </custom-groups>
+    </section-starting-page>
+</topic>
