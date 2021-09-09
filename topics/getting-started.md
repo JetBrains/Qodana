@@ -1,5 +1,7 @@
 [//]: # (title: Getting started)
 
+<var name="linter" value="Qodana"/>
+
 <note>
 
 <include src="lib_qd.xml" include-id="supported-techs">
@@ -26,10 +28,10 @@ You can [check results in your browser](html-report.md) at `http://localhost:808
 
 ## Next steps
 
- - <a href="docker-images.md"/>
- - <a href="github-actions.md"/>
- - <a href="qodana-intellij-github-application.md"/>
- - <a href="service.md"/>
- - <a href="qodana_plugins.md"/>
+ - <a href="docker-images.md">Configure %linter% Docker images</a>
+ - <a href="github-actions.md">Run %linter% on GitHub</a>
+ - <a href="qodana-intellij-github-application.md">%linter% as a GitHub App</a>
+ - <a href="service.md">Use %linter% as a Service</a>
+ - <a href="qodana_plugins.md">Extend your CI/CD with %linter% plugins</a>
 
  

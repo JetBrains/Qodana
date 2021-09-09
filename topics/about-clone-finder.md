@@ -40,6 +40,7 @@ You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 <tip>
 
 <include src="lib_qd.xml" include-id="qodana-playground-tip">
+    <var name="qodana-playground-url" value="https://qodana.teamcity.com/project/Hosted_Root_CloneFinderExample?mode=builds#all-projects"/>
     <var name="linter" value="Qodana Clone Finder"/>
 </include>
 
@@ -69,10 +70,8 @@ where `<queried-project-directory>`, `<reference-projects-directory>`,  and `<ou
 
 Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
 
-Read our [Docker guide](clone-finder-docker-readme.md) for more options and details related to the Clone Finder execution.
-
 ## Next steps
 
-- <a href="clone-finder-docker-readme.md"/>
-- <a href="clone-finder-github-action.md"/>
--  <a href="clone-finder-teamcity-plugin.md"/>
+- <a href="clone-finder-docker-readme.md">Configure %linter% Docker image</a>
+- <a href="clone-finder-github-action.md">Run %linter% on GitHub</a>
+-  <a href="clone-finder-teamcity-plugin.md">Run %linter% on TeamCity</a>

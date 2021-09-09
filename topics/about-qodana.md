@@ -25,7 +25,7 @@ The Qodana UI can be part of your CI user interface in case your CI supports the
 
 Qodana linters are supplied in the following distribution formats and web services:
 - [Docker images](docker-images.md)
-- [GitHub actions](github-actions.md) and [application](qodana-intellij-github-application.md)
+- [GitHub Actions](github-actions.md) and [GitHub App](qodana-intellij-github-application.md)
 - [Cloud service](service.md)
 - [Plugins](qodana_plugins.md)
 

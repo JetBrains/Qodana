@@ -23,7 +23,8 @@ The Qodana IntelliJ linter lets you perform [static analysis](https://en.wikiped
 <tip>
 
 <include src="lib_qd.xml" include-id="qodana-playground-tip">
-<var name="linter" value="Qodana IntelliJ"/>
+    <var name="qodana-playground-url" value="https://qodana.teamcity.com/project/Hosted_Root_Java?mode=builds#all-projects"/>
+    <var name="linter" value="Qodana IntelliJ"/>
 </include>
 
 </tip>
@@ -54,8 +55,8 @@ Check the results in your browser at [`http://localhost:8080`](http://localhost:
 
 ## Next steps
 
-- <a href="qodana-intellij-docker-readme.md"/>
-- <a href="qodana-intellij-github-action.md"/>
-- <a href="qodana-intellij-github-application.md"/>
-- <a href="service.md"/>
-- <a href="qodana_plugins.md"/>
+- <a href="qodana-intellij-docker-readme.md">Configure %linter% Docker image</a>
+- <a href="qodana-intellij-github-action.md">Run %linter% on GitHub</a>
+- <a href="qodana-intellij-github-application.md">%linter% as a GitHub App</a>
+- <a href="service.md">Use %linter% as a Service</a>
+- <a href="qodana_plugins.md">Extend your CI/CD with %linter% plugins</a>

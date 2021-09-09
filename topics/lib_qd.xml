@@ -41,7 +41,8 @@ Running analysis locally is a resource-intensive operation. If you experience is
 
  <chunk id="qodana-playground-tip">
   <var name="linter" value="Qodana"/>
-  <a href="https://qodana.teamcity.com/overview?mode=builds">Qodana Playground</a> provides several example projects analyzed via %linter%.
+  <var name="qodana-playground-url" value="https://qodana.teamcity.com/overview?mode=builds"/>
+  <a href="%qodana-playground-url%">Qodana Playground</a> provides several example projects analyzed via %linter%.
  </chunk>
 
 </topic>
