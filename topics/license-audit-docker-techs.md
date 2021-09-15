@@ -2,8 +2,8 @@
 
 ## Docker image paths
 
-- **/data/project**&nbsp;&mdash; root directory of the project to be analyzed
-- **/data/results**&nbsp;&mdash; directory to store the analysis results, needs to be empty before each Qodana run
+- **/data/project**: root directory of the project to be analyzed
+- **/data/results**: directory to store the analysis results, needs to be empty before each Qodana run
 
 ## Configuration
 
