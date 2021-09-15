@@ -36,7 +36,7 @@ In this section, you will learn how to configure HTML report parameters and trac
     Below the code fragment view in the Problem and File explorers, you can
     * **Open the respective file in the IDE**
      
-      If you have JetBrains Toolbox installed, click the **Open file in IDE** button to jump to the respective file in the editor.
+      If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, click the **Open in IDE** button to jump to the respective file in the code editor.
       
     * **Remove this item and similar problems from the future analysis**
         

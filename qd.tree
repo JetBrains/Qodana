@@ -62,6 +62,7 @@
 
     <toc-element id="service.md"/>
     <toc-element title="Qodana Plugins" id="qodana_plugins.md">
+        <toc-element id="qodana-ide-plugin.md"/>
         <toc-element id="qodana_gradle_plugin.md"/>
     </toc-element>
 
