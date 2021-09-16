@@ -88,8 +88,8 @@ In this example, the `empty` profile, which contains no inspections, is specifie
   name: empty
 include:
   - name: SomeInspectionId
-  paths:
-  - tools
+    paths:
+    - tools
 ```
 
 
