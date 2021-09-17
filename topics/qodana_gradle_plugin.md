@@ -128,11 +128,13 @@ Add the following to the `build.gradle` configuration file:
   }
   
   qodana {
-      // by default, qodana.recommended will be used
-      profilePath = "./someExternallyStoredProfile.xml"
-
       // by default, the results path is $projectPath/build/results
       resultsPath = "some/output/path"
+  }
+
+  runInspections {
+      // by default qodana.recommended will be used
+      profilePath = "./someExternallyStoredProfile.xml"
   }
   ```
   </tab>
@@ -150,9 +152,13 @@ Add the following to the `build.gradle.kts` configuration file:
   qodana {
       // by default, qodana.recommended will be used
       profilePath.set("./someExternallyStoredProfile.xml")
+  }
 
-      // by default, the results path is $projectPath/build/results
-      resultsPath.set("some/output/path")
+  tasks {
+      runInspections {
+          // by default qodana.recommended will be used
+      // profilePath.set("./someExternallyStoredProfile.xml")
+      }
   }
   ```
   </tab>
