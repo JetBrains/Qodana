@@ -26,8 +26,8 @@ The following arguments are available for the `docker run jetbrains/qodana` comm
 | `--baseline-include-absent` | Include in the output report the results from the baseline run that are absent in the current run |
 | `--fail-threshold`     | Set the number of problems that will serve as a quality gate. If this number is reached, the inspection run is terminated. |
 | `-d`                   | Directory to be inspected. If not specified, the whole project is inspected by default |
-| `-profileName`         | Name of a profile defined in project |
-| `-profilePath`         | Absolute path to the profile file |
+| `-n`, `--profile-name`         | Name of a profile defined the in project |
+| `-p`, `--profile-path`         | Absolute path to the profile file |
 | `-changes`             | Inspect uncommitted changes and report new problems |
 
 ## Examples of execution tuneup
@@ -222,8 +222,8 @@ In **GitHub** workflow you can utilise [actions/cache](https://docs.github.com/e
 ## Order of resolving a profile
 
 Qodana IntelliJ checks the configuration parameters for resolving the inspection profile in this order:
-1. Profile with the name `%name%` from the command line option `-profileName %name%`.
-2. Profile by the path `%path%` from the command line option `-profilePath %path%`.
+1. Profile with the name `%name%` from the command-line option `--profile-name %name%`.
+2. Profile by the path `%path%` from the command-line option `--profile-path %path%`.
 3. Profile with the name `%name%` from `qodana.yaml`.
 4. Profile by the path `%path%` from `qodana.yaml`.
 5. Profile mounted to `/data/profile.xml`.

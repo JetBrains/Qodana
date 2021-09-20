@@ -132,7 +132,7 @@ You can pass the reference to the existing profile in [multiple ways](qodana-int
         docker run --rm -it -p 8080:8080 \
             -v <source-directory>/:/data/project/ \
             -v <output-directory>/:/data/results/ \
-            jetbrains/qodana --show-report -profileName php.extended
+            jetbrains/qodana --show-report --profile-name php.extended
   ```
 
 ## Configure via qodana.yaml
