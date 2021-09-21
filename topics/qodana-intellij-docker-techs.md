@@ -26,7 +26,7 @@ The following arguments are available for the `docker run jetbrains/qodana` comm
 | `--baseline-include-absent` | Include in the output report the results from the baseline run that are absent in the current run |
 | `--fail-threshold`     | Set the number of problems that will serve as a quality gate. If this number is reached, the inspection run is terminated. |
 | `-d`                   | Directory to be inspected. If not specified, the whole project is inspected by default |
-| `-n`, `--profile-name`         | Name of a profile defined the in project |
+| `-n`, `--profile-name`         | Name of a profile defined the in project. Note that the name of the profile does not necessarily match the name of the containing file stored in `.idea/inspectionProfiles`. The actual name is stored as the `<option name="myName" value="%profileName%" />` value in the profile `xml` file and is visible in the IDE UI. For details on working with insection profiles in the IDE, see the [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/customizing-profiles.html). |
 | `-p`, `--profile-path`         | Absolute path to the profile file |
 | `-changes`             | Inspect uncommitted changes and report new problems |
 
