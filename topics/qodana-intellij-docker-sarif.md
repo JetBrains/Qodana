@@ -48,7 +48,7 @@ The Qodana IntelliJ linter produces the SARIF output, which is a JSON file forma
 
 ## Common structure
 
-A report file always contain one [Run](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317484) object.
+A report file always contains one [Run](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317484) object.
 This object always contains the following sections:
 
 ### Invocations
