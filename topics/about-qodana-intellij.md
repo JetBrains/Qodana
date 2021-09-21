@@ -12,53 +12,36 @@
 
 </note>
 
-The Qodana IntelliJ linter lets you perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your codebase. It brings all the smarts from IntelliJ IDEs: 
+The Qodana IntelliJ linters let you perform [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) of your codebase. It brings all the smarts from IntelliJ IDEs, which help you: 
 
-* anomalous code and probable bug detection
-* dead code elimination
-* spelling problems highlighting
-* overall code structure improvement
-* coding best practices introduction
+- detect anomalous code and probable bugs
+- eliminate dead code 
+- highlight spelling problems
+- improve overall code structure
+- introduce coding best practices
+
+Each linter covers the technologies supported by the corresponding IntelliJ IDE. Currently, the following linters are available:
+- [](qodana-jvm.md)
+- [](qodana-jvm-community.md)
+- [](qodana-android.md)
+- [](qodana-php.md)
+- [](qodana-python.md)
+- [](qodana-go.md)
+
 
 <tip>
 
 <include src="lib_qd.xml" include-id="qodana-playground-tip">
     <var name="qodana-playground-url" value="https://qodana.teamcity.com/project/Hosted_Root_Java?mode=builds#all-projects"/>
-    <var name="linter" value="Qodana IntelliJ"/>
+    <var name="linter" value="Qodana IntelliJ linters"/>
 </include>
 
 </tip>
-
-
-## Try it now
-
-### Analyse a project locally
-
-To start, pull the image from Docker Hub (only necessary to get the latest version):
-
-<var name="docker-image" value="jetbrains/qodana"/>
-
-<code style="block" lang="shell">
-  docker pull %docker-image%
-</code>
-
-and run the analysis locally:
-
-```shell
-docker run --rm -it -v <source-directory>/:/data/project/ \ 
-  -p 8080:8080 jetbrains/qodana --show-report
-```
-
-with `source-directory` pointing to the root of your project.
-
-Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
-
-> For details on running Qodana in Docker, see the [Docker guide](docker-images.md). 
 
 ## Next steps
 
 - <a href="qodana-intellij-docker-readme.md">Configure %linter% Docker image</a>
 - <a href="qodana-intellij-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-intellij-github-application.md">%linter% as a GitHub App</a>
+- <a href="qodana-intellij-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
