@@ -36,9 +36,11 @@ The Qodana IntelliJ linter lets you perform [static analysis](https://en.wikiped
 
 To start, pull the image from Docker Hub (only necessary to get the latest version):
 
-```shell
-docker pull jetbrains/qodana
-```
+<var name="docker-image" value="jetbrains/qodana"/>
+
+<code style="block" lang="shell">
+  docker pull %docker-image%
+</code>
 
 and run the analysis locally:
 
