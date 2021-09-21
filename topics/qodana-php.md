@@ -2,9 +2,13 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-><include src="lib_qd.xml" include-id="eap-warning">
+<note>
+<p>
+<include src="lib_qd.xml" include-id="eap-warning">
 <var name="product" value="Qodana PHP"/>
 </include>
+</p>
+</note>
 
 <var name="linter" value="Qodana PHP"/>
 
