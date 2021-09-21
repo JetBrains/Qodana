@@ -49,4 +49,8 @@ Running analysis locally is a resource-intensive operation. If you experience is
   The Qodana UI can be part of the CI user interface in case your CI supports the UI extension. If it doesn't, you can spin the Qodana UI on your own following the <a href="html-report.md">guidelines</a>.
  </chunk>
 
+ <chunk id="show-report-command-explanation">
+  This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open <code>http://localhost:8080</code> in your browser to examine the found problems and performed checks. Here you can also reconfigure the analysis. See the <a href="ui-overview.md"/> for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the Docker console.
+ </chunk>
+
 </topic>

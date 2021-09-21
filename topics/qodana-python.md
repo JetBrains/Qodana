@@ -2,6 +2,10 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+><include src="lib_qd.xml" include-id="eap-warning">
+<var name="product" value="Qodana Python"/>
+</include>
+
 <var name="linter" value="Qodana Python"/>
 
 %linter% is based on [PyCharm Professional](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
@@ -50,9 +54,9 @@ Start local analysis with cache mounted and with `source-directory` pointing to 
       %docker-image% --show-report
    ```
 
-Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
-
-> For details on running Qodana in Docker, see the [Docker guide](docker-images.md).
+<p>
+<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
+</p>
 
 ## Next steps
 

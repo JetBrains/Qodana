@@ -12,10 +12,3 @@ The plugin provides:
 The plugin lets you add the code quality checks in the TeamCity pipeline or even start from scratch with static code analysis.
 
 <img src="tab.png" alt="the Build tab" border-effect="line" width="700"/>
-
-
-## License
-
-<include src="lib_qd.xml" include-id="license-info">
-<var name="product" value="Qodana TeamCity Plugin"/>
-</include>

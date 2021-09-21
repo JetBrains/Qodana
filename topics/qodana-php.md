@@ -2,6 +2,10 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+><include src="lib_qd.xml" include-id="eap-warning">
+<var name="product" value="Qodana PHP"/>
+</include>
+
 <var name="linter" value="Qodana PHP"/>
 
 %linter% is based on [PhpStorm](https://www.jetbrains.com/phpstorm/) and provides static analysis for PHP projects.
@@ -42,9 +46,9 @@ docker run --rm -it -v <source-directory>/:/data/project/ \
 
 with `source-directory` pointing to the root of your project.
 
-Check the results in your browser at [`http://localhost:8080`](http://localhost:8080).
-
-> For details on running Qodana in Docker, see the [Docker guide](docker-images.md).
+<p>
+<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
+</p>
 
 ## Next steps
 

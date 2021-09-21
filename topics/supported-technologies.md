@@ -1,7 +1,5 @@
 [//]: # (title: Supported technologies)
 
-><include src="lib_qd.xml" include-id="eap-warning"/>
-
 With time, Qodana will support all languages and technologies covered by JetBrains IDEs. The current version (%product-version%) lets you analyse:
 
 - [Java](https://www.java.com) projects based on [Gradle](https://gradle.org/), [Maven](https://maven.apache.org/) or [Jetbrains Project
