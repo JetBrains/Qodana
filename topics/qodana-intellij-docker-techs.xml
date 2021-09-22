@@ -42,11 +42,18 @@
         </table>
     </chapter>
     <chapter id="Configuration+options" title="Configuration options">
-        <p>The following arguments are available for the <code>docker run jetbrains/qodana</code> command:
+
+        <note>
+            <p>
+                <include src="lib-qd.xml" include-id="generic-docker-image-note"/>
+            </p>
+        </note>
+
+        <p>The following arguments are available for the <code>jetbrains/qodana-&lt;linter&gt;</code> command.
         </p>
-        <table>
+        <table column-width="fixed">
             <tr>
-                <td>Option</td>
+                <td width="20">Option</td>
                 <td>Description</td>
             </tr>
             <tr>
@@ -124,9 +131,7 @@
                 </td>
                 <td>Name of a profile defined the in project. Note that the name of the profile does not necessarily
                     match the name of the containing file stored in <code>.idea/inspectionProfiles</code>. The actual
-                    name is stored as the <code>&amp;lt;option name=&amp;quot;myName&amp;quot; value=&amp;quot;%profileName%&amp;quot;
-                        /&amp;gt;
-                    </code> value in the profile <code>xml</code> file and is visible in the IDE UI. For details on
+                    name is stored as the <code>&lt;option name="myName" value="%profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the IDE UI. For details on
                     working with inspection profiles in the IDE, see the <a
                             href="https://www.jetbrains.com/help/idea/customizing-profiles.html">IntelliJ IDEA
                         documentation</a>.

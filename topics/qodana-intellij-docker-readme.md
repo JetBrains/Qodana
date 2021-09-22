@@ -14,7 +14,11 @@ and know what to expect from the static analysis outside the editor, you can ski
 If you are just starting in the field, we recommend proceeding with the [default setup](#quick-start-recommended-profile) we provide. You will see the
 results of the most common checks performed on your code base. Later, you can [adjust them](#Configure+via+qodana.yaml) to suit your needs better.
 
-> The general workflow and configuration options are basically the same for all Qodana IntelliJ Docker images. In the following examples, replace `jetbrains/qodana-<linter>` with a linter of your chouice, for example, `jetbrains/qodana-jvm`. For details on getting started with a specific linter, see [](about-qodana-intellij.md).  
+<note>
+<p>
+    <include src="lib-qd.xml" include-id="generic-docker-image-note"/>
+</p>
+</note>  
 
 ## Quick start with the recommended profile
 {id="quick-start-recommended-profile"}
