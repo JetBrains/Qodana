@@ -36,6 +36,6 @@ In addition to programmatic output, you can generate a human-readable report in 
   </category>
   <category ref="procedures">
     <a href="html-report.md"/>
-    <a href="qodana-intellij-docker-techs.md"/>
+    <a href="qodana-intellij-docker-techs.xml"/>
   </category>
  </seealso>

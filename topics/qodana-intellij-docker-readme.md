@@ -56,7 +56,7 @@ If you don't need the user interface and prefer to study raw data, use the follo
       jetbrains/qodana-<linter>
    ```
 
-The `output-directory` will contain [all the necessary results](qodana-intellij-output.md#Basic+output). You can further tune the command as described in the [technical guide](qodana-intellij-docker-techs.md).
+The `output-directory` will contain [all the necessary results](qodana-intellij-output.md#Basic+output). You can further tune the command as described in the [technical guide](qodana-intellij-docker-techs.xml).
 
 If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in `docker run` again.
 
@@ -73,7 +73,7 @@ If you run the analysis several times in a row, make sure you've cleaned the res
 
   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the [analysis results directory](qodana-intellij-output.md#Basic+output).
 
- Consider using a [fail threshold](qodana-yaml.md#Set+a+fail+threshold) to make the build fail when a certain number of problems is reached. [Running as non-root](qodana-intellij-docker-techs.md#Run+as+non-root) is also supported.
+ Consider using a [fail threshold](qodana-yaml.md#Set+a+fail+threshold) to make the build fail when a certain number of problems is reached. [Running as non-root](qodana-intellij-docker-techs.xml#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/qodana.yml`):
   
@@ -116,7 +116,7 @@ If you run the analysis several times in a row, make sure you've cleaned the res
 
 This section is intended for users familiar with configuring code analysis via [IntelliJ inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
 
-You can pass the reference to the existing profile in [multiple ways](qodana-intellij-docker-techs.md#Order+of+resolving+a+profile). Here are some examples:
+You can pass the reference to the existing profile in [multiple ways](qodana-intellij-docker-techs.xml#Order+of+resolving+a+profile). Here are some examples:
 
 - Mapping the profile to `/data/profile.xml` inside the container:
 
@@ -140,7 +140,7 @@ You can pass the reference to the existing profile in [multiple ways](qodana-int
 ## Configure via qodana.yaml
 
 The `qodana.yaml` file will be automatically recognized and used for the analysis configuration, so that you don't need to pass any additional parameters.  
-The references to the inspection profiles will be resolved [in a particular order](qodana-intellij-docker-techs.md#Order+of+resolving+a+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
+The references to the inspection profiles will be resolved [in a particular order](qodana-intellij-docker-techs.xml#Order+of+resolving+a+profile). To learn about the format, refer to the [`qodana.yaml` documentation](qodana-yaml.md).
 
 ## Plugins management
 
@@ -152,11 +152,11 @@ Any free IntelliJ platform plugins or your custom plugin can be added by mountin
 docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana-<linter>
 ```
 
-Refer to the [technical guide](qodana-intellij-docker-techs.md) for more details.
+Refer to the [technical guide](qodana-intellij-docker-techs.xml) for more details.
 
 ## Usage statistics
 
-According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features to further improve the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to the [technical guide](qodana-intellij-docker-techs.md) for details.
+According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the usage of our features to further improve the user experience. All data will be collected [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable the reporting of usage statistics by adjusting the options of the Docker command you use. Refer to the [technical guide](qodana-intellij-docker-techs.xml) for details.
 
 <seealso>
     <category ref="external">

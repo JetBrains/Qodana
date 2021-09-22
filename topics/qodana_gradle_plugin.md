@@ -98,7 +98,7 @@ Starts Qodana code analysis in a Docker container. The task runs according to th
 
 <tip>
 
-For the detailed description of the Qodana IntelliJ Docker image configuration, see [Docker Image Configuration](qodana-intellij-docker-techs.md).
+For the detailed description of the Qodana IntelliJ Docker image configuration, see [Docker Image Configuration](qodana-intellij-docker-techs.xml).
 
 </tip>
 

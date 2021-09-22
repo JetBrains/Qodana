@@ -30,7 +30,7 @@ For a basic Python project, which only uses `stdlib`, no preliminary steps are r
 
 In case a project has external `pypi` dependencies, use any of the following  options:
 - Create `virtualenv` as a subfolder in your project and exclude it in [qodana.yaml](qodana-yaml.md#exclude-paths) to skip analysis of vendor code.
-- Mount a separate `virtualenv` as [cache](qodana-intellij-docker-techs.md#Cache+dependencies).
+- Mount a separate `virtualenv` as [cache](qodana-intellij-docker-techs.xml#Cache+dependencies).
 
   When you create the `virtualenv` folder, no actual `python` binary is copied into it. Instead, a symlink is created to `python` binary used to create virtualenv. This could lead to incorrect paths when your `virtualenv` is being read inside the Qodana container, since `python` location there could be different. To fix this, create `virtualenv` using the Qodana container's `python`:
 

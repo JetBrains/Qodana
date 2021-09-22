@@ -62,7 +62,7 @@ If the number of errors is manageable, you can fix them and consider the 'proble
 
 If there are too many errors, we suggest using the Qodana UI features to examine them. You can then formalize a not-so-big cluster of the problems to fix. Repeat the procedure to work on the next goal, and so on. 
 
-When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in the so-called ["technical debt", or "baseline", running mode](qodana-intellij-docker-techs.md#Run+in+baseline+mode).
+When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in the so-called ["technical debt", or "baseline", running mode](qodana-intellij-docker-techs.xml#Run+in+baseline+mode).
 
 ## Adjust the analysis scope
 
