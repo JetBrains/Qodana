@@ -173,9 +173,7 @@
             <code style="block" lang="shell"><![CDATA[docker run ... -p 8080:8080 &lt;image-name&gt; --show-report
 ]]></code>
             <p>After the inspection is finished, the container will not exit and will listen on port <code>8080</code>.
-                You can connect to <code>http://localhost:8080</code> to see the results. To stop the web server, press <code>
-                    Ctrl-C
-                </code> in the Docker console.
+                You can connect to <code>http://localhost:8080</code> to see the results. To stop the web server, press <shortcut>Ctrl-C</shortcut> in the Docker console.
             </p>
         </chapter>
         <chapter id="Change+the+Heap+size" title="Change the Heap size">
@@ -206,10 +204,7 @@
 ]]></code>
         </chapter>
         <chapter id="Manage+plugins" title="Manage plugins">
-            <p>The Qodana IntelliJ image contains selected IDEA Ultimate plugins + a PHP plugin.</p>
-            <p>Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate
-                with us to make it work.
-            </p>
+            <p>The set of plugins depends on the selected <a href="about-qodana-intellij.md">Qodana IntelliJ linter</a>.</p>
             <p>You can add any free IntellJ platform plugins or your custom plugin by using the following command:</p>
             <code style="block" lang="shell"><![CDATA[docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% &lt;image-name&gt;
 ]]></code>
@@ -238,6 +233,12 @@
 ]]></code>
                 </li>
             </list>
+            <note>
+                <p>
+                    Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate
+                    with us to make it work.
+                </p>
+            </note>
         </chapter>
         <chapter id="Analyze+changes" title="Analyze changes">
             <p>Qodana IntelliJ lets you check only changed files:</p>
@@ -253,13 +254,13 @@
                     currently in development.
                 </p>
             </note>
-            <p>In baseline run mode, each new Qodana IntelliJ run is compared to some initial run selected as a &amp;quot;baseline&amp;quot;.
+            <p>In baseline run mode, each new Qodana IntelliJ run is compared to some initial run selected as a "baseline".
                 This can help in situations when you have no possibility to fix old problems and rather want to prevent
                 the appearance of new ones.
             </p>
             <code style="block" lang="shell"><![CDATA[   docker run ... &lt;image-name&gt; --baseline &lt;baseline-path&gt; [--baseline-include-absent]
 ]]></code>
-            <p>where <code>&amp;lt;baseline-path&amp;gt;</code> is the path to a <code>qodana.sarif.json</code> file
+            <p>where <code>&lt;baseline-path&gt;</code> is the path to a <code>qodana.sarif.json</code> file
                 from an earlier run. If the <code>--baseline-include-absent</code> option is provided, the inspection
                 results will include <i>absent</i> problems, that is the problems detected only in the baseline run but
                 not in the current run.
@@ -283,7 +284,7 @@
             </p>
         </chapter>
         <chapter id="Set+a+quality+gate" title="Set a quality gate">
-            <p>Qodana IntelliJ lets you configure a &amp;quot;quality gate&amp;quot;, that is, the number of problems
+            <p>Qodana IntelliJ lets you configure a "quality gate", that is, the number of problems
                 that will act as a threshold. If the threshold number is reached, the inspection run is terminated.
             </p>
             <code style="block" lang="shell"><![CDATA[   docker run ... &lt;image-name&gt; --fail-threshold &lt;number&gt;
@@ -292,7 +293,7 @@
                 of <i>new</i> and <i>absent</i> problems. <i>Unchanged</i> results are ignored.
             </p>
             <note>
-                <p>You can also specify the threshold by adding the <code>failThreshold: &amp;lt;number&amp;gt;</code> node
+                <p>You can also specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node
                     to <a href="qodana-yaml.md">qodana.yaml</a>. The value specified as the <code>docker run</code> option
                     will override the one specified in <code>qodana.yaml</code>.
                 </p>
@@ -332,7 +333,7 @@ docker run -u $(id -u):$(id -g) ...
    -v &lt;cache-directory&gt;/:/data/cache/ \
    jetbrains/qodana --show-report
 ]]></code>
-            <p>In this case mapping the same <code>&amp;lt;cache-directory&amp;gt;</code> would speed up the second run.
+            <p>In this case mapping the same <code>&lt;cache-directory&gt;</code> would speed up the second run.
             </p>
             <p>In <b>GitHub</b> workflow you can utilise <a
                     href="https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows">
