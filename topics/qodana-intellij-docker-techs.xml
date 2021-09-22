@@ -153,8 +153,9 @@
     </chapter>
     <chapter id="qodana-execution-tuneup" title="Examples of execution tuneup">
         <chapter id="Override+the+default+inspection+profile" title="Override the default inspection profile">
-            <code style="block" lang="shell"><![CDATA[ docker run ... -v &lt;inspection-profile.xml&gt;:/data/profile.xml &lt;image-name&gt;
-]]></code>
+            <code style="block" lang="shell">
+                docker run ... -v &lt;inspection-profile.xml&gt;:/data/profile.xml jetbrains/qodana-&lt;linter&gt;
+            </code>
             <p>If no profile is specified, the default <code>qodana.recommended</code> profile is used. For more options
                 of how to specify a profile, see <a href="#Order+of+resolving+a+profile">Order of resolving a
                     profile</a>.
@@ -162,52 +163,55 @@
             </p>
         </chapter>
         <chapter id="Save+a+report+as+HTML" title="Save a report as HTML">
-            <code style="block" lang="shell"><![CDATA[ docker run ... &lt;image-name&gt; --save-report
-]]></code>
+            <code style="block" lang="shell">
+                docker run ... jetbrains/qodana-&lt;linter&gt; --save-report
+            </code>
             <p>By default, the HTML report is stored in a separate <code>report/</code> subdirectory under the <code>
                 results
             </code> directory. This location could be configured with <code>--report-dir</code>.
             </p>
         </chapter>
         <chapter id="Display+a+report+in+HTML" title="Display a report in HTML">
-            <code style="block" lang="shell"><![CDATA[docker run ... -p 8080:8080 &lt;image-name&gt; --show-report
-]]></code>
+            <code style="block" lang="shell">
+                docker run ... -p 8080:8080 jetbrains/qodana-&lt;linter&gt; --show-report
+            </code>
             <p>After the inspection is finished, the container will not exit and will listen on port <code>8080</code>.
                 You can connect to <code>http://localhost:8080</code> to see the results. To stop the web server, press <shortcut>Ctrl-C</shortcut> in the Docker console.
             </p>
         </chapter>
         <chapter id="Change+the+Heap+size" title="Change the Heap size">
-            <code style="block" lang="shell"><![CDATA[docker run ... -e _JAVA_OPTIONS=-Xmx6g &lt;image-name&gt;
-]]></code>
+            <code style="block" lang="shell">
+                docker run ... -e _JAVA_OPTIONS=-Xmx6g jetbrains/qodana-&lt;linter&gt;
+            </code>
             <p>By default, Heap size is set to 80% of the host RAM.</p>
         </chapter>
         <chapter id="Log+INFO+messages+to+STDOUT" title="Log INFO messages to STDOUT">
-            <code style="block" lang="shell"><![CDATA[docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.log.config.file=info.xml' &lt;image-name&gt;
-]]></code>
+            <code style="block" lang="shell">docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.log.config.file=info.xml' jetbrains/qodana-&lt;linter&gt;
+</code>
             <p>The default log level for STDOUT is <code>WARN</code>.
             </p>
         </chapter>
         <chapter id="Provide+different+Gradle+settings" title="Provide different Gradle settings">
-            <code style="block" lang="shell"><![CDATA[ docker run ... -v &lt;source-directory&gt;/gradle.properties:/root/.gradle/gradle.properties &lt;image-name&gt;
-]]></code>
+            <code style="block" lang="shell"> docker run ... -v &lt;source-directory&gt;/gradle.properties:/root/.gradle/gradle.properties jetbrains/qodana-&lt;linter&gt;
+</code>
         </chapter>
         <chapter id="Use+a+different+idea-properties-file"
                  title="Use a different &apos;idea.properties&apos; file">
-            <code style="block" lang="shell"><![CDATA[ docker run ... -e IDEA_PROPERTIES=/data/project/idea.properties &lt;image-name&gt;
-]]></code>
+            <code style="block" lang="shell"> docker run ... -e IDEA_PROPERTIES=/data/project/idea.properties jetbrains/qodana-&lt;linter&gt;
+</code>
         </chapter>
         <chapter id="Turn+off+user+statistics" title="Turn off user statistics">
             <p>To disable the <a href="qodana-intellij-docker-readme.md#Usage+statistics">reporting of usage
                 statistics</a>, adjust the <code>idea.headless.enable.statistics</code> value:
             </p>
-            <code style="block" lang="shell"><![CDATA[docker run ... -e IDE_PROPERTIES_PROPERTY=&quot;-Didea.headless.enable.statistics=false&quot; &lt;image-name&gt;
-]]></code>
+            <code style="block" lang="shell">docker run ... -e IDE_PROPERTIES_PROPERTY=&quot;-Didea.headless.enable.statistics=false&quot; jetbrains/qodana-&lt;linter&gt;
+</code>
         </chapter>
         <chapter id="Manage+plugins" title="Manage plugins">
             <p>The set of plugins depends on the selected <a href="about-qodana-intellij.md">Qodana IntelliJ linter</a>.</p>
             <p>You can add any free IntellJ platform plugins or your custom plugin by using the following command:</p>
-            <code style="block" lang="shell"><![CDATA[docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% &lt;image-name&gt;
-]]></code>
+            <code style="block" lang="shell">docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana-&lt;linter&gt;
+</code>
             <p>To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole
                 list of disabled plugins in <code>/root/.config/idea/disabled_plugins.txt</code>.
             </p>
@@ -219,18 +223,18 @@
                 <li>
                     <p>Override <code>disabled_plugins.txt</code> by mounting your own file:
                     </p>
-                    <code style="block" lang="shell"><![CDATA[      docker run ... -v $empty_file$:/root/.config/idea/disabled_plugins.txt &lt;image-name&gt;
-]]></code>
+                    <code style="block" lang="shell">      docker run ... -v $empty_file$:/root/.config/idea/disabled_plugins.txt jetbrains/qodana-&lt;linter&gt;
+</code>
                 </li>
                 <li>
                     <p>Use IDE properties <code>idea.required.plugins.id</code> and <code>
                         idea.suppressed.plugins.id</code>:
                     </p>
-                    <code style="block" lang="shell"><![CDATA[  docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=JavaScript,org.intellij.grails' &lt;image-name&gt;
-]]></code>
+                    <code style="block" lang="shell">  docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=JavaScript,org.intellij.grails' jetbrains/qodana-&lt;linter&gt;
+</code>
                     <p>or</p>
-                    <code style="block" lang="shell"><![CDATA[    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.suppressed.plugins.id=com.intellij.spring.security' &lt;image-name&gt;
-]]></code>
+                    <code style="block" lang="shell">    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.suppressed.plugins.id=com.intellij.spring.security' jetbrains/qodana-&lt;linter&gt;
+</code>
                 </li>
             </list>
             <note>
@@ -242,8 +246,8 @@
         </chapter>
         <chapter id="Analyze+changes" title="Analyze changes">
             <p>Qodana IntelliJ lets you check only changed files:</p>
-            <code style="block" lang="shell"><![CDATA[docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' &lt;image-name&gt; -changes
-]]></code>
+            <code style="block" lang="shell">docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' jetbrains/qodana-&lt;linter&gt; -changes
+</code>
             <p>You can adjust the <code>idea.required.plugins.id</code> value and keep only the VCS plugin suitable for
                 your project.
             </p>
@@ -258,8 +262,8 @@
                 This can help in situations when you have no possibility to fix old problems and rather want to prevent
                 the appearance of new ones.
             </p>
-            <code style="block" lang="shell"><![CDATA[   docker run ... &lt;image-name&gt; --baseline &lt;baseline-path&gt; [--baseline-include-absent]
-]]></code>
+            <code style="block" lang="shell">   docker run ... jetbrains/qodana-&lt;linter&gt; --baseline &lt;baseline-path&gt; [--baseline-include-absent]
+</code>
             <p>where <code>&lt;baseline-path&gt;</code> is the path to a <code>qodana.sarif.json</code> file
                 from an earlier run. If the <code>--baseline-include-absent</code> option is provided, the inspection
                 results will include <i>absent</i> problems, that is the problems detected only in the baseline run but
@@ -268,8 +272,8 @@
             <p>After the inspection is finished, Qodana IntelliJ displays the summary of the current project state
                 compared to the baseline.
             </p>
-            <code style="block" lang="shell"><![CDATA[Baseline comparison result - UNCHANGED: 10, NEW: 5, ABSENT: 3
-]]></code>
+            <code style="block" lang="shell">Baseline comparison result - UNCHANGED: 10, NEW: 5, ABSENT: 3
+</code>
             <p>where the detected problems are aggregated as follows:</p>
             <list>
                 <li><code>new</code>: The problem was detected only in the current run but not in the baseline run.
@@ -287,8 +291,8 @@
             <p>Qodana IntelliJ lets you configure a "quality gate", that is, the number of problems
                 that will act as a threshold. If the threshold number is reached, the inspection run is terminated.
             </p>
-            <code style="block" lang="shell"><![CDATA[   docker run ... &lt;image-name&gt; --fail-threshold &lt;number&gt;
-]]></code>
+            <code style="block" lang="shell">   docker run ... jetbrains/qodana-&lt;linter&gt; --fail-threshold &lt;number&gt;
+</code>
             <p>When running in <a href="#Run+in+baseline+mode">baseline mode</a>, a threshold is calculated as the sum
                 of <i>new</i> and <i>absent</i> problems. <i>Unchanged</i> results are ignored.
             </p>
@@ -306,10 +310,10 @@
                 <br/>
                 To avoid this, you can run the container as a regular user:
             </p>
-            <code style="block" lang="shell"><![CDATA[docker run -u $UID ...
+            <code style="block" lang="shell">docker run -u $UID ...
 # or
 docker run -u $(id -u):$(id -g) ...
-]]></code>
+</code>
             <p>Note that in this case the <code>results/</code> folder on host should already be created and owned by
                 you. Otherwise, Docker will create it as <code>root</code> and Qodana IntelliJ will not be able to write
                 to it.
@@ -327,12 +331,12 @@ docker run -u $(id -u):$(id -g) ...
             </p>
             <p>Example for <b>local</b> run:
             </p>
-            <code style="block" lang="shell"><![CDATA[docker run --rm -it -p 8080:8080 \
+            <code style="block" lang="shell">docker run --rm -it -p 8080:8080 \
    -v &lt;source-directory&gt;/:/data/project/ \
    -v &lt;output-directory&gt;/:/data/results/ \
    -v &lt;cache-directory&gt;/:/data/cache/ \
    jetbrains/qodana --show-report
-]]></code>
+</code>
             <p>In this case mapping the same <code>&lt;cache-directory&gt;</code> would speed up the second run.
             </p>
             <p>In <b>GitHub</b> workflow you can utilise <a
