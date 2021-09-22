@@ -16,7 +16,7 @@ results of the most common checks performed on your code base. Later, you can [a
 
 <note>
 <p>
-    <include src="lib-qd.xml" include-id="generic-docker-image-note"/>
+    <include src="lib_qd.xml" include-id="generic-docker-image-note"/>
 </p>
 </note>  
 

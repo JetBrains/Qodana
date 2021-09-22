@@ -45,7 +45,7 @@
 
         <note>
             <p>
-                <include src="lib-qd.xml" include-id="generic-docker-image-note"/>
+                <include src="lib_qd.xml" include-id="generic-docker-image-note"/>
             </p>
         </note>
 
