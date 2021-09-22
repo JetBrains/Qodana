@@ -63,4 +63,8 @@ Running analysis locally is a resource-intensive operation. If you experience is
   To be able to run the analysis, make sure the project can be successfully built and run in the desired environment, that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are executed, and so on.
  </chunk>
 
+ <chunk id="docker-options-tip">
+  Consider using a <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">fail threshold</a> to make the build fail when a certain number of problems is reached, and <a href="qodana-intellij-docker-techs.xml" anchor="Run+in+baseline+mode">baseline mode</a>, in which each new Qodana IntelliJ run is compared to some initial run selected as a "baseline". <a href="qodana-intellij-docker-techs.xml" anchor="Run+as+non-root">Running as non-root</a> is also supported.
+ </chunk>
+
 </topic>

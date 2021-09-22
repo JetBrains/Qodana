@@ -7,4 +7,5 @@ Qodana [linters](linters.md) are packed into ready to use [Docker images](docker
 Currently, the following CI integration mechanisms are available out of the box:
  - [](github-actions.md)
  - [](qodana-intellij-github-application.md)
+ - [](gitlab.md)
  - [](qodana-teamcity-plugin.md)

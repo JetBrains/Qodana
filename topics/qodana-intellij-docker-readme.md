@@ -66,7 +66,7 @@ If you run the analysis several times in a row, make sure you've cleaned the res
 
 ### Run analysis in CI
 
-- Use the following command as a task in a generic Shell executor:
+Use the following command as a task in a generic Shell executor:
 
    ```shell
        docker run --rm \
@@ -77,44 +77,7 @@ If you run the analysis several times in a row, make sure you've cleaned the res
 
   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the [analysis results directory](qodana-intellij-output.md#Basic+output).
 
- Consider using a [fail threshold](qodana-yaml.md#Set+a+fail+threshold) to make the build fail when a certain number of problems is reached. [Running as non-root](qodana-intellij-docker-techs.xml#Run+as+non-root) is also supported.
-
-- Example for GitHub Workflow (`.github/workflows/qodana.yml`):
-  
-```yaml
-  jobs:
-    qodana:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/cache@v2
-          with:
-            path: ~/work/_temp/_github_home/cache
-            key: ${{ runner.os }}-qodana-${{ github.ref }}
-            restore-keys: |
-              ${{ runner.os }}-qodana-${{ github.ref }}
-              ${{ runner.os }}-qodana-   
-        - uses: docker://jetbrains/qodana-<linter>
-          with:
-            args: --cache-dir=/github/home/cache --results-dir=/github/workspace/qodana --save-report --report-dir=/github/workspace/qodana/report
-        - uses: actions/upload-artifact@v2
-          with:
-            path: qodana
-  ```
-
-- Example for GitLab CI (`.gitlab-ci.yml`):
-
-```yaml
-    qodana:
-     image: 
-       name: jetbrains/qodana-<linter>
-       entrypoint: ['']
-     script:
-       - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
-     artifacts:
-       paths:
-         - qodana
-```
+<p><include src="lib_qd.xml" include-id="docker-options-tip"/></p> 
 
 ## Using an existing profile
 

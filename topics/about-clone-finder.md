@@ -45,7 +45,7 @@ You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 
 ## Try it now
 
-### Analyse a project locally
+### Analyze a project locally
 
 To start, pull the image from Docker Hub (only necessary to get the latest version):
 

@@ -10,7 +10,7 @@
 
 </note>
 
-## Analyse a project locally
+## Analyze a project locally
 
 Start with [Qodana IntelliJ linter](about-qodana-intellij.md) or check out [other linters](linters.md) we provide. For all linters the procedure is basically the same.
 

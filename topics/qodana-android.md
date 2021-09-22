@@ -8,7 +8,7 @@
 
 ## Try it now
 
-### Analyse a project locally
+### Analyze a project locally
 
 <p><include src="lib_qd.xml" include-id="jvm-project-setup-note"/></p>
 

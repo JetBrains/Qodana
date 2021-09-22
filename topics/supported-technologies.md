@@ -1,6 +1,6 @@
 [//]: # (title: Supported technologies)
 
-With time, Qodana will support all languages and technologies covered by JetBrains IDEs. The current version (%product-version%) lets you analyse:
+With time, Qodana will support all languages and technologies covered by JetBrains IDEs. The current version (%product-version%) lets you analyze:
 
 - [Java](https://www.java.com) projects based on [Gradle](https://gradle.org/), [Maven](https://maven.apache.org/) or [Jetbrains Project
   System (JPS)](https://github.com/JetBrains/JPS)

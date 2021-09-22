@@ -30,7 +30,7 @@ For details about all inspections and ways to resolve problem, see [License Audi
 
 ## Try it now
 
-### Analyse a project locally
+### Analyze a project locally
 
 To start, pull the image from Docker Hub (only necessary to get the latest version):
 
