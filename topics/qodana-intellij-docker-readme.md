@@ -77,7 +77,9 @@ Use the following command as a task in a generic Shell executor:
 
   where `source-directory` and `output-directory` are full paths to, respectively, the project source code directory and the [analysis results directory](qodana-intellij-output.md#Basic+output).
 
-<p><include src="lib_qd.xml" include-id="docker-options-tip"/></p> 
+<p><include src="lib_qd.xml" include-id="docker-options-tip"/></p>
+
+<tip><p>For details on available CI integrations, see <a href="ci.md"/>.</p></tip>
 
 ## Using an existing profile
 
