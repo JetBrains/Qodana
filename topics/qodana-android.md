@@ -10,6 +10,8 @@
 
 ### Analyse a project locally
 
+<p><include src="lib_qd.xml" include-id="jvm-project-setup-note"/></p>
+
 To start, pull the image from Docker Hub (only necessary to get the latest version):
 
 <var name="docker-image" value="jetbrains/qodana-jvm-android"/>

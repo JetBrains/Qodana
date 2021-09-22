@@ -59,4 +59,8 @@ Running analysis locally is a resource-intensive operation. If you experience is
          href="about-qodana-intellij.md"/>.
  </chunk>
 
+ <chunk id="jvm-project-setup-note">
+  To be able to run the analysis, make sure the project can be successfully built and run in the desired environment, that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are executed, and so on.
+ </chunk>
+
 </topic>
