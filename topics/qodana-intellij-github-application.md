@@ -23,8 +23,3 @@ Explore the Qodana results in this [pull request](https://github.com/JetBrains/q
 4. Create a new pull request and wait for the results.
    
    The build output will be displayed on the **Checks** tab of your pull request.
-
-## Contact
-
-We are just beginning our journey and, as in case with any new project, we are eager to hear your feedback!
-Contact us at [qodana-support@jetbrains.com](mailto:qodana-support@jetbrains.com) or via [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=QD).
