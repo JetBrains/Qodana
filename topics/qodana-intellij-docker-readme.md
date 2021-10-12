@@ -4,7 +4,7 @@
 
 Supported tags: [`2020.3-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2020.3-eap), [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana/tags?page=1&ordering=last_updated&name=latest) (points to `2021.2-eap`)
 
-The Docker images for the [Qodana IntelliJ linters](about-qodana-intellij.md) are provided to support different usage scenarios:
+The Docker images for the [Qodana linters](linters.md) are provided to support different usage scenarios:
 - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
 - Single-shot analysis (for example, performed *locally*).
 

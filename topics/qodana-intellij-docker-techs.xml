@@ -38,8 +38,7 @@
                 <td>
                     <code>/data/profile.xml</code>
                 </td>
-                <td>Used if a profile wasn't configured by run options or via <code>qodana.yaml</code>. See <a
-                        href="#Order+of+resolving+a+profile">Order of resolving a profile</a>.
+                <td>Used if a profile wasn't configured by run options or via <code>qodana.yaml</code>. See <a anchor="Order+of+resolving+a+profile">Order of resolving a profile</a>.
                 </td>
             </tr>
         </table>
@@ -211,7 +210,7 @@
 </code>
         </chapter>
         <chapter id="Manage+plugins" title="Manage plugins">
-            <p>The set of plugins depends on the selected <a href="about-qodana-intellij.md">Qodana IntelliJ linter</a>.</p>
+            <p>The set of plugins depends on the selected <a href="linters.md">Qodana linter</a>.</p>
             <p>You can add any free IntellJ platform plugins or your custom plugin by using the following command:</p>
             <code style="block" lang="shell">docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana-&lt;linter&gt;
 </code>

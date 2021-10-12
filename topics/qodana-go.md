@@ -1,4 +1,4 @@
-[//]: # (title: Qodana Go)
+[//]: # (title: Qodana for Go)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 

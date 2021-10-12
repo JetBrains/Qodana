@@ -1,6 +1,6 @@
 [//]: # (title: Qodana IDE plugin)
 
-The [Qodana IDE plugin](https://plugins.jetbrains.com/plugin/16938-qodana) is a plugin for JetBrains IDEs such as IntelliJ IDEA or PhpStorm. It provides a link between a Qodana report and your project opened in an IDE. With the plugin installed, you can navigate between the issues detected by the [](about-qodana-intellij.md) linter as well as use the **Open in \<IDE\>** functionality provided by the [Qodana UI](ui-overview.md).
+The [Qodana IDE plugin](https://plugins.jetbrains.com/plugin/16938-qodana) is a plugin for JetBrains IDEs such as IntelliJ IDEA or PhpStorm. It provides a link between a Qodana report and your project opened in an IDE. With the plugin installed, you can navigate between the issues detected by a linter as well as use the **Open in \<IDE\>** functionality provided by the [Qodana UI](ui-overview.md).
 
 ## Before you start
 1. Make sure your preferred IDE is installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/).

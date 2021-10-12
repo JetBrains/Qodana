@@ -15,15 +15,13 @@
         <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
     </toc-element>
 
-    <toc-element id="linters.md">
-         <toc-element id="about-qodana-intellij.md" accepts-web-file-names="about-qodana.html" sort-children="ascending">
-             <toc-element id="qodana-jvm.md"/>
-             <toc-element id="qodana-jvm-community.md"/>
-             <toc-element id="qodana-android.md"/>
-             <toc-element id="qodana-php.md"/>
-             <toc-element id="qodana-python.md"/>
-             <toc-element id="qodana-go.md"/>
-         </toc-element>
+    <toc-element id="linters.md" accepts-web-file-names="about-qodana.html" sort-children="ascending">
+         <toc-element id="qodana-jvm.md"/>
+         <toc-element id="qodana-jvm-community.md"/>
+         <toc-element id="qodana-android.md"/>
+         <toc-element id="qodana-php.md"/>
+         <toc-element id="qodana-python.md"/>
+         <toc-element id="qodana-go.md"/>
          <toc-element id="about-clone-finder.md"/>
         <toc-element id="about-license-audit.md"/>
     </toc-element>

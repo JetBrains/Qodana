@@ -12,7 +12,7 @@
 
 ## Analyze a project locally
 
-Start with [Qodana IntelliJ linter](about-qodana-intellij.md) or check out [other linters](linters.md) we provide. For all linters the procedure is basically the same.
+Start with any of the [provided linters](linters.md). For all linters the procedure is basically the same.
 
 ```shell
 docker run --rm -it -v <source-directory>/:/data/project/ \ 

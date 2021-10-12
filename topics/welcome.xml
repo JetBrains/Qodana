@@ -23,8 +23,12 @@
 
         <main-group>
             <title>Qodana linters</title>
-            <a href="about-qodana-intellij.md"
-               description="The Qodana IntelliJ linter lets you perform static analysis of your codebase."/>
+            <a href="qodana-jvm.md"
+               description="The Qodana for JVM linter lets you perform static analysis of your codebase."/>
+            <a href="qodana-php.md"
+               description="The Qodana for PHP linter lets you perform static analysis of your codebase."/>
+            <a href="qodana-python.md"
+               description="The Qodana for Python linter lets you perform static analysis of your codebase."/>
             <a href="about-clone-finder.md"
                description="Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance."/>
             <a href="about-license-audit.md"

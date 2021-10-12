@@ -5,66 +5,98 @@
        id="lib_qd" title="Library of includes"
        is-library="true">
 
-<chunk id="eap-warning">
+ <chunk id="eap-warning">
 
- %product% is currently in Early Access, which means it may be not reliable, work not as intended, and contain errors. Any use of the EAP product is at your own risk.
- <include src="lib_qd.xml" include-id="contact-info"/>
+  %product% is currently in Early Access, which means it may be not reliable, work not as intended, and contain errors.
+  Any use of the EAP product is at your own risk.
+  <include src="lib_qd.xml" include-id="contact-info"/>
 
-</chunk>
+ </chunk>
 
-<chunk id="contact-info">
+ <chunk id="contact-info">
 
- Your feedback is very welcome in
- <a href="https://youtrack.jetbrains.com/newIssue?project=QD">our issue tracker</a> or at <a href="mailto:qodana-support@jetbrains.com">
- qodana-support@jetbrains.com</a>.
+  Your feedback is very welcome in
+  <a href="https://youtrack.jetbrains.com/newIssue?project=QD">our issue tracker</a>
+  or at <a href="mailto:qodana-support@jetbrains.com">
+  qodana-support@jetbrains.com</a>.
 
-</chunk>
+ </chunk>
 
-<chunk id="license-info">
+ <chunk id="license-info">
 
-By using %product%, you agree to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP user
- agreement</a> and <a href="https://www.jetbrains.com/company/privacy.html">JetBrains privacy
- policy</a>.
+  By using %product%, you agree to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP
+  user
+  agreement
+ </a> and <a href="https://www.jetbrains.com/company/privacy.html">JetBrains privacy
+  policy</a>.
 
-</chunk>
+ </chunk>
 
-<chunk id="docker-ram-note">
-Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for <a href="https://docs.docker.com/desktop/windows/#resources">Windows</a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
-</chunk>
+ <chunk id="docker-ram-note">
+  Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker
+  Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for <a
+         href="https://docs.docker.com/desktop/windows/#resources">Windows
+ </a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
+ </chunk>
 
 
  <chunk id="supported-techs">
   <var name="linter" value="Qodana"/>
   <var name="supported-techs" value="Java, Kotlin, and PHP projects"/>
-  %linter% supports <a href="supported-technologies.md">%supported-techs%</a>. Eventually, all languages and technologies covered by JetBrains IDEs will be added.
+  %linter% supports <a href="supported-technologies.md">%supported-techs%</a>. Eventually, all languages and
+  technologies covered by JetBrains IDEs will be added.
  </chunk>
 
  <chunk id="qodana-playground-tip">
   <var name="linter" value="Qodana"/>
   <var name="qodana-playground-url" value="https://qodana.teamcity.com/overview?mode=builds"/>
-  <a href="%qodana-playground-url%">Qodana Playground</a> provides several example projects analyzed by %linter%.
+  <a href="%qodana-playground-url%">Qodana Playground</a>
+  provides several example projects analyzed by %linter%.
  </chunk>
 
  <chunk id="ui-note">
-  The Qodana UI can be part of the CI user interface in case your CI supports the UI extension. If it doesn't, you can spin the Qodana UI on your own following the <a href="html-report.md">guidelines</a>.
+  The Qodana UI can be part of the CI user interface in case your CI supports the UI extension. If it doesn't, you can
+  spin the Qodana UI on your own following the <a href="html-report.md">guidelines</a>.
  </chunk>
 
  <chunk id="show-report-command-explanation">
-  This command will run the analysis on your source code and start the web server to provide a convenient view of the results. Open <code>http://localhost:8080</code> in your browser to examine the found problems and performed checks. Here you can also reconfigure the analysis. See the <a href="ui-overview.md"/> for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the Docker console.
+  This command will run the analysis on your source code and start the web server to provide a convenient view of the
+  results. Open <code>http://localhost:8080</code> in your browser to examine the found problems and performed checks.
+  Here you can also reconfigure the analysis. See the
+  <a href="ui-overview.md"/>
+  for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the Docker console.
  </chunk>
 
  <chunk id="generic-docker-image-note">
-  The general workflow and configuration options are basically the same for all Qodana IntelliJ Docker images. In the following examples, replace <code>jetbrains/qodana-&lt;linter&gt;</code> with a linter of your choice, for example, <code>
-  jetbrains/qodana-jvm</code>. For details on getting started with a specific linter, see <a
-         href="about-qodana-intellij.md"/>.
+  The general workflow and configuration options are basically the same for all Qodana IntelliJ Docker images. In the
+  following examples, replace <code>jetbrains/qodana-&lt;linter&gt;</code> with a linter of your choice, for
+  example, <code>
+  jetbrains/qodana-jvm</code>. For details on getting started with a specific linter, see the corresponding <a href="linters.md"/> section.
  </chunk>
 
  <chunk id="jvm-project-setup-note">
-  To be able to run the analysis, make sure the project can be successfully built and run in the desired environment, that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are executed, and so on.
+  To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
+  that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
+  executed, and so on.
  </chunk>
 
  <chunk id="docker-options-tip">
-  Consider using a <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">fail threshold</a> to make the build fail when a certain number of problems is reached, and <a href="qodana-intellij-docker-techs.xml" anchor="Run+in+baseline+mode">baseline mode</a>, in which each new Qodana IntelliJ run is compared to some initial run selected as a "baseline". <a href="qodana-intellij-docker-techs.xml" anchor="Run+as+non-root">Running as non-root</a> is also supported.
+  Consider using a <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">fail threshold</a> to make the build fail when
+  a certain number of problems is reached, and <a href="qodana-intellij-docker-techs.xml" anchor="Run+in+baseline+mode">
+  baseline mode</a>, in which each new Qodana IntelliJ run is compared to some initial run selected as a "baseline". <a
+         href="qodana-intellij-docker-techs.xml" anchor="Run+as+non-root">Running as non-root
+ </a> is also supported.
+ </chunk>
+
+ <chunk id="intellij-linter-intro">
+  It brings all the smarts from IntelliJ IDEs, which help you:
+  <list>
+   <li>detect anomalous code and probable bugs</li>
+   <li>eliminate dead code</li>
+   <li>highlight spelling problems</li>
+   <li>improve overall code structure</li>
+   <li>introduce coding best practices</li>
+  </list>
  </chunk>
 
 </topic>

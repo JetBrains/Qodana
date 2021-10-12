@@ -1,4 +1,4 @@
-[//]: # (title: Qodana JVM)
+[//]: # (title: Qodana for JVM)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
@@ -12,7 +12,7 @@
 
 <var name="linter" value="Qodana JVM"/>
 
-%linter% is based on [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/) and provides static analysis for Java and Kotlin for Server Side projects, and related frameworks and technologies.
+%linter% is based on [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/) and provides static analysis for Java and Kotlin for Server Side projects, and related frameworks and technologies. <include src="lib_qd.xml" include-id="intellij-linter-intro"/>
 
 ## Try it now
 
