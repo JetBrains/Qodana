@@ -156,9 +156,9 @@
         <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
         <code style="block" lang="shell">
             docker run --rm -it \
-            -v &lt;source-directory&gt;/:/data/project/ \
-            -v &lt;output-directory&gt;/:/data/results/ \
-            jetbrains/%linter-shell%
+                -v &lt;source-directory&gt;/:/data/project/ \
+                -v &lt;output-directory&gt;/:/data/results/ \
+                jetbrains/%linter-shell%
         </code>
         <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
             necessary results</a>. You can further tune the command as described in the <a
@@ -173,9 +173,9 @@
         <p>Use the following command as a task in a generic Shell executor:</p>
         <code style="block" lang="shell">
             docker run --rm \
-            -v &lt;source-directory&gt;/:/data/project/ \
-            -v &lt;output-directory&gt;/:/data/results/ \
-            jetbrains/%linter-shell%
+                -v &lt;source-directory&gt;/:/data/project/ \
+                -v &lt;output-directory&gt;/:/data/results/ \
+                jetbrains/%linter-shell%
         </code>
         <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
             the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
@@ -212,10 +212,10 @@
                 </p>
                 <code style="block" lang="shell">
                     docker run --rm -it -p 8080:8080 \
-                    -v &lt;source-directory&gt;/:/data/project/ \
-                    -v &lt;output-directory&gt;/:/data/results/ \
-                    -v &lt;inspection-profile.xml&gt;:/data/profile.xml
-                    jetbrains/%linter-shell% --show-report
+                        -v &lt;source-directory&gt;/:/data/project/ \
+                        -v &lt;output-directory&gt;/:/data/results/ \
+                        -v &lt;inspection-profile.xml&gt;:/data/profile.xml
+                        jetbrains/%linter-shell% --show-report
                 </code>
             </li>
             <li>
@@ -224,9 +224,9 @@
                 </p>
                 <code style="block" lang="shell">
                     docker run --rm -it -p 8080:8080 \
-                    -v &lt;source-directory&gt;/:/data/project/ \
-                    -v &lt;output-directory&gt;/:/data/results/ \
-                    jetbrains/%linter-shell% --show-report --profile-name custom-profile
+                        -v &lt;source-directory&gt;/:/data/project/ \
+                        -v &lt;output-directory&gt;/:/data/results/ \
+                        jetbrains/%linter-shell% --show-report --profile-name custom-profile
                 </code>
                 <note>
                     <p>
@@ -637,10 +637,10 @@
         </p>
         <code style="block" lang="shell">
             docker run --rm -it -p 8080:8080 \
-            -v &lt;source-directory&gt;/:/data/project/ \
-            -v &lt;output-directory&gt;/:/data/results/ \
-            -v &lt;cache-directory&gt;/:/data/cache/ \
-            jetbrains/qodana --show-report
+                -v &lt;source-directory&gt;/:/data/project/ \
+                -v &lt;output-directory&gt;/:/data/results/ \
+                -v &lt;cache-directory&gt;/:/data/cache/ \
+                jetbrains/%linter-shell% --show-report
         </code>
         <p>In this case mapping the same <code>&lt;cache-directory&gt;</code> would speed up the second run.
         </p>
