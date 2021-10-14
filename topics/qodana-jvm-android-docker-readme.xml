@@ -8,7 +8,7 @@
 
     <var name="linter" value="Qodana for JVM Android"/>
     <var name="linter-shell" value="qodana-jvm-android"/>
-    <var name="linter-page-url" value="qodana-android.md"/>
+    <var name="linter-page-url" value="qodana-jvm-android.md"/>
     <var name="docker-tech-guide-page-url" value="qodana-jvm-android-docker-techs.xml"/>
     <var name="ide" value="IntelliJ IDEA"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/idea/?Code_Inspection"/>

@@ -70,7 +70,7 @@
 
     <toc-element id="ci.md">
         <toc-element id="github-actions.md">
-            <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-application.html"/>
+            <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html"/>
             <toc-element id="clone-finder-github-action.md"/>
             <toc-element id="license-audit-github-action.md"/>
         </toc-element>
