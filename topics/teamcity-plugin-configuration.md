@@ -1,6 +1,6 @@
 [//]: # (title: TeamCity plugin configuration)
 
-The main Qodana functionality comes from the 'engine' shaped into the Docker image. If you want to go beyond the boundaries of the default settings, refer to the [Docker image guide](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-readme.html). Note that you don't need to write `docker run` on your own: the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties.
+The main Qodana functionality comes from the 'engine' shaped into the Docker image. If you want to go beyond the boundaries of the default settings, refer to the [Docker image guide](https://www.jetbrains.com/help/qodana/?qodana-jvm-docker-readme). Note that you don't need to write `docker run` on your own: the plugin will do it for you. You can just use all other options and provide them via the dedicated UI or DSL properties.
 
 ## Add Qodana analysis to your project builds on TeamCity
 
@@ -55,9 +55,9 @@ EOM
 
 2. Select **Add build step** and for **Runner type**, specify **Qodana**.
 
-   In the following steps, specify additional parameters for Qodana's `docker run` command, which you can also see in the [Qodana IntelliJ Docker Image readme](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-readme.html).
+   In the following steps, specify additional parameters for Qodana's `docker run` command, which you can also see in the [Qodana for JVM Docker Image readme](https://www.jetbrains.com/help/qodana/?qodana-jvm-docker-readme).
 
-3. Select the checkbox next to **Code Inspections** (stands for the Qodana IntelliJ linter).
+3. Select the checkbox next to **Code Inspections** (stands for the Qodana for JVM linter).
 
    >You can disable certain inspections later via [`qodana.yaml`](https://www.jetbrains.com/help/qodana/qodana-yaml.html#exclude-paths) or [Profile settings](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile) in your HTML report.
 
@@ -86,9 +86,9 @@ EOM
    - **Default** or **None** to use all the plugins of the IntelliJ Platform included in the Qodana Docker image.
    - **Custom** or **File** to specify your own list of the plugins to disable. However, currently there is no need to disable any plugins.
      
-8. For **Additional parameters for JVM**, you can specify [more parameters](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-techs.html#qodana-execution-tuneup) to run the Docker image such as the logging level.
+8. For **Additional parameters for JVM**, you can specify [more parameters](https://www.jetbrains.com/help/qodana/?qodana-jvm-docker-techs) to run the Docker image such as the logging level.
 
-9. In **Additional arguments for Docker run**, you can specify any arguments accepted by the Docker image of the Qodana IntelliJ linter. For example, `-d` or `-changes` as you can see in the [docker techs for Qodana IntelliJ](https://www.jetbrains.com/help/qodana/qodana-intellij-docker-techs.html#Configuration).
+9. In **Additional arguments for Docker run**, you can specify any arguments accepted by the Docker image of the Qodana for JVM linter. For example, `-d` or `-changes` as you can see in the [docker techs for Qodana for JVM](https://www.jetbrains.com/help/qodana/?qodana-jvm-docker-techs).
 
 10. Click **Save**. Now you can run a build with new Qodana inspection parameters you specified.
 
@@ -111,7 +111,7 @@ When viewing analysis results for a specific build later, you can disable certai
 [//]: # "delete? supplement? ...todo: Failure Conditions based on Qodana metrics"
 
 Advanced configuration lets you report all found problems via the standard TeamCity tests mechanism. It means
-you can assign investigations, mute, see history, and do everything else you can do with regular tests in TeamCity. Qodana IntelliJ reports tests in four different ways:
+you can assign investigations, mute, see history, and do everything else you can do with regular tests in TeamCity. Qodana reports tests in four different ways:
 
 - per problem
 - per inspection type

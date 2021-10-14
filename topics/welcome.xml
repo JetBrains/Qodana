@@ -24,11 +24,15 @@
         <main-group>
             <title>Qodana linters</title>
             <a href="qodana-jvm.md"
-               description="The Qodana for JVM linter lets you perform static analysis of your Java and Kotlin for Server Side projects."/>
+               description="The Qodana for JVM linter lets you perform static analysis of Java and Kotlin for Server Side projects, with Spring, Jakarta EE, Java EE, Micronaut, Quarkus, Helidon, and more JVM frameworks support."/>
+            <a href="qodana-jvm-community.md"
+               description="The Qodana for JVM linter lets you perform static analysis of Java and Kotlin for Server Side projects."/>
+            <a href="qodana-jvm-android.md"
+               description="The Qodana for JVM Android linter lets you perform static analysis of Java and Kotlin for Server Side projects with Android development support."/>
             <a href="qodana-php.md"
-               description="The Qodana for PHP linter lets you perform static analysis of your PHP projects."/>
+               description="The Qodana for PHP linter lets you perform static analysis of PHP projects."/>
             <a href="qodana-python.md"
-               description="The Qodana for Python linter lets you perform static analysis of your Python projects."/>
+               description="The Qodana for Python linter lets you perform static analysis of Python projects."/>
             <a href="about-clone-finder.md"
                description="Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance."/>
             <a href="about-license-audit.md"
@@ -41,8 +45,8 @@
                description="Qodana runs are configured via the `qodana.yaml` configuration file."/>
             <a href="html-report.md"
                description="View the Qodana run results in the browser"/>
-            <a href="qodana-intellij-docker-readme.md"
-               description="Configure the Qodana IntelliJ Docker image"/>
+            <a href="docker-images.md"
+               description="Configure the Qodana Docker images"/>
         </highlighted-group>
 
         <custom-groups>
@@ -53,7 +57,7 @@
                        description="Run Qodana locally or in any CI"/>
                     <a href="github-actions.md"
                        description="Run Qodana code inspection on any GitHub repository"/>
-                    <a href="qodana-intellij-github-application.md"
+                    <a href="qodana-github-application.md"
                        description="Examine incoming pull GitHub requests"/>
                     <a href="qodana_plugins.md"
                        description="Integrate Qodana into various CI systems"/>
@@ -64,14 +68,14 @@
                 <title>Inspection results</title>
                 <a href="ui-overview.md"
                    description="The Qodana UI focuses on the single-shot analysis, making it easy to act on results and customize checks."/>
-                <a href="qodana-intellij-output.md"
-                   description="Explore the Qodana IntelliJ run output"/>
+                <a href="qodana-inspection-output.md"
+                   description="Explore the Qodana code inspection run output"/>
                 <a href="clone-finder-output.md"
                    description="Explore the Qodana Clone Finder run output"/>
                 <a href="license-audit-output.md"
                    description="Explore the Qodana License Audit run output"/>
-                <a href="qodana-intellij-docker-sarif.md"
-                   description="Explore the Qodana IntelliJ run SARIF-compliant output"/>
+                <a href="qodana-sarif-output.md"
+                   description="Explore the Qodana code inspetion SARIF-compliant output"/>
                 </link-collection>
                 <link-collection>
                     <title>Learn more</title>

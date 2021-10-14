@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<!--suppress TopicContentShortcutHardcodedInspections -->
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-jvm-docker-techs"
+       title="%linter% Docker image configuration">
+
+    <var name="linter" value="Qodana for JVM"/>
+    <var name="linter-shell" value="qodana-jvm"/>
+    <var name="ide" value="IntelliJ IDEA"/>
+    <var name="docker-general-guide-page-url" value="qodana-jvm-docker-readme.xml"/>
+    <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
+
+    <chapter id="Docker+image+paths" title="Docker image paths">
+
+        <include src="lib_qd.xml" include-id="docker-config-image-paths"/>
+
+    </chapter>
+
+    <chapter id="Configuration+options" title="Configuration options">
+
+        <include src="lib_qd.xml" include-id="docker-config-options"/>
+
+    </chapter>
+    <chapter id="qodana-execution-tuneup" title="Examples of execution tuneup">
+        <chapter id="Override+the+default+inspection+profile" title="Override the default inspection profile">
+
+            <include src="lib_qd.xml" include-id="docker-config-override-profile"/>
+
+        </chapter>
+        <chapter id="Save+a+report+as+HTML" title="Save a report as HTML">
+
+            <include src="lib_qd.xml" include-id="docker-config-save-report"/>
+
+        </chapter>
+        <chapter id="Display+a+report+in+HTML" title="Display a report in HTML">
+
+            <include src="lib_qd.xml" include-id="docker-config-display-report"/>
+
+        </chapter>
+        <chapter id="Change+the+Heap+size" title="Change the Heap size">
+
+            <include src="lib_qd.xml" include-id="docker-config-change-heap-size"/>
+
+        </chapter>
+        <chapter id="Log+INFO+messages+to+STDOUT" title="Log INFO messages to STDOUT">
+
+            <include src="lib_qd.xml" include-id="docker-config-log-info-to-stdout"/>
+
+        </chapter>
+        <chapter id="Provide+different+Gradle+settings" title="Provide different Gradle settings">
+
+            <include src="lib_qd.xml" include-id="docker-config-modify-gradle-settings"/>
+
+        </chapter>
+        <chapter id="Use+a+different+idea-properties-file"
+                 title="Use a different 'idea.properties' file">
+
+            <include src="lib_qd.xml" include-id="docker-config-different-properties-file"/>
+
+        </chapter>
+
+        <chapter id="Turn+off+user+statistics" title="Turn off user statistics">
+
+            <include src="lib_qd.xml" include-id="docker-config-disable-statistics"/>
+
+        </chapter>
+
+        <chapter id="Manage+plugins" title="Manage plugins">
+
+            <include src="lib_qd.xml" include-id="docker-config-manage-plugins" use-filter="empty,jvm"/>
+
+        </chapter>
+
+        <chapter id="Analyze+changes" title="Analyze changes">
+
+            <include src="lib_qd.xml" include-id="docker-config-analyze-changes"/>
+
+        </chapter>
+
+        <chapter id="Run+in+baseline+mode" title="Run in baseline mode">
+
+            <include src="lib_qd.xml" include-id="docker-config-baseline"/>
+
+        </chapter>
+
+        <chapter id="Set+a+quality+gate" title="Set a quality gate">
+
+            <include src="lib_qd.xml" include-id="docker-config-set-quality-gate"/>
+
+        </chapter>
+
+        <chapter id="Run+as+non-root" title="Run as non-root">
+
+            <include src="lib_qd.xml" include-id="docker-config-run-as-non-root"/>
+
+        </chapter>
+
+        <chapter id="Cache+dependencies" title="Cache dependencies">
+
+            <include src="lib_qd.xml" include-id="docker-config-cache-dependencies"/>
+
+        </chapter>
+    </chapter>
+
+    <chapter id="Order+of+resolving+a+profile" title="Order of resolving a profile">
+
+        <include src="lib_qd.xml" include-id="docker-config-profile-resolving"/>
+
+    </chapter>
+</topic>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<!--suppress TopicContentShortcutHardcodedInspections -->
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-jvm-community-docker-readme"
+       title="%linter% Docker image">
+
+    <var name="linter" value="Qodana for JVM Community"/>
+    <var name="linter-shell" value="qodana-jvm-community"/>
+    <var name="linter-page-url" value="qodana-jvm-community.md"/>
+    <var name="docker-tech-guide-page-url" value="qodana-jvm-community-docker-techs.xml"/>
+    <var name="ide" value="IntelliJ IDEA"/>
+    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/idea/?Code_Inspection"/>
+    <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
+
+    <p>
+        <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
+    </p>
+
+    <include src="lib_qd.xml" include-id="linter-docker-image-intro"/>
+
+    <chapter id="quick-start-recommended-profile" title="Quick start with the recommended profile">
+        <chapter id="Run+analysis+locally" title="Run analysis locally">
+
+            <note>
+                <p>
+                    <include src="lib_qd.xml" include-id="docker-ram-note"/>
+                </p>
+            </note>
+
+            <include src="lib_qd.xml" include-id="docker-local-analysis"/>
+
+        </chapter>
+
+        <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
+
+            <include src="lib_qd.xml" include-id="docker-ci-analysis"/>
+
+        </chapter>
+    </chapter>
+
+    <chapter id="Using+an+existing+profile" title="Using an existing profile">
+
+        <include src="lib_qd.xml" include-id="docker-using-existing-profile"/>
+
+    </chapter>
+
+    <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
+
+        <include src="lib_qd.xml" include-id="docker-configure-via-qodana-yaml"/>
+
+    </chapter>
+
+    <chapter id="Plugins+management" title="Plugins management">
+
+        <include src="lib_qd.xml" include-id="docker-plugins-management"/>
+
+    </chapter>
+    <chapter id="Usage+statistics" title="Usage statistics">
+
+        <p>
+            <include src="lib_qd.xml" include-id="docker-usage-statistics"/>
+        </p>
+
+    </chapter>
+</topic>

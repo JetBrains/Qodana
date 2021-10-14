@@ -15,3 +15,11 @@ To add a Qodana runner to a GitLab CI/CD pipeline, use the following configurati
 ```
 
 <p><include src="lib_qd.xml" include-id="docker-options-tip"/></p>
+
+<seealso>
+    <category ref="external">
+        <a href="https://rpadovani.com/gitlab-jetbrains-qodana">'Integrating JetBrains Qodana with GitLab
+            pipelines' by Riccardo Padovani
+        </a>
+    </category>
+</seealso>

@@ -41,8 +41,8 @@ with `source-directory` pointing to the root of your project.
 
 ## Next steps
 
-- <a href="qodana-intellij-docker-readme.md">Configure %linter% Docker image</a>
-- <a href="qodana-intellij-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-intellij-github-application.md">Run %linter% as a GitHub App</a>
+- <a href="qodana-docker-readme.xml">Configure %linter% Docker image</a>
+- <a href="qodana-github-action.md">Run %linter% on GitHub</a>
+- <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>

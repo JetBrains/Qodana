@@ -14,7 +14,7 @@ The [Qodana IDE plugin](https://plugins.jetbrains.com/plugin/16938-qodana) is a 
 
 ## Open a Qodana report in the IDE
 
-1. In the IDE, go to **Tools | Show Qodana Report | Open Qodana Report** and select a `qodana.sarif.json` report file generated after performing a Qodana run. See [](qodana-intellij-output.md) for details.
+1. In the IDE, go to **Tools | Show Qodana Report | Open Qodana Report** and select a `qodana.sarif.json` report file generated after performing a Qodana run. See [](qodana-inspection-output.md) for details.
 2. In the **Problems** tool window that opens, you can view the detected issues and jump to the corresponding line in the code editor.
 
     <img src="qd-ide-plugin-project-errors.png" alt="Project Errors view" width="740" border-effect="line"/>

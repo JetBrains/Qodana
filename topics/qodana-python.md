@@ -11,8 +11,9 @@
 </note>
 
 <var name="linter" value="Qodana Python"/>
+<var name="ide" value="PyCharm Professional"/>
 
-%linter% is based on [PyCharm Professional](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
+%linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
 ## Try it now
 
@@ -30,7 +31,7 @@ For a basic Python project, which only uses `stdlib`, no preliminary steps are r
 
 In case a project has external `pypi` dependencies, use any of the following  options:
 - Create `virtualenv` as a subfolder in your project and exclude it in [qodana.yaml](qodana-yaml.md#exclude-paths) to skip analysis of vendor code.
-- Mount a separate `virtualenv` as [cache](qodana-intellij-docker-techs.xml#Cache+dependencies).
+- Mount a separate `virtualenv` as [cache](qodana-python-docker-techs.xml#Cache+dependencies).
 
   When you create the `virtualenv` folder, no actual `python` binary is copied into it. Instead, a symlink is created to `python` binary used to create virtualenv. This could lead to incorrect paths when your `virtualenv` is being read inside the Qodana container, since `python` location there could be different. To fix this, create `virtualenv` using the Qodana container's `python`:
 
@@ -64,8 +65,8 @@ Start local analysis with cache mounted and with `source-directory` pointing to 
 
 ## Next steps
 
-- <a href="qodana-intellij-docker-readme.md">Configure %linter% Docker image</a>
-- <a href="qodana-intellij-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-intellij-github-application.md">Run %linter% as a GitHub App</a>
+- <a href="qodana-python-docker-readme.xml">Configure %linter% Docker image</a>
+- <a href="qodana-github-action.md">Run %linter% on GitHub</a>
+- <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>

@@ -87,7 +87,7 @@ An object contains the following:
 
 ### Tool
 
-The [Tool](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317529) object contains the description of the [Qodana image](qodana-intellij-docker-readme.md), bundled plugins and inspections in them.
+The [Tool](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317529) object contains the description of the [Docker image](qodana-jvm-docker-readme.xml), bundled plugins and inspections in them.
 
 ### Results
 

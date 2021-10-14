@@ -107,7 +107,7 @@ When this number of problems is reached, the container executes `exit 255`. This
 
 <note>
 
-When running in [baseline mode](qodana-intellij-docker-techs.xml#Run+in+baseline+mode), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
+When running in [baseline mode](qodana-jvm-docker-techs.xml#Run+in+baseline+mode), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
 
 </note>
 

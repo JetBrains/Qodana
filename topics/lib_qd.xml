@@ -1,102 +1,685 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE topic
         SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<!--suppress TopicContentShortcutHardcodedInspections -->
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        id="lib_qd" title="Library of includes"
        is-library="true">
 
- <chunk id="eap-warning">
+    <chunk id="eap-warning">
 
-  %product% is currently in Early Access, which means it may be not reliable, work not as intended, and contain errors.
-  Any use of the EAP product is at your own risk.
-  <include src="lib_qd.xml" include-id="contact-info"/>
+        %product% is currently in Early Access, which means it may be not reliable, work not as intended, and contain errors.
+        Any use of the EAP product is at your own risk.
+        <include src="lib_qd.xml" include-id="contact-info"/>
 
- </chunk>
+    </chunk>
 
- <chunk id="contact-info">
+    <chunk id="contact-info">
 
-  Your feedback is very welcome in
-  <a href="https://youtrack.jetbrains.com/newIssue?project=QD">our issue tracker</a>
-  or at <a href="mailto:qodana-support@jetbrains.com">
-  qodana-support@jetbrains.com</a>.
+        Your feedback is very welcome in
+        <a href="https://youtrack.jetbrains.com/newIssue?project=QD">our issue tracker</a>
+        or at <a href="mailto:qodana-support@jetbrains.com">
+        qodana-support@jetbrains.com</a>.
 
- </chunk>
+    </chunk>
 
- <chunk id="license-info">
+    <chunk id="license-info">
 
-  By using %product%, you agree to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP
-  user
-  agreement
- </a> and <a href="https://www.jetbrains.com/company/privacy.html">JetBrains privacy
-  policy</a>.
+        By using %product%, you agree to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP
+        user
+        agreement
+    </a> and <a href="https://www.jetbrains.com/company/privacy.html">JetBrains privacy
+        policy</a>.
 
- </chunk>
+    </chunk>
 
- <chunk id="docker-ram-note">
-  Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker
-  Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for <a
-         href="https://docs.docker.com/desktop/windows/#resources">Windows
- </a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
- </chunk>
+    <chunk id="docker-ram-note">
+        Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker
+        Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for <a
+            href="https://docs.docker.com/desktop/windows/#resources">Windows
+    </a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
+    </chunk>
 
 
- <chunk id="supported-techs">
-  <var name="linter" value="Qodana"/>
-  <var name="supported-techs" value="Java, Kotlin, and PHP projects"/>
-  %linter% supports <a href="supported-technologies.md">%supported-techs%</a>. Eventually, all languages and
-  technologies covered by JetBrains IDEs will be added.
- </chunk>
+    <chunk id="supported-techs">
+        <var name="linter" value="Qodana"/>
+        <var name="supported-techs" value="Java, Kotlin, PHP, and Python projects"/>
+        %linter% supports <a href="supported-technologies.md">%supported-techs%</a>. Eventually, all languages and
+        technologies covered by JetBrains IDEs will be added.
+    </chunk>
 
- <chunk id="qodana-playground-tip">
-  <var name="linter" value="Qodana"/>
-  <var name="qodana-playground-url" value="https://qodana.teamcity.com/overview?mode=builds"/>
-  <a href="%qodana-playground-url%">Qodana Playground</a>
-  provides several example projects analyzed by %linter%.
- </chunk>
+    <chunk id="qodana-playground-tip">
+        <var name="linter" value="Qodana"/>
+        <var name="qodana-playground-url" value="https://qodana.teamcity.com/overview?mode=builds"/>
+        <a href="%qodana-playground-url%">Qodana Playground</a>
+        provides several example projects analyzed by %linter%.
+    </chunk>
 
- <chunk id="ui-note">
-  The Qodana UI can be part of the CI user interface in case your CI supports the UI extension. If it doesn't, you can
-  spin the Qodana UI on your own following the <a href="html-report.md">guidelines</a>.
- </chunk>
+    <chunk id="ui-note">
+        The Qodana UI can be part of the CI user interface in case your CI supports the UI extension. If it doesn't, you can
+        spin the Qodana UI on your own following the <a href="html-report.md">guidelines</a>.
+    </chunk>
 
- <chunk id="show-report-command-explanation">
-  This command will run the analysis on your source code and start the web server to provide a convenient view of the
-  results. Open <code>http://localhost:8080</code> in your browser to examine the found problems and performed checks.
-  Here you can also reconfigure the analysis. See the
-  <a href="ui-overview.md"/>
-  for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the Docker console.
- </chunk>
+    <chunk id="show-report-command-explanation">
+        This command will run the analysis on your source code and start the web server to provide a convenient view of the
+        results. Open <code>http://localhost:8080</code> in your browser to examine the found problems and performed checks.
+        Here you can also reconfigure the analysis. See the
+        <a href="ui-overview.md"/>
+        for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the Docker console.
+    </chunk>
 
- <chunk id="generic-docker-image-note">
-  The general workflow and configuration options are basically the same for all Qodana IntelliJ Docker images. In the
-  following examples, replace <code>jetbrains/qodana-&lt;linter&gt;</code> with a linter of your choice, for
-  example, <code>
-  jetbrains/qodana-jvm</code>. For details on getting started with a specific linter, see the corresponding <a href="linters.md"/> section.
- </chunk>
+    <chunk id="jvm-project-setup-note">
+        To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
+        that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
+        executed, and so on.
+    </chunk>
 
- <chunk id="jvm-project-setup-note">
-  To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
-  that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
-  executed, and so on.
- </chunk>
+    <chunk id="docker-options-tip">
+        Consider using a <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">fail threshold</a> to make the build fail when
+        a certain number of problems is reached, and <a href="qodana-jvm-docker-techs.xml" anchor="Run+in+baseline+mode">
+        baseline mode</a>, in which each new Qodana run is compared to some initial run selected as a "baseline". <a
+            href="qodana-jvm-docker-techs.xml" anchor="Run+as+non-root">Running as non-root</a> is also supported.
+    </chunk>
 
- <chunk id="docker-options-tip">
-  Consider using a <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">fail threshold</a> to make the build fail when
-  a certain number of problems is reached, and <a href="qodana-intellij-docker-techs.xml" anchor="Run+in+baseline+mode">
-  baseline mode</a>, in which each new Qodana IntelliJ run is compared to some initial run selected as a "baseline". <a
-         href="qodana-intellij-docker-techs.xml" anchor="Run+as+non-root">Running as non-root
- </a> is also supported.
- </chunk>
+    <chunk id="linter-intro">
+        It brings all the smarts from %ide%, which help you:
+        <list>
+            <li>detect anomalous code and probable bugs</li>
+            <li>eliminate dead code</li>
+            <li>highlight spelling problems</li>
+            <li>improve overall code structure</li>
+            <li>introduce coding best practices</li>
+        </list>
+    </chunk>
 
- <chunk id="intellij-linter-intro">
-  It brings all the smarts from IntelliJ IDEs, which help you:
-  <list>
-   <li>detect anomalous code and probable bugs</li>
-   <li>eliminate dead code</li>
-   <li>highlight spelling problems</li>
-   <li>improve overall code structure</li>
-   <li>introduce coding best practices</li>
-  </list>
- </chunk>
+    <chunk id="supported-docker-tags">
+        Supported tags:
+        <a href="https://hub.docker.com/r/jetbrains/qodana/tags?page=1&amp;ordering=last_updated&amp;name=2020.3-eap">
+            <code>2020.3-eap</code></a>, <a href="https://hub.docker.com/r/jetbrains/qodana/tags?page=1&amp;ordering=last_updated&amp;name=2021.1-eap"><code>2021.1-eap</code></a>, <a href="https://hub.docker.com/r/jetbrains/qodana/tags?page=1&amp;ordering=last_updated&amp;name=latest"><code>latest</code></a> (points to <code>2021.2-eap</code>)
+    </chunk>
 
+    <chunk id="linter-docker-image-intro">
+        <p>
+            The Docker image for the <a href="%linter-page-url%">%linter%</a> linter is provided to support different usage
+            scenarios:
+        </p>
+        <list>
+            <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
+            </li>
+            <li>Single-shot analysis (for example, performed <i>locally</i>).
+            </li>
+        </list>
+        <p>If you are familiar with
+            <a href="%code-inspection-ide-help-url%">%ide% code inspections</a>
+            and know what to expect from the static analysis outside the editor, you can skip the following section and
+            continue from <a anchor="Using+an+existing+profile">Using an existing profile</a>.
+        </p>
+        <p>If you are just starting in the field, we recommend proceeding with the <a
+                anchor="quick-start-recommended-profile">default setup
+        </a> we provide. You will see the
+            results of the most common checks performed on your code base. Later, you can <a
+                    anchor="Configure+via+qodana.yaml">adjust them
+            </a> to suit your needs better.
+        </p>
+    </chunk>
+
+    <chunk id="docker-local-analysis">
+        <procedure>
+            <step>
+                <p>
+                    Pull the image from Docker Hub (only necessary to update to the <code>latest</code> version):
+                </p>
+                <code style="block" lang="shell">docker pull jetbrains/%linter-shell%
+                </code>
+            </step>
+            <step>
+                <p>Run the following command:</p>
+                <code style="block" lang="shell">
+                    docker run --rm -it -p 8080:8080 \
+                    -v &lt;source-directory&gt;/:/data/project/ \
+                    -v &lt;output-directory&gt;/:/data/results/ \
+                    jetbrains/%linter-shell% --show-report
+                </code>
+                <p>
+                    where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
+                    respectively, the project source code directory and the analysis results directory.
+                </p>
+            </step>
+        </procedure>
+        <p>This command will run the analysis on your source code and start the web server to provide a convenient
+            view of the results. Open <code>http://localhost:8080</code> in your browser to examine the found
+            problems and performed checks. Here you can also reconfigure the analysis. See the
+            <a href="ui-overview.md"/>
+            for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the
+            Docker console.
+        </p>
+        <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
+        <code style="block" lang="shell">
+            docker run --rm -it \
+            -v &lt;source-directory&gt;/:/data/project/ \
+            -v &lt;output-directory&gt;/:/data/results/ \
+            jetbrains/%linter-shell%
+        </code>
+        <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
+            necessary results</a>. You can further tune the command as described in the <a
+                href="%docker-tech-guide-page-url%">technical guide</a>.
+        </p>
+        <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
+            using it in <code>docker run</code> again.
+        </p>
+    </chunk>
+
+    <chunk id="docker-ci-analysis">
+        <p>Use the following command as a task in a generic Shell executor:</p>
+        <code style="block" lang="shell">
+            docker run --rm \
+            -v &lt;source-directory&gt;/:/data/project/ \
+            -v &lt;output-directory&gt;/:/data/results/ \
+            jetbrains/%linter-shell%
+        </code>
+        <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
+            the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
+                results directory</a>.
+        </p>
+        <p>Consider using a <a anchor="Set+a+fail+threshold" href="qodana-yaml.md">fail threshold</a> to make the
+            build fail when a certain number of problems is reached, and <a anchor="Run+in+baseline+mode"
+                                                                            href="%docker-tech-guide-page-url%">
+                baseline mode</a>, in which each new %linter% run is compared to some initial run selected as
+            a "baseline". <a anchor="Run+as+non-root" href="%docker-tech-guide-page-url%">
+                Running as non-root
+            </a> is also supported.
+        </p>
+        <tip>
+            <p>
+                For details on available CI integrations, see <a href="ci.md"/>.
+            </p>
+        </tip>
+    </chunk>
+
+    <chunk id="docker-using-existing-profile">
+        <p>
+            This section is intended for users familiar with configuring code analysis via <a
+                href="%code-inspection-profiles-ide-help-url%">%ide% inspection profiles</a>.
+        </p>
+        <p>You can pass the reference to the existing profile in <a
+                href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">multiple ways</a>. Here are some
+            examples:
+        </p>
+        <list>
+            <li>
+                <p>
+                    Mapping the profile to <code>/data/profile.xml</code> inside the container:
+                </p>
+                <code style="block" lang="shell">
+                    docker run --rm -it -p 8080:8080 \
+                    -v &lt;source-directory&gt;/:/data/project/ \
+                    -v &lt;output-directory&gt;/:/data/results/ \
+                    -v &lt;inspection-profile.xml&gt;:/data/profile.xml
+                    jetbrains/%linter-shell% --show-report
+                </code>
+            </li>
+            <li>
+                <p>
+                    Using the name of the profile in your project <code>.idea/inspectionProfiles/</code> folder.
+                </p>
+                <code style="block" lang="shell">
+                    docker run --rm -it -p 8080:8080 \
+                    -v &lt;source-directory&gt;/:/data/project/ \
+                    -v &lt;output-directory&gt;/:/data/results/ \
+                    jetbrains/%linter-shell% --show-report --profile-name custom-profile
+                </code>
+                <note>
+                    <p>
+                        <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                    </p>
+                </note>
+            </li>
+        </list>
+    </chunk>
+
+    <chunk id="docker-configure-via-qodana-yaml">
+        <p>
+            The <code>qodana.yaml</code> file will be automatically recognized and used for the analysis configuration,
+            so that you don't need to pass any additional parameters.
+        </p>
+        <p>
+            The references to the inspection profiles will be resolved <a
+                href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">in a particular order</a>. To
+            learn about the format, see <a href="qodana-yaml.md"/>.
+        </p>
+    </chunk>
+
+    <chunk id="docker-plugins-management">
+        <p>
+            Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate
+            with us to make it work.
+        </p>
+        <p>Any free IntelliJ platform plugins or your custom plugin can be added by mounting it to the container
+            plugins' directory using the following command:
+        </p>
+        <code style="block" lang="shell">
+            docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/%linter-shell%
+        </code>
+        <p>
+            Refer to the <a href="%docker-tech-guide-page-url%">technical guide</a> for more details.
+        </p>
+    </chunk>
+
+    <chunk id="docker-usage-statistics">
+        According to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP user
+        agreement</a>, we can use third-party services to analyze the usage of our features to further improve the
+        user experience. All data will be collected <a href="https://www.jetbrains.com/company/privacy.html">
+        anonymously</a>. You can disable the reporting of usage statistics by adjusting the options of the
+        Docker command you use. Refer to the <a href="%docker-tech-guide-page-url%">technical guide</a> for
+        details.
+    </chunk>
+
+    <chunk id="docker-config-image-paths">
+        <table>
+            <tr>
+                <td>Path</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/project</code>
+                </td>
+                <td>Root directory of the project to be analyzed</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/results</code>
+                </td>
+                <td>Directory to store the analysis results, needs to be empty before running %linter%</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/root/.config/idea</code>
+                </td>
+                <td>%ide% configuration directory</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/opt/idea</code>
+                </td>
+                <td>Directory of the %ide% distributive</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/profile.xml</code>
+                </td>
+                <td>Used if a profile wasn't configured by run options or via <code>qodana.yaml</code>. See <a anchor="Order+of+resolving+a+profile">Order of resolving a profile</a>.
+                </td>
+            </tr>
+        </table>
+    </chunk>
+
+    <chunk id="docker-config-options">
+        <p>
+            The following arguments are available for the <code>jetbrains/%linter-shell%</code> command.
+        </p>
+        <table column-width="fixed">
+            <tr>
+                <td width="20%">Option</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td><code>-i</code>,
+                    <code>--project-dir=</code>
+                </td>
+                <td>Project root folder (default: current working directory <code>/data/project</code>)
+                </td>
+            </tr>
+            <tr>
+                <td><code>-o</code>,
+                    <code>--results-dir=</code>
+                </td>
+                <td>Save results to folder (default: <code>/data/results</code>)
+                </td>
+            </tr>
+            <tr>
+                <td><code>-r</code>,
+                    <code>--report-dir=</code>
+                </td>
+                <td>Save HTML report to folder (default: <code>/data/results/report</code>)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--cache-dir=</code>
+                </td>
+                <td>Set cache folder (default: <code>/data/cache</code>)
+                </td>
+            </tr>
+            <tr>
+                <td><code>-s</code>,
+                    <code>--save-report</code>
+                </td>
+                <td>Generate HTML report</td>
+            </tr>
+            <tr>
+                <td><code>-w</code>,
+                    <code>--show-report</code>
+                </td>
+                <td>Serve HTML report on port 8080</td>
+            </tr>
+            <tr>
+                <td><code>-b</code>,
+                    <code>--baseline</code>
+                </td>
+                <td>Run <a anchor="Run+in+baseline+mode">in baseline mode</a>. Provide the path to an exisitng SARIF
+                    report to be used in the baseline state calculation.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--baseline-include-absent</code>
+                </td>
+                <td>Include in the output report the results from the baseline run that are absent in the current run
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--fail-threshold</code>
+                </td>
+                <td>Set the number of problems that will serve as a quality gate. If this number is reached, the
+                    inspection run is terminated.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>-d</code>
+                </td>
+                <td>Directory to be inspected. If not specified, the whole project is inspected by default</td>
+            </tr>
+            <tr>
+                <td><code>-n</code>,
+                    <code>--profile-name</code>
+                </td>
+                <td>Name of a profile defined the in project.
+                    <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                </td>
+            </tr>
+            <tr>
+                <td><code>-p</code>,
+                    <code>--profile-path</code>
+                </td>
+                <td>Absolute path to the profile file</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>-changes</code>
+                </td>
+                <td>Inspect uncommitted changes and report new problems</td>
+            </tr>
+        </table>
+    </chunk>
+
+    <chunk id="inspection-profile-name-note">
+        Note that the name of the profile does not necessarily
+        match the name of the containing file stored in <code>.idea/inspectionProfiles</code>. The actual
+        name is stored as the <code>&lt;option name="myName" value="%profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the %ide% UI. For details on
+        working with inspection profiles in %ide%, see the <a
+            href="%code-inspection-profiles-ide-help-url%">%ide% documentation</a>.
+    </chunk>
+
+    <chunk id="docker-config-override-profile">
+        <code style="block" lang="shell">
+            docker run ... -v &lt;inspection-profile.xml&gt;:/data/profile.xml jetbrains/%linter-shell%
+        </code>
+        <p>If no profile is specified, the default <code>qodana.recommended</code> profile is used. For more options
+            of how to specify a profile, see <a anchor="Order+of+resolving+a+profile">Order of resolving a
+                profile</a>.
+            For more about available profiles, see <a href="qodana-yaml.md" anchor="Set+up+a+profile">Set up a profile</a>.
+        </p>
+    </chunk>
+
+    <chunk id="docker-config-save-report">
+        <code style="block" lang="shell">
+            docker run ... jetbrains/%linter-shell% --save-report
+        </code>
+        <p>By default, the HTML report is stored in a separate <code>report/</code> subdirectory under the <code>
+            results
+        </code> directory. This location could be configured with <code>--report-dir</code>.
+        </p>
+    </chunk>
+
+    <chunk id="docker-config-display-report">
+        <code style="block" lang="shell">
+            docker run ... -p 8080:8080 jetbrains/%linter-shell% --show-report
+        </code>
+        <p>After the inspection is finished, the container will not exit and will listen on port <code>8080</code>.
+            You can connect to <code>http://localhost:8080</code> to see the results. To stop the web server, press <shortcut>Ctrl-C</shortcut> in the Docker console.
+        </p>
+    </chunk>
+
+    <chunk id="docker-config-change-heap-size">
+        <code style="block" lang="shell">
+            docker run ... -e _JAVA_OPTIONS=-Xmx6g jetbrains/%linter-shell%
+        </code>
+        <p>By default, Heap size is set to 80% of the host RAM.</p>
+    </chunk>
+
+    <chunk id="docker-config-log-info-to-stdout">
+        <code style="block" lang="shell">docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.log.config.file=info.xml' jetbrains/%linter-shell%
+        </code>
+        <p>The default log level for STDOUT is <code>WARN</code>.
+        </p>
+    </chunk>
+
+    <chunk id="docker-config-modify-gradle-settings">
+        <code style="block" lang="shell"> docker run ... -v &lt;source-directory&gt;/gradle.properties:/root/.gradle/gradle.properties jetbrains/%linter-shell%
+        </code>
+    </chunk>
+
+    <chunk id="docker-config-different-properties-file">
+        <code style="block" lang="shell"> docker run ... -e IDEA_PROPERTIES=/data/project/idea.properties jetbrains/%linter-shell%
+        </code>
+    </chunk>
+
+    <chunk id="docker-config-disable-statistics">
+        <p>To disable the <a href="%docker-general-guide-page-url%" anchor="Usage+statistics">reporting of usage
+            statistics</a>, adjust the <code>idea.headless.enable.statistics</code> value:
+        </p>
+        <code style="block" lang="shell">docker run ... -e IDE_PROPERTIES_PROPERTY=&quot;-Didea.headless.enable.statistics=false&quot; jetbrains/%linter-shell%
+        </code>
+    </chunk>
+
+    <chunk id="docker-config-manage-plugins">
+        <p>You can add any free IntellJ platform plugins or your custom plugin by using the following command:</p>
+        <code style="block" lang="shell">docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/%linter-shell%
+        </code>
+        <p>To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole
+            list of disabled plugins in <code>/root/.config/idea/disabled_plugins.txt</code>.
+        </p>
+        <p>
+            <for filter="jvm">
+                The Java, Kotlin for Server Side, their libraries'/frameworks', Gradle, and Maven
+            </for>
+            <for filter="jvm-android">
+                The Android Support, Java, Kotlin for Server Side, their libraries'/frameworks', Gradle, and Maven
+            </for>
+            <for filter="jvm">
+                The Java, Kotlin for Server Side, their libraries'/frameworks', Gradle, and Maven
+            </for>
+            <for filter="php">
+                The PHP and its libraries'/frameworks'
+            </for>
+            <for filter="python">
+                The Python and its libraries'/frameworks'
+            </for> plugins are enabled by default.
+        </p>
+        <p>To change the plugins list, do any of the following:</p>
+        <list>
+            <li>
+                <p>Override <code>disabled_plugins.txt</code> by mounting your own file:
+                </p>
+                <code style="block" lang="shell">
+                    docker run ... -v $empty_file$:/root/.config/idea/disabled_plugins.txt jetbrains/%linter-shell%
+                </code>
+            </li>
+            <li>
+                <p>Use IDE properties <code>idea.required.plugins.id</code> and <code>
+                    idea.suppressed.plugins.id</code>:
+                </p>
+                <code style="block" lang="shell">
+                    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=JavaScript,org.intellij.grails' jetbrains/%linter-shell%
+                </code>
+                <p>or</p>
+                <code style="block" lang="shell">
+                    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.suppressed.plugins.id=com.intellij.spring.security' jetbrains/%linter-shell%
+                </code>
+            </li>
+        </list>
+        <note>
+            <p>
+                Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate
+                with us to make it work.
+            </p>
+        </note>
+    </chunk>
+
+    <chunk id="docker-config-analyze-changes">
+        <p>%linter% lets you check only changed files:</p>
+        <code style="block" lang="shell">docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' jetbrains/%linter-shell% -changes
+        </code>
+        <p>You can adjust the <code>idea.required.plugins.id</code> value and keep only the VCS plugin suitable for
+            your project.
+        </p>
+    </chunk>
+
+    <chunk id="docker-config-baseline">
+        <note>
+            <p>Displaying %linter% baseline run results via <a href="ui-overview.md">Qodana UI</a> is
+                currently in development.
+            </p>
+        </note>
+        <p>In baseline run mode, each new %linter% run is compared to some initial run selected as a "baseline".
+            This can help in situations when you have no possibility to fix old problems and rather want to prevent
+            the appearance of new ones.
+        </p>
+        <code style="block" lang="shell">
+            docker run ... jetbrains/%linter-shell% --baseline &lt;baseline-path&gt; [--baseline-include-absent]
+        </code>
+        <p>where <code>&lt;baseline-path&gt;</code> is the path to a <code>qodana.sarif.json</code> file
+            from an earlier run. If the <code>--baseline-include-absent</code> option is provided, the inspection
+            results will include <i>absent</i> problems, that is the problems detected only in the baseline run but
+            not in the current run.
+        </p>
+        <p>After the inspection is finished, %linter% displays the summary of the current project state
+            compared to the baseline.
+        </p>
+        <code style="block" lang="shell">
+            Baseline comparison result - UNCHANGED: 10, NEW: 5, ABSENT: 3
+        </code>
+        <p>where the detected problems are aggregated as follows:</p>
+        <list>
+            <li>
+                <code>new</code>: The problem was detected only in the current run but not in the baseline run.
+            </li>
+            <li>
+                <code>absent</code>: The problem was detected only in the baseline run but not in the current run.
+            </li>
+            <li>
+                <code>unchanged</code>: The problem was detected both in the current run and in the baseline run.
+            </li>
+        </list>
+        <p>
+            The <a href="qodana-sarif-output.md">SARIF output report</a> will contain the per-problem
+            information on the baseline state.
+        </p>
+    </chunk>
+
+    <chunk id="docker-config-set-quality-gate">
+        <p>%linter% lets you configure a "quality gate", that is, the number of problems
+            that will act as a threshold. If the threshold number is reached, the inspection run is terminated.
+        </p>
+        <code style="block" lang="shell">docker run ... jetbrains/%linter-shell% --fail-threshold &lt;number&gt;</code>
+        <p>When running in <a anchor="Run+in+baseline+mode">baseline mode</a>, a threshold is calculated as the sum
+            of <i>new</i> and <i>absent</i> problems. <i>Unchanged</i> results are ignored.
+        </p>
+        <note>
+            <p>You can also specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node
+                to <a href="qodana-yaml.md">qodana.yaml</a>. The value specified as the <code>docker run</code> option
+                will override the one specified in <code>qodana.yaml</code>.
+            </p>
+        </note>
+    </chunk>
+
+    <chunk id="docker-config-run-as-non-root">
+        <p>By default, the container is run as the <code>root</code> user so that %linter% can read any
+            volumes bind-mounted with the project and write the results. As a result, files in the <code>results/
+            </code> folder are owned by the <code>root</code> after the run.
+        </p>
+        <p>To avoid this, you can run the container as a regular user:</p>
+        <code style="block" lang="shell">
+            docker run -u $UID ...
+            # or
+            docker run -u $(id -u):$(id -g) ...
+        </code>
+        <p>Note that in this case the <code>results/</code> folder on host should already be created and owned by
+            you. Otherwise, Docker will create it as <code>root</code> and %linter% will not be able to write
+            to it.
+        </p>
+    </chunk>
+
+    <chunk id="docker-config-cache-dependencies">
+        <p>You can decrease the time for a %linter% run by persisting cache from one run to another. For
+            example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache
+            of downloaded dependencies.
+        </p>
+        <p>By default, %linter% would save caches to folder <code>/data/cache</code> inside container. This
+            location could be changed via <code>--cache-dir</code> cli argument. The data inside is per-repository,
+            so you can pass cache from <code>branch-a</code> to build checking <code>branch-b</code>. In this case,
+            only new dependencies would be downloaded, if they were added.
+        </p>
+        <p>Example for <b>local</b> run:
+        </p>
+        <code style="block" lang="shell">
+            docker run --rm -it -p 8080:8080 \
+            -v &lt;source-directory&gt;/:/data/project/ \
+            -v &lt;output-directory&gt;/:/data/results/ \
+            -v &lt;cache-directory&gt;/:/data/cache/ \
+            jetbrains/qodana --show-report
+        </code>
+        <p>In this case mapping the same <code>&lt;cache-directory&gt;</code> would speed up the second run.
+        </p>
+        <p>In a GitHub workflow you can utilise <a
+                href="https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows">
+            actions/cache</a>, see <a href="%docker-general-guide-page-url%" anchor="Run+analysis+in+CI">full example</a>.
+        </p>
+        <p>
+            GitLab CI also has <a href="https://docs.gitlab.com/ee/ci/caching/">cache</a> which can be stored <a
+                href="https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths">only inside
+        </a> the project directory. In this case, we recommend excluding the cache folder from inspection via <a
+                href="qodana-yaml.md" anchor="include-example">qodana.yaml</a>.
+        </p>
+    </chunk>
+
+    <chunk id="docker-config-profile-resolving">
+        <p>
+            %linter% checks the configuration parameters for resolving the inspection profile in this order:
+        </p>
+        <list type="decimal">
+            <li>
+                Profile with the name <code>%name%</code> from the command-line option <code>--profile-name
+                %name%</code>.
+            </li>
+            <li>
+                Profile by the path <code>%path%</code> from the command-line option <code>--profile-path %path%</code>.
+            </li>
+            <li>
+                Profile with the name <code>%name%</code> from <code>qodana.yaml</code>.
+            </li>
+            <li>
+                Profile by the path <code>%path%</code> from <code>qodana.yaml</code>.
+            </li>
+            <li>
+                Profile mounted to <code>/data/profile.xml</code>.
+            </li>
+            <li>
+                Fall back to using the default <code>qodana.recommended</code> profile.
+            </li>
+        </list>
+    </chunk>
 </topic>
