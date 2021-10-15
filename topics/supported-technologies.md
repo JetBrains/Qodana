@@ -7,7 +7,6 @@ With time, Qodana will support all languages and technologies covered by JetBrai
 - [Kotlin for Server Side](https://kotlinlang.org/lp/server-side/)
 - [PHP](https://www.php.net) projects
 - [Python](https://python.org) projects
-- [Go](https://golang.org) projects
 
 > For details on getting started with a particluar technology, see [](linters.md).
 
