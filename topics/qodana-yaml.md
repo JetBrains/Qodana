@@ -11,7 +11,7 @@ Configuration through `qodana.yaml` is only supported by the Qodana product. It 
 </note>
 
 ## How to choose a proper profile
-If you already have the inspection profile for your project you [can use it](https://www.jetbrains.com/help/qodana/qodana-yaml.html#set-up-a-profile) with Qodana as a starting point. You can adjust it via qodana.yaml and make it more convenient for the server side use.
+If you already have the inspection profile for your project you [can use it](https://www.jetbrains.com/help/qodana/qodana-yaml.html#Set+up+a+profile) with Qodana as a starting point. You can adjust it via qodana.yaml and make it more convenient for the server side use.
 
 If you want a fresh start you have two options:
 1. Use Qodana in default mode so [three-phase analysis](https://www.jetbrains.com/help/qodana/qodana-yaml.html#three-phase-analysis) will be executed. You don't need to create qodana.yaml in this case, but you can add it later to amend a set of checks.
@@ -29,7 +29,6 @@ The last phase suggests additional checks that are not so vital for the project 
 We recommend following Qodana UI guidance to create the most effective profile you can support for your project.
 
 ## Set up a profile
-{id="set-up-a-profile"}
 
 Out of the box, Qodana provides several predefined profiles: 
 * `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
