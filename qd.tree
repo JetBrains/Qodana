@@ -23,6 +23,7 @@
          <toc-element id="qodana-python.md"/>
         <toc-element id="qodana-js.md"/>
         <!--<toc-element id="qodana-go.md"/>-->
+        <toc-element id="about-qodana-intellij.md"/>
         <toc-element toc-title="Experimental linters">
             <toc-element id="about-clone-finder.md"/>
             <toc-element id="about-license-audit.md"/>
