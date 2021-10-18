@@ -23,6 +23,6 @@ After extending your build with Qodana, you’ll get the following capabilities:
 
 ![](tc-plugin.png)
 
-The screenshot above shows a report for failed inspections grouped by type. In this example, 17 problems related to *PhpHierarchyChecksInpections* were grouped together. You can also choose grouping by file or module, or create a separate assignable failed “test” for every problem that is found.
+The screenshot above shows a report for failed inspections grouped by type. In this example, 17 problems related to *PhpHierarchyChecksInspections* were grouped together. You can also choose grouping by file or module, or create a separate assignable failed “test” for every problem that is found.
 
 For more about Qodana HTML reports, see the [Qodana Inspection Results](results.md) chapter.

@@ -33,7 +33,7 @@ Qodana linters are supplied in the following distribution formats and web servic
 
 [Qodana Playground](https://qodana.teamcity.com/overview?mode=builds) is a sandbox environment which runs in the JetBrains cloud CI, TeamCity. You can use it to see Qodana in action and try various options yourself.
 
-To view an example GitHub pull request verfied by the [](qodana-github-application.md), see [this GitHub repository](https://github.com/JetBrains/qodana-examples/pull/2/checks).
+To view an example GitHub pull request verified by the [](qodana-github-application.md), see [this GitHub repository](https://github.com/JetBrains/qodana-examples/pull/2/checks).
 
 ## Contact us
 
