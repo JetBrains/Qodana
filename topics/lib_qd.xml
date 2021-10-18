@@ -508,6 +508,9 @@
             <for filter="python">
                 The Python and its libraries'/frameworks'
             </for> plugins are enabled by default.
+            <for filter="js">
+                The JavaScript and Typescript, and their libraries'/frameworks'
+            </for> plugins are enabled by default.
         </p>
         <p>To change the plugins list, do any of the following:</p>
         <list>

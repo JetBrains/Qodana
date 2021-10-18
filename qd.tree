@@ -21,8 +21,8 @@
          <toc-element id="qodana-jvm-android.md"/>
          <toc-element id="qodana-php.md"/>
          <toc-element id="qodana-python.md"/>
-         <!--<toc-element id="qodana-go.md"/>-->
-         <!--<toc-element id="qodana-js.md"/>-->
+        <toc-element id="qodana-js.md"/>
+        <!--<toc-element id="qodana-go.md"/>-->
         <toc-element toc-title="Experimental linters">
             <toc-element id="about-clone-finder.md"/>
             <toc-element id="about-license-audit.md"/>
@@ -57,6 +57,9 @@
         </toc-element>
         <toc-element id="qodana-python-docker-readme.xml">
             <toc-element id="qodana-python-docker-techs.xml" show-structure-depth="3"/>
+        </toc-element>
+        <toc-element id="qodana-js-docker-readme.xml">
+            <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
         </toc-element>
         <toc-element toc-title="Experimental Docker images">
             <toc-element id="clone-finder-docker-readme.md">

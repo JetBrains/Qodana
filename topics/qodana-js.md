@@ -12,7 +12,10 @@
 
 <var name="linter" value="Qodana for JS"/>
 
-%linter% is based on [WebStorm](https://www.jetbrains.com/webstorm/) and provides static analysis for JavaScript or TypeScript projects.
+<var name="linter" value="Qodana JS"/>
+<var name="ide" value="WebStorm"/>
+
+%linter% is based on [%ide%](https://www.jetbrains.com/webstorm/) and provides static analysis for JavaScript or TypeScript projects.
 
 ## Try it now
 
@@ -54,8 +57,8 @@ Start local analysis with cache mounted and with `source-directory` pointing to 
 
 ## Next steps
 
-- <a href="qodana-intellij-docker-readme.md">Configure %linter% Docker image</a>
-- <a href="qodana-intellij-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-intellij-github-application.md">Run %linter% as a GitHub App</a>
+- <a href="qodana-js-docker-readme.xml">Configure %linter% Docker image</a>
+- <a href="qodana-github-action.md">Run %linter% on GitHub</a>
+- <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>

@@ -13,6 +13,7 @@ Linters you can try right now:
 * [](qodana-jvm.md): static analysis for Java and Kotlin for Server Side projects
 * [](qodana-php.md): static analysis for PHP projects
 * [](qodana-python.md): static analysis for Python projects
+* [](qodana-js.md): static analysis for JavaScript and TypeScript projects
 
 Experimental linters:
 * [Qodana Clone Finder](about-clone-finder.md): code duplication detection across different projects
