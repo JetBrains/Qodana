@@ -40,7 +40,7 @@ Out of the box, Qodana provides several predefined profiles:
 * `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
 * `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis). 
 * `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
-* `qodana.sanity`: a profile containing a preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](linters.md) for details on configuring a project for the desired linter.
+* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](linters.md) for details on configuring a project for the desired linter.
 * `kotlin.only`: a profile containing a preselected set of IntelliJ Kotlin inspections.
 * `php.default`: a profile containing a preselected set of IntelliJ PHP inspections.
 
