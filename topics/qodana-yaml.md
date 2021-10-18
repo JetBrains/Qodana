@@ -11,34 +11,37 @@ Configuration through `qodana.yaml` is only supported by the Qodana product. It 
 </note>
 
 ## How to choose a proper profile
-If you already have the inspection profile for your project you [can use it](https://www.jetbrains.com/help/qodana/qodana-yaml.html#Set+up+a+profile) with Qodana as a starting point. You can adjust it via qodana.yaml and make it more convenient for the server side use.
 
-If you want a fresh start you have two options:
-1. Use Qodana in default mode so [three-phase analysis](https://www.jetbrains.com/help/qodana/qodana-yaml.html#three-phase-analysis) will be executed. You don't need to create qodana.yaml in this case, but you can add it later to amend a set of checks.
-2. Use Qodana with the recommended profile. In this case you need to create qodana.yaml with a reference to `qodana.recommended`. This profile contains checks for critical or severe issues in the code which require attention. This profile does not contain any style checks. Also, not-critical for the project operability folders, such as `tests`, will be ignored.
+If you already have an inspection profile for your project, you [can use it](#Set+up+a+profile) with Qodana as a starting point. You can then adjust it via `qodana.yaml` and make it more convenient for the server-side use.
+
+If you want a fresh start, you have two options:
+1. Use Qodana in default mode to execute the [three-phase analysis](#three-phase-analysis). You don't need to create a `qodana.yaml` file in this case, but you can add it later to amend a set of checks.
+2. Use Qodana with the recommended profile. In this case you need to create a `qodana.yaml` file with a reference to `qodana.recommended`. This profile contains the checks for critical or severe issues in the code, which require attention. This profile does not contain any style checks, and non-critical for the project operability folders, such as `tests`, are ignored.
 
 
 ## Three-phase analysis
 {id="three-phase-analysis"}
 
-Sometimes it is challenging to set up analysis for a big project even with `qodana.recommended` profile due to large amount of errors reported. To solve this we implemented 3-phase analysis where each phase is focused on the certain type of results.
-First phase is based on `qodana.starter` profile with vital checks only. Also, not-critical for the project operability folders, such as `tests`, will be ignored.
-The second phase reports conditions which could affect truthfulness or completeness of the results. For example, if your project relies on external resources or generated code, and they are not available during the analysis, the final results could be compromised. Qodana notifies you about suspicions on this matter.  
-The last phase suggests additional checks that are not so vital for the project but still beneficial. To avoid overwhelming, Qodana analyses only a fraction of the code, just enough to show you the possible outcome.
+Sometimes it may be challenging to set up analysis for a big project even with the `qodana.recommended` profile due to large amount of errors reported. To solve this, Qodana offers a 3-phase analysis, where each phase is focused on a certain type of results.
 
-We recommend following Qodana UI guidance to create the most effective profile you can support for your project.
+- The first phase is based on the `qodana.starter` profile that contains vital checks only. Non-critical for the project operability folders, such as `tests`, are ignored.
+
+- The second phase reports the conditions that could affect truthfulness or completeness of the results. For example, if your project relies on external resources or generated code, and they are not available during the analysis, the final results could be compromised. Qodana notifies you about such suspicious results.  
+
+- The last phase suggests additional checks that are not so vital for the project but still beneficial. To avoid overwhelming, Qodana analyses only a fraction of the code, just enough to show you the possible outcome.
+
+[//]: # (We recommend the following Qodana UI guidance to create the most effective profile you can support for your project.)
 
 ## Set up a profile
 
 Out of the box, Qodana provides several predefined profiles: 
 * `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
-* `qodana.starter`: the default profile that triggers [3-layer analysis](https://www.jetbrains.com/help/qodana/qodana-yaml.html#3-layer-analysis). 
+* `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis). 
 * `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
 * `kotlin.only`: a profile containing a preselected set of IntelliJ Kotlin inspections.
 * `php.default`: a profile containing a preselected set of IntelliJ PHP inspections.
 
-You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure that the `.xml` file with this profile is in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
-
+You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure the `.xml` file with this profile resides in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 
 Set up a profile by the name:
 
