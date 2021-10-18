@@ -685,4 +685,9 @@
             </li>
         </list>
     </chunk>
+
+    <chunk id="qodana-intellij-deprecation">Qodana IntelliJ %tech% will be discontinued soon. Use <a href="%tech-link%">technology-specific Qodana %techs%</a> instead.
+    </chunk>
+
+
 </topic>
