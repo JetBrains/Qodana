@@ -91,6 +91,7 @@
             <toc-element id="clone-finder-teamcity-plugin.md"/>
             <toc-element id="license-audit-teamcity-plugin.md"/>
         </toc-element>
+        <toc-element id="jenkins.md"/>
     </toc-element>
 
     <toc-element id="service.md"/>
