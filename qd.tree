@@ -33,7 +33,7 @@
     <toc-element id="results.md">
         <toc-element id="ui-overview.md"/>
         <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
-            <toc-element id="qodana-sarif-output.md"/>
+            <toc-element id="qodana-sarif-output.md" accepts-web-file-names="qodana-intellij-docker-sarif.html"/>
         </toc-element>
         <toc-element id="clone-finder-output.md"/>
         <toc-element id="license-audit-output.md"/>
