@@ -1,4 +1,4 @@
-[//]: # (title: Qodana GitHub App)
+[//]: # (title: Qodana Linters GitHub App)
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 ![Qodana GitHub App](qodana-app-banner.png)
@@ -6,7 +6,7 @@
 The **Qodana GitHub app** is a great way to improve the code quality of your GitHub repository. It can be installed to specific repositories or whole organizations by an organization owner or a repository admin.  
 Once you install the app to your repository, it starts monitoring all its pull requests.
 
-While the Qodana GitHub app supports only public repositories, for private repositories use the [Qodana Code Inspection GitHub action](qodana-github-action.md).
+While the Qodana GitHub app supports only public repositories, for private repositories use the [Qodana Linters GitHub action](qodana-github-action.md).
 
 If there is a problem in your pull request, Qodana app will add a comment to each problematic line.
 To get a deep summary, you can open the Qodana analytics results page.
