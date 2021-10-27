@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE product-profile
+        SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
+
+<product-profile id="qd_c"
+                 name="Qodana Cloud"
+                 start-page="cloud-introduction.md">
+
+    <toc-element id="cloud-Introduction.md"/>
+    <toc-element id="cloud-ui-overview.md"/>
+</product-profile>
