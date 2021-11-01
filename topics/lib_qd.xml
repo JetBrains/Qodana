@@ -48,6 +48,13 @@
         technologies covered by JetBrains IDEs will be added.
     </chunk>
 
+    <chunk id="github-app-supported-techs">
+        <var name="linter" value="Qodana"/>
+        <var name="github-app-supported-techs" value="Java, Kotlin and PHP projects"/>
+        %linter% GitHub App supports %github-app-supported-techs%. Eventually, all languages and
+        technologies covered by JetBrains IDEs will be added.
+    </chunk>
+
     <chunk id="qodana-playground-tip">
         <var name="linter" value="Qodana"/>
         <var name="qodana-playground-url" value="https://qodana.teamcity.com/overview?mode=builds"/>
