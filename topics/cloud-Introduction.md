@@ -40,13 +40,15 @@ this becomes a challenging task. Using Qodana Cloud allows you to aggregate tons
 still need to make sure that its quality meets your needs. Using Qodana will give you detailed reports generated 
 by tried-and-tested software from JetBrains, and Qodana Cloud will aggregate reports from all Qodana instances.
 
+<!-- I can create here Quickstart or Getting started on how to start working with Qodana Cloud -->
+
 ## Get access to Qodana Cloud
 
 <!-- Link to the Overview a report section should be added here -->
 <!-- I need to read more about the voice of documentation -->
 
 You can get access to Qodana Cloud via an invitation link. After you click the invitation link, the Qodana Cloud 
-homepage will open. Here, you can overview reports of publicly-available and demo projects.
+homepage will open. Here, you can overview reports of publicly available and demo projects.
 
 <img src="qc-viewer-role.png" alt="Qodana Cloud UI overview" width="706" border-effect="line" title="Qodana Cloud UI overview"/>
 
@@ -72,6 +74,11 @@ of your company. If you plan to use Qodana Cloud for personal purposes, choose t
 <!-- Company and commercial accounts should be taken care of -->
 <!-- Login from a corporate email should be described here -->
 <!-- Do I need to describe here how to create a JBA?-->
+<!-- Code Inspection, Clone finder, License Audit -->
+<!-- I need to describe Publisher and explain how to pull report data to Qodana Cloud. See mins 26-27 of the video-->
+<!-- Publisher can be shipped along with Qodana or separately from it -->
+<!-- Two workflows for separated report sending and in combination with code analysis should be described -->
+<!-- Users can be assigned the permission for watching a specific report -->
 
 <!-- Registration at or registration in? Need to doublecheck it -->
 
@@ -121,24 +128,51 @@ Any editor can be promoted to the [administrator](#administrator) role, see the
 
 ## Overview a report
 
-This image shows Qodana Cloud displays Qodana reports.
+This image shows how Qodana Cloud displays Qodana reports.
 
 <img src="qc-report-intro.png" alt="Qodana Cloud report sample" width="706" border-effect="line" title="Qodana Cloud report sample"/>
 
-This report contains the following information (listed from top to bottom):
+This report contains the following information fields (listed from top to bottom):
 
-<!-- Is this really a commit hash? -->
-<!-- Is it really a diagram of problems? -->
+<!-- Add a link to report grouping section below, 15th minute of video -->
 
-* Project name
+* Project name and location. Location is displayed if a project is hosted on a publicly available repository like GitHub
 * Project URL
-* Branch name 
-* Commit hash
-* Date and time when the report was generated
-* Bar chart reflects the dynamics in problems found during the last five code analyses. The rightmost bar displays the
-latest inspection results.
+* Branch name, if this information is accessible. This field is configurable, so you can upload information about
+  different branches or use a different criteria for grouping reports
+* Commit hash, if this information is accessible
+* Date and time when a repository was analyzed
+* Bar chart reflects the problems found during the five recent code analyses. The rightmost bar displays the
+  latest inspection results.
 
-To see the detailed report, click the bar in the bar chart you would like to see the information about. This will open 
+<!-- Is it really a diagram of problems? -->
+<!-- Grouping reports using Branch name and Commit hash should be described, the 40th minute of the video is about it -->
+<!-- Merging may be needed when a single repository uses several programming languages and it's better if it will have a single report-->
+
+
+<!-- Types of reports:single and aggregated should be described here -->
+
+Qodana Cloud displays Qodana reports either in a separate or in a merged (aggregated) forms.
+
+Merged reports display all problems that their reports contained. Repeating problems will be duplicated.
+
+Project without reports can also be deleted.
+
+### Generate a token
+
+<!-- The token functionality needs to be described here too -->
+
+Tokens are used for uploading Qodana reports to Qodana Cloud. 
+After generation, this token needs to be added as a Qodana parameter to upload it to Qodana Cloud.  
+
+<!-- While running Qodana, this needs to be run as the --token parameter -->
+
+> If Qodana reports have the same branch name and commit time, they are displayed as a single report. If a 
+> branch name is the same but commit time varies, they will be displayed as separate reports. 
+> 
+> In case several reports are related to the same commit hash, they are displayed as a single report.
+
+To see the detailed report about a specific analysis, click the bar in the bar chart. This will open 
 the **Report** page.
 
 <img src="qc-overview-report-1.png" alt="Overviewing a Qodana report" width="706" border-effect="line" title="Overviewing a Qodana report"/>
