@@ -4,7 +4,9 @@
 ![Qodana GitHub App](qodana-app-banner.png)
 
 <note>
-<include src="lib_qd.xml" include-id="github-app-supported-techs"/>
+<p>
+    <include src="lib_qd.xml" include-id="github-app-supported-techs"/>
+</p>
 </note>
 
 The **Qodana GitHub app** is a great way to improve the code quality of your GitHub repository. It can be installed to specific repositories or whole organizations by an organization owner or a repository admin.  
