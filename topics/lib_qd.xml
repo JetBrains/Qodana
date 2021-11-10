@@ -418,7 +418,7 @@
     <chunk id="inspection-profile-name-note">
         Note that the name of the profile does not necessarily
         match the name of the containing file stored in <code>.idea/inspectionProfiles</code>. The actual
-        name is stored as the <code>&lt;option name="myName" value="%profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the %ide% UI. For details on
+        name is stored as the <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the %ide% UI. For details on
         working with inspection profiles in %ide%, see the <a
             href="%code-inspection-profiles-ide-help-url%">%ide% documentation</a>.
     </chunk>

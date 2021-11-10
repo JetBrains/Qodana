@@ -217,7 +217,7 @@
         <chapter id="Manage+plugins" title="Manage plugins">
             <p>The set of plugins depends on the selected <a href="linters.md">Qodana linter</a>.</p>
             <p>You can add any free IntellJ platform plugins or your custom plugin by using the following command:</p>
-            <code style="block" lang="shell">docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
+            <code style="block" lang="shell">docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/qodana
 </code>
             <p>To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole
                 list of disabled plugins in <code>/root/.config/idea/disabled_plugins.txt</code>.
@@ -359,14 +359,13 @@ docker run -u $(id -u):$(id -g) ...
     <chapter id="Order+of+resolving+a+profile" title="Order of resolving a profile">
         <p>Qodana IntelliJ checks the configuration parameters for resolving the inspection profile in this order:</p>
         <list type="decimal">
-            <li>Profile with the name <code>%name%</code> from the command-line option <code>--profile-name
-                %name%</code>.
+            <li>Profile with the name <code>%\name%</code> from the command-line option <code>--profile-name %\name%</code>.
             </li>
-            <li>Profile by the path <code>%path%</code> from the command-line option <code>--profile-path %path%</code>.
+            <li>Profile by the path <code>%\path%</code> from the command-line option <code>--profile-path %\path%</code>.
             </li>
-            <li>Profile with the name <code>%name%</code> from <code>qodana.yaml</code>.
+            <li>Profile with the name <code>%\name%</code> from <code>qodana.yaml</code>.
             </li>
-            <li>Profile by the path <code>%path%</code> from <code>qodana.yaml</code>.
+            <li>Profile by the path <code>%\path%</code> from <code>qodana.yaml</code>.
             </li>
             <li>Profile mounted to <code>/data/profile.xml</code>.
             </li>

@@ -49,7 +49,7 @@ You can specify other profiles available in the respective IntelliJ Platform IDE
 
 ```yaml
 profile:
-    name: %name%
+    name: %\name%
 ```
 
 <p>
