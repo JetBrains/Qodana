@@ -487,7 +487,7 @@
 
     <chunk id="docker-config-manage-plugins">
         <p>You can add any free IntelliJ platform plugins or your custom plugin by using the following command:</p>
-        <code style="block" lang="shell">docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/%linter-shell%
+        <code style="block" lang="shell">docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/%linter-shell%
         </code>
         <p>To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole
             list of disabled plugins in <code>/root/.config/idea/disabled_plugins.txt</code>.
