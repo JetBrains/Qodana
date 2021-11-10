@@ -258,7 +258,7 @@
             plugins' directory using the following command:
         </p>
         <code style="block" lang="shell">
-            docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/%linter-shell%
+            docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/%linter-shell%
         </code>
         <p>
             Refer to the <a href="%docker-tech-guide-page-url%">technical guide</a> for more details.
@@ -665,17 +665,17 @@
         </p>
         <list type="decimal">
             <li>
-                Profile with the name <code>%name%</code> from the command-line option <code>--profile-name
-                %name%</code>.
+                Profile with the name <code>%\name%</code> from the command-line option <code>--profile-name
+                %\name%</code>.
             </li>
             <li>
-                Profile by the path <code>%path%</code> from the command-line option <code>--profile-path %path%</code>.
+                Profile by the path <code>%\path%</code> from the command-line option <code>--profile-path %\path%</code>.
             </li>
             <li>
-                Profile with the name <code>%name%</code> from <code>qodana.yaml</code>.
+                Profile with the name <code>%\name%</code> from <code>qodana.yaml</code>.
             </li>
             <li>
-                Profile by the path <code>%path%</code> from <code>qodana.yaml</code>.
+                Profile by the path <code>%\path%</code> from <code>qodana.yaml</code>.
             </li>
             <li>
                 Profile mounted to <code>/data/profile.xml</code>.

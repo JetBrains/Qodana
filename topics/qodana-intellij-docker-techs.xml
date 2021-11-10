@@ -138,7 +138,7 @@
                 </td>
                 <td>Name of a profile defined the in project. Note that the name of the profile does not necessarily
                     match the name of the containing file stored in <code>.idea/inspectionProfiles</code>. The actual
-                    name is stored as the <code>&lt;option name="myName" value="%profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the IDE UI. For details on
+                    name is stored as the <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the IDE UI. For details on
                     working with inspection profiles in the IDE, see the <a
                             href="https://www.jetbrains.com/help/idea/customizing-profiles.html">IntelliJ IDEA
                         documentation</a>.
