@@ -2,109 +2,133 @@
 
 The Qodana UI focuses on the single-shot analysis, making it easy to act on results and customize checks.
 
-In this section, you will learn how to configure HTML report parameters and track detected problems in files. For information on how to open such reports in your browser, see [HTML Report](html-report.md).
+> To learn how to open such reports in your browser, see the [Open an HTML report](html-report.md) section.
 
 ## HTML report structure
 
-![](general.png)
+Qodana report data is grouped in tabs.
 
-1. **Sunburst diagram**   
-  The interactive sunburst diagram gives you an idea of how bad the situation is, what problems are the most prominent, and lets you drill down into the cause of the issue. 
-   
-2. **Checks total and Profile settings**
+<img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Overview of the Qodana UI" width="620" border-effect="line"/>
 
-    Above the diagram, you can see the totals for detected problems and conducted checks as well as click the gear icon to [configure the inspection profile](#Adjust+your+inspection+profile).
-   
-3. **Filter set**
+Each report contains the following tabs:
 
-   To the right of the sunburst diagram, you can specify the files and folders, the linter, the types and categories of problems.
-   
-4. **Problem explorer**
+* **[Actual problems](#Actual+problems)** shows the problems that Qodana detected during this run 
+* **[Technical debt](#Technical+debt)** lists the problems that remained intact from previous runs
+* **[Checks](#Checks)** shows the list of inspections and lets you configure them
 
-    On the **Problems** tab below the sunburst diagram, detected problems are annotated, classified, and grouped by problem type and (optionally) path and file.
+### Actual problems
 
-5. **File explorer**
+Using this tab, you can overview the problems found during the current Qodana run.
 
-   On the **Files** tab below the sunburst diagram, you can see the file tree of the analyzed project. You can get there also by clicking the respective path on top of the code fragment view.
+<img src="html-report.png" dark-src="html-report_dark.png" alt="The Actual problems tab" width="810" border-effect="line"/>
 
-6. **Code fragment view**
-    
-    When you click a problem detected in your project, the code fragment that contains the problem  is displayed. Parts that require your attention are highlighted.
+This includes several elements:
 
-    Code duplicates detected by Clone Finder are displayed in a multipanel [diff view](clone-finder-output.md#A+sample+decorated+diff), with code fragments decorated to make it easy to compare several copies.  
+1. The sunburst diagram provides a graphical overview for the problems and allows you to drill down into the cause of 
+the issue. 
 
-    Below the code fragment view in the Problem and File explorers, you can
-    * **Open the respective file in the IDE**
-     
-      If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, click the **Open file in \<IDE\>** button to jump to the respective file in the code editor.
-      
-    * **Remove this item and similar problems from the future analysis**
-        
-      Click **More actions** and select the necessary option, as described in [Adjust the analysis scope](#Adjust+the+analysis+scope) below.
-  
+2. The filter lets you filter the report data. 
+
+<!-- Where are these files stored? -->
+
+3. Configured filters can be saved using the **Save as...** button. The **Reorder** button toggles the editing mode, so 
+you can rearrange the sunburst diagram by dragging its components. 
+
+4. The **Problems** tab lists and classifies all detected problems by severity, filename, path, category, and type. The 
+**Files** tab presents problems in the file tree.      
+
+5. The **Move to Technical debt** button saves the selected problems to the **[Technical debt](#Technical+debt)** list.  
+
+6. Clicking a problem in the list will expand the underlying code fragment to provide the detailed description.
+
+7. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can click the **Open file in** button to open the file in your IDE. The **More actions** list provides other options for handling problems, see the [Adjust the analysis scope](#Adjust+the+analysis+scope) section.
+
+
+### Technical debt
+
+When you click the **Move to Technical debt** button in the **[Actual problems](#Actual+problems)** tab, the selected
+problems will move to this tab.
+
+<img src="html-report-baseline.png" dark-src="html-report-baseline_dark.png" alt="The Technical debt tab overview" width="810" border-effect="line"/>
+
+This tab structure is similar to the **Actual problems** tab. To apply technical debt in future runs of Qodana, download
+the configuration file and save it to the project root folder. For more information, see the
+[technical debt or baseline](qodana-jvm-docker-techs.xml#Run+in+baseline+mode) running mode description.
+
+### Checks
+
+The **Checks** tab lists the inspections and lets you adjust your inspection profile by specifying a set of 
+inspections that Qodana will be using during next run.
+
+<img src="html-report-check.png" dark-src="html-report-check_dark.png" alt="List of checks/inspections" width="810" border-effect="line"/>
+
+Here, you can study each inspection, enable or disable it. To use this configuration for future Qodana runs, you can 
+download the `qodana.yaml` file in the **Profile configuration** section, and save it into your project root directory. 
+
+See the [Adjust your inspection profile](#Adjust+your+inspection+profile) section to learn the best practices. 
+
+> To learn more about inspection profiles, see the [Set up a profile](qodana-yaml.md#Set+up+a+profile) section.
+> You can also edit profile settings in the [`qodana.yaml`](qodana-yaml.md) file.
+
 ## Adjust your inspection profile 
 
-We believe that the ability to see what was checked is as important as the list of problems found. For example, if you haven't checked for typos, you can be happy to see zero typos in your project. There may be many of them – you just don't check. 
+We believe that the ability to see what was checked is as important as the list of problems found. For example, if you
+haven't checked for typos, you can be happy to see zero typos in your project. There may be many of them – you just
+don't check.
 
-Click the gear icon next to the **Checks** total to open the **Profile settings** window and see what's included in the analysis and explore what you can add. Our recommended profile contains the most common inspections, but you know your project better so you can fine-tune your experience. 
+> Inspection profile can be configured either using the **[Checks](#Checks)** tab, or editing the 
+> [`qodana.yaml`](qodana-yaml.md) file. 
 
-![](profile-settings.png)
+If the number of problems is manageable, you can fix them and consider the 'problem-free code' goal achieved. We 
+suggest that you follow that goal and fix new problems as soon as they appear.
 
-Click an inspection to learn more about it and enable or disable it. When profile settings have been changed, the UI reminds you to download and save `qodana.yaml` into your project root directory.
+In case the number problems is above your expectations, we suggest using the Qodana UI features to examine them. You can 
+then formalize a not-so-big cluster of the problems to fix. Repeat the procedure to work on the next goal, and so on.
 
-> You can also edit profile settings via [`qodana.yaml`](qodana-yaml.md). 
-
-![](profile-save.png)
-
-Run the analysis again with the updated `qodana.yaml` and check that you see the expected results. 
-
-If the number of errors is manageable, you can fix them and consider the 'problem-free code' goal achieved. You are now ready to perform the analysis on a daily basis :) We suggest that you follow that goal and fix the errors as soon as they appear.
-
-If there are too many errors, we suggest using the Qodana UI features to examine them. You can then formalize a not-so-big cluster of the problems to fix. Repeat the procedure to work on the next goal, and so on. 
-
-When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in the so-called ["technical debt", or "baseline", running mode](qodana-jvm-docker-techs.xml#Run+in+baseline+mode).
+When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
+the [technical debt or baseline](qodana-jvm-docker-techs.xml#Run+in+baseline+mode) running mode.
 
 ## Adjust the analysis scope
 
 ### Reduce the scope of analyzed issues
 {id="reduce-analysis-scope"}
 
-When viewing a code fragment with a detected problem, you may decide that it is irrelevant. You can make sure that more problems of the same type are omitted in the future. For this purpose, you can edit [qodana.yaml](qodana-yaml.md) or use the Problem and File explorers in the UI as shown below.
+When viewing a code fragment with a detected problem, you may decide that it is irrelevant. You can make sure that more 
+problems of the same type are omitted in the future. For this purpose, you can edit [qodana.yaml](qodana-yaml.md) or use 
+the Problem and File explorers in the UI as shown below.
 
 1. **Exclude a file or directory from the future analysis**
 
-    *Reason*: The analysis of the file containing the error, or even the directory containing this file, doesn't make sense in your project.
-  For example, it's actually not the source code but some generated or downloaded content.
+*Reason*: The analysis of the file containing the error, or even the directory containing this file, doesn't make sense 
+in your project. For example, it's actually not the source code but some generated or downloaded content.
 
-      *Howto*: 
+*Howto*: Under the code fragment view, click **More actions** and select the necessary option.
+   
+<img src="ui-overview-analysis-1.png" dark-src="ui-overview-analysis-1_dark.png" alt="Selecting the options" width="810" border-effect="line"/>  
+    
+*OR*:
+
+Above the code fragment view, click the file path to navigate to the File explorer. 
       
-      - Under the code fragment view, click **More actions** and select the necessary option.
-          
-           OR:
-      - Above the code fragment view, click the file path to navigate to File explorer where you can mark the file/directory as **excluded**.
+<img src="ui-overview-analysis-2.png" dark-src="ui-overview-analysis-2_dark.png" alt="Adjusting the analysis scope, first step" width="810" border-effect="line"/>
 
-![](problem-area.png)
+You can mark the file/directory as **Excluded**.
 
-![](folder-marked.png)
-
+<img src="ui-overview-analysis-3.png" dark-src="ui-overview-analysis-3_dark.png" alt="Adjusting the analysis scope, second step" width="810" border-effect="line"/>
 
 2. **Hide a problem type or category from the list of problems**
 
-      *Reason*: You suppose that the type of the error or its category is not relevant or want to get back to it later.  
-      *Howto*: Under the code fragment view, click **More actions** and select the necessary option.
+*Reason*: You suppose that the type of the error or its category is not relevant or want to get back to it later.  
+*Howto*: Under the code fragment view, click **More actions** and select the necessary option.
    
-      ![](more-actions.png)
+<img src="ui-overview-analysis-1.png" dark-src="ui-overview-analysis-1_dark.png" alt="Selecting the options" width="810" border-effect="line"/>  
 
-> If you exclude either type/category or file/directory, the UI will remind you to save the changes if you want to use them in future checks. Download the `qodana.yaml` file and store it under your project's root directory.
+> If you exclude either type/category or file/directory, the UI will remind you to save the changes if you want to use 
+> them in future checks. Download the `qodana.yaml` file and store it under your project root directory.
 
 ### Enable excluded or hidden problems
-You can reverse the exclusions you made:
 
-* In the **Profile settings** window, see the list of inspections and excluded/hidden items (if any). Modify the settings as necessary as shown in [Adjust your inspection profile](#Adjust+your+inspection+profile) above. Then download [qodana.yaml](qodana-yaml.md), put it in the project root directory, and run Qodana again with this new configuration.
-* In the **Profile settings** window, download [qodana.yaml](qodana-yaml.md), edit it as necessary and put it in the project root directory,then run Qodana again with this new configuration.
-* For problems and paths excluded during this session and not saved in qodana.yaml: Under the Filter set, turn **Show hidden problems** on. Now in the Problem explorer, all detected problems are listed. You can reverse the exclusion of certain problems from further checks on the **More actions** menu of the respective items.
+To reverse the exclusions you made, download `qodana.yaml` in the **[Profile configuration](#Checks)** section, edit 
+it as necessary, put it in the project root directory, and then run Qodana again with this new configuration.
 
-[//]: # "add 2 screenshots: 1) Filter set + Show hidden problems; 2) More actions + Enable problem type"
 
-[//]: # "### Filter out analysis options
-Using the Filter set to the right of the sunburst diagram problems, paths, linters. Save your customized filter set if you want to start with the same settings when you run the analysis next time. --Where is it stored?--"
