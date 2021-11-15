@@ -20,7 +20,7 @@ Below is a short list of use-cases when Qodana Cloud comes in handy.
 In case you primary job is management rather than coding, you should know the answer to the "How things are going?" 
 question at any time. You can track the development process using reports from version control systems, bug trackers, 
 and during meetings. Still, monitoring of software quality is missing, and you can only refer to conclusions from your 
-teamleads or architects. Looking at the code cannot help you in this case. Also, collecting information about quality 
+team leaders or architects. Looking at the code cannot help you in this case. Also, collecting information about quality 
 code can be a tedious task. You can use Qodana to automate the quality assessment process, and Qodana Cloud will allow 
 you to see the overall picture.
 
@@ -78,14 +78,14 @@ For more information about organizations in Qodana Cloud, see the **Manage organ
 <!-- Login from a corporate email should be described here -->
 <!-- Do I need to describe here how to create a JBA?-->
 <!-- Code Inspection, Clone finder, License Audit -->
-<!-- I need to describe Publisher and explain how to pull report data to Qodana Cloud. See mins 26-27 of the video-->
+<!-- I need to describe Publisher and explain how to pull report data to Qodana Cloud. See minutes 26-27 of the video-->
 <!-- Publisher can be shipped along with Qodana or separately from it -->
 <!-- Two workflows for separated report sending and in combination with code analysis should be described -->
 <!-- Users can be assigned the permission for watching a specific report -->
 <!-- I need to create a list of entities described in this document -->
 <!-- Short introduction needs to be added to each section. This introduction should explain the design of the section-->
 
-<!-- Registration at or registration in? Need to doublecheck it -->
+<!-- Registration at or registration in? Need to double-check it -->
 
 Use the **Log in** button to log into Qodana Cloud.
 
@@ -256,7 +256,7 @@ assigned to your account, so you cannot configure it or add any other organizati
 
 #### Add new members
 
-<!-- The link should be doublechecked and reviewed before submitting -->
+<!-- The link should be double-checked and reviewed before submitting -->
 To add new members to your organization, you can click the **Invite** button. 
 
 <img src="qc-add-new-members.png" alt="Adding new members" width="460" border-effect="line" title="Adding new members"/>
@@ -313,9 +313,43 @@ To create a new project, on the **Projects** page click the **New project** butt
 After creating a new project, you can rename or delete it. To be able to associate your code to the project, click the 
 **Generate token** button and copy the token.
 
-<!-- I need to describe how Qodana Publisher works, or take the existing content from above -->
+To forward inspection results to a specific project in Qodana Cloud, first download the latest Qodana Publisher image:
 
-You can also add a project to a project group by clicking the **Add to group..** button. 
+<!-- The docker pull command should be provided here with the actual Publisher Docker repo -->
+
+Run the following Docker command to forward the latest report to Qodana Cloud:
+
+```shell
+
+docker run -v <report_directory>:/data/report/ <Qodana_publisher_image> --token <project_token_from_Qodana_cloud>
+```
+
+<!-- I need to think whether I will specify here all parameters -->
+
+> A token is not bound to a user.
+
+You can also add a project to a project group by clicking the **Add to group** button. 
+
+### Project reports
+
+Each project contains several Qodana reports. 
+
+Each report contains the result of a Qodana inspection.
+
+You can observe any report related to a specific project by clicking the diagram below the project description. 
+Here, you can observe reports in the descending order, from the latest to previous reports. This diagram reflects the
+project evolution and dynamics in problems detected by Qodana. 
+
+In case your user has the **Administrator** role, you can delete any report from the project. The deleted report can
+be recovered within 3 (three) months from the deletion date.
+
+> In case a project contains two identical reports, the latest commit overwrites the preceding commit, so only the last
+> commit is displayed in the report. 
+
+In case two different tools forward data within a single commit to Qodana Cloud, two reports will be merged into a 
+single report. 
+
+
 
 ### Project groups
 
@@ -323,7 +357,8 @@ You can group several projects into a project group. Here are the basic advantag
 
 <!-- What are the advantages of using project groups? -->
 
-* 
+* You can group a multitude of projects into a single group to provide a convenient way for navigation
+* You can group various projects between groups
 
 To create a project group, click the **Create project group** button. This will open the list of projects that can
 be grouped. On this page, select the projects you would like to make a group of. 
@@ -362,7 +397,7 @@ And two types of users
 I need to document all workflows based on the use-cases.
 
 Projects should be separated by projects.  Group of projects can be used as well.
-Projects or teams should be hierarchical. Not teams not projects
+Projects or teams should be hierarchical. Neither teams, nor projects
 
 Reports are sent based on a token.
 
