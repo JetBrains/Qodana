@@ -26,9 +26,9 @@
             <a href="qodana-jvm.md"
                description="The Qodana for JVM linter lets you perform static analysis of Java and Kotlin for Server Side projects, with Spring, Jakarta EE, Java EE, Micronaut, Quarkus, Helidon, and more JVM frameworks support."/>
             <a href="qodana-jvm-community.md"
-               description="The Qodana for JVM linter lets you perform static analysis of Java and Kotlin for Server Side projects."/>
+               description="The Qodana Community for JVM linter lets you perform static analysis of Java and Kotlin for Server Side projects."/>
             <a href="qodana-jvm-android.md"
-               description="The Qodana for JVM Android linter lets you perform static analysis of Java and Kotlin for Server Side projects with Android development support."/>
+               description="The Qodana Community for Android linter lets you perform static analysis of Java and Kotlin for Server Side projects with Android development support."/>
             <a href="qodana-php.md"
                description="The Qodana for PHP linter lets you perform static analysis of PHP projects."/>
             <a href="qodana-python.md"

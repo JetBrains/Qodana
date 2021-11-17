@@ -131,6 +131,6 @@ You can mark the file/directory as **Excluded**.
 To reverse the exclusions you made, download `qodana.yaml` in the **[Profile configuration](#Checks)** section, edit 
 it as necessary, put it in the project root directory, and then run Qodana again with this new configuration. 
 
-To learn how to configure the `qodana.yaml` file, see the [Configure a Profile via qodana.yaml](qodana-yaml.md) section.
+To learn how to configure Qodana using `qodana.yaml`, see the [Configure a Profile via qodana.yaml](qodana-yaml.md) section.
 
 

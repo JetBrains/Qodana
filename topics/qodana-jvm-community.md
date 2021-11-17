@@ -1,8 +1,8 @@
-[//]: # (title: Qodana for JVM Community)
+[//]: # (title: Qodana Community for JVM)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-<var name="linter" value="Qodana JVM Community"/>
+<var name="linter" value="Qodana Community for JVM"/>
 <var name="ide" value="IntelliJ IDEA Community"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/) and provides static analysis for Java and Kotlin for Server Side projects. <include src="lib_qd.xml" include-id="linter-intro"/>
