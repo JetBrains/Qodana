@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Manage members"
+       id="Manage_members">
+
+    <!-- The link should be double-checked and reviewed before submitting -->
+    <p>To add new members to your organization, you can click the **Invite** button.</p>
+
+    <img src="qc-add-new-members.png" alt="Adding new members" width="460" border-effect="line" title="Adding new members"/>
+
+    <p>You can send invitations based on the email addresses.</p>
+
+
+
+</topic>

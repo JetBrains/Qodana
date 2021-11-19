@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Subscription plan"
+       id="Subscription_plan">
+
+    <p>You can manage your subscription using the <b>Subscription plan</b> section.</p>
+
+    <!-- A screenshot needs to be added here based on the answers to the comments in use cases -->
+
+    <img src="qc-settings-subscription-plan.png" alt="Subscription plan" width="706" border-effect="line" title="Subscription plan"/>
+
+    <p>Here, you can overview and upgrade your subscription plan.</p>
+</topic>

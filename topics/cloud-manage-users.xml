@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Manage users"
+       id="Manage_users">
+
+    <!-- Introduction about company users is needed here -->
+    <!-- I need to extend the number of user roles -->
+    <warning>
+        This section is under development.
+    </warning>
+
+
+</topic>

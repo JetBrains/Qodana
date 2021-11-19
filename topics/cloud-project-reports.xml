@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Project reports"
+       id="Project_reports">
+
+    <p>Each project contains several Qodana reports. </p>
+
+    <p>Each report contains the result of a Qodana inspection.</p>
+
+    <p>You can observe any report related to a specific project by clicking the diagram below the project description.
+        Here, you can observe reports in the descending order, from the latest to previous reports. This diagram reflects the
+        project evolution and dynamics in problems detected by %qd%. </p>
+
+    <p>In case your user has the <b>Administrator</b> role, you can delete any report from the project. The deleted report can
+        be recovered within 3 (three) months starting from the deletion date.</p>
+
+    <note>
+        In case a project contains two identical reports, the latest commit overwrites the preceding commit, so only the last
+        commit is displayed in the report.
+    </note>
+
+    <p>In case two different tools forward data within a single commit to %product%, two reports will be merged into a
+        single report. </p>
+
+</topic>

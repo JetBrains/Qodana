@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Project groups"
+       id="Project_groups">
+
+    <p>You can group several projects into a project group. Here are the basic advantages of using project groups:</p>
+
+    <!-- What are the advantages of using project groups? -->
+    <list>
+        <li>You can group a multitude of projects into a single group to provide a convenient way for navigation.</li>
+        <li>You can group various projects between groups.</li>
+    </list>
+
+    <p>To create a project group, click the <b>Create project group</b> button. This will open the list of projects that can
+        be grouped. On this page, select the projects you would like to make a group of. </p>
+
+    <!-- This needs to be finished -->
+    <p>New projects are available in the <b>Project groups</b> section. To observe the projects that are associated to a specific
+        group, click that group. This will expand the group and demonstrate </p>
+
+    <p>To modify a project group, click the <b>Modify</b> button of the specific project group. Here, you can modify the group
+        name, and add or delete projects from this group. </p>
+
+    <p>To delete the group, click the <b>Delete</b> button. This action will delete the group, and move all the projects that were
+        previously related to that group back to the organization thus making them ungrouped. </p>
+
+</topic>

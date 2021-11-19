@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Profile settings"
+       id="Profile_settings">
+
+    <p>In this tab, you can configure: </p>
+
+    <list>
+        <li>Your username</li>
+        <li>Your email</li>
+        <li>Change the look and feel of your account UI</li>
+        <li>Delete your Qodana Cloud account</li>
+    </list>
+
+    <img src="qc-settings-profile-settings.png" alt="Profile settings" width="706" border-effect="line" title="Profile settings"/>
+</topic>

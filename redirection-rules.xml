@@ -24,4 +24,8 @@
         </description>
         <accepts>Qodana-Cloud-default.html</accepts>
     </rule>
+    <rule id="5919df83">
+        <description>Created after removal of "User interface overview" from Qodana Cloud</description>
+        <accepts>cloud-ui-overview.html</accepts>
+    </rule>
 </rules>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Organizations"
+       id="cloud-organizations">
+
+    <!-- The Admin role should be specified here because there are several admin roles here -->
+    <!-- This behavior needs to be supplied with screenshots -->
+    <p>Organizations are a way for giving peer users the access to your projects and project groups based on the company
+        parameter. Each organization can have several projects and project groups, and several users can be associated with it.
+        Each %product% user can be a member of several organizations.</p>
+
+    <!-- This description needs to be extended based on the answers from use-cases -->
+
+    <p>During the registration, %product% can suggest you to become a member of the organization based on your Email domain.
+        You can confirm this action.</p>
+
+    <p>If the organization did not exist before, you can create it.</p>
+
+    <p>You can also send a request for joining an existing organization.</p>
+
+    <p>The <b>Organizations</b> tab of the <b>Settings</b> section contains a list of organizations your account is associated with.</p>
+
+    <img src="qc-settings-manage-organizations.png" alt="Managing organizations" width="706" border-effect="line" title="Managing organizations"/>
+
+    <p>If you have the <b>Admin</b> role in %product%, you can create and delete organizations.
+        You can also manage members and visibility of the existing organizations:</p>
+
+    <!-- This list should be referenced -->
+
+    <list>
+        <li>Add new members</li>
+        <li>Delete members</li>
+        <li>Modify organization's name, description, and logo</li>
+    </list>
+
+    <p>If you have a personal account, so you have the <b>Admin</b> role, but the <b>My organization</b> company is automatically
+        assigned to your account, so you cannot configure it or add any other organizations.</p>
+</topic>

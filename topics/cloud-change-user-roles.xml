@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Change user roles"
+       id="Change_user_roles">
+
+    <p>You can promote any editor account to administrator. To do this, follow these steps:</p>
+<!-- Screenshots may be required here -->
+    <list>
+        <li>1. Navigate to the <b>Users</b> page.</li>
+        <li>2. On the <b>Users</b> page, click the user entry you want to modify. This will open the <b>User</b> pane containing account
+            information of the specific user.</li>
+        <li>3. On the <b>User</b> pane, change the <b>Role</b> field from <i>Editor</i> to <i>Administrator</i>. Click <b>Save</b>.</li>
+    </list>
+</topic>

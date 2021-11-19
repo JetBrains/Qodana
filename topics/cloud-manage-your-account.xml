@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Manage your account"
+       id="manage-your-account">
+
+    <!-- What page will this link be accessible from? -->
+
+    <p>To manage your account, click the <b>Settings</b> menu point to open the <b>Settings</b> page. </p>
+
+    <img src="qc-settings-setting-menu.png" alt="Settings menu" width="460" border-effect="line" title="Settings menu"/>
+    <p>The <b>Settings</b> page consists of the following tabs:</p>
+
+    <list>
+        <li>Subscription plan</li>
+        <li>Organizations</li>
+        <li>Profile settings</li>
+        <li>Reports</li>
+        <li>Logs</li>
+    </list>
+
+    <p>By default, you will see the settings of the **Subscription plan** tab.</p>
+</topic>
+

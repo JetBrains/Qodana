@@ -280,4 +280,7 @@
     <var name="finding_in_project_custom_title" value="Search for a target and usages within a project" product="ij"/>
     <var name="finding_in_project_custom_title" value="Finding and replacing text in a project" product="!ij"/>
 
+    <!-- Variables related to Qodana and Qodana Cloud -->
+    <var product="qd_c" name="product" value="Qodana Cloud"/>
+    <var product="qd_c" name="qd" value="Qodana"/>
 </vars>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Overview reports"
+       id="Overview_reports">
+
+    <p>This is a %qd% report in the %product% UI.</p>
+
+        <img src="qc-report-intro.png" alt="Qodana Cloud report sample" width="706" border-effect="line" title="Qodana Cloud report sample"/>
+
+        <p>This report contains the following information fields (listed from top to bottom):</p>
+
+    <list>
+        <li>Project name and location. Location is displayed if a project is hosted on a publicly available repository like GitHub.</li>
+        <li>Project URL.</li>
+        <li>Branch name, if this information is accessible. This field is configurable, so you can upload information about different branches or use a different criteria for grouping reports.</li>
+        <li>Commit hash, if this information is accessible.</li>
+        <li>Date and time when a repository was analyzed.</li>
+        <li>Bar chart reflects the problems found during the five recent code analyses. The rightmost bar displays the latest inspection results.</li>
+    </list>
+
+    <p>%product% displays %qd% reports either in a separate or in a merged (aggregated) forms.</p>
+
+    <p>Merged reports display all problems that their reports contained. Repeating problems will be duplicated.</p>
+
+    <p>Project without reports can also be deleted.</p>
+
+    <chapter id="cloud-overview-reports-generate-token" title="Generate a token" level="3">
+        <!-- The token functionality needs to be described here too -->
+
+        <p>Tokens are used for uploading %qd% reports to %product%.</p>
+
+        <p>After generation, this token needs to be added as a %qd% parameter to upload it to %product%.</p>
+
+        <!-- While running %qd%, this needs to be run as the \-\-token parameter -->
+
+        <note>
+        <p>If %qd% reports have the same branch name and commit time, they are displayed as a single report.
+            If a branch name is the same but commit time varies, they will be displayed as separate reports.</p>
+
+        <p>In case several reports are related to the same commit hash, they are displayed as a single report.</p>
+        </note>
+        <p>To see the detailed report about a specific analysis, click the bar in the bar chart. This will open
+            the <b>Report</b> page.</p>
+
+        <p>For more details about %qd% reports, see the
+        <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a> section of the %qd%
+            documentation.</p>
+    </chapter>
+
+</topic>

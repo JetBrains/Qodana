@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="User roles"
+       id="user_roles">
+
+    <p>The role assigned to you will depend on how you registered at %product%:</p>
+
+    <list>
+        <li><a anchor="cloud-user-role-administrator">You created a personal account</a></li>
+        <li><a anchor="cloud-user-role-administrator">You created a commercial account for your company</a></li>
+        <li><a anchor="cloud-user-role-editor">You joined an existing company after creating a commercial account</a></li>
+    </list>
+
+    <chapter id="cloud-user-role-administrator" title="Administrator" level="2">
+<p>If you just created a personal account at %product%, or a commercial account for a company that did not previously
+    exist, you will join %product% as <b>administrator</b>. The basic administrator functionalities include:</p>
+    <!-- Everything from these lists should be referenced to the sections -->
+        <list>
+            <li>Overviewing %qd% reports</li>
+            <li>Managing %product% projects</li>
+            <li>Managing %product% project groups</li>
+            <li>Managing account, including complete deletion from %product%</li>
+            <li>Managing subscriptions</li>
+        </list>
+        <!-- This needs to be linked -->
+        <p>If you have a [commercial](#get-access-to-qodana-cloud) account, you will also be able to:</p>
+    <list>
+        <li>Invite new users to join your company in %product%</li>
+        <li>Manage the existing members of your company</li>
+        <li>Group the existing users and reports</li>
+        <li>Manage company-related settings</li>
+    </list>
+    </chapter>
+    <chapter id="cloud-user-role-editor" title="Editor" level="2">
+        <p>If you just joined an existing company, your role will be <b>editor</b> and you will be able to:</p>
+
+        <list>
+            <li>Overview %qd% reports in the %product% UI</li>
+            <li>Manage %product% projects</li>
+            <li>Manage %product% project groups</li>
+            <li>Manage your account, including the complete deletion from %product%</li>
+            <li>Manage subscriptions</li>
+        </list>
+<!-- This needs to be referenced -->
+        <p>Any editor can be promoted to <a anchor="cloud-user-role-administrator">administrator</a> , see the
+            [Change user roles](#Change+user+roles) section.</p>
+    </chapter>
+</topic>
