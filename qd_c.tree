@@ -6,21 +6,30 @@
                  name="Qodana Cloud"
                  start-page="cloud-about.xml">
 
-    <toc-element id="cloud-about.xml"/>
-    <toc-element id="cloud-use-cases.xml"/>
-    <toc-element id="cloud-get-access.xml"/>
+    <toc-element id="cloud-about.xml">
+        <toc-element id="cloud-use-cases.xml"/>
+        <toc-element id="cloud-get-access.xml"/>
+    </toc-element>
+
     <toc-element id="cloud-user-roles.xml"/>
     <toc-element id="cloud-overview-reports.xml"/>
-    <toc-element id="cloud-manage-your-account.xml"/>
-    <toc-element id="cloud-subscription-plan.xml"/>
-    <toc-element id="cloud-organizations.xml"/>
-    <toc-element id="cloud-manage-members.xml"/>
-    <toc-element id="cloud-profile-settings.xml"/>
-    <toc-element id="cloud-reports.xml"/>
-    <toc-element id="cloud-logs.xml"/>
-    <toc-element id="cloud-manage-users.xml"/>
-    <toc-element id="cloud-change-user-roles.xml"/>
-    <toc-element id="cloud-manage-projects.xml"/>
-    <toc-element id="cloud-project-reports.xml"/>
-    <toc-element id="cloud-project-groups.xml"/>
+
+    <toc-element id="cloud-manage-your-account.xml">
+        <toc-element id="cloud-subscription-plan.xml"/>
+        <toc-element id="cloud-organizations.xml"/>
+        <toc-element id="cloud-manage-members.xml"/>
+        <toc-element id="cloud-profile-settings.xml"/>
+        <toc-element id="cloud-reports.xml"/>
+        <toc-element id="cloud-logs.xml"/>
+    </toc-element>
+
+    <toc-element id="cloud-manage-users.xml">
+        <toc-element id="cloud-change-user-roles.xml"/>
+    </toc-element>
+
+    <toc-element id="cloud-manage-projects.xml">
+        <toc-element id="cloud-project-reports.xml"/>
+        <toc-element id="cloud-project-groups.xml"/>
+    </toc-element>
+
 </product-profile>

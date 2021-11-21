@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Manage projects"
-       id="Manage_projects">
+       id="cloud-manage-projects">
 
     <p>To create a new project, on the <b>Projects</b> page click the <b>New project</b> button. </p>
 

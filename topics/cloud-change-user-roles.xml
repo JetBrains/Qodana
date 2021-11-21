@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Change user roles"
-       id="Change_user_roles">
+       id="cloud-change-user-roles">
 
     <p>You can promote any editor account to administrator. To do this, follow these steps:</p>
 <!-- Screenshots may be required here -->

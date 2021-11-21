@@ -13,16 +13,16 @@
             web-path="https://resources.jetbrains.com/help/img/qodana-cloud/QD-1613-Qodana-Cloud-User-Guide/"/>
     <categories src="c.list"/>
 
-    <product src="qd.tree" web-path="/qodana-cloud/QD-1613-Qodana-Cloud-User-Guide/"
+    <product src="qd.tree" web-path="/qodana/QD-1613-Qodana-Cloud-User-Guide/"
              teamcity-build-path="Documentation_Teamware_Qodana" version="QD-1613-Qodana-Cloud-User-Guide" keymaps-mode="none"/>
 
-    <product src="qd_tc.tree" web-path="/qodana-cloud/QD-1613-Qodana-Cloud-User-Guide/"
+    <product src="qd_tc.tree" web-path="/qodana/QD-1613-Qodana-Cloud-User-Guide/"
              teamcity-build-path="Documentation_Teamware_Qodana" version="QD-1613-Qodana-Cloud-User-Guide" keymaps-mode="none"/>
 
-    <product src="qd_tc_cf.tree" web-path="/qodana-cloud/QD-1613-Qodana-Cloud-User-Guide/"
+    <product src="qd_tc_cf.tree" web-path="/qodana/QD-1613-Qodana-Cloud-User-Guide/"
              teamcity-build-path="Documentation_Teamware_Qodana" version="QD-1613-Qodana-Cloud-User-Guide" keymaps-mode="none"/>
 
-    <product src="qd_tc_la.tree" web-path="/qodana-cloud/QD-1613-Qodana-Cloud-User-Guide/"
+    <product src="qd_tc_la.tree" web-path="/qodana/QD-1613-Qodana-Cloud-User-Guide/"
              teamcity-build-path="Documentation_Teamware_Qodana" version="QD-1613-Qodana-Cloud-User-Guide" keymaps-mode="none"/>
 
     <product src="qd_c.tree" web-path="/qodana-cloud/QD-1613-Qodana-Cloud-User-Guide/"

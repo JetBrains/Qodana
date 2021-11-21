@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Manage your account"
-       id="manage-your-account">
+       id="cloud-manage-your-account">
 
     <!-- What page will this link be accessible from? -->
 
@@ -21,6 +21,6 @@
         <li>Logs</li>
     </list>
 
-    <p>By default, you will see the settings of the **Subscription plan** tab.</p>
+    <p>By default, you will see the settings of the <b>Subscription plan</b> tab.</p>
 </topic>
 

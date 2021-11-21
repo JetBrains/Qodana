@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="User roles"
-       id="user_roles">
+       id="cloud-user-roles">
 
     <p>The role assigned to you will depend on how you registered at %product%:</p>
 

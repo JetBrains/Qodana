@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Project groups"
-       id="Project_groups">
+       id="cloud-project-groups">
 
     <p>You can group several projects into a project group. Here are the basic advantages of using project groups:</p>
 
