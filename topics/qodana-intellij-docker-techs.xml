@@ -138,7 +138,7 @@
                 </td>
                 <td>Name of a profile defined the in project. Note that the name of the profile does not necessarily
                     match the name of the containing file stored in <code>.idea/inspectionProfiles</code>. The actual
-                    name is stored as the <code>&lt;option name="myName" value="%profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the IDE UI. For details on
+                    name is stored as the <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the IDE UI. For details on
                     working with inspection profiles in the IDE, see the <a
                             href="https://www.jetbrains.com/help/idea/customizing-profiles.html">IntelliJ IDEA
                         documentation</a>.
@@ -193,7 +193,7 @@
             <p>By default, Heap size is set to 80% of the host RAM.</p>
         </chapter>
         <chapter id="Log+INFO+messages+to+STDOUT" title="Log INFO messages to STDOUT">
-            <code style="block" lang="shell">docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.log.config.file=info.xml' jetbrains/qodana
+            <code style="block" lang="shell">docker run ... jetbrains/qodana --property=idea.log.config.file=info.xml
 </code>
             <p>The default log level for STDOUT is <code>WARN</code>.
             </p>
@@ -211,13 +211,13 @@
             <p>To disable the <a href="qodana-intellij-docker-readme.md" anchor="Usage+statistics">reporting of usage
                 statistics</a>, adjust the <code>idea.headless.enable.statistics</code> value:
             </p>
-            <code style="block" lang="shell">docker run ... -e IDE_PROPERTIES_PROPERTY=&quot;-Didea.headless.enable.statistics=false&quot; jetbrains/qodana
+            <code style="block" lang="shell">docker run ... jetbrains/qodana --property=idea.headless.enable.statistics=false
 </code>
         </chapter>
         <chapter id="Manage+plugins" title="Manage plugins">
             <p>The set of plugins depends on the selected <a href="linters.md">Qodana linter</a>.</p>
             <p>You can add any free IntellJ platform plugins or your custom plugin by using the following command:</p>
-            <code style="block" lang="shell">docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
+            <code style="block" lang="shell">docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/qodana
 </code>
             <p>To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole
                 list of disabled plugins in <code>/root/.config/idea/disabled_plugins.txt</code>.
@@ -237,10 +237,7 @@
                     <p>Use IDE properties <code>idea.required.plugins.id</code> and <code>
                         idea.suppressed.plugins.id</code>:
                     </p>
-                    <code style="block" lang="shell">  docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=JavaScript,org.intellij.grails' jetbrains/qodana
-</code>
-                    <p>or</p>
-                    <code style="block" lang="shell">    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.suppressed.plugins.id=com.intellij.spring.security' jetbrains/qodana
+                    <code style="block" lang="shell">  docker run ... jetbrains/qodana --property=idea.required.plugins.id=JavaScript,org.intellij.grails --property=idea.suppressed.plugins.id=com.intellij.spring.security
 </code>
                 </li>
             </list>
@@ -253,7 +250,7 @@
         </chapter>
         <chapter id="Analyze+changes" title="Analyze changes">
             <p>Qodana IntelliJ lets you check only changed files:</p>
-            <code style="block" lang="shell">docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' jetbrains/qodana -changes
+            <code style="block" lang="shell">docker run ... jetbrains/qodana --property=idea.required.plugins.id=Git4Idea,Subversion,hg4idea --changes
 </code>
             <p>You can adjust the <code>idea.required.plugins.id</code> value and keep only the VCS plugin suitable for
                 your project.
@@ -359,14 +356,13 @@ docker run -u $(id -u):$(id -g) ...
     <chapter id="Order+of+resolving+a+profile" title="Order of resolving a profile">
         <p>Qodana IntelliJ checks the configuration parameters for resolving the inspection profile in this order:</p>
         <list type="decimal">
-            <li>Profile with the name <code>%name%</code> from the command-line option <code>--profile-name
-                %name%</code>.
+            <li>Profile with the name <code>%\name%</code> from the command-line option <code>--profile-name %\name%</code>.
             </li>
-            <li>Profile by the path <code>%path%</code> from the command-line option <code>--profile-path %path%</code>.
+            <li>Profile by the path <code>%\path%</code> from the command-line option <code>--profile-path %\path%</code>.
             </li>
-            <li>Profile with the name <code>%name%</code> from <code>qodana.yaml</code>.
+            <li>Profile with the name <code>%\name%</code> from <code>qodana.yaml</code>.
             </li>
-            <li>Profile by the path <code>%path%</code> from <code>qodana.yaml</code>.
+            <li>Profile by the path <code>%\path%</code> from <code>qodana.yaml</code>.
             </li>
             <li>Profile mounted to <code>/data/profile.xml</code>.
             </li>

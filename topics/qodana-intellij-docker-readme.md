@@ -120,7 +120,7 @@ Paid plugins are not yet supported. Each vendor must clarify licensing terms for
 Any free IntelliJ platform plugins or your custom plugin can be added by mounting it to the container plugins' directory using the following command:
 
 ```shell
-docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/qodana
+docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/qodana
 ```
 
 Refer to the [technical guide](qodana-intellij-docker-techs.xml) for more details.

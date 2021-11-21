@@ -258,7 +258,7 @@
             plugins' directory using the following command:
         </p>
         <code style="block" lang="shell">
-            docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/%linter-shell%
+            docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/%linter-shell%
         </code>
         <p>
             Refer to the <a href="%docker-tech-guide-page-url%">technical guide</a> for more details.
@@ -418,7 +418,7 @@
     <chunk id="inspection-profile-name-note">
         Note that the name of the profile does not necessarily
         match the name of the containing file stored in <code>.idea/inspectionProfiles</code>. The actual
-        name is stored as the <code>&lt;option name="myName" value="%profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the %ide% UI. For details on
+        name is stored as the <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the %ide% UI. For details on
         working with inspection profiles in %ide%, see the <a
             href="%code-inspection-profiles-ide-help-url%">%ide% documentation</a>.
     </chunk>
@@ -461,7 +461,7 @@
     </chunk>
 
     <chunk id="docker-config-log-info-to-stdout">
-        <code style="block" lang="shell">docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.log.config.file=info.xml' jetbrains/%linter-shell%
+        <code style="block" lang="shell">docker run ... jetbrains/%linter-shell% --property=idea.log.config.file=info.xml
         </code>
         <p>The default log level for STDOUT is <code>WARN</code>.
         </p>
@@ -481,13 +481,13 @@
         <p>To disable the <a href="%docker-general-guide-page-url%" anchor="Usage+statistics">reporting of usage
             statistics</a>, adjust the <code>idea.headless.enable.statistics</code> value:
         </p>
-        <code style="block" lang="shell">docker run ... -e IDE_PROPERTIES_PROPERTY=&quot;-Didea.headless.enable.statistics=false&quot; jetbrains/%linter-shell%
+        <code style="block" lang="shell">docker run ... jetbrains/%linter-shell% --property=idea.headless.enable.statistics=false
         </code>
     </chunk>
 
     <chunk id="docker-config-manage-plugins">
         <p>You can add any free IntelliJ platform plugins or your custom plugin by using the following command:</p>
-        <code style="block" lang="shell">docker run ... -v /your/custom/path/%pluginName%:/opt/idea/plugins/%pluginName% jetbrains/%linter-shell%
+        <code style="block" lang="shell">docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/%linter-shell%
         </code>
         <p>To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole
             list of disabled plugins in <code>/root/.config/idea/disabled_plugins.txt</code>.
@@ -526,11 +526,7 @@
                     idea.suppressed.plugins.id</code>:
                 </p>
                 <code style="block" lang="shell">
-                    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=JavaScript,org.intellij.grails' jetbrains/%linter-shell%
-                </code>
-                <p>or</p>
-                <code style="block" lang="shell">
-                    docker run ... -e IDE_PROPERTIES_PROPERTY='-Didea.suppressed.plugins.id=com.intellij.spring.security' jetbrains/%linter-shell%
+                    docker run ... jetbrains/%linter-shell% --property=idea.required.plugins.id=JavaScript,org.intellij.grails --property=idea.suppressed.plugins.id=com.intellij.spring.security
                 </code>
             </li>
         </list>
@@ -544,7 +540,7 @@
 
     <chunk id="docker-config-analyze-changes">
         <p>%linter% lets you check only changed files:</p>
-        <code style="block" lang="shell">docker run  -e IDE_PROPERTIES_PROPERTY='-Didea.required.plugins.id=Git4Idea,Subversion,hg4idea' jetbrains/%linter-shell% -changes
+        <code style="block" lang="shell">docker run ... jetbrains/%linter-shell% --property=idea.required.plugins.id=Git4Idea,Subversion,hg4idea --changes
         </code>
         <p>You can adjust the <code>idea.required.plugins.id</code> value and keep only the VCS plugin suitable for
             your project.
@@ -665,17 +661,17 @@
         </p>
         <list type="decimal">
             <li>
-                Profile with the name <code>%name%</code> from the command-line option <code>--profile-name
-                %name%</code>.
+                Profile with the name <code>%\name%</code> from the command-line option <code>--profile-name
+                %\name%</code>.
             </li>
             <li>
-                Profile by the path <code>%path%</code> from the command-line option <code>--profile-path %path%</code>.
+                Profile by the path <code>%\path%</code> from the command-line option <code>--profile-path %\path%</code>.
             </li>
             <li>
-                Profile with the name <code>%name%</code> from <code>qodana.yaml</code>.
+                Profile with the name <code>%\name%</code> from <code>qodana.yaml</code>.
             </li>
             <li>
-                Profile by the path <code>%path%</code> from <code>qodana.yaml</code>.
+                Profile by the path <code>%\path%</code> from <code>qodana.yaml</code>.
             </li>
             <li>
                 Profile mounted to <code>/data/profile.xml</code>.

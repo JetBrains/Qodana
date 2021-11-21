@@ -1,6 +1,7 @@
 [//]: # (title: Configure a Profile via qodana.yaml)
 
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
+<var name="ide" value="IDE"/>
 
 Qodana runs are configured via the `qodana.yaml` configuration file. Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. You can specify such overrides in the [HTML report](results.md), and the changes are imported to `qodana.yaml` automatically.
 
@@ -41,8 +42,6 @@ Out of the box, Qodana provides several predefined profiles:
 * `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis). 
 * `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
 * `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](linters.md) for details on configuring a project for the desired linter.
-* `kotlin.only`: a profile containing a preselected set of IntelliJ Kotlin inspections.
-* `php.default`: a profile containing a preselected set of IntelliJ PHP inspections.
 
 You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure the `.xml` file with this profile resides in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 
@@ -50,7 +49,7 @@ You can specify other profiles available in the respective IntelliJ Platform IDE
 
 ```yaml
 profile:
-    name: %name%
+    name: %\name%
 ```
 
 <p>
