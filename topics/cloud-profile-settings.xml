@@ -12,7 +12,7 @@
         <li>Your username</li>
         <li>Your email</li>
         <li>Change the look and feel of your account UI</li>
-        <li>Delete your Qodana Cloud account</li>
+        <li>Delete your %product% account</li>
     </list>
 
     <img src="qc-settings-profile-settings.png" alt="Profile settings" width="706" border-effect="line" title="Profile settings"/>
