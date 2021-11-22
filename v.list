@@ -284,4 +284,5 @@
     <var product="qd_c" name="product" value="Qodana Cloud"/>
     <var product="qd_c" name="qd" value="Qodana"/>
     <var product="qd" name="qd" value="Qodana"/>
+    <var product="qd" name="product_cloud" value="Qodana Cloud"/>
 </vars>

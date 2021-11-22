@@ -6,37 +6,35 @@
        title="Get access to Qodana Cloud"
        id="cloud-get-access" auxiliary-id="Get_access_to_Qodana_Cloud">
 
-    <p>You can get access to %product% via an invitation link. After you click the invitation link, the %product%
+    <p>You can get access to %product_cloud% via an invitation link. After you click the invitation link, the %product_cloud%
         homepage will open. Here, you can overview reports of publicly available and demo projects.</p>
 
-    <img src="qc-viewer-role.png" alt="Qodana Cloud UI overview" width="706" border-effect="line" title="Qodana Cloud UI overview"/>
+    <img src="qc-logged-out-overview.png" dark-src="qc-logged-out-overview_dark.png" alt="Qodana Cloud start page" width="810" border-effect="line" title="Qodana Cloud start page"/>
 
-    <p>To create an account at %product%, click the **Log in** button in the upper right corner of the UI.</p>
+    <p>To create an account at %product_cloud%, click the <menupath>Log in</menupath> button in the upper right corner of the UI.</p>
 
-    <img src="qc-viewer-role-login.png" alt="Qodana Cloud login" width="706" border-effect="line" title="Qodana Cloud login"/>
-
-    <p>On the <b>Log in</b> page, you can create a <a href="https://account.jetbrains.com/login">JetBrains account</a>
-        or use the existing account instead. Once you complete this step, choose the account type, either <b>commercial</b> or
-        <b>personal</b>.
+    <p>On the <menupath>Log in</menupath> page, you can create a <a href="https://account.jetbrains.com/login">JetBrains account</a>
+        or use the existing account instead. Once you complete this step, choose the account type, either <emphasis>commercial</emphasis> or
+        <emphasis>personal</emphasis>.
     </p>
 
     <p>If you choose the commercial type of account, you will be able to create a business account or join the existing account
-    of your company. If you plan to use %product% for personal purposes, choose the personal account.
+    of your company. If you plan to use %product_cloud% for personal purposes, choose the personal account type.
     </p>
 
-    <p>For more information about organizations in %product%, see the <b>Manage organizations</b> section.
+    <p>For more information about organizations in %product_cloud%, see the <a href="cloud-organizations.xml">Organizations</a> section.
     </p>
 
     <note>
         <p>Using a personal account, you will not be able to bind your personal account to a company or perform any actions on
-        behalf of your company. Personal accounts are always associated with the <b>My organization</b> company, which cannot be
+        behalf of your company. Personal accounts are always associated with the <emphasis>My organization</emphasis> company, which cannot be
         changed.
         </p>
     </note>
 
-    <p>Use the <b>Log in</b> button to log into %product%.</p>
+    <p>Use the <menupath>Log in</menupath> button to log into %product_cloud%.</p>
 
-    <p>Depending on your registration at %product%, a specific role will be assigned to your account. For more details, see
+    <p>Depending on your account type, a specific role will be assigned to your account. For more details, see
     the <a href="cloud-user-roles.xml">User roles</a> section.</p>
 
 </topic>

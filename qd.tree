@@ -101,7 +101,7 @@
         <toc-element id="qodana_gradle_plugin.md"/>
     </toc-element>
 
-    <toc-element id="cloud-about.xml">
+    <toc-element id="cloud-about.xml" toc-title="Qodana Cloud">
         <toc-element id="cloud-use-cases.xml"/>
         <toc-element id="cloud-get-access.xml"/>
 
