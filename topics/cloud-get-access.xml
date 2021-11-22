@@ -9,7 +9,7 @@
     <p>You can get access to %product_cloud% via an invitation link. After you click the invitation link, the %product_cloud%
         homepage will open. Here, you can overview reports of publicly available and demo projects.</p>
 
-    <img src="qc-logged-out-overview.png" dark-src="qc-logged-out-overview_dark.png" alt="Qodana Cloud start page" width="810" border-effect="line" title="Qodana Cloud start page"/>
+    <img src="qc-get-access.png" dark-src="qc-get-access_dark.png" alt="Qodana Cloud start page" width="706" border-effect="line" title="Qodana Cloud start page"/>
 
     <p>To create an account at %product_cloud%, click the <menupath>Log in</menupath> button in the upper right corner of the UI.</p>
 

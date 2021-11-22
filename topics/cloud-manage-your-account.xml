@@ -8,18 +8,23 @@
 
     <!-- What page will this link be accessible from? -->
 
+    <img src="qc-settings-setting-menu.png" alt="Settings menu" width="460" border-effect="line" title="Settings menu"/>
+
     <p>To manage your account, click the <b>Settings</b> menu point to open the <b>Settings</b> page. </p>
 
-    <img src="qc-settings-setting-menu.png" alt="Settings menu" width="460" border-effect="line" title="Settings menu"/>
+    <img src="qc-manage-your-account-2.png" alt="The Settings section" width="460" border-effect="line" title="The Settings section"/>
+
     <p>The <b>Settings</b> page consists of the following tabs:</p>
 
     <list>
-        <li>Subscription plan</li>
-        <li>Organizations</li>
-        <li>Profile settings</li>
-        <li>Reports</li>
-        <li>Logs</li>
+        <li><a href="cloud-subscription-plan.xml">Subscription plan</a></li>
+        <li><a href="cloud-organizations.xml">Organizations</a></li>
+        <li><a href="cloud-profile-settings.xml">Profile settings</a></li>
+        <li><a href="cloud-reports.xml">Reports</a></li>
+        <li><a href="cloud-logs.xml">Logs</a></li>
     </list>
+
+
 
     <p>By default, you will see the settings of the <b>Subscription plan</b> tab.</p>
 </topic>

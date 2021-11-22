@@ -26,7 +26,7 @@
             <li>Managing subscriptions</li>
         </list>
         <!-- This needs to be linked -->
-        <p>If you have a [commercial](#get-access-to-qodana-cloud) account, you will also be able to:</p>
+        <p>If you have a <a href="cloud-get-access.xml">commercial account</a>, you will also be able to:</p>
     <list>
         <li>Invite new users to join your company in %product_cloud%</li>
         <li>Manage the existing members of your company</li>
@@ -46,6 +46,6 @@
         </list>
 <!-- This needs to be referenced -->
         <p>Any editor can be promoted to <a anchor="cloud-user-role-administrator">administrator</a> , see the
-            [Change user roles](#Change+user+roles) section.</p>
+            <a href="cloud-change-user-roles.xml">Change user roles</a> section.</p>
     </chapter>
 </topic>

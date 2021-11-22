@@ -6,11 +6,9 @@
        title="Subscription plan"
        id="cloud-subscription-plan">
 
-    <p>You can manage your subscription using the <b>Subscription plan</b> section.</p>
+    <p>You can manage your subscription using the <menupath>Subscription plan</menupath> section.</p>
 
-    <!-- A screenshot needs to be added here based on the answers to the comments in use cases -->
+    <img src="qc-subscription-plan.png" alt="The Subscription plan section" width="460" border-effect="line" title="The Subscription plan section"/>
 
-    <img src="qc-settings-subscription-plan.png" alt="Subscription plan" width="706" border-effect="line" title="Subscription plan"/>
-
-    <p>Here, you can overview and upgrade your subscription plan.</p>
+    <p>Here, you can overview and upgrade your subscription plan. To do it, click the <menupath>Manage plan</menupath> link.</p>
 </topic>

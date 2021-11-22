@@ -26,11 +26,11 @@
     <chapter id="cloud-use-case-3" title="Your company relies on open source" level="4">
     <p> Today's software products often resort to open source libraries to
         perform specific tasks. This approach saves companies time and money. Unfortunately, nobody could assure you
-        that their code is free of bugs, and their licenses will meet your needs. Also, you cannot control the process
-        of open source development. Using %product% on GitHub, you can monitor quality of open source software used in
-        your project, and the License Audit linter will inspect all licenses. But if your project uses tens or hundreds
-        of free libraries, this becomes a challenging task. Using %product_cloud% allows you to aggregate tons of
-        reports under a single roof.</p>
+        that their code is free of bugs, and their licenses will meet your needs. Besides that, you cannot control the
+        process of open source development. Using %product% on GitHub, you can monitor quality of open source software
+        used in your project, and the License Audit linter will inspect all licenses. But if your project uses tens or
+        hundreds of free libraries, this becomes a challenging task. Using %product_cloud% allows you to aggregate tons
+        of reports under a single roof.</p>
     </chapter>
     <chapter id="cloud-use-case-4" title="Your company purchases software from third-party vendors" level="4">
     <p>In case your company buys software from the outside, you

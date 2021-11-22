@@ -6,38 +6,40 @@
        title="Overview reports"
        id="cloud-overview-reports">
 
-    <p>This is a %qd% report in the %product% UI.</p>
+    <p>Each %product% report aggregates information displayed in the %product_cloud% user interface.</p>
 
-        <img src="qc-report-intro.png" alt="Qodana Cloud report sample" width="706" border-effect="line" title="Qodana Cloud report sample"/>
+        <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report sample" width="706" border-effect="line" title="Qodana Cloud report sample"/>
 
-        <p>This report contains the following information fields (listed from top to bottom):</p>
+        <p>This report contains the following information fields, listed from top to bottom:</p>
 
     <list>
-        <li>Project name and location. Location is displayed if a project is hosted on a publicly available repository like GitHub.</li>
+        <li>Project name and location. Location is displayed if a project is hosted on a publicly available repository
+            like GitHub.</li>
         <li>Project URL.</li>
-        <li>Branch name, if this information is accessible. This field is configurable, so you can upload information about different branches or use a different criteria for grouping reports.</li>
-        <li>Commit hash, if this information is accessible.</li>
+        <li>Branch name. This field is configurable, so you can upload information about different branches or use a
+            different criteria for grouping reports.</li>
+        <li>Commit hash, if accessible.</li>
         <li>Date and time when a repository was analyzed.</li>
-        <li>Bar chart reflects the problems found during the five recent code analyses. The rightmost bar displays the latest inspection results.</li>
+        <li>Bar chart reflects the problems found during the five recent code analyses. The rightmost bar displays the
+            latest inspection results.</li>
     </list>
 
-    <p>%product% displays %qd% reports either in a separate or in a merged (aggregated) forms.</p>
-
-    <p>Merged reports display all problems that their reports contained. Repeating problems will be duplicated.</p>
+    <p>%product_cloud% displays %product% reports either in a separate or in a merged (aggregated) forms. Merged reports
+        display all problems that their reports contained. Repeating problems will be duplicated.</p>
 
     <p>Project without reports can also be deleted.</p>
 
-    <chapter id="cloud-overview-reports-generate-token" title="Generate a token" level="3">
+    <chapter id="cloud-overview-reports-generate-token" title="Generate a token">
         <!-- The token functionality needs to be described here too -->
 
-        <p>Tokens are used for uploading %qd% reports to %product%.</p>
+        <p>Tokens are used for uploading %product% reports to %product_cloud%.</p>
 
-        <p>After generation, this token needs to be added as a %qd% parameter to upload it to %product%.</p>
+        <p>After generation, this token needs to be added as a %product% parameter to upload it to %product_cloud%.</p>
 
-        <!-- While running %qd%, this needs to be run as the \-\-token parameter -->
+        <!-- While running %product%, this needs to be run as the \-\-token parameter -->
 
         <note>
-        <p>If %qd% reports have the same branch name and commit time, they are displayed as a single report.
+        <p>If %product% reports have the same branch name and commit time, they are displayed as a single report.
             If a branch name is the same but commit time varies, they will be displayed as separate reports.</p>
 
         <p>In case several reports are related to the same commit hash, they are displayed as a single report.</p>
@@ -45,8 +47,8 @@
         <p>To see the detailed report about a specific analysis, click the bar in the bar chart. This will open
             the <b>Report</b> page.</p>
 
-        <p>For more details about %qd% reports, see the
-        <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a> section of the %qd%
+        <p>For more details about %product% reports, see the
+        <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a> section of the %product%
             documentation.</p>
     </chapter>
 

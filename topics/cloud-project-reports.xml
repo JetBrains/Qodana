@@ -6,23 +6,23 @@
        title="Project reports"
        id="cloud-project-reports">
 
-    <p>Each project contains several Qodana reports. </p>
+    <p>Each project contains several %product% reports. </p>
 
-    <p>Each report contains the result of a Qodana inspection.</p>
+    <p>Each report contains the result of a %product% inspection.</p>
 
     <p>You can observe any report related to a specific project by clicking the diagram below the project description.
         Here, you can observe reports in the descending order, from the latest to previous reports. This diagram reflects the
-        project evolution and dynamics in problems detected by %qd%. </p>
+        project evolution and dynamics in problems detected by %product%. </p>
 
-    <p>In case your user has the <b>Administrator</b> role, you can delete any report from the project. The deleted report can
-        be recovered within 3 (three) months starting from the deletion date.</p>
+    <p>In case your user has the <emphasis>Administrator</emphasis> role, you can delete any report from the project.
+        After deletion, a report can be recovered within 3 (three) months starting from the deletion date.</p>
 
     <note>
-        In case a project contains two identical reports, the latest commit overwrites the preceding commit, so only the last
-        commit is displayed in the report.
+        In case a project contains two identical reports, the latest commit overwrites the preceding commit, so only the
+        latest commit is displayed in the report.
     </note>
 
-    <p>In case two different tools forward data within a single commit to %product%, two reports will be merged into a
-        single report. </p>
+    <p>In case two different tools forward data within a single commit to %product_cloud%, two reports will be merged
+        into a single report. </p>
 
 </topic>
