@@ -10,7 +10,7 @@
     <vars src="v.list"/>
     <topics dir="topics"/>
     <images dir="images" version="QD-1613-Qodana-Cloud-User-Guide"
-            web-path="https://resources.jetbrains.com/help/img/qodana-cloud/QD-1613-Qodana-Cloud-User-Guide/"/>
+            web-path="https://resources.jetbrains.com/help/img/qodana/QD-1613-Qodana-Cloud-User-Guide/"/>
     <categories src="c.list"/>
 
     <product src="qd.tree" web-path="/qodana/QD-1613-Qodana-Cloud-User-Guide/"
