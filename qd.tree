@@ -121,7 +121,6 @@
 
         <toc-element id="cloud-manage-users.xml">
             <toc-element id="cloud-change-user-roles.xml"/>
-            <toc-element id="cloud-manage-members.xml"/>
         </toc-element>
 
         <toc-element id="cloud-manage-projects.xml">
