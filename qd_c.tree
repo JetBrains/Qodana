@@ -10,6 +10,7 @@
         <toc-element id="cloud-use-cases.xml"/>
         <toc-element id="cloud-get-access.xml"/>
     </toc-element>
+    <toc-element id="cloud-manage-organization.xml"/>
 
     <toc-element id="cloud-user-roles.xml"/>
     <toc-element id="cloud-overview-reports.xml"/>

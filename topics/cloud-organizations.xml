@@ -14,28 +14,27 @@
 
     <!-- This description needs to be extended based on the answers from use-cases -->
 
-    <p>During the registration, %product% can suggest you to become a member of the organization based on your Email domain.
+    <p>During the registration, %product_cloud% will suggest you to become a member of the organization based on your Email domain.
         You can confirm this action.</p>
 
     <p>If the organization did not exist before, you can create it.</p>
 
     <p>You can also send a request for joining an existing organization.</p>
 
-    <p>The <b>Organizations</b> tab of the <b>Settings</b> section contains a list of organizations your account is associated with.</p>
+    <p>The <menupath>Organizations</menupath> tab of the <menupath>Settings</menupath> section contains a list of
+        organizations your account is associated with.</p>
 
     <img src="qc-settings-manage-organizations.png" alt="Managing organizations" width="706" border-effect="line" title="Managing organizations"/>
 
-    <p>If you have the <b>Admin</b> role in %product%, you can create and delete organizations.
+    <p>If you have the <emphasis>Administrator</emphasis> role in %product_cloud%, you can create and delete organizations.
         You can also manage members and visibility of the existing organizations:</p>
 
-    <!-- This list should be referenced -->
-
     <list>
-        <li>Add new members</li>
-        <li>Delete members</li>
-        <li>Modify organization's name, description, and logo</li>
+        <li><a href="cloud-manage-members.xml">Manage members of your organization</a></li>
+        <li><a href="cloud-manage-organization.xml">Modify the organization's name, description, and logo</a></li>
     </list>
 
-    <p>If you have a personal account, so you have the <b>Admin</b> role, but the <b>My organization</b> company is automatically
-        assigned to your account, so you cannot configure it or add any other organizations.</p>
+    <p>If you have a personal account, so you have the <emphasis>Administrator</emphasis> role, but the
+        <emphasis>My organization</emphasis> company is automatically  assigned to your account, so you cannot
+        configure it or add any other organizations.</p>
 </topic>

@@ -110,8 +110,10 @@
 
         <toc-element id="cloud-manage-your-account.xml">
             <toc-element id="cloud-subscription-plan.xml"/>
-            <toc-element id="cloud-organizations.xml"/>
-            <toc-element id="cloud-manage-members.xml"/>
+            <toc-element id="cloud-organizations.xml">
+                <toc-element id="cloud-manage-members.xml"/>
+                <toc-element id="cloud-manage-organization.xml"/>
+            </toc-element>
             <toc-element id="cloud-profile-settings.xml"/>
             <toc-element id="cloud-reports.xml"/>
             <toc-element id="cloud-logs.xml"/>
@@ -119,6 +121,7 @@
 
         <toc-element id="cloud-manage-users.xml">
             <toc-element id="cloud-change-user-roles.xml"/>
+            <toc-element id="cloud-manage-members.xml"/>
         </toc-element>
 
         <toc-element id="cloud-manage-projects.xml">

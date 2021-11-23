@@ -6,14 +6,18 @@
        title="Profile settings"
        id="cloud-profile-settings">
 
-    <p>In this tab, you can configure: </p>
+    <p>This tab provides basic configuration of your %product_cloud% account.</p>
+
+    <img src="qc-profile-settings.png" alt="Profile settings" width="706" border-effect="line" title="Profile settings"/>
+
+    <p>Using the <menupath>Profile settings</menupath> tab, you can configure: </p>
 
     <list>
         <li>Your username</li>
         <li>Your email</li>
-        <li>Change the look and feel of your account UI</li>
-        <li>Delete your %product% account</li>
+        <li>Look and feel of your account UI</li>
     </list>
 
-    <img src="qc-settings-profile-settings.png" alt="Profile settings" width="706" border-effect="line" title="Profile settings"/>
+    <p>You can also delete your %product_cloud% account.</p>
+
 </topic>

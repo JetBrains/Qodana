@@ -7,7 +7,7 @@
        id="cloud-manage-members">
 
     <!-- The link should be double-checked and reviewed before submitting -->
-    <p>To add new members to your organization, you can click the **Invite** button.</p>
+    <p>To add new members to your organization, you can click the <menupath>Invite</menupath> button.</p>
 
     <img src="qc-add-new-members.png" alt="Adding new members" width="460" border-effect="line" title="Adding new members"/>
 

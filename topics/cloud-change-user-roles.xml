@@ -8,11 +8,12 @@
 
     <p>You can promote any editor account to administrator. To do this, follow these steps:</p>
 <!-- Screenshots may be required here -->
-    <list>
-        <li>1. Navigate to the <menupath>Users</menupath> page.</li>
-        <li>2. On the <menupath>Users</menupath> page, click the user entry you want to modify. This will open the
+
+        <list type="decimal">
+            <li>Navigate to the <menupath>Users</menupath> page.</li>
+        <li>On the <menupath>Users</menupath> page, click the user entry you want to modify. This will open the
             <menupath>User</menupath> pane that contains information of the specific user account.</li>
-        <li>3. On the <menupath>User</menupath> pane, change the <emphasis>Role</emphasis> field from
-            <emphasis>Editor</emphasis> to <emphasis>Administrator</emphasis>. Click <menupath>Save</menupath>.</li>
-    </list>
+        <li>On the <menupath>User</menupath> pane, change <menupath>Role</menupath> from
+            <emphasis>Editor</emphasis> to <emphasis>Administrator</emphasis>. Click <menupath>Save</menupath>. </li>
+        </list>
 </topic>
