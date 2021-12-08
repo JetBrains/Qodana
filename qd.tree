@@ -102,8 +102,8 @@
     </toc-element>
 
     <toc-element id="cloud-about.xml" toc-title="Qodana Cloud">
-        <toc-element id="cloud-use-cases.xml"/>
-        <toc-element id="cloud-get-access.xml"/>
+        <toc-element id="cloud-get-access.xml" toc-title="Getting started"/>
+        <toc-element id="cloud-use-cases.xml" toc-title="Use cases"/>
 
         <toc-element id="cloud-user-roles.xml"/>
         <toc-element id="cloud-overview-reports.xml"/>
@@ -119,11 +119,11 @@
             <toc-element id="cloud-logs.xml"/>
         </toc-element>
 
-        <toc-element id="cloud-manage-users.xml">
+        <toc-element id="cloud-manage-users.xml" toc-title="Users">
             <toc-element id="cloud-change-user-roles.xml"/>
         </toc-element>
 
-        <toc-element id="cloud-manage-projects.xml">
+        <toc-element id="cloud-manage-projects.xml" toc-title="Projects">
             <toc-element id="cloud-project-reports.xml"/>
             <toc-element id="cloud-project-groups.xml"/>
         </toc-element>
