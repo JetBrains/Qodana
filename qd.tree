@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE product-profile
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-<product-profile id="qd" name="Qodana" start-page="welcome.xml" status="deprecated">
+<product-profile id="qd" name="Qodana" start-page="welcome.xml" status="release">
 
 
     <toc-element id="welcome.xml">
@@ -13,6 +13,10 @@
         <toc-element id="supported-technologies.md"/>
         <toc-element id="CHANGELOG.md"/>
         <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
+    </toc-element>
+
+    <toc-element id="concepts.xml">
+        <toc-element id="qodana-baseline.xml"/>
     </toc-element>
 
     <toc-element id="linters.md">
