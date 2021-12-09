@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE product-profile
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-<product-profile id="qd" name="Qodana" start-page="welcome.xml" status="release">
+<product-profile id="qd" name="Qodana" start-page="welcome.xml" status="deprecated">
 
 
     <toc-element id="welcome.xml">
