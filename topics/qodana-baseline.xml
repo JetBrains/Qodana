@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Baseline"
+       id="qodana-baseline">
+
+    <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %product% run and
+        contained in the <code style="inline">qodana.sarif.json</code> file.</p>
+
+    <p>Using the baseline feature, you can compare your current code with its baseline state and see new, unchanged, and
+        resolved problems.</p>
+
+    <chapter title="How it works">
+
+    <p>If you run %product% without a baseline, you will be able to see the problems detected at a current run.</p>
+
+        <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="705" alt="Running Qodana without baseline"/>
+
+    <p>In this case, you can only see the number of problems and their description, without classification to new and
+        existing problems. </p>
+
+        <p>To improve the situation, you can add problems to the baseline, download the
+            <code style="inline">qodana.sarif.json</code> file, and put it to your project directory as explained in the
+            <a href="ui-overview.md">Technical debt</a> section. Once done, this file becomes a basis for
+            comparing with subsequent code states. You can run the baseline with the following CLI command:
+        </p>
+
+        <code style="block">docker run ... <![CDATA[jetbrains/qodana-<linter> --baseline <path-to-qodana.sarif.json>]]></code>
+
+        <p>The baseline feature divides problems into these groups:</p>
+
+        <list>
+            <li><emphasis>Unchanged</emphasis> are the problems added to a baseline and remaining unchanged since then.</li>
+            <li><emphasis>New</emphasis> are the problems that arise in addition to the baseline problems.</li>
+            <li><emphasis>Absent</emphasis> are the baseline problems that were resolved since the baseline was created. </li>
+        </list>
+
+        <p>This image explains how everything works.</p>
+
+        <img src="baseline-enabled.png" dark-src="baseline-enabled_dark.png" width="706" alt="Enabling the baseline"/>
+
+    <list type="decimal">
+
+        <li>The first %product% run detected two problems in the codebase.</li>
+
+        <li>To create a baseline for your project, download the <code style="inline">qodana.sarif.json</code> file and
+            save it to your project directory as shown in the <a href="ui-overview.md">Technical debt</a> section.
+            Starting from this moment, these two problems are identified by %product% as baseline problems.
+        </li>
+
+        <li>A subsequent %product% run detected three problems. Fortunately, this time %product%
+            identifies one of them as new and marks it respectively. The other two are the baseline problems; they are
+            already reflected in the baseline report and marked as unchanged.
+        </li>
+
+        <li><p>After one baseline problem is resolved, you decided to run %product% again. This time, the report will
+            contain three problems. The new problem is the problem that was detected in the previous run and still
+            remains new. There is also one unchanged problem that has not changed its status. Finally, the first
+            baseline problem was resolved and now is marked as absent. </p>
+            <p>To include absent problems into the report, you need to run %product% with the
+                <code style="inline">--baseline-include-absent</code> option:</p>
+            <code style="block">docker run ... <![CDATA[jetbrains/qodana-<linter> --baseline <path-to-qodana.sarif.json> --baseline-include-absent]]></code>
+        </li>
+
+    </list>
+
+        <p>As you can see, new problems do not change the status across %product% runs. To transform them to unchanged,
+            you need to update your baseline.</p>
+
+        <img src="baseline-updating-baseline.png" dark-src="baseline-updating-baseline_dark.png" width="706" alt="Updating the baseline"/>
+
+        <list type="decimal">
+            <li>Download the <code style="inline">qodana.sarif.json</code> file again and save it to your project directory.</li>
+            <li>Run %product% again to see the change in the problem status.</li>
+        </list>
+    </chapter>
+
+</topic>
