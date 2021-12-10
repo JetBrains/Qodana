@@ -62,3 +62,4 @@ with `source-directory` pointing to the root of your project.
 - <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
+- <a href="qodana-php-language-upgrade.xml">See how migration between PHP versions will affect the code quality</a>

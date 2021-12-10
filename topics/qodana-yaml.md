@@ -1,4 +1,4 @@
-[//]: # (title: Configure a Profile via qodana.yaml)
+[//]: # (title: Configure profile)
 
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
@@ -12,6 +12,16 @@ To run subsequent checks with this customized configuration, save the file to th
 Configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IntelliJ IDEA or PhpStorm.
 
 </note>
+
+## Default profiles
+
+Out of the box, Qodana provides several predefined profiles:
+* `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
+* `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis).
+* `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
+* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](linters.md) for details on configuring a project for the desired linter.
+
+You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure the `.xml` file with this profile resides in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 
 ## How to choose a proper profile
 
@@ -37,19 +47,13 @@ Sometimes it may be challenging to set up analysis for a big project even with t
 
 ## Set up a profile
 
-Out of the box, Qodana provides several predefined profiles: 
-* `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
-* `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis). 
-* `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
-* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](linters.md) for details on configuring a project for the desired linter.
 
-You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure the `.xml` file with this profile resides in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 
 ### Set up a profile by the name
 
 ```yaml
 profile:
-    name: %\name%
+    name: <name>
 ```
 
 <p>
@@ -138,6 +142,26 @@ When this number of problems is reached, the container executes `exit 255`. This
 When running in [baseline mode](qodana-jvm-docker-techs.xml#Run+in+baseline+mode), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
 
 </note>
+
+### Override the default run scenario
+
+```yaml
+script:
+  name: <script-name>
+  parameters:
+      <parameter>: <value>
+```
+
+You can override the standard %product% behavior, which can be helpful in the case of the 
+[PHP version migration](qodana-php-language-upgrade.xml). To inspect your code from this perspective, you can run the 
+`php-migration` scenario.     
+
+By default, %product% employs the `default` scenario, which means the normal %product% run equivalent to this setting:
+
+```yaml
+script:
+  name: default
+```
 
 ### Example of different configuration options
 

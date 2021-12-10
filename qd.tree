@@ -15,15 +15,13 @@
         <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
     </toc-element>
 
-    <toc-element id="concepts.xml">
-        <toc-element id="qodana-baseline.xml"/>
-    </toc-element>
-
     <toc-element id="linters.md">
          <toc-element id="qodana-jvm.md"/>
          <toc-element id="qodana-jvm-community.md"/>
          <toc-element id="qodana-jvm-android.md"/>
-         <toc-element id="qodana-php.md"/>
+        <toc-element id="qodana-php.md">
+            <toc-element id="qodana-php-language-upgrade.xml"/>
+        </toc-element>
          <toc-element id="qodana-python.md"/>
         <toc-element id="qodana-js.md"/>
         <!--<toc-element id="qodana-go.md"/>-->

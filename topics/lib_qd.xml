@@ -408,9 +408,15 @@
             </tr>
             <tr>
                 <td>
-                    <code>-changes</code>
+                    <code>--changes</code>
                 </td>
                 <td>Inspect uncommitted changes and report new problems</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--script</code>
+                </td>
+                <td>Override the default run scenario (default: <code style="inline">default</code>)</td>
             </tr>
         </table>
     </chunk>
@@ -653,6 +659,21 @@
         </a> the project directory. In this case, we recommend excluding the cache folder from inspection via <a
                 href="qodana-yaml.md" anchor="include-example">qodana.yaml</a>.
         </p>
+    </chunk>
+
+    <chunk id="docker-config-script-docker">
+
+        <code style="block" lang="shell">
+            docker run ... <![CDATA[<qodana-linter> --script <script-name>:parameters]]>
+        </code>
+
+        <p>You can override the standard %product% run scenario by using the <code style="inline">--script</code> option.
+            By default, %product% employs the <code style="inline">default</code> scenario, which is equivalent to running:</p>
+
+        <code style="block" lang="shell">
+            docker run ... <![CDATA[<qodana-linter> --script default]]>
+        </code>
+
     </chunk>
 
     <chunk id="docker-config-profile-resolving">
