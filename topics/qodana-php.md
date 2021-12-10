@@ -27,13 +27,10 @@ To start, pull the image from Docker Hub (only necessary to get the latest versi
   docker pull %docker-image%
 </code>
 
-If you use PHP Composer, add the following step before running the analysis:
+If you use PHP Composer, Qodana will install your project dependencies automatically right before the code 
+analysis starts.
 
-```shell
- docker run --rm -v <source-directory>:/app composer:latest install
-```
-
-If you need to change the language level, add the following into `<source-directory>/.idea/php.xml`:
+In case you need to change the language level, add the following into `<source-directory>/.idea/php.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

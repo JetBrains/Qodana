@@ -51,9 +51,10 @@ problems will move to this tab.
 
 <img src="html-report-baseline.png" dark-src="html-report-baseline_dark.png" alt="The Technical debt tab overview" width="810" border-effect="line"/>
 
-This tab structure is similar to the **Actual problems** tab. To apply technical debt in future runs of Qodana, download
-the configuration file and save it to the project root folder. For more information, see the
-[technical debt or baseline](qodana-jvm-docker-techs.xml#Run+in+baseline+mode) running mode description.
+This tab structure is similar to the **Actual problems** tab. To apply technical debt (or baseline) in future runs of
+Qodana, download the configuration file and save it to the project root folder. For more information, explore the
+[Baseline](qodana-baseline.xml) section.
+
 
 ### Checks
 
