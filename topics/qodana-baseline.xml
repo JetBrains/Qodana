@@ -27,7 +27,10 @@
             comparing with subsequent code states. You can run the baseline with the following CLI command:
         </p>
 
-        <code style="block">docker run ... <![CDATA[jetbrains/qodana-<linter> --baseline <path-to-qodana.sarif.json>]]></code>
+        <code style="block" lang="shell">
+        docker run ... <![CDATA[jetbrains/qodana&minus;&lt;linter&gt; \
+        &minus;&minus;baseline &lt;path-to-qodana.sarif.json&gt;]]>
+        </code>
 
         <p>The baseline feature divides problems into these groups:</p>
 
@@ -61,7 +64,11 @@
             baseline problem was resolved and now is marked as absent. </p>
             <p>To include absent problems into the report, you need to run %product% with the
                 <code style="inline">--baseline-include-absent</code> option:</p>
-            <code style="block">docker run ... <![CDATA[jetbrains/qodana-<linter> --baseline <path-to-qodana.sarif.json> --baseline-include-absent]]></code>
+            <code style="block" lang="shell">
+            docker run ... <![CDATA[jetbrains/qodana&minus;&lt;linter&gt; \
+            &minus;&minus;baseline &lt;path-to-qodana.sarif.json&gt; \
+            &minus;&minus;baseline-include-absent]]>
+            </code>
         </li>
 
     </list>

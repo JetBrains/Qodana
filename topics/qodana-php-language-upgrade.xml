@@ -24,8 +24,8 @@
                     script:
                       name: php-migration
                       parameters:
-                          fromLevel: <![CDATA[<old-php-version>]]>
-                          toLevel: <![CDATA[<upgraded-php-version>]]>
+                          fromLevel: &lt;old-php-version&gt;
+                          toLevel: &lt;upgraded-php-version&gt;
                 </code>
                 <p>This snippet specifies the <code style="inline">php-migration</code> scenario using the
                     <code style="inline">name</code> parameter. The <code style="inline">fromLevel</code> and
@@ -44,7 +44,7 @@
             <tab title="CLI">
                 <code style="block" lang="shell">
                 docker run ... jetbrains/qodana-php \
-                --script php-migration:<![CDATA[<old-php-version>]]>-to-<![CDATA[<upgraded-php-version>]]>
+                <![CDATA[&minus;&minus;script php-migration:&lt;old-php-version&gt;&minus;to&minus;&lt;upgraded-php-version&gt;]]>
                 </code>
                 <p>This snippet specifies the <code style="inline">php-migration</code> scenario for the
                     <code style="inline">--script</code> option followed by the colon <code style="inline">:</code>
@@ -66,7 +66,7 @@
 
     <chapter title="Example">
 
-    <p>To show how the language migration feature works, the following PHP code snippet will be used:</p>
+    <p>To show how the language migration feature works, the following PHP code snippet will be inspected:</p>
 
     <code style="block" lang="php">
         <![CDATA[<?php]]>
@@ -85,7 +85,6 @@
     <p>If you run %product% with version 7.1 of the PHP runtime, the report will contain the following problems:</p>
 
     <code style="block" lang="shell">
-        ---- Qodana - Detailed summary ----
 
         Analysis results: 2 problems detected
 
@@ -93,12 +92,12 @@
         Name                                               Severity Count problems
         Missing return type declaration                    Info     1
         Unused declaration                                 Info     1
+
     </code>
 
     <p>Running %product% with version 8.0 of the PHP runtime will produce the following output: </p>
 
     <code style="block" lang="shell">
-        ---- Qodana - Detailed summary ----
 
         Analysis results: 3 problems detected
 
@@ -108,18 +107,21 @@
         Unused declaration                                 Info     1
         'switch' can be replaced with 'match' expression   Info     1
 
-        -----------------------------------
     </code>
 
-    <p>Running %product% with the migration feature enabled produces the following report:</p>
+    <p>Running %product% with the migration feature enabled will produce the following report:</p>
 
     <code style="block" lang="shell">
+
+        Analysis results: 1 problems detected
+
         Grouping problems by severity: Info: 1
         Name                                               Severity Count problems
         'switch' can be replaced with 'match' expression   Info     1
     </code>
 
-    <p>As you can see, the migration report showed the 7.1 problems subtracted from the 8.0 report.</p>
+    <p>As you can see, the migration report contains only the problem contained in the version 8.0 report and missing
+    from the version 7.1 report.</p>
 
     </chapter>
 
