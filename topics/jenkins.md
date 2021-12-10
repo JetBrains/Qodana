@@ -23,7 +23,7 @@ stage('Qodana') {
         }
     }
     steps {
-        sh "qodana --save-report"
+        sh "/opt/idea/bin/entrypoint --save-report"
     }
 }
 ```
