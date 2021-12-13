@@ -706,5 +706,8 @@
     <chunk id="qodana-intellij-deprecation">Qodana IntelliJ %tech% will be discontinued soon. Use <a href="%tech-link%">technology-specific Qodana %techs%</a> instead.
     </chunk>
 
+    <chunk id="jvm-android-warning">Qodana will currently report no issues if there are plain java modules in your project. See <a href="https://youtrack.jetbrains.com/issue/QD-1575">QD-1575</a> instead.
+    </chunk>
+        
 
 </topic>
