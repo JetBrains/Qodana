@@ -9,6 +9,8 @@
 
 ## Try it now
 
+<p><include src="lib_qd.xml" include-id="jvm-android-warning"/></p>
+
 ### Analyze a project locally
 
 <p><include src="lib_qd.xml" include-id="jvm-project-setup-note"/></p>
