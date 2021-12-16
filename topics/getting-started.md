@@ -2,13 +2,8 @@
 
 <var name="linter" value="Qodana"/>
 
-<note>
-
 <include src="lib_qd.xml" include-id="supported-techs">
-<var name="linter" value="Qodana"/>
 </include>
-
-</note>
 
 ## Analyze a project locally
 

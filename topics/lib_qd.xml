@@ -42,10 +42,9 @@
 
 
     <chunk id="supported-techs">
-        <var name="linter" value="Qodana"/>
-        <var name="supported-techs" value="Java, Kotlin, PHP, and Python projects"/>
-        %linter% supports <a href="supported-technologies.md">%supported-techs%</a>. Eventually, all languages and
-        technologies covered by JetBrains IDEs will be added.
+        The current version of %product% (%product-version%) lets you analyze
+        <a href="supported-technologies.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects.
+        Eventually, all languages and technologies covered by JetBrains IDEs will be added.
     </chunk>
 
     <chunk id="qodana-playground-tip">
@@ -704,6 +703,13 @@
     </chunk>
 
     <chunk id="qodana-intellij-deprecation">Qodana IntelliJ %tech% will be discontinued soon. Use <a href="%tech-link%">technology-specific Qodana %techs%</a> instead.
+    </chunk>
+
+    <chunk id="javascript-note-from-supported-technologies">
+        <p>If your project contains a frontend part written in Javascript or Typescript, the qualitative analysis will be
+        possible only if the project's directory contains downloaded dependencies and the project is ready to be built.
+        Simplifying this process and providing smooth support for at least for the projects based on
+            [npm](https://www.npmjs.com) is currently in development.</p>
     </chunk>
 
 
