@@ -2,8 +2,9 @@
 
 <var name="linter" value="Qodana"/>
 
-<include src="lib_qd.xml" include-id="supported-techs">
-</include>
+The current version of %product% (%product-version%) lets you analyze 
+<a href="supported-technologies.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects. Eventually, all 
+languages and technologies covered by JetBrains IDEs will be added.
 
 ## Analyze a project locally
 
