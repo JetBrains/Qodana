@@ -9,19 +9,19 @@
     <module name="qd-docs"/>
     <vars src="v.list"/>
     <topics dir="topics"/>
-    <images dir="images" version="2021.3"
-            web-path="https://resources.jetbrains.com/help/img/qodana/2021.3/"/>
+    <images dir="images" version="QD-1978-Simplify-the-docs"
+            web-path="https://resources.jetbrains.com/help/img/qodana/QD-1978-Simplify-the-docs/"/>
     <categories src="c.list"/>
 
-    <product src="qd.tree" web-path="/qodana/2021.3/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2021.3" keymaps-mode="none"/>
+    <product src="qd.tree" web-path="/qodana/QD-1978-Simplify-the-docs/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="QD-1978-Simplify-the-docs" keymaps-mode="none"/>
 
-    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/2021.3/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2021.3" keymaps-mode="none"/>
+    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/QD-1978-Simplify-the-docs/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="QD-1978-Simplify-the-docs" keymaps-mode="none"/>
 
-    <product src="qd_tc_cf.tree" web-path="/qodana-clone-finder-teamcity-plugin/2021.3/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2021.3" keymaps-mode="none"/>
+    <product src="qd_tc_cf.tree" web-path="/qodana-clone-finder-teamcity-plugin/QD-1978-Simplify-the-docs/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="QD-1978-Simplify-the-docs" keymaps-mode="none"/>
 
-    <product src="qd_tc_la.tree" web-path="/qodana-license-audit-teamcity-plugin/2021.3/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2021.3" keymaps-mode="none"/>
+    <product src="qd_tc_la.tree" web-path="/qodana-license-audit-teamcity-plugin/QD-1978-Simplify-the-docs/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="QD-1978-Simplify-the-docs" keymaps-mode="none"/>
 </ihp>

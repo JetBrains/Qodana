@@ -3,23 +3,34 @@
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
 <product-profile id="qd" name="Qodana" start-page="welcome.xml" status="release">
 
+    <!-- This page should contain big blocks from all the sections below -->
+    <toc-element id="welcome.xml"/>
 
-    <toc-element id="welcome.xml">
-        <toc-element id="getting-started.md" />
-        <toc-element id="qodana-yaml.md"/>
-    </toc-element>
-
-    <toc-element id="about-qodana.md">
+    <!-- All start pages should be created in bricks, but this needs to be examined additionally -->
+    <toc-element id="getting-started.xml" expand-mode="expand">
+        <!-- This page contents can be moved outside this section -->
+        <toc-element id="about-qodana.md"/>
+        <toc-element id="static-analysis.xml"/>
+        <toc-element id="code-inspections.xml"/>
+        <!-- Reference to the Integration section and plugins should be added here -->
+        <toc-element id="quickstart.md" toc-title="Quick start" />
         <toc-element id="supported-technologies.md"/>
         <toc-element id="CHANGELOG.md"/>
-        <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
     </toc-element>
 
-    <toc-element id="concepts.xml">
+    <!-- A special introduction page can be created for this section -->
+    <!-- Basic and complex configuration examples should be provided here -->
+    <toc-element id="configure-qodana.xml" expand-mode="expand">
+        <toc-element id="qodana-yaml.md"/>
+        <toc-element id="docker-images.md" toc-title="Docker image configuration"/>
+    </toc-element>
+
+    <toc-element id="features.xml">
         <toc-element id="qodana-baseline.xml"/>
     </toc-element>
 
-    <toc-element id="linters.md">
+    <!-- Link from the Supported technologies section should be given here -->
+    <toc-element id="linters.md" toc-title="Supported technologies">
          <toc-element id="qodana-jvm.md"/>
          <toc-element id="qodana-jvm-community.md"/>
          <toc-element id="qodana-jvm-android.md"/>
@@ -30,10 +41,9 @@
         <toc-element id="qodana-js.md"/>
         <!--<toc-element id="qodana-go.md"/>-->
         <toc-element id="about-qodana-intellij.md"/>
-        <toc-element toc-title="Experimental linters">
-            <toc-element id="about-clone-finder.md"/>
-            <toc-element id="about-license-audit.md"/>
-        </toc-element>
+        <toc-element id="about-clone-finder.md"/>
+        <toc-element id="about-license-audit.md"/>
+
     </toc-element>
 
     <toc-element id="results.md">
@@ -71,16 +81,15 @@
         <toc-element id="qodana-js-docker-readme.xml">
             <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
         </toc-element>
-        <toc-element toc-title="Experimental Docker images">
-            <toc-element id="clone-finder-docker-readme.md">
-                <toc-element id="clone-finder-docker-techs.md"/>
-            </toc-element>
-            <toc-element id="license-audit-docker-readme.md">
-                <toc-element id="license-audit-docker-techs.md"/>
-            </toc-element>
+        <toc-element id="clone-finder-docker-readme.md">
+            <toc-element id="clone-finder-docker-techs.md"/>
+        </toc-element>
+        <toc-element id="license-audit-docker-readme.md">
+            <toc-element id="license-audit-docker-techs.md"/>
         </toc-element>
     </toc-element>
 
+    <!-- This is the Integration section -->
     <toc-element id="ci.md">
         <toc-element id="github-actions.md">
             <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html"/>
@@ -102,9 +111,12 @@
 
     <toc-element id="service.md"/>
 
+    <!-- This is the Plugins section -->
     <toc-element title="Qodana Plugins" id="qodana_plugins.md">
         <toc-element id="qodana-ide-plugin.md"/>
         <toc-element id="qodana_gradle_plugin.md"/>
     </toc-element>
+
+    <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
 
 </product-profile>

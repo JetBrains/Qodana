@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Configure Qodana"
+       id="Configure_Qodana.xml">
+
+    <section-starting-page>
+        <title>These topics will help you configure Qodana.</title>
+        <description>Description of this section.</description>
+        <tip-group>
+            <title>Learn how to configure Qodana.</title>
+            <a href="qodana-yaml.md" type="case"/>
+            <a href="docker-images.md" type="container"/>
+        </tip-group>
+
+        <main-group>
+            <title>These are the other options for configuration.</title>
+            <a href="welcome.xml"
+               description="Return to the Welcome page."
+               type="navigation"/>
+        </main-group>
+
+    </section-starting-page>
+
+</topic>

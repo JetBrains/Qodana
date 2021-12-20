@@ -44,6 +44,6 @@ To actively participate in the Qodana community, join [Qodana Slack](http://qoda
 
 ## Next steps
 
-- <a href="getting-started.md"/>
+- <a href="quickstart.md"/>
   
 - <a href="supported-technologies.md"/>
