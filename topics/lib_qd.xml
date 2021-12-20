@@ -293,131 +293,242 @@
             </tr>
             <tr>
                 <td>
+                    <code>/opt/idea</code>
+                </td>
+                <td>%ide% distributive directory</td>
+            </tr>
+            <tr>
+                <td>
                     <code>/root/.config/idea</code>
                 </td>
                 <td>%ide% configuration directory</td>
             </tr>
             <tr>
                 <td>
-                    <code>/opt/idea</code>
-                </td>
-                <td>Directory of the %ide% distributive</td>
-            </tr>
-            <tr>
-                <td>
                     <code>/data/profile.xml</code>
                 </td>
-                <td>Used if a profile wasn't configured by run options or via <code>qodana.yaml</code>. See <a anchor="Order+of+resolving+a+profile">Order of resolving a profile</a>.
+                <td>Used if a profile was not previously configured either via the CLI or the <code>qodana.yaml</code>
+                    file. See <a anchor="Order+of+resolving+a+profile">Order of resolving a profile</a>.
                 </td>
             </tr>
         </table>
     </chunk>
 
     <chunk id="docker-config-options">
-        <p>
-            The following arguments are available for the <code>jetbrains/%linter-shell%</code> command.
-        </p>
-        <table column-width="fixed">
-            <tr>
-                <td width="20%">Option</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td><code>-i</code>,
-                    <code>--project-dir=</code>
-                </td>
-                <td>Project root folder (default: current working directory <code>/data/project</code>)
-                </td>
-            </tr>
-            <tr>
-                <td><code>-o</code>,
-                    <code>--results-dir=</code>
-                </td>
-                <td>Save results to folder (default: <code>/data/results</code>)
-                </td>
-            </tr>
-            <tr>
-                <td><code>-r</code>,
-                    <code>--report-dir=</code>
-                </td>
-                <td>Save HTML report to folder (default: <code>/data/results/report</code>)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>--cache-dir=</code>
-                </td>
-                <td>Set cache folder (default: <code>/data/cache</code>)
-                </td>
-            </tr>
-            <tr>
-                <td><code>-s</code>,
-                    <code>--save-report</code>
-                </td>
-                <td>Generate HTML report</td>
-            </tr>
-            <tr>
-                <td><code>-w</code>,
-                    <code>--show-report</code>
-                </td>
-                <td>Serve HTML report on port 8080</td>
-            </tr>
-            <tr>
-                <td><code>-b</code>,
-                    <code>--baseline</code>
-                </td>
-                <td>Run <a anchor="Run+in+baseline+mode">in baseline mode</a>. Provide the path to an existing SARIF
-                    report to be used in the baseline state calculation.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>--baseline-include-absent</code>
-                </td>
-                <td>Include in the output report the results from the baseline run that are absent in the current run
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>--fail-threshold</code>
-                </td>
-                <td>Set the number of problems that will serve as a quality gate. If this number is reached, the
-                    inspection run is terminated.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>-d</code>
-                </td>
-                <td>Directory to be inspected. If not specified, the whole project is inspected by default</td>
-            </tr>
-            <tr>
-                <td><code>-n</code>,
-                    <code>--profile-name</code>
-                </td>
-                <td>Name of a profile defined the in project.
-                    <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
-                </td>
-            </tr>
-            <tr>
-                <td><code>-p</code>,
-                    <code>--profile-path</code>
-                </td>
-                <td>Absolute path to the profile file</td>
-            </tr>
-            <tr>
-                <td>
-                    <code>--changes</code>
-                </td>
-                <td>Inspect uncommitted changes and report new problems</td>
-            </tr>
-            <tr>
-                <td>
-                    <code>--script</code>
-                </td>
-                <td>Override the default run scenario (default: <code style="inline">default</code>)</td>
-            </tr>
-        </table>
+
+        <p>Docker images can be configured using several CLI options. All these options can be divided into three
+            groups. </p>
+        <p>The first group requires the equal sign (<code>&#61;</code>) to be placed between the option name and its
+            argument like <code>--project-dir=/path/to/project</code>.</p>
+        <p>The second group uses the space character (<code>&#160;</code>) to separate option names and their arguments
+            like <code>−−baseline /path/to/sarif/file</code>.</p>
+        <p>The third group of options does not require any arguments to be supplied with, as you can see it in case of
+            the <code>--save-report</code> option.</p>
+
+        <p>You can run the <code style="inline" lang="shell">docker run jetbrains/%linter-shell%</code> command to see
+            the list of options in the CLI.</p>
+
+        <chapter id="docker+config+options+directories" title="Directories">
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-i</code>,
+                        <code>--project-dir=</code>
+                    </td>
+                    <td>Root directory of the inspected project (default: current working directory <code>/data/project</code>).
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>-o</code>,
+                        <code>--results-dir=</code>
+                    </td>
+                    <td>Directory to save %product% inspection results to (default: <code>/data/results</code>).
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>-r</code>,
+                        <code>--report-dir=</code>
+                    </td>
+                    <td>Directory to save an HTML report to (default: <code>/data/results/report</code>).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--cache-dir=</code>
+                    </td>
+                    <td>Cache directory (default: <code>/data/cache</code>).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-d</code>,
+                        <code>--source-directory</code>
+                    </td>
+                    <td>Directory inside the <code>project-dir</code> directory that needs to be inspected. If not
+                        specified, the whole project is inspected.</td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="docker+config+options+profile+configuration" title="Profile">
+
+            <p>%product% profile can be configured using these CLI options. Alternatively, you can configure %product%
+                using the <code>qodana.yaml</code> file as described in the <a href="qodana-yaml.md">Configure profile</a> section.</p>
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>--disable-sanity</code></td>
+                    <td>Skip running the inspections configured by the <code>sanity</code> profile (default: enabled).</td>
+                </tr>
+                <tr>
+                    <td><code>-n</code>,
+                        <code>--profile-name</code>
+                    </td>
+                    <td>Profile name defined in the project.
+                        <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>-p</code>,
+                        <code>--profile-path</code>
+                    </td>
+                    <td>Absolute path to the profile file.</td>
+                </tr>
+                <tr>
+                    <td><code>--run-promo</code></td>
+                    <td>Set to <code>true</code> to have the application run the inspections configured by the
+                        <code>promo</code> profile; set to <code>false</code> otherwise. By  default, a
+                        <code>promo</code> run is enabled if the application is executed with the
+                        <code>default</code> profile and is disabled otherwise.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-t</code>,
+                        <code>--stub-profile</code>
+                    </td>
+                    <td>Absolute path to the fallback profile file. This option is applied in case the profile was not
+                        specified using any available options.
+                    </td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="docker+config+options+baseline" title="Baseline">
+
+            <p>To learn more about the baseline feature, see the
+                <a anchor="Run+in+baseline+mode">Run in baseline mode</a> example, or study the
+                <a href="qodana-baseline.xml">Baseline</a> section.</p>
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-b</code>,
+                        <code>--baseline</code>
+                    </td>
+                    <td>Run Qodana <a href="qodana-baseline.xml">in the baseline mode</a>. Provide the path to an
+                        existing SARIF report to be used in the baseline state calculation.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--baseline-include-absent</code>
+                    </td>
+                    <td>Include in the output report the results from the baseline run that are absent in the current run.
+                    </td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="docker+config+options+miscellaneous" title="Miscellaneous">
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-s</code>,
+                        <code>--save-report</code>
+                    </td>
+                    <td>Generate HTML report.</td>
+                </tr>
+                <tr>
+                    <td><code>-w</code>,
+                        <code>--show-report</code>
+                    </td>
+                    <td>Serve HTML report on port 8080.</td>
+                </tr>
+                <tr>
+                    <td><code>--property=</code></td>
+                    <td>Set a JVM property to be used while running %product% using the
+                        <code>--property=property.name=value1,value2,...,valueN</code> notation. This option can be
+                        repeated multiple times for setting multiple JVM properties. </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--fail-threshold</code>
+                    </td>
+                    <td>Set the number of problems that will serve as a quality gate. If this number is reached, the
+                        inspection run is terminated.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-c</code>,
+                        <code>--changes</code>
+                    </td>
+                    <td>Inspect uncommitted changes and report new problems.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--script</code>
+                    </td>
+                    <td>Override the default run scenario (default: <code style="inline">default</code>).</td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="docker+config+options+qodana+cloud" title="Qodana Cloud">
+
+            <note><p>Qodana Cloud is currently under development.</p></note>
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>--send-report</code></td>
+                    <td>Send the inspection report to Qodana Cloud, requires the <code>--token</code> option to be specified.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>-t</code>,
+                        <code>--token=</code>
+                    </td>
+                    <td>Qodana Cloud integration token.</td>
+                </tr>
+                <tr>
+                    <td><code>-a</code>,
+                        <code>--analysis-id=</code>
+                    </td>
+                    <td>Unique report identifier (GUID) to be used by Qodana Cloud.</td>
+                </tr>
+            </table>
+        </chapter>
+
     </chunk>
 
     <chunk id="inspection-profile-name-note">
@@ -430,7 +541,8 @@
 
     <chunk id="docker-config-override-profile">
         <code style="block" lang="shell">
-            docker run ... -v &lt;inspection-profile.xml&gt;:/data/profile.xml jetbrains/%linter-shell%
+            docker run ... -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
+            jetbrains/%linter-shell%
         </code>
         <p>If no profile is specified, the default <code>qodana.recommended</code> profile is used. For more options
             of how to specify a profile, see <a anchor="Order+of+resolving+a+profile">Order of resolving a
@@ -466,19 +578,25 @@
     </chunk>
 
     <chunk id="docker-config-log-info-to-stdout">
-        <code style="block" lang="shell">docker run ... jetbrains/%linter-shell% --property=idea.log.config.file=info.xml
+        <code style="block" lang="shell">
+            docker run ... jetbrains/%linter-shell% \
+            --property=idea.log.config.file=info.xml
         </code>
         <p>The default log level for STDOUT is <code>WARN</code>.
         </p>
     </chunk>
 
     <chunk id="docker-config-modify-gradle-settings">
-        <code style="block" lang="shell"> docker run ... -v &lt;source-directory&gt;/gradle.properties:/root/.gradle/gradle.properties jetbrains/%linter-shell%
+        <code style="block" lang="shell">
+            docker run ... -v &lt;source-directory&gt;/gradle.properties:/root/.gradle/gradle.properties \
+            jetbrains/%linter-shell%
         </code>
     </chunk>
 
     <chunk id="docker-config-different-properties-file">
-        <code style="block" lang="shell"> docker run ... -e IDEA_PROPERTIES=/data/project/idea.properties jetbrains/%linter-shell%
+        <code style="block" lang="shell">
+            docker run ... -e IDEA_PROPERTIES=/data/project/idea.properties \
+            jetbrains/%linter-shell%
         </code>
     </chunk>
 
@@ -486,13 +604,17 @@
         <p>To disable the <a href="%docker-general-guide-page-url%" anchor="Usage+statistics">reporting of usage
             statistics</a>, adjust the <code>idea.headless.enable.statistics</code> value:
         </p>
-        <code style="block" lang="shell">docker run ... jetbrains/%linter-shell% --property=idea.headless.enable.statistics=false
+        <code style="block" lang="shell">
+            docker run ... jetbrains/%linter-shell% \
+            --property=idea.headless.enable.statistics=false
         </code>
     </chunk>
 
     <chunk id="docker-config-manage-plugins">
         <p>You can add any free IntelliJ platform plugins or your custom plugin by using the following command:</p>
-        <code style="block" lang="shell">docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/%linter-shell%
+        <code style="block" lang="shell">
+            docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% \
+            jetbrains/%linter-shell%
         </code>
         <p>To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole
             list of disabled plugins in <code>/root/.config/idea/disabled_plugins.txt</code>.
@@ -523,7 +645,8 @@
                 <p>Override <code>disabled_plugins.txt</code> by mounting your own file:
                 </p>
                 <code style="block" lang="shell">
-                    docker run ... -v $empty_file$:/root/.config/idea/disabled_plugins.txt jetbrains/%linter-shell%
+                    docker run ... -v $empty_file$:/root/.config/idea/disabled_plugins.txt \
+                    jetbrains/%linter-shell%
                 </code>
             </li>
             <li>
@@ -531,7 +654,9 @@
                     idea.suppressed.plugins.id</code>:
                 </p>
                 <code style="block" lang="shell">
-                    docker run ... jetbrains/%linter-shell% --property=idea.required.plugins.id=JavaScript,org.intellij.grails --property=idea.suppressed.plugins.id=com.intellij.spring.security
+                    docker run ... jetbrains/%linter-shell% \
+                    --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
+                    --property=idea.suppressed.plugins.id=com.intellij.spring.security
                 </code>
             </li>
         </list>
@@ -545,7 +670,10 @@
 
     <chunk id="docker-config-analyze-changes">
         <p>%linter% lets you check only changed files:</p>
-        <code style="block" lang="shell">docker run ... jetbrains/%linter-shell% --property=idea.required.plugins.id=Git4Idea,Subversion,hg4idea --changes
+        <code style="block" lang="shell">
+            docker run ... jetbrains/%linter-shell% \
+            --property=idea.required.plugins.id=Git4Idea,Subversion,hg4idea \
+            --changes
         </code>
         <p>You can adjust the <code>idea.required.plugins.id</code> value and keep only the VCS plugin suitable for
             your project.
@@ -563,7 +691,8 @@
             the appearance of new ones.
         </p>
         <code style="block" lang="shell">
-            docker run ... jetbrains/%linter-shell% --baseline &lt;baseline-path&gt; [--baseline-include-absent]
+            docker run ... jetbrains/%linter-shell% \
+            --baseline &lt;baseline-path&gt; [--baseline-include-absent]
         </code>
         <p>where <code>&lt;baseline-path&gt;</code> is the path to a <code>qodana.sarif.json</code> file
             from an earlier run. If the <code>--baseline-include-absent</code> option is provided, the inspection
@@ -598,7 +727,9 @@
         <p>%linter% lets you configure a "quality gate", that is, the number of problems
             that will act as a threshold. If the threshold number is reached, the inspection run is terminated.
         </p>
-        <code style="block" lang="shell">docker run ... jetbrains/%linter-shell% --fail-threshold &lt;number&gt;</code>
+        <code style="block" lang="shell">
+            docker run ... jetbrains/%linter-shell% --fail-threshold &lt;number&gt;
+        </code>
         <p>When running in <a anchor="Run+in+baseline+mode">baseline mode</a>, a threshold is calculated as the sum
             of <i>new</i> and <i>absent</i> problems. <i>Unchanged</i> results are ignored.
         </p>
@@ -661,18 +792,16 @@
     </chunk>
 
     <chunk id="docker-config-script-docker">
-
         <code style="block" lang="shell">
-            docker run ... <![CDATA[<qodana-linter> --script <script-name>:parameters]]>
+            docker run ... jetbrains/%linter-shell% --script &lt;script-name&gt;&#58;&lt;parameters&gt;
         </code>
 
         <p>You can override the standard %product% run scenario by using the <code style="inline">--script</code> option.
             By default, %product% employs the <code style="inline">default</code> scenario, which is equivalent to running:</p>
 
         <code style="block" lang="shell">
-            docker run ... <![CDATA[<qodana-linter> --script default]]>
+            docker run ... jetbrains/%linter-shell% --script default
         </code>
-
     </chunk>
 
     <chunk id="docker-config-profile-resolving">

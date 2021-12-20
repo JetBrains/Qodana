@@ -102,6 +102,13 @@
             <include src="lib_qd.xml" include-id="docker-config-cache-dependencies"/>
 
         </chapter>
+
+        <chapter id="Override+qodana+workflow" title="Override the default run scenario">
+
+            <include src="lib_qd.xml" include-id="docker-config-script-docker"/>
+
+        </chapter>
+
     </chapter>
 
     <chapter id="Order+of+resolving+a+profile" title="Order of resolving a profile">
