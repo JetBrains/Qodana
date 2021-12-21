@@ -22,7 +22,7 @@
     <!-- Basic and complex configuration examples should be provided here -->
     <toc-element id="configure-qodana.xml" expand-mode="expand">
         <toc-element id="qodana-yaml.md"/>
-        <toc-element id="docker-images.md" toc-title="Docker image configuration"/>
+        <toc-element id="docker-images.md"/>
     </toc-element>
 
     <toc-element id="features.xml">

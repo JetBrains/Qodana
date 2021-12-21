@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Getting started"
-       id="Getting_started.xml">
+       id="getting-started.xml">
 
 <section-starting-page>
         <title>Getting started</title>
@@ -13,21 +13,24 @@
     <!-- Description to each group needs to be added here -->
     <tip-group>
         <!-- This page content needs to be modified -->
-        <a href="about-qodana.md" type="academy"/>
-        <a href="quickstart.md" type="start"/>
+        <a href="about-qodana.md" description="Learn about Qodana." type="academy"/>
+        <a href="quickstart.md" description="Explore how to run Qodana within a couple of minutes." type="start"/>
     </tip-group>
 
     <main-group>
         <!-- Article -->
         <title>Other articles to help you get started.</title>
-        <a href="static-analysis.xml" type="network"/>
-        <a href="code-inspections.xml" type="filtering"/>
-        <a href="supported-technologies.md" type="support"/>
-        <a href="CHANGELOG.md" type="file"/>
-        <a href="welcome.xml"
-           description="Return to the Welcome page."
-           type="navigation"/>
+        <a href="static-analysis.xml" description="If you are new to static analysis, this information is a perfect starter." type="network"/>
+        <a href="code-inspections.xml" description="Learn the code inspection concept applied in Qodana and other JetBrains products." type="filtering"/>
+        <a href="supported-technologies.md" description="Qodana can analyze codebases written in Java, Kotlin, Python, PHP, and JavaScript." type="support"/>
+        <a href="CHANGELOG.md" description="See how Qodana evolves." type="file"/>
+        <a href="welcome.xml" description="Return to the Welcome page." type="navigation"/>
     </main-group>
+
+    <highlighted-group>
+        <title>Useful links</title>
+        <a href="qodana-yaml.md" description="Configure qodana.yaml."/>
+    </highlighted-group>
 
     <!-- The list of all sections should be added here in the custom groups-->
 

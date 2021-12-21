@@ -4,15 +4,15 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Configure Qodana"
-       id="Configure_Qodana.xml">
+       id="configure-qodana.xml">
 
     <section-starting-page>
         <title>These topics will help you configure Qodana.</title>
         <description>Description of this section.</description>
         <tip-group>
             <title>Learn how to configure Qodana.</title>
-            <a href="qodana-yaml.md" type="case"/>
-            <a href="docker-images.md" type="container"/>
+            <a href="qodana-yaml.md" description="Configure the Qodana profile." type="case"/>
+            <a href="docker-images.md" description="Docker image configuration options." type="container"/>
         </tip-group>
 
         <main-group>
@@ -21,6 +21,11 @@
                description="Return to the Welcome page."
                type="navigation"/>
         </main-group>
+
+        <highlighted-group>
+            <title>Useful links</title>
+            <a href="qodana-yaml.md" description="Configure qodana.yaml."/>
+        </highlighted-group>
 
     </section-starting-page>
 
