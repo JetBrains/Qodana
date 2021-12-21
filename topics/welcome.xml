@@ -22,23 +22,11 @@
         </tip-group>
 
         <main-group>
-            <title>Qodana linters</title>
-            <a href="qodana-jvm.md"
-               description="The Qodana for JVM linter lets you perform static analysis of Java and Kotlin for Server Side projects, with Spring, Jakarta EE, Java EE, Micronaut, Quarkus, Helidon, and more JVM frameworks support."/>
-            <a href="qodana-jvm-community.md"
-               description="The Qodana Community for JVM linter lets you perform static analysis of Java and Kotlin for Server Side projects."/>
-            <a href="qodana-jvm-android.md"
-               description="The Qodana Community for Android linter lets you perform static analysis of Java and Kotlin for Server Side projects with Android development support."/>
-            <a href="qodana-php.md"
-               description="The Qodana for PHP linter lets you perform static analysis of PHP projects."/>
-            <a href="qodana-python.md"
-               description="The Qodana for Python linter lets you perform static analysis of Python projects."/>
-            <a href="qodana-js.md"
-               description="The Qodana for JS linter lets you perform static analysis of JavaScript and TypeScript projects."/>
-            <a href="about-clone-finder.md"
-               description="Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance."/>
-            <a href="about-license-audit.md"
-               description="Qodana License Audit helps software projects avoid problems with incompatible third-party licenses."/>
+            <title>Qodana features</title>
+            <!-- This page needs to be rewritten -->
+            <a href="supported-technologies.md" description="Qodana supports several technologies to analyze your code."/>
+            <a href="ci.md" description="Explore how to integrate Qodana to your favorite CI/CD systems."/>
+            <a href="results.md" description="Study the methods for obtaining analysis results."/>
         </main-group>
 
         <highlighted-group>

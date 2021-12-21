@@ -10,10 +10,10 @@
     <toc-element id="getting-started.xml" expand-mode="expand">
         <!-- This page contents can be moved outside this section -->
         <toc-element id="about-qodana.md"/>
+        <toc-element id="quickstart.md"/>
         <toc-element id="static-analysis.xml"/>
         <toc-element id="code-inspections.xml"/>
         <!-- Reference to the Integration section and plugins should be added here -->
-        <toc-element id="quickstart.md" toc-title="Quick start" />
         <toc-element id="supported-technologies.md"/>
         <toc-element id="CHANGELOG.md"/>
     </toc-element>

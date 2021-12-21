@@ -19,7 +19,7 @@
 
     <main-group>
         <!-- Article -->
-        <title>Other articles to help you get started.</title>
+        <title>Learn the concepts Qodana is based on.</title>
         <a href="static-analysis.xml" description="If you are new to static analysis, this information is a perfect starter." type="network"/>
         <a href="code-inspections.xml" description="Learn the code inspection concept applied in Qodana and other JetBrains products." type="filtering"/>
         <a href="supported-technologies.md" description="Qodana can analyze codebases written in Java, Kotlin, Python, PHP, and JavaScript." type="support"/>

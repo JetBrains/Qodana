@@ -1,4 +1,4 @@
-[//]: # (title: Getting started)
+[//]: # (title: Quick start)
 
 <var name="linter" value="Qodana"/>
 
