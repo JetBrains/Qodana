@@ -6,6 +6,16 @@
        title="Code inspections"
        id="code-inspections">
 
-    <p>Start writing here.</p>
+    <p>Each inspection is a set of conditions to check code, detect and correct abnormal fragments in it. Qodana
+        inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
+        and thus facilitate to improving the overall code structure.</p>
+
+    <p>All inspections are highly configurable, so you can configure:</p>
+
+    <list>
+        <li>The inspections to run for your codebase</li>
+        <li>Directories and files to include in your code checking</li>
+        <li>Configure and use <a href="qodana-yaml.md">inspection profiles</a></li>
+    </list>
 
 </topic>
