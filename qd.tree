@@ -32,7 +32,7 @@
     <!-- New file for docker images can be created here and new content can be created here as well -->
     <!-- Qodana GitHub action, Qodana GitHub application, Qodana TeamCity plugin installation options should be mentioned here-->
     <toc-element id="install-qodana.xml">
-        <toc-element id="docker-images.md"/>
+<!--        <toc-element id="docker-images.md"/> -->
         <toc-element id="service.md"/>
         <toc-element title="Qodana Plugins" id="qodana_plugins.md">
             <toc-element id="qodana-ide-plugin.md"/>

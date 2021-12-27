@@ -25,7 +25,8 @@
             <title>Further steps to take</title>
             <a href="install-qodana.xml" description="Learn how to install Qodana using all available distributions."/>
             <a href="configure-qodana.xml" description="Sections that explain how you can configure Qodana."/>
-
+            <a href="inspect-your-code.xml" description="This section explains how to start inspecting your code using Qodana linters."/>
+            <a href="ci.md" description="Explore how to integrate Qodana into your CI/CD systems."
         </main-group>
 
         <highlighted-group>
@@ -34,11 +35,6 @@
                description="Qodana runs are configured via the `qodana.yaml` configuration file."/>
             <a href="html-report.md"
                description="View the Qodana run results in the browser"/>
-            <a href="docker-images.md"
-               description="Configure the Qodana Docker images"/>
-            <a href="supported-technologies.md" description="Qodana supports several technologies to analyze your code."/>
-            <a href="ci.md" description="Explore how to integrate Qodana to your favorite CI/CD systems."/>
-            <a href="results.md" description="Study the methods for obtaining analysis results."/>
         </highlighted-group>
 
         <custom-groups>
@@ -47,16 +43,17 @@
                     <title>Distribution formats</title>
                     <a href="docker-images.md"
                        description="Run Qodana locally or in any CI"/>
-                    <a href="github-actions.md"
+<!--                    <a href="github-actions.md"
                        description="Run Qodana code inspection on any GitHub repository"/>
                     <a href="qodana-github-application.md"
                        description="Examine incoming pull GitHub requests"/>
                     <a href="qodana_plugins.md"
                        description="Integrate Qodana into various CI systems"/>
                     <a href="service.md"
-                       description="Use Qodana as a cloud service"/>
+                       description="Use Qodana as a cloud service"/> -->
                 </link-collection>
-                <link-collection>
+
+<!--                <link-collection>
                 <title>Inspection results</title>
                 <a href="ui-overview.md"
                    description="The Qodana UI focuses on the single-shot analysis, making it easy to act on results and customize checks."/>
@@ -77,7 +74,7 @@
                     <a href="CHANGELOG.md"
                        description="See what's new in Qodana"
                     />
-                </link-collection>
+                </link-collection> -->
             </group>
         </custom-groups>
     </section-starting-page>
