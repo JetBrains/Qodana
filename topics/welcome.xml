@@ -22,11 +22,10 @@
         </tip-group>
 
         <main-group>
-            <title>Qodana features</title>
-            <!-- This page needs to be rewritten -->
-            <a href="supported-technologies.md" description="Qodana supports several technologies to analyze your code."/>
-            <a href="ci.md" description="Explore how to integrate Qodana to your favorite CI/CD systems."/>
-            <a href="results.md" description="Study the methods for obtaining analysis results."/>
+            <title>Further steps to take</title>
+            <a href="install-qodana.xml" description="Learn how to install Qodana using all available distributions."/>
+            <a href="configure-qodana.xml" description="Sections that explain how you can configure Qodana."/>
+
         </main-group>
 
         <highlighted-group>
@@ -37,6 +36,9 @@
                description="View the Qodana run results in the browser"/>
             <a href="docker-images.md"
                description="Configure the Qodana Docker images"/>
+            <a href="supported-technologies.md" description="Qodana supports several technologies to analyze your code."/>
+            <a href="ci.md" description="Explore how to integrate Qodana to your favorite CI/CD systems."/>
+            <a href="results.md" description="Study the methods for obtaining analysis results."/>
         </highlighted-group>
 
         <custom-groups>

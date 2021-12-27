@@ -7,26 +7,91 @@
     <toc-element id="welcome.xml"/>
 
     <!-- All start pages should be created in bricks, but this needs to be examined additionally -->
-    <toc-element id="getting-started.xml" expand-mode="expand">
+    <toc-element id="getting-started.xml">
         <!-- This page contents can be moved outside this section -->
+        <!-- Reference to the Integration section and plugins should be added here -->
         <toc-element id="about-qodana.md"/>
         <toc-element id="quickstart.md"/>
-        <toc-element id="static-analysis.xml"/>
-        <toc-element id="code-inspections.xml"/>
-        <!-- Reference to the Integration section and plugins should be added here -->
-        <toc-element id="supported-technologies.md"/>
+        <!-- These concepts should be mentioned in the About Qodana page -->
+        <toc-element id="concepts.xml">
+            <toc-element id="static-analysis.xml"/>
+            <!-- Code inspections and supported technologies need to be combined into one -->
+            <toc-element id="code-inspections.xml"/>
+            <toc-element id="supported-technologies.md"/>
+        </toc-element>
+
+        <toc-element id="features.xml">
+            <toc-element id="qodana-baseline.xml"/>
+            <!-- Quality gate needs to be added here -->
+        </toc-element>
         <toc-element id="CHANGELOG.md"/>
     </toc-element>
 
-    <!-- A special introduction page can be created for this section -->
-    <!-- Basic and complex configuration examples should be provided here -->
-    <toc-element id="configure-qodana.xml" expand-mode="expand">
-        <toc-element id="qodana-yaml.md"/>
+    <!-- The beginning of the Installation section -->
+    <!-- All installation options should be listed here -->
+    <!-- New file for docker images can be created here and new content can be created here as well -->
+    <!-- Qodana GitHub action, Qodana GitHub application, Qodana TeamCity plugin installation options should be mentioned here-->
+    <toc-element id="install-qodana.xml">
+        <toc-element id="docker-images.md"/>
+        <toc-element id="service.md"/>
+        <toc-element title="Qodana Plugins" id="qodana_plugins.md">
+            <toc-element id="qodana-ide-plugin.md"/>
+            <toc-element id="qodana_gradle_plugin.md"/>
+        </toc-element>
     </toc-element>
 
-    <toc-element id="features.xml">
-        <toc-element id="qodana-baseline.xml"/>
+    <!-- The beginning of the Configuration section -->
+    <!-- A special introduction page can be created for this section -->
+    <!-- Basic and complex configuration examples should be provided here -->
+    <toc-element id="configure-qodana.xml">
+        <toc-element id="qodana-yaml.md"/>
+        <toc-element id="docker-images.md">
+            <toc-element id="qodana-jvm-community-docker-techs.xml" show-structure-depth="3"/>
+            <toc-element id="qodana-jvm-android-docker-techs.xml" show-structure-depth="3"/>
+            <toc-element id="qodana-intellij-docker-techs.xml" show-structure-depth="3"/>
+            <toc-element id="qodana-php-docker-techs.xml" show-structure-depth="3"/>
+            <toc-element id="qodana-python-docker-techs.xml" show-structure-depth="3"/>
+            <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
+            <toc-element id="clone-finder-docker-techs.md"/>
+            <toc-element id="license-audit-docker-techs.md"/>
+        </toc-element>
     </toc-element>
+
+    <!-- The beginning of the Inspect your code section -->
+    <!-- The linters section needs to be split and moved here -->
+    <!-- Pages about how to run Qodana should be mentioned here -->
+    <toc-element id="inspect-your-code.xml">
+        <toc-element id="results.md">
+            <toc-element id="ui-overview.md"/>
+            <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
+                <toc-element id="qodana-sarif-output.md" accepts-web-file-names="qodana-intellij-docker-sarif.html"/>
+            </toc-element>
+            <toc-element id="clone-finder-output.md"/>
+            <toc-element id="license-audit-output.md"/>
+            <toc-element id="html-report.md"/>
+        </toc-element>
+    </toc-element>
+
+    <!-- The beginning of the Integration section -->
+    <toc-element id="ci.md">
+        <toc-element id="github-actions.md">
+            <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html"/>
+            <toc-element id="clone-finder-github-action.md"/>
+            <toc-element id="license-audit-github-action.md"/>
+        </toc-element>
+        <toc-element id="qodana-github-application.md" accepts-web-file-names="qodana-intellij-github-application.html"/>
+        <toc-element id="gitlab.md"/>
+        <toc-element id="teamcity-plugins.md">
+            <toc-element id="teamcity-plugin-configuration.md"/>
+            <toc-element id="qodana-teamcity-plugin.md" accepts-web-file-names-ref="4d0d5387">
+                <toc-element id="teamcity-plugin-quick-start.md"/>
+            </toc-element>
+            <toc-element id="clone-finder-teamcity-plugin.md"/>
+            <toc-element id="license-audit-teamcity-plugin.md"/>
+        </toc-element>
+        <toc-element id="jenkins.md"/>
+    </toc-element>
+
 
     <!-- Link from the Supported technologies section should be given here -->
     <toc-element id="linters.md" toc-title="Supported technologies">
@@ -43,16 +108,6 @@
         <toc-element id="about-clone-finder.md"/>
         <toc-element id="about-license-audit.md"/>
 
-    </toc-element>
-
-    <toc-element id="results.md">
-        <toc-element id="ui-overview.md"/>
-        <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
-            <toc-element id="qodana-sarif-output.md" accepts-web-file-names="qodana-intellij-docker-sarif.html"/>
-        </toc-element>
-        <toc-element id="clone-finder-output.md"/>
-        <toc-element id="license-audit-output.md"/>
-        <toc-element id="html-report.md"/>
     </toc-element>
 
     <toc-element id="docker-images.md">
@@ -88,33 +143,7 @@
         </toc-element>
     </toc-element>
 
-    <!-- This is the Integration section -->
-    <toc-element id="ci.md">
-        <toc-element id="github-actions.md">
-            <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html"/>
-            <toc-element id="clone-finder-github-action.md"/>
-            <toc-element id="license-audit-github-action.md"/>
-        </toc-element>
-        <toc-element id="qodana-github-application.md" accepts-web-file-names="qodana-intellij-github-application.html"/>
-        <toc-element id="gitlab.md"/>
-        <toc-element id="teamcity-plugins.md">
-            <toc-element id="teamcity-plugin-configuration.md"/>
-            <toc-element id="qodana-teamcity-plugin.md" accepts-web-file-names-ref="4d0d5387">
-                <toc-element id="teamcity-plugin-quick-start.md"/>
-            </toc-element>
-            <toc-element id="clone-finder-teamcity-plugin.md"/>
-            <toc-element id="license-audit-teamcity-plugin.md"/>
-        </toc-element>
-        <toc-element id="jenkins.md"/>
-    </toc-element>
 
-    <toc-element id="service.md"/>
-
-    <!-- This is the Plugins section -->
-    <toc-element title="Qodana Plugins" id="qodana_plugins.md">
-        <toc-element id="qodana-ide-plugin.md"/>
-        <toc-element id="qodana_gradle_plugin.md"/>
-    </toc-element>
 
     <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
 
