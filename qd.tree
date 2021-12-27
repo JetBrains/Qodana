@@ -92,59 +92,6 @@
         <toc-element id="jenkins.md"/>
     </toc-element>
 
-
-    <!-- Link from the Supported technologies section should be given here -->
-    <toc-element id="linters.md" toc-title="Supported technologies">
-         <toc-element id="qodana-jvm.md"/>
-         <toc-element id="qodana-jvm-community.md"/>
-         <toc-element id="qodana-jvm-android.md"/>
-        <toc-element id="qodana-php.md">
-            <toc-element id="qodana-php-language-upgrade.xml"/>
-        </toc-element>
-         <toc-element id="qodana-python.md"/>
-        <toc-element id="qodana-js.md"/>
-        <!--<toc-element id="qodana-go.md"/>-->
-        <toc-element id="about-qodana-intellij.md"/>
-        <toc-element id="about-clone-finder.md"/>
-        <toc-element id="about-license-audit.md"/>
-
-    </toc-element>
-
-    <toc-element id="docker-images.md">
-        <toc-element toc-title="Qodana for JVM" expand-mode="expand">
-            <toc-element id="qodana-jvm-docker-readme.xml" accepts-web-file-names-ref="23895494">
-                <toc-element id="qodana-jvm-docker-techs.xml" accepts-web-file-names-ref="1e77e8d0"
-                             show-structure-depth="3"/>
-            </toc-element>
-            <toc-element id="qodana-jvm-community-docker-readme.xml">
-                <toc-element id="qodana-jvm-community-docker-techs.xml" show-structure-depth="3"/>
-            </toc-element>
-            <toc-element id="qodana-jvm-android-docker-readme.xml">
-                <toc-element id="qodana-jvm-android-docker-techs.xml" show-structure-depth="3"/>
-            </toc-element>
-            <toc-element id="qodana-intellij-docker-readme.md">
-                <toc-element id="qodana-intellij-docker-techs.xml" show-structure-depth="3"/>
-            </toc-element>
-        </toc-element>
-        <toc-element id="qodana-php-docker-readme.xml">
-            <toc-element id="qodana-php-docker-techs.xml" show-structure-depth="3"/>
-        </toc-element>
-        <toc-element id="qodana-python-docker-readme.xml">
-            <toc-element id="qodana-python-docker-techs.xml" show-structure-depth="3"/>
-        </toc-element>
-        <toc-element id="qodana-js-docker-readme.xml">
-            <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
-        </toc-element>
-        <toc-element id="clone-finder-docker-readme.md">
-            <toc-element id="clone-finder-docker-techs.md"/>
-        </toc-element>
-        <toc-element id="license-audit-docker-readme.md">
-            <toc-element id="license-audit-docker-techs.md"/>
-        </toc-element>
-    </toc-element>
-
-
-
     <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
 
 </product-profile>
