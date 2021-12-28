@@ -106,7 +106,12 @@
     <toc-element id="qodana-php-docker-readme.xml"/>
     <toc-element id="qodana-php-language-upgrade.xml"/>
     <toc-element id="qodana-python-docker-readme.xml"/>
-
+    <toc-element id="qodana-js.md"/>
+    <toc-element id="qodana-jvm-android.md"/>
+    <toc-element id="qodana-jvm-community.md"/>
+    <toc-element id="qodana-jvm.md"/>
+    <toc-element id="qodana-php.md"/>
+    <toc-element id="qodana-python.md"/>
 
 
     <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
