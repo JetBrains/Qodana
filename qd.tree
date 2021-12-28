@@ -93,6 +93,21 @@
     </toc-element>
 
     <toc-element id="about-clone-finder.md"/>
+    <toc-element id="about-license-audit.md"/>
+    <toc-element id="clone-finder-docker-readme.md"/>
+    <toc-element id="license-audit-docker-readme.md"/>
+    <toc-element id="linters.md"/>
+    <toc-element id="qodana-intellij-docker-readme.md"/>
+    <toc-element id="qodana-js-docker-readme.xml"/>
+    <toc-element id="qodana-jvm-android-docker-readme.xml"/>
+    <toc-element id="qodana-jvm-community-docker-readme.xml"/>
+    <toc-element id="qodana-jvm-docker-readme.xml"/>
+    <toc-element id="qodana-jvm-docker-techs.xml"/>
+    <toc-element id="qodana-php-docker-readme.xml"/>
+    <toc-element id="qodana-php-language-upgrade.xml"/>
+    <toc-element id="qodana-python-docker-readme.xml"/>
+
+
 
     <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
 
