@@ -6,33 +6,5 @@
        title="Getting started"
        id="getting-started.xml">
 
-<section-starting-page>
-        <title>Getting started</title>
-    <description>These topics will help you get started with Qodana.</description>
-
-    <!-- Description to each group needs to be added here -->
-    <tip-group>
-        <!-- This page content needs to be modified -->
-        <a href="about-qodana.md" description="Learn about Qodana." type="academy"/>
-        <a href="quickstart.md" description="Explore how to run Qodana within a couple of minutes." type="start"/>
-    </tip-group>
-
-    <main-group>
-        <!-- Article -->
-        <title>Learn the concepts Qodana is based on.</title>
-        <a href="static-analysis.xml" description="If you are new to static analysis, this information is a perfect starter." type="network"/>
-<!--        <a href="code-inspections.xml" description="Learn the code inspection concept applied in Qodana and other JetBrains products." type="filtering"/>
-        <a href="supported-technologies.md" description="Qodana can analyze codebases written in Java, Kotlin, Python, PHP, and JavaScript." type="support"/>
-        <a href="CHANGELOG.md" description="See how Qodana evolves." type="file"/>
-        <a href="welcome.xml" description="Return to the Welcome page." type="navigation"/> -->
-    </main-group>
-
-    <highlighted-group>
-        <title>Useful links</title>
-        <a href="qodana-yaml.md" description="Configure qodana.yaml."/>
-    </highlighted-group>
-
-    <!-- The list of all sections should be added here in the custom groups-->
-
-</section-starting-page>
+        <p>This is the Getting started page.</p>
 </topic>
