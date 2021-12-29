@@ -17,6 +17,7 @@
             <toc-element id="static-analysis.xml"/>
             <!-- Code inspections and supported technologies need to be combined into one -->
             <toc-element id="code-inspections.xml"/>
+            <!-- This needs to be renamed for Linters -->
             <toc-element id="supported-technologies.md"/>
         </toc-element>
 
@@ -31,8 +32,11 @@
     <!-- All installation options should be listed here -->
     <!-- New file for docker images can be created here and new content can be created here as well -->
     <!-- Qodana GitHub action, Qodana GitHub application, Qodana TeamCity plugin installation options should be mentioned here-->
+    <!-- Installation from the integration section may be added here -->
+    <!-- The Docker image installation can be mentioned here as well-->
     <toc-element id="install-qodana.xml">
-<!--        <toc-element id="docker-images.md"/> -->
+    <!--        <toc-element id="docker-images.md"/> -->
+    <!-- GitHub Actions and GitHub App links should be provided here -->
         <toc-element id="service.md"/>
         <toc-element title="Qodana Plugins" id="qodana_plugins.md">
             <toc-element id="qodana-ide-plugin.md"/>

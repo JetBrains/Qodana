@@ -7,9 +7,12 @@
        id="static-analysis">
 
     <p>Qodana provides static program analysis meaning the analysis of computer software performed without executing
-        any programs or scripts.
+        any programs or scripts.</p>
 
-        The term is usually applied to analysis performed by an automated tool, with human analysis typically being called "program understanding", program comprehension, or code review. In the last of these, software inspection and software walkthroughs are also used. In most cases the analysis is performed on some version of a program's source code, and, in other cases, on some form of its object code. </p>
+    <p>The term is usually applied to analysis performed by an automated tool, with human analysis typically being
+        called "program understanding", program comprehension, or code review. In the last of these, software
+        inspection and software walkthroughs are also used. In most cases the analysis is performed on some version
+        of a program's source code, and, in other cases, on some form of its object code. </p>
 
     <p>On the one hand, there’s static code analysis, a way for developers to test their code without actually
         executing it — this is called a non-run-time environment. Static code analysis tools offer an incredibly
