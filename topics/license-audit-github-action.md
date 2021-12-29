@@ -9,4 +9,4 @@ The **License Audit GitHub action** lets you include [Qodana License Audit](abou
 ## How to start
 {id="how-to-start-github-action"}
 
-Follow the guidelines for the [Qodana License Audit GitHub action](https://github.com/marketplace/actions/qodana-license-audit) on GitHub Marketplace.
+Follow the guidelines for the [Qodana License Audit GitHub action](https://github.com/JetBrains/qodana-license-audit-action) on GitHub Marketplace.
