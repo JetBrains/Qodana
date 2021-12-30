@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Docker image configuration"
+       id="docker-image-configuration.xml">
+
+    <p>Follow these links to configure your Docker image specific to the linter applied:</p>
+
+    <list>
+        <li><a href="qodana-jvm-docker-techs.xml">Qodana for JVM</a></li>
+        <li><a href="qodana-jvm-community-docker-techs.xml">Qodana Community for JVM</a></li>
+        <li><a href="qodana-jvm-android-docker-techs.xml">Qodana Community for Android</a></li>
+        <li><a href="qodana-php-docker-techs.xml">Qodana for PHP</a></li>
+        <li><a href="qodana-python-docker-techs.xml">Qodana for Python</a></li>
+        <li><a href="clone-finder-docker-techs.md">Qodana Clone Finder</a></li>
+        <li><a href="license-audit-docker-techs.md">Qodana License Audit</a></li>
+    </list>
+</topic>

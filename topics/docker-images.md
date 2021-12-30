@@ -1,6 +1,6 @@
 [//]: # (title: Qodana Docker images)
 
-The following Docker images are provided for [](linters.md):
+The following Docker images are provided for [Qodana linters](supported-technologies.md):
 
 - [](qodana-jvm-docker-readme.xml)
 - [](qodana-jvm-community-docker-readme.xml)

@@ -5,7 +5,7 @@
 <var name="linter" value="Qodana IntelliJ"/>
 <var name="tech" value="linter"/>
 <var name="techs" value="linters"/>
-<var name="tech-link" value="linters.md"/>
+<var name="tech-link" value="supported-technologies.md"/>
 
 <warning>
 <p>

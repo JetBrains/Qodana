@@ -8,7 +8,7 @@ languages and technologies covered by JetBrains IDEs will be added.
 
 ## Analyze a project locally
 
-Start with any of the [provided linters](linters.md). For all linters the procedure is basically the same.
+Start with any of the [provided linters](supported-technologies.md). For all linters the procedure is basically the same.
 
 ```shell
 docker run --rm -it -v <source-directory>/:/data/project/ \ 

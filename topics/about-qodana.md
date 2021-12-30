@@ -21,14 +21,12 @@ Qodana employs several concepts, such as:
 * <a href="static-analysis.xml">Static analysis</a> mechanism of Qodana means automated analysis of your codebase. 
 * <a href="supported-technologies.md">Linters</a> are the components that let you analyze your code written in 
 several programming languages and analyze clones in your code along with the license audit capabilities.
-* <a href="code-inspections.xml">Code inspections</a> are the linter components responsible for correct analysis of 
-specific code issues.
+* <a href="code-inspections.xml">Code inspections</a> are the linter components that immediately analyze your code for 
+specific issues.
 
 The diagram below shows how all these concepts are combined in Qodana.
 
 <img src="concepts.png" dark-src="concepts_dark.png" width="706" alt="Qodana concepts"/> 
-
-<!-- Diagram about Qodana configuration needs to be added here -->
 
 ## Qodana workflow
 
@@ -38,14 +36,15 @@ The diagram below provides an overview to a typical Qodana use-case.
 
 This diagram describes several steps:
 
-1. Install Qodana using any of the <a href="install-qodana.xml">available distributive</a>
+1. Install Qodana using [installation options](#Distribution)
 
 2. Take all necessary configuration steps:
 
 <!-- The second point here needs to be referenced -->
 
-   * Configure an inspection profile as described in the <a href="qodana-yaml.md">Configure profile</a> section
-   * Study the list of parameters demonstrated in the ... section
+   * Configure an inspection profile as described in the [Configure profile](qodana-yaml.md) section
+   * Study parameters for Docker images explained in the ... section
+   * Integration with third-party software is revealed in the [Integration with CI systems](ci.md) section
 
 3. Run Qodana to <a href="inspect-your-code.xml">inspect your codebase</a> using one of the linters and 
 <a href="features.xml">features</a>. Here, you can run Qodana either [locally or within a CI/CD pipeline](#Running+Qodana).
@@ -73,6 +72,10 @@ Qodana linters are supplied in the following distribution formats and web servic
 - [GitHub Actions](github-actions.md) and [GitHub App](qodana-github-application.md)
 - [Cloud service](service.md)
 - [Plugins](qodana_plugins.md)
+
+
+<!-- Qodana features need to be explained here as well -->
+## Qodana features
 
 ## Qodana playground
 
