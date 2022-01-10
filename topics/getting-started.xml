@@ -6,5 +6,16 @@
        title="Getting started"
        id="getting-started.xml">
 
-        <p>This is the Getting started page.</p>
+        <p>This section helps you familiarize with %product%.</p>
+
+        <p>It contains several subsections.</p>
+
+        <p><a href="about-qodana.md">About %product%</a> briefly describes the components %product% is built upon.
+                Start with this page if you have zero knowledge about it. </p>
+
+        <p>Jump to the <a href="quickstart.md">Quickstart</a> page in case you want to run %product% and see the
+                immediate results of your code inspection.</p>
+
+        <p>The <a href="concepts.xml">Concepts</a> section outlines the basic definitions %product% is build upon, such
+                as static analysis, code inspections, and linters.</p>
 </topic>

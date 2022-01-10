@@ -73,10 +73,6 @@ Qodana linters are supplied in the following distribution formats and web servic
 - [Cloud service](service.md)
 - [Plugins](qodana_plugins.md)
 
-
-<!-- Qodana features need to be explained here as well -->
-## Qodana features
-
 ## Qodana playground
 
 [Qodana Playground](https://qodana.teamcity.com/overview?mode=builds) is a sandbox environment which runs in the 

@@ -6,6 +6,7 @@
        title="Concepts"
        id="concepts">
 
-    <p>This section encompasses the features provided by %product%, such as <a href="qodana-baseline.xml">baseline or technical debt</a>.</p>
+    <p>This section encompasses the concepts %product% is based upon, such as static analysis, code inspections, and
+        %product% linters.</p>
 
 </topic>

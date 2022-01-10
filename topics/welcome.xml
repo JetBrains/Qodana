@@ -6,5 +6,6 @@
        title="Discover Qodana"
        id="welcome">
 
-    <p>This is the welcome page.</p>
+    <p>This is the welcome page that will contain the tiles as per
+        <a href="https://youtrack.jetbrains.com/issue/QD-1551">QD-1551</a>. But it's not ready yet!</p>
 </topic>
