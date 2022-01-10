@@ -9,7 +9,7 @@ your GitHub workflow to scan your Java, Kotlin, PHP, Python, JavaScript, and Typ
 ## How to start
 {id="how-to-start-github-action"}
 
-To run Qodana with [GitHub Actions](https://github.com/features/actions), add `.github/workflows/code_scanning.yml` with the following contents:
+It's possible to run Qodana with GitHub Actions using [Qodana Scan](https://github.com/marketplace/actions/qodana-scan). To start using it, add `.github/workflows/code_scanning.yml` to your repository with the following contents:
 
 ```yaml
 name: Qodana
