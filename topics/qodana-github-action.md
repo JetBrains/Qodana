@@ -9,18 +9,10 @@ your GitHub workflow to scan your Java, Kotlin, PHP, Python, JavaScript, and Typ
 ## How to start
 {id="how-to-start-github-action"}
 
-To run Qodana within your GitHub CI pipeline, just add the following lines to the workflow file:
-```yaml
-- uses: JetBrains/qodana-action@v4.2.0  # you can use @main if you want to use the latest version
-  with:
-    linter: jetbrains/qodana-jvm:2021.3  # Docker image full name with a tag
-```
-
-In case you have not created a workflow for your repository yet, you can save this sample to the 
-`.github/workflows/code_scanning.yml` file:
+To run Qodana with [GitHub Actions](https://github.com/features/actions), add `.github/workflows/code_scanning.yml` with the following contents:
 
 ```yaml
-name: Code Scanning
+name: Qodana
 on:
   workflow_dispatch:
   pull_request:
@@ -35,22 +27,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v4.1.0
+        uses: JetBrains/qodana-action@v4.2.2
         with:
-          linter: jetbrains/qodana-jvm
+          linter: jetbrains/qodana-jvm  # pick the needed linter – https://www.jetbrains.com/help/qodana/docker-images.html
 ```
+We recommend you to have a separated workflow file for Qodana, because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job). 
 
-Using this workflow, Qodana will run on the main branch, release branches, and all incoming pull requests. 
-You will be able to observe scan results in the GitHub UI.
 
-### Configuration
+With the above workflow, Qodana will run on the main branch, release branches and on the pull requests coming to your repository.
+You will be able to see the results of the scan in the GitHub UI.
 
-For more configuration options, please refer to [Qodana Scan page](https://github.com/marketplace/actions/qodana-scan) in GitHub Marketplace.
+### Get a Qodana badge
+
+To set up a badge with the workflow [![Qodana](https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml/badge.svg)](https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml), go to the workflow run you've just configured then click "Create status badge," copy the suggested Markdown text to your repository README file.
+
+![create_status_badge](https://user-images.githubusercontent.com/13538286/148529278-5d585f1d-adc4-4b22-9a20-769901566924.png)
+
 
 ### GitHub Pages
 
-If you want to explore [Qodana reports](https://www.jetbrains.com/help/qodana/html-report.html) immediately on GitHub, 
-you can enable this feature for your repository using [GitHub Pages](https://docs.github.com/en/pages):
+If you want to see [the full Qodana report](https://www.jetbrains.com/help/qodana/html-report.html) right on GitHub, you can host it on your repository [GitHub Pages](https://docs.github.com/en/pages), using the following example workflow:
 ```yaml
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -59,13 +55,12 @@ you can enable this feature for your repository using [GitHub Pages](https://doc
           publish_dir: ${{ runner.temp }}/qodana/results/report
           destination_dir: ./
 ```
-> It is not possible to host multiple reports on GitHub Pages for a single repository.
+Note: It's not possible to host multiple reports on GitHub Pages in one repository.
 
 
 ### GitHub code scanning
 
-You can set up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) for your project using Qodana. To do it, append this to your workflow file 
-after the lines specifying the Qodana action:
+You can set up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) with Qodana for your project by adding the following lines after Qodana action to your workflow file:
 ```yaml
       - uses: github/codeql-action/upload-sarif@v1
         with:
@@ -98,5 +93,9 @@ Instead of `main`, you can specify your branch here.
 10. Click **Create**.
 
 For more information about branch protection rules, refer to the original [GitHub Documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).
+
+### Configuration
+
+For more configuration options, please refer to [Qodana Scan page](https://github.com/marketplace/actions/qodana-scan) in GitHub Marketplace.
 
 <p><include src="lib_qd.xml" include-id="docker-options-tip"/></p>
