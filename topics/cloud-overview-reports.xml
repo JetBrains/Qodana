@@ -29,6 +29,8 @@
 
     <p>Project without reports can also be deleted.</p>
 
+    <!-- This chapter needs to be shortened to fit this section. -->
+
     <chapter id="cloud-overview-reports-generate-token" title="Generate a token">
         <!-- The token functionality needs to be described here too -->
 
@@ -39,16 +41,16 @@
         <!-- While running %product%, this needs to be run as the \-\-token parameter -->
 
         <note>
-        <p>If %product% reports have the same branch name and commit time, they are displayed as a single report.
-            If a branch name is the same but commit time varies, they will be displayed as separate reports.</p>
+            <p>If %product% reports have the same branch name and commit time, they are displayed as a single report.
+                If a branch name is the same but commit time varies, they will be displayed as separate reports.</p>
 
-        <p>In case several reports are related to the same commit hash, they are displayed as a single report.</p>
+            <p>In case several reports are related to the same commit hash, they are displayed as a single report.</p>
         </note>
         <p>To see the detailed report about a specific analysis, click the bar in the bar chart. This will open
             the <b>Report</b> page.</p>
 
         <p>For more details about %product% reports, see the
-        <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a> section of the %product%
+            <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a> section of the %product%
             documentation.</p>
     </chapter>
 

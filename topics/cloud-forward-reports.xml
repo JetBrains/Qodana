@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Forward reports"
+       id="cloud-forward-reports.xml">
+
+    <p>To see %product% reports in the %product_cloud% UI, you need to upload them to %product_cloud%. To correctly
+        upload and display a %product% report in the %product_cloud% UI, you need to make these steps: </p>
+
+        <list type="decimal">
+            <li>Create a new project in the %product_cloud% UI</li>
+            <li>Generate a project token</li>
+            <li>Run %product% with the project token supplied</li>
+        </list>
+
+    <p>To create a new project, on the <menupath>Projects</menupath> page click the <menupath>New project</menupath>
+        button in the upper-right corner.</p>
+
+    <img src="cloud-new-project.png" dark-src="cloud-new-project_dark.png" alt="The New Project button" width="706"/>
+
+    <p>After a new project was created, you can configure it. </p>
+
+    <img src="cloud-new-project-2.png" dark-src="cloud-new-project-2_dark.png" alt="Configuring the new project" width="706"/>
+
+    <list type="decimal">
+        <li>Click the project menu button to rename or remove it from %product_cloud%.</li>
+        <li>Click the <menupath>Generate token</menupath> button to generate the project token. Copy and save this
+            token for future use. </li>
+    </list>
+
+    <note>After generation, the token is available for copying only before pushing the first report to %product_cloud%.
+        The same rule applies to renaming and deletion of projects.</note>
+
+    <chapter id="cloud-forward-reports-configure-qodana" title="Configure Qodana">
+
+        <!-- I need to test all options and actualize them in the parameters page. And maybe mention them here once more -->
+
+        <p>This chapter explains how to forward %product% inspection reports to %product_cloud% based on the following cases:</p>
+
+        <list>
+            <li><a anchor="cloud-forward-reports-local-run">Local %product% run</a></li>
+            <li><a anchor="cloud-forward-reports-github-actions">GitHub Actions</a></li>
+            <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI</a></li>
+            <li><a anchor="cloud-forward-reports-jenkins">Jenkins</a></li>
+            <li><a anchor="cloud-forward-reports-teamcity-plugin">TeamCity plugin</a></li>
+        </list>
+
+    <chapter id="cloud-forward-reports-local-run" title="Local Qodana run">
+
+        <p>Below is the CLI command for running the Docker version of %product% locally:</p>
+
+        <code style="block" lang="bash">
+            sudo docker run -v $(pwd)/project/:/data/project/ -v \
+            $(pwd)/report/:/data/results/ &lt;qodana_linter&gt; \
+            --send-report -t &lt;qodana_cloud_token&gt;
+        </code>
+
+        <p>Here,  <code style="inline" lang="bash">--send-report</code> enables forwarding %product%
+            reports to %product_cloud%, and the <code style="inline" lang="bash">-t</code> option specifies the project
+        token.</p>
+
+        <p>For more details about configuration options, see the configuration options of your linter. </p>
+
+    </chapter>
+
+    <chapter id="cloud-forward-reports-github-actions" title="GitHub Actions">
+
+    </chapter>
+
+    <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI">
+
+    </chapter>
+
+    <chapter id="cloud-forward-reports-jenkins" title="Jenkins">
+
+    </chapter>
+
+    <chapter id="cloud-forward-reports-teamcity-plugin" title="TeamCity plugin">
+
+    </chapter>
+
+    </chapter>
+
+
+
+
+
+
+
+</topic>
