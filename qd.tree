@@ -103,16 +103,14 @@
 
     <toc-element id="cloud-about.xml" toc-title="Qodana Cloud">
         <toc-element toc-title="Getting started" expand-mode="expand">
-        <toc-element id="cloud-get-access.xml"/>
-        <toc-element id="cloud-use-cases.xml" toc-title="Use cases"/>
-        <toc-element id="cloud-user-roles.xml"/>
-        <toc-element id="cloud-forward-reports.xml"/>
-        <toc-element id="cloud-overview-reports.xml"/>
+            <toc-element id="cloud-use-cases.xml" toc-title="Use cases"/>
+            <toc-element id="cloud-get-access.xml"/>
+            <toc-element id="cloud-user-roles.xml"/>
         </toc-element>
 
         <!-- The Configure section needs to be supplied with a dedicated page -->
 
-        <toc-element toc-title="Configure Qodana Cloud" expand-mode="expand">
+        <toc-element toc-title="Configuration" expand-mode="expand">
         <toc-element id="cloud-manage-your-account.xml" toc-title="Account">
             <toc-element id="cloud-subscription-plan.xml"/>
             <toc-element id="cloud-organizations.xml">
@@ -133,6 +131,11 @@
             <toc-element id="cloud-project-groups.xml"/>
         </toc-element>
 
+        </toc-element>
+
+        <toc-element toc-title="Reports" expand-mode="expand">
+            <toc-element id="cloud-forward-reports.xml"/>
+            <toc-element id="cloud-overview-reports.xml"/>
         </toc-element>
 
     </toc-element>

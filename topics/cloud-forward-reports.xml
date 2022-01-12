@@ -30,7 +30,7 @@
             token for future use. </li>
     </list>
 
-    <note>After generation, the token is available for copying only before pushing the first report to %product_cloud%.
+    <note>Once generated, the token is available for copying only before pushing the first report to %product_cloud%.
         The same rule applies to renaming and deletion of projects.</note>
 
     <chapter id="cloud-forward-reports-configure-qodana" title="Configure Qodana">
