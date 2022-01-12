@@ -18,11 +18,11 @@
     <p>To create a new project, on the <menupath>Projects</menupath> page click the <menupath>New project</menupath>
         button in the upper-right corner.</p>
 
-    <img src="cloud-new-project.png" dark-src="cloud-new-project_dark.png" alt="The New Project button" width="706"/>
+    <img src="qc-new-project.png" dark-src="qc-new-project_dark.png" alt="The New Project button" width="706" border-effect="line"/>
 
     <p>After a new project was created, you can configure it. </p>
 
-    <img src="cloud-new-project-2.png" dark-src="cloud-new-project-2_dark.png" alt="Configuring the new project" width="706"/>
+    <img src="qc-new-project-2.png" dark-src="qc-new-project-2_dark.png" alt="Configuring a new project" width="706" border-effect="line"/>
 
     <list type="decimal">
         <li>Click the project menu button to rename or remove it from %product_cloud%.</li>
@@ -82,11 +82,5 @@
     </chapter>
 
     </chapter>
-
-
-
-
-
-
 
 </topic>

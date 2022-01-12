@@ -15,4 +15,6 @@
     <p><emphasis>%product_cloud%</emphasis> is a cloud-based solution that helps you see the progress in your project
         from the single point. And this is the basic difference between %product% and %product_cloud%: while %product%
         analyzes your code and generates reports on-site, this information can then be forwarded to %product_cloud%.</p>
+
+    <!-- I need to add a diagram about how Qodana and Qodana Cloud interact, which can explain a lot of things here -->
 </topic>

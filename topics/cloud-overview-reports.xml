@@ -6,52 +6,62 @@
        title="Overview reports"
        id="cloud-overview-reports">
 
-    <p>Each %product% report aggregates information displayed in the %product_cloud% user interface.</p>
+    <p>Information from project reports is aggregated and displayed in several fields.</p>
 
-        <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report sample" width="706" border-effect="line" title="Qodana Cloud report sample"/>
+        <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report sample" width="296" border-effect="line" title="Qodana Cloud report sample"/>
 
-        <p>This report contains the following information fields, listed from top to bottom:</p>
+        <p>This sample project contains the following fields, when accessible:</p>
 
-    <list>
+    <list type="decimal">
         <li>Project name and location. Location is displayed if a project is hosted on a publicly available repository
             like GitHub.</li>
-        <li>Project URL.</li>
-        <li>Branch name. This field is configurable, so you can upload information about different branches or use a
-            different criteria for grouping reports.</li>
-        <li>Commit hash, if accessible.</li>
-        <li>Date and time when a repository was analyzed.</li>
-        <li>Bar chart reflects the problems found during the five recent code analyses. The rightmost bar displays the
-            latest inspection results.</li>
+        <li>Branch name.</li>
+        <li>Commit hash.</li>
+        <li>Date and time of the latest %product% inspection.</li>
+        <li>Bar chart containing report statistics. Here, each bar represents a %product% report and all bars are
+            clickable, so you can load the report you would like to overview by clicking the respective bar. The bar color
+            reflects the severity of the major part of detected problems. The rightmost bar summarizes the latest
+            inspection report and provides the number of problems detected.</li>
     </list>
 
-    <p>%product_cloud% displays %product% reports either in a separate or in a merged (aggregated) forms. Merged reports
-        display all problems that their reports contained. Repeating problems will be duplicated.</p>
+    <tip>Projects without uploaded reports can be deleted.</tip>
 
-    <p>Project without reports can also be deleted.</p>
+    <p>This table shows how %product_cloud% interpret and displays several reports (or bars in the bar chart) depending
+        on their metadata.</p>
 
-    <!-- This chapter needs to be shortened to fit this section. -->
+    <table>
+        <tr>
+            <td>Case No.</td>
+            <td>Branch name</td>
+            <td>Commit time</td>
+            <td>Commit hash</td>
+            <td>Displayed as</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Same</td>
+            <td>Same</td>
+            <td>N/A</td>
+            <td>Single report</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Same</td>
+            <td>Different</td>
+            <td>N/A</td>
+            <td>Separate reports</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Same</td>
+            <td>Single report</td>
+        </tr>
+    </table>
 
-    <chapter id="cloud-overview-reports-generate-token" title="Generate a token">
-        <!-- The token functionality needs to be described here too -->
-
-        <p>Tokens are used for uploading %product% reports to %product_cloud%.</p>
-
-        <p>After generation, this token needs to be added as a %product% parameter to upload it to %product_cloud%.</p>
-
-        <!-- While running %product%, this needs to be run as the \-\-token parameter -->
-
-        <note>
-            <p>If %product% reports have the same branch name and commit time, they are displayed as a single report.
-                If a branch name is the same but commit time varies, they will be displayed as separate reports.</p>
-
-            <p>In case several reports are related to the same commit hash, they are displayed as a single report.</p>
-        </note>
-        <p>To see the detailed report about a specific analysis, click the bar in the bar chart. This will open
-            the <b>Report</b> page.</p>
-
-        <p>For more details about %product% reports, see the
-            <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a> section of the %product%
-            documentation.</p>
-    </chapter>
+    <p>To see a specific %product% report, click the bar in the bar chart. This will open the %product% report page
+        described in the <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a>
+        section.</p>
 
 </topic>
