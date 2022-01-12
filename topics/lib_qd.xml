@@ -412,7 +412,6 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>-t</code>,
                         <code>--stub-profile</code>
                     </td>
                     <td>Absolute path to the fallback profile file. This option is applied in case the profile was not
