@@ -49,12 +49,12 @@ To do it, follow these steps:
 2. On the workflow page, select **Create status badge**.  
 3. Copy the Markdown text to your repository README file.
 
-![create_status_badge](https://user-images.githubusercontent.com/13538286/148529278-5d585f1d-adc4-4b22-9a20-769901566924.png)
+<img src="https://user-images.githubusercontent.com/13538286/148529278-5d585f1d-adc4-4b22-9a20-769901566924.png" alt="Creating status badge" width="706"/>
 
 ### GitHub Pages
 
-If you want to study [Qodana reports](https://www.jetbrains.com/help/qodana/html-report.html) directly on GitHub, you 
-can host it on your repository [GitHub Pages](https://docs.github.com/en/pages) using this example workflow:
+If you wish to study [Qodana reports](https://www.jetbrains.com/help/qodana/html-report.html) directly on GitHub, you 
+can host them on your [GitHub Pages](https://docs.github.com/en/pages) repository using this example workflow:
 
 ```yaml
       - name: Deploy to GitHub Pages
