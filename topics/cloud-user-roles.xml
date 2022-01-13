@@ -6,46 +6,174 @@
        title="User roles"
        id="cloud-user-roles">
 
-    <p>The role assigned to you will depend on your account at %product_cloud%:</p>
+    <p>The role assigned to your %product_cloud% account will depend on the case:</p>
 
-    <list>
-        <li><a anchor="cloud-user-role-administrator">You created a personal account</a></li>
-        <li><a anchor="cloud-user-role-administrator">You created a commercial account for your company</a></li>
-        <li><a anchor="cloud-user-role-editor">You joined an existing company after creating a commercial account</a></li>
-    </list>
+    <table>
+        <tr>
+            <td>Case</td>
+            <td>Role assigned</td>
+        </tr>
+        <tr>
+            <td>You created a personal account</td>
+            <td><a anchor="cloud-user-role-administrator">Administrator</a></td>
+        </tr>
+        <tr>
+            <td>You created a commercial account for your company</td>
+            <td><a anchor="cloud-user-role-administrator">Administrator</a></td>
+        </tr>
+        <tr>
+            <td>You joined an existing company after creating a commercial account</td>
+            <td><a anchor="cloud-user-role-editor">Editor</a></td>
+        </tr>
+    </table>
 
     <chapter id="cloud-user-role-administrator" title="Administrator" level="2">
 <p>If you just created a personal account at %product_cloud%, or a commercial account for a company that did not previously
-    exist, you will join %product_cloud% as <b>administrator</b>. The basic administrator functionalities include:</p>
+    exist, you will join %product_cloud% as <b>administrator</b>. The basic administrator functionalities are described under
+    these tabs:</p>
     <!-- Everything from these lists should be referenced to the sections -->
-        <list>
-            <li>Overviewing %product% reports</li>
-            <li>Managing %product_cloud% projects</li>
-            <li>Managing %product_cloud% project groups</li>
-            <li>Managing account, including complete deletion from %product_cloud%</li>
-            <li>Managing subscriptions</li>
-        </list>
-        <!-- This needs to be linked -->
-        <p>If you have a <a href="cloud-get-access.xml">commercial account</a>, you will also be able to:</p>
-    <list>
-        <li>Invite new users to join your company in %product_cloud%</li>
-        <li>Manage the existing members of your company</li>
-        <li>Group the existing users and reports</li>
-        <li>Manage company-related settings</li>
-    </list>
+        <tabs>
+            <tab title="Organizations">
+                <table>
+                <tr>
+                    <td>Feature</td>
+                    <td>Personal account</td>
+                    <td>Commercial account</td>
+                </tr>
+                <tr>
+                    <td>Invite new users to an organization</td>
+                    <td>-</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Join an existing organization</td>
+                    <td>-</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Create own organizations</td>
+                    <td>-</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Delete own organizations</td>
+                    <td>-</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Assign organization administrators</td>
+                    <td>-</td>
+                    <td>&#10004;</td>
+                </tr>
+                </table>
+            </tab>
+
+            <tab title="Projects">
+                <table>
+                    <tr>
+                        <td>Feature</td>
+                        <td>Personal account</td>
+                        <td>Commercial account</td>
+                    </tr>
+                    <tr>
+                        <td>Create a new project</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Manage own projects</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Delete own projects</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Open own project reports</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Generate and regenerate project tokens</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                </table>
+            </tab>
+        </tabs>
+
     </chapter>
     <chapter id="cloud-user-role-editor" title="Editor" level="2">
-        <p>If you just joined an existing company, your role will be <b>editor</b> and you will be able to:</p>
+        <p>If you just joined an existing company, %product_cloud% will assign your account the <b>editor</b> role. </p>
 
-        <list>
-            <li>Overview %product% reports in the %product_cloud% UI</li>
-            <li>Manage %product_cloud% projects</li>
-            <li>Manage %product_cloud% project groups</li>
-            <li>Manage your account, including the complete deletion from %product_cloud%</li>
-            <li>Manage subscriptions</li>
-        </list>
-<!-- This needs to be referenced -->
-        <p>Any editor can be promoted to <a anchor="cloud-user-role-administrator">administrator</a> , see the
+        <p>Any editor can be promoted to the <a anchor="cloud-user-role-administrator">administrator</a> role, see the
             <a href="cloud-change-user-roles.xml">Change user roles</a> section.</p>
+
+        <p>These tabs explain what features are available to any editor user.</p>
+
+        <tabs>
+            <tab title="Organizations">
+                <table>
+                    <tr>
+                        <td>Feature</td>
+                        <td>Personal account</td>
+                        <td>Commercial account</td>
+                    </tr>
+                    <tr>
+                        <td>Create own organizations and become their member</td>
+                        <td>-</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Join an existing organization</td>
+                        <td>-</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Join the default (My organization) organization </td>
+                        <td>&#10004;</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+            </tab>
+            <tab title="Projects">
+                <table>
+                    <tr>
+                        <td>Feature</td>
+                        <td>Personal account</td>
+                        <td>Commercial account</td>
+                    </tr>
+                    <tr>
+                        <td>Create a new project</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Manage own projects</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Delete own projects</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Open own project reports</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>Generate and regenerate project tokens</td>
+                        <td>&#10004;</td>
+                        <td>&#10004;</td>
+                    </tr>
+                </table>
+            </tab>
+        </tabs>
     </chapter>
+
+
 </topic>

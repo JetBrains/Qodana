@@ -11,15 +11,20 @@
 
     <img src="qc-get-access.png" dark-src="qc-get-access_dark.png" alt="Qodana Cloud start page" width="706" border-effect="line" title="Qodana Cloud start page"/>
 
-    <p>To create an account at %product_cloud%, click the <menupath>Log in</menupath> button in the upper right corner of the UI.</p>
+    <list type="decimal">
+        <li>You can click the <menupath>Log in</menupath> button in the upper-right corner of the page to create a
+            %product_cloud% account on the <menupath>Log in</menupath>page.</li>
+        <li>As a non-registered user, you can explore demo projects that were analyzed by %product%. For more
+            information about reports, see the <a href="cloud-overview-reports.xml">Overview reports</a> section.</li>
+    </list>
 
-    <p>On the <menupath>Log in</menupath> page, you can create a <a href="https://account.jetbrains.com/login">JetBrains account</a>
-        or use the existing account instead. Once you complete this step, choose the account type, either <emphasis>commercial</emphasis> or
-        <emphasis>personal</emphasis>.
+    <p>On the <menupath>Log in</menupath> page, you can create a
+        <a href="https://account.jetbrains.com/login">JetBrains account</a>. Once you complete this step, choose the
+        account type, either <emphasis>commercial</emphasis> or <emphasis>personal</emphasis>.
     </p>
 
-    <p>If you choose the commercial type of account, you will be able to create a business account or join the existing account
-    of your company. If you plan to use %product_cloud% for personal purposes, choose the personal account type.
+    <p>If you choose a commercial type of account, you will be able to create a business account or join the existing account
+    of your company. If you plan to use %product_cloud% for personal purposes only, choose the personal account type.
     </p>
 
     <p>For more information about organizations in %product_cloud%, see the <a href="cloud-organizations.xml">Organizations</a> section.

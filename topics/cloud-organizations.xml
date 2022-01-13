@@ -8,9 +8,9 @@
 
     <!-- The Admin role should be specified here because there are several admin roles here -->
     <!-- This behavior needs to be supplied with screenshots -->
-    <p>Organizations are a way for giving peer users the access to your projects and project groups based on the company
-        parameter. Each organization can have several projects and project groups, and several users can be associated with it.
-        Each %product% user can be a member of several organizations.</p>
+    <p>Organizations are a way for giving peer users the access to your projects and project groups. Each organization
+        can have several projects and project groups, and several users can be associated with it.
+        Each %product_cloud% user can be a member of several organizations.</p>
 
     <!-- This description needs to be extended based on the answers from use-cases -->
 
