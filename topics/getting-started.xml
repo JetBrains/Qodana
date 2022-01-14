@@ -21,5 +21,19 @@
                            type="install"/>
                 </tip-group>
 
+                <main-group>
+                        <title>Qodana deployment</title>
+                        <a href="docker-images.md"
+                           description="Learn how to deploy Qodana locally using Docker images"/>
+                </main-group>
+
+                <highlighted-group>
+                        <title>Qodana features</title>
+                        <a href="qodana-baseline.xml"
+                           description="Track your project changes through studying new, unchanged, and resolved problems."/>
+                        <a href="qodana-php-language-upgrade.xml"
+                           description="See how updating PHP will affect your codebase quality."/>
+                </highlighted-group>
+                
         </section-starting-page>
 </topic>
