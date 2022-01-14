@@ -6,7 +6,7 @@
        title="Getting started"
        id="getting-started.xml">
 
-        <product-starting-page>
+        <section-starting-page>
                 <title>Discover Qodana</title>
                 <description>
                         These topics will help you get started with Qodana.
@@ -21,5 +21,5 @@
                            type="install"/>
                 </tip-group>
 
-        </product-starting-page>
+        </section-starting-page>
 </topic>
