@@ -80,7 +80,7 @@
     <!-- The linters section needs to be split and moved here -->
     <!-- Pages about how to run Qodana should be mentioned here -->
     <toc-element id="inspect-your-code.xml">
-        <toc-element id="features.xml">
+        <toc-element toc-title="Features">
             <toc-element id="qodana-baseline.xml"/>
             <toc-element id="qodana-php-language-upgrade.xml"/>
             <!-- Quality gate needs to be added here -->

@@ -15,16 +15,27 @@
                 <tip-group>
                         <a href="about-qodana.md"
                            description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks like clone detection and license audit."
-                           type="start"/>
-                        <a href="quickstart.md"
-                           description="Learn how to get started with Qodana in a few simple steps"
                            type="install"/>
+                        <a href="quickstart.md"
+                           description="Learn how to get started with Qodana in a few simple steps."
+                           type="start"/>
                 </tip-group>
 
                 <main-group>
-                        <title>Qodana deployment</title>
+                        <title>Deployment, configuration, and launching</title>
                         <a href="docker-images.md"
                            description="Learn how to deploy Qodana locally using Docker images"/>
+                        <a href="qodana_plugins.md"
+                           description="Qodana provides several plugins for seamless integration with CI systems."/>
+                        <a href="ci.md"
+                           description="Our documentation provides several how-tos for integration with the most
+                           popular CI/CD systems."/>
+                        <a href="configure-qodana.xml"
+                           description="Explore configuration options available either through the CLI or qodana.yaml file."/>
+                        <!-- I can add to this section all possibilities for inspection results. This is important -->
+                        <a href="inspect-your-code.xml"
+                           description="Learn how you can start inspecting your code and obtain code inspection results."/>
+
                 </main-group>
 
                 <highlighted-group>
@@ -33,6 +44,9 @@
                            description="Track your project changes through studying new, unchanged, and resolved problems."/>
                         <a href="qodana-php-language-upgrade.xml"
                            description="See how updating PHP will affect your codebase quality."/>
+                        <a href="qodana-sarif-output.md"
+                           description="Qodana linters can read and write reports in SARIF format, which is the industry
+                           standard for the output of static analysis tools."/>
                 </highlighted-group>
                 
         </section-starting-page>
