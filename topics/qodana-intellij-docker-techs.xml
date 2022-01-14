@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-intellij-docker-techs"
-       title="Docker image configuration">
+       title="Qodana IntelliJ Docker image configuration">
 
     <var name="tech" value="Docker image"/>
     <var name="techs" value="Docker images"/>

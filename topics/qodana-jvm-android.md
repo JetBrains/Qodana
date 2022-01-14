@@ -36,7 +36,7 @@ with `source-directory` pointing to the root of your project.
 
 ## Next steps
 
-- <a href="qodana-jvm-android-docker-readme.xml">Configure %linter% Docker image</a>
+- <a href="qodana-jvm-android-docker-techs.xml">Configure %linter% Docker image</a>
 - <a href="qodana-github-action.md">Run %linter% on GitHub</a>
 - <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>

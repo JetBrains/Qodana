@@ -22,7 +22,7 @@
                 </tip-group>
 
                 <main-group>
-                        <title>Deployment, configuration, and launching</title>
+                        <title>Deploy, configure, and launch Qodana</title>
                         <a href="docker-images.md"
                            description="Learn how to deploy Qodana locally using Docker images"/>
                         <a href="qodana_plugins.md"

@@ -1,4 +1,4 @@
-[//]: # (title: Docker image configuration)
+[//]: # (title: Clone Finder Docker image configuration)
 
 ## Docker image paths
 
