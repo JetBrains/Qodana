@@ -22,7 +22,7 @@ You can [check results in your browser](html-report.md) at `http://localhost:808
 
 ## Next steps
 
- - <a href="docker-images.md">Configure %linter% Docker images</a>
+ - <a href="docker-image-configuration.xml">Configure %linter% Docker images</a>
  - <a href="github-actions.md">Run %linter% on GitHub</a>
  - <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
  - <a href="service.md">Use %linter% as a Service</a>
