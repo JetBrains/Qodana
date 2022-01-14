@@ -1,0 +1,34 @@
+name: Qodana
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - '20*'
+jobs:
+  qodana:
+    runs-on: ubuntu-latest
+    env:
+      GRAZIE_PLUGIN: https://plugins.jetbrains.com/plugin/download?rel=true&updateId=152587
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          curl -L -o grazie-pro.zip "$GRAZIE_PLUGIN" && unzip grazie-pro.zip
+          cat > qodana.yaml << EOF
+          profile:
+            name: empty
+          include:
+            - name: GrazieInspection
+            - name: IdentifierGrammar
+            - name: LanguageDetectionInspection
+          EOF
+      - name: 'Qodana for Docs (with Grazie)'
+        uses: JetBrains/qodana-action@v4.2.2
+        with:
+          linter: jetbrains/qodana-js:latest
+          use-annotations: false
+          additional-volumes: |
+            ${{ github.workspace }}/grazie-pro:/opt/idea/plugins/grazie-pro
+      - uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
