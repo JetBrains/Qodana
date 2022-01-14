@@ -6,6 +6,22 @@
        title="Discover Qodana"
        id="welcome">
 
-    <p>This is the welcome page that will contain the tiles as per
-        <a href="https://youtrack.jetbrains.com/issue/QD-1551">QD-1551</a>. But it's not ready yet!</p>
+    <product-starting-page>
+        <title>Discover Qodana</title>
+        <description>
+            These topics will help you get started with Qodana.
+        </description>
+
+        <tip-group>
+            <a href="about-qodana.md"
+               description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks like clone detection and license audit."
+               type="start"/>
+            <a href="quickstart.md"
+               description="Learn how to get started with Qodana in a few simple steps"
+               type="install"/>
+        </tip-group>
+
+    </product-starting-page>
+
+
 </topic>

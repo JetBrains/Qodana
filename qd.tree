@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE product-profile
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-<product-profile id="qd" name="Qodana" start-page="welcome.xml" status="release">
+<product-profile id="qd" name="Qodana" start-page="getting-started.xml" status="release">
+
 
     <!-- This page should contain big blocks from all the sections below -->
-    <toc-element id="welcome.xml"/>
-
-    <!-- All start pages should be created in bricks, but this needs to be examined additionally -->
     <toc-element id="getting-started.xml">
         <!-- This page contents can be moved outside this section -->
         <!-- Reference to the Integration section and plugins should be added here -->

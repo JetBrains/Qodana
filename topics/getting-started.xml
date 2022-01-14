@@ -6,16 +6,20 @@
        title="Getting started"
        id="getting-started.xml">
 
-        <p>This section helps you familiarize with %product%.</p>
+        <product-starting-page>
+                <title>Discover Qodana</title>
+                <description>
+                        These topics will help you get started with Qodana.
+                </description>
 
-        <p>It contains several subsections.</p>
+                <tip-group>
+                        <a href="about-qodana.md"
+                           description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks like clone detection and license audit."
+                           type="start"/>
+                        <a href="quickstart.md"
+                           description="Learn how to get started with Qodana in a few simple steps"
+                           type="install"/>
+                </tip-group>
 
-        <p><a href="about-qodana.md">About %product%</a> briefly describes the components %product% is built upon.
-                Start with this page if you have zero knowledge about it. </p>
-
-        <p>Jump to the <a href="quickstart.md">Quickstart</a> page in case you want to run %product% and see the
-                immediate results of your code inspection.</p>
-
-        <p>The <a href="concepts.xml">Concepts</a> section outlines the basic definitions %product% is build upon, such
-                as static analysis, code inspections, and linters.</p>
+        </product-starting-page>
 </topic>
