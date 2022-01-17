@@ -1,5 +1,15 @@
 [//]: # (title: Qodana linters)
 
+Linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that deteriorate its quality and 
+can cause problems. Basically, each Qodana linter associated with a specific programming language 
+helps:
+
+* Detect anomalous code and probable bugs
+* Eliminate dead code
+* Highlight spelling problems
+* Improve overall code structure
+* Introduce coding best practices
+
 With time, Qodana will support all languages and technologies covered by JetBrains IDEs. The current version 
 (%product-version%) of Qodana lets you analyze the following kinds of projects:
 

@@ -5,7 +5,7 @@
 <var name="linter" value="Qodana Community for Android"/>
 <var name="ide" value="IntelliJ IDEA"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/idea/) with the [Android Support](https://plugins.jetbrains.com/plugin/1792-android-support) plugin and provides static analysis for Android projects. <include src="lib_qd.xml" include-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/idea/) with the [Android Support](https://plugins.jetbrains.com/plugin/1792-android-support) plugin and provides static analysis for Android projects.
 
 ## Try it now
 

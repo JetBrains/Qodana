@@ -13,7 +13,7 @@
 <var name="linter" value="Qodana PHP"/>
 <var name="ide" value="PhpStorm"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/) and provides static analysis for PHP projects. <include src="lib_qd.xml" include-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/) and provides static analysis for PHP projects.
 
 ## Try it now
 
