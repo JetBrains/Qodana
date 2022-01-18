@@ -11,7 +11,7 @@
         <toc-element id="about-qodana.md"/>
         <toc-element id="quickstart.md"/>
         <!-- These concepts should be mentioned in the About Qodana page -->
-        <toc-element id="concepts.xml">
+        <toc-element id="components.xml">
             <toc-element id="static-analysis.xml"/>
             <!-- Code inspections and supported technologies need to be combined into one -->
             <toc-element id="supported-technologies.md">
@@ -35,7 +35,7 @@
     <!-- Qodana GitHub action, Qodana GitHub application, Qodana TeamCity plugin installation options should be mentioned here-->
     <!-- Installation from the integration section may be added here -->
     <!-- The Docker image installation can be mentioned here as well-->
-    <toc-element id="install-qodana.xml">
+    <toc-element id="deploy-qodana.xml">
     <!--        <toc-element id="docker-images.md"/> -->
     <!-- GitHub Actions and GitHub App links should be provided here -->
         <toc-element id="docker-images.md">

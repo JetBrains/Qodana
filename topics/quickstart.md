@@ -2,13 +2,13 @@
 
 <var name="linter" value="Qodana"/>
 
-The current version of %product% (%product-version%) lets you analyze 
-<a href="supported-technologies.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects. Eventually, all 
-languages and technologies covered by JetBrains IDEs will be added.
+The current version of %product% (%product-version%) provides linters that let you analyze
+<a href="supported-technologies.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects. In addition, 
+you can inspect your code for duplicate functions and incompatible licenses used in your project. 
 
 ## Analyze a project locally
 
-For all linters the procedure is basically the same.
+This section assumes that you have the Docker application deployed on your machine.
 
 1. Pull the image from Docker Hub (only necessary to get the latest version):
 
@@ -16,30 +16,20 @@ For all linters the procedure is basically the same.
 docker pull jetbrains/qodana-<linter>
 ```
 
-Here, `jetbrains/qodana-<linter>` denotes the linter names listed under these tabs:
+Here, `jetbrains/qodana-<linter>` denotes the Docker image name of a %product% linter from this table:
 
-<tabs>
-    <tab title="Programming languages">
-    <table>
-        <tr><td>Name</td><td>Application</td></tr>
-        <tr><td>jetbrains/qodana-jvm</td><td>Java and Kotlin for Server Side projects. Based on IntelliJ IDEA Ultimate.</td></tr>
-        <tr><td>jetbrains/qodana-jvm-community</td><td>Java and Kotlin for Server Side projects. Based on IntelliJ IDEA Community.</td></tr>
-        <tr><td>jetbrains/qodana-jvm-android</td><td>Java and Kotlin for Server Side projects. Based on IntelliJ IDEA with the Android support.</td></tr>
-        <tr><td>jetbrains/qodana-php</td><td>PHP projects. Based on PhpStorm.</td></tr>
-        <tr><td>jetbrains/qodana-python</td><td>Python projects. Based on PyCharm Professional.</td></tr>
-        <tr><td>jetbrains/qodana-js</td><td>JavaScript and TypeScript projects. Based on WebStorm.</td></tr>
-    </table>
-    </tab>
-    <tab title="Duplicates and incompatible licenses">
-        <table>
-            <tr><td>Name</td><td>Application</td></tr>
-            <tr><td>jetbrains/qodana-clone-finder</td><td>Detects duplicate functions.</td></tr>
-            <tr><td>jetbrains/qodana-license-audit</td><td>Detects incompatible licenses.</td></tr>
-        </table>
-    </tab>
-</tabs>
+|Image name|Application|
+|-----|-----|
+|jetbrains/qodana-jvm|Java and Kotlin for Server Side projects, based on IntelliJ IDEA Ultimate.|
+|jetbrains/qodana-jvm-community|Java and Kotlin for Server Side projects, based on IntelliJ IDEA Community.|
+|jetbrains/qodana-jvm-android|Java and Kotlin for Server Side projects, based on IntelliJ IDEA with the Android support.|
+|jetbrains/qodana-php|PHP projects, based on PhpStorm.|
+|jetbrains/qodana-python|Python projects, based on PyCharm Professional.|
+|jetbrains/qodana-js|JavaScript and TypeScript projects, based on WebStorm.|
+|jetbrains/qodana-clone-finder|Detects duplicate functions.|
+|jetbrains/qodana-license-audit|Detects incompatible licenses.|
 
-2. For the Java, Kotlin, PHP, Python, and JavaScript projects, run this command to analyze you codebase: 
+2. Run this command to analyze your codebase (for `jetbrains/qodana-clone-finder`, use the sample right below this): 
 
 ```shell
 docker run --rm -it -v <source-directory>/:/data/project/ \ 
@@ -48,18 +38,31 @@ docker run --rm -it -v <source-directory>/:/data/project/ \
 
 with `source-directory` pointing to the root of your project.
 
+For the `jetbrains/qodana-clone-finder` image, you can run this Docker command:
+
+```shell
+docker run --rm -it -p 8080:8080 \
+   -v <queried-project-directory>/:/data/project/ \
+   -v <reference-projects-directory>/:/data/versus/ \
+   -v <output-directory>/:/data/results/ \
+   jetbrains/qodana-clone-finder --show-report
+```
+
+This command uses the parameters:
+
+* `<queried-project-directory>` is a full local path to the project source code.
+* `<reference-projects-directory>` is the project directory to be compared with the source code. This parameter can be specified multiple times.
+* `<output-directory>` is the directory that will contain inspection reports.
+
 3. Check inspection results [in your browser](html-report.md) at `http://localhost:8080`.
 
-
-
-Detailed information about linters is available in the [Qodana linters](supported-technologies.md) section.
+The detailed information about %product% linters is available in the [Qodana linters](supported-technologies.md) section.
 
 ## Next steps
 
- - <a href="docker-image-configuration.xml">Configure %linter% Docker images</a>
- - <a href="github-actions.md">Run %linter% on GitHub</a>
- - <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
- - <a href="service.md">Use %linter% as a Service</a>
- - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
-
+ - <a href="docker-image-configuration.xml">Configure Docker images</a>
+ - <a href="github-actions.md">Run %product% on GitHub</a> or use it as a <a href="qodana-github-application.md">GitHub App</a>
+ - <a href="qodana_plugins.md">Extend your CI/CD using plugins</a>
+ - <a href="ci.md">Explore how you can integrate %product% into your CI/CD system</a>
+-  <a href="service.md">Use %product% as a Service</a>
  

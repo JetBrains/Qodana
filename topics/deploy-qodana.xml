@@ -3,8 +3,8 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Install Qodana"
-       id="install-qodana.xml">
+       title="Deploy Qodana"
+       id="deploy-qodana.xml">
 
     <p>You can deploy Qodana using one of the following distribution formats:</p>
     <list>
