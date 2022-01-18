@@ -1,4 +1,4 @@
-[//]: # (title: License Audit Docker image configuration)
+[//]: # (title: License Audit)
 
 ## Docker image paths
 
