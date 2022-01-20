@@ -67,7 +67,7 @@ Qodana linters are supplied in form of:
 ## Running Qodana
 
 You can run %product% locally in a standalone mode using a PC or a server. Alternatively, inspecting your code within a 
-CI/CD pipeline means that you code will be inspected by %product% as part of a building and/or deployment process.
+CI/CD pipeline means that your code will be inspected by %product% as part of a building and/or deployment process.
 
 ## Qodana playground
 

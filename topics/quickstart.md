@@ -31,28 +31,29 @@ Here, `jetbrains/qodana-<linter>` denotes the Docker image name of a %product% l
 
 2. Run this command to analyze your codebase (for `jetbrains/qodana-clone-finder`, use the sample right below this): 
 
-```shell
-docker run --rm -it -v <source-directory>/:/data/project/ \ 
-  -p 8080:8080 jetbrains/qodana-<linter> --show-report
-```
+    ```shell
+    docker run --rm -it -p 8080:8080 \
+      -v <source-directory>/:/data/project/ \
+      jetbrains/qodana-<linter> --show-report
+    ```
 
-with `source-directory` pointing to the root of your project.
+    with `<source-directory>` pointing to the root of your project.
 
-For the `jetbrains/qodana-clone-finder` image, you can run this Docker command:
+    For the `jetbrains/qodana-clone-finder` image, you can run this Docker command:
 
-```shell
-docker run --rm -it -p 8080:8080 \
-   -v <queried-project-directory>/:/data/project/ \
-   -v <reference-projects-directory>/:/data/versus/ \
-   -v <output-directory>/:/data/results/ \
-   jetbrains/qodana-clone-finder --show-report
-```
+    ```shell
+    docker run --rm -it -p 8080:8080 \
+       -v <queried-project-directory>/:/data/project/ \
+       -v <reference-projects-directory>/:/data/versus/ \
+       -v <output-directory>/:/data/results/ \
+       jetbrains/qodana-clone-finder --show-report
+    ```
 
-This command uses the parameters:
+    This command uses the parameters:
 
-* `<queried-project-directory>` is a full local path to the project source code.
-* `<reference-projects-directory>` is the project directory to be compared with the source code. This parameter can be specified multiple times.
-* `<output-directory>` is the directory that will contain inspection reports.
+    * `<queried-project-directory>` is a full local path to the project source code.
+    * `<reference-projects-directory>` is the project directory to be compared with the source code. This parameter can be specified multiple times.
+    * `<output-directory>` is the directory that will contain inspection reports.
 
 3. Check inspection results [in your browser](html-report.md) at `http://localhost:8080`.
 

@@ -1,6 +1,6 @@
 [//]: # (title: Qodana linters)
 
-Linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that deteriorate its quality and 
+A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its quality and 
 can cause problems. Basically, each Qodana linter associated with a specific programming language 
 helps:
 
@@ -36,8 +36,8 @@ Besides JVM, the current version (%product-version%) of Qodana provides inspecti
 
 - The [Qodana for PHP](qodana-php.md) linter lets you inspect code written in [PHP](https://www.php.net) 
 - The [Qodana for Python](qodana-python.md) linter can be used to inspect [Python](https://python.org) projects
-- The [Qodana for ](qodana-js.md) linter can inspect projects written in [JavaScript](https://www.javascript.com/) and 
-[TypeScript](https://www.typescriptlang.org/)
+- The [Qodana for JS](qodana-js.md) linter can inspect projects written in
+[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [TypeScript](https://www.typescriptlang.org/)
 
 ## Clone Finder and License Audit
 

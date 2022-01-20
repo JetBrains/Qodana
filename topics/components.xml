@@ -6,7 +6,7 @@
        title="Components"
        id="components">
 
-    <p>This section encompasses the concepts %product% is based upon, such as static analysis, code inspections, and
+    <p>This section introduces the concepts %product% is based upon, such as static analysis, code inspections, and
         %product% linters.</p>
 
 </topic>
