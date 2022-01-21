@@ -12,24 +12,24 @@ This section assumes that you have the Docker application deployed on your machi
 
 1. Pull the image from Docker Hub (only necessary to get the latest version):
 
-```shell
-docker pull jetbrains/qodana-<linter>
-```
+   ```shell
+   docker pull jetbrains/qodana-<linter>
+   ```
+   
+   Here, `jetbrains/qodana-<linter>` denotes the Docker image name of a %product% linter from this table:
+   
+   |Image name|Application|
+   |-----|-----|
+   |jetbrains/qodana-jvm|Java and Kotlin for Server Side projects, based on IntelliJ IDEA Ultimate.|
+   |jetbrains/qodana-jvm-community|Java and Kotlin for Server Side projects, based on IntelliJ IDEA Community.|
+   |jetbrains/qodana-jvm-android|Java and Kotlin for Server Side projects, based on IntelliJ IDEA with the Android support.|
+   |jetbrains/qodana-php|PHP projects, based on PhpStorm.|
+   |jetbrains/qodana-python|Python projects, based on PyCharm Professional.|
+   |jetbrains/qodana-js|JavaScript and TypeScript projects, based on WebStorm.|
+   |jetbrains/qodana-clone-finder|Detects duplicate functions.|
+   |jetbrains/qodana-license-audit|Detects incompatible licenses.|
 
-Here, `jetbrains/qodana-<linter>` denotes the Docker image name of a %product% linter from this table:
-
-|Image name|Application|
-|-----|-----|
-|jetbrains/qodana-jvm|Java and Kotlin for Server Side projects, based on IntelliJ IDEA Ultimate.|
-|jetbrains/qodana-jvm-community|Java and Kotlin for Server Side projects, based on IntelliJ IDEA Community.|
-|jetbrains/qodana-jvm-android|Java and Kotlin for Server Side projects, based on IntelliJ IDEA with the Android support.|
-|jetbrains/qodana-php|PHP projects, based on PhpStorm.|
-|jetbrains/qodana-python|Python projects, based on PyCharm Professional.|
-|jetbrains/qodana-js|JavaScript and TypeScript projects, based on WebStorm.|
-|jetbrains/qodana-clone-finder|Detects duplicate functions.|
-|jetbrains/qodana-license-audit|Detects incompatible licenses.|
-
-2. Run this command to analyze your codebase (for `jetbrains/qodana-clone-finder`, use the sample right below this): 
+2. Run this command to analyze your codebase (all images except `jetbrains/qodana-clone-finder`): 
 
     ```shell
     docker run --rm -it -p 8080:8080 \
@@ -63,7 +63,7 @@ The detailed information about %product% linters is available in the [Qodana lin
 
  - <a href="docker-image-configuration.xml">Configure Docker images</a>
  - <a href="github-actions.md">Run %product% on GitHub</a> or use it as a <a href="qodana-github-application.md">GitHub App</a>
- - <a href="qodana_plugins.md">Extend your CI/CD using plugins</a>
+ - <a href="qodana_plugins.md">Extend your IDE using plugins</a>
  - <a href="ci.md">Explore how you can integrate %product% into your CI/CD system</a>
 -  <a href="service.md">Use %product% as a Service</a>
  
