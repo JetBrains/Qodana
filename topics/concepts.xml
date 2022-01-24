@@ -6,6 +6,12 @@
        title="Concepts"
        id="concepts">
 
-    <p>This section encompasses the features provided by %product%, such as <a href="qodana-baseline.xml">baseline or technical debt</a>.</p>
+    <p>This section provides guides to the following %product% features:</p>
+
+        <list>
+            <li><a href="qodana-baseline.xml">Baseline or technical debt</a></li>
+            <li><a href="quality-gate.xml">Quality gate</a></li>
+        </list>
+
 
 </topic>
