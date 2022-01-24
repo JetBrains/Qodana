@@ -83,6 +83,7 @@
         <toc-element id="features.xml">
             <toc-element id="qodana-baseline.xml"/>
             <toc-element id="qodana-php-language-upgrade.xml"/>
+            <toc-element id="quality-gate.xml"/>
             <!-- Quality gate needs to be added here -->
         </toc-element>
         <toc-element id="results.md">

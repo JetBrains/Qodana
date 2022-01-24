@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Getting started"
-       id="getting-started.xml">
+       id="getting-started">
 
         <section-starting-page>
                 <title>Discover Qodana</title>
@@ -13,6 +13,7 @@
                 </description>
 
                 <tip-group>
+                        <title>These are two sections you should definitely start with</title>
                         <a href="about-qodana.md"
                            description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks like clone detection and license audit."
                            type="install"/>
