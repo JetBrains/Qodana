@@ -17,6 +17,7 @@
 
     <toc-element id="concepts.xml">
         <toc-element id="qodana-baseline.xml"/>
+        <toc-element id="quality-gate.xml"/>
     </toc-element>
 
     <toc-element id="linters.md">
