@@ -108,7 +108,7 @@
                name: jetbrains/qodana-&lt;linter&gt;
                entrypoint: ['']
              script:
-               - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana
+               - qodana --results-dir=$CI_PROJECT_DIR/qodana
                 --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
                 --fail-threshold &lt;number&gt;
              artifacts:
