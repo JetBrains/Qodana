@@ -4,34 +4,28 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Forward reports"
-       id="cloud-forward-reports.xml">
+       id="cloud-forward-reports">
 
-    <p>To see %product% reports in the %product_cloud% UI, you need to upload them to %product_cloud%. To correctly
-        upload and display a %product% report in the %product_cloud% UI, you need to make these steps: </p>
+    <chapter id="cloud-forward-reports-configure-cloud" title="Configure Qodana Cloud">
 
-        <list type="decimal">
-            <li>Create a new project in the %product_cloud% UI</li>
-            <li>Generate a project token</li>
-            <li>Run %product% with the project token supplied</li>
-        </list>
-
-    <p>To create a new project, on the <menupath>Projects</menupath> page click the <menupath>New project</menupath>
-        button in the upper-right corner.</p>
+    <p>To see %product% reports in the %product_cloud% UI, you need to get them uploaded. Prior to that, you need to
+        create a project and generate a project-related token as described below. </p>
 
     <img src="qc-new-project.png" dark-src="qc-new-project_dark.png" alt="The New Project button" width="706" border-effect="line"/>
 
-    <p>After a new project was created, you can configure it. </p>
-
-    <img src="qc-new-project-2.png" dark-src="qc-new-project-2_dark.png" alt="Configuring a new project" width="706" border-effect="line"/>
-
     <list type="decimal">
-        <li>Click the project menu button to rename or remove it from %product_cloud%.</li>
-        <li>Click the <menupath>Generate token</menupath> button to generate the project token. Copy and save this
-            token for future use. </li>
+        <li>To create a new project in the %product_cloud% UI, on the <menupath>Projects</menupath> page click  the
+            <menupath>New project</menupath> button in the upper-right corner.</li>
+        <li>After the new project was created, you can configure it.</li>
+        <li>Click the <menupath>Generate token</menupath> button to generate a project token.</li>
+        <li><p>Copy the project token and save it for future use.</p>
+            <img src="qc-new-project-2.png" dark-src="qc-new-project-2_dark.png" alt="Project token" width="706" border-effect="line"/>
+            <note>Once generated, the token is available for copying only before pushing the first report to %product_cloud%.
+                The same rule applies to renaming and deletion of projects.</note>
+        </li>
     </list>
 
-    <note>Once generated, the token is available for copying only before pushing the first report to %product_cloud%.
-        The same rule applies to renaming and deletion of projects.</note>
+    </chapter>
 
     <chapter id="cloud-forward-reports-configure-qodana" title="Configure Qodana">
 
@@ -45,6 +39,7 @@
             <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI</a></li>
             <li><a anchor="cloud-forward-reports-jenkins">Jenkins</a></li>
             <li><a anchor="cloud-forward-reports-teamcity-plugin">TeamCity plugin</a></li>
+            <li><a anchor="cloud-forward-reports-space-automation">Space Automation</a></li>
         </list>
 
     <chapter id="cloud-forward-reports-local-run" title="Local Qodana run">
@@ -52,8 +47,8 @@
         <p>Below is the CLI command for running the Docker version of %product% locally:</p>
 
         <code style="block" lang="bash">
-            sudo docker run -v $(pwd)/project/:/data/project/ -v \
-            $(pwd)/report/:/data/results/ &lt;qodana_linter&gt; \
+            sudo docker run -v $(pwd)/project/:/data/project/ \
+            -v $(pwd)/report/:/data/results/ &lt;qodana_linter&gt; \
             --send-report -t &lt;qodana_cloud_token&gt;
         </code>
 
@@ -67,6 +62,16 @@
 
     <chapter id="cloud-forward-reports-github-actions" title="GitHub Actions">
 
+        https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository
+
+        <code style="block" lang="yaml">
+            - name: 'Qodana Scan'
+               uses: JetBrains/qodana-action@latest
+               with:
+                 linter: jetbrains/qodana-jvm
+                 qodana-token: ${{ secrets.QODANA_TOKEN }}
+        </code>
+
     </chapter>
 
     <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI">
@@ -78,6 +83,33 @@
     </chapter>
 
     <chapter id="cloud-forward-reports-teamcity-plugin" title="TeamCity plugin">
+
+    <p>
+
+        Add new build parameter with name QODANA_TOKEN, define as password type. Build parameters - Password type
+        Open Qodana build step
+        Add --send-report --token &#37;env.QODANA_TOKEN&#37; to the Additional arguments for the entry point section. - this one is specific for each plugin. Define for plugins you want to upload reports from.
+
+    </p>
+
+    </chapter>
+
+    <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
+
+        <code style="block" lang="kotlin">
+            job("Qodana") {
+                container("jetbrains/qodana-jvm-community:2021.3") {
+                    env["token"] = Secrets("token")  // https://www.jetbrains.com/help/space/secrets-and-parameters.html
+                    shellScript {
+                        content = """
+                qodana -t ${'$'}token --send-report
+            """.trimIndent()
+                    }
+                }
+            }
+        </code>
+
+        https://www.jetbrains.com/help/space/automation-concepts.html#what-is-space-automation
 
     </chapter>
 
