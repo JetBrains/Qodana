@@ -99,7 +99,7 @@
 
     </chapter>
 
-    <chapter id="quality-gate-gitlab-ci" title="GitLab CI">
+    <chapter id="quality-gate-gitlab-ci" title="GitLab CI/CD">
         <p>To configure the %product% quality gate in a GitLab CI/CD pipeline, you can save this configuration sample to
             the <code>.gitlab-ci.yml</code> file:</p>
         <code style="block" lang="yaml">
