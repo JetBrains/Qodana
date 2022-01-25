@@ -6,6 +6,12 @@
        title="Forward reports"
        id="cloud-forward-reports">
 
+    <var name="GitHubLink" value="docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+    <var name="GitLabLink" value="docs.gitlab.com/ee/ci/variables/"/>
+    <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
+    <var name="SpaceAutomationLink" value="www.jetbrains.com/help/space/automation-concepts.html#what-is-space-automation"/>
+    <var name="TeamCityParams" value="--send-report --token &#37;env.QODANA_TOKEN&#37;"/>
+
     <chapter id="cloud-forward-reports-configure-cloud" title="Configure Qodana Cloud">
 
     <p>To see %product% reports in the %product_cloud% UI, you need to get them uploaded. Prior to that, you need to
@@ -27,7 +33,7 @@
 
     </chapter>
 
-    <chapter id="cloud-forward-reports-configure-qodana" title="Configure Qodana">
+    <chapter id="cloud-forward-reports-configure-qodana" title="Configure report forwarding">
 
         <!-- I need to test all options and actualize them in the parameters page. And maybe mention them here once more -->
 
@@ -36,7 +42,7 @@
         <list>
             <li><a anchor="cloud-forward-reports-local-run">Local %product% run</a></li>
             <li><a anchor="cloud-forward-reports-github-actions">GitHub Actions</a></li>
-            <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI</a></li>
+            <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI/CD</a></li>
             <li><a anchor="cloud-forward-reports-jenkins">Jenkins</a></li>
             <li><a anchor="cloud-forward-reports-teamcity-plugin">TeamCity plugin</a></li>
             <li><a anchor="cloud-forward-reports-space-automation">Space Automation</a></li>
@@ -52,7 +58,7 @@
             --send-report -t &lt;qodana_cloud_token&gt;
         </code>
 
-        <p>Here,  <code style="inline" lang="bash">--send-report</code> enables forwarding %product%
+        <p>Here, <code style="inline" lang="bash">--send-report</code> enables forwarding %product%
             reports to %product_cloud%, and the <code style="inline" lang="bash">-t</code> option specifies the project
         token.</p>
 
@@ -62,19 +68,41 @@
 
     <chapter id="cloud-forward-reports-github-actions" title="GitHub Actions">
 
-        https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository
+        <p>To start forwarding %product% reports from GitHub Actions, create an
+            <a href="https://%GitHubLink%">encrypted secret</a> with the <code>QODANA_TOKEN</code> name.</p>
+
+        <p>Use this configuration snippet in the workflow configuration:</p>
 
         <code style="block" lang="yaml">
             - name: 'Qodana Scan'
                uses: JetBrains/qodana-action@latest
                with:
-                 linter: jetbrains/qodana-jvm
+                 linter: jetbrains/qodana-&lt;linter&gt;
                  qodana-token: ${{ secrets.QODANA_TOKEN }}
         </code>
 
     </chapter>
 
-    <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI">
+    <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI/CD">
+
+        <p>To forward %product% reports from GitLab CI/CD, define the <code>QODANA_CLOUD</code>
+            <a href="https://%GitLabLink%">CI/CD variable</a> in your repository.</p>
+
+        <p>Use this variable in your CI/CD pipeline:</p>
+
+        <code style="block" lang="yaml">
+            qodana:
+             image:
+               name: jetbrains/qodana-&lt;linter&gt;
+               entrypoint: ['']
+             script:
+               - qodana --results-dir=$CI_PROJECT_DIR/qodana
+                --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
+                --send-report --token=$QODANA_CLOUD
+             artifacts:
+               paths:
+                 - qodana
+        </code>
 
     </chapter>
 
@@ -84,22 +112,29 @@
 
     <chapter id="cloud-forward-reports-teamcity-plugin" title="TeamCity plugin">
 
-    <p>
+        <p>To configure a TeamCity plugin to push %product% reports to Qodana Cloud, follow these steps:</p>
 
-        Add new build parameter with name QODANA_TOKEN, define as password type. Build parameters - Password type
-        Open Qodana build step
-        Add --send-report --token &#37;env.QODANA_TOKEN&#37; to the Additional arguments for the entry point section. - this one is specific for each plugin. Define for plugins you want to upload reports from.
+        <procedure>
+            <step>Add a new build parameter with the <code>QODANA_TOKEN</code> name and define it as a
+                <a href="https://%TeamCityLink%">password</a> parameter.</step>
+            <step>Open the <code>Qodana</code> build step.</step>
+            <step><p>Add <code>%TeamCityParams%</code> as additional parameters to the entry point (<code>qodana</code>).</p>
 
-    </p>
-
+                <note>This needs to be defined per each plugin instance.</note>
+            </step>
+        </procedure>
     </chapter>
 
     <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
 
+        <p>To forward %product% reports from Space Automation, create the <code>.space.kts</code> file in the root
+            directory of your repository. Save this code snippet in <code>.space.kts</code>:</p>
+
         <code style="block" lang="kotlin">
             job("Qodana") {
                 container("jetbrains/qodana-jvm-community:2021.3") {
-                    env["token"] = Secrets("token")  // https://www.jetbrains.com/help/space/secrets-and-parameters.html
+                    // https://www.jetbrains.com/help/space/secrets-and-parameters.html
+                    env["token"] = Secrets("token")
                     shellScript {
                         content = """
                 qodana -t ${'$'}token --send-report
@@ -109,8 +144,9 @@
             }
         </code>
 
-        https://www.jetbrains.com/help/space/automation-concepts.html#what-is-space-automation
-
+        <p>To learn more about customization of Space Automation jobs, explore the
+            <a href="https://%SpaceAutomationLink%">What is Space Automation?</a> section of the JetBrains Space
+            documentation.</p>
     </chapter>
 
     </chapter>
