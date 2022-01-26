@@ -4,8 +4,21 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Configure Qodana"
-       id="configure-qodana.xml">
+       id="configure-qodana">
 
-        <p>This is the Configure page.</p>
+        <p>This section contains reference pages to help you configure %product% for your needs. These pages cover only
+        general configuration parameters. Configuring various CI/CD systems is explained in the
+        <a href="ci.md">Integration with CI systems</a> section guides.</p>
+
+        <p>Generally, you can configure %product% on two levels:</p>
+
+        <list>
+                <li><a href="qodana-yaml.md">Profile configuration</a> specifies how %product% will inspect your code.
+                        This includes such topics as what inspections to use, what files and directories to inspect,
+                        how to configure license inspection.</li>
+                <li>The <a href="docker-image-configuration.xml">Docker image configuration</a> section explains how to
+                configure %product% Docker image for specific tasks and needs and provides basic use-cases when these
+                options may come in handy. </li>
+        </list>
 
 </topic>
