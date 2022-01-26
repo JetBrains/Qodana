@@ -118,11 +118,12 @@
             <step>Add a new build parameter with the <code>QODANA_TOKEN</code> name and define it as a
                 <a href="https://%TeamCityLink%">password</a> parameter.</step>
             <step>Open the <code>Qodana</code> build step.</step>
-            <step><p>Add <code>%TeamCityParams%</code> as additional parameters to the entry point (<code>qodana</code>).</p>
-
-                <note>This needs to be defined per each plugin instance.</note>
+            <step><p>Add <code>%TeamCityParams%</code> to the <menupath>Additional arguments for the entry point</menupath>
+                section as additional parameters to the entry point (<code>qodana</code>).</p>
             </step>
         </procedure>
+        <p>If necessary, repeat the third step for each plugin instance you need to upload reports from. For example, you
+        may want to configure the Code inspection, Clone Finder, and License Audit TeamCity plugins on the same runner.</p>
     </chapter>
 
     <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
