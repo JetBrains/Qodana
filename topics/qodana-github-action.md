@@ -1,26 +1,21 @@
-[//]: # (title: Qodana GitHub Action)
+[//]: # (title: Qodana Scan GitHub action)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-Using the [Qodana Scan](https://github.com/marketplace/actions/qodana-scan) GitHub Action, you can run Qodana within 
+Using the [Qodana Scan](https://github.com/marketplace/actions/qodana-scan) GitHub action, you can run Qodana within 
 your GitHub workflow to scan your Java, Kotlin, PHP, Python, JavaScript, and TypeScript projects and 
 [other technologies supported by Qodana](https://www.jetbrains.com/help/qodana/supported-technologies.html).
 
-## How to start
+This section covers several basic use-cases. The complete list of configuration parameters is available on the 
+[Qodana Scan page](https://github.com/marketplace/actions/qodana-scan#configuration) on GitHub Marketplace.
+
+## Basic configuration
 {id="how-to-start-github-action"}
 
-To run Qodana within your GitHub CI pipeline, just add the following lines to the workflow file:
-```yaml
-- uses: JetBrains/qodana-action@v4.1.0  # you can use @main if you want to use the latest version
-  with:
-    linter: jetbrains/qodana-jvm:2021.3  # Docker image full name with a tag
-```
-
-In case you have not created a workflow for your repository yet, you can save this sample to the 
-`.github/workflows/code_scanning.yml` file:
+To configure Qodana Scan, save the `.github/workflows/code_quality.yml` file containing the workflow configuration:
 
 ```yaml
-name: Code Scanning
+name: Qodana
 on:
   workflow_dispatch:
   pull_request:
@@ -35,45 +30,42 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v4.1.0
+        uses: JetBrains/qodana-action@v4.2.2
         with:
-          linter: jetbrains/qodana-jvm
+          linter: jetbrains/qodana-&lt;linter&gt;
 ```
 
-Using this workflow, Qodana will run on the main branch, release branches, and all incoming pull requests. 
-You will be able to observe scan results in the GitHub UI.
+Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your 
+repository. Inspection results will be available in the GitHub UI. The `jetbrains/qodana-<linter>` option specifies a 
+[Qodana linter](linters.md).
 
-### GitHub Pages
+We recommend that you have a separate workflow file for Qodana because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job).
 
-If you want to explore [Qodana reports](https://www.jetbrains.com/help/qodana/html-report.html) immediately on GitHub, 
-you can enable this feature for your repository using [GitHub Pages](https://docs.github.com/en/pages):
-```yaml
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ runner.temp }}/qodana/results/report
-          destination_dir: ./
-```
-> It is not possible to host multiple reports on GitHub Pages for a single repository.
+## GitHub code scanning
 
+You can set up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) for your project using Qodana. To do it, add these lines to the `code_quality.yml` workflow file right 
+below the [basic configuration](#how-to-start-github-action) of Qodana Scan:
 
-### GitHub code scanning
-
-You can set up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) for your project using Qodana. To do it, append this to your workflow file 
-after the lines specifying the Qodana action:
 ```yaml
       - uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
 ```
+This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report file
+using the `sarif_file` key.
+
+<note> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data 
+for further processing by Qodana. In this case, you have to set up baseline and quality gate processing on the Qodana 
+side prior to submitting inspection results to GitHub code scanning, see the
+<a href="qodana-github-action.md" anchor="github-actions-quality-gate-baseline">Quality gate and baseline</a> section 
+for details. </note> 
 
 ### Pull request quality gate
 
-You can enforce GitHub to block the merge of pull requests if the Qodana quality gate has failed. To do it, create a 
-branch protection rule as described below:
+You can enforce GitHub to block the merge of pull requests if the Qodana quality gate has failed. To do it, create a
+[branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) as described below:
 
-1. Create new or open an existing GitHub workflow with the Qodana Action specified.
+1. Create a new or open an existing GitHub workflow that invokes the Qodana Scan action.
 2. Set the workflow to run on `pull_request` events that target the `main` branch.
 ```yaml
 on:
@@ -82,43 +74,94 @@ on:
     - main
 ```
 
-Instead of `main`, you can specify your branch here. 
+Instead of `main`, you can specify your branch here.
 
-3. Set `1` for the Qodana Action `fail-threshold` option.
-4. Under your repository name, click **Settings**. 
+3. Set the number of problems (integer) for the Qodana action `fail-threshold` option.
+4. Under your repository name, click **Settings**.
 5. On the left menu, click **Branches**.
 6. In the branch protection rules section, click **Add rule**.
 7. Add `main` to **Branch name pattern**.
-8. Select **Require status checks to pass before merging**. 
+8. Select **Require status checks to pass before merging**.
 9. Search for the `Qodana` status check, then check it.
 10. Click **Create**.
 
-For more information about branch protection rules, refer to the original [GitHub Documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).
+<anchor name="github-actions-quality-gate-baseline"/>
+
+### Quality gate and baseline
 
 
-## Configuration
+You can combine the [quality gate](quality-gate.xml) and [baseline](qodana-baseline.xml) features to manage 
+your technical debt, report only new problems, and block pull requests that contain too many problems. 
 
-| Name                       | Description                                                                                                                        | Default Value                           |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| `linter`                   | [Official Qodana Docker image](https://www.jetbrains.com/help/qodana/docker-images.html). Required.                                | `jetbrains/qodana-jvm-community:latest` |
-| `project-dir`              | The project's root directory to be analyzed. Optional                                                                              | `${{ github.workspace }}`               |
-| `results-dir`              | Directory to store the analysis results. Optional.                                                                                 | `${{ runner.temp }}/qodana/results`     |
-| `cache-dir`                | Directory to store Qodana caches. Optional.                                                                                        | `${{ runner.temp }}/qodana/caches`      |
-| `idea-config-dir`          | IntelliJ IDEA configuration directory. Optional.                                                                                   | -                                       |
-| `gradle-settings-path`     | Provide path to gradle.properties file. An example: "/your/custom/path/gradle.properties". Optional.                               | -                                       |
-| `additional-volumes`       | Mount additional volumes to Docker container. Optional.                                                                            | -                                       |
-| `additional-env-variables` | Pass additional environment variables to docker container. Optional.                                                               | -                                       |
-| `fail-threshold`           | Set the number of problems that will serve as a quality gate. If this number is reached, the pipeline run is terminated. Optional. | -                                       |
-| `inspected-dir`            | Directory to be inspected. If not specified, the whole project is inspected by default. Optional.                                  | -                                       |
-| `baseline-path`            | Run in baseline mode. Provide the path to an existing SARIF report to be used in the baseline state calculation. Optional.         | -                                       |
-| `baseline-include-absent`  | Include the results from the baseline absent in the current Qodana run in the output report. Optional.                             | `false`                                 |
-| `changes`                  | Inspect uncommitted changes and report new problems. Optional.                                                                     | `false`                                 |
-| `script`                   | Override the default docker scenario. Optional.                                                                                    | -                                       |
-| `profile-name`             | Name of a profile defined in the project. Optional.                                                                                | -                                       |
-| `profile-path`             | Absolute path to the profile file. Optional.                                                                                       | -                                       |
-| `upload-result`            | Upload Qodana results as an artifact to the job. Optional.                                                                         | `true`                                  |
-| `use-caches`               | Utilize GitHub caches for Qodana runs. Optional.                                                                                   | `true`                                  |
-| `use-annotations`          | Use annotation to mark the results in the GitHub user interface. Optional.                                                         | `true`                                  |
-| `github-token`             | GitHub token to be used for uploading results. Optional.                                                                           | `${{ github.token }}`                   |
+Follow these steps to establish a baseline for your project:
 
-<p><include src="lib_qd.xml" include-id="docker-options-tip"/></p>
+1. Run Qodana [locally](docker-images.md) over your project:
+
+```shell
+docker run --rm -v <source-directory>/:/data/project/ \
+  -p 8080:8080 jetbrains/qodana-<linter> --show-report
+```
+
+2. Open your report at `http://localhost:8080/`, [add detected problems](ui-overview.md#Technical+debt) to the baseline, 
+and download the `qodana.sarif.json` file.
+
+3. Upload the `qodana.sarif.json` file to your project root folder on GitHub. 
+
+4. Append this line to the Qodana Scan action configuration in the `code_quality.yml` file:
+
+```yaml
+baseline-path: &lt;path-to-qodana.sarif.json&gt; 
+```
+
+If you want to update the baseline, you need to repeat these steps once again. 
+
+Starting from this, GitHub will generate alters only for the problems that were not added to the baseline as new.
+
+To establish a quality gate additionally to the baseline, add this line to `code_quality.yml` right after the 
+`baseline-path` line:
+
+```yaml
+fail-threshold: &lt;number-of-accepted-problems&gt;
+```
+
+Based on this, you will be able to detect only new problems in pull requests that fall beyond the baseline.
+At the same time, pull requests with **new** problems exceeding the `fail-threshold` limit will be blocked and the 
+workflow will fail.
+
+## GitHub Pages
+
+If you wish to study [Qodana reports](https://www.jetbrains.com/help/qodana/html-report.html) directly on GitHub, you
+can host them on your [GitHub Pages](https://docs.github.com/en/pages) repository using this example workflow:
+
+```yaml
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ runner.temp }}/qodana/results/report
+          destination_dir: ./
+```
+<note>Hosting of multiple Qodana reports in a single GitHub Pages repository is not supported.</note>
+
+## Get a Qodana badge
+
+You can set up a Qodana workflow badge in your repository: 
+
+[![Qodana](https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml/badge.svg)](https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml) 
+
+To do it, follow these steps:
+
+1. Navigate to the workflow run that you previously configured.
+2. On the workflow page, select **Create status badge**.  
+3. Copy the Markdown text to your repository README file.
+
+<img src="https://user-images.githubusercontent.com/13538286/148529278-5d585f1d-adc4-4b22-9a20-769901566924.png" alt="Creating status badge" width="706"/>
+
+
+
+
+
+
+
+
+<!--<p><include src="lib_qd.xml" include-id="docker-options-tip"/></p>-->
