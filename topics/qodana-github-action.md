@@ -37,7 +37,7 @@ jobs:
 
 Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your 
 repository. Inspection results will be available in the GitHub UI. The `jetbrains/qodana-<linter>` option specifies a 
-[Qodana linter](linters.md).
+[Qodana linter](supported-technologies.md).
 
 We recommend that you have a separate workflow file for Qodana because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job).
 
