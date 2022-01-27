@@ -117,7 +117,7 @@
             <step>Add a new build parameter with the <code>QODANA_TOKEN</code> name and define it as a
                 <a href="https://%TeamCityLink%">password</a> parameter.</step>
             <step>Open the <code>Qodana</code> build step.</step>
-            <step><p>Add <code style="inline" lang="bash"><![CDATA[--send-report --token &#37;env.QODANA_TOKEN&#37;]]></code>
+            <step><p>Add <code style="inline" lang="bash" interpolate-variables="false">--send-report --token %env.QODANA_TOKEN%</code>
                 to the <menupath>Additional arguments for the entry point</menupath> section as additional parameters
                 to the entry point (<code>qodana</code>).</p>
             </step>
