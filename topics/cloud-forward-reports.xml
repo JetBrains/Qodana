@@ -8,69 +8,66 @@
 
     <var name="GitHubLink" value="docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
     <var name="GitLabLink" value="docs.gitlab.com/ee/ci/variables/"/>
+    <var name="JenkinsLink" value="www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
     <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
     <var name="SpaceAutomationLink" value="www.jetbrains.com/help/space/automation-concepts.html#what-is-space-automation"/>
 
     <chapter id="cloud-forward-reports-configure-cloud" title="Configure Qodana Cloud">
 
-    <p>To see %product% reports in the %product_cloud% UI, you need to get them uploaded. Prior to that, you need to
-        create a project and generate a project-related token as described below. </p>
+    <p>To see %product% reports in the %product_cloud% UI, you need to get them uploaded. Before you can start to upload
+        them, you need to create a project and generate a project-related token as described below. </p>
 
     <img src="qc-new-project.png" dark-src="qc-new-project_dark.png" alt="The New Project button" width="706" border-effect="line"/>
 
     <list type="decimal">
-        <li>To create a new project in the %product_cloud% UI, on the <menupath>Projects</menupath> page click  the
-            <menupath>New project</menupath> button in the upper-right corner.</li>
-        <li>After the new project was created, you can configure it.</li>
-        <li>Click the <menupath>Generate token</menupath> button to generate a project token.</li>
+        <li>On the <menupath>Projects</menupath> page, click the <menupath>New project</menupath> button in the upper-right corner.</li>
+        <li>If needed, you can configure the newly created project.</li>
+        <li>Click <menupath>Generate token</menupath> to generate the project token.</li>
         <li><p>Copy the project token and save it for future use.</p>
             <img src="qc-new-project-2.png" dark-src="qc-new-project-2_dark.png" alt="Project token" width="706" border-effect="line"/>
-            <note>Once generated, the token is available for copying only before pushing the first report to %product_cloud%.
-                The same rule applies to renaming and deletion of projects.</note>
+            <note>Once generated, the token is available for copying only before the first report is pushed to the project.
+                The same rule applies to project configuration.</note>
         </li>
     </list>
-
     </chapter>
 
-    <chapter id="cloud-forward-reports-configure-qodana" title="Configure report forwarding">
+    <chapter id="cloud-forward-reports-configure-qodana" title="Configure forwarding of reports">
 
-        <!-- I need to test all options and actualize them in the parameters page. And maybe mention them here once more -->
-
-        <p>This chapter explains how to forward %product% inspection reports to %product_cloud% based on the following cases:</p>
+        <p>This chapter explains how to configure the following products for forwarding %product% reports to %product_cloud%:</p>
 
         <list>
-            <li><a anchor="cloud-forward-reports-local-run">Local %product% run</a></li>
+            <li><a anchor="cloud-forward-reports-local-run">Docker</a></li>
             <li><a anchor="cloud-forward-reports-github-actions">GitHub Actions</a></li>
             <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI/CD</a></li>
             <li><a anchor="cloud-forward-reports-jenkins">Jenkins</a></li>
-            <li><a anchor="cloud-forward-reports-teamcity-plugin">TeamCity plugin</a></li>
             <li><a anchor="cloud-forward-reports-space-automation">Space Automation</a></li>
+            <li><a anchor="cloud-forward-reports-teamcity-plugin">TeamCity plugin</a></li>
         </list>
 
-    <chapter id="cloud-forward-reports-local-run" title="Local Qodana run">
+    <chapter id="cloud-forward-reports-local-run" title="Docker">
 
-        <p>Below is the CLI command for running the Docker version of %product% locally:</p>
+        <p>This is the CLI command to inspect your code and forward the report to %product_cloud% using the Dockerized
+            version of %product%:</p>
 
         <code style="block" lang="bash">
             sudo docker run -v $(pwd)/project/:/data/project/ \
-            -v $(pwd)/report/:/data/results/ &lt;qodana_linter&gt; \
+            -v $(pwd)/report/:/data/results/ jetbrains/qodana-&lt;linter&gt; \
             --send-report -t &lt;qodana_cloud_token&gt;
         </code>
 
-        <p>Here, <code style="inline" lang="bash">--send-report</code> enables forwarding %product%
-            reports to %product_cloud%, and the <code style="inline" lang="bash">-t</code> option specifies the project
-        token.</p>
+        <p>In this snippet, <code style="inline" lang="bash">--send-report</code> enables forwarding %product%
+            reports to %product_cloud%, and the <code style="inline" lang="bash">-t</code> option is used to specify the
+            project token.</p>
 
         <p>For more details about configuration options, see the configuration options of your linter. </p>
-
     </chapter>
 
     <chapter id="cloud-forward-reports-github-actions" title="GitHub Actions">
 
-        <p>To start forwarding %product% reports from GitHub Actions, create an
+        <p>To start receiving %product% reports using GitHub Actions, create an
             <a href="https://%GitHubLink%">encrypted secret</a> with the <code>QODANA_TOKEN</code> name.</p>
 
-        <p>Use this configuration snippet in the workflow configuration:</p>
+        <p>Add this snippet to the workflow:</p>
 
         <code style="block" lang="yaml">
             - name: 'Qodana Scan'
@@ -79,15 +76,14 @@
                  linter: jetbrains/qodana-&lt;linter&gt;
                  qodana-token: ${{ secrets.QODANA_TOKEN }}
         </code>
-
     </chapter>
 
     <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI/CD">
 
-        <p>To forward %product% reports from GitLab CI/CD, define the <code>QODANA_CLOUD</code>
-            <a href="https://%GitLabLink%">CI/CD variable</a> in your repository.</p>
+        <p>To forward %product% reports using GitLab CI/CD, define the <code>QODANA_CLOUD</code>
+            <a href="https://%GitLabLink%">variable</a> in your repository.</p>
 
-        <p>Use this variable in your CI/CD pipeline:</p>
+        <p>Add this snippet to your CI/CD pipeline:</p>
 
         <code style="block" lang="yaml">
             qodana:
@@ -102,34 +98,41 @@
                paths:
                  - qodana
         </code>
-
     </chapter>
 
     <chapter id="cloud-forward-reports-jenkins" title="Jenkins">
 
-    </chapter>
+        <p>This is the <a href="jenkins.md">Jenkins</a> Pipeline sample for forwarding %product% reports to
+            %product_cloud%.</p>
 
-    <chapter id="cloud-forward-reports-teamcity-plugin" title="TeamCity plugin">
+        <code style="block" lang="groovy">
+            stage('Qodana') {
+                agent {
+                    docker {
+                        image 'jetbrains/qodana-&lt;linter&gt;'
+                        args '-v &lt;project-directory&gt;:/data/project/'
+                        args '--entrypoint=""'
+                    }
+                }
+                environment {
+                    CLOUD_TOKEN = credentials('qodana-cloud-token')
+                }
+                steps {
+                    sh "qodana --save-report --send-report --token $CLOUD_TOKEN"
+                }
+            }
+        </code>
 
-        <p>To configure a TeamCity plugin to push %product% reports to Qodana Cloud, follow these steps:</p>
-
-        <procedure>
-            <step>Add a new build parameter with the <code>QODANA_TOKEN</code> name and define it as a
-                <a href="https://%TeamCityLink%">password</a> parameter.</step>
-            <step>Open the <code>Qodana</code> build step.</step>
-            <step><p>Add <code style="inline" lang="bash" interpolate-variables="false">--send-report --token %env.QODANA_TOKEN%</code>
-                to the <menupath>Additional arguments for the entry point</menupath> section as additional parameters
-                to the entry point (<code>qodana</code>).</p>
-            </step>
-        </procedure>
-        <p>If necessary, repeat the third step for each plugin instance you need to upload reports from. For example, you
-        may want to configure the Code inspection, Clone Finder, and License Audit TeamCity plugins on the same runner.</p>
+        <p>This sample defines the <code>CLOUD_TOKEN</code> <a href="https://%JenkinsLink%">environment variable</a> to
+            contain the %product_cloud% project token. The <code>sh</code> command uses the
+            <code>--send-report --token $CLOUD_TOKEN</code>
+            <a href="qodana-jvm-docker-techs.xml" anchor="Configuration+options">configuration options</a> for forwarding reports.</p>
     </chapter>
 
     <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
 
-        <p>To forward %product% reports from Space Automation, create the <code>.space.kts</code> file in the root
-            directory of your repository. Save this code snippet in <code>.space.kts</code>:</p>
+        <p>To forward %product% reports using Space Automation, create the <code>.space.kts</code> file in the root
+            directory of your repository, and save the following code snippet into this file:</p>
 
         <code style="block" lang="kotlin">
             job("Qodana") {
@@ -149,6 +152,22 @@
             <a href="https://%SpaceAutomationLink%">What is Space Automation?</a> section of the JetBrains Space
             documentation.</p>
     </chapter>
+
+    <chapter id="cloud-forward-reports-teamcity-plugin" title="TeamCity plugin">
+
+            <p>To configure a TeamCity plugin to forward %product% reports to %product_cloud%, follow these steps:</p>
+
+            <procedure>
+                <step>Create the <code>QODANA_TOKEN</code> build parameter and define it as
+                    <a href="https://%TeamCityLink%">password</a>.</step>
+                <step>Open the <code>Qodana</code> build step.</step>
+                <step><p>Add <code style="inline" lang="bash" interpolate-variables="false">--send-report --token %env.QODANA_TOKEN%</code>
+                    to the <menupath>Additional arguments for the entry point</menupath> section.</p>
+                </step>
+            </procedure>
+            <p>If necessary, repeat the third step for each TeamCity plugin instance. For example, you may want to
+                configure the Code inspection, Clone Finder, and License Audit TeamCity plugins on the same runner.</p>
+        </chapter>
 
     </chapter>
 
