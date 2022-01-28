@@ -14,11 +14,7 @@
             <td>Role assigned</td>
         </tr>
         <tr>
-            <td>You created a personal account</td>
-            <td><a anchor="cloud-user-role-administrator">Administrator</a></td>
-        </tr>
-        <tr>
-            <td>You created a commercial account for your company</td>
+            <td>You created a personal account or commercial account for your company</td>
             <td><a anchor="cloud-user-role-administrator">Administrator</a></td>
         </tr>
         <tr>
