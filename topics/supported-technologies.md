@@ -1,4 +1,4 @@
-[//]: # (title: Qodana linters)
+[//]: # (title: Linters)
 
 A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its quality and 
 can cause problems. Basically, each Qodana linter associated with a specific programming language 

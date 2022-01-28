@@ -57,17 +57,13 @@ progress.
 
 ## Setting up Qodana
 
-Qodana linters are supplied in form of:
-
-- [Docker images](docker-images.md)
-- [GitHub Actions](github-actions.md) and [GitHub App](qodana-github-application.md)
-- [Plugins](qodana_plugins.md)
-- [Cloud service](service.md)
+<include src="lib_qd.xml" include-id="qodana-deployment-options"/>
 
 ## Running Qodana
 
-You can run %product% locally in a standalone mode using a PC or a server. Alternatively, inspecting your code within a 
-CI/CD pipeline means that your code will be inspected by %product% as part of a building and/or deployment process.
+You can run %product% [locally](quickstart.md) in a standalone mode using a PC or a server. Alternatively, inspecting 
+your code within a [CI/CD pipeline](ci.md) means that your code will be inspected by %product% as part of a 
+building and/or deployment process.
 
 ## Qodana playground
 

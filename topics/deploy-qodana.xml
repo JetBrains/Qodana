@@ -4,16 +4,8 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Deploy Qodana"
-       id="deploy-qodana.xml">
+       id="deploy-qodana">
 
-    <p>You can deploy Qodana using one of the following distribution formats:</p>
-    <list>
-        <li><a href="docker-images.md">Docker images</a></li>
-        <li><a href="github-actions.md">GitHub Actions</a> and <a href="qodana-github-application.md">GitHub App</a></li>
-        <li><a href="service.md">Cloud service</a></li>
-        <li><a href="qodana_plugins.md">Plugins</a></li>
-    </list>
-
-    <!-- Each installation option should be discussed here -->
-
+    <include src="lib_qd.xml" include-id="qodana-deployment-options"/>
+    <!-- Later, I can add a diagram here -->
 </topic>
