@@ -1,7 +1,11 @@
 [//]: # (title: GitHub Actions)
 
-## List of Qodana GitHub actions available
+## List of available Qodana GitHub actions
 
-* [Qodana Linters](https://github.com/marketplace/actions/qodana-linters) 
-* [Qodana Clone Finder](https://github.com/marketplace/actions/qodana-clone-finder)
-* [Qodana License Audit](https://github.com/marketplace/actions/qodana-license-audit)
+This table contains all information that you may need before getting started with Qodana GitHub actions.
+
+| Action name  | Use for scanning  | Documentation page | GitHub action page |
+|--------------|-----------|------------|-----------|
+| Qodana Scan | [Codebase](supported-technologies.md)      | [Link](qodana-github-action.md)  | [Link](https://github.com/marketplace/actions/qodana-scan)  |
+| Qodana Clone Finder      | [Duplicate functions](about-clone-finder.md)  |   [Link](clone-finder-github-action.md)     | [Link](https://github.com/JetBrains/qodana-clone-finder-action)   |
+| Qodana License Audit      | [Incompatible third-party licenses](about-license-audit.md)   | [Link](license-audit-github-action.md)       | [Link](https://github.com/JetBrains/qodana-license-audit-action) |

@@ -1,4 +1,4 @@
-[//]: # (title: License Audit GitHub Action)
+[//]: # (title: License Audit GitHub action)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
@@ -9,4 +9,4 @@ The **License Audit GitHub action** lets you include [Qodana License Audit](abou
 ## How to start
 {id="how-to-start-github-action"}
 
-Follow the guidelines for the [Qodana License Audit GitHub action](https://github.com/marketplace/actions/qodana-license-audit) on GitHub Marketplace.
+Follow the guidelines of the [Qodana License Audit Action for GitHub Actions](https://github.com/JetBrains/qodana-license-audit-action) page on GitHub.
