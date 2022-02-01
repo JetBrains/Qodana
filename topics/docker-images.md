@@ -7,6 +7,7 @@ The following Docker images are provided for [](linters.md):
 - [](qodana-jvm-android-docker-readme.xml)
 - [](qodana-php-docker-readme.xml)
 - [](qodana-python-docker-readme.xml)
+- [](qodana-js-docker-readme.xml)
 
 Docker images for experimental linters:
 
