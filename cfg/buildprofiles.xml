@@ -23,7 +23,7 @@
         <disable-variable-interpolation>true</disable-variable-interpolation>
         <config-versions-switcher>https://data.services.jetbrains.com/help-versions</config-versions-switcher>
         <web-root>https://www.jetbrains.com/help</web-root>
-        <og-twitter>@qodanaevolves</og-twitter>
+        <og-twitter>@qodana</og-twitter>
         <og-image>https://resources.jetbrains.com/storage/products/qodana/img/meta/preview.png</og-image>
     </variables>
 
