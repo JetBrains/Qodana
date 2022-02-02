@@ -41,7 +41,7 @@ Sometimes it may be challenging to set up analysis for a big project even with t
 
 - The second phase reports the conditions that could affect truthfulness or completeness of the results. For example, if your project relies on external resources or generated code, and they are not available during the analysis, the final results could be compromised. Qodana notifies you about such suspicious results.  
 
-- The last phase suggests additional checks that are not so vital for the project but still beneficial. To avoid overwhelming, Qodana analyses only a fraction of the code, just enough to show you the possible outcome.
+- The last phase suggests additional checks that are not so vital for the project but still beneficial. To avoid overwhelming, Qodana analyzes only a fraction of the code, just enough to show you the possible outcome.
 
 [//]: # (We recommend the following Qodana UI guidance to create the most effective profile you can support for your project.)
 

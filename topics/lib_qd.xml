@@ -783,7 +783,7 @@
             actions/cache</a>, see <a href="%docker-general-guide-page-url%" anchor="Run+analysis+in+CI">full example</a>.
         </p>
         <p>
-            GitLab CI also has <a href="https://docs.gitlab.com/ee/ci/caching/">cache</a> which can be stored <a
+            GitLab CI/CD also has <a href="https://docs.gitlab.com/ee/ci/caching/">cache</a> which can be stored <a
                 href="https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths">only inside
         </a> the project directory. In this case, we recommend excluding the cache folder from inspection via <a
                 href="qodana-yaml.md" anchor="include-example">qodana.yaml</a>.
