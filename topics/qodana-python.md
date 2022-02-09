@@ -12,6 +12,7 @@
 
 <var name="linter" value="Qodana Python"/>
 <var name="ide" value="PyCharm Professional"/>
+<var name="docker-image" value="jetbrains/qodana-python"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
