@@ -19,49 +19,7 @@
 
 ### Analyze a project locally
 
-To start, pull the image from Docker Hub (only necessary to get the latest version):
-
-<var name="docker-image" value="jetbrains/qodana-python"/>
-
-<code style="block" lang="shell">
-  docker pull %docker-image%
-</code>
-
-For a basic Python project, which only uses `stdlib`, no preliminary steps are required.
-
-In case a project has external `pypi` dependencies, use any of the following  options:
-- Create `virtualenv` as a subfolder in your project and exclude it in [qodana.yaml](qodana-yaml.md#exclude-paths) to skip analysis of vendor code.
-- Mount a separate `virtualenv` as [cache](qodana-python-docker-techs.xml#Cache+dependencies).
-
-  When you create the `virtualenv` folder, no actual `python` binary is copied into it. Instead, a symlink is created to `python` binary used to create virtualenv. This could lead to incorrect paths when your `virtualenv` is being read inside the Qodana container, since `python` location there could be different. To fix this, create `virtualenv` using the Qodana container's `python`:
-
-  ```shell
-  docker run --rm \
-        -v <source-directory>/:/data/project/ \
-        -v <cache-directory>/:/data/cache/ \
-        --entrypoint=bash \
-        %docker-image% -c '
-          python3 -m venv /data/cache/venv
-          source /data/cache/venv/bin/activate
-          pip3 install -r /data/project/requirements.txt
-        '
-  ```
-
-The project dependencies are now stored in `<cache-directory>`. This folder could be preserved between builds to speed them up. 
-
-Start local analysis with cache mounted and with `source-directory` pointing to the root of your project, and it would automatically look for `virtualenv` in `/data/cache/venv`:
-
-   ```shell
-   docker run --rm -it -p 8080:8080 \
-      -v <source-directory>/:/data/project/ \
-      -v <output-directory>/:/data/results/ \
-      -v <cache-directory>/:/data/cache/ \
-      %docker-image% --show-report
-   ```
-
-<p>
-<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
-</p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="py-only,empty"/></p>
 
 ## Next steps
 

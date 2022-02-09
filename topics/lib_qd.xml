@@ -60,17 +60,11 @@
     </chunk>
 
     <chunk id="show-report-command-explanation">
-        This command will run the analysis on your source code and start the web server to provide a convenient view of the
+        This will run the analysis on your source code and start the web server to provide a convenient view of the
         results. Open <code>http://localhost:8080</code> in your browser to examine the found problems and performed checks.
         Here you can also reconfigure the analysis. See the
         <a href="ui-overview.md"/>
-        for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the Docker console.
-    </chunk>
-
-    <chunk id="jvm-project-setup-note">
-        To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
-        that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
-        executed, and so on.
+        for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the console.
     </chunk>
 
     <chunk id="docker-options-tip">
@@ -840,5 +834,128 @@
             [npm](https://www.npmjs.com) is currently in development.</p>
     </chunk>
 
+    <!-- \\\\\\\\\ UNIVERSAL CHUNK FOR LOCAL QODANA RUNS ////////// -->
+    <!-- The jvm-only, py-only, and js-only filters are applied only for dedicated images respectively -->
+    <!-- The gs-only filter is applied for the Getting started page -->
+    <!-- The jvm-php filter is applied for all images apart from Python and JS linters -->
+    <!-- The other filter applies to all images that use this filter -->
+    <!-- The non-gs filter is applied for all images and excludes the content from the Getting Started page -->
+    <!-- Paragraphs without filters are applied to all images -->
+
+    <chunk id="qodana-cli-quickstart">
+        <p filter="jvm-only"> To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
+            that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
+            executed, and so on.</p>
+        <p>Qodana provides two options for local analysis of your code. Qodana CLI is the easiest
+            option to start. Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
+        <tabs>
+            <tab id="qodana-cli-tab" title="Qodana CLI">
+                <p filter="non-gs">Assuming that you have already
+                    <a href="https://github.com/JetBrains/qodana-cli/releases/tag/v0.7.1">installed</a> Qodana CLI on your
+                    machine, follow these steps:</p>
+                <procedure>
+                    <step filter="gs-only">Install Qodana CLI on your machine using available
+                        <a href="https://github.com/JetBrains/qodana-cli/releases/tag/v0.7.1">installation options</a>.</step>
+                    <step><p>In the project root directory, run this command:</p>
+                        <code>qodana init</code>
+                        <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
+                            all necessary configuration options.</p>
+                    </step>
+                    <step><p>Inspect your code using this command:</p>
+                        <code>qodana scan --show-report</code>
+                    </step>
+                </procedure>
+            </tab>
+            <tab id="docker-image-tab" title="Docker image">
+                <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
+                    procedure is basically the same.</p>
+                <p filter="non-gs">To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
+                <code filter="non-gs" style="block" lang="shell">
+                    docker pull %docker-image%
+                </code>
+                <p filter="js-only">For a basic JavaScript project, which does not have dependencies, no preliminary steps are required.</p>
+                <p filter="js-only">In case a project has external <code>npm</code> dependencies, add the following step before you run the analysis:</p>
+                <code filter="js-only" style="block">
+                    docker run --rm -v &lt;source-directory&gt;:/usr/src/app \
+                    -w /usr/src/app node:lts npm install
+                </code>
+                <p filter="js-only">You can use any Node version your project requires or use <code>yarn</code> or other
+                    package managers to install the project dependencies.</p>
+                <p filter="js-only">The project dependencies are now stored in <code>&lt;source-directory&gt;/node_modules</code>.
+                    This directory could be preserved between builds to speed them up. </p>
+                <p filter="js-only">Start local analysis with cache mounted and with <code>source-directory</code>
+                    pointing to the root of your project, and it would automatically look for <code>node_modules</code>
+                    in <code>/data/project/node_modules</code>:</p>
+                <code filter="js-only" style="block">
+                    docker run --rm -it -p 8080:8080 \
+                    -v &lt;source-directory&gt;/:/data/project/ \
+                    -v &lt;output-directory&gt;/:/data/results/ \
+                    %docker-image% --show-report
+                </code>
+                <code filter="gs-only" style="block" lang="shell">
+                    docker run --rm -it \
+                    -v &lt;source-directory&gt;/:/data/project/ \
+                    -p 8080:8080 jetbrains/qodana-&lt;linter&gt; \
+                    --show-report
+                </code>
+                <p filter="py-only">For a basic Python project, which only uses <code>stdlib</code>, no preliminary steps are required.</p>
+                <p filter="py-only">In case a project has external <code>pypi</code> dependencies, use any of the following  options:</p>
+                <list filter="py-only">
+                    <li>Create <code>virtualenv</code> as a subfolder in your project and exclude it in
+                        <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> to skip analysis of vendor code.</li>
+                    <li><p>Mount a separate <code>virtualenv</code> as <a href="qodana-python-docker-techs.xml" anchor="Cache+dependencies">cache</a>.</p>
+                    <p>  When you create the <code>virtualenv</code> folder, no actual <code>python</code> binary is
+                        copied into it. Instead, a symlink is created to <code>python</code> binary used to create
+                        <code>virtualenv</code>. This could lead to incorrect paths when your <code>virtualenv</code> is
+                        being read inside the Qodana container, since <code>python</code> location there could be
+                        different. To fix this, create <code>virtualenv</code> using the Qodana container's <code>python</code>:</p>
+                        <code style="block" lang="shell">
+                            docker run --rm \
+                            -v &lt;source-directory&gt;/:/data/project/ \
+                            -v &lt;cache-directory&gt;/:/data/cache/ \
+                            --entrypoint=bash \
+                            %docker-image% -c '
+                            python3 -m venv /data/cache/venv
+                            source /data/cache/venv/bin/activate
+                            pip3 install -r /data/project/requirements.txt
+                            '
+                        </code>
+                    </li>
+                </list>
+                <p filter="py-only">The project dependencies are now stored in <code>&lt;cache-directory&gt;</code>.
+                    This folder could be preserved between builds to speed them up. </p>
+                <p filter="py-only">Start local analysis with cache mounted and with <code>source-directory</code>
+                    pointing to the root of your project, and it would automatically look for <code>virtualenv</code>
+                    in <code>/data/cache/venv</code>:</p>
+                <code filter="py-only" style="block" lang="shell">
+                    docker run --rm -it -p 8080:8080 \
+                    -v &lt;source-directory&gt;/:/data/project/ \
+                    -v &lt;output-directory&gt;/:/data/results/ \
+                    -v &lt;cache-directory&gt;/:/data/cache/ \
+                    %docker-image% --show-report
+                </code>
+                <p filter="php-only">If you use PHP Composer, Qodana will install your project dependencies
+                    automatically right before the code analysis starts.</p>
+                <p filter="php-only">In case you need to change the language level, add the following to
+                    <code>&lt;source-directory&gt;/.idea/php.xml</code>:</p>
+                <code filter="php-only" lang="xml" style="block">
+                    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+                    &lt;project version="4"&gt;
+                        &lt;component name="PhpProjectSharedConfiguration" php_language_level="&lt;desired level&gt;" /&gt;
+                    &lt;/project&gt;
+                </code>
+                <p filter="php-only">Run the analysis locally:</p>
+                <p filter="jvm-only">and run the analysis locally:</p>
+                <code filter="jvm-php" style="block" lang="shell">
+                    docker run --rm -it -v &lt;source-directory&gt;/:/data/project/ \
+                    -p 8080:8080 %docker-image% --show-report
+                </code>
+                <p filter="other">with <code>source-directory</code> pointing to the root of your project.</p>
+                <p>
+                </p>
+            </tab>
+        </tabs>
+        <include src="lib_qd.xml" include-id="show-report-command-explanation"/>
+    </chunk>
 
 </topic>

@@ -21,39 +21,7 @@
 
 ### Analyze a project locally
 
-To start, pull the image from Docker Hub (only necessary to get the latest version):
-
-<var name="docker-image" value="jetbrains/qodana-js"/>
-
-<code style="block" lang="shell">
-  docker pull %docker-image%
-</code>
-
-For a basic JavaScript project, which does not have dependencies, no preliminary steps are required.
-
-
-In case a project has external `npm` dependencies, add the following step before you run the analysis:
-
-   ```shell
-  docker run --rm -v <source-directory>:/usr/src/app -w /usr/src/app node:lts npm install
-   ```
-
-You can use any Node version your project requires or use yarn or other package managers to install the project dependencies.
-
-The project dependencies are now stored in `<source-directory>/node_modules`. This folder could be preserved between builds to speed them up. 
-
-Start local analysis with cache mounted and with `source-directory` pointing to the root of your project, and it would automatically look for `node_modules` in `/data/project/node_modules`:
-
-   ```shell
-   docker run --rm -it -p 8080:8080 \
-      -v <source-directory>/:/data/project/ \
-      -v <output-directory>/:/data/results/ \
-      %docker-image% --show-report
-   ```
-
-<p>
-<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
-</p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="js-only,non-gs,empty"/></p>
 
 ## Next steps
 
