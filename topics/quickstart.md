@@ -13,10 +13,10 @@ This section assumes that you have the Docker application deployed on your machi
 1. Pull the image from Docker Hub (only necessary to get the latest version):
 
    ```shell
-   docker pull jetbrains/qodana-<linter>
+   docker pull <image>
    ```
    
-   Here, `jetbrains/qodana-<linter>` denotes the Docker image name of a %product% linter from this table:
+   Here, `<image>` denotes the Docker image name of a %product% linter from this table:
    
    |Image name|Application|
    |-----|-----|

@@ -6,20 +6,23 @@
        title="Static analysis"
        id="static-analysis">
 
-    <p>Qodana provides static program analysis meaning the analysis of computer software performed without executing
-        any programs or scripts.</p>
+    <p>Qodana implements the static analysis mechanism to automatically analyze your codebase without your participation.
+        This means that you just run Qodana to inspect your code and expect recommendations on how you could improve
+        your codebase. No other actions like running additional scripts, downloading external libraries, or any
+        additional configuring is required.</p>
 
-    <p>The term is usually applied to analysis performed by an automated tool, with human analysis typically being
-        called "program understanding", program comprehension, or code review. In the last of these, software
-        inspection and software walkthroughs are also used. In most cases the analysis is performed on some version
-        of a program's source code, and, in other cases, on some form of its object code. </p>
+    <p>The second fact about static analysis says that your software can be explored by Qodana without building and
+        deploying your software because code inspection is carried out on the codebase basis. So, no other activities are
+    required from this side either.</p>
 
-    <p>On the one hand, there’s static code analysis, a way for developers to test their code without actually
-        executing it — this is called a non-run-time environment. Static code analysis tools offer an incredibly
-        efficient way to find programming faults and display them to software engineers. With it, errors can be picked
-        up long before they end up causing havoc when the code is released or put live on a server. Static analysis is
-        generally considered the more thorough way to analyze code. It also has the potential to be the more economical
-        option. Identifying code errors in early stages means that they are typically less expensive to fix than errors
-        that become stuck in the system. Taken from https://blog.codacy.com/everything-you-need-to-know-about-static-code-analysis/</p>
+    <p>Once the static analysis stage is complete, you can explore vulnerabilities and faults in your code and see exact
+        lines where Qodana detected imperfections. Qodana is equipped with multitude of
+        <a href="code-inspections.xml">inspections</a> responsible for detecting particular problems. Of course, this
+        happens before your software causes disaster, which in turn saves you a lot of nerves, money, and keeps your
+        customers satisfied.</p>
+
+    <p>To sum up, static analysis mechanism of Qodana is an efficient way for keeping your software quality under
+        control. You can observe the list of currently <a href="supported-technologies.md">supported technologies</a>,
+        but keep in mind that this list will be growing over time.</p>
 
 </topic>
