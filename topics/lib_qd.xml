@@ -859,11 +859,11 @@
         <tabs>
             <tab id="qodana-cli-tab" title="Qodana CLI">
                 <p filter="non-gs">Assuming that you have already
-                    <a href="https://github.com/JetBrains/qodana-cli/releases/tag/v0.7.1">installed</a> Qodana CLI on your
-                    machine, follow these steps:</p>
-                <procedure>
-                    <step filter="gs-only">Install Qodana CLI on your machine using available
-                        <a href="https://github.com/JetBrains/qodana-cli/releases/tag/v0.7.1">options</a>.</step>
+                    <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installed</a> Qodana CLI on your
+                    machine, you can run this command in the project root directory:</p>
+                <procedure filter="gs-only">
+                    <step>Install Qodana CLI on your machine using available
+                        <a href="https://github.com/JetBrains/qodana-cli/releases/latest">options</a>.</step>
                     <step><p>In the project root directory, run this command:</p>
                         <code style="block">qodana init</code>
                         <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
@@ -872,8 +872,8 @@
                     <step><p>In the project root directory, run this command to inspect your code:</p>
                         <code style="block">qodana scan --show-report</code>
                     </step>
-                    <step><include src="lib_qd.xml" include-id="open-browser-instruction"/></step>
                 </procedure>
+                <code filter="non-gs" style="block">qodana scan -l %docker-image% --show-report</code>
             </tab>
             <tab id="docker-image-tab" title="Docker image">
                 <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
@@ -908,7 +908,7 @@
                     -p 8080:8080 jetbrains/qodana-&lt;linter&gt; \
                     --show-report
                 </code>
-                <p filter="py-only">For a basic Python project, which only uses <code>stdlib</code>, no preliminary steps are required.</p>
+                <p filter="py-only">For a basic Python project that uses <code>stdlib</code>, no preliminary steps are required.</p>
                 <p filter="py-only">In case a project has external <code>pypi</code> dependencies, use any of the following  options:</p>
                 <list filter="py-only">
                     <li>Create <code>virtualenv</code> as a subfolder in your project and exclude it in
