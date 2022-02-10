@@ -1,4 +1,4 @@
-[//]: # (title: GitLab CI)
+[//]: # (title: GitLab CI/CD)
 
 To add a Qodana runner to a GitLab CI/CD pipeline, use the following configuration example: (`.gitlab-ci.yml`):
 
