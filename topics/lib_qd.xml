@@ -834,6 +834,8 @@
             [npm](https://www.npmjs.com) is currently in development.</p>
     </chunk>
 
+    <!-- Chunk that instructs how to open a browser and observe inspection results. Used in the local run-related sections -->
+
     <chunk id="open-browser-instruction">Open <code>http://localhost:8080</code> in your browser to examine inspection results.
         Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
         details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the
@@ -883,7 +885,8 @@
                 <p filter="js-only">For a basic JavaScript project, which does not have dependencies, no preliminary steps are required.</p>
                 <p filter="js-only">In case a project has external <code>npm</code> dependencies, add the following step before you run the analysis:</p>
                 <code filter="js-only" style="block">
-                    docker run --rm -v &lt;source-directory&gt;:/usr/src/app \
+                    docker run --rm \
+                    -v &lt;source-directory&gt;:/usr/src/app \
                     -w /usr/src/app node:lts npm install
                 </code>
                 <p filter="js-only">You can use any Node version your project requires or use <code>yarn</code> or other
@@ -954,7 +957,8 @@
                 <p filter="php-only">Run the analysis locally:</p>
                 <p filter="jvm-only">and run the analysis locally:</p>
                 <code filter="jvm-php" style="block" lang="shell">
-                    docker run --rm -it -v &lt;source-directory&gt;/:/data/project/ \
+                    docker run --rm -it \
+                    -v &lt;source-directory&gt;/:/data/project/ \
                     -p 8080:8080 %docker-image% --show-report
                 </code>
                 <p filter="other">with <code>source-directory</code> pointing to the root of your project.</p>
