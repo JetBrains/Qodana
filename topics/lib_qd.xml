@@ -869,7 +869,7 @@
                         <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
                             all necessary configuration options.</p>
                     </step>
-                    <step><p>Inspect your code using this command:</p>
+                    <step><p>In the project root directory, run this command to inspect your code:</p>
                         <code style="block">qodana scan --show-report</code>
                     </step>
                     <step><include src="lib_qd.xml" include-id="open-browser-instruction"/></step>
