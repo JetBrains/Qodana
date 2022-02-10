@@ -45,7 +45,9 @@ Sometimes it may be challenging to set up analysis for a big project even with t
 
 [//]: # (We recommend the following Qodana UI guidance to create the most effective profile you can support for your project.)
 
-## Run custom commands
+<!-- Commented this section out because this feature hasn't been published yet. -->
+
+<!-- ## Run custom commands
 
 In particular cases, you may need to have a command or script executed in a Qodana Docker container prior to inspecting 
 your code. It could be done as part of project preparation, software installation, or any other activity that needs to 
@@ -65,6 +67,7 @@ To run a custom script, save the script file to the project directory and specif
 ```yaml
 bootstrap: sh ./script.sh
 ```
+ -->
 
 ## Set up a profile
 
