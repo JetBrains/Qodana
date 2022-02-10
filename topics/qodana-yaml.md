@@ -19,7 +19,7 @@ Out of the box, Qodana provides several predefined profiles:
 * `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
 * `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis).
 * `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
-* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](supported-technologies.md) for details on configuring a project for the desired linter.
+* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](linters.md) for details on configuring a project for the desired linter.
 
 You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure the `.xml` file with this profile resides in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 
@@ -41,9 +41,30 @@ Sometimes it may be challenging to set up analysis for a big project even with t
 
 - The second phase reports the conditions that could affect truthfulness or completeness of the results. For example, if your project relies on external resources or generated code, and they are not available during the analysis, the final results could be compromised. Qodana notifies you about such suspicious results.  
 
-- The last phase suggests additional checks that are not so vital for the project but still beneficial. To avoid overwhelming, Qodana analyses only a fraction of the code, just enough to show you the possible outcome.
+- The last phase suggests additional checks that are not so vital for the project but still beneficial. To avoid overwhelming, Qodana analyzes only a fraction of the code, just enough to show you the possible outcome.
 
 [//]: # (We recommend the following Qodana UI guidance to create the most effective profile you can support for your project.)
+
+## Run custom commands
+
+In particular cases, you may need to have a command or script executed in a Qodana Docker container prior to inspecting 
+your code. It could be done as part of project preparation, software installation, or any other activity that needs to 
+be performed only within the container and that does not affect the Qodana workflow. To solve this task, you can use the 
+`bootstrap` option in the `qodana.yaml` file.
+
+So, if you want to install a specific package in the Qodana container using the `apt` tool, you need to add this
+line to `qodana.yaml`:
+
+```yaml
+bootstrap: apt install <package_name>
+```
+
+To run a custom script, save the script file to the project directory and specify execution in 
+`qodana.yaml`. For example, this can be:
+
+```yaml
+bootstrap: sh ./script.sh
+```
 
 ## Set up a profile
 
