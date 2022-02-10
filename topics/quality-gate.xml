@@ -95,7 +95,7 @@
         </code>
 
         <p>To learn more about %product% integration with Jenkins, see the
-            <a href="jenkins.md">Jenkins</a> integration section of this documentation.</p>
+            <a href="jenkins.md"/> integration section of this documentation.</p>
 
     </chapter>
 

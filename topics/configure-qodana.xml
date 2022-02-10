@@ -12,15 +12,14 @@
         <p>Generally, you can configure %product% on two levels explored in these sections:</p>
 
         <list>
-            <li>The <a href="qodana-yaml.md">Configure profile</a> section explains how to configure %product%
+            <li>The <a href="qodana-yaml.md"/> section explains how to configure %product%
                 inspection process. This includes such topics as what inspections to use, what files and
                 directories to inspect, how to configure license inspection.</li>
-            <li>The <a href="docker-image-configuration.xml">Docker image configuration</a> section explains how to
+            <li>The <a href="docker-image-configuration.xml"/> section explains how to
                 configure %product% Docker image for specific tasks and needs, and provides basic use-cases when these
                 options may come in handy. </li>
         </list>
 
-        <tip>Configuration and using %product% with various CI/CD systems is covered by the
-                <a href="ci.md">Integration with CI systems</a> section.</tip>
+        <tip>Configuration and using %product% with various CI/CD systems is covered by the <a href="ci.md"/> section.</tip>
 
 </topic>

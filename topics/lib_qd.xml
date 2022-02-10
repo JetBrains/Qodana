@@ -377,7 +377,7 @@
         <chapter id="docker+config+options+profile+configuration" title="Profile">
 
             <p>%product% profile can be configured using these CLI options. Alternatively, you can configure %product%
-                using the <code>qodana.yaml</code> file as described in the <a href="qodana-yaml.md">Configure profile</a> section.</p>
+                using the <code>qodana.yaml</code> file as described in the <a href="qodana-yaml.md"/> section.</p>
 
             <table column-width="fixed">
                 <tr>
@@ -426,7 +426,7 @@
 
             <p>To learn more about the baseline feature, see the
                 <a anchor="Run+in+baseline+mode">Run in baseline mode</a> example, or study the
-                <a href="qodana-baseline.xml">Baseline</a> section.</p>
+                <a href="qodana-baseline.xml"/> section.</p>
 
             <table column-width="fixed">
                 <tr>

@@ -40,9 +40,9 @@ This diagram describes several steps:
 
 2. Take all necessary configuration steps:
 
-   * Configure an inspection profile as described in the [Configure profile](qodana-yaml.md) section
-   * Configure Docker images using reference pages of [this section](docker-image-configuration.xml) 
-   * Explore integration options using the [Integration with CI systems](ci.md) section
+   * Configure an inspection profile as described in the [](qodana-yaml.md) section
+   * Configure Docker images using the [](docker-image-configuration.xml) section
+   * Explore integration options using the [](ci.md) section
 
 3. <a href="inspect-your-code.xml">Inspect your codebase</a> using available linters and 
 <a href="features.xml">features</a>. You can run Qodana either [locally or within a CI/CD pipeline](#Running+Qodana). 

@@ -46,7 +46,7 @@ Example of project structure:
     ...
 ```
 
-This command runs the analysis on your source code and starts the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [UI section](ui-overview.md) of this guide for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
+This command runs the analysis on your source code and starts the web server to provide a convenient view of the results. Open [`http://localhost:8080`](http://localhost:8080) in your browser to examine the found problems and performed checks. Here, you can also reconfigure the analysis. See the [](ui-overview.md) section for details. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
 In case you don't need the user interface and prefer to study raw data, use the following command:
 

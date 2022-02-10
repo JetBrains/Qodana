@@ -2,7 +2,7 @@
 
 The Qodana UI focuses on the single-shot analysis, making it easy to act on results and customize checks.
 
-> To learn how to open such reports in your browser, see the [Open an HTML report](html-report.md) section.
+> To learn how to open such reports in your browser, see the [](html-report.md) section.
 
 ## HTML report structure
 
@@ -41,7 +41,7 @@ you can rearrange the sunburst diagram by dragging its components.
 
 6. Clicking a problem in the list will expand the underlying code fragment to provide the detailed description.
 
-7. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can click the **Open file in** button to open the file in your IDE. The **More actions** list provides other options for handling problems, see the [Adjust the analysis scope](#Adjust+the+analysis+scope) section.
+7. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can click the **Open file in** button to open the file in your IDE. The **More actions** list provides other options for handling problems, see the [](#Adjust+the+analysis+scope) section.
 
 
 ### Technical debt
@@ -53,7 +53,7 @@ problems will move to this tab.
 
 This tab structure is similar to the **Actual problems** tab. To apply technical debt (or baseline) in future runs of
 Qodana, download the configuration file and save it to the project root folder. For more information, explore the
-[Baseline](qodana-baseline.xml) section.
+[](qodana-baseline.xml) section.
 
 
 ### Checks
@@ -66,9 +66,9 @@ inspections that Qodana will be using during next run.
 Here, you can study each inspection, enable or disable it. To use this configuration for future Qodana runs, you can 
 download the `qodana.yaml` file in the **Profile configuration** section, and save it into your project root directory. 
 
-See the [Adjust your inspection profile](#Adjust+your+inspection+profile) section to learn the best practices. 
+See the [](#Adjust+your+inspection+profile) section to learn the best practices. 
 
-> To learn more about inspection profiles, see the [Set up a profile](qodana-yaml.md#Set+up+a+profile) section.
+> To learn more about inspection profiles, see the [](qodana-yaml.md#Set+up+a+profile) section.
 > You can also edit profile settings in the [`qodana.yaml`](qodana-yaml.md) file.
 
 ## Adjust your inspection profile 
@@ -129,9 +129,9 @@ You can mark the file/directory as **Excluded**.
 
 ### Enable excluded or hidden problems
 
-To reverse the exclusions you made, download `qodana.yaml` in the **[Profile configuration](#Checks)** section, edit 
+To reverse the exclusions you made, download `qodana.yaml` in the **[](#Checks)** section, edit 
 it as necessary, put it in the project root directory, and then run Qodana again with this new configuration. 
 
-To learn how to configure Qodana using `qodana.yaml`, see the [Configure profile](qodana-yaml.md) section.
+To learn how to configure Qodana using `qodana.yaml`, see the [](qodana-yaml.md) section.
 
 

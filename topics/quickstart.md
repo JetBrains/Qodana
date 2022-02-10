@@ -1,7 +1,5 @@
 [//]: # (title: Quick start)
 
-<var name="linter" value="Qodana"/>
-
 The current version of %product% (%product-version%) provides linters that let you analyze
 <a href="supported-technologies.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects. In addition, 
 you can inspect your code for duplicate functions and incompatible licenses used in your project. 
@@ -57,7 +55,7 @@ This section assumes that you have the Docker application deployed on your machi
 
 3. Check inspection results [in your browser](html-report.md) at `http://localhost:8080`.
 
-The detailed information about %product% linters is available in the [Qodana linters](supported-technologies.md) section.
+The detailed information about %product% linters is available in the [](supported-technologies.md) section.
 
 ## Next steps
 
