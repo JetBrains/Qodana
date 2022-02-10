@@ -20,7 +20,7 @@
 
 ### Analyze a project locally
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="py-only,empty"/></p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="py-only,non-gs,empty"/></p>
 
 ## Next steps
 

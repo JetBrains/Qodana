@@ -834,6 +834,11 @@
             [npm](https://www.npmjs.com) is currently in development.</p>
     </chunk>
 
+    <chunk id="open-browser-instruction">Open <code>http://localhost:8080</code> in your browser to examine inspection results.
+        Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
+        details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the
+        console.</chunk>
+
     <!-- \\\\\\\\\ UNIVERSAL CHUNK FOR LOCAL QODANA RUNS ////////// -->
     <!-- The jvm-only, py-only, and js-only filters are applied only for dedicated images respectively -->
     <!-- The gs-only filter is applied for the Getting started page -->
@@ -846,8 +851,9 @@
         <p filter="jvm-only"> To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
             that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
             executed, and so on.</p>
-        <p>Qodana provides two options for local analysis of your code. Qodana CLI is the easiest
-            option to start. Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
+        <p>Qodana provides two options for local analysis of your code.
+            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
+            Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
         <tabs>
             <tab id="qodana-cli-tab" title="Qodana CLI">
                 <p filter="non-gs">Assuming that you have already
@@ -855,15 +861,16 @@
                     machine, follow these steps:</p>
                 <procedure>
                     <step filter="gs-only">Install Qodana CLI on your machine using available
-                        <a href="https://github.com/JetBrains/qodana-cli/releases/tag/v0.7.1">installation options</a>.</step>
+                        <a href="https://github.com/JetBrains/qodana-cli/releases/tag/v0.7.1">options</a>.</step>
                     <step><p>In the project root directory, run this command:</p>
-                        <code>qodana init</code>
+                        <code style="block">qodana init</code>
                         <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
                             all necessary configuration options.</p>
                     </step>
                     <step><p>Inspect your code using this command:</p>
-                        <code>qodana scan --show-report</code>
+                        <code style="block">qodana scan --show-report</code>
                     </step>
+                    <step><include src="lib_qd.xml" include-id="open-browser-instruction"/></step>
                 </procedure>
             </tab>
             <tab id="docker-image-tab" title="Docker image">
@@ -951,11 +958,9 @@
                     -p 8080:8080 %docker-image% --show-report
                 </code>
                 <p filter="other">with <code>source-directory</code> pointing to the root of your project.</p>
-                <p>
-                </p>
+                <p><include src="lib_qd.xml" include-id="open-browser-instruction"/></p>
             </tab>
         </tabs>
-        <include src="lib_qd.xml" include-id="show-report-command-explanation"/>
     </chunk>
 
 
