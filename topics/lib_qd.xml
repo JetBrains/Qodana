@@ -114,79 +114,118 @@
                     anchor="Configure+via+qodana.yaml">adjust them
             </a> to suit your needs better.
         </p>
+        <p>You can run the %linter% linter using two methods.
+            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest method. If necessary,
+            check the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> to install
+            Qodana CLI. Alternatively, you can use the Docker commands from the <menupath>Docker image</menupath> tab.</p>
     </chunk>
 
     <chunk id="docker-local-analysis">
-        <procedure>
-            <step>
-                <p>
-                    Pull the image from Docker Hub (only necessary to update to the <code>latest</code> version):
+        <tabs>
+            <tab title="Docker image">
+                <procedure>
+                    <step>
+                        <p>
+                            Pull the image from Docker Hub (only necessary to update to the <code>latest</code> version):
+                        </p>
+                        <code style="block" lang="shell">docker pull jetbrains/%linter-shell%
+                        </code>
+                    </step>
+                    <step>
+                        <p>Run the following command:</p>
+                        <code style="block" lang="shell">
+                            docker run --rm -it -p 8080:8080 \
+                            -v &lt;source-directory&gt;/:/data/project/ \
+                            -v &lt;output-directory&gt;/:/data/results/ \
+                            jetbrains/%linter-shell% --show-report
+                        </code>
+                        <p>
+                            where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
+                            respectively, the project source code directory and the analysis results directory.
+                        </p>
+                    </step>
+                </procedure>
+                <p>This command will run the analysis on your source code and start the web server to provide a convenient
+                    view of the results. Open <code>http://localhost:8080</code> in your browser to examine the found
+                    problems and performed checks. Here you can also reconfigure the analysis. See the
+                    <a href="ui-overview.md"/>
+                    for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the
+                    Docker console.
                 </p>
-                <code style="block" lang="shell">docker pull jetbrains/%linter-shell%
-                </code>
-            </step>
-            <step>
-                <p>Run the following command:</p>
+                <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
                 <code style="block" lang="shell">
-                    docker run --rm -it -p 8080:8080 \
+                    docker run --rm -it \
                     -v &lt;source-directory&gt;/:/data/project/ \
                     -v &lt;output-directory&gt;/:/data/results/ \
-                    jetbrains/%linter-shell% --show-report
+                    jetbrains/%linter-shell%
                 </code>
-                <p>
-                    where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
-                    respectively, the project source code directory and the analysis results directory.
+                <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
+                    necessary results</a>. You can further tune the command as described in the <a
+                        href="%docker-tech-guide-page-url%">technical guide</a>.
                 </p>
-            </step>
-        </procedure>
-        <p>This command will run the analysis on your source code and start the web server to provide a convenient
-            view of the results. Open <code>http://localhost:8080</code> in your browser to examine the found
-            problems and performed checks. Here you can also reconfigure the analysis. See the
-            <a href="ui-overview.md"/>
-            for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the
-            Docker console.
-        </p>
-        <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
-        <code style="block" lang="shell">
-            docker run --rm -it \
-                -v &lt;source-directory&gt;/:/data/project/ \
-                -v &lt;output-directory&gt;/:/data/results/ \
-                jetbrains/%linter-shell%
-        </code>
-        <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
-            necessary results</a>. You can further tune the command as described in the <a
-                href="%docker-tech-guide-page-url%">technical guide</a>.
-        </p>
-        <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
-            using it in <code>docker run</code> again.
-        </p>
+                <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
+                    using it in <code>docker run</code> again.
+                </p>
+            </tab>
+            <tab title="Qodana CLI">
+                <p>In the project root directory, run this command to inspect your code:</p>
+                <code filter="non-gs" style="block">qodana scan -l %docker-image% --show-report</code>
+                <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
+                <code style="block" lang="shell">
+                    qodana scan -l %docker-image% \
+                    --results-dir &lt;output-directory&gt;
+                </code>
+                <p>The <code>output-directory</code> specifies the directory where the SARIF-formatted report will be
+                    saved. </p>
+            </tab>
+        </tabs>
+
     </chunk>
 
     <chunk id="docker-ci-analysis">
-        <p>Use the following command as a task in a generic Shell executor:</p>
-        <code style="block" lang="shell">
-            docker run --rm \
-                -v &lt;source-directory&gt;/:/data/project/ \
-                -v &lt;output-directory&gt;/:/data/results/ \
-                jetbrains/%linter-shell%
-        </code>
-        <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
-            the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
-                results directory</a>.
-        </p>
-        <p>Consider using a <a anchor="Set+a+fail+threshold" href="qodana-yaml.md">fail threshold</a> to make the
-            build fail when a certain number of problems is reached, and <a anchor="Run+in+baseline+mode"
-                                                                            href="%docker-tech-guide-page-url%">
-                baseline mode</a>, in which each new %linter% run is compared to some initial run selected as
-            a "baseline". <a anchor="Run+as+non-root" href="%docker-tech-guide-page-url%">
-                Running as non-root
-            </a> is also supported.
-        </p>
-        <tip>
-            <p>
-                For details on available CI integrations, see <a href="ci.md"/>.
-            </p>
-        </tip>
+        <tabs>
+            <tab title="Docker image">
+                <p>Use the following command as a task in a generic Shell executor:</p>
+                <code style="block" lang="shell">
+                    docker run --rm \
+                    -v &lt;source-directory&gt;/:/data/project/ \
+                    -v &lt;output-directory&gt;/:/data/results/ \
+                    jetbrains/%linter-shell%
+                </code>
+                <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
+                    the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
+                        results directory</a>.
+                </p>
+                <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
+                    of problems is reached and the <a href="qodana-baseline.xml"/> option to compare each new %linter%
+                    run to some initial run selected as a <emphasis>baseline</emphasis>.
+                    <a anchor="Run+as+non-root" href="%docker-tech-guide-page-url%">Running as non-root</a> is also supported.
+                </p>
+                <tip>
+                    <p>
+                        For details on available CI integrations, see <a href="ci.md"/>.
+                    </p>
+                </tip>
+            </tab>
+            <tab title="Qodana CLI">
+                <p>Run this command in the project root directory:</p>
+                <code style="block" lang="shell">qodana scan -l %docker-image% --results-dir &lt;output-directory&gt;</code>
+                <p>This will save inspection results to the directory specified by <code>output-directory</code>.</p>
+                <p>You can also apply the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
+                    of problems is reached by using the <code>--fail-threshold</code>
+                    <a href="https://github.com/JetBrains/qodana-cli#options-1">option</a>.</p>
+                <p>The <a href="qodana-baseline.xml"/> feature compares each new %linter% run to some initial run using
+                    the <code>--baseline</code> and
+                    <code>--baseline-include-absent</code> options.
+                </p>
+                <tip>
+                    <p>
+                        For details on available CI integrations, see <a href="ci.md"/>.
+                    </p>
+                </tip>
+
+            </tab>
+        </tabs>
     </chunk>
 
     <chunk id="docker-using-existing-profile">
@@ -194,40 +233,80 @@
             This section is intended for users familiar with configuring code analysis via <a
                 href="%code-inspection-profiles-ide-help-url%">%ide% inspection profiles</a>.
         </p>
-        <p>You can pass the reference to the existing profile in <a
-                href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">multiple ways</a>. Here are some
-            examples:
-        </p>
-        <list>
-            <li>
-                <p>
-                    Mapping the profile to <code>/data/profile.xml</code> inside the container:
+
+        <tabs>
+            <tab title="Docker image">
+                <p>You can pass the reference to the existing profile in <a
+                        href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">multiple ways</a>. Here are some
+                    examples:
                 </p>
-                <code style="block" lang="shell">
-                    docker run --rm -it -p 8080:8080 \
-                        -v &lt;source-directory&gt;/:/data/project/ \
-                        -v &lt;output-directory&gt;/:/data/results/ \
-                        -v &lt;inspection-profile.xml&gt;:/data/profile.xml
-                        jetbrains/%linter-shell% --show-report
-                </code>
-            </li>
-            <li>
-                <p>
-                    Using the name of the profile in your project <code>.idea/inspectionProfiles/</code> folder.
-                </p>
-                <code style="block" lang="shell">
-                    docker run --rm -it -p 8080:8080 \
-                        -v &lt;source-directory&gt;/:/data/project/ \
-                        -v &lt;output-directory&gt;/:/data/results/ \
-                        jetbrains/%linter-shell% --show-report --profile-name custom-profile
-                </code>
-                <note>
+                <list>
+                    <li>
+                        <p>
+                            Mapping the profile to <code>/data/profile.xml</code> inside the container:
+                        </p>
+                        <code style="block" lang="shell">
+                            docker run --rm -it -p 8080:8080 \
+                            -v &lt;source-directory&gt;/:/data/project/ \
+                            -v &lt;output-directory&gt;/:/data/results/ \
+                            -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
+                            jetbrains/%linter-shell% --show-report
+                        </code>
+                    </li>
+                    <li>
+                        <p>
+                            Using the name of the profile in your project <code>.idea/inspectionProfiles/</code> folder.
+                        </p>
+                        <code style="block" lang="shell">
+                            docker run --rm -it -p 8080:8080 \
+                            -v &lt;source-directory&gt;/:/data/project/ \
+                            -v &lt;output-directory&gt;/:/data/results/ \
+                            jetbrains/%linter-shell% --show-report \
+                            --profile-name custom-profile
+                        </code>
+                        <note>
+                            <p>
+                                <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                            </p>
+                        </note>
+                    </li>
+                </list>
+            </tab>
+            <tab title="Qodana CLI">
+                <p>You can pass the reference to the existing profile in <a
+                    href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">multiple ways</a>. Here are some
+                    examples, run both commands in the project root directory:</p>
+                <list>
+                <li>
                     <p>
-                        <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                        Mapping the profile inside the container:
                     </p>
-                </note>
-            </li>
-        </list>
+                    <code style="block" lang="shell">
+                        qodana scan -l %docker-image% \
+                        --results-dir &lt;output-directory&gt; \
+                        --profile-path &lt;path-to-profile&gt; \
+                        --show-report
+                    </code>
+                </li>
+                <li>
+                <p>
+                    Using the name of the profile in your project <code>.idea/inspectionProfiles/</code> folder:
+                </p>
+                <code style="block" lang="shell">
+                    qodana scan -l %docker-image% \
+                    --results-dir &lt;output-directory&gt; \
+                    --profile-name &lt;custom-profile-name&gt; \
+                    --show-report
+                </code>
+                    <note>
+                        <p>
+                            <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                        </p>
+                    </note>
+                </li>
+                </list>
+            </tab>
+        </tabs>
     </chunk>
 
     <chunk id="docker-configure-via-qodana-yaml">
@@ -841,7 +920,7 @@
         details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the
         console.</chunk>
 
-    <!-- \\\\\\\\\ UNIVERSAL CHUNK FOR LOCAL QODANA RUNS ////////// -->
+    <!-- \\\\\\\\\ UNIVERSAL CHUNK FOR LOCAL QODANA RUNS EXCEPT DOCKER IMAGES ////////// -->
     <!-- The jvm-only, py-only, and js-only filters are applied only for dedicated images respectively -->
     <!-- The gs-only filter is applied for the Getting started page -->
     <!-- The jvm-php filter is applied for all images apart from Python and JS linters -->
