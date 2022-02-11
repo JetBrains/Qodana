@@ -42,7 +42,7 @@
                 </code>
             </tab>
             <tab title="CLI">
-                <code style="block" lang="shell">
+                <code style="block" lang="Shell">
                 docker run ... jetbrains/qodana-php \
                 <![CDATA[&minus;&minus;script php-migration:&lt;old-php-version&gt;&minus;to&minus;&lt;upgraded-php-version&gt;]]>
                 </code>
@@ -53,7 +53,7 @@
 
                 <p>This is the example of the CLI command:</p>
 
-                <code style="block" lang="shell">
+                <code style="block" lang="Shell" prompt="$">
                     docker run --rm -it \
                     -v $(pwd)/project/:/data/project/ \
                     -v $(pwd)/report/:/data/results/ \

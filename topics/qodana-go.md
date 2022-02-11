@@ -22,7 +22,7 @@ To start, pull the image from Docker Hub (only necessary to get the latest versi
 
 <var name="docker-image" value="jetbrains/qodana-go"/>
 
-<code style="block" lang="shell">
+<code style="block" lang="shell" prompt="$">
   docker pull %docker-image%
 </code>
 

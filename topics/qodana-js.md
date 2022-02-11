@@ -14,7 +14,7 @@
 
 <var name="linter" value="Qodana JS"/>
 <var name="ide" value="WebStorm"/>
-<var name="docker-image" value="jetbrains/qodana-js"/>
+<var name="docker-image" value="jetbrains/qodana-js:2021.3-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/) and provides static analysis for JavaScript or TypeScript projects.
 
@@ -22,7 +22,21 @@
 
 ### Analyze a project locally
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="js-only,non-gs,empty"/></p>
+#### Install project dependencies
+
+For a basic JavaScript project that has no external dependencies, no preliminary steps are required.
+
+In case a project has external dependencies, you can set them up using `bootstrap` field in qodana.yaml. For example, if your project dependencies are specified in `yarn.lock` file in your project root, add the following line to `qodana.yaml`:
+
+```yaml
+bootstrap: yarn install
+```
+
+The command will be automatically executed before the analysis. You can use `npm` or `yarn` commands to install dependencies.
+
+#### Run analysis
+
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="js-py,js-only,non-gs,empty"/></p>
 
 ## Next steps
 

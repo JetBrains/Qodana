@@ -5,7 +5,7 @@
 <var name="linter" value="Qodana Community for JVM"/>
 <var name="ide" value="IntelliJ IDEA Community"/>
 <var name="tech" value="jvm"/>
-<var name="docker-image" value="jetbrains/qodana-jvm-community"/>
+<var name="docker-image" value="jetbrains/qodana-jvm-community:2021.3"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/) and provides static analysis for Java and Kotlin for Server Side projects. <include src="lib_qd.xml" include-id="linter-intro"/>
 
