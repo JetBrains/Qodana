@@ -26,13 +26,15 @@
 
 For a basic JavaScript project that has no external dependencies, no preliminary steps are required.
 
-In case a project has external dependencies, you can set them up using `bootstrap` field in qodana.yaml. For example, if your project dependencies are specified in `yarn.lock` file in your project root, add the following line to `qodana.yaml`:
+In case the project has external dependencies, you can set them up using the `bootstrap` field in the `qodana.yaml` file. 
+For example, if your project dependencies are specified by the `yarn.lock` file in your project root, add the following 
+line to `qodana.yaml`:
 
 ```yaml
 bootstrap: yarn install
 ```
 
-The command will be automatically executed before the analysis. You can use `npm` or `yarn` commands to install dependencies.
+The command will be automatically executed before the analysis. You can use the `npm` or `yarn` commands to install dependencies.
 
 #### Run analysis
 

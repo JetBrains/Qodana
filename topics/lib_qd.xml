@@ -952,13 +952,13 @@
                         <code style="block" lang="shell" prompt="$">qodana scan --show-report</code>
                     </step>
                 </procedure>
-                <code filter="non-gs" style="block">qodana scan -l %docker-image% --show-report</code>
+                <code filter="non-gs" style="block" prompt="$">qodana scan -l %docker-image% --show-report</code>
             </tab>
             <tab id="docker-image-tab" title="Docker image">
                 <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
                     procedure is basically the same.</p>
                 <p filter="non-gs">To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
-                <code filter="non-gs" style="block" lang="shell">
+                <code filter="non-gs" style="block" lang="shell" prompt="$">
                     docker pull %docker-image%
                 </code>
                 <p filter="js-py">Start local analysis with <code>source-directory</code>

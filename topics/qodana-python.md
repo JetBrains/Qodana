@@ -24,13 +24,14 @@
 
 For a basic Python project that has no external dependencies, no preliminary steps are required. 
 
-In case a project has external dependencies, you can set them up using `bootstrap` field in [qodana.yaml](https://jetbrains.com/help/qodana/qodana-yaml.html#Run+custom+commands). For example, if your project dependencies are specified in `requirements.txt` file in your project root, add the following line to `qodana.yaml`:
+In case the project has external dependencies, you can set them up using the `bootstrap` field in the `qodana.yaml` file.  
+For example, if your project dependencies are specified by the `requirements.txt` file in your project root, add the following line to `qodana.yaml`:
 
 ```yaml
 bootstrap: pip install -r requirements.txt
 ```
 
-The command will be automatically executed before the analysis. You can use `pip`, `pipenv`, `poetry` or `conda` commands to install dependencies.
+The command will be automatically executed before the analysis. You can use the `pip`, `pipenv`, `poetry` or `conda` commands to install dependencies.
 
 #### Run analysis
 
