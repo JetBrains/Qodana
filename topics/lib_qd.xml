@@ -329,7 +329,7 @@
         <p>Any free IntelliJ platform plugins or your custom plugin can be added by mounting it to the container
             plugins' directory using the following command:
         </p>
-        <code style="block" lang="shell">
+        <code style="block" lang="shell" prompt="$">
             docker run \
             -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% \
             jetbrains/%linter-shell%
