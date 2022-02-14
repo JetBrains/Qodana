@@ -12,7 +12,7 @@
 
 <var name="linter" value="Qodana Python"/>
 <var name="ide" value="PyCharm Professional"/>
-<var name="docker-image" value="jetbrains/qodana-python"/>
+<var name="docker-image" value="jetbrains/qodana-python:2021.3-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
@@ -20,7 +20,21 @@
 
 ### Analyze a project locally
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="py-only,non-gs,empty"/></p>
+#### Install project dependencies
+
+For a basic Python project that has no external dependencies, no preliminary steps are required. 
+
+In case a project has external dependencies, you can set them up using `bootstrap` field in [qodana.yaml](https://jetbrains.com/help/qodana/qodana-yaml.html#Run+custom+commands). For example, if your project dependencies are specified in `requirements.txt` file in your project root, add the following line to `qodana.yaml`:
+
+```yaml
+bootstrap: pip install -r requirements.txt
+```
+
+The command will be automatically executed before the analysis. You can use `pip`, `pipenv`, `poetry` or `conda` commands to install dependencies.
+
+#### Run analysis
+
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="js-py,py-only,non-gs,empty"/></p>
 
 ## Next steps
 
