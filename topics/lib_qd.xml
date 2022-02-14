@@ -963,7 +963,7 @@
                 </code>
                 <p filter="js-py">Start local analysis with <code>source-directory</code>
                     pointing to the root of your project:</p>
-                <code filter="gs-only" style="block" lang="shell">
+                <code filter="gs-only" style="block" lang="shell" prompt="$">
                     docker run --rm -it \
                     -v &lt;source-directory&gt;/:/data/project/ \
                     -p 8080:8080 jetbrains/qodana-&lt;linter&gt; \
@@ -981,7 +981,7 @@
                 </code>
                 <p filter="php-only">Run the analysis locally:</p>
                 <p filter="jvm-only">and run the analysis locally:</p>
-                <code style="block" lang="shell" prompt="$">
+                <code filter="non-gs" style="block" lang="shell" prompt="$">
                     docker run --rm -it \
                     -v &lt;source-directory&gt;/:/data/project/ \
                     -p 8080:8080 %docker-image% --show-report
