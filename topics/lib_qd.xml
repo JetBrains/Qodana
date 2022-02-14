@@ -169,7 +169,7 @@
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <p>In the project root directory, run this command to inspect your code:</p>
-                <code filter="non-gs" style="block">qodana scan -l %docker-image% --show-report</code>
+                <code filter="non-gs" style="block" prompt="$">qodana scan -l %docker-image% --show-report</code>
                 <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
                 <code style="block" lang="shell" prompt="$">
                     qodana scan -l %docker-image% \
