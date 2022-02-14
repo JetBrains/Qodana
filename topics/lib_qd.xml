@@ -121,8 +121,8 @@
     </chunk>
 
     <chunk id="docker-local-analysis">
-        <tabs>
-            <tab title="Docker image">
+        <tabs group="docker-options">
+            <tab title="Docker image" group-key="docker-image">
                 <procedure>
                     <step>
                         <p>
@@ -167,7 +167,7 @@
                     using it in <code>docker run</code> again.
                 </p>
             </tab>
-            <tab title="Qodana CLI">
+            <tab title="Qodana CLI" group-key="qodana-cli">
                 <p>In the project root directory, run this command to inspect your code:</p>
                 <code filter="non-gs" style="block">qodana scan -l %docker-image% --show-report</code>
                 <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
@@ -183,8 +183,8 @@
     </chunk>
 
     <chunk id="docker-ci-analysis">
-        <tabs>
-            <tab title="Docker image">
+        <tabs group="docker-options">
+            <tab title="Docker image" group-key="docker-image">
                 <p>Use the following command as a task in a generic Shell executor:</p>
                 <code style="block" lang="shell">
                     docker run --rm \
@@ -207,7 +207,7 @@
                     </p>
                 </tip>
             </tab>
-            <tab title="Qodana CLI">
+            <tab title="Qodana CLI" group-key="qodana-cli">
                 <p>Run this command in the project root directory:</p>
                 <code style="block" lang="shell">qodana scan -l %docker-image% --results-dir &lt;output-directory&gt;</code>
                 <p>This will save inspection results to the directory specified by <code>output-directory</code>.</p>
@@ -234,8 +234,8 @@
                 href="%code-inspection-profiles-ide-help-url%">%ide% inspection profiles</a>.
         </p>
 
-        <tabs>
-            <tab title="Docker image">
+        <tabs group="docker-options">
+            <tab title="Docker image" group-key="docker-image">
                 <p>You can pass the reference to the existing profile in <a
                         href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">multiple ways</a>. Here are some
                     examples:
@@ -272,7 +272,7 @@
                     </li>
                 </list>
             </tab>
-            <tab title="Qodana CLI">
+            <tab title="Qodana CLI" group-key="qodana-cli">
                 <p>You can pass the reference to the existing profile in <a
                     href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">multiple ways</a>. Here are some
                     examples, run both commands in the project root directory:</p>
@@ -330,7 +330,9 @@
             plugins' directory using the following command:
         </p>
         <code style="block" lang="shell">
-            docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/%linter-shell%
+            docker run \
+            -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% \
+            jetbrains/%linter-shell%
         </code>
         <p>
             Refer to the <a href="%docker-tech-guide-page-url%">technical guide</a> for more details.
