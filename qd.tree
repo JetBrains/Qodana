@@ -12,7 +12,6 @@
     <toc-element id="about-qodana.md">
         <toc-element id="supported-technologies.md"/>
         <toc-element id="CHANGELOG.md"/>
-        <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
     </toc-element>
 
     <toc-element id="concepts.xml">

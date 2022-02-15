@@ -4,6 +4,8 @@
 
 <var name="linter" value="Qodana Community for Android"/>
 <var name="ide" value="IntelliJ IDEA"/>
+<var name="tech" value="jvm"/>
+<var name="docker-image" value="jetbrains/qodana-jvm-android:2021.3-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/) with the [Android Support](https://plugins.jetbrains.com/plugin/1792-android-support) plugin and provides static analysis for Android projects. <include src="lib_qd.xml" include-id="linter-intro"/>
 
@@ -11,28 +13,7 @@
 
 ### Analyze a project locally
 
-<p><include src="lib_qd.xml" include-id="jvm-project-setup-note"/></p>
-
-To start, pull the image from Docker Hub (only necessary to get the latest version):
-
-<var name="docker-image" value="jetbrains/qodana-jvm-android"/>
-
-<code style="block" lang="shell">
-  docker pull %docker-image%
-</code>
-
-and run the analysis locally:
-
-```shell
-docker run --rm -it -v <source-directory>/:/data/project/ \ 
-  -p 8080:8080 %docker-image% --show-report
-```
-
-with `source-directory` pointing to the root of your project.
-
-<p>
-<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
-</p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="jvm-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Next steps
 

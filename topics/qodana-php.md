@@ -12,6 +12,7 @@
 
 <var name="linter" value="Qodana PHP"/>
 <var name="ide" value="PhpStorm"/>
+<var name="docker-image" value="jetbrains/qodana-php:2021.3-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/) and provides static analysis for PHP projects. <include src="lib_qd.xml" include-id="linter-intro"/>
 
@@ -19,38 +20,7 @@
 
 ### Analyze a project locally
 
-To start, pull the image from Docker Hub (only necessary to get the latest version):
-
-<var name="docker-image" value="jetbrains/qodana-php"/>
-
-<code style="block" lang="shell">
-  docker pull %docker-image%
-</code>
-
-If you use PHP Composer, Qodana will install your project dependencies automatically right before the code 
-analysis starts.
-
-In case you need to change the language level, add the following into `<source-directory>/.idea/php.xml`:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="PhpProjectSharedConfiguration" php_language_level="<desired level>" />
-</project>
-```
-
-Run the analysis locally:
-
-```shell
-docker run --rm -it -v <source-directory>/:/data/project/ \ 
-  -p 8080:8080 %docker-image% --show-report
-```
-
-with `source-directory` pointing to the root of your project.
-
-<p>
-<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
-</p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="php-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Next steps
 

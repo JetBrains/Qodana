@@ -35,7 +35,7 @@
         <p>You can run %product% with the configured quality gate locally using available
             <a href="docker-images.md">Docker images</a>: </p>
 
-        <code style="block" lang="bash">
+        <code style="block" lang="shell" prompt="$">
             docker run -v &lt;source-directory&gt;/:/data/project/  \
             jetbrains/qodana-&lt;linter&gt; \
             --fail-threshold &lt;number&gt;
