@@ -8,7 +8,7 @@ languages and technologies covered by JetBrains IDEs will be added.
 
 ## Analyze a project locally
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="gs-only,other,empty"/></p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="gs-only,other,empty"/></p>
 
 ## Next steps
 

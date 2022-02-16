@@ -42,7 +42,7 @@
                 </code>
             </tab>
             <tab title="CLI">
-                <code style="block" lang="Shell">
+                <code style="block" lang="Shell" prompt="$">
                 docker run ... jetbrains/qodana-php \
                 <![CDATA[&minus;&minus;script php-migration:&lt;old-php-version&gt;&minus;to&minus;&lt;upgraded-php-version&gt;]]>
                 </code>

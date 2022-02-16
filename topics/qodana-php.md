@@ -20,7 +20,7 @@
 
 ### Analyze a project locally
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" filter="php-only,jvm-php,non-gs,other,empty"/></p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="php-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Next steps
 
