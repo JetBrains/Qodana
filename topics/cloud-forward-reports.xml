@@ -74,7 +74,7 @@
                uses: JetBrains/qodana-action@latest
                with:
                  linter: jetbrains/qodana-&lt;linter&gt;
-                 qodana-token: ${{ secrets.QODANA_TOKEN }}
+                 token: ${{ secrets.QODANA_TOKEN }}
         </code>
     </chapter>
 
