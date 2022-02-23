@@ -3,13 +3,21 @@
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
 
-Qodana runs are configured via the `qodana.yaml` configuration file. Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters. You can specify such overrides in the [HTML report](results.md), and the changes are imported to `qodana.yaml` automatically.
+Qodana runs are configured via the `qodana.yaml` configuration file.
+Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters.
+You can specify such overrides in the [HTML report](results.md),
+and the changes are imported to `qodana.yaml` automatically.
 
-To run subsequent checks with this customized configuration, save the file to the project's root directory. Alternatively, you can edit the `qodana.yaml` configuration file manually. This section will guide you through necessary settings.
+`qodana.yaml` JSON schema is published in [SchemaStore]()
+
+To run subsequent checks with this customized configuration, save the file to the project's root directory.
+Alternatively, you can edit the `qodana.yaml` configuration file manually.
+This section will guide you through necessary settings.
 
 <note>
 
-Configuration through `qodana.yaml` is only supported by the Qodana product. It is not supported by any other JetBrains products like IntelliJ IDEA or PhpStorm.
+Configuration through `qodana.yaml` is only supported by Qodana.
+It is not supported by any other JetBrains products like IntelliJ IDEA or PhpStorm.
 
 </note>
 
@@ -212,6 +220,82 @@ In the example above,
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
+## License audit configuration
+
+To enable license audit with Qodana, enable `CheckDependencyLicenses` inspection qodana.yaml`:
+
+```yaml
+include:
+  - name: CheckDependencyLicenses
+```
+
+### Ignore a dependency
+
+Ignore a dependency to hide the related problems from the report:
+
+```yaml
+dependencyIgnores:
+  - name: "enry"
+```
+
+where `name` is the dependency name to ignore.
+
+In the example above, in the analyzed project, the dependency `enry` is completely excluded from the analysis, any possible license-related problems are dismissed, the dependency won't be included in the report at all. This is useful to quickly hide internal dependencies that do not need to be mentioned in the report.
+
+### Allow or prohibit a license
+
+Override the predefined license compatibility matrix:
+
+```yaml
+licenseRules:
+  - keys:
+      - "PROPRIETARY-LICENSE"
+      - "MIT"
+    prohibited:
+      - "BSD-3-CLAUSE-NO-CHANGE"
+    allowed:
+      - "ISC"
+
+  - keys: [ "Apache-2.0" ]
+    prohibited:
+      - "MIT"
+```
+
+where `keys` is the project license(s); the dependency licenses identifiers are specified in `allowed` or `prohibited`.
+
+### Override a dependency license
+
+Override a dependency license identifier:
+
+```yaml
+
+dependencyOverrides:
+  - name: "jaxb-runtime"
+    version: "2.3.1"
+    url: "https://github.com/javaee/jaxb-v2"
+    licenses:
+      - key: "CDDL-1.1"
+        url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
+      - key: "GPL-2.0-with-classpath-exception"
+        url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
+```
+
+where `name` is the dependency name, `version` is the dependency version, and `licenses` is the list of redefined dependency licenses.
+
+In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpath-exception and no other licenses for jaxb-runtime (only 2.3.1). This is useful when a dependency is dual-licensed and you want to omit some license or when it's not possible to detect the license from the dependency sources correctly.
+
+### Custom dependencies
+
+Currently, license audit with Qodana is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
+
+```yaml
+customDependencies:
+  - name: ".babelrc JSON Schema (.babelrc-schema.json)"
+    version: "JSON schema for Babel 6+ configuration files"
+    licenses:
+      - key: "Apache-2.0"
+        url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
+```
 
 ## Clone Finder license overrides 
 
@@ -237,177 +321,3 @@ exclude:
 ```
 
 In the example above, using code from **ISC** reference projects (`target`) is allowed in the **GPL-3.0-only** queried project (`source`), although this combination is listed as incompatible, for example, in [choosealicense.com/appendix/](https://choosealicense.com/appendix/).
-
-## License Audit configuration
-
-Use license identifiers from the [SPDX License List](https://spdx.org/licenses/).
-
-### Exclude an inspection
-By default, Qodana License Audit includes all supported inspections.
-
-Exclude inspections from the analysis:
-
-```yaml
-version: 1.0
-profile:
-  name: qodana.recommended
-exclude:
-  - name: NoDependencyLicenses
-  - name: ProhibitedDependencyLicense
-  - name: UncategorizedDependencyLicense
-  - name: UnrecognizedDependencyLicense
-  - name: UnrecognizedProjectLicense
-```
-
-### Allow or prohibit a license
-
-Override the predefined licence compatibility matrix:
-
-```yaml
-inspections:
-  LicenseAudit:
-    rules:
-      - key:
-          - "PROPRIETARY-LICENSE"
-          - "MIT"
-        prohibited:
-          - "Apache-2.0"
-        allowed:
-          - "MIT"
-          - "BSD-3-Clause"
-          - "ISC"
-
-      - key: "Apache-2.0"
-        prohibited:
-          - "MIT"
-```
-
-where `key` is the project license(s); the dependency licenses are specified in `allowed` or `prohibited`.
-
-### Override a dependency license
-
-Override a dependency license ID if it has been detected incorrectly:
-
-```yaml
-inspections:
- LicenseAudit:
-   dependencyOverrides:
-       - name: "numpy"
-         version: "1.19.1"
-         licenses:
-           - "BSD-3-Clause"
-```
-
-where `name` is the dependency name, `version` is the dependency version, and `licenses` is the list of redefined dependency licenses.
-
-In the example above, you 'tell' License Audit to detect BSD-3-Clause and no other licenses for numpy (only 1.19.1).
-
-### Ignore a dependency license
-
-Ignore a dependency license to hide the related problems from the report:
-
-```yaml
-inspections:
-  LicenseAudit:
-    dependencyIgnores:
-      - name: "enry"
-        licenses:
-          - "UNKNOWN"
-          
-      - name: "numpy"
-        licenses:
-          - "GPL-3.0-only"
-```
-
-where `name` is the dependency name, `licenses` is the list of dependency licenses ignored for the specified dependency.
-
-In the example above, in the analyzed project, the dependency numpy, version 1.19.1 has the GPL-3.0 license (which is supposedly prohibited for this project) and the license for enry (0.1.1) is not recognized. The problems with these dependencies will be ignored in the reports, and you won't see the prohibited and unrecognized license problems you've seen before.
-
-### Monorepo support
-
-By default, Qodana License Audit looks for package manager manifests on the given project root. If you have applications with different package managers declared in subdirectories, use `paths` to specify such subdirectories relative to your project root.
-
-```yaml
-inspections:
-  LicenseAudit:
-    paths:
-      - "."
-      - "ui/"
-```
-
-If you want to scan both specific paths for package manager manifests  _and_ the root of your project, include `.` to the list of paths (for root).
-
-### Dependency scopes
-
-#### Gradle
-
-By default, Qodana License Audit runs Gradle with `runtime` and `runtimeClasspath` configurations. You can specify the wanted Gradle configurations in `dependencyScopes` section.
-
-```yaml
-inspections:
-  LicenseAudit:
-    dependencyScopes:
-      - type: "gradle"
-        scopes:
-          - "runtime"
-```
-
-#### npm, yarn
-
-By default, npm or yarn exclude all non-development dependencies. To include development or test dependencies, put `all` to the configuration.
-
-```yaml
-inspections:
-  LicenseAudit:
-    dependencyScopes:
-      - type: "yarn"
-        scopes:
-          - "all"
-```
-
-Other package managers supported do not allow specifying the scopes.
-
-### Detector options
-
-Default detector options:
-
-```yaml
-inspections:
-  LicenseAudit:
-    detectorOptions:
-      threshold: 0.8
-      includeText: true
-      deep: false
-```
-
-where
-* `threshold` is the license detection threshold value from 0.0 to 1.0
-* `includeText` specifies whether to add the license text by which the license ID was recognized to the report or not
-* `deep` specifies whether to run a deep license detection: check every file and always detect licenses from dependencies, even when they were declared on the package level
-
-### Example of different License Audit overrides
-
-```yaml
-failThreshold: 100
-profile:
-  name: qodana.recommended
-inspections:
-  LicenseAudit:
-    rules:
-      - key:
-          - "PROPRIETARY-LICENSE"
-        prohibited:
-          - "Apache-2.0"
-        allowed:
-          - "BSD-3-Clause"
-
-    dependencyIgnores:
-      - name: "numpy"
-        licenses:
-          - "GPL-3.0-only"
-
-    dependencyScopes:
-      - type: "gradle"
-        scopes:
-          - "runtime"
-```
