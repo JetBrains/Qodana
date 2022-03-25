@@ -2,6 +2,8 @@
 
 ## Usage
 
+<anchor name="basic-configuration"></anchor>
+
 ### Basic configuration
 
 To configure Qodana Scan, save the `.github/workflows/code_quality.yml` file containing the workflow configuration:
@@ -37,7 +39,7 @@ because [different jobs run in parallel](https://help.github.com/en/actions/gett
 You can set
 up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
 for your project using Qodana. To do it, add these lines to the `code_quality.yml` workflow file right below
-the [basic configuration](#Basic configuration) of Qodana Scan:
+[the basic configuration](#basic-configuration) of Qodana Scan:
 
 ```yaml
       - uses: github/codeql-action/upload-sarif@v1
@@ -49,7 +51,7 @@ This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana repor
 file using the `sarif_file` key.
 
 > GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up baseline and quality gate processing on the Qodana side prior to submitting inspection results to GitHub code scanning, see the
-[Quality gate and baseline](#Quality gate and baseline) section for details.
+[Quality gate and baseline](#quality-gate-and-baseline) section for details.
 
 ### Pull request quality gate
 
@@ -77,6 +79,8 @@ Instead of `main`, you can specify your branch here.
 8. Select **Require status checks to pass before merging**.
 9. Search for the `Qodana` status check, then check it.
 10. Click **Create**.
+
+<anchor name="quality-gate-and-baseline"></anchor>
 
 ### Quality gate and baseline
 
@@ -136,11 +140,7 @@ can host them on your [GitHub Pages](https://docs.github.com/en/pages) repositor
 
 ### Get a Qodana badge
 
-You can set up a Qodana workflow badge in your repository:
-
-[![Qodana](https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml/badge.svg)](https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml)
-
-To do it, follow these steps:
+You can set up a Qodana workflow badge in your repository, to do it, follow these steps:
 
 1. Navigate to the workflow run that you previously configured.
 2. On the workflow page, select **Create status badge**.
@@ -152,17 +152,17 @@ To do it, follow these steps:
 
 Most likely you won't need other options than `args`: all other options can be useful if you are configuring multiple Qodana Scan jobs in one workflow.
 
-| Name                      | Description                                                                                                                                                                           | Default Value                       |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
-| `args`                    | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), e.g. `-i,frontend,--print-problems`. Optional. | -                                   |
-| `results-dir`             | Directory to store the analysis results. Optional.                                                                                                                                    | `${{ runner.temp }}/qodana/results` |
-| `upload-result`           | Upload Qodana results as an artifact to the job. Optional.                                                                                                                            | `true`                              |
-| `artifact-name`           | Specify Qodana results artifact name, used for results uploading. Optional.                                                                                                           | `qodana-report`                     |
-| `cache-dir`               | Directory to store Qodana cache. Optional.                                                                                                                                            | `${{ runner.temp }}/qodana/caches`  |
-| `use-caches`              | Utilize GitHub caches for Qodana runs. Optional.                                                                                                                                      | `true`                              |
-| `additional-cache-hash`   | Allows customizing the generated cache hash. Optional.                                                                                                                                | `${{ github.sha }}`                 |
-| `use-annotations`         | Use annotation to mark the results in the GitHub user interface. Optional.                                                                                                            | `true`                              |
-| `github-token`            | GitHub token to be used for uploading results. Optional.                                                                                                                              | `${{ github.token }}`               |
+| Name                    | Description                                                                                                                                                                                  | Default Value                       |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| `args`                  | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend,--print-problems`. Optional. | -                                   |
+| `results-dir`           | Directory to store the analysis results. Optional.                                                                                                                                           | `${{ runner.temp }}/qodana/results` |
+| `upload-result`         | Upload Qodana results as an artifact to the job. Optional.                                                                                                                                   | `true`                              |
+| `artifact-name`         | Specify Qodana results artifact name, used for results uploading. Optional.                                                                                                                  | `qodana-report`                     |
+| `cache-dir`             | Directory to store Qodana cache. Optional.                                                                                                                                                   | `${{ runner.temp }}/qodana/caches`  |
+| `use-caches`            | Utilize GitHub caches for Qodana runs. Optional.                                                                                                                                             | `true`                              |
+| `additional-cache-hash` | Allows customizing the generated cache hash. Optional.                                                                                                                                       | `${{ github.sha }}`                 |
+| `use-annotations`       | Use annotation to mark the results in the GitHub user interface. Optional.                                                                                                                   | `true`                              |
+| `github-token`          | GitHub token to be used for uploading results. Optional.                                                                                                                                     | `${{ github.token }}`               |
 
 [gh:qodana]: https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml
 [youtrack]: https://youtrack.jetbrains.com/issues/QD
