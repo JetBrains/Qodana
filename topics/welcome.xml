@@ -57,8 +57,6 @@
                     <title>Distribution formats</title>
                     <a href="docker-images.md"
                        description="Run Qodana locally or in any CI"/>
-                    <a href="github-actions.md"
-                       description="Run Qodana code inspection on any GitHub repository"/>
                     <a href="qodana-github-application.md"
                        description="Examine incoming pull GitHub requests"/>
                     <a href="qodana_plugins.md"

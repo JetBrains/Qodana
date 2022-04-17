@@ -89,7 +89,7 @@ Find below a recommended course of action for each inspection type.
 
 <note>
 
-- To override the detection results, add the recommended settings to  [`qodana.yaml`](qodana-yaml.md#License+Audit+configuration) and save the configuration file to the root of the analyzed project.
+- To override the detection results, add the recommended settings to  [`qodana.yaml`](qodana-yaml.md#License+audit+configuration) and save the configuration file to the root of the analyzed project.
 
 - To report a problem, go to **More actions | Report** at the bottom of the problem card.
 
