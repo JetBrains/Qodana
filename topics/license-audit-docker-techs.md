@@ -16,7 +16,7 @@ Usage:
  entrypoint [OPTIONS]
 
 Application & help options:
- -i, --project-dir DIRECTORY     Project to run License Audit on
+ -i, --project-dir DIRECTORY     Project to run License audit on
  -o, --results-dir PATH          Save results to the folder
  -s, --save-report               Generate an HTML report
  -w, --show-report               Serve an HTML report on port 8080
@@ -24,7 +24,7 @@ Application & help options:
 
 Examples of execution tuneup:
 
-- Display a report in HTML. After the License Audit analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
+- Display a report in HTML. After the License audit analysis is finished, the container will not exit and will listen to port `8080`. You can connect to [`http://localhost:8080`](http://localhost:8080) to see the results. When done, you can stop the web server by pressing `Ctrl-C` in the Docker console.
 
    ```shell
    docker run ... -p 8080:8080 <image-name> --show-report
@@ -32,7 +32,7 @@ Examples of execution tuneup:
 
 Install and use a different version of a language:
 
-The default installed versions of languages in the License Audit image
+The default installed versions of languages in the License audit image
 
 ```shell
 PHP_VERSION = "7.4.16"

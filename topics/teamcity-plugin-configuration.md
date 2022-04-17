@@ -94,7 +94,7 @@ EOM
 
 
 ## Add more runners to your build
-You can add inspections by [Clone Finder](https://www.jetbrains.com/help/qodana/about-clone-finder.html) or [License Audit](https://www.jetbrains.com/help/qodana/about-license-audit.html) to your build steps.
+You can add inspections by [Clone Finder](https://www.jetbrains.com/help/qodana/about-clone-finder.html) or [License audit](https://www.jetbrains.com/help/qodana/about-license-audit.html) to your build steps.
 
 When viewing analysis results for a specific build later, you can disable certain runners and inspections via [`qodana.yaml`](https://www.jetbrains.com/help/qodana/qodana-yaml.html) and update the [configuration script](#add-script).
 
@@ -104,7 +104,7 @@ When viewing analysis results for a specific build later, you can disable certai
 ### Prerequisites for adding more runners
 
 - The Qodana plugin for teamCity is installed.
-- The Clone Finder or License Audit plugins for teamCity are installed as necessary.
+- The Clone Finder or License audit plugins for teamCity are installed as necessary.
 
 ## Advanced configuration
 

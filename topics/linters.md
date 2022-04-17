@@ -17,7 +17,7 @@ Linters you can try right now:
 
 Experimental linters:
 * [Qodana Clone Finder](about-clone-finder.md): code duplication detection across different projects
-* [Qodana License Audit](about-license-audit.md): third-party licenses compatibility verification as well as black-listing and white-listing
+* [Qodana License audit](about-license-audit.md): third-party licenses compatibility verification as well as black-listing and white-listing
 
 Check the linter you want to try and follow the guidelines!
 

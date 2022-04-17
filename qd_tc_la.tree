@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE product-profile
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-<product-profile id="qd_tc_la" name="Qodana License Audit TeamCity Plugin" start-page="license-audit-teamcity-plugin.md" status="release">
+<product-profile id="qd_tc_la" name="Qodana License audit TeamCity Plugin" start-page="license-audit-teamcity-plugin.md" status="release">
     <toc-element id="license-audit-teamcity-plugin.md">
         <toc-element id="teamcity-plugin-quick-start.md"/>
     </toc-element>

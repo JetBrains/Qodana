@@ -1,13 +1,13 @@
-[//]: # (title: License Audit Docker image)
+[//]: # (title: License audit Docker image)
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg) ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana-license-audit.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana-license-audit.svg)
 
 ><include src="lib_qd.xml" include-id="eap-warning"/>
 
-<var name="product" value="Qodana License Audit"/>
+<var name="product" value="Qodana License audit"/>
 
 Supported tags:  [`2021.1-eap`](https://hub.docker.com/r/jetbrains/qodana-license-audit/tags?page=1&ordering=last_updated&name=2021.1-eap),  [`latest`](https://hub.docker.com/r/jetbrains/qodana-license-audit/tags?page=1&ordering=last_updated&name=latest) (points to `2021.1-eap`)
 
-We provide a Docker image for the [License Audit linter](about-license-audit.md) to support different usage scenarios:
+We provide a Docker image for the [License audit linter](about-license-audit.md) to support different usage scenarios:
 - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*).
 - Single-shot analysis (for example, performed *locally*).
 
@@ -46,7 +46,7 @@ The `<output-directory>` will contain [all the necessary results](license-audit-
 
 If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in `docker run` again.
 
-By default, Qodana License Audit comes with a set of pre-installed tools versions (Java 11, Gradle 6, Python 3 and [others](license-audit-docker-techs.md#Configuration)), you can explicitly specify which tool versions to use for your project. 
+By default, Qodana License audit comes with a set of pre-installed tools versions (Java 11, Gradle 6, Python 3 and [others](license-audit-docker-techs.md#Configuration)), you can explicitly specify which tool versions to use for your project. 
 ```shell
 docker run --rm -it \
     -e <language-version> =3.7.10
@@ -67,14 +67,14 @@ docker run --rm -it \
     jetbrains/qodana-license-audit
 ```
 
-where `<source-directory<` and `<output-directory>` are full local paths to the directories that contain, respectively, the project source code and the analysis results.
+where `<source-directory>` and `<output-directory>` are full local paths to the directories that contain, respectively, the project source code and the analysis results.
 
-The content of `<output-directory>` is described in [License Audit Output](license-audit-output.md#license-audit-basic-output). Consider using [fail-threshold](qodana-yaml.md#Set+a+fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](license-audit-docker-techs.md#Run+as+non-root) is also supported.
+The content of `<output-directory>` is described in [License audit Output](license-audit-output.md#license-audit-basic-output). Consider using [fail-threshold](qodana-yaml.md#Set+a+fail+threshold) to make the build fail on reaching a certain number of problems. [Running as non-root](license-audit-docker-techs.md#Run+as+non-root) is also supported.
 
 - Example for GitHub Workflow (`.github/workflows/qodana-license-audit.yml`):
 
 ```shell
-name: Qodana - License Audit
+name: Qodana - License audit
 on:
   workflow_dispatch:
 jobs:
@@ -84,7 +84,7 @@ jobs:
       # clone your project
       - uses: actions/checkout@v2
       # run qodana-license-audit
-      - name: Qodana - License Audit
+      - name: Qodana - License audit
         uses: jetbrains/qodana-license-audit-action@main
         with:
           options: PYTHON_VERSION=3.7.10

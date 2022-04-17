@@ -1,13 +1,13 @@
-[//]: # (title: License Audit TeamCity plugin)
+[//]: # (title: License audit TeamCity plugin)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-The Qodana License Audit plugin for TeamCity lets you extend Qodana static analysis with the [License Audit](https://www.jetbrains.com/help/qodana/about-license-audit.html) functionality.
+The Qodana License audit plugin for TeamCity lets you extend Qodana static analysis with the [License audit](https://www.jetbrains.com/help/qodana/about-license-audit.html) functionality.
 
 ## Quick start
 
 * Ensure you have the [Qodana](https://www.jetbrains.com/help/qodana/qodana-teamcity-plugin.html) plugin for IntelliJ Inspection installed
-* Install the Qodana License Audit plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/17283-qodana-license-audit)
+* Install the Qodana License audit plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/17283-qodana-license-audit)
 
 
 Use [TeamCity VCS roots](https://www.jetbrains.com/help/teamcity/vcs-root.html) to add all required project source to the build.
@@ -18,12 +18,12 @@ With the plugin installed, [add the Qodana runner to your build](https://www.jet
 
 **Specify the build settings**
 
-1. Select the checkbox next to **License Audit**. 
+1. Select the checkbox next to **License audit**. 
    
 2. For **Additional arguments for 'docker run'**, specify:
 
     - (Optional) [Your project's tools versions](https://www.jetbrains.com/help/qodana/license-audit-docker-techs.html#specify-project-tools-version), for example, `-e PYTHON_VERSION=3.7.10`
-    - (Optional) Using verbose License Audit build output with `-e QODANA_VERBOSE=true` 
+    - (Optional) Using verbose License audit build output with `-e QODANA_VERBOSE=true` 
 
 
 Also use qodana.yaml and qodana.license.rules.json in your project to configure the tool.
@@ -61,7 +61,7 @@ need to aggregate the analysis of several builds into one, use the TeamCity [Com
 Almost all [UI features](https://www.jetbrains.com/help/qodana/ui-overview.html) of the **Qodana** tab are similar across all Qodana tools we provide. They are sufficient for exploring the results of a single run, but the tab in TeamCity offers even more. You can easily compare two builds and focus on the difference. Now, the comparison is limited to a single build configuration, but
 we are working on providing the cross-configuration option as well.
 
-In the [inspection profile](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile), you will find six inspections provided by License Audit:
+In the [inspection profile](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile), you will find six inspections provided by License audit:
 * Unrecognized project license
 * Unrecognized dependency license
 * No project licenses
@@ -76,5 +76,5 @@ Check the chapter about [Qodana Inspection Results](https://www.jetbrains.com/he
 ## License
 
 <include src="lib_qd.xml" include-id="license-info">
-    <var name="product" value="Qodana License Audit TeamCity plugin"/>
+    <var name="product" value="Qodana License audit TeamCity plugin"/>
 </include>

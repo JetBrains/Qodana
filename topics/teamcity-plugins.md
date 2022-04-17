@@ -9,7 +9,7 @@ If you have your own installation of TeamCity, you can install the following Qod
 
 * [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana): provides the Qodana IntelliJ linter, Qodana UI and extension point for other linters support
 * [Clone Finder plugin](https://plugins.jetbrains.com/plugin/16784-qodana-clone-finder): adds the Qodana Clone Finder linter support
-* [License Audit plugin](https://plugins.jetbrains.com/plugin/17283-qodana-license-audit):  adds the Qodana License Audit linter support
+* [License audit plugin](https://plugins.jetbrains.com/plugin/17283-qodana-license-audit):  adds the Qodana License audit linter support
 
 ## Qodana reporting features in TeamCity
 
