@@ -71,16 +71,15 @@
 
         <code style="block" lang="yaml">
             - name: 'Qodana Scan'
-               uses: JetBrains/qodana-action@latest
-               with:
-                 linter: jetbrains/qodana-&lt;linter&gt;
-                 token: ${{ secrets.QODANA_TOKEN }}
+              uses: JetBrains/qodana-action@main
+              env:
+                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code>
     </chapter>
 
     <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI/CD">
 
-        <p>To forward %product% reports using GitLab CI/CD, define the <code>QODANA_CLOUD</code>
+        <p>To forward %product% reports using GitLab CI/CD, define the <code>QODANA_TOKEN</code>
             <a href="https://%GitLabLink%">variable</a> in your repository.</p>
 
         <p>Add this snippet to your CI/CD pipeline:</p>
@@ -93,7 +92,7 @@
              script:
                - qodana --results-dir=$CI_PROJECT_DIR/qodana
                 --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
-                --send-report --token=$QODANA_CLOUD
+                --send-report
              artifacts:
                paths:
                  - qodana
@@ -115,17 +114,17 @@
                     }
                 }
                 environment {
-                    CLOUD_TOKEN = credentials('qodana-cloud-token')
+                    QODANA_TOKEN = credentials('qodana-token')
                 }
                 steps {
-                    sh "qodana --save-report --send-report --token $CLOUD_TOKEN"
+                    sh "qodana --save-report --send-report"
                 }
             }
         </code>
 
-        <p>This sample defines the <code>CLOUD_TOKEN</code> <a href="https://%JenkinsLink%">environment variable</a> to
+        <p>This sample defines the <code>QODANA_TOKEN</code> <a href="https://%JenkinsLink%">environment variable</a> to
             contain the %product_cloud% project token. The <code>sh</code> command uses the
-            <code>--send-report --token $CLOUD_TOKEN</code>
+            <code>--send-report</code>
             <a href="qodana-jvm-docker-techs.xml" anchor="Configuration+options">configuration options</a> for forwarding reports.</p>
     </chapter>
 
@@ -138,10 +137,10 @@
             job("Qodana") {
                 container("jetbrains/qodana-jvm-community:2021.3") {
                     // https://www.jetbrains.com/help/space/secrets-and-parameters.html
-                    env["token"] = Secrets("token")
+                    env["QODANA_TOKEN"] = Secrets("qodana-token")
                     shellScript {
                         content = """
-                qodana -t ${'$'}token --send-report
+                qodana --send-report
             """.trimIndent()
                     }
                 }
@@ -158,11 +157,11 @@
             <p>To configure a TeamCity plugin to forward %product% reports to %product_cloud%, follow these steps:</p>
 
             <procedure>
-                <step>Create the <code>QODANA_TOKEN</code> build parameter and define it as
+                <step>Create the <code>QODANA_TOKEN</code> environment variable and define it as
                     <a href="https://%TeamCityLink%">password</a>.</step>
                 <step>Open the <code>Qodana</code> build step.</step>
-                <step><p>Add <code style="inline" lang="bash" interpolate-variables="false">--send-report --token %env.QODANA_TOKEN%</code>
-                    to the <menupath>Additional arguments for the entry point</menupath> section.</p>
+                <step><p>Add <code style="inline" lang="bash" interpolate-variables="false">--send-report</code>
+                    to the <menupath>Additional arguments for the entry point</menupath> section and <code style="inline" lang="bash" interpolate-variables="false">-e QODANA_TOKEN=%env.QODANA_TOKEN%</code> to the <menupath>Additional arguments for 'docker run'</menupath>.</p>
                 </step>
             </procedure>
             <p>If necessary, repeat the third step for each TeamCity plugin instance. For example, you may want to
