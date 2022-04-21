@@ -103,4 +103,9 @@
         <toc-element id="qodana_gradle_plugin.md"/>
     </toc-element>
 
+    <toc-element title="Extending Qodana" id="extending-qodana.xml">
+        <toc-element id="extending-qodana-plugins.xml"/>
+        <toc-element id="extending-qodana-structural-search.xml"/>
+    </toc-element>
+
 </product-profile>
