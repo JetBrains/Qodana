@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Plugins"
+       id="extending-qodana-plugins">
+
+    <var name="inspection-url" value="plugins.jetbrains.com/docs/intellij/code-inspections-and-intentions.html#inspections"/>
+    <var name="conf-dir" value="www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory"/>
+
+    <p>You can extend %product% inspection functionality using either plugins from JetBrains Marketplace or
+        <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p>
+
+    <chapter id="extending-qodana-marketplace-plugins" title="Plugins from JetBrains Marketplace">
+
+        <p><a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> provides plugins for inspecting code in
+            the IDE. These plugins can be used to extend the %product% inspection functionality.</p>
+
+        <p>This section explains how to inspect PHP code using the
+            <a href="https://plugins.jetbrains.com/plugin/7622-php-inspections-ea-extended-">Php Inspections (EA Extended)</a>
+            plugin combined with the <a href="qodana-php.md"/> linter. All actions taken in the IDE are explained for
+            PhpStorm in the procedure below. You can reproduce these steps for any plugin from JetBrains Marketplace you
+            would like to extend %product% with.</p>
+
+        <procedure id="extending-qodana-using-plugins">
+            <step>Using the <menupath>Settings | Plugins</menupath> dialog, install and enable the plugin. </step>
+            <step>Using <menupath>Settings | Editor | Inspections</menupath>, configure the inspections you
+                would like to use.</step>
+            <step>Export the profile containing the enabled plugin inspections as described on the
+                <a href="https://www.jetbrains.com/help/phpstorm/customizing-profiles.html#5066b0b3">Configure profiles</a> page.
+            </step>
+        </procedure>
+
+        <p>In the project root directory, create the <code>qodana.yaml</code> file and specify the path to the
+            <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path">profile</a> location in it:</p>
+        <code style="block" lang="yaml">
+            profile:
+                path: path/to/the/profile/file
+        </code>
+
+        <p>This is the snippet for running %product% locally using the plugin:</p>
+        <code style="block" lang="bash">
+            docker run --rm -p 8080:8080 \
+            -v &lt;project-directory&gt;:/data/project/ \
+            -v &lt;report-directory&gt;:/data/results/ \
+            -v &lt;package-file&gt;:/opt/idea/plugins/&lt;package-file&gt; \
+            -v &lt;additional-config&gt;:/root/.config/idea/options/&lt;additional-config&gt; \
+            jetbrains/qodana-php --show-report
+        </code>
+        <p>Here, <code style="inline">&lt;package-file&gt;</code> specifies the full path to the plugin package
+            location including the full package filename. The <code style="inline">&lt;additional-config&gt;</code> line
+            denotes the full path to the XML-formatted file containing additional plugin configuration.</p>
+
+    </chapter>
+
+    <chapter id="extending-qodana-developing-plugins" title="Custom plugins">
+        <p>To learn how to develop plugins, you can study the
+            <a href="https://plugins.jetbrains.com/docs/intellij/getting-started.html">Creating Your First Plugin</a>
+            page of the IntelliJ Platform Plugin SDK documentation portal. Besides that, each plugin should perform
+            inspections and produce inspection results as described in the
+            <a href="https://%inspection-url%">Inspections</a> section of the documentation portal. </p>
+    </chapter>
+
+</topic>
