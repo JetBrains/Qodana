@@ -24,10 +24,10 @@
             statements with hardcoded text like <code lang="java">System.out.println("Hardcoded text!")</code>, the
             template should take the modifiers described below:</p>
         <table>
-            <tr><td>Variable</td><td>Value</td><td>Explanation</td></tr>
-            <tr><td>$Instance$</td><td>[0,1]</td><td>Accepts zero or one value.</td></tr>
+            <tr><td>Variable</td><td>Filter</td><td>Explanation</td></tr>
+            <tr><td>$Instance$</td><td>text=out</td><td>Searching for the <emphasis>out</emphasis> field.</td></tr>
             <tr><td>$MethodCall$</td><td>text=println</td><td>Searching for the <emphasis>println</emphasis> method.</td></tr>
-            <tr><td>$Parameter$</td><td>text=^\".*\"$</td><td>Any text enclosed in quote characters.</td></tr>
+            <tr><td>$Parameter$</td><td>text=".*"</td><td>Any text enclosed in quote characters.</td></tr>
         </table>
 
         <p>This procedure explains how to use this search template for inspecting your codebase using %product%.</p>
@@ -40,7 +40,7 @@
                 <img src="extending-qodana-1.png" dark-src="extending-qodana-1_dark.png" alt="Search template" width="706" border-effect="line"/>
             </step>
             <step>
-                <p>Convert the template to inspection as described on the
+                <p>Convert the template to an inspection as described on the
                     <a href="https://%struct-search%">Work with structural search and replace</a> page of the
                     IntelliJ IDEA documentation portal. For example, it can be saved as
                     <code style="inline">Hardcoded-print</code>.</p>
@@ -61,7 +61,7 @@
                     <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path">profile</a> location in it:</p>
                 <code style="block" lang="yaml">
                     profile:
-                    path: path/to/the/profile/file
+                      path: path/to/the/profile/file
                 </code>
             </step>
             <step>
