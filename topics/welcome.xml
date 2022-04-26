@@ -37,8 +37,8 @@
                description="The Qodana for JS linter lets you perform static analysis of JavaScript and TypeScript projects."/>
             <a href="about-clone-finder.md"
                description="Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance."/>
-            <a href="about-license-audit.md"
-               description="Qodana License audit helps software projects avoid problems with incompatible third-party licenses."/>
+            <a href="license-audit.xml"
+               description="License audit helps software projects avoid problems with incompatible third-party licenses."/>
         </main-group>
 
         <highlighted-group>
@@ -72,8 +72,6 @@
                    description="Explore the Qodana code inspection run output"/>
                 <a href="clone-finder-output.md"
                    description="Explore the Qodana Clone Finder run output"/>
-                <a href="license-audit-output.md"
-                   description="Explore the Qodana License audit run output"/>
                 <a href="qodana-sarif-output.md"
                    description="Explore the Qodana code inspection SARIF-compliant output"/>
                 </link-collection>

@@ -43,7 +43,6 @@
             <toc-element id="qodana-sarif-output.md" accepts-web-file-names="qodana-intellij-docker-sarif.html"/>
         </toc-element>
         <toc-element id="clone-finder-output.md"/>
-        <toc-element id="license-audit-output.md"/>
         <toc-element id="html-report.md"/>
     </toc-element>
 
