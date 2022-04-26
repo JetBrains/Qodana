@@ -992,5 +992,47 @@
         </tabs>
     </chunk>
 
+    <chunk id="license-audit-tab">
+
+        <p filter="ui-overview">The <menupath>Project audit</menupath> tab contains results of inspection by the
+            <a href="license-audit.xml">License audit</a> feature. </p>
+
+        <img filter="ui-overview" src="html-report-license-audit.png" dark-src="html-report-license-audit_dark.png" width="706" alt="The License audit tab" border-effect="line"/>
+
+        <p filter="license-audit">Open the <a href="ui-overview.md">%product% report</a> and click the
+            <menupath>Project audit</menupath> tab to see the inspection results. </p>
+
+        <img filter="license-audit" src="license-audit-tab.png" dark-src="license-audit-tab_dark.png" width="706" alt="The License audit tab" border-effect="line"/>
+
+        <p>This tab contains several other tabs:</p>
+        <list>
+            <li><menupath>Languages</menupath> enumerates all technologies currently supported by %product%</li>
+            <li><menupath>Translators</menupath> lists all technologies that were involved for inspecting the codebase</li>
+            <li><menupath>Project License</menupath> contains information about the license used in the project</li>
+            <li>
+                <p><menupath>Third-party licenses</menupath> lists all project dependencies and the licenses they use
+                    including dependencies that cannot be used under the current project license.</p>
+                <img src="license-audit-tpl.png" dark-src="license-audit-tpl_dark.png" alt="The Third-party licenses tab" width="706" border-effect="line"/>
+                <p>If you want to filter the list by dependencies that cannot be used under the current project license,
+                    you can enable the <menupath>Only alerted</menupath> switch.</p>
+                <img src="license-audit-tpl-enabled.png" dark-src="license-audit-tpl-enabled_dark.png" alt="The Only alerted switch" width="706" border-effect="line"/>
+            </li>
+            <li><p><menupath>License rules</menupath> contains the table of license compatibility.</p>
+                <img src="license-audit-license-rules.png" dark-src="license-audit-license-rules_dark.png" alt="The License rules tab" width="706" border-effect="line"/>
+                <p>The <menupath>Project license</menupath> column lists license names, while the
+                    <menupath>Allowed licenses</menupath> and the <menupath>Prohibited licenses</menupath> columns list
+                    the licenses that are compatible and incompatible with the license respectively. This can be
+                    helpful when you need to override licenses.</p>
+            </li>
+        </list>
+    </chunk>
+
+    <chunk id="license-audit-deprecation-note">
+        <warning>
+            The Qodana License audit linter is deprecated. You can inspect
+            <a href="license-audit.xml">compatibility of dependency licenses</a> using technology-specific
+            <a href="linters.md">Qodana linters</a>.
+        </warning>
+    </chunk>
 
 </topic>

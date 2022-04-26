@@ -4,6 +4,8 @@
 
 <var name="linter" value="Qodana License audit"/>
 
+<include src="lib_qd.xml" include-id="license-audit-deprecation-note"/>
+
 <note>
 
 <include src="lib_qd.xml" include-id="supported-techs">
@@ -15,9 +17,6 @@
 
 
 Qodana License audit helps software projects avoid problems with incompatible third-party licenses. More than 1600 licenses are detected. Users can create their own include and ignore lists as well as other overrides of the default detector’s logic.
-
-For details about all inspections and ways to resolve problem, see [License audit Output](license-audit-output.md).
-
 
 <tip>
 

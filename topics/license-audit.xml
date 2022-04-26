@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="License audit"
+       id="license-audit">
+
+    <var name="feature" value="License audit"/>
+
+    <p>Making sure your project license is compatible with the licenses of its dependencies is never an easy task, but
+        this is required for legal purposes. To automate this process and avoid mistakes, you can use the %feature% feature
+        supported by all %product% <a href="linters.md">linters</a>. Using this feature, you can explore the JPS, Maven,
+        Gradle, npm, yarn and composer projects. %feature% reads information about project dependencies from the
+        IntelliJ IDEA project model and package manager configuration files.</p>
+
+    <chapter title="How it works" id="license-audit-how-it-works">
+
+        <p>For example, a project is licensed under the Apache-2.0 license and uses three dependencies licensed under
+            the MIT, GPL-2.0-only, and Apache-2.0 licenses. This table explains which dependency licenses are compatible
+            with the project license.</p>
+
+        <table>
+            <tr>
+                <td>Software</td>
+                <td>Licensed under</td>
+                <td>Compatible with the project license</td>
+            </tr>
+            <tr>
+                <td>Project software</td>
+                <td>Apache-2.0</td>
+                <td>&mdash;</td>
+            </tr>
+            <tr>
+                <td>Dependency A</td>
+                <td>MIT</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Dependency B</td>
+                <td>GPL-2.0-only</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Dependency C</td>
+                <td>Apache-2.0</td>
+                <td>Yes</td>
+            </tr>
+        </table>
+
+        <p>After %product% has finished analyzing your project, the results become available in the
+            <a anchor="license-audit-verifying-data">report</a>.</p>
+
+    </chapter>
+
+    <chapter title="Running %feature%" id="license-audit-running-feature">
+
+
+            <p>After you <a anchor="license-audit-basic-usecase">enable</a> %feature%, you can also configure it to:</p>
+        <list>
+            <li><a anchor="license-audit-ignoring-dependencies">Ignore dependency licenses</a></li>
+            <li><a anchor="license-allow-prohibit-licenses">Allow or prohibit dependency licenses</a></li>
+            <li><a anchor="license-audit-override-license">Override a dependency license</a></li>
+            <li><a anchor="license-audit-custom-dependencies">Create custom dependencies</a></li>
+        </list>
+
+        <chapter title="Enable %feature%" id="license-audit-basic-usecase">
+            <p>To enable %feature%, add these lines to the <code style="inline">qodana.yaml</code> file in your project
+                root:</p>
+            <code style="block" lang="yaml">
+                include:
+                  - name: CheckDependencyLicenses
+            </code>
+
+        </chapter>
+
+        <chapter title="Ignore dependencies" id="license-audit-ignoring-dependencies">
+            <p>For some reasons, you may need to ignore a specific dependency in your project, which can be specified in
+                <code style="inline">qodana.yaml</code>:</p>
+            <code style="block" lang="yaml">
+                dependencyIgnores:
+                - name: "dependency/name"
+            </code>
+        </chapter>
+
+        <chapter title="Allow or prohibit dependency licenses" id="license-allow-prohibit-licenses">
+            <p>You can override the license matrix and specify the list of
+                dependency licenses that are allowed or prohibited for a specific project license.</p>
+            <p>In this snippet, the <code>keys</code> key accepts application licenses, and the <code>allowed</code> and
+                <code>prohibited</code> keys accept the lists of allowed and prohibited dependency licenses respectively.
+                As a result, the <code>AGPL-3.0-only</code> becomes compatible with the <code>AFL-2.0</code> project
+                license, while the <code>Apache-1.0</code> dependency license becomes incompatible.</p>
+            <code style="block" lang="yaml">
+                licenseRules:
+                  - keys:
+                      - "AFL-2.0"
+                allowed:
+                  - "AGPL-3.0-only"
+                prohibited:
+                  - "Apache-1.0"
+            </code>
+
+            <tip>
+                All keys from this sample can accept several values.
+            </tip>
+
+
+        </chapter>
+
+        <chapter title="Override a dependency license" id="license-audit-override-license">
+            <p>You can override a dependency license identifier. This can be useful when a dependency is dual-licensed
+                and you want to omit some license, or when the license name cannot be detected from the dependency
+                sources correctly.</p>
+            <p>Using this sample,
+                %product% will detect only the <code>CDDL-1.1</code> and
+                <code>GPL-2.0-with-classpath-exception</code> licenses for <code>jaxb-runtime</code> version 2.3.1.</p>
+
+            <code style="block" lang="yaml">
+                dependencyOverrides:
+                  - name: "jaxb-runtime"
+                    version: "2.3.1"
+                    url: "https://github.com/javaee/jaxb-v2"
+                    licenses:
+                      - key: "CDDL-1.1"
+                      url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
+                      - key: "GPL-2.0-with-classpath-exception"
+                      url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
+            </code>
+        </chapter>
+
+        <chapter title="Create custom dependencies" id="license-audit-custom-dependencies">
+            <p>If you want to include the dependency that should be mentioned in the report but is impossible to detect
+                from the project sources, you can use the <code>customDependencies</code> key to specify it:</p>
+
+            <code style="block" lang="yaml">
+                customDependencies:
+                    - name: ".babelrc JSON Schema (.babelrc-schema.json)"
+                      version: "JSON schema for Babel 6+ configuration files"
+                      licenses:
+                          - key: "Apache-2.0"
+                            url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
+            </code>
+        </chapter>
+
+    </chapter>
+
+    <chapter title="Verifying data" id="license-audit-verifying-data">
+        <include src="lib_qd.xml" include-id="license-audit-tab" use-filter="license-audit,empty"/>
+    </chapter>
+
+</topic>
