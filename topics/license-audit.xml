@@ -10,9 +10,18 @@
 
     <p>Making sure your project license is compatible with the licenses of its dependencies is never an easy task, but
         this is required for legal purposes. To automate this process and avoid mistakes, you can use the %feature% feature
-        supported by all %product% <a href="linters.md">linters</a>. Using this feature, you can explore the JPS, Maven,
-        Gradle, npm, yarn and composer projects. %feature% reads information about project dependencies from the
-        IntelliJ IDEA project model and package manager configuration files.</p>
+        currently supported by the following %product% linters:</p>
+
+    <list>
+        <li><a href="qodana-jvm.md"/></li>
+        <li><a href="qodana-jvm-community.md"/></li>
+        <li><a href="qodana-php.md"/></li>
+        <li><a href="qodana-js.md"/></li>
+    </list>
+
+        <p>Depending on the linter, you can explore the JPS, Maven, Gradle, npm, yarn and composer projects.
+            %feature% reads information about project dependencies from the IntelliJ IDEA project model and package
+            manager configuration files.</p>
 
     <chapter title="How it works" id="license-audit-how-it-works">
 

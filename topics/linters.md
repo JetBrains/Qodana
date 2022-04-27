@@ -10,13 +10,15 @@ First, it does help improve code without relying on an IDE, either on a local ma
 Second, on top of the IntelliJ Inspection functionality, Qodana is extending its number of linters to provide a complete Project Audit. 
 
 Linters you can try right now:
-* [](qodana-jvm.md): static analysis for Java and Kotlin for Server Side projects
+* [](qodana-jvm.md): static analysis for Java and Kotlin for Server Side projects using the IntelliJ IDEA Ultimate features
+* [](qodana-jvm-community.md): static analysis for Java and Kotlin for Server Side projects using the IntelliJ IDEA Community features
+* [](qodana-jvm-android.md): static analysis for Android projects
 * [](qodana-php.md): static analysis for PHP projects
 * [](qodana-python.md): static analysis for Python projects
 * [](qodana-js.md): static analysis for JavaScript and TypeScript projects
 
-Using any of these linters, you can verify compatibility of third-party licenses, see the [License audit](license-audit.xml)
-feature description for details.
+All linters except [](qodana-jvm-android.md) and [](qodana-python.md) can verify compatibility of third-party 
+licenses, see the [License audit](license-audit.xml) feature description for details.
 
 To detect code duplicates across different projects, you can use the [Qodana Clone Finder](about-clone-finder.md) linter.
 

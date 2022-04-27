@@ -49,7 +49,7 @@ you can rearrange the sunburst diagram by dragging its components.
 When you click the **Move to baseline** button in the **[Actual problems](#Actual+problems)** tab, the selected
 problems will move to this tab.
 
-<img src="html-report-baseline.png" dark-src="html-report-baseline_dark.png" alt="The Technical debt tab overview" width="706" border-effect="line"/>
+<img src="html-report-baseline.png" dark-src="html-report-baseline_dark.png" alt="The Baseline tab overview" width="706" border-effect="line"/>
 
 This tab structure is similar to the **Actual problems** tab. To enable the baseline feature in future runs of
 Qodana, download the configuration file and save it to the project root folder. For more information, explore the
@@ -90,7 +90,7 @@ In case the number problems is above your expectations, we suggest using the Qod
 then formalize a not-so-big cluster of the problems to fix. Repeat the procedure to work on the next goal, and so on.
 
 When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
-the [technical debt or baseline](qodana-jvm-docker-techs.xml#Run+in+baseline+mode) running mode.
+the [baseline](qodana-jvm-docker-techs.xml#Run+in+baseline+mode) running mode.
 
 ## Adjust the analysis scope
 

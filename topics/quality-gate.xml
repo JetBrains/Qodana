@@ -19,7 +19,7 @@
     <p>The quality gate and fail threshold terms are used interchangeably with the former being a feature in overall, and
         the latter meaning a configuration option. </p>
 
-    <note>In combination with the <a href="qodana-baseline.xml">baseline</a>, the quality gate feature will help
+    <note>In combination with the <a href="qodana-baseline.xml">baseline</a> feature, quality gate will help
         you ensure that the overall technical debt will not grow beyond a certain threshold.</note>
 
     <p>This section explains how to configure %product% quality gate for:</p>

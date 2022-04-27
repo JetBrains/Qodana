@@ -9,7 +9,7 @@
     <p>This section provides guides to the following %product% features:</p>
 
         <list>
-            <li><a href="qodana-baseline.xml">Baseline or technical debt</a></li>
+            <li><a href="qodana-baseline.xml">Baseline</a></li>
             <li><a href="quality-gate.xml">Quality gate</a></li>
             <li><a href="license-audit.xml">License audit</a></li>
         </list>
