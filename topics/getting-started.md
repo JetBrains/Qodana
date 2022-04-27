@@ -13,8 +13,9 @@ languages and technologies covered by JetBrains IDEs will be added.
 ## Next steps
 
  - <a href="docker-images.md">Configure %linter% Docker images</a>
- - <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
+ - <a href="qodana-github-action.md">Run %linter% as a GitHub action</a>
+ - <a href="ci.md">Extend your CI/CD using %linter% plugins</a>
  - <a href="service.md">Use %linter% as a Service</a>
- - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
+
 
  

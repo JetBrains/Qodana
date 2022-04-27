@@ -44,6 +44,5 @@ The command will be automatically executed before the analysis. You can use the 
 
 - <a href="qodana-js-docker-readme.xml">Configure %linter% Docker image</a>
 - <a href="qodana-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>

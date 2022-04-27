@@ -15,9 +15,10 @@ Linters you can try right now:
 * [](qodana-python.md): static analysis for Python projects
 * [](qodana-js.md): static analysis for JavaScript and TypeScript projects
 
-Experimental linters:
-* [Qodana Clone Finder](about-clone-finder.md): code duplication detection across different projects
-* [Qodana License audit](about-license-audit.md): third-party licenses compatibility verification as well as black-listing and white-listing
+Using any of these linters, you can verify compatibility of third-party licenses, see the [License audit](license-audit.xml)
+feature description for details.
+
+To detect code duplicates across different projects, you can use the [Qodana Clone Finder](about-clone-finder.md) linter.
 
 Check the linter you want to try and follow the guidelines!
 
