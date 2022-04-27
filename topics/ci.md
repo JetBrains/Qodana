@@ -10,5 +10,5 @@ Currently, the following CI integration mechanisms are available:
 - [](qodana-github-action.md)
 - [](gitlab.md)
 - [](jenkins.md)
-- [](qodana-teamcity-plugin.md)
+- [](teamcity.md)
 
