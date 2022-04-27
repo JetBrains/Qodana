@@ -17,7 +17,7 @@ Linters you can try right now:
 * [](qodana-python.md): static analysis for Python projects
 * [](qodana-js.md): static analysis for JavaScript and TypeScript projects
 
-All linters except [](qodana-jvm-android.md) and [](qodana-python.md) can verify compatibility of third-party 
+The [](qodana-jvm.md), [](qodana-php.md), and [](qodana-js.md) linters let you verify compatibility of third-party 
 licenses, see the [License audit](license-audit.xml) feature description for details.
 
 To detect code duplicates across different projects, you can use the [Qodana Clone Finder](about-clone-finder.md) linter.
