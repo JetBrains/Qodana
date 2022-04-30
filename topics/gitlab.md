@@ -50,5 +50,8 @@ Assuming you have configured your pipeline in a similar manner, this is what it 
         <a href="https://rpadovani.com/gitlab-jetbrains-qodana">'Integrating JetBrains Qodana with GitLab
             pipelines' by Riccardo Padovani
         </a>
+        <a href="https://blog.griefed.de/2022/04/30/qodana-and-gitlab/">'Qodana, GitLab and Discord'
+            by Griefed
+        </a>
     </category>
 </seealso>
