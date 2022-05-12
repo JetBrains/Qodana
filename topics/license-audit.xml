@@ -16,9 +16,10 @@
         <li><a href="qodana-jvm.md"/></li>
         <li><a href="qodana-php.md"/></li>
         <li><a href="qodana-js.md"/></li>
+        <li><a href="qodana-python.md"/></li>
     </list>
 
-        <p>Depending on the linter, you can explore the JPS, Maven, Gradle, npm, yarn and composer projects.
+        <p>Depending on the linter, you can explore the JPS, Maven, Gradle, npm, yarn, pip and Composer projects.
             %feature% reads information about project dependencies from the IntelliJ IDEA project model and package
             manager configuration files.</p>
 
