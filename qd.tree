@@ -11,7 +11,6 @@
 
     <toc-element id="about-qodana.md">
         <toc-element id="supported-technologies.md"/>
-        <toc-element id="CHANGELOG.md"/>
     </toc-element>
 
     <toc-element id="concepts.xml">
