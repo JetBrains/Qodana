@@ -80,9 +80,6 @@
                     <a href="supported-technologies.md"
                        description="Run Qodana on Java, Kotlin, and PHP projects"
                     />
-                    <a href="CHANGELOG.md"
-                       description="See what's new in Qodana"
-                    />
                 </link-collection>
             </group>
         </custom-groups>
