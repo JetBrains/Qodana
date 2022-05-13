@@ -70,5 +70,3 @@ Check the results in your browser at [`http://localhost:8080`](http://localhost:
 ## Next steps
 
 - <a href="clone-finder-docker-readme.md">Configure %linter% Docker image</a>
-- <a href="clone-finder-github-action.md">Run %linter% on GitHub</a>
--  <a href="clone-finder-teamcity-plugin.md">Run %linter% on TeamCity</a>

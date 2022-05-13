@@ -12,6 +12,7 @@
 
 <var name="linter" value="Qodana PHP"/>
 <var name="ide" value="PhpStorm"/>
+<var name="docker-image" value="jetbrains/qodana-php:2021.3-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/) and provides static analysis for PHP projects. <include src="lib_qd.xml" include-id="linter-intro"/>
 
@@ -19,46 +20,12 @@
 
 ### Analyze a project locally
 
-To start, pull the image from Docker Hub (only necessary to get the latest version):
-
-<var name="docker-image" value="jetbrains/qodana-php"/>
-
-<code style="block" lang="shell">
-  docker pull %docker-image%
-</code>
-
-If you use PHP Composer, add the following step before running the analysis:
-
-```shell
- docker run --rm -v <source-directory>:/app composer:latest install
-```
-
-If you need to change the language level, add the following into `<source-directory>/.idea/php.xml`:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="PhpProjectSharedConfiguration" php_language_level="<desired level>" />
-</project>
-```
-
-Run the analysis locally:
-
-```shell
-docker run --rm -it -v <source-directory>/:/data/project/ \ 
-  -p 8080:8080 %docker-image% --show-report
-```
-
-with `source-directory` pointing to the root of your project.
-
-<p>
-<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
-</p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="php-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Next steps
 
 - <a href="qodana-php-docker-readme.xml">Configure %linter% Docker image</a>
 - <a href="qodana-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
+- <a href="qodana-php-language-upgrade.xml">See how migration between PHP versions will affect the code quality</a>

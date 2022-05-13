@@ -23,11 +23,14 @@
 
         <p>To improve the situation, you can add problems to the baseline, download the
             <code style="inline">qodana.sarif.json</code> file, and put it to your project directory as explained in the
-            <a href="ui-overview.md">Technical debt</a> section. Once done, this file becomes a basis for
+            <a href="ui-overview.md" anchor="Baseline">Baseline</a> section. Once done, this file becomes a basis for
             comparing with subsequent code states. You can run the baseline with the following CLI command:
         </p>
 
-        <code style="block">docker run ... <![CDATA[jetbrains/qodana-<linter> --baseline <path-to-qodana.sarif.json>]]></code>
+        <code style="block" lang="shell" prompt="$">
+        docker run ... <![CDATA[jetbrains/qodana&minus;&lt;linter&gt; \
+        &minus;&minus;baseline &lt;path-to-qodana.sarif.json&gt;]]>
+        </code>
 
         <p>The baseline feature divides problems into these groups:</p>
 
@@ -46,7 +49,7 @@
         <li>The first %product% run detected two problems in the codebase.</li>
 
         <li>To create a baseline for your project, download the <code style="inline">qodana.sarif.json</code> file and
-            save it to your project directory as shown in the <a href="ui-overview.md">Technical debt</a> section.
+            save it to your project directory as shown in the <a href="ui-overview.md" anchor="Baseline">Baseline</a> section.
             Starting from this moment, these two problems are identified by %product% as baseline problems.
         </li>
 
@@ -61,7 +64,11 @@
             baseline problem was resolved and now is marked as absent. </p>
             <p>To include absent problems into the report, you need to run %product% with the
                 <code style="inline">--baseline-include-absent</code> option:</p>
-            <code style="block">docker run ... <![CDATA[jetbrains/qodana-<linter> --baseline <path-to-qodana.sarif.json> --baseline-include-absent]]></code>
+            <code style="block" lang="shell" prompt="$">
+            docker run ... <![CDATA[jetbrains/qodana&minus;&lt;linter&gt; \
+            &minus;&minus;baseline &lt;path-to-qodana.sarif.json&gt; \
+            &minus;&minus;baseline-include-absent]]>
+            </code>
         </li>
 
     </list>

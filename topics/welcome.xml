@@ -37,8 +37,8 @@
                description="The Qodana for JS linter lets you perform static analysis of JavaScript and TypeScript projects."/>
             <a href="about-clone-finder.md"
                description="Qodana Clone Finder compares a queried project against a number of reference projects and lists all duplicate functions ranked by their importance."/>
-            <a href="about-license-audit.md"
-               description="Qodana License Audit helps software projects avoid problems with incompatible third-party licenses."/>
+            <a href="license-audit.xml"
+               description="License audit helps software projects avoid problems with incompatible third-party licenses."/>
         </main-group>
 
         <highlighted-group>
@@ -57,11 +57,9 @@
                     <title>Distribution formats</title>
                     <a href="docker-images.md"
                        description="Run Qodana locally or in any CI"/>
-                    <a href="github-actions.md"
-                       description="Run Qodana code inspection on any GitHub repository"/>
-                    <a href="qodana-github-application.md"
+                    <a href="qodana-github-action.md"
                        description="Examine incoming pull GitHub requests"/>
-                    <a href="qodana_plugins.md"
+                    <a href="ci.md"
                        description="Integrate Qodana into various CI systems"/>
                     <a href="service.md"
                        description="Use Qodana as a cloud service"/>
@@ -74,8 +72,6 @@
                    description="Explore the Qodana code inspection run output"/>
                 <a href="clone-finder-output.md"
                    description="Explore the Qodana Clone Finder run output"/>
-                <a href="license-audit-output.md"
-                   description="Explore the Qodana License Audit run output"/>
                 <a href="qodana-sarif-output.md"
                    description="Explore the Qodana code inspection SARIF-compliant output"/>
                 </link-collection>
@@ -83,9 +79,6 @@
                     <title>Learn more</title>
                     <a href="supported-technologies.md"
                        description="Run Qodana on Java, Kotlin, and PHP projects"
-                    />
-                    <a href="CHANGELOG.md"
-                       description="See what's new in Qodana"
                     />
                 </link-collection>
             </group>

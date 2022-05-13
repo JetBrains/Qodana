@@ -7,8 +7,6 @@ With time, Qodana will support all languages and technologies covered by JetBrai
 - [Kotlin for Server Side](https://kotlinlang.org/lp/server-side/)
 - [PHP](https://www.php.net) projects
 - [Python](https://python.org) projects
+- [JavaScript](https://www.javascript.com/) and [TypeScript](https://www.typescriptlang.org/) projects
 
 > For details on getting started with a particular technology, see [](linters.md).
-
-If your project contains a frontend part written in Javascript or Typescript, the qualitative analysis will be possible only
-if the project's directory contains downloaded dependencies and the project is ready to be built. Simplifying this process and providing smooth support for at least for the projects based on [npm](https://www.npmjs.com) is currently in development.

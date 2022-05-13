@@ -1,4 +1,4 @@
-[//]: # (title: GitLab CI)
+[//]: # (title: GitLab CI/CD)
 
 
 ### Basic Example

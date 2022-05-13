@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="PHP version migration"
+       id="qodana-php-language-upgrade">
+
+    <note>This feature is available starting from version 2021.3 of %product%.</note>
+
+        <p>If you need to see how migration from one PHP version to another will affect your code quality, you can
+        use the <code style="inline">php-migration</code> %product% scenario. If you run this scenario, you will be able
+            to see the codebase problems that will arise after you upgrade to a newer PHP version.</p>
+
+    <img src="language-migration.png" dark-src="language-migration_dark.png" width="460" alt="Language migration diagram"/>
+
+        <p>You can configure this scenario either in the <code style="inline">qodana.yaml</code> file or invoke it
+            using the CLI. </p>
+
+        <tabs>
+            <tab title="qodana.yaml">
+                <note>The CLI options override the settings of the <code style="inline">qodana.yaml</code> file.</note>
+                <code style="block" lang="yaml">
+                    script:
+                      name: php-migration
+                      parameters:
+                          fromLevel: &lt;old-php-version&gt;
+                          toLevel: &lt;upgraded-php-version&gt;
+                </code>
+                <p>This snippet specifies the <code style="inline">php-migration</code> scenario using the
+                    <code style="inline">name</code> parameter. The <code style="inline">fromLevel</code> and
+                    <code style="inline">toLevel</code> parameters denote the old and upgraded PHP versions respectively. </p>
+
+                <p>This is the example of the <code style="inline">qodana.yaml</code> configuration:</p>
+
+                <code style="block" lang="yaml">
+                    script:
+                      name: php-migration
+                      parameters:
+                          fromLevel: 7.1
+                          toLevel: 8.0
+                </code>
+            </tab>
+            <tab title="CLI">
+                <code style="block" lang="Shell" prompt="$">
+                docker run ... jetbrains/qodana-php \
+                <![CDATA[&minus;&minus;script php-migration:&lt;old-php-version&gt;&minus;to&minus;&lt;upgraded-php-version&gt;]]>
+                </code>
+                <p>This snippet specifies the <code style="inline">php-migration</code> scenario for the
+                    <code style="inline">--script</code> option followed by the colon <code style="inline">:</code>
+                    character, and PHP versions separated by the <code style="inline">-to-</code> character combination.
+                </p>
+
+                <p>This is the example of the CLI command:</p>
+
+                <code style="block" lang="Shell" prompt="$">
+                    docker run --rm -it \
+                    -v $(pwd)/project/:/data/project/ \
+                    -v $(pwd)/report/:/data/results/ \
+                    jetbrains/qodana-php \
+                    --script php-migration:7.1-to-8.0
+                </code>
+
+            </tab>
+        </tabs>
+
+    <chapter title="Example">
+
+    <p>To show how the language migration feature works, the following PHP code snippet will be inspected:</p>
+
+    <code style="block" lang="php">
+        <![CDATA[<?php]]>
+            function f($a) {
+                switch ($a) {
+                    case 1:
+                        return 1;
+                    case 2:
+                        return 2;
+                    default:
+                        return 3;
+                }
+            }
+    </code>
+
+    <p>If you run %product% with version 7.1 of the PHP runtime, the report will contain the following problems:</p>
+
+    <code style="block" lang="shell">
+
+        Analysis results: 2 problems detected
+
+        Grouping problems by severity: Info: 2
+        Name                                               Severity Count problems
+        Missing return type declaration                    Info     1
+        Unused declaration                                 Info     1
+
+    </code>
+
+    <p>Running %product% with version 8.0 of the PHP runtime will produce the following output: </p>
+
+    <code style="block" lang="shell">
+
+        Analysis results: 3 problems detected
+
+        Grouping problems by severity: Info: 3
+        Name                                               Severity Count problems
+        Missing return type declaration                    Info     1
+        Unused declaration                                 Info     1
+        'switch' can be replaced with 'match' expression   Info     1
+
+    </code>
+
+    <p>Running %product% with the migration feature enabled will produce the following report:</p>
+
+    <code style="block" lang="shell">
+
+        Analysis results: 1 problems detected
+
+        Grouping problems by severity: Info: 1
+        Name                                               Severity Count problems
+        'switch' can be replaced with 'match' expression   Info     1
+    </code>
+
+    <p>As you can see, the migration report contains only the problem contained in the version 8.0 report and missing
+    from the version 7.1 report.</p>
+
+    </chapter>
+
+</topic>

@@ -341,12 +341,12 @@ docker run -u $(id -u):$(id -g) ...
 </code>
             <p>In this case mapping the same <code>&lt;cache-directory&gt;</code> would speed up the second run.
             </p>
-            <p>In a GitHub workflow you can utilise <a
+            <p>In a GitHub workflow you can utilize <a
                     href="https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows">
                 actions/cache</a>, see <a href="qodana-intellij-docker-readme.md" anchor="Run+analysis+in+CI">full example</a>.
             </p>
             <p>
-                GitLab CI also has <a href="https://docs.gitlab.com/ee/ci/caching/">cache</a> which can be stored <a
+                GitLab CI/CD also has <a href="https://docs.gitlab.com/ee/ci/caching/">cache</a> which can be stored <a
                     href="https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths">only inside
             </a> the project directory. In this case, we recommend excluding the cache folder from inspection via <a
                     href="qodana-yaml.md" anchor="include-example">qodana.yaml</a>.

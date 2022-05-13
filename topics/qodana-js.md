@@ -14,6 +14,7 @@
 
 <var name="linter" value="Qodana JS"/>
 <var name="ide" value="WebStorm"/>
+<var name="docker-image" value="jetbrains/qodana-js:2021.3-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/) and provides static analysis for JavaScript or TypeScript projects.
 
@@ -21,44 +22,27 @@
 
 ### Analyze a project locally
 
-To start, pull the image from Docker Hub (only necessary to get the latest version):
+#### Install project dependencies
 
-<var name="docker-image" value="jetbrains/qodana-js"/>
+For a basic JavaScript project that has no external dependencies, no preliminary steps are required.
 
-<code style="block" lang="shell">
-  docker pull %docker-image%
-</code>
+In case the project has external dependencies, you can set them up using the `bootstrap` field in the `qodana.yaml` file. 
+For example, if your project dependencies are specified by the `yarn.lock` file in your project root, add the following 
+line to `qodana.yaml`:
 
-For a basic JavaScript project, which does not have dependencies, no preliminary steps are required.
+```yaml
+bootstrap: yarn install
+```
 
+The command will be automatically executed before the analysis. You can use the `npm` or `yarn` commands to install dependencies.
 
-In case a project has external `npm` dependencies, add the following step before you run the analysis:
+#### Run analysis
 
-   ```shell
-  docker run --rm -v <source-directory>:/usr/src/app -w /usr/src/app node:lts npm install
-   ```
-
-You can use any Node version your project requires or use yarn or other package managers to install the project dependencies.
-
-The project dependencies are now stored in `<source-directory>/node_modules`. This folder could be preserved between builds to speed them up. 
-
-Start local analysis with cache mounted and with `source-directory` pointing to the root of your project, and it would automatically look for `node_modules` in `/data/project/node_modules`:
-
-   ```shell
-   docker run --rm -it -p 8080:8080 \
-      -v <source-directory>/:/data/project/ \
-      -v <output-directory>/:/data/results/ \
-      %docker-image% --show-report
-   ```
-
-<p>
-<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
-</p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="js-py,js-only,non-gs,empty"/></p>
 
 ## Next steps
 
 - <a href="qodana-js-docker-readme.xml">Configure %linter% Docker image</a>
 - <a href="qodana-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>

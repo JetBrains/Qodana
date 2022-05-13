@@ -13,6 +13,7 @@
     <var name="ide" value="PhpStorm"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/phpstorm/?Code_Inspection"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/phpstorm/?Customizing_Profiles"/>
+    <var name="docker-image" value="jetbrains/qodana-php"/>
 
     <p>
         <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>

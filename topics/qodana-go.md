@@ -22,7 +22,7 @@ To start, pull the image from Docker Hub (only necessary to get the latest versi
 
 <var name="docker-image" value="jetbrains/qodana-go"/>
 
-<code style="block" lang="shell">
+<code style="block" lang="shell" prompt="$">
   docker pull %docker-image%
 </code>
 
@@ -43,6 +43,5 @@ with `source-directory` pointing to the root of your project.
 
 - <a href="qodana-docker-readme.xml">Configure %linter% Docker image</a>
 - <a href="qodana-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
