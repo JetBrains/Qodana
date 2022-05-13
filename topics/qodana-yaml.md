@@ -8,7 +8,8 @@ Information stored in `qodana.yaml` overrides the default inspection profile set
 You can specify such overrides in the [HTML report](results.md),
 and the changes are imported to `qodana.yaml` automatically.
 
-`qodana.yaml` JSON schema is published in [SchemaStore]()
+The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/json/)
+project, which allows for completion and basic validation in IDEs.
 
 To run subsequent checks with this customized configuration, save the file to the project's root directory.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
