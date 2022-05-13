@@ -2,7 +2,7 @@
 
 ### Basic Example
 
-To add a Qodana runner to a GitLab CI/CD pipeline, use the following configuration example: (`.gitlab-ci.yml`):
+To add a Qodana runner to a GitLab CI/CD pipeline, use the following configuration sample: (`.gitlab-ci.yml`):
 
 ```yaml
     qodana:
@@ -18,8 +18,8 @@ To add a Qodana runner to a GitLab CI/CD pipeline, use the following configurati
 
 ### Exposing a Qodana report
 
-In order for a report to be available in any given merge request, you need to make use of the [`expose_as`](https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as)-keyword
-and change the path to the artifacts. This will render the report available in any affiliated merge request: (`.gitlab-ci.yml`):
+To make a report available in any given merge request, you can use the [`expose_as`](https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as) keyword
+and change the path to the artifacts (`.gitlab-ci.yml`):
 
 ```yaml
     qodana:
@@ -34,7 +34,7 @@ and change the path to the artifacts. This will render the report available in a
        expose_as: 'Qodana report'
 ```
 
-Assuming you have configured your pipeline in a similar manner, this is what it may look like:
+Assuming that you have configured your pipeline in a similar manner, this is what it may look like:
 
 1. Qodana report affiliated with a pipeline in a merge request
    <img src="gitlab-exposed-artifacts.png" alt="Qodana report affiliated with a pipeline in a merge request" width="706" border-effect="line"/>
