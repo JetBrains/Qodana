@@ -42,7 +42,7 @@ for your project using Qodana. To do it, add these lines to the `code_quality.ym
 [the basic configuration](#basic-configuration) of Qodana Scan:
 
 ```yaml
-      - uses: github/codeql-action/upload-sarif@v1
+      - uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
 ```
