@@ -2,25 +2,26 @@
 
 The Qodana UI focuses on the single-shot analysis, making it easy to act on results and customize checks.
 
-> To learn how to open such reports in your browser, see the [](html-report.md) section.
+> To learn how to open such reports in your browser, see the [Open an HTML report](html-report.md) section.
 
 ## HTML report structure
 
 Qodana report data is grouped in tabs.
 
-<img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Overview of the Qodana UI" width="620" border-effect="line"/>
+<img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Overview of the Qodana UI" width="706" border-effect="line"/>
 
 Each report contains the following tabs:
 
 * **[Actual problems](#Actual+problems)** shows the problems that Qodana detected during this run 
-* **[Technical debt](#Technical+debt)** lists the problems that remained intact from previous runs
+* **[Baseline](#Baseline)** lists the problems that remained intact from previous runs
 * **[Checks](#Checks)** shows the list of inspections and lets you configure them
+* **[Project audit](#Project+audit)** describes the problems detected by the [License Audit](license-audit.xml) feature
 
 ### Actual problems
 
 Using this tab, you can overview the problems found during the current Qodana run.
 
-<img src="html-report.png" dark-src="html-report_dark.png" alt="The Actual problems tab" width="810" border-effect="line"/>
+<img src="html-report.png" dark-src="html-report_dark.png" alt="The Actual problems tab" width="706" border-effect="line"/>
 
 This includes several elements:
 
@@ -37,39 +38,41 @@ you can rearrange the sunburst diagram by dragging its components.
 4. The **Problems** tab lists and classifies all detected problems by severity, filename, path, category, and type. The 
 **Files** tab presents problems in the file tree.      
 
-5. The **Move to Technical debt** button saves the selected problems to the **[Technical debt](#Technical+debt)** list.  
+5. The **Move to baseline** button saves the selected problems to the **[Baseline](#Baseline)** list.  
 
 6. Clicking a problem in the list will expand the underlying code fragment to provide the detailed description.
 
-7. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can click the **Open file in** button to open the file in your IDE. The **More actions** list provides other options for handling problems, see the [](#Adjust+the+analysis+scope) section.
+7. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can click the **Open file in** button to open the file in your IDE. The **More actions** list provides other options for handling problems, see the [Adjust the analysis scope](#Adjust+the+analysis+scope) section.
 
+### Baseline
 
-### Technical debt
-
-When you click the **Move to Technical debt** button in the **[Actual problems](#Actual+problems)** tab, the selected
+When you click the **Move to baseline** button in the **[Actual problems](#Actual+problems)** tab, the selected
 problems will move to this tab.
 
-<img src="html-report-baseline.png" dark-src="html-report-baseline_dark.png" alt="The Technical debt tab overview" width="810" border-effect="line"/>
+<img src="html-report-baseline.png" dark-src="html-report-baseline_dark.png" alt="The Baseline tab overview" width="706" border-effect="line"/>
 
-This tab structure is similar to the **Actual problems** tab. To apply technical debt (or baseline) in future runs of
+This tab structure is similar to the **Actual problems** tab. To enable the baseline feature in future runs of
 Qodana, download the configuration file and save it to the project root folder. For more information, explore the
-[](qodana-baseline.xml) section.
-
+[Baseline](qodana-baseline.xml) section.
 
 ### Checks
 
 The **Checks** tab lists the inspections and lets you adjust your inspection profile by specifying a set of 
 inspections that Qodana will be using during next run.
 
-<img src="html-report-check.png" dark-src="html-report-check_dark.png" alt="List of checks/inspections" width="810" border-effect="line"/>
+<img src="html-report-check.png" dark-src="html-report-check_dark.png" alt="List of checks/inspections" width="706" border-effect="line"/>
 
 Here, you can study each inspection, enable or disable it. To use this configuration for future Qodana runs, you can 
 download the `qodana.yaml` file in the **Profile configuration** section, and save it into your project root directory. 
 
-See the [](#Adjust+your+inspection+profile) section to learn the best practices. 
+See the [Adjust your inspection profile](#Adjust+your+inspection+profile) section to learn the best practices. 
 
-> To learn more about inspection profiles, see the [](qodana-yaml.md#Set+up+a+profile) section.
+> To learn more about inspection profiles, see the [Set up a profile](qodana-yaml.md#Set+up+a+profile) section.
 > You can also edit profile settings in the [`qodana.yaml`](qodana-yaml.md) file.
+
+### Project audit
+
+<include src="lib_qd.xml" include-id="license-audit-tab" use-filter="ui-overview,empty" />
 
 ## Adjust your inspection profile 
 
@@ -87,7 +90,7 @@ In case the number problems is above your expectations, we suggest using the Qod
 then formalize a not-so-big cluster of the problems to fix. Repeat the procedure to work on the next goal, and so on.
 
 When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
-the [technical debt or baseline](qodana-jvm-docker-techs.xml#Run+in+baseline+mode) running mode.
+the [baseline](qodana-jvm-docker-techs.xml#Run+in+baseline+mode) running mode.
 
 ## Adjust the analysis scope
 
@@ -129,9 +132,9 @@ You can mark the file/directory as **Excluded**.
 
 ### Enable excluded or hidden problems
 
-To reverse the exclusions you made, download `qodana.yaml` in the **[](#Checks)** section, edit 
+To reverse the exclusions you made, download `qodana.yaml` in the **[Profile configuration](#Checks)** section, edit 
 it as necessary, put it in the project root directory, and then run Qodana again with this new configuration. 
 
-To learn how to configure Qodana using `qodana.yaml`, see the [](qodana-yaml.md) section.
+To learn how to configure Qodana using `qodana.yaml`, see the [Configure profile](qodana-yaml.md) section.
 
 

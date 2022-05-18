@@ -5,8 +5,10 @@ Qodana [linters](supported-technologies.md) are packed into ready-to-use [Docker
 <p><include src="lib_qd.xml" include-id="ui-note"/></p>
 
 Currently, the following CI integration mechanisms are available:
- - [](github-actions.md)
- - [](qodana-github-application.md)
- - [](gitlab.md)
- - [](qodana-teamcity-plugin.md)
- - [](jenkins.md)
+
+- [](qodana-azure-pipelines.md)
+- [](qodana-github-action.md)
+- [](gitlab.md)
+- [](jenkins.md)
+- [](teamcity.md)
+

@@ -13,6 +13,7 @@
     <var name="ide" value="IntelliJ IDEA"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/idea/?Code_Inspection"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
+    <var name="docker-image" value="jetbrains/qodana-jvm-community"/>
 
     <p>
         <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>

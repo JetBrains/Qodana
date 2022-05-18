@@ -38,6 +38,5 @@ with `source-directory` pointing to the root of your project.
 
 - <a href="qodana-jvm-docker-techs.xml">Configure %linter% Docker image</a>
 - <a href="qodana-github-action.md">Run %linter% on GitHub</a>
-- <a href="qodana-github-application.md">Run %linter% as a GitHub App</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
