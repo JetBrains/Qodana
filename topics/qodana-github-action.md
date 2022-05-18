@@ -23,8 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v5.0.2
+        uses: JetBrains/qodana-action@v5.1.0
 ```
 
 Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
