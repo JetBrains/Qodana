@@ -85,5 +85,4 @@ To actively participate in the Qodana community, join [Qodana Slack](http://qoda
 
 - <a href="quickstart.md">Quick start guide</a>
 - <a href="components.xml">Qodana components</a>
-- <a href="CHANGELOG.md">Changelog</a>
 - <a href="deploy-qodana.xml">Deployment section</a>

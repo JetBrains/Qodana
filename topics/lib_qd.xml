@@ -961,7 +961,7 @@
                 <code filter="non-gs" style="block" prompt="$">qodana scan -l %docker-image% --show-report</code>
             </tab>
             <tab id="docker-image-tab" title="Docker image">
-                <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
+                <p filter="gs-only">Start with any of the <a href="supported-technologies.md">provided linters</a>. For all linters the
                     procedure is basically the same.</p>
                 <p filter="non-gs">To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
                 <code filter="non-gs" style="block" lang="shell" prompt="$">
@@ -1037,8 +1037,23 @@
         <warning>
             The Qodana License audit linter is deprecated. You can inspect
             <a href="license-audit.xml">compatibility of dependency licenses</a> using technology-specific
-            <a href="linters.md">Qodana linters</a>.
+            <a href="supported-technologies.md">Qodana linters</a>.
         </warning>
     </chunk>
+
+    <chunk id="qodana-deployment-options">
+        <p>%product% provides several deployment options to best fit your needs:</p>
+        <list>
+            <li><a href="docker-images.md">Docker images</a> are the universal format suitable for inspecting
+                <a href="quickstart.md">local projects</a> and integration into CI/CD pipelines.</li>
+            <li><a href="ci.md">Integration tools</a> include plugins and applications for seamless integration with
+                several CI/CD systems, such as GitHub and TeamCity. If we cannot develop a native tool for a particular
+                system, we will supply you with a guide explaining how to run %product% with it.</li>
+            <li><a href="qodana_plugins.md">IDE Plugins</a> facilitate code analysis within your favorite IDE.</li>
+            <li><a href="service.md">Cloud service</a> is the best option if you need a cloud-based service for your
+                inspections. </li>
+        </list>
+    </chunk>
+
 
 </topic>

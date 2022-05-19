@@ -23,7 +23,7 @@
 
         <p>To improve the situation, you can add problems to the baseline, download the
             <code style="inline">qodana.sarif.json</code> file, and put it to your project directory as explained in the
-            <a href="ui-overview.md" anchor="Technical+debt"/> section. Once done, this file becomes a basis for
+            <a href="ui-overview.md" anchor="Baseline"/> section. Once done, this file becomes a basis for
             comparing with subsequent code states. You can run the baseline with the following CLI command:
         </p>
 
@@ -49,7 +49,7 @@
         <li>The first %product% run detected two problems in the codebase.</li>
 
         <li>To create a baseline for your project, download the <code style="inline">qodana.sarif.json</code> file and
-            save it to your project directory as shown in the <a href="ui-overview.md" anchor="Technical+debt"/> section.
+            save it to your project directory as shown in the <a href="ui-overview.md" anchor="Baseline"/> section.
             Starting from this moment, these two problems are identified by %product% as baseline problems.
         </li>
 
