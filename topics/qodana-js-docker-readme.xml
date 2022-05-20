@@ -4,7 +4,7 @@
 <!--suppress TopicContentShortcutHardcodedInspections -->
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-js-docker-readme"
-       title="%linter% Docker image">
+       title="Qodana for JS Docker image">
 
     <var name="linter" value="Qodana for JS"/>
     <var name="linter-shell" value="qodana-js"/>
