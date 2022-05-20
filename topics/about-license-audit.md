@@ -55,4 +55,3 @@ Read our [Docker guide](license-audit-docker-readme.md) for more options and det
 
 - <a href="license-audit-docker-techs.md">Configure %linter% Docker image</a>
 - <a href="license-audit-github-action.md">Run %linter% on GitHub</a>
-- <a href="license-audit-teamcity-plugin.md">Run %linter% on TeamCity</a>

@@ -6,7 +6,7 @@
        title="Extending Qodana"
        id="extending-qodana">
 
-    <p>Basically, %product% provides several <a href="linters.md">linters</a> supporting a variety of
+    <p>Basically, %product% provides several <a href="supported-technologies.md">linters</a> supporting a variety of
         technologies, and <a href="qodana-yaml.md">inspection profiles</a> let you additionally customize each linter to
         fit your needs using the default inspection base. Still, it may be useful to analyze your codebase using
         third-party inspection tools that are not covered by standard %product% packages, and you can do it in several
