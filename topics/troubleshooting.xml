@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Troubleshooting"
+       id="troubleshooting">
+
+    <p>This section contains information that can help you troubleshoot common problems.</p>
+
+    <chapter id="troubleshooting-mounted-directories" title="List of Docker image paths">
+
+        <table>
+            <tr>
+                <td>Path</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/project</code>
+                </td>
+                <td>Root directory of the project to be analyzed</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/results</code>
+                </td>
+                <td>Directory to store the analysis results</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/opt/idea</code>
+                </td>
+                <td>Directory containing the IDE distribution</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/root/.config/idea</code>
+                </td>
+                <td>Directory where the IDE contains configuration</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/profile.xml</code>
+                </td>
+                <td><p>Used if a profile was not previously configured either via the CLI or the <code>qodana.yaml</code>
+                    file.</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>For Maven and Gradle projects, %product% uses the following directories to access third-party libraries:</p>
+
+        <table>
+            <tr>
+                <td>Path</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td><code>/root/.m2/repository</code></td>
+                <td>Maven project dependencies</td>
+            </tr>
+            <tr>
+                <td><code>/root/.gradle</code></td>
+                <td>Gradle project dependencies</td>
+            </tr>
+        </table>
+
+        <p>Mounting these directories saves %product% from downloading all dependencies again while using these linters:</p>
+            <list>
+                <li><a href="qodana-jvm.md"/></li>
+                <li><a href="qodana-jvm-community.md"/></li>
+                <li><a href="qodana-jvm-android.md"/></li>
+            </list>
+    </chapter>
+
+    <chapter id="troubleshooting-qodana-log-files" title="List of files for investigating Qodana behavior">
+        <p>There are several options for examining %product% behavior using the <code>/data/results</code> directory:</p>
+        <list>
+            <li>The <code>/data/results/projectStructure/Modules.json</code> file lists all modules detected by %product%.
+                It should be identical to the list that you expect to see while opening the project in IDEA. If it is not
+                the case, check <code>pom.xml</code> for Maven or the <code>build.gradle</code> file for Gradle configurations.</li>
+
+            <li>In the <code>/data/results/</code> directory, each inspection that detected a possible problem creates
+                its own file named <code>ID.json</code>, where <code>ID</code> is the inspection name that can be used in
+                <code>qodana.yaml</code> for including or excluding inspections. You can find the complete list of
+                inspection IDs in the <code>/data/results/.descriptions.json</code> file using the
+                <code>/groups/*/inspections/*/shortName</code> pattern.</li>
+            <li>In <code>/data/results/log/idea.log</code>, you can investigate suspicious warnings.</li>
+        </list>
+
+
+    </chapter>
+
+</topic>
