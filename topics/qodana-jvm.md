@@ -2,7 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-<var name="linter" value="Qodana JVM"/>
+<var name="linter" value="Qodana for JVM"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="tech" value="jvm"/>
 <var name="docker-image" value="jetbrains/qodana-jvm:2021.3-eap"/>
