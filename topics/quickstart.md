@@ -60,7 +60,7 @@ The detailed information about %product% linters is available in the [](supporte
 ## Next steps
 
  - <a href="docker-image-configuration.xml">Configure Docker images</a>
- - <a href="github-actions.md">Run %product% on GitHub</a> or use it as a <a href="qodana-github-application.md">GitHub App</a>
+ - <a href="qodana-github-action.md">Run %product% on GitHub</a>
  - <a href="qodana_plugins.md">Extend your IDE using plugins</a>
  - <a href="ci.md">Explore how you can integrate %product% into your CI/CD system</a>
 -  <a href="service.md">Use %product% as a Service</a>

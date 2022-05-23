@@ -70,9 +70,6 @@ building and/or deployment process.
 [Qodana Playground](https://qodana.teamcity.com/overview?mode=builds) is a sandbox environment that runs in TeamCity, 
 cloud-based CI system developed by JetBrains. You can use it to see Qodana in action and try various options yourself.
 
-To view an example GitHub pull request verified by the [](qodana-github-application.md), see the JetBrains
-[GitHub repository](https://github.com/JetBrains/qodana-examples/pull/2/checks).
-
 ## Contact us
 
 If you encounter a bug or would like to suggest a new feature,
