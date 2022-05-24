@@ -43,5 +43,5 @@ Besides JVM, the current version (%product-version%) of Qodana provides inspecti
 
 The [Qodana Clone Finder](about-clone-finder.md) linter inspects your code for duplicate functions.
 
-The [Qodana License Audit](about-license-audit.md) linter analyzes license usages and helps you avoid using software with
+The [License audit](license-audit.xml) linter analyzes license usages and helps you avoid using software with
 incompatible licenses.
