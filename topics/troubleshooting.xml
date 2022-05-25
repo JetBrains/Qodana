@@ -92,4 +92,9 @@
 
     </chapter>
 
+    <chapter id="troubleshooting-os-restriction" title="Operating systems for running Qodana">
+        <p>%product% can be run only on Linux and MacOS operating systems. This is applicable for all implementations of
+        %product% covered in this documentation.</p>
+    </chapter>
+
 </topic>

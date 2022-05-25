@@ -9,4 +9,6 @@ With time, Qodana will support all languages and technologies covered by JetBrai
 - [Python](https://python.org) projects
 - [JavaScript](https://www.javascript.com/) and [TypeScript](https://www.typescriptlang.org/) projects
 
+<include src="lib_qd.xml" include-id="os-restriction-note"/>
+
 > For details on getting started with a particular technology, see [](linters.md).

@@ -1035,4 +1035,9 @@
         </warning>
     </chunk>
 
+    <chunk id="os-restriction-note">
+        <note>You can run %product% only on Linux and MacOS operating systems. This is applicable for all
+            implementations of %product%. </note>
+    </chunk>
+
 </topic>
