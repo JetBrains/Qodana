@@ -12,6 +12,7 @@
 
 <var name="linter" value="Qodana Python"/>
 <var name="ide" value="PyCharm Professional"/>
+<var name="docker-image" value="jetbrains/qodana-python:2021.3-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
@@ -19,53 +20,26 @@
 
 ### Analyze a project locally
 
-To start, pull the image from Docker Hub (only necessary to get the latest version):
+#### Install project dependencies
 
-<var name="docker-image" value="jetbrains/qodana-python"/>
+For a basic Python project that has no external dependencies, no preliminary steps are required. 
 
-<code style="block" lang="shell">
-  docker pull %docker-image%
-</code>
+In case the project has external `pip` dependencies, you can set them up using the `bootstrap` field in the `qodana.yaml` file.  
+For example, if your project dependencies are specified by the `requirements.txt` file in your project root, add the following line to `qodana.yaml`:
 
-For a basic Python project, which only uses `stdlib`, no preliminary steps are required.
+```yaml
+bootstrap: pip install -r requirements.txt
+```
 
-In case a project has external `pypi` dependencies, use any of the following  options:
-- Create `virtualenv` as a subfolder in your project and exclude it in [qodana.yaml](qodana-yaml.md#exclude-paths) to skip analysis of vendor code.
-- Mount a separate `virtualenv` as [cache](qodana-python-docker-techs.xml#Cache+dependencies).
+The command will be automatically executed before the analysis.
 
-  When you create the `virtualenv` folder, no actual `python` binary is copied into it. Instead, a symlink is created to `python` binary used to create virtualenv. This could lead to incorrect paths when your `virtualenv` is being read inside the Qodana container, since `python` location there could be different. To fix this, create `virtualenv` using the Qodana container's `python`:
+#### Run analysis
 
-  ```shell
-  docker run --rm \
-        -v <source-directory>/:/data/project/ \
-        -v <cache-directory>/:/data/cache/ \
-        --entrypoint=bash \
-        %docker-image% -c '
-          python3 -m venv /data/cache/venv
-          source /data/cache/venv/bin/activate
-          pip3 install -r /data/project/requirements.txt
-        '
-  ```
-
-The project dependencies are now stored in `<cache-directory>`. This folder could be preserved between builds to speed them up. 
-
-Start local analysis with cache mounted and with `source-directory` pointing to the root of your project, and it would automatically look for `virtualenv` in `/data/cache/venv`:
-
-   ```shell
-   docker run --rm -it -p 8080:8080 \
-      -v <source-directory>/:/data/project/ \
-      -v <output-directory>/:/data/results/ \
-      -v <cache-directory>/:/data/cache/ \
-      %docker-image% --show-report
-   ```
-
-<p>
-<include src="lib_qd.xml" include-id="show-report-command-explanation"/>
-</p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="js-py,py-only,non-gs,empty"/></p>
 
 ## Next steps
 
-- <a href="qodana-python-docker-techs.xml">Configure %linter% Docker image</a>
+- <a href="qodana-python-docker-readme.xml">Configure %linter% Docker image</a>
 - <a href="qodana-github-action.md">Run %linter% on GitHub</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
