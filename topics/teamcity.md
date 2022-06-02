@@ -6,7 +6,7 @@ need to be met:
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
 - Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html).
 
-<note>Using TeamCity, You can run %product% only on Linux and MacOS operating systems. </note>
+<note>Currently, running Qodana on Windows-based build agents of TeamCity is not supported.</note>
 
 ### Add a Qodana runner 
 
