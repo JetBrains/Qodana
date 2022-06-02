@@ -12,5 +12,3 @@ Currently, the following CI integration mechanisms are available:
 - [](jenkins.md)
 - [](teamcity.md)
 
-<include src="lib_qd.xml" include-id="os-restriction-note"/>
-
