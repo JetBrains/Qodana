@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Quick start"
+       id="Quick-start.xml">
+
+    <p>The current version of %product% (%product-version%) provides linters that let you analyze
+        <a href="supported-technologies.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects. In addition,
+        you can inspect your code for duplicate functions and incompatible licenses used in your project. </p>
+
+    <chapter title="Analyze a project locally" id="quickstart-analyze-project-locally">
+
+        <p>Qodana provides two options for local analysis of your code.
+            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
+            Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
+
+        <tabs>
+            <tab title="Qodana CLI" id="qodana-cli-tab">
+                <procedure id="qodana-cli-tab-procedure">
+                    <step>Install Qodana CLI on your machine using available options:
+                        <tabs>
+                            <tab title="macOS and Linux">
+                                <p>Install with <a href="https://brew.sh/">Homebrew</a> (recommended):</p>
+                                <code style="block" lang="shell" prompt="$">
+                                    brew install jetbrains/utils/qodana
+                                </code>
+                                <p>Install with our installer:</p>
+                                <code lang="shell" style="block" prompt="$">
+                                    curl -fsSL https://jb.gg/qodana-cli/install | bash
+                                </code>
+                            </tab>
+                            <tab title="Windows">
+                                <p>Install with <a href="https://scoop.sh/">Scoop</a>:</p>
+                                <code style="block" lang="shell">
+                                    scoop bucket add jetbrains https://github.com/JetBrains/scoop-utils
+                                    scoop install qodana
+                                </code>
+                            </tab>
+                            <tab title="Other">
+                                <p>Install with <a href="https://go.dev/doc/install">Go</a>:</p>
+                                <code style="block" lang="shell" prompt="$">
+                                    go install github.com/JetBrains/qodana-cli@latest
+                                </code>
+                            </tab>
+                        </tabs>
+                    </step>
+                    <step>
+                        <p>In the project root directory, run this command:</p>
+                        <code style="block" lang="shell" prompt="$">qodana init</code>
+                        <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
+                            all necessary configuration options.</p>
+                    </step>
+                    <step>
+                        <p>In the project root directory, run this command to inspect your code:</p>
+                        <code style="block" lang="shell" prompt="$">qodana scan --show-report</code>
+                    </step>
+                </procedure>
+            </tab>
+            <tab title="Docker image" id="docker-image-tab">
+                <p>This section assumes that you have the Docker application deployed on your machine.</p>
+                <procedure id="qodana-docker-image-procedure">
+                    <step>
+                        <p>Pull the image from Docker Hub (only necessary to get the latest version):</p>
+                        <code lang="shell" style="block" prompt="$">
+                            docker pull &lt;image&gt;
+                        </code>
+                        <p>Here, <code>image</code> denotes the Docker image name of a %product% linter from this table:</p>
+                        <table>
+                            <tr>
+                                <td>Image name</td>
+                                <td>Application</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-jvm</td>
+                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA Ultimate.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-jvm-community</td>
+                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA Community.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-jvm-android</td>
+                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA with the Android support.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-php</td>
+                                <td>PHP projects, based on PhpStorm.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-python</td>
+                                <td>Python projects, based on PyCharm Professional.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-js</td>
+                                <td>JavaScript and TypeScript projects, based on WebStorm.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-clone-finder</td>
+                                <td>Detects duplicate functions.</td>
+                            </tr>
+                        </table>
+                    </step>
+                    <step>
+                        <p>Run this command to analyze your codebase (all images except <code>jetbrains/qodana-clone-finder</code>):</p>
+                        <code lang="shell" style="block" prompt="$">
+                            docker run --rm -it -p 8080:8080 \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               jetbrains/qodana-&lt;linter&gt; --show-report
+                        </code>
+                        <p>with &lt;source-directory&gt; pointing to the root of your project.</p>
+                        <p>For the <code>jetbrains/qodana-clone-finder</code> image, you can run this Docker command:</p>
+                        <code lang="shell" style="block" prompt="$">
+                            docker run --rm -it -p 8080:8080 \
+                               -v &lt;queried-project-directory&gt;/:/data/project/ \
+                               -v &lt;reference-projects-directory&gt;/:/data/versus/ \
+                               -v &lt;output-directory&gt;/:/data/results/ \
+                               jetbrains/qodana-clone-finder --show-report
+                        </code>
+                        <p>This command uses the parameters:</p>
+                        <list>
+                            <li><code>&lt;queried-project-directory&gt;</code> is a full local path to the project source code.</li>
+                            <li><code>&lt;reference-projects-directory&gt;</code> is the project directory to be compared with the source code. This parameter can be specified multiple times.</li>
+                            <li><code>&lt;output-directory&gt;</code> is the directory that will contain inspection reports.</li>
+                        </list>
+                    </step>
+                    <step>
+                        <p>Check inspection results <a href="html-report.md">in your browser</a> at
+                            <code>http://localhost:8080</code>.</p>
+                    </step>
+                </procedure>
+            </tab>
+        </tabs>
+
+        <p>The detailed information about %product% linters is available in the <a href="supported-technologies.md"/> section.</p>
+    </chapter>
+
+    <chapter title="Next steps" id="quick-start-next-steps">
+        <list>
+            <li><a href="docker-image-configuration.xml">Configure Docker images</a></li>
+            <li><a href="qodana-github-action.md">Run %product% on GitHub</a></li>
+            <li><a href="qodana_plugins.md">Extend your IDE using plugins</a></li>
+            <li><a href="ci.md">Explore how you can integrate %product% into your CI/CD system</a></li>
+            <li><a href="service.md">Use %product% as a Service</a></li>
+        </list>
+    </chapter>
+
+</topic>

@@ -61,7 +61,7 @@ progress.
 
 ## Running Qodana
 
-You can run %product% [locally](quickstart.md) in a standalone mode using a PC or a server. Alternatively, inspecting 
+You can run %product% [locally](Quick-start.xml) in a standalone mode using a PC or a server. Alternatively, inspecting 
 your code within a [CI/CD pipeline](ci.md) means that your code will be inspected by %product% as part of a 
 building and/or deployment process.
 

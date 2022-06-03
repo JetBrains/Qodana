@@ -1045,7 +1045,7 @@
         <p>%product% provides several deployment options to best fit your needs:</p>
         <list>
             <li><a href="docker-images.md">Docker images</a> are the universal format suitable for inspecting
-                <a href="quickstart.md">local projects</a> and integration into CI/CD pipelines.</li>
+                <a href="Quick-start.xml">local projects</a> and integration into CI/CD pipelines.</li>
             <li><a href="ci.md">Integration tools</a> include plugins and applications for seamless integration with
                 several CI/CD systems, such as GitHub and TeamCity. If we cannot develop a native tool for a particular
                 system, we will supply you with a guide explaining how to run %product% with it.</li>
