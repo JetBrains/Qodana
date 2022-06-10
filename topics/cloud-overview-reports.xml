@@ -31,28 +31,24 @@
 
     <table>
         <tr>
-            <td>Case No.</td>
             <td>Branch name</td>
             <td>Commit time</td>
             <td>Commit hash</td>
-            <td>Displayed as</td>
+            <td>Displays</td>
         </tr>
         <tr>
-            <td>1</td>
             <td>Same</td>
             <td>Same</td>
             <td>N/A</td>
-            <td>Single report</td>
+            <td>The latest and overwrites the previous reports</td>
         </tr>
         <tr>
-            <td>2</td>
             <td>Same</td>
             <td>Different</td>
             <td>N/A</td>
             <td>Separate reports</td>
         </tr>
         <tr>
-            <td>3</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>Same</td>
