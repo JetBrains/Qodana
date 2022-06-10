@@ -4,7 +4,7 @@
 <!--suppress TopicContentShortcutHardcodedInspections -->
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-php-docker-techs"
-       title="%linter% Docker image configuration">
+       title="Qodana for PHP Docker image configuration">
 
     <var name="linter" value="Qodana for PHP"/>
     <var name="linter-shell" value="qodana-php"/>

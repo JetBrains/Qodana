@@ -4,9 +4,9 @@
 <!--suppress TopicContentShortcutHardcodedInspections -->
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-jvm-android-docker-readme"
-       title="%linter% Docker image">
+       title="Qodana Community for Android Docker image">
 
-    <var name="linter" value="Qodana for JVM Android"/>
+    <var name="linter" value="Qodana Community for Android"/>
     <var name="linter-shell" value="qodana-jvm-android"/>
     <var name="linter-page-url" value="qodana-jvm-android.md"/>
     <var name="docker-tech-guide-page-url" value="qodana-jvm-android-docker-techs.xml"/>
