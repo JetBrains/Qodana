@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Teams"
-       id="cloud-teams" auxiliary-id="cloud-teams">
+       id="cloud-teams">
 
     <p>You can create teams in an <a href="cloud-organizations.xml">organization</a> to work with dedicated projects.
         Here are some basic advantages of using teams:</p>

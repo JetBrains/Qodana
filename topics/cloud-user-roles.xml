@@ -104,8 +104,10 @@
     <chapter id="cloud-user-role-editor" title="Editor" level="2">
         <p>If you just joined an existing company, %product_cloud% will assign your account the <b>editor</b> role. </p>
 
-        <p>Any editor can be promoted to the <a anchor="cloud-user-role-administrator">administrator</a> role, see the
-            <a href="cloud-change-user-roles.xml">Change user roles</a> section.</p>
+        <p>Any editor can be promoted to the <a anchor="cloud-user-role-administrator">administrator</a> role.</p>
+
+<!--        <p>Any editor can be promoted to the <a anchor="cloud-user-role-administrator">administrator</a> role, see the
+            <a href="cloud-change-user-roles.xml">Change user roles</a> section.</p> -->
 
         <p>These tabs explain what features are available to any editor user.</p>
 
