@@ -30,7 +30,7 @@
 
     <toc-element id="cloud-manage-projects.xml">
         <toc-element id="cloud-project-reports.xml"/>
-        <toc-element id="cloud-project-groups.xml"/>
+        <toc-element id="cloud-teams.xml"/>
     </toc-element>
 
 </product-profile>

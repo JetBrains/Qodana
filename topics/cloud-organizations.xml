@@ -8,7 +8,7 @@
 
     <!-- The Admin role should be specified here because there are several admin roles here -->
     <!-- This behavior needs to be supplied with screenshots -->
-    <p>Organizations are a way for giving peer users access to your projects. Each organization can have several
+    <p>Organizations are a way of giving peer users access to your projects. Each organization can have several
         projects, and several users can be associated with them. Each %product_cloud% user can be a member of several
         organizations.</p>
 
@@ -24,17 +24,44 @@
     <p>The <menupath>Organizations</menupath> tab of the <menupath>Settings</menupath> section contains a list of
         organizations your account is associated with.</p>
 
-    <img src="qc-settings-manage-organizations.png" alt="Managing organizations" width="706" border-effect="line" title="Managing organizations"/>
+    <img src="qc-settings-organizations.png" alt="Managing organizations" width="460" border-effect="line" title="Managing organizations"/>
 
-    <p>If you have the <emphasis>Administrator</emphasis> role in %product_cloud%, you can create and delete organizations.
-        You can also manage members and visibility of the existing organizations:</p>
+    <p>By default, <menupath>Your personal organization</menupath> is crated for each %product_cloud% account. This organization
+    is unique for each account. This section also contains the list of other organizations associated with the account. </p>
 
-    <list>
-        <li><a href="cloud-manage-members.xml">Manage members of your organization</a></li>
-        <li><a href="cloud-manage-organization.xml">Modify the organization's name, description, and logo</a></li>
-    </list>
+    <chapter id="cloud-organizations-creating-new-organization" title="Creating new organizations">
+        <p>To create a new organization, on the <menupath>Organizations</menupath> tab click the
+            <menupath>+ Add new organization</menupath> link. This will open the dialog window to specify the
+            organization name and its visibility outside the account.</p>
 
-    <p>If you have a personal account, so you have the <emphasis>Administrator</emphasis> role, but the
+        <img src="qc-creating-new-organization.png" dark-src="qc-creating-new-organization_dark.png" alt="Creating a new organization" width="460" border-effect="line"/>
+
+        <p>After creating, you can access this organization using the left sidebar of the %product_cloud% UI.</p>
+
+        <img src="qc-access-organization.png" dark-src="qc-access-organization_dark.png" alt="Accessing organization" width="706" border-effect="line"/>
+
+    </chapter>
+
+    <chapter id="cloud-organizations-manage-members-visibility" title="Managing members and visibility">
+
+        <p>If you have the <emphasis>Administrator</emphasis> role, you can create and delete organizations, and
+            also manage members and visibility of the existing organizations.</p>
+
+        <p>To manage the members and visibility of the existing organization, on the <menupath>Organizations</menupath>
+            tab click the <menupath>Manage members and visibility</menupath> link. Using the
+            <menupath>Invite people to &lt;organization_name&gt;</menupath> window, you can:</p>
+        <list>
+            <li>Invite new users to this organization and assign their roles</li>
+            <li>Change the roles of the existing users. For more information, see the <a href="cloud-user-roles.xml"/> section </li>
+            <li>Remove users from the organization.</li>
+        </list>
+
+        <img src="qc-manage-members-visibility.png" dark-src="qc-manage-members-visibility_dark.png" width="460" alt="Managing members and visibility" border-effect="line"/>
+
+    </chapter>
+
+
+<!--    <p>If you have a personal account, so you have the <emphasis>Administrator</emphasis> role, but the
         <emphasis>My organization</emphasis> company is automatically  assigned to your account, so you cannot
-        configure it or add any other organizations.</p>
+        configure it or add any other organizations.</p> -->
 </topic>

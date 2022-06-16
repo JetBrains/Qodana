@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Teams"
+       id="cloud-teams" auxiliary-id="cloud-teams">
+
+    <p>You can create teams in an <a href="cloud-organizations.xml">organization</a> to work with dedicated projects.
+        Here are some basic advantages of using teams:</p>
+
+    <list>
+        <li>You can you combine several projects under a single team to provide a convenient way for navigation.</li>
+        <li>You can share specific projects among %product_cloud% users that are part of your organization.</li>
+    </list>
+
+    <p>To create a team, on the organization page click <menupath>Create team</menupath>. This will open the
+        <menupath>New team</menupath> dialog window to specify the team name. </p>
+
+    <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="Creating a team" width="706" border-effect="line"/>
+
+    <p>After creating, you can access the team from the
+        <a href="cloud-organizations.xml" anchor="cloud-organizations-creating-new-organization">left sidebar</a> of the
+        %product_cloud% UI. Based on the existing team, you can create new
+        <a href="cloud-project-reports.xml">projects</a> associated with it.</p>
+
+</topic>
