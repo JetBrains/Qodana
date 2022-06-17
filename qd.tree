@@ -112,14 +112,14 @@
 
         <toc-element toc-title="Configuration" expand-mode="expand">
             <toc-element id="cloud-manage-your-account.xml" toc-title="Account">
-                <toc-element id="cloud-organizations.xml">
-                    <toc-element id="cloud-manage-members.xml"/>
-                </toc-element>
+                <toc-element id="cloud-organizations.xml"/>
                 <toc-element id="cloud-profile-settings.xml"/>
+
             </toc-element>
         </toc-element>
 
         <toc-element id="cloud-teams.xml"/>
+        <toc-element id="cloud-projects.xml"/>
         <toc-element id="cloud-project-reports.xml"/>
 
         <toc-element toc-title="Reports" expand-mode="expand">
