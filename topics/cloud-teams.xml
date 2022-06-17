@@ -22,7 +22,7 @@
     <p>After creating, you can access the team from the
         <a href="cloud-organizations.xml" anchor="cloud-organizations-creating-new-organization">left sidebar</a> of the
         %product_cloud% UI. Based on the existing team, you can create new
-        <a href="cloud-project-reports.xml">projects</a> associated with it.</p>
+        <a href="cloud-projects.xml">projects</a> associated with it.</p>
 
     <p>To manage team members, click the upper-right corner of the team and select <menupath>Invite members</menupath>.
     If you wish to delete (archive) the team, click <menupath>Archive</menupath>.</p>
