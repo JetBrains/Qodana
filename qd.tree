@@ -120,7 +120,6 @@
 
         <toc-element id="cloud-teams.xml"/>
         <toc-element id="cloud-projects.xml"/>
-        <toc-element id="cloud-project-reports.xml"/>
 
         <toc-element toc-title="Reports" expand-mode="expand">
             <toc-element id="cloud-forward-reports.xml"/>

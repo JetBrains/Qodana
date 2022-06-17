@@ -24,7 +24,8 @@
         %product_cloud% UI. Based on the existing team, you can create new
         <a href="cloud-project-reports.xml">projects</a> associated with it.</p>
 
-    <p>To manage team members, click the upper-right corner of the team and select <menupath>Invite members</menupath>.</p>
+    <p>To manage team members, click the upper-right corner of the team and select <menupath>Invite members</menupath>.
+    If you wish to delete (archive) the team, click <menupath>Archive</menupath>.</p>
 
     <img src="qc-manage-team-members.png" dark-src="qc-manage-team-members_dark.png" width="460" alt="Managing team members" border-effect="line"/>
 

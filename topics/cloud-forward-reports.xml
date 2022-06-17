@@ -12,27 +12,6 @@
     <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
     <var name="SpaceAutomationLink" value="www.jetbrains.com/help/space/automation-concepts.html#what-is-space-automation"/>
 
-    <chapter id="cloud-forward-reports-configure-cloud" title="Configure Qodana Cloud">
-
-    <p>To see %product% reports in the %product_cloud% UI, you need to get them uploaded. Before you can start to upload
-        them, you need to create a project and generate a project-related token as described below. </p>
-
-    <img src="qc-new-project.png" dark-src="qc-new-project_dark.png" alt="The New Project button" width="706" border-effect="line"/>
-
-    <list type="decimal">
-        <li>On the <menupath>Projects</menupath> page, click the <menupath>New project</menupath> button in the upper-right corner.</li>
-        <li>If needed, you can configure the newly created project.</li>
-        <li>Click <menupath>Generate token</menupath> to generate the project token.</li>
-        <li><p>Copy the project token and save it for future use.</p>
-            <img src="qc-new-project-2.png" dark-src="qc-new-project-2_dark.png" alt="Project token" width="706" border-effect="line"/>
-            <note>Once generated, the token is available for copying only before the first report is pushed to the project.
-                The same rule applies to project configuration.</note>
-        </li>
-    </list>
-    </chapter>
-
-    <chapter id="cloud-forward-reports-configure-qodana" title="Configure forwarding of reports">
-
         <p>This chapter explains how to configure the following products for forwarding %product% reports to %product_cloud%:</p>
 
         <list>
