@@ -6,6 +6,19 @@
        title="Projects"
        id="cloud-projects.xml">
 
-    <p>Start writing here.</p>
+    <p>Projects let you combine multiple %product% reports, where each report contains the result of a %product%
+        inspection. </p>
+
+    <p>To create a project, on your team or your personal organization page, click <menupath>Create project</menupath>.</p>
+
+    <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
+
+    <p>After the new project is created, you need to generate a token that will be used by %product% to identify
+    the project to associate the reports with. To do this, click <menupath>Generate token</menupath>.</p>
+
+    <p>Once the token is generated, you can rename the project, regenerate the previously generated token, or delete
+        (archive) the project. To have access to any of these actions, click the upper-right corner of the project.</p>
+
+    <img src="qc-project-options.png" dark-src="qc-project-options_dark.png" width="460" alt="Available project options" border-effect="line"/>
 
 </topic>
