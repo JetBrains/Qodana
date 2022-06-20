@@ -25,7 +25,7 @@
         <a href="cloud-projects.xml">projects</a> associated with it.</p>
 
     <p>To manage team members, click the upper-right corner of the team and select <menupath>Invite members</menupath>.
-    If you wish to delete (archive) the team, click <menupath>Archive</menupath>.</p>
+    If you wish to delete (archive) the team, click <menupath>Archive team</menupath>.</p>
 
     <img src="qc-manage-team-members.png" dark-src="qc-manage-team-members_dark.png" width="460" alt="Managing team members" border-effect="line"/>
 

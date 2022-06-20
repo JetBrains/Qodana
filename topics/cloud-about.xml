@@ -6,6 +6,8 @@
        title="Qodana Cloud"
        id="cloud-about">
 
+    <img src="qc-about-diagram.png" width="706" alt="The Qodana Cloud diagram" border-effect="line"/>
+
     <p>In case you run %product% in multiple projects or repositories, you can find that it would be good to aggregate all
         inspection reports in a single place, especially if the codebase is distributed across several servers and virtual
         private networks and each team works independently. This is when a centralized solution for collecting and

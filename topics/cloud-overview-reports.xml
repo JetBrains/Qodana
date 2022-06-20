@@ -10,18 +10,16 @@
 
         <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report sample" width="296" border-effect="line" title="Qodana Cloud report sample"/>
 
-        <p>This sample project contains the following fields, when accessible:</p>
+        <p>This sample project contains the following fields:</p>
 
-    <list type="decimal">
+    <list>
         <li>Project name and location. Location is displayed if a project is hosted on a publicly available repository
             like GitHub.</li>
         <li>Branch name.</li>
         <li>Commit hash.</li>
         <li>Date and time of the latest %product% inspection.</li>
-        <li>Bar chart containing report statistics. Here, each bar represents a %product% report and all bars are
-            clickable, so you can load the report you would like to overview by clicking the respective bar. The bar color
-            reflects the severity of the major part of detected problems. The rightmost bar summarizes the latest
-            inspection report and provides the number of problems detected.</li>
+        <li>Number of problems detected and severity expressed as a circle. The circle color reflects the severity of
+            the major part of detected problems. You can click this element to open the report.</li>
     </list>
 
     <tip>Projects without uploaded reports can be deleted.</tip>

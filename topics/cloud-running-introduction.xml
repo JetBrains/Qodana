@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Introduction"
+       id="cloud-running-introduction.xml">
+
+    <p>To start receiving %product% reports and overview them in the %product_cloud% UI, you need to:</p>
+
+    <list type="decimal">
+        <li>Create <a href="cloud-organizations.xml">an organization</a></li>
+        <li>Create <a href="cloud-teams.xml">a team</a></li>
+        <li>Configure <a href="cloud-projects.xml">a project</a></li>
+        <li>Configure <a href="cloud-forward-reports.xml">forwarding of reports</a> from %product%</li>
+        <li>Run %product% and <a href="cloud-overview-reports.xml">overview reports</a></li>
+    </list>
+
+</topic>

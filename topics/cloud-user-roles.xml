@@ -14,20 +14,22 @@
             <td>Role assigned</td>
         </tr>
         <tr>
-            <td>You created a personal account or commercial account for your company</td>
-            <td><a anchor="cloud-user-role-administrator">Administrator</a></td>
+            <td>You created an account for your company</td>
+            <td>Administrator</td>
         </tr>
         <tr>
-            <td>You joined an existing company after creating a commercial account</td>
-            <td><a anchor="cloud-user-role-editor">Editor</a></td>
+            <td>You joined an existing company</td>
+            <td>Editor</td>
         </tr>
     </table>
 
-    <chapter id="cloud-user-role-administrator" title="Administrator" level="2">
+    <p>An editor account can be promoted to the administrator role.</p>
+
+    <!--<chapter id="cloud-user-role-administrator" title="Administrator" level="2">
 <p>If you just created a personal account at %product_cloud%, or a commercial account for a company that did not previously
     exist, you will join %product_cloud% as <b>administrator</b>. The basic administrator functionalities are described under
     these tabs:</p>
-    <!-- Everything from these lists should be referenced to the sections -->
+
         <tabs>
             <tab title="Organizations">
                 <table>
@@ -53,6 +55,11 @@
                 </tr>
                 <tr>
                     <td>Delete own organizations</td>
+                    <td>-</td>
+                    <td>&#10004;</td>
+                </tr>
+                <tr>
+                    <td>Update information about organizations</td>
                     <td>-</td>
                     <td>&#10004;</td>
                 </tr>
@@ -106,8 +113,8 @@
 
         <p>Any editor can be promoted to the <a anchor="cloud-user-role-administrator">administrator</a> role.</p>
 
-<!--        <p>Any editor can be promoted to the <a anchor="cloud-user-role-administrator">administrator</a> role, see the
-            <a href="cloud-change-user-roles.xml">Change user roles</a> section.</p> -->
+        <p>Any editor can be promoted to the <a anchor="cloud-user-role-administrator">administrator</a> role, see the
+            <a href="cloud-change-user-roles.xml">Change user roles</a> section.</p>
 
         <p>These tabs explain what features are available to any editor user.</p>
 
@@ -171,7 +178,7 @@
                 </table>
             </tab>
         </tabs>
-    </chapter>
+    </chapter>-->
 
 
 </topic>
