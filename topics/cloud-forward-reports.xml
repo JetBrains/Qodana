@@ -37,7 +37,7 @@
         </code>
 
         <p>In this snippet, <code style="inline" lang="bash">--send-report</code> enables forwarding %product%
-            reports to %product_cloud%, and the <code style="inline" lang="bash">-t</code> option is used to specify the
+            reports to %product_cloud%, and the <code lang="bash">--token</code> option is used to specify the
             project token.</p>
 
         <p>For more details about configuration options, see the configuration options of your linter. </p>
