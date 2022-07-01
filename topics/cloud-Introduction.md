@@ -19,7 +19,7 @@ on-site, this information can then be forwarded to Qodana Cloud.
 Below is a short list of use-cases when Qodana Cloud comes in handy.
 
 **You are responsible for product quality.** 
-In case you primary job is management rather than coding, you should know the answer to the "How things are going?" 
+In case your primary job is management rather than coding, you should know the answer to the "How things are going?" 
 question at any time. You can track the development process using reports from version control systems, bug trackers, 
 and during meetings. Still, monitoring of software quality is missing, and you can only refer to conclusions from your 
 team leaders or architects. Looking at the code cannot help you in this case. Also, collecting information about quality 
@@ -34,7 +34,7 @@ still part of your work. Using Qodana Cloud as an aggregator of Qodana reports w
 **Your company relies on open source software.** Modern software products often resort to open source libraries to 
 perform specific tasks. This approach saves companies time and money. Unfortunately, nobody could assure you that their 
 code is free of bugs, and their licenses will meet your needs. Also, you cannot control the process of open 
-source development. Using Qodana on GitHub, you can monitor quality of open source software used in your project, and 
+source development. Using Qodana, you can monitor the quality of open source software used in your project, and 
 the License Audit linter will inform you about its licenses. But if your project uses tens or hundreds of free libraries, 
 this becomes a challenging task. Using Qodana Cloud allows you to aggregate tons of reports under a single roof.
 

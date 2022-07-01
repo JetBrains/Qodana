@@ -6,8 +6,8 @@
        title="Projects"
        id="cloud-projects.xml">
 
-    <p>Projects let you combine multiple %product% reports, where each report contains the result of a %product%
-        inspection. </p>
+    <p>Projects let you combine multiple %product% reports, where each report contains the result of running %product%
+        on a project. </p>
 
     <p>To create a project, on your team or your personal organization page, click <menupath>Create project</menupath>.</p>
 

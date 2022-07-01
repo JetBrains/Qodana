@@ -20,7 +20,7 @@
             <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI/CD</a></li>
             <li><a anchor="cloud-forward-reports-jenkins">Jenkins</a></li>
             <li><a anchor="cloud-forward-reports-space-automation">Space Automation</a></li>
-            <li><a anchor="cloud-forward-reports-teamcity-plugin">TeamCity plugin</a></li>
+            <li><a anchor="cloud-forward-reports-teamcity">TeamCity</a></li>
         </list>
 
     <chapter id="cloud-forward-reports-local-run" title="Docker">
@@ -28,10 +28,12 @@
         <p>This is the CLI command to inspect your code and forward the report to %product_cloud% using the Dockerized
             version of %product%:</p>
 
-        <code style="block" lang="bash">
-            sudo docker run -v $(pwd)/project/:/data/project/ \
-            -v $(pwd)/report/:/data/results/ jetbrains/qodana-&lt;linter&gt; \
-            --send-report -t &lt;qodana_cloud_token&gt;
+        <code style="block" lang="bash" prompt="$">
+            docker run \
+              -v $(pwd)/project/:/data/project/ \
+              -v $(pwd)/report/:/data/results/ \
+              jetbrains/qodana-&lt;linter&gt; \
+              --send-report --token &lt;qodana_cloud_token&gt;
         </code>
 
         <p>In this snippet, <code style="inline" lang="bash">--send-report</code> enables forwarding %product%
@@ -114,13 +116,12 @@
 
         <code style="block" lang="kotlin">
             job("Qodana") {
-                container("jetbrains/qodana-jvm-community:2021.3") {
+                // For example: "jetbrains/qodana-jvm-community:2021.3"
+                container("jetbrains/qodana-&lt;linter&gt;:&lt;tag&gt;") {
                     // https://www.jetbrains.com/help/space/secrets-and-parameters.html
                     env["QODANA_TOKEN"] = Secrets("qodana-token")
                     shellScript {
-                        content = """
-                qodana --send-report
-            """.trimIndent()
+                        content = "qodana --send-report"
                     }
                 }
             }
@@ -131,16 +132,19 @@
             documentation.</p>
     </chapter>
 
-    <chapter id="cloud-forward-reports-teamcity-plugin" title="TeamCity plugin">
+    <chapter id="cloud-forward-reports-teamcity" title="TeamCity">
 
             <p>To configure a TeamCity plugin to forward %product% reports to %product_cloud%, follow these steps:</p>
 
             <procedure>
                 <step>Create the <code>QODANA_TOKEN</code> environment variable and define it as
                     <a href="https://%TeamCityLink%">password</a>.</step>
-                <step>Open the <code>Qodana</code> build step.</step>
-                <step><p>Add <code style="inline" lang="bash" interpolate-variables="false">--send-report</code>
-                    to the <menupath>Additional arguments for the entry point</menupath> section and <code style="inline" lang="bash" interpolate-variables="false">-e QODANA_TOKEN=%env.QODANA_TOKEN%</code> to the <menupath>Additional arguments for 'docker run'</menupath>.</p>
+                <step>Open the build step.</step>
+                <step><p>Specify <code style="inline" lang="bash" interpolate-variables="false">-e QODANA_TOKEN=%env.QODANA_TOKEN%</code> in
+                    <menupath>Additional arguments for 'docker run'</menupath> and
+                    <code style="inline" lang="bash" interpolate-variables="false">--send-report</code>
+                    in the <menupath>Additional Qodana arguments</menupath> fields.</p>
+                    <img src="cloud-forward-reports-teamcity.png" width="460" alt="Configuring fields in TeamCity" border-effect="line"/>
                 </step>
             </procedure>
             <p>If necessary, repeat the third step for each TeamCity plugin instance. For example, you may want to

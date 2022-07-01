@@ -21,6 +21,10 @@
             <td>You joined an existing company</td>
             <td>Editor</td>
         </tr>
+        <tr>
+            <td>You do not have an account yet.</td>
+            <td>Viewer</td>
+        </tr>
     </table>
 
     <p>An editor account can be promoted to the administrator role.</p>
