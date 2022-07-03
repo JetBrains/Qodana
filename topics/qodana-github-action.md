@@ -32,6 +32,8 @@ jobs:
 Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
 repository.
 
+Note: `fetch-depth: 0` is required for checkout in case Qodana works in pull request mode (reports issues that appeared only in that pull request).
+
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
 .
@@ -49,10 +51,10 @@ for your project using Qodana. To do it, add these lines to the `code_quality.ym
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
 ```
 
-This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report
+This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub and specifies the report
 file using the `sarif_file` key.
 
-> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up baseline and quality gate processing on the Qodana side prior to submitting inspection results to GitHub code scanning, see the
+> GitHub code scanning does not export inspection results to third-party tools, which means you cannot use this data for further processing by Qodana. In this case, you must set up baseline and quality gate processing on the Qodana side before submitting inspection results to GitHub code scanning. See the
 [Quality gate and baseline](#quality-gate-and-baseline) section for details.
 
 ### Pull request quality gate
@@ -86,8 +88,8 @@ Instead of `main`, you can specify your branch here.
 
 ### Quality gate and baseline
 
-You can combine the [quality gate](https://www.jetbrains.com/help/qodana/quality-gate.html) and [baseline](https://www.jetbrains.com/help/qodana/qodana-baseline.html) features to manage your
-technical debt, report only new problems, and block pull requests that contain too many problems.
+You can combine the [quality gate](https://www.jetbrains.com/help/qodana/quality-gate.html), and [baseline](https://www.jetbrains.com/help/qodana/qodana-baseline.html) features to manage your
+technical debt, report only new problems, and block pull requests that contain too many issues.
 
 Follow these steps to establish a baseline for your project:
 
@@ -106,23 +108,21 @@ qodana scan --show-report
 4. Append this line to the Qodana Scan action configuration in the `code_quality.yml` file:
 
 ```yaml
-baseline-path: qodana.sarif.json
+args: --baseline,qodana.sarif.json
 ```
 
-If you want to update the baseline, you need to repeat these steps once again.
+If you want to update the baseline, you must repeat these steps.
 
-Starting from this, GitHub will generate alters only for the problems that were not added to the baseline as new.
+After that, the Qodana Scan GitHub action will generate alerts only for the problems that were not added to the baseline as new.
 
-To establish a quality gate additionally to the baseline, add this line to `code_quality.yml` right after the
-`baseline-path` line:
+To establish a quality gate additionally to the baseline, add this line to `qodana.yaml` in the root of your repository:
 
 ```yaml
-fail-threshold: <number-of-accepted-problems>
+failThreshold: <number-of-accepted-problems>
 ```
 
 Based on this, you will be able to detect only new problems in pull requests that fall beyond the baseline. At the same
-time, pull requests with **new** problems exceeding the `fail-threshold` limit will be blocked and the workflow will
-fail.
+time, pull requests with **new** problems exceeding the `fail-threshold` limit will be blocked, and the workflow will fail.
 
 ### GitHub Pages
 
@@ -138,11 +138,11 @@ can host them on your [GitHub Pages](https://docs.github.com/en/pages) repositor
           destination_dir: ./
 ```
 
-> Hosting of multiple Qodana reports in a single GitHub Pages repository is not supported.
+> Hosting multiple Qodana reports in a single GitHub Pages repository is not supported.
 
 ### Get a Qodana badge
 
-You can set up a Qodana workflow badge in your repository, to do it, follow these steps:
+You can set up a Qodana workflow badge in your repository. To do it, follow these steps:
 
 1. Navigate to the workflow run that you previously configured.
 2. On the workflow page, select **Create status badge**.
@@ -152,7 +152,7 @@ You can set up a Qodana workflow badge in your repository, to do it, follow thes
 
 ## Configuration
 
-Most likely you won't need other options than `args`: all other options can be useful if you are configuring multiple Qodana Scan jobs in one workflow.
+Most likely, you won't need other options than `args`: all other options can be helpful if you are configuring multiple Qodana Scan jobs in one workflow.
 
 | Name                    | Description                                                                                                                                                                                  | Default Value                       |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
@@ -164,7 +164,7 @@ Most likely you won't need other options than `args`: all other options can be u
 | `use-caches`            | Utilize GitHub caches for Qodana runs. Optional.                                                                                                                                             | `true`                              |
 | `additional-cache-hash` | Allows customizing the generated cache hash. Optional.                                                                                                                                       | `${{ github.sha }}`                 |
 | `use-annotations`       | Use annotation to mark the results in the GitHub user interface. Optional.                                                                                                                   | `true`                              |
-| `github-token`          | GitHub token to be used for uploading results. Optional.                                                                                                                                     | `${{ github.token }}`               |
+| `pr-mode`               | Analyze only changed files in a pull request. Optional.                                                                                                                                      | `true`                              |
 
 [gh:qodana]: https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml
 [youtrack]: https://youtrack.jetbrains.com/issues/QD
