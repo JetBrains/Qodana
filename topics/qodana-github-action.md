@@ -26,7 +26,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v5.1.0
+        uses: JetBrains/qodana-action@v2022.1.1
 ```
 
 Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
