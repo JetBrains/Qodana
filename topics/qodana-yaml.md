@@ -220,6 +220,14 @@ In the example above,
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
+## Disable sanity checks
+
+By default, sanity checks are enabled in %product%. You can disable them using this snippet: 
+
+```yaml
+disableSanityInspections: true
+```
+
 ## License audit configuration
 
 To enable license audit with Qodana, enable `CheckDependencyLicenses` inspection qodana.yaml`:
