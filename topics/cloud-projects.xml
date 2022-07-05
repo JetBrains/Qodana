@@ -13,6 +13,8 @@
 
     <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
 
+    <chapter id="cloud-projects-token-generation" title="Generate a token">
+
     <p>After the new project is created, you need to generate a token that will be used by %product% to identify
     the project to associate the reports with. To do this, click <menupath>Generate token</menupath>. For more information
     about using project tokens, see the <a href="cloud-forward-reports.xml"/> section.</p>
@@ -21,5 +23,7 @@
         (archive) the project. To have access to any of these actions, click the upper-right corner of the project.</p>
 
     <img src="qc-project-options.png" dark-src="qc-project-options_dark.png" width="460" alt="Available project options" border-effect="line"/>
+
+    </chapter>
 
 </topic>
