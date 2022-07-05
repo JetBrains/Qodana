@@ -584,11 +584,6 @@
                     <td>Description</td>
                 </tr>
                 <tr>
-                    <td><code>--send-report</code></td>
-                    <td>Send the inspection report to Qodana Cloud, requires the <code>--token</code> option to be specified.
-                    </td>
-                </tr>
-                <tr>
                     <td><code>-t</code>,
                         <code>--token=</code>
                     </td>
