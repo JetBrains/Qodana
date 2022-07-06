@@ -230,7 +230,7 @@ disableSanityInspections: true
 
 ## License audit configuration
 
-To enable license audit with Qodana, enable `CheckDependencyLicenses` inspection qodana.yaml`:
+You can enable the License audit feature using the `CheckDependencyLicenses` inspection:
 
 ```yaml
 include:
