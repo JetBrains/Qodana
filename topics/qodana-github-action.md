@@ -2,6 +2,9 @@
 
 ## Usage
 
+The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
+allows you to run Qodana on a GitHub repository.
+
 <anchor name="basic-configuration"></anchor>
 
 ### Basic configuration
