@@ -23,12 +23,8 @@ jobs:
             - name: LanguageDetectionInspection
           EOF
       - name: 'Qodana for Docs (with Grazie)'
-        uses: JetBrains/qodana-action@v4.2.2
+        uses: JetBrains/qodana-action@main
         with:
           linter: jetbrains/qodana-js:latest
-          use-annotations: false
           additional-volumes: |
             ${{ github.workspace }}/grazie-pro:/opt/idea/plugins/grazie-pro
-      - uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
