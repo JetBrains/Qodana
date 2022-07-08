@@ -92,4 +92,8 @@
 
     </chapter>
 
+    <chapter id="troubleshooting-config-for-monorepo" title="Configuring Qodana for running multiple linters">
+        <p>If you need to run multiple %product% linters during a build, you can do it  in a monorepo </p>
+    </chapter>
+
 </topic>
