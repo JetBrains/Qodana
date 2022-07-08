@@ -25,6 +25,4 @@ jobs:
       - name: 'Qodana for Docs (with Grazie)'
         uses: JetBrains/qodana-action@main
         with:
-          linter: jetbrains/qodana-js:latest
-          additional-volumes: |
-            ${{ github.workspace }}/grazie-pro:/opt/idea/plugins/grazie-pro
+          args: -l,jetbrains/qodana-js:latest,-v,${{ github.workspace }}/grazie-pro:/opt/idea/plugins/grazie-pro
