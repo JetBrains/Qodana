@@ -31,13 +31,12 @@
         <code style="block" lang="bash" prompt="$">
             docker run \
               -v $(pwd)/project/:/data/project/ \
-              jetbrains/qodana-&lt;linter&gt; \
-              -t &lt;qodana_cloud_token&gt;
+              -e QODANA_TOKEN=&lt;qodana_cloud_token&gt; \
+              jetbrains/qodana-&lt;linter&gt;
         </code>
 
-        <p>In this snippet, the <code style="inline" lang="bash">-t</code> option specifies the
-            <a href="cloud-projects.xml" anchor="cloud-projects-token-generation">project token</a>. For more details
-            about available configuration options, see the <a href="docker-images.md">%product% Docker images</a> section.</p>
+        <p>In this snippet, the <code style="inline" lang="bash">QODANA_TOKEN</code> environment variable specifies the
+            <a href="cloud-projects.xml" anchor="cloud-projects-token-generation">project token</a> of Qodana Cloud. </p>
 
         <p> </p>
     </chapter>

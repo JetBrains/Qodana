@@ -4,19 +4,19 @@
 <product-profile id="qd" name="Qodana" start-page="welcome.xml" status="release">
 
 
-    <toc-element id="welcome.xml">
+    <toc-element id="welcome.xml" hidden="true">
         <toc-element id="getting-started.md" />
         <toc-element id="qodana-yaml.md"/>
     </toc-element>
 
 
-    <toc-element id="about-qodana.md">
+    <toc-element id="about-qodana.md" hidden="true">
         <toc-element id="supported-technologies.md"/>
         <toc-element id="CHANGELOG.md"/>
         <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
     </toc-element>
 
-    <toc-element id="linters.md">
+    <toc-element id="linters.md" hidden="true">
          <toc-element id="qodana-jvm.md"/>
          <toc-element id="qodana-jvm-community.md"/>
          <toc-element id="qodana-jvm-android.md"/>
@@ -31,7 +31,7 @@
         </toc-element>
     </toc-element>
 
-    <toc-element id="results.md">
+    <toc-element id="results.md" hidden="true">
         <toc-element id="ui-overview.md"/>
         <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
             <toc-element id="qodana-sarif-output.md" accepts-web-file-names="qodana-intellij-docker-sarif.html"/>
@@ -41,7 +41,7 @@
         <toc-element id="html-report.md"/>
     </toc-element>
 
-    <toc-element id="docker-images.md">
+    <toc-element id="docker-images.md" hidden="true">
         <toc-element toc-title="Qodana for JVM" expand-mode="expand">
             <toc-element id="qodana-jvm-docker-readme.xml" accepts-web-file-names-ref="23895494">
                 <toc-element id="qodana-jvm-docker-techs.xml" accepts-web-file-names-ref="1e77e8d0"
@@ -76,7 +76,7 @@
         </toc-element>
     </toc-element>
 
-    <toc-element id="ci.md">
+    <toc-element id="ci.md" hidden="true">
         <toc-element id="github-actions.md">
             <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html"/>
             <toc-element id="clone-finder-github-action.md"/>
@@ -95,9 +95,9 @@
         <toc-element id="jenkins.md"/>
     </toc-element>
 
-    <toc-element id="service.md"/>
+    <toc-element id="service.md" hidden="true" />
 
-    <toc-element title="Qodana Plugins" id="qodana_plugins.md">
+    <toc-element title="Qodana Plugins" id="qodana_plugins.md" hidden="true">
         <toc-element id="qodana-ide-plugin.md"/>
         <toc-element id="qodana_gradle_plugin.md"/>
     </toc-element>
@@ -108,8 +108,6 @@
             <toc-element id="cloud-get-access.xml"/>
             <toc-element id="cloud-user-roles.xml"/>
         </toc-element>
-
-        <!-- The Configure section needs to be supplied with a dedicated page -->
 
         <toc-element toc-title="Running Qodana Cloud">
             <toc-element id="cloud-running-introduction.xml"/>
