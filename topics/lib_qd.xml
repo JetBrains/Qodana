@@ -584,18 +584,16 @@
                     <td>Description</td>
                 </tr>
                 <tr>
-                    <td><code>-t</code>,
-                        <code>--token=</code>
-                    </td>
-                    <td>Qodana Cloud integration token.</td>
-                </tr>
-                <tr>
                     <td><code>-a</code>,
                         <code>--analysis-id=</code>
                     </td>
                     <td>Unique report identifier (GUID) to be used by Qodana Cloud.</td>
                 </tr>
             </table>
+
+            <p>To learn how to forward %product% reports to Qodana Cloud, see the
+                <menupath>Forward reports to Qodana Cloud</menupath> section on this page.</p>
+
         </chapter>
 
     </chunk>
@@ -667,6 +665,22 @@
             docker run ... -e IDEA_PROPERTIES=/data/project/idea.properties \
             jetbrains/%linter-shell%
         </code>
+    </chunk>
+
+    <chunk id="docker-forward-qodana-cloud">
+
+        <note><p>Qodana Cloud is currently under development.</p></note>
+
+        <p>This snippet contains the <code style="inline" lang="bash">QODANA_TOKEN</code> environment variable
+            that specifies a project token of Qodana Cloud: </p>
+
+        <code style="block" lang="bash" prompt="$">
+            docker run \
+            -v $(pwd)/project/:/data/project/ \
+            -e QODANA_TOKEN=&lt;qodana_cloud_token&gt; \
+            jetbrains/qodana-&lt;linter&gt;
+        </code>
+
     </chunk>
 
     <chunk id="docker-config-disable-statistics">

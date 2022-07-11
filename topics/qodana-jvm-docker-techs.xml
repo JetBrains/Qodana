@@ -61,6 +61,10 @@
 
         </chapter>
 
+        <chapter id="docker-forward-qodana-cloud" title="Forward reports to Qodana Cloud">
+            <include src="lib_qd.xml" include-id="docker-forward-qodana-cloud"/>
+        </chapter>
+
         <chapter id="Turn+off+user+statistics" title="Turn off user statistics">
 
             <include src="lib_qd.xml" include-id="docker-config-disable-statistics"/>
