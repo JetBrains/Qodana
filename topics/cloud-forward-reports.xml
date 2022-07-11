@@ -31,16 +31,14 @@
         <code style="block" lang="bash" prompt="$">
             docker run \
               -v $(pwd)/project/:/data/project/ \
-              -v $(pwd)/report/:/data/results/ \
-              jetbrains/qodana-&lt;linter&gt; \
-              --send-report --token &lt;qodana_cloud_token&gt;
+              -e QODANA_TOKEN=&lt;qodana_cloud_token&gt; \
+              jetbrains/qodana-&lt;linter&gt;
         </code>
 
-        <p>In this snippet, <code style="inline" lang="bash">--send-report</code> enables forwarding %product%
-            reports to %product_cloud%, and the <code lang="bash">--token</code> option is used to specify the
-            project token.</p>
+        <p>In this snippet, the <code style="inline" lang="bash">QODANA_TOKEN</code> environment variable specifies the
+            <a href="cloud-projects.xml" anchor="cloud-projects-token-generation">project token</a> of Qodana Cloud. </p>
 
-        <p>For more details about configuration options, see the configuration options of your linter. </p>
+        <p> </p>
     </chapter>
 
     <chapter id="cloud-forward-reports-github-actions" title="GitHub Actions">
@@ -73,7 +71,6 @@
              script:
                - qodana --results-dir=$CI_PROJECT_DIR/qodana
                 --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
-                --send-report
              artifacts:
                paths:
                  - qodana
@@ -98,15 +95,13 @@
                     QODANA_TOKEN = credentials('qodana-token')
                 }
                 steps {
-                    sh "qodana --save-report --send-report"
+                    sh "qodana --save-report"
                 }
             }
         </code>
 
         <p>This sample defines the <code>QODANA_TOKEN</code> <a href="https://%JenkinsLink%">environment variable</a> to
-            contain the %product_cloud% project token. The <code>sh</code> command uses the
-            <code>--send-report</code>
-            <a href="qodana-jvm-docker-techs.xml" anchor="Configuration+options">configuration options</a> for forwarding reports.</p>
+            contain the %product_cloud% project token. </p>
     </chapter>
 
     <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
@@ -121,7 +116,7 @@
                     // https://www.jetbrains.com/help/space/secrets-and-parameters.html
                     env["QODANA_TOKEN"] = Secrets("qodana-token")
                     shellScript {
-                        content = "qodana --send-report"
+                        content = "qodana"
                     }
                 }
             }
@@ -134,21 +129,20 @@
 
     <chapter id="cloud-forward-reports-teamcity" title="TeamCity">
 
-            <p>To configure a TeamCity plugin to forward %product% reports to %product_cloud%, follow these steps:</p>
+            <p>To configure TeamCity to forward %product% reports to %product_cloud%, follow these steps:</p>
 
             <procedure>
                 <step>Create the <code>QODANA_TOKEN</code> environment variable and define it as
                     <a href="https://%TeamCityLink%">password</a>.</step>
                 <step>Open the build step.</step>
                 <step><p>Specify <code style="inline" lang="bash" interpolate-variables="false">-e QODANA_TOKEN=%env.QODANA_TOKEN%</code> in
-                    <menupath>Additional arguments for 'docker run'</menupath> and
-                    <code style="inline" lang="bash" interpolate-variables="false">--send-report</code>
-                    in the <menupath>Additional Qodana arguments</menupath> fields.</p>
+                    the <menupath>Additional arguments for 'docker run'</menupath> field. </p>
                     <img src="cloud-forward-reports-teamcity.png" width="460" alt="Configuring fields in TeamCity" border-effect="line"/>
                 </step>
             </procedure>
-            <p>If necessary, repeat the third step for each TeamCity plugin instance. For example, you may want to
-                configure the Code inspection, Clone Finder, and License Audit TeamCity plugins on the same runner.</p>
+            <p>If necessary, repeat this configuration. For example, besides code inspection you may want to configure
+                <a href="about-clone-finder.md">Clone Finder</a> or <a href="about-license-audit.md">License audit</a>
+                features on the same runner.</p>
         </chapter>
 
 </topic>
