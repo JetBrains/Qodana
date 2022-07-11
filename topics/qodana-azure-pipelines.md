@@ -29,7 +29,7 @@ steps:
       restoreKeys: |
         "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
         "$(Build.Repository.Name)"
-  - task: QodanaScan@1
+  - task: QodanaScan@2022
 ```
 
 Triggering this job depends on [what type of repository you are using in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops#classic-build-pipelines-and-yaml-pipelines).

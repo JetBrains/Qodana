@@ -8,7 +8,8 @@ Information stored in `qodana.yaml` overrides the default inspection profile set
 You can specify such overrides in the [HTML report](results.md),
 and the changes are imported to `qodana.yaml` automatically.
 
-`qodana.yaml` JSON schema is published in [SchemaStore]()
+The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/json/)
+project, which allows for completion and basic validation in IDEs.
 
 To run subsequent checks with this customized configuration, save the file to the project's root directory.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
@@ -220,9 +221,17 @@ In the example above,
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
+## Disable sanity checks
+
+By default, sanity checks are enabled in %product%. You can disable them using this snippet: 
+
+```yaml
+disableSanityInspections: true
+```
+
 ## License audit configuration
 
-To enable license audit with Qodana, enable `CheckDependencyLicenses` inspection qodana.yaml`:
+You can enable the License audit feature using the `CheckDependencyLicenses` inspection:
 
 ```yaml
 include:

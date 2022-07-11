@@ -88,7 +88,7 @@
                 <code style="inline">qodana.yaml</code>:</p>
             <code style="block" lang="yaml">
                 dependencyIgnores:
-                - name: "dependency/name"
+                  - name: "dependency/name"
             </code>
         </chapter>
 
@@ -103,10 +103,10 @@
                 licenseRules:
                   - keys:
                       - "AFL-2.0"
-                allowed:
-                  - "AGPL-3.0-only"
-                prohibited:
-                  - "Apache-1.0"
+                    allowed:
+                      - "AGPL-3.0-only"
+                    prohibited:
+                      - "Apache-1.0"
             </code>
 
             <tip>
@@ -131,9 +131,9 @@
                     url: "https://github.com/javaee/jaxb-v2"
                     licenses:
                       - key: "CDDL-1.1"
-                      url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
+                        url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
                       - key: "GPL-2.0-with-classpath-exception"
-                      url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
+                        url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
             </code>
         </chapter>
 
@@ -143,11 +143,11 @@
 
             <code style="block" lang="yaml">
                 customDependencies:
-                    - name: ".babelrc JSON Schema (.babelrc-schema.json)"
-                      version: "JSON schema for Babel 6+ configuration files"
-                      licenses:
-                          - key: "Apache-2.0"
-                            url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
+                  - name: ".babelrc JSON Schema (.babelrc-schema.json)"
+                    version: "JSON schema for Babel 6+ configuration files"
+                    licenses:
+                      - key: "Apache-2.0"
+                        url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
             </code>
         </chapter>
 
