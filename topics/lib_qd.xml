@@ -592,8 +592,7 @@
             </table>
 
             <p>To learn how to forward %product% reports to Qodana Cloud, see the
-                <a anchor="docker+forward+qodana+cloud">Forward reports to Qodana Cloud</a>
-                section.</p>
+                <menupath>Forward reports to Qodana Cloud</menupath> section.</p>
 
         </chapter>
 
