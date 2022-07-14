@@ -160,7 +160,7 @@ You can set up a Qodana workflow badge in your repository. To do it, follow thes
 
 Most likely, you won't need other options than `args`: all other options can be helpful if you are configuring multiple Qodana Scan jobs in one workflow. 
 
-Use [`with`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) to define the action parameters.
+Use [`with`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) to define any action parameters:
 
 ```yaml
 with:
