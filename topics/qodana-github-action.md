@@ -108,10 +108,13 @@ qodana scan --show-report
 
 3. Upload the `qodana.sarif.json` file to your project root folder on GitHub.
 
-4. Append this line to the Qodana Scan action configuration in the `code_quality.yml` file:
+4. Append `--baseline,qodana.sarif.json` argument to the Qodana Scan action configuration `args` parameter in the `code_quality.yml` file:
 
 ```yaml
-args: --baseline,qodana.sarif.json
+- name: Qodana Scan
+  uses: JetBrains/qodana-action@v2022.1.1
+  with:
+    args: --baseline,qodana.sarif.json
 ```
 
 If you want to update the baseline, you must repeat these steps.
