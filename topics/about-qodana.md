@@ -40,7 +40,7 @@ To view an example GitHub pull request verified by the [](qodana-github-action.m
 If you encounter a bug or would like to suggest a new feature,
 use the <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or email the support team at <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>. 
 
-To actively participate in the Qodana community, join [Qodana Slack](http://qodana.slack.com/).
+To actively participate in the Qodana community, join [Qodana Discussions](https://github.com/JetBrains/Qodana/discussions/48).
 
 ## Next steps
 
