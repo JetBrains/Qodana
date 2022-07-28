@@ -1,6 +1,11 @@
 [//]: # (title: Qodana IDE plugin)
 
-The [Qodana IDE plugin](https://plugins.jetbrains.com/plugin/16938-qodana) is a plugin for JetBrains IDEs such as IntelliJ IDEA or PhpStorm. It provides a link between a Qodana report and your project opened in an IDE. With the plugin installed, you can navigate between the issues detected by a linter as well as use the **Open file in \<IDE\>** functionality provided by the [Qodana UI](ui-overview.md).
+The Qodana IDE plugin is a JetBrains IDE plugin that provides a link between a Qodana report and your project opened in 
+an IDE, so you can navigate between the problems detected by a linter and use the **Open file in \<IDE\>** functionality 
+provided by the [Qodana UI](ui-overview.md). 
+
+This plugin is available by default in all JetBrains IDEs starting from version 2021.3. Otherwise, you can install it
+using [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16938-qodana).   
 
 ## Before you start
 
@@ -19,8 +24,10 @@ Now you can run %product% to inspect your code, see the [Qodana linters](linters
 
 ## Open a Qodana report in the IDE
 
-1. In the IDE, go to **Tools | Show Qodana Analysis Report | Open Qodana Analysis Report** and select the 
+1. In the IDE, go to **Tools | Open Qodana Analysis Report** and select the 
 `qodana.sarif.json` report file generated after a Qodana run. See [](qodana-inspection-output.md) for details.
 2. In the **Problems** tool window that opens, you can view the detected issues and jump to the corresponding line in the code editor.
 
     <img src="qd-ide-plugin-project-errors.png" alt="Project Errors view" width="740" border-effect="line"/>
+
+In case a problem was fixed before opening the `qodana.sarif.json` file, it is marked as `[Not present]`.
