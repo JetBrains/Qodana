@@ -92,4 +92,30 @@
 
     </chapter>
 
+    <chapter id="troubleshooting-inspect-specific-directory" title="How to inspect a specific project directory within a repository">
+
+        <p>A typical project structure can have a directory structure similar to this:</p>
+
+        <code style="block" lang="bash">
+            repo/
+               .git/
+               project/
+               ...
+        </code>
+
+        <p>Here, the <code>repo/.git</code> directory contains information that should be accessible by %product%, and
+            the <code>repo/project</code> directory contains the project that needs to be inspected by %product%. </p>
+
+        <p>In this case, you can mount the <code>repo</code> root directory using the <code>-v</code> Docker
+            option, and tell %product% to only scan the <code>repo/project</code> directory using the
+            <code>--project-dir=</code> %product% option:</p>
+
+        <code style="block" lang="bash" prompt="$">
+            docker run \
+              -v repo/:/data/project/ \
+              jetbrains/qodana-&lt;linter&gt; \
+            --project-dir=/data/project/project/
+        </code>
+    </chapter>
+
 </topic>
