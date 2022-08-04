@@ -11,6 +11,7 @@
 
     <toc-element id="about-qodana.md">
         <toc-element id="supported-technologies.md"/>
+        <toc-element id="new-in-2022-2.xml"/>
     </toc-element>
 
     <toc-element id="concepts.xml">

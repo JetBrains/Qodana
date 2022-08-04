@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Inspections. What is new in 2022.2?"
+       id="new-in-2022-2">
+
+    <!-- TODO This needs to be reread and rephrased -->
+    <p>This page provides the list of changes in %product% inspections of version 2022.2 of %product%.</p>
+
+    <!-- TODO I need to describe what newly added, enabled, reorganized, and disabled inspections mean -->
+    <!-- TODO What warning, weak warning-->
+    <!-- TODO What does the disabled mean in the table below. Is it disabled by default? -->
+
+    <chapter id="new-in-2022-2-jvm" title="Qodana for JVM and Qodana Community for JVM">
+
+        <chapter id="new-in-2022-2-jvm-new" title="New inspections">
+
+            <p>These inspections are related to regular expressions.</p>
+            <table>
+                <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
+                <tr>
+                    <td><code>RegExpRedundantClassElement </code></td>
+                    <td>Weak warning</td>
+                    <td>
+                        <p>Redundant <code>\d</code>, <code>[:digit:]</code>, or <code>\D</code> class elements.</p>
+                        <p>The <code>[\w+\d]</code> regular expression can be written as <code>[\w+]</code> because
+                            <code>\w</code> already includes <code>\d</code>.</p>
+                    </td>
+                </tr>
+                <tr><td><code>MarkdownIncorrectlyNumberedListItem</code></td><td>Warning</td>
+                    <td>
+                        <p>Incorrectly numbered list item.</p>
+                        <p>Marks an ordered list like <code>1. 2. 4.</code> as inconsistently numbered. Being rendered,
+                            this list is displayed as <code>1. 2. 3.</code>, but the inconsistency makes editing the
+                            source code harder.</p></td></tr>
+            </table>
+
+            <p>This table contains the list of new inspections for Kotlin.</p>
+            <table>
+                <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
+                <tr>
+                    <td><code>NoConstructorMigration</code></td>
+                    <td>Disabled; error</td>
+                    <td>Forbidden constructor call</td>
+                </tr>
+                <tr>
+                    <td><code>PatternVariableHidesField</code></td>
+                    <td>Warning</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><code>AddConversionCallMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Explicit conversion from <code>Int</code> required starting from version 1.9 of Kotlin</td>
+                </tr>
+                <tr>
+                    <td><code>AmbiguousExpressionInWhenBranchMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Ambiguous logical expressions in <code>when</code> branches starting from version 1.7 of Kotlin</td>
+                </tr>
+                <tr>
+                    <td><code>CastDueToProgressionResolutionChangeMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Progression resolution change starting from version 1.9 of Kotlin</td>
+                </tr>
+                <tr>
+                    <td><code>InlineClassDeprecatedMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Inline classes are deprecated starting from version 1.5 of Kotlin</td>
+                </tr>
+                <tr>
+                    <td><code>OverrideDeprecatedMigration</code></td>
+                    <td>Disabled; error</td>
+                    <!-- TODO What does this mean? -->
+                    <td>Do not propagate method deprecation through overrides since 1.9</td>
+                </tr>
+            </table>
+
+            <!-- TODO What is DevKit? -->
+            <p>This table contains inspections related to the code style and DevKit</p>
+
+            <table>
+                <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
+                <tr>
+                    <td><code>KotlinJvmAnnotationInJava</code></td>
+                    <td>Warning</td>
+                    <td>Kotlin JVM annotation in Java</td>
+                </tr>
+                <tr>
+                    <td><code>KotlinRedundantDiagnosticSuppress</code></td>
+                    <td>Warning</td>
+                    <td>Redundant diagnostic suppression</td>
+                </tr>
+                <tr>
+                    <td><code>NonStrictComparisonCanBeEquality</code></td>
+                    <td>Weak warning</td>
+                    <td>Non-strict inequality <code>&gt;=</code> or <code>&lt;=</code> that can be replaced with <code>==</code>></td>
+                </tr>
+                <tr>
+                    <td><code>ReassignedVariable</code></td>
+                    <!-- TODO What does this severity mean? -->
+                    <td>Text attributes</td>
+                    <td>The variable was previously reassigned</td>
+                </tr>
+                <tr>
+                    <td><code>VerboseNullabilityAndEmptiness</code></td>
+                    <!-- TODO What does this severity mean? -->
+                    <td>Weak warning</td>
+                    <!-- TODO What kind of emptiness should be checked here? -->
+                    <td>Check verbose nullability and emptiness.</td>
+                </tr>
+                <tr>
+                    <td><code>WorkspaceImplAbsent</code></td>
+                    <td>Warning</td>
+                    <td>Absent entity implementation</td>
+                </tr>
+                <tr>
+                    <td><code>WorkspaceImplObsolete</code></td>
+                    <td>Warning</td>
+                    <td>Obsolete version of entity implementation</td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="new-in-2022-2-jvm-refactored" title="Refactored inspections">
+
+            <p>This section contains the list of JVM inspections that were refactored.</p>
+
+            <table>
+                <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
+                <tr>
+                    <td><code></code></td>
+                </tr>
+                <tr></tr>
+            </table>
+
+        </chapter>
+
+    </chapter>
+
+</topic>
