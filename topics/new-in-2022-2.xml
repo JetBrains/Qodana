@@ -7,7 +7,7 @@
        id="new-in-2022-2">
 
     <!-- TODO This needs to be reread and rephrased -->
-    <p>This page provides the list of changes in %product% inspections of version 2022.2 of %product%.</p>
+    <p>This page provides the list of changes in %product% inspections as of version 2022.2.</p>
 
     <!-- TODO I need to describe what newly added, enabled, reorganized, and disabled inspections mean -->
     <!-- TODO What warning, weak warning-->
@@ -17,7 +17,6 @@
 
         <chapter id="new-in-2022-2-jvm-new" title="New inspections">
 
-            <p>These inspections are related to regular expressions.</p>
             <table>
                 <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
                 <tr>
@@ -37,7 +36,7 @@
                             source code harder.</p></td></tr>
             </table>
 
-            <p>This table contains the list of new inspections for Kotlin.</p>
+            <p>This table contains the list of new Kotlin inspections.</p>
             <table>
                 <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
                 <tr>
@@ -79,7 +78,7 @@
             </table>
 
             <!-- TODO What is DevKit? -->
-            <p>This table contains inspections related to the code style and DevKit</p>
+            <p>Below is the list of inspections related to the code style and DevKit.</p>
 
             <table>
                 <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
@@ -124,19 +123,40 @@
             </table>
         </chapter>
 
-        <!--<chapter id="new-in-2022-2-jvm-refactored" title="Refactored inspections">
+        <chapter id="new-in-2022-2-jvm-refactored" title="Refactored inspections">
 
-            <p>This section contains the list of JVM inspections that were refactored.</p>
+            <p>In 2022.2, several Kotlin and JUnit inspections were refactored.</p>
+
+            <p></p>
 
             <table>
                 <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
                 <tr>
-                    <td><code></code></td>
+                    <td><code>OverridingDeprecatedMember</code></td>
+                    <td>Disabled; error</td>
+                    <td>Was renamed for <code>OverrideDeprecatedMigration</code></td>
                 </tr>
-                <tr></tr>
+                <tr>
+                    <td><code>MainFunctionReturnUnitInspection</code></td>
+                    <!-- TODO What is the inspection severity? -->
+                    <td>-</td>
+                    <td>Check for the <code>@Test</code> annotated methods was moved to <code>JUnitMalformedeclaration</code></td>
+                </tr>
+                <tr>
+                    <td><code>JUnitMalformedDeclaration</code></td>
+                    <td>Warning</td>
+                    <td><p>Works only for Kotlin. </p>
+                        <p>Reports JUnit test member declarations that are malformed and not recognized by the JUnit test
+                            framework. Such declarations could result in non-executed tests or lifecycle methods.</p>
+                    </td>
+                </tr>
             </table>
 
-        </chapter>-->
+            <p>Several of the old inspections were disabled by default. Starting from 2022.2, several inspections that were
+                previously disabled by default all these checks are enabled by default, there is no way to disable them individually.
+                </p>
+
+        </chapter>
 
     </chapter>
 
