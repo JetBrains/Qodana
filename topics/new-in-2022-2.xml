@@ -32,7 +32,7 @@
                 <tr><td><code>MarkdownIncorrectlyNumberedListItem</code></td><td>Warning</td>
                     <td>
                         <p>Incorrectly numbered list item.</p>
-                        <p>Marks an ordered list like <code>1. 2. 4.</code> as inconsistently numbered. Being rendered,
+                        <p>Marks an ordered list like <code>1. 2. 4.</code> as inconsistently numbered. After rendering,
                             this list is displayed as <code>1. 2. 3.</code>, but the inconsistency makes editing the
                             source code harder.</p></td></tr>
             </table>
@@ -96,7 +96,7 @@
                 <tr>
                     <td><code>NonStrictComparisonCanBeEquality</code></td>
                     <td>Weak warning</td>
-                    <td>Non-strict inequality <code>&gt;=</code> or <code>&lt;=</code> that can be replaced with <code>==</code>></td>
+                    <td>Non-strict inequality <code>&gt;=</code> or <code>&lt;=</code> that can be replaced with <code>==</code></td>
                 </tr>
                 <tr>
                     <td><code>ReassignedVariable</code></td>
@@ -124,7 +124,7 @@
             </table>
         </chapter>
 
-        <chapter id="new-in-2022-2-jvm-refactored" title="Refactored inspections">
+        <!--<chapter id="new-in-2022-2-jvm-refactored" title="Refactored inspections">
 
             <p>This section contains the list of JVM inspections that were refactored.</p>
 
@@ -136,7 +136,7 @@
                 <tr></tr>
             </table>
 
-        </chapter>
+        </chapter>-->
 
     </chapter>
 
