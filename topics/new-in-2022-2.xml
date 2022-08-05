@@ -156,6 +156,126 @@
                 previously disabled by default all these checks are enabled by default, there is no way to disable them individually.
                 </p>
 
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>TestMethodIsPublicVoidNoArg</code></td>
+                    <td>Marks test methods that are annotated with <code>@Test</code> but do not have the required signature.</td>
+                </tr>
+                <tr>
+                    <td><code>StaticSuite</code></td>
+                    <td>The <code>suite()</code> method is not declared as static</td>
+                </tr>
+                <tr>
+                    <td><code>BeforeClassOrAfterClassIsPublicStaticVoidNoArg</code></td>
+                    <td> Malformed <code>@BeforeClass</code>, <code>@BeforeAll</code>, <code>@AfterClass</code>, or <code>@AfterAll</code> method.
+                        Prior to 2022.2, this inspection was disabled.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>BeforeOrAfterIsPublicVoidNoArg</code></td>
+                    <td>Malformed <code>@Before</code> or <code>@After</code> method. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>JUnit5MalformedExtensions</code></td>
+                    <td>JUnit 5 malformed extension registration</td>
+                </tr>
+                <tr>
+                    <td><code>JUnit5MalformedNestedClass</code></td>
+                    <td>JUnit 5 malformed <code>@Nested</code> class</td>
+                </tr>
+                <tr>
+                    <td><code>Junit5MalformedParameterized</code></td>
+                    <td>Malformed parameterized tests. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>JUnit5MalformedRepeated</code></td>
+                    <td>JUnit 5 malformed repeated test</td>
+                </tr>
+                <tr>
+                    <td><code>JUnitDatapoint</code></td>
+                    <td>Malformed <code>@DataPoint</code> field. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>JUnitRule</code></td>
+                    <td>Malformed <code>@Rule</code> or <code>@ClassRule</code> field. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>MalformedSetUpTearDown</code></td>
+                    <td>Malformed <code>setUp()</code> or <code>tearDown()</code> method. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>UnconstructableTestCase</code></td>
+                    <td>Reports JUnit test cases that cannot be constructed because they have an invalid constructor.
+                        Test cases like these will not be picked up by the JUnit test runner and will therefore not execute.
+                    The inspection severity is <code>Warning</code>.</td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="new-in-2022-2-jvm-enabled" title="Enabled inspections">
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSimplifiable</code></td>
+                    <td>Warning</td>
+                    <td>A regular expression like <code>[\wa-z\d]</code> can be simplified to just <code>\w</code> because it
+                        already includes <code>a-z</code> as well as numerals.</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSuspiciousBackref</code></td>
+                    <td>Weak warning</td>
+                    <td>A regular expression like <code>\1(abc)</code> cannot match anything because <code>\1</code> refers
+                        to <code>abc</code> that is not yet defined when evaluating  <code>\1</code>. This inspection
+                        prevents simple typos in regular expressions, speeding up the editing experience.</td>
+                </tr>
+                <tr>
+                    <td><code>BulkFileAttributesRead</code></td>
+                    <td>Disabled; warning</td>
+                    <td>The 'Files.readAttributes' bulk call can be used instead of multiple file attribute calls</td>
+                </tr>
+                <tr>
+                    <td><code>SlowListContainsAll</code></td>
+                    <td>Warning</td>
+                    <td>Call to <code>list.containsAll</code> may have poor performance</td>
+                </tr>
+                <tr>
+                    <td><code>IllegalDependencyOnInternalPackage</code></td>
+                    <td>Disabled; error</td>
+                    <td>Illegal dependency on internal package</td>
+                </tr>
+                <tr>
+                    <td><code>KotlinPlaceholderCountMatchesArgumentCount</code></td>
+                    <td>Warning</td>
+                    <td>Number of placeholders does not match number of arguments in logging call</td>
+                </tr>
+                <tr>
+                    <td><code>NonExhaustiveWhenStatementMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Non-exhaustive <code>when</code> statements will be prohibited starting from version 1.7</td>
+                </tr>
+                <tr>
+                    <td><code>RedundantScheduledForRemovalAnnotation</code></td>
+                    <td>Warning</td>
+                    <td>Redundant <code>@ScheduledForRemoval</code> annotation</td>
+                </tr>
+                <tr>
+                    <td><code>ReplaceOnLiteralHasNoEffect</code></td>
+                    <td>Warning</td>
+                    <td>Replacement operation has no effect</td>
+                </tr>
+
+
+            </table>
+
         </chapter>
 
     </chapter>
