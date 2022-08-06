@@ -280,4 +280,144 @@
 
     </chapter>
 
+    <chapter id="new-in-2022-2-php" title="Qodana for PHP">
+
+        <chapter id="new-in-2022-2-php-new" title="New inspections">
+
+        In version 2022.2, the Qodana for PHP linter obtained several new inspections.
+
+        <table>
+            <tr>
+                <td>Inspection name</td>
+                <td>Severity</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td><code>RegExpRedundantClassElement</code></td>
+                <td>Weak warning</td>
+                <td>Redundant <code>\d</code>, <code>[:digit:]</code>, or <code>\D</code> class elements</td>
+            </tr>
+            <tr>
+                <td><code>MarkdownIncorrectlyNumberedListItem</code></td>
+                <td>Warning</td>
+                <td>
+                    <p>Incorrectly numbered list item.</p>
+                    <p>Marks an ordered list like <code>1. 2. 4.</code> as inconsistently numbered. After rendering,
+                        this list is displayed as <code>1. 2. 3.</code>, but the inconsistency makes editing the
+                        source code harder.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>PhpIntRangesMismatchInspection</code></td>
+                <td>Warning</td>
+                <td>
+                    <p>Number range mismatch.</p>
+                    <p>Marks return statements containing numerals outside the range, for example, in
+                        <code>returns int&lt;0,10&gt;</code>. Also works for fields, field constructors, and function calls.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>PhpVarTagWithoutVariableNameInspection</code></td>
+                <td>Weak warning</td>
+                <td>
+                    <p>Type tag without a variable name.</p>
+                    <p>The <code>@param string</code> PHPDoc snippet is redundant, and it should be either removed or
+                        replaced with <code>@param string $argument</code> explaining that the argument is a string.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>PhpLoopCanBeReplacedWithStdFunctionCallsInspection</code></td>
+                <td>Weak warning</td>
+                <td>
+                    <p>A typical loop consisting of three lines can be replaced with the <code>in_array()</code> or <code>array_key_exists()</code>.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>PhpPregSplitWithoutRegExpInspection</code></td>
+                <td>Weak warning</td>
+                <td>
+                    <p>The <code>preg_split()</code> function can be replaced with <code>explode()</code> function.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>PhpCombineMultipleIssetCallsIntoOneInspection</code></td>
+                <td>Informational</td>
+                <td>Multiple <code>isset</code> calls like <code>isset($var1) &amp;&amp; isset($var2)</code> can be replaced
+                    with a single call like <code>isset($var1, $var2)</code>.</td>
+            </tr>
+            <tr>
+                <td><code>PhpArrayTraversableCanBeReplacedWithIterableInspection</code></td>
+                <td>Weak warning</td>
+                <td>The <code>array|Traversable</code> type hint can be replaced with <code>iterable</code></td>
+            </tr>
+
+            <tr>
+                <td><code>PhpEchoOpenTagInspection</code></td>
+                <td>Informational</td>
+                <td>The verbose <code>&lt;?php echo</code> can be replaced with <code>&lt;?=</code>.</td>
+            </tr>
+            <tr>
+                <td><code>PhpAccessStaticViaInstanceInspection</code></td>
+                <td>Weak warning</td>
+                <td>
+                    <p>A class static member is accessed via an instance.</p>
+                    <p>Similar to Java, a class static member should not be accessed via an instance expression because
+                        that would mean that it might be different for each instance.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>PhpMockeryInvalidMockingMethodInspection</code></td>
+                <td>Error</td>
+                <td>
+                    <p>Invalid Mockery mocking target</p>
+                    <p>In Mockery tests, methods cannot be private. If protected, they must be specifically enabled
+                        using <code>shouldAllowMockingProtectedMethods</code>.</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code>BladeUnpairedParenthesesInStringLiteral</code></td>
+                <td>Error</td>
+                <td>
+                    <p>Parse error due to unpaired parentheses in string literals.</p>
+                    <p>Early detection of unpaired parentheses in string literals that are later parsed by the Blade
+                        template engine.</p>
+                </td>
+            </tr>
+        </table>
+        </chapter>
+
+        <chapter id="new-in-2022-2-php-enabled" title="Enabled inspections">
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSimplifiable</code></td>
+                    <td>Warning</td>
+                    <td>
+                        <p>Regular expression can be simplified.</p>
+                        <p>A regular expression like <code>[\wa-z\d]</code> can be replaced with <code>\w</code> because
+                            the latter already includes <code>a-z</code>, as well as numerals.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSuspiciousBackref</code></td>
+                    <td>Weak warning</td>
+                    <td>
+                        <p>Suspicious back reference.</p>
+                        <p>A regular expression like <code>\1(abc)</code> cannot match anything because <code>\1</code> refers
+                            to <code>abc</code> that is not yet defined when evaluating  <code>\1</code>. This inspection
+                            prevents simple typos in regular expressions, speeding up the editing experience.</p>
+                    </td>
+                </tr>
+            </table>
+
+
+        </chapter>
+
+    </chapter>
+
 </topic>
