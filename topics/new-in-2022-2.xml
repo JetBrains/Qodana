@@ -24,7 +24,7 @@
                     <td>Weak warning</td>
                     <td>
                         <p>Redundant <code>\d</code>, <code>[:digit:]</code>, or <code>\D</code> class elements.</p>
-                        <p>The <code>[\w+\d]</code> regular expression can be written as <code>[\w+]</code> because
+                        <p>The <code>[\w+\d]</code> regular expression can be replaced with <code>[\w+]</code> because
                             <code>\w</code> already includes <code>\d</code>.</p>
                     </td>
                 </tr>
@@ -127,8 +127,6 @@
 
             <p>In 2022.2, several Kotlin and JUnit inspections were refactored.</p>
 
-            <p></p>
-
             <table>
                 <tr><td>Inspection name</td><td>Severity</td><td>Description</td></tr>
                 <tr>
@@ -152,8 +150,8 @@
                 </tr>
             </table>
 
-            <p>Several of the old inspections were disabled by default. Starting from 2022.2, several inspections that were
-                previously disabled by default all these checks are enabled by default, there is no way to disable them individually.
+            <p>Several of the old inspections were disabled by default. Starting from 2022.2, they are enabled by default,
+                and there is no way to disable them individually.
                 </p>
 
             <table>
@@ -387,7 +385,6 @@
         </chapter>
 
         <chapter id="new-in-2022-2-php-enabled" title="Enabled inspections">
-
             <table>
                 <tr>
                     <td>Inspection name</td>
@@ -414,10 +411,429 @@
                     </td>
                 </tr>
             </table>
+        </chapter>
+    </chapter>
 
+    <chapter id="new-in-2022-2-js" title="Qodana for JS">
+
+        <chapter id="new-in-2022-2-js-added" title="New inspections">
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpRedundantClassElement</code></td>
+                    <td>Weak warning</td>
+                    <td>The <code>[\w+\d]</code> regular expression  can be replaced with <code>[\w+]</code> because
+                        <code>\w</code> already includes <code>\d</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>MarkdownIncorrectlyNumberedListItem</code></td>
+                    <td>Warning</td>
+                    <td><p>Marks an ordered list like <code>1. 2. 4.</code> as inconsistently numbered. After rendering,
+                        this list is displayed as <code>1. 2. 3.</code>, but the inconsistency makes editing the
+                        source code harder.</p></td>
+                </tr>
+            </table>
 
         </chapter>
 
+        <chapter id="new-in-2022-2-js-enabled" title="Enabled inspections">
+
+            <p>Here is the list of inspections that were disabled prior to 2022.2.</p>
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSimplifiable</code></td>
+                    <td>Warning</td>
+                    <td>A regular expression like <code>[\wa-z\d]</code> can be simplified to just <code>\w</code> because it
+                        already includes <code>a-z</code> as well as numerals.</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSuspiciousBackref</code></td>
+                    <td>Weak warning</td>
+                    <td>A regular expression like <code>\1(abc)</code> cannot match anything because <code>\1</code> refers
+                        to <code>abc</code> that is not yet defined when evaluating  <code>\1</code>. This inspection
+                        prevents simple typos in regular expressions, speeding up the editing experience.</td>
+                </tr>
+            </table>
+
+            <p>Besides new and enabled inspections in 2022.2, the <code>MeteorUnresolvedSymbol</code> was removed because the
+                Meteor plugin became unbundled.</p>
+
+        </chapter>
+
+    </chapter>
+
+    <chapter id="new-in-2022-2-python" title="Qodana for Python">
+
+        <chapter id="new-in-2022-2-python-new" title="New inspections">
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpRedundantClassElement</code></td>
+                    <td>Weak warning</td>
+                    <td>
+                        <p>Redundant <code>\d</code>, <code>[:digit:]</code>, or <code>\D</code> class elements.</p>
+                        <p>The <code>[\w+\d]</code> regular expression can be replaced with <code>[\w+]</code> because
+                            <code>\w</code> already includes <code>\d</code>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>MarkdownIncorrectlyNumberedListItem</code></td>
+                    <td>Warning</td>
+                    <td><p>Marks an ordered list like <code>1. 2. 4.</code> as inconsistently numbered. After rendering,
+                        this list is displayed as <code>1. 2. 3.</code>, but the inconsistency makes editing the
+                        source code harder.</p></td>
+                </tr>
+                <tr>
+                    <td><code>PyClassVarInspection</code></td>
+                    <td>Warning</td>
+                    <td>
+                        <p>Invalid usage of ClassVar variables.</p>
+                        <p>Reports invalid usages of variables annotated as ClassVar. For example, this can be assignment to ClassVar via instance, or
+                            annotating local variables with ClassVar.</p>
+                    </td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="new-in-2022-2-python-enabled" title="Enabled inspections">
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSimplifiable</code></td>
+                    <td>Warning</td>
+                    <td>A regular expression like <code>[\wa-z\d]</code> can be simplified to just <code>\w</code> because it
+                        already includes <code>a-z</code> as well as numerals.</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSuspiciousBackref</code></td>
+                    <td>Weak warning</td>
+                    <td>A regular expression like <code>\1(abc)</code> cannot match anything because <code>\1</code> refers
+                        to <code>abc</code> that is not yet defined when evaluating  <code>\1</code>. This inspection
+                        prevents simple typos in regular expressions, speeding up the editing experience.</td>
+                </tr>
+            </table>
+
+        </chapter>
+
+        <p>The <code>JupyterKernelInspection</code> inspection was removed from 2022.2 because it became almost unused.</p>
+
+    </chapter>
+
+    <chapter id="new-in-2022-2-android" title="Qodana Community for Android">
+
+        <chapter id="new-in-2022-2-android-new" title="New inspections">
+
+            <p>This table contains the list of general inspections that were introduced in 2022.2.</p>
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpRedundantClassElement</code></td>
+                    <td>Weak warning</td>
+                    <td><p>Redundant <code>\d</code>, <code>[:digit:]</code>, or <code>\D</code> class elements.</p>
+                        <p>The <code>[\w+\d]</code> regular expression can be replaced with <code>[\w+]</code> because
+                            <code>\w</code> already includes <code>\d</code>.</p></td>
+                </tr>
+                <tr>
+                    <td><code>MarkdownIncorrectlyNumberedListItem</code></td>
+                    <td>                        <p>Incorrectly numbered list item.</p>
+                        <p>Marks an ordered list like <code>1. 2. 4.</code> as inconsistently numbered. After rendering,
+                            this list is displayed as <code>1. 2. 3.</code>, but the inconsistency makes editing the
+                            source code harder.</p></td>
+                </tr>
+            </table>
+
+            <p>The table below contains the list of Kotlin inspections that became available starting from 2022.2</p>
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>NoConstructorMigration</code></td>
+                    <td>Disabled; error</td>
+                    <td>Forbidden constructor call</td>
+                </tr>
+                <tr>
+                    <td><code>PatternVariableHidesField</code></td>
+                    <td>Warning</td>
+                    <!-- TODO What does this mean? -->
+                    <td>Pattern variable hides field</td>
+                </tr>
+                <tr>
+                    <td><code>AddConversionCallMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Starting from version 1.9 of Kotlin, explicit conversion from <code>Int</code> is required</td>
+                </tr>
+                <tr>
+                    <td><code>AmbiguousExpressionInWhenBranchMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Ambiguous logical expressions starting from version 1.7 of Kotlin</td>
+                </tr>
+                <tr>
+                    <td><code>CastDueToProgressionResolutionChangeMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Progression resolution change as of version 1.9 of Kotlin</td>
+                </tr>
+                <tr>
+                    <td><code>InlineClassDeprecatedMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Inline classes are deprecated since version 1.5 of Kotlin</td>
+                </tr>
+                <tr>
+                    <td><code>OverrideDeprecatedMigration</code></td>
+                    <td>Disabled; error</td>
+                    <td>No propagation of method deprecation through overrides as of version 1.9 of Kotlin</td>
+                </tr>
+            </table>
+
+            <p>This table contains inspections related to code style.</p>
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>KotlinJvmAnnotationInJava</code></td>
+                    <td>Warning</td>
+                    <td>Kotlin JVM annotation in Java</td>
+                </tr>
+                <tr>
+                    <td><code>KotlinRedundantDiagnosticSuppress</code></td>
+                    <td>Warning</td>
+                    <td>Redundant diagnostic suppression</td>
+                </tr>
+                <tr>
+                    <td><code>NonStrictComparisonCanBeEquality</code></td>
+                    <td>Weak warning</td>
+                    <td>Non-strict inequality <code>=&lt;</code> or <code>&lt;=</code> can be replaced with <code>==</code></td>
+                </tr>
+                <tr>
+                    <td><code>ReassignedVariable</code></td>
+                    <td>Text attributes</td>
+                    <td>Reassigned variable</td>
+                </tr>
+                <tr>
+                    <td><code>VerboseNullabilityAndEmptiness</code></td>
+                    <td>Weak warning</td>
+                    <td>Check verbose nullability and emptiness.</td>
+                </tr>
+            </table>
+
+            <p>This table lists inspections related to DevKit.</p>
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>WorkspaceImplAbsent</code></td>
+                    <td>Warning</td>
+                    <td>Absent entity implementation</td>
+                </tr>
+                <tr>
+                    <td><code>WorkspaceImplObsolete</code></td>
+                    <td>Warning</td>
+                    <td>Obsolete version of entity implementation</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintAppBundleLocaleChanges</code></td>
+                    <td>Warning</td>
+                    <!-- TODO Is App Bundle a technology name? -->
+                    <td>App Bundle handling of runtime locale changes</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintAssertionSideEffect</code></td>
+                    <td>Warning</td>
+                    <!-- TODO is Side Effects the technology name? -->
+                    <td>Assertions with Side Effects</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintBidiSpoofing</code></td>
+                    <td>Error</td>
+                    <td>Bidirectional text spoofing</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintDataExtractionRules</code></td>
+                    <td>Warning</td>
+                    <td>Missing data extraction rules</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintDiscouragedApi</code></td>
+                    <td>Warning</td>
+                    <td>Using discouraged APIs</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintFileEndsWithExt</code></td>
+                    <td>Warning</td>
+                    <td>-</td>
+                    <!-- TODO What does this mean? -->
+                    <!--<td>File ends With on file extensions</td>-->
+                </tr>
+                <tr>
+                    <td><code>AndroidLintIntentFilterUniqueDataAttributes</code></td>
+                    <td>Warning</td>
+                    <td>Data tags should only declare unique attributes</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintMotionLayoutMissingId</code></td>
+                    <td>Error</td>
+                    <td>Views inside MotionLayout require an id</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintNotConstructor</code></td>
+                    <td>Warning</td>
+                    <td>Not a constructor warning</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintRedundantLabel</code></td>
+                    <td>Warning</td>
+                    <!-- TODO What is an activity? -->
+                    <td>Redundant label on activity</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintUastImplementation</code></td>
+                    <td>Warning</td>
+                    <!-- TODO What does this mean? -->
+                    <td>Avoid using UAST implementation</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintViewBindingType</code></td>
+                    <td>Error</td>
+                    <!-- TODO What is this? -->
+                    <td>Issues related to <code>tools:viewBindingType</code></td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintWearableConfigurationAction</code></td>
+                    <td>Warning</td>
+                    <td>-</td>
+                    <!-- TODO What is this? -->
+                    <!-- <td>Wear configuration action metadata must match an activity</td> -->
+                </tr>
+                <tr>
+                    <td><code>AndroidLintWebViewClientOnReceivedSslError</code></td>
+                    <td>Warning</td>
+                    <td>Proceed with the HTTPS connection despite SSL errors</td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="new-in-2022-2-android-refactored" title="Refactored inspections">
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>OverridingDeprecatedMember</code></td>
+                    <td>Disabled; error</td>
+                    <td>Was renamed for <code>OverrideDeprecatedMigration</code></td>
+                </tr>
+                <tr>
+                    <td><code>MainFunctionReturnUnitInspection</code></td>
+                    <td>-</td>
+                    <td>The <code>@Test</code> method checking functionality was moved to <code>JUnitMalformedeclaration</code>  </td>
+                </tr>
+                <tr>
+                    <td><code>JUnitMalformedDeclaration</code></td>
+                    <td>Warning</td>
+                    <td><p>Works only for Kotlin. </p>
+                        <p>Reports JUnit test member declarations that are malformed and not recognized by the JUnit test
+                            framework. Such declarations could result in non-executed tests or lifecycle methods.</p></td>
+                </tr>
+            </table>
+
+            <p>Several of the old inspections were disabled by default. Starting from 2022.2, they are enabled by default,
+                and there is no way to disable them individually.
+            </p>
+
+            <table>
+                <tr>
+                    <td><code>TestMethodIsPublicVoidNoArg</code></td>
+                    <td>Marks test methods that are annotated with <code>@Test</code>, but not supplied with a required signature.</td>
+                </tr>
+                <tr>
+                    <td><code>StaticSuite</code></td>
+                    <td>The <code>suite()</code> method was not declared as static</td>
+                </tr>
+                <tr>
+                    <td><code>BeforeClassOrAfterClassIsPublicStaticVoidNoArg</code></td>
+                    <td> Malformed <code>@BeforeClass</code>, <code>@BeforeAll</code>, <code>@AfterClass</code>, or <code>@AfterAll</code> method.
+                        Prior to 2022.2, this inspection was disabled.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>BeforeOrAfterIsPublicVoidNoArg</code></td>
+                    <td>Malformed <code>@Before</code> or <code>@After</code> method. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>JUnit5MalformedExtensions</code></td>
+                    <td>JUnit 5 malformed extension registration</td>
+                </tr>
+                <tr>
+                    <td><code>JUnit5MalformedNestedClass</code></td>
+                    <td>JUnit 5 malformed <code>@Nested</code> class</td>
+                </tr>
+                <tr>
+                    <td><code>Junit5MalformedParameterized</code></td>
+                    <td>Malformed parameterized tests. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>JUnit5MalformedRepeated</code></td>
+                    <td>JUnit 5 malformed repeated test</td>
+                </tr>
+                <tr>
+                    <td><code>JUnitDatapoint</code></td>
+                    <td><code>@DataPoint</code> malformed field. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>JUnitRule</code></td>
+                    <td>Malformed <code>@Rule/@ClassRule</code> field. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>MalformedSetUpTearDown</code></td>
+                    <td>Malformed <code>setUp()</code> or <code>tearDown()</code> methods. Prior to 2022.2, this inspection was disabled.</td>
+                </tr>
+                <tr>
+                    <td><code>UnconstructableTestCase</code></td>
+                    <td>Reports JUnit test cases that cannot be constructed because they have an invalid constructor.
+                        Test cases like these will not be picked up by the JUnit test runner and will therefore not execute.
+                        The inspection severity is <code>Warning</code>.</td>
+                </tr>
+            </table>
+        </chapter>
     </chapter>
 
 </topic>
