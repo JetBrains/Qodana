@@ -12,6 +12,7 @@
     <!-- TODO I need to describe what newly added, enabled, reorganized, and disabled inspections mean -->
     <!-- TODO What warning, weak warning-->
     <!-- TODO What does the disabled mean in the table below. Is it disabled by default? -->
+    <!-- TODO A list of severities with detailed information can be provided here -->
 
     <chapter id="new-in-2022-2-jvm" title="Qodana for JVM and Qodana Community for JVM">
 
@@ -270,8 +271,6 @@
                     <td>Warning</td>
                     <td>Replacement operation has no effect</td>
                 </tr>
-
-
             </table>
 
         </chapter>
@@ -775,11 +774,16 @@
                 </tr>
             </table>
 
-            <p>Several of the old inspections were disabled by default. Starting from 2022.2, they are enabled by default,
+            <p>Several inspections were disabled by default. Starting from 2022.2, they are enabled,
                 and there is no way to disable them individually.
             </p>
 
             <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
                 <tr>
                     <td><code>TestMethodIsPublicVoidNoArg</code></td>
                     <td>Marks test methods that are annotated with <code>@Test</code>, but not supplied with a required signature.</td>
@@ -834,6 +838,98 @@
                 </tr>
             </table>
         </chapter>
+
+        <chapter id="new-in-2022-2-android-enabled" title="Enabled inspections">
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Severity</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSimplifiable</code></td>
+                    <td>Warning</td>
+                        <td>A regular expression like <code>[\wa-z\d]</code> can be simplified to just <code>\w</code> because it
+                            already includes <code>a-z</code> as well as numerals.</td>
+                </tr>
+                <tr>
+                    <td><code>RegExpSuspiciousBackref</code></td>
+                    <td>Weak warning</td>
+                    <td>A regular expression like <code>\1(abc)</code> cannot match anything because <code>\1</code> refers
+                        to <code>abc</code> that is not yet defined when evaluating  <code>\1</code>. This inspection
+                        prevents simple typos in regular expressions, speeding up the editing experience.</td>
+                </tr>
+                <tr>
+                    <td><code>BulkFileAttributesRead</code></td>
+                    <td>Disabled; warning</td>
+                    <td>The 'Files.readAttributes' bulk call can be used instead of multiple file attribute calls</td>
+                </tr>
+                <tr>
+                    <td><code>SlowListContainsAll</code></td>
+                    <td>Warning</td>
+                    <td>Call to <code>list.containsAll</code> may have poor performance</td>
+                </tr>
+                <tr>
+                    <td><code>IllegalDependencyOnInternalPackage</code></td>
+                    <td>Disabled; error</td>
+                    <td>Illegal dependency on internal package</td>
+                </tr>
+                <tr>
+                    <td><code>KotlinPlaceholderCountMatchesArgumentCount</code></td>
+                    <td>Warning</td>
+                    <td>Number of placeholders does not match number of arguments in logging call</td>
+                </tr>
+                <tr>
+                    <td><code>NonExhaustiveWhenStatementMigration</code></td>
+                    <td>Disabled; warning</td>
+                    <td>Non-exhaustive 'when' statements will be prohibited starting from version 1.7</td>
+                </tr>
+                <tr>
+                    <td><code>RedundantScheduledForRemovalAnnotation</code></td>
+                    <td>Warning</td>
+                    <td>Redundant <code>@ScheduledForRemoval</code> annotation</td>
+                </tr>
+                <tr>
+                    <td><code>ReplaceOnLiteralHasNoEffect</code></td>
+                    <td>Warning</td>
+                    <td>Replacement operation has no effect</td>
+                </tr>
+            </table>
+
+        </chapter>
+
+        <chapter id="new-in-2022-2-jvm-removed" title="Removed inspections">
+
+            <p>Several inspections were also removed from the Qodana Community for Android linter in 2022.2.</p>
+
+            <table>
+                <tr>
+                    <td>Inspection name</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintAllowBackup</code></td>
+                    <td><p>AllowBackup/FullBackupContent Problems.</p>
+                        <!-- TODO Is this the real name of technology -->
+                    <p>This inspection was removed due to Android Lint updates.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>AndroidLintMediaCapabilities</code></td>
+                    <td>
+                        <p>Missing media capabilities property</p>
+                        <p>Removed due to Android Lint updates</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>PermissionUsageInspection</code></td>
+                    <td>Permission Check for Location APIs, an experimental inspection</td>
+                </tr>
+            </table>
+
+        </chapter>
+
     </chapter>
 
 </topic>
