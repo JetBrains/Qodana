@@ -83,6 +83,7 @@
 
     <toc-element id="ci.md">
         <toc-element id="qodana-azure-pipelines.md"/>
+        <toc-element id="circleci-qodana-orb.md"/>
         <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html"/>
         <toc-element id="gitlab.md"/>
         <toc-element id="jenkins.md"/>
@@ -100,6 +101,7 @@
         <toc-element id="extending-qodana-plugins.xml"/>
         <toc-element id="extending-qodana-structural-search.xml"/>
     </toc-element>
+
 
     <toc-element id="troubleshooting.xml"/>
 
