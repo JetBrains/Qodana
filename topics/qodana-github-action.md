@@ -1,4 +1,4 @@
-[//]: # (title: Qodana Scan GitHub action)
+[//]: # (title: GitHub actions)
 
 ## Usage
 

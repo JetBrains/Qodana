@@ -1,4 +1,4 @@
-[//]: # (title: CircleCI Qodana orb)
+[//]: # (title: CircleCI)
 
 CircleCI is a cloud-based CI/CD system. You can build %product% into your CircleCI 
 [pipelines](https://circleci.com/docs/concepts#pipelines) using the CircleCI Qodana 
