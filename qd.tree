@@ -82,9 +82,9 @@
     </toc-element>
 
     <toc-element id="ci.md">
-        <toc-element id="qodana-azure-pipelines.md"/>
-        <toc-element id="circleci-qodana-orb.md"/>
-        <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html"/>
+        <toc-element id="azure-pipelines.md" accepts-web-file-names="qodana-azure-pipelines.html"/>
+        <toc-element id="circleci.md"/>
+        <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.html"/>
         <toc-element id="gitlab.md"/>
         <toc-element id="jenkins.md"/>
         <toc-element id="teamcity.md" accepts-web-file-names="teamcity-plugins.html"/>
