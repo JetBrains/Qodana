@@ -2,19 +2,33 @@
 
 ### Basic Example
 
-To add a Qodana runner to a GitLab CI/CD pipeline, use the following configuration sample: (`.gitlab-ci.yml`):
+To add a Qodana runner to a GitLab CI/CD pipeline, use the following configuration sample (`.gitlab-ci.yml`):
 
 ```yaml
-    qodana:
-     image:
-       name: jetbrains/qodana-<linter>
-       entrypoint: ['']
-     script:
-       - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
-     artifacts:
-       paths:
-         - qodana
+stages:
+  - qodana
+
+qodana:
+  stage: qodana
+  only:
+    - main
+    - merge_requests
+  image:
+    name: jetbrains/qodana-js:2022.2-eap
+    entrypoint: [""]
+  variables:
+    QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
+    QODANA_BRANCH: $CI_COMMIT_BRANCH
+    QODANA_REPO_URL: $CI_PROJECT_URL
+    QODANA_JOB_URL: $CI_JOB_URL
+  script:
+    - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
+  artifacts:
+    paths:
+      - qodana
 ```
+
+Using this configuration, %product% will inspect the main branch and all merge requests coming to your repository.
 
 ### Exposing a Qodana report
 
@@ -22,16 +36,28 @@ To make a report available in any given merge request, you can use the [`expose_
 and change the path to the artifacts (`.gitlab-ci.yml`):
 
 ```yaml
-    qodana:
-     image:
-       name: jetbrains/qodana-<linter>
-       entrypoint: ['']
-     script:
-       - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
-     artifacts:
-       paths:
-         - qodana/report/
-       expose_as: 'Qodana report'
+stages:
+  - qodana
+
+qodana:
+  stage: qodana
+  only:
+    - main
+    - merge_requests
+  image:
+    name: jetbrains/qodana-<linter>
+    entrypoint: [""]
+  variables:
+    QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
+    QODANA_BRANCH: $CI_COMMIT_BRANCH
+    QODANA_REPO_URL: $CI_PROJECT_URL
+    QODANA_JOB_URL: $CI_JOB_URL
+  script:
+    - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
+  artifacts:
+    paths:
+      - qodana/report/
+    expose_as: 'Qodana report'
 ```
 
 Assuming that you have configured your pipeline in a similar manner, this is what it may look like:
