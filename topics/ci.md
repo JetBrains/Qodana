@@ -7,6 +7,7 @@ Qodana [linters](linters.md) are packed into ready-to-use [Docker images](docker
 Currently, the following CI integration mechanisms are available:
 
 - [](azure-pipelines.md)
+- [](circleci.md)
 - [](github.md)
 - [](gitlab.md)
 - [](jenkins.md)
