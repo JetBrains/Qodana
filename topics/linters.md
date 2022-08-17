@@ -23,20 +23,20 @@ Here is an overview of %product% linters for inspecting your projects.
     <tr>
         <td>Based on IntelliJ IDEA Community with support for:
             <list>
-            <li>Java and Kotlin for Server Side inspections</li>
+            <li>Java and Kotlin inspections</li>
             <li>Maven and Gradle</li>
             </list>
         </td>
         <td>Based on IntelliJ IDEA Community with support for:
             <list>
-            <li>Java and Kotlin for Server Side inspections</li>
+            <li>Java and Kotlin inspections</li>
             <li>Maven and Gradle</li>
             <li>Android-specific code inspections</li>
             </list>
         </td>
         <td>Based on IntelliJ IDEA Ultimate with support for:
             <list>
-            <li>Java and Kotlin for Server Side inspections</li>
+            <li>Java and Kotlin inspections</li>
             <li>Maven and Gradle</li>
             <li>IntelliJ IDEA Ultimate code inspections</li>
             <li>Spring, Jakarta EE, Java EE, Micronaut, Quarkus, Helidon frameworks</li>
