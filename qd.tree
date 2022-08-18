@@ -7,6 +7,7 @@
     <toc-element id="welcome.xml">
         <toc-element id="getting-started.md" />
         <toc-element id="qodana-yaml.md"/>
+        <toc-element id="before-running-qodana.md"/>
     </toc-element>
 
     <toc-element id="about-qodana.md">
@@ -101,6 +102,7 @@
         <toc-element id="extending-qodana-plugins.xml"/>
         <toc-element id="extending-qodana-structural-search.xml"/>
     </toc-element>
+
 
 
     <toc-element id="troubleshooting.xml"/>
