@@ -118,4 +118,9 @@
         </code>
     </chapter>
 
+    <chapter id="before-scanning" title="How to prepare your project for inspection">
+        <p>If you need to have your project prepared for code inspection, you can create a script and configure
+            %product% for running it as shown in the <a href="before-running-qodana.md"/> section.</p>
+    </chapter>
+
 </topic>
