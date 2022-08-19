@@ -1,8 +1,8 @@
 [//]: # (title: Before inspecting your code)
 
 %product% can perform specific steps before inspecting your code. For example, it can install a software package, run 
-scripts, or otherwise prepare your project for inspection. For these purposes, you can develop a script to run within a 
-%product% Docker container that can be adapted to your needs, for example:
+scripts, or otherwise prepare your project for inspection. For this reason, you can prepare a script that can be run 
+within a %product% Docker container as shown below:
 
 ```shell
 #! /bin/sh
@@ -16,10 +16,8 @@ set -eu
 #npm install
 ```
 
-You can tell %product% to run such script using the `bootstrap` [option](qodana-yaml.md#Run+custom+commands):
+You can tell %product% to run this script using the `bootstrap` [option](qodana-yaml.md#Run+custom+commands), for example:
 
 ```shell
 bootstrap: sh ./script.sh
 ```
-
-After running the script, %product% will inspect your codebase.
