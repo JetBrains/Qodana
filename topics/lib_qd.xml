@@ -728,7 +728,7 @@
                 <p>Override <code>disabled_plugins.txt</code> by mounting your own file:
                 </p>
                 <code style="block" lang="shell" prompt="$">
-                    docker run ... -v $empty_file$:/root/.config/idea/disabled_plugins.txt \
+                    docker run ... -v $empty_file:/root/.config/idea/disabled_plugins.txt \
                     jetbrains/%linter-shell%
                 </code>
             </li>
