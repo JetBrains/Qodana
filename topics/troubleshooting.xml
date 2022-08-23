@@ -118,8 +118,8 @@
         </code>
     </chapter>
 
-    <chapter id="before-scanning" title="How to prepare your project for inspection">
-        <p>During inspections, %product% may report about missing files, packages, modules or
+    <chapter id="before-scanning" title="Error messages about missing files, packages, modules, or classes">
+        <p>During inspections, %product% may report about missing files, packages, modules, or
             classes. In this case, you need to have your project prepared for code inspection. For example,  you can
             create a script and configure %product% for running it as shown in the
             <a href="before-running-qodana.md"/> section.</p>
