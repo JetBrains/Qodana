@@ -56,24 +56,22 @@ Sometimes it may be challenging to set up analysis for a big project even with t
 
 ## Run custom commands
 
-In particular cases, you may need to have a command or script executed in a Qodana Docker container prior to inspecting 
-your code. It could be done as part of project preparation, software installation, or any other activity that needs to 
-be performed only within the container and that does not affect the Qodana workflow. To solve this task, you can use the 
-`bootstrap` option in the `qodana.yaml` file.
+Using the `bootstrap` option of `qodana.yaml`, %product% can perform actions before running inspections. 
 
-So, if you want to install a specific package in the Qodana container using the `apt` tool, you need to add this
-line to `qodana.yaml`:
+To install a specific package in the Qodana container using the `apt` tool, add this line to `qodana.yaml`:
 
 ```yaml
 bootstrap: apt install <package_name>
 ```
 
-To run a custom script, save the script file to the project directory and specify execution in 
-`qodana.yaml`. For example, this can be:
+To run a script, save the `prepare-qodana.sh` script file to the project directory and specify execution in 
+`qodana.yaml`:
 
 ```yaml
-bootstrap: sh ./script.sh
+bootstrap: sh ./prepare-qodana.sh
 ```
+To learn more about use-cases, see the [](before-running-qodana.md) section.
+
 
 ## Set up a profile
 
