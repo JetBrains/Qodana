@@ -709,20 +709,20 @@
             <for filter="jvm-android">
                 The Android Support, Java, Kotlin for Server Side, their libraries'/frameworks', Gradle, and Maven
             </for>
-            <for filter="jvm">
-                The Java, Kotlin for Server Side, their libraries'/frameworks', Gradle, and Maven
+            <for filter="jvm-community">
+                The Java, Kotlin for Server Side, Gradle, and Maven
             </for>
             <for filter="php">
                 The PHP and its libraries'/frameworks'
             </for>
             <for filter="python">
                 The Python and its libraries'/frameworks'
-            </for> plugins are enabled by default.
+            </for>
             <for filter="js">
                 The JavaScript and Typescript, and their libraries'/frameworks'
             </for> plugins are enabled by default.
         </p>
-        <p>To change the plugins list, do any of the following:</p>
+        <p>To change the plugin list, do any of the following:</p>
         <list>
             <li>
                 <p>Override <code>disabled_plugins.txt</code> by mounting your own file:

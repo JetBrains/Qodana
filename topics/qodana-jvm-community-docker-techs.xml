@@ -73,7 +73,7 @@
 
         <chapter id="Manage+plugins" title="Manage plugins">
 
-            <include src="lib_qd.xml" include-id="docker-config-manage-plugins" use-filter="empty,jvm"/>
+            <include src="lib_qd.xml" include-id="docker-config-manage-plugins" use-filter="empty,jvm-community"/>
 
         </chapter>
 
