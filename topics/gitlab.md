@@ -22,7 +22,7 @@ qodana:
     QODANA_REPO_URL: $CI_PROJECT_URL
     QODANA_JOB_URL: $CI_JOB_URL
   script:
-    - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
+    - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana --report-dir=$CI_PROJECT_DIR/qodana/report
   artifacts:
     paths:
       - qodana
@@ -53,7 +53,7 @@ qodana:
     QODANA_REPO_URL: $CI_PROJECT_URL
     QODANA_JOB_URL: $CI_JOB_URL
   script:
-    - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
+    - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana --report-dir=$CI_PROJECT_DIR/qodana/report
   artifacts:
     paths:
       - qodana/report/
