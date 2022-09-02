@@ -112,7 +112,7 @@ qodana scan --show-report
 
 ```yaml
 - name: Qodana Scan
-  uses: JetBrains/qodana-action@v2022.1.1
+  uses: JetBrains/qodana-action@v2022.2.1
   with:
     args: --baseline,qodana.sarif.json
 ```
