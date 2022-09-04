@@ -7,50 +7,86 @@
        id="extending-qodana-plugins">
 
     <var name="inspection-url" value="plugins.jetbrains.com/docs/intellij/code-inspections-and-intentions.html#inspections"/>
-    <var name="conf-dir" value="www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory"/>
+    <var name="php-ea-plugin" value="plugins.jetbrains.com/plugin/7622-php-inspections-ea-extended-"/>
+    <var name="plugin-installation" value="www.jetbrains.com/help/phpstorm/managing-plugins.html"/>
+    <var name="conf-dir" value="www.jetbrains.com/help/phpstorm/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory"/>
+    <var name="plugin-dir" value="www.jetbrains.com/help/phpstorm/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#plugins-directory"/>
+    <var name="plugin-settings" value="www.jetbrains.com/help/phpstorm/managing-plugins.html#open-plugin-settings"/>
+    <var name="inspection-settings" value="www.jetbrains.com/help/phpstorm/inspections-settings.html"/>
+    <var name="configure-profiles" value="www.jetbrains.com/help/phpstorm/customizing-profiles.html#a7a20220"/>
+    <var name="plugin-config" value="www.jetbrains.com/help/phpstorm/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory"/>
 
-    <p>You can extend %product% inspection functionality using either plugins from JetBrains Marketplace or
+    <p>You can extend %product% using either existing plugins from repositories, or by developing
         <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p>
 
-    <chapter id="extending-qodana-marketplace-plugins" title="Plugins from JetBrains Marketplace">
+    <chapter id="extending-qodana-repository-plugins" title="Plugins from repositories">
 
-        <p><a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> provides plugins for inspecting code in
-            the IDE. These plugins can be used to extend the %product% inspection functionality.</p>
+        <p>This section explains how to inspect PHP code using the <a href="qodana-php.md"/> linter enhanced with the
+            <a href="https://%php-ea-plugin%">Php Inspections (EA Extended)</a>
+            plugin. You can repeat these steps for any relevant IDE plugin from
+            <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> or any custom repository. </p>
 
-        <p>This section explains how to inspect PHP code using the
-            <a href="https://plugins.jetbrains.com/plugin/7622-php-inspections-ea-extended-">Php Inspections (EA Extended)</a>
-            plugin combined with the <a href="qodana-php.md"/> linter. All actions taken in the IDE are explained for
-            PhpStorm in the procedure below. You can reproduce these steps for any plugin from JetBrains Marketplace you
-            would like to extend %product% with.</p>
+            <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Install and configure the plugin">
 
-        <procedure id="extending-qodana-using-plugins">
-            <step>Using the <menupath>Settings | Plugins</menupath> dialog, install and enable the plugin. </step>
-            <step>Using <menupath>Settings | Editor | Inspections</menupath>, configure the inspections you
-                would like to use.</step>
-            <step>Export the profile containing the enabled plugin inspections as described on the
-                <a href="https://www.jetbrains.com/help/phpstorm/customizing-profiles.html#5066b0b3">Configure profiles</a> page.
-            </step>
-        </procedure>
+                <p>To run the inspections from the plugin, %product% needs access to these files:</p>
 
-        <p>In the project root directory, create the <code>qodana.yaml</code> file and specify the path to the
-            <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path">profile</a> location in it:</p>
-        <code style="block" lang="yaml">
-            profile:
-                path: path/to/the/profile/file
-        </code>
+                <list>
+                    <li>The code of the plugin</li>
+                    <li>The configuration of the plugin</li>
+                    <li>The inspection profile containing the configuration of the plugin inspections</li>
+                </list>
 
-        <p>This is the snippet for running %product% locally using the plugin:</p>
-        <code style="block" lang="bash">
-            docker run --rm -p 8080:8080 \
-            -v &lt;project-directory&gt;:/data/project/ \
-            -v &lt;report-directory&gt;:/data/results/ \
-            -v &lt;package-file&gt;:/opt/idea/plugins/&lt;package-file&gt; \
-            -v &lt;additional-config&gt;:/root/.config/idea/options/&lt;additional-config&gt; \
-            jetbrains/qodana-php --show-report
-        </code>
-        <p>Here, <code style="inline">&lt;package-file&gt;</code> specifies the full path to the plugin package
-            location including the full package filename. The <code style="inline">&lt;additional-config&gt;</code> line
-            denotes the full path to the XML-formatted file containing additional plugin configuration.</p>
+                <p>Here is how you can obtain these files:</p>
+
+                <procedure style="choices">
+                <step><p>Install the plugin using any of the
+                    <a href="https://%plugin-installation%">installation method</a> available. For any installation
+                    method chosen, you need to know the path to the plugin file after it has been installed. If you
+                    install the plugin using the
+                        <a href="https://%plugin-settings%">Settings | Plugins</a> dialog of your IDE, see the
+                        <a href="https://%plugin-dir%">Plugins directory</a> section for reference. If you download the
+                        <code>PhpInspectionsEA.jar</code> plugin file from
+                        <a href="https://%php-ea-plugin%">JetBrains Marketplace</a>, save it to a directory accessible
+                        by %product%.</p>
+                </step>
+                <step>
+                    The <code>ea_extended.xml</code> plugin configuration file  is located in the <code>options</code>
+                    subdirectory of the <a href="https://%conf-dir%">IDE config directory</a>. You can save this file to
+                    any directory accessible by %product%.
+                </step>
+                <step><p>
+                    Navigate to the <a href="https://%inspection-settings%">Inspections</a> dialog of your IDE, expand
+                    the <menupath>PHP | Php Inspections (EA Extended)</menupath> entry, check the inspections you
+                    would like to employ, and <a href="https://%configure-profiles%">export the inspection profile</a>
+                    in the project root folder under the <code>qodana-inspection-profile.xml</code> filename. </p>
+                </step>
+                </procedure>
+
+            </chapter>
+
+        <chapter id="extending-qodana-repository-plugins-configure-qodana" title="Configure %product%">
+
+            <p>In the project root directory, create the <code>qodana.yaml</code> file and specify the path to the
+                <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path">profile</a> location in it:</p>
+            <code style="block" lang="yaml">
+                profile:
+                    path: ./qodana-inspection-profile.xml
+            </code>
+
+        </chapter>
+
+        <chapter id="extending-qodana-repository-plugins-run-qodana" title="Run %product%">
+            <p>Use this snippet for running %product% locally:</p>
+            <code style="block" lang="bash">
+                docker run --rm -p 8080:8080 \
+                -v &lt;project-directory&gt;:/data/project/ \
+                -v &lt;report-directory&gt;:/data/results/ \
+                -v &lt;path-to-plugin-file&gt;/PhpInspectionsEA.jar:/opt/idea/plugins/PhpInspectionsEA.jar \
+                -v &lt;path-to-plugin-config&gt;/ea_extended.xml:/root/.config/idea/options/ea_extended.xml \
+                jetbrains/qodana-php --show-report
+            </code>
+        </chapter>
+
 
     </chapter>
 
@@ -61,5 +97,7 @@
             inspections and produce inspection results as described in the
             <a href="https://%inspection-url%">Inspections</a> section of the documentation portal. </p>
     </chapter>
+
+
 
 </topic>

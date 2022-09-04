@@ -10,38 +10,66 @@ helps:
 * Improve overall code structure
 * Introduce coding best practices
 
-With time, Qodana will support all languages and technologies covered by JetBrains IDEs. The current version 
-(%product-version%) of Qodana lets you analyze the following kinds of projects:
+Here is an overview of %product% linters for inspecting your projects.
 
-* [Java and Kotlin](#Java+and+Kotlin) projects
-* [Non-JVM](#Non-JVM+technologies) projects: PHP, Python, JavaScript, and TypeScript
-* Audit [clone and license](#Clone+Finder+and+License+Audit) usages in your codebase
+## JVM-based languages
 
-## Java and Kotlin
+%product% provides several linters for inspecting JVM-based projects.
 
-Qodana lets you analyze [Java](https://www.java.com) and 
-[Kotlin for Server Side](https://kotlinlang.org/lp/server-side/) projects based on [Gradle](https://gradle.org/), 
-[Maven](https://maven.apache.org/) or [Jetbrains Project System (JPS)](https://github.com/JetBrains/JPS). 
+<table>
+    <tr>
+    <td><a href="qodana-jvm-community.md"/></td>
+    <td><a href="qodana-jvm-android.md"/></td>
+    <td><a href="qodana-jvm.md"/></td>
+    </tr>
+    <tr>
+        <td>Based on IntelliJ IDEA Community with support for:
+            <list>
+            <li>Java and Kotlin inspections</li>
+            <li>Maven and Gradle</li>
+            </list>
+        </td>
+        <td>Based on IntelliJ IDEA Community with support for:
+            <list>
+            <li>Java and Kotlin inspections</li>
+            <li>Maven and Gradle</li>
+            <li>Android-specific code inspections</li>
+            </list>
+        </td>
+        <td>Based on IntelliJ IDEA Ultimate with support for:
+            <list>
+            <li>Java and Kotlin inspections</li>
+            <li>Maven and Gradle</li>
+            <li>IntelliJ IDEA Ultimate code inspections</li>
+            <li>Spring, Jakarta EE, Java EE, Micronaut, Quarkus, Helidon frameworks</li>
+            <li>Third-party license verification using <a href="license-audit.xml">License audit</a></li>
+            </list>
+        </td>
+    </tr>
+</table>
 
-To do this, you can use the following linters:
+## PHP
 
-* The [Qodana for JVM](qodana-jvm.md) linter uses the [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/) inspections
-* The [Qodana Community for JVM](qodana-jvm-community.md) linter runs the inspections provided by [IntelliJ IDEA Community](https://www.jetbrains.com/idea/)
-* The [Qodana Community for Android](qodana-jvm-android.md) linter provides the features of the 
-[Android Support](https://plugins.jetbrains.com/plugin/1792-android-support) plugin
+The [](qodana-php.md) linter is based on [PhpStorm](https://www.jetbrains.com/phpstorm) and supports:
 
-## Non-JVM technologies
+* PHP language inspections from PhpStorm
+* Third-party license verification using <a href="license-audit.xml">License audit</a>
+* Code inspection while migrating to a new [language version](qodana-php-language-upgrade.xml)
 
-Besides JVM, the current version (%product-version%) of Qodana provides inspections for the following programming languages: 
+## Python
 
-- The [Qodana for PHP](qodana-php.md) linter lets you inspect code written in [PHP](https://www.php.net) 
-- The [Qodana for Python](qodana-python.md) linter can be used to inspect [Python](https://python.org) projects
-- The [Qodana for JS](qodana-js.md) linter can inspect projects written in
-[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [TypeScript](https://www.typescriptlang.org/)
+The [](qodana-python.md) linter is based on [PyCharm Professional](https://www.jetbrains.com/pycharm) and supports:
 
-## Clone Finder and License Audit
+* Python language inspections from PyCharm Professional
+* Third-party license verification using <a href="license-audit.xml">License audit</a>
 
-The [Qodana Clone Finder](about-clone-finder.md) linter inspects your code for duplicate functions.
+## JavaScript and TypeScript
 
-The [License audit](license-audit.xml) linter analyzes license usages and helps you avoid using software with
-incompatible licenses.
+The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/webstorm) and supports:
+
+* JavaScript and TypeScript language inspections from WebStorm
+* Third-party license verification using <a href="license-audit.xml">License audit</a>
+
+## Clone detection
+
+The [Qodana Clone Finder](about-clone-finder.md) linter lets you detect code duplicates across different projects.

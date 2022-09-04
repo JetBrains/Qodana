@@ -8,7 +8,8 @@ Information stored in `qodana.yaml` overrides the default inspection profile set
 You can specify such overrides in the [HTML report](results.md),
 and the changes are imported to `qodana.yaml` automatically.
 
-`qodana.yaml` JSON schema is published in [SchemaStore]()
+The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/json/)
+project, which allows for completion and basic validation in IDEs.
 
 To run subsequent checks with this customized configuration, save the file to the project's root directory.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
@@ -27,7 +28,7 @@ Out of the box, Qodana provides several predefined profiles:
 * `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
 * `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis).
 * `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
-* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](supported-technologies.md) for details on configuring a project for the desired linter.
+* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](linters.md) for details on configuring a project for the desired linter.
 
 You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure the `.xml` file with this profile resides in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
 
@@ -55,24 +56,22 @@ Sometimes it may be challenging to set up analysis for a big project even with t
 
 ## Run custom commands
 
-In particular cases, you may need to have a command or script executed in a Qodana Docker container prior to inspecting 
-your code. It could be done as part of project preparation, software installation, or any other activity that needs to 
-be performed only within the container and that does not affect the Qodana workflow. To solve this task, you can use the 
-`bootstrap` option in the `qodana.yaml` file.
+Using the `bootstrap` option of `qodana.yaml`, %product% can perform actions before running inspections. 
 
-So, if you want to install a specific package in the Qodana container using the `apt` tool, you need to add this
-line to `qodana.yaml`:
+To install a specific package in the Qodana container using the `apt` tool, add this line to `qodana.yaml`:
 
 ```yaml
 bootstrap: apt install <package_name>
 ```
 
-To run a custom script, save the script file to the project directory and specify execution in 
-`qodana.yaml`. For example, this can be:
+To run a script, save the `prepare-qodana.sh` script file to the project directory and specify execution in 
+`qodana.yaml`:
 
 ```yaml
-bootstrap: sh ./script.sh
+bootstrap: sh ./prepare-qodana.sh
 ```
+To learn more about use-cases, see the [](before-running-qodana.md) section.
+
 
 ## Set up a profile
 
@@ -220,9 +219,17 @@ In the example above,
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
+## Disable sanity checks
+
+By default, sanity checks are enabled in %product%. You can disable them using this snippet: 
+
+```yaml
+disableSanityInspections: true
+```
+
 ## License audit configuration
 
-To enable license audit with Qodana, enable `CheckDependencyLicenses` inspection qodana.yaml`:
+You can enable the License audit feature using the `CheckDependencyLicenses` inspection:
 
 ```yaml
 include:

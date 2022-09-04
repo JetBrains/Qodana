@@ -77,13 +77,13 @@
     <!-- The linters section needs to be split and moved here -->
     <!-- Pages about how to run Qodana should be mentioned here -->
     <toc-element id="inspect-your-code.xml" toc-title="Code inspection">
+        <toc-element id="before-running-qodana.md"/>
         <toc-element id="results.md">
             <toc-element id="ui-overview.md"/>
             <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
                 <toc-element id="qodana-sarif-output.md" accepts-web-file-names="qodana-intellij-docker-sarif.html"/>
             </toc-element>
             <toc-element id="clone-finder-output.md"/>
-            <toc-element id="license-audit-output.md"/>
             <toc-element id="html-report.md"/>
         </toc-element>
     </toc-element>
@@ -92,12 +92,14 @@
         <toc-element id="qodana-baseline.xml"/>
         <toc-element id="quality-gate.xml"/>
         <toc-element id="qodana-php-language-upgrade.xml"/>
+        <toc-element id="license-audit.xml"/>
     </toc-element>
 
     <!-- The beginning of the Integration section -->
     <toc-element id="ci.md">
         <toc-element id="qodana-azure-pipelines.md"/>
-        <toc-element id="qodana-github-action.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html"/>
+        <toc-element id="circleci.md"/>
+        <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.md"/>
         <toc-element id="gitlab.md"/>
         <toc-element id="jenkins.md"/>
         <toc-element id="teamcity.md" accepts-web-file-names="teamcity-plugins.html"/>

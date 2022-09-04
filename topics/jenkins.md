@@ -9,17 +9,21 @@ To be able to run Qodana in Jenkins, make sure that the [Docker](https://plugins
 
 Below is the Pipeline stage that invokes the `docker` agent with the following configuration:
 
-* `image` instructs to pull the Qodana Docker image, and `qodana-<linter>` here specifies the required Qodana [linter](supported-technologies.md).
+* `image` instructs to pull the Qodana Docker image, and `qodana-<linter>` here specifies the required Qodana [linter](linters.md).
 * `args` provide arguments for binding the project root and report directories to the Qodana image.
 
 ```groovy
 stage('Qodana') {
     agent {
         docker {
+            args '''
+           -v /opt/qodana/reports:/data/reports 
+           -v /opt/qodana/cache:/data/cache
+           -v /opt/qodana/results:/data/results
+           -v /opt/qodana/qodana.sarif.json:/data/qodana.sarif.json
+           --entrypoint=""
+           '''
             image 'jetbrains/qodana-<linter>'
-            args '-v <project-directory>:/data/project/'
-            args '-v <report-directory>:/data/results/'
-            args '--entrypoint=""'
         }
     }
     steps {

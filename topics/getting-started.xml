@@ -50,6 +50,8 @@
                            standard for the output of static analysis tools."/>
                         <a href="quality-gate.xml"
                            description="Restrict the quantity of problems that can be accepted by your favorite CI/CD system"/>
+                        <a href="license-audit.xml"
+                           description="Check license compatibility between your software license and dependency licenses"/>
                 </highlighted-group>
                 
         </section-starting-page>
