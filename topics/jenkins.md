@@ -16,10 +16,14 @@ Below is the Pipeline stage that invokes the `docker` agent with the following c
 stage('Qodana') {
     agent {
         docker {
+            args '''
+           -v /opt/qodana/reports:/data/reports 
+           -v /opt/qodana/cache:/data/cache
+           -v /opt/qodana/results:/data/results
+           -v /opt/qodana/qodana.sarif.json:/data/qodana.sarif.json
+           --entrypoint=""
+           '''
             image 'jetbrains/qodana-<linter>'
-            args '-v <project-directory>:/data/project/'
-            args '-v <report-directory>:/data/results/'
-            args '--entrypoint=""'
         }
     }
     steps {
