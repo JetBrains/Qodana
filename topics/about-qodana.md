@@ -48,7 +48,7 @@ This diagram describes several steps:
 <a href="features.xml">features</a>. You can run Qodana either [locally or within a CI/CD pipeline](#Running+Qodana). 
 
     Inspection results are available in these forms:
-
+   <!--- Here, I can mention Qodana Cloud as an alternative to the first two methods --->
    * <a href="qodana-sarif-output.md">JSON files</a> formatted according to the SARIF specification
    * <a href="ui-overview.md">Interactive HTML reports</a>
 
@@ -64,6 +64,13 @@ progress.
 You can run %product% [locally](Quick-start.xml) in a standalone mode using a PC or a server. Alternatively, inspecting 
 your code within a [CI/CD pipeline](ci.md) means that your code will be inspected by %product% as part of a 
 building and/or deployment process.
+
+<!-- ## Qodana Cloud
+
+Qodana Cloud is a cloud-based application that lets you aggregate your %product% reports in a single place and conveniently
+analyze them. -->
+
+<!-- I can add here a link to the Cloud use-case page --> 
 
 ## Qodana playground
 
@@ -82,4 +89,4 @@ To actively participate in the Qodana community, join [Qodana Slack](http://qoda
 
 - <a href="Quick-start.xml">Quick start guide</a>
 - <a href="components.xml">Qodana components</a>
-- <a href="deploy-qodana.xml">Deployment section</a>
+- <a href="deploy-qodana.xml">How to deploy Qodana</a>

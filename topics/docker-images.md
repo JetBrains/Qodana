@@ -10,4 +10,6 @@ for [Qodana linters](supported-technologies.md):
 - [](qodana-python-docker-readme.xml)
 - [](qodana-js-docker-readme.xml)
 - [](clone-finder-docker-readme.md)
-- [](license-audit-docker-readme.md)
+
+The License audit Docker image is deprecated, but you can use the [](license-audit.xml) feature of the several other 
+linters instead. 
