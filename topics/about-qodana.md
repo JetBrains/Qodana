@@ -80,6 +80,6 @@ To actively participate in the Qodana community, join [Qodana Slack](http://qoda
 
 ## Next steps
 
-- <a href="quickstart.md">Quick start guide</a>
+- <a href="Quick-start.xml">Quick start guide</a>
 - <a href="components.xml">Qodana components</a>
 - <a href="deploy-qodana.xml">Deployment section</a>

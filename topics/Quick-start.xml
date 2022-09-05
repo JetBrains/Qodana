@@ -139,7 +139,7 @@
     <chapter title="Next steps" id="quick-start-next-steps">
         <list>
             <li><a href="docker-image-configuration.xml">Configure Docker images</a></li>
-            <li><a href="github.md.md">Run %product% on GitHub</a></li>
+            <li><a href="github.md">Run %product% on GitHub</a></li>
             <li><a href="qodana_plugins.md">Extend your IDE using plugins</a></li>
             <li><a href="ci.md">Explore how you can integrate %product% into your CI/CD system</a></li>
             <li><a href="service.md">Use %product% as a Service</a></li>

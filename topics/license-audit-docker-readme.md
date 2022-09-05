@@ -3,7 +3,7 @@
 
 <include src="lib_qd.xml" include-id="license-audit-deprecation-note"/>
 
-We provide a Docker image for the [License audit linter](about-license-audit.md) to support different usage scenarios:
+We provide a Docker image for the License audit linter to support different usage scenarios:
 - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*).
 - Single-shot analysis (for example, performed *locally*).
 
