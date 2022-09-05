@@ -100,6 +100,9 @@ profile:
 
 You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once. To exclude all paths in a project from the inspection scope, omit the `paths` node.
 
+<note>Starting from version 2022.3, Qodana reads `.gitignore` files of your project and defines the files and folders 
+to be ignored during inspections.</note>
+
 #### Example
 {id="exclude-example"}
 
