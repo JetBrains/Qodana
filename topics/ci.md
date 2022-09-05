@@ -8,7 +8,7 @@ Currently, %product% provides integration mechanisms with the following CI/CD sy
 
 - [](qodana-azure-pipelines.md)
 - [](circleci.md)
-- [](qodana-github-action.md)
+- [](github.md)
 - [](gitlab.md)
 - [](jenkins.md)
 - [](teamcity.md)

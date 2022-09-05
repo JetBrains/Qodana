@@ -40,6 +40,6 @@ The command will be automatically executed before the analysis.
 ## Next steps
 
 - <a href="qodana-python-docker-readme.xml">Configure %linter% Docker image</a>
-- <a href="qodana-github-action.md">Run %linter% on GitHub</a>
+- <a href="github.md">Run %linter% on GitHub</a>
 - <a href="service.md">Use %linter% as a Service</a>
 - <a href="ci.md">Extend your CI/CD with %linter% plugins</a>

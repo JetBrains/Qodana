@@ -22,7 +22,6 @@
                 <toc-element id="qodana-python.md"/>
                 <toc-element id="qodana-js.md"/>
                 <toc-element id="about-clone-finder.md"/>
-                <toc-element id="license-audit.xml"/>
             </toc-element>
             <toc-element id="code-inspections.xml"/>
         </toc-element>

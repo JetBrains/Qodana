@@ -14,7 +14,7 @@ using [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16938-qodana)
 3. Make sure that you previously opened the project by the IDE at least one time. This action establishes the link 
 between the %product% report and your IDE.    
 
-Now you can run %product% to inspect your code, see the [Qodana linters](linters.md) section for details.
+Now you can run %product% to inspect your code, see the [Qodana linters](supported-technologies.md) section for details.
 
 ## Open a file from the Qodana UI 
 
