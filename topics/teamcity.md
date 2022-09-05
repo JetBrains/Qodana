@@ -6,6 +6,8 @@ need to be met:
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
 - Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html).
 
+<note>Currently, running Qodana on Windows-based build agents of TeamCity is not supported.</note>
+
 ### Add a Qodana runner 
 
 Assuming that you have already created your [project](https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project) and configured your build, follow the steps below.    
@@ -33,9 +35,11 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    **Report ID** uniquely identifies the report to let you distinguish between multiple reports when several inspection steps are configured within a single build.
 
-   The **Forward reports to TeamCity Tests** checkbox configures forwarding all Qodana inspection reports to TeamCity Tests for further investigation.
+   The **Forward reports to TeamCity tests** checkbox configures %product% report availability in 
+   the [Test](https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab) tab of TeamCity UI. Using this 
+   option, you can overview codebase problems along with other problems detected during the build. 
 
-   **Linter** configures the [Qodana Linter](supported-technologies.md).
+   **Linter** configures the [Qodana Linter](linters.md).
 
    **Version** is by default set to `Latest`.
 
