@@ -180,7 +180,7 @@ The original Intellij IDEA inspection severity is stored in the same object's `p
   "kind": "fail",
   "level": "warning",
   "message": {
-    "text": "Method <code>visitTypeVariable()</code> recurses infinitely, and can only end by throwing an exception"
+    "text": "Method <code>visitTypeVariable()</code> runs infinitely, and can only end by throwing an exception"
   },
   "locations": [
     {

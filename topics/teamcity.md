@@ -39,7 +39,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
    the [Test](https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab) tab of TeamCity UI. Using this 
    option, you can overview codebase problems along with other problems detected during the build. 
 
-   **Linter** configures the [Qodana Linter](linters.md).
+   **Linter** configures the [Qodana Linter](supported-technologies.md).
 
    **Version** is by default set to `Latest`.
 

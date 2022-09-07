@@ -2,7 +2,7 @@
 
 [Qodana Slack](http://qodana.slack.com/) aims to be an inclusive space that is committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
 
-For this to be the case, it is vital that we all follow a basic set of guidelines and most importantly adhere to the code of conduct. As such, please make sure you read this Code of Conduct and Basic Usage Guidelines in its entirety. This isn’t your regular License Agreement that you should scroll through and agree blindy. It’s here for a reason and also contains practical information.
+For this to be the case, it is vital that we all follow a basic set of guidelines and most importantly adhere to the code of conduct. As such, please make sure you read this Code of Conduct and Basic Usage Guidelines in its entirety. This isn’t your regular License Agreement that you should scroll through and agree blindly. It’s here for a reason and also contains practical information.
 
 ## How to behave
 
@@ -18,7 +18,7 @@ For this to be the case, it is vital that we all follow a basic set of guideline
 * Do *not* post or display sexually explicit or violent material.
 * Do *not* post or threaten to post other people’s personally identifying information ("doxing").
 * Do *not* make personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
-* Do *not* engage in sexual attention. This includes, sexualized comments or jokes and sexual advances.
+* Do *not* engage in sexual attention. This includes sexualized comments or jokes and sexual advances.
 * Do *not* advocate for, or encourage, any of the above behavior.
 
 ## How to report issues
