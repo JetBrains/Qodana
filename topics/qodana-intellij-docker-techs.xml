@@ -107,7 +107,7 @@
                 <td><code>-b</code>,
                     <code>--baseline</code>
                 </td>
-                <td>Run <a anchor="Run+in+baseline+mode">in baseline mode</a>. Provide the path to an existing SARIF
+                <td>Run in the <a anchor="Run+in+baseline+mode">baseline mode</a>. Provide the path to an existing SARIF
                     report to be used in the baseline state calculation.
                 </td>
             </tr>
@@ -256,13 +256,13 @@
                 your project.
             </p>
         </chapter>
-        <chapter id="Run+in+baseline+mode" title="Run in baseline mode">
+        <chapter id="Run+in+baseline+mode" title="Run in the baseline mode">
             <note>
                 <p>Displaying Qodana IntelliJ baseline run results via <a href="ui-overview.md">Qodana UI</a> is
                     currently in development.
                 </p>
             </note>
-            <p>In baseline run mode, each new Qodana IntelliJ run is compared to some initial run selected as a "baseline".
+            <p>In the baseline run mode, each new Qodana IntelliJ run is compared to some initial run selected as a "baseline".
                 This can help in situations when you have no possibility to fix old problems and rather want to prevent
                 the appearance of new ones.
             </p>
@@ -297,7 +297,7 @@
             </p>
             <code style="block" lang="shell">   docker run ... jetbrains/qodana --fail-threshold &lt;number&gt;
 </code>
-            <p>When running in <a anchor="Run+in+baseline+mode">baseline mode</a>, a threshold is calculated as the sum
+            <p>When running in the <a anchor="Run+in+baseline+mode">baseline mode</a>, a threshold is calculated as the sum
                 of <i>new</i> and <i>absent</i> problems. <i>Unchanged</i> results are ignored.
             </p>
             <note>

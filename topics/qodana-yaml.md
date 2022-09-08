@@ -38,7 +38,7 @@ If you already have an inspection profile for your project, you [can use it](#Se
 
 If you want a fresh start, you have two options:
 1. Use Qodana in default mode to execute the [three-phase analysis](#three-phase-analysis). You don't need to create a `qodana.yaml` file in this case, but you can add it later to amend a set of checks.
-2. Use Qodana with the recommended profile. In this case you need to create a `qodana.yaml` file with a reference to `qodana.recommended`. This profile contains the checks for critical or severe issues in the code, which require attention. This profile does not contain any style checks, and non-critical for project folders, such as `tests`, are ignored.
+2. Use Qodana with the recommended profile. In this case you need to create a `qodana.yaml` file with a reference to `qodana.recommended`. This profile contains the checks for critical or severe issues in the code, which require attention. This profile does not contain any style checks, and non-critical folders, such as `tests`, are ignored.
 
 
 ## Three-phase analysis
@@ -46,7 +46,7 @@ If you want a fresh start, you have two options:
 
 Sometimes it may be challenging to set up analysis for a big project even with the `qodana.recommended` profile due to large amount of errors reported. To solve this, Qodana offers a 3-phase analysis, where each phase is focused on a certain type of results.
 
-- The first phase is based on the `qodana.starter` profile that contains vital checks only. Non-critical for the project operability folders, such as `tests`, are ignored.
+- The first phase is based on the `qodana.starter` profile that contains vital checks only. Non-critical folders, such as `tests`, are ignored.
 
 - The second phase reports the conditions that could affect truthfulness or completeness of the results. For example, if your project relies on external resources or generated code, and they are not available during the analysis, the final results could be compromised. Qodana notifies you about such suspicious results.  
 
