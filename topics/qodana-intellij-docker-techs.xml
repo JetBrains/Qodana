@@ -107,7 +107,7 @@
                 <td><code>-b</code>,
                     <code>--baseline</code>
                 </td>
-                <td>Run <a anchor="Run+in+baseline+mode">in baseline mode</a>. Provide the path to an exisitng SARIF
+                <td>Run <a anchor="Run+in+baseline+mode">in baseline mode</a>. Provide the path to an existing SARIF
                     report to be used in the baseline state calculation.
                 </td>
             </tr>
@@ -216,7 +216,7 @@
         </chapter>
         <chapter id="Manage+plugins" title="Manage plugins">
             <p>The set of plugins depends on the selected <a href="linters.md">Qodana linter</a>.</p>
-            <p>You can add any free IntellJ platform plugins or your custom plugin by using the following command:</p>
+            <p>You can add any free IntelliJ platform plugins or your custom plugin by using the following command:</p>
             <code style="block" lang="shell">docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/qodana
 </code>
             <p>To optimize the most common cases, some bundled plugins are disabled by default. You can check the whole
@@ -256,7 +256,7 @@
                 your project.
             </p>
         </chapter>
-        <chapter id="Run+in+baseline+mode" title="Run in baseline mode">
+        <chapter id="Run+in+baseline+mode" title="Run in baseline the mode">
             <note>
                 <p>Displaying Qodana IntelliJ baseline run results via <a href="ui-overview.md">Qodana UI</a> is
                     currently in development.
@@ -297,7 +297,7 @@
             </p>
             <code style="block" lang="shell">   docker run ... jetbrains/qodana --fail-threshold &lt;number&gt;
 </code>
-            <p>When running in <a anchor="Run+in+baseline+mode">baseline mode</a>, a threshold is calculated as the sum
+            <p>When running in <a anchor="Run+in+baseline+mode">the baseline mode</a>, a threshold is calculated as the sum
                 of <i>new</i> and <i>absent</i> problems. <i>Unchanged</i> results are ignored.
             </p>
             <note>

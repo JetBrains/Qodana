@@ -31,7 +31,7 @@ You can see a sample report in [Clone Finder Output](clone-finder-output.md).
 ### Types of problems prevented
 
 * Penalties for the unlicensed use of third-party code
-* Excessive project maintenance costs due to overgrown codebases
+* Excessive project maintenance costs due to an overgrown codebase
 * Increased security risks because fixing detected vulnerabilities across all instances of the copied code can be difficult
 
 <tip>

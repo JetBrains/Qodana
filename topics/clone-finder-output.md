@@ -37,12 +37,12 @@ See [Open an HTML Report](html-report.md) for details.
 │   ├── metaInformation.json // Metadata data about found problems
 │   ├── projectStructure
 │   │   └── <inspection name>.json // Inspection description
-│   └── result-allProblems.json // All found probelms
+│   └── result-allProblems.json // All found problems
 └── versions // UI
 ```
 
 ### A sample decorated diff
-In addition to the sunburst diagram and other features of Qodana's [HTML report](ui-overview.md), Clone Finder makes the analysis of code duplicates more helpful and convenient.
+In addition to the sunburst diagram and other features of the Qodana [HTML report](ui-overview.md), Clone Finder makes the analysis of code duplicates more helpful and convenient.
 - The detected clones are prioritized and displayed in the order of their importance.
 - When you expand an item, the duplicate code fragments are provided with decorated code diffs and are annotated with tags, licenses, languages, and file paths.
 
