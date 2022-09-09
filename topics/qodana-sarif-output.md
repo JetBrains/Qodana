@@ -1,6 +1,6 @@
 [//]: # (title: SARIF output)
 
-The Qodana IntelliJ linter produces the SARIF output, which is a JSON file formatted in accordance with the [specification](http://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html). The Qodana implementation follows the general format rules but also specifies several custom properties written in [propertyBag](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317448).
+Qodana produces the SARIF output contained in a JSON file formatted in accordance with the [SARIF specification](http://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html). The Qodana implementation follows the general format rules but also specifies several custom properties written in [propertyBag](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317448).
 
 ## Report example
 
@@ -100,7 +100,7 @@ The list of [Result](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sari
 ```json
 {
   "driver": {
-    "name": "Qodana Intellij Linter",
+    "name": "QDJVM",
     "rules": []
   },
   "extensions": [
@@ -135,7 +135,7 @@ The list of [Result](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sari
 
 ### Tool structure
 
-- `driver` - [ToolComponent](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540971) object, which describes the Qodana Intellij Linter tool.
+- `driver` - [ToolComponent](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540971) object describing the [Qodana linter](linters.md).
 - `extensions` - the list of [ToolComponent](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540971) objects.
 Each element of the list corresponds to the Intellij IDEA plugin used for this run.
 

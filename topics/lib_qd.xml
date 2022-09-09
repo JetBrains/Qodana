@@ -499,7 +499,7 @@
         <chapter id="docker+config+options+baseline" title="Baseline">
 
             <p>To learn more about the baseline feature, see the
-                <a anchor="Run+in+baseline+mode">Run in baseline mode</a> example, or study the
+                <a anchor="Run+in+baseline+mode">Run in the baseline mode</a> example, or study the
                 <a href="qodana-baseline.xml">Baseline</a> section.</p>
 
             <table column-width="fixed">
@@ -764,12 +764,8 @@
     </chunk>
 
     <chunk id="docker-config-baseline">
-        <note>
-            <p>Displaying %linter% baseline run results via <a href="ui-overview.md">Qodana UI</a> is
-                currently in development.
-            </p>
-        </note>
-        <p>In baseline run mode, each new %linter% run is compared to some initial run selected as a "baseline".
+
+        <p>In the baseline run mode, each new %linter% run is compared to some initial run selected as a "baseline".
             This can help in situations when you have no possibility to fix old problems and rather want to prevent
             the appearance of new ones.
         </p>
@@ -777,33 +773,17 @@
             docker run ... jetbrains/%linter-shell% \
             --baseline &lt;baseline-path&gt; [--baseline-include-absent]
         </code>
+
         <p>where <code>&lt;baseline-path&gt;</code> is the path to a <code>qodana.sarif.json</code> file
             from an earlier run. If the <code>--baseline-include-absent</code> option is provided, the inspection
             results will include <i>absent</i> problems, that is the problems detected only in the baseline run but
             not in the current run.
         </p>
-        <p>After the inspection is finished, %linter% displays the summary of the current project state
-            compared to the baseline.
-        </p>
-        <code style="block" lang="shell">
-            Baseline comparison result - UNCHANGED: 10, NEW: 5, ABSENT: 3
-        </code>
-        <p>where the detected problems are aggregated as follows:</p>
-        <list>
-            <li>
-                <code>new</code>: The problem was detected only in the current run but not in the baseline run.
-            </li>
-            <li>
-                <code>absent</code>: The problem was detected only in the baseline run but not in the current run.
-            </li>
-            <li>
-                <code>unchanged</code>: The problem was detected both in the current run and in the baseline run.
-            </li>
-        </list>
         <p>
             The <a href="qodana-sarif-output.md">SARIF output report</a> will contain the per-problem
             information on the baseline state.
         </p>
+        <p>To learn more about the baseline feature, see the <a href="qodana-baseline.xml">Baseline</a> section.</p>
     </chunk>
 
     <chunk id="docker-config-set-quality-gate">
