@@ -79,7 +79,7 @@
 
         </chapter>
 
-        <chapter id="Run+in+baseline+mode" title="Run in baseline mode">
+        <chapter id="Run+in+baseline+mode" title="Run in the baseline mode">
 
             <include src="lib_qd.xml" include-id="docker-config-baseline"/>
 
