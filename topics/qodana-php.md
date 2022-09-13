@@ -12,7 +12,7 @@
 
 <var name="linter" value="Qodana PHP"/>
 <var name="ide" value="PhpStorm"/>
-<var name="docker-image" value="jetbrains/qodana-php:2022.1-eap"/>
+<var name="docker-image" value="jetbrains/qodana-php:2022.2-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/) and provides static analysis for PHP projects. <include src="lib_qd.xml" include-id="linter-intro"/>
 
