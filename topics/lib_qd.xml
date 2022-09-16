@@ -958,16 +958,6 @@
                     -p 8080:8080 jetbrains/qodana-&lt;linter&gt; \
                     --show-report
                 </code>
-                <p filter="php-only">If you use PHP Composer, Qodana will install your project dependencies
-                    automatically right before the code analysis starts.</p>
-                <p filter="php-only">In case you need to change the language level, add the following to
-                    <code>&lt;source-directory&gt;/.idea/php.xml</code>:</p>
-                <code filter="php-only" lang="xml" style="block">
-                    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
-                    &lt;project version="4"&gt;
-                        &lt;component name="PhpProjectSharedConfiguration" php_language_level="&lt;desired level&gt;" /&gt;
-                    &lt;/project&gt;
-                </code>
                 <p filter="php-only">Run the analysis locally:</p>
                 <p filter="jvm-only">and run the analysis locally:</p>
                 <code filter="non-gs" style="block" lang="shell" prompt="$">
@@ -1023,5 +1013,23 @@
             <a href="linters.md">Qodana linters</a>.
         </warning>
     </chunk>
+
+    <chunk id="php-composer-dependency-installation">
+        <p>If you use PHP Composer, Qodana will install your project dependencies
+            automatically right before the code analysis starts.</p>
+    </chunk>
+
+    <chunk id="php-language-level-change">
+        <p>In case you need to change the language level, add the following to
+            <code>&lt;source-directory&gt;/.idea/php.xml</code>:</p>
+        <code filter="php-only" lang="xml" style="block">
+            &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            &lt;project version="4"&gt;
+                &lt;component name="PhpProjectSharedConfiguration" php_language_level="&lt;desired level&gt;" /&gt;
+            &lt;/project&gt;
+        </code>
+    </chunk>
+
+
 
 </topic>

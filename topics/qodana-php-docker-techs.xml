@@ -109,6 +109,18 @@
 
         </chapter>
 
+        <chapter id="php-install-dependencies-composer" title="Dependency installation using PHP Composer">
+
+            <include src="lib_qd.xml" include-id="php-composer-dependency-installation"/>
+
+        </chapter>
+
+        <chapter id="php-language-level-change" title="Change the language level">
+
+            <include src="lib_qd.xml" include-id="php-language-level-change"/>
+
+        </chapter>
+
     </chapter>
 
     <chapter id="Order+of+resolving+a+profile" title="Order of resolving a profile">

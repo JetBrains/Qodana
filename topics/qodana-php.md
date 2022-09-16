@@ -22,6 +22,10 @@
 
 <p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="php-only,jvm-php,non-gs,other,empty"/></p>
 
+<p><include src="lib_qd.xml" include-id="php-composer-dependency-installation"/></p>
+
+<p><include src="lib_qd.xml" include-id="php-language-level-change"/></p>
+
 ## Next steps
 
 - <a href="qodana-php-docker-readme.xml">Configure %linter% Docker image</a>
