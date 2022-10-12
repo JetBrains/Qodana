@@ -24,7 +24,7 @@
 
     <tip>Projects without uploaded reports can be deleted.</tip>
 
-    <p>This table shows how %product_cloud% interprets and displays several reports (or bars in the bar chart) depending
+    <p>This table shows how Qodana Cloud interprets and displays several reports (or bars in the bar chart) depending
         on their metadata.</p>
 
     <table>

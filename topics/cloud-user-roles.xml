@@ -6,7 +6,7 @@
        title="User roles"
        id="cloud-user-roles">
 
-    <p>The role assigned to your %product_cloud% account will depend on the case.</p>
+    <p>The role assigned to your Qodana Cloud account will depend on the case.</p>
 
     <table>
         <tr>
@@ -28,7 +28,7 @@
             <td>You created an organization</td>
             <td>Administrator</td>
             <td>Manage organizations, teams, their users, projects and project reports. Complete deletion of all these
-                entities from %product_cloud%</td>
+                entities from Qodana Cloud</td>
         </tr>
 
 

@@ -6,14 +6,14 @@
        title="Qodana Cloud components"
        id="cloud-running-introduction.xml">
 
-    <p>In %product_cloud%, an organization is the basic entity. Every %product_cloud% user can be part of one or
+    <p>In Qodana Cloud, an organization is the basic entity. Every Qodana Cloud user can be part of one or
         multiple organizations. </p>
     <p>Each organization can contain several teams. Each team provides unified access to projects for several users. </p>
     <p>Each project contains results of inspection carried out by Qodana over a specific codebase.</p>
 
     <img src="qc-running-introduction.png" dark-src="qc-running-introduction_dark.png" width="706" alt="Qodana Cloud entity hierarchy" border-effect="line"/>
 
-    <p>To start receiving Qodana reports and overview them in the %product_cloud% UI, follow these steps:</p>
+    <p>To start receiving Qodana reports and overview them in the Qodana Cloud UI, follow these steps:</p>
 
     <list type="decimal">
         <li>Create <a href="cloud-organizations.xml">an organization</a></li>

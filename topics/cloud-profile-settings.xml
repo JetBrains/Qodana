@@ -6,7 +6,7 @@
        title="Profile"
        id="cloud-profile-settings">
 
-    <p>Using this tab, you can select the theme for your %product_cloud% UI or log out from %product_cloud%. </p>
+    <p>Using this tab, you can select the theme for your Qodana Cloud UI or log out from Qodana Cloud. </p>
 
     <img src="qc-profile-settings.png" alt="Profile settings" width="460" border-effect="line" title="Profile settings"/>
 

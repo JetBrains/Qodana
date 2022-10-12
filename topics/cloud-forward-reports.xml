@@ -12,7 +12,7 @@
     <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
     <var name="SpaceAutomationLink" value="www.jetbrains.com/help/space/automation-concepts.html#what-is-space-automation"/>
 
-        <p>This chapter explains how to configure the following products for forwarding Qodana reports to %product_cloud%:</p>
+        <p>This chapter explains how to configure the following products for forwarding Qodana reports to Qodana Cloud:</p>
 
         <list>
             <li><a anchor="cloud-forward-reports-local-run">Docker</a></li>
@@ -25,7 +25,7 @@
 
     <chapter id="cloud-forward-reports-local-run" title="Docker">
 
-        <p>This is the CLI command to inspect your code and forward the report to %product_cloud% using the Dockerized
+        <p>This is the CLI command to inspect your code and forward the report to Qodana Cloud using the Dockerized
             version of Qodana:</p>
 
         <code style="block" lang="bash" prompt="$">
@@ -84,7 +84,7 @@
     <chapter id="cloud-forward-reports-jenkins" title="Jenkins">
 
         <p>This is the Jenkins Pipeline sample for forwarding Qodana reports to
-            %product_cloud%.</p>
+            Qodana Cloud.</p>
 
         <code style="block" lang="groovy">
             stage('Qodana') {
@@ -105,7 +105,7 @@
         </code>
 
         <p>This sample defines the <code>QODANA_TOKEN</code> <a href="https://%JenkinsLink%">environment variable</a> to
-            contain the %product_cloud% project token. </p>
+            contain the Qodana Cloud project token. </p>
     </chapter>
 
     <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
@@ -139,7 +139,7 @@
 
     <chapter id="cloud-forward-reports-teamcity" title="TeamCity">
 
-            <p>To configure TeamCity to forward Qodana reports to %product_cloud%, follow these steps:</p>
+            <p>To configure TeamCity to forward Qodana reports to Qodana Cloud, follow these steps:</p>
 
             <procedure>
                 <step>Create the <code>QODANA_TOKEN</code> environment variable and define it as

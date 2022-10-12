@@ -9,13 +9,13 @@
     <!--<p>You can get access to %product_cloud% via an invitation link. After you click the invitation link, the %product_cloud%
         homepage will open. Here, you can overview reports of publicly available and demo projects.</p> -->
 
-    <p>Here is the overview of the %product_cloud% landing page.</p>
+    <p>Here is the overview of the Qodana Cloud landing page.</p>
 
     <img src="qc-get-access.png" dark-src="qc-get-access_dark.png" alt="Qodana Cloud start page" width="706" border-effect="line" title="Qodana Cloud start page"/>
 
     <list type="decimal">
         <li>You can click the <menupath>Continue with JetBrains account</menupath> button to create a
-            <a href="https://account.jetbrains.com/login">JetBrains account</a> to log into %product_cloud%.</li>
+            <a href="https://account.jetbrains.com/login">JetBrains account</a> to log in to Qodana Cloud.</li>
         <li>As a non-registered user, you can explore demo projects that were already analyzed by Qodana. To explore
             reports in details, see the <a href="cloud-overview-reports.xml">Overview reports</a> section.</li>
     </list>

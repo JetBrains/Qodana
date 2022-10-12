@@ -11,7 +11,7 @@
 
     <list>
         <li>You can combine several projects under a single team to provide a convenient way for navigation.</li>
-        <li>You can share specific projects among %product_cloud% users that are part of a team.</li>
+        <li>You can share specific projects among Qodana Cloud users that are part of a team.</li>
     </list>
 
     <p>To create a team, in the upper-right corner of the organization page click <menupath>Create team</menupath>. </p>
@@ -22,7 +22,7 @@
 
     <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="Creating a team" width="706" border-effect="line"/>
 
-    <p>After creating, you can get access to the team from the left sidebar of the %product_cloud% UI. </p>
+    <p>After creating, you can get access to the team from the left sidebar of the Qodana Cloud UI. </p>
 
     <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing team" width="706" border-effect="line"/>
 

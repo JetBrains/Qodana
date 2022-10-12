@@ -8,7 +8,7 @@
 
     <!-- What page will this link be accessible from? -->
 
-    <p>To manage your account, click <b>Settings</b> on the left sidebar of the %product_cloud% UI. </p>
+    <p>To manage your account, click <b>Settings</b> on the left sidebar of the Qodana Cloud UI. </p>
 
     <img src="qc-settings-setting-menu.png" alt="Settings menu" width="460" border-effect="line" title="Settings menu"/>
 
