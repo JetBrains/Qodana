@@ -19,7 +19,7 @@ can quickly adjust the list of checks applied for the project and include or rem
 Qodana consists of these basic components:
 
 * <a href="static-analysis.xml">Static analysis</a> mechanism of Qodana means automated analysis of your codebase. 
-* <a href="supported-technologies.md">Linters</a> are the components that let you analyze your code, find duplicate 
+* <a href="linters.md">Linters</a> are the components that let you analyze your code, find duplicate 
 functions and incompatible licenses.
 * <a href="code-inspections.xml">Code inspections</a> are the linter components that immediately analyze your code for 
 specific issues.

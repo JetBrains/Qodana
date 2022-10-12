@@ -1,274 +1,599 @@
 [//]: # (title: SARIF output)
 
-The Qodana IntelliJ linter produces the SARIF output, which is a JSON file formatted in accordance with the [specification](http://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html). The Qodana implementation follows the general format rules but also specifies several custom properties written in [propertyBag](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317448).
+%product% reports are formatted according to the
+[SARIF specification](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html) and are contained in a JSON file.
+The %product% implementation of SARIF follows the general format rules, but also specifies several custom properties
+contained in [property bags](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317448).
 
-## Report example
+## Report structure
+
+Here is the structure of reports produced by %product%:
+
 
 ```json
 {
   "version": "2.1.0",
   "runs": [
     {
-      "tool": {
-        ...
-      },
-      "invocations": [
-        {
-          "exitCode": 0,
-          "executionSuccessful": true
-        }
-      ],
+      "tool": {...},
+      "invocations": [...],
       "language": "en-US",
-      "versionControlProvenance": [
-        {
-          "repositoryUri": "https://github.com/avafanasiev/gson",
-          "revisionId": "a785a47b348265d0e8034f2611f737b1b865a334",
-          "branch": "master",
-          "properties": {
-            "vcsType": "Git",
-            "tags": [
-              "vcsType"
-            ]
-          }
-        }
-      ],
+      "versionControlProvenance": [...],
       "results": [...],
-      "automationDetails": {
-        "id": "project - 7/10/21, 7:29 AM",
-        "guid": "9a1a0587-1819-41f8-bdc6-3452268ae572"
-      },
-      "newlineSequences": [
-        "\r\n",
-        "\n"
-      ]
+      "automationDetails": {...},
+      "newlineSequences": [...],
+      "properties": {...}
     }
   ]
 }
 ```
 
-## Common structure
+<anchor name="sarif-run-object"/>
 
-A report file always contains one [Run](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317484) object.
-This object always contains the following sections:
+Each report is represented by a `runs` array containing a single %product%
+[`run`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317484).
+This object contains several nested objects, such as:
 
-### Invocations
+| Object                                                  | Description                                                           |
+|---------------------------------------------------------|-----------------------------------------------------------------------|
+| [`tool`](#tool)                                         | Information about the %product% linter, plugins and inspections       |
+| [`invocations`](#invocations)                           | Result of the %product% invocation                                    |
+| [`versionControlProvenance`](#versionControlProvenance) | The version control system from which the project was checked out     |
+| [`results`](#results)                                   | Codebase problems detected by %product%                               |
+| [`automationDetails`](#automationDetails)               | Identification of the %product% run                                   |
+| [`newlineSequences`](#newlineSequences)                 | The newline sequences that were used for calculating the line numbers |
+| [`properties`](#properties)                             | Custom %product% properties, see below                                |
 
-The list of [Invocation objects](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541005), which always contains a single invocation object. An invocation comprises the following:
-- `exitCode` -  tool exit code.
-    - `0` - indicates successful execution.
-    - `1` - indicates any internal error.
-    - `255` - indicates successful execution, but the exit code is non-zero due to `failThreshold` property.
-- `executionSuccessful` - if `exitCode` is `0` or `255`.
-- `exitCodeDescription` - the description of the exit code for non-zero values.
+The custom %product% properties are:
 
-<note>
+| Property        | Description                                                                                                          |
+|-----------------|----------------------------------------------------------------------------------------------------------------------|
+| `configProfile` | How the inspection profile was found; one of `empty`, `starter`, `recommended`, `path`, `single`, `absent`, `other`. |
+| `deviceId`      | The tracking ID used for anonymous statistics.                                                                       |
 
-If the linter processes were finished by themselves, then the `result` folder should contain the report file and the process exit code should equal to the `exitCode` in the report. Otherwise, if the processes were terminated externally, the report could be absent and the process exit code could differ from the codes above. A typical exit code in such cases is `137`.
+### tool
 
-</note>
+The [`tool`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317529) object describes
+the %product% [linter](linters.md), bundled plugins, and the available inspections.
 
-### AutomationDetails
+```json
+{
+  "tool": {
+    "driver": {...},
+    "extensions": [...]
+  }
+}
+```
 
-The [AutomationDetails](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317523) object, which contains:
- - `guid` - a unique report ID.
- - `id` - a user-defined string, should be unique for the report.
+The `tool` object contains two nested objects:
 
-### VersionControlProvenance
-The list of [VersionControlDetails](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317602) objects, which contains zero or one object corresponding to the vcs repository in project root. Currently supported VCS list: Git.
+| Object                                 | Description                                              |
+|----------------------------------------|----------------------------------------------------------|
+| [`driver`](#The+driver+object)         | Information about the invoked [Qodana linter](linters.md)        |
+| [`extensions`](#The+extensions+object) | The loaded plugins, as well as all available inspections |
 
-An object contains the following:
-- `repositoryUri` - the repository checkout URL.
-- `revisionId` - the last commit hash.
-- `branch` - the current repository branch.
-- `properties` - the `propertyBag` object with the `vcsType` field, which can be any of the following:
-  - `Git`
-  - `Hg`
-  - `Svn`
+#### The driver object
 
-### Tool
-
-The [Tool](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317529) object contains the description of the [Docker image](qodana-jvm-docker-readme.xml), bundled plugins and inspections in them.
-
-### Results
-
-The list of [Result](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541076) objects.
-
-## Tool object
-
-### Tool example
+This object contains information about the invoked [Qodana linter](linters.md).
 
 ```json
 {
   "driver": {
-    "name": "Qodana Intellij Linter",
-    "rules": []
-  },
-  "extensions": [
-    {
-      "name": "org.intellij.intelliLang",
-      "version": "213.1056",
-      "rules": [
-        {
-          "id": "InjectionNotApplicable",
-          "shortDescription": {
-            "text": "Injection Annotation not applicable"
-          },
-          "fullDescription": {
-            "text": "<html>\n<body>\nReports when a <code>@Language</code> annotation is applied to an element with a type other than <code>String</code> or <code>String[]</code>.\n<p><b>Example:</b></p>\n<pre><code>\n  @Language(\"HTML\") <b>int</b> i;\n</code></pre>\n<p>After the quick-fix is applied:</p>\n<pre><code>\n  <b>int</b> i;\n</code></pre>\n</body>\n</html>\n"
-          },
-          "defaultConfiguration": {
-            "enabled": false,
-            "level": "error",
-            "parameters": {
-              "ideaSeverity": "ERROR",
-              "tags": [
-                "ideaSeverity"
-              ]
-            }
-          }
-        }
-      ]
-    }
-  ]
-}
-```
-
-### Tool structure
-
-- `driver` - [ToolComponent](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540971) object, which describes the Qodana Intellij Linter tool.
-- `extensions` - the list of [ToolComponent](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540971) objects.
-Each element of the list corresponds to the Intellij IDEA plugin used for this run.
-
-### ToolComponent structure
-
-The object contains:
-- `name` - the `pluginId` for an Intellij IDEA plugin, "Qodana Intellij Linter" for the driver.
-- `version` - the plugin version for an Intellij IDEA plugin, the tool version for the driver.
-- `rules` - the list of [ReportingDescriptor](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541274) objects.
-
-### ReportingDescriptor structure
-
-The object contains:
-- `id` - the `inspectionId`, that is, the short name of an inspection.
-- `shortDescription` - [MultiformatMessageString object]. Contains the field `text` with the name of an inspection as a value.
-- `fullDescription` - [MultiformatMessageString object]. Contains the field `text` with the description of an inspection as a value. The description string is provided in the HTML format.
-- `defaultConfiguration` - [ReportingConfiguration](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541290) object.
-The configuration of an inspection used by default.
-
-### ReportingConfiguration structure
-
-The object contains:
-- `enabled` - true/false.
-- `level` - the [SARIF severity level](#SARIF+severity) of a rule.
-
-## SARIF severity
-
-The SARIF severity values could be one of the following strings:
-- `error` - if the Intellij IDEA inspection severity is _"ERROR"_.
-- `warning` - if the Intellij IDEA inspection severity is _"WARNING"_.
-- `note` - in any other case.
- 
-The original Intellij IDEA inspection severity is stored in the same object's `propertyBag` field.
-
-## Result object
-
-### Result example
-
-```json
-{
-  "ruleId": "InfiniteRecursion",
-  "kind": "fail",
-  "level": "warning",
-  "message": {
-    "text": "Method <code>visitTypeVariable()</code> recurses infinitely, and can only end by throwing an exception"
-  },
-  "locations": [
-    {
-      "physicalLocation": {
-        "artifactLocation": {
-          "uri": "asm-util/src/main/java/org/objectweb/asm/util/CheckSignatureAdapter.java",
-          "uriBaseId": "SRCROOT"
-        },
-        "region": {
-          "startLine": 259,
-          "startColumn": 14,
-          "charLength": 17,
-          "snippet": {
-            "text": "visitTypeVariable"
-          },
-          "sourceLanguage": "JAVA"
-        },
-        "contextRegion": {
-          "startLine": 257,
-          "startColumn": 1,
-          "charOffset": 9764,
-          "charLength": 152,
-          "snippet": {
-            "text": "\n  @Override\n  public void visitTypeVariable(final String name) {\n    visitTypeVariable(name);\n    if (type != TYPE_SIGNATURE || state != State.EMPTY) {"
-          }
-        }
+    "name": "QDPHP",
+    "fullName": "Qodana for PHP",
+    "version": "222.4190.104",
+    "rules": [],
+    "taxa": [
+      {
+        "id": "EditorConfig",
+        "name": "EditorConfig"
       },
-      "logicalLocations": [
-        {
-          "fullyQualifiedName": "root.asm-util.main",
-          "kind": "module"
-        }
-      ]
-    }
-  ],
-  "partialFingerprints": {
-    "equalIndicator/v1": "ac5714b0b15b7e8c4311899afd1c2b44069865039f2a9d309dcab04eddd4681d"
-  },
-  "baselineState": "unchanged",
-  "properties": {
-    "ideaSeverity": "WARNING",
-    "tags": [
-      "ideaSeverity"
+      {
+        "id": "PHP",
+        "name": "PHP"
+      },
+      {
+        "id": "PHP/Php Inspections (EA Extended)",
+        "name": "Php Inspections (EA Extended)",
+        "relationships": [
+          {
+            "target": {
+              "id": "PHP",
+              "index": 1,
+              "toolComponent": {
+                "name": "QDPHP"
+              }
+            },
+            "kinds": [
+              "superset"
+            ]
+          }
+        ]
+      }
     ]
   }
 }
 ```
 
-### Result structure
+The object consists of the following fields:
 
-- `ruleId` - the inspection short name (`inspectionId`), which is a unique inspection identifier.
-- `kind` - always "fail".
-- `level` - [SARIF severity level](#SARIF+severity).
-- `message` - an object of type [Message](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540897) with a single field `text`, which contains the result/problem description in the format of an Intellij IDEA message string.
-- `partialFingerprints` - a technical field contains hashes for comparing results between different runs. Used in the _baseline_ feature.
-- `baselineState` - the field only appears if a linter was executed in baseline mode and can be any of the following:
-  - `new`: The problem was detected only in the current run but not in the baseline run.
-  - `absent`: The problem was detected only in the baseline run but not in the current run.
-  - `unchanged`: The problem was detected both in the current run and in the baseline run.
-- `properties` - a `propertyBag` with the `ideaSeverity` field with the original Intellij IDEA inspection severity as a value.
-- `locations` - the list of [Location](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541108) objects. Always contains a single element.
+<anchor name="sarif-taxa-object"/>
 
-### Location structure 
+| Field      | Description                                                                                                                                                        |
+|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`     | ID of the %product% linter                                                                                                                                         |
+| `fullName` | Full name of the %product% linter                                                                                                                                  |
+| `version`  | Version of the %product% linter                                                                                                                                    |
+| `rules`    | Descriptions of the available inspections, as [`reportingDescriptor`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317836) objects |
+| `taxa`     | The categories of the inspections, including the relationships between categories                                                                                  |
 
-The object contains:
-- `logicalLocations` - the list of [LogicalLocation](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541157) objects, which contains zero or one element corresponding to the module in which the result appears. A module can be a Gradle subproject, Maven module, and so on. 
-- `physicalLocation` - the [PhysicalLocation](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541116) object. Could be absent.
+#### The extensions object
 
-### LogicalLocation Structure 
+Each element of the `extensions` array corresponds to one IntelliJ IDEA plugin,
+providing information about the plugin name and version,
+as well as the inspections provided by the plugin.
 
-The object contains:
-- `kind` - always "module".
-- `fullyQualifiedName` - the module name obtained from the project build system.
+```json
+{
+  "extensions": [
+    {
+      "name": "org.editorconfig.editorconfigjetbrains",
+      "version": "222.4190",
+      "rules": [
+        {
+          "id": "EditorConfigCharClassRedundancy",
+          "shortDescription": {
+            "text": "Unnecessary character class"
+          },
+          "fullDescription": {
+            "text": "Reports character classes that consist of a single character. Such classes can be simplified to a character, for example '[a]'→'a'.",
+            "markdown": "Reports character classes that consist of a single character. Such classes can be simplified to a character, for example `[a]`→`a`."
+          },
+          "defaultConfiguration": {
+            "enabled": true,
+            "level": "warning",
+            "parameters": {
+              "ideaSeverity": "WARNING",
+              "tags": [
+                "ideaSeverity"
+              ]
+            }
+          },
+          "relationships": [
+            {
+              "target": {
+                "id": "EditorConfig",
+                "index": 0,
+                "toolComponent": {
+                  "name": "QDPHP"
+                }
+              },
+              "kinds": [
+                "superset"
+              ]
+            }
+          ]
+        }
+      ],
+      "language": "en-US",
+      "contents": [
+        "localizedData",
+        "nonLocalizedData"
+      ]
+    }
+  ]
+}
+```
 
-### PhysicalLocation structure
+This object contains the following fields:
 
-The object contains:
-- `artifactLocation` - [ArtifactLocation](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540865) object, which contains the following:
-    - `uri` - the path relative to the project root.
-    - `uriBaseId` - always has the value _"SRCROOT"_.
-- `region` - [Region](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541123) object, which is a part of the artifact's location containing the text that should be highlighted as a reason of the current result.
-- `contextRegion` - the [Region](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10541123) object, which is a part of the artifact location's surrounding _region_. Typically, two rows above and under _region_. Used for problems comparisons in baseline.
+| Field     | Description                            |
+|-----------|----------------------------------------|
+| `name`    | The ID of the %product% plugin         |
+| `version` | The version of the %product% plugin    |
+| `rules`   | The inspections provided by the plugin |
 
-### Region structure
+Each inspection from the plugin is described by a
+[`reportingDescriptor`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317836)
+with the following fields:
 
-The object contains:
-- `startLine` - the one-based line number of the first character in the region. 
-- `startColumn` - the one-based column number of the first character in the region.
-- `charOffset` - the zero-based character offset of the first character in the region from the beginning of the artifact.
-- `charLength` - region length in characters.
-- `snippet` - [ArtifactContent](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc10540860) object, which contains the field `text` with the value equal to the text of the specified region extracted from the artifact.
+| Field                  | Description                                                                                                                                                                                                                                                    |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                   | Inspection ID                                                                                                                                                                                                                                                  |
+| `shortDescription`     | Short description of the inspection                                                                                                                                                                                                                            |
+| `fullDescription`      | Detailed description of the inspection                                                                                                                                                                                                                         |
+| `defaultConfiguration` | The [`reportingConfiguration`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317852) object containing detailed information about the inspection, including its severity level and describing whether the inspection is enabled |
+| `relationships`        | The relation of the inspection to other inspections, see [`taxa`](#sarif-taxa-object) for details                                                                                                                                                              |
+
+### invocations
+
+The `invocations` array contains a single element describing the %product%
+[`invocation`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317567),
+telling whether %product% ran successfully or not.
+
+```json
+{
+  "invocations": [
+    {
+      "exitCode": 0,
+      "toolExecutionNotifications": [
+        {
+          "message": {
+            "text": "Reporting from [\"Java annotator\"] 'sanity' inspections was suspended due to high problems count."
+          },
+          "level": "error"
+        }
+      ],
+      "executionSuccessful": true
+    }
+  ]
+}
+```
+
+In the above example, Qodana execution was successful (`exitCode`, `executionSuccessful`). Despite the (technically)
+successful execution, Qodana reported that its sanity inspections found some problems (`message`, `level=error`).
+When the 'sanity' inspections fail, this typically means that the project configuration was broken.
+
+The possible values for `exitCode` are:
+
+| Value | Description                                                                                                  |
+|-------|--------------------------------------------------------------------------------------------------------------|
+| `0`   | Successful execution                                                                                         |
+| `1`   | Any internal error                                                                                           |
+| `137` | Out of memory, the Docker container for Qodana needs at least 6 GB of RAM                                    |
+| `255` | Successful execution and exit resulted from the exceeded [`fail-threshold`](quality-gate.xml) property value |
+
+Here is the description of the other fields from the `invocations` object:
+
+The `toolExecutionNotifications` field contains notifications generated during a %product% run, such as a reached
+[threshold](quality-gate.xml).
+
+<note>
+After the linter process has exited successfully,
+the <code>results</code> folder contains the report file
+and the process exit code is equal to the <code>exitCode</code> value in the report.
+
+If the process was terminated abnormally,
+the <code>results</code> folder may or may not contain the report file.
+A typical exit code in such cases is <code>137</code> (SIGKILL, due to out of memory).
+</note>
+
+### versionControlProvenance
+
+The `versionControlProvenance` array describes the version control systems that the project code was checked out from.
+Each version control system is described by a
+[`versionControlDetails`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317602) object.
+If the project does not use a version control system, the whole `versionControlProvenance` is absent.
+
+```json
+{
+  "versionControlProvenance": [
+    {
+      "repositoryUri": "https://github.com/example/example.git",
+      "revisionId": "6c034f977505b058c7cf764b3d9b1abd068a725e",
+      "branch": "master",
+      "properties": {
+        "repoUrl": "https://github.com/example/example.git",
+        "lastAuthorName": "Jane Doe",
+        "vcsType": "Git",
+        "lastAuthorEmail": "mail@example.com",
+        "tags": [
+          "repoUrl",
+          "lastAuthorEmail",
+          "lastAuthorName",
+          "vcsType"
+        ]
+      }
+    }
+  ]
+}
+```
+
+Each `versionControlDetails` object contains the following fields:
+
+| Field           | Description                      |
+|-----------------|----------------------------------|
+| `repositoryUri` | Repository checkout URL          |
+| `revisionId`    | Latest commit hash               |
+| `branch`        | Repository branch                |
+| `properties`    | Additional properties, see below |
+
+Additional properties are stored as a
+[property bag](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317448),
+they contain information about the author of the last commit.
+The `vcsType` property always has the value `Git`.
+
+### results
+
+The `results` array describes the problems detected during inspection.
+Each problem detected by %product% is described by a separate
+[`result`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317638) object.
+
+```json
+{
+  "results": [
+    {
+      "ruleId": "InfiniteRecursion",
+      "kind": "fail",
+      "level": "warning",
+      "message": {
+        "text": "Method <code>visitTypeVariable()</code> recurses infinitely, and can only end by throwing an exception"
+      },
+      "locations": [
+        ...
+      ],
+      "partialFingerprints": {
+        "equalIndicator/v1": "ac5714b0b15b7e8c4311899afd1c2b44069865039f2a9d309dcab04eddd4681d"
+      },
+      "baselineState": "unchanged",
+      "properties": {
+        "ideaSeverity": "WARNING",
+        "tags": [
+          "ideaSeverity"
+        ]
+      }
+    }
+  ]
+}
+```
+
+Each `result` object consists of the following fields:
+
+| Field                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ruleId`              | The unique inspection ID (`inspectionId`)                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `kind`                | Always takes the `fail` value                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `level`               | The SARIF [severity level](#SARIF+severity)                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `message`             | A [`message`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317459) object with the nested `text` field containing the result/problem description in the format of an IntelliJ IDEA message string                                                                                                                                                                                                                |
+| `locations`           | Array of the [`location`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317670) objects. Always contains a single element comprised of the [`physicalLocation`](#The+physicalLocation+object) and the [`logicalLocations`](#The+logicalLocations+object) objects                                                                                                                                                  |
+| `partialFingerprints` | Contains hashes for comparing results between different runs. Used by the [baseline](qodana-baseline.xml) feature                                                                                                                                                                                                                                                                                                                                |
+| `baselineState`       | <p>Indicates whether a linter was executed in baseline mode and can accept the following values:</p> <list><li>`new` denotes that the problem was detected only in the current run but not in the baseline run</li><li>`absent` denotes that the problem was detected only in the baseline run but not in the current run</li> <li>`unchanged` denotes that the problem was detected both in the current run and in the baseline run</li></list> |
+| `properties`          | The `propertyBag` containing the `ideaSeverity` field with the original IntelliJ IDEA inspection severity as a value                                                                                                                                                                                                                                                                                                                             |
+
+#### The location object
+
+Each [`location`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317670) object
+describes a concrete physical location in a file, augmented by a high-level logical location.
+
+```json
+{
+  "physicalLocation": {
+    "artifactLocation": {
+      "uri": "asm-util/src/main/java/org/objectweb/asm/util/CheckSignatureAdapter.java",
+      "uriBaseId": "SRCROOT"
+    },
+    "region": {
+      "startLine": 259,
+      "startColumn": 14,
+      "charLength": 17,
+      "snippet": {
+        "text": "visitTypeVariable"
+      },
+      "sourceLanguage": "JAVA"
+    },
+    "contextRegion": {
+      "startLine": 257,
+      "startColumn": 1,
+      "charOffset": 9764,
+      "charLength": 152,
+      "snippet": {
+        "text": "\n  @Override\n  public void visitTypeVariable(final String name) {\n    visitTypeVariable(name);\n    if (type != TYPE_SIGNATURE || state != State.EMPTY) {"
+      }
+    }
+  },
+  "logicalLocations": [
+    {
+      "fullyQualifiedName": "root.asm-util.main",
+      "kind": "module"
+    }
+  ]
+}
+```
+
+#### The physicalLocation object
+
+```json
+{
+  "physicalLocation": {
+    "artifactLocation": {
+      "uri": "asm-util/src/main/java/org/objectweb/asm/util/CheckSignatureAdapter.java",
+      "uriBaseId": "SRCROOT"
+    },
+    "region": {
+      "startLine": 259,
+      "startColumn": 14,
+      "charLength": 17,
+      "snippet": {
+        "text": "visitTypeVariable"
+      },
+      "sourceLanguage": "JAVA"
+    },
+    "contextRegion": {
+      "startLine": 257,
+      "startColumn": 1,
+      "charOffset": 9764,
+      "charLength": 152,
+      "snippet": {
+        "text": "\n  @Override\n  public void visitTypeVariable(final String name) {\n    visitTypeVariable(name);\n    if (type != TYPE_SIGNATURE || state != State.EMPTY) {"
+      }
+    }
+  }
+}
+```
+
+The `physicalLocation` object contains the following fields:
+
+| Field              | Description                                                                                                                                                                                                                                                                                 |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `artifactLocation` | <p>The [`artifactLocation`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317427) object containing the following fields:</p> <list><li>`uri` denotes the path relative to the project root</li> <li>`uriBaseId` always has the `SRCROOT` value</li> </list> |
+| `region`           | Contains information about the problem location and the snippet that should be highlighted. See the [section below](#The+region+object) for details                                                                                                                                         |
+| `contextRegion`    | Contains information about the text that surrounds the snippet from the `region` field. This field is used for comparing problems in the [baseline](qodana-baseline.xml) mode                                                                                                               |
+
+##### The region object
+
+```json
+{
+  "region": {
+    "startLine": 72,
+    "startColumn": 23,
+    "charOffset": 1852,
+    "charLength": 11,
+    "snippet": {
+      "text": "options.php"
+    },
+    "sourceLanguage": "HTML"
+  }
+}
+```
+
+The [`region`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317685) object
+contains the following fields:
+
+| Field            | Description                                                                                                                                                                                              |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `startLine`      | The line number of the first character in the region. Starts with 1                                                                                                                                      |
+| `startColumn`    | The column number of the first character in the region. Starts with 1, measured in UTF-16 code units                                                                                                     |
+| `charOffset`     | The number of UTF-16 code units between the beginning of the file and the beginning of the region                                                                                                        |
+| `charLength`     | The length of the region, measured in UTF-16 code units                                                                                                                                                  |
+| `snippet`        | The [`artifactContent`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317422) object containing the `text` field with the value equal to the text of the specified region |
+| `sourceLanguage` | Programming language of the inspected snippet. Used for highlighting in the user interface of %product%                                                                                                  |
+
+#### The logicalLocations object
+
+```json
+{
+  "logicalLocations": [
+    {
+      "fullyQualifiedName": "root.asm-util.main",
+      "kind": "module"
+    }
+  ]
+}
+```
+
+The `logicalLocations` object contains the following fields:
+
+| Field                | Description                                            |
+|----------------------|--------------------------------------------------------|
+| `kind`               | Always takes the `module` value                        |
+| `fullyQualifiedName` | The module name obtained from the project build system |
+
+### automationDetails
+
+The [`runAutomationDetails`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317523) object
+provides details of the [`run`](#sarif-run-object) object.
+
+```json
+{
+  "automationDetails": {
+    "id": "project/qodana/2022-09-12",
+    "guid": "bc9770e3-0cf4-4e46-a8fd-455e5bf116a2",
+    "properties": {
+      "jobUrl": "https://build.example.org/job/12345678",
+      "tags": [
+        "jobUrl"
+      ]
+    }
+  }
+}
+```
+
+The `automationDetails` object contains the following fields:
+
+| Field        | Description                                                                                                          |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| `id`         | User-readable string, unique per report                                                                              |
+| `guid`       | Unique machine-readable report ID                                                                                    |
+| `properties` | Additional information about the run, for %product%, it contains the URL of the CI/CD build that produced the report |
+
+### newlineSequences
+
+The [`newlineSequences`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317510) array
+contains unique strings, each of which specifies a character sequence that %product% treated as a line break during a run.
+
+```json
+{
+  "newlineSequences": [
+    "\r\n",
+    "\n"
+  ]
+}
+```
+
+### properties
+
+In addition to the inspections configured in the inspection profile,
+%product% runs a few extra inspections for sanity-checking the project configuration.
+If these extra inspections find any problems, the project configuration is probably wrong.
+The results of these extra inspections are recorded in the `qodana.sanity.results` property in the same format as the
+regular [`result`](#results) objects.
+
+```json
+{
+  "properties": {
+    "qodana.sanity.results": [
+      {
+        "ruleId": "JavaAnnotator",
+        "kind": "fail",
+        "level": "error",
+        "message": {
+          "text": "Variable 'points' might not have been initialized",
+          "markdown": "Variable 'points' might not have been initialized"
+        },
+        "locations": [
+          {
+            "physicalLocation": {
+              "artifactLocation": {
+                "uri": "core/src/main/java/com/google/zxing/datamatrix/detector/Detector.java",
+                "uriBaseId": "SRCROOT"
+              },
+              "region": {
+                "startLine": 52,
+                "startColumn": 41,
+                "charOffset": 1772,
+                "charLength": 6,
+                "snippet": {
+                  "text": "points"
+                },
+                "sourceLanguage": "JAVA"
+              },
+              "contextRegion": {
+                "startLine": 50,
+                "startColumn": 1,
+                "charOffset": 1670,
+                "charLength": 180,
+                "snippet": {
+                  "text": "    ResultPoint[] cornerPoints = rectangleDetector.detect();\n\n    ResultPoint[] points = detectSolid2(points);\n    points[3] = correctTopRight(points);\n    if (points[3] == null) {"
+                }
+              }
+            },
+            "logicalLocations": [
+              {
+                "fullyQualifiedName": "core",
+                "kind": "module"
+              }
+            ]
+          }
+        ],
+        "partialFingerprints": {
+          "equalIndicator/v1": "2bf8eae4ff0d22f23008fe342fb1cfc67aa4f6db9b276e16ba621c77e3fda618"
+        },
+        "properties": {
+          "ideaSeverity": "ERROR"
+        }
+      }
+    ]
+  }
+}
+```
+
+## SARIF severity
+
+The [SARIF severity values](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317648)
+correspond to severity values of IntelliJ IDEA:
+
+* `error` corresponds to the `ERROR` severity of IntelliJ IDEA, errors are marked with red in the %product% user interface
+* `warning` corresponds to the `WARNING` severity of IntelliJ IDEA, errors are marked with orange in the %product% user interface
+* `note` in any other cases besides `error` and `warning`, errors are marked with yellow in the %product% user interface
+
+The original IntelliJ IDEA inspection severity is stored in the `propertyBag` field of the same object.

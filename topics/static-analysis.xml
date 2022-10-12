@@ -22,7 +22,7 @@
         customers satisfied.</p>
 
     <p>To sum up, static analysis mechanism of Qodana is an efficient way for keeping your software quality under
-        control. You can observe the list of currently <a href="supported-technologies.md">supported technologies</a>,
+        control. You can observe the list of currently <a href="linters.md">supported technologies</a>,
         but keep in mind that this list will be growing over time.</p>
 
 </topic>

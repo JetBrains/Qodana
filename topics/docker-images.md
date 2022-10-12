@@ -1,7 +1,7 @@
 [//]: # (title: Qodana Docker images)
 
 Basically, names of Docker images are similar to the names of linters. The following Docker images are provided 
-for [Qodana linters](supported-technologies.md):
+for [Qodana linters](linters.md):
 
 - [](qodana-jvm-docker-readme.xml)
 - [](qodana-jvm-community-docker-readme.xml)

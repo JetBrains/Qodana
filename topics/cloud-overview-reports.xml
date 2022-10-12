@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Overview reports"
+       id="cloud-overview-reports">
+
+    <p>Information from project reports is aggregated and displayed in several fields.</p>
+
+        <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report sample" width="296" border-effect="line" title="Qodana Cloud report sample"/>
+
+        <p>This sample project contains the following fields:</p>
+
+    <list>
+        <li>Project name and location. Location is displayed if a project is hosted on a publicly available repository
+            like GitHub.</li>
+        <li>Branch name.</li>
+        <li>Commit hash.</li>
+        <li>Date and time of the latest Qodana inspection.</li>
+        <li>Number of problems detected and severity expressed as a circle. The circle color reflects the severity of
+            the major part of detected problems. You can click this element to open the report.</li>
+    </list>
+
+    <tip>Projects without uploaded reports can be deleted.</tip>
+
+    <p>This table shows how %product_cloud% interprets and displays several reports (or bars in the bar chart) depending
+        on their metadata.</p>
+
+    <table>
+        <tr>
+            <td>Branch name</td>
+            <td>Commit time</td>
+            <td>Commit hash</td>
+            <td>Displays</td>
+        </tr>
+        <tr>
+            <td>Same</td>
+            <td>Same</td>
+            <td>N/A</td>
+            <td>The latest report and overwrites the previous reports</td>
+        </tr>
+        <tr>
+            <td>Same</td>
+            <td>Different</td>
+            <td>N/A</td>
+            <td>Separate reports</td>
+        </tr>
+        <tr>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Same</td>
+            <td>Single report</td>
+        </tr>
+    </table>
+
+    <p>To see all reports related to the project, click the project name. This will open the Qodana report page. </p>
+
+    <img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
+
+    <p>The upper part of the report provides a timeline containing the number of problems detected per each inspection.
+        Here, you can examine the absolute number of problems detected, or the number of problems relatively to a
+        <a href="https://www.jetbrains.com/help/qodana/qodana-baseline.html">baseline</a>.</p>
+
+    <img src="qc-report-timeline.png" dark-src="qc-report-timeline_dark.png" width="296" alt="Report timeline" border-effect="line"/>
+
+    <p>The report components below the timeline are described in the
+        <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a> section on the
+        Qodana documentation portal.</p>
+
+
+</topic>

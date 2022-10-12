@@ -62,7 +62,7 @@ The `<output-directory>` will contain [all the necessary results](clone-finder-o
 
 If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in `docker run` again.
 
-By default, Qodana Clone Finder searches clones in all [supported languages](supported-technologies.md) but you can explicitly specify languages to search. See [technical guide](clone-finder-docker-techs.md) for details.
+By default, Qodana Clone Finder searches clones in all [supported languages](linters.md) but you can explicitly specify languages to search. See [technical guide](clone-finder-docker-techs.md) for details.
 
 If reference projects are not located under the same root directory, you can use the following options to map them inside the container:
 ``` -v "<local path to project for comparison>/<project name>:/data/versus/<project name>" ```

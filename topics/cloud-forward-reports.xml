@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Forward reports"
+       id="cloud-forward-reports">
+
+    <var name="GitHubLink" value="docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+    <var name="GitLabLink" value="docs.gitlab.com/ee/ci/variables/"/>
+    <var name="JenkinsLink" value="www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
+    <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
+    <var name="SpaceAutomationLink" value="www.jetbrains.com/help/space/automation-concepts.html#what-is-space-automation"/>
+
+        <p>This chapter explains how to configure the following products for forwarding Qodana reports to %product_cloud%:</p>
+
+        <list>
+            <li><a anchor="cloud-forward-reports-local-run">Docker</a></li>
+            <li><a anchor="cloud-forward-reports-github-actions">GitHub Actions</a></li>
+            <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI/CD</a></li>
+            <li><a anchor="cloud-forward-reports-jenkins">Jenkins</a></li>
+            <li><a anchor="cloud-forward-reports-space-automation">Space Automation</a></li>
+            <li><a anchor="cloud-forward-reports-teamcity">TeamCity</a></li>
+        </list>
+
+    <chapter id="cloud-forward-reports-local-run" title="Docker">
+
+        <p>This is the CLI command to inspect your code and forward the report to %product_cloud% using the Dockerized
+            version of Qodana:</p>
+
+        <code style="block" lang="bash" prompt="$">
+            docker run \
+              -v $(pwd)/project/:/data/project/ \
+              -e QODANA_TOKEN=&lt;qodana_cloud_token&gt; \
+              jetbrains/qodana-&lt;linter&gt;
+        </code>
+
+        <p>In this snippet, the <code style="inline" lang="bash">QODANA_TOKEN</code> environment variable specifies the
+            <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> of Qodana Cloud. </p>
+
+        <p> </p>
+    </chapter>
+
+    <chapter id="cloud-forward-reports-github-actions" title="GitHub Actions">
+
+        <p>To start receiving Qodana reports using GitHub Actions, create an
+            <a href="https://%GitHubLink%">encrypted secret</a> with the <code>QODANA_TOKEN</code> name.</p>
+
+        <p>Add this snippet to the <a href="https://www.jetbrains.com/help/qodana/github.html#Basic+configuration">workflow</a>:</p>
+
+        <code style="block" lang="yaml">
+            - name: 'Qodana Scan'
+              uses: JetBrains/qodana-action@main
+              env:
+                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code>
+
+        <p>To learn more, see the <a href="https://www.jetbrains.com/help/qodana/github.html">GitHub Actions</a> section of
+            the Qodana documentation portal.</p>
+
+    </chapter>
+
+    <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI/CD">
+
+        <p>To forward Qodana reports using GitLab CI/CD, define the <code>QODANA_TOKEN</code>
+            <a href="https://%GitLabLink%">variable</a> in your repository.</p>
+
+        <p>Add this snippet to your CI/CD pipeline:</p>
+
+        <code style="block" lang="yaml">
+            qodana:
+             image:
+               name: jetbrains/qodana-&lt;linter&gt;
+               entrypoint: ['']
+             script:
+               - qodana --results-dir=$CI_PROJECT_DIR/qodana
+                --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
+             artifacts:
+               paths:
+                 - qodana
+        </code>
+    </chapter>
+
+    <chapter id="cloud-forward-reports-jenkins" title="Jenkins">
+
+        <p>This is the Jenkins Pipeline sample for forwarding Qodana reports to
+            %product_cloud%.</p>
+
+        <code style="block" lang="groovy">
+            stage('Qodana') {
+                agent {
+                    docker {
+                        image 'jetbrains/qodana-&lt;linter&gt;'
+                        args '-v &lt;project-directory&gt;:/data/project/'
+                        args '--entrypoint=""'
+                    }
+                }
+                environment {
+                    QODANA_TOKEN = credentials('qodana-token')
+                }
+                steps {
+                    sh "qodana --save-report"
+                }
+            }
+        </code>
+
+        <p>This sample defines the <code>QODANA_TOKEN</code> <a href="https://%JenkinsLink%">environment variable</a> to
+            contain the %product_cloud% project token. </p>
+    </chapter>
+
+    <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
+
+        <p>To forward Qodana reports using Space Automation, create the <code>.space.kts</code> file in the root
+            directory of your repository, and save the following code snippet into this file:</p>
+
+        <code style="block" lang="kotlin">
+            job("Qodana") {
+                // For example: "jetbrains/qodana-jvm-community:2021.3"
+                container("jetbrains/qodana-&lt;linter&gt;:&lt;tag&gt;") {
+                    // https://www.jetbrains.com/help/space/secrets-and-parameters.html
+                    env["QODANA_TOKEN"] = Secrets("qodana-token")
+                    shellScript {
+                        content = """
+                           QODANA_REPO_URL="${'$'}JB_SPACE_API_URL/p/${'$'}JB_SPACE_PROJECT_KEY/repositories/${'$'}JB_SPACE_GIT_REPOSITORY_NAME" \
+                           QODANA_BRANCH=${'$'}JB_SPACE_GIT_BRANCH \
+                           QODANA_REVISION=${'$'}JB_SPACE_GIT_REVISION \
+                           QODANA_ENV="space" \
+                           qodana
+                        """.trimIndent()
+                    }
+                }
+            }
+        </code>
+
+        <p>To learn more about customization of Space Automation jobs, explore the
+            <a href="https://%SpaceAutomationLink%">What is Space Automation?</a> section of the JetBrains Space
+            documentation.</p>
+    </chapter>
+
+    <chapter id="cloud-forward-reports-teamcity" title="TeamCity">
+
+            <p>To configure TeamCity to forward Qodana reports to %product_cloud%, follow these steps:</p>
+
+            <procedure>
+                <step>Create the <code>QODANA_TOKEN</code> environment variable and define it as
+                    <a href="https://%TeamCityLink%">password</a>.</step>
+                <step>Open the build step.</step>
+                <step><p>Specify <code style="inline" lang="bash" interpolate-variables="false">-e QODANA_TOKEN=%env.QODANA_TOKEN%</code> in
+                    the <menupath>Additional arguments for 'docker run'</menupath> field. </p>
+                    <img src="cloud-forward-reports-teamcity.png" width="460" alt="Configuring fields in TeamCity" border-effect="line"/>
+                </step>
+            </procedure>
+            <p>If necessary, repeat this configuration. For example, besides code inspection you may want to configure
+                Clone Finder or License audit features on the same runner.</p>
+        </chapter>
+
+</topic>

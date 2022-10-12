@@ -14,7 +14,7 @@
     <p>Inspection of your code will depend on:
         <list>
             <li>How you are going to <a href="deploy-qodana.xml">deploy %product%</a></li>
-            <li>What <a href="supported-technologies.md">linter</a> you are going to run</li>
+            <li>What <a href="linters.md">linter</a> you are going to run</li>
         </list>
     </p>
 

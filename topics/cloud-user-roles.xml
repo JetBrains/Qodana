@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="User roles"
+       id="cloud-user-roles">
+
+    <p>The role assigned to your %product_cloud% account will depend on the case.</p>
+
+    <table>
+        <tr>
+            <td>Case</td>
+            <td>Role assigned</td>
+            <td>Permissions</td>
+        </tr>
+        <tr>
+            <td>You do not have an account yet.</td>
+            <td>Viewer</td>
+            <td>Overview organizations, teams and their users, projects and their reports.</td>
+        </tr>
+        <tr>
+            <td>You joined an existing organization</td>
+            <td>Administrator or Editor</td>
+            <td>Viewer's permissions, as well as creating teams and projects.</td>
+        </tr>
+        <tr>
+            <td>You created an organization</td>
+            <td>Administrator</td>
+            <td>Manage organizations, teams, their users, projects and project reports. Complete deletion of all these
+                entities from %product_cloud%</td>
+        </tr>
+
+
+    </table>
+
+
+
+
+
+</topic>

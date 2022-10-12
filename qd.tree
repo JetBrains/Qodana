@@ -15,7 +15,7 @@
         <toc-element id="components.xml">
             <toc-element id="static-analysis.xml"/>
             <!-- Code inspections and supported technologies need to be combined into one -->
-            <toc-element id="supported-technologies.md">
+            <toc-element id="linters.md" accepts-web-file-names="supported-technologies.html">
                 <toc-element id="qodana-jvm.md"/>
                 <toc-element id="qodana-jvm-community.md"/>
                 <toc-element id="qodana-jvm-android.md"/>
@@ -97,10 +97,36 @@
     <toc-element id="ci.md">
         <toc-element id="qodana-azure-pipelines.md"/>
         <toc-element id="circleci.md"/>
-        <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.md"/>
+        <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.html"/>
         <toc-element id="gitlab.md"/>
         <toc-element id="jenkins.md"/>
         <toc-element id="teamcity.md" accepts-web-file-names="teamcity-plugins.html"/>
+    </toc-element>
+
+    <toc-element id="cloud-about.xml" toc-title="Qodana Cloud">
+        <toc-element toc-title="Introduction" expand-mode="expand">
+            <toc-element id="cloud-use-cases.xml" toc-title="Use cases"/>
+            <toc-element id="cloud-get-access.xml"/>
+            <toc-element id="cloud-user-roles.xml"/>
+        </toc-element>
+
+        <toc-element toc-title="Running Qodana Cloud">
+            <toc-element id="cloud-running-introduction.xml"/>
+            <toc-element id="cloud-teams.xml"/>
+            <toc-element id="cloud-projects.xml"/>
+
+            <toc-element toc-title="Reports" expand-mode="expand">
+                <toc-element id="cloud-forward-reports.xml"/>
+                <toc-element id="cloud-overview-reports.xml"/>
+            </toc-element>
+        </toc-element>
+
+        <toc-element toc-title="Configuration" expand-mode="expand">
+            <toc-element id="cloud-manage-your-account.xml" toc-title="Account">
+                <toc-element id="cloud-organizations.xml"/>
+                <toc-element id="cloud-profile-settings.xml"/>
+            </toc-element>
+        </toc-element>
     </toc-element>
 
     <toc-element title="Extending Qodana" id="extending-qodana.xml">

@@ -4,7 +4,7 @@ Starting from `2022.04`, Qodana functionality is available in TeamCity by defaul
 need to be met:
 
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
-- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html).
+- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/linters.html).
 
 <note>Currently, running Qodana on Windows-based build agents of TeamCity is not supported.</note>
 
@@ -39,7 +39,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
    the [Test](https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab) tab of TeamCity UI. Using this 
    option, you can overview codebase problems along with other problems detected during the build. 
 
-   **Linter** configures the [Qodana Linter](supported-technologies.md).
+   **Linter** configures the [Qodana Linter](linters.md).
 
    **Version** is by default set to `Latest`.
 

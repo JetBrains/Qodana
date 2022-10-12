@@ -9,7 +9,7 @@ To be able to run Qodana in Jenkins, make sure that the [Docker](https://plugins
 
 Below is the Pipeline stage that invokes the `docker` agent with the following configuration:
 
-* `image` instructs to pull the Qodana Docker image, and `qodana-<linter>` here specifies the required Qodana [linter](supported-technologies.md).
+* `image` instructs to pull the Qodana Docker image, and `qodana-<linter>` here specifies the required Qodana [linter](linters.md).
 * `args` provide arguments for binding the project root and report directories to the Qodana image.
 
 ```groovy

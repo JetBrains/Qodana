@@ -43,7 +43,7 @@
 
     <chunk id="supported-techs">
         The current version of %product% (%product-version%) lets you analyze
-        <a href="supported-technologies.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects.
+        <a href="linters.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects.
         Eventually, all languages and technologies covered by JetBrains IDEs will be added.
     </chunk>
 
@@ -950,7 +950,7 @@
                 <code filter="non-gs" style="block" prompt="$">qodana scan -l %docker-image% --show-report</code>
             </tab>
             <tab id="docker-image-tab" title="Docker image">
-                <p filter="gs-only">Start with any of the <a href="supported-technologies.md">provided linters</a>. For all linters the
+                <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
                     procedure is basically the same.</p>
                 <p filter="non-gs">To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
                 <code filter="non-gs" style="block" lang="shell" prompt="$">
@@ -1026,7 +1026,7 @@
         <warning>
             The Qodana License audit linter is deprecated. You can inspect
             <a href="license-audit.xml">compatibility of dependency licenses</a> using technology-specific
-            <a href="supported-technologies.md">Qodana linters</a>.
+            <a href="linters.md">Qodana linters</a>.
         </warning>
     </chunk>
 

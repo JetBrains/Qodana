@@ -2,7 +2,7 @@
 
 Download and install the [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana) from JetBrains Marketplace on your TeamCity server or contact the server's administrator to do this.
 
-With the plugin installed, add the Qodana runner to your build. If your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html), no further preparation is needed. You can run your first analysis with the default settings right away.
+With the plugin installed, add the Qodana runner to your build. If your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/linters.html), no further preparation is needed. You can run your first analysis with the default settings right away.
 
 <img src="qodana-build-runner.png" width="641" alt="Qodana Build Runner" border-effect="line"/>  
 

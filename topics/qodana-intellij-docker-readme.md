@@ -12,7 +12,7 @@
 </p>
 </warning>
 
-The Docker image for the [Qodana IntelliJ linter](supported-technologies.md) is provided to support different usage scenarios:
+The Docker image for the [Qodana IntelliJ linter](linters.md) is provided to support different usage scenarios:
 - Running the analysis on a regular basis as part of your continuous integration (*CI-based execution*)
 - Single-shot analysis (for example, performed *locally*).
 

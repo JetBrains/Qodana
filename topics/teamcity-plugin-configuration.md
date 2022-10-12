@@ -7,7 +7,7 @@ The main Qodana functionality comes from the 'engine' shaped into the Docker ima
 ### Prerequisites
 
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
-- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/supported-technologies.html).
+- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/linters.html).
 - The [Qodana plugin](https://plugins.jetbrains.com/plugin/15498-qodana) is installed on your TeamCity server (you can do it yourself or contact the server's administrator to do this).
 
 

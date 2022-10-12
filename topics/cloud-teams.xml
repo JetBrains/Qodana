@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Teams"
+       id="cloud-teams">
+
+    <p>Inside <a href="cloud-organizations.xml">organizations</a>, you can create teams for grouping users around dedicated projects.
+        Here are some basic advantages of using teams:</p>
+
+    <list>
+        <li>You can combine several projects under a single team to provide a convenient way for navigation.</li>
+        <li>You can share specific projects among %product_cloud% users that are part of a team.</li>
+    </list>
+
+    <p>To create a team, in the upper-right corner of the organization page click <menupath>Create team</menupath>. </p>
+
+    <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create team button" width="706" border-effect="line"/>
+
+    <p>After clicking, the <menupath>New team</menupath> dialog window will open. </p>
+
+    <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="Creating a team" width="706" border-effect="line"/>
+
+    <p>After creating, you can get access to the team from the left sidebar of the %product_cloud% UI. </p>
+
+    <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing team" width="706" border-effect="line"/>
+
+    <p>Based on the existing team, you can create new <a href="cloud-projects.xml">projects</a> associated with it.</p>
+
+    <p>To manage team members, click the upper-right corner of the team and select <menupath>Invite members</menupath>.
+    If you wish to delete (archive) the team, click <menupath>Archive team</menupath>.</p>
+
+    <img src="qc-manage-team-members.png" dark-src="qc-manage-team-members_dark.png" width="460" alt="Managing team members" border-effect="line"/>
+
+</topic>

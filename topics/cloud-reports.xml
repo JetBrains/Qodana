@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Reports"
+       id="cloud-reports">
+
+    <p>This tab contains the list of reports uploaded to your %product_cloud% account.</p>
+
+    <!-- What does pin do here? -->
+    <!-- What is the purpose of this section? -->
+
+    <img src="qc-settings-reports.png" alt="List of Qodana reports" width="706" border-effect="line" title="List of Qodana reports"/>
+</topic>

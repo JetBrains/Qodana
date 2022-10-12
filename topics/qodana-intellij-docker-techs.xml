@@ -215,7 +215,7 @@
 </code>
         </chapter>
         <chapter id="Manage+plugins" title="Manage plugins">
-            <p>The set of plugins depends on the selected <a href="supported-technologies.md">Qodana linter</a>.</p>
+            <p>The set of plugins depends on the selected <a href="linters.md">Qodana linter</a>.</p>
             <p>You can add any free IntelliJ platform plugins or your custom plugin by using the following command:</p>
             <code style="block" lang="shell">docker run ... -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% jetbrains/qodana
 </code>

@@ -7,7 +7,7 @@
        id="Quick-start.xml">
 
     <p>The current version of %product% (%product-version%) provides linters that let you analyze
-        <a href="supported-technologies.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects. In addition,
+        <a href="linters.md">Java, Kotlin, PHP, Python, JavaScript, and TypeScript</a> projects. In addition,
         you can inspect your code for duplicate functions and incompatible licenses used in your project. </p>
 
     <chapter title="Analyze a project locally" id="quickstart-analyze-project-locally">
@@ -133,7 +133,7 @@
             </tab>
         </tabs>
 
-        <p>The detailed information about %product% linters is available in the <a href="supported-technologies.md"/> section.</p>
+        <p>The detailed information about %product% linters is available in the <a href="linters.md"/> section.</p>
     </chapter>
 
     <chapter title="Next steps" id="quick-start-next-steps">

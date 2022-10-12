@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Projects"
+       id="cloud-projects.xml">
+
+    <p>Projects let you combine multiple Qodana reports, where each report contains the result of running Qodana
+        on a project. </p>
+
+    <p>To create a project, navigate to an organization page and click <menupath>Create first project</menupath>.</p>
+
+    <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
+
+    <chapter id="cloud-manage-projects" title="Manage a project">
+
+    <p>After the project was created, you can generate the project token. To do this, click
+        <menupath>Generate token</menupath>. For more information about using project tokens, see the
+        <a href="cloud-forward-reports.xml"/> section.</p>
+
+    <img src="qc-generate-token.png" dark-src="qc-generate-token_dark.png" alt="Generating the project token" width="460" border-effect="line"/>
+
+    <p>Once the token is generated, you can regenerate it, rename the project, or delete
+        (archive) the project. To have access to any of these actions, click the upper-right corner of the project.</p>
+
+    <img src="qc-project-options.png" dark-src="qc-project-options_dark.png" width="706" alt="Available project options" border-effect="line"/>
+
+    </chapter>
+
+</topic>

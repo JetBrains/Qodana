@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Profile"
+       id="cloud-profile-settings">
+
+    <p>Using this tab, you can select the theme for your %product_cloud% UI or log out from %product_cloud%. </p>
+
+    <img src="qc-profile-settings.png" alt="Profile settings" width="460" border-effect="line" title="Profile settings"/>
+
+
+
+</topic>

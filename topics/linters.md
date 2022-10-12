@@ -1,21 +1,21 @@
-[//]: # (title: Qodana linters)
+[//]: # (title: Linters)
 
-[![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its quality and 
+can cause problems. Basically, each Qodana linter associated with a specific programming language 
+helps:
 
-Qodana is more than a static analysis plugin/UI/CI linter. It is a platform that allows companies to perform multi-level 
-evaluations of the quality of code they own, contract, or purchase.
+* Detect anomalous code and probable bugs
+* Eliminate dead code
+* Highlight spelling problems
+* Improve overall code structure
+* Introduce coding best practices
 
-First, it does help improve code without relying on an IDE, either on a local machine or a build server, and it is 
-designed to be seamlessly integrated into [CI/CD pipelines](ci.md).
-
-Second, on top of the IntelliJ Inspection functionality, Qodana is extending its number of linters to provide a 
-complete audit of your project.
-
-Third, using Qodana Cloud, you can aggregate and analyze inspection results from a single point.  
+Starting from version 2022.3, Qodana reads `.gitignore` files of your project and defines the files and folders to be 
+ignored during inspections.
 
 Here is an overview of %product% linters for inspecting your projects.
 
-### JVM-based languages
+## JVM-based languages
 
 %product% provides several linters for inspecting JVM-based projects.
 
@@ -51,7 +51,7 @@ Here is an overview of %product% linters for inspecting your projects.
     </tr>
 </table>
 
-### PHP
+## PHP
 
 The [](qodana-php.md) linter is based on [PhpStorm](https://www.jetbrains.com/phpstorm) and supports:
 
@@ -59,22 +59,20 @@ The [](qodana-php.md) linter is based on [PhpStorm](https://www.jetbrains.com/ph
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
 * Code inspection while migrating to a new [language version](qodana-php-language-upgrade.xml)
 
-### Python
+## Python
 
 The [](qodana-python.md) linter is based on [PyCharm Professional](https://www.jetbrains.com/pycharm) and supports:
 
 * Python language inspections from PyCharm Professional
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
 
-### JavaScript and TypeScript
+## JavaScript and TypeScript
 
 The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/webstorm) and supports:
 
 * JavaScript and TypeScript language inspections from WebStorm
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
 
-### Clone detection
+## Clone detection
 
 The [Qodana Clone Finder](about-clone-finder.md) linter lets you detect code duplicates across different projects.
-
-
