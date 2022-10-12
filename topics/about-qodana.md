@@ -65,6 +65,11 @@ You can run %product% [locally](Quick-start.xml) in a standalone mode using a PC
 your code within a [CI/CD pipeline](ci.md) means that your code will be inspected by %product% as part of a 
 building and/or deployment process.
 
+## Qodana Cloud
+
+[Qodana Cloud](cloud-about.xml) is a cloud-based solution that helps you accumulate various Qodana reports and track the 
+progress in your project(s) from a single point.
+
 ## Qodana playground
 
 [Qodana Playground](https://qodana.teamcity.com/overview?mode=builds) is a sandbox environment that runs in TeamCity, 

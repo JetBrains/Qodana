@@ -10,17 +10,17 @@
            goals, you may want to start using several features that are available out of the box: </p>
 
         <list>
-                <li><a href="qodana-baseline.xml">Baseline</a> lets you group the whole bunch of existing code problems
-                        into several categories to efficiently monitor your code evolution. </li>
-                <li><a href="quality-gate.xml">Quality gate</a> helps you ensure that your code contains the minimum
-                number of problems or is completely free of them. If combined with the baseline, this feature will make
-                your code quality monitoring even more flexible.</li>
-                <li>The <a href="qodana-php-language-upgrade.xml">PHP version migration</a> feature lets you monitor
-                problems specific to a specific PHP version that may arise when you decide to migrate between versions.</li>
+            <li><a href="qodana-baseline.xml">Baseline</a> lets you group the existing code problems
+                    into several categories to efficiently monitor your code evolution. </li>
+            <li><a href="quality-gate.xml">Quality gate</a> helps you ensure that your code contains the minimum
+            number of problems or is completely free of them. If combined with the baseline, this feature will make
+            your code quality monitoring even more flexible.</li>
+            <li>The <a href="qodana-php-language-upgrade.xml">PHP version migration</a> feature lets you monitor
+            problems specific to a specific PHP version that may arise when you decide to migrate between versions.</li>
+            <li><a href="license-audit.xml">License audit</a> lets you verify your project license for compatibility
+            with the licenses of its dependencies. </li>
         </list>
 
-        <!-- For discussion: I think each parameter is a feature, so we should probably move this section to the how-to section -->
-
-        <p>With time, this list will be extended with new feature guides.</p>
+        <p>You can overview the %product% reports from all your projects using <a href="cloud-about.xml">Qodana Cloud</a>.</p>
 
 </topic>
