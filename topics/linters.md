@@ -2,11 +2,16 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-Qodana is more than a static analysis plugin/UI/CI linter. It is a platform that allows companies to perform multi-level evaluations of the quality of code they own, contract, or purchase.
+Qodana is more than a static analysis plugin/UI/CI linter. It is a platform that allows companies to perform multi-level 
+evaluations of the quality of code they own, contract, or purchase.
 
-First, it does help improve code without relying on an IDE, either on a local machine or a build server, and it is designed to be seamlessly integrated into CI/CD pipelines or delivered as a cloud service.
+First, it does help improve code without relying on an IDE, either on a local machine or a build server, and it is 
+designed to be seamlessly integrated into [CI/CD pipelines](ci.md).
 
-Second, on top of the IntelliJ Inspection functionality, Qodana is extending its number of linters to provide a complete Project Audit. 
+Second, on top of the IntelliJ Inspection functionality, Qodana is extending its number of linters to provide a 
+complete audit of your project.
+
+Third, using Qodana Cloud, you can aggregate and analyze inspection results from a single point.  
 
 Here is an overview of %product% linters for inspecting your projects.
 

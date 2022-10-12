@@ -40,7 +40,6 @@
             <toc-element id="qodana-jvm-docker-readme.xml"/>
             <toc-element id="qodana-jvm-community-docker-readme.xml"/>
             <toc-element id="qodana-jvm-android-docker-readme.xml"/>
-            <toc-element id="qodana-intellij-docker-readme.md"/>
             <toc-element id="qodana-php-docker-readme.xml"/>
             <toc-element id="qodana-python-docker-readme.xml"/>
             <toc-element id="qodana-js-docker-readme.xml"/>
@@ -64,7 +63,6 @@
             <toc-element id="qodana-jvm-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-jvm-community-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-jvm-android-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="qodana-intellij-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-php-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-python-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
