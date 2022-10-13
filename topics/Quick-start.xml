@@ -19,7 +19,7 @@
         <tabs>
             <tab title="Qodana CLI" id="qodana-cli-tab">
                 <procedure id="qodana-cli-tab-procedure">
-                    <step>Install Qodana CLI on your machine using available options:
+                    <step><p>Install Qodana CLI on your machine using available options:</p>
                         <tabs>
                             <tab title="macOS and Linux">
                                 <p>Install with <a href="https://brew.sh/">Homebrew</a> (recommended):</p>
@@ -142,7 +142,7 @@
             <li><a href="github.md">Run %product% on GitHub</a></li>
             <li><a href="qodana_plugins.md">Extend your IDE using plugins</a></li>
             <li><a href="ci.md">Explore how you can integrate %product% into your CI/CD system</a></li>
-            <li><a href="service.md">Use %product% as a Service</a></li>
+            <li><a href="cloud-about.xml">Overview inspection results using Qodana Cloud</a></li>
         </list>
     </chapter>
 

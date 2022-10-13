@@ -52,6 +52,8 @@ This diagram describes several steps:
    * <a href="qodana-sarif-output.md">JSON files</a> formatted according to the SARIF specification
    * <a href="ui-overview.md">Interactive HTML reports</a>
 
+   You can overview inspection results for all your projects using [Qodana Cloud](cloud-about.xml). 
+
 4. Based on the inspection results, you can improve your code using your IDE, and run %product% again to track the 
 progress.  
 

@@ -6,22 +6,20 @@
        title="Static analysis"
        id="static-analysis">
 
-    <p>Qodana implements the static analysis mechanism to automatically analyze your codebase without your participation.
-        This means that you just run Qodana to inspect your code and expect recommendations on how you could improve
+    <p>%product% implements the static analysis mechanism to automatically analyze your codebase without your participation.
+        This means that you just run %product% to inspect your code and expect recommendations on how you could improve
         your codebase. No other actions like running additional scripts, downloading external libraries, or any
         additional configuring is required.</p>
 
-    <p>The second fact about static analysis says that your software can be explored by Qodana without building and
+    <p>The second fact about static analysis says that your software can be explored by %product% without building and
         deploying your software because code inspection is carried out on the codebase basis. So, no other activities are
     required from this side either.</p>
 
     <p>Once the static analysis stage is complete, you can explore vulnerabilities and faults in your code and see exact
-        lines where Qodana detected imperfections. Qodana is equipped with multitude of
-        <a href="code-inspections.xml">inspections</a> responsible for detecting particular problems. Of course, this
-        happens before your software causes disaster, which in turn saves you a lot of nerves, money, and keeps your
-        customers satisfied.</p>
+        lines where %product% detected imperfections. %product% is equipped with multitude of
+        <a href="code-inspections.xml">inspections</a> responsible for detecting particular problems.</p>
 
-    <p>To sum up, static analysis mechanism of Qodana is an efficient way for keeping your software quality under
+    <p>To sum up, static analysis mechanism of %product% is an efficient way for keeping your software quality under
         control. You can observe the list of currently <a href="linters.md">supported technologies</a>,
         but keep in mind that this list will be growing over time.</p>
 

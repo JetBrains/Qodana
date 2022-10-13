@@ -1006,13 +1006,12 @@
     <chunk id="license-audit-deprecation-note">
         <warning>
             The Qodana License audit linter is deprecated. You can inspect
-            <a href="license-audit.xml">compatibility of dependency licenses</a> using technology-specific
-            <a href="linters.md">Qodana linters</a>.
+            <a href="license-audit.xml">compatibility of dependency licenses</a> using technology-specific Qodana linters.
         </warning>
     </chunk>
 
     <chunk id="qodana-deployment-options">
-        <p>%product% provides several deployment options to best fit your needs:</p>
+        <p>%product% provides several deployment options to better fit your needs:</p>
         <list>
             <li><a href="docker-images.md">Docker images</a> are the universal format suitable for inspecting
                 <a href="Quick-start.xml">local projects</a> and integration into CI/CD pipelines.</li>
