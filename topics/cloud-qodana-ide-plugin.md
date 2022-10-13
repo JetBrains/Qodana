@@ -20,7 +20,7 @@ using [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16938-qodana)
 
 ## Plugin overview
 
-Functionality of this plugin is available in the **Qodana** tab of the **Problems** window located in the lower left part 
+Functionality of this plugin is available in the **Qodana** tab of the **Problems** window located in the lower-left part 
 of the IDE user interface, and it becomes visible after you open a report. 
 
 After opening, the **Qodana** tab shows the list of problems that were detected by Qodana.
@@ -33,7 +33,7 @@ If you click an item in this list, you can navigate to the highlighted code frag
 
 <anchor name="tab-overview-buttons"/>
 
-In the upper left corner of this tab, you can find the **Log in to Qodana** and **Link project with Cloud** buttons.
+In the upper-left corner of this tab, you can find the **Log in to Qodana** and **Link project with Cloud** buttons.
 
 <img src="cloud-plugin-tab-overview-2.png" dark-src="cloud-plugin-tab-overview-2_dark.png" width="706" alt="The Qodana tab buttons" border-effect="line"/>
 

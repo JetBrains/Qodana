@@ -14,6 +14,8 @@
         <li>You can share specific projects among Qodana Cloud users that are part of a team.</li>
     </list>
 
+    <note>You cannot create teams in your private organization.</note>
+
     <p>To create a team, in the upper-right corner of the organization page click <menupath>Create team</menupath>. </p>
 
     <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create team button" width="706" border-effect="line"/>

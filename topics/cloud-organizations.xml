@@ -12,11 +12,8 @@
         several teams, users, and projects. Each Qodana Cloud user can be a member of several
         organizations.</p>
 
-    <p>By default, a private organization is assigned to your account. This
-        lets you create projects and aggregate Qodana reports without joining any other organizations or a capability
-    to create other organizations.</p>
-
-    <p></p>
+    <p>By default, a private organization is assigned to your account. This already lets you create projects and
+        aggregate Qodana reports without joining or creating any other organizations.</p>
 
     <p>The <menupath>Organizations</menupath> tab of the <menupath>Settings</menupath> section contains a list of
         organizations that your account is associated with.</p>

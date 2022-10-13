@@ -54,7 +54,7 @@ homepage will open. Here, you can overview reports of publicly available and dem
 
 <img src="qc-viewer-role.png" alt="Qodana Cloud UI overview" width="706" border-effect="line" title="Qodana Cloud UI overview"/>
 
-To create an account at Qodana Cloud, click the **Log in** button in the upper right corner of the UI.
+To create an account at Qodana Cloud, click the **Log in** button in the upper-right corner of the UI.
 
 <img src="qc-viewer-role-login.png" alt="Qodana Cloud login" width="706" border-effect="line" title="Qodana Cloud login"/>
 

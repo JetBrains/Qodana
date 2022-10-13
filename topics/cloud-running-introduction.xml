@@ -13,14 +13,14 @@
 
     <img src="qc-running-introduction.png" dark-src="qc-running-introduction_dark.png" width="706" alt="Qodana Cloud entity hierarchy" border-effect="line"/>
 
-    <p>To start receiving Qodana reports and overview them in the Qodana Cloud UI, follow these steps:</p>
+    <p>To be able to overview Qodana reports in the Qodana Cloud UI, follow these steps:</p>
 
     <list type="decimal">
-        <li>Create <a href="cloud-organizations.xml">an organization</a></li>
+        <li>Create <a href="cloud-organizations.xml">an organization</a>, or use your private organization instead</li>
         <li>Create <a href="cloud-teams.xml">a team</a></li>
         <li>Configure <a href="cloud-projects.xml">a project</a></li>
-        <li>Configure <a href="cloud-forward-reports.xml">forwarding of reports</a> from Qodana</li>
-        <li>Run Qodana and <a href="cloud-overview-reports.xml">overview reports</a></li>
+        <li>Configure <a href="cloud-forward-reports.xml">forwarding %product% reports</a> to Qodana Cloud</li>
+        <li><a href="inspect-your-code.xml">Run Qodana</a> and <a href="cloud-overview-reports.xml">overview</a> the uploaded reports</li>
     </list>
 
 </topic>

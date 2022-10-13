@@ -15,13 +15,13 @@
             <td>Permissions</td>
         </tr>
         <tr>
-            <td>You do not have an account yet.</td>
+            <td>You do not have an account yet</td>
             <td>Viewer</td>
-            <td>Overview organizations, teams and their users, projects and their reports.</td>
+            <td>Overview organizations, teams and their users, projects and their reports</td>
         </tr>
         <tr>
             <td>You joined an existing organization</td>
-            <td>Administrator or Editor</td>
+            <td>Editor or Administrator</td>
             <td>Viewer's permissions, as well as creating teams and projects.</td>
         </tr>
         <tr>

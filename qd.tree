@@ -9,7 +9,7 @@
         <!-- This page contents can be moved outside this section -->
         <!-- Reference to the Integration section and plugins should be added here -->
         <toc-element id="about-qodana.md"/>
-        <toc-element id="Quick-start.xml" accepts-web-file-names="getting-started.html"/>
+        <toc-element id="Quick-start.xml"/>
         <toc-element id="new-in-2022-2.xml"/>
         <!-- These concepts should be mentioned in the About Qodana page -->
         <toc-element id="components.xml">
