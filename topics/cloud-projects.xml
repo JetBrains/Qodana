@@ -6,12 +6,26 @@
        title="Projects"
        id="cloud-projects.xml">
 
-    <p>Projects let you combine multiple Qodana reports, where each report contains the result of running Qodana
-        on a project. </p>
+    <p>Projects let you combine Qodana reports within an <a href="cloud-organizations.xml">organization</a>.</p>
 
-    <p>To create a project, navigate to an organization page and click <menupath>Create first project</menupath>.</p>
+    <chapter id="cloud-create-project" title="Create a project">
 
-    <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
+        <p>If you would like to overview reports using your private organization, on the organization page
+            click the <menupath>Create first project</menupath> button.</p>
+
+        <img src="qc-create-project-private.png" dark-src="qc-create-project-private_dark.png" width="706" alt="Creating a new project in a private organization" border-effect="line"/>
+
+        <p>In case you would like to review %product% reports apart from your private organization, you need to
+            navigate to the <a href="cloud-teams.xml">team</a> you wish to create a project under. On the team page,
+            click the <menupath>Create project</menupath> button.</p>
+
+        <img src="qc-create-project-non-private.png" dark-src="qc-create-project-non-private_dark.png" width="706" alt="Creating a new project in an organization" border-effect="line"/>
+
+        <p>Now, you can see the project.</p>
+
+        <img src="qc-generate-token.png" dark-src="qc-generate-token_dark.png" alt="Generating the project token" width="706" border-effect="line"/>
+
+    </chapter>
 
     <chapter id="cloud-manage-projects" title="Manage a project">
 
@@ -19,12 +33,12 @@
         <menupath>Generate token</menupath>. For more information about using project tokens, see the
         <a href="cloud-forward-reports.xml"/> section.</p>
 
-    <img src="qc-generate-token.png" dark-src="qc-generate-token_dark.png" alt="Generating the project token" width="460" border-effect="line"/>
+        <img src="qc-generating-token.png" dark-src="qc-generating-token_dark.png" alt="Generating the project token" width="706" border-effect="line"/>
 
-    <p>Once the token is generated, you can regenerate it, rename the project, or delete
-        (archive) the project. To have access to any of these actions, click the upper-right corner of the project.</p>
+        <p>Once the token is generated, click the upper-right corner of the project to regenerate it. Also, you can
+            rename the project, or delete (archive) the project.</p>
 
-    <img src="qc-project-options.png" dark-src="qc-project-options_dark.png" width="706" alt="Available project options" border-effect="line"/>
+        <img src="qc-project-options.png" dark-src="qc-project-options_dark.png" width="706" alt="Available project options" border-effect="line"/>
 
     </chapter>
 

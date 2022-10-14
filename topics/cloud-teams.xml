@@ -6,33 +6,62 @@
        title="Teams"
        id="cloud-teams">
 
-    <p>Inside <a href="cloud-organizations.xml">organizations</a>, you can create teams for grouping users around dedicated projects.
+    <p>Within <a href="cloud-organizations.xml">organizations</a>, you can create teams for grouping users around dedicated projects.
         Here are some basic advantages of using teams:</p>
 
     <list>
-        <li>You can combine several projects under a single team to provide a convenient way for navigation.</li>
+        <li>You can combine several <a href="cloud-projects.xml">projects</a> under a single team to provide a convenient way for navigation.</li>
         <li>You can share specific projects among Qodana Cloud users that are part of a team.</li>
     </list>
 
-    <note>You cannot create teams in your private organization.</note>
+    <p>To start working with teams, you need to navigate to the organization. You can do this by expanding the
+    list of organizations in the left corner of the Qodana Cloud UI, and selecting the required organization.</p>
 
-    <p>To create a team, in the upper-right corner of the organization page click <menupath>Create team</menupath>. </p>
+    <img src="qc-teams-navigating.png" dark-src="qc-teams-navigating_dark.png" alt="Navigating to the organization" width="706" border-effect="line"/>
 
-    <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create team button" width="706" border-effect="line"/>
+    <chapter id="cloud-teams-create-team" title="Create a team">
 
-    <p>After clicking, the <menupath>New team</menupath> dialog window will open. </p>
+        <p>Currently, you can create teams only outside your private organization.</p>
 
-    <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="Creating a team" width="706" border-effect="line"/>
+        <procedure>
+            <step>
+                <p>On the organization page, click <menupath>Create team</menupath> in the upper-right corner.</p>
+                <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create team button" width="706" border-effect="line"/>
+                <p>This will open the <menupath>New team</menupath> window.</p>
+            </step>
+            <step>
+                <p>In the <menupath>New team</menupath> window, specify the team name and click <menupath>Create team</menupath>.</p>
+                <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="Creating a team" width="706" border-effect="line"/>
+            </step>
+        </procedure>
 
-    <p>After creating, you can get access to the team from the left sidebar of the Qodana Cloud UI. </p>
+    </chapter>
 
-    <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing team" width="706" border-effect="line"/>
+    <chapter id="cloud-teams-navigate-to-team" title="Navigate to teams">
 
-    <p>Based on the existing team, you can create new <a href="cloud-projects.xml">projects</a> associated with it.</p>
+        <p>You can navigate to teams using either the organization page or the left sidebar of the Qodana Cloud UI. </p>
 
-    <p>To manage team members, click the upper-right corner of the team and select <menupath>Invite members</menupath>.
-    If you wish to delete (archive) the team, click <menupath>Archive team</menupath>.</p>
+        <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing team" width="706" border-effect="line"/>
 
-    <img src="qc-manage-team-members.png" dark-src="qc-manage-team-members_dark.png" width="460" alt="Managing team members" border-effect="line"/>
+    </chapter>
+
+    <chapter id="cloud-teams-manage-teams" title="Manage teams">
+
+        <p>Each team can be managed using the menu available in the upper-right corner. </p>
+
+        <img src="qc-manage-team-members.png" dark-src="qc-manage-team-members_dark.png" width="706" alt="Managing team members" border-effect="line"/>
+
+        <p>Click <menupath>Invite members</menupath> to invite or delete members, or change
+            <a href="cloud-user-roles.xml">user roles</a> for the existing members.</p>
+
+        <img src="qc-teams-managing-members.png" dark-src="qc-teams-managing-members_dark.png" alt="Managing team members" width="706" border-effect="line"/>
+
+        <p>Click <menupath>Archive team</menupath> if you wish to delete (archive) the team.</p>.
+
+    </chapter>
+
+
+
+
 
 </topic>
