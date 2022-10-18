@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Qodana for .NET Docker image configuration"
-       id="qodana-dotnet-docker-techs" auxiliary-id="qodana-dotnet-docker-techs.xml">
+       id="qodana-dotnet-docker-techs">
 
     <var name="linter" value="Qodana for .NET"/>
     <var name="linter-shell" value="qodana-jvm"/>

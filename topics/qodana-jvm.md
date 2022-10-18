@@ -5,7 +5,7 @@
 <var name="linter" value="Qodana for JVM"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="tech" value="jvm"/>
-<var name="docker-image" value="jetbrains/qodana-jvm:2021.3-eap"/>
+<var name="docker-image" value="jetbrains/qodana-jvm:2022.3-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/) and provides static analysis for Java and Kotlin for Server Side projects, and related frameworks and technologies. <include src="lib_qd.xml" include-id="linter-intro"/>
 
