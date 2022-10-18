@@ -73,6 +73,11 @@ The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/web
 * JavaScript and TypeScript language inspections from WebStorm
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
 
+## .NET
+
+The [](qodana-dotnet.md) linter is based on [Rider](https://www.jetbrains.com/rider/) and provides static analysis for 
+.NET projects.
+
 ## Clone detection
 
 The [Qodana Clone Finder](about-clone-finder.md) linter lets you detect code duplicates across different projects.
