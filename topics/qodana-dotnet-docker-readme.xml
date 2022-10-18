@@ -3,7 +3,7 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Qodana for .NET Docker image"
+       title="Qodana for .NET"
        id="qodana-dotnet-docker-readme">
 
     <var name="linter" value="Qodana for .NET"/>
