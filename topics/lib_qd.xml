@@ -816,6 +816,7 @@
             so you can pass cache from <code>branch-a</code> to build checking <code>branch-b</code>. In this case,
             only new dependencies would be downloaded, if they were added.
         </p>
+        <p filter="for-dotnet">Besides that, %product% also stores NuGet cache in the <code>/data/cache</code> folder.</p>
         <p>Example for <b>local</b> run:
         </p>
         <code style="block" lang="shell" prompt="$">
@@ -1022,6 +1023,39 @@
             <li><a href="service.md">Cloud service</a> is the best option if you need a cloud-based service for your
                 inspections. </li>
         </list>
+    </chunk>
+
+    <chunk id="docker-dotnet-specific-solution-project">
+
+        <p>By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
+        it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
+        file name using the <code>--property</code> option. For example, for the <code>MySolution.sln</code> solution
+        file it can be:</p>
+
+        <code style="block" lang="shell">
+            --property=qodana.net.solution=MySolution.sln
+        </code>
+
+        <p>If you project contains no solution files and multiple project files, you need to specify the exact file
+            name of a project. For example, for the <code>MyProject.csproj</code> project file it can be:</p>
+
+        <code style="block" lang="shell">
+            --property=qodana.net.project=MyProject.csproj
+        </code>
+
+    </chunk>
+
+    <chunk id="docker-dotnet-specific-requirements">
+        <p>In case a project has specific SDK requirements, you can set them up using the
+            <a href="before-running-qodana.md"><code>bootstrap</code></a> field in the <code>qodana.yaml</code> file.
+            To install the 7.0.100-rc.1 version of the SDK, you can use this configuration of <code>bootstrap</code>:</p>
+
+        <code style="block" lang="yaml">
+            bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
+              bash -s -- --version 7.0.100-rc.1.22431.12 -i /usr/share/dotnet
+        </code>
+
+        <p>The command will be automatically executed before the analysis.</p>
     </chunk>
 
 

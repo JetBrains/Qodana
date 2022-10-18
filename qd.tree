@@ -22,6 +22,7 @@
                 <toc-element id="qodana-php.md"/>
                 <toc-element id="qodana-python.md"/>
                 <toc-element id="qodana-js.md"/>
+                <toc-element id="qodana-dotnet.md"/>
                 <toc-element id="about-clone-finder.md"/>
             </toc-element>
             <toc-element id="code-inspections.xml"/>
@@ -43,6 +44,7 @@
             <toc-element id="qodana-php-docker-readme.xml"/>
             <toc-element id="qodana-python-docker-readme.xml"/>
             <toc-element id="qodana-js-docker-readme.xml"/>
+            <toc-element id="qodana-dotnet-docker-readme.xml"/>
             <toc-element id="clone-finder-docker-readme.md"/>
             <toc-element id="license-audit-docker-readme.md"/>
         </toc-element>
@@ -66,9 +68,12 @@
             <toc-element id="qodana-php-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-python-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
+            <toc-element id="qodana-dotnet-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="clone-finder-docker-techs.md" show-structure-depth="3"/>
             <toc-element id="license-audit-docker-techs.md" show-structure-depth="3"/>
         </toc-element>
+
+
     </toc-element>
 
     <!-- The beginning of the Inspect your code section -->
