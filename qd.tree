@@ -108,7 +108,9 @@
         <toc-element id="teamcity.md" accepts-web-file-names="teamcity-plugins.html"/>
     </toc-element>
 
-    <toc-element id="cloud-about.xml" toc-title="Qodana Cloud">
+    <!-- The Qodana Cloud documentation section starts here -->
+
+    <!-- <toc-element id="cloud-about.xml" toc-title="Qodana Cloud">
         <toc-element toc-title="Introduction" expand-mode="expand">
             <toc-element id="cloud-use-cases.xml" toc-title="Use cases"/>
             <toc-element id="cloud-get-access.xml"/>
@@ -132,7 +134,7 @@
                 <toc-element id="cloud-profile-settings.xml"/>
             </toc-element>
         </toc-element>
-    </toc-element>
+    </toc-element> -->
 
     <toc-element title="Extending Qodana" id="extending-qodana.xml">
         <toc-element id="extending-qodana-plugins.xml"/>

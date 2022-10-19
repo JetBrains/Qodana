@@ -36,8 +36,8 @@
                         <!-- I can add to this section all possibilities for inspection results. This is important -->
                         <a href="inspect-your-code.xml"
                            description="Learn how you can start inspecting your code and obtain code inspection results."/>
-                        <a href="cloud-about.xml"
-                           description="You can aggregate and overview all reports from all your projects in Qodana Cloud."/>
+<!--                        <a href="cloud-about.xml"
+                           description="You can aggregate and overview all reports from all your projects in Qodana Cloud."/> -->
 
                 </main-group>
 

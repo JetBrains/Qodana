@@ -7,8 +7,8 @@
        id="qodana-dotnet-docker-techs">
 
     <var name="linter" value="Qodana for .NET"/>
-    <var name="linter-shell" value="qodana-jvm"/>
-    <var name="ide" value="IntelliJ IDEA"/>
+    <var name="linter-shell" value="qodana-dotnet"/>
+    <var name="ide" value="Rider"/>
     <var name="docker-general-guide-page-url" value="qodana-dotnet-docker-readme.xml"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 
@@ -21,7 +21,198 @@
 
     <chapter id="Configuration+options" title="Configuration options">
 
-        <include src="lib_qd.xml" include-id="docker-config-options"/>
+        <p>Docker images can be configured using several CLI options. All these options can be divided into three
+            groups. </p>
+        <p>The first group requires the equal sign (<code>&#61;</code>) to be placed between the option name and its
+            argument like <code>--project-dir=/path/to/project</code>.</p>
+        <p>The second group uses the space character (<code>&#160;</code>) to separate option names and their arguments
+            like <code>−−baseline /path/to/sarif/file</code>.</p>
+        <p>The third group of options does not require any arguments to be supplied with, as you can see it in case of
+            the <code>--save-report</code> option.</p>
+
+        <p>You can run the <code style="inline" lang="shell">docker run jetbrains/%linter-shell%</code> command to see
+            the list of options in the CLI.</p>
+
+        <chapter id="docker+config+options+directories" title="Directories">
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-i</code>,
+                        <code>--project-dir=</code>
+                    </td>
+                    <td>Root directory of the inspected project (default: current working directory <code>/data/project</code>).
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>-o</code>,
+                        <code>--results-dir=</code>
+                    </td>
+                    <td>Directory to save %product% inspection results to (default: <code>/data/results</code>).
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>-r</code>,
+                        <code>--report-dir=</code>
+                    </td>
+                    <td>Directory to save an HTML report to (default: <code>/data/results/report</code>).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--cache-dir=</code>
+                    </td>
+                    <td>Cache directory (default: <code>/data/cache</code>).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-d</code>,
+                        <code>--source-directory</code>
+                    </td>
+                    <td>Directory inside the <code>project-dir</code> directory that needs to be inspected. If not
+                        specified, the whole project is inspected.</td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="docker+config+options+profile+configuration" title="Profile">
+
+            <p>%product% profile can be configured using these CLI options. Alternatively, you can configure %product%
+                using the <code>qodana.yaml</code> file as described in the <a href="qodana-yaml.md"/> section.</p>
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>--disable-sanity</code></td>
+                    <td>Skip running the inspections configured by the <code>sanity</code> profile (default: enabled).</td>
+                </tr>
+                <tr>
+                    <td><code>-n</code>,
+                        <code>--profile-name</code>
+                    </td>
+                    <td>Profile name defined in the project.
+                        <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>-p</code>,
+                        <code>--profile-path</code>
+                    </td>
+                    <td>Absolute path to the profile file.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--stub-profile</code>
+                    </td>
+                    <td>Absolute path to the fallback profile file. This option is applied in case the profile was not
+                        specified using any available options.
+                    </td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="docker+config+options+baseline" title="Baseline">
+
+            <p>To learn more about the baseline feature, see the
+                <a anchor="Run+in+baseline+mode">Run in baseline mode</a> example, or study the
+                <a href="qodana-baseline.xml"/> section.</p>
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-b</code>,
+                        <code>--baseline</code>
+                    </td>
+                    <td>Run Qodana <a href="qodana-baseline.xml">in the baseline mode</a>. Provide the path to an
+                        existing SARIF report to be used in the baseline state calculation.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--baseline-include-absent</code>
+                    </td>
+                    <td>Include in the output report the results from the baseline run that are absent in the current run.
+                    </td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="docker+config+options+miscellaneous" title="Miscellaneous">
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-s</code>,
+                        <code>--save-report</code>
+                    </td>
+                    <td>Generate HTML report.</td>
+                </tr>
+                <tr>
+                    <td><code>-w</code>,
+                        <code>--show-report</code>
+                    </td>
+                    <td>Serve HTML report on port 8080.</td>
+                </tr>
+                <tr>
+                    <td><code>--property=</code></td>
+                    <td>Set a JVM property to be used while running %product% using the
+                        <code>--property=property.name=value1,value2,...,valueN</code> notation. This option can be
+                        repeated multiple times for setting multiple JVM properties. </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--fail-threshold</code>
+                    </td>
+                    <td>Set the number of problems that will serve as a quality gate. If this number is reached, the
+                        inspection run is terminated.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-c</code>,
+                        <code>--changes</code>
+                    </td>
+                    <td>Inspect uncommitted changes and report new problems.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>--script</code>
+                    </td>
+                    <td>Override the default run scenario (default: <code style="inline">default</code>).</td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter id="docker+config+options+qodana+cloud" title="Qodana Cloud">
+
+            <note><p>Qodana Cloud is currently under development.</p></note>
+
+            <table column-width="fixed">
+                <tr>
+                    <td width="20%">Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-a</code>,
+                        <code>--analysis-id=</code>
+                    </td>
+                    <td>Unique report identifier (GUID) to be used by Qodana Cloud.</td>
+                </tr>
+            </table>
+        </chapter>
 
     </chapter>
     <chapter id="qodana-execution-tuneup" title="Examples of execution tuneup">
@@ -60,7 +251,21 @@
 
         <chapter id="Set+a+quality+gate" title="Set a quality gate">
 
-            <include src="lib_qd.xml" include-id="docker-config-set-quality-gate"/>
+            <p>%linter% lets you configure a "quality gate", that is, the number of problems
+                that will act as a threshold.
+            </p>
+            <code style="block" lang="shell" prompt="$">
+                docker run ... jetbrains/%linter-shell% --fail-threshold &lt;number&gt;
+            </code>
+            <p>When running in <a anchor="Run+in+baseline+mode">baseline mode</a>, a threshold is calculated as the sum
+                of <i>new</i> and <i>absent</i> problems. <i>Unchanged</i> results are ignored.
+            </p>
+            <note>
+                <p>You can also specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node
+                    to <a href="qodana-yaml.md">qodana.yaml</a>. The value specified as the <code>docker run</code> option
+                    will override the one specified in <code>qodana.yaml</code>.
+                </p>
+            </note>
 
         </chapter>
 

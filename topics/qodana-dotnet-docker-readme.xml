@@ -11,7 +11,7 @@
     <var name="linter-page-url" value="qodana-dotnet.md"/>
     <var name="docker-tech-guide-page-url" value="qodana-dotnet-docker-techs.xml"/>
     <var name="ide" value="Rider"/>
-    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/idea/?Code_Inspection"/>
+    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
     <var name="docker-image" value="jetbrains/qodana-dotnet"/>
 
@@ -44,7 +44,37 @@
 
     <chapter id="Using+an+existing+profile" title="Using an existing profile">
 
-        <include src="lib_qd.xml" include-id="docker-using-existing-profile"/>
+        <p filter="for-dotnet, non-dotnet">
+            This section is intended for users familiar with configuring code analysis via <a
+                href="https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html">%ide% inspection profiles</a>.
+        </p>
+
+        <tabs group="docker-options" filter="common">
+            <tab title="Docker image" group-key="docker-image">
+                <p>
+                    You can pass the reference to the existing profile by mapping the profile to
+                    <code>/data/profile.xml</code> inside the container:
+                </p>
+                <code style="block" lang="shell" prompt="$">
+                    docker run --rm -it -p 8080:8080 \
+                    -v &lt;source-directory&gt;/:/data/project/ \
+                    -v &lt;output-directory&gt;/:/data/results/ \
+                    -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
+                    jetbrains/%linter-shell% --show-report
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <p>
+                    You can pass the reference to the existing profile by mapping the profile inside the container:
+                </p>
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan -l %docker-image% \
+                        --results-dir &lt;output-directory&gt; \
+                        --profile-path &lt;path-to-profile&gt; \
+                        --show-report
+                    </code>
+            </tab>
+        </tabs>
 
     </chapter>
 

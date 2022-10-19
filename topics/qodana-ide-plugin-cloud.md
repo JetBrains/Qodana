@@ -25,17 +25,17 @@ of the IDE user interface, and it becomes visible after you open a report.
 
 After opening, the **Qodana** tab shows the list of problems that were detected by Qodana.
 
-<img src="cloud-plugin-tab-overview-1.png" dark-src="cloud-plugin-tab-overview-1_dark.png" width="706" alt="Overview of the Qodana tab" border-effect="line"/>
+<img src="ide-plugin-tab-overview-1.png" dark-src="ide-plugin-tab-overview-1_dark.png" width="706" alt="Overview of the Qodana tab" border-effect="line"/>
 
 If you click an item in this list, you can navigate to the highlighted code fragments that contain a problem.
 
-<img src="cloud-plugin-code-highlighting.png" dark-src="cloud-plugin-code-highlighting_dark.png" width="706" alt="Code highlighting from the Qodana IDE plugin" animated="true" border-effect="line"/>
+<img src="ide-plugin-code-highlighting.png" dark-src="ide-plugin-code-highlighting_dark.png" width="706" alt="Code highlighting from the Qodana IDE plugin" animated="true" border-effect="line"/>
 
 <anchor name="tab-overview-buttons"/>
 
 In the upper-left corner of this tab, you can find the **Log in to Qodana** and **Link project with Cloud** buttons.
 
-<img src="cloud-plugin-tab-overview-2.png" dark-src="cloud-plugin-tab-overview-2_dark.png" width="706" alt="The Qodana tab buttons" border-effect="line"/>
+<img src="ide-plugin-tab-overview-2.png" dark-src="ide-plugin-tab-overview-2_dark.png" width="706" alt="The Qodana tab buttons" border-effect="line"/>
 
 The **Log in to Qodana** button lets you log in to Qodana Cloud. This action is a prerequisite for linking your project 
 with Qodana Cloud-based reports. Alternatively, you can do it using the
@@ -70,7 +70,7 @@ Logging in to Qodana Cloud is required before linking your project with reports 
 <step>
 In your IDE, navigate to <menupath>Tools | Qodana | Log in to Qodana</menupath>. 
 
-<img src="cloud-plugin-login-1.png" dark-src="cloud-plugin-login-1_dark.png" width="594" alt="Logging into Qodana Cloud" border-effect="line"/>
+<img src="ide-plugin-login-1.png" dark-src="ide-plugin-login-1_dark.png" width="594" alt="Logging into Qodana Cloud" border-effect="line"/>
 
 Alternatively, you can click the **Log in to Qodana** button of the **[Qodana](#tab-overview-buttons)** tab.
 
@@ -79,7 +79,7 @@ Alternatively, you can click the **Log in to Qodana** button of the **[Qodana](#
 On the <menupath>Settings | Tools | Qodana </menupath> window, click <menupath>Log in</menupath>. This will redirect you 
 to the authentication page.
 
-<img src="cloud-plugin-login-2.png" dark-src="cloud-plugin-login-2_dark.png" width="594" alt="The log in button" border-effect="line"/>
+<img src="ide-plugin-login-2.png" dark-src="ide-plugin-login-2_dark.png" width="594" alt="The log in button" border-effect="line"/>
 
 </step>
 <step>On the authentication page, complete the <a href="cloud-get-access.xml">authentication step</a>.</step>
@@ -99,7 +99,7 @@ uploaded to Qodana Cloud.</tip>
 <step>In your IDE, navigate to <menupath>Tools | Qodana </menupath>, and then click 
 <menupath>Link Project with Cloud</menupath>. 
 
-<img src="cloud-plugin-linking-1.png" dark-src="cloud-plugin-linking-1_dark.png" width="594" alt="Linking the project with Qodana Cloud" border-effect="line"/>
+<img src="ide-plugin-linking-1.png" dark-src="ide-plugin-linking-1_dark.png" width="594" alt="Linking the project with Qodana Cloud" border-effect="line"/>
 
 Alternatively, you can click the **Link project with Cloud** button of the **[Qodana](#tab-overview-buttons)** tab.
 
@@ -108,7 +108,7 @@ Alternatively, you can click the **Link project with Cloud** button of the **[Qo
 On the <menupath>Link Project with Qodana Cloud</menupath> window, select the Qodana Cloud project you would like to
 link your local project with, and then click <menupath>Apply</menupath>.
 
-<img src="cloud-plugin-linking-2.png" dark-src="cloud-plugin-linking-2_dark.png" width="594" alt="The link project with Qodana Cloud window" border-effect="line"/>
+<img src="ide-plugin-linking-2.png" dark-src="ide-plugin-linking-2_dark.png" width="594" alt="The link project with Qodana Cloud window" border-effect="line"/>
 
 </step>
 
@@ -124,19 +124,19 @@ To update the report, you should first have it [linked](#Link+project+with+Qodan
 In your IDE, navigate to <menupath>Tools | Qodana</menupath>, uncheck
 **Cloud Project &lt;project-name&gt;**, and then check it back.
 
-<img src="cloud-plugin-update-report-1.png" dark-src="cloud-plugin-update-report-1_dark.png" width="594" alt="Updating the report using the Tools menu" border-effect="line"/>
+<img src="ide-plugin-update-report-1.png" dark-src="ide-plugin-update-report-1_dark.png" width="594" alt="Updating the report using the Tools menu" border-effect="line"/>
 
 Alternatively, in the <menupath>Qodana</menupath> tab of the <menupath>Problems</menupath> window, you can uncheck 
 <menupath>Cloud Project &lt;project-name&gt;</menupath>, and then check it back.
 
-<img src="cloud-plugin-update-report-2.png" dark-src="cloud-plugin-update-report-2_dark.png" width="706" alt="Updating the report using the Qodana tab" border-effect="line"/>
+<img src="ide-plugin-update-report-2.png" dark-src="ide-plugin-update-report-2_dark.png" width="706" alt="Updating the report using the Qodana tab" border-effect="line"/>
 
 ## Open report from a local storage
 
 In the IDE, go to <menupath>Tools | Qodana | Open Qodana Analysis report</menupath> and select the
 <code>qodana.sarif.json</code> report file you would like to open.
 
-<img src="cloud-plugin-local-file-1.png" dark-src="cloud-plugin-local-file-1_dark.png" width="594" alt="Opening a local Qodana report" border-effect="line"/>
+<img src="ide-plugin-local-file-1.png" dark-src="ide-plugin-local-file-1_dark.png" width="594" alt="Opening a local Qodana report" border-effect="line"/>
 
 In the <menupath>Qodana</menupath> tab, you can [overview the detected problems](#Plugin+overview) and jump to the corresponding line in
 the code editor. In case a problem was fixed before opening the <code>qodana.sarif.json</code> file, it is marked as
