@@ -97,8 +97,9 @@
                     <td><code>-n</code>,
                         <code>--profile-name</code>
                     </td>
-                    <td>Profile name defined in the project.
-                        <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                    <td>Profile name defined in the project. The actual
+                        name is stored as the <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> value
+                        in the profile <code>xml</code> file and is visible in the %ide% UI.
                     </td>
                 </tr>
                 <tr>
