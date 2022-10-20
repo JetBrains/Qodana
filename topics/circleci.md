@@ -1,8 +1,7 @@
 [//]: # (title: CircleCI)
 
 CircleCI is a cloud-based CI/CD system. You can build %product% into your CircleCI 
-[pipelines](https://circleci.com/docs/concepts#pipelines) using the CircleCI Qodana 
-[orb](https://circleci.com/docs/orb-concepts) as described in this procedure:
+[pipelines](https://circleci.com/docs/concepts#pipelines) using the CircleCI [Qodana orb](https://circleci.com/developer/orbs/orb/jetbrains/qodana) as described in this procedure:
 
 1. Create the `.circleci/config.yml` file and specify the CircleCI version:
 
