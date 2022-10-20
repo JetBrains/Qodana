@@ -10,7 +10,7 @@
         <!-- Reference to the Integration section and plugins should be added here -->
         <toc-element id="about-qodana.md"/>
         <toc-element id="Quick-start.xml"/>
-        <toc-element id="new-in-2022-2.xml"/>
+        <toc-element id="new-in-2022-3.xml"/>
         <!-- These concepts should be mentioned in the About Qodana page -->
         <toc-element id="components.xml">
             <toc-element id="static-analysis.xml"/>
@@ -22,6 +22,7 @@
                 <toc-element id="qodana-php.md"/>
                 <toc-element id="qodana-python.md"/>
                 <toc-element id="qodana-js.md"/>
+                <toc-element id="qodana-go.md"/>
                 <toc-element id="qodana-dotnet.md"/>
                 <toc-element id="about-clone-finder.md"/>
             </toc-element>
@@ -44,6 +45,7 @@
             <toc-element id="qodana-php-docker-readme.xml"/>
             <toc-element id="qodana-python-docker-readme.xml"/>
             <toc-element id="qodana-js-docker-readme.xml"/>
+            <toc-element id="qodana-go-docker-readme.xml"/>
             <toc-element id="qodana-dotnet-docker-readme.xml"/>
             <toc-element id="clone-finder-docker-readme.md"/>
             <toc-element id="license-audit-docker-readme.md"/>
@@ -68,6 +70,7 @@
             <toc-element id="qodana-php-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-python-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
+            <toc-element id="qodana-go-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-dotnet-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="clone-finder-docker-techs.md" show-structure-depth="3"/>
             <toc-element id="license-audit-docker-techs.md" show-structure-depth="3"/>

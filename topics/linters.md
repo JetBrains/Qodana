@@ -73,6 +73,10 @@ The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/web
 * JavaScript and TypeScript language inspections from WebStorm
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
 
+## Go
+
+The [](qodana-go.md) linter is based on [GoLand](https://www.jetbrains.com/go) provides Go language inspections from GoLand.
+
 ## .NET
 
 The [](qodana-dotnet.md) linter is based on [Rider](https://www.jetbrains.com/rider/) and provides static analysis for 
