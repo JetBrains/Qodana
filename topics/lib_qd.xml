@@ -808,7 +808,7 @@
 
     <chunk id="docker-config-cache-dependencies">
         <p>You can decrease the time for a %linter% run by persisting cache from one run to another. For
-            example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache
+            example, package and dependency management tools such as Maven, Gradle, npm, Yarn, and NuGet keep a local cache
             of downloaded dependencies.
         </p>
         <p>By default, %linter% would save caches to folder <code>/data/cache</code> inside container. This
@@ -816,7 +816,6 @@
             so you can pass cache from <code>branch-a</code> to build checking <code>branch-b</code>. In this case,
             only new dependencies would be downloaded, if they were added.
         </p>
-        <p filter="for-dotnet">Besides that, %product% also stores NuGet cache in the <code>/data/cache</code> folder.</p>
         <p>Example for <b>local</b> run:
         </p>
         <code style="block" lang="shell" prompt="$">

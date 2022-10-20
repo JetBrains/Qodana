@@ -277,7 +277,7 @@
 
         <chapter id="Cache+dependencies" title="Cache dependencies">
 
-            <include src="lib_qd.xml" include-id="docker-config-cache-dependencies" use-filter="empty,for-dotnet"/>
+            <include src="lib_qd.xml" include-id="docker-config-cache-dependencies"/>
 
         </chapter>
 
