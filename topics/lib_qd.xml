@@ -1047,7 +1047,7 @@
     <chunk id="docker-dotnet-specific-requirements">
         <p>In case a project has specific SDK requirements, you can set them up using the
             <a href="before-running-qodana.md"><code>bootstrap</code></a> field in the <code>qodana.yaml</code> file.
-            To install the 7.0.100-rc.1 version of the SDK, you can use this configuration of <code>bootstrap</code>:</p>
+            For example, you can install the 7.0.100-rc.1 version of the SDK using this configuration of <code>bootstrap</code>:</p>
 
         <code style="block" lang="yaml">
             bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
