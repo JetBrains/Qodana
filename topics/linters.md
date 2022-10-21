@@ -75,7 +75,7 @@ The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/web
 
 ## Go
 
-The [](qodana-go.md) linter is based on [GoLand](https://www.jetbrains.com/go) provides Go language inspections from GoLand.
+The [](qodana-go.md) linter is based on [GoLand](https://www.jetbrains.com/go) and provides Go language inspections from GoLand.
 
 ## .NET
 
