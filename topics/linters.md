@@ -53,7 +53,7 @@ Here is an overview of %product% linters for inspecting your projects.
 
 ## PHP
 
-The [](qodana-php.md) linter is based on [PhpStorm](https://www.jetbrains.com/phpstorm) and supports:
+The [](qodana-php.md) linter is based on [PhpStorm](https://www.jetbrains.com/phpstorm) and provides:
 
 * PHP language inspections from PhpStorm
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
@@ -61,14 +61,14 @@ The [](qodana-php.md) linter is based on [PhpStorm](https://www.jetbrains.com/ph
 
 ## Python
 
-The [](qodana-python.md) linter is based on [PyCharm Professional](https://www.jetbrains.com/pycharm) and supports:
+The [](qodana-python.md) linter is based on [PyCharm Professional](https://www.jetbrains.com/pycharm) and provides:
 
 * Python language inspections from PyCharm Professional
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
 
 ## JavaScript and TypeScript
 
-The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/webstorm) and supports:
+The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/webstorm) and provides:
 
 * JavaScript and TypeScript language inspections from WebStorm
 * Third-party license verification using <a href="license-audit.xml">License audit</a>

@@ -10,7 +10,7 @@
         <!-- Reference to the Integration section and plugins should be added here -->
         <toc-element id="about-qodana.md"/>
         <toc-element id="Quick-start.xml"/>
-        <toc-element id="new-in-2022-3.xml"/>
+        <toc-element id="new-in-2022-2.xml"/>
         <!-- These concepts should be mentioned in the About Qodana page -->
         <toc-element id="components.xml">
             <toc-element id="static-analysis.xml"/>

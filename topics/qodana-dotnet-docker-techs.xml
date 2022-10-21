@@ -188,12 +188,6 @@
                     </td>
                     <td>Inspect uncommitted changes and report new problems.</td>
                 </tr>
-                <tr>
-                    <td>
-                        <code>--script</code>
-                    </td>
-                    <td>Override the default run scenario (default: <code style="inline">default</code>).</td>
-                </tr>
             </table>
         </chapter>
 
@@ -292,7 +286,7 @@
 
     <chapter id="Specific+sdk+installation" title="Installation of specific SDK">
 
-        <include src="lib_qd.xml" include-id="docker-dotnet-specific-requirements"/>
+        <include src="lib_qd.xml" include-id="docker-dotnet-specific-requirements" use-filter="empty,dotnet-techs"/>
 
     </chapter>
 

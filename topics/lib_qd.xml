@@ -703,12 +703,16 @@
             </for>
             <for filter="python">
                 The Python and its libraries'/frameworks'
-            </for> plugins are enabled by default.
+            </for>
             <for filter="js">
                 The JavaScript and Typescript, and their libraries'/frameworks'
-            </for> plugins are enabled by default.
+            </for>
+            <for filter="go">
+                The Golang and its libraries'/frameworks'
+            </for>
+            plugins are enabled by default.
         </p>
-        <p>To change the plugins list, do any of the following:</p>
+        <p>To change the plugin list, do any of the following:</p>
         <list>
             <li>
                 <p>Override <code>disabled_plugins.txt</code> by mounting your own file:
@@ -1045,16 +1049,23 @@
     </chunk>
 
     <chunk id="docker-dotnet-specific-requirements">
-        <p>In case a project has specific SDK requirements, you can set them up using the
+        <p>In case a project has specific SDK requirements, you can set them up before running the analysis using the
             <a href="before-running-qodana.md"><code>bootstrap</code></a> field in the <code>qodana.yaml</code> file.
-            For example, you can install the 7.0.100-rc.1 version of the SDK using this configuration of <code>bootstrap</code>:</p>
+            For example, this command will install the required version of the SDK that is specified in the
+            <code>global.json</code> file and located in the root of your project:</p>
 
         <code style="block" lang="yaml">
             bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
-              bash -s -- --version 7.0.100-rc.1.22431.12 -i /usr/share/dotnet
+            bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
         </code>
 
-        <p>The command will be automatically executed before the analysis.</p>
+        <p filter="dotnet-techs">Using this command, you can install the 7.0.100-rc.1 version of the SDK:</p>
+
+        <code style="block" lang="yaml" filter="dotnet-techs">
+            bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
+            bash -s -- --version 7.0.100-rc.1.22431.12 -i /usr/share/dotnet
+        </code>
+
     </chunk>
 
 

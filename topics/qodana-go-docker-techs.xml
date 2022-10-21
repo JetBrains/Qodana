@@ -4,7 +4,7 @@
 <!--suppress TopicContentShortcutHardcodedInspections -->
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-go-docker-techs"
-       title="Qodana for JS">
+       title="Qodana for Go">
 
     <var name="linter" value="Qodana for Go"/>
     <var name="linter-shell" value="qodana-go"/>
@@ -50,7 +50,7 @@
 
         </chapter>
 
-        <chapter id="Use+a+different+idea-properties-file"
+        <chapter id="Use+a+different+idea+properties+file"
                  title="Use a different 'idea.properties' file">
 
             <include src="lib_qd.xml" include-id="docker-config-different-properties-file"/>
@@ -65,7 +65,7 @@
 
         <chapter id="Manage+plugins" title="Manage plugins">
 
-            <include src="lib_qd.xml" include-id="docker-config-manage-plugins" use-filter="empty,js"/>
+            <include src="lib_qd.xml" include-id="docker-config-manage-plugins" use-filter="empty,go"/>
 
         </chapter>
 

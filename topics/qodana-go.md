@@ -4,10 +4,10 @@
 
 <note>
     <p>
-<include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana Go"/>
-</include>
-</p>
+        <include src="lib_qd.xml" include-id="eap-warning">
+            <var name="product" value="Qodana for Go"/>
+        </include>
+    </p>
 </note>
 
 <var name="linter" value="Qodana for Go"/>

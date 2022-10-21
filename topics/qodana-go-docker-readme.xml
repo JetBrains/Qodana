@@ -11,10 +11,9 @@
     <var name="linter-page-url" value="qodana-go.md"/>
     <var name="docker-tech-guide-page-url" value="qodana-go-docker-techs.xml"/>
     <var name="ide" value="GoLand"/>
-    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/webstorm/?Code_Inspection"/>
-    <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/webstorm/?Customizing_Profiles"/>
+    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/go/?Code_Inspection"/>
+    <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/go/?Customizing_Profiles"/>
     <var name="docker-image" value="jetbrains/qodana-go"/>
-
     <p>
         <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
     </p>
