@@ -97,6 +97,14 @@
                                 <td>JavaScript and TypeScript projects, based on WebStorm.</td>
                             </tr>
                             <tr>
+                                <td>jetbrains/qodana-go</td>
+                                <td>Golang projects, based on Goland.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-dotnet</td>
+                                <td>.NET projects, based on Rider.</td>
+                            </tr>
+                            <tr>
                                 <td>jetbrains/qodana-clone-finder</td>
                                 <td>Detects duplicate functions.</td>
                             </tr>

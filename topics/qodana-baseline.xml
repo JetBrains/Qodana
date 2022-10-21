@@ -16,7 +16,7 @@
 
     <p>If you run %product% without a baseline, you will be able to see the problems detected at a current run.</p>
 
-        <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="705" alt="Running Qodana without baseline"/>
+        <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="706" alt="Running Qodana without baseline"/>
 
     <p>In this case, you can only see the number of problems and their description, without classification to new and
         existing problems. </p>
