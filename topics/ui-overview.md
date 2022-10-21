@@ -42,7 +42,16 @@ you can rearrange the sunburst diagram by dragging its components.
 
 6. Clicking a problem in the list will expand the underlying code fragment to provide the detailed description.
 
-7. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can click the **Open file in** button to open the file in your IDE. The **More actions** list provides other options for handling problems, see the [Adjust the analysis scope](#Adjust+the+analysis+scope) section.
+7. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can edit the file containing the problem
+    using your IDE. To do it, select your IDE from the dropdown list, and click the **Open file in** button. 
+
+    <img src="ui-overview-open-file-in.png" dark-src="ui-overview-open-file-in_dark.png" width="706" alt="The Open file in button" border-effect="line" animated="true"/>
+
+    If you have several versions of the same IDE, you can select which version will be used to open the file.
+    In the JetBrains Toolbox UI, drag or move the required version of the IDE to the top of the list using the
+    <shortcut>Ctrl + Shift + ↑/↓</shortcut> shortcut on Windows or Linux, or <shortcut>⌘ + ⇧ + ↑/↓ </shortcut> on macOS.
+
+    The **More actions** list provides other options for handling problems, see the [Adjust the analysis scope](#Adjust+the+analysis+scope) section.
 
 ### Baseline
 
