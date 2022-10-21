@@ -21,7 +21,7 @@
 
 ### Analyze a project locally
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-gs,other,empty"/></p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,non-gs,other,empty"/></p>
 
 ## Next steps
 

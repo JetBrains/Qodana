@@ -35,7 +35,7 @@ The command will be automatically executed before the analysis.
 
 #### Run analysis
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="js-py,py-only,non-gs,empty"/></p>
+<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/></p>
 
 ## Next steps
 

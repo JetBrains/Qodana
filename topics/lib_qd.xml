@@ -941,7 +941,7 @@
                 <code filter="non-gs" style="block" lang="shell" prompt="$">
                     docker pull %docker-image%
                 </code>
-                <p filter="js-py">Start local analysis with <code>source-directory</code>
+                <p filter="non-php">Start local analysis with <code>source-directory</code>
                     pointing to the root of your project:</p>
                 <code filter="gs-only" style="block" lang="shell" prompt="$">
                     docker run --rm -it \
@@ -960,13 +960,12 @@
                     &lt;/project&gt;
                 </code>
                 <p filter="php-only">Run the analysis locally:</p>
-                <p filter="jvm-only">and run the analysis locally:</p>
                 <code filter="non-gs" style="block" lang="shell" prompt="$">
                     docker run --rm -it \
                     -v &lt;source-directory&gt;/:/data/project/ \
                     -p 8080:8080 %docker-image% --show-report
                 </code>
-                <p filter="other">with <code>source-directory</code> pointing to the root of your project.</p>
+                <p filter="php-only">with <code>source-directory</code> pointing to the root of your project.</p>
                 <p><include src="lib_qd.xml" include-id="open-browser-instruction"/></p>
             </tab>
         </tabs>
@@ -1056,14 +1055,14 @@
 
         <code style="block" lang="yaml">
             bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
-            bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
+              bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
         </code>
 
         <p filter="dotnet-techs">Using this command, you can install the 7.0.100-rc.1 version of the SDK:</p>
 
         <code style="block" lang="yaml" filter="dotnet-techs">
             bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
-            bash -s -- --version 7.0.100-rc.1.22431.12 -i /usr/share/dotnet
+              bash -s -- --version 7.0.100-rc.1.22431.12 -i /usr/share/dotnet
         </code>
 
     </chunk>
