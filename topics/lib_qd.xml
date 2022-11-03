@@ -1048,7 +1048,8 @@
     </chunk>
 
     <chunk id="docker-dotnet-specific-requirements">
-        <p>In case a project has specific SDK requirements, you can set them up before running the analysis using the
+        <p>The Qodana for .NET linter is based the official SDK version 6.0. In case a project requires a
+            different version of the SDK, you can set it up before running the analysis using the
             <a href="before-running-qodana.md"><code>bootstrap</code></a> field in the <code>qodana.yaml</code> file.
             For example, this command will install the required version of the SDK that is specified in the
             <code>global.json</code> file and located in the root of your project:</p>
