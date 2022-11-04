@@ -1048,8 +1048,11 @@
     </chunk>
 
     <chunk id="docker-dotnet-specific-requirements">
-        <p>The Qodana for .NET linter is based the official SDK version 6.0. In case a project requires a
-            different version of the SDK, you can set it up before running the analysis using the
+        <p>%linter% is based on the Linux version of the <emphasis>mcr.microsoft.com/dotnet/sdk:6.0</emphasis> Docker
+            image (<emphasis>.NET SDK Version: 6.0.402, Commit 6862418796</emphasis>) suitable for analysing .NET Core
+            projects only. Functionality of .NET Framework-based project analysis will be added in future versions of the
+            linter.</p>
+        <p>In case a project requires a different version of the SDK, you can set it up before running the analysis using the
             <a href="before-running-qodana.md"><code>bootstrap</code></a> field in the <code>qodana.yaml</code> file.
             For example, this command will install the required version of the SDK that is specified in the
             <code>global.json</code> file and located in the root of your project:</p>

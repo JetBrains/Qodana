@@ -27,9 +27,6 @@ It brings all the smarts from Rider, which help you:
 
 ### Install project dependencies
 
-Docker image is based on the official SDK 6.0 Docker image from Microsoft suitable for analysis of .NET Core 
-projects only. Currently, %linter% does not support the .NET framework. 
-
 <p><include src="lib_qd.xml" include-id="docker-dotnet-specific-requirements" use-filter="empty"/></p>
 
 ### Run analysis
