@@ -1,5 +1,7 @@
 [//]: # (title: Docker image configuration)
 
+<include src="lib_qd.xml" include-id="clone-finder-deprecation-note"/>
+
 ## Docker image paths
 
 - **/data/project**: root directory of the project to be analyzed

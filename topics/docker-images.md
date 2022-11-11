@@ -14,4 +14,5 @@ Docker images for experimental linters:
 - [jetbrains/qodana-clone-finder](https://hub.docker.com/r/jetbrains/qodana-clone-finder): [Qodana Clone Finder linter](clone-finder-docker-readme.md)
 - [jetbrains/qodana-license-audit](https://hub.docker.com/r/jetbrains/qodana-license-audit): [Qodana License audit linter](license-audit-docker-readme.md)
 
+<include src="lib_qd.xml" include-id="clone-finder-deprecation-note"/>
 <include src="lib_qd.xml" include-id="license-audit-deprecation-note"/>

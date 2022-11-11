@@ -1014,6 +1014,13 @@
         </warning>
     </chunk>
 
+    <chunk id="clone-finder-deprecation-note">
+        <warning>
+            The Qodana Clone Finder linter is deprecated. You can check code duplicates in your project using technology-specific
+            <a href="linters.md">Qodana linters</a>.
+        </warning>
+    </chunk>
+
     <chunk id="php-composer-dependency-installation">
         <p>If you use PHP Composer, Qodana will install your project dependencies
             automatically right before the code analysis starts.</p>

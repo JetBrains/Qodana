@@ -1,7 +1,7 @@
 [//]: # (title: Clone Finder Docker image)
 ![official JetBrains project](https://jb.gg/badges/official-flat-square.svg) ![Docker Stars](https://img.shields.io/docker/stars/jetbrains/qodana.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/jetbrains/qodana-clone-finder.svg)
 
-><include src="lib_qd.xml" include-id="eap-warning"/>
+<include src="lib_qd.xml" include-id="clone-finder-deprecation-note"/>
 
 <var name="product" value="Qodana Clone Finder"/>
 
