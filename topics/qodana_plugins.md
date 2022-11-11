@@ -8,8 +8,6 @@ Qodana provides several plugins for seamless integration between Qodana and JetB
 
 <!-- - TeamCity plugins:
    - [Qodana plugin](qodana-teamcity-plugin.md) provides the Qodana IntelliJ linter, Qodana UI and extension point for other linters support.
-   - [Clone Finder plugin](clone-finder-teamcity-plugin.md) adds the Qodana Clone Finder linter support.
-   - [License Audit plugin](license-audit-teamcity-plugin.md) adds the Qodana License Audit linter support.
 
 -->
 

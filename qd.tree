@@ -24,7 +24,6 @@
                 <toc-element id="qodana-js.md"/>
                 <toc-element id="qodana-go.md"/>
                 <toc-element id="qodana-dotnet.md"/>
-                <toc-element id="about-clone-finder.md"/>
             </toc-element>
             <toc-element id="code-inspections.xml"/>
         </toc-element>
@@ -47,8 +46,6 @@
             <toc-element id="qodana-js-docker-readme.xml"/>
             <toc-element id="qodana-go-docker-readme.xml"/>
             <toc-element id="qodana-dotnet-docker-readme.xml"/>
-            <toc-element id="clone-finder-docker-readme.md"/>
-            <toc-element id="license-audit-docker-readme.md"/>
         </toc-element>
 
         <toc-element id="service.md"/>
@@ -72,8 +69,6 @@
             <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-go-docker-techs.xml" show-structure-depth="3"/>
             <toc-element id="qodana-dotnet-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="clone-finder-docker-techs.md" show-structure-depth="3"/>
-            <toc-element id="license-audit-docker-techs.md" show-structure-depth="3"/>
         </toc-element>
 
 
@@ -89,7 +84,6 @@
             <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
                 <toc-element id="qodana-sarif-output.md" accepts-web-file-names="qodana-intellij-docker-sarif.html"/>
             </toc-element>
-            <toc-element id="clone-finder-output.md"/>
             <toc-element id="html-report.md"/>
         </toc-element>
     </toc-element>

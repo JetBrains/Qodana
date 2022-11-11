@@ -81,7 +81,3 @@ The [](qodana-go.md) linter is based on [GoLand](https://www.jetbrains.com/go) a
 
 The [](qodana-dotnet.md) linter is based on [Rider](https://www.jetbrains.com/rider/) and provides static analysis for 
 .NET projects.
-
-## Clone detection
-
-The [Qodana Clone Finder](about-clone-finder.md) linter lets you detect code duplicates across different projects.
