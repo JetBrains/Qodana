@@ -140,6 +140,4 @@
 
     <toc-element title="Troubleshooting" id="troubleshooting.xml"/>
 
-    <toc-element id="qodana-slack-code-of-conduct.md" hidden="true"/>
-
 </product-profile>
