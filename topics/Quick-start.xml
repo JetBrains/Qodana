@@ -104,34 +104,16 @@
                                 <td>jetbrains/qodana-dotnet</td>
                                 <td>.NET projects, based on Rider.</td>
                             </tr>
-                            <tr>
-                                <td>jetbrains/qodana-clone-finder</td>
-                                <td>Detects duplicate functions.</td>
-                            </tr>
                         </table>
                     </step>
                     <step>
-                        <p>Run this command to analyze your codebase (all images except <code>jetbrains/qodana-clone-finder</code>):</p>
+                        <p>Run this command to analyze your codebase:</p>
                         <code lang="shell" style="block" prompt="$">
                             docker run --rm -it -p 8080:8080 \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                jetbrains/qodana-&lt;linter&gt; --show-report
                         </code>
                         <p>with &lt;source-directory&gt; pointing to the root of your project.</p>
-                        <p>For the <code>jetbrains/qodana-clone-finder</code> image, you can run this Docker command:</p>
-                        <code lang="shell" style="block" prompt="$">
-                            docker run --rm -it -p 8080:8080 \
-                               -v &lt;queried-project-directory&gt;/:/data/project/ \
-                               -v &lt;reference-projects-directory&gt;/:/data/versus/ \
-                               -v &lt;output-directory&gt;/:/data/results/ \
-                               jetbrains/qodana-clone-finder --show-report
-                        </code>
-                        <p>This command uses the parameters:</p>
-                        <list>
-                            <li><code>&lt;queried-project-directory&gt;</code> is a full local path to the project source code.</li>
-                            <li><code>&lt;reference-projects-directory&gt;</code> is the project directory to be compared with the source code. This parameter can be specified multiple times.</li>
-                            <li><code>&lt;output-directory&gt;</code> is the directory that will contain inspection reports.</li>
-                        </list>
                     </step>
                     <step>
                         <p>Check inspection results <a href="html-report.md">in your browser</a> at

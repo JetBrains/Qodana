@@ -92,12 +92,6 @@ EOM
 
 10. Click **Save**. Now you can run a build with new Qodana inspection parameters you specified.
 
-
-## Add more runners to your build
-You can add inspections by [Clone Finder](https://www.jetbrains.com/help/qodana/about-clone-finder.html) or [License Audit](https://www.jetbrains.com/help/qodana/about-license-audit.html) to your build steps.
-
-When viewing analysis results for a specific build later, you can disable certain runners and inspections via [`qodana.yaml`](https://www.jetbrains.com/help/qodana/qodana-yaml.html) and update the [configuration script](#add-script).
-
 [//]: # "correct?"
 
 

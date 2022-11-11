@@ -1006,13 +1006,6 @@
         </list>
     </chunk>
 
-    <chunk id="license-audit-deprecation-note">
-        <warning>
-            The Qodana License audit linter is deprecated. You can inspect
-            <a href="license-audit.xml">compatibility of dependency licenses</a> using technology-specific Qodana linters.
-        </warning>
-    </chunk>
-
     <chunk id="qodana-deployment-options">
         <p>%product% provides several deployment options to better fit your needs:</p>
         <list>

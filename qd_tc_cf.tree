@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE product-profile
-        SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-<product-profile id="qd_tc_cf" name="Qodana Clone Finder TeamCity Plugin" start-page="clone-finder-teamcity-plugin.md" status="eap">
-    <toc-element id="clone-finder-teamcity-plugin.md">
-        <toc-element id="teamcity-plugin-quick-start.md"/>
-    </toc-element>
-</product-profile>

@@ -17,6 +17,5 @@
         <li><a href="qodana-js-docker-techs.xml">Qodana for JS</a></li>
         <li><a href="qodana-go-docker-techs.xml">Qodana for Go</a></li>
         <li><a href="qodana-dotnet-docker-techs.xml">Qodana for .NET</a></li>
-        <li><a href="clone-finder-docker-techs.md">Qodana Clone Finder</a></li>
     </list>
 </topic>
