@@ -6,9 +6,9 @@
        title="Quick start"
        id="Quick-start.xml">
 
-    <p>The current version of %product% (%product-version%) provides linters that let you analyze
-        <a href="linters.md">Java, Kotlin, PHP, Python, JavaScript, TypeScript, .NET, and Golang</a> projects. In addition,
-        you can inspect your code for duplicate functions and incompatible licenses used in your project. </p>
+    <p>The current version of %product% (%product-version%) provides <a href="linters.md">linters</a> that let you analyze
+        Java, Kotlin, PHP, Python, JavaScript, TypeScript, .NET, and Golang projects. In addition, you can inspect your
+        code for duplicate functions and incompatible licenses used in your project. </p>
 
     <chapter title="Analyze a project locally" id="quickstart-analyze-project-locally">
 
