@@ -28,6 +28,6 @@ Now you can run %product% to inspect your code, see the [Qodana linters](linters
 `qodana.sarif.json` report file generated after a Qodana run. See [](qodana-inspection-output.md) for details.
 2. In the **Problems** tool window that opens, you can view the detected issues and jump to the corresponding line in the code editor.
 
-    <img src="qd-ide-plugin-project-errors.png" alt="Project Errors view" width="740" border-effect="line"/>
+    <img src="qd-ide-plugin-project-errors.png" dark-src="qd-ide-plugin-project-errors_dark.png" alt="Project Errors view" width="706" border-effect="line"/>
 
 In case a problem was fixed before opening the `qodana.sarif.json` file, it is marked as `[Not present]`.
