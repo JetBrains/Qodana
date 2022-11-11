@@ -4,6 +4,8 @@
 
 <var name="linter" value="Qodana Clone Finder"/>
 
+<include src="lib_qd.xml" include-id="clone-finder-deprecation-note"/>
+
 <note>
 
 <include src="lib_qd.xml" include-id="supported-techs">
