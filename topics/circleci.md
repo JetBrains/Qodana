@@ -15,7 +15,7 @@ then specify the <code>qodana</code> element along with the %product% version:
 
 ```yaml
 orbs: 
-    qodana: jetbrains/qodana@2022.2.1
+    qodana: jetbrains/qodana@2022.2.2
 ```
 
 If necessary, repeat this step for all required workflows and jobs.
@@ -32,7 +32,7 @@ Using this configuration sample, you can scan your project with %product% with t
 ```yaml
 version: '2.1'
 orbs:
-  qodana: jetbrains/qodana@2022.2.1
+  qodana: jetbrains/qodana@2022.2.2
 jobs:
   code-quality:
     machine:
@@ -52,7 +52,7 @@ This configuration sample invokes the `args` parameter to run the specific linte
 ```yaml
 version: 2.1
 orbs:
-  qodana: jetbrains/qodana@2022.2.1
+  qodana: jetbrains/qodana@2022.2.2
 jobs:
   code-quality:
     machine:
