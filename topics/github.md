@@ -29,7 +29,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2022.2.1
+        uses: JetBrains/qodana-action@v2022.2.3
 ```
 
 Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
@@ -112,7 +112,7 @@ qodana scan --show-report
 
 ```yaml
 - name: Qodana Scan
-  uses: JetBrains/qodana-action@v2022.2.1
+  uses: JetBrains/qodana-action@v2022.2.3
   with:
     args: --baseline,qodana.sarif.json
 ```
