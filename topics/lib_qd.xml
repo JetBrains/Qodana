@@ -1064,5 +1064,32 @@
 
     </chunk>
 
+    <chunk id="configure-jdk-qodana-yaml">
+
+        <p filter="configure-jdk">In the <a href="qodana-yaml.md"><code style="inline">qodana.yaml</code></a> file, you
+            can specify the JDK version using the <code style="inline">projectJDK</code> option, for example: </p>
+
+        <p filter="configure-jdk-qodana-yaml">Use the <code style="inline">projectJDK</code> option to specify
+            the JDK version, for example: </p>
+
+        <code style="block" lang="yaml">
+            projectJDK: 11
+        </code>
+
+        <p>or:</p>
+
+        <code style="block" lang="yaml">
+            projectJDK: 1.8
+        </code>
+
+        <p>You can also specify JDK using the name:</p>
+
+        <code style="block" lang="yaml">
+            projectJDK: corretto-19
+        </code>
+
+
+    </chunk>
+
 
 </topic>

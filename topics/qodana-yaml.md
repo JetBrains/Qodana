@@ -222,6 +222,18 @@ In the example above,
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
+## Configure the JDK version
+
+You can configure the JDK version for these linters:
+
+* [](qodana-jvm.md)
+* [](qodana-jvm-community.md)
+* [](qodana-jvm-android.md)
+
+<include src="lib_qd.xml" include-id="configure-jdk-qodana-yaml" use-filter="configure-jdk-qodana-yaml,empty"/>
+
+To learn more about configuring JDK, see the [](configure-jdk.md) section. 
+
 ## Disable sanity checks
 
 By default, sanity checks are enabled in %product%. You can disable them using this snippet: 
