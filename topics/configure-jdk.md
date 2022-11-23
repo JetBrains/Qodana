@@ -49,6 +49,5 @@ You can mount JDK from your local filesystem to the `/root/.jdks` folder of the 
 
 ```shell
 $ docker run -v /path/to/jdk:/root/.jdks/jdk \
-jetbrains/qodana-jvm
+jetbrains/qodana-&lt;linter&gt;
 ```
-
