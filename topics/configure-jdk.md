@@ -48,7 +48,7 @@ Otherwise, %product% will download and run the subsequent version from this list
 You can mount JDK from your local filesystem to the `/root/.jdks` folder of the %product% Docker image:
 
 ```shell
-$ docker run -v /path/to/correto-11:/root/.jdks/correto-11 \
+$ docker run -v /path/to/jdk:/root/.jdks/jdk \
 jetbrains/qodana-jvm
 ```
 
