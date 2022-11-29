@@ -150,8 +150,6 @@
                     <img src="cloud-forward-reports-teamcity.png" width="460" alt="Configuring fields in TeamCity" border-effect="line"/>
                 </step>
             </procedure>
-            <p>If necessary, repeat this configuration. For example, besides code inspection you may want to configure
-                Clone Finder or License audit features on the same runner.</p>
         </chapter>
 
 </topic>

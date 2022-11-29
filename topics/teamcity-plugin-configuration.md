@@ -40,7 +40,6 @@ exclude:
     paths:
       - relative/path
       - another/relative/path
-  - name: CloneFinder
   - name: ProhibitedDependencyLicense
   
 EOM  
@@ -98,7 +97,6 @@ EOM
 ### Prerequisites for adding more runners
 
 - The Qodana plugin for teamCity is installed.
-- The Clone Finder or License Audit plugins for teamCity are installed as necessary.
 
 ## Advanced configuration
 

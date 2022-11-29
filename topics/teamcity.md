@@ -94,7 +94,6 @@ this file to the working directory manually. Alternatively, you can write a scri
      paths:
        - relative/path
        - another/relative/path
-   - name: CloneFinder
    - name: ProhibitedDependencyLicense
   
    EOM  

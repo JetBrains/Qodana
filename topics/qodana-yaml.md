@@ -318,28 +318,3 @@ customDependencies:
       - key: "Apache-2.0"
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
-
-## Clone Finder license overrides 
-
-[//]: # "Check if the new parameters are implemented"
-
-You need license overrides when you want to stop seeing warnings about certain mismatched licenses in Clone Finder's reports. For example, Clone Finder's default license compatibility matrix specifies that a queried project with the **GPL-3.0-only** license may not use code from projects with the **ISC** license. That's why Qodana Clone Finder will show a warning for duplicate code fragments with such mismatched licenses. However, if your legal advisor says it is OK, you can specify to ignore warnings for this specific license in reference projects. You can do so in the HTML report via the Problem explorer or directly in `qodana.yaml` as shown in the example below.
-
-```yaml
-version: 1.0
-profile:
-  name: qodana.recommended
-inspections:
-  CloneFinder:
-    failThreshold: 100
-    licenseRules:
-      - source: GPL-3.0-only
-        target: ISC
-        compatible: true
-exclude:
-  - name: CloneFinder
-    paths:
-      - copied_file_2.py
-```
-
-In the example above, using code from **ISC** reference projects (`target`) is allowed in the **GPL-3.0-only** queried project (`source`), although this combination is listed as incompatible, for example, in [choosealicense.com/appendix/](https://choosealicense.com/appendix/).

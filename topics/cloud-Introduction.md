@@ -79,7 +79,7 @@ For more information about organizations in Qodana Cloud, see the **Manage organ
 <!-- Company and commercial accounts should be taken care of -->
 <!-- Login from a corporate email should be described here -->
 <!-- Do I need to describe here how to create a JBA?-->
-<!-- Code Inspection, Clone finder, License Audit -->
+<!-- Code Inspection -->
 <!-- I need to describe Publisher and explain how to pull report data to Qodana Cloud. See minutes 26-27 of the video-->
 <!-- Publisher can be shipped along with Qodana or separately from it -->
 <!-- Two workflows for separated report sending and in combination with code analysis should be described -->
