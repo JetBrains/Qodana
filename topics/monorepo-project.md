@@ -161,7 +161,7 @@ jobs:
         with:
           args: |
             --source-directory,backend,
-            --baseline,qodana-backend.sarif.json,
+            --baseline,qodana-backend.sarif.json
           artifact-name: qodana-backend
   qodana-frontend:
     runs-on: ubuntu-latest
@@ -177,6 +177,6 @@ jobs:
         with:
           args: |
             --source-directory,frontend,
-            --baseline,qodana-frontend.sarif.json,
+            --baseline,qodana-frontend.sarif.json
           artifact-name: qodana-frontend
 ```
