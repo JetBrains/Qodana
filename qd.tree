@@ -80,6 +80,7 @@
     <!-- Pages about how to run Qodana should be mentioned here -->
     <toc-element id="inspect-your-code.xml" toc-title="Code inspection">
         <toc-element id="before-running-qodana.md"/>
+        <toc-element id="monorepo-project.md"/>
         <toc-element id="results.md">
             <toc-element id="ui-overview.md"/>
             <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
