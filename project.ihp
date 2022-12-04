@@ -10,12 +10,12 @@
     <vars src="v.list"/>
     <topics dir="topics"/>
     <images dir="images" version="2022.3"
-            web-path="https://resources.jetbrains.com/help/img/qodana/2022.3/"/>
+            web-path="https://resources.jetbrains.com/help/img/qodana/2022.3-cloud-test/"/>
     <categories src="c.list"/>
 
-    <product src="qd.tree" web-path="/qodana/2022.3/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2022.3" keymaps-mode="none"/>
+    <product src="qd.tree" web-path="/qodana/2022.3-cloud-test/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="2022.3-cloud-test" keymaps-mode="none"/>
 
-    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/2022.3/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2022.3" keymaps-mode="none"/>
+    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/2022.3-cloud-test/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="2022.3-cloud-test" keymaps-mode="none"/>
 </ihp>
