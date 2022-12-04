@@ -20,7 +20,7 @@
         <li>Create <a href="cloud-teams.xml">a team</a></li>
         <li>Configure <a href="cloud-projects.xml">a project</a></li>
         <li>Configure <a href="cloud-forward-reports.xml">forwarding %product% reports</a> to Qodana Cloud</li>
-        <li><a href="inspect-your-code.xml">Run Qodana</a> and <a href="cloud-overview-reports.xml">overview</a> the uploaded reports</li>
+        <li>Run Qodana and <a href="cloud-overview-reports.xml">overview</a> the uploaded reports</li>
     </list>
 
 </topic>

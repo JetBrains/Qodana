@@ -3,13 +3,12 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Profile"
+       title="Account settings"
        id="cloud-profile-settings">
 
-    <p>Using this tab, you can select the theme for your Qodana Cloud UI or log out from Qodana Cloud. </p>
+    <p>Using this section, you can configure appearance of your Qodana Cloud account, manage cookies, log out or completely
+    delete your account.</p>
 
-    <img src="qc-profile-settings.png" alt="Profile settings" width="460" border-effect="line" title="Profile settings"/>
-
-
+    <img src="qc-profile-settings.png" alt="Account settings" width="706" border-effect="line"/>
 
 </topic>

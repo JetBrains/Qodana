@@ -20,7 +20,7 @@
 
     <img src="qc-settings-organizations.png" alt="Managing organizations" width="460" border-effect="line" title="Managing organizations"/>
 
-    <chapter id="cloud-organizations-creating-new-organization" title="Managing organizations">
+    <chapter id="cloud-organizations-creating-new-organization" title="Manage organizations">
 
         <p>To create a new organization, on the <menupath>Organizations</menupath> tab click the
             <menupath>+ Add new organization</menupath> link. This will open the dialog window to specify the
@@ -38,7 +38,7 @@
 
     </chapter>
 
-    <chapter id="cloud-organizations-manage-members-visibility" title="Managing members and visibility">
+    <chapter id="cloud-organizations-manage-members-visibility" title="Manage members and visibility">
 
         <p>If your account has the <emphasis>Administrator</emphasis> for specific organizations, it lets you
             create and delete such organizations, as well as manage their members and visibility.</p>
