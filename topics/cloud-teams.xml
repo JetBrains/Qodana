@@ -10,18 +10,18 @@
         Here are some basic advantages of using teams:</p>
 
     <list>
-        <li>You can combine several <a href="cloud-projects.xml">projects</a> under a single team to provide a convenient way for navigation.</li>
-        <li>You can share specific projects among Qodana Cloud users that are part of a team.</li>
+        <li>You can combine several <a href="cloud-projects.xml">projects</a> under a single team to provide a convenient way for navigation</li>
+        <li>You can share specific projects among Qodana Cloud users that are part of a team</li>
     </list>
 
-    <p>To start working with teams, you need to navigate to the organization. You can do this by expanding the
-    list of organizations in the left corner of the Qodana Cloud UI, and selecting the required organization.</p>
+    <p>To navigate to an organization, expand the list of organizations in the left corner of the Qodana Cloud UI,
+        and then click the required organization.</p>
 
     <img src="qc-teams-navigating.png" dark-src="qc-teams-navigating_dark.png" alt="Navigating to the organization" width="706" border-effect="line"/>
 
     <chapter id="cloud-teams-create-team" title="Create a team">
 
-        <p>Currently, you can create teams only outside your private organization.</p>
+        <p>You can create teams only outside your private organization.</p>
 
         <procedure>
             <step>
@@ -39,7 +39,8 @@
 
     <chapter id="cloud-teams-navigate-to-team" title="Navigate to teams">
 
-        <p>You can navigate to teams using either the organization page or the left sidebar of the Qodana Cloud UI. </p>
+        <p>You can navigate to a team clicking its name on an organization page, or using the left sidebar of the
+            Qodana Cloud UI.</p>
 
         <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing team" width="706" border-effect="line"/>
 
@@ -47,16 +48,14 @@
 
     <chapter id="cloud-teams-manage-teams" title="Manage teams">
 
-        <p>Each team can be managed using the menu available in the upper-right corner. </p>
+        <p>After clicking in the upper-right corner, you can invite new members to a team, leave the team, or delete it.</p>
 
-        <img src="qc-manage-team-members.png" dark-src="qc-manage-team-members_dark.png" width="706" alt="Managing team members" border-effect="line"/>
+        <img src="qc-manage-team-members.png" dark-src="qc-manage-team-members_dark.png" width="706" alt="Managing team" border-effect="line"/>
 
         <p>Click <menupath>Invite members</menupath> to invite or delete members, or change
             <a href="cloud-user-roles.xml">user roles</a> for the existing members.</p>
 
         <img src="qc-teams-managing-members.png" dark-src="qc-teams-managing-members_dark.png" alt="Managing team members" width="706" border-effect="line"/>
-
-        <p>Click <menupath>Archive team</menupath> if you wish to delete (archive) the team.</p>.
 
     </chapter>
 </topic>
