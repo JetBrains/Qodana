@@ -16,7 +16,7 @@
     <p>To be able to overview Qodana reports in the Qodana Cloud UI, follow these steps:</p>
 
     <list type="decimal">
-        <li>Create <a href="cloud-organizations.xml">an organization</a>, or use your private organization instead</li>
+        <li>Create <a href="cloud-organizations.xml">an organization</a>, or use your private organization</li>
         <li>Create <a href="cloud-teams.xml">a team</a></li>
         <li>Configure <a href="cloud-projects.xml">a project</a></li>
         <li>Configure <a href="cloud-forward-reports.xml">forwarding %product% reports</a> to Qodana Cloud</li>

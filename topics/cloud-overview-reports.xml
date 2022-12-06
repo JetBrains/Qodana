@@ -8,24 +8,22 @@
 
     <p>Information from project reports is aggregated and displayed in several fields.</p>
 
-        <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report sample" width="296" border-effect="line" title="Qodana Cloud report sample"/>
+        <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report overview" width="706" border-effect="line" title="Qodana Cloud report sample"/>
 
         <p>This sample project contains the following fields:</p>
 
     <list>
-        <li>Project name and location. Location is displayed if a project is hosted on a publicly available repository
-            like GitHub.</li>
-        <li>Branch name.</li>
-        <li>Commit hash.</li>
-        <li>Date and time of the latest Qodana inspection.</li>
+        <li>Project name</li>
+        <li>Branch name</li>
+        <li>Commit description</li>
+        <li>Date and time of the latest Qodana inspection</li>
         <li>Number of problems detected and severity expressed as a circle. The circle color reflects the severity of
-            the major part of detected problems. You can click this element to open the report.</li>
+            the major part of detected problems. You can click this element to open the report</li>
+        <li>The upper-right corner contains the dropdown list to let you rename the project, copy its token, or delete
+            it from Qodana Cloud</li>
     </list>
 
-    <tip>Projects without uploaded reports can be deleted.</tip>
-
-    <p>This table shows how Qodana Cloud interprets and displays several reports (or bars in the bar chart) depending
-        on their metadata.</p>
+    <p>This table shows how Qodana Cloud interprets and displays several reports depending on their metadata.</p>
 
     <table>
         <tr>
@@ -35,13 +33,13 @@
             <td>Displays</td>
         </tr>
         <tr>
-            <td>Same</td>
-            <td>Same</td>
+            <td>The same</td>
+            <td>The same</td>
             <td>N/A</td>
             <td>The latest report and overwrites the previous reports</td>
         </tr>
         <tr>
-            <td>Same</td>
+            <td>The same</td>
             <td>Different</td>
             <td>N/A</td>
             <td>Separate reports</td>
@@ -49,7 +47,7 @@
         <tr>
             <td>N/A</td>
             <td>N/A</td>
-            <td>Same</td>
+            <td>The same</td>
             <td>Single report</td>
         </tr>
     </table>

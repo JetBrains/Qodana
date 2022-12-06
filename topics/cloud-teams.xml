@@ -7,11 +7,11 @@
        id="cloud-teams">
 
     <p>Within <a href="cloud-organizations.xml">organizations</a>, you can create teams for grouping users around dedicated projects.
-        Here are some basic advantages of using teams:</p>
+        This lets you:</p>
 
     <list>
-        <li>You can combine several <a href="cloud-projects.xml">projects</a> under a single team to provide a convenient way for navigation</li>
-        <li>You can share specific projects among Qodana Cloud users that are part of a team</li>
+        <li>Combine several <a href="cloud-projects.xml">projects</a> under a single team to provide a convenient way for navigation</li>
+        <li>Share specific projects among Qodana Cloud users that are part of a team</li>
     </list>
 
     <p>To navigate to an organization, expand the list of organizations in the left corner of the Qodana Cloud UI,
