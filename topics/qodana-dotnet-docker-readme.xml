@@ -101,9 +101,9 @@
                 <code>C:/Temp/QodanaCache</code>.</step>
             <step><a href="qodana-dotnet-docker-readme.xml" anchor="quick-start-recommended-profile">Run %product%</a>
                 using the <code>--cache-dir C:/Temp/QodanaCache</code> option.</step>
-            <step>Copy all NuGet packages contained by default in the <code>&#37;userprofile&#37;\.nuget\packages</code>
+            <step>Copy all NuGet packages contained by default in the <code><![CDATA[userprofile]]>\.nuget\packages</code>
                 folder to <code>C:/Temp/QodanaCache/nuget</code>. If you have a custom package folder, copy packages
-                from that folder instead of <code>&#37;userprofile&#37;\.nuget\packages</code>.</step>
+                from that folder instead of <code><![CDATA[userprofile]]>\.nuget\packages</code>.</step>
             <step>Run %product% using the <code>--cache-dir C:/Temp/QodanaCache</code> once more.</step>
 
         </procedure>
