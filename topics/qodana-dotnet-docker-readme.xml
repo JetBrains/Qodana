@@ -7,13 +7,13 @@
        id="qodana-dotnet-docker-readme">
 
     <var name="linter" value="Qodana for .NET"/>
-    <var name="linter-shell" value="qodana-dotnet"/>
+    <var name="linter-shell" value="qodana-dotnet:2022.3-eap"/>
     <var name="linter-page-url" value="qodana-dotnet.md"/>
     <var name="docker-tech-guide-page-url" value="qodana-dotnet-docker-techs.xml"/>
     <var name="ide" value="Rider"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
-    <var name="docker-image" value="jetbrains/qodana-dotnet"/>
+    <var name="docker-image" value="jetbrains/qodana-dotnet:2022.3-eap"/>
 
 
     <p>
@@ -60,7 +60,7 @@
                     -v &lt;source-directory&gt;/:/data/project/ \
                     -v &lt;output-directory&gt;/:/data/results/ \
                     -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
-                    jetbrains/%linter-shell% --show-report
+                    %docker-image% --show-report
                 </code>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -84,9 +84,29 @@
 
     </chapter>
 
-    <chapter id="Analyzing+specific+solution+or+project" title="Analyzing specific solution or project">
+    <chapter id="Analyzing+specific+solution+or+project" title="Analyze specific solution or project">
 
         <include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project"/>
+
+    </chapter>
+
+    <chapter id="How+to+bypass+windows+authentication" title="Inspect projects using private NuGet repositories">
+
+        <p>%linter% does not support authentication for private NuGet repositories using, for example,
+            Windows Authentication. To overcome this limitation, you can place all required packages within the %product%
+            cache as shown below:</p>
+
+        <procedure>
+            <step>In the local filesystem, create the folder that will contain cache. For example, it can be <code>C:/Temp/QodanaCache</code>.</step>
+            <step><a href="qodana-dotnet-docker-readme.xml" anchor="quick-start-recommended-profile">Run %product%</a>
+                using the <code>--cache-dir C:/Temp/QodanaCache</code> option.</step>
+            <step>Copy all NuGet packages contained by default in the <code>%userprofile%\.nuget\packages</code> folder to
+                <code>C:/Temp/QodanaCache/nuget</code>. If you have a custom package folder, copy packages from that
+                folder instead of <code>%userprofile%\.nuget\packages</code>.</step>
+            <step>Run %product% using the <code>--cache-dir C:/Temp/QodanaCache</code> once more.</step>
+
+        </procedure>
+
 
     </chapter>
 

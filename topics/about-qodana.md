@@ -52,7 +52,7 @@ This diagram describes several steps:
    * <a href="qodana-sarif-output.md">JSON files</a> formatted according to the SARIF specification
    * <a href="ui-overview.md">Interactive HTML reports</a>
 
-<!--   You can overview inspection results for all your projects using [Qodana Cloud](cloud-about.xml).-->
+You can overview inspection results for all your projects using [Qodana Cloud](cloud-about.xml).
 
 4. Based on the inspection results, you can improve your code using your IDE, and run %product% again to track the 
 progress.  
@@ -67,14 +67,10 @@ You can run %product% [locally](Quick-start.xml) in a standalone mode using a PC
 your code within a [CI/CD pipeline](ci.md) means that your code will be inspected by %product% as part of a 
 building and/or deployment process.
 
-<!--
-
 ## Qodana Cloud
 
 [Qodana Cloud](cloud-about.xml) is a cloud-based solution that helps you accumulate various Qodana reports and track the 
 progress in your project(s) from a single point.
-
--->
 
 ## Qodana playground
 

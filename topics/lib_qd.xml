@@ -1024,11 +1024,19 @@
 
         <p>By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
         it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
-        file name using the <code>--property</code> option. For example, for the <code>MySolution.sln</code> solution
-        file it can be:</p>
+        file name using the <code>--property</code> option. For example, to make %product% always analyze the <code>MySolution.sln</code> solution
+        file, you can use:</p>
 
         <code style="block" lang="shell">
             --property=qodana.net.solution=MySolution.sln
+        </code>
+
+        <p>Alternatively, you can specify the solution file name in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
+            file using the <code>solution</code> option:</p>
+
+        <code style="block" lang="yaml">
+            dot-net:
+                solution: MySolution.sln
         </code>
 
         <p>If you project contains no solution files and multiple project files, you need to specify the exact file
@@ -1038,13 +1046,30 @@
             --property=qodana.net.project=MyProject.csproj
         </code>
 
+        <p>Alternatively, you can specify the project file name in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
+            file using the <code>project</code> option:</p>
+
+        <code style="block" lang="yaml">
+            dot-net:
+                project: MyProject.csproj
+        </code>
+
     </chunk>
 
     <chunk id="docker-dotnet-specific-requirements">
-        <p>%linter% is based on the Linux version of the <emphasis>mcr.microsoft.com/dotnet/sdk:6.0</emphasis> Docker
-            image (<emphasis>.NET SDK Version: 6.0.402, Commit 6862418796</emphasis>) suitable for analysing .NET Core
-            projects only. Functionality of .NET Framework-based project analysis will be added in future versions of the
-            linter.</p>
+        <p>%linter% is suitable for analyzing .NET Core projects and provides the following SDK versions:</p>
+
+        <list>
+            <li>3.1.425</li>
+            <li>6.0.403</li>
+            <li>7.0.100</li>
+        </list>
+
+        <p>All SDK versions are stored in the <code>/usr/share/dotnet/sdk</code> directory of the %linter% container filesystem.</p>
+
+        <note>Functionality of .NET Framework-based project analysis will be added in future versions of the linter. Currently,
+        it is not recommended to inspect projects that require .NET Framework.</note>
+
         <p>In case a project requires a different version of the SDK, you can set it up before running the analysis using the
             <a href="before-running-qodana.md"><code>bootstrap</code></a> field in the <code>qodana.yaml</code> file.
             For example, this command will install the required version of the SDK that is specified in the
