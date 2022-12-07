@@ -14,7 +14,7 @@ qodana:
     - main
     - merge_requests
   image:
-    name: jetbrains/qodana-js:2022.2-eap
+    name: jetbrains/qodana-js:2022.3-eap
     entrypoint: [""]
   variables:
     QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git

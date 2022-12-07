@@ -52,19 +52,17 @@
         </tr>
     </table>
 
-    <p>To see all reports related to the project, click the project name. This will open the Qodana report page. </p>
+    <p>To see all reports related to the project, click the project name. This will open the
+        <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">Qodana report page</a>. </p>
 
     <img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
 
-    <p>The upper part of the report provides a timeline containing the number of problems detected per each inspection.
-        Here, you can examine the absolute number of problems detected, or the number of problems relatively to a
-        <a href="https://www.jetbrains.com/help/qodana/qodana-baseline.html">baseline</a>.</p>
+    <p>The upper part of this page contains:</p>
 
-    <img src="qc-report-timeline.png" dark-src="qc-report-timeline_dark.png" width="296" alt="Report timeline" border-effect="line"/>
-
-    <p>The report components below the timeline are described in the
-        <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">User interface overview</a> section on the
-        Qodana documentation portal.</p>
-
+    <p>1. Branch selector. Using it, you can overview reports for each branch in your project.</p>
+    <p>2. Commit name and date.</p>
+    <p>3. Timeline describing the date of inspection and number of problems detected.</p>
+    <p>4. Selector for overviewing either the absolute number of detected problems, or the number of problems
+    relatively to a <a href="qodana-baseline.xml">baseline</a> set for this project.</p>
 
 </topic>
