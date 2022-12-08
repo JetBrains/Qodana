@@ -90,7 +90,7 @@
 
     </chapter>
 
-    <chapter id="How+to+bypass+windows+authentication" title="Inspect projects using private NuGet repositories">
+    <chapter id="Inspect+using+private+nuget+repositories" title="Inspect projects using private NuGet repositories">
 
         <p>%linter% does not support authentication for private NuGet repositories using, for example,
             Windows Authentication. To overcome this limitation, you can place all required packages within the %product%
