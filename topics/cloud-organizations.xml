@@ -8,33 +8,53 @@
 
     <!-- The Admin role should be specified here because there are several admin roles here -->
     <!-- This behavior needs to be supplied with screenshots -->
-    <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.
-        Each organization can contain several teams, users, and projects. Each Qodana Cloud user can be a member of several
-        organizations.</p>
+    <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
+    <p>When you create an account, you become a member of your personal organization, which lets you
+        <a href="cloud-projects.xml">create your projects</a> and aggregate your Qodana reports.</p>
+    <p>To collaborate with other Qodana Cloud users, you can:</p>
+        <list>
+            <li><a anchor="cloud-organizations-create-organization">Create a new organization</a></li>
+            <li><a anchor="cloud-organizations-invitation"> Be invited to join an existing organization</a></li>
+        </list>
 
-    <p>By default, a private organization is assigned to your account. This already lets you create projects and
-        aggregate Qodana reports without joining or creating any other organizations.</p>
+    <!-- Add information about switching between organizations, and add active organizations to the description. It can be a GIF animation -->
 
-    <p>The <menupath>Organizations</menupath> tab of the <menupath>Settings</menupath> section contains a list of
-        organizations that your account is associated with.</p>
+    <chapter id="cloud-organizations-overview" title="Organization overview">
 
-    <img src="qc-settings-organizations.png" alt="Managing organizations" width="460" border-effect="line" title="Managing organizations"/>
+        <p>To manage organizations, navigate to <menupath>Settings | Manage organization</menupath>.</p>
 
-    <chapter id="cloud-organizations-creating-new-organization" title="Manage organizations">
+        <img src="qc-settings-organization-navigate.png" dark-src="qc-settings-organization-navigate_dark.png" width="460" alt="Navigate to Manage organizations" border-effect="line"/>
 
-        <p>To create a new organization, on the <menupath>Organizations</menupath> tab click the
-            <menupath>+ Add new organization</menupath> link. This will open the dialog window to specify the
-            organization name and its visibility for other Qodana Cloud accounts.</p>
+        <p>This section is related to the active organization and describes the number of teams and members,
+            organization type, subscription plan, and the number of contributors.</p>
 
-        <img src="qc-creating-new-organization.png" dark-src="qc-creating-new-organization_dark.png" alt="Creating a new organization" width="460" border-effect="line"/>
+        <img src="qc-settings-organization-overview.png" dark-src="qc-settings-organization-overview_dark.png" width="460" alt="Organization overview" border-effect="line"/>
 
-        <p>After creating, you can use the left sidebar of the Qodana Cloud UI to have access to the list of organizations.</p>
+        <p>You can click the number of members to open the <menupath>Add people to organization</menupath> window and
+            <a anchor="cloud-organizations-manage-members-visibility">manage users</a> of the organization.</p>
 
-        <img src="qc-access-organization.png" dark-src="qc-access-organization_dark.png" alt="Accessing organization" width="460" border-effect="line"/>
+        <img src="qc-settings-organization-overview-members.png" dark-src="qc-settings-organization-overview-members_dark.png" width="460" alt="Manage members" border-effect="line"/>
 
-        <p>To delete the organization, click the upper-right corner and then click <menupath>Archive organization</menupath>.</p>
+    </chapter>
 
-        <img src="qc-archive-organization.png" dark-src="qc-archive-organization_dark.png" width="296" alt="Archiving organizations" border-effect="line"/>
+    <chapter id="cloud-organizations-create-organization" title="Create an organization">
+
+        <p>You can create either private or public organizations. Private organizations are available only for invited users.
+        Reports of public organizations are available for all Qodana Cloud users. </p>
+
+        <p>To create an organization, expand the list of organizations and then click
+            <menupath>Create organization</menupath>.</p>
+
+        <img src="qc-settings-organization-create.png" dark-src="qc-settings-organization-create_dark.png" width="460" alt="Creating an organization" border-effect="line"/>
+
+        <p>This will open the <menupath>Add organization</menupath> window.</p>
+
+        <img src="qc-settings-organization-add.png" dark-src="qc-settings-organization-add_dark.png" width="460" alt="The Add organization window" border-effect="line"/>
+
+
+    </chapter>
+
+    <chapter id="cloud-organizations-invitation" title="Invite to an organization">
 
     </chapter>
 
