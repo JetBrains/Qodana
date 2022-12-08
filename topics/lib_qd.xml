@@ -582,8 +582,6 @@
 
         <chapter id="docker+config+options+qodana+cloud" title="Qodana Cloud">
 
-            <note><p>Qodana Cloud is currently under development.</p></note>
-
             <table column-width="fixed">
                 <tr>
                     <td width="20%">Option</td>
@@ -593,7 +591,7 @@
                     <td><code>-a</code>,
                         <code>--analysis-id=</code>
                     </td>
-                    <td>Unique report identifier (GUID) to be used by Qodana Cloud.</td>
+                    <td>Unique report identifier (GUID) to be used by <a href="https://qodana.cloud">Qodana Cloud</a>.</td>
                 </tr>
             </table>
         </chapter>

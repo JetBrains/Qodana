@@ -8,8 +8,8 @@
 
     <chapter id="cloud-use-case-1" title="Get deeper insights into your project trends" level="4">
 
-        <p>Using Qodana Cloud, you can aggregate Qodana reports from various projects, explore development trends, and
-            analyze team and project performance.</p>
+        <p>Using <a href="https://qodana.cloud">Qodana Cloud</a>, you can aggregate Qodana reports from various
+            projects, explore development trends, and analyze team and project performance.</p>
 
         <p>To organize your work, Qodana Cloud provides a hierarchy consisting of organizations, teams, and projects.
             These entities let you assign several projects to a single team. Also, you can achieve transparency using

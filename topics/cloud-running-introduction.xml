@@ -6,8 +6,8 @@
        title="Qodana Cloud components"
        id="cloud-running-introduction.xml">
 
-    <p>In Qodana Cloud, an organization is the basic entity. Every Qodana Cloud user can be part of one or
-        multiple organizations. </p>
+    <p>In <a href="https://qodana.cloud">Qodana Cloud</a>, an organization is the basic entity. Every Qodana Cloud user
+        can be part of one or multiple organizations. </p>
     <p>Each organization can contain several teams. Each team provides unified access to projects for several users. </p>
     <p>Each project contains results of inspection carried out by Qodana over a specific codebase.</p>
 

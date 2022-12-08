@@ -6,7 +6,7 @@
        title="Manage account"
        id="cloud-manage-your-account">
 
-    <p>To manage your account, click <b>Settings</b> on the left sidebar of the Qodana Cloud UI. </p>
+    <p>To manage your account, click <b>Settings</b> on the left sidebar of the <a href="https://qodana.cloud">Qodana Cloud</a> UI. </p>
 
     <img src="qc-settings-setting-menu.png" alt="Settings menu" width="460" border-effect="line" title="Settings menu"/>
 

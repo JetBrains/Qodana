@@ -12,7 +12,8 @@
     <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
     <var name="SpaceAutomationLink" value="www.jetbrains.com/help/space/automation-concepts.html#what-is-space-automation"/>
 
-        <p>This chapter explains how to configure the following products for forwarding Qodana reports to Qodana Cloud:</p>
+        <p>This chapter explains how to configure the following products for forwarding Qodana reports to
+            <a href="https://qodana.cloud">Qodana Cloud</a>:</p>
 
         <list>
             <li><a anchor="cloud-forward-reports-local-run">Docker</a></li>

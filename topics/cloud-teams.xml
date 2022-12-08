@@ -6,8 +6,8 @@
        title="Teams"
        id="cloud-teams">
 
-    <p>Within <a href="cloud-organizations.xml">organizations</a>, you can create teams for grouping users around dedicated projects.
-        This lets you:</p>
+    <p>Using <a href="cloud-organizations.xml">organizations</a> in <a href="https://qodana.cloud">Qodana Cloud</a>, you
+        can create teams for grouping users around dedicated projects. This lets you:</p>
 
     <list>
         <li>Combine several <a href="cloud-projects.xml">projects</a> under a single team to provide a convenient way for navigation</li>

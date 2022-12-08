@@ -69,8 +69,9 @@ building and/or deployment process.
 
 ## Qodana Cloud
 
-[Qodana Cloud](cloud-about.xml) is a cloud-based solution that helps you accumulate various Qodana reports and track the 
-progress in your project(s) from a single point.
+[Qodana Cloud](https://qodana.cloud) is a cloud-based solution that helps you accumulate various Qodana reports and track the 
+progress in your project(s) from a single point. To learn more about Qodana Cloud, you can study the 
+[documentation](cloud-about.xml).
 
 ## Qodana playground
 

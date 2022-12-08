@@ -13,7 +13,7 @@
         servers and virtual private networks and each team works independently. This is when a centralized solution for
         collecting and displaying report information from all Qodana instances would come in handy.</p>
 
-    <p><emphasis>Qodana Cloud</emphasis> is a cloud-based solution that helps you accumulate various Qodana
+    <p><a href="https://qodana.cloud">Qodana Cloud</a> is a cloud-based solution that helps you accumulate various Qodana
         reports and track the progress in your project(s) from a single point: Qodana instances automatically forward
     inspection reports to Qodana Cloud based on project tokens.</p>
 

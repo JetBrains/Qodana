@@ -8,8 +8,8 @@
 
     <!-- The Admin role should be specified here because there are several admin roles here -->
     <!-- This behavior needs to be supplied with screenshots -->
-    <p>Organizations provide top-level structuring of all entities inside Qodana Cloud. Each organization can contain
-        several teams, users, and projects. Each Qodana Cloud user can be a member of several
+    <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.
+        Each organization can contain several teams, users, and projects. Each Qodana Cloud user can be a member of several
         organizations.</p>
 
     <p>By default, a private organization is assigned to your account. This already lets you create projects and

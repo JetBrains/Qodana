@@ -6,8 +6,8 @@
        title="Account settings"
        id="cloud-profile-settings">
 
-    <p>Using this section, you can configure appearance of your Qodana Cloud account, manage cookies, log out or completely
-    delete your account.</p>
+    <p>Using this section, you can configure appearance of your <a href="https://qodana.cloud">Qodana Cloud</a> account,
+        manage cookies, log out or completely delete your account.</p>
 
     <img src="qc-profile-settings.png" alt="Account settings" width="706" border-effect="line"/>
 
