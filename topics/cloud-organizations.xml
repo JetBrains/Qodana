@@ -9,6 +9,11 @@
     <!-- The Admin role should be specified here because there are several admin roles here -->
     <!-- This behavior needs to be supplied with screenshots -->
     <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
+
+    <p>You can navigate between organizations using the left sidebar of the Qodana Cloud UI.</p>
+
+    <img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="460" alt="Creating an organization" border-effect="line"/>
+
     <p>When you create an account, you become a member of your personal organization, which lets you
         <a href="cloud-projects.xml">create your projects</a> and aggregate your Qodana reports.</p>
     <p>To collaborate with other Qodana Cloud users, you can:</p>
@@ -16,6 +21,9 @@
             <li><a anchor="cloud-organizations-create-organization">Create a new organization</a></li>
             <li><a anchor="cloud-organizations-invitation"> Be invited to join an existing organization</a></li>
         </list>
+
+    <p>Some %product% reports can be available without creating an account, see the
+        <a anchor="cloud-organizations-create-organization"/> section for details.</p>
 
     <!-- Add information about switching between organizations, and add active organizations to the description. It can be a GIF animation -->
 
@@ -31,7 +39,7 @@
         <img src="qc-settings-organization-overview.png" dark-src="qc-settings-organization-overview_dark.png" width="460" alt="Organization overview" border-effect="line"/>
 
         <p>You can click the number of members to open the <menupath>Add people to organization</menupath> window and
-            <a anchor="cloud-organizations-manage-members-visibility">manage users</a> of the organization.</p>
+            <a anchor="cloud-organizations-invitation">manage users</a> of the organization.</p>
 
         <img src="qc-settings-organization-overview-members.png" dark-src="qc-settings-organization-overview-members_dark.png" width="460" alt="Manage members" border-effect="line"/>
 
@@ -39,40 +47,40 @@
 
     <chapter id="cloud-organizations-create-organization" title="Create an organization">
 
-        <p>You can create either private or public organizations. Private organizations are available only for invited users.
-        Reports of public organizations are available for all Qodana Cloud users. </p>
+        <p>You can create either private or public organizations. Private organizations are visible only for their users.
+        Reports of public organizations are available for all Qodana Cloud users, including unauthorized users with the
+            <a href="cloud-user-roles.xml">viewer role</a>. </p>
 
         <p>To create an organization, expand the list of organizations and then click
             <menupath>Create organization</menupath>.</p>
 
         <img src="qc-settings-organization-create.png" dark-src="qc-settings-organization-create_dark.png" width="460" alt="Creating an organization" border-effect="line"/>
 
-        <p>This will open the <menupath>Add organization</menupath> window.</p>
+        <p>This will open the <menupath>Add organization</menupath> window, where you can specify the organization name
+            and choose its type.</p>
 
         <img src="qc-settings-organization-add.png" dark-src="qc-settings-organization-add_dark.png" width="460" alt="The Add organization window" border-effect="line"/>
 
 
     </chapter>
 
-    <chapter id="cloud-organizations-invitation" title="Invite to an organization">
+    <chapter id="cloud-organizations-invitation" title="Manage organization members">
 
-    </chapter>
+        <p>Navigate to <menupath>Settings | Manage organization</menupath>, and then click the number of members.</p>
 
-    <chapter id="cloud-organizations-manage-members-visibility" title="Manage members and visibility">
+        <img src="qc-settings-organization-overview-members.png" dark-src="qc-settings-organization-overview-members_dark.png" width="460" alt="Manage members" border-effect="line"/>
 
-        <p>If your account has the <emphasis>Administrator</emphasis> for specific organizations, it lets you
-            create and delete such organizations, as well as manage their members and visibility.</p>
+        <p>This will open the <menupath>Add people to organization</menupath> window.</p>
 
-        <p>To manage members and visibility of the existing organization, on the <menupath>Organizations</menupath>
-            tab click the <menupath>Manage members and visibility</menupath> link. Using the
-            <menupath>Invite people to &lt;organization_name&gt;</menupath> window, you can:</p>
+        <img src="qc-settings-organization-invitation.png" dark-src="qc-settings-organization-invitation_dark.png" width="706" alt="Manage users" border-effect="line"/>
+
+        <p>Using this window, you can:</p>
+
         <list>
-            <li>Invite new users to this organization and assign their roles</li>
-            <li>Change the roles of the existing users. For more information, see the <a href="cloud-user-roles.xml"/> section</li>
-            <li>Remove users from the organization</li>
+            <li>Invite new users using email addresses, and assign <a href="cloud-user-roles.xml">user roles</a></li>
+            <li>Change roles of existing organization members</li>
+            <li>Delete members</li>
         </list>
-
-        <img src="qc-manage-members-visibility.png" dark-src="qc-manage-members-visibility_dark.png" width="460" alt="Managing members and visibility" border-effect="line"/>
 
     </chapter>
 
