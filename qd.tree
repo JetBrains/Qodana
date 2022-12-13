@@ -94,7 +94,7 @@
         <toc-element id="qodana-baseline.xml"/>
         <toc-element id="quality-gate.xml"/>
         <toc-element id="qodana-php-language-upgrade.xml"/>
-        <toc-element id="license-audit.xml"/>
+        <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html"/>
     </toc-element>
 
     <!-- The beginning of the Integration section -->
