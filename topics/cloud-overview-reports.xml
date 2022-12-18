@@ -10,7 +10,7 @@
 
         <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report overview" width="706" border-effect="line" title="Qodana Cloud report sample"/>
 
-        <p>This sample project contains the following fields:</p>
+        <p>This sample <a href="cloud-projects.xml">project</a> contains the following fields:</p>
 
     <list>
         <li>Project name</li>
