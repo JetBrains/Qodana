@@ -5,7 +5,7 @@ need to be met:
 
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
 - Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/linters.html).
-- Docker on the agent machine is accessible under a non-root user. 
+- Docker must be installed on the agent machine, and the user running the agent must have access to it. 
 
 <note>Currently, running Qodana on Windows-based build agents of TeamCity is not supported.</note>
 
