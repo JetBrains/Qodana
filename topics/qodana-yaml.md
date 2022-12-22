@@ -222,6 +222,14 @@ In the example above,
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
+## Specify the linter
+
+Using the `linter` option, you can specify the linter name. For example:
+
+```yaml
+linter: jetbrains/qodana-jvm-android:2022.3-eap
+```
+
 ## Configure the JDK version
 
 You can configure the JDK version for these linters:
