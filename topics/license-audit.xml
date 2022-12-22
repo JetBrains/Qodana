@@ -74,12 +74,17 @@
         </list>
 
         <chapter title="Enable %feature%" id="license-audit-basic-usecase">
+
+            <chunk id="license-audit-for-cloud-tutorials" >
+
             <p>To enable %feature%, add these lines to the <code style="inline">qodana.yaml</code> file in your project
                 root:</p>
             <code style="block" lang="yaml">
                 include:
                   - name: CheckDependencyLicenses
             </code>
+
+            </chunk>
 
         </chapter>
 

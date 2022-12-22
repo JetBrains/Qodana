@@ -1,0 +1,199 @@
+[//]: # (title: Inspect open-source projects)
+
+<var name="cloud" value="Qodana Cloud"/>
+<var name="feature" value="License audit"/>
+<var name="github-secret" value="docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+<var name="branch-protection-rule" value="docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
+<!-- I need to mention here more about OS projects -->
+
+This section explains how you can inspect your open-source projects using %product%, and how you can use %cloud% to 
+overview %product% inspection results in a convenient form and free for open-source projects. 
+
+## Before you start 
+
+Make sure that you are already know how to:
+
+* [Inspect your code](inspect-your-code.xml) using %product%
+* Configure %product% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.xml)
+* Build %product% into your [CI/CD pipelines](ci.md)
+* [Forward reports](cloud-forward-reports.xml) to %cloud%
+
+## Create an account and projects in %cloud%
+
+[%cloud%](https://qodana.cloud) provides two [types of accounts](cloud-account-types.md) suitable for inspecting open-source 
+projects:
+
+* Personal account to let you inspect your pet projects; however, it is restricted to a single user and the user's personal organization
+* Account for open-source projects to let you create [organizations](cloud-organizations.xml) and [teams](cloud-teams.xml), 
+and share inspection results with your peers
+
+If you would like to use your personal account and a personal [organization](cloud-organizations.xml),
+on the organization page click the **Create first project** button.
+
+<img src="qc-create-project-private.png" dark-src="qc-create-project-private_dark.png" width="706" alt="Creating a new project in a private organization" border-effect="line"/>
+
+If you would like to overview %product% reports using your open-source account, you need to create your own organization 
+and a team, or navigate to the team of an existing organization you wish to create a project under. On the team page, 
+click the **Create project** button.
+
+<img src="qc-create-project-non-private.png" dark-src="qc-create-project-non-private_dark.png" width="706" alt="Creating a new project in an organization" border-effect="line"/>
+
+After the project was created, you can generate a project token to uniquely identify the project. To do this, click
+**Generate token**.
+
+<img src="qc-generating-token.png" dark-src="qc-generating-token_dark.png" alt="Generating the project token" width="706" border-effect="line"/>
+
+To learn more about using project tokens, see the [](cloud-forward-reports.xml) section.
+
+## Inspect your projects
+
+You can inspect your codebase using methods described [on this page](inspect-your-code.xml). Additionally, you can 
+configure:
+
+* [Inspections](#Configure+inspections) that you would like to use
+* [License audit](#Configure+License+audit) for checking license compatibility
+* [Baseline](#Configure+baseline) for monitoring current and new problems
+* [Quality gate](#Configure+quality+gate) for restricting the number of problems
+
+### Configure inspections
+
+By default, %product% inspects your code using the `qodana.starter` profile. You can use additional inspections by 
+specifying the `qodana.recommended` profile in the [`qodana.yaml`](qodana-yaml.md) file contained in your project root: 
+
+```yaml
+profile:
+    name: qodana.recommended  
+```
+
+To check the overall configuration of your project, you can employ the `qodana.sanity` profile:
+
+```yaml
+profile:
+    name: qodana.sanity  
+```
+
+### Configure License audit
+
+[License audit](license-audit.xml) lets you track compatibility of dependency licenses with your project license.
+
+<include src="license-audit.xml" include-id="license-audit-for-cloud-tutorials"/>
+
+### Configure baseline
+
+[Baseline](qodana-baseline.xml) lets you create a snapshot of your project that will be used as a basis for 
+subsequent analysis. To enable it, select inspections and download the `qodana.sarif.json` file. 
+
+You can run %product% with the baseline enabled using the `--baseline` option:
+
+```shell
+−−baseline <path-to-qodana.sarif.json>
+```
+
+### Configure quality gate
+
+[](quality-gate.xml) lets you configure the ultimate number of problems that will cause a CI/CD pipeline failure.
+
+Once configured, the quality gate will make your CI/CD system:
+
+* Build the project only if the number of problems contained in it is below the configured threshold
+* Accept only the pull requests containing problems below the configured threshold  
+
+To enable the quality gate, you can use the `fail-threshold <number>` option.
+
+### Types of Qodana reports
+
+%product% can generate the following types of inspection reports: 
+
+* Reports containing inspection results over a specific branch of your project
+* Pull or merge request inspection reports generated by [GitHub Actions](#GitHub+Actions) and [GitLab CI/CD](#GitLab+CI%2FCD)
+
+<!-- I need to add information about QODANA_TOKEN. Without this parameter, both examples are useless -->
+
+#### GitHub Actions
+
+Using this example, you can configure GitHub for:
+
+* Forwarding inspection results to %cloud%
+* Blocking the merge of pull requests if the quality gate has failed
+
+Follow these steps:
+
+1. Create an [encrypted secret](https://%github-secret%) with the `QODANA_TOKEN` name.
+2. Create a new or open an existing GitHub workflow that invokes the Qodana Scan action.
+3. Set the workflow to run on `pull_request` events that target the `main` branch, and forward reports based on the 
+`QODANA_TOKEN` value. Instead of `main`, you can specify your branch here.
+
+```yaml
+name: Qodana
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+  qodana:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 'Qodana Scan'
+        uses: JetBrains/qodana-action@v2022.2.3
+        env:
+        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+```
+
+4. Set the number of problems (integer) for the Qodana action [`fail-threshold`](#Configure+quality+gate) option.
+5. Under your repository name, click **Settings**.
+6. On the left menu, click **Branches**.
+7. In the branch protection rules section, click **Add rule**.
+8. Add `main` to **Branch name pattern**.
+9. Select **Require status checks to pass before merging**.
+10. Search for the `Qodana` status check, then check it.
+11. Click **Create**.
+
+#### GitLab CI/CD
+
+Using this example, you can configure GitLab CI/CD for:
+
+* Inspecting the `main` branch and all merge requests
+* Blocking merge requests if the quality gate has failed
+* Forwarding inspection results to %cloud%
+
+Follow these steps to add a %product% runner to a GitLab CI/CD pipeline:
+
+1. Create the [`QODANA_TOKEN`](https://docs.gitlab.com/ee/ci/variables/) variable and save the %cloud% project token value in it 
+2. Paste this sample to the `.gitlab-ci.yml` file: 
+
+```yaml
+stages:
+  - qodana
+
+qodana:
+  stage: qodana
+  only:
+    - main
+    - merge_requests
+  image:
+    name: jetbrains/qodana-<linter>
+    entrypoint: [""]
+  script:
+    - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana 
+     --report-dir=$CI_PROJECT_DIR/qodana/report
+     --fail-threshold <number>
+  artifacts:
+    paths:
+      - qodana
+```
+In this sample, specify the %product% linter and the quality gate using `--fail-threshold` option. 
+Using this configuration, %product% will inspect the main branch and all merge requests coming to your repository.
+
+## Overview inspection results
+
+After your project is inspected and inspection results are uploaded to %cloud%, you can overview results as shown 
+[on this page](cloud-overview-reports.xml).
