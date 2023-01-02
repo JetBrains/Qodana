@@ -15,7 +15,7 @@
                 <tip-group>
                         <title>These are two sections you should definitely start with</title>
                         <a href="about-qodana.md"
-                           description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks like clone detection and license audit."
+                           description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks."
                            type="install"/>
                         <a href="Quick-start.xml"
                            description="Learn how to get started with Qodana in a few simple steps."
@@ -25,7 +25,7 @@
                 <main-group>
                         <title>Deploy, configure, and launch Qodana</title>
                         <a href="docker-images.md"
-                           description="Learn how to deploy Qodana locally using Docker images"/>
+                           description="Learn how to deploy Qodana locally using Docker images."/>
                         <a href="qodana_plugins.md"
                            description="Qodana provides several plugins for seamless integration with CI systems."/>
                         <a href="ci.md"
@@ -48,9 +48,9 @@
                            description="Qodana linters can read and write reports in SARIF format, which is the industry
                            standard for the output of static analysis tools."/>
                         <a href="quality-gate.xml"
-                           description="Restrict the quantity of problems that can be accepted by your favorite CI/CD system"/>
+                           description="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
                         <a href="license-audit.xml"
-                           description="Check license compatibility between your software license and dependency licenses"/>
+                           description="Check license compatibility between your software license and dependency licenses."/>
                 </highlighted-group>
                 
         </section-starting-page>

@@ -14,7 +14,7 @@
 
         <tip-group>
             <a href="about-qodana.md"
-               description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks like clone detection and license audit."
+               description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks."
                type="start"/>
             <a href="Quick-start.xml"
                description="Learn how to get started with Qodana in a few simple steps"
