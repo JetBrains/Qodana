@@ -7,6 +7,7 @@
        id="cloud-projects.xml">
 
     <p>Projects let you combine Qodana reports within an <a href="cloud-organizations.xml">organization</a>.</p>
+
     <p>Each project is identified by a unique project token. You can generate the project token after creating the
         project, and use it in your CI/CD pipelines for uploading %product% reports to Qodana Cloud. </p>
 
