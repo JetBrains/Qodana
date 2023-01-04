@@ -8,8 +8,8 @@
 
     <p>Projects let you combine Qodana reports within an <a href="cloud-organizations.xml">organization</a>.</p>
 
-    <p>Each project is identified by a unique project token. You can generate the project token after creating the
-        project, and use it in your CI/CD pipelines for uploading %product% reports to Qodana Cloud. </p>
+    <p>Each project is uniquely identified by a project token. This token lets you upload %product% reports to a
+        specific project.</p>
 
     <chapter id="cloud-create-project" title="Create a project">
 
@@ -32,9 +32,9 @@
 
     <chapter id="cloud-manage-projects" title="Manage a project">
 
-    <p>After the project was created, you can generate a project token to uniquely identify the project in your CI/CD
-        pipelines. To do this, click <menupath>Generate token</menupath>. To learn more about uploading reports to
-        Qodana Cloud, see the <a href="cloud-forward-reports.xml"/> section.</p>
+    <p>After the project was created, click <menupath>Generate token</menupath> to generate a unique project token for
+        it. Using this token, you can upload reports to the project as described in the
+        <a href="cloud-forward-reports.xml"/> section.</p>
 
         <img src="qc-generating-token.png" dark-src="qc-generating-token_dark.png" alt="Generating the project token" width="706" border-effect="line"/>
 
