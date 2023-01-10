@@ -87,7 +87,7 @@ qodana:
          - qodana
 ```
 
-To provide extra data to your report, you can use these variables:
+To provide additional data, you can use these variables:
 
 * `QODANA_REMOTE_URL`
 * `QODANA_BRANCH`

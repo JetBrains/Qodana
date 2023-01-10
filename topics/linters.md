@@ -10,8 +10,8 @@ helps:
 * Improve overall code structure
 * Introduce coding best practices
 
-Starting from version 2022.3, Qodana reads `.gitignore` files of your project and defines the files and folders to be 
-ignored during inspections.
+Starting from version 2022.3, if using the `qodana.recommended` and `qodana.starter` profiles, Qodana reads `.gitignore` 
+files of your project and defines the files and folders to be ignored during inspections.
 
 Here is an overview of %product% linters for inspecting your projects.
 
