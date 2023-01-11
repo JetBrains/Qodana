@@ -104,6 +104,7 @@
         <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.html"/>
         <toc-element id="gitlab.md"/>
         <toc-element id="jenkins.md"/>
+        <toc-element id="space-automation.md"/>
         <toc-element id="teamcity.md" accepts-web-file-names="teamcity-plugins.html"/>
     </toc-element>
 

@@ -12,5 +12,6 @@ Currently, %product% provides integration mechanisms for:
 - [](github.md)
 - [](gitlab.md)
 - [](jenkins.md)
+- [](space-automation.md)
 - [](teamcity.md)
 
