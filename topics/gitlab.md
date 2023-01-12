@@ -4,7 +4,7 @@
 <var name="GitLabPredefined" value="docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference"/>
 <var name="GitLabExpose" value="docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as"/>
 
-[GitLab CI/CD](https://docs.gitlab.com/ee/ci/) is a tool for software development using various CI/CD methodologies. This 
+[GitLab CI/CD](https://docs.gitlab.com/ee/ci/) is a tool for software development that uses various CI/CD methodologies. This 
 section explains how you can run %product% [Docker images](docker-images.md) within GitLab CI/CD 
 [pipelines](https://docs.gitlab.com/ee/ci/pipelines/) and covers the following cases:
 
