@@ -16,8 +16,8 @@ section explains how you can run %product% [Docker images](docker-images.md) wit
 
 Make sure that your project repository is accessible by GitLab CI/CD.
 
-GitLab CI/CD reads pipeline configuration from the `.gitlab-ci.yml` file stored in the root directory of your project. 
-Configuration samples mentioned in this section should be saved in this file.
+In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain pipeline configuration 
+that will be used by GitLab CI/CD. 
 
 ## Basic configuration
 
@@ -36,12 +36,15 @@ qodana:
          - qodana
 ```
 
-The [`image`](https://docs.gitlab.com/ee/ci/yaml/#image) option of this configuration pulls and runs the %product% [Docker image](docker-images.md) of your choice.
+In this configuration, the [`image`](https://docs.gitlab.com/ee/ci/yaml/#image) option of this configuration pulls and runs the %product% [Docker image](docker-images.md) of your choice.
 
 The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) option enumerates the %product% configuration options:
 
 * `--save-report` and `--report-dir` to generate and save reports to a specific folder
 * `--results-dir` to save the generated [SARIF file](qodana-sarif-output.md) to a specific folder
+
+You can read the [Docker image configuration](docker-image-configuration.xml) section of this documentation to learn more 
+about available configuration options.
 
 The [`artifacts`](https://docs.gitlab.com/ee/ci/yaml/#artifacts) option configures job artifacts.
 
@@ -68,33 +71,17 @@ qodana:
 
 ## Forward reports to Qodana Cloud
 
-Once the inspection step is complete, the inspection report can be forwarded to [Qodana Cloud](cloud-about.xml) for 
-storage and overview. This configuration defines the `QODANA_TOKEN` [variable](https://%GitLabLink%) containing the 
-[project token](cloud-projects.xml).
+Once the inspection step is complete, inspection reports can be forwarded to [Qodana Cloud](cloud-about.xml) for 
+storage and overview. 
 
-```yaml
-qodana:
-   image:
-      name: jetbrains/qodana-<linter>
-      entrypoint: [""]
-   variables:
-      QODANA_TOKEN: <your-project-token>   
-   script:
-      - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
-         --report-dir=$CI_PROJECT_DIR/qodana/report
-   artifacts:
-      paths:
-         - qodana
-```
-
-To provide additional data, you can use these variables:
+This configuration defines the `QODANA_TOKEN` [variable](https://%GitLabLink%) containing the
+[project token](cloud-projects.xml). Besides that, Qodana Cloud also requires the values from the
+[predefined variables](https://%GitLabPredefined%) of GitLab CI/CD assigned to the following variables:  
 
 * `QODANA_REMOTE_URL`
 * `QODANA_BRANCH`
 * `QODANA_REPO_URL`
 * `QODANA_JOB_URL`
-
-Values for these variables are taken from the [predefined variables](https://%GitLabPredefined%) of GitLab CI/CD.
 
 ```yaml
 qodana:

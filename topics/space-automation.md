@@ -6,6 +6,7 @@
 <var name="Space-secret" value="www.jetbrains.com/help/space/secrets-and-parameters.html#creating-secrets-and-parameters"/>
 <var name="Space-starton" value="www.jetbrains.com/help/space/run-a-job-on-event-trigger.html#set-job-triggers"/>
 <var name="Space-filter" value="www.jetbrains.com/help/space/run-a-job-on-event-trigger.html#filter-by-branch"/>
+<var name="Space-creview" value="https://www.jetbrains.com/help/space/automation-dsl.html#codereviewopened"/>
 
 [Space Automation](https://www.jetbrains.com/help/space/automation-concepts.html) is a CI/CD tool that helps you automate 
 development workflows in the JetBrains Space environment. This section explains how you can run %product% 
@@ -23,11 +24,15 @@ This is the basic configuration script for running %product% in JetBrains Automa
 
 ```kotlin
 job("Qodana") {
-   container("jetbrains/qodana-<linter>") {
-      shellScript {
-         content = """qodana"""
-      }
-   }
+    container("jetbrains/qodana-<linter>") {
+        shellScript {
+            content = """
+               qodana 
+               --fail-threshold <number> 
+               --profile-name <profile-name>
+               """.trimIndent()
+        }
+    }
 }
 ```
 
@@ -35,27 +40,16 @@ The [`container`](https://www.jetbrains.com/help/space/run-a-step-in-a-container
 [Docker image](docker-images.md), and the `shellScript` block contains the script for running %product%.
 
 Using the `shellScript` block, you can configure the [linter](docker-image-configuration.xml). 
-For example, there can be the `--fail-threshold` and `--profile-name` options.
-
-```kotlin
-job("Qodana") {
-   container("jetbrains/qodana-<linter>") {
-      shellScript {
-         content = """
-                   qodana 
-                   --fail-threshold <number> 
-                   --profile-name <profile-name>
-                   """.trimIndent()
-      }
-   }
-}
-```
+In this configuration, the `--fail-threshold` and `--profile-name` options are configured.
 
 ## Inspect specific branches
 
 The [`startOn`](https://%Space-starton%) block lets you specify the event that will trigger a job. This configuration 
 uses the nested [`branchFilter`](https://%Space-filter%) block to override the default trigger and inspect the `feature` 
-branch only.
+branch only. 
+
+The [`codeReviewOpened`](https://%Space-creview%) trigger lets you inspect code reviews opened in the default branch of 
+the project.
 
 ```kotlin
 job("Qodana") {
@@ -65,14 +59,18 @@ job("Qodana") {
             +"refs/heads/feature"
          }
       }
+      codeReviewOpened{}
    }
    container("jetbrains/qodana-<linter>") {
       shellScript {
-         content = """qodana"""
+          content = """
+             qodana 
+             --fail-threshold <number> 
+             --profile-name <profile-name>
+             """.trimIndent()
       }
    }
 }
-
 ```
 
 ## Forward report to Qodana Cloud
@@ -81,22 +79,9 @@ Once you generated a [project token](cloud-projects.xml) in Qodana Cloud, in the
 Space environment you can [create a secret](https://%Space-secret%). Save the copied project token as the value for this 
 secret.
 
-Here is the script that lets you forward inspection reports to Qodana Cloud. This script specifies the `QODANA_TOKEN` 
-variable that refers to the `qodana-token` secret. 
-
-```kotlin
-job("Qodana") {
-   container("jetbrains/qodana-<linter>") {
-      env["QODANA_TOKEN"] = Secrets("qodana-token")
-      shellScript {
-         content = """qodana"""
-      }
-   }
-}
-```
-
-To provide Qodana Cloud with additional data, such as the branch name or commit hash, you can add several variables to 
-the configuration script.
+Here is the script that lets you forward inspection reports to Qodana Cloud. It defines the `QODANA_TOKEN` 
+variable that refers to the `qodana-token` secret. The  `QODANA_REMOTE_URL`, `QODANA_BRANCH`, and `QODANA_REVISION` 
+variables are also required by Qodana Cloud to provide the repository URL, inspected branch, and commit hash. 
 
 ```kotlin
 job("Qodana") {
@@ -104,24 +89,21 @@ job("Qodana") {
       env["QODANA_TOKEN"] = Secrets("qodana-token")
       shellScript {
          content = """
-            QODANA_REPO_URL="${'$'}JB_SPACE_API_URL/p/${'$'}JB_SPACE_PROJECT_KEY/repositories/${'$'}JB_SPACE_GIT_REPOSITORY_NAME" \
             QODANA_REMOTE_URL="ssh://git@git.${'$'}JB_SPACE_API_URL/${'$'}JB_SPACE_PROJECT_KEY/${'$'}JB_SPACE_GIT_REPOSITORY_NAME.git" \
             QODANA_BRANCH=${'$'}JB_SPACE_GIT_BRANCH \
             QODANA_REVISION=${'$'}JB_SPACE_GIT_REVISION \
             qodana
-         """.trimIndent()
+            --fail-threshold <number> 
+            --profile-name <profile-name>
+            """.trimIndent()
       }
    }
 }
 ```
 
-<note>The <code>QODANA_BRANCH</code> and <code>QODANA_REVISION</code> variables are dependent on the 
-<code>QODANA_REMOTE_URL</code> value, so presence of the <code>QODANA_REMOTE_URL</code> variable is required in this 
-case. </note>
-
 ## Combined configuration
 
-This configuration script combines everything mentioned in this section.
+This configuration script combines all approaches mentioned in this section.
 
 ```kotlin
 job("Qodana") {
@@ -131,17 +113,17 @@ job("Qodana") {
             +"refs/heads/feature"
          }
       }
+      codeReviewOpened{} 
    }
    container("jetbrains/qodana-<linter>") {
       env["QODANA_TOKEN"] = Secrets("qodana-token")
       shellScript {
          content = """
-            QODANA_REPO_URL="${'$'}JB_SPACE_API_URL/p/${'$'}JB_SPACE_PROJECT_KEY/repositories/${'$'}JB_SPACE_GIT_REPOSITORY_NAME" \
             QODANA_REMOTE_URL="ssh://git@git.${'$'}JB_SPACE_API_URL/${'$'}JB_SPACE_PROJECT_KEY/${'$'}JB_SPACE_GIT_REPOSITORY_NAME.git" \
             QODANA_BRANCH=${'$'}JB_SPACE_GIT_BRANCH \
             QODANA_REVISION=${'$'}JB_SPACE_GIT_REVISION \
             qodana
-         """.trimIndent()
+            """.trimIndent()
       }
    }
 }
