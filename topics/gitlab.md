@@ -36,22 +36,17 @@ qodana:
          - qodana
 ```
 
-In this configuration, the [`image`](https://docs.gitlab.com/ee/ci/yaml/#image) option of this configuration pulls and runs the %product% [Docker image](docker-images.md) of your choice.
+In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %product% [Docker image](docker-images.md) of your choice.
 
-The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) option enumerates the %product% configuration options:
+The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %product% 
+configuration options described in the [](docker-image-configuration.xml) section. 
 
-* `--save-report` and `--report-dir` to generate and save reports to a specific folder
-* `--results-dir` to save the generated [SARIF file](qodana-sarif-output.md) to a specific folder
-
-You can read the [Docker image configuration](docker-image-configuration.xml) section of this documentation to learn more 
-about available configuration options.
-
-The [`artifacts`](https://docs.gitlab.com/ee/ci/yaml/#artifacts) option configures job artifacts.
+Finally, [`artifacts`](https://docs.gitlab.com/ee/ci/yaml/#artifacts) configures job artifacts.
 
 ## Inspect specific branches
 
-Using the [`only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except) keyword, %product% can inspect specific 
-branches. To inspect the `main` branch and incoming merge requests, you can use this configuration:
+Using the [`only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except) keyword, you can tell %product% which 
+branches to inspect. To inspect only the `main` branch and incoming merge requests, you can use this configuration:
 
 ```yaml
 qodana:
@@ -62,8 +57,7 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    script:
-      - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
-         --report-dir=$CI_PROJECT_DIR/qodana/report
+      - qodana
    artifacts:
       paths:
          - qodana
@@ -71,17 +65,15 @@ qodana:
 
 ## Forward reports to Qodana Cloud
 
-Once the inspection step is complete, inspection reports can be forwarded to [Qodana Cloud](cloud-about.xml) for 
-storage and overview. 
+Once the inspection step is complete, inspection reports can be forwarded to [Qodana Cloud](cloud-about.xml). 
 
-This configuration defines the `QODANA_TOKEN` [variable](https://%GitLabLink%) containing the
-[project token](cloud-projects.xml). Besides that, Qodana Cloud also requires the values from the
-[predefined variables](https://%GitLabPredefined%) of GitLab CI/CD assigned to the following variables:  
+This configuration defines the variables required by Qodana Cloud and referring to the following values:
 
-* `QODANA_REMOTE_URL`
-* `QODANA_BRANCH`
-* `QODANA_REPO_URL`
-* `QODANA_JOB_URL`
+* `QODANA_TOKEN` is the [project token](cloud-projects.xml#cloud-manage-projects) of Qodana Cloud
+* `QODANA_REMOTE_URL` is the project URL 
+* `QODANA_BRANCH` is the name of the inspected branch
+* `QODANA_REVISION` is the commit hash
+* `QODANA_JOB_URL` is the job URL
 
 ```yaml
 qodana:
@@ -92,11 +84,10 @@ qodana:
       QODANA_TOKEN: <your-project-token>
       QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
       QODANA_BRANCH: $CI_COMMIT_BRANCH
-      QODANA_REPO_URL: $CI_PROJECT_URL
+      QODANA_REVISION: $CI_COMMIT_SHA
       QODANA_JOB_URL: $CI_JOB_URL
    script:
-      - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
-         --report-dir=$CI_PROJECT_DIR/qodana/report
+      - qodana
    artifacts:
       paths:
          - qodana
@@ -145,7 +136,7 @@ qodana:
       QODANA_TOKEN: <your-project-token>
       QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
       QODANA_BRANCH: $CI_COMMIT_BRANCH
-      QODANA_REPO_URL: $CI_PROJECT_URL
+      QODANA_REVISION: $CI_COMMIT_SHA
       QODANA_JOB_URL: $CI_JOB_URL
    script:
       - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana

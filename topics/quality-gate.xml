@@ -35,12 +35,13 @@
         <p>You can run %product% with the configured quality gate locally using available
             <a href="docker-images.md">Docker images</a>: </p>
 
-        <code style="block" lang="bash">
-            docker run -v &lt;source-directory&gt;/:/data/project/  \
+        <code style="block" lang="shell" prompt="$">
+            docker run \
+            -v &lt;source-directory&gt;/:/data/project/  \
             jetbrains/qodana-&lt;linter&gt; \
             --fail-threshold &lt;number&gt;
         </code>
-        <p>In this sample, <code>&lt;source-directory&gt;</code> specifies the full local path to the project source code, and
+        <p>In this command, <code>&lt;source-directory&gt;</code> is the full local path to the project source code, and
             the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.</p>
 
     </chapter>
@@ -75,42 +76,45 @@
 
     <chapter id="quality-gate-jenkins" title="Jenkins">
 
-        <p>To set up %product% quality gate in a Jenkins Pipeline, you can add the
+        <p>To set up %product% quality gate in a <a href="jenkins.md">Jenkins</a> Pipeline, you can add the
             <code>--fail-threshold &lt;number&gt;</code> option to the <code>steps</code> block:</p>
 
         <code style="block" lang="groovy">
-            stage('Qodana') {
-                agent {
-                    docker {
-                        image 'jetbrains/qodana-&lt;linter&gt;'
-                        args '-v &lt;project-directory&gt;:/data/project/'
-                        args '-v &lt;report-directory&gt;:/data/results/'
-                        args '--entrypoint=""'
-                    }
-                }
-                steps {
-                    sh "qodana --save-report --fail-threshold &lt;number&gt;"
-                }
+            pipeline {
+               agent {
+                  docker {
+                     args '''
+                        -v &lt;path-to-project&gt;:/data/project
+                        --entrypoint=""
+                     '''
+                     image 'jetbrains/qodana-&lt;linter&gt;'
+                  }
+               }
+               stages {
+                  stage('Qodana') {
+                     steps {
+                        sh '''
+                           qodana \
+                           --fail-threshold &lt;number&gt;
+                        '''
+                     }
+                  }
+               }
             }
         </code>
-
-        <p>To learn more about %product% integration with Jenkins, see the
-            <a href="jenkins.md"/> integration section of this documentation.</p>
 
     </chapter>
 
     <chapter id="quality-gate-gitlab-ci" title="GitLab CI">
-        <p>To configure the %product% quality gate in a GitLab CI/CD pipeline, you can save this configuration sample to
-            the <code>.gitlab-ci.yml</code> file:</p>
+        <p>To run %product% quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, you can save this
+            configuration to the <code>.gitlab-ci.yml</code> file:</p>
         <code style="block" lang="yaml">
             qodana:
              image:
                name: jetbrains/qodana-&lt;linter&gt;
                entrypoint: ['']
              script:
-               - /opt/idea/bin/entrypoint --results-dir=$CI_PROJECT_DIR/qodana
-                --save-report --report-dir=$CI_PROJECT_DIR/qodana/report
-                --fail-threshold &lt;number&gt;
+               - qodana --fail-threshold &lt;number&gt;
              artifacts:
                paths:
                  - qodana

@@ -9,7 +9,7 @@
 <var name="Space-creview" value="https://www.jetbrains.com/help/space/automation-dsl.html#codereviewopened"/>
 
 [Space Automation](https://www.jetbrains.com/help/space/automation-concepts.html) is a CI/CD tool that helps you automate 
-development workflows in the JetBrains Space environment. This section explains how you can run %product% 
+development workflows in the JetBrains Space environment. This section explains how you can configure and run %product% 
 [Docker images](docker-images.md) within Space Automation jobs.
 
 ## Prepare your project
@@ -36,17 +36,17 @@ job("Qodana") {
 }
 ```
 
-The [`container`](https://www.jetbrains.com/help/space/run-a-step-in-a-container.html) block specifies the invoked 
-[Docker image](docker-images.md), and the `shellScript` block contains the script for running %product%.
+The [`container`](https://www.jetbrains.com/help/space/run-a-step-in-a-container.html) block specifies which 
+[Docker image](docker-images.md) of %product% to pull.  
 
-Using the `shellScript` block, you can configure the [linter](docker-image-configuration.xml). 
-In this configuration, the `--fail-threshold` and `--profile-name` options are configured.
+The `shellScript` block contains the `qodana` command for running %product% and enumerates the 
+[options](docker-image-configuration.xml) that should be used during the run. 
 
 ## Inspect specific branches
 
 The [`startOn`](https://%Space-starton%) block lets you specify the event that will trigger a job. This configuration 
-uses the nested [`branchFilter`](https://%Space-filter%) block to override the default trigger and inspect the `feature` 
-branch only. 
+uses the nested [`branchFilter`](https://%Space-filter%) block to override the default trigger and run the job only
+after changes made in the `feature` branch. 
 
 The [`codeReviewOpened`](https://%Space-creview%) trigger lets you inspect code reviews opened in the default branch of 
 the project.
@@ -63,11 +63,7 @@ job("Qodana") {
    }
    container("jetbrains/qodana-<linter>") {
       shellScript {
-          content = """
-             qodana 
-             --fail-threshold <number> 
-             --profile-name <profile-name>
-             """.trimIndent()
+          content = """qodana"""
       }
    }
 }
@@ -76,12 +72,14 @@ job("Qodana") {
 ## Forward report to Qodana Cloud
 
 Once you generated a [project token](cloud-projects.xml) in Qodana Cloud, in the **Settings** section of your JetBrains 
-Space environment you can [create a secret](https://%Space-secret%). Save the copied project token as the value for this 
-secret.
+Space environment [create a secret](https://%Space-secret%) with the `qodana-token` name. Save the project token as the 
+value for this secret.
 
-Here is the script that lets you forward inspection reports to Qodana Cloud. It defines the `QODANA_TOKEN` 
-variable that refers to the `qodana-token` secret. The  `QODANA_REMOTE_URL`, `QODANA_BRANCH`, and `QODANA_REVISION` 
-variables are also required by Qodana Cloud to provide the repository URL, inspected branch, and commit hash. 
+Below is the script that lets you forward inspection reports to Qodana Cloud. It defines the `QODANA_TOKEN` 
+variable that refers to the `qodana-token` secret. 
+
+The `QODANA_REMOTE_URL`, `QODANA_BRANCH`, and `QODANA_REVISION`variables provide information about the repository URL, 
+name of the inspected branch, and commit hash. 
 
 ```kotlin
 job("Qodana") {
@@ -93,8 +91,6 @@ job("Qodana") {
             QODANA_BRANCH=${'$'}JB_SPACE_GIT_BRANCH \
             QODANA_REVISION=${'$'}JB_SPACE_GIT_REVISION \
             qodana
-            --fail-threshold <number> 
-            --profile-name <profile-name>
             """.trimIndent()
       }
    }
@@ -103,7 +99,7 @@ job("Qodana") {
 
 ## Combined configuration
 
-This configuration script combines all approaches mentioned in this section.
+This configuration script combines all approaches from this section.
 
 ```kotlin
 job("Qodana") {
@@ -123,6 +119,8 @@ job("Qodana") {
             QODANA_BRANCH=${'$'}JB_SPACE_GIT_BRANCH \
             QODANA_REVISION=${'$'}JB_SPACE_GIT_REVISION \
             qodana
+            --fail-threshold <number> 
+            --profile-name <profile-name>
             """.trimIndent()
       }
    }
