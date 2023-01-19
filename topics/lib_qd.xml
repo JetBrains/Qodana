@@ -655,7 +655,7 @@
 
     <chunk id="docker-config-modify-gradle-settings">
         <code style="block" lang="shell" prompt="$">
-            docker run ... -v &lt;source-directory&gt;/gradle.properties:/root/.gradle/gradle.properties \
+            docker run ... -v &lt;source-directory&gt;/gradle.properties:/data/cache/gradle/gradle.properties \
             jetbrains/%linter-shell%
         </code>
     </chunk>

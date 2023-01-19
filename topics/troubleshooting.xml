@@ -57,11 +57,11 @@
                 <td>Description</td>
             </tr>
             <tr>
-                <td><code>/root/.m2/repository</code></td>
+                <td><code>/data/cache/.m2</code></td>
                 <td>Maven project dependencies</td>
             </tr>
             <tr>
-                <td><code>/root/.gradle</code></td>
+                <td><code>/data/cache/gradle</code></td>
                 <td>Gradle project dependencies</td>
             </tr>
         </table>
