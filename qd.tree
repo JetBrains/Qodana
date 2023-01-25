@@ -95,6 +95,7 @@
         <toc-element id="quality-gate.xml"/>
         <toc-element id="qodana-php-language-upgrade.xml"/>
         <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html"/>
+        <toc-element id="taint-analysis.md"/>
     </toc-element>
 
     <!-- The beginning of the Integration section -->
