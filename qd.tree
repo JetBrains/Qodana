@@ -2,7 +2,7 @@
 <!DOCTYPE product-profile
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
 
-<product-profile id="qd" name="Qodana" start-page="getting-started.xml" status="release">
+<product-profile id="qd" name="Qodana" start-page="getting-started.xml" status="eap">
 
     <!-- This page should contain big blocks from all the sections below -->
     <toc-element id="getting-started.xml" accepts-web-file-names="welcome.html">
