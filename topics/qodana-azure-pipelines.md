@@ -36,6 +36,25 @@ Triggering this job depends on [what type of repository you are using in Azure P
 
 The task can be run on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed. And since most of Qodana Docker images are Linux-based, the docker daemon must run Linux containers.
 
+### Qodana Cloud
+
+To send the results to Qodana Cloud, all you need to do is to specify the `QODANA_TOKEN` environment variable in the build configuration.
+
+1. In the Azure Pipelines UI, create the `QODANA_TOKEN` [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&tabs=yaml%2Cbash#secret-variable-in-the-ui) and
+   save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
+2. In the Azure pipeline file,
+   add `QODANA_TOKEN` variable to the `env` section of the `QodanaScan` task:
+
+```yaml
+  - task: QodanaScan@2022
+    env:
+      QODANA_TOKEN: $(QODANA_TOKEN)
+```
+
+After the token is set for analysis, all Qodana Scan job results will be uploaded to your Qodana Cloud project.
+
+![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
+
 ### SARIF SAST Scans Tab
 
 To display Qodana report summary in Azure DevOps UI in 'Scans' tab, install Microsoft DevLabs’ [SARIF SAST Scans Tab](https://marketplace.visualstudio.com/items?itemName=sariftools.scans) extension.

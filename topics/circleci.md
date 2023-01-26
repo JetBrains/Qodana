@@ -69,6 +69,15 @@ workflows:
           context: qodana
 ```
 
+### Qodana Cloud
+
+To send the results to Qodana Cloud, all you need to do is to create the `QODANA_TOKEN` [project variable](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project) and
+   save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
+
+After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
+
+![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
+
 ## Commands and parameters
 
 The CircleCI Qodana orb provides the `scan` command to let you inspect your project and report the results.
