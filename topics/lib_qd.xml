@@ -1050,6 +1050,45 @@
                 project: MyProject.csproj
         </code>
 
+        <chapter id="docker-dotnet-specific-solution-project-configure-solution" title="Configure a solution">
+
+            <p>A solution configuration defines which projects in the solution are build, and which project
+                configurations are used for specific projects within the solution.</p>
+
+            <p>Each newly-created solution includes the <code>Debug</code> and <code>Release</code>
+                configurations, which can be complemented by your custom configurations.</p>
+
+            <p>You can switch configurations of the current solution using the <code>--property</code>
+                configuration option. For example, use this to switch to the <code>Release</code>
+                configuration:</p>
+
+            <code style="block" lang="shell">
+                --property=qodana.net.configuration=Release
+            </code>
+
+            <p>Alternatively, you can specify the configuration in <code>qodana.yaml</code>:</p>
+
+            <code style="block" lang="yaml">
+                dot-net:
+                  configuration: Release
+            </code>
+
+            <p>By default, the solution platform is set to <code>Any CPU</code>.You can override this using the
+                <code>--property</code> option:</p>
+
+            <code style="block" lang="shell">
+                --property=qodana.net.platform=x86
+            </code>
+
+            <p>Alternatively, you can specify the platform in <code>qodana.yaml</code>:</p>
+
+            <code style="block" lang="yaml">
+                dot-net:
+                  platform: x86
+            </code>
+
+        </chapter>
+
     </chunk>
 
     <chunk id="docker-dotnet-specific-requirements">

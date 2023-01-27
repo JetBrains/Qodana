@@ -75,8 +75,14 @@
                 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
                     (reports issues that appeared only in that pull request).</note>
 
-                <p>Because <code>Qodana Scan</code> is experimental, you man need to additionally configure the
+                <p>Because <code>Qodana Scan</code> is experimental, you may need to additionally configure the
                     <code>pr-mode</code> <a href="github.md" anchor="Configuration">parameter</a>  in the <code>with</code> section:</p>
+
+                <p>By default, <code>Qodana Scan</code> uses the experimental mode of the Qodana for .NET linter.
+                If you are experiencing issues with it, you can
+                    <a href="https://youtrack.jetbrains.com/newIssue?project=QD">report an issue</a> in our bug tracker.</p>
+
+
 
                 <code style="block" lang="yaml">
                       pr-mode: false
@@ -94,7 +100,7 @@
                             - name: 'Qodana Scan'
                             uses: JetBrains/qodana-action@main
                             env:
-                            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code>
                     </step>
                 </procedure>

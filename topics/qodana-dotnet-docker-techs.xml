@@ -188,7 +188,7 @@
                     </td>
                     <td><p>Inspect uncommitted changes and report new problems.</p>
                     <note>This option is deprecated and will be removed soon. Use
-                        <code>--script --local-changes</code> instead.</note>
+                        <code>--script local-changes</code> instead.</note>
                     </td>
                 </tr>
                 <tr>
@@ -196,8 +196,8 @@
                         <code>--script</code>
                     </td>
                     <td>
-                        Override the default run scenario (default: `default`). Using the <code>--local-changes</code>
-                        option here, you can
+                        Override the default run scenario (default: `default`). Using the <code>local-changes</code>
+                        as a value here, you can
                         <a anchor="qodana-dotnet-override-the-default-scenario">inspect uncommitted changes</a> .
                     </td>
                 </tr>
@@ -302,10 +302,10 @@
             docker run ... jetbrains/%linter-shell% --script default
         </code>
 
-        <p>To inspect local uncommitted changes, use the <code>--local-changes</code> option:</p>
+        <p>To inspect local uncommitted changes, use the <code>--script local-changes</code> option:</p>
 
         <code style="block" lang="shell" prompt="$">
-            docker run ... jetbrains/%linter-shell% --script --local-changes
+            docker run ... jetbrains/%linter-shell% --script local-changes
         </code>
 
     </chapter>
