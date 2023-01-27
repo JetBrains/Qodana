@@ -132,7 +132,7 @@ time, pull requests with **new** problems exceeding the `fail-threshold` limit w
 
 ### Qodana Cloud
 
-To send the results to Qodana Cloud, all you need to do is to specify the `QODANA_TOKEN` environment variable in the build configuration.
+To forward inspection results to Qodana Cloud, all you need to do is to specify the `QODANA_TOKEN` environment variable in the build configuration.
 
 1. In the GitHub UI, create the `QODANA_TOKEN` [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) and
    save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
