@@ -16,7 +16,7 @@ then specify the <code>qodana</code> element along with the %product% version:
 
 ```yaml
 orbs: 
-    qodana: jetbrains/qodana@2022.3.0
+    qodana: jetbrains/qodana@2022.3.2
 ```
 
 If necessary, repeat this step for all required workflows and jobs.
@@ -33,7 +33,7 @@ Using this configuration sample, you can scan your project with %product% with t
 ```yaml
 version: '2.1'
 orbs:
-  qodana: jetbrains/qodana@2022.3.0
+  qodana: jetbrains/qodana@2022.3.2
 jobs:
   code-quality:
     machine:
@@ -53,7 +53,7 @@ This configuration sample invokes the `args` parameter to run the specific linte
 ```yaml
 version: 2.1
 orbs:
-  qodana: jetbrains/qodana@2022.3.0
+  qodana: jetbrains/qodana@2022.3.2
 jobs:
   code-quality:
     machine:
@@ -68,6 +68,19 @@ workflows:
       - code-quality:
           context: qodana
 ```
+
+### Qodana Cloud
+
+<chunk id="circleci-qodana-cloud">
+
+To forward inspection results to Qodana Cloud, all you need to do is to create the `QODANA_TOKEN` [project variable](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project) and
+   save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
+
+After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
+
+</chunk>
+
+![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
 
 ## Commands and parameters
 

@@ -196,7 +196,7 @@
                         <code>--script</code>
                     </td>
                     <td>
-                        Override the default run scenario (default: `default`). Using the <code>local-changes</code>
+                        Override the default run scenario (default: <code>default</code>). Using the <code>local-changes</code>
                         as a value here, you can
                         <a anchor="qodana-dotnet-override-the-default-scenario">inspect uncommitted changes</a> .
                     </td>

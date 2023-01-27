@@ -51,6 +51,8 @@
                            description="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
                         <a href="license-audit.xml"
                            description="Check license compatibility between your software license and dependency licenses."/>
+                        <a href="taint-analysis.md"
+                           description="Secure your PHP code from malicious user data."/>
                 </highlighted-group>
                 
         </section-starting-page>
