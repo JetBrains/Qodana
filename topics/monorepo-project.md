@@ -157,7 +157,7 @@ jobs:
         run: cp qodana-backend.yaml qodana.yaml
 
       - name: 'Qodana Backend'
-        uses: JetBrains/qodana-action@v2022.3.2
+        uses: JetBrains/qodana-action@v2023.1
         with:
           args: |
             --source-directory,backend,
@@ -173,7 +173,7 @@ jobs:
         run: cp qodana-frontend.yaml qodana.yaml
 
       - name: 'Qodana Frontend'
-        uses: JetBrains/qodana-action@v2022.3.2
+        uses: JetBrains/qodana-action@v2023.1
         with:
           args: |
             --source-directory,frontend,

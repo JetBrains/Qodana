@@ -12,7 +12,7 @@
 
 <var name="linter" value="Qodana for Go"/>
 <var name="ide" value="GoLand"/>
-<var name="docker-image" value="jetbrains/qodana-go:2022.3-eap"/>
+<var name="docker-image" value="jetbrains/qodana-go:2023.1-eap"/>
 <var name="ide-url" value="https://www.jetbrains.com/go/"/>
 
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.

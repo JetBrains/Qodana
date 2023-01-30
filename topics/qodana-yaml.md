@@ -230,7 +230,7 @@ In the example above,
 Using the `linter` option, you can specify the linter that you are going to employ. For example:
 
 ```yaml
-linter: jetbrains/qodana-jvm-android:2022.3-eap
+linter: jetbrains/qodana-jvm-android:2023.1-eap
 ```
 
 ## Configure the JDK version
