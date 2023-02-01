@@ -40,7 +40,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    The **Forward reports to TeamCity tests** checkbox configures %product% report availability in 
    the [Test](https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab) tab of TeamCity UI. Using this 
-   option, you can overview codebase problems along with other problems detected during the build. 
+   option, you can overview codebase problems along with other problems detected. 
 
    **Linter** configures the [Qodana Linter](linters.md).
 
@@ -104,7 +104,7 @@ this file to the working directory manually. Alternatively, you can write a scri
 
 ### Forward reports to Qodana Cloud
 
-To configure [TeamCity](teamcity.md) to forward Qodana reports to Qodana Cloud, follow these steps:
+To forward reports to Qodana Cloud, follow these steps:
 
 1. In the TeamCity UI, create the `QODANA_TOKEN` environment variable of the <a href="https://%TeamCityLink%">password</a> 
    type, and save the [Qodana Cloud project token](cloud-projects.xml#cloud-manage-projects) as its value.

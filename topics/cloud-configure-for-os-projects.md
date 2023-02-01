@@ -11,7 +11,7 @@ overview %product% inspection results in a convenient form and free for open-sou
 
 ## Before you start 
 
-Make sure that you are already know how to:
+Make sure that you already know how to:
 
 * [Inspect your code](inspect-your-code.xml) using %product%
 * Configure %product% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.xml)
@@ -20,7 +20,7 @@ Make sure that you are already know how to:
 
 ## Create an account and projects in %cloud%
 
-[%cloud%](https://qodana.cloud) provides two [types of accounts](cloud-account-types.md) suitable for inspecting open-source 
+[%cloud%](https://qodana.cloud) provides two [account types](cloud-account-types.md) suitable for inspecting open-source 
 projects:
 
 * Personal account to let you inspect your pet projects; however, it is restricted to a single user and the user's personal organization
@@ -28,7 +28,7 @@ projects:
 and share inspection results with your peers
 
 If you would like to use your personal account and a personal [organization](cloud-organizations.xml),
-on the organization page click the **Create first project** button.
+on the organization page, click the **Create first project** button.
 
 <img src="qc-create-project-private.png" dark-src="qc-create-project-private_dark.png" width="706" alt="Creating a new project in a private organization" border-effect="line"/>
 
