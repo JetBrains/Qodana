@@ -28,7 +28,7 @@ Out of the box, Qodana provides several predefined profiles:
 * `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
 * `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis).
 * `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
-* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See [](linters.md) for details on configuring a project for the desired linter.
+* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See the [](linters.md) section for details on configuring a project for the desired linter.
 
 > Profile files are available on [GitHub](https://github.com/JetBrains/qodana-profiles/tree/223). 
 
@@ -46,7 +46,7 @@ If you want a fresh start, you have two options:
 ## Three-phase analysis
 {id="three-phase-analysis"}
 
-Sometimes it may be challenging to set up analysis for a big project even with the `qodana.recommended` profile due to large amount of errors reported. To solve this, Qodana offers a 3-phase analysis, where each phase is focused on a certain type of results.
+Sometimes it may be challenging to set up analysis for a big project even with the `qodana.recommended` profile due to large number of errors reported. To solve this, Qodana offers a 3-phase analysis, where each phase is focused on a certain type of results.
 
 - The first phase is based on the `qodana.starter` profile that contains vital checks only. Non-critical folders, such as `tests`, are ignored.
 
@@ -147,7 +147,7 @@ You can specify that the files in a certain directory are analyzed by an inspect
 #### Example
 {id="include-example"}
 
-In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included into the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
+In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included in the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
 
 ```yaml
   profile:
@@ -273,7 +273,7 @@ dependencyIgnores:
 
 where `name` is the dependency name to ignore.
 
-In the example above, in the analyzed project, the dependency `enry` is completely excluded from the analysis, any possible license-related problems are dismissed, the dependency won't be included in the report at all. This is useful to quickly hide internal dependencies that do not need to be mentioned in the report.
+In the example above, the `enry` dependency is completely excluded from the analysis. Because any possible license-related problems are dismissed, the dependency won't be included in the report at all. This is useful to quickly hide internal dependencies that do not need to be mentioned in the report.
 
 ### Allow or prohibit a license
 
@@ -315,11 +315,11 @@ dependencyOverrides:
 
 where `name` is the dependency name, `version` is the dependency version, and `licenses` is the list of redefined dependency licenses.
 
-In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpath-exception and no other licenses for jaxb-runtime (only 2.3.1). This is useful when a dependency is dual-licensed and you want to omit some license or when it's not possible to detect the license from the dependency sources correctly.
+In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpath-exception and no other licenses for jaxb-runtime (only 2.3.1). This is useful when a dependency is dual-licensed, and you want to omit some license or when it's not possible to detect the license from the dependency sources correctly.
 
 ### Custom dependencies
 
-Currently, license audit with Qodana is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
+Currently, the license audit with Qodana is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
 
 ```yaml
 customDependencies:

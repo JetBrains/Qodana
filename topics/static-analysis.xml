@@ -16,7 +16,7 @@
     required from this side either.</p>
 
     <p>Once the static analysis stage is complete, you can explore vulnerabilities and faults in your code and see exact
-        lines where %product% detected imperfections. %product% is equipped with multitude of
+        lines where %product% detected imperfections. %product% is equipped with a multitude of
         <a href="code-inspections.xml">inspections</a> responsible for detecting particular problems.</p>
 
     <p>To sum up, static analysis mechanism of %product% is an efficient way for keeping your software quality under

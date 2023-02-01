@@ -38,8 +38,7 @@ repository.
 Note: `fetch-depth: 0` is required for checkout in case Qodana works in pull request mode (reports issues that appeared only in that pull request).
 
 We recommend that you have a separate workflow file for Qodana
-because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
-.
+because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job).
 
 ### GitHub code scanning
 
@@ -57,7 +56,7 @@ for your project using Qodana. To do it, add these lines to the `code_quality.ym
 This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub and specifies the report
 file using the `sarif_file` key.
 
-> GitHub code scanning does not export inspection results to third-party tools, which means you cannot use this data for further processing by Qodana. In this case, you must set up baseline and quality gate processing on the Qodana side before submitting inspection results to GitHub code scanning. See the
+> GitHub code scanning does not export inspection results to third-party tools, which means you cannot use these data for further processing by Qodana. In this case, you must set up baseline and quality gate processing on the Qodana side before submitting inspection results to GitHub code scanning. See the
 [Quality gate and baseline](#quality-gate-and-baseline) section for details.
 
 ### Pull request quality gate

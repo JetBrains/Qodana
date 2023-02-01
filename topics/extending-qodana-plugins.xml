@@ -50,7 +50,7 @@
                         by %product%.</p>
                 </step>
                 <step>
-                    The <code>ea_extended.xml</code> plugin configuration file  is located in the <code>options</code>
+                    The <code>ea_extended.xml</code> plugin configuration file is located in the <code>options</code>
                     subdirectory of the <a href="https://%conf-dir%">IDE config directory</a>. You can save this file to
                     any directory accessible by %product%.
                 </step>
@@ -78,12 +78,13 @@
         <chapter id="extending-qodana-repository-plugins-run-qodana" title="Run %product%">
             <p>Use this snippet for running %product% locally:</p>
             <code style="block" lang="bash">
-                docker run --rm -p 8080:8080 \
-                -v &lt;project-directory&gt;:/data/project/ \
-                -v &lt;report-directory&gt;:/data/results/ \
-                -v &lt;path-to-plugin-file&gt;/PhpInspectionsEA.jar:/opt/idea/plugins/PhpInspectionsEA.jar \
-                -v &lt;path-to-plugin-config&gt;/ea_extended.xml:/root/.config/idea/options/ea_extended.xml \
-                jetbrains/qodana-php --show-report
+                docker run --rm \
+                   -p 8080:8080 \
+                   -v &lt;project-directory&gt;:/data/project/ \
+                   -v &lt;report-directory&gt;:/data/results/ \
+                   -v &lt;path-to-plugin-file&gt;/PhpInspectionsEA.jar:/opt/idea/plugins/PhpInspectionsEA.jar \
+                   -v &lt;path-to-plugin-config&gt;/ea_extended.xml:/root/.config/idea/options/ea_extended.xml \
+                   jetbrains/qodana-php --show-report
             </code>
         </chapter>
 

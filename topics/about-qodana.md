@@ -30,7 +30,7 @@ The diagram below shows how all these components are combined in Qodana.
 
 ## Qodana workflow
 
-The diagram below provides an overview to a typical Qodana use-case.  
+The diagram below provides an overview of a typical Qodana use-case.  
 
 <img src="workflow.png" dark-src="workflow_dark.png" width="706" alt="Qodana workflow"/>
 
@@ -75,7 +75,7 @@ progress in your project(s) from a single point. To learn more about Qodana Clou
 
 ## Qodana playground
 
-[Qodana Playground](https://qodana.teamcity.com/overview?mode=builds) is a sandbox environment that runs in TeamCity, 
+[Qodana Playground](https://qodana.teamcity.com/overview?mode=builds) is a sandbox environment that runs in TeamCity, a
 cloud-based CI system developed by JetBrains. You can use it to see Qodana in action and try various options yourself.
 
 ## Contact us

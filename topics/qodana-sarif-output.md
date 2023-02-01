@@ -590,7 +590,7 @@ regular [`result`](#results) objects.
 ## SARIF severity
 
 The [SARIF severity values](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317648)
-correspond to severity values of IntelliJ IDEA:
+correspond to the severity values of IntelliJ IDEA:
 
 * `error` corresponds to the `ERROR` severity of IntelliJ IDEA, errors are marked with red in the %product% user interface
 * `warning` corresponds to the `WARNING` severity of IntelliJ IDEA, errors are marked with orange in the %product% user interface

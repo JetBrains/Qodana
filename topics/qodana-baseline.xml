@@ -62,7 +62,7 @@
             contain three problems. The new problem is the problem that was detected in the previous run and still
             remains new. There is also one unchanged problem that has not changed its status. Finally, the first
             baseline problem was resolved and now is marked as absent. </p>
-            <p>To include absent problems into the report, you need to run %product% with the
+            <p>To include absent problems in the report, you need to run %product% with the
                 <code style="inline">--baseline-include-absent</code> option:</p>
             <code style="block" lang="shell">
             docker run ... <![CDATA[jetbrains/qodana&minus;&lt;linter&gt; \

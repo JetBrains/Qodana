@@ -23,11 +23,11 @@ following cases:
 Make sure that these plugins are installed on your Jenkins instance:
 
 * [Docker](https://%Dplugin%) and [Docker Pipeline](https://%DPplugin%) are required for running Docker images
-* [git](https://%Gplugin%) is required for carrying out git operations in Jenkins projects
+* [git](https://%Gplugin%) is required for git operations in Jenkins projects
 
 Make sure that Docker is installed and accessible by Jenkins. 
 
-If applicable, make sure that Docker accessible by the `jenkins` user as described in the 
+If applicable, make sure that Docker is accessible by the `jenkins` user as described in the 
 [Manage Docker as a non-root user](https://%Dockeraccess%) section of the Docker documentation.
 
 Create a Multibranch Pipeline project as described on the [Jenkins documentation portal](https://%MultipipeCreate%).

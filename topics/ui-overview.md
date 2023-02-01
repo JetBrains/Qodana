@@ -6,7 +6,7 @@ The Qodana UI focuses on the single-shot analysis, making it easy to act on resu
 
 ## HTML report structure
 
-Qodana report data is grouped in tabs.
+A Qodana report is grouped into tabs.
 
 <img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Overview of the Qodana UI" width="706" border-effect="line"/>
 
@@ -25,7 +25,7 @@ Using this tab, you can overview the problems found during the current Qodana ru
 
 This includes several elements:
 
-1. The sunburst diagram provides a graphical overview for the problems and allows you to drill down into the cause of 
+1. The sunburst diagram provides a graphical overview of the problems and allows you to drill down into the cause of 
 the issue. 
 
 2. The filter lets you filter the report data. 
@@ -67,7 +67,7 @@ Qodana, download the configuration file and save it to the project root folder. 
 ### Checks
 
 The **Checks** tab lists the inspections and lets you adjust your inspection profile by specifying a set of 
-inspections that Qodana will be using during next run.
+inspections that Qodana will be using during the next run.
 
 <img src="html-report-check.png" dark-src="html-report-check_dark.png" alt="List of checks/inspections" width="706" border-effect="line"/>
 
@@ -95,7 +95,7 @@ don't check.
 If the number of problems is manageable, you can fix them and consider the 'problem-free code' goal achieved. We 
 suggest that you follow that goal and fix new problems as soon as they appear.
 
-In case the number problems is above your expectations, we suggest using the Qodana UI features to examine them. You can 
+In case the number of problems is above your expectations, we suggest using the Qodana UI features to examine them. You can 
 then formalize a not-so-big cluster of the problems to fix. Repeat the procedure to work on the next goal, and so on.
 
 When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
@@ -131,7 +131,7 @@ You can mark the file/directory as **Excluded**.
 
 2. **Hide a problem type or category from the list of problems**
 
-*Reason*: You suppose that the type of the error or its category is not relevant or want to get back to it later.  
+*Reason*: You suppose that the error type or its category is not relevant or want to get back to it later.  
 *Howto*: Under the code fragment view, click **More actions** and select the necessary option.
    
 <img src="ui-overview-analysis-1.png" dark-src="ui-overview-analysis-1_dark.png" alt="Selecting the options" width="810" border-effect="line"/>  

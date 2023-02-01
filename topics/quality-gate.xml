@@ -9,7 +9,7 @@
     <var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
     <p><emphasis>Quality gate</emphasis> is the maximum number of problems that can be detected by %product% without
-        causing a CI/CD workflow or pipeline fail. Once the quality gate limit is reached, %product% terminates with the
+        causing a CI/CD workflow or pipeline fail. Once the quality gate limit is reached, %product% terminates with
         exit code 255. </p>
 
     <p>This feature lets you control your code quality and build software that meets your quality metrics.

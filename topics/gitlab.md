@@ -16,7 +16,7 @@ section explains how you can run %product% [Docker images](docker-images.md) wit
 
 Make sure that your project repository is accessible by GitLab CI/CD.
 
-In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain pipeline configuration 
+In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain the pipeline configuration 
 that will be used by GitLab CI/CD. 
 
 ## Basic configuration

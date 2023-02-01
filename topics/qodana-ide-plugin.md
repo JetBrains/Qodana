@@ -3,7 +3,7 @@
 The Qodana IDE plugin is a JetBrains IDE plugin that binds Qodana reports, both stored locally or in Qodana Cloud, 
 with your project opened in an IDE. Using this plugin, you can do the following things in your IDE:
 
-* Open and study Qodana reports from [Qodana reports](#Open+report+from+Qodana+UI), as well as from a [local storage](#Open+report+from+a+local+storage) 
+* Study Qodana reports from [Qodana reports](#Open+report+from+Qodana+UI), as well as from a [local storage](#Open+report+from+a+local+storage) 
 * Link your projects with [Qodana Cloud](#Link+project+with+Qodana+Cloud) and overview Qodana Cloud-based reports
 
 By default, this plugin is available in all JetBrains IDEs starting from version 2022.3. Otherwise, you can install it
@@ -20,8 +20,8 @@ using [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16938-qodana)
 
 ## Plugin overview
 
-Functionality of this plugin is available in the **Qodana** tab of the **Problems** window located in the lower-left part 
-of the IDE user interface, and it becomes visible after you open a report. 
+The functionality of this plugin is available in the **Qodana** tab of the **Problems** window. This window is 
+located in the lower-left part of the IDE user interface, and becomes visible once you open a report. 
 
 After opening, the **Qodana** tab shows the list of problems that were detected by Qodana.
 
@@ -92,7 +92,7 @@ You can synchronize your local project with reports uploaded to Qodana Cloud and
 <menupath>Problems</menupath> tool window of your IDE. To link a project, you first need to 
 [log in to Qodana Cloud](#Log+in+to+Qodana+Cloud).
 
-<tip>For successful linking, your local project should already be inspected by Qodana at least once with the report 
+<tip>For successful linking, you should have your local project already inspected by Qodana at least once with the report 
 uploaded to Qodana Cloud.</tip>
 
 <procedure>

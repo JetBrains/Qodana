@@ -33,7 +33,7 @@ downloaded by %product%. If you would like to use the JDK beyond this list, you 
 
 Gradle runs scripts based on the [Compatibility Matrix](https://docs.gradle.org/current/userguide/compatibility.html)
 meaning that the latest supported and downloadable version of the JDK will be set up as the Gradle JDK. Using the 
-Compatibility Matrix in combination with the list of [available versions](#Available+versions) of the JDK, 
+Compatibility Matrix in combination with the list of [available JDK versions](#Available+versions), 
 you can find the JDK that will be used by %product%. For example, in case of Gradle 6.6, %product% will 
 download and employ JDK 13.
 

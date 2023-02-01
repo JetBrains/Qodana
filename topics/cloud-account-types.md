@@ -1,6 +1,6 @@
 [//]: # (title: Types of account)
 
-You can create Qodana Cloud account based on your needs as per this table:
+You can create a Qodana Cloud account based on your needs as per this table:
 
 <table>
     <tr><td>Type of account</td>

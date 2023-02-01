@@ -122,7 +122,7 @@
         </chapter>
 
         <chapter title="Override a dependency license" id="license-audit-override-license">
-            <p>You can override a dependency license identifier. This can be useful when a dependency is dual-licensed
+            <p>You can override a dependency license identifier. This can be useful when a dependency is dual-licensed,
                 and you want to omit some license, or when the license name cannot be detected from the dependency
                 sources correctly.</p>
             <p>Using this sample,
