@@ -40,9 +40,9 @@
 
                 <highlighted-group>
                         <title>Qodana features</title>
-                        <a href="qodana-baseline.xml"
+                        <a href="baseline.xml"
                            description="Track your project changes through studying new, unchanged, and resolved problems."/>
-                        <a href="qodana-php-language-upgrade.xml"
+                        <a href="php-language-upgrade.xml"
                            description="See how updating PHP will affect your codebase quality."/>
                         <a href="qodana-sarif-output.md"
                            description="Qodana linters can read and write reports in SARIF format, which is the industry

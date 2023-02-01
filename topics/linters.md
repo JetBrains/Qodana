@@ -57,7 +57,7 @@ The [](qodana-php.md) linter is based on [PhpStorm](https://www.jetbrains.com/ph
 
 * PHP language inspections from PhpStorm
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
-* Code inspection while migrating to a new [language version](qodana-php-language-upgrade.xml)
+* Code inspection while migrating to a new [language version](php-language-upgrade.xml)
 
 ## Python
 

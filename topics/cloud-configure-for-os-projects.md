@@ -80,7 +80,7 @@ profile:
 
 ### Configure baseline
 
-[Baseline](qodana-baseline.xml) lets you create a snapshot of your project that will be used as a basis for 
+[Baseline](baseline.xml) lets you create a snapshot of your project that will be used as a basis for 
 subsequent analysis. To enable it, select inspections and download the `qodana.sarif.json` file. 
 
 You can run %product% with the baseline enabled using the `--baseline` option:

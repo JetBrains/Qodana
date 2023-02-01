@@ -72,7 +72,7 @@ TODO: Clarify whether the "from within your IDE" part really depends on `.git/`
 or rather on the path that is mounted to `/data/project`.
 -->
 
-The `qodana-backend.sarif.json` and `qodana-frontend.sarif.json` files can contain [baseline](qodana-baseline.xml)
+The `qodana-backend.sarif.json` and `qodana-frontend.sarif.json` files can contain [baseline](baseline.xml)
 data for the `backend` and `frontend` projects.
 
 Here are the contents of the `root/` folder: 

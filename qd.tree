@@ -91,9 +91,9 @@
     </toc-element>
 
     <toc-element id="features.xml">
-        <toc-element id="qodana-baseline.xml"/>
+        <toc-element id="baseline.xml" accepts-web-file-names="qodana-baseline.html"/>
         <toc-element id="quality-gate.xml"/>
-        <toc-element id="qodana-php-language-upgrade.xml"/>
+        <toc-element id="php-language-upgrade.xml" accepts-web-file-names="qodana-php-language-upgrade.html"/>
         <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html"/>
     </toc-element>
 

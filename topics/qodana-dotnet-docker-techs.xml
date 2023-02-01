@@ -123,7 +123,7 @@
 
             <p>To learn more about the baseline feature, see the
                 <a anchor="Run+in+baseline+mode">Run in baseline mode</a> example, or study the
-                <a href="qodana-baseline.xml"/> section.</p>
+                <a href="baseline.xml"/> section.</p>
 
             <table column-width="fixed">
                 <tr>
@@ -134,7 +134,7 @@
                     <td><code>-b</code>,
                         <code>--baseline</code>
                     </td>
-                    <td>Run Qodana <a href="qodana-baseline.xml">in the baseline mode</a>. Provide the path to an
+                    <td>Run Qodana <a href="baseline.xml">in the baseline mode</a>. Provide the path to an
                         existing SARIF report to be used in the baseline state calculation.
                     </td>
                 </tr>

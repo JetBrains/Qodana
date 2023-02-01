@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="PHP version migration"
-       id="qodana-php-language-upgrade">
+       id="php-language-upgrade" auxiliary-id="qodana-php-language-upgrade">
 
         <p>If you need to see how migration from one PHP version to another will affect your code quality, you can
         use the <code style="inline">php-migration</code> %product% scenario. If you run this scenario, you will be able

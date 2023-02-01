@@ -62,7 +62,7 @@ problems will move to this tab.
 
 This tab structure is similar to the **Actual problems** tab. To enable the baseline feature in future runs of
 Qodana, download the configuration file and save it to the project root folder. For more information, explore the
-[Baseline](qodana-baseline.xml) section.
+[Baseline](baseline.xml) section.
 
 ### Checks
 

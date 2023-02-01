@@ -203,7 +203,7 @@
                         results directory</a>.
                 </p>
                 <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
-                    of problems is reached and the <a href="qodana-baseline.xml"/> option to compare each new %linter%
+                    of problems is reached and the <a href="baseline.xml"/> option to compare each new %linter%
                     run to some initial run selected as a <emphasis>baseline</emphasis>.
                     <a anchor="Run+as+non-root" href="%docker-tech-guide-page-url%">Running as non-root</a> is also supported.
                 </p>
@@ -220,7 +220,7 @@
                 <p>You can also apply the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
                     of problems is reached by using the <code>--fail-threshold</code>
                     <a href="https://github.com/JetBrains/qodana-cli#options-1">option</a>.</p>
-                <p>The <a href="qodana-baseline.xml"/> feature compares each new %linter% run to some initial run using
+                <p>The <a href="baseline.xml"/> feature compares each new %linter% run to some initial run using
                     the <code>--baseline</code> and
                     <code>--baseline-include-absent</code> options.
                 </p>
@@ -506,7 +506,7 @@
 
             <p>To learn more about the baseline feature, see the
                 <a anchor="Run+in+baseline+mode">Run in baseline mode</a> example, or study the
-                <a href="qodana-baseline.xml"/> section.</p>
+                <a href="baseline.xml"/> section.</p>
 
             <table column-width="fixed">
                 <tr>
@@ -517,7 +517,7 @@
                     <td><code>-b</code>,
                         <code>--baseline</code>
                     </td>
-                    <td>Run Qodana <a href="qodana-baseline.xml">in the baseline mode</a>. Provide the path to an
+                    <td>Run Qodana <a href="baseline.xml">in the baseline mode</a>. Provide the path to an
                         existing SARIF report to be used in the baseline state calculation.
                     </td>
                 </tr>
@@ -771,7 +771,7 @@
             The <a href="qodana-sarif-output.md">SARIF output report</a> will contain the per-problem
             information on the baseline state.
         </p>
-        <p>To learn more about the baseline feature, see the <a href="qodana-baseline.xml">Baseline</a> section.</p>
+        <p>To learn more about the baseline feature, see the <a href="baseline.xml">Baseline</a> section.</p>
 
     </chunk>
 

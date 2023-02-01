@@ -187,7 +187,7 @@ script:
 ```
 
 You can override the standard %product% behavior, which can be helpful in the case of the 
-[PHP version migration](qodana-php-language-upgrade.xml). To inspect your code from this perspective, you can run the 
+[PHP version migration](php-language-upgrade.xml). To inspect your code from this perspective, you can run the 
 `php-migration` scenario.     
 
 By default, %product% employs the `default` scenario, which means the normal %product% run equivalent to this setting:

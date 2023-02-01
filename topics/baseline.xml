@@ -4,7 +4,7 @@
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Baseline"
-       id="qodana-baseline">
+       id="baseline" auxiliary-id="qodana-baseline">
 
     <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %product% run and
         contained in the <code style="inline">qodana.sarif.json</code> file.</p>

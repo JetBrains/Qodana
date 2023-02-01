@@ -63,6 +63,6 @@
     <p>2. Commit name and date.</p>
     <p>3. Timeline describing the date of inspection and number of problems detected.</p>
     <p>4. Selector for overviewing either the absolute number of detected problems, or the number of problems
-    relatively to a <a href="qodana-baseline.xml">baseline</a> set for this project.</p>
+    relatively to a <a href="baseline.xml">baseline</a> set for this project.</p>
 
 </topic>
