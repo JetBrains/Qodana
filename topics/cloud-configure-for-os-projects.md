@@ -145,7 +145,7 @@ jobs:
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2022.2.3
         env:
-        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 ```
 
 4. Set the number of problems (integer) for the Qodana action [`fail-threshold`](#Configure+quality+gate) option.
