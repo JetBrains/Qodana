@@ -1095,9 +1095,9 @@
         <p>%linter% is suitable for analyzing .NET Core projects and provides the following SDK versions:</p>
 
         <list>
-            <li>3.1.425</li>
-            <li>6.0.403</li>
-            <li>7.0.100</li>
+            <li>3.0.103</li>
+            <li>6.0.405</li>
+            <li>7.0.102</li>
         </list>
 
         <p>All SDK versions are stored in the <code>/usr/share/dotnet/sdk</code> directory of the %linter% container filesystem.</p>

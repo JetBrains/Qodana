@@ -61,12 +61,12 @@
                     jobs:
                       qodana:
                         runs-on: ubuntu-latest
-                          steps:
-                            - uses: actions/checkout@v3
+                        steps:
+                          - uses: actions/checkout@v3
                             with:
                               fetch-depth: 0
-                            - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2023.1
+                          - name: 'Qodana Scan'
+                            uses: JetBrains/qodana-action@v2022.3.2
                 </code>
 
                 <p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
@@ -98,9 +98,9 @@
 
                         <code style="block" lang="yaml">
                             - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@main
-                            env:
-                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                              uses: JetBrains/qodana-action@main
+                              env:
+                                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code>
                     </step>
                 </procedure>
