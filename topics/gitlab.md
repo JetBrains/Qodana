@@ -69,7 +69,7 @@ Once the inspection step is complete, inspection reports can be forwarded to [Qo
 
 This configuration defines the variables required by Qodana Cloud and referring to the following values:
 
-* `QODANA_TOKEN` is the [project token](cloud-projects.xml#cloud-manage-projects) of Qodana Cloud
+* `QODANA_TOKEN` is the [project token](cloud-projects.xml#cloud-manage-projects) of Qodana Cloud defined as the `$qodana_token` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
 * `QODANA_REMOTE_URL` is the project URL 
 * `QODANA_BRANCH` is the name of the inspected branch
 * `QODANA_REVISION` is the commit hash
@@ -81,7 +81,7 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    variables:
-      QODANA_TOKEN: <your-project-token>
+      QODANA_TOKEN: $qodana_token
       QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
       QODANA_BRANCH: $CI_COMMIT_BRANCH
       QODANA_REVISION: $CI_COMMIT_SHA
