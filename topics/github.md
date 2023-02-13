@@ -1,12 +1,23 @@
 [//]: # (title: GitHub Actions)
 
-## Usage
-
 The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
 allows you to run Qodana on a GitHub repository.
 
-<anchor name="basic-configuration"></anchor>
+## Prepare your project
 
+You may need to grant GitHub permissions for running `Qodana Scan` as shown below.
+
+1. In your repository, navigate to <menupath>Settings | Actions | General </menupath>. 
+
+2. In the <menupath>Actions permissions</menupath> section, click <menupath>Allow &lt;repository-owner&gt;, and select non-&lt;repository-owner&gt;, actions and reusable workflows</menupath>.
+
+3. In the <menupath>Allow specified actions and reusable workflows</menupath> field, specify `JetBrains/qodana-action@*` and then click <menupath>Save</menupath>.
+
+<img src="github-project-preparation.png" width="706" alt="Allowing Qodana Scan on GitHub" border-effect="line"/>
+
+## Usage
+
+<anchor name="basic-configuration"></anchor>
 ### Basic configuration
 
 To configure Qodana Scan, save the `.github/workflows/code_quality.yml` file containing the workflow configuration:
