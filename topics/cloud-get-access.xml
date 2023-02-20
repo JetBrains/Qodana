@@ -11,7 +11,7 @@
 
     <p>Here is the overview of the <a href="https://qodana.cloud">Qodana Cloud</a> landing page.</p>
 
-    <img src="qc-get-access.png" dark-src="qc-get-access_dark.png" alt="Qodana Cloud start page" width="706" border-effect="line" title="Qodana Cloud start page"/>
+    <img src="qc-get-access.png" alt="Qodana Cloud start page" width="706" border-effect="line" title="Qodana Cloud start page"/>
 
     <list type="decimal">
         <li>You can click the <menupath>Continue with JetBrains account</menupath> button to create a
