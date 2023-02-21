@@ -56,7 +56,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image. For example, they can be the `-d` or `-changes` parameters. For more information about arguments, see the [](qodana-jvm-docker-techs.xml#qodana-execution-tuneup) section.
 
-   **Additional Qodana arguments** lets you extend the default Qodana functionality, see the [Configuration options](qodana-jvm-docker-techs.xml#Configuration+options) for details.
+   **Additional Qodana arguments** lets you extend the default Qodana functionality, see the [Docker image configuration](docker-image-configuration.xml) page for details.
 
 7. Click **Save**. Now you can run Qodana in the build.
 

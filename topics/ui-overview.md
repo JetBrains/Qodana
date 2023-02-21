@@ -99,7 +99,7 @@ In case the number of problems is above your expectations, we suggest using the 
 then formalize a not-so-big cluster of the problems to fix. Repeat the procedure to work on the next goal, and so on.
 
 When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
-the [baseline](qodana-jvm-docker-techs.xml#Run+in+baseline+mode) running mode.
+the [baseline](docker-image-configuration.xml#docker-config-reference-baseline) mode.
 
 ## Adjust the analysis scope
 

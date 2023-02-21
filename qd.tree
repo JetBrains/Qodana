@@ -62,14 +62,6 @@
         <toc-element id="qodana-yaml.md"/>
         <toc-element id="configure-jdk.md"/>
         <toc-element id="docker-image-configuration.xml">
-            <toc-element id="qodana-jvm-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="qodana-jvm-community-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="qodana-jvm-android-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="qodana-php-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="qodana-python-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="qodana-js-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="qodana-go-docker-techs.xml" show-structure-depth="3"/>
-            <toc-element id="qodana-dotnet-docker-techs.xml" show-structure-depth="3"/>
         </toc-element>
 
 

@@ -35,6 +35,6 @@ In addition to programmatic output, you can generate a human-readable report in 
   </category>
   <category ref="procedures">
     <a href="html-report.md"/>
-    <a href="qodana-jvm-docker-techs.xml"/>
+    <a href="docker-image-configuration.xml"/>
   </category>
  </seealso>
