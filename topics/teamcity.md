@@ -54,7 +54,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    You can disable certain inspections later using the [`qodana.yaml`](https://www.jetbrains.com/help/qodana/qodana-yaml.html#exclude-paths) file or [Profile settings](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile) in your HTML report.
 
-   **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image. For example, they can be the `-d` or `-changes` parameters. For more information about arguments, see the [](qodana-jvm-docker-techs.xml#qodana-execution-tuneup) section.
+   **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image, see the [](docker-image-configuration.xml#docker-config-reference-docker-environment) section for details.
 
    **Additional Qodana arguments** lets you extend the default Qodana functionality, see the [Docker image configuration](docker-image-configuration.xml) page for details.
 

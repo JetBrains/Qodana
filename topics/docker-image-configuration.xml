@@ -364,7 +364,7 @@
 
     <chapter id="docker-config-reference-baseline" title="Baseline">
 
-        <p>In the <a href="qodana-baseline.xml">baseline</a> run mode, each new %product% run is compared to some initial run. This can help in
+        <p>In the <a href="baseline.xml">baseline</a> run mode, each new %product% run is compared to some initial run. This can help in
             situations when you have no possibility to fix old problems and rather want to prevent the appearance of new ones.</p>
 
         <p>To use the baseline feature, first run %product%, and in the report UI select the problems that will be considered as baseline.
@@ -377,7 +377,7 @@
             </tr>
             <tr>
                 <td><code>-b</code>, <code>--baseline</code></td>
-                <td>Run %product% in the <a href="qodana-baseline.xml">baseline</a> mode. Provide the path to an existing SARIF report to be used in the baseline state calculation</td>
+                <td>Run %product% in the <a href="baseline.xml">baseline</a> mode. Provide the path to an existing SARIF report to be used in the baseline state calculation</td>
             </tr>
             <tr>
                 <td><code>--baseline-include-absent</code></td>
@@ -631,7 +631,7 @@
                --script local-changes
         </code>
 
-        <p>To run the <a href="qodana-php-language-upgrade.xml">PHP version migration</a> scenario, you can run this command:</p>
+        <p>To run the <a href="php-language-upgrade.xml">PHP version migration</a> scenario, you can run this command:</p>
 
         <code style="block" lang="shell" prompt="$">
             docker run \
