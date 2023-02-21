@@ -167,7 +167,7 @@
                 </code>
                 <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
                     necessary results</a>. You can further tune the command as described in the <a
-                        href="%docker-tech-guide-page-url%">technical guide</a>.
+                        href="docker-image-configuration.xml">technical guide</a>.
                 </p>
                 <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
                     using it in <code>docker run</code> again.
@@ -205,7 +205,7 @@
                 <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
                     of problems is reached and the <a href="baseline.xml"/> option to compare each new %linter%
                     run to some initial run selected as a <emphasis>baseline</emphasis>.
-                    <a anchor="Run+as+non-root" href="%docker-tech-guide-page-url%">Running as non-root</a> is also supported.
+                    <a anchor="docker-config-reference-docker-environment-run-non-root" href="docker-image-configuration.xml">Running as non-root</a> is also supported.
                 </p>
                 <tip>
                     <p>
@@ -243,7 +243,7 @@
         <tabs group="docker-options">
             <tab title="Docker image" group-key="docker-image">
                 <p>You can pass the reference to the existing profile in <a
-                        href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">multiple ways</a>. Here are some
+                        href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">multiple ways</a>. Here are some
                     examples:
                 </p>
                 <list>
@@ -280,7 +280,7 @@
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <p>You can pass the reference to the existing profile in <a
-                    href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">multiple ways</a>. Here are some
+                    href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">multiple ways</a>. Here are some
                     examples, run both commands in the project root directory:</p>
                 <list>
                 <li>
@@ -322,7 +322,7 @@
         </p>
         <p>
             The references to the inspection profiles will be resolved <a
-                href="%docker-tech-guide-page-url%" anchor="Order+of+resolving+a+profile">in a particular order</a>. To
+                href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">in a particular order</a>. To
             learn about the format, see <a href="qodana-yaml.md"/>.
         </p>
     </chunk>
@@ -341,7 +341,7 @@
             jetbrains/%linter-shell%
         </code>
         <p>
-            Refer to the <a href="%docker-tech-guide-page-url%">technical guide</a> for more details.
+            Refer to the <a href="docker-image-configuration.xml">technical guide</a> for more details.
         </p>
     </chunk>
 
@@ -350,7 +350,7 @@
         agreement</a>, we can use third-party services to analyze the usage of our features to further improve the
         user experience. All data will be collected <a href="https://www.jetbrains.com/company/privacy.html">
         anonymously</a>. You can disable the reporting of usage statistics by adjusting the options of the
-        Docker command you use. Refer to the <a href="%docker-tech-guide-page-url%">technical guide</a> for
+        Docker command you use. Refer to the <a href="docker-image-configuration.xml" anchor="docker-config-reference-properties-user-statistics">technical guide</a> for
         details.
     </chunk>
 
