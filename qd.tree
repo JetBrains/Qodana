@@ -61,7 +61,7 @@
     <toc-element id="configure-qodana.xml" toc-title="Configuration">
         <toc-element id="qodana-yaml.md"/>
         <toc-element id="configure-jdk.md"/>
-        <toc-element id="docker-image-configuration.xml">
+        <toc-element id="docker-image-configuration.xml" show-structure-depth="3">
         </toc-element>
 
 

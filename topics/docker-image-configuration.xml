@@ -108,6 +108,52 @@
                    jetbrains/qodana-&lt;linter&gt;
             </code>
 
+            <p>To use plugins in your CI/CD pipelines, you can run a Shell script that will download them from
+                <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example, to download the
+                <a href="https://plugins.jetbrains.com/plugin/7303-twig">Twig</a> plugin and run it with the
+                <a href="qodana-php.md"/> linter, you can use this script:</p>
+
+            <code style="block" lang="shell">
+                IDE_CODE=PS
+                PLUGIN_ID="com.jetbrains.twig"
+                BUILD_ID="231.7515"
+                curl -L -o "$PLUGIN_ID".zip "https://plugins.jetbrains.com/pluginManager?action=download&amp;id=$PLUGIN_ID&amp;build=$IDE_CODE-$BUILD_ID" &amp;&amp; unzip "$PLUGIN_ID".zip
+            </code>
+
+            <p>This script contains several variables explained in this table.</p>
+
+            <table>
+                <tr>
+                    <td>Variable</td>
+                    <td>Description</td>
+                    <td>Example</td>
+                </tr>
+                <tr>
+                    <td>IDE_CODE</td>
+                    <td>
+                        <p>The two-character code of the linter that the plugin should be downloaded for. The available values are:</p>
+                        <list>
+                            <li>IU - <a href="qodana-jvm.md">Qodana for JVM</a></li>
+                            <li>IC - <a href="qodana-jvm-community.md">Qodana Community for JVM</a></li>
+                            <li>PS - <a href="qodana-php.md">Qodana for PHP</a></li>
+                            <li>PY - <a href="qodana-python.md">Qodana for Python</a></li>
+                            <li>WS - <a href="qodana-js.md">Qodana for JS</a></li>
+                            <li>GO - <a href="qodana-go.md">Qodana for Go</a></li>
+                        </list>
+                    </td>
+                    <td><code>PS</code></td>
+                </tr>
+                <tr>
+                    <td>PLUGIN_ID</td>
+                    <td>Plugin identifier from a plugin page available on <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a></td>
+                    <td><code>com.jetbrains.twig</code> from the <a href="https://plugins.jetbrains.com/plugin/7303-twig">Twig</a> plugin page</td>
+                </tr>
+                <tr>
+                    <td>BUILD_ID</td>
+                    <td>Build ID of %product% available in %product% logs</td>
+                    <td>For example, <code>Starting up Qodana for PHP 2023.1 EAP (build QDPHP-231.7515)</code></td>
+                </tr>
+            </table>
         </chapter>
     </chapter>
 
