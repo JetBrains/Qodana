@@ -9,6 +9,10 @@
     <p>This section describes how you can configure Docker images of %product% while running
         %product% both <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>. </p>
 
+    <!-- Qodana CLI needs to be completely integrated to this page -->
+    <!-- The configuration options need to be split into two tabs, and both Docker and Qodana CLI options need to be mentioned here -->
+    <!-- Options available only for Docker CLI also need to be mentioned on this page -->
+
     <chapter id="docker-config-reference-image-paths" title="Docker image paths">
 
     <p>This table lists the paths to the directories contained in the Docker images of %product%:</p>
@@ -65,18 +69,32 @@
             <p>Unless explicitly specified, %product% employs the <code>qodana.starter</code> profile. Using this command,
                 you can bind and use your own profile file, thus overriding <code>qodana.starter</code>:</p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml \
-                   jetbrains/qodana-&lt;linter&gt;
-            </code>
+            <tabs>
+                <tab title="Qodana CLI">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -l jetbrains/qodana-&lt;linter&gt; \
+                        --profile-path $(pwd)/&lt;profile-file&gt;
+                    </code>
+                </tab>
+                <tab title="Docker">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml \
+                           jetbrains/qodana-&lt;linter&gt;
+                    </code>
+
+                </tab>
+            </tabs>
 
             <p>To learn more about profiles, see the
                 <a anchor="docker-config-reference-order-resolving-profile">Order of resolving a profile</a> and
                 <a href="qodana-yaml.md" anchor="Set+up+a+profile">Set up a profile</a> sections in this documentation.</p>
 
         </chapter>
+
+        <!-- This needs to be pointed out-->
 
         <chapter id="docker-config-reference-gradle-settings" title="Override Gradle settings">
 
@@ -100,6 +118,8 @@
 
             <p>Using the <a anchor="docker-config-reference-image-paths">plugin directory</a>, you can invoke any free
                 IntelliJ platform plugin or your custom plugin:</p>
+
+            <!-- This needs to be pointed out-->
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
@@ -266,6 +286,30 @@
 
             <tip><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> automatically manages cache. </tip>
 
+            <!-- This needs to be refactored because cache is automatically handled here -->
+            <!-- Probably, all this content can be moved under the Docker image section -->
+            <!-- The Qodana CLI section needs to show how to override the cache directory -->
+
+
+            <tabs>
+                <tab title="Qodana CLI">
+                    <!-- This needs to be reviewed before submitting -->
+                    <p>This is how you can override the cache folder:</p>
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -l jetbrains/qodana-&lt;linter&gt; \
+                        --cache-dir /data/newcachedir
+                    </code>
+                </tab>
+                <tab title="Docker">
+                    <code style="block" lang="shell" prompt="$">
+
+                    </code>
+
+                </tab>
+            </tabs>
+
+
             <p>You can improve %product% performance by persisting cache from one run to another. For example, package and
                 dependency management tools such as Maven, Gradle, npm, Yarn, and NuGet keep a local cache of downloaded dependencies.</p>
 
@@ -357,6 +401,39 @@
 
         <chapter id="docker-config-reference-profile-profile-name" title="Profile name">
 
+            <tabs>
+                <tab title="Qodana CLI">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                           -l jetbrains/qodana-&lt;linter&gt; \
+                           --profile-name qodana.recommended
+                    </code>
+                </tab>
+                <tab title="Docker">
+                    <code style="block" lang="shell" prompt="$">
+
+                    </code>
+
+                </tab>
+            </tabs>
+
+            <tabs>
+            <tab title="Qodana CLI">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    -l jetbrains/qodana-&lt;linter&gt; \
+                    --profile-path &lt;path-to-profile-file&gt;
+                    --profile-name &lt;profile-name-from-file&gt;
+                </code>
+            </tab>
+            <tab title="Docker">
+                <code style="block" lang="shell" prompt="$">
+
+                </code>
+
+            </tab>
+        </tabs>
+
             <p>The <code>--profile-name</code> option lets you run %product% based on:</p>
 
             <list>
@@ -395,6 +472,8 @@
             <p>This command binds the profile file to a specific <a anchor="docker-config-reference-image-paths">directory</a>,
                 specifies this path using the <code>--profile-path</code> option, and automatically reads the profile name from the file:</p>
 
+            <!-- Qodana CLI example from above needs to be added here -->
+
             <code style="block" lang="shell" prompt="$">
                 docker run \
                    -v $(pwd):/data/project/ \
@@ -432,6 +511,23 @@
         </table>
 
         <p>Here is the CLI command that lets you run %product% with the baseline feature enabled:</p>
+
+        <tabs>
+            <tab title="Qodana CLI">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -l jetbrains/qodana-&lt;linter&gt; \
+                       --baseline &lt;path-to-the-SARIF-file&gt; \
+                       --baseline-include-absent
+                </code>
+            </tab>
+            <tab title="Docker">
+                <code style="block" lang="shell" prompt="$">
+
+                </code>
+
+            </tab>
+        </tabs>
 
         <code style="block" lang="shell" prompt="$">
             docker run \
