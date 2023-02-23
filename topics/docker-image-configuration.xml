@@ -98,20 +98,10 @@
             <note>Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate with us to
                 make it work.</note>
 
-            <p>Using the <a anchor="docker-config-reference-image-paths">plugin directory</a>, you can invoke any free
-                IntelliJ platform plugin or your custom plugin:</p>
-
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt; \
-                   jetbrains/qodana-&lt;linter&gt;
-            </code>
-
-            <p>To use plugins in your CI/CD pipelines, you can run a Shell script that will download them from
-                <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example, to download the
-                <a href="https://plugins.jetbrains.com/plugin/7303-twig">Twig</a> plugin and run it with the
-                <a href="qodana-php.md"/> linter, you can use this script:</p>
+            <p>You can automatically download the required plugins from
+                <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> and use them in your CI/CD pipelines.
+                For example, this Shell script will download the
+                <a href="https://plugins.jetbrains.com/plugin/7303-twig">Twig</a> plugin:</p>
 
             <code style="block" lang="shell">
                 IDE_CODE=PS
@@ -129,7 +119,7 @@
                     <td>Example</td>
                 </tr>
                 <tr>
-                    <td>IDE_CODE</td>
+                    <td><code>IDE_CODE</code></td>
                     <td>
                         <p>The two-character code of the linter that the plugin should be downloaded for. The available values are:</p>
                         <list>
@@ -144,16 +134,27 @@
                     <td><code>PS</code></td>
                 </tr>
                 <tr>
-                    <td>PLUGIN_ID</td>
+                    <td><code>PLUGIN_ID</code></td>
                     <td>Plugin identifier from a plugin page available on <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a></td>
                     <td><code>com.jetbrains.twig</code> from the <a href="https://plugins.jetbrains.com/plugin/7303-twig">Twig</a> plugin page</td>
                 </tr>
                 <tr>
-                    <td>BUILD_ID</td>
+                    <td><code>BUILD_ID</code></td>
                     <td>Build ID of %product% available in %product% logs</td>
                     <td>For example, <code>Starting up Qodana for PHP 2023.1 EAP (build QDPHP-231.7515)</code></td>
                 </tr>
             </table>
+
+            <p>After downloading, you can run %product% with the plugin file mounted to the
+                <a anchor="docker-config-reference-image-paths">plugin directory</a> of the Docker image:</p>
+
+            <code style="block" lang="shell" prompt="$">
+                docker run \
+                -v $(pwd):/data/project/ \
+                -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt; \
+                jetbrains/qodana-&lt;linter&gt;
+            </code>
+
         </chapter>
     </chapter>
 
@@ -243,22 +244,23 @@
             </tr>
         </table>
 
-        <chapter id="docker-config-reference-directories-save-report" title="Save reports">
+        <chapter id="docker-config-reference-directories-save-report" title="Override the report directory">
 
-        <p>This CLI command lets you generate and save the HTML-formatted report to your local filesystem.</p>
+            <p>This CLI command overrides the default report directory using the <code>--report-dir</code>
+                option, and saves the generated report to the local filesystem using the
+                <a anchor="docker-config-reference-report"><code>--save-report</code></a> option:</p>
 
         <code style="block" lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
-               -v &lt;html-report-directory&gt;:/data/results/report/ \
+               -v &lt;html-report-directory&gt;:/data/results/newreportdir/ \
                jetbrains/qodana-&lt;linter&gt; \
+               --report-dir /data/results/newreportdir/ \
                --save-report
         </code>
 
-            <p>In this command, <code>--save-report</code> <a anchor="docker-config-reference-report">saves</a> the HTML-formatted report.</p>
-
-            <p>This report is then mounted to the local filesystem using the
-                <code>-v &lt;html-report-directory&gt;:/data/results/report/</code> line in this command.</p>
+            <p>The generated report is saved to the local filesystem as per the
+                <code>-v &lt;html-report-directory&gt;:/data/results/newreportdir/</code> line in this command.</p>
 
         </chapter>
 
@@ -470,30 +472,37 @@
             </tr>
         </table>
 
-        <p>Using the <code>--save-report</code> option, this CLI command lets you save the generated HTML report to your
-            local filesystem. </p>
+        <chapter id="docker-config-reference-report-save-report" title="Save the report">
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               -v &lt;directory-to-save-report-to&gt;:/data/results/report \
-               jetbrains/qodana-&lt;linter&gt; \
-               --save-report
-        </code>
+            <p>Using the <code>--save-report</code> option, this CLI command lets you save the generated HTML report to your
+                local filesystem. </p>
 
-        <p>Based on this command, %product% runs the web server to serve the report on port 4040 on a host machine mapped to port <code>8080</code>
-            in the Docker image, so your report will be available on <a href="http://localhost:4040">http://localhost:4040</a>:</p>
+            <code style="block" lang="shell" prompt="$">
+                docker run \
+                -v $(pwd):/data/project/ \
+                -v &lt;directory-to-save-report-to&gt;:/data/results/report \
+                jetbrains/qodana-&lt;linter&gt; \
+                --save-report
+            </code>
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -p 4040:8080 \
-               -v $(pwd):/data/project/ \
-               jetbrains/qodana-&lt;linter&gt; \
-               --show-report
-        </code>
+        </chapter>
 
-        <p>To stop the web server, press <shortcut>Ctrl-C</shortcut> in the Docker console.</p>
+        <chapter id="docker-config-reference-report-show-report" title="Show the report">
 
+            <p>Based on this command, %product% runs the web server to serve the report on port 4040 on a host machine mapped to port <code>8080</code>
+                in the Docker image, so your report will be available on <a href="http://localhost:4040">http://localhost:4040</a>:</p>
+
+            <code style="block" lang="shell" prompt="$">
+                docker run \
+                -p 4040:8080 \
+                -v $(pwd):/data/project/ \
+                jetbrains/qodana-&lt;linter&gt; \
+                --show-report
+            </code>
+
+            <p>To stop the web server, press <shortcut>Ctrl-C</shortcut> in the Docker console.</p>
+
+        </chapter>
     </chapter>
 
     <chapter id="docker-config-reference-quality-gate" title="Quality gate">
