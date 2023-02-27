@@ -53,6 +53,10 @@
                 <td><a anchor="docker-config-reference-gradle-settings">Gradle</a> project dependencies</td>
             </tr>
             <tr>
+                <td><code>/data/cache/nuget</code></td>
+                <td>NuGet project dependencies</td>
+            </tr>
+            <tr>
                 <td><code>/opt/idea/plugins</code></td>
                 <td>Directory containing <a anchor="docker-config-reference-manage-plugins">plugins</a></td>
             </tr>
@@ -336,7 +340,7 @@
             <tr>
                 <td><code>-p</code>, <code>--profile-path</code></td>
                 <td>
-                    <p>The <a anchor="docker-config-reference-profile-profile-path">absolute path</a> to the profile file</p>
+                    <p>The <a anchor="docker-config-reference-profile-profile-path">absolute path</a> to the profile file.</p>
                     <p>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path"><code>qodana.yaml</code></a> file.</p>
                 </td>
                 <td>None</td>
@@ -366,7 +370,7 @@
                 <li>The profile name taken from the custom profile file</li>
             </list>
 
-            <p>Using this command, you can override the default profile with <code>qodana.recommended</code>: </p>
+            <p>Using this command, you can override the default profile und run %product% with the <code>qodana.recommended</code> profile: </p>
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
@@ -377,7 +381,9 @@
             <p>If you need to run %product% with a custom profile, you can take the actual profile name stored as
                 <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> of the profile file. </p>
 
-            <p>This command lets you bind the profile file to use the profile name from:</p>
+            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+
+            <p>This command lets you bind the profile file and use the profile name from it:</p>
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
@@ -568,7 +574,7 @@
 
         <chapter id="docker-config-reference-properties-stdout" title="Log INFO messages to STDOUT">
 
-            <note>This is not applicable in the <a href="qodana-dotnet.md"/> linter.</note>
+            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
 
             <p>The default log level for STDOUT is <code>WARN</code>. You can override this level using the
                 <a anchor="docker-config-reference-properties"><code>--property</code></a> option:</p>
