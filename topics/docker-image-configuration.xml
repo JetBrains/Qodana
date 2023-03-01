@@ -189,7 +189,6 @@
             <tab title="Qodana CLI">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                       --linter jetbrains/qodana-&lt;linter&gt; \
                        --property=idea.log.config.file=info.xml \
                        --baseline &lt;baseline-path&gt; \
                        --save-report
@@ -400,7 +399,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
                            --profile-name qodana.recommended
                     </code>
                 </tab>
@@ -426,7 +424,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
                            --volume &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
                            --profile-name &lt;profile-name-from-file&gt;
                     </code>
@@ -454,7 +451,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        --linter jetbrains/qodana-&lt;linter&gt; \
                         --volume &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
                         --profile-path /data/project/myprofiles/&lt;file-name&gt;
                     </code>
@@ -505,7 +501,6 @@
             <tab title="Qodana CLI">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                       --linter jetbrains/qodana-&lt;linter&gt; \
                        --baseline &lt;path-to-the-SARIF-file&gt; \
                        --baseline-include-absent
                 </code>
@@ -556,13 +551,12 @@
             <p>Using the <code>--save-report</code> option, this CLI command lets you save the generated HTML report to your
                 local filesystem. </p>
 
-            <!-- I need to mention that the report will be saved in the CacheDir folder -->
+            <!-- I need to mention that the report will be saved in the CacheDir folder, and this occurs automatically, so no special command is required -->
 
             <tabs>
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
                            --save-report
                     </code>
                 </tab>
@@ -588,7 +582,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
                            --port 4040 \
                            --show-report
                     </code>
@@ -635,7 +628,6 @@
             <tab title="Qodana CLI">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                       --linter jetbrains/qodana-&lt;linter&gt; \
                        --fail-threshold 10
                 </code>
             </tab>
@@ -694,7 +686,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
                            --property=idea.log.config.file=info.xml
                     </code>
                 </tab>
@@ -718,7 +709,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
                            --property=idea.headless.enable.statistics=false
                     </code>
                 </tab>
@@ -746,7 +736,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
                            --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
                            --property=idea.suppressed.plugins.id=com.intellij.spring.security
                     </code>
@@ -789,7 +778,6 @@
             <tab title="Qodana CLI">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                       --linter jetbrains/qodana-&lt;linter&gt; \
                        --changes
                 </code>
             </tab>
@@ -831,7 +819,6 @@
             <tab title="Qodana CLI">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                       --linter jetbrains/qodana-&lt;linter&gt; \
                        --script default
                 </code>
             </tab>
@@ -851,7 +838,6 @@
             <tab title="Qodana CLI">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                       --linter jetbrains/qodana-&lt;linter&gt; \
                        --script local-changes
                 </code>
             </tab>
@@ -871,7 +857,6 @@
             <tab title="Qodana CLI">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                       --linter jetbrains/qodana-&lt;linter&gt; \
                        --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
                 </code>
             </tab>
@@ -926,7 +911,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        --linter jetbrains/qodana-&lt;linter&gt; \
                         --env _JAVA_OPTIONS=-Xmx6g
                     </code>
                 </tab>
@@ -958,7 +942,6 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
                            --env IDEA_PROPERTIES=/data/project/idea.properties
                     </code>
                 </tab>
@@ -1006,12 +989,11 @@
                 <tab title="Qodana CLI">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                           --linter jetbrains/qodana-&lt;linter&gt; \
-                           --env QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                           --env QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
-                           --env QODANA_BRANCH="&lt;project-branch-name&gt;" \
-                           --env QODANA_REVISION="&lt;commit-hash&gt;" \
-                           --env QODANA_JOB_URL="&lt;job-url&gt;"
+                           -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                           -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
+                           -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
+                           -e QODANA_REVISION="&lt;commit-hash&gt;" \
+                           -e QODANA_JOB_URL="&lt;job-url&gt;"
                     </code>
                 </tab>
                 <tab title="Docker">
