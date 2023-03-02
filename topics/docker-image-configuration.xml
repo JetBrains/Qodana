@@ -340,7 +340,7 @@
             <p>This command lets you use cache stored in the local filesystem, and override the cache directory using
                 the <code>--cache-dir</code> option:</p>
 
-            <!-- These commands can probably be split, and --cache-dir option description needs to be extended -->
+            <!-- These commands can probably be split, and cache-dir option description needs to be extended -->
 
             <tabs group="cli-settings">
                 <tab title="Qodana CLI" group-key="qodana-cli">
