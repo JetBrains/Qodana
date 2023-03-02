@@ -6,12 +6,16 @@
        title="Docker image configuration"
        id="docker-image-configuration.xml">
 
-    <p>This section describes how you can configure Docker images of %product% while running
-        %product% both <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>. </p>
+    <p>This section lists configuration options available for the Docker images of
+        %product% and the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool. You can use both tools
+        <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>.</p>
+
+    <p>Several options can be configured using <a href="qodana-yaml.md"><code>qodana.yaml</code></a>, which is also
+        mentioned in this section.</p>
 
     <chapter id="docker-config-reference-image-paths" title="Docker image paths">
 
-    <p>This table lists the paths to the directories contained in the Docker images of %product%:</p>
+    <p>This table lists the paths contained in the Docker images of %product%:</p>
 
         <table>
             <tr>
@@ -66,7 +70,7 @@
 
         <chapter id="docker-config-reference-override-inspection-profile" title="Override the default inspection profile">
 
-            <p>Unless explicitly specified, %product% by default employs the <code>qodana.starter</code> profile. Using this command,
+            <p>By default, %product% employs the <code>qodana.starter</code> profile. Using this command,
                 you can bind and use your own profile file for overriding the default profile:</p>
 
             <tabs group="cli-settings">
@@ -117,7 +121,7 @@
 
         <chapter id="docker-config-reference-manage-plugins" title="Manage plugins">
 
-            <note>This option is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
 
             <note>Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate with us to
                 make it work.</note>
@@ -169,7 +173,7 @@
                 </tr>
             </table>
 
-            <p>After downloading, you can run %product% with the plugin file mounted to the
+            <p>After downloading the plugin, you can run %product% with the plugin file mounted to the
                 <a anchor="docker-config-reference-image-paths">plugin directory</a> of the Docker image:</p>
 
             <tabs group="cli-settings">
@@ -211,11 +215,11 @@
             </tr>
             <tr>
                 <td>Requires no argument</td>
-                <td><code>--save-report</code> or <code>--show-report</code></td>
+                <td><code>--show-report</code></td>
             </tr>
         </table>
 
-        <p>This is the CLI command using all these options:</p>
+        <p>These are the CLI commands that invoke all these options:</p>
 
         <tabs group="cli-settings">
             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -229,11 +233,12 @@
             <tab title="Docker image" group-key="docker-image">
                 <code style="block" lang="shell" prompt="$">
                     docker run \
+                       -p 8080:8080 \
                        -v $(pwd):/data/project/ \
                        jetbrains/qodana-&lt;linter&gt; \
                        --property=idea.log.config.file=info.xml \
                        --baseline &lt;baseline-path&gt; \
-                       --save-report
+                       --show-report
                 </code>
             </tab>
         </tabs>
@@ -252,9 +257,6 @@
                 </code>
             </tab>
         </tabs>
-
-
-        <code style="block" lang="shell" prompt="$">docker run jetbrains/qodana-&lt;linter&gt;</code>
 
     </chapter>
 
@@ -339,8 +341,8 @@
                 This data is per-repository, so you can pass cache from <code>branch-a</code> to build checking
                 <code>branch-b</code>. In this case, only new dependencies would be downloaded if they were added.</p>
 
-            <p>This is the command that lets you map your local directory with the <code>/data/cache</code> directory in the
-                Docker image, and thus save cache to your local filesystem: </p>
+            <p>This command maps the local directory with the <code>/data/cache</code> directory of the
+                Docker image, which saves cache to your local filesystem: </p>
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
@@ -349,8 +351,8 @@
                    jetbrains/qodana-&lt;linter&gt;
             </code>
 
-            <p>After the first run, Qodana CLI stores cache in the <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/cache</code>
-                directory.</p>
+            <note>After the first run, Qodana CLI stores cache in the <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/cache</code>
+                directory.</note>
 
             <!-- This paragraph needs to be verified before submitting because of the CLI -->
 
@@ -389,7 +391,7 @@
         <p>By default, %product% inspects your code using the <code>qodana.starter</code> profile.</p>
 
         <p>You can configure and override %product% profiles either in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
-            file, or using CLI options from this table.</p>
+            file, or using the CLI options from this table.</p>
 
         <table>
             <tr>
@@ -440,11 +442,13 @@
             <p>The <code>--profile-name</code> option lets you run %product% based on:</p>
 
             <list>
-                <li>The <a href="qodana-yaml.md" anchor="Default+profiles">default profiles</a></li>
+                <li>The <a href="qodana-yaml.md" anchor="Default+profiles">available profiles</a></li>
                 <li>The profile name taken from the custom profile file</li>
             </list>
 
             <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+
+            <tip>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+name"><code>qodana.yaml</code></a> file.</tip>
 
             <p>These CLI commands show how to override the default profile und run %product% using the <code>qodana.recommended</code> profile: </p>
 
@@ -495,8 +499,10 @@
 
             <p>The <code>--profile-path</code> option lets you override the path to the profile file that you would like to run %product% with.</p>
 
-            <p>This command binds the profile file to a specific <a anchor="docker-config-reference-image-paths">directory</a>,
-                specifies this path using the <code>--profile-path</code> option, and automatically reads the profile name from the file:</p>
+            <tip>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path"><code>qodana.yaml</code></a> file.</tip>
+
+            <p>This command binds the profile file to the profile <a anchor="docker-config-reference-image-paths">directory</a>,
+                and the <code>--profile-path</code> option tells %product% which profile file to read:</p>
 
             <tabs group="cli-settings">
                 <tab title="Qodana CLI" group-key="qodana-cli">
@@ -530,6 +536,8 @@
         <p>To use the baseline feature, first run %product%, and in the report UI select the problems that will be considered as baseline.
         Finally, save the <a href="qodana-sarif-output.md">SARIF-formatted file</a> containing the baseline problems. </p>
 
+        <p>This is the list of baseline-related options:</p>
+
         <table>
             <tr>
                 <td>Option</td>
@@ -545,7 +553,7 @@
             </tr>
         </table>
 
-        <p>Here is the CLI command that lets you run %product% with the baseline feature enabled:</p>
+        <p>These are the CLI commands that invoke all baseline options:</p>
 
         <tabs group="cli-settings">
             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -578,7 +586,7 @@
 
     <chapter id="docker-config-reference-report" title="Report">
 
-        <p>This table contains the options that you can use for saving and serving reports:</p>
+        <p>This table contains the options that you can use for saving and showing reports:</p>
 
         <table>
             <tr>
@@ -601,7 +609,7 @@
                 <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code> directory.</tip>
 
             <p>The <code>--save-report</code> option in the Docker command lets you save the generated HTML report to your
-                local filesystem. </p>
+                local filesystem: </p>
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
@@ -615,7 +623,7 @@
 
         <chapter id="docker-config-reference-report-show-report" title="Show the report">
 
-            <p>Based on this command, %product% runs the web server to serve the report on port 4040 on a host machine mapped to port <code>8080</code>
+            <p>These commands run the web server on port 4040 of a host machine mapped to port <code>8080</code>
                 in the Docker image, so your report will be available on <a href="http://localhost:4040">http://localhost:4040</a>:</p>
 
             <tabs group="cli-settings">
@@ -644,11 +652,12 @@
 
     <chapter id="docker-config-reference-quality-gate" title="Quality gate">
 
-        <p>%product% lets you configure a <a href="quality-gate.xml">quality gate</a> or the number of problems that
+        <p>%product% lets you configure a <a href="quality-gate.xml">quality gate</a>, or the number of problems that
             will act as a threshold. Once the threshold is reached, the inspection run is terminated.</p>
 
-        <tip>You can also configure this option using the
-            <a href="qodana-yaml.md" anchor="Set+a+fail+threshold"><code>qodana.yaml</code></a> file.</tip>
+        <note>You can specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node to
+            <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">qodana.yaml</a>. However, the Docker command option
+            overrides the settings in the <code>qodana.yaml</code> file. </note>
 
         <table>
             <tr>
@@ -661,7 +670,7 @@
             </tr>
         </table>
 
-        <p>Here is the sample CLI command that configures %product% to fail the build in case the number of problems exceeds 10:</p>
+        <p>Here are the sample CLI commands that tell %product% to fail the build in case the number of problems exceeds 10:</p>
 
         <tabs group="cli-settings">
             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -683,10 +692,6 @@
         <p>If you run %product% with the <a anchor="docker-config-reference-baseline">baseline mode</a> enabled, a
             threshold is calculated as the sum of new and absent problems. The unchanged results are ignored.</p>
 
-        <note>You can specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node to
-            <a href="qodana-yaml.md">qodana.yaml</a>. However, the Docker command option overrides the settings in the
-            <code>qodana.yaml</code> file. </note>
-
     </chapter>
 
     <chapter id="docker-config-reference-properties" title="Properties">
@@ -698,7 +703,7 @@
             </tr>
             <tr>
                 <td><code>--property=</code></td>
-                <td><p>Set a JVM property to be used while running %product% using this notation:</p>
+                <td><p>Set a JVM property using this notation:</p>
                     <code style="block" lang="shell">--property=property.name=value1,...,valueN</code>
                     <p>This option can be repeated multiple times for setting multiple JVM properties.</p>
                 </td>
@@ -1010,8 +1015,6 @@
                    -v &lt;results-directory&gt;:/data/results/ \
                    jetbrains/qodana-&lt;linter&gt;
             </code>
-
-            <!-- Here, I need to mention how to override the user using Qodana CLI -->
 
             <p>In this case, the <code>results/</code> folder on host should already be created and owned by you.
                 Otherwise, Docker will create it as the <code>root</code> user, and %product% will not be able to write
