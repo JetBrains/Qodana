@@ -66,8 +66,8 @@
 
         <chapter id="docker-config-reference-override-inspection-profile" title="Override the default inspection profile">
 
-            <p>Unless explicitly specified, %product% employs the <code>qodana.starter</code> profile. Using this command,
-                you can bind and use your own profile file, thus overriding <code>qodana.starter</code>:</p>
+            <p>Unless explicitly specified, %product% by default employs the <code>qodana.starter</code> profile. Using this command,
+                you can bind and use your own profile file for overriding the default profile:</p>
 
             <tabs group="cli-settings">
                 <tab title="Qodana CLI" group-key="qodana-cli">
@@ -240,6 +240,20 @@
 
         <p>You can see the list of available options using this CLI command:</p>
 
+        <tabs group="cli-settings">
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan -h
+                </code>
+            </tab>
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run jetbrains/qodana-&lt;linter&gt;
+                </code>
+            </tab>
+        </tabs>
+
+
         <code style="block" lang="shell" prompt="$">docker run jetbrains/qodana-&lt;linter&gt;</code>
 
     </chapter>
@@ -292,12 +306,12 @@
 
         <chapter id="docker-config-reference-directories-save-report" title="Override the report directory">
 
-            <p>This CLI command overrides the default report directory using the <code>--report-dir</code>
+            <tip>During inspection, Qodana CLI automatically saves inspection reports to the
+                <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code> directory.</tip>
+
+            <p>This Docker command overrides the default report directory using the <code>--report-dir</code>
                 option, and saves the generated report to the local filesystem using the
                 <a anchor="docker-config-reference-report"><code>--save-report</code></a> option:</p>
-
-            <!-- Qodana CLI needs to be mentioned here regarding the report directory. Or results-dir needs to be used instead -->
-            <!-- In this case, I need to mention that report-dir is not available in Qodana CLI -->
 
         <code style="block" lang="shell" prompt="$">
             docker run \
@@ -315,17 +329,17 @@
 
         <chapter id="docker-config-reference-cache-dependencies" title="Cache dependencies">
 
-            <tip><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> automatically manages cache. </tip>
-
             <p>You can improve %product% performance by persisting cache from one run to another. For example, package and
                 dependency management tools such as Maven, Gradle, npm, Yarn, and NuGet keep a local cache of downloaded dependencies.</p>
 
-            <p>By default, %product% save caches to the <code>/data/cache</code> folder inside a container. You can override
+            <tip><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> automatically manages cache. </tip>
+
+            <p>By default, %product% save caches to the <code>/data/cache</code> directory inside a container. You can override
                 this location using the <a anchor="docker-config-reference-directories"><code>--cache-dir</code></a> option.
-                The data inside is per-repository, so you can pass cache from <code>branch-a</code> to build checking
+                This data is per-repository, so you can pass cache from <code>branch-a</code> to build checking
                 <code>branch-b</code>. In this case, only new dependencies would be downloaded if they were added.</p>
 
-            <p>This is the CLI command lets you map your local directory with the <code>/data/cache</code> directory in the
+            <p>This is the command that lets you map your local directory with the <code>/data/cache</code> directory in the
                 Docker image, and thus save cache to your local filesystem: </p>
 
             <code style="block" lang="shell" prompt="$">
@@ -335,21 +349,14 @@
                    jetbrains/qodana-&lt;linter&gt;
             </code>
 
+            <p>After the first run, Qodana CLI stores cache in the <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/cache</code>
+                directory.</p>
+
             <!-- This paragraph needs to be verified before submitting because of the CLI -->
 
-            <p>This command lets you use cache stored in the local filesystem, and override the cache directory using
+            <p>This Docker command lets you use cache stored in the local filesystem, and override the cache directory using
                 the <code>--cache-dir</code> option:</p>
 
-            <!-- These commands can probably be split, and cache-dir option description needs to be extended -->
-
-            <tabs group="cli-settings">
-                <tab title="Qodana CLI" group-key="qodana-cli">
-                    <code style="block" lang="shell" prompt="$">
-                        qodana scan \
-                           --cache-dir /opt/newcachedir
-                    </code>
-                </tab>
-                <tab title="Docker image" group-key="docker-image">
                     <code style="block" lang="shell" prompt="$">
                         docker run \
                            -v $(pwd):/data/project/ \
@@ -357,8 +364,14 @@
                            jetbrains/qodana-&lt;linter&gt; \
                            --cache-dir /data/newcachedir
                     </code>
-                </tab>
-            </tabs>
+
+            <p>Using <code>--cache-dir</code> option, Qodana CLI can override the cache directory for
+                <code>/opt/newcachedir</code> on your local filesystem:</p>
+
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    --cache-dir /opt/newcachedir
+                </code>
 
             <p>In a GitHub workflow, you can use
                 <a href="https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows">dependency caching</a>.
@@ -373,8 +386,10 @@
 
     <chapter id="docker-config-reference-profile" title="Profile">
 
-        <p>You can configure and override %product% profiles using either the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
-            file, or the CLI options from this table.</p>
+        <p>By default, %product% inspects your code using the <code>qodana.starter</code> profile.</p>
+
+        <p>You can configure and override %product% profiles either in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
+            file, or using CLI options from this table.</p>
 
         <table>
             <tr>
@@ -429,7 +444,9 @@
                 <li>The profile name taken from the custom profile file</li>
             </list>
 
-            <p>Using this command, you can override the default profile und run %product% with the <code>qodana.recommended</code> profile: </p>
+            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+
+            <p>These CLI commands show how to override the default profile und run %product% using the <code>qodana.recommended</code> profile: </p>
 
             <tabs group="cli-settings">
                 <tab title="Qodana CLI" group-key="qodana-cli">
@@ -450,8 +467,6 @@
 
             <p>If you need to run %product% with a custom profile, you can take the actual profile name stored as
                 <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> of the profile file. </p>
-
-            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
 
             <p>This command lets you bind the profile file and use the profile name from it:</p>
 
@@ -582,12 +597,11 @@
 
         <chapter id="docker-config-reference-report-save-report" title="Save the report">
 
-            <!-- Here I need to mention the place where Qodana CLI stores the reports -->
+            <tip>During inspection, Qodana CLI automatically saves inspection reports to the
+                <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code> directory.</tip>
 
-            <p>The <code>--save-report</code> option lets you save the generated HTML report to your
+            <p>The <code>--save-report</code> option in the Docker command lets you save the generated HTML report to your
                 local filesystem. </p>
-
-            <!-- This can probably remain without the Qodana CLI extension -->
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
