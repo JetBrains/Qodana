@@ -31,7 +31,7 @@ If you want a fresh start, you have two options:
 1. Use Qodana in the default mode to execute the [three-phase analysis](#three-phase-analysis). You do not need to 
 create the [`qodana.yaml`](qodana-yaml.md) file in this case, but you can add it later to amend the set of inspections.
 2. Run %product% using the `qodana.recommended` profile. In this case, you need to create the `qodana.yaml` file with a 
-reference to the [`qodana.recommended`](qodana-yaml.md#set-up-a-profile-by-the-name) profile. This profile contains the 
+reference to the [`qodana.recommended`](qodana-yaml.md#Set+up+a+profile+by+the+name) profile. This profile contains the 
 inspections for critical or severe issues in the codebase. This profile does not contain any style checks, and 
 non-critical folders, such as `tests`, are ignored.
 
