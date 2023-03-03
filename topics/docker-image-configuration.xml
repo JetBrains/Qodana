@@ -158,7 +158,6 @@
                 -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt; \
                 jetbrains/qodana-&lt;linter&gt;
             </code>
-
         </chapter>
     </chapter>
 
