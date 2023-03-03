@@ -10,8 +10,8 @@
         %product% and the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool. You can use both tools
         <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>.</p>
 
-    <p>In several cases, you can configure them using <a href="qodana-yaml.md"><code>qodana.yaml</code></a>, which is also
-        mentioned in this section.</p>
+    <p>In several cases, you can configure them using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file,
+        which is also mentioned in this section.</p>
 
     <chapter id="docker-config-reference-qodana-cli" title="Qodana CLI">
 
@@ -425,7 +425,7 @@
 
         <p>By default, %product% inspects your code using the <code>qodana.starter</code> profile.</p>
 
-        <p>You can configure and override %product% profiles either in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
+        <p>You can configure and override %product% profiles either in the <a href="qodana-yaml.md" anchor="Set+up+a+profile"><code>qodana.yaml</code></a>
             file, or using the CLI options from this table.</p>
 
         <table>
@@ -436,7 +436,7 @@
             </tr>
             <tr>
                 <td><code>--disable-sanity</code></td>
-                <td>Skip running the inspections configured by the <a href="qodana-yaml.md" anchor="Default+profiles"><code>qodana.sanity</code></a> profile</td>
+                <td>Skip running the inspections configured by the <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.sanity</code></a> profile</td>
                 <td>Enabled</td>
             </tr>
             <tr>
@@ -477,7 +477,7 @@
             <p>The <code>--profile-name</code> option lets you run %product% based on:</p>
 
             <list>
-                <li>The <a href="qodana-yaml.md" anchor="Default+profiles">available profiles</a></li>
+                <li>The <a href="inspection-profiles.md" anchor="Default+profiles">available profiles</a></li>
                 <li>The profile name taken from the custom profile file</li>
             </list>
 
