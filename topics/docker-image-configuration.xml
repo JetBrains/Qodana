@@ -6,16 +6,44 @@
        title="Docker image configuration"
        id="docker-image-configuration.xml">
 
-    <p>This section lists configuration options available for the Docker images of
+    <p>This section explains how you can configure the <a href="docker-images.md">Docker images</a> of
         %product% and the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool. You can use both tools
         <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>.</p>
 
-    <p>Several options can be configured using <a href="qodana-yaml.md"><code>qodana.yaml</code></a>, which is also
+    <p>In several cases, you can configure them using <a href="qodana-yaml.md"><code>qodana.yaml</code></a>, which is also
         mentioned in this section.</p>
+
+    <chapter id="docker-config-reference-qodana-cli" title="Qodana CLI">
+
+        <p><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> stores files in the
+            <code>&lt;userCacheDir&gt;</code> directory, which is mentioned several times throughout this section. Here
+            is the list of <code>&lt;userCacheDir&gt;</code> directory locations depending on the operating system:
+        </p>
+
+        <table>
+            <tr>
+                <td>OS</td>
+                <td>Path</td>
+            </tr>
+            <tr>
+                <td>macOS</td>
+                <td><code>~/Library/Caches/</code></td>
+            </tr>
+            <tr>
+                <td>Linux</td>
+                <td><code>~/.cache/</code></td>
+            </tr>
+            <tr>
+                <td>Windows</td>
+                <td><code interpolate-variables="false">%LOCALAPPDATA%\</code></td>
+            </tr>
+        </table>
+
+    </chapter>
 
     <chapter id="docker-config-reference-image-paths" title="Docker image paths">
 
-    <p>This table lists the paths contained in the Docker images of %product%:</p>
+    <p>This table lists the paths contained in the Docker images of %product% available for Docker images and Qodana CLI:</p>
 
         <table>
             <tr>
@@ -70,8 +98,8 @@
 
         <chapter id="docker-config-reference-override-inspection-profile" title="Override the default inspection profile">
 
-            <p>By default, %product% employs the <code>qodana.starter</code> profile. Using this command,
-                you can bind and use your own profile file for overriding the default profile:</p>
+            <p>By default, %product% employs the <code>qodana.starter</code> profile, but you can
+                <a anchor="docker-config-reference-image-paths">bind</a> and use your own profile instead:</p>
 
             <tabs group="cli-settings">
                 <tab title="Qodana CLI" group-key="qodana-cli">
@@ -173,7 +201,7 @@
                 </tr>
             </table>
 
-            <p>After downloading the plugin, you can run %product% with the plugin file mounted to the
+            <p>You can run %product% with the plugin file mounted to the
                 <a anchor="docker-config-reference-image-paths">plugin directory</a> of the Docker image:</p>
 
             <tabs group="cli-settings">
@@ -253,7 +281,7 @@
             </tab>
             <tab title="Docker image" group-key="docker-image">
                 <code style="block" lang="shell" prompt="$">
-                    docker run jetbrains/qodana-&lt;linter&gt;
+                    docker run jetbrains/qodana-&lt;linter&gt; -h
                 </code>
             </tab>
         </tabs>
@@ -263,7 +291,7 @@
 
     <chapter id="docker-config-reference-directories" title="Directories">
 
-        <p>%product% lets you override the directories described in the
+        <p>Using these options, you can override the directories described in the
             <a anchor="docker-config-reference-image-paths">Docker image paths</a> section.</p>
 
         <table>
@@ -286,8 +314,10 @@
             </tr>
             <tr>
                 <td><code>-r</code>, <code>--report-dir</code></td>
-                <td>Directory for saving the generated HTML report. To open the report, you will need to add the
-                    <a anchor="docker-config-reference-report"><code>--save-report</code></a> option. </td>
+                <td><p>Directory for saving the generated HTML report. To open the report, you will need to add the
+                    <a anchor="docker-config-reference-report"><code>--save-report</code></a> option.</p>
+                    <note>This option is not available in Qodana CLI.</note>
+                </td>
                 <td><code>/data/results/report</code></td>
             </tr>
             <tr>
@@ -379,7 +409,7 @@
                 <a href="https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows">dependency caching</a>.
                 GitLab CI/CD also has the <a href="https://docs.gitlab.com/ee/ci/caching/">cache</a> that can be stored
                 <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths">only inside</a> the project directory.
-                In this case, we recommend excluding the cache folder from inspection via the
+                In this case, we recommend excluding the cache directory from inspection via the
                 <a href="qodana-yaml.md" anchor="include-example"><code>qodana.yaml</code></a> file.</p>
 
         </chapter>
@@ -1002,11 +1032,11 @@
             <tip>TeamCity and <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> already run %product%
                 under a current non-root user.</tip>
 
-            <p>By default, the container is run as the <code>root</code> user so that %product% can read any volumes bind-mounted with
-                the project and write the results. As a result, files in the <code>results/</code> folder are owned by
+            <p>By default, a container runs under the <code>root</code> user so that %product% can read project information
+                and write inspection results. Therefore, all files in the <code>results/</code> directory are owned by
                 the <code>root</code> user after the run.</p>
 
-            <p>To avoid this, you can run the container as a regular user:</p>
+            <p>To overcome this, you can run the container as a regular user:</p>
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
@@ -1016,7 +1046,7 @@
                    jetbrains/qodana-&lt;linter&gt;
             </code>
 
-            <p>In this case, the <code>results/</code> folder on host should already be created and owned by you.
+            <p>In this case, the <code>results/</code> directory on host should already be created and owned by you.
                 Otherwise, Docker will create it as the <code>root</code> user, and %product% will not be able to write
                 to it.</p>
 
