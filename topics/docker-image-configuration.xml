@@ -22,7 +22,7 @@
 
         <table>
             <tr>
-                <td>OS</td>
+                <td>Operating System</td>
                 <td>Path</td>
             </tr>
             <tr>
@@ -38,6 +38,11 @@
                 <td><code interpolate-variables="false">%LOCALAPPDATA%\</code></td>
             </tr>
         </table>
+
+        <p>If you run the <code>qodana init</code> command in the project directory, Qodana CLI will let you choose
+            the <a href="linters.md">linter</a> that will be run during inspection, and saves the choice in
+            <code>qodana.yaml</code>. Once done, you do not need to specify the linter in the CLI commands, which is
+            shown throughout this section.</p>
 
     </chapter>
 
