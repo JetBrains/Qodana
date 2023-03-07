@@ -34,6 +34,7 @@ on:
 
 jobs:
   qodana:
+    timeout-minutes: 15 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
