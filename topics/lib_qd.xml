@@ -987,6 +987,7 @@
             <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and dependencies
                 that are incompatible with the project license.</li>
             <li>Using <menupath>License rules</menupath>, you can overview the rules of license compatibility.</li>
+            <li>You can download the list of dependencies in various formats using this button.</li>
         </list>
 
         <!--<p>This tab contains several other tabs:</p>

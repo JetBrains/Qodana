@@ -47,7 +47,12 @@ jobs:
 Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
 repository.
 
-Note: `fetch-depth: 0` is required for checkout in case Qodana works in pull request mode (reports issues that appeared only in that pull request).
+Here:
+* `fetch-depth: 0` is required for checkout in case Qodana works in pull request mode (reports issues that appeared only in that pull request)
+* `timeout-minutes` specifies the timeout for running %product%, which can be helpful especially if you run %product% without [cache](docker-image-configuration.xml#docker-config-reference-cache-dependencies) 
+
+> Once you configure [cache](docker-image-configuration.xml#docker-config-reference-cache-dependencies), you can significantly reduce the time required for inspecting.
+> For example, PHP projects can be inspected by %product% two times faster, and for open-source Java projects this value can reach four.
 
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job).

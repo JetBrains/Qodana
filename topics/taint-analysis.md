@@ -6,7 +6,7 @@ cross-site scripting, path traversal, etc.
 
 The core goal of taint analysis is to determine if unanticipated input can affect program execution in malicious ways.
 
-Currently, taint analysis is supported by [Qodana for PHP](qodana-php.md).
+Taint analysis is available in the [Qodana for PHP](qodana-php.md) linter starting from version 2023.1 of %product%.
 
 ## How it works
 
@@ -32,4 +32,21 @@ To prevent such propagation, the following approaches are applied by the Qodana 
     }
     ```
 
+## Running taint analysis
+
+In the `qodana.yaml` file, [include](qodana-yaml.md#Include+an+inspection+into+the+analysis+scope) the 
+`PhpVulnerablePathsInspection` inspection into the analysis scope:
+
+```yaml
+include:
+  - name: PhpVulnerablePathsInspection
+```
+
+Alternatively, you can use the `inspections` section of `qodana.yaml`:
+
+```yaml
+inspections:
+  - inspection: PhpVulnerablePathsInspection
+    enabled: true
+```
 
