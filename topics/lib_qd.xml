@@ -971,17 +971,25 @@
 
     <chunk id="license-audit-tab">
 
-        <p filter="ui-overview">The <menupath>Project audit</menupath> tab contains results of inspection by the
+        <p filter="license-audit">To overview license audit results, in the inspection report click the <menupath>Project audit</menupath> tab.</p>
+
+        <p filter="ui-overview">The <menupath>Project audit</menupath> tab provides results of inspection by the
             <a href="license-audit.xml">License audit</a> feature. </p>
-
-        <img filter="ui-overview" src="html-report-license-audit.png" dark-src="html-report-license-audit_dark.png" width="706" alt="The License audit tab" border-effect="line"/>
-
-        <p filter="license-audit">Open the <a href="ui-overview.md">%product% report</a> and click the
-            <menupath>Project audit</menupath> tab to see the inspection results. </p>
 
         <img filter="license-audit" src="license-audit-tab.png" dark-src="license-audit-tab_dark.png" width="706" alt="The License audit tab" border-effect="line"/>
 
-        <p>This tab contains several other tabs:</p>
+        <p>License audit inspection results are grouped into the list of dependencies required by the project.</p>
+
+        <img src="license-audit-overview-tree.png" dark-src="license-audit-overview-tree_dark.png" width="706" alt="The dependency tree" border-effect="line"/>
+
+        <list type="decimal">
+            <li>If applicable, you can expand a dependency to overview its dependency tree.</li>
+            <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and dependencies
+                that are incompatible with the project license.</li>
+            <li>Using <menupath>License rules</menupath>, you can overview the rules of license compatibility.</li>
+        </list>
+
+        <!--<p>This tab contains several other tabs:</p>
         <list>
             <li><menupath>Languages</menupath> enumerates all technologies currently supported by %product%</li>
             <li><menupath>Translators</menupath> lists all technologies that were involved for inspecting the codebase</li>
@@ -1001,7 +1009,8 @@
                     the licenses that are compatible and incompatible with the license respectively. This can be
                     helpful when you need to override licenses.</p>
             </li>
-        </list>
+        </list>-->
+
     </chunk>
 
     <chunk id="qodana-deployment-options">

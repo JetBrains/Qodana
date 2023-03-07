@@ -26,13 +26,13 @@ specific issues.
 
 The diagram below shows how all these components are combined in Qodana.
 
-<img src="concepts.png" dark-src="concepts_dark.png" width="706" alt="Qodana concepts"/> 
+<img src="basic-components.png" dark-src="basic-components_dark.png" width="706" alt="Basic components of Qodana"/> 
 
 ## Qodana workflow
 
 The diagram below provides an overview of a typical Qodana use-case.  
 
-<img src="workflow.png" dark-src="workflow_dark.png" width="706" alt="Qodana workflow"/>
+<img src="basic_workflow.png" dark-src="basic_workflow_dark.png" width="706" alt="Basic Qodana workflow"/>
 
 This diagram describes several steps:
 

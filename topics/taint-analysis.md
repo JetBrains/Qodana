@@ -13,7 +13,7 @@ Currently, taint analysis is supported by [Qodana for PHP](qodana-php.md).
 Tainted data are called a **Source**, while a vulnerable function that may contain such data is a **Sink**.
 In this case, tainted data travel from sources to Sinks via propagators, such as function calls or assignments.
 
-<!-- Here, I also need a redrawn image illustrating how taint analysis works -->
+<img src="taint-analysis.png" dark-src="taint-analysis_dark.png" width="706" alt="Taint analysis diagram" border-effect="line"/>
 
 To prevent such propagation, the following approaches are applied by the Qodana for PHP inspections:
 
