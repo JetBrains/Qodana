@@ -56,6 +56,7 @@
                         <p>In the project root directory, run this command to inspect your code:</p>
                         <code style="block" lang="shell" prompt="$">qodana scan --show-report</code>
                     </step>
+                    <p>Depending on your tasks, you can configure %product% as explained on the <a href="configure-qodana.xml"/> page.</p>
                 </procedure>
             </tab>
             <tab title="Docker image" id="docker-image-tab">
@@ -119,11 +120,10 @@
                         <p>Check inspection results <a href="html-report.md">in your browser</a> at
                             <code>http://localhost:8080</code>.</p>
                     </step>
+                    <p>Depending on your tasks, you can configure %product% as explained on the <a href="configure-qodana.xml"/> page.</p>
                 </procedure>
             </tab>
         </tabs>
-
-        <p>The detailed information about %product% linters is available in the <a href="linters.md"/> section.</p>
     </chapter>
 
     <chapter title="Next steps" id="quick-start-next-steps">

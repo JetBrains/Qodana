@@ -6,20 +6,13 @@
        title="Configure Qodana"
        id="configure-qodana">
 
-        <p>This section contains reference pages to help you configure %product% for your needs. These pages cover only
-        general configuration parameters. </p>
+        <p>This section explains how you can configure %product% for your needs.</p>
 
-        <p>Generally, you can configure %product% on two levels explored in these sections:</p>
+        <p>You have the following methods for configuring %product%:</p>
 
         <list>
-            <li>The <a href="qodana-yaml.md"/> section explains how to configure %product%
-                inspection process. This includes such topics as what inspections to use, what files and
-                directories to inspect, how to configure license inspection.</li>
-            <li>The <a href="docker-image-configuration.xml"/> section explains how to
-                configure %product% Docker image for specific tasks and needs, and provides basic use-cases when these
-                options may come in handy. </li>
+            <li><a href="qodana-yaml.md"/> contained in the root directory of your project</li>
+            <li><a href="docker-image-configuration.xml">CLI commands</a> suitable for running %product% using Docker or Qodana CLI</li>
+            <li><a href="ci.md"/> is explained for several popular CI/CD systems </li>
         </list>
-
-        <tip>Configuration and using %product% with various CI/CD systems is covered by the <a href="ci.md"/> section.</tip>
-
 </topic>
