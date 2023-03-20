@@ -71,6 +71,9 @@ XML-formatted profiles.
 
 <!-- The file name convention can be added here as well -->
 <!-- I need to add the main reason for using profiles. It can be done probably at the beginning of the section -->
+<!-- I need to mention that all profiles are configured relatively to the default IDEA profile -->
+<!-- Do I need to store all files the current profile extends from?-->
+<!-- This requires an introduction from the doc why XML format is not convenient -->
 
 Here is the sample of the `qodana.recommended` profile:
 
@@ -85,6 +88,7 @@ include:
 groups:
   - groupId: IncludedPaths # Qodana can run any inspections, but these groups are tested and monitored by Qodana team
     groups:
+      - "ALL"
       - "category:Java"
       - "category:Kotlin"
       - "category:JVM languages"
@@ -135,6 +139,13 @@ Specifies which existing profile file the current profile overrides.
 In case this group is missing in the file, it means that the profile extends the IDEA default profile. 
 <!-- I need to provide the link where I can observe the default IDEA profile -->
 
+The paths to YAML profiles that are merged into the current profile, in the given order.
+When including a profile, its groups are added to the defined groups. Then, its inspections are processed.
+After processing the included profiles, the groups and inspections from this profile are processed.
+
+<!-- I need to train exclamation marks with profiles -->
+<!-- If the profile file is not found, the default IDEA profile is employed? This needs to be addressed -->
+
 ## groups
 
 This contains the list of groups where each group helps you get together and separate inspection groups that you would like 
@@ -146,7 +157,7 @@ configuration rules to such groups using the [`inspections`](#inspections) group
 It contains the following nested groups: 
 
 * `groupId` is the group ID
-* `groups` contains the list of groups covered and configured by this group. This list can contain both groups from the 
+* `groups` contains the list of inspection groups included or excluded by this group. This list can contain both groups from the 
 current profile and the groups from the profile the current profile extends from. This group can also accept the groups 
 in the `category:groupname` notation and thus override the group provided by the IDE (The link to the IDE documentation 
 with IDEA as an example where I can find it). The category name starts with the technology name
@@ -166,6 +177,9 @@ It contains the following groups inside it:
 * `inspection`
 * `severity`
 
+<!-- The link to Inspectopedia needs to be provided here -->
+<!-- For each group here, I need to provide small separate examples -->
+
 It contains the following 
 
 This group 
@@ -179,3 +193,7 @@ groups -
   category:groupname is a group provided by IDEA.
 
 <!-- Here needs to be added how to bind the profile file to the CLI command -->
+<!-- I need to provide here basic examples of how to configure profiles -->
+<!-- How do two groups prevent collision in settings? -->
+<!-- The last setting overrides the previous settings in the inspections settings -->
+<!-- What do these groups do besides enabled and disabled? -->
