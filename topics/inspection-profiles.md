@@ -3,17 +3,17 @@
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
 
-Inspection profiles keep information about the enabled inspections, the scope of files that these inspections analyze, 
+Inspection profiles let you configure the inspections, the scope of files that these inspections analyze, 
 and inspection severity settings. %product% uses inspection profiles to know how and what to inspect in a codebase.
 
 ## Default profiles
 
 Out of the box, Qodana provides several predefined profiles:
-* `empty` contains no inspections, which can be used as a basis for manual configuration.
-* `qodana.starter`is the default profile that triggers the [3-phase analysis](#three-phase-analysis).
+* `empty` contains no inspections, which can be used as a basis for [manual configuration](#Create+your+profile).
+* `qodana.starter` is the default profile that triggers the [3-phase analysis](#three-phase-analysis).
 * `qodana.recommended` contains the preselected set of IntelliJ inspections.
 * `qodana.sanity` contains a small set of preselected inspections. If these inspections fail, the project is probably 
-misconfigured, and further examining it will not produce meaningful results. See the [](linters.md) section for details 
+misconfigured, and further inspection will not produce meaningful results. See the [](linters.md) section for details 
 on configuring a project for the desired linter.
 
 > Profile files are available on [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master).
@@ -21,12 +21,14 @@ on configuring a project for the desired linter.
 You can employ custom profiles using either [CLI commands](docker-image-configuration.xml#docker-config-reference-profile), 
 or configuring the [`qodana.yaml`](qodana-yaml.md#Set+up+a+profile) file.
 
-If you use a [CI/CD system](ci.md), make sure the XML-formatted file containing the profile resides in the working 
+If you use a [CI/CD system](ci.md), make sure the file containing the profile resides in the working 
 directory where the VCS stores your project before building it.
 
 ## How to choose a proper profile
 
 If you want a fresh start, you have two options:
+
+<!-- The qodana.recommended needs to be checked in this case -->
 
 1. Use Qodana in the default mode to execute the [three-phase analysis](#three-phase-analysis). You do not need to 
 create the [`qodana.yaml`](qodana-yaml.md) file in this case, but you can add it later to amend the set of inspections.
@@ -34,7 +36,6 @@ create the [`qodana.yaml`](qodana-yaml.md) file in this case, but you can add it
 reference to the [`qodana.recommended`](qodana-yaml.md#Set+up+a+profile+by+the+name) profile. This profile contains the 
 inspections for critical or severe issues in the codebase. This profile does not contain any style checks, and 
 non-critical folders, such as `tests`, are ignored.
-
 
 ## Three-phase analysis
 {id="three-phase-analysis"}
@@ -51,33 +52,35 @@ certain type of results.
 
 [//]: # (We recommend the following Qodana UI guidance to create the most effective profile you can support for your project.)
 
-## Supported profile formats 
+## Create your profile
 
-Currently, %product% supports two formats of profiles:
+Currently, you can configure %product% profiles in the XML and YAML formats.
 
-* XML-formatted profiles
-* YAML-formatted profiles
+You can generate XML-formatted profiles using your IDE. 
 
-Apart from the default profiles, XML-formatted profiles can be generated using your IDE. 
+YAML-formatted profiles come as a replacement to XML and provide the following advantages:
 
-Compared to XML, the YAML-formatted profiles come as a replacement and provide the following advantages:
+* Human-readable format, so you can use any editor of your choice
+* Enhanced structure
+* Support for paths to files in addition to scopes  
 
-* YAML-formatted files are human-readable
-* They implement the enhanced structure
-* They provide scopes or paths to files. XML-formatted profiles provide only support for scopes. 
+Profiles are configured relatively to the default profile of your IDE. To overview the set of inspections 
+comprising the default profile, in your IDE navigate to **Editor | Settings | Inspections**.   
 
-YAML-formatted profiles are human-readable, implement the enhanced structure, and come as a replacement for 
-XML-formatted profiles. 
+Profiles should adhere to the naming convention, for example:
 
-<!-- The file name convention can be added here as well -->
-<!-- I need to add the main reason for using profiles. It can be done probably at the beginning of the section -->
-<!-- I need to mention that all profiles are configured relatively to the default IDEA profile -->
-<!-- Do I need to store all files the current profile extends from?-->
-<!-- This requires an introduction from the doc why XML format is not convenient -->
+<!-- This needs to be tested -->
 
-Here is the sample of the `qodana.recommended` profile:
+| Profile name                   | File containing the profile         |
+|--------------------------------|-------------------------------------|
+| `qodana.yourcustomprofilename` | `qodana.yourcustomprofilename.yaml` |
 
-<!-- The custom profile needs to be tested -->
+<!-- Alexey: Do I need to store all files the current profile extends from?-->
+<!-- Alexey: How can I validate the profile file? -->
+
+Here is the sample of the `qodana.mycustomprofile` profile:
+
+<!-- This needs to be shortened and simplified for containing more information. Probably, the comments can be deleted too -->
 
 ```yaml
 name: "qodana.mycustomprofile"
@@ -96,7 +99,6 @@ groups:
       - Annotator # substituted by JavaAnnotator in sanity
       - KotlinAnnotator # works in "sanity" inspections
       - JavaAnnotator # works in "sanity" inspections
-
 
   - groupId: Excluded
     groups:
@@ -124,74 +126,161 @@ inspections:
 
 ```
 
-<!-- Are there really sections? -->
-This sample contains several sections described below.
+This sample consists of several blocks: 
 
-Groups groups the inspections, and inspections configures groups as I understand it.
+<!-- I need to check the YAML terminology about groups -->
 
-## name
+| Section                       | Description                                                        |
+|-------------------------------|--------------------------------------------------------------------|
+| [`name`](#name)               | Name of the inspection profile                                     |
+| [`include`](#include)         | Include an existing file-based profile into the profile            |
+| [`groups`](#groups)           | Inspection groups that need to enabled or disabled in your profile |
+| [`inspections`](#inspections) | Configuration applied to the inspections mentioned in `groups`     |
 
-Contains the name of the inspection profile in the quotes.
+### name
 
-## include
+Contains the name of the inspection profile in the quotes. For example, it can be:
 
-Specifies which existing profile file the current profile overrides. 
-In case this group is missing in the file, it means that the profile extends the IDEA default profile. 
-<!-- I need to provide the link where I can observe the default IDEA profile -->
+```yaml
+name: "qodana.mycustomprofile"
+```
 
-The paths to YAML profiles that are merged into the current profile, in the given order.
-When including a profile, its groups are added to the defined groups. Then, its inspections are processed.
-After processing the included profiles, the groups and inspections from this profile are processed.
+### include
 
-<!-- I need to train exclamation marks with profiles -->
-<!-- If the profile file is not found, the default IDEA profile is employed? This needs to be addressed -->
+Specifies the existing YAML profiles that can be extended by your profile, in the given order.
 
-## groups
+<!-- How are these files merged to the profile? How does the order affect here? -->
+<!-- What happens if one profile supports, and the second does not? This needs to be tested or read -->
 
-This contains the list of groups where each group helps you get together and separate inspection groups that you would like 
-to configure. This includes both inspection groups and separate inspections. 
+```yaml
+include:
+  - "qodana.recommended.yaml"
+  - "qodana.anotherprofile.yaml"
+```
 
-This lets you move include or exclude inspections by addressing them to various groups. You can then apply 
-configuration rules to such groups using the [`inspections`](#inspections) groups. 
+<!-- Does it have to be stored in the same directory with the current profile file? -->
 
-It contains the following nested groups: 
+<!-- Is the first sentence from this paragraph true? -->
+If used, the included profile files override the default IDE profile. 
 
-* `groupId` is the group ID
-* `groups` contains the list of inspection groups included or excluded by this group. This list can contain both groups from the 
-current profile and the groups from the profile the current profile extends from. This group can also accept the groups 
-in the `category:groupname` notation and thus override the group provided by the IDE (The link to the IDE documentation 
-with IDEA as an example where I can find it). The category name starts with the technology name
-<!-- Here should be the examples of technologies that need to be mentioned for clarity -->
-* `inspections` specifies the inspections that need to be included in the group.
+When including a profile, its [groups](#groups) are added to the groups of your profile and used for inspections.
 
-## inspections
+<!-- I need to test exclamation marks with profiles -->
+<!-- Alexey: If the profile file is not found, the default IDEA profile is employed? This needs to be addressed -->
 
-Using this group, you can manage the inspections that are collected in the groups, and you can 
-override from the profiles. 
+### groups
 
-It contains the following groups inside it:
+This group contains the list of custom inspection groups, which lets you configure inspections in bulk.  
 
-* `group` is the name of the [group](#groups) that needs to be configured from 
-* `enabled` configures whether this group is enabled. Accepts two values: `true` and `false`
-* `ignore` uses paths relatively to the project root, it applies the IDEA scopes
-* `inspection`
-* `severity`
+```yaml
+groups:
+  - groupId: IncludedInspections
+    groups:
+      - "ALL"
+      - "category:Java"
+      - "IncludedInspections"
+      - "!ExcludedPaths"
+    inspections:
+      - JavaAnnotator
+```
+
+After grouping, you can apply configuration rules using the [`inspections`](#inspections-group) groups. 
+
+It contains several nested groups listed in this table: 
+
+| Group name                           | Description                                      |
+|--------------------------------------|--------------------------------------------------|
+| [`groupId`](#groups-groupid)         | ID of the group                                  |
+| [`groups`](#groups-groups)           | Inspection groups managed by the current group   |
+| [`inspections`](#groups-inspections) | Certain inspections managed by the current group |
+
+
+<!-- Can I exchange the places for groups and inspections? This needs to be tested -->
+
+<anchor name="groups-groupid"/>
+
+#### groupId
+
+<!-- Where should it be unique? Only inside the profile, or also inside all profiles it extends from? -->
+
+Identifier for the group. 
+
+```yaml
+groups:
+  - groupId: IncludedInspections
+```
+
+<anchor name="groups-groups"/>
+
+#### groups
+
+List of inspection groups managed by the group. This sample covers all possible cases:
+
+```yaml
+groups:
+    groups:
+      - "ALL"
+      - "category:Java"
+      - "IncludedInspections"
+      - "!ExcludedPaths"
+```
+
+Here is the description of each case from the sample:
+
+| Configuration example | Description                                                                                                          |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------|
+| `ALL`                 | <!-- The description here needs to be provided -->                                                                   |
+| `category:Java`       | Name of the inspection category in the `category:categoryname` notation, matches the name from the <menupath> Editor &#124; Settings &#124; Inspections</menupath> section of your IDE |
+| `IncludedInspections` | Name of the group already mentioned in in the profile                                                                |
+| `!ExcludedPaths`      | Inverted values from the `ExcludedPaths` group                                                                       |
+
+<!-- IncludedInspections - is it only about the current profile file, or the merged files too? -->
+<!-- !ExcludedPaths - is this correct in this case? Needs to be tested -->
+
+<anchor name="groups-inspections"/>
+
+#### inspections
+
+The list of certain inspections that need to be included or excluded using the group. 
+
+```yaml
+groups:
+    inspections:
+      - JavaAnnotator
+```
+
+<anchor name="inspections-group"/>
+
+### inspections
+
+Using `inspections`, you can specify the actions that should be taken towards [inspection groups](#groups).  
+
+```yaml
+inspections:
+  - group: IncludedInspections
+    enabled: false
+  - group: ALL
+    ignore:
+      - "vendor/**"
+      - "build/**"
+      - "buildSrc/**"
+  - inspection: JavadocReference
+    severity: WARNING # It has default ERROR severity. It's understandable for unresolved references in javadocs for editor but not on CI.
+```
+
+<!-- ignore, inspection, and severity need to be checked -->
+
+| Group name   | Description                                                                                           |
+|--------------|-------------------------------------------------------------------------------------------------------|
+| `group`      | Group name from [`groupId`](#groupId)                                                                 |
+| `enabled`    | Specify whether the group is enabled in the profile. Accepts either `true` or `false`                 |
+| `ignore`     | Specify the paths that should be excluded from inspection. Currently, this does not support wildcards |
+| `inspection` ||
+| `severity`   ||
+
 
 <!-- The link to Inspectopedia needs to be provided here -->
 <!-- For each group here, I need to provide small separate examples -->
-
-It contains the following 
-
-This group 
-
-Each YAML-formatted profile adheres to the following structure:
-
-name - contains the profile name
-groups - 
-
-* Groups that can or cannot be included in the profile
-  category:groupname is a group provided by IDEA.
-
 <!-- Here needs to be added how to bind the profile file to the CLI command -->
 <!-- I need to provide here basic examples of how to configure profiles -->
 <!-- How do two groups prevent collision in settings? -->
