@@ -16,7 +16,10 @@ Out of the box, Qodana provides several predefined profiles:
 misconfigured, and further inspection will not produce meaningful results. See the [](linters.md) section for details 
 on configuring a project for the desired linter.
 
-> Profile files are available on [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master).
+Except `empty`, all these profiles override the default profile settings available under 
+**Settings | Editor | Inspections** of your IDE.
+
+> Profile files are available on [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles).
 
 You can employ custom profiles using either [CLI commands](docker-image-configuration.xml#docker-config-reference-profile), 
 or configuring the [`qodana.yaml`](qodana-yaml.md#Set+up+a+profile) file.
@@ -54,9 +57,9 @@ certain type of results.
 
 ## Create your profile
 
-Currently, you can configure %product% profiles in the XML and YAML formats.
+Currently, %product% lets you configure %product% profiles in the XML and YAML formats.
 
-You can generate XML-formatted profiles using your IDE. 
+Configuring XML-formatted profiles is outside the scope of this section.
 
 YAML-formatted profiles come as a replacement to XML and provide the following advantages:
 
@@ -64,58 +67,41 @@ YAML-formatted profiles come as a replacement to XML and provide the following a
 * Enhanced structure
 * Support for paths to files in addition to scopes  
 
-Profiles are configured relatively to the default profile of your IDE. To overview the set of inspections 
-comprising the default profile, in your IDE navigate to **Editor | Settings | Inspections**.   
+Profiles override the default profile of your IDE. To overview the set of inspections 
+comprising the default profile, in your IDE navigate to **Settings | Editor | Inspections**.
 
-Profiles should adhere to the naming convention, for example:
-
-<!-- This needs to be tested -->
-
-| Profile name                   | File containing the profile         |
-|--------------------------------|-------------------------------------|
-| `qodana.yourcustomprofilename` | `qodana.yourcustomprofilename.yaml` |
-
-<!-- Alexey: Do I need to store all files the current profile extends from?-->
-<!-- Alexey: How can I validate the profile file? -->
-
-Here is the sample of the `qodana.mycustomprofile` profile:
+Here is the sample profile:
 
 <!-- This needs to be shortened and simplified for containing more information. Probably, the comments can be deleted too -->
 
 ```yaml
-name: "qodana.mycustomprofile"
+name: "My custom profile" # Profile name
 
 include:
-  - "qodana.recommended.yaml"
+  - "general-profile.yaml" # Profile to use settings from
 
-groups:
-  - groupId: IncludedPaths # Qodana can run any inspections, but these groups are tested and monitored by Qodana team
+groups: # List of groups configured in this profile 
+  - groupId: ExcludedInspections
     groups:
-      - "ALL"
-      - "category:Java"
-      - "category:Kotlin"
-      - "category:JVM languages"
-    inspections:
-      - Annotator # substituted by JavaAnnotator in sanity
-      - KotlinAnnotator # works in "sanity" inspections
-      - JavaAnnotator # works in "sanity" inspections
-
-  - groupId: Excluded
+      - "ALL" # All available inspections
+      
+  - groupId: IncludedInspections
     groups:
-      - "ALL"
-      - "!IncludedPaths"
-      - "category:Java/Java language level migration aids" # Migration aids - only on explicit request, due to possible spam
+      - "category:PHP/General" # Category configured by this group
+      - "IncludeJS" # Including the IncludeJS group from this profile 
 
-  - groupId: ExcludedInspections # list of inspections disabled by specific reason
+  - groupId: IncludeJS
+    groups: 
+      - "category:JavaScript and TypeScript/ES2015 migration aids"
     inspections:
-      - Annotator # substituted by JavaAnnotator in sanity
-      - KotlinAnnotator # works in "sanity" inspections
-      - JavaAnnotator # works in "sanity" inspections
+      - JSAnnotator # A separate inspection from the Qodana for JS linter
 
-inspections:
-  - group: Excluded
-    enabled: false
-  - group: ALL
+inspections: # Configuring what to do with the groups
+  - group: ExcludedInspections
+    enabled: false # Disabling the group
+  
+  - group: IncludedInspections
+    enabled: true # Enabling the group
     ignore:
       - "vendor/**"
       - "build/**"
