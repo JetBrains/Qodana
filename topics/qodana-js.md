@@ -33,8 +33,16 @@ line to `qodana.yaml`:
 ```yaml
 bootstrap: yarn install
 ```
-
 The command will be automatically executed before the analysis. You can use the `npm` or `yarn` commands to install dependencies.
+
+#### Enable ESLint
+
+ESLint is widely used in JavaScript projects. You can enable it using the `qodana.yaml` file:
+
+```yaml
+include:
+    - name: Eslint
+```
 
 #### Run analysis
 
