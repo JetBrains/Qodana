@@ -272,7 +272,7 @@ inspections:
 
 | Group name   | Description                                                                                           |
 |--------------|-------------------------------------------------------------------------------------------------------|
-| `group`      | Group name from [`groupId`](#groupId)                                                                 |
+| `group`      | Group name from [`groupId`](#groups-groupid)                                                          |
 | `enabled`    | Specify whether the group is enabled in the profile. Accepts either `true` or `false`                 |
 | `ignore`     | Specify the paths that should be excluded from inspection. Currently, this does not support wildcards |
 | `inspection` ||
