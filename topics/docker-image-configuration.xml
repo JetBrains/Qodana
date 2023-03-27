@@ -324,7 +324,7 @@
             </tr>
             <tr>
                 <td><code>--disable-sanity</code></td>
-                <td>Skip running the inspections configured by the <a href="qodana-yaml.md" anchor="Default+profiles"><code>qodana.sanity</code></a> profile</td>
+                <td>Skip running the inspections configured by the <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.sanity</code></a> profile</td>
                 <td>Enabled</td>
             </tr>
             <tr>
@@ -365,7 +365,7 @@
             <p>The <code>--profile-name</code> option lets you run %product% based on:</p>
 
             <list>
-                <li>The <a href="qodana-yaml.md" anchor="Default+profiles">default profiles</a></li>
+                <li>The <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a></li>
                 <li>The profile name taken from the custom profile file</li>
             </list>
 

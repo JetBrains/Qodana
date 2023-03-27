@@ -191,9 +191,8 @@ This sample contains several groups, and each group contains these fields:
 | [`groups`](#groups-groups)           | Group of inspection categories and included inspection groups |
 
 
-<anchor name="groups-groupid"/>
-
 #### groupId
+{id="groups-groupid"}
 
 <!-- Where should it be unique? Only inside the profile, or also inside all profiles it extends from? -->
 
@@ -203,9 +202,8 @@ Identifier for the group required for both inspections and groups.
   - groupId: IncludedInspections
 ```
 
-<anchor name="groups-inspections"/>
-
 #### inspections
+{id="groups-inspections"}
 
 The list of inspections that need to be configured by the profile.
 
@@ -215,9 +213,8 @@ inspections:
     - JSAnnotator
 ```
 
-<anchor name="groups-groups"/>
-
 #### groups
+{id="groups-groups"}
 
 <!-- What happens if group names coincide? -->
 
