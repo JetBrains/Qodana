@@ -1041,9 +1041,11 @@
             file using the <code>solution</code> option:</p>
 
         <code style="block" lang="yaml">
-            dot-net:
+            dotnet:
                 solution: MySolution.sln
         </code>
+
+        <note>The <code>dot-net</code> notation is deprecated, and it will become unusable starting from version 2023.2 of %product%.</note>
 
         <p>If you project contains no solution files and multiple project files, you need to specify the exact file
             name of a project. For example, for the <code>MyProject.csproj</code> project file it can be:</p>
@@ -1056,7 +1058,7 @@
             file using the <code>project</code> option:</p>
 
         <code style="block" lang="yaml">
-            dot-net:
+            dotnet:
                 project: MyProject.csproj
         </code>
 
@@ -1079,7 +1081,7 @@
             <p>Alternatively, you can specify the configuration in <code>qodana.yaml</code>:</p>
 
             <code style="block" lang="yaml">
-                dot-net:
+                dotnet:
                   configuration: Release
             </code>
 
@@ -1093,7 +1095,7 @@
             <p>Alternatively, you can specify the platform in <code>qodana.yaml</code>:</p>
 
             <code style="block" lang="yaml">
-                dot-net:
+                dotnet:
                   platform: x86
             </code>
 
