@@ -122,7 +122,7 @@ This sample consists of several nodes:
 ### baseProfile
 
 If set to `empty`, it lets you clear your profile from any configuration including the default IDE profile.
-This can be useful if you are going to build your profile [from scratch](#create-a-profile-from-scratch) rather than 
+This can be useful if you are going to build your profile [from scratch](#Create+a+profile+from+scratch) rather than 
 extend from the existing profile.
 
 ### name
@@ -145,7 +145,7 @@ include:
 
 Before including a profile, save the file containing it to the root directory of your project or its subdirectories.
 
-If your profile does not include any profiles (like [default](#default-profiles)), it employs the default profile of your 
+If your profile does not include any profiles (like [default](#Default+profiles)), it employs the default profile of your 
 IDE and includes all its settings. To overview the default profile, in your IDE navigate to **Settings | Editor | Inspections**.
 
 File contents are included in the order of appearance, thus becoming part of your profile. This means that the settings
