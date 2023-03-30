@@ -28,7 +28,7 @@
         using this software:</p>
 
     <list>
-        <li><a anchor="cloud-forward-reports-local-run">Docker</a></li>
+        <li><a anchor="cloud-forward-reports-local-run">Docker and Qodana CLI</a></li>
         <li><a anchor="cloud-forward-reports-azure">Azure Pipelines</a></li>
         <li><a anchor="cloud-forward-reports-circleci">CircleCI</a></li>
         <li><a anchor="cloud-forward-reports-github-actions">GitHub Actions</a></li>
@@ -41,20 +41,34 @@
     <p>For all these cases, you need to generate a unique Qodana Cloud project token as shown
     in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation.</p>
 
-    <chapter id="cloud-forward-reports-local-run" title="Docker">
+    <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
-        <p>This is the basic Docker CLI command that sets all variables required by Qodana Cloud: </p>
+        <p>You can forward %product% to Qodana Cloud using either Docker or Qodana CLI:</p>
 
-        <code style="block" lang="bash" prompt="$">
-            docker run \
-               -v $(pwd)/project/:/data/project/ \
-               -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-               -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
-               -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
-               -e QODANA_REVISION="&lt;commit-hash&gt;" \
-               -e QODANA_JOB_URL="&lt;job-url&gt;" \
-               jetbrains/qodana-&lt;linter&gt;
-        </code>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                    -v $(pwd):/data/project/ \
+                    -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                    -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
+                    -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
+                    -e QODANA_REVISION="&lt;commit-hash&gt;" \
+                    -e QODANA_JOB_URL="&lt;job-url&gt;" \
+                    jetbrains/qodana-&lt;linter&gt;
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                    -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
+                    -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
+                    -e QODANA_REVISION="&lt;commit-hash&gt;" \
+                    -e QODANA_JOB_URL="&lt;job-url&gt;"
+                </code>
+            </tab>
+        </tabs>
 
         <p>The <code>QODANA_TOKEN</code> variable of this command requires the
             <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> generated in Qodana Cloud.</p>
