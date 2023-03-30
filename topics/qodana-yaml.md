@@ -191,7 +191,7 @@ In the example above,
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
-## Specify the linter
+## Specify a linter
 
 Using the `linter` option, you can specify the linter that you are going to employ. For example:
 
@@ -219,7 +219,7 @@ By default, sanity checks are enabled in %product%. You can disable them using t
 disableSanityInspections: true
 ```
 
-## License audit configuration
+## Configure the License audit
 
 You can enable the License audit feature using the `CheckDependencyLicenses` inspection:
 
@@ -295,3 +295,22 @@ customDependencies:
       - key: "Apache-2.0"
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
+
+## Manage plugins
+
+You can specify the plugins that will be downloaded and invoked during inspection. 
+
+```yaml
+version: "1.0"
+plugins:
+  - id: <plugin.id>
+```
+Here, `<plugin-id>` denotes the plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
+for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional), the Plugin ID will be 
+`com.intellij.grazie.pro`.
+
+To install third-party software required for your plugins, you have two options:
+
+* Use the [`bootstrap`](before-running-qodana.md) option
+* Develop your custom `Dockerfile` that starts with the `FROM jetbrains/qodana...` line
+
