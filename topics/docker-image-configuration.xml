@@ -3,7 +3,7 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Docker image configuration"
+       title="Shell commands"
        id="docker-image-configuration.xml">
 
     <p>This section explains how you can configure the <a href="docker-images.md">Docker images</a> of
@@ -41,7 +41,7 @@
 
         <p>If you run the <code>qodana init</code> command in the project directory, Qodana CLI will let you choose
             the <a href="linters.md">linter</a> that will be run during inspection, and saves the choice in
-            <code>qodana.yaml</code>. Once done, you do not need to specify the linter in the CLI commands, which is
+            <code>qodana.yaml</code>. Once done, you do not need to specify the linter in the commands, which is
             shown throughout this section.</p>
 
     </chapter>
@@ -581,7 +581,7 @@
             </tr>
         </table>
 
-        <p>This is the CLI command that invoke all baseline options:</p>
+        <p>This is the command that invoke all baseline options:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
@@ -698,7 +698,7 @@
             </tr>
         </table>
 
-        <p>Here is the CLI command that tells %product% to fail the build in case the number of problems exceeds 10:</p>
+        <p>Here is the command that tells %product% to fail the build in case the number of problems exceeds 10:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
