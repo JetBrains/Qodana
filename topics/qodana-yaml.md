@@ -1,10 +1,10 @@
-[//]: # (title: Configure profile)
+[//]: # (title: YAML file)
 
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
 
-Qodana runs are configured via the `qodana.yaml` configuration file.
-Information stored in `qodana.yaml` overrides the default inspection profile settings and default configurations of Qodana linters.
+Qodana runs are configured via the `qodana.yaml` configuration file contained in the root directory of your project.
+Configuration settings of `qodana.yaml` override the default inspection profile settings and default configurations of Qodana linters.
 You can specify such overrides in the [HTML report](results.md),
 and the changes are imported to `qodana.yaml` automatically.
 
@@ -13,7 +13,7 @@ project, which allows for completion and basic validation in IDEs.
 
 To run subsequent checks with this customized configuration, save the file to the project's root directory.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
-This section will guide you through necessary settings.
+This section will guide you through the necessary settings.
 
 <note>
 
@@ -21,40 +21,6 @@ Configuration through `qodana.yaml` is only supported by Qodana.
 It is not supported by any other JetBrains products like IntelliJ IDEA or PhpStorm.
 
 </note>
-
-## Default profiles
-
-Out of the box, Qodana provides several predefined profiles:
-* `empty`: an empty profile containing no inspections, which can be used as a basis for manual configuration.
-* `qodana.starter`: the default profile that triggers the [3-phase analysis](#three-phase-analysis).
-* `qodana.recommended`: a profile containing a preselected set of IntelliJ inspections.
-* `qodana.sanity`: a profile containing a small preselected set of inspections that perform the project's "sanity" checks. If these checks fail, the project is probably misconfigured, and further examining it will not produce meaningful results. See the [](linters.md) section for details on configuring a project for the desired linter.
-
-> Profile files are available on [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master). 
-
-You can specify other profiles available in the respective IntelliJ Platform IDE for your source project. If you are using a CI system, make sure the `.xml` file with this profile resides in the working directory where the VCS stores your project before building it. The IntelliJ IDEA profiles for embedding into Qodana Docker images are hosted in the [qodana-profiles](https://github.com/JetBrains/qodana-profiles) GitHub repository.
-
-## How to choose a proper profile
-
-If you already have an inspection profile for your project, you [can use it](#Set+up+a+profile) with Qodana as a starting point. You can then adjust it via `qodana.yaml` and make it more convenient for the server-side use.
-
-If you want a fresh start, you have two options:
-1. Use Qodana in default mode to execute the [three-phase analysis](#three-phase-analysis). You don't need to create a `qodana.yaml` file in this case, but you can add it later to amend a set of checks.
-2. Use Qodana with the recommended profile. In this case you need to create a `qodana.yaml` file with a reference to `qodana.recommended`. This profile contains the checks for critical or severe issues in the code, which require attention. This profile does not contain any style checks, and non-critical folders, such as `tests`, are ignored.
-
-
-## Three-phase analysis
-{id="three-phase-analysis"}
-
-Sometimes it may be challenging to set up analysis for a big project even with the `qodana.recommended` profile due to large number of errors reported. To solve this, Qodana offers a 3-phase analysis, where each phase is focused on a certain type of results.
-
-- The first phase is based on the `qodana.starter` profile that contains vital checks only. Non-critical folders, such as `tests`, are ignored.
-
-- The second phase reports the conditions that could affect truthfulness or completeness of the results. For example, if your project relies on external resources or generated code, and they are not available during the analysis, the final results could be compromised. Qodana notifies you about such suspicious results.  
-
-- The last phase suggests additional checks that are not so vital for the project but still beneficial. To avoid overwhelming, Qodana analyzes only a fraction of the code, just enough to show you the possible outcome.
-
-[//]: # (We recommend the following Qodana UI guidance to create the most effective profile you can support for your project.)
 
 ## Run custom commands
 
