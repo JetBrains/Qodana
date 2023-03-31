@@ -343,8 +343,10 @@
 
         <chapter id="docker-config-reference-directories-save-report" title="Override the report directory">
 
-            <tip>During inspection, Qodana CLI automatically saves inspection reports to the
-                <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code> directory.</tip>
+            <tip><p>During inspection, Qodana CLI automatically saves inspection reports in the
+                <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
+                <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
+            </tip>
 
             <p>This Docker command overrides the default report directory using the <code>--report-dir</code>
                 option, and saves the generated report to the local filesystem using the
@@ -633,8 +635,10 @@
 
         <chapter id="docker-config-reference-report-save-report" title="Save the report">
 
-            <tip>During inspection, Qodana CLI automatically saves inspection reports to the
-                <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code> directory.</tip>
+            <tip><p>During inspection, Qodana CLI automatically saves inspection reports in the
+                <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
+                <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
+            </tip>
 
             <p>The <code>--save-report</code> option in the Docker command lets you save the generated HTML report to your
                 local filesystem: </p>
