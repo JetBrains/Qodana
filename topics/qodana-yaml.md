@@ -306,11 +306,14 @@ plugins:
   - id: <plugin.id>
 ```
 Here, `<plugin-id>` denotes the plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
-for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional), the Plugin ID will be 
+for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional) the Plugin ID will be 
 `com.intellij.grazie.pro`.
 
-To install third-party software required for your plugins, you have two options:
+Plugin cache is stored in the `/data/cache/plugins` directory.
+
+To install third-party software required for your plugins, you can:
 
 * Use the [`bootstrap`](before-running-qodana.md) option
-* Develop your custom `Dockerfile` that starts with the `FROM jetbrains/qodana...` line
+* Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %product% `Dockerfile`
+examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
 
