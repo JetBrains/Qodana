@@ -67,8 +67,8 @@ qodana:
 
 Once the inspection step is complete, inspection reports can be forwarded to [Qodana Cloud](cloud-about.xml). 
 
-This configuration contains to the `QODANA_TOKEN` variable. This variable refers to the [project token](cloud-projects.xml#cloud-manage-projects) of 
-Qodana Cloud defined as the `$qodana_token` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui):
+This configuration defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
+referring to the Qodana Cloud [project token](cloud-projects.xml#cloud-manage-projects):
 
 ```yaml
 qodana:

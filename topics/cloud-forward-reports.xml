@@ -26,18 +26,17 @@
     </list>
 
     <p>For all these cases, you need to generate a unique Qodana Cloud project token as shown
-    in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation. Provide this token
-    as the value for the <code>QODANA_CLOUD</code> variable.</p>
+    in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation. This token
+    will be invoked using the <code>QODANA_CLOUD</code> variable.</p>
 
     <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
-        <p>You can forward %product% to Qodana Cloud using either Docker or Qodana CLI:</p>
+        <p>You can forward %product% reports to Qodana Cloud using either Docker or Qodana CLI:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
 
-                <p>To forward reports to <a href="https://qodana.cloud">Qodana Cloud</a> using Docker, you need to
-                    provide several additional variables:</p>
+                <p>Besides <code>QODANA_TOKEN</code>, you need to provide several additional variables:</p>
 
                 <table>
                     <tr><td>Variable name</td><td>Description</td></tr>
@@ -46,6 +45,8 @@
                     <tr><td><code>QODANA_REVISION</code></td><td>Commit hash</td></tr>
                     <tr><td><code>QODANA_JOB_URL</code></td><td>Job URL</td></tr>
                 </table>
+
+                <p>This is the command that uses all these variables:</p>
 
                 <code style="block" lang="shell" prompt="$">
                     docker run \
@@ -67,9 +68,10 @@
             </tab>
         </tabs>
 
-        <p>This implies that values for all variables should be provided manually, which is not convenient.
-            Fortunately, you can overcome it using various CI/CD solutions that provide all data required
-            by Qodana Cloud, or contain predefined environment variables that refer to the data required by Qodana Cloud.</p>
+        <p>Application of these tools implies that the values for all required variables should be provided manually,
+            which is not convenient. Fortunately, you can overcome it using various CI/CD solutions that provide all
+            data required by Qodana Cloud, or contain predefined environment variables that refer to the data required
+            by Qodana Cloud.</p>
 
     </chapter>
 

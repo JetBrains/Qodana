@@ -104,7 +104,7 @@ of the Jenkins documentation.
 
 ## Forward reports to Qodana Cloud
 
-The `environment` block lets you specify the `QODANA_TOKEN` variable to refer to the 
+The `environment` block lets you specify the `QODANA_TOKEN` variable to invoke the 
 [Qodana Cloud project token](cloud-projects.xml#cloud-manage-projects) contained in the `qodana-token` credentials.  
 To learn how to create `qodana-token`, see the [Adding new global credentials](https://%JenkinsCred%) section of the 
 Jenkins documentation.
