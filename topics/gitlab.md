@@ -67,13 +67,8 @@ qodana:
 
 Once the inspection step is complete, inspection reports can be forwarded to [Qodana Cloud](cloud-about.xml). 
 
-This configuration defines the variables required by Qodana Cloud and referring to the following values:
-
-* `QODANA_TOKEN` is the [project token](cloud-projects.xml#cloud-manage-projects) of Qodana Cloud defined as the `$qodana_token` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
-* `QODANA_REMOTE_URL` is the project URL 
-* `QODANA_BRANCH` is the name of the inspected branch
-* `QODANA_REVISION` is the commit hash
-* `QODANA_JOB_URL` is the job URL
+This configuration contains to the `QODANA_TOKEN` variable. This variable refers to the [project token](cloud-projects.xml#cloud-manage-projects) of 
+Qodana Cloud defined as the `$qodana_token` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui):
 
 ```yaml
 qodana:
@@ -82,10 +77,6 @@ qodana:
       entrypoint: [""]
    variables:
       QODANA_TOKEN: $qodana_token
-      QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
-      QODANA_BRANCH: $CI_COMMIT_BRANCH
-      QODANA_REVISION: $CI_COMMIT_SHA
-      QODANA_JOB_URL: $CI_JOB_URL
    script:
       - qodana
    artifacts:
@@ -134,10 +125,6 @@ qodana:
       entrypoint: [""]
    variables:
       QODANA_TOKEN: <your-project-token>
-      QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
-      QODANA_BRANCH: $CI_COMMIT_BRANCH
-      QODANA_REVISION: $CI_COMMIT_SHA
-      QODANA_JOB_URL: $CI_JOB_URL
    script:
       - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
          --report-dir=$CI_PROJECT_DIR/qodana/report

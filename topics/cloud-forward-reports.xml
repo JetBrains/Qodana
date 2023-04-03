@@ -12,20 +12,7 @@
     <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
     <var name="SpaceAutomationLink" value="www.jetbrains.com/help/space/secrets-and-parameters.html#creating-secrets-and-parameters"/>
 
-    <p>To forward reports to <a href="https://qodana.cloud">Qodana Cloud</a>, you need to provide data contained as values
-        for these variables: </p>
-
-    <table>
-        <tr><td>Variable name</td><td>Description</td></tr>
-        <tr><td><code>QODANA_TOKEN</code></td><td>Unique <a href="cloud-projects.xml">project token</a> of Qodana Cloud</td></tr>
-        <tr><td><code>QODANA_REMOTE_URL</code></td><td>Project URL</td></tr>
-        <tr><td><code>QODANA_BRANCH</code></td><td>Name of the branch inspected</td></tr>
-        <tr><td><code>QODANA_REVISION</code></td><td>Commit hash</td></tr>
-        <tr><td><code>QODANA_JOB_URL</code></td><td>Job URL</td></tr>
-    </table>
-
-    <p>This section explains how you can generate values for these variables and forward %product% reports to Qodana Cloud
-        using this software:</p>
+    <p>This section explains how you can forward %product% reports to Qodana Cloud using this software:</p>
 
     <list>
         <li><a anchor="cloud-forward-reports-local-run">Docker and Qodana CLI</a></li>
@@ -39,7 +26,8 @@
     </list>
 
     <p>For all these cases, you need to generate a unique Qodana Cloud project token as shown
-    in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation.</p>
+    in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation. Provide this token
+    as the value for the <code>QODANA_CLOUD</code> variable.</p>
 
     <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
@@ -47,6 +35,18 @@
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
+
+                <p>To forward reports to <a href="https://qodana.cloud">Qodana Cloud</a> using Docker, you need to
+                    provide several additional variables:</p>
+
+                <table>
+                    <tr><td>Variable name</td><td>Description</td></tr>
+                    <tr><td><code>QODANA_REMOTE_URL</code></td><td>Project URL</td></tr>
+                    <tr><td><code>QODANA_BRANCH</code></td><td>Name of the branch inspected</td></tr>
+                    <tr><td><code>QODANA_REVISION</code></td><td>Commit hash</td></tr>
+                    <tr><td><code>QODANA_JOB_URL</code></td><td>Job URL</td></tr>
+                </table>
+
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                     -v $(pwd):/data/project/ \
@@ -58,22 +58,16 @@
                     jetbrains/qodana-&lt;linter&gt;
                 </code>
             </tab>
+
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                    -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
-                    -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
-                    -e QODANA_REVISION="&lt;commit-hash&gt;" \
-                    -e QODANA_JOB_URL="&lt;job-url&gt;"
+                    -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
                 </code>
             </tab>
         </tabs>
 
-        <p>The <code>QODANA_TOKEN</code> variable of this command requires the
-            <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> generated in Qodana Cloud.</p>
-
-        <p>This command implies that values for all variables should be provided manually, which is not convenient.
+        <p>This implies that values for all variables should be provided manually, which is not convenient.
             Fortunately, you can overcome it using various CI/CD solutions that provide all data required
             by Qodana Cloud, or contain predefined environment variables that refer to the data required by Qodana Cloud.</p>
 
@@ -137,10 +131,6 @@
                   entrypoint: [""]
                variables:
                   QODANA_TOKEN: $qodana_token
-                  QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
-                  QODANA_BRANCH: $CI_COMMIT_BRANCH
-                  QODANA_REVISION: $CI_COMMIT_SHA
-                  QODANA_JOB_URL: $CI_JOB_URL
                script:
                   - qodana
                artifacts:
@@ -168,10 +158,6 @@
             pipeline {
                environment {
                   QODANA_TOKEN=credentials('qodana-token')
-                  QODANA_REMOTE_URL="${GIT_URL}"
-                  QODANA_BRANCH="${GIT_BRANCH}"
-                  QODANA_REVISION="${GIT_COMMIT}"
-                  QODANA_JOB_URL="${JOB_DISPLAY_URL}"
                }
                agent {
                   docker {
@@ -213,12 +199,7 @@
                container("jetbrains/qodana-&lt;linter&gt;") {
                   env["QODANA_TOKEN"] = Secrets("qodana-token")
                   shellScript {
-                     content = """
-                        QODANA_REMOTE_URL="ssh://git@git.${'$'}JB_SPACE_API_URL/${'$'}JB_SPACE_PROJECT_KEY/${'$'}JB_SPACE_GIT_REPOSITORY_NAME.git" \
-                        QODANA_BRANCH=${'$'}JB_SPACE_GIT_BRANCH \
-                        QODANA_REVISION=${'$'}JB_SPACE_GIT_REVISION \
-                        qodana
-                     """.trimIndent()
+                     content = """qodana"""
                   }
                }
             }

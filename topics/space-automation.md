@@ -78,20 +78,12 @@ value for this secret.
 Below is the script that lets you forward inspection reports to Qodana Cloud. It defines the `QODANA_TOKEN` 
 variable that refers to the `qodana-token` secret. 
 
-The `QODANA_REMOTE_URL`, `QODANA_BRANCH`, and `QODANA_REVISION`variables provide information about the repository URL, 
-name of the inspected branch, and commit hash. 
-
 ```kotlin
 job("Qodana") {
    container("jetbrains/qodana-<linter>") {
       env["QODANA_TOKEN"] = Secrets("qodana-token")
       shellScript {
-         content = """
-            QODANA_REMOTE_URL="ssh://git@git.${'$'}JB_SPACE_API_URL/${'$'}JB_SPACE_PROJECT_KEY/${'$'}JB_SPACE_GIT_REPOSITORY_NAME.git" \
-            QODANA_BRANCH=${'$'}JB_SPACE_GIT_BRANCH \
-            QODANA_REVISION=${'$'}JB_SPACE_GIT_REVISION \
-            qodana
-            """.trimIndent()
+         content = """qodana"""
       }
    }
 }
@@ -115,9 +107,6 @@ job("Qodana") {
       env["QODANA_TOKEN"] = Secrets("qodana-token")
       shellScript {
          content = """
-            QODANA_REMOTE_URL="ssh://git@git.${'$'}JB_SPACE_API_URL/${'$'}JB_SPACE_PROJECT_KEY/${'$'}JB_SPACE_GIT_REPOSITORY_NAME.git" \
-            QODANA_BRANCH=${'$'}JB_SPACE_GIT_BRANCH \
-            QODANA_REVISION=${'$'}JB_SPACE_GIT_REVISION \
             qodana \
             --fail-threshold <number> \ 
             --profile-name <profile-name>

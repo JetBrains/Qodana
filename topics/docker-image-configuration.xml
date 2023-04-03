@@ -1058,10 +1058,13 @@
 
         <chapter id="docker-config-reference-docker-environment-qodana-cloud" title="Forward reports to Qodana Cloud">
 
-            <p>This is how you can forward %product% reports to Qodana Cloud:</p>
+            <p>You can forward %product% reports to Qodana Cloud using the
+                <a href="cloud-projects.xml" anchor="cloud-manage-projects"><code>QODANA_TOKEN</code></a>:</p>
 
             <tabs group="cli-settings">
                 <tab title="Docker image" group-key="docker-image">
+                    <p>Apart from <code>QODANA_TOKEN</code>, this command also employs a bunch of variables described
+                        in the <a href="cloud-forward-reports.xml"/> section.</p>
                     <code style="block" lang="shell" prompt="$">
                         docker run \
                            -v $(pwd):/data/project/ \
@@ -1076,17 +1079,10 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                        -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
-                        -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
-                        -e QODANA_REVISION="&lt;commit-hash&gt;" \
-                        -e QODANA_JOB_URL="&lt;job-url&gt;"
+                        -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
                     </code>
                 </tab>
             </tabs>
-
-            <p>This command employs a bunch of variables described in the <a href="cloud-forward-reports.xml"/> section.</p>
-
         </chapter>
 
     </chapter>

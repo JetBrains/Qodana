@@ -104,23 +104,15 @@ of the Jenkins documentation.
 
 ## Forward reports to Qodana Cloud
 
-The `environment` block lets you specify the variables and values that are required by Qodana Cloud:
-
-* `QODANA_TOKEN` is a [Qodana Cloud project token](cloud-projects.xml#cloud-manage-projects) contained as the value for 
-   the `qodana-token` credentials, see the [Adding new global credentials](https://%JenkinsCred%) section of the Jenkins documentation for details
-* `QODANA_REMOTE_URL` is the repository URL referring to the `GIT_URL` [environment variable](https://%JenkinsLink%)
-* `QODANA_BRANCH` is the branch name referring to the `GIT_BRANCH` environment variable
-* `QODANA_REVISION` is the commit hash referring to the `GIT_COMMIT` environment variable
-* `QODANA_JOB_URL` is the job URL referring to the `JOB_DISPLAY_URL` environment variable
+The `environment` block lets you specify the `QODANA_TOKEN` variable to refer to the 
+[Qodana Cloud project token](cloud-projects.xml#cloud-manage-projects) contained in the `qodana-token` credentials.  
+To learn how to create `qodana-token`, see the [Adding new global credentials](https://%JenkinsCred%) section of the 
+Jenkins documentation.
 
 ```groovy
 pipeline {
    environment {
       QODANA_TOKEN=credentials('qodana-token')
-      QODANA_REMOTE_URL="${GIT_URL}"
-      QODANA_BRANCH="${GIT_BRANCH}"
-      QODANA_REVISION="${GIT_COMMIT}"
-      QODANA_JOB_URL="${JOB_DISPLAY_URL}"
    }
    agent {
       docker {
@@ -149,10 +141,6 @@ Here is the Jenkins configuration that covers all approaches described in this s
 pipeline {
    environment {
       QODANA_TOKEN=credentials('qodana-token')
-      QODANA_REMOTE_URL="${GIT_URL}"
-      QODANA_BRANCH="${GIT_BRANCH}"
-      QODANA_REVISION="${GIT_COMMIT}"
-      QODANA_JOB_URL="${JOB_DISPLAY_URL}" 
    }
    agent {
       docker {
