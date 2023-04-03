@@ -480,7 +480,8 @@
 
             <tip>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+name"><code>qodana.yaml</code></a> file.</tip>
 
-            <p>This command lets you override the default profile und run %product% using the <code>qodana.recommended</code> profile: </p>
+            <p>This command lets you override the default profile und run %product% using the
+                <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.recommended</code></a> profile: </p>
 
             <tabs group="cli-settings">
                 <tab title="Docker image" group-key="docker-image">
