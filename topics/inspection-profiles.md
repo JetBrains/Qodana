@@ -1,4 +1,4 @@
-[//]: # (title: Inspection profiles)
+[//]: # (title: Configure the profile)
 
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
@@ -15,11 +15,10 @@ or configuring the [`qodana.yaml`](qodana-yaml.md#Set+up+a+profile) file.
 
 Out of the box, Qodana provides several predefined profiles hosted on 
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles):
-* `qodana.starter` is the default profile that triggers the [3-phase analysis](#three-phase-analysis).
-* `qodana.recommended` contains the preselected set of IntelliJ inspections.
-* `qodana.sanity` contains a small set of preselected inspections. If these inspections fail, the project is probably 
-misconfigured, and further inspection will not produce meaningful results. See the [](linters.md) section for details 
-on configuring a project for the desired linter.
+
+* `qodana.starter` is the default profile and a subset of `qodana.recommended` triggering the [3-phase analysis](#three-phase-analysis) 
+* `qodana.recommended` mostly implements the default IDE profiles, see the 
+[IntelliJ IDEA](https://www.jetbrains.com/help/idea/customizing-profiles.html) documentation for details
 
 > If you run Qodana in a [CI/CD pipeline](ci.md), make sure the file containing the profile resides in the working
 directory where the VCS stores your project before building it.
@@ -477,3 +476,40 @@ inspections:
   - inspection: JavadocReference
     severity: WARNING
 ```
+
+## Set up a profile
+
+You can set up a profile using either the YAML file (by default, this is `qodana.yaml`) or the [Shell commands](docker-image-configuration.xml). 
+
+Both these options are shown here. 
+
+### Profile name
+
+<tabs group="inspecting-profile-tabs">
+    <tab title="YAML" id="configure-profile-yaml" group-key="yaml">
+    <code style="block" lang="yaml">
+    profile:
+        name: &lt;name&gt;
+    </code>
+    </tab>
+    <tab title="CLI" id="configure-profile-cli" group-key="cli">
+    <include src="docker-image-configuration.xml" include-id="docker-config-reference-profile-profile-name"/>
+    </tab>
+</tabs>
+
+### Profile path
+
+Invoking a profile by the profile path is the most convenient method for custom profiles.
+
+<tabs group="inspecting-profile-tabs">
+    <tab title="YAML" id="configure-profile-yaml" group-key="yaml">
+    <code style="block" lang="yaml">
+    profile:
+        path: relative/path/in/your/project.yaml
+    </code>
+    </tab>
+    <tab title="CLI" id="configure-profile-cli" group-key="cli">
+    <include src="docker-image-configuration.xml" include-id="docker-config-reference-profile-profile-path"/>
+    </tab>
+</tabs>
+

@@ -13,7 +13,7 @@ project, which allows for completion and basic validation in IDEs.
 
 To run subsequent checks with this customized configuration, save the file to the project's root directory.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
-This section will guide you through necessary settings.
+This section will guide you through the necessary settings.
 
 <note>
 
@@ -43,25 +43,7 @@ To learn more about use-cases, see the [](before-running-qodana.md) section.
 
 ## Set up a profile
 
-
-
-### Set up a profile by the name
-
-```yaml
-profile:
-    name: <name>
-```
-
-<p>
-<include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
-</p>
-
-### Set up a profile by the path
-
-```yaml
-profile:
-    path: relative/path/in/your/project.xml
-```
+All possible options for configuring profiles are explained in the [](inspection-profiles.md) section.
 
 ### Exclude paths from the analysis scope
 {id="exclude-paths"}
