@@ -1,15 +1,20 @@
 [//]: # (title: Qodana IDE plugin)
 
 The Qodana IDE plugin is a JetBrains IDE plugin that binds Qodana reports, both stored locally or in Qodana Cloud, 
-with your project opened in an IDE. Using this plugin, you can do the following things in your IDE:
-
-* Study Qodana reports from [Qodana reports](#Open+report+from+Qodana+UI), as well as from a [local storage](#Open+report+from+a+local+storage) 
-* Link your projects with [Qodana Cloud](#Link+project+with+Qodana+Cloud) and overview Qodana Cloud-based reports
+with your project opened in an IDE. 
 
 By default, this plugin is available in all JetBrains IDEs starting from version 2022.3. Otherwise, you can install it
 using [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16938-qodana).
 
 <note>The functionalities described in this section are available only with the nightly images of IntelliJ IDEA and PhpStorm.</note>
+
+This section covers several scenarios where the %product% IDE plugin comes in handy:
+
+<!-- Probably the basic use case needs to be mentioned -->
+
+* [Run %product%](#Run+Qodana) using your IDE 
+* Open and study %product% inspection reports in your IDE
+* Exchange reports with Qodana Cloud
 
 ## Before you start
 
@@ -18,33 +23,77 @@ using [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16938-qodana)
 3. To open Qodana reports from your local storage, make sure that you previously opened the project by the IDE at least 
    one time. This action establishes the link between the %product% report and your IDE.
 
-## Plugin overview
+## Run Qodana
 
-The functionality of this plugin is available in the **Qodana** tab of the **Problems** window. This window is 
-located in the lower-left part of the IDE user interface, and becomes visible once you open a report. 
+After you open your project in the IDE, navigate to <menupath>Tools | Qodana | Run Qodana</menupath>.
 
-After opening, the **Qodana** tab shows the list of problems that were detected by Qodana.
+<img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="Overview of the Qodana tab" border-effect="line"/>
+
+Choose whether you would like to upload the inspection result to [Qodana Cloud](cloud-about.xml), or keep it local.
+
+<img src="ide-plugin-report-type.png" dark-src="ide-plugin-report-type_dark.png" width="706" alt="Choosing the report type" border-effect="line"/>
+
+<tabs>
+<tab title="Keep it local" id="ide-plugin-keep-local">
+
+Provide additional configuration parameters, see the [](qodana-yaml.md) section for details.
+
+<img src="ide-plugin-run-config.png" dark-src="ide-plugin-run-config_dark.png" width="706" alt="Configuring Qodana" border-effect="line"/>
+
+</tab>
+<tab title="Upload to Qodana Cloud" id="ide-plugin-cloud-upload">
+
+If necessary, log in to Qodana Cloud.
+
+<img src="ide-plugin-run-qodana-login.png" dark-src="ide-plugin-run-qodana-login_dark.png" width="706" alt="Logging in Qodana" border-effect="line"/>
+
+If necessary, link your project with the project in Qodana Cloud, or create a new project.
+
+<img src="ide-plugin-run-qodana-link-project.png" dark-src="ide-plugin-run-qodana-link-project_dark.png" width="706" alt="Logging in to Qodana Cloud" border-effect="line"/>
+
+Provide additional configuration parameters, see the [](qodana-yaml.md) section for details.
+
+<img src="ide-plugin-run-config.png" dark-src="ide-plugin-run-config_dark.png" width="706" alt="Configuring Qodana" border-effect="line"/>
+
+</tab>
+</tabs>
+
+<!-- Mention that here you can overview inspection results -->
+
+<!-- This section is universal for all inspection methods -->
+
+### Overview inspection results
+
+After inspection, the report will be available in your IDE in the **Qodana** tab of the **Problems** window. This
+window is located in the lower-left part of the IDE user interface, and opens automatically.
 
 <img src="ide-plugin-tab-overview-1.png" dark-src="ide-plugin-tab-overview-1_dark.png" width="706" alt="Overview of the Qodana tab" border-effect="line"/>
 
-If you click an item in this list, you can navigate to the highlighted code fragments that contain a problem.
+This window contains the problems grouped by the severity level, inspection category, inspection name, and files where
+the problems were detected.
+
+By clicking the problem, you can jump to the code fragment containing such problem. 
 
 <img src="ide-plugin-code-highlighting.png" dark-src="ide-plugin-code-highlighting_dark.png" width="706" alt="Code highlighting from the Qodana IDE plugin" animated="true" border-effect="line"/>
 
+In the upper-left corner of the **Qodana** window, you can find two buttons. 
+
+<img src="ide-plugin-left-window-buttons.png" dark-src="ide-plugin-left-window-buttons_dark.png" width="706" alt="Buttons in the upper-left corner of the Qodana window" border-effect="line"/>
+
+<!-- These paragraphs need to be updated with actual information -->
+
 <anchor name="tab-overview-buttons"/>
 
-In the upper-left corner of this tab, you can find the **Log in to Qodana** and **Link project with Cloud** buttons.
-
-<img src="ide-plugin-tab-overview-2.png" dark-src="ide-plugin-tab-overview-2_dark.png" width="706" alt="The Qodana tab buttons" border-effect="line"/>
-
-The **Log in to Qodana** button lets you log in to Qodana Cloud. This action is a prerequisite for linking your project 
+The **Log in to Qodana** button lets you log in to Qodana Cloud. This action is a prerequisite for linking your project
 with Qodana Cloud-based reports. Alternatively, you can do it using the
 <menupath>Tools | Qodana | Log in to Qodana</menupath> menu of your IDE as [described here](#Log+in+to+Qodana+Cloud).
 
-Using the **Link project with Cloud** button, you can link your project with a specific report uploaded to Qodana Cloud. 
-After linking, you can study the report using your IDE. 
-Alternatively, you can link your project using the <menupath>Tools | Qodana | Link Project with Cloud</menupath> menu 
-of your IDE as [described here](#Link+project+with+Qodana+Cloud). 
+Using the **Link project with Cloud** button, you can link your project with a specific report uploaded to Qodana Cloud.
+After linking, you can study the report using your IDE.
+Alternatively, you can link your project using the <menupath>Tools | Qodana | Link Project with Cloud</menupath> menu
+of your IDE as [described here](#Link+project+with+Qodana+Cloud).
+
+### 
 
 ## Open report from Qodana UI
 
@@ -115,7 +164,7 @@ link your local project with, and then click <menupath>Apply</menupath>.
 </procedure>
 
 After linking, you can overview the report using the <menupath>Qodana</menupath> tab of the <menupath>Problems</menupath>
-window, see the [Plugin overview](#Plugin+overview) section.
+window.
 
 ### Update report
 
@@ -138,6 +187,6 @@ In the IDE, go to <menupath>Tools | Qodana | Open Qodana Analysis report</menupa
 
 <img src="ide-plugin-local-file-1.png" dark-src="ide-plugin-local-file-1_dark.png" width="594" alt="Opening a local Qodana report" border-effect="line"/>
 
-In the <menupath>Qodana</menupath> tab, you can [overview the detected problems](#Plugin+overview) and jump to the corresponding line in
+In the <menupath>Qodana</menupath> tab, you can overview the detected problems and jump to the corresponding line in
 the code editor. In case a problem was fixed before opening the <code>qodana.sarif.json</code> file, it is marked as
 <code>[Not present]</code>.
