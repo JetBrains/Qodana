@@ -52,31 +52,11 @@ certain type of results.
 
 %product% provides flexible profile configuration capabilities using the YAML format, such as:
 
-* Human-readable format, so you can use any editor of your choice to edit profiles
-* Clear profile structure
-* Support for file paths and scopes 
-* Extendability, so profiles can be extended using other profiles
+* Support for file paths and scopes
+* Support for inspection parameters
+* Profile relationship, so profiles can be extended and included
 
-%product% profiles employ the default IDE profile, so all settings applied to your custom profile override such
-settings contained from the default IDE profile. If your custom profile [includes](#include) another profile that 
-completely overrides the default IDE profile, then your profile also contains nothing of it.  
-
-<tip>You can overview the default IDE profile by navigating to <menupath>Settings | Editor | Inspections</menupath>.</tip>
-
-By default, %product% supports the following severity levels inherited from the JetBrains IDEs that you can use while
-configuring your profile:
-
-{id="profile-severity-levels"}
-
-* Error
-* Warning
-* Weak Warning
-* Server Problem
-* Grammar Error
-* Typo
-* Consideration
-
-This is the sample profile configuration showing how you can configure %product% for your needs. 
+This is the sample profile configuration showing how you can fine-tune %product% for your needs.
 
 ```yaml
 name: "My custom profile" # Profile name
@@ -85,7 +65,7 @@ baseProfile:
   - empty # Reset the default IDE profile
 
 include:
-  - "./profiles/other-profile.yaml" # Extend profile and employ its settings
+  - ".qodana/profiles/other-profile.yaml" # Extend profile and employ its settings
 
 groups: # List of configured groups
   - groupId: InspectionsToInclude
@@ -93,7 +73,6 @@ groups: # List of configured groups
       - "category:PHP/General" # Inspection category from the linter
       - "JSCategories" # Include the JSCategories group from below
       - "PHPInspections" # Include the PHPInspections group from below
-      - "!severity:GRAMMAR ERROR" # Exclude inspections with the specific severity 
 
   - groupId: JSCategories
     groups:
@@ -107,9 +86,12 @@ groups: # List of configured groups
 inspections: # Group invocation
   - group: InspectionsToInclude
     enabled: true # Enable the InspectionsToInclude group
+inspections:
+  - inspection: PhpNonCompoundUseInspection
+    severity: WARNING # Overriding the severity level for PhpNonCompoundUseInspection
 ```
 
-This sample consists of several nodes: 
+This sample consists of several nodes:
 
 | Section                     | Description                                                       |
 |-----------------------------|-------------------------------------------------------------------|
@@ -119,9 +101,25 @@ This sample consists of several nodes:
 | [`groups`](#groups)         | Inspection groups that need to enabled or disabled in your profile |
 | [`inspections`](#inspections-group) | Sequence of `groups` setting application                          |
 
+
+By default, %product% supports the following severity levels inherited from the JetBrains IDEs that you can use while
+configuring your profile:
+
+{id="profile-severity-levels"}
+
+* Error
+* Warning
+* Weak Warning
+
 ### baseProfile
 
-If set to `empty`, it lets you clear your profile from any configuration including the default IDE profile.
+%product% profiles employ the default IDE profile, so all settings applied to your custom profile override such
+settings contained in the default IDE profile. If your custom profile [includes](#include) another profile that
+completely overrides the default IDE profile, then your profile also contains nothing of it.
+
+<tip>You can overview the default IDE profile by navigating to <menupath>Settings | Editor | Inspections</menupath>.</tip>
+
+If you set `baseProfile` to `empty`, you will clear your profile from any configuration including the default IDE profile.
 This can be useful if you are going to build your profile [from scratch](#Create+a+profile+from+scratch) rather than 
 extend from the existing profile.
 
@@ -139,27 +137,70 @@ Paths to the existing profiles which are included in your profile.
 
 ```yaml
 include:
-    - "./profiles/qodana.recommended.yaml"
-    - "qodana.anotherprofile.yaml"
+    - ".qodana/profiles/qodana.recommended.yaml"
+    - ".qodana/profiles/qodana.anotherprofile.yaml"
 ```
 
 Before including a profile, save the file containing it to the root directory of your project or its subdirectories.
 
-If your profile does not include any profiles (like [default](#Default+profiles)), it employs the default profile of your 
+If your profile does not include any profiles, it employs the default profile of your 
 IDE and includes all its settings. To overview the default profile, in your IDE navigate to **Settings | Editor | Inspections**.
 
 File contents are included in the order of appearance, thus becoming part of your profile. This means that the settings
 of the included files are used prior to the settings specified in the local profile. 
 
+#### Example
+
+Suppose, you have the `foo.yaml` and `bar.yaml` profiles. 
+
+The `foo.yaml` profile includes the `Java/Data Flow` inspection category:
+
+```yaml
+groups:
+  - groupId: Included
+  - "category:Java/Data Flow"
+
+inspections:
+  - group: Included
+    enabled: true
+```
+
+The `bar.yaml` profile includes the `Java/Error handling` inspection category, and excludes the `Java/Data Flow` category:
+
+```yaml
+groups:
+  - groupId: Included
+  - "category:Java/Error handling"
+  - groupId: Excluded
+  - "category:Java/Data Flow"
+
+inspections:
+  - group: Included
+    enabled: true
+  - group: Excluded
+    enabled: false
+```
+
+Depending on the sequence that these profiles are included, you can have different results:
+
+| Sequence of inclusion       | Result                                                               |
+|-----------------------------|----------------------------------------------------------------------|
+| `foo.yaml` <br/> `bar.yaml` | `Java/Error handling` is included <br/> `Java/Data Flow` is excluded |
+| `bar.yaml`<br/> `foo.yaml`  | Both `Java/Error handling` and `Java/Data Flow` are included         |
+
+
 ### groups
 
-The `groups` block can contain a bunch of groups, whereas each group can include existing inspection categories, single
-inspections, and existing groups. You can use the exclamation mark character (`!`) to negate a group or a category. 
+The `groups` block operates inspection groups and individual inspections, and can be either predefined by a linter or 
+defined by a user. 
+
+Each group can include existing inspection categories, single inspections, and existing groups. You can use the 
+exclamation mark character (`!`) to negate a group or a category. 
 For example, you can disable a specific category usage in a group that will be enabled.
 
 After grouping, you can configure their invocation in the [`inspections`](#inspections-group) block.
 
-This is the sample `groups` block.
+This is the sample `groups` block containing the groups defined by a user.
 
 ```yaml
 groups:
@@ -177,9 +218,9 @@ groups:
   - groupId: EnabledInspections
     groups:
       - "category:Java" 
-      - "!ExcludedInspectionGroups" # Include the ExcludedInspectionGroups group
+      - "!ExcludedInspectionGroups" # Exclude the ExcludedInspectionGroups group
       - "IncludedInspections" # Include the IncludedInspections group
-      - "!severity:GRAMMAR ERROR"
+      - "!severity:WEAK WARNING"
 ```
 
 Inside `groups`, this sample contains several groups, and each group contains these nodes: 
@@ -190,7 +231,7 @@ Inside `groups`, this sample contains several groups, and each group contains th
 | [`inspections`](#groups-inspections) | List of inspections                                           |
 | [`groups`](#groups-groups)           | Group of inspection categories and included inspection groups |
 
-#### groupId
+#### groups.groupId
 {id="groups-groupid"}
 
 Identifier for the group of inspections or groups. 
@@ -203,7 +244,7 @@ Because a profile file is parsed from top to bottom, in case two groups are defi
 `groupId`, the latest group met in the file will be employed. This rule also works for all included files because 
 the settings from included files are parsed prior to the local settings. 
 
-#### inspections
+#### groups.inspections
 {id="groups-inspections"}
 
 The list of inspections that need to be grouped.
@@ -214,7 +255,7 @@ inspections:
     - JSAnnotator
 ```
 
-#### groups
+#### groups.groups
 {id="groups-groups"}
 
 Contains a list of inspection categories and included inspection groups:
