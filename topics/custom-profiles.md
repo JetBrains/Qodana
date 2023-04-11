@@ -1,5 +1,10 @@
 [//]: # (title: Custom profiles)
 
+<var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
+<var name="ide" value="IDE"/>
+<var name="qodana.recommended" value="https://github.com/JetBrains/qodana-profiles/blob/master/.idea/inspectionProfiles/qodana.recommended.yaml"/>
+<var name="java-glob" value="https://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-"/>
+
 %product% provides flexible profile configuration capabilities using the YAML format, such as:
 
 * Support for file paths and scopes
@@ -12,10 +17,10 @@ This is the sample profile configuration showing how you can fine-tune %product%
 name: "My custom profile" # Profile name
 
 baseProfile:
-  - empty # Reset the default IDE profile
+  - empty # Use the 'empty' profile as initial configuration of this profile
 
 include:
-  - ".qodana/profiles/other-profile.yaml" # Extend profile and employ its settings
+  - ".qodana/profiles/other-profile.yaml" # The included file becomes part of this profile
 
 groups: # List of configured groups
   - groupId: InspectionsToInclude
@@ -43,13 +48,13 @@ inspections:
 
 This sample consists of several nodes:
 
-| Section                     | Description                                                       |
-|-----------------------------|-------------------------------------------------------------------|
-| `baseProfile`               | Reset the default IDE profile |
-| [`name`](#name)             | Name of the inspection profile                                    |
-| [`include`](#include)       | Include an existing file-based profile into your profile          |
-| [`groups`](#groups)         | Inspection groups that need to enabled or disabled in your profile |
-| [`inspections`](#inspections-group) | Sequence of `groups` setting application                          |
+| Section                             | Description                                                        |
+|-------------------------------------|--------------------------------------------------------------------|
+| [`baseProfile`](#baseProfile)       | The profile that will serve as a basis                             |
+| [`name`](#name)                     | Name of the inspection profile                                     |
+| [`include`](#include)               | Include an existing file-based profile into your profile           |
+| [`groups`](#groups)                 | Inspection groups that need to enabled or disabled in your profile |
+| [`inspections`](#inspections-group) | Sequence of `groups` setting application                           |
 
 
 By default, %product% supports the following severity levels inherited from the JetBrains IDEs that you can use while
@@ -63,15 +68,15 @@ configuring your profile:
 
 ## baseProfile
 
-%product% profiles employ the default IDE profile, so all settings applied to your custom profile override such
-settings contained in the default IDE profile. If your custom profile [includes](#include) another profile that
-completely overrides the default IDE profile, then your profile also contains nothing of it.
+The `baseProfile` parameter lets you specify the profile that will serve as a basis for your profile configuration. For 
+example, using `empty` will apply no configuration at all, so you can build your profile 
+[from scratch](#Create+a+profile+from+scratch). 
+
+If this parameter is missing, %product% will employ the IDE default profile, so all settings applied to your custom 
+profile will override such settings contained in the IDE default profile. If your custom profile [includes](#include) 
+another profile that completely overrides the IDE default profile, then your profile will also completely override it.
 
 <tip>You can overview the default IDE profile by navigating to <menupath>Settings | Editor | Inspections</menupath>.</tip>
-
-If you set `baseProfile` to `empty`, you will clear your profile from any configuration including the default IDE profile.
-This can be useful if you are going to build your profile [from scratch](#Create+a+profile+from+scratch) rather than
-extend from the existing profile.
 
 ## name
 
