@@ -48,13 +48,13 @@ inspections:
 
 This sample consists of several nodes:
 
-| Section                             | Description                                                        |
-|-------------------------------------|--------------------------------------------------------------------|
-| [`baseProfile`](#baseProfile)       | The profile that will serve as a basis                             |
-| [`name`](#name)                     | Name of the inspection profile                                     |
-| [`include`](#include)               | Include an existing file-based profile into your profile           |
-| [`groups`](#groups)                 | Inspection groups that need to enabled or disabled in your profile |
-| [`inspections`](#inspections-group) | Sequence of `groups` setting application                           |
+| Section                             | Description                                                           |
+|-------------------------------------|-----------------------------------------------------------------------|
+| [`baseProfile`](#baseProfile)       | The profile that will serve as a basis for your profile configuration |
+| [`name`](#name)                     | Name of the inspection profile                                        |
+| [`include`](#include)               | Include an existing file-based profile into your profile              |
+| [`groups`](#groups)                 | Inspection groups that need to enabled or disabled in your profile    |
+| [`inspections`](#inspections-group) | Sequence of `groups` setting application                              |
 
 
 By default, %product% supports the following severity levels inherited from the JetBrains IDEs that you can use while
@@ -68,14 +68,23 @@ configuring your profile:
 
 ## baseProfile
 
-The `baseProfile` parameter lets you specify the profile that will serve as a basis for your profile configuration. For 
-example, using `empty` will apply no configuration at all, so you can build your profile 
-[from scratch](#Create+a+profile+from+scratch). 
+The `baseProfile` parameter lets you specify the profile that will serve as a basis for your profile configuration. It
+can accept the following values: 
+
+| Value                | Description                                                                                                                                            |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Default`            | The [default profile](#custom-profiles-default-profile-tip) of your IDE                                                                                |
+| `Project Default`    | Profile is similar to `Default` but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                            |
+| `qodana.starter`     | The [default](inspection-profiles.md#Default+profiles) %product% profile                                                                               |
+| `qodana.recommended` | The [default](inspection-profiles.md#Default+profiles) %product% profile                                                                               |
+| `empty`              | Severities and parameters of inspections are taken from `Default`, but all inspections are disabled. Using `empty`, you can you can build your profile 
+[from scratch](#Create+a+profile+from+scratch) |
 
 If this parameter is missing, %product% will employ the IDE default profile, so all settings applied to your custom 
 profile will override such settings contained in the IDE default profile. If your custom profile [includes](#include) 
 another profile that completely overrides the IDE default profile, then your profile will also completely override it.
 
+{id="custom-profiles-default-profile-tip"}
 <tip>You can overview the default IDE profile by navigating to <menupath>Settings | Editor | Inspections</menupath>.</tip>
 
 ## name

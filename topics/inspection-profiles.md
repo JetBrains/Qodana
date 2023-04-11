@@ -17,7 +17,7 @@ Out of the box, Qodana provides several predefined profiles hosted on
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles):
 
 * `qodana.starter` is the default profile and a subset of `qodana.recommended` triggering the [3-phase analysis](#three-phase-analysis) 
-* `qodana.recommended` mostly implements the default IDE profiles, see the 
+* `qodana.recommended` is suitable for CI/CD pipelines and mostly implements the default IDE profiles, see the 
 [IntelliJ IDEA](https://www.jetbrains.com/help/idea/customizing-profiles.html) documentation for details
 
 > If you run Qodana in a [CI/CD pipeline](ci.md), make sure the file containing the profile resides in the working
