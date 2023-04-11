@@ -30,7 +30,7 @@ If you want a fresh start, you have two options:
 1. Use Qodana in the default mode to execute the [three-phase analysis](#three-phase-analysis). You do not need to 
 create the [`qodana.yaml`](qodana-yaml.md) file in this case, but you can add it later to amend the set of inspections.
 2. Run %product% using the `qodana.recommended` profile. In this case, you need to create the `qodana.yaml` file with a 
-reference to the [`qodana.recommended`](qodana-yaml.md#Set+up+a+profile+by+the+name) profile. This profile contains the 
+reference to the [`qodana.recommended`](#Default+profiles) profile. This profile contains the 
 inspections for critical or severe issues in the codebase. This profile does not contain any style checks, and 
 non-critical folders, such as `tests`, are ignored.
 
@@ -52,24 +52,6 @@ certain type of results.
 
 You can set up a profile using either the `qodana.yaml` file or the [Shell commands](docker-image-configuration.xml). 
 
-### Profile path
-
-Invoking a profile by the profile path is the most convenient method for custom profiles.
-
-<tabs group="inspecting-profile-tabs">
-    <tab title="YAML" id="configure-profile-yaml" group-key="yaml">
-    <code style="block" lang="yaml">
-    profile:
-        path: relative/path/in/your/project.yaml
-    </code>
-    </tab>
-    <tab title="CLI" id="configure-profile-cli" group-key="cli">
-    <include src="docker-image-configuration.xml" include-id="docker-config-reference-profile-profile-path"/>
-    </tab>
-</tabs>
-
-
-
 ### Profile name
 
 This is how you can configure the profile name using `qodana.yaml`:
@@ -78,51 +60,15 @@ This is how you can configure the profile name using `qodana.yaml`:
   name: &lt;name&gt;
 ```
 
-The `--profile-name` option lets you run %product% using either the 
-[default profiles](inspection-profiles.md#Default+profiles) or the profile name from the custom profile.
+<include src="lib_qd.xml" include-id="inspection-profiles-profile-name"/>
 
-<note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+### Profile path
 
-This command lets you override the default profile und run %product% using the
-[`qodana.recommended`](inspection-profiles.md#Default+profiles) profile: </p>
+This is how you can configure the profile path using `qodana.yaml`:
 
-<tabs group="cli-settings">
-    <tab title="Docker image" group-key="docker-image">
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               jetbrains/qodana-&lt;linter&gt; \
-               --profile-name qodana.recommended
-        </code>
-    </tab>
-    <tab title="Qodana CLI" group-key="qodana-cli">
-        <code style="block" lang="shell" prompt="$">
-            qodana scan \
-            -profile-name qodana.recommended
-        </code>
-    </tab>
-</tabs>
+```yaml
+profile:
+    path: relative/path/in/your/project.xml
+```
 
-If you need to run %product% with a custom profile, you can take its actual [profile name](custom-profiles.md#name).
-
-This command lets you bind a custom profile:
-
-<tabs group="cli-settings" filter="for-inspection-profiles">
-    <tab title="Docker image" group-key="docker-image">
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
-               jetbrains/qodana-&lt;linter&gt; \
-               --profile-name &lt;profile-name-from-file&gt;
-        </code>
-    </tab>
-    <tab title="Qodana CLI" group-key="qodana-cli">
-        <code style="block" lang="shell" prompt="$">
-            qodana scan \
-            -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
-            --profile-name &lt;profile-name-from-file&gt;
-        </code>
-    </tab>
-</tabs>
-
+<include src="lib_qd.xml" include-id="inspection-profiles-profile-path"/>

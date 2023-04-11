@@ -77,14 +77,14 @@ can accept the following values:
 | `Project Default`    | Profile is similar to `Default` but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                            |
 | `qodana.starter`     | The [default](inspection-profiles.md#Default+profiles) %product% profile                                                                               |
 | `qodana.recommended` | The [default](inspection-profiles.md#Default+profiles) %product% profile                                                                               |
-| `empty`              | Severities and parameters of inspections are taken from `Default`, but all inspections are disabled. Using `empty`, you can you can build your profile 
-[from scratch](#Create+a+profile+from+scratch) |
+| `empty`              | Severities and parameters of inspections are taken from `Default`, but all inspections are disabled. Using `empty`, you can you can build your profile [from scratch](#Create+a+profile+from+scratch) |
 
 If this parameter is missing, %product% will employ the IDE default profile, so all settings applied to your custom 
 profile will override such settings contained in the IDE default profile. If your custom profile [includes](#include) 
 another profile that completely overrides the IDE default profile, then your profile will also completely override it.
 
 {id="custom-profiles-default-profile-tip"}
+
 <tip>You can overview the default IDE profile by navigating to <menupath>Settings | Editor | Inspections</menupath>.</tip>
 
 ## name
@@ -235,13 +235,13 @@ groups:
 
 This sample includes several nodes:
 
-| Configuration example       | Description                                                                                                                                                                            |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ALL`                       | Use this to specify all possible inspections. This can be an alternative to using `baseProfile` while creating [profiles from scratch](#Create+a+profile+from+scratch)                 |
-| `category:Java`             | Name of the inspection category in the `category:categoryname` notation, matches the name from the <menupath> Editor &#124; Settings &#124; Inspections</menupath> section of your IDE |
-| `IncludedInspections`       | Name of the existing group from the profile, either the current or an extended                                                                                                         |
-| `!ExcludedInspections`      | Negate the existing `ExcludedPaths` inspection group, either the current or an extended                                                                                                |
-| `!severity:TEXT ATTRIBUTES` | Negate all inspections with the specific [severity](#profile-severity-levels), which lets you filter inspections by severity levels                                                    |
+| Configuration example       | Description                                                                                                                                                            |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ALL`                       | Use this to specify all possible inspections. This can be an alternative to using `baseProfile` while creating [profiles from scratch](#Create+a+profile+from+scratch) |
+| `category:Java`             | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of your IDE   |
+| `IncludedInspections`       | Name of the existing group from the profile, either the current or an extended                                                                                         |
+| `!ExcludedInspections`      | Negate the existing `ExcludedPaths` inspection group, either the current or an extended                                                                                |
+| `!severity:TEXT ATTRIBUTES` | Negate all inspections with the specific [severity](#profile-severity-levels), which lets you filter inspections by severity levels                                    |
 
 ## inspections
 {id="inspections-group"}
