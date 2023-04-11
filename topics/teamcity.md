@@ -106,12 +106,10 @@ this file to the working directory manually. Alternatively, you can write a scri
 
 To forward reports to Qodana Cloud, follow these steps:
 
-1. In the TeamCity UI, create the `QODANA_TOKEN` environment variable of the <a href="https://%TeamCityLink%">password</a> 
-   type, and save the [Qodana Cloud project token](cloud-projects.xml#cloud-manage-projects) as its value.
-2. Open the build step that will run %product%.
-3. In the **Additional arguments for 'docker run'** field, add this line to employ the `QODANA_TOKEN` variable:
-   <code style="block" lang="bash" interpolate-variables="false">-e QODANA_TOKEN=%env.QODANA_TOKEN%</code>
-   <img src="cloud-forward-reports-teamcity.png" width="460" alt="Configuring fields in TeamCity" border-effect="line"/>
+1. In the TeamCity UI, open the build step that will run %product%.
+2. In the **Cloud Token** field, insert the [Qodana Cloud token](cloud-projects.xml#cloud-manage-projects) value.
+
+   <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
 
 ### Verify inspection results
 
