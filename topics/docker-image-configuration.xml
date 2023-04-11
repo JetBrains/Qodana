@@ -3,15 +3,52 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Docker image configuration"
+       title="Shell commands"
        id="docker-image-configuration.xml">
 
-    <p>This section describes how you can configure Docker images of %product% while running
-        %product% both <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>. </p>
+    <p>This section explains how you can configure the <a href="docker-images.md">Docker images</a> of
+        %product% and the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool. You can use both tools
+        <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>.</p>
 
-    <chapter id="docker-config-reference-image-paths" title="Docker image paths">
+    <p>In several cases, you can configure them using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file,
+        which is also mentioned in this section.</p>
 
-    <p>This table lists the paths to the directories contained in the Docker images of %product%:</p>
+    <chapter id="docker-config-reference-qodana-cli" title="Qodana CLI">
+
+        <p><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> stores files in the
+            <code>&lt;userCacheDir&gt;</code> directory, which is mentioned several times throughout this section. Here
+            is the list of <code>&lt;userCacheDir&gt;</code> directory locations depending on the operating system:
+        </p>
+
+        <table>
+            <tr>
+                <td>Operating System</td>
+                <td>Path</td>
+            </tr>
+            <tr>
+                <td>macOS</td>
+                <td><code>~/Library/Caches/</code></td>
+            </tr>
+            <tr>
+                <td>Linux</td>
+                <td><code>~/.cache/</code></td>
+            </tr>
+            <tr>
+                <td>Windows</td>
+                <td><code interpolate-variables="false">%LOCALAPPDATA%\</code></td>
+            </tr>
+        </table>
+
+        <p>If you run the <code>qodana init</code> command in the project directory, Qodana CLI will let you choose
+            the <a href="linters.md">linter</a> that will be run during inspection, and saves the choice in
+            <code>qodana.yaml</code>. Once done, you do not need to specify the linter in the commands, which is
+            shown throughout this section.</p>
+
+    </chapter>
+
+    <chapter id="docker-config-reference-image-paths" title="Paths">
+
+    <p>This table lists the paths contained in Docker images and Qodana CLI:</p>
 
         <table>
             <tr>
@@ -66,15 +103,25 @@
 
         <chapter id="docker-config-reference-override-inspection-profile" title="Override the default inspection profile">
 
-            <p>Unless explicitly specified, %product% employs the <code>qodana.starter</code> profile. Using this command,
-                you can bind and use your own profile file, thus overriding <code>qodana.starter</code>:</p>
+            <p>By default, %product% employs the <code>qodana.starter</code> profile, but you can
+                <a anchor="docker-config-reference-image-paths">bind</a> and use your own profile instead:</p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml \
-                   jetbrains/qodana-&lt;linter&gt;
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml \
+                           jetbrains/qodana-&lt;linter&gt;
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml
+                    </code>
+                </tab>
+            </tabs>
 
             <p>To learn more about profiles, see the
                 <a anchor="docker-config-reference-order-resolving-profile">Order of resolving a profile</a> and
@@ -86,18 +133,28 @@
 
             <p>In case of JVM linters, you can override the default Gradle settings:</p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties \
-                   jetbrains/qodana-&lt;linter&gt;
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties \
+                           jetbrains/qodana-&lt;linter&gt;
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties
+                    </code>
+                </tab>
+            </tabs>
 
         </chapter>
 
         <chapter id="docker-config-reference-manage-plugins" title="Manage plugins">
 
-            <note>This option is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
 
             <note>Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate with us to
                 make it work.</note>
@@ -114,7 +171,7 @@
                 curl -L -o "$PLUGIN_ID".zip "https://plugins.jetbrains.com/pluginManager?action=download&amp;id=$PLUGIN_ID&amp;build=$IDE_CODE-$BUILD_ID" &amp;&amp; unzip "$PLUGIN_ID".zip
             </code>
 
-            <p>This script contains several variables explained in this table.</p>
+            <p>This script contains several variables explained in the table below.</p>
 
             <table>
                 <tr>
@@ -145,23 +202,34 @@
                 <tr>
                     <td><code>BUILD_ID</code></td>
                     <td>Build ID of %product% available in %product% logs</td>
-                    <td>For example, <code>Starting up Qodana for PHP 2023.1 EAP (build QDPHP-231.7515)</code></td>
+                    <td><code>Starting up Qodana for PHP 2023.1 EAP (build QDPHP-231.7515)</code></td>
                 </tr>
             </table>
 
-            <p>After downloading, you can run %product% with the plugin file mounted to the
-                <a anchor="docker-config-reference-image-paths">plugin directory</a> of the Docker image:</p>
+            <p>You can run %product% with the plugin file mounted to the
+                <a anchor="docker-config-reference-image-paths">plugin directory</a>:</p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                -v $(pwd):/data/project/ \
-                -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt; \
-                jetbrains/qodana-&lt;linter&gt;
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt; \
+                           jetbrains/qodana-&lt;linter&gt;
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt;
+                    </code>
+                </tab>
+            </tabs>
+
         </chapter>
     </chapter>
 
-    <chapter id="docker-config-reference-option-overview" title="Types of options">
+    <chapter id="docker-config-reference-option-overview" title="Options">
 
         <p>Docker images can be configured using several CLI options. All these options can be divided into three groups.</p>
 
@@ -180,31 +248,55 @@
             </tr>
             <tr>
                 <td>Requires no argument</td>
-                <td><code>--save-report</code></td>
+                <td><code>--show-report</code></td>
             </tr>
         </table>
 
-        <p>This is the CLI command using all these options:</p>
+        <p>Here is the example command that invokes all these options:</p>
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               jetbrains/qodana-&lt;linter&gt; \
-               --property=idea.log.config.file=info.xml \
-               --baseline &lt;baseline-path&gt; \
-               --save-report
-        </code>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -p 8080:8080 \
+                       -v $(pwd):/data/project/ \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --property=idea.log.config.file=info.xml \
+                       --baseline &lt;baseline-path&gt; \
+                       --show-report
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    --property=idea.log.config.file=info.xml \
+                    --baseline &lt;baseline-path&gt; \
+                    --show-report
+                </code>
+            </tab>
+        </tabs>
 
-        <p>You can see the list of available options using this CLI command:</p>
+        <p>To overview the available options, you can use this command:</p>
 
-        <code style="block" lang="shell" prompt="$">docker run jetbrains/qodana-&lt;linter&gt;</code>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run jetbrains/qodana-&lt;linter&gt; -h
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan -h
+                </code>
+            </tab>
+        </tabs>
 
     </chapter>
 
 
     <chapter id="docker-config-reference-directories" title="Directories">
 
-        <p>%product% lets you override the directories described in the
+        <p>Using these options, you can override the paths described in the
             <a anchor="docker-config-reference-image-paths">Docker image paths</a> section.</p>
 
         <table>
@@ -227,8 +319,10 @@
             </tr>
             <tr>
                 <td><code>-r</code>, <code>--report-dir</code></td>
-                <td>Directory for saving the generated HTML report. To open the report, you will need to add the
-                    <a anchor="docker-config-reference-report"><code>--save-report</code></a> option. </td>
+                <td><p>Directory for saving the generated HTML report. To open the report, you will need to add the
+                    <a anchor="docker-config-reference-report"><code>--save-report</code></a> option.</p>
+                    <note>This option is not available in Qodana CLI.</note>
+                </td>
                 <td><code>/data/results/report</code></td>
             </tr>
             <tr>
@@ -249,7 +343,12 @@
 
         <chapter id="docker-config-reference-directories-save-report" title="Override the report directory">
 
-            <p>This CLI command overrides the default report directory using the <code>--report-dir</code>
+            <tip><p>During inspection, Qodana CLI automatically saves inspection reports in the
+                <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
+                <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
+            </tip>
+
+            <p>This Docker command overrides the default report directory using the <code>--report-dir</code>
                 option, and saves the generated report to the local filesystem using the
                 <a anchor="docker-config-reference-report"><code>--save-report</code></a> option:</p>
 
@@ -269,43 +368,54 @@
 
         <chapter id="docker-config-reference-cache-dependencies" title="Cache dependencies">
 
-            <tip><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> automatically manages cache. </tip>
+            <tip><p><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> automatically manages cache and requires no action.</p>
+            <p>After the first run, Qodana CLI stores cache in the <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/cache</code>
+                directory.</p></tip>
 
-            <p>You can improve %product% performance by persisting cache from one run to another. For example, package and
+            <p>You can improve %product% performance by persisting cache between runs. For example, package and
                 dependency management tools such as Maven, Gradle, npm, Yarn, and NuGet keep a local cache of downloaded dependencies.</p>
 
-            <p>By default, %product% save caches to the <code>/data/cache</code> folder inside a container. You can override
+            <p>By default, %product% save caches to the <code>/data/cache</code> directory inside a container. You can override
                 this location using the <a anchor="docker-config-reference-directories"><code>--cache-dir</code></a> option.
-                The data inside is per-repository, so you can pass cache from <code>branch-a</code> to build checking
+                This data is per-repository, so you can pass cache from <code>branch-a</code> to build checking
                 <code>branch-b</code>. In this case, only new dependencies would be downloaded if they were added.</p>
 
-            <p>This is the CLI command lets you map your local directory with the <code>/data/cache</code> directory in the
-                Docker image, and thus save cache to your local filesystem: </p>
+            <p>This command maps the local directory with the <code>/data/cache</code> directory of the
+                Docker image, which saves cache to your local filesystem: </p>
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
                    -v $(pwd):/data/project/ \
-                   -v &lt;cache-directory&gt;:/data/cache/ \
+                   -v &lt;local-cache-directory&gt;:/data/cache/ \
                    jetbrains/qodana-&lt;linter&gt;
             </code>
 
-            <p>This command lets you use cache stored in the local filesystem, and override the cache directory using
-                the <code>--cache-dir</code> option:</p>
+            <p>Using the <code>--cache-dir</code> option, you can override the cache directory:</p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -v &lt;cache-directory&gt;:/data/newcachedir/ \
-                   jetbrains/qodana-&lt;linter&gt; \
-                   --cache-dir /data/newcachedir
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v &lt;local-cache-directory&gt;:/data/newcachedir/ \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --cache-dir /data/newcachedir
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                           --cache-dir /opt/newcachedir
+                    </code>
+                </tab>
+            </tabs>
 
             <p>In a GitHub workflow, you can use
                 <a href="https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows">dependency caching</a>.
                 GitLab CI/CD also has the <a href="https://docs.gitlab.com/ee/ci/caching/">cache</a> that can be stored
                 <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths">only inside</a> the project directory.
-                In this case, we recommend excluding the cache folder from inspection via the
-                <a href="qodana-yaml.md" anchor="include-example"><code>qodana.yaml</code></a> file.</p>
+                In this case, you can exclude the cache directory from inspection via
+                <a href="qodana-yaml.md" anchor="include-example"><code>qodana.yaml</code></a>.</p>
 
         </chapter>
 
@@ -313,8 +423,10 @@
 
     <chapter id="docker-config-reference-profile" title="Profile">
 
-        <p>You can configure and override %product% profiles using either the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
-            file, or the CLI options from this table.</p>
+        <p>By default, %product% inspects your code using the <code>qodana.starter</code> profile.</p>
+
+        <p>You can configure and override %product% profiles either in the <a href="qodana-yaml.md" anchor="Set+up+a+profile"><code>qodana.yaml</code></a>
+            file, or using the CLI options from this table</p>
 
         <table>
             <tr>
@@ -330,8 +442,8 @@
             <tr>
                 <td><code>-n</code>, <code>--profile-name</code></td>
                 <td><p>The <a anchor="docker-config-reference-profile-profile-name">profile name</a> taken either from the list of predefined %product% profiles, or a custom profile name
-                    stored in XML-formatted profile files as <code interpolate-variables="false">&lt;option name="myName" value="%profileName%"/&gt;</code></p>
-                    <p>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+name"><code>qodana.yaml</code></a> file.</p>
+                    stored in XML-formatted profile files as <code interpolate-variables="false">&lt;option name="myName" value="%profileName%"/&gt;</code>.</p>
+                    <p>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+name"><code>qodana.yaml</code></a> file</p>
 
                 </td>
                 <td><code>qodana.starter</code></td>
@@ -340,75 +452,107 @@
                 <td><code>-p</code>, <code>--profile-path</code></td>
                 <td>
                     <p>The <a anchor="docker-config-reference-profile-profile-path">absolute path</a> to the profile file.</p>
-                    <p>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path"><code>qodana.yaml</code></a> file.</p>
+                    <p>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path"><code>qodana.yaml</code></a> file</p>
                 </td>
                 <td>None</td>
             </tr>
             <tr>
                 <td><code>--run-promo</code></td>
-                <td><p>Run promo inspections along with the <code>qodana.starter</code> profile.</p>
+                <td><p>Run promo inspections as a part of the <code>qodana.starter</code> profile</p>
                     <note>This option is not available in the <a href="qodana-dotnet.md"/> linter.</note>
                 </td>
-                <td>Enabled only if %product% is run with the <code>qodana.starter</code> profile with the <code>--run-promo true</code> option specified.</td>
+                <td>Enabled only if %product% is configured for the <code>qodana.starter</code> profile, and the <code>--run-promo true</code> option is invoked</td>
             </tr>
             <tr>
                 <td><code>--stub-profile</code></td>
-                <td>Absolute path to the fallback profile file; applied if the profile was not specified using any available options</td>
+                <td>Absolute path to the fallback profile file; applied if the profile was not specified using any other method</td>
                 <td>None</td>
             </tr>
         </table>
 
-        <!-- How does stub-profile work? No need to touch it at all I need to ask Viktor about it-->
-
         <chapter id="docker-config-reference-profile-profile-name" title="Profile name">
 
-            <p>The <code>--profile-name</code> option lets you run %product% based on:</p>
-
-            <list>
-                <li>The <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a></li>
-                <li>The profile name taken from the custom profile file</li>
-            </list>
-
-            <p>Using this command, you can override the default profile und run %product% with the <code>qodana.recommended</code> profile: </p>
-
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   jetbrains/qodana-&lt;linter&gt; \
-                   --profile-name qodana.recommended
-            </code>
-            <p>If you need to run %product% with a custom profile, you can take the actual profile name stored as
-                <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> of the profile file. </p>
+            <p>The <code>--profile-name</code> option lets you run %product% using either
+                the <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a> or
+                the profile name from the custom profile. </p>
 
             <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
 
-            <p>This command lets you bind the profile file and use the profile name from it:</p>
+            <tip>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+name"><code>qodana.yaml</code></a> file.</tip>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
-                   jetbrains/qodana-&lt;linter&gt; \
-                   --profile-name &lt;profile-name-from-file&gt;
-            </code>
+            <p>This command lets you override the default profile und run %product% using the
+                <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.recommended</code></a> profile: </p>
 
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --profile-name qodana.recommended
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -profile-name qodana.recommended
+                    </code>
+                </tab>
+            </tabs>
+
+            <p>If you need to run %product% with a custom profile, you can take the actual profile name stored as
+                <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> of the profile file. </p>
+
+            <p>This command lets you bind a custom profile:</p>
+
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --profile-name &lt;profile-name-from-file&gt;
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
+                        --profile-name &lt;profile-name-from-file&gt;
+                    </code>
+                </tab>
+            </tabs>
 
         </chapter>
 
         <chapter id="docker-config-reference-profile-profile-path" title="Profile path">
 
-            <p>The <code>--profile-path</code> option lets you override the path to the profile file that you would like to run %product% with.</p>
+            <p>The <code>--profile-path</code> option lets you override the path to the file containing the profile.</p>
 
-            <p>This command binds the profile file to a specific <a anchor="docker-config-reference-image-paths">directory</a>,
-                specifies this path using the <code>--profile-path</code> option, and automatically reads the profile name from the file:</p>
+            <tip>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path"><code>qodana.yaml</code></a> file.</tip>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
-                   jetbrains/qodana-&lt;linter&gt; \
-                   --profile-path /data/project/myprofiles/&lt;file-name&gt;
-            </code>
+            <p>This command lets you bind the file to the profile <a anchor="docker-config-reference-image-paths">directory</a>,
+                and the <code>--profile-path</code> option tells %product% which profile file to read:</p>
+
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --profile-path /data/project/myprofiles/&lt;file-name&gt;
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+                        --profile-path /data/project/myprofiles/&lt;file-name&gt;
+                    </code>
+                </tab>
+            </tabs>
 
         </chapter>
 
@@ -422,6 +566,8 @@
 
         <p>To use the baseline feature, first run %product%, and in the report UI select the problems that will be considered as baseline.
         Finally, save the <a href="qodana-sarif-output.md">SARIF-formatted file</a> containing the baseline problems. </p>
+
+        <p>This is the list of baseline-related options:</p>
 
         <table>
             <tr>
@@ -438,19 +584,30 @@
             </tr>
         </table>
 
-        <p>Here is the CLI command that lets you run %product% with the baseline feature enabled:</p>
+        <p>This is the command that invoke all baseline options:</p>
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               jetbrains/qodana-&lt;linter&gt; \
-               --baseline &lt;path-to-the-SARIF-file&gt; \
-               --baseline-include-absent
-        </code>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v $(pwd):/data/project/ \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --baseline &lt;path-to-the-SARIF-file&gt; \
+                       --baseline-include-absent
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    --baseline &lt;path-to-the-SARIF-file&gt; \
+                    --baseline-include-absent
+                </code>
+            </tab>
+        </tabs>
 
         <p>Here, the <code>&lt;path-to-the-SARIF-file&gt;</code> is the path to a <code>qodana.sarif.json</code> file relative
-            to the project root and taken from a previous %product% run. If the <code>--baseline-include-absent</code>
-            option is provided, the inspection results will include absent problems or the problems detected only in the
+            to the project root and taken from a previous %product% run. If <code>--baseline-include-absent</code>
+            is invoked, the inspection results will include absent problems or the problems detected only in the
             baseline run but not in the current run. </p>
 
         <p>Based on this run, the <a href="qodana-sarif-output.md">SARIF output report</a> will contain the per-problem information on the
@@ -460,7 +617,7 @@
 
     <chapter id="docker-config-reference-report" title="Report">
 
-        <p>This table contains the options that you can use for saving and serving reports:</p>
+        <p>This table contains the options related to reports:</p>
 
         <table>
             <tr>
@@ -473,14 +630,19 @@
             </tr>
             <tr>
                 <td><code>-w</code>, <code>--show-report</code></td>
-                <td>Serve HTML-formatted reports on port <code>8080</code></td>
+                <td>Serve HTML-formatted reports. By default, port <code>8080</code> is used</td>
             </tr>
         </table>
 
         <chapter id="docker-config-reference-report-save-report" title="Save the report">
 
-            <p>Using the <code>--save-report</code> option, this CLI command lets you save the generated HTML report to your
-                local filesystem. </p>
+            <tip><p>During inspection, Qodana CLI automatically saves inspection reports in the
+                <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
+                <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
+            </tip>
+
+            <p>The <code>--save-report</code> option in the Docker command lets you save the generated HTML report to your
+                local filesystem: </p>
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
@@ -494,16 +656,27 @@
 
         <chapter id="docker-config-reference-report-show-report" title="Show the report">
 
-            <p>Based on this command, %product% runs the web server to serve the report on port 4040 on a host machine mapped to port <code>8080</code>
-                in the Docker image, so your report will be available on <a href="http://localhost:4040">http://localhost:4040</a>:</p>
+            <p>This command runs the web server on port 4040 of a host machine, so your report will be available on
+                <a href="http://localhost:4040">http://localhost:4040</a>:</p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                -p 4040:8080 \
-                -v $(pwd):/data/project/ \
-                jetbrains/qodana-&lt;linter&gt; \
-                --show-report
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -p 4040:8080 \
+                           -v $(pwd):/data/project/ \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --show-report
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        --port 4040
+                        --show-report
+                    </code>
+                </tab>
+            </tabs>
 
             <p>To stop the web server, press <shortcut>Ctrl-C</shortcut> in the Docker console.</p>
 
@@ -515,8 +688,9 @@
         <p>%product% lets you configure a <a href="quality-gate.xml">quality gate</a> or the number of problems that
             will act as a threshold. Once the threshold is reached, the inspection run is terminated.</p>
 
-        <tip>You can also configure this option using the
-            <a href="qodana-yaml.md" anchor="Set+a+fail+threshold"><code>qodana.yaml</code></a> file.</tip>
+        <tip>You can specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node to
+            <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">qodana.yaml</a>. However, the Docker command option
+            overrides the settings in the <code>qodana.yaml</code> file. </tip>
 
         <table>
             <tr>
@@ -525,29 +699,43 @@
             </tr>
             <tr>
                 <td><code>--fail-threshold</code></td>
-                <td>Set the number of problems that will serve as a quality gate. If this number is reached, the inspection run is terminated</td>
+                <td>Set the number of problems that will serve as a quality gate</td>
             </tr>
         </table>
 
-        <p>Here is the sample CLI command that configures %product% to fail the build in case the number of problems exceeds 10:</p>
+        <p>Here is the command that tells %product% to fail the build in case the number of problems exceeds 10:</p>
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               jetbrains/qodana-&lt;linter&gt; \
-               --fail-threshold 10
-        </code>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v $(pwd):/data/project/ \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --fail-threshold 10
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    --fail-threshold 10
+                </code>
+            </tab>
+        </tabs>
 
         <p>If you run %product% with the <a anchor="docker-config-reference-baseline">baseline mode</a> enabled, a
             threshold is calculated as the sum of new and absent problems. The unchanged results are ignored.</p>
 
-        <note>You can specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node to
-            <a href="qodana-yaml.md">qodana.yaml</a>. However, the Docker command option overrides the settings in the
-            <code>qodana.yaml</code> file. </note>
-
     </chapter>
 
     <chapter id="docker-config-reference-properties" title="Properties">
+
+        <p>Using the <code>--property=</code> option, you can override various %product% parameters:</p>
+
+        <list>
+            <li><a anchor="docker-config-reference-properties-stdout">Logging messages to STDOUT</a></li>
+            <li><a anchor="docker-config-reference-properties-user-statistics">Disabling user statistics</a></li>
+            <li><a anchor="docker-config-reference-properties-config-plugins">Configuring plugins</a></li>
+        </list>
 
         <table>
             <tr>
@@ -556,34 +744,38 @@
             </tr>
             <tr>
                 <td><code>--property=</code></td>
-                <td><p>Set a JVM property to be used while running %product% using this notation:</p>
+                <td><p>Set a JVM property using this notation:</p>
                     <code style="block" lang="shell">--property=property.name=value1,...,valueN</code>
                     <p>This option can be repeated multiple times for setting multiple JVM properties.</p>
                 </td>
             </tr>
         </table>
 
-        <p>Using this option, you can override various %product% parameters:</p>
-
-        <list>
-            <li><a anchor="docker-config-reference-properties-stdout">Logging messages to STDOUT</a></li>
-            <li><a anchor="docker-config-reference-properties-user-statistics">Disabling user statistics</a></li>
-            <li><a anchor="docker-config-reference-properties-config-plugins">Configuring plugins</a></li>
-        </list>
-
         <chapter id="docker-config-reference-properties-stdout" title="Log INFO messages to STDOUT">
 
             <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
 
-            <p>The default log level for STDOUT is <code>WARN</code>. You can override this level using the
-                <a anchor="docker-config-reference-properties"><code>--property</code></a> option:</p>
+            <!-- What does this command mean?-->
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   jetbrains/qodana-&lt;linter&gt; \
-                   --property=idea.log.config.file=info.xml
-            </code>
+            <p>The default log level for STDOUT is <code>WARN</code>. You can override it using the
+                <code>idea.log.config.file</code> property as shown below:</p>
+
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --property=idea.log.config.file=info.xml
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        --property=idea.log.config.file=info.xml
+                    </code>
+                </tab>
+            </tabs>
 
         </chapter>
 
@@ -593,12 +785,22 @@
             <p>To disable reporting of usage statistics, adjust the <code>idea.headless.enable.statistics</code>
                 value of the <code>--property</code> option:</p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   jetbrains/qodana-&lt;linter&gt; \
-                   --property=idea.headless.enable.statistics=false
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                        -v $(pwd):/data/project/ \
+                        jetbrains/qodana-&lt;linter&gt; \
+                        --property=idea.headless.enable.statistics=false
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        --property=idea.headless.enable.statistics=false
+                    </code>
+                </tab>
+            </tabs>
 
         </chapter>
 
@@ -609,16 +811,27 @@
                 collaborate with us to make it work.</note>
 
             <p>Using the <code>idea.required.plugins.id</code> and <code>idea.suppressed.plugins.id</code> properties,
-                you can specify the plugins required for a specific run, and the list of plugins that need to
+                you can specify the plugins required for a specific run, and the list of plugins that will
                 be suppressed: </p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   jetbrains/qodana-&lt;linter&gt; \
-                   --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
-                   --property=idea.suppressed.plugins.id=com.intellij.spring.security
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
+                           --property=idea.suppressed.plugins.id=com.intellij.spring.security
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
+                        --property=idea.suppressed.plugins.id=com.intellij.spring.security
+                    </code>
+                </tab>
+            </tabs>
 
         </chapter>
     </chapter>
@@ -644,12 +857,22 @@
 
         <p>%product% lets you check only locally-modified files using this command:</p>
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               jetbrains/qodana-&lt;linter&gt; \
-               --changes
-        </code>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v $(pwd):/data/project/ \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --changes
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    --changes
+                </code>
+            </tab>
+        </tabs>
 
     </chapter>
 
@@ -675,12 +898,22 @@
 
         <p>Application of the <code>default</code> run scenario is equivalent to running this command:</p>
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               jetbrains/qodana-&lt;linter&gt; \
-               --script default
-        </code>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v $(pwd):/data/project/ \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --script default
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    --script default
+                </code>
+            </tab>
+        </tabs>
 
         <p>To inspect local uncommitted changes, you can use <code>local-changes</code> value:</p>
 
@@ -693,12 +926,22 @@
 
         <p>To run the <a href="php-language-upgrade.xml">PHP version migration</a> scenario, you can run this command:</p>
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               jetbrains/qodana-&lt;linter&gt; \
-               --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
-        </code>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v $(pwd):/data/project/ \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
+                </code>
+            </tab>
+        </tabs>
 
     </chapter>
 
@@ -738,12 +981,22 @@
             <p>By default, the Heap size is set to 80% of the host RAM. You can configure this setting using the
                 <code>_JAVA_OPTIONS</code> variable: </p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -e _JAVA_OPTIONS=-Xmx6g \
-                   jetbrains/qodana-&lt;linter&gt;
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -e _JAVA_OPTIONS=-Xmx6g \
+                           jetbrains/qodana-&lt;linter&gt;
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -e _JAVA_OPTIONS=-Xmx6g \
+                    </code>
+                </tab>
+            </tabs>
 
             <p>To learn more about configuring the Heap, see the
                 <a href="https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html">Heap Tuning Parameters</a>
@@ -759,12 +1012,22 @@
 
             <p>You can override the <code>idea.properties</code> file using the <code>IDEA_PROPERTIES</code> variables:</p>
 
-            <code style="block" lang="shell" prompt="$">
-                docker run \
-                   -v $(pwd):/data/project/ \
-                   -e IDEA_PROPERTIES=/data/project/idea.properties \
-                   jetbrains/qodana-&lt;linter&gt;
-            </code>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -e IDEA_PROPERTIES=/data/project/idea.properties \
+                           jetbrains/qodana-&lt;linter&gt;
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -e IDEA_PROPERTIES=/data/project/idea.properties
+                    </code>
+                </tab>
+            </tabs>
 
         </chapter>
 
@@ -774,11 +1037,11 @@
             <tip>TeamCity and <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> already run %product%
                 under a current non-root user.</tip>
 
-            <p>By default, the container is run as the <code>root</code> user so that %product% can read any volumes bind-mounted with
-                the project and write the results. As a result, files in the <code>results/</code> folder are owned by
+            <p>By default, a container runs under the <code>root</code> user so that %product% can read project information
+                and write inspection results. Therefore, all files in the <code>results/</code> directory are owned by
                 the <code>root</code> user after the run.</p>
 
-            <p>To avoid this, you can run the container as a regular user:</p>
+            <p>To overcome this, you can run the container as a regular user:</p>
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
@@ -788,7 +1051,7 @@
                    jetbrains/qodana-&lt;linter&gt;
             </code>
 
-            <p>In this case, the <code>results/</code> folder on host should already be created and owned by you.
+            <p>In this case, the <code>results/</code> directory on host should already be created and owned by you.
                 Otherwise, Docker will create it as the <code>root</code> user, and %product% will not be able to write
                 to it.</p>
 
@@ -796,21 +1059,31 @@
 
         <chapter id="docker-config-reference-docker-environment-qodana-cloud" title="Forward reports to Qodana Cloud">
 
-            <p>This is how you can forward %product% reports to Qodana Cloud:</p>
+            <p>You can forward %product% reports to Qodana Cloud by specifying the <code>QODANA_TOKEN</code> variable
+                that will contain the Qodana Cloud <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a>.</p>
 
-                <code style="block" lang="shell" prompt="$">
-                    docker run \
-                       -v $(pwd):/data/project/ \
-                       -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                       -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
-                       -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
-                       -e QODANA_REVISION="&lt;commit-hash&gt;" \
-                       -e QODANA_JOB_URL="&lt;job-url&gt;" \
-                       jetbrains/qodana-&lt;linter&gt;
-                </code>
-
-            <p>This command employs a bunch of variables described in the <a href="cloud-forward-reports.xml"/> section.</p>
-
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <p>Using Docker also requires a bunch of variables described in the
+                        <a href="cloud-forward-reports.xml" anchor="cloud-forward-reports-local-run">Forward reports</a> section.</p>
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                           -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
+                           -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
+                           -e QODANA_REVISION="&lt;commit-hash&gt;" \
+                           -e QODANA_JOB_URL="&lt;job-url&gt;" \
+                           jetbrains/qodana-&lt;linter&gt;
+                    </code>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
+                    </code>
+                </tab>
+            </tabs>
         </chapter>
 
     </chapter>
