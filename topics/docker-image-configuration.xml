@@ -476,8 +476,6 @@
                 the <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a> or
                 the profile name from the custom profile. </p>
 
-            <note filter="for-inspection-profiles">This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
-
             <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file.</tip>
 
             <p filter="for-inspection-profiles">This command lets you override the default profile und run %product% using the

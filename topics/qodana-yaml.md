@@ -43,9 +43,11 @@ To learn more about use-cases, see the [](before-running-qodana.md) section.
 
 ## Set up a profile
 
-All possible options for configuring profiles are explained in the [](inspection-profiles.md) section.
+Basic information about profile invocation is explained in the [](inspection-profiles.md#Set+up+a+profile) section.
 
-### Exclude paths from the analysis scope
+The profile development guide is provided on the [](custom-profiles.md) page.
+
+## Exclude paths from the analysis scope
 {id="exclude-paths"}
 
 You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once. To exclude all paths in a project from the inspection scope, omit the `paths` node.
@@ -54,7 +56,7 @@ You can specify that the files in a certain directory are not analyzed. This can
 profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and folders to be ignored 
 during inspections.</note>
 
-#### Example
+### Example
 {id="exclude-example"}
 
 Exclude all inspections for specified project paths:
@@ -88,11 +90,11 @@ exclude:
 
 You can find specific inspection IDs in the Profile settings in the HTML report or in the `.xml` file with your inspection profile.
 
-### Include an inspection into the analysis scope
+## Include an inspection into the analysis scope
 
 You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
 
-#### Example
+### Example
 {id="include-example"}
 
 In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included in the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
@@ -107,7 +109,7 @@ include:
 ```
 
 
-### Set a fail threshold
+## Set a fail threshold
 
 Add a fail threshold to use as a quality gate:
 
@@ -125,7 +127,7 @@ When running in [baseline mode](docker-image-configuration.xml#docker-config-ref
 
 </note>
 
-### Override the default run scenario
+## Override the default run scenario
 
 ```yaml
 script:
@@ -145,7 +147,7 @@ script:
   name: default
 ```
 
-### Example of different configuration options
+## Example of different configuration options
 
 ```yaml
 version: 1.0

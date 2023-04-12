@@ -8,8 +8,7 @@
 Inspection profiles let you configure the inspections, the scope of files that these inspections analyze, 
 and inspection severity settings. %product% uses inspection profiles to know how and what to inspect in a codebase.
 
-You can employ profiles using either [CLI commands](docker-image-configuration.xml#docker-config-reference-profile),
-or configuring the [`qodana.yaml`](qodana-yaml.md#Set+up+a+profile) file.
+You can employ profiles either using CLI or configuring the `qodana.yaml` file as shown in the [](#Set+up+a+profile) section.
 
 ## Default profiles
 
@@ -54,15 +53,21 @@ You can set up a profile using either the `qodana.yaml` file or the [Shell comma
 
 ### Profile name
 
+#### qodana.yaml
+
 This is how you can configure the profile name using `qodana.yaml`:
 
 ```yaml
   name: &lt;name&gt;
 ```
 
+#### Shell commands
+
 <include src="lib_qd.xml" include-id="inspection-profiles-profile-name"/>
 
 ### Profile path
+
+#### qodana.yaml
 
 This is how you can configure the profile path using `qodana.yaml`:
 
@@ -70,5 +75,9 @@ This is how you can configure the profile path using `qodana.yaml`:
 profile:
     path: relative/path/in/your/project.xml
 ```
+
+You can also use it for [custom profiles](custom-profiles.md).
+
+#### Shell commands
 
 <include src="lib_qd.xml" include-id="inspection-profiles-profile-path"/>

@@ -1165,10 +1165,8 @@
 
     <p>The <code>--profile-name</code> option lets you run %product% using either the
         <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a> or the profile name from the
-        custom profile.
+        <a href="custom-profiles.md">custom profile</a>.
     </p>
-
-        <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
 
     <p>
         This command lets you override the default profile und run %product% using the
@@ -1193,9 +1191,7 @@
     </tabs>
 
     <p>If you need to run %product% with a custom profile, you can take its actual
-        <a href="custom-profiles.md" anchor="name">profile name</a>.</p>
-
-    <p>This command lets you bind a custom profile:</p>
+        <a href="custom-profiles.md" anchor="name">profile name</a>. This command lets you bind a custom profile:</p>
 
         <tabs group="cli-settings" filter="for-inspection-profiles">
             <tab title="Docker image" group-key="docker-image">
@@ -1221,17 +1217,27 @@
 
     <chunk id="inspection-profiles-profile-path">
 
-        <p>Invoking a profile by the profile path is the most convenient method for custom profiles.</p>
+        <p>The <code>--profile-path</code> option lets you override the path to the file containing the profile.</p>
 
-        <tabs group="inspecting-profile-tabs">
-            <tab title="YAML" id="configure-profile-yaml" group-key="yaml">
-                <code style="block" lang="yaml">
-                    profile:
-                    path: relative/path/in/your/project.yaml
+        <p>This command lets you bind the file to the profile directory,
+            and the <code>--profile-path</code> option tells %product% which profile file to read:</p>
+
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                    -v $(pwd):/data/project/ \
+                    -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+                    jetbrains/qodana-&lt;linter&gt; \
+                    --profile-path /data/project/myprofiles/&lt;file-name&gt;
                 </code>
             </tab>
-            <tab title="CLI" id="configure-profile-cli" group-key="cli">
-                <include src="docker-image-configuration.xml" include-id="docker-config-reference-profile-profile-path"/>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+                    --profile-path /data/project/myprofiles/&lt;file-name&gt;
+                </code>
             </tab>
         </tabs>
 

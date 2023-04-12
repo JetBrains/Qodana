@@ -276,7 +276,8 @@ inspections:
 
 ## Examples
 
-Here you can find several examples of profile configuration.
+Here you can find several examples of profile configuration. The [](inspection-profiles.md#Set+up+a+profile) section
+explains how to run your profile while inspecting code.
 
 ### Create a profile from scratch
 
@@ -374,7 +375,7 @@ inspections:
 
 <tip>At the beginning, we recommend using the <code>qodana.starter</code> profile.</tip>
 
-Using this profile, you can exclude inspection categories from the [`qodana.recommended`](https://%qodana.recommended%)
+Using this profile, you can exclude inspection categories from the [`qodana.recommended`](%qodana.recommended%)
 that are not related to the [Qodana for .NET](qodana-dotnet.md) linter.
 
 <note> Remember to save the profile file to the root directory of your project.</note> 
