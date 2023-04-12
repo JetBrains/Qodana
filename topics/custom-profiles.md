@@ -41,7 +41,6 @@ groups: # List of configured groups
 inspections: # Group invocation
   - group: InspectionsToInclude
     enabled: true # Enable the InspectionsToInclude group
-inspections:
   - inspection: PhpNonCompoundUseInspection
     severity: WARNING # Overriding the severity level for PhpNonCompoundUseInspection
 ```
@@ -95,99 +94,32 @@ Arbitrary name for your profile.
 name: "Name of your profile"
 ```
 
-## include
-
-Paths to the existing profiles which are included in your profile.
-
-```yaml
-include:
-    - ".qodana/profiles/qodana.recommended.yaml"
-    - ".qodana/profiles/qodana.anotherprofile.yaml"
-```
-
-Before including a profile, save the file containing it to the root directory of your project or its subdirectories.
-
-If your profile does not include any profiles, it employs the default profile of your
-IDE and includes all its settings. To overview the default profile, in your IDE navigate to **Settings | Editor | Inspections**.
-
-File contents are included in the order of appearance, thus becoming part of your profile. This means that the settings
-of the included files are used prior to the settings specified in the local profile.
-
-### Example
-
-Suppose, you have the `foo.yaml` and `bar.yaml` profiles.
-
-The `foo.yaml` profile includes the `Java/Data Flow` inspection category:
-
-```yaml
-groups:
-  - groupId: Included
-  - "category:Java/Data Flow"
-
-inspections:
-  - group: Included
-    enabled: true
-```
-
-The `bar.yaml` profile includes the `Java/Error handling` inspection category, and excludes the `Java/Data Flow` category:
-
-```yaml
-groups:
-  - groupId: Included
-  - "category:Java/Error handling"
-  - groupId: Excluded
-  - "category:Java/Data Flow"
-
-inspections:
-  - group: Included
-    enabled: true
-  - group: Excluded
-    enabled: false
-```
-
-Depending on the sequence that these profiles are included, you can have different results:
-
-| Sequence of inclusion       | Result                                                               |
-|-----------------------------|----------------------------------------------------------------------|
-| `foo.yaml` <br/> `bar.yaml` | `Java/Error handling` is included <br/> `Java/Data Flow` is excluded |
-| `bar.yaml`<br/> `foo.yaml`  | Both `Java/Error handling` and `Java/Data Flow` are included         |
-
-
 ## groups
 
-The `groups` block operates inspection groups and individual inspections, and can be either predefined by a linter or
-defined by a user.
+The `groups` block contains descriptions of user-defined groups.
 
-Each group can include existing inspection categories, single inspections, and existing groups. You can use the
-exclamation mark character (`!`) to negate a group or a category.
-For example, you can disable a specific category usage in a group that will be enabled.
+Each definition can include or exclude other groups or single inspections.
 
-After grouping, you can configure their invocation in the [`inspections`](#inspections-group) block.
+You can use the exclamation mark character (`!`) to negate a group or a category. For example, you can disable a 
+specific category usage in a group that will be enabled.
 
-This is the sample `groups` block containing the groups defined by a user.
+Here is the sample containing the `EnabledInspections` group defined by a user:
 
 ```yaml
 groups:
-
-  - groupId: IncludedInspections
-    inspections:
-      - JavaAnnotator 
-      - JSAnnotator 
-
-  - groupId: ExcludedInspectionGroups
-    groups:
-      - "category:Gradle" 
-      - "category:Groovy"
 
   - groupId: EnabledInspections
     groups:
-      - "category:Java" 
-      - "!ExcludedInspectionGroups" # Exclude the ExcludedInspectionGroups group
-      - "IncludedInspections" # Include the IncludedInspections group
-      - "!severity:WEAK WARNING"
+      - "category:Java/Probable bugs" 
+      - "ALL"
+      - "!ExcludedInspectionGroups"
+      - "IncludedInspections"
+      - "severity:WEAK WARNING"
+  - inspections:
+    - JavaAnnotator
 ```
 
-Inside `groups`, this sample contains several groups, and each group contains these nodes:
+This sample also contains the following nodes:
 
 | Group name                           | Description                                                   |
 |--------------------------------------|---------------------------------------------------------------|
@@ -211,7 +143,7 @@ the settings from included files are parsed prior to the local settings.
 ### groups.inspections
 {id="groups-inspections"}
 
-The list of inspections that need to be grouped.
+Contains the list of inspections included in the group.
 
 ```yaml
 inspections:
@@ -222,26 +154,26 @@ inspections:
 ### groups.groups
 {id="groups-groups"}
 
-Contains a list of inspection categories and included inspection groups:
+Contains a list of group IDs with possible exclamation mark character (`!`):
 
 ```yaml
 groups:
     - "ALL"
-    - "category:Java"
-    - "IncludedInspections"
+    - "category:Java/Probable bugs"
+    - "IncludedInspections" 
     - "!ExcludedInspections"
-    - "!severity:TEXT ATTRIBUTES"
+    - "severity:WEAK WARNING"
 ```
 
 This sample includes several nodes:
 
-| Configuration example       | Description                                                                                                                                                            |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ALL`                       | Use this to specify all possible inspections. This can be an alternative to using `baseProfile` while creating [profiles from scratch](#Create+a+profile+from+scratch) |
-| `category:Java`             | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of your IDE   |
-| `IncludedInspections`       | Name of the existing group from the profile, either the current or an extended                                                                                         |
-| `!ExcludedInspections`      | Negate the existing `ExcludedPaths` inspection group, either the current or an extended                                                                                |
-| `!severity:TEXT ATTRIBUTES` | Negate all inspections with the specific [severity](#profile-severity-levels), which lets you filter inspections by severity levels                                    |
+| Configuration example       | Description                                                                                                                                                          |
+|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ALL`                       | Enables all inspections. Besides that, you can also use `LOCAL` to inspect your code using inspections from your IDE, or `GLOBAL` to inspect your code using the **Inspect code** action of your IDE                    |
+| `category:Java/Probable bugs`             | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of your IDE |
+| `IncludedInspections`       | Name of the existing group from the profile, either the current or an extended                                                                                       |
+| `!ExcludedInspections`      | Negate the existing `ExcludedPaths` inspection group, either the current or an extended                                                                              |
+| `!severity:WEAK WARNING` | Negate all inspections with the specific [severity](#profile-severity-levels), which lets you filter inspections by severity levels                                  |
 
 ## inspections
 {id="inspections-group"}
@@ -276,6 +208,71 @@ This sample contains several nodes:
 | `inspection` | Name of the inspection which severity needs to be overridden. For example, if you consider a problem to be a `WARNING` instead of `ERROR`                                               |
 | `severity`   | Severity level that will be assigned to `inspection`                                                                                                                                    |
 
+
+## include
+
+Contains the list of relative paths to included profiles.
+
+```yaml
+include:
+    - "firstprofile.yaml" 
+    - "relative/path/to/anotherprofile.yaml"
+```
+
+If your profile does not include any profiles, it employs either the default profile of your
+IDE or the [`baseProfile`](#baseProfile) settings. If included, a profile does not override such settings.
+
+To overview the default profile, in your IDE navigate to **Settings | Editor | Inspections**.
+
+File contents are included in the order of appearance, thus becoming part of your profile. This means that the settings
+of the included files are used prior to the settings specified in your custom profile.
+
+### Example
+
+Suppose, you have the `foo.yaml` and `bar.yaml` profiles.
+
+The `foo.yaml` profile enables the `Inspection1`, `Inspection2` and `Inspection3` [inspections](#inspections-group):
+
+```yaml
+inspections:
+  - inspection: Inspection1
+    enabled: true
+  - inspection: Inspection2
+    enabled: true
+  - inspection: Inspection3
+    enabled: true
+```
+
+The `bar.yaml` profile disables the `Inspection1` inspection:
+
+```yaml
+inspections:
+  - inspection: Inspection1
+    enabled: false
+```
+
+You can include these two files in the custom profile and disable `Inspection2`:
+
+```yaml
+include:
+  - "foo.yaml"
+  - "bar.yaml"
+inspections:
+  - inspection: Inspection2
+    enabled: false
+```
+
+In this case, the custom profile configuration parsed by %product% will look like this:
+
+```yaml
+inspections:
+  - inspection: Inspection1
+    enabled: false # "bar.yaml" was included later than "foo.yaml"
+  - inspection: Inspection2
+    enabled: false # it was applied in the custom profile last
+  - inspection: Inspection3
+    enabled: true
+```
 
 ## Examples
 
@@ -386,7 +383,7 @@ that are not related to the [Qodana for .NET](qodana-dotnet.md) linter.
 name: "My custom profile"
 
 include:
-  - "qodana.recommended.yaml" # Extend the qodana.recommended profile
+  - "qodana.starter.yaml" # Include the qodana.starter profile
 
 groups:
   - groupId: ExcludedInspections
@@ -415,7 +412,7 @@ inspections:
 
 ### Filter by severity
 
-This sample excludes all inspections with the `WEAK WARNING` severity level while inspecting Java code.
+This sample includes all inspections with the `WEAK WARNING` severity level while inspecting Java code.
 
 ```yaml
 name: "My custom profile"
@@ -424,7 +421,7 @@ groups:
   - groupId: IncludedInspections
     groups:
       - "category:Java"
-      - "!severity:WEAK WARNING"
+      - "severity:WEAK WARNING"
             
 inspections:  
   - group: IncludedInspections

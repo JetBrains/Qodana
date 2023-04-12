@@ -532,7 +532,7 @@
 
             <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file.</tip>
 
-            <p>This command lets you bind the file to the profile <a anchor="docker-config-reference-image-paths">directory</a>,
+            <p>This command lets you bind the file to the profile directory,
                 and the <code>--profile-path</code> option tells %product% which profile file to read:</p>
 
             <tabs group="cli-settings">
