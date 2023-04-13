@@ -1163,7 +1163,7 @@
 
     <chunk id="inspection-profiles-profile-name">
 
-    <p>The <code>--profile-name</code> option lets you run %product% using either the
+    <p>The <code>--profile-name</code> CLI option lets you run %product% using either the
         <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a> or the profile name from the
         <a href="custom-profiles.md">custom profile</a>.
     </p>
@@ -1217,7 +1217,7 @@
 
     <chunk id="inspection-profiles-profile-path">
 
-        <p>The <code>--profile-path</code> option lets you override the path to the file containing the profile.</p>
+        <p>The <code>--profile-path</code> CLI option lets you override the path to the file containing the profile.</p>
 
         <p>This command lets you bind the file to the profile directory,
             and the <code>--profile-path</code> option tells %product% which profile file to read:</p>

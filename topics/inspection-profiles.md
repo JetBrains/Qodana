@@ -53,21 +53,17 @@ You can set up a profile using either the `qodana.yaml` file or the [Shell comma
 
 ### Profile name
 
-#### qodana.yaml
-
 This is how you can configure the profile name using `qodana.yaml`:
 
 ```yaml
   name: &lt;name&gt;
 ```
 
-#### Shell commands
+#### CLI
 
 <include src="lib_qd.xml" include-id="inspection-profiles-profile-name"/>
 
 ### Profile path
-
-#### qodana.yaml
 
 This is how you can configure the profile path using `qodana.yaml`:
 
@@ -77,7 +73,5 @@ profile:
 ```
 
 You can also use it for [custom profiles](custom-profiles.md).
-
-#### Shell commands
 
 <include src="lib_qd.xml" include-id="inspection-profiles-profile-path"/>
