@@ -10,7 +10,7 @@
         <!-- Reference to the Integration section and plugins should be added here -->
         <toc-element id="about-qodana.md"/>
         <toc-element id="Quick-start.xml"/>
-        <toc-element id="new-in-2022-3.md"/>
+        <toc-element id="new-in-2023-1.md"/>
         <!-- These concepts should be mentioned in the About Qodana page -->
         <toc-element id="components.xml">
             <toc-element id="static-analysis.xml"/>
@@ -64,10 +64,7 @@
         <toc-element id="inspection-profiles.md">
             <toc-element id="custom-profiles.md"/>
         </toc-element>
-        <toc-element id="docker-image-configuration.xml" show-structure-depth="3">
-        </toc-element>
-
-
+        <toc-element id="docker-image-configuration.xml" show-structure-depth="3"/>
     </toc-element>
 
     <!-- The beginning of the Inspect your code section -->

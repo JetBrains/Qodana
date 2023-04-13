@@ -47,40 +47,29 @@ inspections: # Group invocation
 
 This sample consists of several nodes:
 
-| Section                             | Description                                                           |
-|-------------------------------------|-----------------------------------------------------------------------|
-| [`baseProfile`](#baseProfile)       | The profile that will serve as a basis for your profile configuration |
-| [`name`](#name)                     | Name of the inspection profile                                        |
-| [`include`](#include)               | Include an existing file-based profile into your profile              |
-| [`groups`](#groups)                 | Inspection groups that need to enabled or disabled in your profile    |
-| [`inspections`](#inspections-group) | Sequence of `groups` setting application                              |
-
-
-By default, %product% supports the following severity levels inherited from the JetBrains IDEs that you can use while
-configuring your profile:
-
-{id="profile-severity-levels"}
-
-* Error
-* Warning
-* Weak Warning
+| Section                             | Description                                                                                               |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [`baseProfile`](#baseProfile)       | The profile that will serve as a basis for your profile configuration                                     |
+| [`name`](#name)                     | Name of the inspection profile                                                                            |
+| [`include`](#include)               | Include an existing file-based profile into your profile                                                  |
+| [`groups`](#groups)                 | Inspection groups that need to included or excluded in your profile                                       |
+| [`inspections`](#inspections-group) | List of changes applied for `baseProfile`. These changes could be applied to groups or single inspections |
 
 ## baseProfile
 
 The `baseProfile` parameter lets you specify the profile that will serve as a basis for your profile configuration. It
 can accept the following values: 
 
-| Value                | Description                                                                                                                                            |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Default`            | The [default profile](#custom-profiles-default-profile-tip) of your IDE                                                                                |
-| `Project Default`    | Profile is similar to `Default` but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                            |
-| `qodana.starter`     | The [default](inspection-profiles.md#Default+profiles) %product% profile                                                                               |
-| `qodana.recommended` | The [default](inspection-profiles.md#Default+profiles) %product% profile                                                                               |
+| Value                | Description                                                                                                                                                                                          |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Default`            | The [default profile](#custom-profiles-default-profile-tip) of your IDE                                                                                                                              |
+| `Project Default`    | Profile is similar to `Default` but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                                                                          |
+| `qodana.starter`     | The [default](inspection-profiles.md#Default+profiles) %product% profile, a subset of the `qodana.recommended` profile                                                                               |
+| `qodana.recommended` | The [default](inspection-profiles.md#Default+profiles) %product% profile implementing the default profiles of JetBrains IDEs                                                                         |
 | `empty`              | Severities and parameters of inspections are taken from `Default`, but all inspections are disabled. Using `empty`, you can you can build your profile [from scratch](#Create+a+profile+from+scratch) |
 
 If this parameter is missing, %product% will employ the IDE default profile, so all settings applied to your custom 
-profile will override such settings contained in the IDE default profile. If your custom profile [includes](#include) 
-another profile that completely overrides the IDE default profile, then your profile will also completely override it.
+profile will override such settings contained in the IDE default profile. 
 
 {id="custom-profiles-default-profile-tip"}
 
@@ -100,8 +89,8 @@ The `groups` block contains descriptions of user-defined groups.
 
 Each definition can include or exclude other groups or single inspections.
 
-You can use the exclamation mark character (`!`) to negate a group or a category. For example, you can disable a 
-specific category usage in a group that will be enabled.
+You can use the exclamation mark character (`!`) to negate a group or a category. For example, you can exclude a 
+specific category usage in a group that will be included.
 
 Here is the sample containing the `EnabledInspections` group defined by a user:
 
@@ -121,11 +110,11 @@ groups:
 
 This sample also contains the following nodes:
 
-| Group name                           | Description                                                   |
-|--------------------------------------|---------------------------------------------------------------|
-| [`groupId`](#groups-groupid)         | ID of the group                                               |
-| [`inspections`](#groups-inspections) | List of inspections                                           |
-| [`groups`](#groups-groups)           | Group of inspection categories and included inspection groups |
+| Group name                           | Description                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [`groupId`](#groups-groupid)         | ID of the group                                                                                                   |
+| [`inspections`](#groups-inspections) | List of included and excluded inspections in this group                                                           |
+| [`groups`](#groups-groups)           | List of included and excluded groups in this group |
 
 ### groups.groupId
 {id="groups-groupid"}
@@ -167,23 +156,34 @@ groups:
 
 This sample includes several nodes:
 
-| Configuration example       | Description                                                                                                                                                          |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ALL`                       | Enables all inspections. Besides that, you can also use `LOCAL` to inspect your code using inspections from your IDE, or `GLOBAL` to inspect your code using the **Inspect code** action of your IDE                    |
-| `category:Java/Probable bugs`             | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of your IDE |
-| `IncludedInspections`       | Name of the existing group from the profile, either the current or an extended                                                                                       |
-| `!ExcludedInspections`      | Negate the existing `ExcludedPaths` inspection group, either the current or an extended                                                                              |
-| `!severity:WEAK WARNING` | Negate all inspections with the specific [severity](#profile-severity-levels), which lets you filter inspections by severity levels                                  |
+| Configuration example       | Description                                                                                                                                                                                          |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ALL`                       | Include all inspections. Besides that, you can also use `LOCAL` to inspect your code using inspections from your IDE, or `GLOBAL` to inspect your code using the **Inspect code** action of your IDE |
+| `category:Java/Probable bugs`             | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of your IDE                                 |
+| `IncludedInspections`       | Name of the existing group from the profile, either the current or included                                                                                                                          |
+| `!ExcludedInspections`      | Negate the existing `ExcludedPaths` inspection group, either the current or an included                                                                                                              |
+| `!severity:WEAK WARNING` | Negate all inspections with the specific [severity](#profile-severity-levels), which lets you filter inspections by severity levels                                                                  |
+
+{id="profile-severity-levels"}
+
+By default, %product% supports the following severity levels inherited from the JetBrains IDEs that you can use while
+configuring your profile:
+
+* Error
+* Warning
+* Weak Warning
+
+
 
 ## inspections
 {id="inspections-group"}
 
-Using `inspections`, you can specify:
+Using `inspections`, you can:
 
-* Which inspection groups to enable or disable
-* The Order of [group](#groups) invocation
-* Which files or scopes to ignore
-* The severity level for specific inspections
+* Enable or disable a specific group or an inspection
+* Define the order of applying these settings
+* Define the paths or scopes to be ignored by the specific group or the inspection
+* Change severity levels of the specific group or the inspection
 
 ```yaml
 inspections:
@@ -200,13 +200,13 @@ inspections:
 
 This sample contains several nodes:
 
-| Group name   | Description                                                                                                                                                                             |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `group`      | Group name from [`groupId`](#groups-groupid)                                                                                                                                            |
-| `enabled`    | Specify whether the group is enabled in the profile. Accepts either `true` or `false`                                                                                                   |
-| `ignore`     | Paths relative to the project root that will be ignored during inspection. Employs the patterns described in the [Java](%java-glob%) documentation |
-| `inspection` | Name of the inspection which severity needs to be overridden. For example, if you consider a problem to be a `WARNING` instead of `ERROR`                                               |
-| `severity`   | Severity level that will be assigned to `inspection`                                                                                                                                    |
+| Group name   | Description                                                                                                                                                           |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `group`      | Group name or ID of the embedded group taken from the [`groupId`](#groups-groupid) field                                                                              |
+| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                                               |
+| `ignore`     | List of paths and scopes relative to the project root that will be ignored during inspection. Employs the patterns described in the [Java](%java-glob%) documentation |
+| `inspection` | Name of the inspection or the inspection group that needs to be configured.                                                                                           |
+| `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR`                      |
 
 
 ## include
