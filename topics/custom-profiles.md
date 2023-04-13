@@ -60,13 +60,13 @@ This sample consists of several nodes:
 The `baseProfile` parameter lets you specify the profile that will serve as a basis for your profile configuration. It
 can accept the following values: 
 
-| Value                | Description                                                                                                                                                                                          |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Default`            | The [default profile](#custom-profiles-default-profile-tip) of your IDE                                                                                                                              |
-| `Project Default`    | Profile is similar to `Default` but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                                                                          |
-| `qodana.starter`     | The [default](inspection-profiles.md#Default+profiles) %product% profile, a subset of the `qodana.recommended` profile                                                                               |
-| `qodana.recommended` | The [default](inspection-profiles.md#Default+profiles) %product% profile implementing the default profiles of JetBrains IDEs                                                                         |
-| `empty`              | Severities and parameters of inspections are taken from `Default`, but all inspections are disabled. Using `empty`, you can you can build your profile [from scratch](#Create+a+profile+from+scratch) |
+| Value                | Description                                                                                                                                                                                            |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Default`            | The [default profile](#custom-profiles-default-profile-tip) of your IDE                                                                                                                                |
+| `Project Default`    | Profile is similar to `Default` but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                                                                            |
+| `qodana.starter`     | The [default](inspection-profiles.md#Default+profiles) %product% profile, a subset of the `qodana.recommended` profile                                                                                 |
+| `qodana.recommended` | The [default](inspection-profiles.md#Default+profiles) %product% profile implementing the default profiles of JetBrains IDEs                                                                           |
+| `empty`              | Severities and parameters of inspections are taken from `Default`, but none inspections are included. Using `empty`, you can you can build your profile [from scratch](#Create+a+profile+from+scratch) |
 
 If this parameter is missing, %product% will employ the IDE default profile, so all settings applied to your custom 
 profile will override such settings contained in the IDE default profile. 
@@ -281,7 +281,7 @@ explains how to run your profile while inspecting code.
 
 ### Create a profile from scratch
 
-Using `baseProfile`, this configuration defines the empty profile, and then it enables only the `Java/Data flow`
+Using `baseProfile`, this configuration defines the empty profile, and then it includes only the `Java/Data flow`
 inspection group from the [Qodana for JVM](qodana-jvm.md) linter.
 
 ```yaml
@@ -349,7 +349,7 @@ inspections:
     enabled: true
 ```
 
-Alternatively, you can explicitly disable the `PhpDeprecationInspection` inspection in the `inspections` group:
+Alternatively, you can explicitly exclude the `PhpDeprecationInspection` inspection using the `inspections` group:
 
 ```yaml
 name: "My custom profile"
