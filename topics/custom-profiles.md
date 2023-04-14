@@ -280,43 +280,6 @@ inspections:
 Here you can find several examples of profile configuration. The [](inspection-profiles.md#Set+up+a+profile) section
 explains how to run your profile while inspecting code.
 
-### Create a profile from scratch
-
-Using `baseProfile`, this configuration defines the empty profile, and then it includes only the `Java/Data flow`
-inspection group from the [Qodana for JVM](qodana-jvm.md) linter.
-
-```yaml
-name: "Java/Data flow only"
-
-baseProfile: empty
-               
-inspections:  
-  - group: "category:Java/Data flow"
-    enabled: true # Enable the 'Java/Data flow' category
-```
-
-As an alternative to [`baseProfile`](#baseProfile), you can use `ALL` in the [`groups`](#groups-groups) property:
-
-```yaml
-name: "Java/Data flow only"
-
-groups:
-  - groupId: ExcludedInspections
-    groups:
-      - "ALL"
-
-  - groupId: IncludedInspections
-    groups:
-      - "category:Java/Data flow" # Specify the 'Java/Data flow' category
-               
-inspections:  
-  - group: ExcludedInspections
-    enabled: false # Disable all inspections
-    
-  - group: IncludedInspections
-    enabled: true # Enable the 'Java/Data flow' category
-```
-
 ### Exclude an inspection
 
 This sample shows how you can exclude the `PhpDeprecationInspection` inspection from the [Qodana for PHP](qodana-php.md) linter
@@ -352,6 +315,69 @@ inspections:
     
   - group: Inspection 
     enabled: false # Disable the PhpDeprecationInspection inspection
+```
+
+### Exclude paths
+
+You can use the `ignore` block to exclude certain [scopes](%idea-scopes%) while inspecting your code. 
+
+Java/Data flow only
+
+```yaml
+name: "Ignoring paths"
+
+inspections:
+  - group: "category:PHP/General"
+    enabled: true # Enable the 'PHP/General' category
+  - inspection: PhpDeprecationInspection
+    enabled: false # Disable the PhpDeprecationInspection inspection
+
+inspections:
+  - group: "category:JavaScript and TypeScript/General"
+    enabled: true
+    ignore:
+      - ".npm//*"
+  - inspection: NpmUsedModulesInstalled
+    enabled: true
+    ignore:
+      - "vendor/**"
+```
+
+### Create a profile from scratch
+
+Using `baseProfile`, this configuration defines the empty profile, and then it includes only the `Java/Data flow`
+inspection group from the [Qodana for JVM](qodana-jvm.md) linter.
+
+```yaml
+name: "Java/Data flow only"
+
+baseProfile: empty
+               
+inspections:  
+  - group: "category:Java/Data flow"
+    enabled: true # Enable the 'Java/Data flow' category
+```
+
+As an alternative to [`baseProfile`](#baseProfile), you can use `ALL` in the [`groups`](#groups-groups) property:
+
+```yaml
+name: "Java/Data flow only"
+
+groups:
+  - groupId: ExcludedInspections
+    groups:
+      - "ALL"
+
+  - groupId: IncludedInspections
+    groups:
+      - "category:Java/Data flow" # Specify the 'Java/Data flow' category
+               
+inspections:  
+  - group: ExcludedInspections
+    enabled: false # Disable all inspections
+    
+  - group: IncludedInspections
+    enabled: true # Enable the 'Java/Data flow' category
 ```
 
 ### Override the existing profile
@@ -413,7 +439,6 @@ inspections:
 ```
 
 You can also apply severity level to a specific inspection:
-
 
 ```yaml
 name: "My custom profile"
