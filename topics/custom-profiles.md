@@ -196,22 +196,21 @@ inspections:
     enabled: false
   - group: ALL
     ignore:
-      - "vendor/**"
-      - "build/**"
-      - "buildSrc/**"
+      - "vendor/**" 
+      - "scope:#file[*test*]:src/*"
   - inspection: JavadocReference
     severity: WARNING
 ```
 
 This sample contains several properties:
 
-| Property     | Description                                                                                                                                                           |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `group`      | The group ID value of a group from the [`groupId`](#groups-groupid) property. This is also applicable for embedded groups                                             |
-| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                                               |
-| `ignore`     | List of paths and scopes relative to the project root that will be ignored during inspection. Employs the patterns described in the [Java](%java-glob%) documentation |
-| `inspection` | Name of the inspection or the inspection group that needs to be configured.                                                                                           |
-| `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR`                      |
+| Property     | Description                                                                                                                                              |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `group`      | The group ID value of a group from the [`groupId`](#groups-groupid) property. This is also applicable for embedded groups                                |
+| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                                  |
+| `ignore`     | List of paths using the patterns described in the [Java](%java-glob%) documentation, or [scopes](%idea-scopes%) that will be ignored during inspection |
+| `inspection` | Name of the inspection or the inspection group that needs to be configured.                                                                              |
+| `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR`         |
 
 
 ## include
@@ -324,10 +323,11 @@ inspections:
 
 You can use the `ignore` block to ignore specific [scopes](%idea-scopes%) and paths while inspecting your code. 
 
-In the sample below, the scope definition `scope#file[*web*]:.npm//*` of the `ignore` block lets you ignore all the 
-contents recursively contained in the `.npm/` directory of all modules which name contains `web`. 
+In the sample below, the scope definition `scope#file[*web*]:.npm//*` lets you ignore all the 
+contents recursively contained in the `.npm/` directory of all modules with the names containing the `test` substring. 
 
-The `tests/**` value lets you ignore the contents of the `tests` directory contained in your project root.   
+The `vendor/**` value employs the patterns described on the [Java](%java-glob%) website and lets you ignore the contents 
+of the `vendor` directory contained in your project root.   
 
 ```yaml
 name: "Ignoring paths"
@@ -336,11 +336,11 @@ inspections:
   - group: "category:JavaScript and TypeScript/General"
     enabled: true
     ignore:
-      - "scope#file[*web*]:.npm//*" # Ignore a scope
+      - "scope#file[*test*]:.npm//*" # Ignore a scope
   - inspection: NpmUsedModulesInstalled
     enabled: true
     ignore:
-      - "tests/**" # Ignore a path
+      - "vendor/**" # Ignore a path
 ```
 
 ### Create a profile from scratch
