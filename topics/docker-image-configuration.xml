@@ -244,7 +244,7 @@
             </tr>
             <tr>
                 <td>Requires the space character (<code>&#160;</code>) between the option name and its argument</td>
-                <td><code>−−baseline /path/to/sarif/file</code></td>
+                <td><code>&#45;&#45;baseline /path/to/sarif/file</code></td>
             </tr>
             <tr>
                 <td>Requires no argument</td>
