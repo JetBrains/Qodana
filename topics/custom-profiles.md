@@ -322,7 +322,12 @@ inspections:
 
 ### Exclude paths
 
-You can use the `ignore` block to exclude certain [scopes](%idea-scopes%) while inspecting your code. 
+You can use the `ignore` block to ignore specific [scopes](%idea-scopes%) and paths while inspecting your code. 
+
+In the sample below, the scope definition `scope#file[*web*]:.npm//*` of the `ignore` block lets you ignore all the 
+contents recursively contained in the `.npm/` directory of all modules which name contains `web`. 
+
+The `tests/**` value lets you ignore the contents of the `tests` directory contained in your project root.   
 
 ```yaml
 name: "Ignoring paths"
@@ -331,11 +336,11 @@ inspections:
   - group: "category:JavaScript and TypeScript/General"
     enabled: true
     ignore:
-      - ".npm//*"
+      - "scope#file[*web*]:.npm//*" # Ignore a scope
   - inspection: NpmUsedModulesInstalled
     enabled: true
     ignore:
-      - "vendor/**"
+      - "tests/**" # Ignore a path
 ```
 
 ### Create a profile from scratch
