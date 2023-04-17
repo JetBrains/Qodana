@@ -26,7 +26,7 @@
         <p>The first group requires the equal sign (<code>&#61;</code>) to be placed between the option name and its
             argument like <code>--project-dir=/path/to/project</code>.</p>
         <p>The second group uses the space character (<code>&#160;</code>) to separate option names and their arguments
-            like <code>−−baseline /path/to/sarif/file</code>.</p>
+            like <code>&#45;&#45;baseline /path/to/sarif/file</code>.</p>
         <p>The third group of options does not require any arguments to be supplied with, as you can see it in case of
             the <code>--save-report</code> option.</p>
 
