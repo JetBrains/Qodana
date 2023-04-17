@@ -28,8 +28,8 @@
         </p>
 
         <code style="block" lang="shell">
-        docker run ... <![CDATA[jetbrains/qodana&minus;&lt;linter&gt; \
-        &minus;&minus;baseline &lt;path-to-qodana.sarif.json&gt;]]>
+        docker run ... <![CDATA[jetbrains/qodana-&lt;linter&gt; \
+           --baseline &lt;path-to-qodana.sarif.json&gt;]]>
         </code>
 
         <p>The baseline feature divides problems into these groups:</p>
@@ -65,9 +65,9 @@
             <p>To include absent problems in the report, you need to run %product% with the
                 <code style="inline">--baseline-include-absent</code> option:</p>
             <code style="block" lang="shell">
-            docker run ... <![CDATA[jetbrains/qodana&minus;&lt;linter&gt; \
-            &minus;&minus;baseline &lt;path-to-qodana.sarif.json&gt; \
-            &minus;&minus;baseline-include-absent]]>
+            docker run ... <![CDATA[jetbrains/qodana-&lt;linter&gt; \
+               --baseline &lt;path-to-qodana.sarif.json&gt; \
+               --baseline-include-absent]]>
             </code>
         </li>
 
