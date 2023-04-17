@@ -178,8 +178,6 @@ configuring your profile:
 * Warning
 * Weak Warning
 
-
-
 ## inspections
 {id="inspections-group"}
 
@@ -204,13 +202,13 @@ inspections:
 
 This sample contains several properties:
 
-| Property     | Description                                                                                                                                              |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `group`      | The group ID value of a group from the [`groupId`](#groups-groupid) property. This is also applicable for embedded groups                                |
-| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                                  |
+| Property     | Description                                                                                                                                            |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `group`      | The group ID value of a group from the [`groupId`](#groups-groupid) property. This is also applicable for embedded groups                              |
+| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                                |
 | `ignore`     | List of paths using the patterns described in the [Java](%java-glob%) documentation, or [scopes](%idea-scopes%) that will be ignored during inspection |
-| `inspection` | Name of the inspection or the inspection group that needs to be configured.                                                                              |
-| `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR`         |
+| `inspection` | Name of the inspection that needs to be configured                                                                              |
+| `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR`       |
 
 
 ## include
