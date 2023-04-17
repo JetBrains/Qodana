@@ -42,7 +42,7 @@
             <tab title="CLI">
                 <code style="block" lang="Shell" prompt="$">
                 docker run ... jetbrains/qodana-php \
-                <![CDATA[&minus;&minus;script php-migration:&lt;old-php-version&gt;&minus;to&minus;&lt;upgraded-php-version&gt;]]>
+                <![CDATA[--script php-migration:&lt;old-php-version&gt;-to-&lt;upgraded-php-version&gt;]]>
                 </code>
                 <p>This snippet specifies the <code style="inline">php-migration</code> scenario for the
                     <code style="inline">--script</code> option followed by the colon <code style="inline">:</code>
