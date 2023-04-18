@@ -349,7 +349,8 @@ inspection group from the [Qodana for JVM](qodana-jvm.md) linter.
 ```yaml
 name: "Java/Data flow only"
 
-baseProfile: empty
+baseProfile: 
+  - empty
                
 inspections:  
   - group: "category:Java/Data flow"
