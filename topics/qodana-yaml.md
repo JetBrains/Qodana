@@ -285,7 +285,6 @@ customDependencies:
 You can specify the plugins that will be downloaded and invoked during inspection. 
 
 ```yaml
-version: "1.0"
 plugins:
   - id: <plugin.id>
 ```
