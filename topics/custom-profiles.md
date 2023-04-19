@@ -5,6 +5,7 @@
 <var name="qodana.starter" value="https://github.com/JetBrains/qodana-profiles/blob/master/.idea/inspectionProfiles/qodana.starter.yaml"/>
 <var name="qodana.recommended" value="https://github.com/JetBrains/qodana-profiles/blob/master/.idea/inspectionProfiles/qodana.recommended.yaml"/>
 <var name="java-glob" value="https://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-"/>
+<var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
 
 Starting from version 2023.1, you can create and configure %product% profiles using YAML. %product% also provides 
@@ -19,8 +20,7 @@ This sample shows how you can fine-tune %product% for your needs.
 ```yaml
 name: "My custom profile" # Profile name
 
-baseProfile:
-  - empty # Use the 'empty' profile as initial configuration of this profile
+baseProfile: empty # Use the 'empty' profile as initial configuration of this profile
 
 include:
   - ".qodana/profiles/other-profile.yaml" # The included file becomes part of this profile
@@ -31,11 +31,9 @@ groups: # List of configured groups
       - "category:PHP/General" # Inspection category from the linter
       - "JSCategories" # Include the JSCategories group from below
       - "PHPInspections" # Include the PHPInspections group from below
-
   - groupId: JSCategories
     groups:
       - "category:JavaScript and TypeScript/ES2015 migration aids"
-   
   - groupId: PHPInspections 
     inspections: #  Inspection IDs
       - PhpDeprecationInspection 
@@ -63,12 +61,12 @@ This sample consists of several nodes:
 The `baseProfile` block lets you specify the profile that will serve as a basis for your profile configuration. It
 can accept the following values: 
 
-| `baseProfile` value  | Description                                                                                                                                                                                                           |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Default`            | The [default profile](#custom-profiles-default-profile-tip) of your IDE                                                                                                                                               |
-| `Project Default`    | The profile is basically similar to `Default`, but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                                                                            |
-| `qodana.starter`     | The [default](inspection-profiles.md#Default+profiles) %product% profile, a subset of the `qodana.recommended` profile                                                                                                |
-| `qodana.recommended` | The [default](inspection-profiles.md#Default+profiles) %product% profile implementing the default profiles of JetBrains IDEs                                                                                          |
+| `baseProfile` value  | Description                                                                                                                                                                                                          |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Default`            | The [default profile](#custom-profiles-default-profile-tip) taken from the JetBrains IDE                                                                                                                      |
+| `Project Default`    | The profile is basically similar to `Default`, but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                                                                           |
+| `qodana.starter`     | The [default](inspection-profiles.md#Default+profiles) %product% profile, a subset of the `qodana.recommended` profile                                                                                               |
+| `qodana.recommended` | The [default](inspection-profiles.md#Default+profiles) %product% profile implementing the default profiles of JetBrains IDEs                                                                                         |
 | `empty`              | Severities and parameters of inspections are taken from `Project Default`, but none of the inspections are included. Using `empty`, you can you can build your profile [from scratch](#Create+a+profile+from+scratch) |
 
 If this parameter is missing, %product% will employ the `Project Default` profile, so all settings applied in your custom 
@@ -88,7 +86,7 @@ name: "Name of your profile"
 
 ## groups
 
-The `groups` block contains user-defined groups. Using groups, you can combine inspection categories and
+The `groups` block is a list of user-defined groups. Here, you can combine inspection categories and
 single inspections, and then configure their usage in the [`inspections`](#inspections-group) block.
 
 Each group definition can include or exclude other groups or single inspections.
@@ -100,19 +98,14 @@ Here is the sample containing the `EnabledInspections` group defined by a user:
 
 ```yaml
 groups:
-
   - groupId: EnabledInspections
     groups:
-      - "category:Java/Probable bugs" 
-      - "ALL"
-      - "!ExcludedInspectionGroups"
-      - "IncludedInspections"
-      - "severity:WEAK WARNING"
-  - inspections:
-    - JavaAnnotator
+      - "category:Java/Probable bugs"
+    inspections:
+      - RedundantIf
 ```
 
-This sample also contains the following properties:
+This sample contains the following properties:
 
 | Property                             | Description                                                                                                       |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -124,25 +117,25 @@ This sample also contains the following properties:
 ### groups.groupId
 {id="groups-groupid"}
 
-Group identifier. 
+Unique group identifier. 
 
 ```yaml
   - groupId: IncludedInspections
 ```
 
-Because a profile file is parsed from top to bottom, in case two groups are defined under the same
-`groupId`, the latest group met in the file will be employed. This rule also works for all included files because
-the settings contained in the included files are parsed prior to the settings laid out in the current file.
+In case two groups are defined under the same `groupId`, the latest group met in the file will be employed. This rule 
+also works for all included files because the settings contained in the included files are considered prior to the settings 
+laid out in the current file.
 
 ### groups.inspections
 {id="groups-inspections"}
 
-The list of inspections contained in the group.
+The list of inspections included in the group.
 
 ```yaml
 inspections:
-    - JavaAnnotator
-    - JSAnnotator
+    - RedundantIf
+    - UnnecessaryLocalVariable
 ```
 
 ### groups.groups
@@ -161,13 +154,13 @@ groups:
 
 Here, `groups` lists several values:
 
-| [`groupId`](#groups-groupid) value | Description                                                                                                                                                                                          |
-|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ALL`                              | Include all inspections. Besides that, you can also use `LOCAL` to inspect your code using inspections from your IDE, or `GLOBAL` to inspect your code using the **Inspect code** action of your IDE |
-| `category:Java/Probable bugs`      | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of your IDE                                 |
-| `IncludedInspections`              | Name of the existing group from the profile, also applicable for included groups                                                                                                                     |
-| `!ExcludedInspections`             | Negate the existing `ExcludedInspections` inspection group, also applicable for included groups                                                                                                      |
-| `severity:WEAK WARNING`            | Filter inspections by [severity](#profile-severity-levels) levels. Using this example, you can filter by the `!DEFAULT!` severity with the `Weak Warning` name                                       |
+| [`groupId`](#groups-groupid) value | Description                                                                                                                                                                                                                        |
+|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ALL`                              | Include all inspections. Besides that, you can also use `LOCAL` to inspect your code using inspections available locally, or `GLOBAL` to inspect your code using the **Inspect code** action of the JetBrains IDE                  |
+| `category:Java/Probable bugs`      | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of the JetBrains IDE                                                      |
+| `IncludedInspections`              | Name of the existing user-defined group, or a group from an included profile                                                                                                                                                       |
+| `!ExcludedInspections`             | Negate the existing `ExcludedInspections` inspection group, either user-defined or included from another profile                                                                                                                   |
+| `severity:WEAK WARNING`            | Include or exclude inspections by a certain [severity](#profile-severity-levels) level. Because the severity value is taken from the `Default` [profile](#baseProfile), %product% is not aware of the changes made in your profile |
 
 {id="profile-severity-levels"}
 
@@ -195,20 +188,20 @@ inspections:
   - group: ALL
     ignore:
       - "vendor/**" 
-      - "scope:#file[*test*]:src/*"
+      - "scope#file[*test*]:src/*"
   - inspection: JavadocReference
     severity: WARNING
 ```
 
 This sample contains several properties:
 
-| Property     | Description                                                                                                                                            |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `group`      | The group ID value of a group from the [`groupId`](#groups-groupid) property. This is also applicable for embedded groups                              |
-| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                                |
-| `ignore`     | List of paths using the patterns described in the [Java](%java-glob%) documentation, or [scopes](%idea-scopes%) that will be ignored during inspection |
-| `inspection` | Name of the inspection that needs to be configured                                                                              |
-| `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR`       |
+| Property     | Description                                                                                                                                      |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `group`      | The value taken from the [`groupId`](#groups-groupid) property of an embedded or a user-defined group                                            |
+| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                          |
+| `ignore`     | List of paths using the [glob patterns](%wiki-glob%) and [scopes](%idea-scopes%) that will be ignored during inspection                          |
+| `inspection` | The name of the inspection that needs to be configured                                                                                           |
+| `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR` |
 
 
 ## include
@@ -223,7 +216,8 @@ include:
 
 If your profile does not include any other profiles, the [`baseProfile`](#baseProfile) field is set to `Default`. 
 
-To overview the default profile, in your IDE navigate to **Settings | Editor | Inspections**.
+To overview the default profile, in the JetBrains IDE navigate to **Settings | Editor | Inspections** and select the 
+`Default` profile in the **Profile** drop-down selector.
 
 File contents are included in the order of appearance, thus becoming part of your profile. This means that the settings
 of the included files are used prior to the settings specified in your custom profile.
@@ -263,7 +257,7 @@ inspections:
     enabled: false
 ```
 
-In this case, the custom profile configuration parsed by %product% will look like this:
+In this case, the effective profile configuration read by %product% will look like this:
 
 ```yaml
 inspections:
@@ -282,17 +276,16 @@ explains how to run your profile while inspecting code.
 
 ### Exclude an inspection
 
-This sample shows how you can exclude the `PhpDeprecationInspection` inspection from the [Qodana for PHP](qodana-php.md) linter
-while inspecting your code using the `PHP/General` inspection category.
+This sample shows how you can exclude the `PhpDeprecationInspection` inspection from the [Qodana for PHP](qodana-php.md) 
+linter:
 
 ```yaml
 name: "PHP/General without PhpDeprecationInspection"
 
+baseProfile: qodana.starter
 inspections:
-  - group: "category:PHP/General"
-    enabled: true # Enable the 'PHP/General' category
   - inspection: PhpDeprecationInspection
-    enabled: false # Disable the PhpDeprecationInspection inspection
+    enabled: false 
 ```
 
 Alternatively, you can exclude the `PhpDeprecationInspection` inspection using two groups:
@@ -300,11 +293,12 @@ Alternatively, you can exclude the `PhpDeprecationInspection` inspection using t
 ```yaml
 name: "PHP/General without PhpDeprecationInspection"
 
+baseProfile: qodana.starter
+
 groups:
   - groupId: IncludedInspections
     groups:
-      - "category:PHP/General" # Specify the 'PHP/General' category
-            
+      - "category:PHP/General" # Specify the 'PHP/General' category            
   - groupId: Inspection
     inspections:
       -  PhpDeprecationInspection # Specify the PhpDeprecationInspection inspection   
@@ -312,7 +306,6 @@ groups:
 inspections:  
   - group: IncludedInspections
     enabled: true # Enable the 'PHP/General' category
-    
   - group: Inspection 
     enabled: false # Disable the PhpDeprecationInspection inspection
 ```
@@ -321,10 +314,10 @@ inspections:
 
 You can use the `ignore` block to ignore specific [scopes](%idea-scopes%) and paths while inspecting your code. 
 
-In the sample below, the scope definition `scope#file[*web*]:.npm//*` lets you ignore all the 
+In the sample below, the scope definition `scope#file[*test*]:.npm//*` lets you ignore all the 
 contents recursively contained in the `.npm/` directory of all modules with the names containing the `test` substring. 
 
-The `vendor/**` value employs the patterns described on the [Java](%java-glob%) website and lets you ignore the contents 
+The `vendor/**` value employs [glob patterns](%wiki-glob%) and lets you ignore the contents 
 of the `vendor` directory contained in your project root.   
 
 ```yaml
@@ -332,11 +325,9 @@ name: "Ignoring paths"
 
 inspections:
   - group: "category:JavaScript and TypeScript/General"
-    enabled: true
     ignore:
       - "scope#file[*test*]:.npm//*" # Ignore a scope
   - inspection: NpmUsedModulesInstalled
-    enabled: true
     ignore:
       - "vendor/**" # Ignore a path
 ```
@@ -349,8 +340,7 @@ inspection group from the [Qodana for JVM](qodana-jvm.md) linter.
 ```yaml
 name: "Java/Data flow only"
 
-baseProfile: 
-  - empty
+baseProfile: empty
                
 inspections:  
   - group: "category:Java/Data flow"
@@ -366,15 +356,13 @@ groups:
   - groupId: ExcludedInspections
     groups:
       - "ALL"
-
   - groupId: IncludedInspections
     groups:
       - "category:Java/Data flow" # Specify the 'Java/Data flow' category
                
 inspections:  
   - group: ExcludedInspections
-    enabled: false # Disable all inspections
-    
+    enabled: false # Disable all inspections    
   - group: IncludedInspections
     enabled: true # Enable the 'Java/Data flow' category
 ```
