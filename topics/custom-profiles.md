@@ -183,25 +183,26 @@ Using `inspections`, you can:
 
 ```yaml
 inspections:
-  - group: IncludedInspections
-    enabled: false
+  - group: InspectionGroup
+  - inspection: JavadocReference
+    severity: WARNING
   - group: ALL
     ignore:
       - "vendor/**" 
       - "scope#file[*test*]:src/*"
-  - inspection: JavadocReference
-    severity: WARNING
+  - group: DisabledInspections
+    enabled: false
 ```
 
 This sample contains several properties:
 
-| Property     | Description                                                                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| `group`      | The value taken from the [`groupId`](#groups-groupid) property of an embedded or a user-defined group                                            |
-| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                          |
-| `ignore`     | List of paths using the [glob patterns](%wiki-glob%) and [scopes](%idea-scopes%) that will be ignored during inspection                          |
-| `inspection` | The name of the inspection that needs to be configured                                                                                           |
+| Property     | Description                                                                                                                                     |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `group`      | The ID of the group from the [`groupId`](#groups-groupid) property of an embedded or a user-defined group                                       |
+| `inspection` | The ID of the inspection                                                                                             |
 | `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR` |
+| `ignore`     | List of paths using the [glob patterns](%wiki-glob%) and [scopes](%idea-scopes%) that will be ignored during inspection                         |
+| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                         |
 
 
 ## include
@@ -214,7 +215,7 @@ include:
     - "relative/path/to/anotherprofile.yaml"
 ```
 
-If your profile does not include any other profiles, the [`baseProfile`](#baseProfile) field is set to `Default`. 
+If the `include` block contains no values, the [`baseProfile`](#baseProfile) field is set to `Default`. 
 
 To overview the default profile, in the JetBrains IDE navigate to **Settings | Editor | Inspections** and select the 
 `Default` profile in the **Profile** drop-down selector.
@@ -288,7 +289,7 @@ inspections:
     enabled: false 
 ```
 
-Alternatively, you can exclude the `PhpDeprecationInspection` inspection using two groups:
+Alternatively, you can exclude the `PhpDeprecationInspection` inspection using `groups`:
 
 ```yaml
 name: "PHP/General without PhpDeprecationInspection"
@@ -296,16 +297,11 @@ name: "PHP/General without PhpDeprecationInspection"
 baseProfile: qodana.starter
 
 groups:
-  - groupId: IncludedInspections
-    groups:
-      - "category:PHP/General" # Specify the 'PHP/General' category            
   - groupId: Inspection
     inspections:
       -  PhpDeprecationInspection # Specify the PhpDeprecationInspection inspection   
 
 inspections:  
-  - group: IncludedInspections
-    enabled: true # Enable the 'PHP/General' category
   - group: Inspection 
     enabled: false # Disable the PhpDeprecationInspection inspection
 ```
@@ -314,22 +310,22 @@ inspections:
 
 You can use the `ignore` block to ignore specific [scopes](%idea-scopes%) and paths while inspecting your code. 
 
-In the sample below, the scope definition `scope#file[*test*]:.npm//*` lets you ignore all the 
-contents recursively contained in the `.npm/` directory of all modules with the names containing the `test` substring. 
+In the sample below, the `vendor/**` value employs [glob patterns](%wiki-glob%) for ignoring the contents
+of the `vendor` directory contained in your project root.
 
-The `vendor/**` value employs [glob patterns](%wiki-glob%) and lets you ignore the contents 
-of the `vendor` directory contained in your project root.   
+The scope definition `scope#file:*.js:testData//*` ignores all files with the `.js` extension
+recursively contained in the `testData/` directory. 
 
 ```yaml
 name: "Ignoring paths"
 
 inspections:
-  - group: "category:JavaScript and TypeScript/General"
-    ignore:
-      - "scope#file[*test*]:.npm//*" # Ignore a scope
   - inspection: NpmUsedModulesInstalled
     ignore:
       - "vendor/**" # Ignore a path
+  - group: "category:JavaScript and TypeScript/General"
+    ignore:
+      - "scope#file:*.js:testData//*" # Ignore a scope
 ```
 
 ### Create a profile from scratch
