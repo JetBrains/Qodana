@@ -59,8 +59,6 @@ This is how you can configure the profile name using `qodana.yaml`:
   name: &lt;name&gt;
 ```
 
-#### CLI
-
 <include src="lib_qd.xml" include-id="inspection-profiles-profile-name"/>
 
 ### Profile path
