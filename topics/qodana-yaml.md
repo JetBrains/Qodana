@@ -43,27 +43,11 @@ To learn more about use-cases, see the [](before-running-qodana.md) section.
 
 ## Set up a profile
 
+Basic information about profile invocation is explained in the [](inspection-profiles.md#Set+up+a+profile) section.
 
+The profile development guide is provided on the [](custom-profiles.md) page.
 
-### Set up a profile by the name
-
-```yaml
-profile:
-    name: <name>
-```
-
-<p>
-<include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
-</p>
-
-### Set up a profile by the path
-
-```yaml
-profile:
-    path: relative/path/in/your/project.xml
-```
-
-### Exclude paths from the analysis scope
+## Exclude paths from the analysis scope
 {id="exclude-paths"}
 
 You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once. To exclude all paths in a project from the inspection scope, omit the `paths` node.
@@ -72,7 +56,7 @@ You can specify that the files in a certain directory are not analyzed. This can
 profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and folders to be ignored 
 during inspections.</note>
 
-#### Example
+### Example
 {id="exclude-example"}
 
 Exclude all inspections for specified project paths:
@@ -106,11 +90,11 @@ exclude:
 
 You can find specific inspection IDs in the Profile settings in the HTML report or in the `.xml` file with your inspection profile.
 
-### Include an inspection into the analysis scope
+## Include an inspection into the analysis scope
 
 You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
 
-#### Example
+### Example
 {id="include-example"}
 
 In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included in the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
@@ -125,7 +109,7 @@ include:
 ```
 
 
-### Set a fail threshold
+## Set a fail threshold
 
 Add a fail threshold to use as a quality gate:
 
@@ -143,7 +127,7 @@ When running in [baseline mode](docker-image-configuration.xml#docker-config-ref
 
 </note>
 
-### Override the default run scenario
+## Override the default run scenario
 
 ```yaml
 script:
@@ -163,7 +147,7 @@ script:
   name: default
 ```
 
-### Example of different configuration options
+## Example of different configuration options
 
 ```yaml
 version: 1.0
@@ -191,7 +175,7 @@ In the example above,
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
-## Specify the linter
+## Specify a linter
 
 Using the `linter` option, you can specify the linter that you are going to employ. For example:
 
@@ -219,7 +203,7 @@ By default, sanity checks are enabled in %product%. You can disable them using t
 disableSanityInspections: true
 ```
 
-## License audit configuration
+## Configure the License audit
 
 You can enable the License audit feature using the `CheckDependencyLicenses` inspection:
 
@@ -295,3 +279,24 @@ customDependencies:
       - key: "Apache-2.0"
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
+
+## Manage plugins
+
+You can specify the plugins that will be downloaded and invoked during inspection. 
+
+```yaml
+plugins:
+  - id: <plugin.id>
+```
+Here, `<plugin-id>` denotes the plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
+for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional) the Plugin ID will be 
+`com.intellij.grazie.pro`.
+
+Plugin cache is stored in the `/data/cache/plugins` directory.
+
+To install third-party software required for your plugins, you can:
+
+* Use the [`bootstrap`](before-running-qodana.md) option
+* Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %product% `Dockerfile`
+examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
+

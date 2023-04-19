@@ -125,7 +125,7 @@
 
             <p>To learn more about profiles, see the
                 <a anchor="docker-config-reference-order-resolving-profile">Order of resolving a profile</a> and
-                <a href="qodana-yaml.md" anchor="Set+up+a+profile">Set up a profile</a> sections in this documentation.</p>
+                <a href="inspection-profiles.md" anchor="Set+up+a+profile">Set up a profile</a> sections in this documentation.</p>
 
         </chapter>
 
@@ -425,7 +425,7 @@
 
         <p>By default, %product% inspects your code using the <code>qodana.starter</code> profile.</p>
 
-        <p>You can configure and override %product% profiles either in the <a href="qodana-yaml.md" anchor="Set+up+a+profile"><code>qodana.yaml</code></a>
+        <p>You can configure and override %product% profiles either in the <a href="inspection-profiles.md" anchor="Set+up+a+profile"><code>qodana.yaml</code></a>
             file, or using the CLI options from this table</p>
 
         <table>
@@ -443,7 +443,7 @@
                 <td><code>-n</code>, <code>--profile-name</code></td>
                 <td><p>The <a anchor="docker-config-reference-profile-profile-name">profile name</a> taken either from the list of predefined %product% profiles, or a custom profile name
                     stored in XML-formatted profile files as <code interpolate-variables="false">&lt;option name="myName" value="%profileName%"/&gt;</code>.</p>
-                    <p>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+name"><code>qodana.yaml</code></a> file</p>
+                    <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file</p>
 
                 </td>
                 <td><code>qodana.starter</code></td>
@@ -452,7 +452,7 @@
                 <td><code>-p</code>, <code>--profile-path</code></td>
                 <td>
                     <p>The <a anchor="docker-config-reference-profile-profile-path">absolute path</a> to the profile file.</p>
-                    <p>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path"><code>qodana.yaml</code></a> file</p>
+                    <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+path"><code>qodana.yaml</code></a> file</p>
                 </td>
                 <td>None</td>
             </tr>
@@ -472,18 +472,16 @@
 
         <chapter id="docker-config-reference-profile-profile-name" title="Profile name">
 
-            <p>The <code>--profile-name</code> option lets you run %product% using either
+            <p filter="for-inspection-profiles">The <code>--profile-name</code> option lets you run %product% using either
                 the <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a> or
                 the profile name from the custom profile. </p>
 
-            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+            <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file.</tip>
 
-            <tip>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+name"><code>qodana.yaml</code></a> file.</tip>
-
-            <p>This command lets you override the default profile und run %product% using the
+            <p filter="for-inspection-profiles">This command lets you override the default profile und run %product% using the
                 <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.recommended</code></a> profile: </p>
 
-            <tabs group="cli-settings">
+            <tabs group="cli-settings" filter="for-inspection-profiles">
                 <tab title="Docker image" group-key="docker-image">
                     <code style="block" lang="shell" prompt="$">
                         docker run \
@@ -500,12 +498,12 @@
                 </tab>
             </tabs>
 
-            <p>If you need to run %product% with a custom profile, you can take the actual profile name stored as
-                <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> of the profile file. </p>
+            <p filter="for-inspection-profiles">If you need to run %product% with a custom profile, you can take its actual
+                <a href="custom-profiles.md" anchor="name">profile name</a>.</p>
 
-            <p>This command lets you bind a custom profile:</p>
+            <p filter="for-inspection-profiles">This command lets you bind a custom profile:</p>
 
-            <tabs group="cli-settings">
+            <tabs group="cli-settings" filter="for-inspection-profiles">
                 <tab title="Docker image" group-key="docker-image">
                     <code style="block" lang="shell" prompt="$">
                         docker run \
@@ -530,9 +528,9 @@
 
             <p>The <code>--profile-path</code> option lets you override the path to the file containing the profile.</p>
 
-            <tip>You can also configure this option using the <a href="qodana-yaml.md" anchor="Set+up+a+profile+by+the+path"><code>qodana.yaml</code></a> file.</tip>
+            <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file.</tip>
 
-            <p>This command lets you bind the file to the profile <a anchor="docker-config-reference-image-paths">directory</a>,
+            <p>This command lets you bind the file to the profile directory,
                 and the <code>--profile-path</code> option tells %product% which profile file to read:</p>
 
             <tabs group="cli-settings">

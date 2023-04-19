@@ -12,6 +12,7 @@
 
         <list>
             <li><a href="qodana-yaml.md"/> contained in the root directory of your project</li>
+            <li><a href="inspection-profiles.md" anchor="Default+profiles">Default</a> and <a href="custom-profiles.md">custom profiles</a> to tailor %product% to your needs </li>
             <li><a href="docker-image-configuration.xml">Shell commands</a> suitable for running %product% using Docker or Qodana CLI</li>
             <li><a href="ci.md"/> is explained for several popular CI/CD systems </li>
         </list>
