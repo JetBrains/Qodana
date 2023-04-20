@@ -215,7 +215,7 @@ include:
     - "relative/path/to/anotherprofile.yaml"
 ```
 
-If the `include` block contains no values, the [`baseProfile`](#baseProfile) field is set to `Default`. 
+The `include` block is not related to [`baseProfile`](#baseProfile). If `baseProfile` contains no values, it is set to `Default`.
 
 To overview the default profile, in the JetBrains IDE navigate to **Settings | Editor | Inspections** and select the 
 `Default` profile in the **Profile** drop-down selector.
