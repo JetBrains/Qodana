@@ -27,7 +27,7 @@
 
     <p>For all these cases, you need to generate a unique Qodana Cloud project token as shown
     in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation. This token
-    will be invoked using the <code>QODANA_CLOUD</code> variable.</p>
+    will be invoked using the <code>QODANA_TOKEN</code> variable.</p>
 
     <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
