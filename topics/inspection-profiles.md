@@ -56,7 +56,8 @@ You can set up a profile using either the `qodana.yaml` file or the [Shell comma
 This is how you can configure the profile name using `qodana.yaml`:
 
 ```yaml
-  name: &lt;name&gt;
+profile:
+    name: &lt;name&gt;
 ```
 
 <include src="lib_qd.xml" include-id="inspection-profiles-profile-name"/>
