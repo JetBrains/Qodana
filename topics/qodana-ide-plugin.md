@@ -13,7 +13,7 @@ This section covers several scenarios where the %product% IDE plugin comes in ha
 <!-- Probably the basic use case needs to be mentioned before other use-cases -->
 
 * [Run %product%](#plugin-run-qodana) in your IDE 
-* [Overview](#overview-results-in-ide) %product% inspection results in your IDE
+* [Overview](#plugin+overview-results-in-ide) %product% inspection results in your IDE
 * Exchange reports with Qodana Cloud
 
 ## Before you start
@@ -23,7 +23,8 @@ This section covers several scenarios where the %product% IDE plugin comes in ha
 3. To open Qodana reports from your local storage, make sure that you previously opened the project by the IDE at least 
    one time. This action establishes the link between the %product% report and your IDE.
 
-{id="plugin-run-qodana"}
+<anchor name="plugin-run-qodana"/>
+
 ## Run Qodana
 
 After you open your project in the IDE, navigate to <menupath>Tools | Qodana | Run Qodana</menupath>.
@@ -72,12 +73,12 @@ lower-right corner of the IDE click the **Open qodana.cloud** link.
 </tabs>
 
 To learn more about %product% HTML reports, see the [](ui-overview.md) section. You can also overview inspection results
-in your IDE review as described in the [](#overview-results-in-ide) section.
+in your IDE review as described in the [](#plugin+overview-results-in-ide) section.
 
 <!-- Mention that here you can overview inspection results -->
 
 
-<a anchor="overview-results-in-ide"/>
+<anchor name="plugin-overview-results-in-ide"/>
 
 ## Overview results in the IDE
 
@@ -97,7 +98,7 @@ In the upper-left corner of the **Qodana** window, you can find two buttons.
 
 <img src="ide-plugin-left-window-buttons.png" dark-src="ide-plugin-left-window-buttons_dark.png" width="706" alt="Buttons in the upper-left corner of the Qodana window" border-effect="line"/>
 
-{id="tab-overview-buttons"}
+<anchor name="tab-overview-buttons"/>
 
 The **Log in to Qodana** button lets you log in to Qodana Cloud. This action is a prerequisite for linking your project
 with Qodana Cloud-based projects. Alternatively, you can do it using the
@@ -116,7 +117,7 @@ In a Qodana HTML report, choose a problem and click **Open file in \<IDE\>**.
 
 <img src="qd-report-open-in-ide.png" dark-src="qd-report-open-in-ide_dark.png" alt="The Open in IDE button" width="706" border-effect="line"/>
 
-<a anchor="open-report-in-ide"/>
+<anchor name="open-report-in-ide"/>
 
 ## Open report from Qodana Cloud
 
@@ -126,7 +127,7 @@ Using the plugin functionality, you can:
 * [Link your project with Qodana Cloud](#plugin-link-project-with-cloud)
 * [Update the linked reports](#plugin-update-report)
 
-<a anchor="plugin-qodana-cloud-login"/>
+<anchor name="plugin-qodana-cloud-login"/>
 
 ### Log in to Qodana Cloud
 
@@ -151,13 +152,14 @@ to the authentication page.
 <step>On the authentication page, complete the <a href="cloud-get-access.xml">authentication step</a>.</step>
 </procedure>
 
-{id="plugin-link-project-with-cloud"}
+<anchor name="plugin-link-project-with-cloud"/>
+
 ### Link your project with Qodana Cloud
 
 You can synchronize your project with Qodana Cloud by linking it with your <a href="cloud-projects.xml">project</a> based 
 in Qodana Cloud. 
 
-<note>Before linking, you may need to <a anchor="qodana-cloud-login"">log in to Qodana Cloud</a>.</note>
+<note>Before linking, you may need to <anchor name="qodana-cloud-login"">log in to Qodana Cloud</a>.</note>
 
 <tip>To successfully link your project, it should already be inspected by Qodana at least once with the report 
 uploaded to Qodana Cloud, so linking occurs on the basis of the previous report uploading.</tip>
@@ -185,7 +187,8 @@ that your local project will be linked to.
 After linking, you can overview the downloaded report using the <menupath>Qodana</menupath> tab of the <menupath>Problems</menupath>
 window as shown in the [](#Overview+results+in+the+IDE) section.
 
-{id="plugin-update-report"}
+<anchor name="plugin-update-report"/>
+
 ### Update report
 
 To update the report, you should first [link](#Link+project+with+Qodana+Cloud) it with Qodana Cloud. 
@@ -199,6 +202,8 @@ Alternatively, in the <menupath>Qodana</menupath> tab of the <menupath>Problems<
 <menupath>Cloud Project &lt;project-name&gt;</menupath>, and then check it back.
 
 <img src="ide-plugin-update-report-2.png" dark-src="ide-plugin-update-report-2_dark.png" width="706" alt="Updating the report using the Qodana tab" border-effect="line"/>
+
+<anchor name="plugin-open-from-local-storage"/>
 
 ## Open report from a local storage
 
