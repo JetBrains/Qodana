@@ -12,8 +12,8 @@ This section covers several scenarios where the %product% IDE plugin comes in ha
 
 <!-- Probably the basic use case needs to be mentioned before other use-cases -->
 
-* [Run %product%](#Run+Qodana) in your IDE 
-* [Overview](#Overview+results+in+the+IDE) %product% inspection results in your IDE
+* [Run %product%](#plugin-run-qodana) in your IDE 
+* [Overview](#overview-results-in-ide) %product% inspection results in your IDE
 * Exchange reports with Qodana Cloud
 
 ## Before you start
@@ -23,6 +23,7 @@ This section covers several scenarios where the %product% IDE plugin comes in ha
 3. To open Qodana reports from your local storage, make sure that you previously opened the project by the IDE at least 
    one time. This action establishes the link between the %product% report and your IDE.
 
+{id="plugin-run-qodana"}
 ## Run Qodana
 
 After you open your project in the IDE, navigate to <menupath>Tools | Qodana | Run Qodana</menupath>.
@@ -71,11 +72,12 @@ lower-right corner of the IDE click the **Open qodana.cloud** link.
 </tabs>
 
 To learn more about %product% HTML reports, see the [](ui-overview.md) section. You can also overview inspection results
-in your IDE review as described in the [](#Overview+results+in+the+IDE) section.
+in your IDE review as described in the [](#overview-results-in-ide) section.
 
 <!-- Mention that here you can overview inspection results -->
 
-<!-- This section is universal for all inspection methods -->
+
+{id="overview-results-in-ide"}
 
 ## Overview results in the IDE
 
@@ -95,7 +97,7 @@ In the upper-left corner of the **Qodana** window, you can find two buttons.
 
 <img src="ide-plugin-left-window-buttons.png" dark-src="ide-plugin-left-window-buttons_dark.png" width="706" alt="Buttons in the upper-left corner of the Qodana window" border-effect="line"/>
 
-<anchor name="tab-overview-buttons"/>
+{id="tab-overview-buttons"}
 
 The **Log in to Qodana** button lets you log in to Qodana Cloud. This action is a prerequisite for linking your project
 with Qodana Cloud-based projects. Alternatively, you can do it using the
@@ -104,7 +106,7 @@ with Qodana Cloud-based projects. Alternatively, you can do it using the
 Using the **Link project with Cloud** button, you can link your project with a specific report uploaded to Qodana Cloud.
 After linking, you can study the report using your IDE.
 Alternatively, you can link your project using the **Tools | Qodana | Link Project with Cloud** menu
-of your IDE as [described here](#Link+project+with+Qodana+Cloud).
+of your IDE as [described here](#plugin-link-project-with-cloud).
 
 <!-- This can be renamed for open a local report -->
 
@@ -114,17 +116,16 @@ In a Qodana HTML report, choose a problem and click **Open file in \<IDE\>**.
 
 <img src="qd-report-open-in-ide.png" dark-src="qd-report-open-in-ide_dark.png" alt="The Open in IDE button" width="706" border-effect="line"/>
 
-<anchor name="open-report-in-ide"/>
-
+{id="open-report-in-ide"}
 ## Open report from Qodana Cloud
 
 Using the plugin functionality, you can:
 
-* [Log in to Qodana Cloud](#Log+in+to+Qodana+Cloud)
-* [Link your project with Qodana Cloud](#Link+your+project+with+Qodana+Cloud)
-* [Update the linked reports](#Update+report)
+* [Log in to Qodana Cloud](#plugin-qodana-cloud-login)
+* [Link your project with Qodana Cloud](#plugin-link-project-with-cloud)
+* [Update the linked reports](#plugin-update-report)
 
-{id="qodana-cloud-login"}
+{id="plugin-qodana-cloud-login"}
 ### Log in to Qodana Cloud
 
 Logging in to Qodana Cloud is required before linking your project with the Qodana Cloud-based projects.
@@ -148,9 +149,10 @@ to the authentication page.
 <step>On the authentication page, complete the <a href="cloud-get-access.xml">authentication step</a>.</step>
 </procedure>
 
+{id="plugin-link-project-with-cloud"}
 ### Link your project with Qodana Cloud
 
-To synchronize your project with Qodana Cloud, you can link it with your <a href="cloud-projects.xml">project</a> based 
+You can synchronize your project with Qodana Cloud by linking it with your <a href="cloud-projects.xml">project</a> based 
 in Qodana Cloud. 
 
 <note>Before linking, you may need to <a anchor="qodana-cloud-login"">log in to Qodana Cloud</a>.</note>
@@ -181,9 +183,10 @@ that your local project will be linked to.
 After linking, you can overview the downloaded report using the <menupath>Qodana</menupath> tab of the <menupath>Problems</menupath>
 window as shown in the [](#Overview+results+in+the+IDE) section.
 
+{id="plugin-update-report"}
 ### Update report
 
-To update the report, you should first have it [linked](#Link+project+with+Qodana+Cloud) with Qodana Cloud. 
+To update the report, you should first [link](#Link+project+with+Qodana+Cloud) it with Qodana Cloud. 
 
 In your IDE, navigate to <menupath>Tools | Qodana</menupath>, uncheck
 **Cloud Project &lt;project-name&gt;**, and then check it back.
