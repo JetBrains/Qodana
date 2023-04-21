@@ -95,17 +95,15 @@ In the upper-left corner of the **Qodana** window, you can find two buttons.
 
 <img src="ide-plugin-left-window-buttons.png" dark-src="ide-plugin-left-window-buttons_dark.png" width="706" alt="Buttons in the upper-left corner of the Qodana window" border-effect="line"/>
 
-<!-- These paragraphs need to be updated with actual information -->
-
 <anchor name="tab-overview-buttons"/>
 
 The **Log in to Qodana** button lets you log in to Qodana Cloud. This action is a prerequisite for linking your project
 with Qodana Cloud-based projects. Alternatively, you can do it using the
-<menupath>Tools | Qodana | Log in to Qodana</menupath> menu of your IDE as [described here](#Log+in+to+Qodana+Cloud).
+**Tools | Qodana | Log in to Qodana** menu of your IDE as [described here](#qodana-cloud-login).
 
 Using the **Link project with Cloud** button, you can link your project with a specific report uploaded to Qodana Cloud.
 After linking, you can study the report using your IDE.
-Alternatively, you can link your project using the <menupath>Tools | Qodana | Link Project with Cloud</menupath> menu
+Alternatively, you can link your project using the **Tools | Qodana | Link Project with Cloud** menu
 of your IDE as [described here](#Link+project+with+Qodana+Cloud).
 
 <!-- This can be renamed for open a local report -->
@@ -123,9 +121,10 @@ In a Qodana HTML report, choose a problem and click **Open file in \<IDE\>**.
 Using the plugin functionality, you can:
 
 * [Log in to Qodana Cloud](#Log+in+to+Qodana+Cloud)
-* [Link your project with Qodana Cloud](#Link+project+with+Qodana+Cloud)
+* [Link your project with Qodana Cloud](#Link+your+project+with+Qodana+Cloud)
 * [Update the linked reports](#Update+report)
 
+{id="qodana-cloud-login"}
 ### Log in to Qodana Cloud
 
 Logging in to Qodana Cloud is required before linking your project with the Qodana Cloud-based projects.
@@ -149,15 +148,15 @@ to the authentication page.
 <step>On the authentication page, complete the <a href="cloud-get-access.xml">authentication step</a>.</step>
 </procedure>
 
-### Link project with Qodana Cloud
+### Link your project with Qodana Cloud
 
-You can synchronize your local project with reports uploaded to Qodana Cloud and related to a specific 
-<a href="cloud-projects.xml">project</a>. This lets you overview the detected problems using the 
-<menupath>Problems</menupath> tool window of your IDE. To link a project, you first need to 
-[log in to Qodana Cloud](#Log+in+to+Qodana+Cloud).
+To synchronize your project with Qodana Cloud, you can link it with your <a href="cloud-projects.xml">project</a> based 
+in Qodana Cloud. 
 
-<tip>For successful linking, you should have your local project already inspected by Qodana at least once with the report 
-uploaded to Qodana Cloud.</tip>
+<note>Before linking, you may need to <a anchor="qodana-cloud-login"">log in to Qodana Cloud</a>.</note>
+
+<tip>To successfully link your project, it should already be inspected by Qodana at least once with the report 
+uploaded to Qodana Cloud, so linking occurs on the basis of the previous report uploading.</tip>
 
 <procedure>
 <step>In your IDE, navigate to <menupath>Tools | Qodana </menupath>, and then click 
@@ -170,7 +169,8 @@ Alternatively, you can click the **Link project with Cloud** button of the **[Qo
 </step>
 <step>
 On the <menupath>Link Project with Qodana Cloud</menupath> window, select the Qodana Cloud project you would like to
-link your local project with, and then click <menupath>Apply</menupath>.
+link your local project with, and then click <menupath>Apply</menupath> If necessary, you can create a new project
+that your local project will be linked to.
 
 <img src="ide-plugin-linking-2.png" dark-src="ide-plugin-linking-2_dark.png" width="594" alt="The link project with Qodana Cloud window" border-effect="line"/>
 
@@ -178,8 +178,8 @@ link your local project with, and then click <menupath>Apply</menupath>.
 
 </procedure>
 
-After linking, you can overview the report using the <menupath>Qodana</menupath> tab of the <menupath>Problems</menupath>
-window.
+After linking, you can overview the downloaded report using the <menupath>Qodana</menupath> tab of the <menupath>Problems</menupath>
+window as shown in the [](#Overview+results+in+the+IDE) section.
 
 ### Update report
 
