@@ -77,7 +77,7 @@ in your IDE review as described in the [](#overview-results-in-ide) section.
 <!-- Mention that here you can overview inspection results -->
 
 
-{id="overview-results-in-ide"}
+<a anchor="overview-results-in-ide"/>
 
 ## Overview results in the IDE
 
@@ -116,7 +116,8 @@ In a Qodana HTML report, choose a problem and click **Open file in \<IDE\>**.
 
 <img src="qd-report-open-in-ide.png" dark-src="qd-report-open-in-ide_dark.png" alt="The Open in IDE button" width="706" border-effect="line"/>
 
-{id="open-report-in-ide"}
+<a anchor="open-report-in-ide"/>
+
 ## Open report from Qodana Cloud
 
 Using the plugin functionality, you can:
@@ -125,7 +126,8 @@ Using the plugin functionality, you can:
 * [Link your project with Qodana Cloud](#plugin-link-project-with-cloud)
 * [Update the linked reports](#plugin-update-report)
 
-{id="plugin-qodana-cloud-login"}
+<a anchor="plugin-qodana-cloud-login"/>
+
 ### Log in to Qodana Cloud
 
 Logging in to Qodana Cloud is required before linking your project with the Qodana Cloud-based projects.
