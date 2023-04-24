@@ -91,10 +91,11 @@ This table contains the list of optional string parameters that can be additiona
 [//]: # (TODO What are other options for additional-cache-hash?)
 [//]: # (TODO What other options are available for artifact-name?)
 
-|-----|------|------|
-|Parameter|Description|Default value|
-|`additional-cache-hash`|Customize the generated cache hash|`<< pipeline.git.revision >>`|
-|`args`|Additional arguments of the [Qodana CLI](https://github.com/jetbrains/qodana-cli#scan) `scan` command| No default value|
-|`artifact-name`|Name of the artifact resulting from scanning project with %product%, used for uploading of scan results|`qodana-report`|
-|`cache-dir`|Directory for %product% caches|`/tmp/cache/qodana`|
-|`results-dir`|Directory for storing the results of scanning|`/tmp/qodana/results`|
+| Parameter              | Description                                                                                             | Default value                                                         |
+|------------------------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| `primary-cache-key`    | Customize the generated cache hash                                                                      | `qodana-2023.1-<< pipeline.git.branch >>-<< pipeline.git.revision >>` |
+| `additional-cache-key` | Customize the generated cache hash                                                                      | `qodana-2023.1-<< pipeline.git.branch >>`                             |
+| `args`                 | Additional arguments of the [Qodana CLI](https://github.com/jetbrains/qodana-cli#scan) `scan` command   | No default value                                                      |
+| `artifact-name`        | Name of the artifact resulting from scanning project with %product%, used for uploading of scan results | `qodana-report`                                                       |
+| `cache-dir`            | Directory for %product% caches                                                                          | `/tmp/cache/qodana`                                                   |
+| `results-dir`          | Directory for storing the results of scanning                                                           | `/tmp/qodana/results`                                                 |

@@ -29,7 +29,7 @@ steps:
       restoreKeys: |
         "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
         "$(Build.Repository.Name)"
-  - task: QodanaScan@2022
+  - task: QodanaScan@2023
 ```
 
 Triggering this job depends on [what type of repository you are using in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops#classic-build-pipelines-and-yaml-pipelines).
@@ -48,7 +48,7 @@ To forward inspection results to Qodana Cloud, all you need to do is to specify 
    add `QODANA_TOKEN` variable to the `env` section of the `QodanaScan` task:
 
 ```yaml
-  - task: QodanaScan@2022
+  - task: QodanaScan@2023
     env:
       QODANA_TOKEN: $(QODANA_TOKEN)
 ```
