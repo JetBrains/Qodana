@@ -6,32 +6,22 @@
        title="Teams"
        id="cloud-teams">
 
-    <p>Using <a href="cloud-organizations.xml">organizations</a> in <a href="https://qodana.cloud">Qodana Cloud</a>, you
-        can create teams for grouping users around dedicated projects. This lets you:</p>
-
-    <list>
-        <li>Combine several <a href="cloud-projects.xml">projects</a> under a single team to provide a convenient way for navigation</li>
-        <li>Share specific projects among Qodana Cloud users that are part of a team</li>
-    </list>
-
-    <p>To navigate to an organization, expand the list of organizations in the left corner of the Qodana Cloud UI,
-        and then click the required organization.</p>
-
-    <img src="qc-teams-navigating.png" dark-src="qc-teams-navigating_dark.png" alt="Navigating to the organization" width="706" border-effect="line"/>
+    <p>A team is a part of an <a href="cloud-organizations.xml">organization</a> applied for specific projects. Using teams,
+        you can group users around dedicated projects in <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
 
     <chapter id="cloud-teams-create-team" title="Create a team">
 
-        <p>You can create teams only outside your private organization.</p>
+        <p>You can create teams within organizations.</p>
 
         <procedure>
             <step>
                 <p>On the organization page, click <menupath>Create team</menupath> in the upper-right corner.</p>
-                <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create team button" width="706" border-effect="line"/>
+                <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create a team" width="706" border-effect="line"/>
                 <p>This will open the <menupath>New team</menupath> window.</p>
             </step>
             <step>
                 <p>In the <menupath>New team</menupath> window, specify the team name and click <menupath>Create team</menupath>.</p>
-                <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="Creating a team" width="706" border-effect="line"/>
+                <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="The New team dialog" width="706" border-effect="line"/>
             </step>
         </procedure>
 
@@ -39,21 +29,21 @@
 
     <chapter id="cloud-teams-navigate-to-team" title="Navigate to teams">
 
-        <p>You can navigate to a team clicking its name on an organization page, or using the left sidebar of the
-            Qodana Cloud UI.</p>
+        <p>You can navigate to a team by clicking its name on an organization page or in the left sidebar.</p>
 
-        <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing team" width="706" border-effect="line"/>
+        <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing a team" width="706" border-effect="line"/>
 
     </chapter>
 
-    <chapter id="cloud-teams-manage-teams" title="Manage teams">
+    <chapter id="cloud-teams-manage-teams" title="Configure teams">
 
-        <p>After clicking in the upper-right corner, you can invite new members to a team, leave the team, or delete it.</p>
+        <p>You can rename, leave, and delete a team, and invite new members to it. You can click the upper-right corner
+        of a team and choose the action.</p>
 
-        <img src="qc-manage-team-members.png" dark-src="qc-manage-team-members_dark.png" width="706" alt="Managing team" border-effect="line"/>
+        <img src="qc-configure-team.png" dark-src="qc-configure-team_dark.png" width="706" alt="Configure a team" border-effect="line"/>
 
-        <p>Click <menupath>Invite members</menupath> to invite or delete members, or change
-            <a href="cloud-user-roles.xml">user roles</a> for the existing members.</p>
+        <p>You can click <menupath>Invite members</menupath> to add new members to a team, configure
+            <a href="cloud-user-roles.xml">user roles</a> of the existing team members, or delete them. </p>
 
         <img src="qc-teams-managing-members.png" dark-src="qc-teams-managing-members_dark.png" alt="Managing team members" width="706" border-effect="line"/>
 

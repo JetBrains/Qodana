@@ -6,17 +6,17 @@
        title="Projects"
        id="cloud-projects.xml">
 
-    <p>Projects let you combine Qodana reports within an <a href="cloud-organizations.xml">organization</a>.</p>
+    <p>Projects let you combine Qodana reports within an <a href="cloud-organizations.xml">organization</a> and a
+        <a href="cloud-teams.xml">team</a>.</p>
 
-    <p>Each project is uniquely identified by a project token. This token lets you upload %product% reports to a
-        specific project.</p>
+    <p>For %product%, each project is uniquely identified by a project token. This token lets you upload
+        %product% reports to a specific project.</p>
 
     <chapter id="cloud-create-project" title="Create a project">
 
-        <p>If you would like to overview reports using your <a href="cloud-organizations.xml">private organization</a>,
-            on the organization page click the <menupath>Create first project</menupath> button.</p>
+        <p>On a <a href="cloud-teams.xml">team</a> page, click the <menupath>Create project</menupath> button.</p>
 
-        <img src="qc-create-project-private.png" dark-src="qc-create-project-private_dark.png" width="706" alt="Creating a new project in a private organization" border-effect="line"/>
+        <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
 
         <p>In case you would like to review %product% reports apart from your private organization, you need to
             navigate to the <a href="cloud-teams.xml">team</a> you wish to create a project under. On the team page,
