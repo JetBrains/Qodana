@@ -7,7 +7,7 @@
        id="cloud-running-introduction.xml">
 
     <p>In <a href="https://qodana.cloud">Qodana Cloud</a>, an organization is the basic entity. Every Qodana Cloud user
-        can be part of one or multiple organizations. </p>
+        can be a member of one or multiple organizations. </p>
     <p>Each organization can contain several teams. Each team provides unified access to projects for several users. </p>
     <p>Each project contains results of inspection carried out by Qodana over a specific codebase.</p>
 
@@ -16,11 +16,11 @@
     <p>To be able to overview Qodana reports in the Qodana Cloud UI, follow these steps:</p>
 
     <list type="decimal">
-        <li>Create <a href="cloud-organizations.xml">an organization</a>, or use your private organization</li>
+        <li>Create <a href="cloud-organizations.xml">an organization</a></li>
         <li>Create <a href="cloud-teams.xml">a team</a></li>
         <li>Configure <a href="cloud-projects.xml">a project</a></li>
         <li>Configure <a href="cloud-forward-reports.xml">forwarding %product% reports</a> to Qodana Cloud</li>
-        <li>Run Qodana and <a href="cloud-overview-reports.xml">overview</a> the uploaded reports</li>
+        <li>Run Qodana and <a href="cloud-overview-reports.xml">overview</a> inspection results in Qodana Cloud</li>
     </list>
 
 </topic>
