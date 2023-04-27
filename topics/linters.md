@@ -72,6 +72,7 @@ The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/web
 
 * JavaScript and TypeScript language inspections from WebStorm
 * Third-party license verification using <a href="license-audit.xml">License audit</a>
+* Angular and Vue.js frameworks
 
 ## Go
 
@@ -80,4 +81,5 @@ The [](qodana-go.md) linter is based on [GoLand](https://www.jetbrains.com/go) a
 ## .NET
 
 The [](qodana-dotnet.md) linter is based on [Rider](https://www.jetbrains.com/rider/) and provides static analysis for 
-.NET projects.
+.NET projects. It supports C#, VB.NET, F#, and C++ limited by projects containing `.sln` files, as well as
+Blazor and ASP.NET including the Razor syntax.
