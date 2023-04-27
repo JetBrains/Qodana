@@ -18,10 +18,6 @@
 
         <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
 
-        <p>Now, you can see the project.</p>
-
-        <img src="qc-new-project.png" dark-src="qc-new-project_dark.png" alt="The newly generated project" width="706" border-effect="line"/>
-
     </chapter>
 
     <chapter id="cloud-manage-projects" title="Manage a project">
@@ -30,7 +26,7 @@
         it. Using this token, %product% can upload reports as described in the
         <a href="cloud-forward-reports.xml"/> section.</p>
 
-        <img src="qc-generating-token.png" dark-src="qc-generating-token_dark.png" alt="Generating the project token" width="706" border-effect="line"/>
+        <img src="qc-generate-token.png" dark-src="qc-generate-token_dark.png" alt="Generate the project token" width="706" border-effect="line"/>
 
         <p>Once the token is generated, you can regenerate it, rename the project, or delete the project.</p>
 

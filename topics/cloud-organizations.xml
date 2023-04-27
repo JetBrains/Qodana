@@ -9,6 +9,7 @@
 
     <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.
     Each organization is created on the basis of a specific JetBrains account, and becomes either public or private.
+        Each account in Qodana Cloud is based on the organization that becomes its default organization.
     </p>
 
     <p>You can navigate between organizations using the list from the left sidebar of the Qodana Cloud UI.</p>
