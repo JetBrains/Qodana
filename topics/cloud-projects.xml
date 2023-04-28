@@ -6,11 +6,9 @@
        title="Projects"
        id="cloud-projects.xml">
 
-    <p>Projects let you combine Qodana reports within an <a href="cloud-organizations.xml">organization</a> and a
-        <a href="cloud-teams.xml">team</a>.</p>
+    <p>Projects accumulate Qodana reports.</p>
 
-    <p>For %product%, each project is uniquely identified by a project token. This token lets you upload
-        %product% reports to a specific project.</p>
+    <p>Each project is uniquely identified by a project token. This token is used for uploading %product% reports.</p>
 
     <chapter id="cloud-create-project" title="Create a project">
 
@@ -22,7 +20,7 @@
 
     <chapter id="cloud-manage-projects" title="Manage a project">
 
-    <p>After the project was created, click <menupath>Generate token</menupath> to generate a unique project token for
+    <p>After the project was created, on the project click <menupath>Generate token</menupath> to generate a unique project token for
         it. Using this token, %product% can upload reports as described in the
         <a href="cloud-forward-reports.xml"/> section.</p>
 

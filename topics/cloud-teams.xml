@@ -6,30 +6,29 @@
        title="Teams"
        id="cloud-teams">
 
-    <p>A team is a part of an <a href="cloud-organizations.xml">organization</a> applied for specific projects. Using teams,
-        you can group users around dedicated projects in <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
+    <p>A team is a part of an <a href="cloud-organizations.xml">organization</a> accumulating specific
+        <a href="cloud-projects.xml">projects</a>. Using teams, you can group users around dedicated projects in
+        <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
 
     <chapter id="cloud-teams-create-team" title="Create a team">
 
-        <p>You can create teams within organizations.</p>
-
         <procedure>
             <step>
-                <p>On the organization page, click <menupath>Create team</menupath> in the upper-right corner.</p>
+                <p>On the organization page, click <menupath>Create team</menupath>.</p>
                 <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create a team" width="706" border-effect="line"/>
-                <p>This will open the <menupath>New team</menupath> window.</p>
+                <p>This will open the <menupath>New team</menupath> dialog.</p>
             </step>
             <step>
-                <p>In the <menupath>New team</menupath> window, specify the team name and click <menupath>Create team</menupath>.</p>
+                <p>In the <menupath>New team</menupath> dialog, specify the team name and click <menupath>Create team</menupath>.</p>
                 <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="The New team dialog" width="706" border-effect="line"/>
             </step>
         </procedure>
 
     </chapter>
 
-    <chapter id="cloud-teams-navigate-to-team" title="Navigate to teams">
+    <chapter id="cloud-teams-navigate-to-team" title="Navigate teams">
 
-        <p>You can navigate to a team by clicking its name on an organization page or in the left sidebar.</p>
+        <p>You can navigate to a team by clicking its name on an organization page, or its pictogram in the left sidebar.</p>
 
         <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing a team" width="706" border-effect="line"/>
 
@@ -37,8 +36,7 @@
 
     <chapter id="cloud-teams-manage-teams" title="Configure teams">
 
-        <p>You can rename, leave, and delete a team, and invite new members to it. You can click the upper-right corner
-        of a team and choose the action.</p>
+        <p>To configure a team, click the upper-right corner of a team. </p>
 
         <img src="qc-configure-team.png" dark-src="qc-configure-team_dark.png" width="706" alt="Configure a team" border-effect="line"/>
 

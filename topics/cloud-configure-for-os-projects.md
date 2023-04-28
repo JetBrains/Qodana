@@ -15,7 +15,7 @@ Make sure that you already know how to:
 
 * [Inspect your code](inspect-your-code.xml) using %product%
 * Configure %product% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.xml)
-* Build %product% into your [CI/CD pipelines](ci.md)
+* Run %product% either [locally](Quick-start.xml#quickstart-analyze-project-locally) on in your [CI/CD pipelines](ci.md)
 * [Forward reports](cloud-forward-reports.xml) to %cloud%
 
 ## Prepare %cloud%
@@ -24,7 +24,7 @@ Make sure that you already know how to:
 Сreate a <a href="cloud-get-access.xml">Qodana Cloud</a> account. 
 </step>
 <step>
-In the %cloud% UI, navigate to your <a href="cloud-organizations.xml">organization</a>.
+In the %cloud% UI, navigate to your organization.
 
 <img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true"/>
 </step>
@@ -35,7 +35,7 @@ In your organization, create a <a href="cloud-teams.xml">team</a>.
 In your team, create a <a href="cloud-projects.xml">project</a>. 
 </step>
 <step>
-In the project, generate a project token to uniquely identify the project. To do this, click <menupath>Generate token</menupath>.
+In the project, click <menupath>Generate token</menupath> to generate a project token.
 
 <img src="qc-generate-token.png" dark-src="qc-generate-token_dark.png" alt="Generate the project token" width="706" border-effect="line"/>
 </step>

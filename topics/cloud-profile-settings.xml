@@ -6,9 +6,11 @@
        title="Account settings"
        id="cloud-profile-settings">
 
-    <p>Using this section, you can configure the appearance of your <a href="https://qodana.cloud">Qodana Cloud</a> account,
-        log out or completely delete your account.</p>
+    <p>To configure your account, in the left sidebar click <menupath>Account settings</menupath>.</p>
 
     <img src="qc-profile-settings.png" dark-src="qc-profile-settings_dark.png" alt="Account settings" width="706" border-effect="line"/>
+
+    <p>Using this section, you can configure the appearance of your <a href="https://qodana.cloud">Qodana Cloud</a> account,
+        log out or completely delete your account.</p>
 
 </topic>

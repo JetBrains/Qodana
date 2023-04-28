@@ -8,21 +8,23 @@
 
 
     <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.
-    Each organization is created on the basis of a specific JetBrains account, and becomes either public or private.
+    Each organization is created on the basis of a specific JetBrains account. Depending on your choice, it will be either
+        private or public.
         Each account in Qodana Cloud is based on the organization that becomes its default organization.
     </p>
 
-    <p>You can navigate between organizations using the list from the left sidebar of the Qodana Cloud UI.</p>
+    <p>You can navigate between organizations using the list in the left part of the Qodana Cloud UI.</p>
 
     <img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true"/>
 
     <chapter id="cloud-organizations-create-organization" title="Create an organization">
 
-        <p>You can create either private or public organizations. Private organizations are accessible only by their users.
-            Reports of public organizations are available for all Qodana Cloud users, including unauthorized users with the
+        <p>You can create either private or public organizations. Reports stored in private organizations are accessible only
+            by a user who created an organization and users who were invited to them.
+            Reports stored in public organizations are available for all Qodana Cloud users, including unauthorized users with the
             <a href="cloud-user-roles.xml">viewer role</a>. </p>
 
-            <p>Each organization can be created on the basis of an existing JetBrains account. </p>
+            <p>Each organization can be created on the basis of a JetBrains account. </p>
 
         <procedure>
             <step>
@@ -65,12 +67,12 @@
 
         <list>
             <li><menupath>Contributors</menupath> contains the list of contributors to your organization</li>
-            <li><menupath>Logs</menupath> contains the list of log entries related to your organization</li>
-            <li><menupath>Members</menupath> contains the list of your organization members. Using this tab, you can
+            <li><menupath>Logs</menupath> contains the list of log entries connected with your organization</li>
+            <li><menupath>Members</menupath> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
         </list>
 
-        <p>Clicking the button in the upper-right corner of the UI, you can switch the status of your organization, or completely leave it.</p>
+        <p>If you click the button in the upper-right corner of the UI, you can switch the status of your organization, or completely leave it.</p>
 
         <img src="qc-settings-organization-leave.png" dark-src="qc-settings-organization-leave_dark.png" width="706" alt="Leaving and switching organization status" border-effect="line"/>
 
@@ -82,9 +84,9 @@
             <p>Within your organization, you can:</p>
 
             <list>
-                <li>Invite new members using email addresses, and assign <a href="cloud-user-roles.xml">user roles</a></li>
-                <li>Change <a href="cloud-user-roles.xml">roles</a> of existing organization members</li>
-                <li>Exclude members</li>
+                <li>Invite new members using email addresses, and assign them <a href="cloud-user-roles.xml">user roles</a></li>
+                <li>Change <a href="cloud-user-roles.xml">roles</a> of the existing organization members</li>
+                <li>Exclude members from your organization</li>
             </list>
 
             <procedure>
