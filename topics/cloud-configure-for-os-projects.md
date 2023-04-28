@@ -15,35 +15,33 @@ Make sure that you already know how to:
 
 * [Inspect your code](inspect-your-code.xml) using %product%
 * Configure %product% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.xml)
-* Build %product% into your [CI/CD pipelines](ci.md)
+* Run %product% either [locally](Quick-start.xml#quickstart-analyze-project-locally) on in your [CI/CD pipelines](ci.md)
 * [Forward reports](cloud-forward-reports.xml) to %cloud%
 
-## Create an account and projects in %cloud%
+## Prepare %cloud%
+<procedure>
+<step>
+Сreate a <a href="cloud-get-access.xml">Qodana Cloud</a> account. 
+</step>
+<step>
+In the %cloud% UI, navigate to your organization.
 
-[%cloud%](https://qodana.cloud) provides two [account types](cloud-account-types.md) suitable for inspecting open-source 
-projects:
+<img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true"/>
+</step>
+<step>
+In your organization, create a <a href="cloud-teams.xml">team</a>.
+</step>
+<step>
+In your team, create a <a href="cloud-projects.xml">project</a>. 
+</step>
+<step>
+In the project, click <menupath>Generate token</menupath> to generate a project token.
 
-* Personal account to let you inspect your pet projects; however, it is restricted to a single user and the user's personal organization
-* Account for open-source projects to let you create [organizations](cloud-organizations.xml) and [teams](cloud-teams.xml), 
-and share inspection results with your peers
+<img src="qc-generate-token.png" dark-src="qc-generate-token_dark.png" alt="Generate the project token" width="706" border-effect="line"/>
+</step>
+</procedure>
 
-If you would like to use your personal account and a personal [organization](cloud-organizations.xml),
-on the organization page, click the **Create first project** button.
-
-<img src="qc-create-project-private.png" dark-src="qc-create-project-private_dark.png" width="706" alt="Creating a new project in a private organization" border-effect="line"/>
-
-If you would like to overview %product% reports using your open-source account, you need to create your own organization 
-and a team, or navigate to the team of an existing organization you wish to create a project under. On the team page, 
-click the **Create project** button.
-
-<img src="qc-create-project-non-private.png" dark-src="qc-create-project-non-private_dark.png" width="706" alt="Creating a new project in an organization" border-effect="line"/>
-
-After the project was created, you can generate a project token to uniquely identify the project. To do this, click
-**Generate token**.
-
-<img src="qc-generating-token.png" dark-src="qc-generating-token_dark.png" alt="Generating the project token" width="706" border-effect="line"/>
-
-To learn more about using project tokens, see the [](cloud-forward-reports.xml) section.
+<tip>To learn more about using project tokens, see the <a href="cloud-forward-reports.xml"/> section.</tip>
 
 ## Inspect your projects
 
@@ -86,7 +84,7 @@ subsequent analysis. To enable it, select inspections and download the `qodana.s
 You can run %product% with the baseline enabled using the `--baseline` option:
 
 ```shell
-−−baseline <path-to-qodana.sarif.json>
+--baseline <path-to-qodana.sarif.json>
 ```
 
 ### Configure quality gate

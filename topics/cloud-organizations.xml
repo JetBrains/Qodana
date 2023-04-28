@@ -6,82 +6,109 @@
        title="Organizations"
        id="cloud-organizations">
 
-    <!-- The Admin role should be specified here because there are several admin roles here -->
-    <!-- This behavior needs to be supplied with screenshots -->
-    <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
 
-    <p>You can navigate between organizations using the left sidebar of the Qodana Cloud UI.</p>
+    <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.
+    Each organization is created on the basis of a specific JetBrains account. Depending on your choice, it will be either
+        private or public.
+        Each account in Qodana Cloud is based on the organization that becomes its default organization.
+    </p>
 
-    <img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="460" alt="Creating an organization" border-effect="line"/>
+    <p>You can navigate between organizations using the list in the left part of the Qodana Cloud UI.</p>
 
-    <p>When you create an account, you become a member of your personal organization, which lets you
-        <a href="cloud-projects.xml">create your projects</a> and aggregate your Qodana reports.</p>
-    <p>To collaborate with other Qodana Cloud users, you can:</p>
-        <list>
-            <li><a anchor="cloud-organizations-create-organization">Create a new organization</a></li>
-            <li><a anchor="cloud-organizations-invitation"> Be invited to join an existing organization</a></li>
-        </list>
-
-    <p>Some %product% reports can be available without creating an account, see the
-        <a anchor="cloud-organizations-create-organization"/> section for details.</p>
-
-    <!-- Add information about switching between organizations, and add active organizations to the description. It can be a GIF animation -->
-
-    <chapter id="cloud-organizations-overview" title="Organization overview">
-
-        <p>To manage organizations, navigate to <menupath>Settings | Manage organization</menupath>.</p>
-
-        <img src="qc-settings-organization-navigate.png" dark-src="qc-settings-organization-navigate_dark.png" width="460" alt="Navigate to Manage organizations" border-effect="line"/>
-
-        <p>This section is related to the active organization and describes the number of teams and members,
-            organization type, subscription plan, and the number of contributors.</p>
-
-        <img src="qc-settings-organization-overview.png" dark-src="qc-settings-organization-overview_dark.png" width="460" alt="Organization overview" border-effect="line"/>
-
-        <p>You can click the number of members to open the <menupath>Add people to organization</menupath> window and
-            <a anchor="cloud-organizations-invitation">manage users</a> of the organization.</p>
-
-        <img src="qc-settings-organization-overview-members.png" dark-src="qc-settings-organization-overview-members_dark.png" width="460" alt="Manage members" border-effect="line"/>
-
-    </chapter>
+    <img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true"/>
 
     <chapter id="cloud-organizations-create-organization" title="Create an organization">
 
-        <p>You can create either private or public organizations. Private organizations are visible only for their users.
-        Reports of public organizations are available for all Qodana Cloud users, including unauthorized users with the
+        <p>You can create either private or public organizations. Reports stored in private organizations are accessible only
+            by a user who created an organization and users who were invited to them.
+            Reports stored in public organizations are available for all Qodana Cloud users, including unauthorized users with the
             <a href="cloud-user-roles.xml">viewer role</a>. </p>
 
-        <p>To create an organization, expand the list of organizations and then click
-            <menupath>Create organization</menupath>.</p>
+            <p>Each organization can be created on the basis of a JetBrains account. </p>
 
-        <img src="qc-settings-organization-create.png" dark-src="qc-settings-organization-create_dark.png" width="460" alt="Creating an organization" border-effect="line"/>
+        <procedure>
+            <step>
+                <p>In the sidebar, expand the list of organizations and then click
+                    <menupath>Create organization</menupath>.</p>
 
-        <p>This will open the <menupath>Add organization</menupath> window, where you can specify the organization name
-            and choose its type.</p>
+                <img src="qc-settings-organization-create.png" dark-src="qc-settings-organization-create_dark.png" width="706" alt="Creating an organization" border-effect="line"/>
+            </step>
+            <step>
+                <p>In the <menupath>New organization</menupath> dialog that opens, provide the organization name, and
+                    specify whether you would like to create this organization on the basis
+                of an existing JetBrains account, or you need to create a new account for it. Finally, specify whether this organization
+                    will be public or private. </p>
 
-        <img src="qc-settings-organization-add.png" dark-src="qc-settings-organization-add_dark.png" width="460" alt="The Add organization window" border-effect="line"/>
+                <img src="qc-settings-organization-create-dialog.png" dark-src="qc-settings-organization-create-dialog_dark.png" width="706" alt="The Add organization window" border-effect="line"/>
+            </step>
 
+        </procedure>
 
     </chapter>
 
-    <chapter id="cloud-organizations-invitation" title="Manage organization members">
+    <chapter id="cloud-organizations-overview" title="Configure organizations">
 
-        <p>Navigate to <menupath>Settings | Manage organization</menupath>, and then click the number of members.</p>
+        <p>You can configure membership and visibility of your organization, or leave the organization.</p>
 
-        <img src="qc-settings-organization-overview-members.png" dark-src="qc-settings-organization-overview-members_dark.png" width="460" alt="Manage members" border-effect="line"/>
+        <procedure>
 
-        <p>This will open the <menupath>Add people to organization</menupath> window.</p>
+            <step>
+                <p>In the sidebar, navigate to the organization that you wish to configure. </p>
+                <img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true"/>
+            </step>
+            <step>
+                <p>On the organization page, click the <menupath>Organization settings</menupath> button in the upper-right corner.</p>
+                <img src="qc-settings-organization-manage-access.png" dark-src="qc-settings-organization-manage-access_dark.png" width="706" alt="Navigate to the organization settings" border-effect="line"/>
+            </step>
 
-        <img src="qc-settings-organization-invitation.png" dark-src="qc-settings-organization-invitation_dark.png" width="706" alt="Manage users" border-effect="line"/>
+        </procedure>
 
-        <p>Using this window, you can:</p>
+        <p>On the settings page, you can find the following tabs:</p>
 
         <list>
-            <li>Invite new users using email addresses, and assign <a href="cloud-user-roles.xml">user roles</a></li>
-            <li>Change roles of existing organization members</li>
-            <li>Delete members</li>
+            <li><menupath>Contributors</menupath> contains the list of contributors to your organization</li>
+            <li><menupath>Logs</menupath> contains the list of log entries connected with your organization</li>
+            <li><menupath>Members</menupath> contains the list of organization members. Using this tab, you can
+                <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
         </list>
 
+        <p>If you click the button in the upper-right corner of the UI, you can switch the status of your organization, or completely leave it.</p>
+
+        <img src="qc-settings-organization-leave.png" dark-src="qc-settings-organization-leave_dark.png" width="706" alt="Leaving and switching organization status" border-effect="line"/>
+
+        <note>You cannot leave an organization in case you are the only member of it.</note>
+
+
+        <chapter id="cloud-organizations-invitation" title="Manage organization membership">
+
+            <p>Within your organization, you can:</p>
+
+            <list>
+                <li>Invite new members using email addresses, and assign them <a href="cloud-user-roles.xml">user roles</a></li>
+                <li>Change <a href="cloud-user-roles.xml">roles</a> of the existing organization members</li>
+                <li>Exclude members from your organization</li>
+            </list>
+
+            <procedure>
+                <step>
+                    <p>On the <a anchor="cloud-organizations-overview">settings page</a> of the organization, navigate
+                        to the <menupath>Members</menupath> tab.</p>
+                </step>
+                <step>
+                    <p>On the <menupath>Members</menupath> tab, click <menupath>Invite members</menupath>.</p>
+                    <img src="qc-settings-organization-invite-members.png" dark-src="qc-settings-organization-invite-members_dark.png" width="706" alt="Clicking the Invite members button" border-effect="line"/>
+
+                </step>
+                <step>
+                    <p>In the <menupath>Invite members to ... organization</menupath> dialog that opens, you can manage members of your organization.</p>
+                    <img src="qc-settings-organization-invitation.png" dark-src="qc-settings-organization-invitation_dark.png" width="706" alt="Managing organization membership" border-effect="line"/>
+                </step>
+            </procedure>
+
+        </chapter>
+
     </chapter>
+
+
 
 </topic>
