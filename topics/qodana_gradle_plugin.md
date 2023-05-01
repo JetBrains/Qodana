@@ -31,7 +31,7 @@ Add the following to the `build.gradle.kts` configuration file:
 
 <note>
 
-The latest Gradle Qodana plugin version is currently `0.1.12`. 
+The latest Gradle Qodana plugin version is currently `0.1.13`. 
 
 </note>
 
@@ -124,7 +124,7 @@ Add the following to the `build.gradle` configuration file:
   ```groovy
   plugins {
       // applies the Gradle Qodana plugin to use it in the project
-      id "org.jetbrains.qodana" version "0.1.12"
+      id "org.jetbrains.qodana" version "0.1.13"
   }
   
   qodana {
@@ -146,7 +146,7 @@ Add the following to the `build.gradle.kts` configuration file:
   ```kotlin
   plugins {
       // applies the Gradle Qodana plugin to use it in the project
-      id("org.jetbrains.qodana") version "0.1.12"
+      id("org.jetbrains.qodana") version "0.1.13"
   }
   
   qodana {
