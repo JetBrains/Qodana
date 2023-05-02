@@ -4,7 +4,7 @@
 
 **Qodana** is a code quality monitoring platform that allows you to evaluate the integrity of code you own, contract, or purchase. It brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks like clone detection and license audit. 
 
-Qodana provides you an overview of the project quality, lets you set quality targets, and track progress on them. You can quickly adjust the list of checks applied for the project and include or remove directories from the analysis.
+Qodana provides you with an overview of the project quality, lets you set quality targets, and track progress on them. You can quickly adjust the list of checks applied for the project and include or remove directories from the analysis.
 
 Watch this video to get a quick Qodana overview.
 
