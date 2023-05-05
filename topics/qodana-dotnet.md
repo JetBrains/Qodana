@@ -23,11 +23,6 @@ It brings all the smarts from Rider, which help you:
 * Improve overall code structure
 * Introduce coding best practices
 
-## Supported languages and frameworks
-
-The %linter% linter supports C#, VB.NET, F#, and C++ limited by projects containing `.sln` files, as well as
-Blazor and ASP.NET frameworks including the Razor syntax.
-
 ## Analyze a project locally
 
 ### Install project dependencies

@@ -18,10 +18,6 @@
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/) and provides static analysis for JavaScript or TypeScript projects.
 
-## Supported languages and frameworks
-
-The %linter% linter supports JavaScript, TypeScript languages, as well as Angular and Vue frameworks.
-
 ## Try it now
 
 ### Analyze a project locally
