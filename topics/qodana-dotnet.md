@@ -22,6 +22,13 @@ It brings all the smarts from Rider, which help you:
 * Highlight spelling problems
 * Improve overall code structure
 * Introduce coding best practices
+* Upload inspection results to [Qodana Cloud](cloud-about.xml)
+
+%linter% provides inspections for the C, C++, C#, VB.NET, JavaScript, and TypeScript programming languages. 
+
+<img src="dotnet-linter.png" dark-src="dotnet-linter_dark.png" alt="Qodana for .NET linter languages" width="296"/>
+
+C++ inspections in %linter% are limited by projects containing `.sln` files. 
 
 ## Analyze a project locally
 

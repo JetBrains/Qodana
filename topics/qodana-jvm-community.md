@@ -7,7 +7,11 @@
 <var name="tech" value="jvm"/>
 <var name="docker-image" value="jetbrains/qodana-jvm-community:2023.1"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/idea/) and provides static analysis for Java and Kotlin for Server Side projects. <include src="lib_qd.xml" include-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/idea/) and provides static analysis for Java, Kotlin and Groovy projects. <include src="lib_qd.xml" include-id="linter-intro"/>
+
+%linter% provides inspections for the Java, Kotlin, and Groovy programming languages.
+
+<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM languages" width="296"/>
 
 ## Try it now
 

@@ -16,7 +16,9 @@
 <var name="ide" value="WebStorm"/>
 <var name="docker-image" value="jetbrains/qodana-js:2023.1-eap"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/webstorm/) and provides static analysis for JavaScript or TypeScript projects.
+%linter% is based on [%ide%](https://www.jetbrains.com/webstorm/). It provides static analysis for JavaScript or TypeScript projects.
+
+<img src="js.png" dark-src="js_dark.png" alt="Qodana for .NET linter languages" width="296"/>
 
 ## Try it now
 

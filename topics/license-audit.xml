@@ -17,6 +17,7 @@
         <li><a href="qodana-php.md"/></li>
         <li><a href="qodana-js.md"/></li>
         <li><a href="qodana-python.md"/></li>
+        <li><a href="qodana-go.md"/></li>
     </list>
 
         <p>Depending on the linter, you can explore the JPS, Maven, Gradle, npm, yarn, pip and Composer projects.

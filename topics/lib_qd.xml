@@ -88,6 +88,7 @@
             <li>highlight spelling problems</li>
             <li>improve overall code structure</li>
             <li>introduce coding best practices</li>
+            <li>Upload inspection results to <a href="cloud-about.xml">Qodana Cloud</a></li>
         </list>
     </chunk>
 

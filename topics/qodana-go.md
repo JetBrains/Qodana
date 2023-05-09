@@ -17,6 +17,8 @@
 
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.
 
+<img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/>
+
 ## Try it now
 
 ### Analyze a project locally

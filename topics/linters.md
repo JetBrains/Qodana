@@ -1,83 +1,55 @@
 [//]: # (title: Linters)
 
 A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its quality and 
-can cause problems. Basically, each Qodana linter associated with a specific programming language 
-helps:
+can cause problems. Basically, each Qodana linter is associated with a specific programming language and helps you:
 
 * Detect anomalous code and probable bugs
 * Eliminate dead code
 * Highlight spelling problems
 * Improve overall code structure
 * Introduce coding best practices
+* Check [third-party license compatibility](license-audit.xml), available in several linters
+* Upload inspection results to [Qodana Cloud](cloud-about.xml)
 
-Starting from version 2022.3, if using the `qodana.recommended` and `qodana.starter` profiles, Qodana reads `.gitignore` 
-files of your project and defines the files and folders to be ignored during inspections.
-
-Here is an overview of %product% linters for inspecting your projects.
-
-## JVM-based languages
-
-%product% provides several linters for inspecting JVM-based projects.
+Here is an overview of %product% linters specifically to programming languages.
 
 <table>
     <tr>
-    <td><a href="qodana-jvm-community.md"/></td>
-    <td><a href="qodana-jvm-android.md"/></td>
-    <td><a href="qodana-jvm.md"/></td>
+        <td>Project languages</td>
+        <td>Linters</td>
     </tr>
     <tr>
-        <td>Based on IntelliJ IDEA Community with support for:
-            <list>
-            <li>Java and Kotlin inspections</li>
-            <li>Maven and Gradle</li>
-            </list>
+        <td>
+            <img src="jvm.png" dark-src="jvm_dark.png" alt="JVM languages" width="296"/>
         </td>
-        <td>Based on IntelliJ IDEA Community with support for:
-            <list>
-            <li>Java and Kotlin inspections</li>
-            <li>Maven and Gradle</li>
-            <li>Android-specific code inspections</li>
-            </list>
-        </td>
-        <td>Based on IntelliJ IDEA Ultimate with support for:
-            <list>
-            <li>Java and Kotlin inspections</li>
-            <li>Maven and Gradle</li>
-            <li>IntelliJ IDEA Ultimate code inspections</li>
-            <li>Spring, Jakarta EE, Java EE, Micronaut, Quarkus, Helidon frameworks</li>
-            <li>Third-party license verification using <a href="license-audit.xml">License audit</a></li>
-            </list>
+        <td>
+            <p><a href="qodana-jvm.md"/></p>
+            <p><a href="qodana-jvm-community.md"/></p>
+            <p><a href="qodana-jvm-android.md"/></p>
         </td>
     </tr>
+    <tr>
+        <td><img src="php.png" dark-src="php_dark.png" alt="PHP" width="296"/></td>
+        <td><a href="qodana-php.md"/></td>
+    </tr>
+    <tr>
+        <td><img src="js.png" dark-src="js_dark.png" alt="JavaScript and TypeScript" width="296"/></td>
+        <td>
+            <p><a href="qodana-js.md"/></p>
+            <p><a href="qodana-php.md"/></p>
+            <p><a href="qodana-dotnet.md"/></p>
+        </td>
+    </tr>
+    <tr>
+        <td><img src="dotnet.png" dark-src="dotnet_dark.png" alt=".NET" width="296"/></td>
+        <td><a href="qodana-dotnet.md"/></td>
+    </tr>
+    <tr>
+        <td><img src="python.png" dark-src="python_dark.png" alt="Python" width="296"/></td>
+        <td><a href="qodana-python.md"/></td>
+    </tr>
+    <tr>
+        <td><img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/></td>
+        <td><a href="qodana-go.md"/></td>
+    </tr>
 </table>
-
-## PHP
-
-The [](qodana-php.md) linter is based on [PhpStorm](https://www.jetbrains.com/phpstorm) and provides:
-
-* PHP language inspections from PhpStorm
-* Third-party license verification using <a href="license-audit.xml">License audit</a>
-* Code inspection while migrating to a new [language version](php-language-upgrade.xml)
-
-## Python
-
-The [](qodana-python.md) linter is based on [PyCharm Professional](https://www.jetbrains.com/pycharm) and provides:
-
-* Python language inspections from PyCharm Professional
-* Third-party license verification using <a href="license-audit.xml">License audit</a>
-
-## JavaScript and TypeScript
-
-The [](qodana-js.md) linter is based on [WebStorm](https://www.jetbrains.com/webstorm) and provides:
-
-* JavaScript and TypeScript language inspections from WebStorm
-* Third-party license verification using <a href="license-audit.xml">License audit</a>
-
-## Go
-
-The [](qodana-go.md) linter is based on [GoLand](https://www.jetbrains.com/go) and provides Go language inspections from GoLand.
-
-## .NET
-
-The [](qodana-dotnet.md) linter is based on [Rider](https://www.jetbrains.com/rider/) and provides static analysis for 
-.NET projects.

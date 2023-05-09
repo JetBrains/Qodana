@@ -16,6 +16,10 @@
 
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/) and provides static analysis for PHP projects. <include src="lib_qd.xml" include-id="linter-intro"/>
 
+%linter% provides inspections for the PHP, JavaScript, and TypeScript programming languages.
+
+<img src="php-linter.png" dark-src="php-linter_dark.png" alt="Qodana for PHP linter languages" width="296"/>
+
 ## Try it now
 
 ### Analyze a project locally

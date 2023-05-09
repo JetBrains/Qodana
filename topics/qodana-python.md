@@ -16,6 +16,8 @@
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
+<img src="python.png" dark-src="python_dark.png" alt="Python" width="296"/>
+
 ## Try it now
 
 ### Analyze a project locally
