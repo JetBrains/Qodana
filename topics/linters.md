@@ -8,10 +8,10 @@ can cause problems. Basically, each Qodana linter is associated with a specific 
 * Highlight spelling problems
 * Improve overall code structure
 * Introduce coding best practices
-* Check [third-party license compatibility](license-audit.xml), available in several linters
+* Check third-party license compatibility. This feature is available in [several linters](license-audit.xml)
 * Upload inspection results to [Qodana Cloud](cloud-about.xml)
 
-Here is an overview of %product% linters specifically to programming languages.
+Currently, several linters provide inspections for several programming languages.
 
 <table>
     <tr>
@@ -20,7 +20,7 @@ Here is an overview of %product% linters specifically to programming languages.
     </tr>
     <tr>
         <td>
-            <img src="jvm.png" dark-src="jvm_dark.png" alt="JVM languages" width="296"/>
+            <img src="jvm.png" dark-src="jvm_dark.png" alt="Java, Kotlin, Groovy" width="296"/>
         </td>
         <td>
             <p><a href="qodana-jvm.md"/></p>
@@ -41,7 +41,7 @@ Here is an overview of %product% linters specifically to programming languages.
         </td>
     </tr>
     <tr>
-        <td><img src="dotnet.png" dark-src="dotnet_dark.png" alt=".NET" width="296"/></td>
+        <td><img src="dotnet.png" dark-src="dotnet_dark.png" alt="C, C++, C#, VB.NET" width="296"/></td>
         <td><a href="qodana-dotnet.md"/></td>
     </tr>
     <tr>

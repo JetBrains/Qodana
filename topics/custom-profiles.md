@@ -365,7 +365,7 @@ inspections:
 
 ### Override the existing profile
 
-Using this profile, you can exclude inspection categories from the [`qodana.starter`](%qodana.starter%)
+You can exclude inspection categories from the [`qodana.starter`](%qodana.starter%)
 that are not related to the [Qodana for .NET](qodana-dotnet.md) linter.
 
 <note> Remember to save the profile file to the root directory of your project.</note> 
@@ -373,8 +373,7 @@ that are not related to the [Qodana for .NET](qodana-dotnet.md) linter.
 ```yaml
 name: "My custom profile"
 
-include:
-  - "qodana.starter.yaml" # Include the qodana.starter profile
+baseProfile: qodana.starter # Use the 'qodana.starter' profile
 
 groups:
   - groupId: ExcludedInspections
@@ -388,9 +387,6 @@ groups:
       - "category:Reactive Streams"
       - "category:RegExp"
       - "category:PHP"
-      - "category:JavaScript and TypeScript"
-      - "category:Angular"
-      - "category:Vue"
       - "category:Go"
       - "category:Python"
       - "category:General"
