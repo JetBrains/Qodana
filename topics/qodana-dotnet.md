@@ -28,7 +28,7 @@ It brings all the smarts from Rider, which help you:
 
 <img src="dotnet-linter.png" dark-src="dotnet-linter_dark.png" alt="Qodana for .NET linter languages" width="296"/>
 
-C++ inspections in %linter% are limited by projects containing `.sln` files. 
+C and C++ inspections of %linter% are limited by projects containing `.sln` files. 
 
 ## Analyze a project locally
 
