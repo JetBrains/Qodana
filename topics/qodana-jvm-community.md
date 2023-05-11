@@ -2,6 +2,8 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM languages" width="296"/>
+
 <var name="linter" value="Qodana Community for JVM"/>
 <var name="ide" value="IntelliJ IDEA Community"/>
 <var name="tech" value="jvm"/>
@@ -11,7 +13,7 @@
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
 
-<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM languages" width="296"/>
+
 
 ## Try it now
 

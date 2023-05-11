@@ -2,6 +2,8 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<img src="js.png" dark-src="js_dark.png" alt="Qodana for .NET linter languages" width="296"/>
+
 <note>
     <p>
 <include src="lib_qd.xml" include-id="eap-warning">
@@ -17,8 +19,6 @@
 <var name="docker-image" value="jetbrains/qodana-js:2023.1-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/). It provides static analysis for JavaScript or TypeScript projects.
-
-<img src="js.png" dark-src="js_dark.png" alt="Qodana for .NET linter languages" width="296"/>
 
 ## Try it now
 

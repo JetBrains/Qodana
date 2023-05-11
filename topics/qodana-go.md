@@ -2,6 +2,8 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/>
+
 <note>
     <p>
         <include src="lib_qd.xml" include-id="eap-warning">
@@ -16,8 +18,6 @@
 <var name="ide-url" value="https://www.jetbrains.com/go/"/>
 
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.
-
-<img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/>
 
 ## Try it now
 

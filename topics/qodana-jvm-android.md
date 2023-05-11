@@ -2,6 +2,8 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM languages" width="296"/>
+
 <var name="linter" value="Qodana Community for Android"/>
 <var name="ide" value="IntelliJ IDEA"/>
 <var name="tech" value="jvm"/>
@@ -10,8 +12,6 @@
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/) with the [Android Support](https://plugins.jetbrains.com/plugin/1792-android-support) plugin and provides static analysis for Android projects. <include src="lib_qd.xml" include-id="linter-intro"/>
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
-
-<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM languages" width="296"/>
 
 ## Try it now
 

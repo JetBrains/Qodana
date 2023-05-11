@@ -2,6 +2,8 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<img src="dotnet-linter.png" dark-src="dotnet-linter_dark.png" alt="Qodana for .NET linter languages" width="296"/>
+
 <note>
     <p>
         <include src="lib_qd.xml" include-id="eap-warning">
@@ -24,10 +26,7 @@ It brings all the smarts from Rider, which help you:
 * Introduce coding best practices
 * Upload inspection results to [Qodana Cloud](cloud-about.xml)
 
-%linter% provides inspections for the C, C++, C#, VB.NET, JavaScript, and TypeScript programming languages. 
-
-<img src="dotnet-linter.png" dark-src="dotnet-linter_dark.png" alt="Qodana for .NET linter languages" width="296"/>
-
+%linter% provides inspections for the C, C++, C#, VB.NET, JavaScript, and TypeScript programming languages.
 C and C++ inspections of %linter% are limited by projects containing `.sln` files. 
 
 ## Analyze a project locally

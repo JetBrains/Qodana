@@ -2,6 +2,8 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<img src="php-linter.png" dark-src="php-linter_dark.png" alt="Qodana for PHP linter languages" width="296"/>
+
 <note>
 <p>
 <include src="lib_qd.xml" include-id="eap-warning">
@@ -17,8 +19,6 @@
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). <include src="lib_qd.xml" include-id="linter-intro"/>
 
 %linter% provides inspections for PHP, JavaScript, and TypeScript.
-
-<img src="php-linter.png" dark-src="php-linter_dark.png" alt="Qodana for PHP linter languages" width="296"/>
 
 ## Try it now
 

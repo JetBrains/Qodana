@@ -2,6 +2,8 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<img src="python.png" dark-src="python_dark.png" alt="Python" width="296"/>
+
 <note>
     <p>
 <include src="lib_qd.xml" include-id="eap-warning">
@@ -15,8 +17,6 @@
 <var name="docker-image" value="jetbrains/qodana-python:2023.1-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
-
-<img src="python.png" dark-src="python_dark.png" alt="Python" width="296"/>
 
 ## Try it now
 

@@ -16,7 +16,7 @@ Currently, several linters provide inspections for several programming languages
 <table>
     <tr>
         <td>Project languages</td>
-        <td>Linters</td>
+        <td>Supported in linters</td>
     </tr>
     <tr>
         <td>
@@ -41,7 +41,10 @@ Currently, several linters provide inspections for several programming languages
         </td>
     </tr>
     <tr>
-        <td><img src="dotnet.png" dark-src="dotnet_dark.png" alt="C, C++, C#, VB.NET" width="296"/></td>
+        <td>
+            <p><img src="dotnet.png" dark-src="dotnet_dark.png" alt="C, C++, C#, VB.NET" width="296"/></p>
+            <p>C and C++ inspections are limited by projects containing <code>.sln</code> files. </p>
+        </td>
         <td><a href="qodana-dotnet.md"/></td>
     </tr>
     <tr>

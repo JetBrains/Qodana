@@ -2,6 +2,8 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
+<img src="jvm.png" dark-src="jvm_dark.png" alt="Java, Kotlin, Groovy" width="296"/>
+
 <var name="linter" value="Qodana for JVM"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="tech" value="jvm"/>
@@ -10,8 +12,6 @@
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/). <include src="lib_qd.xml" include-id="linter-intro"/>
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
-
-<img src="jvm.png" dark-src="jvm_dark.png" alt="Java, Kotlin, Groovy" width="296"/>
 
 ## Try it now
 
