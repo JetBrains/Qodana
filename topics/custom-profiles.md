@@ -270,7 +270,7 @@ inspections:
     enabled: true
 ```
 
-## Examples
+## Configuration examples
 
 Here you can find several examples of profile configuration. The [](inspection-profiles.md#Set+up+a+profile) section
 explains how to run your profile while inspecting code.
@@ -365,10 +365,8 @@ inspections:
 
 ### Override the existing profile
 
-You can exclude inspection categories from the [`qodana.starter`](%qodana.starter%)
+You can exclude inspection categories from the [`qodana.starter`](%qodana.starter%) profile
 that are not related to the [Qodana for .NET](qodana-dotnet.md) linter.
-
-<note> Remember to save the profile file to the root directory of your project.</note> 
 
 ```yaml
 name: "My custom profile"

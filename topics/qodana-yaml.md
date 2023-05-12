@@ -195,6 +195,15 @@ You can configure the JDK version for these linters:
 
 To learn more about configuring JDK, see the [](configure-jdk.md) section. 
 
+## Configure the PHP version
+
+You can configure the PHP version before running the [](qodana-php.md) linter: 
+
+```yaml
+php:
+  version: "X.x"
+```
+
 ## Disable sanity checks
 
 By default, sanity checks are enabled in %product%. You can disable them using this snippet: 
@@ -205,7 +214,7 @@ disableSanityInspections: true
 
 ## Configure the License audit
 
-You can enable the License audit feature using the `CheckDependencyLicenses` inspection:
+You can run the [License audit](license-audit.xml) feature by enabling the `CheckDependencyLicenses` inspection:
 
 ```yaml
 include:
