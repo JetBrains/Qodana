@@ -7,5 +7,6 @@ to file.
 
 To run %product% with the custom profile, you can follow the recommendations from the 
 [Set up a profile](inspection-profiles.md#Set+up+a+profile) section. In this case, the profile name does not necessarily 
-match the name of the containing file. The actual name is stored as the `%profileName%` value in the profile file.
+match the name of the containing file. The actual name is stored as the `%profileName%`{interpolate-variables="false"} 
+value in the profile file.
 
