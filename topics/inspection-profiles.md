@@ -71,6 +71,13 @@ profile:
     path: relative/path/in/your/project.xml
 ```
 
-You can also use it for [custom profiles](custom-profiles.md).
+You can use this with [custom profiles](#Custom+profiles).
 
 <include src="lib_qd.xml" include-id="inspection-profiles-profile-path"/>
+
+## Custom profiles
+
+You can configure inspection profiles using two formats: 
+
+* [YAML format](custom-profiles.md) is available starting from version 2023.1 of %product%
+* [XML format](custom-xml-profiles.md) can be used as an alternative to YAML

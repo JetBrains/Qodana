@@ -1166,7 +1166,7 @@
 
     <p>The <code>--profile-name</code> CLI option lets you run %product% using either the
         <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a> or the profile name from the
-        <a href="custom-profiles.md">custom profile</a>.
+        <a href="inspection-profiles.md" anchor="Custom+profiles">custom profile</a>.
     </p>
 
     <p>
@@ -1191,8 +1191,8 @@
         </tab>
     </tabs>
 
-    <p>If you need to run %product% with a custom profile, you can take its actual
-        <a href="custom-profiles.md" anchor="name">profile name</a>. This command lets you bind a custom profile:</p>
+    <p>If you need to run %product% with a custom profile, you can use its actual profile name.
+        This command lets you bind a custom profile:</p>
 
         <tabs group="cli-settings" filter="for-inspection-profiles">
             <tab title="Docker image" group-key="docker-image">

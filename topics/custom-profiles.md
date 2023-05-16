@@ -1,4 +1,4 @@
-[//]: # (title: Custom profiles)
+[//]: # (title: Custom YAML profiles)
 
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
