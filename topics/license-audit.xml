@@ -8,23 +8,42 @@
 
     <var name="feature" value="License audit"/>
 
-    <p>Making sure your project license is compatible with the licenses of its dependencies is never an easy task, but
-        this is required for legal purposes. To automate this process and avoid mistakes, you can use the %feature% feature
-        currently supported by the following %product% linters:</p>
+    <p>Making sure that your project license is compatible with the licenses of its dependencies is never an easy task, but
+        this is required for legal purposes. To automate this process and avoid mistakes, you can use %feature%
+        currently supported by several %product% linters:</p>
 
-    <list>
-        <li><a href="qodana-jvm.md"/></li>
-        <li><a href="qodana-php.md"/></li>
-        <li><a href="qodana-js.md"/></li>
-        <li><a href="qodana-python.md"/></li>
-        <li><a href="qodana-go.md"/></li>
-    </list>
-
-        <p>Depending on the linter, you can explore the JPS, Maven, Gradle, npm, yarn, pip and Composer projects.
-            %feature% reads information about project dependencies from the IntelliJ IDEA project model and package
-            manager configuration files.</p>
+    <table>
+        <tr>
+            <td>Linter</td>
+            <td>Tools supported</td>
+        </tr>
+        <tr>
+            <td><a href="qodana-jvm.md"/></td>
+            <td>Maven and Gradle</td>
+        </tr>
+        <tr>
+            <td><a href="qodana-php.md"/></td>
+            <td>Composer</td>
+        </tr>
+        <tr>
+            <td><a href="qodana-js.md"/></td>
+            <td>npm and Yarn</td>
+        </tr>
+        <tr>
+            <td><a href="qodana-python.md"/></td>
+            <td>pip</td>
+        </tr>
+        <tr>
+            <td><a href="qodana-go.md"/></td>
+            <td>Go Modules</td>
+        </tr>
+    </table>
 
     <chapter title="How it works" id="license-audit-how-it-works">
+
+        <p>%feature% collects information about project and dependency licenses using the IntelliJ IDEA project model,
+            configuration files of dependency management tools, and files containing license texts. Based on the information
+        collected, it analyzes which dependency licenses are (in)compatible with your project license.</p>
 
         <p>For example, a project is licensed under the Apache-2.0 license and uses three dependencies licensed under
             the MIT, GPL-2.0-only, and Apache-2.0 licenses. This table explains which dependency licenses are compatible
@@ -65,33 +84,88 @@
 
     <chapter title="Running %feature%" id="license-audit-running-feature">
 
+            <p>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">inspection scopes</a>, make sure that
+            the file containing the build configuration is included in the scope.</p>
 
-            <p>After you <a anchor="license-audit-basic-usecase">enable</a> %feature%, you can also configure it to:</p>
-        <list>
-            <li><a anchor="license-audit-ignoring-dependencies">Ignore dependency licenses</a></li>
-            <li><a anchor="license-allow-prohibit-licenses">Allow or prohibit dependency licenses</a></li>
-            <li><a anchor="license-audit-override-license">Override a dependency license</a></li>
-            <li><a anchor="license-audit-custom-dependencies">Create custom dependencies</a></li>
-        </list>
+            <p>The <a href="qodana-jvm.md"/> and <a href="qodana-php.md"/> linters, as well as the
+                <a href="qodana-js.md"/> linter using npm read information about project and dependency licenses from
+                configuration files of package management tools.</p>
 
-        <chapter title="Enable %feature%" id="license-audit-basic-usecase">
+            <p>The <a href="qodana-python.md"/>, <a href="qodana-go.md"/>, and <a href="qodana-js.md"/> linter using
+                Yarn require that a project license is contained in the <code>LICENSE</code> file in the project root.
+                The <a href="qodana-python.md"/> linter also requires that the project directory contains no
+                <code>.idea</code> file and the virtual environment directory. </p>
 
-            <chunk id="license-audit-for-cloud-tutorials" >
+            <p>For all linters except <a href="qodana-jvm.md"/>, you also need to have project
+                dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> option of
+                the <a href="qodana-yaml.md"><code style="inline">qodana.yaml</code></a> file. To run %feature%, enable
+                the <code>CheckDependencyLicenses</code> inspection. </p>
 
-            <p>To enable %feature%, add these lines to the <code style="inline">qodana.yaml</code> file in your project
-                root:</p>
-            <code style="block" lang="yaml">
-                include:
-                  - name: CheckDependencyLicenses
-            </code>
+            <p>Below are the <code>qodana.yaml</code> configuration samples that tell %product% to install project
+                dependencies and enable %feature%:</p>
 
-            </chunk>
+                <tabs>
+                    <tab title="Qodana for JVM">
+                        <code style="block" lang="yaml">
+                            include:
+                              - name: CheckDependencyLicenses
+                        </code>
+                    </tab>
+                    <tab title="Qodana for PHP">
+                        <code style="block" lang="yaml">
+                            bootstrap: |+
+                              # Install dependencies
+                              php composer.phar update
 
-        </chapter>
+                            include:
+                              - name: CheckDependencyLicenses
+                        </code>
+                    </tab>
+                    <tab title="Qodana for JS">
+                        <code style="block" lang="yaml">
+                            bootstrap: |+
+                              # Use npm to install dependencies
+                              npm install
+
+                              # Install Yarn
+                              npm install -g yarn
+
+                              # Use Yarn to install dependencies
+                              yarn install --frozen-lockfile
+
+                            include:
+                              - name: CheckDependencyLicenses
+                        </code>
+                    </tab>
+                    <tab title="Qodana for Python">
+                        <code style="block" lang="yaml">
+                            bootstrap: |+
+                              # Install dependencies
+                              pip install -r requirements.txt
+
+                              # Remove .idea from the project root
+                              rm -rf .idea
+
+                            include:
+                              - name: CheckDependencyLicenses
+                        </code>
+                    </tab>
+                    <tab title="Qodana for Go">
+                        <code style="block" lang="yaml">
+                            bootstrap: |+
+                              # Install dependencies
+                              go mod tidy
+
+                            include:
+                              - name: CheckDependencyLicenses
+                        </code>
+                    </tab>
+                </tabs>
+
+        <p>You can also extend %feature% configuration as shown in the subsequent sections.</p>
 
         <chapter title="Ignore dependencies" id="license-audit-ignoring-dependencies">
-            <p>For some reasons, you may need to ignore a specific dependency in your project, which can be specified in
-                <code style="inline">qodana.yaml</code>:</p>
+            <p>You can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
             <code style="block" lang="yaml">
                 dependencyIgnores:
                   - name: "dependency/name"

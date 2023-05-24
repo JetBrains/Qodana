@@ -74,7 +74,12 @@ profile:
 
 [License audit](license-audit.xml) lets you track compatibility of dependency licenses with your project license.
 
-<include src="license-audit.xml" include-id="license-audit-for-cloud-tutorials"/>
+To enable License audit, use the `include` option of the [`qodana.yaml`](qodana-yaml.md) file in your project root:
+
+```yaml
+include:
+  - name: CheckDependencyLicenses
+```
 
 ### Configure baseline
 

@@ -972,23 +972,22 @@
 
     <chunk id="license-audit-tab">
 
-        <p filter="license-audit">To overview license audit results, in the inspection report click the <menupath>Project audit</menupath> tab.</p>
+        <p filter="license-audit">To overview License audit results, in the inspection report click the <menupath>Project audit</menupath> tab.</p>
 
         <p filter="ui-overview">The <menupath>Project audit</menupath> tab provides results of inspection by the
             <a href="license-audit.xml">License audit</a> feature. </p>
 
-        <img filter="license-audit" src="license-audit-tab.png" dark-src="license-audit-tab_dark.png" width="706" alt="The License audit tab" border-effect="line"/>
-
-        <p>License audit inspection results are grouped into the list of dependencies required by the project.</p>
-
         <img src="license-audit-overview-tree.png" dark-src="license-audit-overview-tree_dark.png" width="706" alt="The dependency tree" border-effect="line"/>
 
+        <p>License audit inspection results are grouped into a dependency tree.</p>
+
         <list type="decimal">
-            <li>If applicable, you can expand a dependency to overview its dependency tree.</li>
+            <li>If applicable, you can expand a specific dependency to overview its dependency tree.</li>
             <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and dependencies
-                that are incompatible with the project license.</li>
-            <li>Using <menupath>License rules</menupath>, you can overview the rules of license compatibility.</li>
-            <li>You can download the list of dependencies in various formats using this button.</li>
+                which licenses are incompatible with the project license.</li>
+            <li>Under <menupath>Project licenses</menupath> you can find the list of project licenses. Using
+                <menupath>License rules</menupath>, you can overview the rules of license compatibility.</li>
+            <li>You can download the list of dependencies in various formats.</li>
         </list>
 
         <!--<p>This tab contains several other tabs:</p>
