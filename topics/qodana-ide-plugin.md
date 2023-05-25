@@ -1,26 +1,25 @@
-[//]: # (title: Qodana IDE plugin)
+[//]: # (title: Qodana in the IDE)
 
-The Qodana IDE plugin is a JetBrains IDE plugin that binds Qodana reports, both stored locally or in Qodana Cloud, 
-with your project opened in an IDE. Using this plugin, you can do the following things in your IDE:
+Starting from version 2022.3, you can use %product% functionality in JetBrains IDEs for binding Qodana 
+reports, both stored locally or in Qodana Cloud, with your project opened in an IDE. This means that you can:
 
-* Study Qodana reports from [Qodana reports](#Open+report+from+Qodana+UI), as well as from a [local storage](#Open+report+from+a+local+storage) 
+* Study [Qodana reports](#Open+report+from+Qodana+UI) including reports [stored locally](#Open+report+from+a+local+storage) 
 * Link your projects with [Qodana Cloud](#Link+project+with+Qodana+Cloud) and overview Qodana Cloud-based reports
 
-By default, this plugin is available in all JetBrains IDEs starting from version 2022.3. Otherwise, you can install it
-using [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16938-qodana).
+<note>Prior to 2022.3, this functionality was available as a plugin published 
+on <a href="https://plugins.jetbrains.com/plugin/16938-qodana">JetBrains Marketplace</a>.</note>
 
-<note>The functionalities described in this section are available only with the nightly images of IntelliJ IDEA and PhpStorm.</note>
+This functionality is supported by IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider.
 
 ## Before you start
 
-1. Make sure your preferred IDE is installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/).
-2. Install the plugin for the IDE as described in the [IntelliJ IDEA Documentation](https://www.jetbrains.com/help/idea/?Managing_Plugins). IDE versions 2021.2 and later are supported. Starting from 2021.3, this plugin is installed by default.
-3. To open Qodana reports from your local storage, make sure that you previously opened the project by the IDE at least 
+1. Make sure that your preferred IDE is installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/).
+2. To open Qodana reports from your local storage, make sure that you previously opened the project by the IDE at least 
    one time. This action establishes the link between the %product% report and your IDE.
 
-## Plugin overview
+## UI overview
 
-The functionality of this plugin is available in the **Qodana** tab of the **Problems** window. This window is 
+%product% is available in the **Qodana** tab of the **Problems** window of your IDE. This window is 
 located in the lower-left part of the IDE user interface, and becomes visible once you open a report. 
 
 After opening, the **Qodana** tab shows the list of problems that were detected by Qodana.
@@ -56,7 +55,7 @@ In a Qodana HTML report, choose a problem and click **Open file in \<IDE\>**.
 
 ## Open report from Qodana Cloud
 
-Using the plugin functionality, you can:
+Using your IDE, you can:
 
 * [Log in to Qodana Cloud](#Log+in+to+Qodana+Cloud)
 * [Link your project with Qodana Cloud](#Link+project+with+Qodana+Cloud)

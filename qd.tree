@@ -47,12 +47,9 @@
             <toc-element id="qodana-go-docker-readme.xml"/>
             <toc-element id="qodana-dotnet-docker-readme.xml"/>
         </toc-element>
-
+        <toc-element id="qodana-ide-plugin.md"/>
+        <toc-element id="qodana_gradle_plugin.md"/>
         <toc-element id="service.md"/>
-        <toc-element title="Qodana Plugins" id="qodana_plugins.md">
-            <toc-element id="qodana-ide-plugin.md"/>
-            <toc-element id="qodana_gradle_plugin.md"/>
-        </toc-element>
     </toc-element>
 
     <!-- The beginning of the Configuration section -->
