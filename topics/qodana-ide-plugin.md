@@ -114,7 +114,7 @@ link your local project with, and then click <menupath>Apply</menupath>.
 </procedure>
 
 After linking, you can overview the report using the <menupath>Qodana</menupath> tab of the <menupath>Problems</menupath>
-window, see the [Plugin overview](#Plugin+overview) section.
+window, see the [UI overview](#UI+overview) section.
 
 ### Update report
 
@@ -137,6 +137,6 @@ In the IDE, go to <menupath>Tools | Qodana | Open Qodana Analysis report</menupa
 
 <img src="ide-plugin-local-file-1.png" dark-src="ide-plugin-local-file-1_dark.png" width="594" alt="Opening a local Qodana report" border-effect="line"/>
 
-In the <menupath>Qodana</menupath> tab, you can [overview the detected problems](#Plugin+overview) and jump to the corresponding line in
+In the <menupath>Qodana</menupath> tab, you can [overview the detected problems](#UI+overview) and jump to the corresponding line in
 the code editor. In case a problem was fixed before opening the <code>qodana.sarif.json</code> file, it is marked as
 <code>[Not present]</code>.
