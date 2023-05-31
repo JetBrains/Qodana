@@ -6,11 +6,11 @@
        title="Forward reports"
        id="cloud-forward-reports">
 
-    <var name="GitHubLink" value="docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
-    <var name="GitLabLink" value="docs.gitlab.com/ee/ci/variables/"/>
-    <var name="JenkinsLink" value="www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
-    <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
-    <var name="SpaceAutomationLink" value="www.jetbrains.com/help/space/secrets-and-parameters.html#creating-secrets-and-parameters"/>
+    <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+    <var name="GitLabLink" value="https://docs.gitlab.com/ee/ci/variables/"/>
+    <var name="JenkinsLink" value="https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
+    <var name="TeamCityLink" value="https://www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
+    <var name="SpaceAutomationLink" value="https://www.jetbrains.com/help/space/secrets-and-parameters.html#creating-secrets-and-parameters"/>
 
     <p>This section explains how you can forward %product% reports to Qodana Cloud using this software:</p>
 
