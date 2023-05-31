@@ -15,7 +15,7 @@ development workflows in the JetBrains Space environment. This section explains 
 ## Prepare your project
 
 Assuming that your JetBrains Space account already has [a project](%Space-cr-project%) and 
-[a repository](https://%Space-repo%), in the project root create the [`.space.kts`](%Space-config%) file. This 
+[a repository](%Space-repo%), in the project root create the [`.space.kts`](%Space-config%) file. This 
 file will contain configuration scripts written in [Kotlin](https://kotlinlang.org/) and mentioned in this section.
 
 ## Basic configuration

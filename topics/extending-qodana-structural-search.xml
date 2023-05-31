@@ -6,8 +6,8 @@
        title="Structural search"
        id="extending-qodana-structural-search">
 
-    <var name="struct-search" value="www.jetbrains.com/help/idea/tutorial-work-with-structural-search-and-replace.html#ssr_inspection_settings"/>
-    <var name="struct-search-replace" value="www.jetbrains.com/help/idea/structural-search-and-replace.html#to_search_structurally"/>
+    <var name="struct-search" value="https://www.jetbrains.com/help/idea/tutorial-work-with-structural-search-and-replace.html#ssr_inspection_settings"/>
+    <var name="struct-search-replace" value="https://www.jetbrains.com/help/idea/structural-search-and-replace.html#to_search_structurally"/>
 
     <p><a href="https://www.jetbrains.com/help/idea/structural-search-and-replace.html">Structural search</a> is a
         powerful and flexible mechanism built into JetBrains IDEs. It employs
@@ -35,13 +35,13 @@
         <procedure id="extending-qodana-structural-search-example-procedure">
             <step>
                 <p>Using the
-                    <menupath><a href="https://%struct-search-replace%">Structural Search</a></menupath> dialog of
+                    <menupath><a href="%struct-search-replace%">Structural Search</a></menupath> dialog of
                     IntelliJ IDEA, create the template:</p>
                 <img src="extending-qodana-1.png" dark-src="extending-qodana-1_dark.png" alt="Search template" width="706" border-effect="line"/>
             </step>
             <step>
                 <p>Convert the template to inspection as described on the
-                    <a href="https://%struct-search%">Work with structural search and replace</a> page of the
+                    <a href="%struct-search%">Work with structural search and replace</a> page of the
                     IntelliJ IDEA documentation portal. For example, it can be saved as
                     <code style="inline">Hardcoded-print</code>.</p>
             </step>

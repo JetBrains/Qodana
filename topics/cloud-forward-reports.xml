@@ -97,7 +97,7 @@
 
     <chapter id="cloud-forward-reports-github-actions" title="GitHub Actions">
 
-        <p>1. In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="https://%GitHubLink%">encrypted secret</a> and
+        <p>1. In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and
             save the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.</p>
 
         <p>2. In a GitHub <a href="https://www.jetbrains.com/help/qodana/github.html#Basic+configuration">workflow</a>,
@@ -189,7 +189,7 @@
 
     <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
 
-        <p>1. In the JetBrains Space UI, create a <a href="https://%SpaceAutomationLink%">secret</a> with the
+        <p>1. In the JetBrains Space UI, create a <a href="%SpaceAutomationLink%">secret</a> with the
             <code>qodana-token</code> name, and save the generated
         <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.</p>
 

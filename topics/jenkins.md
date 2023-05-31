@@ -1,18 +1,18 @@
 [//]: # (title: Jenkins)
 
-<var name="JenkinsLink" value="www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
-<var name="Multipipe" value="www.jenkins.io/doc/book/pipeline/multibranch/#branches-and-pull-requests"/>
-<var name="MultipipeCreate" value="www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
-<var name="Dockeraccess" value="docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
-<var name="Dplugin" value="plugins.jenkins.io/docker-plugin/"/>
-<var name="DPplugin" value="plugins.jenkins.io/docker-workflow/"/>
-<var name="Gplugin" value="plugins.jenkins.io/git/"/>
-<var name="JPullRequests" value="www.jenkins.io/doc/book/pipeline/multibranch/#supporting-pull-requests" />
-<var name="JenkinsCred" value="www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
+<var name="JenkinsLink" value="https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
+<var name="Multipipe" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#branches-and-pull-requests"/>
+<var name="MultipipeCreate" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
+<var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
+<var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
+<var name="DPplugin" value="https://plugins.jenkins.io/docker-workflow/"/>
+<var name="Gplugin" value="https://plugins.jenkins.io/git/"/>
+<var name="JPullRequests" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#supporting-pull-requests" />
+<var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
 [Jenkins](https://www.jenkins.io/doc/) is a self-contained, open-source server that automates software-related tasks 
 including building, testing, and deploying software. This section explains how you can configure 
-[Docker images](docker-images.md) of %product% in Jenkins [Multibranch Pipelines](https://%Multipipe%), and covers the
+[Docker images](docker-images.md) of %product% in Jenkins [Multibranch Pipelines](%Multipipe%), and covers the
 following cases:
 
 * Inspecting a specific branch
@@ -22,15 +22,15 @@ following cases:
 
 Make sure that these plugins are installed on your Jenkins instance:
 
-* [Docker](https://%Dplugin%) and [Docker Pipeline](https://%DPplugin%) are required for running Docker images
-* [git](https://%Gplugin%) is required for git operations in Jenkins projects
+* [Docker](%Dplugin%) and [Docker Pipeline](%DPplugin%) are required for running Docker images
+* [git](%Gplugin%) is required for git operations in Jenkins projects
 
 Make sure that Docker is installed and accessible by Jenkins. 
 
 If applicable, make sure that Docker is accessible by the `jenkins` user as described in the 
-[Manage Docker as a non-root user](https://%Dockeraccess%) section of the Docker documentation.
+[Manage Docker as a non-root user](%Dockeraccess%) section of the Docker documentation.
 
-Create a Multibranch Pipeline project as described on the [Jenkins documentation portal](https://%MultipipeCreate%).
+Create a Multibranch Pipeline project as described on the [Jenkins documentation portal](%MultipipeCreate%).
 
 In the root directory of your project repository, create the `Jenkinsfile`. This file will contain Jenkins 
 configuration scripts described in this section. 
@@ -99,14 +99,14 @@ pipeline {
 }
 ```
 
-You can inspect pull requests as described in the [Supporting Pull Requests](https://%JPullRequests%) section
+You can inspect pull requests as described in the [Supporting Pull Requests](%JPullRequests%) section
 of the Jenkins documentation.
 
 ## Forward reports to Qodana Cloud
 
 The `environment` block lets you specify the `QODANA_TOKEN` variable to invoke the 
 [Qodana Cloud project token](cloud-projects.xml#cloud-manage-projects) contained in the `qodana-token` credentials.  
-To learn how to create `qodana-token`, see the [Adding new global credentials](https://%JenkinsCred%) section of the 
+To learn how to create `qodana-token`, see the [Adding new global credentials](%JenkinsCred%) section of the 
 Jenkins documentation.
 
 ```groovy

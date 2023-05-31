@@ -2,8 +2,8 @@
 
 <var name="cloud" value="Qodana Cloud"/>
 <var name="feature" value="License audit"/>
-<var name="github-secret" value="docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
-<var name="branch-protection-rule" value="docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
+<var name="github-secret" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+<var name="branch-protection-rule" value="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 <!-- I need to mention here more about OS projects -->
 
 This section explains how you can inspect your open-source projects using %product%, and how you can use %cloud% to 
@@ -121,7 +121,7 @@ Using this example, you can configure GitHub for:
 
 Follow these steps:
 
-1. Create an [encrypted secret](https://%github-secret%) with the `QODANA_TOKEN` name.
+1. Create an [encrypted secret](%github-secret%) with the `QODANA_TOKEN` name.
 2. Create a new or open an existing GitHub workflow that invokes the Qodana Scan action.
 3. Set the workflow to run on `pull_request` events that target the `main` branch, and forward reports based on the 
 `QODANA_TOKEN` value. Instead of `main`, you can specify your branch here.

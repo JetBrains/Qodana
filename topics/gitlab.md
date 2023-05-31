@@ -1,8 +1,8 @@
 [//]: # (title: GitLab CI/CD)
 
-<var name="GitLabLink" value="docs.gitlab.com/ee/ci/variables/"/>
-<var name="GitLabPredefined" value="docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference"/>
-<var name="GitLabExpose" value="docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as"/>
+<var name="GitLabLink" value="https://docs.gitlab.com/ee/ci/variables/"/>
+<var name="GitLabPredefined" value="https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference"/>
+<var name="GitLabExpose" value="https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as"/>
 
 [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) is a tool for software development that uses various CI/CD methodologies. This 
 section explains how you can run %product% [Docker images](docker-images.md) within GitLab CI/CD 
@@ -86,7 +86,7 @@ qodana:
 
 ## Expose Qodana reports
 
-To make a report available in any given merge request, you can use the [`expose_as`](https://%GitLabExpose%) keyword
+To make a report available in any given merge request, you can use the [`expose_as`](%GitLabExpose%) keyword
 and change the path to the artifacts:
 
 ```yaml

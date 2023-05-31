@@ -14,7 +14,7 @@
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
     <var name="docker-image" value="jetbrains/qodana-dotnet:2023.1-eap"/>
-    <var name="GitHubLink" value="docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+    <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 
 
     <p>
@@ -91,7 +91,7 @@
                 <p>To authorize in <a href="cloud-about.xml">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
 
                 <procedure>
-                    <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="https://%GitHubLink%">encrypted secret</a> and
+                    <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and
                         save the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.</p></step>
                     <step><p>In a GitHub <a href="https://www.jetbrains.com/help/qodana/github.html#Basic+configuration">workflow</a>,
                         add this snippet to invoke the <code>Qodana Scan</code> action:</p>
