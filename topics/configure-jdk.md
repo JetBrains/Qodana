@@ -16,7 +16,7 @@ Using the default version of the JDK does not require any special configuration.
 
 <anchor name="configure-jdk-available-versions"/>
 
-Apart from the versions available by default, %product% can automatically download and use these versions of JBR SDK 
+Apart from the versions available [by default](#Default+versions), %product% can automatically download and use these versions of JBR SDK 
 for all JVM linters: 8, 11, 13, 15, 16, 17, 18, 19.
 
 Otherwise, you can download the required JDK version, and [mount it](#Mount+JDK) to %product%.

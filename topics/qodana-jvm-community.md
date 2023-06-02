@@ -13,11 +13,11 @@
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
 
-
-
 ## Try it now
 
 ### Analyze a project locally
+
+<note>Before running %product%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
 
 <p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
 

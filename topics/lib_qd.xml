@@ -911,6 +911,7 @@
         <p filter="jvm-only"> To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
             that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
             executed, and so on.</p>
+
         <p>Qodana provides two options for local analysis of your code.
             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
             Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
@@ -1152,7 +1153,7 @@
             projectJDK: 1.8
         </code>
 
-        <p>You can also specify JDK using the name:</p>
+        <p>You can also specify JDK using the name. For example, it can be:</p>
 
         <code style="block" lang="yaml">
             projectJDK: corretto-19
