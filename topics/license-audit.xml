@@ -19,7 +19,7 @@
         </tr>
         <tr>
             <td><a href="qodana-jvm.md"/></td>
-            <td>Maven and Gradle</td>
+            <td>Maven, Gradle, and IntelliJ Module File</td>
         </tr>
         <tr>
             <td><a href="qodana-php.md"/></td>
@@ -43,7 +43,13 @@
 
         <p>%feature% collects information about project and dependency licenses using the IntelliJ IDEA project model,
             configuration files of dependency management tools, and files containing license texts. Based on the information
-        collected, it analyzes which dependency licenses are (in)compatible with your project license.</p>
+            collected, it builds the dependency tree containing information about:</p>
+            <list>
+                <li>The project license</li>
+                <li>Licenses of project dependencies</li>
+                <li>Licenses of the dependencies invoked by project dependencies</li>
+            </list>
+        <p>This tree shows which dependency licenses are (in)compatible with your project license.</p>
 
         <p>For example, a project is licensed under the Apache-2.0 license and uses three dependencies licensed under
             the MIT, GPL-2.0-only, and Apache-2.0 licenses. This table explains which dependency licenses are compatible
@@ -84,22 +90,31 @@
 
     <chapter title="Running %feature%" id="license-audit-running-feature">
 
-            <p>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">inspection scopes</a>, make sure that
-            the file containing the build configuration is included in the scope.</p>
+            <note>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">inspection scopes</a>, make sure that
+            the file containing the build configuration is included in the scope.</note>
 
-            <p>The <a href="qodana-jvm.md"/> and <a href="qodana-php.md"/> linters, as well as the
-                <a href="qodana-js.md"/> linter using npm read information about project and dependency licenses from
-                configuration files of package management tools.</p>
+            <p>The <a href="qodana-jvm.md"/> linter collects information about licenses using the following priority:
+                <list type="decimal">
+                    <li>A locally-based JAR file containing the <code>LICENSE.*</code> file</li>
+                    <li>Source files of a project</li>
+                    <li>The <code>pom.xml</code> file of a project</li>
+                    <li>Requests to the <code>PACKAGE-SEARCH</code> plugin</li>
+                </list>
+            </p>
+
+        <p>The <a href="qodana-php.md"/> linter, as well as the <a href="qodana-js.md"/> linter using npm read
+                information about project and dependency licenses using configuration files of package management tools.</p>
 
             <p>The <a href="qodana-python.md"/>, <a href="qodana-go.md"/>, and <a href="qodana-js.md"/> linter using
-                Yarn require that a project license is contained in the <code>LICENSE</code> file in the project root.
+                Yarn require that the project license is contained in the <code>LICENSE</code> file in the project root.
                 The <a href="qodana-python.md"/> linter also requires that the project directory contains no
-                <code>.idea</code> file and the virtual environment directory. </p>
+                <code>.idea</code> file and the virtual environment directory.</p>
 
             <p>For all linters except <a href="qodana-jvm.md"/>, you also need to have project
                 dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> option of
-                the <a href="qodana-yaml.md"><code style="inline">qodana.yaml</code></a> file. To run %feature%, enable
-                the <code>CheckDependencyLicenses</code> inspection. </p>
+                the <a href="qodana-yaml.md"><code style="inline">qodana.yaml</code></a> file.</p>
+
+            <p>To run %feature%, enable the <code>CheckDependencyLicenses</code> inspection. </p>
 
             <p>Below are the <code>qodana.yaml</code> configuration samples that tell %product% to install project
                 dependencies and enable %feature%:</p>
@@ -189,9 +204,14 @@
                       - "Apache-1.0"
             </code>
 
-            <tip>
-                All keys from this sample can accept several values.
-            </tip>
+            <p>All keys from this sample can accept several values:</p>
+
+            <code style="block" lang="yaml">
+                licenseRules:
+                  - keys:
+                    - "PROPRIETARY-LICENSE"
+                    allowed: ["CC0-1.0", "CPL-1.0", "CC-BY-4.0", "EPL-1.0", "CDDL-1.0"]
+            </code>
 
 
         </chapter>
@@ -200,9 +220,10 @@
             <p>You can override a dependency license identifier. This can be useful when a dependency is dual-licensed,
                 and you want to omit some license, or when the license name cannot be detected from the dependency
                 sources correctly.</p>
-            <p>Using this sample,
-                %product% will detect only the <code>CDDL-1.1</code> and
-                <code>GPL-2.0-with-classpath-exception</code> licenses for <code>jaxb-runtime</code> version 2.3.1.</p>
+            <p>Using this sample, you can tell %product% to detect only the <code>CDDL-1.1</code> and
+                <code>GPL-2.0-with-classpath-exception</code> licenses for <code>jaxb-runtime</code> version 2.3.1.
+            </p>
+            <p>In this sample, <code>url</code> is optional.</p>
 
             <code style="block" lang="yaml">
                 dependencyOverrides:
