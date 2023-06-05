@@ -1021,7 +1021,7 @@
                 <a href="Quick-start.xml">local projects</a> and build %product% into your CI/CD pipelines.</li>
             <li><a href="ci.md">Integration tools</a> include applications for seamless integration with CI/CD systems
                 like GitHub and TeamCity, and guides for configuring %product% Docker images for CI/CD. </li>
-            <li><a href="qodana-ide-plugin.md">%product% functionality in JetBrains IDEs</a> lets you inspect your codebase using your IDE.</li>
+            <li><a href="qodana-ide-plugin.md">%product% functionality in JetBrains IDEs</a> lets you overview %product% using your IDE.</li>
             <li><a href="qodana_gradle_plugin.md"/> provides the Gradle interface for running %product% in IntelliJ IDEA.</li>
             <li><a href="service.md">Cloud service</a> is a cloud-based version of %product%. </li>
         </list>

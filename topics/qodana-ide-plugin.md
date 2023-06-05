@@ -1,4 +1,4 @@
-[//]: # (title: Qodana in the IDE)
+[//]: # (title: IDE integration)
 
 Starting from version 2022.3, you can use %product% functionality in JetBrains IDEs for binding Qodana 
 reports, both stored locally or in Qodana Cloud, with your project opened in an IDE. This means that you can:
