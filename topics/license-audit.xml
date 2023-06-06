@@ -183,7 +183,8 @@
             <p>You can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
             <code style="block" lang="yaml">
                 dependencyIgnores:
-                  - name: "dependency/name"
+                  - name: "aapt2-proto"
+                  - name: "dexlib2"
             </code>
         </chapter>
 
