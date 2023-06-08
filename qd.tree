@@ -87,7 +87,7 @@
         <toc-element id="baseline.xml" accepts-web-file-names="qodana-baseline.html"/>
         <toc-element id="quality-gate.xml"/>
         <toc-element id="php-language-upgrade.xml" accepts-web-file-names="qodana-php-language-upgrade.html"/>
-        <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html"/>
+        <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html" show-structure-depth="3"/>
         <toc-element id="taint-analysis.md"/>
     </toc-element>
 

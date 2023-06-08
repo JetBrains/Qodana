@@ -984,8 +984,8 @@
 
         <list type="decimal">
             <li>If applicable, you can expand a specific dependency to overview its dependency tree.</li>
-            <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and dependencies
-                which licenses are incompatible with the project license.</li>
+            <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and the dependencies
+                that have incompatible licenses.</li>
             <li>Under <menupath>Project licenses</menupath> you can find the list of project licenses. Using
                 <menupath>License rules</menupath>, you can overview the rules of license compatibility.</li>
             <li>You can download the list of dependencies in various formats.</li>

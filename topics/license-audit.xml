@@ -41,9 +41,9 @@
 
     <chapter title="How it works" id="license-audit-how-it-works">
 
-        <p>%feature% collects information about project and dependency licenses using the IntelliJ IDEA project model,
-            configuration files of dependency management tools, and files containing license texts. Based on the information
-            collected, it builds the dependency tree containing information about:</p>
+        <p>%feature% collects information about project and dependency licenses using configuration files of dependency
+            management tools and files containing license texts. Based on the information collected, it builds the
+            dependency tree containing information about:</p>
             <list>
                 <li>The project license</li>
                 <li>Licenses of project dependencies</li>
@@ -83,38 +83,47 @@
             </tr>
         </table>
 
+        <tip>You can specify dependency licenses manually using the
+            <a href="qodana-yaml.md" anchor="Override+a+dependency+license"><code>dependencyOverrides</code></a> option.</tip>
+
+        <note>In case a project root contains several license files, the file with the
+            <code>LICENSE.*</code> name receives the highest priority, and %feature% uses its text as the project
+            license text.</note>
+
+
+        <p>Depending on the location of license information, the <a href="qodana-jvm.md"/> linter performs a
+            sequence of steps to find it. First of all, it searches for any license references in the
+            <code>LICENSE.*</code> files. Next, it scans through the <code>pom.xml</code> file. If necessary,
+            it then scans through dependency source files. Otherwise, the linter requests the
+            <a href="https://package-search.jetbrains.com/"><code>PACKAGE-SEARCH</code></a> plugin.
+        </p>
+
+        <p>The <a href="qodana-js.md"/> linter using npm reads information about project and dependency licenses using
+            configuration files of package management tools. The <a href="qodana-php.md"/> linter also reads license information
+        from the Composer configuration file.</p>
+
+        <p>The <a href="qodana-python.md"/>, <a href="qodana-go.md"/>, and <a href="qodana-js.md"/> linter using
+            Yarn require that the <code>LICENSE.*</code> file in the project root contains the project license.
+        </p>
+
+        <p>For all linters except <a href="qodana-jvm.md"/>, you also need to have project
+            dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> option of
+            the <a href="qodana-yaml.md"><code style="inline">qodana.yaml</code></a> file.</p>
+
+
         <p>After %product% has finished analyzing your project, the results become available in the
             <a anchor="license-audit-verifying-data">report</a>.</p>
 
     </chapter>
 
-    <chapter title="Running %feature%" id="license-audit-running-feature">
+    <chapter title="Run %feature%" id="license-audit-running-feature">
 
             <note>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">inspection scopes</a>, make sure that
             the file containing the build configuration is included in the scope.</note>
 
-            <p>The <a href="qodana-jvm.md"/> linter collects information about licenses using the following priority:
-                <list type="decimal">
-                    <li>A locally-based JAR file containing the <code>LICENSE.*</code> file</li>
-                    <li>Source files of a project</li>
-                    <li>The <code>pom.xml</code> file of a project</li>
-                    <li>Requests to the <code>PACKAGE-SEARCH</code> plugin</li>
-                </list>
-            </p>
-
-        <p>The <a href="qodana-php.md"/> linter, as well as the <a href="qodana-js.md"/> linter using npm read
-                information about project and dependency licenses using configuration files of package management tools.</p>
-
-            <p>The <a href="qodana-python.md"/>, <a href="qodana-go.md"/>, and <a href="qodana-js.md"/> linter using
-                Yarn require that the project license is contained in the <code>LICENSE</code> file in the project root.
-                The <a href="qodana-python.md"/> linter also requires that the project directory contains no
-                <code>.idea</code> file and the virtual environment directory.</p>
-
-            <p>For all linters except <a href="qodana-jvm.md"/>, you also need to have project
-                dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> option of
-                the <a href="qodana-yaml.md"><code style="inline">qodana.yaml</code></a> file.</p>
-
-            <p>To run %feature%, enable the <code>CheckDependencyLicenses</code> inspection. </p>
+            <p>To run %feature%, enable the
+                <a href="qodana-yaml.md" anchor="Configure+the+License+audit"><code>CheckDependencyLicenses</code></a>
+                inspection. </p>
 
             <p>Below are the <code>qodana.yaml</code> configuration samples that tell %product% to install project
                 dependencies and enable %feature%:</p>
@@ -158,9 +167,6 @@
                               # Install dependencies
                               pip install -r requirements.txt
 
-                              # Remove .idea from the project root
-                              rm -rf .idea
-
                             include:
                               - name: CheckDependencyLicenses
                         </code>
@@ -177,7 +183,7 @@
                     </tab>
                 </tabs>
 
-        <p>You can also extend %feature% configuration as shown in the subsequent sections.</p>
+        <p>You can also extend these samples using configuration options described below.</p>
 
         <chapter title="Ignore dependencies" id="license-audit-ignoring-dependencies">
             <p>You can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
@@ -255,7 +261,7 @@
 
     </chapter>
 
-    <chapter title="Verifying data" id="license-audit-verifying-data">
+    <chapter title="Verify data" id="license-audit-verifying-data">
         <include src="lib_qd.xml" include-id="license-audit-tab" use-filter="license-audit,empty"/>
     </chapter>
 
