@@ -19,7 +19,7 @@
         </tr>
         <tr>
             <td><a href="qodana-jvm.md"/></td>
-            <td>Maven, Gradle, and IntelliJ Module File</td>
+            <td>Maven and Gradle</td>
         </tr>
         <tr>
             <td><a href="qodana-php.md"/></td>
