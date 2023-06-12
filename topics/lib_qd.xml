@@ -911,7 +911,6 @@
         <p filter="jvm-only"> To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
             that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
             executed, and so on.</p>
-
         <p>Qodana provides two options for local analysis of your code.
             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
             Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
@@ -984,8 +983,8 @@
 
         <list type="decimal">
             <li>If applicable, you can expand a specific dependency to overview its dependency tree.</li>
-            <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and the dependencies
-                that have incompatible licenses.</li>
+            <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and dependencies
+                which licenses are incompatible with the project license.</li>
             <li>Under <menupath>Project licenses</menupath> you can find the list of project licenses. Using
                 <menupath>License rules</menupath>, you can overview the rules of license compatibility.</li>
             <li>You can download the list of dependencies in various formats.</li>
@@ -1021,8 +1020,9 @@
             <li><a href="docker-images.md">Docker images</a> let you inspect
                 <a href="Quick-start.xml">local projects</a> and build %product% into your CI/CD pipelines.</li>
             <li><a href="ci.md">Integration tools</a> include applications for seamless integration with CI/CD systems
-                like GitHub and TeamCity, and instructions for configuring %product% Docker images for CI/CD. </li>
-            <li><a href="qodana_plugins.md">IDE Plugins</a> facilitate code analysis within your favorite IDE.</li>
+                like GitHub and TeamCity, and guides for configuring %product% Docker images for CI/CD. </li>
+            <li><a href="qodana-ide-plugin.md">%product% functionality in JetBrains IDEs</a> lets you overview %product% using your IDE.</li>
+            <li><a href="qodana_gradle_plugin.md"/> provides the Gradle interface for running %product% in IntelliJ IDEA.</li>
             <li><a href="service.md">Cloud service</a> is a cloud-based version of %product%. </li>
         </list>
     </chunk>
@@ -1153,7 +1153,7 @@
             projectJDK: 1.8
         </code>
 
-        <p>You can also specify JDK using the name. For example, it can be:</p>
+        <p>You can also specify JDK using the name:</p>
 
         <code style="block" lang="yaml">
             projectJDK: corretto-19

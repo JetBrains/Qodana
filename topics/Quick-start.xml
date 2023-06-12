@@ -130,7 +130,7 @@
         <list>
             <li><a href="docker-image-configuration.xml">Configure Docker images</a></li>
             <li><a href="github.md">Run %product% on GitHub</a></li>
-            <li><a href="qodana_plugins.md">Extend your IDE using plugins</a></li>
+            <li><a href="qodana-ide-plugin.md">Overview %product% reports in your IDE</a></li>
             <li><a href="ci.md">Explore how you can integrate %product% into your CI/CD system</a></li>
             <li><a href="cloud-about.xml">Overview inspection results using Qodana Cloud</a></li>
         </list>

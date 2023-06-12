@@ -26,8 +26,8 @@
                         <title>Deploy, configure, and launch Qodana</title>
                         <a href="docker-images.md"
                            description="Learn how to deploy Qodana locally using Docker images."/>
-                        <a href="qodana_plugins.md"
-                           description="Qodana provides several plugins for seamless integration with CI systems."/>
+                        <a href="qodana-ide-plugin.md"
+                           description="You can overview Qodana reports in JetBrains IDEs."/>
                         <a href="ci.md"
                            description="Our documentation provides several how-tos for integration with the most
                            popular CI/CD systems."/>

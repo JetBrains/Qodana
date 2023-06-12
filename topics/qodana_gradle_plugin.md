@@ -2,7 +2,9 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-The [Gradle Qodana plugin](https://github.com/JetBrains/gradle-qodana-plugin) provides the Gradle interface to run code inspections from Intellij IDEA. To get started, apply the Gradle plugin `org.jetbrains.qodana` in the Gradle configuration file.
+The [Gradle Qodana plugin](https://github.com/JetBrains/gradle-qodana-plugin) provides the Gradle interface for running 
+code inspections provided by %product%. To get started, apply the Gradle plugin `org.jetbrains.qodana` in the Gradle 
+configuration file.
 
  <tabs group="languages">
   <tab title="Groovy" group-key="groovy">
@@ -31,7 +33,7 @@ Add the following to the `build.gradle.kts` configuration file:
 
 <note>
 
-The latest Gradle Qodana plugin version is currently `0.1.12`. 
+The latest Gradle Qodana plugin version is currently `0.1.13`. 
 
 </note>
 
