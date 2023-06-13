@@ -2,7 +2,9 @@
 
 # Qodana Scan
 
-Qodana Scan is an Azure Pipelines task packed inside the [Qodana Azure Pipelines extension](https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana) to scan your code with Qodana.
+Qodana Scan is an Azure Pipelines task
+packed inside the [Qodana Azure Pipelines extension](https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana)
+to scan your code with Qodana.
 
 ## Usage
 
@@ -34,13 +36,12 @@ steps:
 
 Triggering this job depends on [what type of repository you are using in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops#classic-build-pipelines-and-yaml-pipelines).
 
-The task can be run on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed. Because Qodana Docker images are mostly based on Linux, the docker daemon must run Linux containers.
+The task can be run on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed.
+And since most of the Qodana Docker images are Linux-based, the docker daemon must be able to run Linux containers.
 
 ### Qodana Cloud
 
-To forward inspection results to Qodana Cloud, all you need to do is to specify the `QODANA_TOKEN` environment variable in the build configuration.
-
-<chunk id="azure-pipelines-qodana-cloud">
+To send the results to Qodana Cloud, all you need to do is to specify the `QODANA_TOKEN` environment variable in the build configuration.
 
 1. In the Azure Pipelines UI, create the `QODANA_TOKEN` [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&tabs=yaml%2Cbash#secret-variable-in-the-ui) and
    save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
@@ -52,8 +53,6 @@ To forward inspection results to Qodana Cloud, all you need to do is to specify 
     env:
       QODANA_TOKEN: $(QODANA_TOKEN)
 ```
-
-</chunk>
 
 After the token is set for analysis, all Qodana Scan job results will be uploaded to your Qodana Cloud project.
 
@@ -73,7 +72,8 @@ You probably won't need other options than `args`: all other options can be help
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
 | `args`         | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend`. Optional. | -                                       |
 | `resultsDir`   | Directory to store the analysis results. Optional.                                                                                                                          | `$(Agent.TempDirectory)/qodana/results` |
-| `uploadResult` | Upload Qodana results as an artifact to the job. Optional.                                                                                                                  | `true`                                  |
+| `uploadResult` | Upload Qodana results as an artifact to the job. Optional.                                                                                                                  | `false`                                 |
+| `uploadSarif`  | Upload qodana.sarif.json as an qodana.sarif artifact to the job. Optional.                                                                                                  | `true`                                  |
 | `artifactName` | Specify Qodana results artifact name, used for results uploading. Optional.                                                                                                 | `qodana-report`                         |
 | `cacheDir`     | Directory to store Qodana caches. Optional.                                                                                                                                 | `$(Agent.TempDirectory)/qodana/cache`   |
 
