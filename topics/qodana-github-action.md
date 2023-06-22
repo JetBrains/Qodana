@@ -14,22 +14,22 @@ To configure Qodana Scan, save the `.github/workflows/code_quality.yml` file con
 ```yaml
 name: Qodana
 on:
-  workflow_dispatch:
-  pull_request:
-  push:
-    branches:
-      - main
-      - 'releases/*'
+   workflow_dispatch:
+   pull_request:
+   push:
+      branches:
+         - main
+         - 'releases/*'
 
 jobs:
-  qodana:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2023.1.4
+   qodana:
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v3
+           with:
+              fetch-depth: 0
+         - name: 'Qodana Scan'
+           uses: JetBrains/qodana-action@v2023.1.5
 ```
 
 Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
@@ -56,9 +56,9 @@ all you need to do is to specify the `QODANA_TOKEN` environment variable in the 
 
 ```yaml
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2023.1.4
+        uses: JetBrains/qodana-action@v2023.1.5
         env:
-          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 ```
 
 After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
@@ -75,7 +75,7 @@ for your project using Qodana. To do it, add these lines to the `code_quality.ym
 ```yaml
       - uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
+           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
 ```
 
 This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report
@@ -95,9 +95,9 @@ as described below:
 
 ```yaml
 on:
-  pull_request:
-    branches:
-      - main
+   pull_request:
+      branches:
+         - main
 ```
 
 Instead of `main`, you can specify your branch here.
@@ -136,9 +136,9 @@ qodana scan --show-report
 
 ```yaml
 - name: Qodana Scan
-  uses: JetBrains/qodana-action@v2023.1.4
+  uses: JetBrains/qodana-action@v2023.1.5
   with:
-    args: --baseline,qodana.sarif.json
+     args: --baseline,qodana.sarif.json
 ```
 
 If you want to update the baseline, you need to repeat these steps once again.
@@ -173,15 +173,15 @@ Use [`with`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-
 
 ```yaml
 with:
-  args: --baseline,qodana.sarif.json
-  cache-default-branch-only: true
+   args: --baseline,qodana.sarif.json
+   cache-default-branch-only: true
 ```
 
 | Name                        | Description                                                                                                                                                                                  | Default Value                                       |
 |-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
 | `args`                      | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend,--print-problems`. Optional. | -                                                   |
 | `results-dir`               | Directory to store the analysis results. Optional.                                                                                                                                           | `${{ runner.temp }}/qodana/results`                 |
-| `upload-result`             | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                    | `true`                                              |
+| `upload-result`             | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                    | `false`                                             |
 | `artifact-name`             | Specify Qodana results artifact name, used for results uploading. Optional.                                                                                                                  | `qodana-report`                                     |
 | `cache-dir`                 | Directory to store Qodana cache. Optional.                                                                                                                                                   | `${{ runner.temp }}/qodana/caches`                  |
 | `use-caches`                | Utilize [GitHub caches](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy) for Qodana runs. Optional.           | `true`                                              |
@@ -190,6 +190,7 @@ with:
 | `cache-default-branch-only` | Upload cache for the default branch only. Optional.                                                                                                                                          | `false`                                             |
 | `use-annotations`           | Use annotation to mark the results in the GitHub user interface. Optional.                                                                                                                   | `true`                                              |
 | `pr-mode`                   | Analyze ONLY changed files in a pull request. Optional.                                                                                                                                      | `true`                                              |
+| `post-pr-comment`           | Post a comment with the Qodana results summary to the pull request. Optional.                                                                                                                | -                                                   |
 | `github-token`              | GitHub token to access the repository: post annotations, comments. Optional.                                                                                                                 | `${{ github.token }}`                               |
 
 [gh:qodana]: https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml
