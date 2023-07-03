@@ -9,7 +9,7 @@ reports, both stored locally or in Qodana Cloud, with your project opened in an 
 <note>Prior to 2022.3, this functionality was available as a plugin published 
 on <a href="https://plugins.jetbrains.com/plugin/16938-qodana">JetBrains Marketplace</a>.</note>
 
-This functionality is supported by IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider.
+Qodana is integrated in IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider.
 
 ## Before you start
 
@@ -19,10 +19,8 @@ This functionality is supported by IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoL
 
 ## UI overview
 
-%product% is available in the **Server-side analysis** tab of the **Problems** window of your IDE. This window is 
-located in the lower-left part of the IDE user interface, and becomes visible once you open a report. 
-
-After opening, the **Server-side analysis** tab shows the list of problems that were detected by Qodana.
+%product% is available in the **Server-Side Analysis** tab contained in the **Problems** window of your IDE and exposes 
+the list of problems that were detected by Qodana.
 
 <img src="ide-plugin-tab-overview-1.png" dark-src="ide-plugin-tab-overview-1_dark.png" width="706" alt="Overview of the Qodana tab" border-effect="line"/>
 
