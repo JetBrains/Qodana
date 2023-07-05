@@ -28,20 +28,26 @@ qodana:
    image:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
+   cache:
+      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+        fallback_keys:
+           - qodana-2023.1-$CI_DEFAULT_BRANCH-
+           - qodana-2023.1-
+        paths:
+           - .qodana/cache
    script:
-      - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
-         --report-dir=$CI_PROJECT_DIR/qodana/report
-   artifacts:
-      paths:
-         - qodana
+      - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
 In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %product% [Docker image](docker-images.md) of your choice.
 
+The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab caches to store the %product% cache,
+so subsequent runs will be faster. 
+
 The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %product% 
 configuration options described in the [](docker-image-configuration.xml) section. 
 
-Finally, [`artifacts`](https://docs.gitlab.com/ee/ci/yaml/#artifacts) configures job artifacts.
+Finally, [`artifacts`](https://docs.gitlab.com/ee/ci/yaml/#artifacts) configures job artifacts that are uploaded, can be skipped if Qodana Cloud is used (described in the next steps).
 
 ## Inspect specific branches
 
@@ -56,11 +62,15 @@ qodana:
    image:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
+   cache:
+      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+        fallback_keys:
+           - qodana-2023.1-$CI_DEFAULT_BRANCH-
+           - qodana-2023.1-
+        paths:
+           - .qodana/cache
    script:
-      - qodana
-   artifacts:
-      paths:
-         - qodana
+      - qodana --results-dir=$CI_PROJECT_DIR/.qodana/results --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
 ## Forward reports to Qodana Cloud
@@ -75,18 +85,23 @@ qodana:
    image:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
+   cache:
+      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+        fallback_keys:
+           - qodana-2023.1-$CI_DEFAULT_BRANCH-
+           - qodana-2023.1-
+        paths:
+           - .qodana/cache
    variables:
       QODANA_TOKEN: $qodana_token
    script:
-      - qodana
-   artifacts:
-      paths:
-         - qodana
+      - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
 ## Expose Qodana reports
 
-To make a report available in any given merge request, you can use the [`expose_as`](%GitLabExpose%) keyword
+To make a report available in any given merge request without connecting to Qodana Cloud,
+you can use the [`artifacts`]() [`expose_as`](%GitLabExpose%) keywords
 and change the path to the artifacts:
 
 ```yaml
@@ -94,9 +109,16 @@ qodana:
    image:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
+   cache:
+      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+        fallback_keys:
+           - qodana-2023.1-$CI_DEFAULT_BRANCH-
+           - qodana-2023.1-
+        paths:
+           - .qodana/cache
    script:
-      - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
-         --report-dir=$CI_PROJECT_DIR/qodana/report
+      - qodana --save-report --results-dir=$CI_PROJECT_DIR/.qodana/results
+         --cache-dir=$CI_PROJECT_DIR/.qodana/cache
    artifacts:
       paths:
          - qodana/report/
@@ -125,13 +147,15 @@ qodana:
       entrypoint: [""]
    variables:
       QODANA_TOKEN: <your-project-token>
+   cache:
+      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+        fallback_keys:
+           - qodana-2023.1-$CI_DEFAULT_BRANCH-
+           - qodana-2023.1-
+        paths:
+           - .qodana/cache
    script:
-      - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana
-         --report-dir=$CI_PROJECT_DIR/qodana/report
-   artifacts:
-      paths:
-         - qodana/report/
-      expose_as: 'Qodana report'
+      - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
 <seealso>
