@@ -19,6 +19,37 @@
 
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.
 
+## Supported technologies
+
+%linter% provides inspections for the following technologies.
+
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>Golang</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Markup languages</td>
+        <td>
+            <p>CSS</p>
+            <p>HTML</p>
+            <p>JSON and JSON5</p>
+            <p>RELAX NG</p>
+            <p>XML</p>
+            <p>YAML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Scripting languages</td>
+        <td>
+            <p>Shell script</p>
+        </td>
+    </tr>
+</table>
+
+
 ## Try it now
 
 ### Analyze a project locally

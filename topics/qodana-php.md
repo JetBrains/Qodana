@@ -18,7 +18,65 @@
 
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). <include src="lib_qd.xml" include-id="linter-intro"/>
 
-%linter% provides inspections for PHP, JavaScript, and TypeScript.
+## Supported technologies
+
+%linter% provides inspections for the following technologies.
+
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>PHP</p>
+            <p>JavaScript</p>
+            <p>TypeScript</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Markup languages</td>
+        <td>
+            <p>Blade</p>
+            <p>CSS</p>
+            <p>HTML</p>
+            <p>JSON and JSON5</p>
+            <p>RELAX NG</p>
+            <p>XML</p>
+            <p>YAML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Scripting languages</td>
+        <td>
+            <p>Shell script</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Databases and ORM</td>
+        <td>
+            <p>MongoJS</p>
+            <p>MySQL</p>
+            <p>Oracle</p>
+            <p>PostgreSQL</p>
+            <p>SQL</p>
+            <p>SQL Server</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Dependency management</td>
+        <td>
+            <p>Composer</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>Cucumber</p>
+            <p>Joomla!</p>
+            <p>PHPUnit</p>
+            <p>Psalm</p>
+        </td>
+    </tr>
+</table>
+
 
 ## Try it now
 

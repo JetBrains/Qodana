@@ -13,6 +13,78 @@
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
 
+## Supported technologies
+
+%linter% provides inspections for the following technologies.
+
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>Java</p>
+            <p>Kotlin</p>
+            <p>Groovy</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Markup languages</td>
+        <td>
+            <p>CSS</p>
+            <p>FreeMarker Template Language</p>
+            <p>HTML</p>
+            <p>JSON and JSON5</p>
+            <p>RELAX NG</p>
+            <p>XML</p>
+            <p>XPath</p>
+            <p>XSLT</p>
+            <p>YAML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Scripting languages</td>
+        <td>
+            <p>Expression Language (EL)</p>
+            <p>Shell script</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Databases and ORM</td>
+        <td>
+            <p>Hibernate ORM</p>
+            <p>MongoJS</p>
+            <p>Oracle</p>
+            <p>MySQL</p>
+            <p>PostgreSQL</p>
+            <p>SQL</p>
+            <p>SQL server</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Build management</td>
+        <td>
+            <p>Ant</p>
+            <p>Gradle</p>
+            <p>Maven</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>Jakarta EE</p>
+            <p>Java EE</p>
+            <p>JavaBeans</p>
+            <p>JAX-RS</p>
+            <p>JPA</p>
+            <p>JSP</p>
+            <p>JUnit</p>
+            <p>Lombok</p>
+            <p>Reactive Streams</p>
+            <p>Spring</p>
+            <p>TestNG</p>
+        </td>
+    </tr>
+</table>
+
 ## Try it now
 
 ### Analyze a project locally
