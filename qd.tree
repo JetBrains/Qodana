@@ -9,6 +9,7 @@
         <!-- This page contents can be moved outside this section -->
         <!-- Reference to the Integration section and plugins should be added here -->
         <toc-element id="about-qodana.md"/>
+        <toc-element id="pricing.md"/>
         <toc-element id="Quick-start.xml"/>
         <toc-element id="new-in-2023-1.md" show-structure-depth="3"/>
         <!-- These concepts should be mentioned in the About Qodana page -->

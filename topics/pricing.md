@@ -63,7 +63,47 @@ Depending on your needs, you can choose a suitable license described in this tab
 | Hibernate ORM | &#x274c;    | &#x2714;                    |
 
 
-### Other features
+### Frameworks and libraries
+
+| Framework or library | Community  | Ultimate and Ultimate Plus |
+|----------------------|------------|----------------------------|
+| Angular              | &#x274c;   | &#x2714;                   | 
+| Cucumber             | &#x274c;   | &#x2714;                   |
+| Django               | &#x2714;   | &#x2714;                   |
+| .NET Core            | &#x274c;   | &#x2714;                   |
+| EJS                  | &#x274c;   | &#x2714;                   |
+| Google App Engine    | &#x2714;   | &#x2714;                   |
+| Handlebars/Mustache  | &#x274c;   | &#x2714;                   |
+| Jakarta EE           | &#x274c;   | &#x2714;                   |
+| Java EE              | &#x274c;   | &#x2714;                   |
+| JavaBeans            | &#x2714;   | &#x2714;                   |
+| JavaFX               | &#x2714;   | &#x2714;                   |
+| JAX-RS               | &#x274c;   | &#x2714;                   |
+| Joomla!              | &#x274c;   | &#x2714;                   |
+| JPA                  | &#x2714;   | &#x2714;                   |
+| JSP                  | &#x274c;   | &#x2714;                   |
+| JUnit                | &#x2714;   | &#x2714;                   |
+| Jupyter              | &#x2714;   | &#x2714;                   |
+| Less                 | &#x274c;   | &#x2714;                   |
+| Lombok               | &#x2714;   | &#x2714;                   |
+| Node.JS              | &#x274c;   | &#x2714;                   |
+| NUnit                | &#x274c;   | &#x2714;                   |
+| PHPUnit              | &#x274c;   | &#x2714;                   |
+| PostCSS              | &#x274c;   | &#x2714;                   |
+| Psalm                | &#x274c;   | &#x2714;                   |
+| Pug/Jade             | &#x274c;   | &#x2714;                   |
+| Pyramid              | &#x2714;   | &#x2714;                   |
+| React                | &#x274c;   | &#x2714;                   |
+| Reactive Streams     | &#x2714;   | &#x2714;                   |
+| Sass/SCSS            | &#x274c;   | &#x2714;                   |
+| Spring               | &#x274c;   | &#x2714;                   |
+| TestNG               | &#x2714;   | &#x2714;                   |
+| Unity                | &#x274c;   | &#x2714;                   |
+| Unreal Engine        | &#x274c;   | &#x2714;                   |
+| Vue                  | &#x274c;   | &#x2714;                   |
+| Xunit                | &#x274c;   | &#x2714;                   |
+
+### Useful features
 
 | Feature                                 | Community | Ultimate  | Ultimate Plus | 
 |-----------------------------------------|-----------|-----------|---------------|
@@ -103,6 +143,7 @@ Below is the list of linters covered by each license type.
 
 <!-- Trial version of the license needs to be used here -->
 <!-- This needs to be grouped by licenses and Qodana Cloud -->
+<!-- The EAP license needs to be addressed here -->
 
 <chapter title="What do I need to do to start using Qodana" initial-collapse-state="collapsed">
 
