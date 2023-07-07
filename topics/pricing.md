@@ -11,6 +11,8 @@ Depending on your needs, you can choose a suitable license described in this tab
 
 
 ## License comparison matrix
+{id="license-comparison-matrix"}
+
 <!-- Explanation about the trial types of licenses needs to be added here -->
 
 ### Programming languages
@@ -145,41 +147,35 @@ Below is the list of linters covered by each license type.
 <!-- This needs to be grouped by licenses and Qodana Cloud -->
 <!-- The EAP license needs to be addressed here -->
 
-<chapter title="What do I need to do to start using Qodana" initial-collapse-state="collapsed">
+### What do I need to do to start using Qodana?
 
 <p>If you plan to choose either the Ultimate or Ultimate Plus license, you need to create an account at 
 <a href="https://qodana.cloud">Qodana Cloud</a>. In the Qodana Cloud UI, you need to generate a license token that will 
 be identified by %product%.</p>
 
 <p>For the Community license, you can use %product% without any prerequisites. However, this type of license provides
-restricted functionalities compared to the Ultimate and Ultimate Plus licenses, see the <a href="pricing.md" anchor="License-comparison-matrix">comparison matrix</a>.</p>
+restricted functionalities compared to the Ultimate and Ultimate Plus licenses, see the <a href="pricing.md" anchor="license-comparison-matrix">comparison matrix</a>.</p>
 
-</chapter>
-
-<chapter title="Can I try %product% before buying a license?" initial-collapse-state="collapsed">
+### Can I try %product% before buying a license?
 
 <p>
 Yes, after you choose either the Ultimate or Ultimate Plus license, you can start using %product% with the 60-day trial period. 
 After this period, you need to pay for the license selected, either the Ultimate or the Ultimate Plus.
 </p>
 
-</chapter>
 
-<chapter title="Will I be notified when my trial ends?" initial-collapse-state="collapsed">
+### Will I be notified when my trial ends?
 
 <p>Yes, you will start receiving notifications about the trial period expiration. To convert your trial license to the Ultimate 
 or the Ultimate Plus, you will need to buy it.</p>
 
-</chapter>
 
-<chapter title="Can I switch between trial licenses?" initial-collapse-state="collapsed">
+### Can I switch between trial licenses?
 
 <p>No, you cannot switch between trial versions of the paid licenses within your account. But you can switch between
 the Ultimate and Ultimate Plus licenses.</p>
 
-</chapter>
-
-<chapter title="What is the license bound to?" initial-collapse-state="collapsed">
+### What is the license bound to?
 
 <p>The total license costs are based on the number of contributors. A contributor is a person who contributes to a project. 
 The number of contributors is calculated within a 3-month period. For example, if you buy a license for 10 contributors, 
@@ -187,30 +183,22 @@ but during the first 3 months this number raises to 20, then in the following 3-
 be recalculated for 20 contributors. 
 </p>
 
-</chapter>
-
-
-<chapter title="Where Qodana stores all license information?" initial-collapse-state="collapsed">
+### Where Qodana stores all license information?
 
 <p>All information about your Ultimate and Ultimate Plus licenses is stored by Qodana Cloud. This is why you need to 
 create a Qodana Cloud account before running Qodana. Besides that, Qodana Cloud provides several 
 <a href="cloud-use-cases.xml">helpful features</a>. </p>
 
-</chapter>
-
-<chapter title="Which minimum steps do I need to perform in Qodana Cloud?" initial-collapse-state="collapsed">
+### Which minimum steps do I need to perform in Qodana Cloud?
 
 <p>All steps are described in the <a href="cloud-quickstart.md">Quick start</a> section of the Qodana Cloud documentation.</p>
 
-</chapter>
-
-<chapter title="Are there any restrictions on using the Community license?" initial-collapse-state="collapsed">
+### Are there any restrictions on using the Community license?
 
 <p>This needs to be addressed!</p>
 
-</chapter>
 
-<chapter title="What is the difference between the Ultimate and Ultimate Plus licenses?" initial-collapse-state="collapsed">
+### What is the difference between the Ultimate and Ultimate Plus licenses?
 
 <p>Compared to the Ultimate license, the Ultimate Plus license additionally provides the following features:</p>
 
@@ -222,10 +210,8 @@ create a Qodana Cloud account before running Qodana. Besides that, Qodana Cloud 
 
 <p>Besides that, the Ultimate Plus license provides additional inspections that are not available in the Ultimate license.</p>
 
-</chapter>
-
-<chapter title="Which licenses are integrated into CI/CD pipelines?" initial-collapse-state="collapsed">
+### Which licenses are integrated into CI/CD pipelines?
 
 <p>This needs to be addressed!</p>
 
-</chapter>
+
