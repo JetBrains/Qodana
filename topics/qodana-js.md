@@ -16,9 +16,56 @@
 
 <var name="linter" value="Qodana JS"/>
 <var name="ide" value="WebStorm"/>
-<var name="docker-image" value="jetbrains/qodana-js:2023.2-eap"/>
+<var name="docker-image" value="jetbrains/qodana-js:2023.1-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/). It provides static analysis for JavaScript or TypeScript projects.
+
+## Supported technologies
+
+%linter% provides inspections for the following technologies.
+
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>JavaScript</p>
+            <p>TypeScript</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Markup languages</td>
+        <td>
+            <p>CSS</p>
+            <p>HTML</p>
+            <p>JSON and JSON5</p>
+            <p>RELAX NG</p>
+            <p>XML</p>
+            <p>YAML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Scripting languages</td>
+        <td>
+            <p>Shell script</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>Angular</p>
+            <p>Cucumber</p>
+            <p>EJS</p>
+            <p>Handlebars/Mustache</p>
+            <p>Less</p>
+            <p>Node.js</p>
+            <p>PostCSS</p>
+            <p>Pug/Jade</p>
+            <p>React</p>
+            <p>Sass/SCSS</p>
+            <p>Vue</p>
+        </td>
+    </tr>
+</table>
 
 ## Try it now
 

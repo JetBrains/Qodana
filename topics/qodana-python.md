@@ -14,9 +14,58 @@
 
 <var name="linter" value="Qodana Python"/>
 <var name="ide" value="PyCharm Professional"/>
-<var name="docker-image" value="jetbrains/qodana-python:2023.2-eap"/>
+<var name="docker-image" value="jetbrains/qodana-python:2023.1-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
+
+%linter% provides inspections for the following technologies.
+
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>Python</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Markup languages</td>
+        <td>
+            <p>CSS</p>
+            <p>HTML</p>
+            <p>JSON and JSON5</p>
+            <p>RELAX NG</p>
+            <p>XML</p>
+            <p>YAML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Scripting languages</td>
+        <td>
+            <p>Shell script</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Databases and ORM</td>
+        <td>
+            <p>MongoJS</p>
+            <p>MySQL</p>
+            <p>Oracle</p>
+            <p>PostgreSQL</p>
+            <p>SQL</p>
+            <p>SQL Server</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>Django</p>
+            <p>Google App Engine</p>
+            <p>Jupyter</p>
+            <p>Pyramid</p>
+        </td>
+    </tr>
+</table>
+
 
 ## Try it now
 

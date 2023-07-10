@@ -7,11 +7,54 @@
 <var name="linter" value="Qodana Community for JVM"/>
 <var name="ide" value="IntelliJ IDEA Community"/>
 <var name="tech" value="jvm"/>
-<var name="docker-image" value="jetbrains/qodana-jvm-community:2023.2"/>
+<var name="docker-image" value="jetbrains/qodana-jvm-community:2023.1"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/).  <include src="lib_qd.xml" include-id="linter-intro"/>
 
-%linter% provides inspections for Java, Kotlin, and Groovy.
+## Supported technologies
+
+%linter% provides inspections for the following technologies.
+
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>Java</p>
+            <p>Kotlin</p>
+            <p>Groovy</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Markup languages</td>
+        <td>
+            <p>HTML</p>
+            <p>JSON and JSON5</p>
+            <p>RELAX NG</p>
+            <p>XML</p>
+            <p>XPath</p>
+            <p>XSLT</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Build management</td>
+        <td>
+            <p>Ant</p>
+            <p>Gradle</p>
+            <p>Maven</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>JavaBeans</p>
+            <p>JPA</p>
+            <p>JUnit</p>
+            <p>Lombok</p>
+            <p>Reactive Streams</p>
+            <p>TestNG</p>
+        </td>
+    </tr>
+</table>
 
 ## Try it now
 

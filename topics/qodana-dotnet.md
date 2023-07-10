@@ -14,7 +14,7 @@
 
 <var name="linter" value="Qodana for .NET"/>
 <var name="ide" value="Rider"/>
-<var name="docker-image" value="jetbrains/qodana-dotnet:2023.2-eap"/>
+<var name="docker-image" value="jetbrains/qodana-dotnet:2023.1-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/rider/) and provides static analysis for .NET projects.
 It brings all the smarts from Rider, which help you:
@@ -28,6 +28,78 @@ It brings all the smarts from Rider, which help you:
 
 %linter% provides inspections for the C, C++, C#, VB.NET, JavaScript, and TypeScript programming languages.
 C and C++ inspections of %linter% are limited by projects containing `.sln` files. 
+
+## Supported technologies
+
+%linter% provides inspections for the following technologies.
+
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>C#</p>
+            <p>C</p>
+            <p>C++</p>
+            <p>JavaScript</p>
+            <p>TypeScript</p>
+            <p>VB.NET</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Markup languages</td>
+        <td>
+            <p>CSS</p>
+            <p>HTML</p>
+            <p>JSON and JSON5</p>
+            <p>RELAX NG</p>
+            <p>T4</p>
+            <p>XML</p>
+            <p>XPath</p>
+            <p>XSLT</p>
+            <p>YAML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Scripting languages</td>
+        <td>
+            <p>Shell script</p>
+        </td>
+    </tr>
+        <tr>
+        <td>Databases and ORM</td>
+        <td>
+            <p>MongoJS</p>
+            <p>MySQL</p>
+            <p>Oracle</p>
+            <p>PostgreSQL</p>
+            <p>SQL</p>
+            <p>SQL server</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Build management</td>
+        <td>
+            <p>MSBuild</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>.NET Core</p>
+            <p>Handlebars/Mustache</p>
+            <p>Less</p>
+            <p>Node.JS</p>
+            <p>NUnit</p>
+            <p>Pug/Jade</p>
+            <p>Sass/SCSS</p>
+            <p>Unity</p>
+            <p>Unreal Engine</p>
+            <p>Vue</p>
+            <p>Xunit</p>
+        </td>
+    </tr>
+</table>
+
 
 ## Analyze a project locally
 
