@@ -211,7 +211,7 @@ By default, sanity checks are enabled in %product%. You can disable them using t
 disableSanityInspections: true
 ```
 
-## Configure the License audit
+## Configure License audit
 
 You can run the [License audit](license-audit.xml) feature by enabling the `CheckDependencyLicenses` inspection:
 
@@ -287,6 +287,13 @@ customDependencies:
       - key: "Apache-2.0"
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
+
+## Configure Package checker
+
+To start using the [Package checker](package-checking.md) feature, enable
+the `VulnerableLibrariesGlobal` inspection:
+
+<include src="package-checking.md" include-id="package-checking-enable"/>
 
 ## Manage plugins
 
