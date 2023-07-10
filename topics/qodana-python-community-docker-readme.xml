@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
 <!--suppress TopicContentShortcutHardcodedInspections -->
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-python-docker-readme"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="qodana-python-community-docker-readme"
        title="Qodana Community for Python">
 
     <var name="linter" value="Qodana Community for Python"/>
