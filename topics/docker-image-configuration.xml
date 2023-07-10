@@ -188,6 +188,7 @@
                             <li>IC - <a href="qodana-jvm-community.md">Qodana Community for JVM</a></li>
                             <li>PS - <a href="qodana-php.md">Qodana for PHP</a></li>
                             <li>PY - <a href="qodana-python.md">Qodana for Python</a></li>
+                            <li>PC - <a href="qodana-python-community.md">Qodana Community for Python</a></li>
                             <li>WS - <a href="qodana-js.md">Qodana for JS</a></li>
                             <li>GO - <a href="qodana-go.md">Qodana for Go</a></li>
                         </list>
@@ -202,7 +203,7 @@
                 <tr>
                     <td><code>BUILD_ID</code></td>
                     <td>Build ID of %product% available in %product% logs</td>
-                    <td><code>Starting up Qodana for PHP 2023.1 EAP (build QDPHP-231.7515)</code></td>
+                    <td><code>Starting up Qodana for PHP 2023.2 EAP (build QDPHP-231.7515)</code></td>
                 </tr>
             </table>
 

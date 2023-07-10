@@ -29,10 +29,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.1-$CI_DEFAULT_BRANCH-
-           - qodana-2023.1-
+           - qodana-2023.2-$CI_DEFAULT_BRANCH-
+           - qodana-2023.2-
         paths:
            - .qodana/cache
    script:
@@ -63,10 +63,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.1-$CI_DEFAULT_BRANCH-
-           - qodana-2023.1-
+           - qodana-2023.2-$CI_DEFAULT_BRANCH-
+           - qodana-2023.2-
         paths:
            - .qodana/cache
    script:
@@ -86,10 +86,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.1-$CI_DEFAULT_BRANCH-
-           - qodana-2023.1-
+           - qodana-2023.2-$CI_DEFAULT_BRANCH-
+           - qodana-2023.2-
         paths:
            - .qodana/cache
    variables:
@@ -110,10 +110,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.1-$CI_DEFAULT_BRANCH-
-           - qodana-2023.1-
+           - qodana-2023.2-$CI_DEFAULT_BRANCH-
+           - qodana-2023.2-
         paths:
            - .qodana/cache
    script:
@@ -148,10 +148,10 @@ qodana:
    variables:
       QODANA_TOKEN: <your-project-token>
    cache:
-      - key: qodana-2023.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.1-$CI_DEFAULT_BRANCH-
-           - qodana-2023.1-
+           - qodana-2023.2-$CI_DEFAULT_BRANCH-
+           - qodana-2023.2-
         paths:
            - .qodana/cache
    script:

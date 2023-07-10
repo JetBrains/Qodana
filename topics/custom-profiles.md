@@ -8,7 +8,7 @@
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
 
-Starting from version 2023.1, you can create and configure %product% profiles using YAML. %product% also provides 
+Starting from version 2023.2, you can create and configure %product% profiles using YAML. %product% also provides 
 several improvements related to profile configuration, such as:
 
 * Support for file paths and [scopes](%idea-scopes%)

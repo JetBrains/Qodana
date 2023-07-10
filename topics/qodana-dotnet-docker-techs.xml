@@ -7,7 +7,7 @@
        id="qodana-dotnet-docker-techs">
 
     <var name="linter" value="Qodana for .NET"/>
-    <var name="linter-shell" value="qodana-dotnet:2023.1-eap"/>
+    <var name="linter-shell" value="qodana-dotnet:2023.2-eap"/>
     <var name="ide" value="Rider"/>
     <var name="docker-general-guide-page-url" value="qodana-dotnet-docker-readme.xml"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>

@@ -8,6 +8,7 @@ for [Qodana linters](linters.md):
 - [](qodana-jvm-android-docker-readme.xml)
 - [](qodana-php-docker-readme.xml)
 - [](qodana-python-docker-readme.xml)
+- [](qodana-python-community-docker-readme.xml)
 - [](qodana-js-docker-readme.xml)
 - [](qodana-go-docker-readme.xml)
 - [](qodana-dotnet-docker-readme.xml)

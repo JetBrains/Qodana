@@ -94,6 +94,10 @@
                                 <td>Python projects, based on PyCharm Professional.</td>
                             </tr>
                             <tr>
+                                <td>jetbrains/qodana-python-community</td>
+                                <td>Python projects, based on PyCharm Community.</td>
+                            </tr>
+                            <tr>
                                 <td>jetbrains/qodana-js</td>
                                 <td>JavaScript and TypeScript projects, based on WebStorm.</td>
                             </tr>

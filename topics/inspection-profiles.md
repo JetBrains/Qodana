@@ -79,5 +79,5 @@ You can use this with [custom profiles](#Custom+profiles).
 
 You can configure inspection profiles using two formats: 
 
-* [YAML format](custom-profiles.md) is available starting from version 2023.1 of %product%
+* [YAML format](custom-profiles.md) is available starting from version 2023.2 of %product%
 * [XML format](custom-xml-profiles.md) can be used as an alternative to YAML

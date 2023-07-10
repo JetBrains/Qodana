@@ -49,7 +49,10 @@ Currently, several linters provide inspections for several programming languages
     </tr>
     <tr>
         <td><img src="python.png" dark-src="python_dark.png" alt="Python" width="296"/></td>
-        <td><a href="qodana-python.md"/></td>
+        <td>
+            <p><a href="qodana-python.md"/></p>
+            <p><a href="qodana-python-community.md"/></p>
+        </td>
     </tr>
     <tr>
         <td><img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/></td>

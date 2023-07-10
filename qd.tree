@@ -21,6 +21,7 @@
                 <toc-element id="qodana-jvm-android.md"/>
                 <toc-element id="qodana-php.md"/>
                 <toc-element id="qodana-python.md"/>
+                <toc-element id="qodana-python-community.md"/>
                 <toc-element id="qodana-js.md"/>
                 <toc-element id="qodana-go.md"/>
                 <toc-element id="qodana-dotnet.md"/>
@@ -43,6 +44,7 @@
             <toc-element id="qodana-jvm-android-docker-readme.xml"/>
             <toc-element id="qodana-php-docker-readme.xml"/>
             <toc-element id="qodana-python-docker-readme.xml"/>
+            <toc-element id="qodana-python-community-docker-readme.xml"/>
             <toc-element id="qodana-js-docker-readme.xml"/>
             <toc-element id="qodana-go-docker-readme.xml"/>
             <toc-element id="qodana-dotnet-docker-readme.xml"/>

@@ -1,4 +1,4 @@
-[//]: # (title: Qodana for Python)
+[//]: # (title: Qodana Community for Python)
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
@@ -7,14 +7,14 @@
 <note>
     <p>
 <include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana Python"/>
+<var name="product" value="Qodana Community Python"/>
 </include>
 </p>
 </note>
 
-<var name="linter" value="Qodana Python"/>
-<var name="ide" value="PyCharm Professional"/>
-<var name="docker-image" value="jetbrains/qodana-python:2023.2-eap"/>
+<var name="linter" value="Qodana Community Python"/>
+<var name="ide" value="PyCharm Community"/>
+<var name="docker-image" value="jetbrains/qodana-python-community:2023.2-eap"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 

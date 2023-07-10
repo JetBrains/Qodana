@@ -9,13 +9,13 @@
     <module name="qd-docs"/>
     <vars src="v.list"/>
     <topics dir="topics"/>
-    <images dir="images" version="2023.1"
-            web-path="https://resources.jetbrains.com/help/img/qodana/2023.1/"/>
+    <images dir="images" version="2023.2"
+            web-path="https://resources.jetbrains.com/help/img/qodana/2023.2/"/>
     <categories src="c.list"/>
 
-    <product src="qd.tree" web-path="/qodana/2023.1/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2023.1" keymaps-mode="none"/>
+    <product src="qd.tree" web-path="/qodana/2023.2/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="2023.2" keymaps-mode="none"/>
 
-    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/2023.1/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2023.1" keymaps-mode="none"/>
+    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/2023.2/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="2023.2" keymaps-mode="none"/>
 </ihp>
