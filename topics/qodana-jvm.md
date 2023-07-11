@@ -85,6 +85,10 @@
     </tr>
 </table>
 
+## Supported features
+
+<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,jvm"/>
+
 ## Try it now
 
 ### Analyze a project locally

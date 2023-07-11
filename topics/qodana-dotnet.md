@@ -100,6 +100,9 @@ C and C++ inspections of %linter% are limited by projects containing `.sln` file
     </tr>
 </table>
 
+## Supported features
+
+<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,non-jvm"/>
 
 ## Analyze a project locally
 

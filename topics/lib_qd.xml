@@ -1244,4 +1244,32 @@
 
     </chunk>
 
+    <chunk id="linters-supported-features">
+
+        <p>The %linter% linter provides the following %product% features:</p>
+
+        <list filter="php">
+            <li><a href="baseline.xml"/></li>
+            <li><a href="quality-gate.xml"/></li>
+            <li><a href="php-language-upgrade.xml"/></li>
+            <li><a href="license-audit.xml"/></li>
+            <li><a href="package-checking.md"/></li>
+            <li><a href="taint-analysis.md"/></li>
+        </list>
+
+        <list filter="jvm">
+            <li><a href="baseline.xml"/></li>
+            <li><a href="quality-gate.xml"/></li>
+            <li><a href="license-audit.xml"/></li>
+            <li><a href="package-checking.md"/></li>
+        </list>
+
+        <list filter="non-jvm">
+            <li><a href="baseline.xml"/></li>
+            <li><a href="quality-gate.xml"/></li>
+            <li><a href="license-audit.xml"/></li>
+        </list>
+
+    </chunk>
+
 </topic>

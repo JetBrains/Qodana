@@ -7,12 +7,12 @@
 <note>
 <p>
 <include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana PHP"/>
+<var name="product" value="Qodana for PHP"/>
 </include>
 </p>
 </note>
 
-<var name="linter" value="Qodana PHP"/>
+<var name="linter" value="Qodana for PHP"/>
 <var name="ide" value="PhpStorm"/>
 <var name="docker-image" value="jetbrains/qodana-php:2023.1-eap"/>
 
@@ -77,6 +77,9 @@
     </tr>
 </table>
 
+## Supported features
+
+<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,php"/>
 
 ## Try it now
 

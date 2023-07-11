@@ -53,6 +53,8 @@
                            description="Check license compatibility between your software license and dependency licenses."/>
                         <a href="taint-analysis.md"
                            description="Secure your PHP code from malicious user data."/>
+                        <a href="package-checking.md"
+                           description="Check third-party packages for vulnerabilities."/>
                 </highlighted-group>
                 
         </section-starting-page>

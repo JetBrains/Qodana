@@ -7,14 +7,12 @@
 <note>
     <p>
 <include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana JS"/>
+<var name="product" value="Qodana for JS"/>
 </include>
 </p>
 </note>
 
 <var name="linter" value="Qodana for JS"/>
-
-<var name="linter" value="Qodana JS"/>
 <var name="ide" value="WebStorm"/>
 <var name="docker-image" value="jetbrains/qodana-js:2023.1-eap"/>
 
@@ -66,6 +64,10 @@
         </td>
     </tr>
 </table>
+
+## Supported features
+
+<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,non-jvm"/>
 
 ## Try it now
 
