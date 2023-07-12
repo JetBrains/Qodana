@@ -22,6 +22,10 @@ It is not supported by any other JetBrains products like IntelliJ IDEA or PhpSto
 
 </note>
 
+<warning>
+It is highly recommended not to store tokens, passwords, or any other secret information in the <code>qodana.yaml</code> file.
+</warning>
+
 ## Run custom commands
 
 Using the `bootstrap` option of `qodana.yaml`, %product% can perform actions before running inspections. 
@@ -293,7 +297,7 @@ customDependencies:
 To start using the [](vulnerability-checker.md) feature, enable
 the `VulnerableLibrariesGlobal` inspection:
 
-<include src="package-checking.md" include-id="package-checking-enable"/>
+<include src="vulnerability-checker.md" include-id="package-checking-enable"/>
 
 ## Manage plugins
 
