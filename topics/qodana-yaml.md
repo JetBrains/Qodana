@@ -288,9 +288,9 @@ customDependencies:
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
 
-## Configure Package checker
+## Configure the Vulnerability checker
 
-To start using the [Package checker](package-checking.md) feature, enable
+To start using the [](vulnerability-checker.md) feature, enable
 the `VulnerableLibrariesGlobal` inspection:
 
 <include src="package-checking.md" include-id="package-checking-enable"/>

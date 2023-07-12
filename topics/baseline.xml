@@ -12,6 +12,9 @@
     <p>Using the baseline feature, you can compare your current code with its baseline state and see new, unchanged, and
         resolved problems.</p>
 
+    <p>Baseline is supported by all linters available under the Ultimate and Ultimate Plus
+        <a href="pricing.md" anchor="Linters+available+per+each+license">licenses</a> and their trial versions. </p>
+
     <chapter title="How it works">
 
     <p>If you run %product% without a baseline, you will be able to see the problems detected at a current run.</p>

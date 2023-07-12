@@ -39,6 +39,8 @@
         </tr>
     </table>
 
+    <p>This feature is available under the Ultimate and Ultimate Plus licenses and their trial versions. </p>
+
     <chapter title="How it works" id="license-audit-how-it-works">
 
         <p>%feature% collects information about project and dependency licenses using configuration files of dependency

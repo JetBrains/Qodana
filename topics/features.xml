@@ -6,6 +6,10 @@
        title="Features"
        id="features">
 
+    <note>All features described in this section are available only under the Ultimate or Ultimate Plus licenses, or
+        their trial versions. To learn more details about licenses, see the <a href="pricing.md"/> section.
+    </note>
+
         <p>Using %product%, you can significantly enhance your code inspection workflow. To better achieve your
            goals, you may want to start using several features that are available out of the box: </p>
 
@@ -19,9 +23,10 @@
             problems specific to a specific PHP version that may arise when you decide to migrate between versions.</li>
             <li><a href="license-audit.xml">License audit</a> lets you verify your project license for compatibility
             with the licenses of its dependencies. </li>
-            <li><a href="package-checking.md">Package checking</a> lets you check third-party packages for vulnerabilities.</li>
+            <li><a href="vulnerability-checker.md"/> lets you check third-party packages for vulnerabilities.</li>
             <li><a href="taint-analysis.md">Taint analysis</a> lets you secure your PHP code from malicious user data. </li>
         </list>
+
 
  <!--       <p>You can overview the %product% reports from all your projects using <a href="cloud-about.xml">Qodana Cloud</a>.</p> -->
 

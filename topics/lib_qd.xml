@@ -1253,7 +1253,7 @@
             <li><a href="quality-gate.xml"/></li>
             <li><a href="php-language-upgrade.xml"/></li>
             <li><a href="license-audit.xml"/></li>
-            <li><a href="package-checking.md"/></li>
+            <li><a href="vulnerability-checker.md"/></li>
             <li><a href="taint-analysis.md"/></li>
         </list>
 
@@ -1261,7 +1261,7 @@
             <li><a href="baseline.xml"/></li>
             <li><a href="quality-gate.xml"/></li>
             <li><a href="license-audit.xml"/></li>
-            <li><a href="package-checking.md"/></li>
+            <li><a href="vulnerability-checker.md"/></li>
         </list>
 
         <list filter="non-jvm">
@@ -1269,6 +1269,12 @@
             <li><a href="quality-gate.xml"/></li>
             <li><a href="license-audit.xml"/></li>
         </list>
+
+        <list filter="dotnet">
+            <li><a href="baseline.xml"/></li>
+            <li><a href="quality-gate.xml"/></li>
+        </list>
+
 
     </chunk>
 

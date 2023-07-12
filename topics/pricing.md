@@ -2,16 +2,21 @@
 
 Depending on your needs, you can choose a suitable license described in this table:
 
-| License       | Price                                                                                        | Description                                                                                                                                                                | Prerequisites                                                                  |
-|---------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| Community     | Free                                                                                         | Suitable for small open-source projects and aimed for solving isolated problems                                                                                            | No prerequisites                                                               |
-| Ultimate      | See [Subscription Options & Pricing](https://www.jetbrains.com/qodana/buy/) for details | Oriented for solving various business tasks. Available in the trial version                                                                                                | Account at [Qodana Cloud](https://qodana.cloud) and a valid Qodana Cloud token |
-| Ultimate Plus | See [Subscription Options & Pricing](https://www.jetbrains.com/qodana/buy/) for details | The Ultimate license plus features like [License audit](license-audit.xml), [taint analysis](taint-analysis.md), and [package checking](package-checking.md). Available in the trial version | Account at [Qodana Cloud](https://qodana.cloud) and a valid Qodana Cloud token |
+| License       | Price                                                                                        | Description                                                                                                                                                                | Prerequisites                                                                                                                     |
+|---------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Community     | Free                                                                                         | Suitable for small open-source projects and aimed for solving isolated problems                                                                                            | No prerequisites                                                                                                                  |
+| Ultimate      | See [Subscription Options & Pricing](https://www.jetbrains.com/qodana/buy/) for details | Oriented for solving various business tasks. Available in the trial version                                                                                                | An active Qodana license, an account at [Qodana Cloud](https://qodana.cloud), an active Qodana license a valid Qodana Cloud token |
+| Ultimate Plus | See [Subscription Options & Pricing](https://www.jetbrains.com/qodana/buy/) for details | The Ultimate license plus features like [License audit](license-audit.xml), [taint analysis](taint-analysis.md), and [](vulnerability-checker.md). Available in the trial version | Account at [Qodana Cloud](https://qodana.cloud) and a valid Qodana Cloud token                                                    |
+
+I'd also add here that the account must have an active license, linters must be not 'older' than 23.2 and the environment must be configured in the way that linters use valid project tokens (not sure about Qodana Cloud token term, might be confuding).
 
 ## License comparison matrix
 {id="license-comparison-matrix"}
 
-<!-- Explanation about the trial types of licenses needs to be added here -->
+This section enumerates technologies and features that are available for each license.
+
+All technologies and features mentioned in the Ultimate and Ultimate Plus columns are available for both trial and full 
+versions of the Ultimate and Ultimate Plus licenses.
 
 ### Programming languages
 
@@ -31,7 +36,7 @@ Depending on your needs, you can choose a suitable license described in this tab
 | TypeScript           | &#x274c;           | &#x2714;                   | 
 | VB.NET               | &#x274c;           | &#x2714;                   | 
 
-Here, C and C++ inspections are limited by projects containing `.sln` files.
+Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Markup and scripting languages
 
@@ -111,9 +116,9 @@ Here, C and C++ inspections are limited by projects containing `.sln` files.
 |-------------------------------------------------------------------------------------------|-----------|-----------|---------------|
 | [Monorepo support](monorepo-project.md)                                                   | &#x2714;  | &#x2714;  | &#x2714;      | 
 | Docker and Kubernetes support                                                             | &#x274c;  | &#x2714;  | &#x2714;      |
-| [License audit](license-audit.xml)                                                        | &#x274c;  | &#x274c;  | &#x2714;      |
-| [Package checking](package-checking.md)                                                   | &#x274c;  | &#x274c;  | &#x2714;      |
-| [Taint analysis](taint-analysis.md)                                                       | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](license-audit.xml)                                                                     | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](vulnerability-checker.md)                                                              | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](taint-analysis.md)                                                                     | &#x274c;  | &#x274c;  | &#x2714;      |
 | [CI/CD integrations](ci.md)                                                               | &#x2714;  | &#x2714;  | &#x2714;      |
 | [Custom plugin support](extending-qodana-plugins.xml#extending-qodana-developing-plugins) | &#x2714;  | &#x2714;  | &#x2714;      |
 | [Baseline](baseline.xml)                                                                  | &#x2714;  | &#x2714;  | &#x2714;      |
@@ -148,25 +153,20 @@ Below is the list of linters covered by each license type.
 
  ## Frequently asked questions
 
-<!-- Trial version of the license needs to be used here -->
 <!-- This needs to be grouped by licenses and Qodana Cloud -->
-<!-- The EAP license needs to be addressed here -->
 
-### What basic information do I need to know about Qodana licensing?
+### What are the license basics?
 
 First of all, during the EAP (Early Access Program) stage, you can run %product% with the built-in EAP licenses. However,
-the EAP period is limited by the 31st of July 2023. 
+the EAP period will expire on the 31st of July 2023. 
 
 After the 31st of July 2023, you will have to switch to either a Community license, or a trial version of the 
-Ultimate or the Ultimate Plus license. In this case, you have two options: The Community license is not restricted in use, while the trial licenses are limited
-
-* The Community license
-* The trial versions of the Ultimate or Ultimate Plus licenses
+Ultimate or the Ultimate Plus license. 
 
 The Community license is free for use; however, its functionality is limited only by the Community versions of %product% linters.  
 
-The trial versions of the Ultimate or Ultimate Plus licenses are limited by a 60-day trial period. After the trial period 
-expires, you have to purchase either the Ultimate or the Ultimate Plus license to continue using %product%.  
+The trial versions of the Ultimate or Ultimate Plus licenses are limited by a 60-day trial period. After the trial 
+license expires, you have to purchase either the Ultimate or the Ultimate Plus license to continue using %product%.  
 
 ### What do I need to do to start using Qodana?
 
@@ -207,7 +207,8 @@ license of %product%, which you can do after the trial period ends.
 
 ### Can I switch between trial licenses?
 
-Yes, you can switch between trial versions of the Ultimate and Ultimate Plus licenses within your account.
+Yes, you can switch between trial versions of the Ultimate and Ultimate Plus licenses one time using your JetBrains 
+Account.
 
 ### What are the license costs comprised of?
 
@@ -230,8 +231,7 @@ create a Qodana Cloud account before running Qodana. Besides that, Qodana Cloud 
 
 ### Are there any restrictions on using the Community license?
 
-<p>This needs to be addressed!</p>
-
+No, you can use the Community version of %product% in open-source and proprietary projects.  
 
 ### What is the difference between the Ultimate and Ultimate Plus licenses?
 
@@ -240,7 +240,7 @@ create a Qodana Cloud account before running Qodana. Besides that, Qodana Cloud 
 <list>
     <li><a href="license-audit.xml">License audit</a></li>
     <li><a href="taint-analysis.md">Taint analysis</a></li>
-    <li>Package checking</li>
+    <li><a href="vulnerability-checker.md"/></li>
 </list>
 
 <p>Besides that, the Ultimate Plus license provides additional inspections that are not available in the Ultimate license.</p>
