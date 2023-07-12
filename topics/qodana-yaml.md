@@ -22,6 +22,11 @@ It is not supported by any other JetBrains products like IntelliJ IDEA or PhpSto
 
 </note>
 
+<warning>
+It is highly recommended not to store tokens, passwords, or any other secret information in the <code>qodana.yaml</code> file.
+</warning>
+
+
 ## Run custom commands
 
 Using the `bootstrap` option of `qodana.yaml`, %product% can perform actions before running inspections. 
