@@ -7,12 +7,12 @@
 <note>
     <p>
 <include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana Python"/>
+<var name="product" value="Qodana for Python"/>
 </include>
 </p>
 </note>
 
-<var name="linter" value="Qodana Python"/>
+<var name="linter" value="Qodana for Python"/>
 <var name="ide" value="PyCharm Professional"/>
 <var name="docker-image" value="jetbrains/qodana-python:2023.1-eap"/>
 

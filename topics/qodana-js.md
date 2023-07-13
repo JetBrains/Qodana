@@ -7,7 +7,7 @@
 <note>
     <p>
 <include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana JS"/>
+<var name="product" value="Qodana for JS"/>
 </include>
 </p>
 </note>

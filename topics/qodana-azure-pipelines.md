@@ -43,6 +43,8 @@ And since most of the Qodana Docker images are Linux-based, the docker daemon mu
 
 To send the results to Qodana Cloud, all you need to do is to specify the `QODANA_TOKEN` environment variable in the build configuration.
 
+<chunk id="azure-pipelines-qodana-cloud">
+
 1. In the Azure Pipelines UI, create the `QODANA_TOKEN` [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&tabs=yaml%2Cbash#secret-variable-in-the-ui) and
    save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
 2. In the Azure pipeline file,
@@ -53,6 +55,7 @@ To send the results to Qodana Cloud, all you need to do is to specify the `QODAN
     env:
       QODANA_TOKEN: $(QODANA_TOKEN)
 ```
+</chunk>
 
 After the token is set for analysis, all Qodana Scan job results will be uploaded to your Qodana Cloud project.
 
