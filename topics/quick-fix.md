@@ -1,22 +1,22 @@
-[//]: # (title: Quick-fixes)
+[//]: # (title: Quick fix)
 
-**Quick-fixes** lets you improve development performance through fixing codebase problems automatically.
+**Quick fix** lets you improve development performance through fixing codebase problems automatically.
 
 This feature is available starting from version 2023.2 of %product% and supported by all [linters](linters.md) except
 Qodana for .NET under the Ultimate, and Ultimate Plus [licenses](pricing.md) and their trial versions.
 
 ## How it works
 
-You can choose between several quick-fix strategies mentioned in this table. 
+You can choose between several quick fix strategies mentioned in this table. 
 
 <table>
     <tr>
-        <td>Quick-fix strategy</td>
+        <td>Quick fix strategy</td>
         <td>Description</td>
     </tr>
     <tr>
         <td><code>NONE</code></td>
-        <td>The default strategy that requires no configuration and implies that no quick-fixes are applied to your project</td>
+        <td>The default strategy that requires no configuration and implies that no quick fixes are applied to your project</td>
     </tr>
     <tr>
         <td><code>CLEANUP</code></td>
@@ -32,7 +32,7 @@ should be reviewed before submitting</p>
     </tr>
 </table>
 
-To apply either the `CLEANUP` or the `APPLY` quick-fix strategy, specify it using the `--fixes-strategy` 
+To apply either the `CLEANUP` or the `APPLY` quick fix strategy, specify it using the `--fixes-strategy` 
 [option](docker-image-configuration.xml): 
 
 <tabs>

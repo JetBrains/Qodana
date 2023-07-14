@@ -2,7 +2,7 @@
 <!DOCTYPE product-profile
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
 
-<product-profile id="qd" name="Qodana" start-page="getting-started.xml" status="release">
+<product-profile id="qd" name="Qodana" start-page="getting-started.xml" status="eap">
 
     <!-- This page should contain big blocks from all the sections below -->
     <toc-element id="getting-started.xml" accepts-web-file-names="welcome.html">
@@ -89,7 +89,7 @@
         <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html"/>
         <toc-element id="php-language-upgrade.xml" accepts-web-file-names="qodana-php-language-upgrade.html"/>
         <toc-element id="quality-gate.xml"/>
-        <toc-element id="quick-fixes.md"/>
+        <toc-element id="quick-fix.md"/>
         <toc-element id="taint-analysis.md"/>
         <toc-element id="vulnerability-checker.md"/>
     </toc-element>
