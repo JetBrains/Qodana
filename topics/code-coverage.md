@@ -74,7 +74,7 @@ You can run Code coverage using the available options:
         <code style="block" lang="shell" prompt="$">
             docker run \
                -v /my/folder/with/coverage:/data/coverage \
-               jetbrains/qodana-<linter>
+               jetbrains/qodana-&lt;linter&gt;
         </code>
     </tab>
     <tab title="Pipeline" id="code-coverage-pipeline">
