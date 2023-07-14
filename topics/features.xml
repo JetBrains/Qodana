@@ -6,19 +6,74 @@
        title="Features"
        id="features">
 
-    <note>All features described in this section are available only under the Ultimate or Ultimate Plus licenses, or
-        their trial versions. To learn more details about licenses, see the <a href="pricing.md"/> section.
-    </note>
-
         <p>Using %product%, you can significantly enhance your code inspection workflow. To better achieve your
            goals, you may want to start using several features that are available out of the box: </p>
 
+        <table>
+            <tr>
+                <td>
+                    Feature
+                </td>
+                <td>
+                    Description
+                </td>
+                <td>
+                    Available under licenses
+                </td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Group the existing code problems
+                    into several categories to efficiently monitor your code evolution</td>
+                <td>
+                    <list>
+                        <li>Community</li>
+                        <li>Ultimate</li>
+                        <li>Ultimate Plus</li>
+                    </list>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ensure that your code contains the minimum
+                    number of problems or is completely free of them. If combined with the baseline, this feature will make
+                    your code quality monitoring even more flexible</td>
+                <td>
+                    <list>
+                        <li>Community</li>
+                        <li>Ultimate</li>
+                        <li>Ultimate Plus</li>
+                    </list>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="php-language-upgrade.xml"/></td>
+                <td>Monitor problems specific to a specific PHP version that may arise when you decide to migrate between versions</td>
+                <td>
+                    <list>
+                        <li>Ultimate</li>
+                        <li>Ultimate Plus</li>
+                    </list>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Verify your project license for compatibility with the licenses of its dependencies</td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="taint-analysis.md"/></td>
+                <td>Secure your PHP code from malicious user data</td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Check third-party packages for vulnerabilities</td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
+
         <list>
-            <li><a href="baseline.xml">Baseline</a> lets you group the existing code problems
-                    into several categories to efficiently monitor your code evolution. </li>
-            <li><a href="quality-gate.xml">Quality gate</a> helps you ensure that your code contains the minimum
-            number of problems or is completely free of them. If combined with the baseline, this feature will make
-            your code quality monitoring even more flexible.</li>
             <li>The <a href="php-language-upgrade.xml">PHP version migration</a> feature lets you monitor
             problems specific to a specific PHP version that may arise when you decide to migrate between versions.</li>
             <li><a href="license-audit.xml">License audit</a> lets you verify your project license for compatibility
