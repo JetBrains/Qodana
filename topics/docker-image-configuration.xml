@@ -97,6 +97,10 @@
                 <td><code>/opt/idea/plugins</code></td>
                 <td>Directory containing <a anchor="docker-config-reference-manage-plugins">plugins</a></td>
             </tr>
+            <tr>
+                <td><code>/data/coverage</code></td>
+                <td>Directory for mapping <a href="code-coverage.md">code coverage</a> files</td>
+            </tr>
         </table>
 
         <p>Below you can find several examples of how these paths can be applied.</p>

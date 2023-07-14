@@ -69,12 +69,19 @@ For each language and engine invoked, only one coverage engine and one coverage 
 You can run Code coverage using the available options:
 
 <tabs>
-    <tab title="Docker" id="code-coverage-docker">
-        <p>Map the directory containing all coverage files to the `/data/coverage` directory:</p>
+    <tab title="Docker or Qodana CLI" id="code-coverage-docker">
+        <p>Map the directory containing all coverage files to the `/data/coverage` directory. Here is the example for 
+        Docker:</p>
         <code style="block" lang="shell" prompt="$">
             docker run \
                -v /my/folder/with/coverage:/data/coverage \
                jetbrains/qodana-&lt;linter&gt;
+        </code>
+        <p>This is the example of running Code coverage using 
+        <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a>:</p>
+        <code style="block" lang="shell" prompt="$">
+            qodana scan \
+               -v /my/folder/with/coverage:/data/coverage
         </code>
     </tab>
     <tab title="Pipeline" id="code-coverage-pipeline">
