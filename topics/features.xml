@@ -72,6 +72,16 @@
                 </td>
             </tr>
             <tr>
+                <td><a href="quick-fixes.md"/></td>
+                <td>Use quick-fixes to improve the performance of the project development</td>
+                <td>
+                    <list>
+                        <li>Ultimate</li>
+                        <li>Ultimate Plus</li>
+                    </list>
+                </td>
+            </tr>
+            <tr>
                 <td><a href="taint-analysis.md"/></td>
                 <td>Secure your PHP code from malicious user data</td>
                 <td>Ultimate Plus</td>

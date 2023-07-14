@@ -89,6 +89,7 @@
         <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html"/>
         <toc-element id="php-language-upgrade.xml" accepts-web-file-names="qodana-php-language-upgrade.html"/>
         <toc-element id="quality-gate.xml"/>
+        <toc-element id="quick-fixes.md"/>
         <toc-element id="taint-analysis.md"/>
         <toc-element id="vulnerability-checker.md"/>
     </toc-element>
