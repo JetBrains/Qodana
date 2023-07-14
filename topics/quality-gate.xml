@@ -19,8 +19,8 @@
     <p>The quality gate and fail threshold terms are used interchangeably with the former being a feature in overall, and
         the latter meaning a configuration option. </p>
 
-    <p>This feature is supported by all linters available under the Ultimate and Ultimate Plus
-        <a href="pricing.md" anchor="Linters+available+per+each+license">licenses</a> and their trial versions. </p>
+    <p>This feature is supported by all linters available under Community, Ultimate, and Ultimate Plus
+        <a href="pricing.md">licenses</a> and their trial versions. </p>
 
     <note>In combination with the <a href="baseline.xml">baseline</a>, the quality gate feature will help
         you ensure that the overall technical debt will not grow beyond a certain threshold.</note>

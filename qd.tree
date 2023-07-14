@@ -85,11 +85,12 @@
 
     <toc-element id="features.xml">
         <toc-element id="baseline.xml" accepts-web-file-names="qodana-baseline.html"/>
-        <toc-element id="quality-gate.xml"/>
-        <toc-element id="php-language-upgrade.xml" accepts-web-file-names="qodana-php-language-upgrade.html"/>
+        <toc-element id="code-coverage.md"/>
         <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html"/>
-        <toc-element id="vulnerability-checker.md"/>
+        <toc-element id="php-language-upgrade.xml" accepts-web-file-names="qodana-php-language-upgrade.html"/>
+        <toc-element id="quality-gate.xml"/>
         <toc-element id="taint-analysis.md"/>
+        <toc-element id="vulnerability-checker.md"/>
     </toc-element>
 
     <!-- The beginning of the Integration section -->

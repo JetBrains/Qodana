@@ -34,21 +34,8 @@
                 </td>
             </tr>
             <tr>
-                <td><a href="quality-gate.xml"/></td>
-                <td>Ensure that your code contains the minimum
-                    number of problems or is completely free of them. If combined with the baseline, this feature will make
-                    your code quality monitoring even more flexible</td>
-                <td>
-                    <list>
-                        <li>Community</li>
-                        <li>Ultimate</li>
-                        <li>Ultimate Plus</li>
-                    </list>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="php-language-upgrade.xml"/></td>
-                <td>Monitor problems specific to a specific PHP version that may arise when you decide to migrate between versions</td>
+                <td><a href="code-coverage.md"/></td>
+                <td>Support for test code coverage</td>
                 <td>
                     <list>
                         <li>Ultimate</li>
@@ -62,6 +49,29 @@
                 <td>Ultimate Plus</td>
             </tr>
             <tr>
+                <td><a href="php-language-upgrade.xml"/></td>
+                <td>Monitor problems specific to a specific PHP version that may arise when you decide to migrate between versions</td>
+                <td>
+                    <list>
+                        <li>Ultimate</li>
+                        <li>Ultimate Plus</li>
+                    </list>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ensure that your code contains the minimum
+                    number of problems or is completely free of them. If combined with the baseline, this feature will make
+                    your code quality monitoring even more flexible</td>
+                <td>
+                    <list>
+                        <li>Community</li>
+                        <li>Ultimate</li>
+                        <li>Ultimate Plus</li>
+                    </list>
+                </td>
+            </tr>
+            <tr>
                 <td><a href="taint-analysis.md"/></td>
                 <td>Secure your PHP code from malicious user data</td>
                 <td>Ultimate Plus</td>
@@ -72,16 +82,6 @@
                 <td>Ultimate Plus</td>
             </tr>
         </table>
-
-        <list>
-            <li>The <a href="php-language-upgrade.xml">PHP version migration</a> feature lets you monitor
-            problems specific to a specific PHP version that may arise when you decide to migrate between versions.</li>
-            <li><a href="license-audit.xml">License audit</a> lets you verify your project license for compatibility
-            with the licenses of its dependencies. </li>
-            <li><a href="vulnerability-checker.md"/> lets you check third-party packages for vulnerabilities.</li>
-            <li><a href="taint-analysis.md">Taint analysis</a> lets you secure your PHP code from malicious user data. </li>
-        </list>
-
 
  <!--       <p>You can overview the %product% reports from all your projects using <a href="cloud-about.xml">Qodana Cloud</a>.</p> -->
 
