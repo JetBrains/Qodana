@@ -24,7 +24,7 @@
             Reports stored in public organizations are available for all Qodana Cloud users, including unauthorized users with the
             <a href="cloud-user-roles.xml">viewer role</a>. </p>
 
-            <p>Each organization can be created on the basis of a JetBrains account. </p>
+        <p>Each organization is created on the basis of a <a href="cloud-get-access.xml">JetBrains account</a>.</p>
 
         <procedure>
             <step>
@@ -34,16 +34,9 @@
                 <img src="qc-settings-organization-create.png" dark-src="qc-settings-organization-create_dark.png" width="706" alt="Creating an organization" border-effect="line"/>
             </step>
             <step>
-                <p>In the <menupath>New organization</menupath> dialog that opens, provide the organization name, and
-                    specify whether you would like to create this organization on the basis
-                of an existing JetBrains account, or you need to create a new account for it. Finally, specify whether this organization
-                    will be public or private. </p>
-
-                <img src="qc-settings-organization-create-dialog.png" dark-src="qc-settings-organization-create-dialog_dark.png" width="706" alt="The Add organization window" border-effect="line"/>
+                <p>Complete the onboarding stage as described in the <a href="cloud-onboarding.md"/> section.</p>
             </step>
-
         </procedure>
-
     </chapter>
 
     <chapter id="cloud-organizations-overview" title="Configure organizations">
@@ -66,7 +59,7 @@
         <p>On the settings page, you can find the following tabs:</p>
 
         <list>
-            <li><menupath>Contributors</menupath> contains the list of contributors to your organization</li>
+            <li><menupath>Subscription</menupath> contains the %product% license information</li>
             <li><menupath>Logs</menupath> contains the list of log entries connected with your organization</li>
             <li><menupath>Members</menupath> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>

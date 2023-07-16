@@ -117,6 +117,7 @@
 
         <toc-element toc-title="Running Qodana Cloud">
             <toc-element id="cloud-quickstart.md"/>
+            <toc-element id="cloud-onboarding.md"/>
             <toc-element id="cloud-running-introduction.xml"/>
             <toc-element id="cloud-organizations.xml"/>
             <toc-element id="cloud-teams.xml"/>
