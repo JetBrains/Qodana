@@ -1,14 +1,33 @@
 [//]: # (title: Pricing and licenses)
 
+<var name="subscr-link" value="[Subscription Options & Pricing](https://www.jetbrains.com/qodana/buy/)"/>
+
 Depending on your needs, you can choose a suitable license described in this table:
 
-| License       | Price                                                                                        | Description                                                                                                                                                                | Prerequisites                                                                                                                     |
-|---------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Community     | Free                                                                                         | Suitable for small open-source projects and aimed for solving isolated problems                                                                                            | No prerequisites                                                                                                                  |
-| Ultimate      | See [Subscription Options & Pricing](https://www.jetbrains.com/qodana/buy/) for details | Oriented for solving various business tasks. Available in the trial version                                                                                                | An active Qodana license, an account at [Qodana Cloud](https://qodana.cloud), an active Qodana license a valid Qodana Cloud token |
-| Ultimate Plus | See [Subscription Options & Pricing](https://www.jetbrains.com/qodana/buy/) for details | The Ultimate license plus features like [License audit](license-audit.xml), [taint analysis](taint-analysis.md), and [](vulnerability-checker.md). Available in the trial version | Account at [Qodana Cloud](https://qodana.cloud) and a valid Qodana Cloud token                                                    |
+<table>
+    <tr>
+        <td>License</td>
+        <td>Price</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>Community</td>
+        <td>Free</td>
+        <td>Best suitable for small open-source projects and aimed for solving isolated problems</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>Ultimate</td>
+        <td>See <a href="https://www.jetbrains.com/qodana/buy/">Subscription Options & Pricing</a> for details</td>
+        <td>Designed for solving various business tasks. Available in the trial version</td>
+    </tr>
+</table>
 
-I'd also add here that the account must have an active license, linters must be not 'older' than 23.2 and the environment must be configured in the way that linters use valid project tokens (not sure about Qodana Cloud token term, might be confuding).
+| License       | Price                         | Description                                                                                                                                                          |
+|---------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Community     | Free                          | Best suitable for solving isolated problems                                                                                                                          |
+| Ultimate      | See %subscr-link% for details | Designed for solving various business tasks. Available in the trial version                                                                                          |
+| Ultimate Plus | See %subscr-link% for details | All features from the Ultimate license, but also including additional [features](features.xml) and unlimited historical data storage. Available in the trial version |
 
 ## License comparison matrix
 {id="license-comparison-matrix"}
@@ -112,16 +131,16 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Useful features
 
-| Feature                                                                                   | Community | Ultimate  | Ultimate Plus | 
-|-------------------------------------------------------------------------------------------|-----------|-----------|---------------|
-| [Monorepo support](monorepo-project.md)                                                   | &#x2714;  | &#x2714;  | &#x2714;      | 
-| Docker and Kubernetes support                                                             | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](license-audit.xml)                                                                     | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](vulnerability-checker.md)                                                              | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](taint-analysis.md)                                                                     | &#x274c;  | &#x274c;  | &#x2714;      |
-| [CI/CD integrations](ci.md)                                                               | &#x2714;  | &#x2714;  | &#x2714;      |
-| [Custom plugin support](extending-qodana-plugins.xml#extending-qodana-developing-plugins) | &#x2714;  | &#x2714;  | &#x2714;      |
-| [Baseline](baseline.xml)                                                                  | &#x2714;  | &#x2714;  | &#x2714;      |
+| Feature                                               | Community | Ultimate  | Ultimate Plus | 
+|-------------------------------------------------------|-----------|-----------|---------------|
+| [Monorepo support](monorepo-project.md)               | &#x2714;  | &#x2714;  | &#x2714;      | 
+| Docker and Kubernetes support                         | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](license-audit.xml)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](vulnerability-checker.md)                          | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](taint-analysis.md)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
+| [CI/CD integrations](ci.md)                           | &#x2714;  | &#x2714;  | &#x2714;      |
+| [Custom plugin support](extending-qodana-plugins.xml) | &#x2714;  | &#x2714;  | &#x2714;      |
+| [Baseline](baseline.xml)                              | &#x2714;  | &#x2714;  | &#x2714;      |
 
 ### Data storage and processing
 
@@ -158,21 +177,23 @@ Below is the list of linters covered by each license type.
 ### What are the license basics?
 
 First of all, during the EAP (Early Access Program) stage, you can run %product% with the built-in EAP licenses. However,
-the EAP period will expire on the 31st of July 2023. 
+the EAP period will expire on the 31st of July 2023, and you cannot extend it.
 
 After the 31st of July 2023, you will have to switch to either a Community license, or a trial version of the 
 Ultimate or the Ultimate Plus license. 
 
-The Community license is free for use; however, its functionality is limited only by the Community versions of %product% linters.  
+The Community license is free for use; however, its functionality is limited only by the Community versions of %product% 
+linters. Besides that, it lacks a bunch of helpful [features](features.xml), and provides a limited period for data storage 
+in Qodana Cloud.
 
 The trial versions of the Ultimate or Ultimate Plus licenses are limited by a 60-day trial period. After the trial 
 license expires, you have to purchase either the Ultimate or the Ultimate Plus license to continue using %product%.  
 
-### What do I need to do to start using Qodana?
+### What do I need to start using Qodana?
 
 <p>If you plan to choose either the Ultimate or Ultimate Plus license, you need to create an account at 
-<a href="https://qodana.cloud">Qodana Cloud</a>. During the onboarding stage, you will need to generate a public key that 
-will be identified by %product%, and a project token for uploading %product% reports.</p>
+<a href="https://qodana.cloud">Qodana Cloud</a>. During the onboarding stage, you will generate a public key that 
+will be identified by %product%, and a project token for uploading %product% reports to your first project.</p>
 
 <p>For the Community license, you can use %product% without any prerequisites. However, this type of license provides
 restricted functionalities compared to the Ultimate and Ultimate Plus licenses, see the <a href="pricing.md" anchor="license-comparison-matrix">comparison matrix</a>.</p>
@@ -194,11 +215,14 @@ Yes, you will be notified about the trial period expiration.
 After the expiration, you will need to buy either the Ultimate or the Ultimate Plus 
 license. Expired trial licenses cannot be prolonged.   
 
+### What are the EAP and trial licenses?
 
-### What is a trial license?
+An EAP license is a license that gives you full access to %product% until the 31st of July 2023. 
+After the 1st of August 2023, all EAP licenses become expired, which requires switching to trial licenses.
 
 A trial license is a time-limited version of either the Ultimate or the Ultimate Plus license. Each trial license
-duration is limited by 90 days, after which such license becomes expired and cannot be further used.
+duration is limited by 60 days, after which such license becomes expired and cannot be used further. To continue using
+%product%, you have to buy a full version of your license.
 
 ### Do I need to provide payment details for a trial license?
 
@@ -247,6 +271,6 @@ No, you can use the Community version of %product% in open-source and proprietar
 
 ### Which licenses are integrated into CI/CD pipelines?
 
-<p>This needs to be addressed!</p>
+All %product% licenses support integration with the CI/CD solutions already described in the [](ci.md) section.
 
 

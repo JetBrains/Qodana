@@ -42,15 +42,19 @@
                         <title>Qodana features</title>
                         <a href="baseline.xml"
                            description="Track your project changes through studying new, unchanged, and resolved problems."/>
+                        <a href="code-coverage.md"
+                           description="Inspect the quality of code coverage."/>
+                        <a href="license-audit.xml"
+                           description="Check license compatibility between your software license and dependency licenses."/>
                         <a href="php-language-upgrade.xml"
                            description="See how updating PHP will affect your codebase quality."/>
+                        <a href="quality-gate.xml"
+                           description="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
+                        <a href="quick-fix.md"
+                           description="Use Quick fix to improve the performance of the project development"/>
                         <a href="qodana-sarif-output.md"
                            description="Qodana linters can read and write reports in SARIF format, which is the industry
                            standard for the output of static analysis tools."/>
-                        <a href="quality-gate.xml"
-                           description="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
-                        <a href="license-audit.xml"
-                           description="Check license compatibility between your software license and dependency licenses."/>
                         <a href="taint-analysis.md"
                            description="Secure your PHP code from malicious user data."/>
                         <a href="vulnerability-checker.md"

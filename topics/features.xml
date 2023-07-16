@@ -18,7 +18,7 @@
                     Description
                 </td>
                 <td>
-                    Available under licenses
+                    Available under <a href="pricing.md">licenses</a>
                 </td>
             </tr>
             <tr>
@@ -26,21 +26,17 @@
                 <td>Group the existing code problems
                     into several categories to efficiently monitor your code evolution</td>
                 <td>
-                    <list>
-                        <li>Community</li>
-                        <li>Ultimate</li>
-                        <li>Ultimate Plus</li>
-                    </list>
+                        <p>Community</p>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
                 </td>
             </tr>
             <tr>
                 <td><a href="code-coverage.md"/></td>
                 <td>Support for test code coverage</td>
                 <td>
-                    <list>
-                        <li>Ultimate</li>
-                        <li>Ultimate Plus</li>
-                    </list>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
                 </td>
             </tr>
             <tr>
@@ -52,10 +48,8 @@
                 <td><a href="php-language-upgrade.xml"/></td>
                 <td>Monitor problems specific to a specific PHP version that may arise when you decide to migrate between versions</td>
                 <td>
-                    <list>
-                        <li>Ultimate</li>
-                        <li>Ultimate Plus</li>
-                    </list>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
                 </td>
             </tr>
             <tr>
@@ -64,21 +58,17 @@
                     number of problems or is completely free of them. If combined with the baseline, this feature will make
                     your code quality monitoring even more flexible</td>
                 <td>
-                    <list>
-                        <li>Community</li>
-                        <li>Ultimate</li>
-                        <li>Ultimate Plus</li>
-                    </list>
+                        <p>Community</p>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
                 </td>
             </tr>
             <tr>
                 <td><a href="quick-fix.md"/></td>
                 <td>Use Quick fix to improve the performance of the project development</td>
                 <td>
-                    <list>
-                        <li>Ultimate</li>
-                        <li>Ultimate Plus</li>
-                    </list>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
                 </td>
             </tr>
             <tr>

@@ -7,12 +7,12 @@
 <note>
     <p>
 <include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana Community Python"/>
+<var name="product" value="Qodana Community for Python"/>
 </include>
 </p>
 </note>
 
-<var name="linter" value="Qodana Community Python"/>
+<var name="linter" value="Qodana Community for Python"/>
 <var name="ide" value="PyCharm Community"/>
 <var name="docker-image" value="jetbrains/qodana-python-community:2023.2-eap"/>
 
