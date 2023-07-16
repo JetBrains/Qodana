@@ -1,6 +1,6 @@
 [//]: # (title: Pricing and licenses)
 
-<var name="subscr-link" value="[Subscription Options & Pricing](https://www.jetbrains.com/qodana/buy/)"/>
+<var name="subscr-link" value="[Subscription Options &amp; Pricing](https://www.jetbrains.com/qodana/buy/)"/>
 
 Depending on your needs, you can choose a suitable license described in this table:
 
