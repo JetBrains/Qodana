@@ -28,9 +28,11 @@ After connecting, Qodana Cloud provides a public key that will be identified by 
 
 <img src="cloud-onboarding-step-2-key.png" alt="The public key generated during the second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 
-Copy this public key and save it in your VCS on the project level. For example, you can read how to do it on
-[GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys) and
-[GitLab](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html).
+Copy this public key and save it in your VCS on the project level. For example, you can read how to do it on: 
+
+* [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys),
+* [GitLab](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) 
+* [JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html)
 
 <warning>Do not store the key on the account level, so that it cannot be shared by other repositories within your account.</warning>
 
