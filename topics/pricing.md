@@ -1,7 +1,5 @@
 [//]: # (title: Pricing and licenses)
 
-<var name="subscr-link" value="[Subscription Options &amp; Pricing](https://www.jetbrains.com/qodana/buy/)"/>
-
 Depending on your needs, you can choose a suitable license described in this table:
 
 <table>
@@ -23,11 +21,11 @@ Depending on your needs, you can choose a suitable license described in this tab
     </tr>
 </table>
 
-| License       | Price                         | Description                                                                                                                                                          |
-|---------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Community     | Free                          | Best suitable for solving isolated problems                                                                                                                          |
-| Ultimate      | See %subscr-link% for details | Designed for solving various business tasks. Available in the trial version                                                                                          |
-| Ultimate Plus | See %subscr-link% for details | All features from the Ultimate license, but also including additional [features](features.xml) and unlimited historical data storage. Available in the trial version |
+| License       | Price                                                                                       | Description                                                                                                                                                          |
+|---------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Community     | Free                                                                                        | Best suitable for solving isolated problems                                                                                                                          |
+| Ultimate      | See [Subscription Options &amp; Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. Available in the trial version                                                                                          |
+| Ultimate Plus | See [Subscription Options &amp; Pricing](https://www.jetbrains.com/qodana/buy/) for details | All features from the Ultimate license, but also including additional [features](features.xml) and unlimited historical data storage. Available in the trial version |
 
 ## License comparison matrix
 {id="license-comparison-matrix"}
