@@ -2,7 +2,7 @@
 
 Depending on your needs, you can choose a suitable license described in this table:
 
-| License       | Price                                                                                     | Description                                                                                                                                                          |
+| License       | Subscription conditions                                                                   | Description                                                                                                                                                          |
 |---------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Community     | Free                                                                                      | Best suitable for solving isolated problems                                                                                                                          |
 | Ultimate      | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. Available in the trial version                                                                                          |
