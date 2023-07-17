@@ -16,16 +16,16 @@ Depending on your needs, you can choose a suitable license described in this tab
     </tr>
     <tr>
         <td>Ultimate</td>
-        <td>See <a href="https://www.jetbrains.com/qodana/buy/">Subscription Options & Pricing</a> for details</td>
+        <td>See <a href="https://www.jetbrains.com/qodana/buy/">Subscription Options and Pricing</a> for details</td>
         <td>Designed for solving various business tasks. Available in the trial version</td>
     </tr>
 </table>
 
-| License       | Price                                                                                       | Description                                                                                                                                                          |
-|---------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Community     | Free                                                                                        | Best suitable for solving isolated problems                                                                                                                          |
-| Ultimate      | See [Subscription Options &amp; Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. Available in the trial version                                                                                          |
-| Ultimate Plus | See [Subscription Options &amp; Pricing](https://www.jetbrains.com/qodana/buy/) for details | All features from the Ultimate license, but also including additional [features](features.xml) and unlimited historical data storage. Available in the trial version |
+| License       | Price                                                                                     | Description                                                                                                                                                          |
+|---------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Community     | Free                                                                                      | Best suitable for solving isolated problems                                                                                                                          |
+| Ultimate      | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. Available in the trial version                                                                                          |
+| Ultimate Plus | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | All features from the Ultimate license, but also including additional [features](features.xml) and unlimited historical data storage. Available in the trial version |
 
 ## License comparison matrix
 {id="license-comparison-matrix"}
@@ -127,18 +127,22 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | Vue                  | &#x274c;   | &#x2714;                   |
 | Xunit                | &#x274c;   | &#x2714;                   |
 
-### Useful features
+### Features and third-party software support
 
 | Feature                                               | Community | Ultimate  | Ultimate Plus | 
 |-------------------------------------------------------|-----------|-----------|---------------|
 | [Monorepo support](monorepo-project.md)               | &#x2714;  | &#x2714;  | &#x2714;      | 
+| [CI/CD integrations](ci.md)                           | &#x2714;  | &#x2714;  | &#x2714;      |
+| [Custom plugin support](extending-qodana-plugins.xml) | &#x2714;  | &#x2714;  | &#x2714;      |
+| [](baseline.xml)                                      | &#x2714;  | &#x2714;  | &#x2714;      |
+| [](quality-gate.xml)                                  | &#x2714;  | &#x2714;  | &#x2714;      |
 | Docker and Kubernetes support                         | &#x274c;  | &#x2714;  | &#x2714;      |
 | [](license-audit.xml)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
 | [](vulnerability-checker.md)                          | &#x274c;  | &#x274c;  | &#x2714;      |
 | [](taint-analysis.md)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
-| [CI/CD integrations](ci.md)                           | &#x2714;  | &#x2714;  | &#x2714;      |
-| [Custom plugin support](extending-qodana-plugins.xml) | &#x2714;  | &#x2714;  | &#x2714;      |
-| [Baseline](baseline.xml)                              | &#x2714;  | &#x2714;  | &#x2714;      |
+| [](code-coverage.md)                                  | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](quick-fix.md)                                      | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](php-language-upgrade.xml)                          | &#x274c;  | &#x2714;  | &#x2714;      |
 
 ### Data storage and processing
 
