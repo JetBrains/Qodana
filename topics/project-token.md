@@ -32,8 +32,9 @@ The paid %product% linters request and verify license information from a Qodana 
 If the verification step fails, %product% returns an error meaning that you cannot run a specific linter under the 
 current license. 
 
-For example, you cannot run the [Qodana for JVM](qodana-jvm.md) linter using the [Community license](pricing.md#).
-Instead, you should buy either the Ultimate or Ultimate Plus license if this was not done previously.
+For example, you cannot run the [Qodana for JVM](qodana-jvm.md) linter using the 
+[Community license](pricing.md#pricing-linters-licenses). Instead, you should buy either the Ultimate or Ultimate Plus 
+license if this was not done previously.
 
 ## Report collection
 
