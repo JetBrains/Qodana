@@ -1,17 +1,17 @@
 [//]: # (title: Project tokens)
 
-Generally available [paid linters](pricing.md) require that you use the 
+Generally available [paid linters](pricing.md#pricing-linters-licenses) require that you use the 
 `QODANA_TOKEN` variable to provide a [project token](cloud-projects.xml#cloud-manage-projects) while running %product%, 
 for example: 
 
 <tabs>
-    <tab title="Qodana CLI" id="qodana-cli-tab">
+    <tab title="Qodana CLI" id="project-token-cli-tab">
         <code style="block" lang="shell" prompt="$">
             qodana scan \
                -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
         </code>
     </tab>
-    <tab title="Docker image" id="qodana-cli-tab">
+    <tab title="Docker image" id="project-token-docker">
         <code style="block" lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
