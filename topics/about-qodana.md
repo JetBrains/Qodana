@@ -33,7 +33,7 @@ processes [license information](project-token.md).
 
 <note>
 You can employ %product% linters available under the 
-<a href="pricing.md" anchor="linters-available-per-each-license">Ultimate and Ultimate Plus</a> licenses only after you 
+<a href="pricing.md">Ultimate and Ultimate Plus</a> licenses only after you 
 create a <a href="cloud-quickstart.md">Qodana Cloud account</a>.
 </note>
 

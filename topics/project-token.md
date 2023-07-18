@@ -1,6 +1,6 @@
 [//]: # (title: Project tokens)
 
-Generally available [paid linters](pricing.md#linters-available-per-each-license) require that you use the 
+Generally available [paid linters](pricing.md) require that you use the 
 `QODANA_TOKEN` variable to provide a [project token](cloud-projects.xml#cloud-manage-projects) while running %product%, 
 for example: 
 
@@ -21,7 +21,7 @@ Cloud [organization](cloud-organizations.xml) that a specific license was issued
 is then submitted to Qodana Cloud for verification. If verification fails, %product% returns an error meaning that 
 you cannot run a specific linter under the current license.
 
-For example, you cannot run the [Qodana for JVM](qodana-jvm.md) linter using the [Community license](pricing.md#linters-available-per-each-license). 
+For example, you cannot run the [Qodana for JVM](qodana-jvm.md) linter using the [Community license](pricing.md#). 
 Instead, you should buy either the Ultimate or Ultimate Plus license if this was not done previously.
 
 ## Report collection
