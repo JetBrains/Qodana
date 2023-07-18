@@ -1,22 +1,22 @@
-[//]: # (title: Quick fix)
+[//]: # (title: Quick-fixes)
 
-**Quick fix** lets you improve development performance through fixing codebase problems automatically.
+**Quick-fixes** lets you improve development performance through fixing codebase problems automatically.
 
 This feature is available starting from version 2023.2 of %product% and supported by all [linters](linters.md) except
 Qodana for .NET under the Ultimate, and Ultimate Plus [licenses](pricing.md) and their trial versions.
 
 ## How it works
 
-You can choose between several quick fix strategies mentioned in this table. 
+You can choose between several quick-fix strategies mentioned in this table. 
 
 <table>
     <tr>
-        <td>Quick fix strategy</td>
+        <td>Quick-fixes strategy</td>
         <td>Description</td>
     </tr>
     <tr>
         <td><code>NONE</code></td>
-        <td>The default strategy that requires no configuration and implies that no quick fixes are applied to your project</td>
+        <td>The default strategy that requires no configuration and implies that no quick-fixes are applied to your project</td>
     </tr>
     <tr>
         <td><code>CLEANUP</code></td>
@@ -32,7 +32,7 @@ should be reviewed before submitting</p>
     </tr>
 </table>
 
-To apply either the `CLEANUP` or the `APPLY` quick fix strategy, specify it using the `--fixes-strategy` 
+To apply either the `cleanup` or the `apply` quick-fix strategy, specify it using the `--fixes-strategy` 
 [option](docker-image-configuration.xml): 
 
 <tabs>
@@ -41,13 +41,24 @@ To apply either the `CLEANUP` or the `APPLY` quick fix strategy, specify it usin
             docker run \
                -v &lt;source-directory&gt;/:/data/project/  \
                jetbrains/qodana-&lt;linter&gt; \
-               --fixes-strategy &lt;CLEANUP/APPLY&gt;
+               --fixes-strategy &lt;cleanup/apply&gt;
         </code>
     </tab>
     <tab title="Qodana CLI" id="quick-fix-cli">
         <code style="block" lang="shell" prompt="$">
             qodana scan \
-               --fixes-strategy &lt;CLEANUP/APPLY&gt;
+               --apply-fixes/--cleanup
         </code>
     </tab>
 </tabs>
+
+Or specify it in the [`qodana.yaml` file](qodana-yaml.md):
+
+```yaml
+fixesStrategy: cleanup/apply
+```
+
+## CI integration
+
+Currently, only GitHub Actions with GitHub repositories are supported.
+To learn more on how to use it, refer to the [GitHub Actions](qodana-github-action.md) page.
