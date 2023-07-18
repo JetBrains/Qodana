@@ -201,7 +201,6 @@ with:
 | `cache-default-branch-only` | Upload cache for the default branch only. Optional.                                                                                                                                          | `false`                                             |
 | `use-annotations`           | Use annotation to mark the results in the GitHub user interface. Optional.                                                                                                                   | `true`                                              |
 | `pr-mode`                   | Analyze only changed files in a pull request. Optional.                                                                                                                                      | `true`                                              |
-                                                                                 | `true`                      |
 
 [gh:qodana]: https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml
 [youtrack]: https://youtrack.jetbrains.com/issues/QD

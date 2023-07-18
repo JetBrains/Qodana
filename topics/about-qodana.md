@@ -28,6 +28,15 @@ The diagram below shows how all these components are combined in Qodana.
 
 <img src="basic-components.png" dark-src="basic-components_dark.png" width="706" alt="Basic components of Qodana"/> 
 
+The fourth essential component is [Qodana Cloud](cloud-about.xml) that aggregates Qodana [reports](html-report.md) and 
+processes [license information](project-token.md).
+
+<note>
+You can employ %product% linters available under the 
+<a href="pricing.md" anchor="linters-available-per-each-license">Ultimate and Ultimate Plus</a> licenses only after you 
+create a <a href="cloud-quickstart.md">Qodana Cloud account</a>.
+</note>
+
 ## Qodana workflow
 
 The diagram below provides an overview of a typical Qodana use-case.  
