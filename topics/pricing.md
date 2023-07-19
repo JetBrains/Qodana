@@ -264,8 +264,6 @@ Compared to the Ultimate license, the Ultimate Plus license provides the followi
     <li><a href="vulnerability-checker.md"/></li>
 </list>
 
-Besides that, the Ultimate Plus license provides additional inspections that are not available in the Ultimate license.
-
 ### Which licenses are integrated into CI/CD pipelines?
 
 All Qodana licenses support integration with the CI/CD solutions already described in the [](ci.md) section.
