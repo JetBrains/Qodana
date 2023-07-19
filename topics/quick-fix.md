@@ -61,4 +61,4 @@ fixesStrategy: cleanup/apply
 ## CI integration
 
 Currently, only GitHub Actions with GitHub repositories are supported.
-To learn more on how to use it, refer to the [GitHub Actions](github.md.md) page.
+To learn more on how to use it, refer to the [GitHub Actions](github.md) page.
