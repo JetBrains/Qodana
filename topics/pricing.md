@@ -174,7 +174,7 @@ license expires, you'll have to purchase either the Ultimate or the Ultimate Plu
 <!-- This needs to be grouped by licenses and Qodana Cloud -->
 
 ### What do I need to start using Qodana?
-{id="faq-start-using-qodana}
+{id="faq-start-using-qodana"}
 
 1. You can navigate to the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) page on the JetBrains
 website and select the subscription option you would like to use. 
