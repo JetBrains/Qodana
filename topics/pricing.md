@@ -174,16 +174,25 @@ license expires, you'll have to purchase either the Ultimate or the Ultimate Plu
 <!-- This needs to be grouped by licenses and Qodana Cloud -->
 
 ### What do I need to start using Qodana?
+{id="faq-start-using-qodana}
 
-If you plan to choose either the Ultimate or Ultimate Plus license, you’ll need to create a 
-[Qodana Cloud](https://qodana.cloud) account. During the onboarding stage, you’ll generate a public key that will be 
+1. You can navigate to the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) page on the JetBrains
+website and select the subscription option you would like to use. 
+
+If you choose the Ultimate or Ultimate Plus trial license, you will be redirected to the 
+[onboarding](cloud-onboarding.md) page of Qodana Cloud. This is also applicable for the Community license.
+
+If you plan to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to the JetBrains account 
+page for payment details. After the payment, you will be redirected to the [onboarding](cloud-onboarding.md) page of 
+Qodana Cloud.  
+
+2. During the onboarding stage on the Qodana Cloud website, you’ll generate a public key that will be 
 identified by %product%, as well as a project token for uploading %product% reports to your first project.
+Although the Community license does not require a Qodana Cloud account, it will be more convenient to use Qodana Cloud
+in this case too.
 
-For the Community license, you can use Qodana without any prerequisites. However, this type of license provides 
-restricted functionalities compared to the Ultimate and Ultimate Plus licenses. See 
-[the comparison matrix](#license-comparison-matrix) for more details.
-
-If you would like to use your Community license with Qodana Cloud, you’ll also need to create a Qodana Cloud account.
+<note>The Community license provides restricted functionalities compared to the Ultimate and Ultimate Plus licenses. See
+[the comparison matrix](#license-comparison-matrix) for more details.</note>
 
 ### Can I try Qodana before buying a license?
 
@@ -215,7 +224,8 @@ documentation.
 ### Can I use %product% linters only, without creating a Qodana Cloud account?
 
 If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account at Qodana Cloud and accomplish
-the [onboarding](cloud-onboarding.md) stage.
+the [onboarding](cloud-onboarding.md) stage. For more details, see [the first question](#faq-start-using-qodana) in
+this section.
 
 You can run %product% linters available under the Community license without using Qodana Cloud, but there are no obstacles
 to using Qodana Cloud in this case. 
@@ -224,7 +234,6 @@ to using Qodana Cloud in this case.
 
 No, you don’t have to provide any payment details until you decide to buy a license for either the Ultimate or Ultimate 
 Plus version of Qodana, which you can do after the trial period ends.
-
 
 ### Can I switch between trial licenses?
 
@@ -239,6 +248,10 @@ to any number of Qodana Cloud projects within the same organization and under a 
 The number of contributors is calculated within a 90-day period. For example, if you buy a license for 10 contributors, 
 but during the first 90 days this number rises to 20, then, in the following 90-day period, the license costs will be 
 recalculated for 20 contributors.
+
+### What is the minimum number of contributors I can buy the license for?
+
+You can buy a %product% license for 3 (three) or more contributors.
 
 ### Where does Qodana store all license information?
 
