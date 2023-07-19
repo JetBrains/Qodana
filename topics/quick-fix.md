@@ -1,6 +1,6 @@
-[//]: # (title: Quick-fixes)
+[//]: # (title: Quick-fix)
 
-**Quick-fixes** lets you improve development performance through fixing codebase problems automatically.
+**Quick-fix** lets you improve development performance through fixing codebase problems automatically.
 
 This feature is available starting from version 2023.2 of %product% and supported by all [linters](linters.md) except
 Qodana for .NET under the Ultimate, and Ultimate Plus [licenses](pricing.md) and their trial versions.
@@ -11,7 +11,7 @@ You can choose between several quick-fix strategies mentioned in this table.
 
 <table>
     <tr>
-        <td>Quick-fixes strategy</td>
+        <td>Quick-fix strategy</td>
         <td>Description</td>
     </tr>
     <tr>

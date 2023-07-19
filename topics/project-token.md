@@ -32,12 +32,16 @@ The paid %product% linters request and verify license information from a Qodana 
 If the verification step fails, %product% returns an error meaning that you cannot run a specific linter under the 
 current license. 
 
-For example, you cannot run the [Qodana for JVM](qodana-jvm.md) linter using the 
-[Community license](pricing.md#pricing-linters-licenses). Instead, you should buy either the Ultimate or Ultimate Plus 
-license if this was not done previously.
+For example, you will not be able to run %product% using an expired license, or a license issued for another Qodana Cloud 
+organization. Nor can you use the full potential of the [Qodana for JVM](qodana-jvm.md) linter using the 
+[Community license](pricing.md#pricing-linters-licenses) because this will significantly reduce the linter functionality.
+To avoid this, you should obtain compatible and up-to-date licenses for each linter that you use.
 
 ## Report collection
 
-Additionally, your local %product% report is bound with the project in Qodana Cloud. After binding, 
-you can overview actual %product% reports in an aggregated and handy format, as well as keep historical overview of older 
-Qodana reports.
+Additionally, your local %product% report is bound with the project in [Qodana Cloud](cloud-projects.xml). After binding, 
+you can overview actual %product% [reports](cloud-overview-reports.xml) in an aggregated and handy format, as well as 
+keep historical overview of older Qodana reports. 
+
+Once the project token is generated, you can regenerate or delete it as shown in the 
+[](cloud-projects.xml#cloud-manage-projects) section of the Qodana Cloud documentation.

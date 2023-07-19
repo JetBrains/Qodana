@@ -1,12 +1,23 @@
-[//]: # (title: Qodana Scan GitHub action)
-
-## Usage
+[//]: # (title: GitHub Actions)
 
 The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
 allows you to run Qodana on a GitHub repository.
 
-<anchor name="basic-configuration"></anchor>
+## Prepare your project
 
+You may need to grant GitHub permissions for running `Qodana Scan` as shown below.
+
+1. In your repository, navigate to <menupath>Settings | Actions | General </menupath>. 
+
+2. In the <menupath>Actions permissions</menupath> section, click <menupath>Allow &lt;repository-owner&gt;, and select non-&lt;repository-owner&gt;, actions and reusable workflows</menupath>.
+
+3. In the <menupath>Allow specified actions and reusable workflows</menupath> field, specify `JetBrains/qodana-action@*` and then click <menupath>Save</menupath>.
+
+<img src="github-project-preparation.png" width="706" alt="Allowing Qodana Scan on GitHub" border-effect="line"/>
+
+## Usage
+
+<anchor name="basic-configuration"></anchor>
 ### Basic configuration
 
 To configure Qodana Scan, save the `.github/workflows/code_quality.yml` file containing the workflow configuration:
@@ -23,71 +34,28 @@ on:
 
 jobs:
   qodana:
+    timeout-minutes: 15 
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      checks: write
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-          fetch-depth: 0  # a full history is required for pull request analysis
+          fetch-depth: 0
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2023.2
-        env:
-          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }} # read the steps about it below
+        uses: JetBrains/qodana-action@v2023.2.0
 ```
-
-To set `QODANA_TOKEN` environment variable in the build configuration:
-
-1. In the GitHub UI,
-   create the `QODANA_TOKEN` [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
-   and
-   save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
-2. In the GitHub workflow file,
-   add `QODANA_TOKEN` variable to the `env` section of the `Qodana Scan` step:
 
 Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
 repository.
 
-Note: `fetch-depth: 0` is required for checkout in case Qodana works in pull request mode
-(reports issues that appeared only in that pull request).
+Here:
+* `fetch-depth: 0` is required for checkout in case Qodana works in pull request mode (reports issues that appeared only in that pull request)
+* `timeout-minutes` specifies the timeout for running %product%, which can be helpful especially if you run %product% without [cache](docker-image-configuration.xml#docker-config-reference-cache-dependencies) 
+
+> Once you configure [cache](docker-image-configuration.xml#docker-config-reference-cache-dependencies), you can significantly reduce the time required for inspecting.
+> For example, PHP projects can be inspected by %product% two times faster, and for open-source Java projects this value can reach four.
 
 We recommend that you have a separate workflow file for Qodana
-because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
-
-![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
-
-### Apply quick-fixes
-
-To make Qodana automatically fix found issues and push the changes to your repository,
-you need
-to
-1. Choose what kind of fixes to apply
-   - [Specify `fixesStrategy` in the `qodana.yaml` file in your repository root](https://www.jetbrains.com/help/qodana/qodana-yaml.html)
-   - Or set the action `args` property with the quick-fix strategy to use: `--apply-fixes` or `--cleanup`
-2. Set `push-fixes` property to
-   - `pull-request`: create a new branch with fixes and create a pull request to the original branch
-   - or `branch`: push fixes to the original branch. Also, set `pr-mode` to `false`: currently, this mode is not supported for applying fixes.
-3. Set the correct permissions for the job (`contents: write`, `pull-requests: write`, `checks: write`)
-   - If you use `pull-request` value for `push-fixes` property: [**allow GitHub Actions to create and approve pull requests**](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
-
-Example configuration:
-
-```yaml
-- name: Qodana Scan
-  uses: JetBrains/qodana-action@v2023.2
-  with:
-    pr-mode: false
-    args: --apply-fixes
-    push-fixes: pull-request
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-> **Note**
-> Qodana could automatically modify not only the code, but also the configuration in `.idea`: if you do not wish to push these changes, add `.idea` to your `.gitignore` file.
+because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job).
 
 ### GitHub code scanning
 
@@ -102,10 +70,10 @@ for your project using Qodana. To do it, add these lines to the `code_quality.ym
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
 ```
 
-This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report
+This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub and specifies the report
 file using the `sarif_file` key.
 
-> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up baseline and quality gate processing on the Qodana side prior to submitting inspection results to GitHub code scanning, see the
+> GitHub code scanning does not export inspection results to third-party tools, which means you cannot use these data for further processing by Qodana. In this case, you must set up baseline and quality gate processing on the Qodana side before submitting inspection results to GitHub code scanning. See the
 [Quality gate and baseline](#quality-gate-and-baseline) section for details.
 
 ### Pull request quality gate
@@ -139,15 +107,15 @@ Instead of `main`, you can specify your branch here.
 
 ### Quality gate and baseline
 
-You can combine the [quality gate](https://www.jetbrains.com/help/qodana/quality-gate.html) and [baseline](https://www.jetbrains.com/help/qodana/qodana-baseline.html) features to manage your
-technical debt, report only new problems, and block pull requests that contain too many problems.
+You can combine the [quality gate](https://www.jetbrains.com/help/qodana/quality-gate.html), and [baseline](https://www.jetbrains.com/help/qodana/qodana-baseline.html) features to manage your
+technical debt, report only new problems, and block pull requests that contain too many issues.
 
 Follow these steps to establish a baseline for your project:
 
 1. Run Qodana [locally](https://www.jetbrains.com/help/qodana/getting-started.html#Analyze+a+project+locally) over your project:
 
 ```shell
-cd project
+cd <source-directory>
 qodana scan --show-report
 ```
 
@@ -160,28 +128,47 @@ qodana scan --show-report
 
 ```yaml
 - name: Qodana Scan
-  uses: JetBrains/qodana-action@main
+  uses: JetBrains/qodana-action@v2023.2.0
   with:
     args: --baseline,qodana.sarif.json
 ```
 
-If you want to update the baseline, you need to repeat these steps once again.
+If you want to update the baseline, you must repeat these steps.
 
-Starting from this, GitHub will generate alters only for the problems that were not added to the baseline as new.
+After that, the Qodana Scan GitHub action will generate alerts only for the problems that were not added to the baseline as new.
 
-To establish a quality gate additionally to the baseline, add this line to `code_quality.yml` right after the
-`baseline-path` line:
+To establish a quality gate additionally to the baseline, add this line to `qodana.yaml` in the root of your repository:
 
 ```yaml
-fail-threshold: <number-of-accepted-problems>
+failThreshold: <number-of-accepted-problems>
 ```
 
 Based on this, you will be able to detect only new problems in pull requests that fall beyond the baseline. At the same
 time, pull requests with **new** problems exceeding the `fail-threshold` limit will be blocked, and the workflow will fail.
 
+### Qodana Cloud
+
+To forward inspection results to Qodana Cloud, all you need to do is to specify the `QODANA_TOKEN` environment variable in the build configuration.
+
+1. In the GitHub UI, create the `QODANA_TOKEN` [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) and
+   save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
+2. In the GitHub workflow file,
+   add `QODANA_TOKEN` variable to the `env` section of the `Qodana Scan` step:
+
+```yaml
+      - name: 'Qodana Scan'
+        uses: JetBrains/qodana-action@v2023.2.0
+        env:
+           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+```
+
+After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
+
+![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
+
 ### Get a Qodana badge
 
-You can set up a Qodana workflow badge in your repository, to do it, follow these steps:
+You can set up a Qodana workflow badge in your repository. To do it, follow these steps:
 
 1. Navigate to the workflow run that you previously configured.
 2. On the workflow page, select **Create status badge**.
@@ -205,7 +192,7 @@ with:
 |-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
 | `args`                      | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend,--print-problems`. Optional. | -                                                   |
 | `results-dir`               | Directory to store the analysis results. Optional.                                                                                                                                           | `${{ runner.temp }}/qodana/results`                 |
-| `upload-result`             | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                    | `false`                                             |
+| `upload-result`             | Upload Qodana results as an artifact to the job. Optional.                                                                                                                                   | `true`                                              |
 | `artifact-name`             | Specify Qodana results artifact name, used for results uploading. Optional.                                                                                                                  | `qodana-report`                                     |
 | `cache-dir`                 | Directory to store Qodana cache. Optional.                                                                                                                                                   | `${{ runner.temp }}/qodana/caches`                  |
 | `use-caches`                | Utilize [GitHub caches](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy) for Qodana runs. Optional.           | `true`                                              |
@@ -213,8 +200,12 @@ with:
 | `additional-cache-key`      | Set [the additional cache key](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#matching-a-cache-key). Optional.                                | `qodana-2023.2-${{ github.ref }}`                   |
 | `cache-default-branch-only` | Upload cache for the default branch only. Optional.                                                                                                                                          | `false`                                             |
 | `use-annotations`           | Use annotation to mark the results in the GitHub user interface. Optional.                                                                                                                   | `true`                                              |
-| `pr-mode`                   | Analyze ONLY changed files in a pull request. Optional.                                                                                                                                      | `true`                                              |
-| `post-pr-comment`           | Post a comment with the Qodana results summary to the pull request. Optional.                                                                                                                | `true`                                              |
-| `github-token`              | GitHub token to access the repository: post annotations, comments. Optional.                                                                                                                 | `${{ github.token }}`                               |
-| `push-fixes`                | Push Qodana fixes to the repository, can be `none`, `branch` to the current branch, or `pull-request`. Optional.                                                                             | `none`                                              |
+| `pr-mode`                   | Analyze only changed files in a pull request. Optional.                                                                                                                                      | `true`                                              |
 
+[gh:qodana]: https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml
+[youtrack]: https://youtrack.jetbrains.com/issues/QD
+[youtrack-new-issue]: https://youtrack.jetbrains.com/newIssue?project=QD&c=Platform%20GitHub%20action
+[jb:confluence-on-gh]: https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub
+[jb:discussions]: https://jb.gg/qodana-discussions
+[jb:twitter]: https://twitter.com/Qodana
+[jb:docker]: https://hub.docker.com/r/jetbrains/qodana
