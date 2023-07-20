@@ -8,7 +8,16 @@
 
     <p>The current version of %product% (%product-version%) provides <a href="linters.md">linters</a> that let you analyze
         Java, Kotlin, Groovy, PHP, JavaScript, TypeScript, C#, Visual Basic, C, C++, Python, and Golang projects. In
-        addition, you can inspect your code for duplicate functions and incompatible licenses used in your project. </p>
+        addition, you can inspect your code using various <a href="features.xml">features</a>. </p>
+
+    <chapter title="Prerequisites" id="quickstart-prerequisites">
+
+        <p>Depending on your <a href="pricing.md">license</a>, you probably need to obtain a trial license and accomplish
+            the <a href="cloud-onboarding.md">onboarding</a> stage at Qodana Cloud.</p>
+        <p>In this section, you will be using a project token available after creating a Qodana Cloud
+            <a href="cloud-projects.xml">project</a>. To learn more about it, see the <a href="project-token.md"/> section.</p>
+
+    </chapter>
 
     <chapter title="Analyze a project locally" id="quickstart-analyze-project-locally">
 
@@ -54,8 +63,13 @@
                     </step>
                     <step>
                         <p>In the project root directory, run this command to inspect your code:</p>
-                        <code style="block" lang="shell" prompt="$">qodana scan --show-report</code>
+                        <code style="block" lang="shell" prompt="$">
+                            qodana scan
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               --show-report
+                        </code>
                     </step>
+                    <p>Here, the <code>QODANA_TOKEN</code> variable contains the project token described in the <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
                     <p>Depending on your tasks, you can configure %product% as explained on the <a href="configure-qodana.xml"/> page.</p>
                 </procedure>
             </tab>
@@ -116,6 +130,7 @@
                         <code lang="shell" style="block" prompt="$">
                             docker run --rm -it -p 8080:8080 \
                                -v &lt;source-directory&gt;/:/data/project/ \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                                jetbrains/qodana-&lt;linter&gt; --show-report
                         </code>
                         <p>with &lt;source-directory&gt; pointing to the root of your project.</p>
@@ -124,6 +139,7 @@
                         <p>Check inspection results <a href="html-report.md">in your browser</a> at
                             <code>http://localhost:8080</code>.</p>
                     </step>
+                    <p>Here, the <code>QODANA_TOKEN</code> variable contains the project token described in the <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
                     <p>Depending on your tasks, you can configure %product% as explained on the <a href="configure-qodana.xml"/> page.</p>
                 </procedure>
             </tab>
