@@ -156,7 +156,7 @@ it using the links from the table below.
 
 ## Qodana licensing: an overview
 
-It is first important to note that during the EAP (Early Access Program) stage, you can run Qodana with the built-in EAP 
+During the EAP (Early Access Program) stage, you can run Qodana with the built-in EAP 
 licenses free of charge. However, the EAP period will expire on July 31, 2023, and it cannot be extended.
 
 After July 31, 2023, you will have to switch either to a Community license or a trial license for the Ultimate or 
@@ -211,8 +211,8 @@ An EAP license is a license that gives you full access to Qodana until July 31, 
 licenses will expire, which means users will have to switch to a trial license.
 
 A trial license is a time-limited version of either the Ultimate or the Ultimate Plus license. Each trial license 
-duration is limited to 60 days, after which such license is no longer valid and cannot be used further. To continue 
-using %product%, you’ll have to buy a full version of your license.
+duration is limited to 60 days, after which this type of license is no longer valid and cannot be used further. To 
+continue using %product%, you’ll have to buy a full version of your license.
 
 ### What are %product% linters and Qodana Cloud designed for?
 
@@ -245,7 +245,7 @@ JetBrains Account.
 The total license cost is calculated on the basis of the number of contributors. A contributor is a person who commits 
 to any number of Qodana Cloud projects within the same organization and under a single license.
 
-The number of contributors is calculated within a 90-day period. For example, if you buy a license for 10 contributors, 
+The number of contributors is calculated every 90 days. For example, if you buy a license for 10 contributors, 
 but during the first 90 days this number rises to 20, then, in the following 90-day period, the license costs will be 
 recalculated for 20 contributors.
 
@@ -279,6 +279,6 @@ Compared to the Ultimate license, the Ultimate Plus license provides the followi
 
 ### Which licenses are integrated into CI/CD pipelines?
 
-All Qodana licenses support integration with the CI/CD solutions already described in the [](ci.md) section.
+All %product% licenses support integration with the CI/CD solutions described in the [](ci.md) section.
 
 

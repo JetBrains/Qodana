@@ -11,7 +11,7 @@ and have a [project token](cloud-projects.xml#cloud-manage-projects) generated f
 
 Use the generated project token for [forwarding %product% reports](cloud-forward-reports.xml) to Qodana Cloud.
 
-Finally, run %product% [locally](Quick-start.xml#quickstart-analyze-project-locally) or in a [CI/CD pipeline](ci.md), 
+Finally, run %product% [locally](Quick-start.xml#quickstart-run-using-cli) or in a [CI/CD pipeline](ci.md), 
 and [overview](cloud-overview-reports.xml) inspection results in Qodana Cloud.
 
 If necessary, you can create additional teams and projects without the onboarding wizard:

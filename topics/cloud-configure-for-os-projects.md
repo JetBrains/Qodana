@@ -15,7 +15,7 @@ Make sure that you already know how to:
 
 * [Inspect your code](inspect-your-code.xml) using %product%
 * Configure %product% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.xml)
-* Run %product% either [locally](Quick-start.xml#quickstart-analyze-project-locally) on in your [CI/CD pipelines](ci.md)
+* Run %product% either [locally](Quick-start.xml) on in your [CI/CD pipelines](ci.md)
 * [Forward reports](cloud-forward-reports.xml) to %cloud%
 
 ## Prepare %cloud%
