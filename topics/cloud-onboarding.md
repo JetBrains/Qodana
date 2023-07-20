@@ -7,8 +7,8 @@ The onboarding stage is an essential step in preparing your project for %product
 - Create a Qodana Cloud organization and project
 - If necessary, create a JetBrains account organization
 
-Onboarding is available while creating your [Qodana Cloud account](cloud-get-access.xml) or 
-[](cloud-organizations.xml), and consists of several steps described below. 
+Onboarding is available while creating your Qodana Cloud  [account](cloud-get-access.xml) or 
+[organizations](cloud-organizations.xml), and consists of several steps described below. 
 
 <procedure>
 <step>
