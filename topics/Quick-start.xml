@@ -10,7 +10,7 @@
         Java, Kotlin, Groovy, PHP, JavaScript, TypeScript, C#, Visual Basic, C, C++, Python, and Golang projects. In
         addition, you can inspect your code using various <a href="features.xml">features</a>. </p>
 
-    <p>You have two options to work %product% on your local machine:</p>
+    <p>You have the following options for running %product% on your local machine:</p>
 
     <list>
         <li><a anchor="quickstart-run-in-ide">Using the JetBrains IDE</a></li>
@@ -30,13 +30,12 @@
         <p>Here is the description of all steps shown in this video:</p>
 
         <list type="decimal">
-                <li>In your IDE, navigate to the <menupath>Problems</menupath> button. Alternatively, you can navigate to
-                    <menupath>Tools | Qodana | Try Code Analysis with Qodana</menupath>, and proceed to step 4.</li>
-                <li>In the <menupath>Problems</menupath> tab, click the <menupath>Server-Side Analysis</menupath> tab.</li>
-                <li>In the <menupath>Server-Side Analysis</menupath> tab, click the <menupath>Start Qodana</menupath> button.</li>
+                <li>In your IDE, navigate to the <menupath>Problems</menupath> tool window. </li>
+                <li>In the <menupath>Problems</menupath> tool window, click the <menupath>Server-Side Analysis</menupath> tab.</li>
+                <li>On the <menupath>Server-Side Analysis</menupath> tab, click the <menupath>Start Qodana</menupath> button.</li>
                 <li>In the <menupath>Run Qodana</menupath> window, click the <menupath>Try locally</menupath> button.</li>
                 <li>In the <menupath>Edit qodana.yaml</menupath> window, click <menupath>Run</menupath>.</li>
-                <li>In the <menupath>Server-Side Analysis</menupath> tab, you can overview inspection results.</li>
+                <li>On the <menupath>Server-Side Analysis</menupath> tab, you can overview inspection results.</li>
         </list>
 
     </chapter>
