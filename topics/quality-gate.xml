@@ -27,7 +27,7 @@
 
     <p>This section explains how to configure %product% quality gate for:</p>
     <list>
-        <li><a anchor="quality-gate-local-run">Local run using a Docker command</a></li>
+        <li><a anchor="quality-gate-local-run">Local run using a Docker or Qodana CLI command</a></li>
         <li><a anchor="quality-gate-github-actions">GitHub actions</a></li>
         <li><a anchor="quality-gate-jenkins">Jenkins</a></li>
         <li><a anchor="quality-gate-gitlab-ci">Gitlab CI/CD</a></li>
@@ -35,17 +35,30 @@
 
     <chapter id="quality-gate-local-run" title="Local run">
 
-        <p>You can run %product% with the configured quality gate locally using available
-            <a href="docker-images.md">Docker images</a>: </p>
+        <p>You can run %product% with the configured quality gate locally using either the
+            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool or available
+            <a href="docker-images.md">Docker images</a>:</p>
 
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-            -v &lt;source-directory&gt;/:/data/project/  \
-            jetbrains/qodana-&lt;linter&gt; \
-            --fail-threshold &lt;number&gt;
-        </code>
-        <p>In this command, <code>&lt;source-directory&gt;</code> is the full local path to the project source code, and
-            the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.</p>
+        <tabs>
+            <tab title="Qodana CLI" group-key="quality-gate-qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       --fail-threshold &lt;number&gt;
+                </code>
+                <p>In this command, the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.</p>
+            </tab>
+            <tab title="Docker image" group-key="quality-gate-docker">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v &lt;source-directory&gt;/:/data/project/  \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --fail-threshold &lt;number&gt;
+                </code>
+                <p>In this command, <code>&lt;source-directory&gt;</code> is the full local path to the project source code, and
+                    the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.</p>
+            </tab>
+        </tabs>
+
 
     </chapter>
 

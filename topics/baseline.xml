@@ -27,13 +27,36 @@
         <p>To improve the situation, you can add problems to the baseline, download the
             <code style="inline">qodana.sarif.json</code> file, and put it to your project directory as explained in the
             <a href="ui-overview.md" anchor="Baseline"/> section. Once done, this file becomes a basis for
-            comparing with subsequent code states. You can run the baseline with the following CLI command:
+            comparing with subsequent code states. You can run the baseline using these commands:
         </p>
 
-        <code style="block" lang="shell">
-        docker run ... <![CDATA[jetbrains/qodana-&lt;linter&gt; \
-           --baseline &lt;path-to-qodana.sarif.json&gt;]]>
-        </code>
+        <tabs>
+            <tab title="Qodana CLI" group-key="baseline-qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -v &lt;path_to_baseline&gt;:/data/base/ \
+                       --baseline /data/base/qodana.sarif.json
+                </code>
+                <p>Here, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
+                    containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %product%
+                    Docker image.
+                </p>
+            </tab>
+            <tab title="Docker image" group-key="baseline-qodana-docker">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v $(pwd):/data/project/ \
+                       -v &lt;path_to_baseline&gt;:/data/base/ \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --baseline /data/base/qodana.sarif.json
+                </code>
+                <p>In this snippet, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
+                    containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %product%
+                    Docker image. The <code>--baseline</code> option specifies the path to the baseline file from the
+                    Docker filesystem.
+                </p>
+            </tab>
+        </tabs>
 
         <p>The baseline feature divides problems into these groups:</p>
 
@@ -67,11 +90,27 @@
             baseline problem was resolved and now is marked as absent. </p>
             <p>To include absent problems in the report, you need to run %product% with the
                 <code style="inline">--baseline-include-absent</code> option:</p>
-            <code style="block" lang="shell">
-            docker run ... <![CDATA[jetbrains/qodana-&lt;linter&gt; \
-               --baseline &lt;path-to-qodana.sarif.json&gt; \
-               --baseline-include-absent]]>
-            </code>
+
+            <tabs>
+                <tab title="Qodana CLI" group-key="baseline-qodana-cli">
+                        <code style="block" lang="shell" prompt="$">
+                            qodana scan \
+                               -v &lt;path_to_baseline&gt;:/data/base/ \
+                               --baseline /data/base/qodana.sarif.json \
+                               --baseline-include-absent
+                        </code>
+                </tab>
+                <tab title="Docker image" group-key="baseline-qodana-docker">
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v &lt;path_to_baseline&gt;:/data/base/ \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --baseline /data/base/qodana.sarif.json \
+                           --baseline-include-absent
+                    </code>
+                </tab>
+            </tabs>
         </li>
 
     </list>
