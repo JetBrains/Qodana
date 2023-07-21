@@ -20,8 +20,11 @@
 
     <chapter title="Run Qodana in your IDE" id="quickstart-run-in-ide">
 
-        <p>Starting from version 2023.2, %product% is available in both the Professional and Community editions of
-            IntelliJ IDEA and PyCharm, as well as in PhpStorm, WebStorm, GoLand, and Rider.</p>
+        <p>Starting from version 2023.2, %product% is available in IntelliJ IDEA and PyCharm (both the Professional and
+            Community editions), PhpStorm, WebStorm, GoLand, and Rider.</p>
+
+        <tip>%product% functionality is already covered by the IDE license, so you do not need to buy a separate %product%
+            license to run it in the IDE.</tip>
 
         <p>Here is the short video showing how you can run %product% in your IDE.</p>
 
@@ -35,8 +38,25 @@
                 <li>On the <menupath>Server-Side Analysis</menupath> tab, click the <menupath>Start Qodana</menupath> button.</li>
                 <li>In the <menupath>Run Qodana</menupath> window, click the <menupath>Try locally</menupath> button.</li>
                 <li>In the <menupath>Edit qodana.yaml</menupath> window, click <menupath>Run</menupath>.</li>
-                <li>On the <menupath>Server-Side Analysis</menupath> tab, you can overview inspection results.</li>
+                <li>
+                    <p>On the <menupath>Server-Side Analysis</menupath> tab, you can overview inspection results. It
+                        also contains two links in the upper part of the tab.</p>
+                    <img src="quickstart-run-in-ide-report-links.png" dark-src="quickstart-run-in-ide-report-links_dark.png" width="706" alt="Links on the Server-Side Analysis tab" border-effect="line"/>
+                </li>
         </list>
+
+        <p>Click the <menupath>Open Qodana report in browser</menupath> link to open the inspection report in an
+            <a href="html-report.md">intuitive and easy-to-use form</a>.</p>
+
+        <img src="quickstart-run-in-ide-report.png" dark-src="quickstart-run-in-ide-report_dark.png" width="706" alt="Qodana report" border-effect="line"/>
+
+        <p>Click the <menupath>Add Qodana to CI/CD pipeline</menupath> link to open the configuration wizard for using
+            %product% in CI/CD pipelines.</p>
+
+        <img src="quickstart-run-in-ide-cicd.png" dark-src="quickstart-run-in-ide-cicd_dark.png" width="706" alt="Qodana report" border-effect="line"/>
+
+        <p>To learn more about %product% and CI/CD pipelines, see the <a href="ci.md"/> section.</p>
+
 
     </chapter>
 
