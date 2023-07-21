@@ -23,8 +23,7 @@
         <p>Starting from version 2023.2, %product% is available in IntelliJ IDEA and PyCharm (both the Professional and
             Community editions), PhpStorm, WebStorm, GoLand, and Rider.</p>
 
-        <tip>%product% functionality is already covered by the IDE license, so you do not need to buy a separate %product%
-            license to run it in the IDE.</tip>
+        <tip>You do not need to buy a separate %product% license to run it in the IDE.</tip>
 
         <p>Here is the short video showing how you can run %product% in your IDE.</p>
 
