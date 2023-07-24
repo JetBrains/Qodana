@@ -44,7 +44,7 @@
             </tab>
             <tab title="CLI">
                 <p>Here, you have two options for running this feature:</p>
-                <tabs>
+                <tabs group="cli-commands">
                     <tab title="Qodana CLI" group-key="qodana-cli">
                         <code style="block" lang="shell" prompt="$">
                             qodana scan \
@@ -68,7 +68,7 @@
 
                 <p>This is the example of the CLI command:</p>
 
-                <tabs>
+                <tabs group="cli-commands">
                     <tab title="Qodana CLI" group-key="qodana-cli">
                         <code style="block" lang="shell" prompt="$">
                             qodana scan \
