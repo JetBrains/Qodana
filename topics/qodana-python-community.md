@@ -11,7 +11,7 @@
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
-## Supported features
+## Supported technologies
 
 %linter% provides inspections for the following technologies.
 
