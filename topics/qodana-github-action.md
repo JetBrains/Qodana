@@ -143,7 +143,7 @@ qodana scan --show-report
 
 If you want to update the baseline, you need to repeat these steps once again.
 
-Starting from this, GitHub will generate alters only for the problems that were not added to the baseline as new.
+Starting from this, GitHub will generate alerts only for the problems that were not added to the baseline as new.
 
 To establish a quality gate additionally to the baseline, add this line to `code_quality.yml` right after the
 `baseline-path` line:
