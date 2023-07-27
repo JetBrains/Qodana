@@ -62,6 +62,21 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
 7. Click **Save**. Now you can run Qodana in the build.
 
+### Configure the project token
+
+The [project token](project-token.md) is required by the paid %product% [licenses](pricing.md), and is optional in case of the 
+Community license. You can see these sections to learn how to generate the project token:  
+
+* The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
+* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+
+To apply the generated project token, follow these steps:
+
+1. In the TeamCity UI, open the build step that will run %product%.
+2. In the **Cloud Token** field, insert the [Qodana Cloud token](cloud-projects.xml#cloud-manage-projects) value.
+
+   <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
+
 ### (Optional) Add a configuration script
 {id="add-script"}
 
@@ -103,15 +118,6 @@ this file to the working directory manually. Alternatively, you can write a scri
   
    EOM  
    ```
-
-### Forward reports to Qodana Cloud
-
-To forward reports to Qodana Cloud, follow these steps:
-
-1. In the TeamCity UI, open the build step that will run %product%.
-2. In the **Cloud Token** field, insert the [Qodana Cloud token](cloud-projects.xml#cloud-manage-projects) value.
-
-   <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
 
 ### Verify inspection results
 

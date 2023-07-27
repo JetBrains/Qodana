@@ -11,12 +11,8 @@
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
 [Jenkins](https://www.jenkins.io/doc/) is a self-contained, open-source server that automates software-related tasks 
-including building, testing, and deploying software. This section explains how you can configure 
-[Docker images](docker-images.md) of %product% in Jenkins [Multibranch Pipelines](%Multipipe%), and covers the
-following cases:
-
-* Inspecting a specific branch
-* Forwarding inspection results to [Qodana Cloud](cloud-about.xml) 
+including building, testing, and deploying software. This section explains how you can configure %product%
+[Docker images](docker-images.md) in Jenkins [Multibranch Pipelines](%Multipipe%)
 
 ## Prepare your project
 
@@ -41,34 +37,48 @@ This is the basic configuration of the Jenkins Pipeline.
 
 ```groovy
 pipeline {
-   agent {
-      docker {
-         args '''
+    environment {
+        QODANA_TOKEN=credentials('qodana-token')
+    }
+    agent {
+        docker {
+            args '''
               -v "${WORKSPACE}":/data/project
               --entrypoint=""
               '''
-         image 'jetbrains/qodana-<linter>'
-      }
-   }
-   stages {
-      stage('Qodana') {
-         steps {
-            sh '''
-               qodana \
-               --fail-threshold <number>
-               '''
-         }
-      }
-   }    
+            image 'jetbrains/qodana-<linter>'
+        }
+    }
+    stages {
+        stage('Qodana') {
+            steps {
+                sh '''
+                qodana \
+                --fail-threshold <number>
+                '''
+            }
+        }
+    }
 }
 ```
+
+In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
+[project token](project-token.md) generated in Qodana Cloud and contained in 
+the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %product% 
+[licenses](pricing.md), and is optional for the Community license. You can see these sections to learn how to generate 
+the project token in Qodana Cloud:
+
+* The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
+* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+
 
 This configuration uses the `docker` agent to invoke %product% [Docker images](docker-images.md). Using the 
 `WORKSPACE` variable, the `args` block mounts the local checkout directory to the project directory of a Docker image, 
 and `image` specifies the Docker image invoked.  
 
 The `stage` block calls %product%. Here, you can also specify the [options](docker-image-configuration.xml) 
-you would like to configure %product% with.  
+you would like to configure %product% with. This configuration invokes the [quality gate](quality-gate.xml) feature 
+using the `--fail-threshold <number>` line. 
 
 ## Inspect specific branches
 
@@ -77,6 +87,9 @@ lets you inspect only the `feature` branch.
 
 ```groovy
 pipeline {
+    environment {
+        QODANA_TOKEN=credentials('qodana-token')
+    }
    agent {
       docker {
          args '''
@@ -101,37 +114,6 @@ pipeline {
 
 You can inspect pull requests as described in the [Supporting Pull Requests](%JPullRequests%) section
 of the Jenkins documentation.
-
-## Forward reports to Qodana Cloud
-
-The `environment` block lets you specify the `QODANA_TOKEN` variable to invoke the 
-[Qodana Cloud project token](cloud-projects.xml#cloud-manage-projects) contained in the `qodana-token` credentials.  
-To learn how to create `qodana-token`, see the [Adding new global credentials](%JenkinsCred%) section of the 
-Jenkins documentation.
-
-```groovy
-pipeline {
-   environment {
-      QODANA_TOKEN=credentials('qodana-token')
-   }
-   agent {
-      docker {
-         args '''
-              -v "${WORKSPACE}":/data/project
-              --entrypoint=""
-              '''
-         image 'jetbrains/qodana-<linter>'
-      }
-   }
-   stages {
-      stage('Qodana') {
-         steps {
-            sh '''qodana'''
-         }
-      }
-   }
-}
-```
 
 ## Combined configuration
 

@@ -35,11 +35,14 @@ qodana:
            - qodana-2023.2-
         paths:
            - .qodana/cache
+   variables:
+      QODANA_TOKEN: $qodana_token
    script:
       - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
-In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %product% [Docker image](docker-images.md) of your choice.
+In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %product% 
+[Docker image](docker-images.md) of your choice.
 
 The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab caches to store the %product% cache,
 so subsequent runs will be faster. 
@@ -47,7 +50,15 @@ so subsequent runs will be faster.
 The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %product% 
 configuration options described in the [](docker-image-configuration.xml) section. 
 
-Finally, [`artifacts`](https://docs.gitlab.com/ee/ci/yaml/#artifacts) configures job artifacts that are uploaded, can be skipped if Qodana Cloud is used (described in the next steps).
+The `variables` keyword defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
+referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by paid %product% 
+licenses and optional for using under the Community license.
+
+You can see these sections to learn how to generate the project token:
+
+* The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
+* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+
 
 ## Inspect specific branches
 
@@ -69,38 +80,15 @@ qodana:
            - qodana-2023.2-
         paths:
            - .qodana/cache
+   variables:
+      QODANA_TOKEN: $qodana_token
    script:
       - qodana --results-dir=$CI_PROJECT_DIR/.qodana/results --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
-## Forward reports to Qodana Cloud
-
-Once the inspection step is complete, inspection reports can be forwarded to [Qodana Cloud](cloud-about.xml). 
-
-This configuration defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
-referring to the Qodana Cloud [project token](cloud-projects.xml#cloud-manage-projects):
-
-```yaml
-qodana:
-   image:
-      name: jetbrains/qodana-<linter>
-      entrypoint: [""]
-   cache:
-      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-        fallback_keys:
-           - qodana-2023.2-$CI_DEFAULT_BRANCH-
-           - qodana-2023.2-
-        paths:
-           - .qodana/cache
-   variables:
-      QODANA_TOKEN: $qodana_token
-   script:
-      - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-```
-
 ## Expose Qodana reports
 
-To make a report available in any given merge request without connecting to Qodana Cloud,
+To make a report available in any given merge request without using Qodana Cloud,
 you can use the [`artifacts`]() [`expose_as`](%GitLabExpose%) keywords
 and change the path to the artifacts:
 
@@ -116,6 +104,8 @@ qodana:
            - qodana-2023.2-
         paths:
            - .qodana/cache
+   variables:
+      QODANA_TOKEN: $qodana_token           - 
    script:
       - qodana --save-report --results-dir=$CI_PROJECT_DIR/.qodana/results
          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
@@ -132,31 +122,6 @@ Assuming that you have configured your pipeline in a similar manner, this is wha
 
 2. Available actions for a given exposed Qodana artifact
    <img src="gitlab-exposed-artifacts-expanded.png" alt="Available actions for a given exposed Qodana artifact" width="706" border-effect="line"/>
-
-## Combined configuration
-
-This configuration combines all approaches mentioned in this section. 
-
-```yaml
-qodana:
-   only:
-      - main
-      - merge_requests
-   image:
-      name: jetbrains/qodana-<linter>
-      entrypoint: [""]
-   variables:
-      QODANA_TOKEN: <your-project-token>
-   cache:
-      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-        fallback_keys:
-           - qodana-2023.2-$CI_DEFAULT_BRANCH-
-           - qodana-2023.2-
-        paths:
-           - .qodana/cache
-   script:
-      - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-```
 
 <seealso>
     <category ref="external">

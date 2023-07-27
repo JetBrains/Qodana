@@ -20,11 +20,12 @@ file will contain configuration scripts written in [Kotlin](https://kotlinlang.o
 
 ## Basic configuration
 
-This is the basic configuration script for running %product% in JetBrains Automation. 
+This is the basic configuration script for running %product% in JetBrains Automation jobs. 
 
 ```kotlin
 job("Qodana") {
     container("jetbrains/qodana-<linter>") {
+        env["QODANA_TOKEN"] = Secrets("qodana-token")
         shellScript {
             content = """
                qodana \
@@ -37,7 +38,16 @@ job("Qodana") {
 ```
 
 The [`container`](https://www.jetbrains.com/help/space/run-a-step-in-a-container.html) block specifies which 
-[Docker image](docker-images.md) of %product% to pull.  
+[Docker image](docker-images.md) of %product% to run.  
+
+The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in Qodana Cloud and contained in 
+the `qodana-token` secret. You can see these sections to learn how to generate the project token:
+
+* The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
+* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+
+Once the project token is generated, in the **Settings** section of your JetBrains Space environment 
+[create a secret](%Space-secret%) with the `qodana-token` name. Save the project token as the value for this secret.
 
 The `shellScript` block contains the `qodana` command for running %product% and enumerates the 
 [options](docker-image-configuration.xml) that should be used during the run. 
@@ -62,55 +72,13 @@ job("Qodana") {
       codeReviewOpened{}
    }
    container("jetbrains/qodana-<linter>") {
-      shellScript {
-          content = """qodana"""
-      }
-   }
-}
-```
-
-## Forward report to Qodana Cloud
-
-Once you generated a [project token](cloud-projects.xml) in Qodana Cloud, in the **Settings** section of your JetBrains 
-Space environment [create a secret](%Space-secret%) with the `qodana-token` name. Save the project token as the 
-value for this secret.
-
-Below is the script that lets you forward inspection reports to Qodana Cloud. It defines the `QODANA_TOKEN` 
-variable that refers to the `qodana-token` secret. 
-
-```kotlin
-job("Qodana") {
-   container("jetbrains/qodana-<linter>") {
-      env["QODANA_TOKEN"] = Secrets("qodana-token")
-      shellScript {
-         content = """qodana"""
-      }
-   }
-}
-```
-
-## Combined configuration
-
-This configuration script combines all approaches from this section.
-
-```kotlin
-job("Qodana") {
-   startOn {
-      gitPush {
-         branchFilter {
-            +"refs/heads/feature"
-         }
-      }
-      codeReviewOpened{} 
-   }
-   container("jetbrains/qodana-<linter>") {
-      env["QODANA_TOKEN"] = Secrets("qodana-token")
-      shellScript {
-         content = """
-            qodana \
-            --fail-threshold <number> \ 
-            --profile-name <profile-name>
-            """.trimIndent()
+       env["QODANA_TOKEN"] = Secrets("qodana-token")
+       shellScript {
+           content = """
+               qodana \
+               --fail-threshold <number> \ 
+               --profile-name <profile-name>
+               """.trimIndent()
       }
    }
 }
