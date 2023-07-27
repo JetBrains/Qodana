@@ -138,21 +138,20 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 ### Linters available for each license
 {id="pricing-linters-licenses"}
 
-If you would like to learn more about libraries and frameworks supported by each specific linter, you can navigate to 
-it using the links from the table below. 
+This is the list of linters that you can run using the Community license:
 
-| Linter name                                               | Community | Ultimate and Ultimate Plus |
-|-----------------------------------------------------------|-----------|----------------------------|
-| [Qodana for JVM](qodana-jvm.md)                           | &#x274c;  | &#x2714;                   |
-| [Qodana Community for JVM](qodana-jvm-community.md)       | &#x2714;  | &#x2714;                   |
-| [Qodana Community for Android](qodana-jvm-android.md)     | &#x2714;  | &#x2714;                   |
-| [Qodana for Python](qodana-python.md)                     | &#x274c;  | &#x2714;                   |
-| [Qodana Community for Python](qodana-python-community.md) | &#x2714;  | &#x2714;                   |
-| [Qodana for PHP](qodana-php.md)                           | &#x274c;  | &#x2714;                   |
-| [Qodana for JS](qodana-js.md)                             | &#x274c;  | &#x2714;                   |
-| [Qodana for Go](qodana-go.md)                             | &#x274c;  | &#x2714;                   |
-| [Qodana for .NET](qodana-dotnet.md)                       | &#x274c;  | &#x2714;                   |
+* [Qodana Community for JVM](qodana-jvm-community.md)      
+* [Qodana Community for Android](qodana-jvm-android.md)     
+* [Qodana Community for Python](qodana-python-community.md) 
 
+This is the list of linters that require either the Ultimate or the Ultimate Plus license:
+
+* [Qodana for JVM](qodana-jvm.md)                           
+* [Qodana for Python](qodana-python.md)                     
+* [Qodana for PHP](qodana-php.md)                           
+* [Qodana for JS](qodana-js.md)                             
+* [Qodana for Go](qodana-go.md)                             
+* [Qodana for .NET](qodana-dotnet.md)                       
 
 ## Qodana licensing: an overview
 
