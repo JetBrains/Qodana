@@ -4,17 +4,9 @@
 
 <img src="php-linter.png" dark-src="php-linter_dark.png" alt="Qodana for PHP linter languages" width="296"/>
 
-<note>
-<p>
-<include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana for PHP"/>
-</include>
-</p>
-</note>
-
 <var name="linter" value="Qodana for PHP"/>
 <var name="ide" value="PhpStorm"/>
-<var name="docker-image" value="jetbrains/qodana-php:2023.2-eap"/>
+<var name="docker-image" value="jetbrains/qodana-php:2023.2"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). <include src="lib_qd.xml" include-id="linter-intro"/>
 

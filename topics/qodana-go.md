@@ -4,17 +4,9 @@
 
 <img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/>
 
-<note>
-    <p>
-        <include src="lib_qd.xml" include-id="eap-warning">
-            <var name="product" value="Qodana for Go"/>
-        </include>
-    </p>
-</note>
-
 <var name="linter" value="Qodana for Go"/>
 <var name="ide" value="GoLand"/>
-<var name="docker-image" value="jetbrains/qodana-go:2023.2-eap"/>
+<var name="docker-image" value="jetbrains/qodana-go:2023.2"/>
 <var name="ide-url" value="https://www.jetbrains.com/go/"/>
 
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.

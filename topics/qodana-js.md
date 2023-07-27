@@ -4,17 +4,9 @@
 
 <img src="js.png" dark-src="js_dark.png" alt="Qodana for .NET linter languages" width="296"/>
 
-<note>
-    <p>
-<include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana for JS"/>
-</include>
-</p>
-</note>
-
 <var name="linter" value="Qodana for JS"/>
 <var name="ide" value="WebStorm"/>
-<var name="docker-image" value="jetbrains/qodana-js:2023.2-eap"/>
+<var name="docker-image" value="jetbrains/qodana-js:2023.2"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/). It provides static analysis for JavaScript or TypeScript projects.
 

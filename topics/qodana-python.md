@@ -4,17 +4,9 @@
 
 <img src="python.png" dark-src="python_dark.png" alt="Python" width="296"/>
 
-<note>
-    <p>
-<include src="lib_qd.xml" include-id="eap-warning">
-<var name="product" value="Qodana for Python"/>
-</include>
-</p>
-</note>
-
 <var name="linter" value="Qodana for Python"/>
 <var name="ide" value="PyCharm Professional"/>
-<var name="docker-image" value="jetbrains/qodana-python:2023.2-eap"/>
+<var name="docker-image" value="jetbrains/qodana-python:2023.2"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
