@@ -20,17 +20,17 @@ full versions of the respective %product% license type.
 
 | Programming language | Community          | Ultimate and Ultimate Plus | 
 |----------------------|--------------------|----------------------------|
+| Groovy               | &#x2714;           | &#x2714;                   | 
 | Java for Android     | &#x2714;           | &#x2714;                   | 
+| Java                 | &#x2714;           | &#x2714;                   | 
+| Kotlin               | &#x2714;           | &#x2714;                   | 
+| Python               | &#x2714;           | &#x2714;                   |  
 | C                    | &#x274c;           | &#x2714;                   | 
 | C#                   | &#x274c;           | &#x2714;                   | 
 | C++                  | &#x274c;           | &#x2714;                   | 
 | Golang               | &#x274c;           | &#x2714;                   | 
-| Groovy               | &#x2714;           | &#x2714;                   | 
-| Java                 | &#x2714;           | &#x2714;                   | 
 | JavaScript           | &#x274c;           | &#x2714;                   | 
-| Kotlin               | &#x2714;           | &#x2714;                   | 
 | PHP                  | &#x274c;           | &#x2714;                   | 
-| Python               | &#x2714;           | &#x2714;                   |  
 | TypeScript           | &#x274c;           | &#x2714;                   | 
 | VB.NET               | &#x274c;           | &#x2714;                   | 
 
@@ -40,20 +40,20 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 | Technology                   | Community | Ultimate and Ultimate Plus |
 |------------------------------|-----------|----------------------------|
-| Blade                        | &#x274c;  | &#x2714;                   |
 | CSS                          | &#x2714;  | &#x2714;                   |
-| Expression Language (EL)     | &#x274c;  | &#x2714;                   |
-| FreeMarker Template Language | &#x274c;  | &#x2714;                   |
 | HTML                         | &#x2714;  | &#x2714;                   |
 | JSON and JSON5               | &#x2714;  | &#x2714;                   |
 | RELAX NG                     | &#x2714;  | &#x2714;                   |
-| T4                           | &#x274c;  | &#x2714;                   |
+| Shell script                 | &#x2714;  | &#x2714;                   |
 | TOML                         | &#x2714;  | &#x2714;                   |
 | XML                          | &#x2714;  | &#x2714;                   |
 | XPath                        | &#x2714;  | &#x2714;                   |
 | XSLT                         | &#x2714;  | &#x2714;                   |
 | YAML                         | &#x2714;  | &#x2714;                   |
-| Shell script                 | &#x2714;  | &#x2714;                   |
+| Blade                        | &#x274c;  | &#x2714;                   |
+| Expression Language (EL)     | &#x274c;  | &#x2714;                   |
+| FreeMarker Template Language | &#x274c;  | &#x2714;                   |
+| T4                           | &#x274c;  | &#x2714;                   |
 
 ### Databases and ORM
 
@@ -72,37 +72,37 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 | Framework or library | Community  | Ultimate and Ultimate Plus |
 |----------------------|------------|----------------------------|
+| Django               | &#x2714;   | &#x2714;                   |
+| Google App Engine    | &#x2714;   | &#x2714;                   |
+| JavaBeans            | &#x2714;   | &#x2714;                   |
+| JavaFX               | &#x2714;   | &#x2714;                   |
+| JPA                  | &#x2714;   | &#x2714;                   |
+| JUnit                | &#x2714;   | &#x2714;                   |
+| Jupyter              | &#x2714;   | &#x2714;                   |
+| Lombok               | &#x2714;   | &#x2714;                   |
+| Pyramid              | &#x2714;   | &#x2714;                   |
+| Reactive Streams     | &#x2714;   | &#x2714;                   |
+| TestNG               | &#x2714;   | &#x2714;                   |
 | Angular              | &#x274c;   | &#x2714;                   | 
 | Cucumber             | &#x274c;   | &#x2714;                   |
-| Django               | &#x2714;   | &#x2714;                   |
 | .NET Core            | &#x274c;   | &#x2714;                   |
 | EJS                  | &#x274c;   | &#x2714;                   |
-| Google App Engine    | &#x2714;   | &#x2714;                   |
 | Handlebars/Mustache  | &#x274c;   | &#x2714;                   |
 | Jakarta EE           | &#x274c;   | &#x2714;                   |
 | Java EE              | &#x274c;   | &#x2714;                   |
-| JavaBeans            | &#x2714;   | &#x2714;                   |
-| JavaFX               | &#x2714;   | &#x2714;                   |
 | JAX-RS               | &#x274c;   | &#x2714;                   |
 | Joomla!              | &#x274c;   | &#x2714;                   |
-| JPA                  | &#x2714;   | &#x2714;                   |
 | JSP                  | &#x274c;   | &#x2714;                   |
-| JUnit                | &#x2714;   | &#x2714;                   |
-| Jupyter              | &#x2714;   | &#x2714;                   |
 | Less                 | &#x274c;   | &#x2714;                   |
-| Lombok               | &#x2714;   | &#x2714;                   |
 | Node.JS              | &#x274c;   | &#x2714;                   |
 | NUnit                | &#x274c;   | &#x2714;                   |
 | PHPUnit              | &#x274c;   | &#x2714;                   |
 | PostCSS              | &#x274c;   | &#x2714;                   |
 | Psalm                | &#x274c;   | &#x2714;                   |
 | Pug/Jade             | &#x274c;   | &#x2714;                   |
-| Pyramid              | &#x2714;   | &#x2714;                   |
 | React                | &#x274c;   | &#x2714;                   |
-| Reactive Streams     | &#x2714;   | &#x2714;                   |
 | Sass/SCSS            | &#x274c;   | &#x2714;                   |
 | Spring               | &#x274c;   | &#x2714;                   |
-| TestNG               | &#x2714;   | &#x2714;                   |
 | Unity                | &#x274c;   | &#x2714;                   |
 | Unreal Engine        | &#x274c;   | &#x2714;                   |
 | Vue                  | &#x274c;   | &#x2714;                   |
@@ -118,12 +118,12 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | [](baseline.xml)                                      | &#x2714;  | &#x2714;  | &#x2714;      |
 | [](quality-gate.xml)                                  | &#x2714;  | &#x2714;  | &#x2714;      |
 | Docker and Kubernetes support                         | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](license-audit.xml)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](vulnerability-checker.md)                          | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](taint-analysis.md)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
 | [](code-coverage.md)                                  | &#x274c;  | &#x2714;  | &#x2714;      |
 | [](quick-fix.md)                                      | &#x274c;  | &#x2714;  | &#x2714;      |
 | [](php-language-upgrade.xml)                          | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](license-audit.xml)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](taint-analysis.md)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](vulnerability-checker.md)                          | &#x274c;  | &#x274c;  | &#x2714;      |
 
 ### Data storage and processing
 {id="pricing-data-storage"}

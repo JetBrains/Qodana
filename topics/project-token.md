@@ -29,7 +29,7 @@ Below is the description of interaction between %product% and Qodana Cloud once 
 ## License verification
 
 The paid %product% linters request and verify license information from a Qodana Cloud [organization](cloud-organizations.xml). 
-If the verification step fails, the linter returns an error meaning that you cannot run it using the current license.. 
+If the verification step fails, the linter returns an error meaning that you cannot run it using the current license.
 
 For example, you cannot run %product% using an expired license. Nor can you run the 
 [Qodana for JVM](qodana-jvm.md) linter using the [Community license](pricing.md#pricing-linters-licenses).
