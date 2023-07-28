@@ -64,8 +64,8 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
 ### Configure the project token
 
-The [project token](project-token.md) is required by the paid %product% [licenses](pricing.md), and is optional in case of the 
-Community license. You can see these sections to learn how to generate the project token:  
+The [project token](project-token.md) is required by the paid %product% [linters](pricing.md#pricing-linters-licenses),
+and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:  
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
 * The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization

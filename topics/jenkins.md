@@ -64,13 +64,12 @@ pipeline {
 
 In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
 [project token](project-token.md) generated in Qodana Cloud and contained in 
-the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %product% 
-[licenses](pricing.md), and is optional for the Community license. You can see these sections to learn how to generate 
-the project token in Qodana Cloud:
+the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %product%
+[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. You can see these sections 
+to learn how to generate the project token in Qodana Cloud:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
 * The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
-
 
 This configuration uses the `docker` agent to invoke %product% [Docker images](docker-images.md). Using the 
 `WORKSPACE` variable, the `args` block mounts the local checkout directory to the project directory of a Docker image, 
@@ -114,37 +113,3 @@ pipeline {
 
 You can inspect pull requests as described in the [Supporting Pull Requests](%JPullRequests%) section
 of the Jenkins documentation.
-
-## Combined configuration
-
-Here is the Jenkins configuration that covers all approaches described in this section. 
-
-```groovy
-pipeline {
-   environment {
-      QODANA_TOKEN=credentials('qodana-token')
-   }
-   agent {
-      docker {
-         args '''
-              -v "${WORKSPACE}":/data/project
-              --entrypoint=""
-              '''
-         image 'jetbrains/qodana-<linter>'
-      }
-   }
-   stages {
-      stage('Qodana') {
-         when {
-            branch 'feature'
-         }
-         steps {
-            sh '''
-               qodana \
-               --fail-threshold <number>
-               '''
-         }
-      }
-   }
-}
-```

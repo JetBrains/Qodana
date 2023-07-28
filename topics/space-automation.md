@@ -41,7 +41,8 @@ The [`container`](https://www.jetbrains.com/help/space/run-a-step-in-a-container
 [Docker image](docker-images.md) of %product% to run.  
 
 The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in Qodana Cloud and contained in 
-the `qodana-token` secret. You can see these sections to learn how to generate the project token:
+the `qodana-token` secret. This token is required by the paid %product% [linters](pricing.md#pricing-linters-licenses), 
+and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
 * The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization

@@ -51,8 +51,8 @@ The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qod
 configuration options described in the [](docker-image-configuration.xml) section. 
 
 The `variables` keyword defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
-referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by paid %product% 
-licenses and optional for using under the Community license.
+referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %product% 
+[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters.
 
 You can see these sections to learn how to generate the project token:
 

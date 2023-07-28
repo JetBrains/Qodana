@@ -191,7 +191,7 @@ Although the Community license does not require a Qodana Cloud account, it will 
 in this case too.
 
 <note>The Community license provides restricted functionalities compared to the Ultimate and Ultimate Plus licenses. See
-[the comparison matrix](#license-comparison-matrix) for more details.</note>
+<a anchor="license-comparison-matrix">the comparison matrix</a> for more details.</note>
 
 ### Can I try Qodana before buying a license?
 

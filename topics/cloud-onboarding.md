@@ -1,14 +1,15 @@
 [//]: # (title: Onboarding)
 
-The onboarding stage is an essential step in preparing your project for %product%, namely: 
+The onboarding stage is essential for preparing your project for %product%, and it lets you: 
 
-- Connect your project to Qodana Cloud
-- Generate the license for %product%
-- Create a Qodana Cloud organization and project
-- If necessary, create a JetBrains account organization
+- Connect your project repository to Qodana Cloud
+- Create a Qodana Cloud [organization](cloud-organizations.xml) and [project](cloud-projects.xml)
+- Generate a [project token](project-token.md)
+- Set up code inspection
 
-Onboarding is available while creating your Qodana Cloud  [account](cloud-get-access.xml) or 
-[organizations](cloud-organizations.xml), and consists of several steps described below. 
+Onboarding uses information from your JetBrains account including licenses and companies. 
+
+Below is the description of the onboarding steps.
 
 <procedure>
 <step>
