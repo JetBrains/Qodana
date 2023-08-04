@@ -35,7 +35,7 @@
                 <li>In your IDE, navigate to the <menupath>Problems</menupath> tool window. </li>
                 <li>In the <menupath>Problems</menupath> tool window, click the <menupath>Server-Side Analysis</menupath> tab.</li>
                 <li>On the <menupath>Server-Side Analysis</menupath> tab, click the <menupath>Start Qodana</menupath> button.</li>
-                <li>In the window that opens, click the <menupath>Try locally</menupath> button, and then click <menupath>Run</menupath>.</li>
+                <li>In the dialog that opens, click the <menupath>Try locally</menupath> button, and then click <menupath>Run</menupath>.</li>
                 <li>
                     <p>On the <menupath>Server-Side Analysis</menupath> tab, you can overview inspection results. It
                         also contains two links in the upper part of the tab.</p>

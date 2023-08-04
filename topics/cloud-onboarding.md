@@ -24,7 +24,7 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 <img src="cloud-onboarding-step-1.png" alt="The first step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>
 <step>
-<p>In the <menupath>SSH</menupath> field, provide the SSH URL to your project that can be accessible by Qodana Cloud.</p>
+<p>In the <menupath>SSH URL</menupath> field, provide the SSH URL to your project that can be accessible by Qodana Cloud.</p>
 
 <img src="cloud-onboarding-step-2.png" alt="The second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 
