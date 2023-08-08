@@ -914,6 +914,7 @@
         <p>Qodana provides two options for local analysis of your code.
             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
             Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
+        <p></p>
         <tabs>
             <tab id="qodana-cli-tab" title="Qodana CLI">
                 <p filter="non-gs">Assuming that you have already
@@ -928,10 +929,21 @@
                             all necessary configuration options.</p>
                     </step>
                     <step><p>In the project root directory, run this command to inspect your code:</p>
-                        <code style="block" lang="shell" prompt="$">qodana scan --show-report</code>
+                        <code style="block" lang="shell" prompt="$">
+                            qodana scan \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               --show-report
+                        </code>
+                        <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
                     </step>
                 </procedure>
-                <code filter="non-gs" style="block" prompt="$">qodana scan -l %docker-image% --show-report</code>
+                <code filter="non-gs" style="block" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --show-report
+                </code>
+                <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
             </tab>
             <tab id="docker-image-tab" title="Docker image">
                 <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
@@ -941,12 +953,15 @@
                     docker pull %docker-image%
                 </code>
                 <p filter="non-php">Start local analysis with <code>source-directory</code>
-                    pointing to the root of your project:</p>
+                    pointing to the root of your project and
+                    <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
                 <code filter="gs-only" style="block" lang="shell" prompt="$">
                     docker run --rm -it \
-                    -v &lt;source-directory&gt;/:/data/project/ \
-                    -p 8080:8080 jetbrains/qodana-&lt;linter&gt; \
-                    --show-report
+                       -v &lt;source-directory&gt;/:/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -p 8080:8080 \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --show-report
                 </code>
                 <p filter="php-only">If you use PHP Composer, Qodana will install your project dependencies
                     automatically right before the code analysis starts.</p>
@@ -961,10 +976,14 @@
                 <p filter="php-only">Run the analysis locally:</p>
                 <code filter="non-gs" style="block" lang="shell" prompt="$">
                     docker run --rm -it \
-                    -v &lt;source-directory&gt;/:/data/project/ \
-                    -p 8080:8080 %docker-image% --show-report
+                       -v &lt;source-directory&gt;/:/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -p 8080:8080 \
+                       %docker-image% \
+                       --show-report
                 </code>
-                <p filter="php-only">with <code>source-directory</code> pointing to the root of your project.</p>
+                <p filter="php-only">with <code>source-directory</code> pointing to the root of your project, and
+                    <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>.</p>
                 <p><include src="lib_qd.xml" include-id="open-browser-instruction"/></p>
             </tab>
         </tabs>
@@ -1276,6 +1295,46 @@
         </list>
 
 
+    </chunk>
+
+    <chunk id="github-basic-configuration">
+
+        <p>1. On the <menupath>Actions</menupath> tab of the GitHub UI, set up a workflow and create the
+            <code>.github/workflows/code_quality.yml</code> file.</p>
+        <p>2. Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+        <code style="block" lang="yaml">
+            name: Qodana
+            on:
+              workflow_dispatch:
+              pull_request:
+              push:
+                branches:
+                  - main
+                  - 'releases/*'
+
+            jobs:
+              qodana:
+                runs-on: ubuntu-latest
+                permissions:
+                  contents: write
+                  pull-requests: write
+                  checks: write
+                steps:
+                  - uses: actions/checkout@v3
+                    with:
+                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                      fetch-depth: 0  # a full history is required for pull request analysis
+                  - name: 'Qodana Scan'
+                    uses: JetBrains/qodana-action@v2023.2
+                    env:
+                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code>
+        <p>3. On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+            <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+            and save the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.
+        </p>
+        <p>Using this workflow, %product% will run on the main branch, release branches, and on the pull requests coming
+            to your repository.</p>
     </chunk>
 
 </topic>

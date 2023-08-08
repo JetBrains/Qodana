@@ -187,7 +187,8 @@
                             docker run --rm -it -p 8080:8080 \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               jetbrains/qodana-&lt;linter&gt; --show-report
+                               jetbrains/qodana-&lt;linter&gt; \
+                               --show-report
                         </code>
                         <p>Here, <code>&lt;source-directory&gt;</code> points to the root of your project, and
                             the <code>QODANA_TOKEN</code> variable contains the project token described in the

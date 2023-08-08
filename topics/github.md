@@ -9,50 +9,10 @@ allows you to run Qodana on a GitHub repository.
 
 ### Basic configuration
 
-To configure Qodana Scan, save the `.github/workflows/code_quality.yml` file containing the workflow configuration:
+<include src="lib_qd.xml" include-id="github-basic-configuration"/>
 
-```yaml
-name: Qodana
-on:
-  workflow_dispatch:
-  pull_request:
-  push:
-    branches:
-      - main
-      - 'releases/*'
-
-jobs:
-  qodana:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      checks: write
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-          fetch-depth: 0  # a full history is required for pull request analysis
-      - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2023.2
-        env:
-          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }} # read the steps about it below
-```
-
-To set `QODANA_TOKEN` environment variable in the build configuration:
-
-1. In the GitHub UI,
-   create the `QODANA_TOKEN` [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
-   and
-   save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
-2. In the GitHub workflow file,
-   add `QODANA_TOKEN` variable to the `env` section of the `Qodana Scan` step:
-
-Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
-repository.
-
-Note: `fetch-depth: 0` is required for checkout in case Qodana works in pull request mode
-(reports issues that appeared only in that pull request).
+<note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
+(reports issues that appeared only in that pull request).</note> 
 
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
