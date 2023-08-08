@@ -1,25 +1,110 @@
 [//]: # (title: IDE integration)
 
-Starting from version 2022.3, you can use %product% functionality in JetBrains IDEs for binding Qodana 
-reports, both stored locally or in Qodana Cloud, with your project opened in an IDE. This means that you can:
+Starting from version 2022.3, you can use %product% functionality in JetBrains IDEs, such as 
+IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider installed via
+[JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/).
 
-* Study [Qodana reports](#Open+report+from+Qodana+UI) including reports [stored locally](#Open+report+from+a+local+storage) 
-* Link your projects with [Qodana Cloud](#Link+project+with+Qodana+Cloud) and overview Qodana Cloud-based reports
-
-<note>Prior to 2022.3, this functionality was available as a plugin published 
-on <a href="https://plugins.jetbrains.com/plugin/16938-qodana">JetBrains Marketplace</a>.</note>
-
-Qodana is integrated in IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider.
-
-## Before you start
-
-1. Make sure that your preferred IDE is installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/).
-2. To open Qodana reports from your local storage, make sure that you previously opened the project by the IDE at least 
-   one time. This action establishes the link between the %product% report and your IDE.
+<note>Prior to 2022.3, this was available as a plugin published 
+on <a href="https://plugins.jetbrains.com/plugin/16938-qodana">JetBrains Marketplace</a>. However, the plugin functionalities
+can differ from the functionalities described in this section.</note>
 
 ## UI overview
 
-%product% is available in the **Server-Side Analysis** tab contained in the **Problems** window of your IDE and exposes 
+%product% functionality is available in <menupath>Tools | Qodana</menupath> menu of your IDE. Using it, you can:
+
+<!-- This can be made a table to contain the description of all features -->
+
+* [Run %product% locally](#ide-plugin-run-qodana) 
+* [Configure %product% for running in a CI/CD pipeline](#ide-plugin-cicd) 
+* [Connect to Qodana Cloud](#ide-plugin-connect-cloud) 
+* [Open a report from local storage](#ide-plugin-local-report) 
+
+
+<!-- The Server-side analysis tab needs to be added here -->
+
+## Run %product% locally
+{id="ide-plugin-run-qodana"}
+
+<!-- A small annotation is required here -->
+
+<procedure>
+
+<step>
+   <p>In your IDE, navigate to <menupath>Tools | Qodana | Try Code Analysis with Qodana</menupath>.</p> 
+</step>
+<step>
+   <p>In the <menupath>Run Qodana</menupath> dialog, click the <menupath>Try locally</menupath> button. </p>
+   <img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="First step of the Run Qodana dialog" border-effect="line"/>
+</step>
+<step>
+   <p>In the upper part of the <menupath>Run Qodana</menupath> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
+   <p>Below the text field, you can configure %product% to:</p>
+      <list>
+         <li><a href="cloud-forward-reports.xml">Forward inspection results</a> to Qodana Cloud using the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a></li>
+         <li><a href="qodana-yaml.md">Save <code>qodana.yaml</code></a> in your project root</li>
+         <li><a href="baseline.xml">Run the baseline</a> feature</li>
+      </list>
+   <img src="ide-plugin-run-qodana-2.png" dark-src="ide-plugin-run-qodana-2_dark.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+</step>
+<step>
+   <p>In the <menupath>Server-Side Analysis</menupath> window tool, you can overview inspection results.</p>
+   <img src="ide-plugin-run-qodana-3.png" dark-src="ide-plugin-run-qodana-3_dark.png" width="706" alt="Inspection results" border-effect="line"/>
+</step>
+</procedure>
+
+<!-- Here the link to the section describing the Server-Side Analysis tool window needs to be added -->
+
+## Configure %product% for CI/CD
+{id="ide-plugin-cicd"}
+
+<!-- A small annotation is required here -->
+
+<procedure>
+   <step>
+      <p>In your IDE, navigate to <menupath>Tools | Qodana | Try Code Analysis with Qodana</menupath>.</p>
+   </step>
+   <step>
+      <p>In the <menupath>Run Qodana</menupath> dialog, click the <menupath>Add to CI Pipeline</menupath> button. </p>
+      <img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="First step of the Run Qodana dialog" border-effect="line"/>
+   </step>
+   <step>
+      <p>In the <menupath>Run Qodana</menupath> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
+      <img src="ide-plugin-cicd-1.png" dark-src="ide-plugin-cicd-1_dark.png" width="706" alt="Second step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
+   </step>
+   <step>
+      <p>Select the CI/CD solution you would like to configure %product% for, and study the instructions.</p>
+      <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="Third step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
+   </step>
+</procedure>
+
+## Connect to Qodana Cloud
+{id="ide-plugin-connect-cloud"}
+
+<!-- A small annotation is required here -->
+
+<procedure>
+   <step>
+      <p>In your IDE, navigate to <menupath>Tools | Qodana | Log in to Qodana</menupath>.</p>
+   </step>
+   <step>
+      <p>
+      <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="The first step connecting to Qodana Cloud" border-effect="line"/>
+      </p>
+   </step>
+   <step>
+   
+   </step>
+   <step>
+   
+   </step>
+</procedure>
+
+## Open a local report
+{id="ide-plugin-local-report"}
+
+<!-- A small annotation is required here -->
+
+
 the list of problems that were detected by Qodana.
 
 <img src="ide-plugin-tab-overview-1.png" dark-src="ide-plugin-tab-overview-1_dark.png" width="706" alt="Overview of the Qodana tab" border-effect="line"/>
@@ -167,6 +252,9 @@ Alternatively, in the <menupath>Qodana</menupath> tab of the <menupath>Problems<
 <img src="ide-plugin-update-report-2.png" dark-src="ide-plugin-update-report-2_dark.png" width="706" alt="Updating the report using the Qodana tab" border-effect="line"/>
 
 ## Open report from a local storage
+
+<note>To open Qodana reports from your local storage, make sure that you previously opened the project by the IDE at least
+   one time. This action establishes the link between the %product% report and your IDE.</note>
 
 In the IDE, go to <menupath>Tools | Qodana | Open Qodana Analysis report</menupath> and select the
 <code>qodana.sarif.json</code> report file you would like to open.
