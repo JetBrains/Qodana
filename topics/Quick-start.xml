@@ -12,6 +12,7 @@
 
     <p>You have the following options for running %product% on your local machine:</p>
 
+
     <list>
         <li><a anchor="quickstart-run-in-ide">Using the JetBrains IDE</a></li>
         <li><a anchor="quickstart-run-using-cli">Using shell commands</a></li>
