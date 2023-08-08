@@ -88,14 +88,14 @@ can differ from the functionalities described in this section.</note>
    </step>
    <step>
       <p>
-      <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="The first step connecting to Qodana Cloud" border-effect="line"/>
+         In the <menupath>Settings</menupath> dialog, click <menupath>Log in</menupath>.
       </p>
+      <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to Qodana Cloud" border-effect="line"/>
+   <p>This will redirect you to the authentication page.</p>
    </step>
    <step>
-   
-   </step>
-   <step>
-   
+      <p>Select the Qodana Cloud project to link your project with.</p>
+      <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
 </procedure>
 
