@@ -1,8 +1,8 @@
 [//]: # (title: Code coverage)
 
 **Code coverage** uses generated code coverage reports to help you identify the issues connected with the method, class, 
-and file coverage. This feature is available in the following Ultimate and Ultimate Plus 
-[linters](pricing.md#pricing-linters-licenses) and their trial versions:
+and file coverage. This feature is available under the Ultimate and Ultimate Plus 
+[licenses](pricing.md#pricing-linters-licenses) in the following linters:
 
 <!-- What does the default solution mean in this case? -->
 <!-- Is the link to the IntelliJ IDEA code coverage solution correct? -->
@@ -41,7 +41,7 @@ and file coverage. This feature is available in the following Ultimate and Ultim
 The predefined code coverage threshold in %product% is currently set to 50%.
 
 Code coverage employs several inspections that are already included in the `qodana.recommended` and `qodana.starter` 
-[default inspection profiles](inspection-profiles.md#Default+profiles):  
+[default inspection profiles](inspection-profiles.md#Default+profiles), so you do not need to enable them:  
 
 | Linter            | Employed inspection     |
 |-------------------|-------------------------|
@@ -51,27 +51,37 @@ Code coverage employs several inspections that are already included in the `qoda
 
 Once the inspection is complete, reports are available in [%product% reports](html-report.md) and [JetBrains IDEs](#overview-code-coverage-reports).
 
-### Fresh code
+### Code coverage calculation
 
-Fresh code is the code merged into the codebase using a pull request merge. For fresh code, %product% calculates a 
-distinct coverage value and displays it in the output. This works in addition to the committed code coverage. To run 
-this feature, configure the PR-mode or use it as a default mode in [GitHub Actions](github.md). 
+Code coverage is calculated based on the number of code lines containing logic. Declarations of functions, methods, and 
+classes are ignored. For example, lines 2 and 5 contain the code that is calculated by code coverage:
 
-<note>While working with fresh code, %product% cannot analyze coverage issues for missing coverage in methods, classes, and files.</note>
+```javascript
+function divide(a, b) {
+  return a / b;
+}
+
+module.exports = divide;
+```
 
 ## Prepare the project
 
+<!-- A simple GitHub configuration sample needs to be provided here -->
+<!-- Thing about the relative paths needs to be explained better -->
+<!-- The entire logic of calculating code coverage needs to be expalined better -->
+<!-- Which paths in the workflow configuration can be omitted? -->
+<!-- Do we always have to use the main branch for code coverage? -->
+<!-- The pr-mode needs to be tested because it does not work properly -->
+
 <tip>You can find configuration examples on <a href="https://github.com/qodana/qodana-coverage/tree/main">GitHub</a>.</tip>
 
-1. If necessary, in Qodana Cloud create a [project](cloud-projects.xml#cloud-manage-projects) that will be used for 
-linking your project and storing your reports. 
-
-2. Configure the code coverage tool. While configuring [Jest](https://jestjs.io/) or 
+1. Configure the code coverage tool. While configuring [Jest](https://jestjs.io/) or 
 [Mocha](https://mochajs.org/), note that all files in coverage reports should have the relative paths inside 
 the project. For example, if your codebase files are contained in the `<project-root>/src/` directory, then 
 file paths in code coverage reports should be `src/<file-name>`.
 
-3. Using your code coverage tool, generate the code coverage report and make it accessible by %product%.
+2. If you run %product% [locally](Quick-start.xml), Using your code coverage tool, generate the code coverage report and save it to the directory where %product% can read it. 
+For example, if you run %product% using [](github.md), the default code coverage directory will be `.qodana/coverage-data`. 
 
 ## Run code coverage
 {id="run-code-coverage"}
@@ -111,6 +121,16 @@ configuration examples in our <a href="https://github.com/qodana/qodana-coverage
     </tab>
 </tabs>
 
+
+### Fresh code
+
+Fresh code is the code merged into the codebase using a pull request merge. For fresh code, %product% calculates a
+distinct coverage value and displays it in the output. This works in addition to the committed code coverage. To run
+this feature, configure the PR-mode or use it as a default mode in [GitHub Actions](github.md).
+
+<note>While working with fresh code, %product% cannot analyze coverage issues for missing coverage in methods, classes, and files.</note>
+
+
 ## Overview code coverage reports
 {id="overview-code-coverage-reports"}
 
@@ -119,8 +139,13 @@ code coverage reports in [Qodana Cloud](#Qodana+Cloud) or using your [IDE](#IDE)
 
 ### Qodana Cloud
 
+<!-- Also, the project card needs to be added here as well -->
+
 You can find code coverage statistics in the upper-right corner of the [%product% report](html-report.md) UI. It also 
 enumerates the inspections that were employed by the feature.
+
+<!-- This video needs to be updated with the project card, as well as both variants of code coverage below and above 50% -->
+<!-- The entire code coverage calculation logic needs to be explained, if this is possible -->
 
 <img src="code-coverage-report-qodana.png" dark-src="code-coverage-report-qodana_dark.png" width="706" alt="Code coverage in Qodana Cloud" border-effect="line" animated="true"/>
 
@@ -131,7 +156,7 @@ version 2023.2. This feature is available for reports retrieved from Qodana Clou
 
 <note>It is not available for XML-formatted reports generated by IntelliJ IDEA Code Coverage Agent and JaCoCo.</note>
 
-#### Link your project with Qodana Cloud
+#### Open reports from Qodana Cloud
 
 <procedure>
 <step>
