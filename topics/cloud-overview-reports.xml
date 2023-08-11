@@ -6,21 +6,20 @@
        title="Overview reports"
        id="cloud-overview-reports">
 
-    <p>Information from project reports is aggregated and displayed in several fields.</p>
+    <p>Information from project reports is aggregated and displayed in several sections marked on this image.</p>
 
-        <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report overview" width="706" border-effect="line" title="Qodana Cloud report sample"/>
+    <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report overview" width="706" border-effect="line" title="Qodana Cloud report sample"/>
 
-        <p>This sample <a href="cloud-projects.xml">project</a> contains the following fields:</p>
+    <p>Here is the description of each section:</p>
 
+    <p>1. The project name, the branch name, time passed since the last inspection run, the number of detected problems and their severity.</p>
+    <p>2. The codebase amount <a href="code-coverage.md">covered with tests</a>.</p>
+    <p>3. The context menu that lets you:</p>
     <list>
-        <li>Project name</li>
-        <li>Branch name</li>
-        <li>Commit description</li>
-        <li>Date and time of the latest Qodana inspection</li>
-        <li>Number of problems detected and severity expressed as a circle. The circle color reflects the severity of
-            the major part of detected problems. You can click this element to open the report</li>
-        <li>The upper-right corner contains the dropdown list to let you rename the project, copy its token, or delete
-            it from Qodana Cloud</li>
+        <li>Navigate to the VCS containing your codebase</li>
+        <li>Rename the project</li>
+        <li>Copy or regenerate the <a href="project-token.md">project token</a></li>
+        <li>Delete the project</li>
     </list>
 
     <p>This table shows how Qodana Cloud interprets and displays several reports depending on their metadata.</p>
@@ -52,17 +51,19 @@
         </tr>
     </table>
 
-    <p>To see all reports related to the project, click the project name. This will open the
-        <a href="https://www.jetbrains.com/help/qodana/ui-overview.html">Qodana report page</a>. </p>
+    <p>To overview the project reports, click it. This will open the <a href="ui-overview.md">report page</a>.</p>
 
     <img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
 
-    <p>The upper part of this page contains:</p>
+    <p>The upper part of the report page contains:</p>
 
     <p>1. Branch selector. Using it, you can overview reports for each branch in your project.</p>
-    <p>2. Commit name and date.</p>
-    <p>3. Timeline describing the date of inspection and number of problems detected.</p>
-    <p>4. Selector for overviewing either the absolute number of detected problems, or the number of problems
+    <p>2. Commit hash and time passed since the last inspection run.</p>
+    <p>3. Timeline describing the date of inspection, number of problems detected.</p>
+    <p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-sarif-output.md">SARIF format</a>, and opening the help guide.</p>
+    <p>5. Selector for overviewing either the absolute number of detected problems, or the number of problems
     relatively to a <a href="baseline.xml">baseline</a> set for this project.</p>
+
+    <p>To learn more about %product% report UI, see the <a href="ui-overview.md"/> section.</p>
 
 </topic>
