@@ -4,9 +4,9 @@ Starting from version 2022.3, you can use %product% functionality in JetBrains I
 IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider installed via
 [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/).
 
-<note>Prior to 2022.3, this functionality was available as a plugin published 
-on <a href="https://plugins.jetbrains.com/plugin/16938-qodana">JetBrains Marketplace</a>. However, it can differ from 
-the functionalities described in this section.</note>
+<note>Prior to version 2022.3, this functionality was available as a plugin published 
+on <a href="https://plugins.jetbrains.com/plugin/16938-qodana">JetBrains Marketplace</a>. However, this plugin can be 
+less functional compared to version 2022.3. </note>
 
 Using your IDE, you can:
 
@@ -51,16 +51,16 @@ You can configure and run %product% locally using your IDE, and then forward ins
     <p>Click <menupath>Run</menupath> for inspecting your code.</p>
 </step>
 <step>
-   <p>In the <menupath>Server-Side Analysis</menupath> window tool, overview <a anchor="ide-plugin-study-reports">overview inspection results</a>.</p>
+   <p>In the <menupath>Server-Side Analysis</menupath> window tool, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
 </step>
 </procedure>
 
 ## Configure %product% for CI
 {id="ide-plugin-cicd"}
 
-You can build %product% into CI pipelines using the %product% configuration wizard.
+You can build %product% into CI pipelines using the configuration wizard.
 
-<note>Depending on the %product% license, you will need to generate <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
+<note>Depending on the %product% license, you will need to generate and use the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
 
 <procedure>
    <step>
@@ -75,7 +75,7 @@ You can build %product% into CI pipelines using the %product% configuration wiza
       <img src="ide-plugin-cicd-1.png" dark-src="ide-plugin-cicd-1_dark.png" width="706" alt="Second step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
    </step>
    <step>
-      <p>Select the CI/CD solution you would like to configure %product% for, and study the instructions.</p>
+      <p>Select the CI solution you would like to configure %product% for, and study the instructions.</p>
       <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="Third step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
    </step>
 </procedure>
@@ -83,8 +83,8 @@ You can build %product% into CI pipelines using the %product% configuration wiza
 ## Connect to Qodana Cloud
 {id="ide-plugin-connect-cloud"}
 
-You can connect to Qodana Cloud and synchronize your local project with the [project](cloud-projects.xml) 
-reports already uploaded to Qodana Cloud.
+You can connect to Qodana Cloud and synchronize your local project with a specific Qodana Cloud 
+[project](cloud-projects.xml). 
 
 <procedure>
    <step>
@@ -101,6 +101,9 @@ reports already uploaded to Qodana Cloud.
       <p>Select the Qodana Cloud project to link your project with.</p>
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
+    <step>
+       <p>In the <menupath>Server-Side Analysis</menupath> window tool, overview <a anchor="ide-plugin-study-reports"> inspection results</a>.</p>
+    </step>
 </procedure>
 
 ## Open a local report
@@ -116,7 +119,7 @@ You can open and study %product% reports in your IDE.
         <p>Select the report file you would like to open.</p>
    </step>
    <step>
-      <p>In the <menupath>Server-Side Analysis</menupath> window tool, you can <a anchor="ide-plugin-study-reports">study</a> inspection results.</p>
+      <p>In the <menupath>Server-Side Analysis</menupath> window tool, you can overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
    </step>
 </procedure>
 
