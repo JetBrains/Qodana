@@ -216,11 +216,11 @@ continue using %product%, you’ll have to buy a full version of your license.
 ### What are %product% linters and Qodana Cloud designed for?
 
 Both %product% linters and Qodana Cloud are essential parts of the product named %product%. You can inspect your codebase
-using %product% linters, and you can use Qodana Cloud for managing your project and licenses, as well as collecting
+using %product% linters, and you can use Qodana Cloud for managing your projects and licenses, as well as collecting
 %product% reports in a single place. For more details, see the [](cloud-use-cases.xml) page of the Qodana Cloud
 documentation.
 
-### Can I use %product% linters only, without creating a Qodana Cloud account?
+### Can I use %product% linters without creating a Qodana Cloud account?
 
 If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account at Qodana Cloud and accomplish
 the [onboarding](cloud-onboarding.md) stage. For more details, see [the first question](#faq-start-using-qodana) in
@@ -241,8 +241,10 @@ JetBrains Account.
 
 ### What are the license costs comprised of?
 
-The total license cost is calculated on the basis of the number of contributors. A contributor is a person who commits 
-to any number of Qodana Cloud projects within the same organization and under a single license.
+The total license cost is based on the number of contributors. A contributor is a person who commits 
+to any number of Qodana Cloud projects within the same organization and under a single license. During the 
+[onboarding](cloud-onboarding.md) stage, Qodana Cloud obtains the list of all unique committers from all branches of a Git 
+repository, which then becomes the list of contributors. The minimal number of contributors used for licensing is 3.  
 
 The number of contributors is calculated every 90 days. For example, if you buy a license for 10 contributors, 
 but during the first 90 days this number rises to 20, then, in the following 90-day period, the license costs will be 
@@ -254,8 +256,8 @@ You can buy a %product% license for 3 (three) or more contributors.
 
 ### Where does Qodana store all license information?
 
-All information about your Ultimate and Ultimate Plus licenses is stored by Qodana Cloud. This is why you need to 
-create a Qodana Cloud account before running Qodana. Beyond this function, Qodana Cloud provides several other 
+Qodana Cloud stores all information about your Ultimate and Ultimate Plus licenses. This explains why you need to 
+create a Qodana Cloud account before running Qodana. Apart from this functionality, Qodana Cloud provides several other 
 [helpful features](cloud-use-cases.xml).
 
 ### Which minimum steps do I need to perform in Qodana Cloud?
