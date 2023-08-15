@@ -21,16 +21,16 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 
 <p>In the <menupath>Country</menupath> field, select your country name.</p>
 
-<img src="cloud-onboarding-step-1.png" alt="The first step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
+<img src="cloud-onboarding-step-1.png" dark-src="cloud-onboarding-step-1_dark.png" alt="The first step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>
 <step>
 <p>In the <menupath>SSH URL</menupath> field, provide the SSH URL to your project that can be accessible by Qodana Cloud.</p>
 
-<img src="cloud-onboarding-step-2.png" alt="The second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
+<img src="cloud-onboarding-step-2.png" dark-src="cloud-onboarding-step-2_dark.png" alt="The second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 
 <p>After connecting, Qodana Cloud provides a public key that will be identified by your Qodana Cloud account.</p>
 
-<img src="cloud-onboarding-step-2-key.png" alt="The public key generated during the second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
+<img src="cloud-onboarding-step-2-key.png" dark-src="cloud-onboarding-step-2-key_dark.png" alt="The public key generated during the second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 
 <p>Copy this public key and save it in your VCS on the project level. For example, read how to do it on: </p>
 
@@ -47,14 +47,14 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 <a href="cloud-projects.xml">project</a>. In the field below it, specify the name of the <a href="cloud-teams.xml">team</a> 
 that the project will be accessible for.</p>
 
-<img src="cloud-onboarding-step-3.png" alt="The third step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
+<img src="cloud-onboarding-step-3.png" dark-src="cloud-onboarding-step-3_dark.png" alt="The third step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>
 <step>
 <p>Open your project locally using the JetBrains IDE, or learn how to configure %product% for running in a CI/CD pipeline. 
 This step also contains the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> that you can 
 copy and use for <a href="cloud-forward-reports.xml">uploading %product% reports</a> to Qodana Cloud.</p>
 
-<img src="cloud-onboarding-step-4.png" alt="The fourth step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
+<img src="cloud-onboarding-step-4.png" dark-src="cloud-onboarding-step-4_dark.png" alt="The fourth step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>
 
 </procedure>
