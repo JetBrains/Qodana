@@ -100,7 +100,7 @@ You can connect to [Qodana Cloud](cloud-about.xml) and synchronize your local pr
    <p>This will redirect you to the authentication page.</p>
    </step>
    <step>
-      <a>Select the <a href="cloud-projects.xml">Qodana Cloud project</a> to link your local project with.</p>
+      <p>Select the <a href="cloud-projects.xml">Qodana Cloud project</a> to link your local project with.</p>
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
     <step>
