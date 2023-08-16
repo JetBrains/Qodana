@@ -1,7 +1,7 @@
 [//]: # (title: Qodana in IDE)
 
-Starting from version 2022.3, you can use [%product%](about-qodana.md) to inspect your codebase for problems and receive
-recommendations on how to eliminate them using JetBrains IDEs installed via 
+Starting from version 2022.3, you can use [%product%](about-qodana.md) to inspect your codebase for problems and use
+the recommendations to eliminate them using JetBrains IDEs installed via 
 [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/) such as IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, 
 PyCharm, and Rider.
 
@@ -30,7 +30,8 @@ You can also have access to %product% using the **Problems | Server-Side Analysi
 ## Run %product% locally
 {id="ide-plugin-run-qodana"}
 
-You can configure and run %product% locally using your IDE, and then forward inspection reports to Qodana Cloud.
+You can configure and run %product% locally using your IDE, and then forward inspection reports to 
+[Qodana Cloud](cloud-about.xml) for storage and analysis purposes.
 
 <procedure>
 <step>
@@ -99,25 +100,25 @@ You can connect to [Qodana Cloud](cloud-about.xml) and synchronize your local pr
    <p>This will redirect you to the authentication page.</p>
    </step>
    <step>
-      <p>Select the Qodana Cloud project to link your project with.</p>
+      <a>Select the <a href="cloud-projects.xml">Qodana Cloud project</a> to link your local project with.</p>
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
     <step>
-       <p>In the <menupath>Server-Side Analysis</menupath> window tool, overview <a anchor="ide-plugin-study-reports"> inspection results</a>.</p>
+       <p>In the <menupath>Server-Side Analysis</menupath> window tool, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
     </step>
 </procedure>
 
 ## Open a local report
 {id="ide-plugin-local-report"}
 
-You can open and study %product% reports in your IDE. 
+You can open and study [SARIF-formatted %product% reports](qodana-sarif-output.md) in your IDE. 
 
 <procedure>
    <step>
         <p>In your IDE, navigate to <menupath>Tools | Qodana | Open Local Report</menupath>.</p>
    </step>
    <step>
-        <p>Select the report file you would like to open.</p>
+        <p>Select the SARIF-formatted report file you would like to open.</p>
    </step>
    <step>
       <p>In the <menupath>Server-Side Analysis</menupath> window tool, you can overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
