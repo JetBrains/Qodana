@@ -1,14 +1,15 @@
-[//]: # (title: IDE integration)
+[//]: # (title: Qodana in IDE)
 
-Starting from version 2022.3, you can use %product% functionality in JetBrains IDEs, such as 
-IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider installed via
-[JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/).
+Starting from version 2022.3, you can use [%product%](about-qodana.md) to inspect your codebase for problems and receive
+recommendations on how to eliminate them using JetBrains IDEs installed via 
+[JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/) such as IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, 
+PyCharm, and Rider.
 
 <note>Prior to version 2022.3, this functionality was available as a plugin published 
 on <a href="https://plugins.jetbrains.com/plugin/16938-qodana">JetBrains Marketplace</a>. However, this plugin can be 
 less functional compared to version 2022.3. </note>
 
-Using your IDE, you can:
+Using the IDE, you can:
 
 * [Run %product% locally](#ide-plugin-run-qodana)
 * [Configure %product% for running in a CI pipeline](#ide-plugin-cicd)
@@ -83,7 +84,7 @@ You can build %product% into CI pipelines using the configuration wizard.
 ## Connect to Qodana Cloud
 {id="ide-plugin-connect-cloud"}
 
-You can connect to Qodana Cloud and synchronize your local project with a specific Qodana Cloud 
+You can connect to [Qodana Cloud](cloud-about.xml) and synchronize your local project with a specific Qodana Cloud 
 [project](cloud-projects.xml). 
 
 <procedure>
