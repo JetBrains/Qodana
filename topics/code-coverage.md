@@ -111,7 +111,7 @@ directory. Below is the pipeline configuration example containing the comments:<
 
 <code style="block" lang="yaml">
 name: Code coverage workflow
-  
+
 on:
   workflow_dispatch:
   pull_request:
@@ -125,13 +125,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code  # Check out
+    - name: Checkout Code
       uses: actions/checkout@v3
       with:
-        ref: ${{ github.event.pull_request.head.sha }}
+        ref: $&#123;&#123; github.event.pull_request.head.sha &#125;&#125;
         fetch-depth: 0
 
-    - name: Use Node.js 18.x  # Install Node.js
+    - name: Use Node.js 18.x
       uses: actions/setup-node@v2
       with:
         node-version: 18.x
@@ -141,17 +141,17 @@ jobs:
 
     - name: Run tests
       run: npm test
-      
+
     - name: Archive coverage data  # Archive data for using by Qodana
       uses: actions/upload-artifact@v2
       with:
         name: jest-coverage-data
         path: .qodana/code-coverage
-      
+
     - name: Qodana Scan  # Run Qodana
       uses: JetBrains/qodana-action@main
       env:
-        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
+        QODANA_TOKEN: $$&#123;&#123; secrets.QODANA_TOKEN_JS &#125;&#125;
       with:
         pr-mode: false
 </code>
@@ -168,7 +168,7 @@ Fresh code is the code contained in a GitHub pull request. %product% can calcula
 
 To enable the fresh code feature, in your [GitHub](github.md) workflow configure the PR-mode:
 
-<code style="block" lang="yaml">
+```yaml
 name: Code coverage workflow
 
 on:
@@ -213,7 +213,7 @@ jobs:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
         pr-mode: true # Enable the pull-request mode
-</code>
+```
 
 ## Overview code coverage reports
 {id="overview-code-coverage-reports"}
