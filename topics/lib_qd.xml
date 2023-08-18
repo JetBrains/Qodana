@@ -1299,42 +1299,44 @@
 
     <chunk id="github-basic-configuration">
 
-        <p>1. On the <menupath>Actions</menupath> tab of the GitHub UI, set up a workflow and create the
-            <code>.github/workflows/code_quality.yml</code> file.</p>
-        <p>2. Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
-        <code style="block" lang="yaml">
-            name: Qodana
-            on:
-              workflow_dispatch:
-              pull_request:
-              push:
-                branches:
-                  - main
-                  - 'releases/*'
+        <procedure>
+            <step>On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+                <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+                and save the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.
+            </step>
+            <step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
+                <code>.github/workflows/code_quality.yml</code> file.</step>
+            <step>To inspect the <code>main</code> branch, release branches, and the pull requests coming
+            to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+                <code style="block" lang="yaml">
+                    name: Qodana
+                    on:
+                      workflow_dispatch:
+                      pull_request:
+                      push:
+                        branches:
+                          - main
+                          - 'releases/*'
 
-            jobs:
-              qodana:
-                runs-on: ubuntu-latest
-                permissions:
-                  contents: write
-                  pull-requests: write
-                  checks: write
-                steps:
-                  - uses: actions/checkout@v3
-                    with:
-                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                      fetch-depth: 0  # a full history is required for pull request analysis
-                  - name: 'Qodana Scan'
-                    uses: JetBrains/qodana-action@v2023.2
-                    env:
-                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-        </code>
-        <p>3. On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
-            <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
-            and save the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.
-        </p>
-        <p>Using this workflow, %product% will run on the main branch, release branches, and on the pull requests coming
-            to your repository.</p>
+                    jobs:
+                      qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                          contents: write
+                          pull-requests: write
+                          checks: write
+                        steps:
+                          - uses: actions/checkout@v3
+                            with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                          - name: 'Qodana Scan'
+                            uses: JetBrains/qodana-action@v2023.2
+                            env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code>
+            </step>
+        </procedure>
     </chunk>
 
 </topic>
