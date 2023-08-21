@@ -1278,4 +1278,54 @@
 
     </chunk>
 
+    <chunk id="code-coverage-snippet">
+        <code style="block" lang="yaml">
+            name: Code coverage workflow
+
+            on:
+              workflow_dispatch:
+              pull_request:
+              push:
+                branches:
+                  - main
+                  - 'releases/*'
+
+            jobs:
+              build:
+                runs-on: ubuntu-latest
+
+            steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+              with:
+                ref: $&#123;&#123; github.event.pull_request.head.sha &#125;&#125;
+                fetch-depth: 0
+
+            - name: Use Node.js 18.x
+              uses: actions/setup-node@v2
+              with:
+                node-version: 18.x
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run tests
+              run: npm test
+
+            - name: Archive coverage data  # Archive data for using by Qodana
+              uses: actions/upload-artifact@v2
+              with:
+                name: jest-coverage-data
+                path: .qodana/code-coverage
+
+            - name: Qodana Scan  # Run Qodana
+              uses: JetBrains/qodana-action@main
+              env:
+                QODANA_TOKEN: $$&#123;&#123; secrets.QODANA_TOKEN_JS &#125;&#125;
+              with:
+                pr-mode: false
+        </code>
+
+    </chunk>
+
 </topic>
