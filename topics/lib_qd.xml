@@ -141,14 +141,21 @@
                     <step>
                         <p>Run the following command:</p>
                         <code style="block" lang="shell" prompt="$">
-                            docker run --rm -it -p 8080:8080 \
-                            -v &lt;source-directory&gt;/:/data/project/ \
-                            -v &lt;output-directory&gt;/:/data/results/ \
-                            jetbrains/%linter-shell% --show-report
+                            docker run \
+                               -p 8080:8080 \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               -v &lt;output-directory&gt;/:/data/results/ \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               jetbrains/%linter-shell% \
+                               --show-report
                         </code>
                         <p>
                             where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
-                            respectively, the project source code directory and the analysis results directory.
+                            respectively, the project source code directory and the analysis results directory. The
+                            <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                            required by the
+                            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
+                            that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.
                         </p>
                     </step>
                 </procedure>
@@ -161,10 +168,11 @@
                 </p>
                 <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
                 <code style="block" lang="shell" prompt="$">
-                    docker run --rm -it \
-                    -v &lt;source-directory&gt;/:/data/project/ \
-                    -v &lt;output-directory&gt;/:/data/results/ \
-                    jetbrains/%linter-shell%
+                    docker run \
+                       -v &lt;source-directory&gt;/:/data/project/ \
+                       -v &lt;output-directory&gt;/:/data/results/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/%linter-shell%
                 </code>
                 <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
                     necessary results</a>. You can further tune the command as described in the <a
@@ -175,15 +183,26 @@
                 </p>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
-                <p>In the project root directory, run this command to inspect your code:</p>
-                <code filter="non-gs" style="block" prompt="$">qodana scan -l %docker-image% --show-report</code>
+                <p>In the project root directory, run this command to inspect your code and overview the inspection
+                    report locally:</p>
+                <code filter="non-gs" style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --show-report
+                </code>
                 <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
                 <code style="block" lang="shell" prompt="$">
-                    qodana scan -l %docker-image% \
-                    --results-dir &lt;output-directory&gt;
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --results-dir &lt;output-directory&gt;
                 </code>
                 <p>The <code>output-directory</code> specifies the directory where the SARIF-formatted report will be
-                    saved. </p>
+                    saved. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                    required by the
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
+                    that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.</p>
             </tab>
         </tabs>
 
@@ -194,14 +213,18 @@
             <tab title="Docker image" group-key="docker-image">
                 <p>Use the following command as a task in a generic Shell executor:</p>
                 <code style="block" lang="shell" prompt="$">
-                    docker run --rm \
-                    -v &lt;source-directory&gt;/:/data/project/ \
-                    -v &lt;output-directory&gt;/:/data/results/ \
-                    jetbrains/%linter-shell%
+                    docker run \
+                       -v &lt;source-directory&gt;/:/data/project/ \
+                       -v &lt;output-directory&gt;/:/data/results/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/%linter-shell%
                 </code>
                 <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
                     the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
-                        results directory</a>.
+                        results directory</a>. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                    required by the
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
+                    that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.
                 </p>
                 <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
                     of problems is reached and the <a href="baseline.xml"/> option to compare each new %linter%
@@ -216,7 +239,12 @@
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <p>Run this command in the project root directory:</p>
-                <code style="block" lang="shell" prompt="$">qodana scan -l %docker-image% --results-dir &lt;output-directory&gt;</code>
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --results-dir &lt;output-directory&gt;
+                </code>
                 <p>This will save inspection results to the directory specified by <code>output-directory</code>.</p>
                 <p>You can also apply the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
                     of problems is reached by using the <code>--fail-threshold</code>
@@ -253,11 +281,14 @@
                             Mapping the profile to <code>/data/profile.xml</code> inside the container:
                         </p>
                         <code style="block" lang="shell" prompt="$">
-                            docker run --rm -it -p 8080:8080 \
-                            -v &lt;source-directory&gt;/:/data/project/ \
-                            -v &lt;output-directory&gt;/:/data/results/ \
-                            -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
-                            jetbrains/%linter-shell% --show-report
+                            docker run \
+                               -p 8080:8080 \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               -v &lt;output-directory&gt;/:/data/results/ \
+                               -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               jetbrains/%linter-shell% \
+                               --show-report
                         </code>
                     </li>
                     <li>
@@ -265,11 +296,14 @@
                             Using the name of the profile in your project <code>.idea/inspectionProfiles/</code> folder.
                         </p>
                         <code style="block" lang="shell" prompt="$">
-                            docker run --rm -it -p 8080:8080 \
-                            -v &lt;source-directory&gt;/:/data/project/ \
-                            -v &lt;output-directory&gt;/:/data/results/ \
-                            jetbrains/%linter-shell% --show-report \
-                            --profile-name custom-profile
+                            docker run \
+                               -p 8080:8080 \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               -v &lt;output-directory&gt;/:/data/results/ \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               jetbrains/%linter-shell% \
+                               --show-report \
+                               --profile-name &lt;custom-profile-name&gt;
                         </code>
                         <note>
                             <p>
@@ -289,10 +323,12 @@
                         Mapping the profile inside the container:
                     </p>
                     <code style="block" lang="shell" prompt="$">
-                        qodana scan -l %docker-image% \
-                        --results-dir &lt;output-directory&gt; \
-                        --profile-path &lt;path-to-profile&gt; \
-                        --show-report
+                        qodana scan \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           -l %docker-image% \
+                           --results-dir &lt;output-directory&gt; \
+                           --profile-path &lt;path-to-profile&gt; \
+                           --show-report
                     </code>
                 </li>
                 <li>
@@ -300,10 +336,12 @@
                     Using the name of the profile in your project <code>.idea/inspectionProfiles/</code> folder:
                 </p>
                 <code style="block" lang="shell" prompt="$">
-                    qodana scan -l %docker-image% \
-                    --results-dir &lt;output-directory&gt; \
-                    --profile-name &lt;custom-profile-name&gt; \
-                    --show-report
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --results-dir &lt;output-directory&gt; \
+                       --profile-name &lt;custom-profile-name&gt; \
+                       --show-report
                 </code>
                     <note>
                         <p>

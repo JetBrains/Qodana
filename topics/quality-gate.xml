@@ -43,23 +43,31 @@
             <tab title="Qodana CLI" group-key="quality-gate-qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        --fail-threshold &lt;number&gt;
                 </code>
-                <p>In this command, the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.</p>
+                <p>In this command, the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.
+                    The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                    required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
+                    linters that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.
+                </p>
             </tab>
             <tab title="Docker image" group-key="quality-gate-docker">
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v &lt;source-directory&gt;/:/data/project/  \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --fail-threshold &lt;number&gt;
                 </code>
                 <p>In this command, <code>&lt;source-directory&gt;</code> is the full local path to the project source code, and
-                    the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.</p>
+                    the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate. The
+                    <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                    required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
+                    linters that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.
+                </p>
             </tab>
         </tabs>
-
-
     </chapter>
 
     <chapter id="quality-gate-github-actions" title="GitHub Actions">
@@ -72,12 +80,34 @@
                     <a href="https://github.com/marketplace/actions/qodana-scan">Qodana scan</a> action.</step>
                 <step><p>Set the workflow to run on <code>pull_request</code> events that target the <code>main</code> branch.</p>
                     <code style="block" lang="yaml">
+                        name: Qodana
                         on:
-                        pull_request:
-                        branches:
-                        - main
+                          pull_request:
+                            branches:
+                              - main
+
+                        jobs:
+                          qodana:
+                            runs-on: ubuntu-latest
+                            permissions:
+                              contents: write
+                              pull-requests: write
+                              checks: write
+                            steps:
+                              - uses: actions/checkout@v3
+                                with:
+                                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                  fetch-depth: 0  # a full history is required for pull request analysis
+                              - name: 'Qodana Scan'
+                                uses: JetBrains/qodana-action@v2023.2
+                                env:
+                                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code>
-                    <p>Instead of <code>main</code>, you can specify your branch here. </p>
+
+                    <p>Instead of <code>main</code>, you can specify your branch here. The
+                        <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                        required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
+                        linters that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.</p>
                 </step>
                 <step>Set the fail threshold (number) for the Qodana Action <code>fail-threshold</code> option.</step>
                 <step>Under your repository name, click <menupath>Settings</menupath>.</step>
@@ -97,6 +127,9 @@
 
         <code style="block" lang="groovy">
             pipeline {
+               environment {
+                  QODANA_TOKEN=credentials('qodana-token')
+                }
                agent {
                   docker {
                      args '''
@@ -119,9 +152,14 @@
             }
         </code>
 
+        <p>The <code>QODANA_TOKEN</code> variable in this snippet refers to the
+            <a href="project-token.md">project token</a> contained in the <code>qodana-token</code> credentials and
+            required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
+            that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.</p>
+
     </chapter>
 
-    <chapter id="quality-gate-gitlab-ci" title="GitLab CI">
+    <chapter id="quality-gate-gitlab-ci" title="GitLab CI/CD">
         <p>To run %product% quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, you can save this
             configuration to the <code>.gitlab-ci.yml</code> file:</p>
         <code style="block" lang="yaml">
@@ -129,7 +167,9 @@
              image:
                name: jetbrains/qodana-&lt;linter&gt;
                entrypoint: ['']
-             script:
+            variables:
+               QODANA_TOKEN: $qodana_token
+            script:
                - qodana --fail-threshold &lt;number&gt;
              artifacts:
                paths:
@@ -137,7 +177,11 @@
         </code>
 
         <p>In this sample, the <code>script</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
-            option.</p>
+            option. The <code>QODANA_TOKEN</code> variable in this snippet refers to the
+            <a href="project-token.md">project token</a> and required by the
+            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
+            that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.
+        </p>
 
     </chapter>
 </topic>

@@ -9,7 +9,10 @@
     <p>Each inspection is a set of conditions to check code, detect and correct abnormal fragments in it. Qodana
         inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
         and thus facilitate improving the overall code structure. Using inspections, Qodana implements its
-        <a href="static-analysis.xml">static analysis</a> mechanism.</p>
+        <a href="static-analysis.xml">static analysis</a> mechanism. You can visit the
+        <a href="https://www.jetbrains.com/help/inspectopedia/">Inspectopedia</a> website and learn more about the
+        inspections used by %product%.
+    </p>
 
     <p>All inspections are highly configurable, so you can configure:</p>
 

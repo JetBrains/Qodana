@@ -6,11 +6,14 @@
        title="Projects"
        id="cloud-projects.xml">
 
-    <p>Projects accumulate Qodana reports.</p>
+    <p>Projects accumulate Qodana <a href="cloud-overview-reports.xml">reports</a>.</p>
 
     <p>Each project is uniquely identified by a project token. This token is used for uploading %product% reports.</p>
 
     <chapter id="cloud-create-project" title="Create a project">
+
+        <p>During the <a href="cloud-onboarding.md">onboarding</a> stage, Qodana Cloud helps you create a project, so
+            you need this step only for creating additional projects.</p>
 
         <p>On a <a href="cloud-teams.xml">team</a> page, click the <menupath>Create project</menupath> button.</p>
 

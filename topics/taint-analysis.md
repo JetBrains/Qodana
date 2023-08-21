@@ -35,19 +35,23 @@ To prevent such propagation, the following approaches are applied by the Qodana 
 
 ## Running taint analysis
 
-In the `qodana.yaml` file, [include](qodana-yaml.md#Include+an+inspection+into+the+analysis+scope) the 
-`PhpVulnerablePathsInspection` inspection into the analysis scope:
+<chunk id="running-taint-analysis">
 
-```yaml
-include:
-  - name: PhpVulnerablePathsInspection
-```
+  <p>In the <code>qodana.yaml</code> file,
+  <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">include</a> the 
+  <code>PhpVulnerablePathsInspection</code> inspection into the analysis scope:</p>
+  
+  <code style="block" lang="yaml">
+  include:
+    - name: PhpVulnerablePathsInspection
+  </code>
+  
+  <p>Alternatively, you can use the <code>inspections</code> section of <code>qodana.yaml</code>:</p>
+  
+  <code style="block" lang="yaml">
+  inspections:
+    - inspection: PhpVulnerablePathsInspection
+      enabled: true
+  </code>
 
-Alternatively, you can use the `inspections` section of `qodana.yaml`:
-
-```yaml
-inspections:
-  - inspection: PhpVulnerablePathsInspection
-    enabled: true
-```
-
+</chunk>

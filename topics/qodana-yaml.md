@@ -281,7 +281,7 @@ In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpa
 
 ### Custom dependencies
 
-Currently, the license audit with Qodana is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
+Currently, the License audit with Qodana is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
 
 ```yaml
 customDependencies:
@@ -291,6 +291,18 @@ customDependencies:
       - key: "Apache-2.0"
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
+
+## Configure quick-fixes
+
+Using the `fixesStrategy` option, you can choose among the available [quick-fix strategies](quick-fix.md#How+it+works):
+
+```yaml
+fixesStrategy: cleanup/apply
+```
+
+## Configure taint analysis
+
+<include src="taint-analysis.md" include-id="running-taint-analysis"/>
 
 ## Configure the Vulnerability checker
 

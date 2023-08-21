@@ -1,15 +1,15 @@
 [//]: # (title: Onboarding)
 
-Onboarding lets you: 
+Onboarding is an essential step in preparing %product% for working with your project, which lets you: 
 
 - Connect your project repository to Qodana Cloud
-- Create a Qodana Cloud [organization](cloud-organizations.xml) and [project](cloud-projects.xml)
-- Generate a [project token](project-token.md)
+- Create a Qodana Cloud [organization](cloud-organizations.xml), a [team](cloud-teams.xml), and a [project](cloud-projects.xml)
+- Generate a [project token](project-token.md) required by the Ultimate and Ultimate Plus 
 - Set up code inspection
 
-It uses information from your JetBrains account including licenses and companies. 
+Onboarding uses information from your JetBrains account including licenses and companies. 
 
-Below is the description of the onboarding steps.
+Below is the description of the steps.
 
 <procedure>
 <step>

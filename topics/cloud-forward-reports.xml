@@ -25,9 +25,9 @@
         <li><a anchor="cloud-forward-reports-teamcity">TeamCity</a></li>
     </list>
 
-    <p>For all these cases, you need to generate a unique Qodana Cloud project token as shown
-    in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation. This token
-    will be invoked using the <code>QODANA_TOKEN</code> variable.</p>
+    <p>For all these cases, you need to generate a unique Qodana Cloud <a href="project-token.md">project token</a> as
+        shown in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation. This
+        token will be invoked using the <code>QODANA_TOKEN</code> variable.</p>
 
     <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
@@ -50,13 +50,13 @@
 
                 <code style="block" lang="shell" prompt="$">
                     docker run \
-                    -v $(pwd):/data/project/ \
-                    -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                    -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
-                    -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
-                    -e QODANA_REVISION="&lt;commit-hash&gt;" \
-                    -e QODANA_JOB_URL="&lt;job-url&gt;" \
-                    jetbrains/qodana-&lt;linter&gt;
+                       -v $(pwd):/data/project/ \
+                       -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                       -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
+                       -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
+                       -e QODANA_REVISION="&lt;commit-hash&gt;" \
+                       -e QODANA_JOB_URL="&lt;job-url&gt;" \
+                       jetbrains/qodana-&lt;linter&gt;
                 </code>
             </tab>
 

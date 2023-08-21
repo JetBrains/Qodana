@@ -7,9 +7,12 @@
        id="cloud-running-introduction.xml">
 
     <p>The basic entity in <a href="https://qodana.cloud">Qodana Cloud</a> is an organization. Every Qodana Cloud user
-        becomes an organization member after creating an account. Later, they can create additional organizations. </p>
-    <p>Each organization can contain several teams. Each team provides unified access to projects for its team members. </p>
-    <p>Each project contains results of inspection carried out by Qodana over a specific codebase.</p>
+        creates and becomes an organization member. Later, they can create additional organizations. </p>
+    <p>Each organization can contain several teams, where each team provides unified access to projects for its team
+        members. If you run the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
+        linters, you can create the unlimited number of teams. If you use only the Community linters, you can create
+        only one team in your organization.</p>
+    <p>Each project contains results of inspection carried out by %product% over a specific codebase.</p>
 
     <img src="qc-running-introduction.png" dark-src="qc-running-introduction_dark.png" width="706" alt="Qodana Cloud entity hierarchy" border-effect="line"/>
 

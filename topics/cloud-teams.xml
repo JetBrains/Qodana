@@ -12,6 +12,9 @@
 
     <chapter id="cloud-teams-create-team" title="Create a team">
 
+        <p>During the <a href="cloud-onboarding.md">onboarding</a> stage, Qodana Cloud helps you create a team, so
+            you need this step only for creating additional teams.</p>
+
         <procedure>
             <step>
                 <p>On the organization page, click <menupath>Create team</menupath>.</p>
