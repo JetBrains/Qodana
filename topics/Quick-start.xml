@@ -207,7 +207,7 @@
 
         <p>Here is the short video showing how you can configure and run %product% on GitHub.</p>
 
-        <img src="quickstart-run-in-github.png" dark-src="quickstart-run-in-github_dark.png" width="910" alt="Running Qodana in GitHub" border-effect="line" animated="true"/>
+        <img src="quickstart-run-in-github.png" dark-src="quickstart-run-in-github_dark.png" width="706" alt="Running Qodana on GitHub" border-effect="line" animated="true"/>
 
         <p>Assuming that you already generated a project token as described in the <a anchor="quickstart-prerequisites"/> chapter, follow these steps to configure %product% on GitHub:</p>
 
