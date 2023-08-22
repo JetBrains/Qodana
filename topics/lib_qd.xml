@@ -154,8 +154,7 @@
                             respectively, the project source code directory and the analysis results directory. The
                             <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                             required by the
-                            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
-                            that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.
+                            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                         </p>
                     </step>
                 </procedure>
@@ -201,8 +200,7 @@
                 <p>The <code>output-directory</code> specifies the directory where the SARIF-formatted report will be
                     saved. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                     required by the
-                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
-                    that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.</p>
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
             </tab>
         </tabs>
 
@@ -223,8 +221,7 @@
                     the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
                         results directory</a>. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                     required by the
-                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
-                    that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
                 <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
                     of problems is reached and the <a href="baseline.xml"/> option to compare each new %linter%

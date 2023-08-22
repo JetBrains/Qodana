@@ -49,7 +49,7 @@
                 <p>In this command, the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.
                     The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                     required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
-                    and <a href="cloud-about.xml">Qodana Cloud</a>.
+                    linters.
                 </p>
             </tab>
             <tab title="Docker image" group-key="quality-gate-docker">
@@ -64,7 +64,7 @@
                     the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate. The
                     <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                     required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
-                    and <a href="cloud-about.xml">Qodana Cloud</a>.
+                    linters.
                 </p>
             </tab>
         </tabs>
@@ -107,7 +107,7 @@
                     <p>Instead of <code>main</code>, you can specify your branch here. The
                         <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                         required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
-                        and <a href="cloud-about.xml">Qodana Cloud</a>.</p>
+                        linters.</p>
                 </step>
                 <step>Set the fail threshold (number) for the Qodana Action <code>fail-threshold</code> option.</step>
                 <step>Under your repository name, click <menupath>Settings</menupath>.</step>
@@ -154,8 +154,7 @@
 
         <p>The <code>QODANA_TOKEN</code> variable in this snippet refers to the
             <a href="project-token.md">project token</a> contained in the <code>qodana-token</code> credentials and
-            required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
-            that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.</p>
+            required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
 
     </chapter>
 
@@ -179,8 +178,7 @@
         <p>In this sample, the <code>script</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
             option. The <code>QODANA_TOKEN</code> variable in this snippet refers to the
             <a href="project-token.md">project token</a> and required by the
-            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters
-            that forwards %product% reports to <a href="cloud-about.xml">Qodana Cloud</a>.
+            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
         </p>
 
     </chapter>
