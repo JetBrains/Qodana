@@ -46,7 +46,7 @@ In the project, click <menupath>Generate token</menupath> to generate a project 
 
 You can inspect your codebase using methods described in the [](inspect-your-code.xml) section. 
 
-Depending on the %product% [license](pricing.md#linters-available-for-each-license), you can configure various features, for example:
+Depending on the %product% [license](pricing.md#pricing-linters-licenses), you can configure various features, for example:
 
 * [Baseline](#Configure+baseline) for monitoring current and new problems
 * [Inspections](#Configure+inspections) that you would like to use
