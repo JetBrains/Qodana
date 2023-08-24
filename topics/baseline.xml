@@ -12,8 +12,7 @@
     <p>Using the baseline feature, you can compare your current code with its baseline state and see new, unchanged, and
         resolved problems.</p>
 
-    <p>Baseline is supported by all linters available under the Community, Ultimate, and Ultimate Plus
-        <a href="pricing.md">licenses</a> and their trial versions. </p>
+    <p>Baseline is supported by the Community, Ultimate, and Ultimate Plus <a href="pricing.md">linters</a>. </p>
 
     <chapter title="How it works">
 
@@ -22,12 +21,14 @@
         <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="706" alt="Running Qodana without baseline"/>
 
     <p>In this case, you can only see the number of problems and their description, without classification to new and
-        existing problems. </p>
+        existing problems.</p>
 
-        <p>To improve the situation, you can add problems to the baseline, download the
-            <code style="inline">qodana.sarif.json</code> file, and put it to your project directory as explained in the
-            <a href="ui-overview.md" anchor="Baseline"/> section. Once done, this file becomes a basis for
-            comparing with subsequent code states. You can run the baseline using these commands:
+        <p>To improve the situation, you can add problems to the baseline and save them to the
+            <code style="inline">qodana.sarif.json</code> file in your project directory as explained in the
+            <a href="ui-overview.md" anchor="Baseline"/> section of the %product% report description. Once done,
+            this file becomes a basis for comparing with subsequent code states. You can run %product% with the baseline
+            enabled using <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a>, Docker images of %product%,
+            or <a href="qodana-ide-plugin.md">JetBrains IDEs</a>:
         </p>
 
         <tabs group="cli-commands">
@@ -35,11 +36,14 @@
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
                        -v &lt;path_to_baseline&gt;:/data/base/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        --baseline /data/base/qodana.sarif.json
                 </code>
                 <p>Here, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
                     containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %product%
-                    Docker image.
+                    Docker image. The <code>QODANA_TOKEN</code> variable refers to the
+                    <a href="project-token.md">project token</a> required by the
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
             </tab>
             <tab title="Docker image" group-key="baseline-qodana-docker">
@@ -47,14 +51,36 @@
                     docker run \
                        -v $(pwd):/data/project/ \
                        -v &lt;path_to_baseline&gt;:/data/base/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --baseline /data/base/qodana.sarif.json
                 </code>
                 <p>In this snippet, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
                     containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %product%
                     Docker image. The <code>--baseline</code> option specifies the path to the baseline file from the
-                    Docker filesystem.
+                    Docker filesystem. The <code>QODANA_TOKEN</code> variable refers to the
+                    <a href="project-token.md">project token</a> required by the
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
+            </tab>
+            <tab title="JetBrains IDEs" id="baseline-jetbrains-ides">
+
+                <p>The list of the JetBrains IDEs containing this feature is available in the
+                    <a href="qodana-ide-plugin.md"/> section.</p>
+
+                <p>This video shows how you can inspect your code using baseline.</p>
+
+                <img src="baseline-jetbrains-ides-intro.png" dark-src="baseline-jetbrains-ides-intro_dark.png" animated="true" width="788" alt="Running the baseline in the IDE"/>
+
+                <p>Here is the description of each step from the video:</p>
+
+                <procedure>
+                    <step>In your IDE, navigate to the <menupath>Problems</menupath> tool window. </step>
+                    <step>In the <menupath>Problems</menupath> tool window, click the <menupath>Server-Side Analysis</menupath> tab.</step>
+                    <step>On the <menupath>Server-Side Analysis</menupath> tab, click the <menupath>Start Qodana</menupath> button.</step>
+                    <step>In the dialog that opens, click the <menupath>Try locally</menupath> button.</step>
+                    <step>In the dialog, expand the <menupath>Advanced Configuration</menupath> section, select the baseline file, and then click <menupath>Run</menupath>.</step>
+                </procedure>
             </tab>
         </tabs>
 
@@ -96,6 +122,7 @@
                         <code style="block" lang="shell" prompt="$">
                             qodana scan \
                                -v &lt;path_to_baseline&gt;:/data/base/ \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                                --baseline /data/base/qodana.sarif.json \
                                --baseline-include-absent
                         </code>
@@ -105,6 +132,7 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -v &lt;path_to_baseline&gt;:/data/base/ \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
                            --baseline /data/base/qodana.sarif.json \
                            --baseline-include-absent
@@ -121,7 +149,7 @@
         <img src="baseline-updating-baseline.png" dark-src="baseline-updating-baseline_dark.png" width="706" alt="Updating the baseline"/>
 
         <list type="decimal">
-            <li>Download the <code style="inline">qodana.sarif.json</code> file again and save it to your project directory.</li>
+            <li>Save the updated version of the <code style="inline">qodana.sarif.json</code> file to your project directory.</li>
             <li>Run %product% again to see the change in the problem status.</li>
         </list>
     </chapter>

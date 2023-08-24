@@ -32,33 +32,39 @@ should be reviewed before submitting</p>
     </tr>
 </table>
 
-To apply either the `cleanup` or the `apply` quick-fix strategy, specify it using the `--fixes-strategy` 
-[option](docker-image-configuration.xml): 
+You can apply quick-fix strategies using the following available options:
 
 <tabs>
-    <tab title="Docker image" id="quick-fix-docker">
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v &lt;source-directory&gt;/:/data/project/  \
-               jetbrains/qodana-&lt;linter&gt; \
-               --fixes-strategy &lt;cleanup/apply&gt;
+    <tab title="Docker and Qodana CLI" id="quick-fix-cli-docker">
+        <p>Run %product% with the <code>--fixes-strategy</code> option invoked. The <code>QODANA_TOKEN</code> variable 
+            refers to the <a href="project-token.md">project token</a> required by the 
+            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters. </p>
+        <tabs>
+            <tab title="Docker">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v &lt;source-directory&gt;/:/data/project/  \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --fixes-strategy &lt;cleanup/apply&gt;
+                </code>
+            </tab>
+            <tab title="Qodana CLI">
+                <code style="block" lang="shell" prompt="$">
+                qodana scan \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                   &lt;--apply-fixes/--cleanup&gt;
+                </code>
+            </tab>
+        </tabs>
+    </tab>
+    <tab title="qodana.yaml" id="quick-fix-qodana-yaml">
+        <p>You can use the <code>fixesStrategy</code> option in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
+        <code style="block" lang="yaml">
+            fixesStrategy: cleanup/apply
         </code>
     </tab>
-    <tab title="Qodana CLI" id="quick-fix-cli">
-        <code style="block" lang="shell" prompt="$">
-            qodana scan \
-               --apply-fixes/--cleanup
-        </code>
+    <tab title="CI pipeline" id="quick-fix-ci-pipeline">
+        <p>Learn the <a href="github.md"/> section for details.</p>
     </tab>
 </tabs>
-
-Or specify it in the [`qodana.yaml` file](qodana-yaml.md):
-
-```yaml
-fixesStrategy: cleanup/apply
-```
-
-## CI integration
-
-Currently, only GitHub Actions with GitHub repositories are supported.
-To learn more on how to use it, refer to the [GitHub Actions](github.md) page.

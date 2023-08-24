@@ -15,7 +15,7 @@
                 <tip-group>
                         <title>These are two sections you should definitely start with</title>
                         <a href="about-qodana.md"
-                           description="Qodana is a code quality monitoring platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks."
+                           description="Qodana is a code quality platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks."
                            type="install"/>
                         <a href="Quick-start.xml"
                            description="Learn how to get started with Qodana in a few simple steps."
