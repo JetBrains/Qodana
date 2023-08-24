@@ -618,6 +618,28 @@
 
     </chapter>
 
+    <chapter id="docker-config-reference-code-coverage" title="Code coverage">
+
+        <p>You can run <a href="code-coverage.md">code coverage</a> by mapping the directory containing code coverage files to
+            the <code>/data/coverage</code> directory of a %product% linter image:</p>
+
+        <tabs>
+            <tab title="Docker image" group-key="docker-image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v /my/dir/with/coverage:/data/coverage \
+                       jetbrains/qodana-&lt;linter&gt;
+                </code>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -v /my/dir/with/coverage:/data/coverage
+                </code>
+            </tab>
+        </tabs>
+    </chapter>
+
     <chapter id="docker-config-reference-report" title="Report">
 
         <p>This table contains the options related to reports:</p>
@@ -727,6 +749,30 @@
 
         <p>If you run %product% with the <a anchor="docker-config-reference-baseline">baseline mode</a> enabled, a
             threshold is calculated as the sum of new and absent problems. The unchanged results are ignored.</p>
+
+    </chapter>
+
+    <chapter title="Quick-fix" id="docker-config-reference-quick-fix">
+
+        <p>To apply <a href="quick-fix.md">quick-fix</a> strategies to your codebase, you can invoke the <code>--fixes-strategy</code> option.</p>
+        <tabs>
+            <tab title="Docker">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v &lt;source-directory&gt;/:/data/project/  \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --fixes-strategy &lt;cleanup/apply&gt;
+                </code>
+            </tab>
+            <tab title="Qodana CLI">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       &lt;--apply-fixes/--cleanup&gt;
+                </code>
+            </tab>
+        </tabs>
 
     </chapter>
 
