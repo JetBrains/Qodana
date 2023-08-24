@@ -13,6 +13,12 @@
     <p>In several cases, you can configure them using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file,
         which is also mentioned in this section.</p>
 
+    <p>Starting from version 2022.3 of %product%, the
+        <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters require the
+        <code>QODANA_TOKEN</code> variable to refer to the <a href="project-token.md">project token</a>, which is also
+        reflected in this section. If you use the Community linters of %product%, using <code>QODANA_TOKEN</code> is
+        necessary only if you wish to overview %product% reports in Qodana Cloud.</p>
+
     <chapter id="docker-config-reference-qodana-cli" title="Qodana CLI">
 
         <p><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> stores files in the
@@ -116,13 +122,15 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt;
                     </code>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml
+                           -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
                     </code>
                 </tab>
             </tabs>
@@ -143,13 +151,15 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt;
                     </code>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties
+                           -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
                     </code>
                 </tab>
             </tabs>
@@ -220,13 +230,15 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt; \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt;
                     </code>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt;
+                           -v &lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt; \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
                     </code>
                 </tab>
             </tabs>
@@ -265,6 +277,7 @@
                     docker run \
                        -p 8080:8080 \
                        -v $(pwd):/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --property=idea.log.config.file=info.xml \
                        --baseline &lt;baseline-path&gt; \
@@ -274,9 +287,10 @@
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    --property=idea.log.config.file=info.xml \
-                    --baseline &lt;baseline-path&gt; \
-                    --show-report
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --property=idea.log.config.file=info.xml \
+                       --baseline &lt;baseline-path&gt; \
+                       --show-report
                 </code>
             </tab>
         </tabs>
@@ -361,6 +375,7 @@
             docker run \
                -v $(pwd):/data/project/ \
                -v &lt;html-report-directory&gt;:/data/results/newreportdir/ \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                jetbrains/qodana-&lt;linter&gt; \
                --report-dir /data/results/newreportdir/ \
                --save-report
@@ -392,6 +407,7 @@
                 docker run \
                    -v $(pwd):/data/project/ \
                    -v &lt;local-cache-directory&gt;:/data/cache/ \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                    jetbrains/qodana-&lt;linter&gt;
             </code>
 
@@ -403,6 +419,7 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -v &lt;local-cache-directory&gt;:/data/newcachedir/ \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
                            --cache-dir /data/newcachedir
                     </code>
@@ -410,6 +427,7 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            --cache-dir /opt/newcachedir
                     </code>
                 </tab>
@@ -491,6 +509,7 @@
                     <code style="block" lang="shell" prompt="$">
                         docker run \
                            -v $(pwd):/data/project/ \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
                            --profile-name qodana.recommended
                     </code>
@@ -498,7 +517,8 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -profile-name qodana.recommended
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --profile-name qodana.recommended
                     </code>
                 </tab>
             </tabs>
@@ -514,6 +534,7 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
                            --profile-name &lt;profile-name-from-file&gt;
                     </code>
@@ -521,8 +542,9 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
-                        --profile-name &lt;profile-name-from-file&gt;
+                           -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --profile-name &lt;profile-name-from-file&gt;
                     </code>
                 </tab>
             </tabs>
@@ -544,6 +566,7 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
                            --profile-path /data/project/myprofiles/&lt;file-name&gt;
                     </code>
@@ -551,8 +574,9 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
-                        --profile-path /data/project/myprofiles/&lt;file-name&gt;
+                           -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --profile-path /data/project/myprofiles/&lt;file-name&gt;
                     </code>
                 </tab>
             </tabs>
@@ -594,6 +618,7 @@
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v $(pwd):/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --baseline &lt;path-to-the-SARIF-file&gt; \
                        --baseline-include-absent
@@ -602,8 +627,9 @@
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    --baseline &lt;path-to-the-SARIF-file&gt; \
-                    --baseline-include-absent
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --baseline &lt;path-to-the-SARIF-file&gt; \
+                       --baseline-include-absent
                 </code>
             </tab>
         </tabs>
@@ -628,13 +654,15 @@
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v /my/dir/with/coverage:/data/coverage \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt;
                 </code>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                       -v /my/dir/with/coverage:/data/coverage
+                       -v /my/dir/with/coverage:/data/coverage \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
                 </code>
             </tab>
         </tabs>
@@ -671,10 +699,11 @@
 
             <code style="block" lang="shell" prompt="$">
                 docker run \
-                -v $(pwd):/data/project/ \
-                -v &lt;directory-to-save-report-to&gt;:/data/results/report \
-                jetbrains/qodana-&lt;linter&gt; \
-                --save-report
+                   -v $(pwd):/data/project/ \
+                   -v &lt;directory-to-save-report-to&gt;:/data/results/report \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                   jetbrains/qodana-&lt;linter&gt; \
+                   --save-report
             </code>
 
         </chapter>
@@ -690,6 +719,7 @@
                         docker run \
                            -p 4040:8080 \
                            -v $(pwd):/data/project/ \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
                            --show-report
                     </code>
@@ -697,8 +727,9 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        --port 4040
-                        --show-report
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --port 4040 \
+                           --show-report
                     </code>
                 </tab>
             </tabs>
@@ -735,6 +766,7 @@
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v $(pwd):/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --fail-threshold 10
                 </code>
@@ -742,7 +774,8 @@
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    --fail-threshold 10
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --fail-threshold 10
                 </code>
             </tab>
         </tabs>
@@ -759,7 +792,7 @@
             <tab title="Docker">
                 <code style="block" lang="shell" prompt="$">
                     docker run \
-                       -v &lt;source-directory&gt;/:/data/project/  \
+                       -v &lt;source-directory&gt;/:/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --fixes-strategy &lt;cleanup/apply&gt;
@@ -814,6 +847,7 @@
                     <code style="block" lang="shell" prompt="$">
                         docker run \
                            -v $(pwd):/data/project/ \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
                            --property=idea.log.config.file=info.xml
                     </code>
@@ -821,7 +855,8 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        --property=idea.log.config.file=info.xml
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --property=idea.log.config.file=info.xml
                     </code>
                 </tab>
             </tabs>
@@ -838,15 +873,17 @@
                 <tab title="Docker image" group-key="docker-image">
                     <code style="block" lang="shell" prompt="$">
                         docker run \
-                        -v $(pwd):/data/project/ \
-                        jetbrains/qodana-&lt;linter&gt; \
-                        --property=idea.headless.enable.statistics=false
+                           -v $(pwd):/data/project/ \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           jetbrains/qodana-&lt;linter&gt; \
+                           --property=idea.headless.enable.statistics=false
                     </code>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        --property=idea.headless.enable.statistics=false
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --property=idea.headless.enable.statistics=false
                     </code>
                 </tab>
             </tabs>
@@ -868,6 +905,7 @@
                     <code style="block" lang="shell" prompt="$">
                         docker run \
                            -v $(pwd):/data/project/ \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
                            --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
                            --property=idea.suppressed.plugins.id=com.intellij.spring.security
@@ -876,8 +914,9 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
-                        --property=idea.suppressed.plugins.id=com.intellij.spring.security
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
+                           --property=idea.suppressed.plugins.id=com.intellij.spring.security
                     </code>
                 </tab>
             </tabs>
@@ -911,6 +950,7 @@
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v $(pwd):/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --changes
                 </code>
@@ -918,7 +958,8 @@
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    --changes
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --changes
                 </code>
             </tab>
         </tabs>
@@ -952,6 +993,7 @@
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v $(pwd):/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --script default
                 </code>
@@ -959,7 +1001,8 @@
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    --script default
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --script default
                 </code>
             </tab>
         </tabs>
@@ -969,6 +1012,7 @@
         <code style="block" lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                jetbrains/qodana-&lt;linter&gt; \
                --script local-changes
         </code>
@@ -980,6 +1024,7 @@
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v $(pwd):/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
                 </code>
@@ -987,7 +1032,8 @@
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
                 </code>
             </tab>
         </tabs>
@@ -1036,13 +1082,15 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -e _JAVA_OPTIONS=-Xmx6g \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt;
                     </code>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -e _JAVA_OPTIONS=-Xmx6g \
+                           -e _JAVA_OPTIONS=-Xmx6g \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
                     </code>
                 </tab>
             </tabs>
@@ -1067,13 +1115,15 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -e IDEA_PROPERTIES=/data/project/idea.properties \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt;
                     </code>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -e IDEA_PROPERTIES=/data/project/idea.properties
+                           -e IDEA_PROPERTIES=/data/project/idea.properties \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
                     </code>
                 </tab>
             </tabs>
@@ -1097,6 +1147,7 @@
                    -u $(id -u):$(id -g) \
                    -v $(pwd):/data/project/ \
                    -v &lt;results-directory&gt;:/data/results/ \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                    jetbrains/qodana-&lt;linter&gt;
             </code>
 
@@ -1129,7 +1180,7 @@
                 <tab title="Qodana CLI" group-key="qodana-cli">
                     <code style="block" lang="shell" prompt="$">
                         qodana scan \
-                        -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
+                           -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
                     </code>
                 </tab>
             </tabs>
