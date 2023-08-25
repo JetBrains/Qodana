@@ -15,8 +15,8 @@
 
     <p>Starting from version 2022.3 of %product%, the
         <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters require the
-        <code>QODANA_TOKEN</code> variable to refer to the <a href="project-token.md">project token</a>, which is also
-        reflected in this section. If you use the Community linters of %product%, using <code>QODANA_TOKEN</code> is
+        <code>QODANA_TOKEN</code> variable to refer to the <a href="project-token.md">project token</a>. If you run the
+        Community linters of %product%, using <code>QODANA_TOKEN</code> is
         necessary only if you wish to overview %product% reports in Qodana Cloud.</p>
 
     <chapter id="docker-config-reference-qodana-cli" title="Qodana CLI">
