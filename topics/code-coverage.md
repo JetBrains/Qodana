@@ -1,8 +1,9 @@
 [//]: # (title: Code coverage)
 
-**Code coverage** uses generated reports to calculate code coverage inside a method, a class, and a file.  
+**Code coverage** uses generated reports to calculate overall code coverage inside a method, a class, and a file. 
+It also reports on the issues connected with the missing coverage in these entities.
 
-<note>File code coverage is not available in case of the <a href="qodana-jvm.md"/> linter.</note>
+<note>File code coverage is available only in <a href="qodana-js.md"/> and <a href="qodana-php.md"/> linters.</note>
 
 This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the 
 following linters:
@@ -16,7 +17,7 @@ following linters:
     <tr>
         <td rowspan="2"><a href="qodana-jvm.md"/></td>
         <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a> is the recommended tool</td>
-        <td><code>IC</code> and <code>XML</code></td>
+        <td><code>IC</code> is the preferable format. <code>XML</code> is also supported.</td>
     </tr>
     <tr>
         <td><a href="https://www.jacoco.org/jacoco/">JaCoCo</a></td>
@@ -37,7 +38,7 @@ following linters:
 
 ## How it works
 
-The predefined code coverage threshold in %product% is currently set to 50%.
+For the missing code coverage issues, the predefined threshold in %product% is currently set to 50%.
 
 Code coverage employs several inspections that are already included in the `qodana.recommended` and `qodana.starter` 
 [default inspection profiles](inspection-profiles.md#Default+profiles), so you do not need to enable them:  
@@ -152,7 +153,8 @@ Fresh code is the code contained in a GitHub pull request. %product% can calcula
 
 <note>While working with fresh code, %product% cannot analyze coverage issues for missing coverage in methods, classes, and files.</note>
 
-To enable the fresh code feature, in your [GitHub](github.md) workflow configure the PR-mode:
+To enable the fresh code feature, in your [GitHub](github.md) workflow configure the PR-mode. Here is the sample for
+inspecting the JavaScript fresh code:
 
 ```yaml
 name: Code coverage fresh code
@@ -238,9 +240,9 @@ version 2023.2. This feature is available for reports retrieved from Qodana Clou
 </step>
 </procedure>
 
-#### Open a local coverage report
+#### Overview coverage reports in IDE
 
-You can open a locally-based code coverage file in your IDE.
+You can overview locally-based code coverage reports directly in JetBrains IDEs.
 
 In your IDE, navigate to <menupath>Run | Show coverage data</menupath> and open the file containing the code coverage 
 report. 
