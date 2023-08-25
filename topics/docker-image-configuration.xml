@@ -789,7 +789,7 @@
 
         <p>To apply <a href="quick-fix.md">quick-fix</a> strategies to your codebase, you can invoke the <code>--fixes-strategy</code> option.</p>
         <tabs group="cli-settings">
-            <tab title="Docker" group-key="docker-image">
+            <tab title="Docker image" group-key="docker-image">
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v &lt;source-directory&gt;/:/data/project/ \
