@@ -1,92 +1,271 @@
 [//]: # (title: Code coverage)
 
-**Code coverage** supports processing test code coverage for a range of languages and coverage engines:
+**Code coverage** uses generated reports to calculate overall code coverage inside a method, a class, and a file. 
+It also reports on the issues connected with the missing coverage in these entities.
+
+<note>File code coverage is available only in <a href="qodana-js.md"/> and <a href="qodana-php.md"/> linters.</note>
+
+This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the 
+following linters:
 
 <table>
     <tr>
-        <td>Language</td>
-        <td>Inspection name</td>
-        <td>Code coverage agents</td>
+        <td>Linter</td>
+        <td>Code coverage tool</td>
+        <td>Supported report formats</td>
     </tr>
     <tr>
-        <td><a href="qodana-jvm.md">Java and Kotlin</a></td>
-        <td><code>JvmCoverageInspection</code></td>
-        <td>
-            <p><menupath>IntelliJ Coverage Agent</menupath> (default and preferred) supports the formats:</p>
-            <list>
-                <li>The default and preferred format is <code>ic</code></li>
-                <li>The <code>xml</code> format is available as an alternative (please note, yet there is no support for obtaining this coverage data from the Qodana Cloud inside the IDE)</li>
-            </list>
-            <p><menupath>JaCoCo</menupath> supports the <code>xml</code> format (please note, there will be no support for obtaining this coverage data from the Qodana Cloud inside the IDE)</p>
-        </td>
+        <td rowspan="2"><a href="qodana-jvm.md"/></td>
+        <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a> is the recommended tool</td>
+        <td><code>IC</code> is the preferable format. <code>XML</code> is also supported.</td>
     </tr>
     <tr>
-        <td><a href="qodana-js.md">JavaScript and TypeScript</a></td>
-        <td><code>JsCoverageInspection</code></td>
-        <td>
-            <p><menupath>Jest/Mocha</menupath> supports the <code>lcov</code> format (please note that paths in the coverage file should be based on the project root when using this format)</p>
-        </td>
+        <td><a href="https://www.jacoco.org/jacoco/">JaCoCo</a></td>
+        <td><code>XML</code></td>
     </tr>
     <tr>
-        <td><a href="qodana-php.md">PHP</a></td>
-        <td><code>PhpCoverageInspection</code></td>
-        <td>
-            <p><menupath>PhpUnit</menupath> supports the <code>xml</code> format</p>
-        </td>
+        <td><a href="qodana-js.md"/></td>
+        <td><a href="https://jestjs.io/">Jest</a></td>
+        <td><code>LCOV</code></td>
+    </tr>
+    <tr>
+        <td><a href="qodana-php.md"/></td>
+        <td><a href="https://phpunit.de/">PhpUnit</a></td>
+        <td><code>XML</code></td>
     </tr>
 </table>
 
-Àll inspections from this table are already integrated into the `qodana.recommended` and `qodana.starter` 
-[profiles](inspection-profiles.md#Default+profiles).
-
-This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md) and their trial versions, and 
-supported by the IntelliJ IDEA, WebStorm, and PhpStorm IDEs starting from version 2023.2.
 
 ## How it works
 
-Inspections will identify issues if the coverage of a method, class, or file (excluding Java and Kotlin) falls below a 
-predefined threshold (set at 50% by default). The resulting coverage will be calculated and displayed in both the 
-Command Line Interface (CLI) output and the User Interface (UI).
+For the missing code coverage issues, the predefined threshold in %product% is currently set to 50%.
 
-The IDEs display the detailed coverage information for the opened coverage reports. This feature is active once the 
-IDE downloads the computed coverage report from Qodana Cloud and applies highlighting to 
-covered/uncovered lines. Users can also open the Coverage view for more detailed statistics.
+Code coverage employs several inspections that are already included in the `qodana.recommended` and `qodana.starter` 
+[default inspection profiles](inspection-profiles.md#Default+profiles), so you do not need to enable them:  
+
+| Linter            | Employed inspection                                                                                 |
+|-------------------|-----------------------------------------------------------------------------------------------------|
+| [](qodana-jvm.md) | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html)  |
+| [](qodana-js.md)  | [`JsCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JsCoverageInspection.html)    |
+| [](qodana-php.md) | [`PhpCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PhpCoverageInspection.html)  |
+
+Once the inspection is complete, reports are available in [%product% reports](html-report.md) and JetBrains IDEs.
+
+### Code coverage calculation
+
+%product% calculates code coverage based on the number of code lines containing logic with function, method, and class statements
+being ignored. Here is the snippet containing comments on how it works: 
+
+```javascript
+function divide(a, b) { // Not analyzed by code coverage
+  return a / b; // Analyzed by code coverage
+}
+module.exports = divide; // Analyzed by code coverage
+```
+
+## Prepare the project
+
+<tip>You can find configuration examples on <a href="https://github.com/qodana/qodana-coverage/tree/main">GitHub</a>.</tip>
+
+1. Configure a code coverage tool. While configuring [Jest](https://jestjs.io/), note that all files in coverage reports 
+should have the relative paths inside the project. For example, if your codebase files are contained in the 
+`<project-root>/src/` directory, then file paths in code coverage reports should be `src/<file-name>`.
+
+2. If you run %product% [locally](Quick-start.xml), use your code coverage tool to generate the code coverage report. 
+Save the report to the directory where %product% can read it. If you run %product% in your [GitHub](github.md) pipeline,  
+configure the workflow as shown in the [](#run-code-coverage) section.
+
+## Run code coverage
+{id="run-code-coverage"}
+
+<note>
+You can run %product% over a single test coverage report generated by a single code coverage tool at a time.
+</note>
+<tabs>
+    <tab title="Docker or Qodana CLI" id="code-coverage-docker-cli">
+        <p>Map the directory containing code coverage reports to the <code>/data/coverage</code> directory and
+        the project token using the <code>QODANA_TOKEN</code> variable. Here are the Docker and 
+        <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> command samples:</p>
+        <tabs>
+            <tab title="Docker" id="code-coverage-docker">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                        -v $(pwd):/data/project/ \
+                        -v /directory/with/coverage/report/:/data/coverage \
+                        -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                        jetbrains/qodana-&lt;linter&gt;
+                </code>
+            </tab>
+            <tab title="Qodana CLI" id="code-coverage-cli">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -v /directory/with/coverage/report/:/data/coverage \
+                       -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
+                </code>
+            </tab>
+        </tabs>
+    </tab>
+<tab title="GitHub Actions" id="code-coverage-pipeline">
+        <p>Create the pipeline that will store all code coverage output files in the <code>&lt;project-root-dir&gt;/.qodana/code-coverage</code> 
+        directory. Below is the pipeline configuration example containing the comments:</p> 
+
+<include src="lib_qd.xml" include-id="code-coverage-snippet"/>
+
+<p>You can find configuration examples in our <a href="https://github.com/qodana/qodana-coverage">GitHub</a> repository.</p>
+</tab>
+    <tab title="GitLab CI/CD" id="code-coverage-gitlab">
+        <p>Create the <a href="gitlab.md">GitLab CI/CD</a> pipeline that will store all code coverage output files in the <code>&lt;project-root-dir&gt;/coverage</code> 
+directory:</p>
+        <code style="block" lang="yaml">
+        qodana:
+           image:
+              name: jetbrains/qodana-&lt;linter&gt;
+              entrypoint: [""]
+           cache:
+              - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                fallback_keys:
+                   - qodana-2023.2-$CI_DEFAULT_BRANCH-
+                   - qodana-2023.2-
+                paths:
+                   - .qodana/cache
+           variables:
+              QODANA_TOKEN: $qodana_token           -
+           script:
+              - qodana --save-report 
+              --results-dir=$CI_PROJECT_DIR/.qodana/results 
+              --coverage-dir=$CI_PROJECT_DIR/coverage
+           artifacts:
+              paths:
+                 - .qodana/results/report
+              expose_as: 'Qodana report'
+        </code>
+        <p>
+            This uses the <code>QODANA_TOKEN</code> variable to contain the <a href="project-token.md">project token</a>.
+            The <code>--coverage-dir=$CI_PROJECT_DIR/coverage</code> in the <code>script</code> block runs %product% with the
+            code coverage directory. 
+        </p>
+    </tab>
+</tabs>
 
 ### Fresh code
 
-When working on a Pull Request (PR), the code is considered to be fresh if being incorporated into the codebase using 
-the PR's merge. All added and modified code lines are considered. A distinct 
-coverage value will be calculated for these lines and displayed in the output. To utilize this mode, configure the PR-mode or
-use it as a default mode while using, for example, [GitHub Actions](github.md). However, this cannot generate coverage 
-issues for missing coverage in methods, classes, and files.
+Fresh code is the code contained in a GitHub pull request. %product% can calculate fresh code coverage and display the results. 
 
-## Run Code coverage
+<note>While working with fresh code, %product% cannot analyze coverage issues for missing coverage in methods, classes, and files.</note>
 
-<note>
-For each language and engine invoked, only one coverage engine and one coverage format can be used at a time.
-</note>
+To enable the fresh code feature, in your [GitHub](github.md) workflow configure the PR-mode. Here is the sample for
+inspecting the JavaScript fresh code:
 
-You can run Code coverage using the available options:
+```yaml
+name: Code coverage fresh code
 
-<tabs>
-    <tab title="Docker or Qodana CLI" id="code-coverage-docker">
-        <p>Map the directory containing all coverage files to the `/data/coverage` directory. Here is the example for 
-        Docker:</p>
-        <code style="block" lang="shell" prompt="$">
-            docker run \
-               -v /my/folder/with/coverage:/data/coverage \
-               jetbrains/qodana-&lt;linter&gt;
-        </code>
-        <p>This is the example of running Code coverage using 
-        <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a>:</p>
-        <code style="block" lang="shell" prompt="$">
-            qodana scan \
-               -v /my/folder/with/coverage:/data/coverage
-        </code>
-    </tab>
-    <tab title="Pipeline" id="code-coverage-pipeline">
-        <p>Create a pipeline where all the output files from the coverage tool will be stored in the 
-<code>.qodana/code-coverage</code> directory located in the root folder of the analyzed project. You can find examples of such 
-pipelines on our <a href="https://github.com/qodana/qodana-coverage">GitHub</a> repository.</p>
-    </tab>
-</tabs>
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+      
+      - name: Archive coverage data
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-coverage-data
+          path: .qodana/code-coverage
+      
+      - name: Qodana Scan
+        uses: JetBrains/qodana-action@main
+        env:
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
+        with:
+          pr-mode: true # Enable the pull-request mode
+```
+
+## Overview code coverage reports
+{id="overview-code-coverage-reports"}
+
+After you have [prepared the project](#Prepare+the+project) and [ran code coverage](#run-code-coverage), you can overview 
+code coverage reports in [Qodana Cloud](#Qodana+Cloud) or using your [IDE](#IDE). 
+
+### Qodana Cloud
+
+You can find code coverage statistics in the upper-right corner of the [%product% report](html-report.md) UI. It also 
+enumerates the inspections that were employed by the feature.
+
+<img src="code-coverage-report-qodana.png" dark-src="code-coverage-report-qodana_dark.png" width="706" alt="Code coverage in Qodana Cloud" border-effect="line" animated="true"/>
+
+### IDE
+
+You can overview code coverage reports using IntelliJ IDEA, WebStorm, and PhpStorm IDEs starting from 
+version 2023.2. This feature is available for reports retrieved from Qodana Cloud after linking, or reports from local storage.
+
+<note>It is not available for XML-formatted reports generated by IntelliJ IDEA Code Coverage Agent and JaCoCo.</note>
+
+#### Open reports from Qodana Cloud
+
+<procedure>
+<step>
+<p>In your IDE, navigate to <menupath>Tools | Qodana | Log in to Qodana</menupath>.</p>
+<img src="code-coverage-step-1.png" dark-src="code-coverage-step-1_dark.png" width="706" alt="The Log in to Qodana Cloud menu" border-effect="line"/>
+</step>
+<step><p>In the <menupath>Settings</menupath> dialog, click <menupath>Log in</menupath>.</p>
+<img src="code-coverage-login-window.png" dark-src="code-coverage-login-window_dark.png" width="706" alt="The Settings window" border-effect="line"/>
+<p>This will redirect you to the authentication page.</p>
+</step>
+<step>
+    <p>In the <menupath>Settings</menupath> dialog, search for the project you would like to link with.</p>
+<img src="code-coverage-login-linking-project.png" dark-src="code-coverage-login-linking-project_dark.png" width="706" alt="Linking with the project " border-effect="line"/>
+</step>
+</procedure>
+
+#### Overview coverage reports in IDE
+
+You can overview locally-based code coverage reports directly in JetBrains IDEs.
+
+In your IDE, navigate to <menupath>Run | Show coverage data</menupath> and open the file containing the code coverage 
+report. 
+
+<img src="code-coverage-open-locally.png" dark-src="code-coverage-open-locally_dark.png" width="706" alt="The Choose Coverage Suite to Display dialog" border-effect="line"/>
+
+In the <menupath>Coverage</menupath> tool window, you can overview the test coverage report. This report shows the 
+percentage of the code that has been executed or covered by tests. 
+
+<img src="code-coverage-coverage-window.png" dark-src="code-coverage-coverage-window_dark.png" width="706" alt="The Coverage tool window" border-effect="line" animated="true"/>
+
+#### Overview the report
+
+The IDE highlights the codebase test coverage using color marking. By default, the green color means
+that a particular line was covered, and the red color means the uncovered line of code. 
+
+<note>If you see that the code coverage results look incomplete, you probably need to reconfigure your
+code coverage tool and generate a new code coverage report.</note>
+
+<img src="code-coverage-report.png" dark-src="code-coverage-report_dark.png" width="706" alt="The coverage report overview" border-effect="line"/>
+
+The report shows coverage for the lines that implement the logic of a method, function, or a class, but not for the function,
+method, or class declaration. The image below shows that code coverage is not applicable to line 7, while line 8 is not 
+covered.
+
+<img src="code-coverage-report-coverage.png" dark-src="code-coverage-report-coverage_dark.png" width="706" alt="Code coverage for a specific method" border-effect="line"/>
