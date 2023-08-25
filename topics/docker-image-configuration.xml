@@ -649,7 +649,7 @@
         <p>You can run <a href="code-coverage.md">code coverage</a> by mapping the directory containing code coverage files to
             the <code>/data/coverage</code> directory of a %product% linter image:</p>
 
-        <tabs>
+        <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
                 <code style="block" lang="shell" prompt="$">
                     docker run \
@@ -788,8 +788,8 @@
     <chapter title="Quick-fix" id="docker-config-reference-quick-fix">
 
         <p>To apply <a href="quick-fix.md">quick-fix</a> strategies to your codebase, you can invoke the <code>--fixes-strategy</code> option.</p>
-        <tabs>
-            <tab title="Docker">
+        <tabs group="cli-settings">
+            <tab title="Docker" group-key="docker-image">
                 <code style="block" lang="shell" prompt="$">
                     docker run \
                        -v &lt;source-directory&gt;/:/data/project/ \
@@ -798,7 +798,7 @@
                        --fixes-strategy &lt;cleanup/apply&gt;
                 </code>
             </tab>
-            <tab title="Qodana CLI">
+            <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
