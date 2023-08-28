@@ -53,14 +53,14 @@ You can configure and run %product% locally using your IDE, and then forward ins
     <p>Click <menupath>Run</menupath> for inspecting your code.</p>
 </step>
 <step>
-   <p>In the <menupath>Server-Side Analysis</menupath> window tool, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+   <p>In the <menupath>Server-Side Analysis</menupath> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
 </step>
 </procedure>
 
 ## Configure %product% for CI
 {id="ide-plugin-cicd"}
 
-You can build %product% into CI pipelines using the configuration wizard.
+You can add %product% into CI pipelines using the configuration wizard.
 
 <note>Depending on the %product% license, you will need to generate and use the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
 
@@ -85,8 +85,8 @@ You can build %product% into CI pipelines using the configuration wizard.
 ## Connect to Qodana Cloud
 {id="ide-plugin-connect-cloud"}
 
-You can connect to [Qodana Cloud](cloud-about.xml) and synchronize your local project with a specific Qodana Cloud 
-[project](cloud-projects.xml). 
+You can connect your local project to a specific Qodana Cloud [project](cloud-projects.xml), get the latest %product% 
+report, and overview it using the IDE.
 
 <procedure>
    <step>
@@ -104,7 +104,7 @@ You can connect to [Qodana Cloud](cloud-about.xml) and synchronize your local pr
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
     <step>
-       <p>In the <menupath>Server-Side Analysis</menupath> window tool, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+       <p>In the <menupath>Server-Side Analysis</menupath> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
     </step>
 </procedure>
 
@@ -121,7 +121,7 @@ You can open and study [SARIF-formatted %product% reports](qodana-sarif-output.m
         <p>Select the SARIF-formatted report file you would like to open.</p>
    </step>
    <step>
-      <p>In the <menupath>Server-Side Analysis</menupath> window tool, you can overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+      <p>In the <menupath>Server-Side Analysis</menupath> tool window, you can overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
    </step>
 </procedure>
 
@@ -136,7 +136,7 @@ containing such problems.
 
 The left part of the **Server-Side Analysis** tool window contains several buttons. 
 
-<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Buttons in the Server-Side Analysis window tool" border-effect="line"/>
+<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Buttons in the Server-Side Analysis tool window" border-effect="line"/>
 
 This table describes each button from top to bottom:
 
