@@ -16,4 +16,6 @@
             <li><a href="extending-qodana-structural-search.xml">Using structural search patterns</a></li>
         </list>
 
+    <note>Currenlty, %product% supports only free plugins. </note>
+
 </topic>

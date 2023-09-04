@@ -110,6 +110,8 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Features and third-party software support
 
+<note>Currently, %product% supports only free plugins. </note>
+
 | Feature                                               | Community | Ultimate  | Ultimate Plus | 
 |-------------------------------------------------------|-----------|-----------|---------------|
 | [Monorepo support](monorepo-project.md)               | &#x2714;  | &#x2714;  | &#x2714;      | 
@@ -167,6 +169,8 @@ only offers a limited period for [data storage](#pricing-data-storage) in Qodana
 
 The trial versions of the Ultimate or Ultimate Plus licenses are limited by a 60-day trial period. After the trial 
 license expires, you'll have to purchase either the Ultimate or the Ultimate Plus license to continue using Qodana.
+
+You can study the %product% Terms of Service on the [JetBrains](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) website. 
 
  ## Frequently asked questions
 
@@ -253,6 +257,34 @@ recalculated for 20 contributors.
 ### What is the minimum number of contributors I can buy the license for?
 
 You can buy a %product% license for 3 (three) or more contributors.
+
+### What do I need to know about subscription billing?
+
+Here is the billing description taken from the 
+[%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) text: 
+
+**Monthly Subscriptions** – At the beginning of each Subscription Period, You will specify the expected number of 
+Active Contributors (3 or more). At the end of the Subscription Period, You will be charged Subscription fees according 
+to Your Subscription Plan based on the number of Active Contributors that You determined. Qodana checks the actual 
+number of Active Contributors at the end of every Subscription Period. If that number is higher than the number of 
+Active Contributors that You specified for that Subscription Period, You will not be charged for overuse. However, the 
+number of Active Contributors You specify for the next Subscription Period cannot be lower than the actual number from 
+the preceding Subscription Period.
+
+**Annual Subscriptions** – Fees for annual Subscriptions are charged as a combination of upfront payment for a number 
+of Active Contributors selected by You and additional charges for Active Contributors exceeding the prepaid number 
+during the Subscription Period (overuse):
+
+- **Prepayment** – At the beginning of Your annual Subscription, You will specify the expected monthly number of Active 
+Contributors (3 or more). You will be charged upfront for the Subscription fee, which will be calculated based on the 
+number of Active Contributors that You specified multiplied by the monthly fee per Active Contributor based on 
+Your Subscription Plan per each month of Your Subscription.
+- **Overuse** – Qodana will check the actual number of Active Contributors at the end of every calendar month. If the 
+actual number of Active Contributors exceeds the monthly number of Active Contributors that You specified, You will be 
+charged a Subscription fee for each Active Contributor exceeding the monthly number of prepaid Active Contributors. The 
+invoice for the overuse will be issued at the end of every calendar quarter and at the end of Your Subscription period 
+(unless the Subscription Period is renewed). If the number of actual Active Contributors during any month is lower than 
+the number of prepaid Active Contributors, We will not refund or otherwise credit the difference.
 
 ### Where does Qodana store all license information?
 
