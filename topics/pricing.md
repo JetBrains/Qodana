@@ -261,7 +261,7 @@ You can buy a %product% license for 3 (three) or more contributors.
 ### What do I need to know about subscription billing?
 
 Here is the billing description taken from the 
-[%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) text: 
+[%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/): 
 
 **Monthly Subscriptions** – At the beginning of each Subscription Period, You will specify the expected number of 
 Active Contributors (3 or more). At the end of the Subscription Period, You will be charged Subscription fees according 
