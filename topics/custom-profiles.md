@@ -44,6 +44,9 @@ inspections: # Group invocation
     enabled: true # Enable the InspectionsToInclude group
   - inspection: PhpNonCompoundUseInspection
     severity: WARNING # Overriding the severity level for PhpNonCompoundUseInspection
+  - inspection: MissortedModifiers
+    options:
+      m_requireAnnotationsFirst: false # Overriding the configuration option
 ```
 
 This sample consists of several nodes:
@@ -181,6 +184,7 @@ Using `inspections`, you can:
 * Define the order of applying these settings
 * Define the paths or scopes to be ignored by the specific group or the inspection
 * Change severity levels of the specific group or the inspection
+* Configure inspection options
 
 ```yaml
 inspections:
@@ -193,18 +197,21 @@ inspections:
       - "scope#file[*test*]:src/*"
   - group: DisabledInspections
     enabled: false
+  - inspection: MissortedModifiers
+    options:
+      m_requireAnnotationsFirst: false
 ```
 
 This sample contains several properties:
 
-| Property     | Description                                                                                                                                     |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `group`      | The ID of the group from the [`groupId`](#groups-groupid) property of an embedded or a user-defined group                                       |
-| `inspection` | The ID of the inspection                                                                                             |
+| Property     | Description                                                                                                                                      |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `group`      | The ID of the group from the [`groupId`](#groups-groupid) property of an embedded or a user-defined group                                        |
+| `inspection` | The ID of the inspection                                                                                                                         |
 | `severity`   | Severity level that will be assigned to a group of inspections or a single inspection. For example, you can specify `WARNING` instead of `ERROR` |
-| `ignore`     | List of paths using the [glob patterns](%wiki-glob%) and [scopes](%idea-scopes%) that will be ignored during inspection                         |
-| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                         |
-
+| `ignore`     | List of paths using the [glob patterns](%wiki-glob%) and [scopes](%idea-scopes%) that will be ignored during inspection                          |
+| `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                          |
+| `options`    | List of options that you can [configure for a specific inspection](#custom-profiles-examples-inspection-options)                                                                            |
 
 ## include
 
@@ -422,4 +429,34 @@ name: "My custom profile"
 inspections:  
   - inspection: JavadocReference
     severity: WARNING
+```
+
+### Configure inspection options
+{id="custom-profiles-examples-inspection-options"}
+
+Several inspections provide configuration options. You can find the list of available options on
+[GitHub](https://github.com/JetBrains/qodana-profiles/blob/master/.idea/inspectionProfiles/qodana.recommended.full.xml).
+
+For example, in case of the `MissingOverrideAnnotation` inspection you can find the `ignoreObjectMethods` and
+`ignoreAnonymousClassMethods` options:
+
+```xml
+<inspection_tool class="MissingOverrideAnnotation" enabled="true" level="INFORMATION" enabled_by_default="true">
+    <option name="ignoreObjectMethods" value="true" />
+    <option name="ignoreAnonymousClassMethods" value="false" />
+</inspection_tool>
+```
+
+This is how you can override these options in your profile:
+
+```yaml
+name: "My custom profile" # Profile name
+
+baseProfile: qodana.recommended
+
+inspections:
+  - inspection: MissingOverrideAnnotation
+    options:
+      ignoreObjectMethods: false
+      ignoreAnonymousClassMethods: true
 ```

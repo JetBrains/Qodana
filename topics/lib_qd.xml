@@ -1232,15 +1232,17 @@
         <tab title="Docker image" group-key="docker-image">
             <code style="block" lang="shell" prompt="$">
                 docker run \
-                -v $(pwd):/data/project/ \
-                jetbrains/qodana-&lt;linter&gt; \
-                --profile-name qodana.recommended
+                   -v $(pwd):/data/project/ \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                   jetbrains/qodana-&lt;linter&gt; \
+                   --profile-name qodana.recommended
             </code>
         </tab>
         <tab title="Qodana CLI" group-key="qodana-cli">
             <code style="block" lang="shell" prompt="$">
                 qodana scan \
-                -profile-name qodana.recommended
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                   -profile-name qodana.recommended
             </code>
         </tab>
     </tabs>
@@ -1252,17 +1254,19 @@
             <tab title="Docker image" group-key="docker-image">
                 <code style="block" lang="shell" prompt="$">
                     docker run \
-                    -v $(pwd):/data/project/ \
-                    -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
-                    jetbrains/qodana-&lt;linter&gt; \
-                    --profile-name &lt;profile-name-from-file&gt;
+                       -v $(pwd):/data/project/ \
+                       -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --profile-name &lt;profile-name-from-file&gt;
                 </code>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
-                    --profile-name &lt;profile-name-from-file&gt;
+                       -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --profile-name &lt;profile-name-from-file&gt;
                 </code>
             </tab>
         </tabs>
@@ -1281,17 +1285,19 @@
             <tab title="Docker image" group-key="docker-image">
                 <code style="block" lang="shell" prompt="$">
                     docker run \
-                    -v $(pwd):/data/project/ \
-                    -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
-                    jetbrains/qodana-&lt;linter&gt; \
-                    --profile-path /data/project/myprofiles/&lt;file-name&gt;
+                       -v $(pwd):/data/project/ \
+                       -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --profile-path /data/project/myprofiles/&lt;file-name&gt;
                 </code>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code style="block" lang="shell" prompt="$">
                     qodana scan \
-                    -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
-                    --profile-path /data/project/myprofiles/&lt;file-name&gt;
+                       -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --profile-path /data/project/myprofiles/&lt;file-name&gt;
                 </code>
             </tab>
         </tabs>
