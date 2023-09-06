@@ -3,7 +3,7 @@
 **Code coverage** uses generated reports to calculate overall code coverage inside a method, a class, and a file. 
 It also reports on the issues connected with the missing coverage in these entities.
 
-<note>File code coverage is available only in <a href="qodana-js.md"/> and <a href="qodana-php.md"/> linters.</note>
+<note>File code coverage is available only in <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/> and <a href="qodana-php.md"/> linters.</note>
 
 This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the 
 following linters:
