@@ -127,7 +127,7 @@ Now that you have configured and run the build, you can observe inspection resul
    <img src="teamcity-plugin-verification-1.png" alt="Navigating to the build entry" width="706" border-effect="line"/>
 
 2. On the build page, navigate to the **Qodana** tab to find the inspection report. To learn more about Qodana 
-reports, see the <a href="ui-overview.md">User interface overview</a> section of this documentation.
+reports, see the <a href="ui-overview.md"/> section of this documentation.
    <img src="teamcity-plugin-verification-2.png" alt="Navigating to the Qodana tab" width="706" border-effect="line"/>
 
 

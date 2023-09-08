@@ -1,6 +1,6 @@
 [//]: # (title: Open an HTML report)
 
-When you run %product% with the `--show-report` option, it starts a web server for immediate browsing the results.
+When you run %product% with the [`--show-report`](docker-image-configuration.xml#docker-config-reference-report-show-report) option, it starts a web server for immediate browsing the results.
 
 When you run %product% with the `--save-report` option, it stores an HTML version of the report in `/data/results/report`.
 This directory is typically mounted via Docker to let you view the HTML report later, independently of running %product%.

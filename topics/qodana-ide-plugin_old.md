@@ -2,7 +2,7 @@
 
 The Qodana IDE plugin is a JetBrains IDE plugin that provides a link between a Qodana report and your project opened in 
 an IDE, so you can navigate between the problems detected by a linter and use the **Open file in \<IDE\>** functionality 
-provided by the [Qodana UI](ui-overview.md). 
+provided by the [Qodana report](ui-overview.md). 
 
 This plugin is available by default in all JetBrains IDEs starting from version 2021.3. Otherwise, you can install it
 using [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/16938-qodana).   

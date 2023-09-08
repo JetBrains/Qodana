@@ -25,7 +25,7 @@
 
         <p>To improve the situation, you can add problems to the baseline and save them to the
             <code style="inline">qodana.sarif.json</code> file in your project directory as explained in the
-            <a href="ui-overview.md" anchor="Baseline"/> section of the %product% report description. Once done,
+            <a href="ui-overview.md" anchor="ui-overview-baseline"/> section of the %product% report description. Once done,
             this file becomes a basis for comparing with subsequent code states. You can run %product% with the baseline
             enabled using <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a>, Docker images of %product%,
             or <a href="qodana-ide-plugin.md">JetBrains IDEs</a>:
@@ -101,7 +101,7 @@
         <li>The first %product% run detected two problems in the codebase.</li>
 
         <li>To create a baseline for your project, download the <code style="inline">qodana.sarif.json</code> file and
-            save it to your project directory as shown in the <a href="ui-overview.md" anchor="Baseline"/> section.
+            save it to your project directory as shown in the <a href="ui-overview.md" anchor="ui-overview-baseline"/> section.
             Starting from this moment, these two problems are identified by %product% as baseline problems.
         </li>
 
