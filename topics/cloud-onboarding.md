@@ -35,7 +35,7 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 <p>Copy this public key and save it in your VCS on the project level. For example, read how to do it on: </p>
 
 <list>
-    <li>[GitLab](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html#create-a-project-access-token)</li> 
+    <li>[GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key)</li> 
     <li>[GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys) - start from step 2, i.e. skip the SSH key generation step</li>
     <li>[JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step</li>
 </list>
