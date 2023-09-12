@@ -65,6 +65,6 @@ You can apply quick-fix strategies using the following available options:
         </code>
     </tab>
     <tab title="CI pipeline" id="quick-fix-ci-pipeline">
-        <p>Learn the <a href="github.md"/> section for details.</p>
+        <p>Learn the <a href="github.md"/> and <a href="bitbucket.md"/> sections for details.</p>
     </tab>
 </tabs>
