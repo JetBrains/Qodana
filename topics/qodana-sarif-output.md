@@ -590,10 +590,15 @@ regular [`result`](#results) objects.
 ## SARIF severity
 
 The [SARIF severity values](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317648)
-correspond to the severity values of IntelliJ IDEA:
+correspond to the severity values of IntelliJ IDEA according to this table:
 
-* `error` corresponds to the `ERROR` severity of IntelliJ IDEA, errors are marked with red in the %product% user interface
-* `warning` corresponds to the `WARNING` severity of IntelliJ IDEA, errors are marked with orange in the %product% user interface
-* `note` in any other cases besides `error` and `warning`, errors are marked with yellow in the %product% user interface
+| IDE severity   | SARIF severity | [Qodana report](html-report.md) severity |
+|----------------|----------------|------------------------------------------|
+| `ERROR`        | `ERROR`        | `Critical`                               |
+| `WARNING`      | `WARNING`      | `High`                                   |
+| `WEAK WARNING` | `NOTE`         | `Moderate`                               |
+| `TYPO`         | `NOTE`         | `Low`                                    |
+| `INFORMATION`  | `NOTE`         | `Info`                                   |
+| `OTHER`        | `NOTE`         | `Info`                                   |
 
 The original IntelliJ IDEA inspection severity is stored in the `propertyBag` field of the same object.

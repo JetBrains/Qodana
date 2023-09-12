@@ -113,6 +113,7 @@ report, and overview it using the IDE.
 
 You can open and study [SARIF-formatted %product% reports](qodana-sarif-output.md) in your IDE. 
 
+<chunk id="ide-open-local-report">
 <procedure>
    <step>
         <p>In your IDE, navigate to <menupath>Tools | Qodana | Open Local Report</menupath>.</p>
@@ -124,7 +125,7 @@ You can open and study [SARIF-formatted %product% reports](qodana-sarif-output.m
       <p>In the <menupath>Server-Side Analysis</menupath> tool window, you can overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
    </step>
 </procedure>
-
+</chunk>
 
 ## Overview Qodana reports
 {id="ide-plugin-study-reports"}

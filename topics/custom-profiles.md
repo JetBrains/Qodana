@@ -168,12 +168,16 @@ Here, `groups` lists several values:
 
 {id="profile-severity-levels"}
 
-By default, %product% supports the following severity levels inherited from the JetBrains IDEs that you can use while
-configuring your profile:
+By default, %product% uses severity levels inherited from the JetBrains IDEs shown in this table:
 
-* Error
-* Warning
-* Weak Warning
+| IDE severity   | [SARIF](qodana-sarif-output.md) severity | [Qodana report](html-report.md) severity |
+|----------------|------------------------------------------|------------------------------------------|
+| `ERROR`        | `ERROR`                                  | `Critical`                               |
+| `WARNING`      | `WARNING`                                | `High`                                   |
+| `WEAK WARNING` | `NOTE`                                   | `Moderate`                               |
+| `TYPO`         | `NOTE`                                   | `Low`                                    |
+| `INFORMATION`  | `NOTE`                                   | `Info`                                   |
+| `OTHER`        | `NOTE`                                   | `Info`                                   |
 
 ## inspections
 {id="inspections-group"}
