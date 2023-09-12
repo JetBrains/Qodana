@@ -122,7 +122,7 @@ You can open and study [SARIF-formatted %product% reports](qodana-sarif-output.m
         <p>Select the SARIF-formatted report file you would like to open.</p>
    </step>
    <step>
-      <p>In the <menupath>Server-Side Analysis</menupath> tool window, you can overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+      <p >In the <menupath>Server-Side Analysis</menupath> tool window, you can overview inspection results.</p>
    </step>
 </procedure>
 </chunk>
