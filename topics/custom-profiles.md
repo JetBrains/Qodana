@@ -170,14 +170,14 @@ Here, `groups` lists several values:
 
 By default, %product% uses severity levels inherited from the JetBrains IDEs shown in this table:
 
-| IDE severity   | [SARIF](qodana-sarif-output.md) severity | [Qodana report](html-report.md) severity |
-|----------------|------------------------------------------|------------------------------------------|
-| `ERROR`        | `ERROR`                                  | `Critical`                               |
-| `WARNING`      | `WARNING`                                | `High`                                   |
-| `WEAK WARNING` | `NOTE`                                   | `Moderate`                               |
-| `TYPO`         | `NOTE`                                   | `Low`                                    |
-| `INFORMATION`  | `NOTE`                                   | `Info`                                   |
-| `OTHER`        | `NOTE`                                   | `Info`                                   |
+| IDE severity | [SARIF](qodana-sarif-output.md) severity | [Qodana report](html-report.md) severity |
+|--------------|------------------------------------------|------------------------------------------|
+| ERROR        | ERROR                                    | Critical                                 |
+| WARNING      | WARNING                                  | High                                     |
+| WEAK WARNING | NOTE                                     | Moderate                                 |
+| TYPO         | NOTE                                     | Low                                      |
+| INFORMATION  | NOTE                                     | Info                                     |
+| OTHER        | NOTE                                     | Info                                     |
 
 ## inspections
 {id="inspections-group"}

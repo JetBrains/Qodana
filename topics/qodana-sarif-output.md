@@ -594,11 +594,11 @@ correspond to the severity values of IntelliJ IDEA according to this table:
 
 | IDE severity   | SARIF severity | [Qodana report](html-report.md) severity |
 |----------------|----------------|------------------------------------------|
-| `ERROR`        | `ERROR`        | `Critical`                               |
-| `WARNING`      | `WARNING`      | `High`                                   |
-| `WEAK WARNING` | `NOTE`         | `Moderate`                               |
-| `TYPO`         | `NOTE`         | `Low`                                    |
-| `INFORMATION`  | `NOTE`         | `Info`                                   |
-| `OTHER`        | `NOTE`         | `Info`                                   |
+| ERROR`        | `ERROR`        | `Critical`                               |
+| WARNING`      | `WARNING`      | `High`                                   |
+| WEAK WARNING` | `NOTE`         | `Moderate`                               |
+| TYPO`         | `NOTE`         | `Low`                                    |
+| INFORMATION`  | `NOTE`         | `Info`                                   |
+| OTHER`        | `NOTE`         | `Info`                                   |
 
 The original IntelliJ IDEA inspection severity is stored in the `propertyBag` field of the same object.
