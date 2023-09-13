@@ -12,8 +12,8 @@ application of the [quick-fix](quick-fix.md), [quality gate](quality-gate.xml), 
 ## Prepare your project
 
 1. Using the Bitbucket Cloud UI, create a [repository](%repository%).
-2. In the Bitbucket Cloud repository, create a [pipeline](%pipeline%).This will generate the `bitbucket-pipelines.yml` file 
-where you can save the pipeline configuration.
+2. In the Bitbucket Cloud repository, create a [pipeline](%pipeline%). This will generate the `bitbucket-pipelines.yml` file 
+for storing a pipeline configuration.
 
 ## Basic configuration
 
@@ -24,7 +24,7 @@ This configuration will be used as a basis for all examples in this section.
 ## Quick-fixes
 
 This configuration uses the 
-[`fixes-strategy <cleanup/apply>`](docker-image-configuration.xml#docker-config-reference-quick-fix) option to invoke 
+[`--fixes-strategy <cleanup/apply>`](docker-image-configuration.xml#docker-config-reference-quick-fix) option to invoke 
 the [quick-fix](quick-fix.md) feature using either the `CLEANUP` or the `APPLY` strategy:
 
 ```yaml
@@ -40,7 +40,7 @@ pipelines:
           image: jetbrains/qodana-&lt;linter&gt;
           script:
             - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
-            - qodana --fixes-strategy &lt;cleanup/apply&gt; --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
+            - qodana --fixes-strategy <cleanup/apply> --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
           artifacts:
             - .qodana/report
 
@@ -51,8 +51,8 @@ definitions:
 
 ## Quality gate
 
-Using the [`fail-threshold`](docker-image-configuration.xml#docker-config-reference-quality-gate) option, you can 
-configure the limit of problems accepted:  
+Using the [`--fail-threshold`](docker-image-configuration.xml#docker-config-reference-quality-gate) option, you can 
+configure the limit of problems accepted in your project:  
 
 ```yaml
 image: atlassian/default-image:4
@@ -67,7 +67,7 @@ pipelines:
           image: jetbrains/qodana-&lt;linter&gt;
           script:
             - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
-            - qodana --fail-threshold &lt;number-of-problems&gt; --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
+            - qodana --fail-threshold <number-of-problems> --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
           artifacts:
             - .qodana/report
 
@@ -78,7 +78,7 @@ definitions:
 
 ## Baseline
 
-Use the [`baseline <path-to-sarif-file>`](docker-image-configuration.xml#docker-config-reference-baseline) option to 
+Use the [`--baseline <path/to/qodana.sarif.json>`](docker-image-configuration.xml#docker-config-reference-baseline) option to 
 specify the path to the SARIF-formatted file used as a [baseline](baseline.xml):
 
 ```yaml
@@ -94,7 +94,7 @@ pipelines:
           image: jetbrains/qodana-&lt;linter&gt;
           script:
             - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
-            - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
+            - qodana --baseline <path/to/qodana.sarif.json> --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
           artifacts:
             - .qodana/report
 

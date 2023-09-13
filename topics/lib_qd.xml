@@ -1431,7 +1431,8 @@
     </chunk>
 
     <chunk id="bitbucket-basic-configuration">
-        <p>Save this snippet to the <code>bitbucket-pipelines.yml</code>> file to make %product% run in a Bitbucket Cloud pipeline:</p>
+        <p>Here is the basic configuration snippet for the <code>bitbucket-pipelines.yml</code> file that lets you run %product%
+            in Bitbucket Cloud pipelines:</p>
 
         <code style="block" lang="yaml">
             image: atlassian/default-image:4
