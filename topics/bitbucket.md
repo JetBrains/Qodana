@@ -17,40 +17,7 @@ where you can contain the pipeline configuration.
 
 ## Basic configuration
 
-Save this snippet to the `bitbucket-pipelines.yml` file to make %product% run in a Bitbucket Cloud pipeline:
-
-```yaml
-image: atlassian/default-image:4
-
-pipelines:
-  branches:
-    main:
-      - step:
-          name: Qodana
-          caches:
-            - qodana
-          image: jetbrains/qodana-&lt;linter&gt;
-          script:
-            - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
-            - qodana --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache 
-          artifacts:
-            - .qodana/report
-
-definitions:
-  caches:
-    qodana: .qodana/cache
-```
-
-Here, the `branches` block specifies which branches to inspect.
-
-The `image` block specifies the %product% [linter](linters.md) that will be used in the pipeline.
-
-The `script` block contains the `- export QODANA_TOKEN=$QODANA_TOKEN` line that specifies the 
-[project token](project-token.md) required by Qodana Cloud and saved as the `$QODANA_TOKEN` 
-[repository variable](https://support.atlassian.com/bitbucket-cloud/docs/use-multiple-ssh-keys-in-your-pipeline/).
-
-The `- qodana ...` line tells Bitbucket which directories to use while running the pipeline and can also contain 
-%product% [options](docker-image-configuration.xml).
+<include src="lib_qd.xml" include-id="bitbucket-basic-configuration"/>
 
 This configuration will be used as a basis for all examples in this section. 
 

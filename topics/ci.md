@@ -5,9 +5,10 @@ integrated into virtually any Continuous Integration (CI) system in a similar ma
 
 <p><include src="lib_qd.xml" include-id="ui-note"/></p>
 
-Currently, %product% provides integration mechanisms for:
+You can learn more about %product% integration solutions provided for:
 
 - [](qodana-azure-pipelines.md)
+- [](bitbucket.md)
 - [](circleci.md)
 - [](github.md)
 - [](gitlab.md)
