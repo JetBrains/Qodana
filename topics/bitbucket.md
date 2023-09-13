@@ -13,7 +13,7 @@ application of the [quick-fix](quick-fix.md), [quality gate](quality-gate.xml), 
 
 1. Using the Bitbucket Cloud UI, create a [repository](%repository%).
 2. In the Bitbucket Cloud repository, create a [pipeline](%pipeline%).This will generate the `bitbucket-pipelines.yml` file 
-where you can contain the pipeline configuration.
+where you can save the pipeline configuration.
 
 ## Basic configuration
 
