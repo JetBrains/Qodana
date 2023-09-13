@@ -1430,4 +1430,47 @@
 
     </chunk>
 
+    <chunk id="qodana-severity-levels">
+
+        <table>
+            <tr>
+                <td>IDE severity</td>
+                <td filter="for-report">SARIF severity</td>
+                <td filter="for-profile"><a href="qodana-sarif-output.md">SARIF</a> severity</td>
+                <td><a href="ui-overview.md">Qodana report</a> severity</td>
+            </tr>
+            <tr>
+                <td>ERROR</td>
+                <td>ERROR</td>
+                <td>Critical</td>
+            </tr>
+            <tr>
+                <td>WARNING</td>
+                <td>WARNING</td>
+                <td>High</td>
+            </tr>
+            <tr>
+                <td>WEAK WARNING</td>
+                <td>NOTE</td>
+                <td>Moderate</td>
+            </tr>
+            <tr>
+                <td>TYPO</td>
+                <td>NOTE</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td>INFORMATION</td>
+                <td>NOTE</td>
+                <td>Info</td>
+            </tr>
+            <tr>
+                <td>OTHER</td>
+                <td>NOTE</td>
+                <td>Info</td>
+            </tr>
+        </table>
+
+    </chunk>
+
 </topic>
