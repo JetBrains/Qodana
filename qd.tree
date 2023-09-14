@@ -32,7 +32,7 @@
         </toc-element>
     </toc-element>
 
-    <!-- The beginning of the Installation section -->
+    <!-- The beginning of the Deployment section -->
     <!-- New file for docker images can be created here and new content can be created here as well -->
     <!-- Qodana GitHub action and Qodana TeamCity plugin installation options should be mentioned here-->
     <!-- Installation from the integration section may be added here -->
@@ -51,10 +51,11 @@
             <toc-element id="qodana-go-docker-readme.xml"/>
             <toc-element id="qodana-dotnet-docker-readme.xml"/>
         </toc-element>
-        <toc-element id="qodana-ide-plugin.md"/>
         <toc-element id="qodana_gradle_plugin.md"/>
         <toc-element id="service.md"/>
     </toc-element>
+
+    <toc-element id="qodana-ide-plugin.md"/>
 
     <!-- The beginning of the Configuration section -->
     <!-- A special introduction page can be created for this section -->
