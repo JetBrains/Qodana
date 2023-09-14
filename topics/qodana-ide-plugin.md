@@ -1,4 +1,4 @@
-[//]: # (title: IDE inte)
+[//]: # (title: IDE integration)
 
 Starting from version 2022.3, you can use [%product%](about-qodana.md) to inspect your codebase for problems and use
 the recommendations to eliminate them using JetBrains IDEs installed via 
