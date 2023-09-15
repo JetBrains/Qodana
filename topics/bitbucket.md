@@ -7,7 +7,7 @@
 gives teams one place to plan, collaborate, test, and deploy their code. This
 section explains how you can run %product% [Docker images](docker-images.md) within Bitbucket Cloud 
 [pipelines](%pipeline%) and covers 
-application of the [quick-fix](quick-fix.md), [quality gate](quality-gate.xml), and [baseline](baseline.xml) features.
+application of the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features.
 
 ## Prepare your project
 
@@ -19,35 +19,7 @@ for storing a pipeline configuration.
 
 <include src="lib_qd.xml" include-id="bitbucket-basic-configuration"/>
 
-This configuration will be used as a basis for all examples in this section. 
-
-## Quick-fixes
-
-This configuration uses the 
-[`--fixes-strategy <cleanup/apply>`](docker-image-configuration.xml#docker-config-reference-quick-fix) option to invoke 
-the [quick-fix](quick-fix.md) feature using either the `CLEANUP` or the `APPLY` strategy:
-
-```yaml
-image: atlassian/default-image:4
-
-pipelines:
-  branches:
-    main:
-      - step:
-          name: Qodana
-          caches:
-            - qodana
-          image: jetbrains/qodana-&lt;linter&gt;
-          script:
-            - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
-            - qodana --fixes-strategy <cleanup/apply> --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
-          artifacts:
-            - .qodana/report
-
-definitions:
-  caches:
-    qodana: .qodana/cache
-```
+This configuration will be used as a basis for all examples in this section.
 
 ## Quality gate
 
