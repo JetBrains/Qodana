@@ -1473,4 +1473,43 @@
 
     </chunk>
 
+    <chunk id="bitbucket-basic-configuration">
+        <p>Here is the basic configuration snippet for the <code>bitbucket-pipelines.yml</code> file that lets you run %product%
+            in Bitbucket Cloud pipelines:</p>
+
+        <code style="block" lang="yaml">
+            image: atlassian/default-image:4
+
+            pipelines:
+              branches:
+                main:
+                  - step:
+                      name: Qodana
+                      caches:
+                        - qodana
+                      image: jetbrains/qodana-&lt;linter&gt;
+                      script:
+                        - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
+                        - qodana --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
+                      artifacts:
+                        - .qodana/report
+
+            definitions:
+              caches:
+                qodana: .qodana/cache
+        </code>
+
+        <p>Here, the <code>branches</code> block specifies which branches to inspect.</p>
+
+        <p>The <code>image</code> block specifies the %product% <a href="linters.md">linter</a> that will be invoked in the pipeline.</p>
+
+        <p>The <code>script</code> block contains the <code>- export QODANA_TOKEN=$QODANA_TOKEN</code> line that specifies the
+            <a href="project-token.md">project token</a> required by Qodana Cloud and saved as the <code>$QODANA_TOKEN</code>
+            <a href="https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Secured-variables">variable</a>.
+            The <code>&#45; qodana ...</code> line in this block tells Bitbucket which directories to use while running
+            the pipeline, and it can also contain %product% <a href="docker-image-configuration.xml">options</a>.</p>
+
+    </chunk>
+
+
 </topic>

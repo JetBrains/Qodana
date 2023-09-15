@@ -17,6 +17,7 @@
     <list>
         <li><a anchor="cloud-forward-reports-local-run">Docker and Qodana CLI</a></li>
         <li><a anchor="cloud-forward-reports-azure">Azure Pipelines</a></li>
+        <li><a anchor="cloud-forward-reports-bitbucket">Bitbucket Cloud</a></li>
         <li><a anchor="cloud-forward-reports-circleci">CircleCI</a></li>
         <li><a anchor="cloud-forward-reports-github-actions">GitHub Actions</a></li>
         <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI/CD</a></li>
@@ -83,6 +84,15 @@
 
         <p>To learn more about %product% integration with Azure Pipelines, see the
             <a href="qodana-azure-pipelines.md"/> section of this documentation.</p>
+
+    </chapter>
+
+    <chapter id="cloud-forward-reports-bitbucket" title="Bitbucket Cloud">
+
+        <include src="lib_qd.xml" include-id="bitbucket-basic-configuration"/>
+
+        <p>To learn more about %product% integration with Bitbucket Cloud, see the
+            <a href="bitbucket.md"/> section of this documentation.</p>
 
     </chapter>
 

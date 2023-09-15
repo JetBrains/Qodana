@@ -99,6 +99,7 @@
     <!-- The beginning of the Integration section -->
     <toc-element id="ci.md">
         <toc-element id="qodana-azure-pipelines.md"/>
+        <toc-element id="bitbucket.md"/>
         <toc-element id="circleci.md"/>
         <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.html"/>
         <toc-element id="gitlab.md"/>
