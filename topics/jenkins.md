@@ -52,10 +52,7 @@ pipeline {
     stages {
         stage('Qodana') {
             steps {
-                sh '''
-                qodana \
-                --fail-threshold <number>
-                '''
+                sh '''qodana'''
             }
         }
     }
@@ -76,8 +73,7 @@ This configuration uses the `docker` agent to invoke %product% [Docker images](d
 and `image` specifies the Docker image invoked.  
 
 The `stage` block calls %product%. Here, you can also specify the [options](docker-image-configuration.xml) 
-you would like to configure %product% with. This configuration invokes the [quality gate](quality-gate.xml) feature 
-using the `--fail-threshold <number>` line. 
+you would like to configure %product% with like the [quality gate and baseline](#Quality+gate+and+baseline) features.
 
 ## Inspect specific branches
 
@@ -113,3 +109,36 @@ pipeline {
 
 You can inspect pull requests as described in the [Supporting Pull Requests](%JPullRequests%) section
 of the Jenkins documentation.
+
+## Quality gate and baseline
+
+This configuration invokes the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features using the 
+`--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines specified in the `steps` block.
+
+```groovy
+pipeline {
+    environment {
+        QODANA_TOKEN=credentials('qodana-token')
+    }
+    agent {
+        docker {
+            args '''
+              -v "${WORKSPACE}":/data/project
+              --entrypoint=""
+              '''
+            image 'jetbrains/qodana-<linter>'
+        }
+    }
+    stages {
+        stage('Qodana') {
+            steps {
+                sh '''
+                qodana \
+                --fail-threshold <number> \
+                --baseline <path/to/qodana.sarif.json>
+                '''
+            }
+        }
+    }
+}
+```

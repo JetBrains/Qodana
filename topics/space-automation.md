@@ -28,9 +28,7 @@ job("Qodana") {
         env["QODANA_TOKEN"] = Secrets("qodana-token")
         shellScript {
             content = """
-               qodana \
-               --fail-threshold <number> \ 
-               --profile-name <profile-name>
+               qodana
                """.trimIndent()
         }
     }
@@ -50,8 +48,9 @@ and is optional for using with the Community linters. You can see these sections
 Once the project token is generated, in the **Settings** section of your JetBrains Space environment 
 [create a secret](%Space-secret%) with the `qodana-token` name. Save the project token as the value for this secret.
 
-The `shellScript` block contains the `qodana` command for running %product% and enumerates the 
-[options](docker-image-configuration.xml) that should be used during the run. 
+The `shellScript` block contains the `qodana` command for running %product%, and it can also contain the 
+[options](docker-image-configuration.xml) that can be used during the run like [quality gate](quality-gate.xml) or 
+[baseline](baseline.xml).
 
 ## Inspect specific branches
 
@@ -76,11 +75,29 @@ job("Qodana") {
        env["QODANA_TOKEN"] = Secrets("qodana-token")
        shellScript {
            content = """
-               qodana \
-               --fail-threshold <number> \ 
-               --profile-name <profile-name>
+               qodana
                """.trimIndent()
       }
    }
+}
+```
+
+## Quality gate and baseline
+
+You can use the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `shellScript` 
+block to invoke the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features.
+
+```kotlin
+job("Qodana") {
+    container("jetbrains/qodana-<linter>") {
+        env["QODANA_TOKEN"] = Secrets("qodana-token")
+        shellScript {
+            content = """
+               qodana \
+               --fail-threshold <number> \ 
+               --baseline <path/to/qodana.sarif.json>
+               """.trimIndent()
+        }
+    }
 }
 ```

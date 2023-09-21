@@ -11,6 +11,7 @@ section explains how you can run %product% [Docker images](docker-images.md) wit
 * Inspecting specific branches and merge requests
 * Forwarding inspection reports to [Qodana Cloud](cloud-about.xml)
 * Exposing %product% reports in the GitLab CI/CD user interface
+* Using the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features
 
 ## Prepare your project
 
@@ -58,7 +59,6 @@ You can see these sections to learn how to generate the project token:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
 * The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
-
 
 ## Inspect specific branches
 
@@ -122,6 +122,35 @@ Assuming that you have configured your pipeline in a similar manner, this is wha
 
 2. Available actions for a given exposed Qodana artifact
    <img src="gitlab-exposed-artifacts-expanded.png" alt="Available actions for a given exposed Qodana artifact" width="706" border-effect="line"/>
+
+## Quality gate and baseline
+
+You can use the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `script` block to 
+invoke the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features.
+
+```yaml
+qodana:
+   image:
+      name: jetbrains/qodana-<linter>
+      entrypoint: [""]
+   cache:
+      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+        fallback_keys:
+           - qodana-2023.2-$CI_DEFAULT_BRANCH-
+           - qodana-2023.2-
+        paths:
+           - .qodana/cache
+   variables:
+      QODANA_TOKEN: $qodana_token           - 
+   script:
+      - qodana --fail-threshold <number> --baseline <path/to/qodana.sarif.json> --results-dir=$CI_PROJECT_DIR/.qodana/results
+         --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+   artifacts:
+      paths:
+         - qodana/report/
+      expose_as: 'Qodana report'
+```
+
 
 <seealso>
     <category ref="external">
