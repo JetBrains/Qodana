@@ -94,10 +94,11 @@ it in the **PROBLEMS** tab of Visual Studio Code. If it is not the case, configu
 
 ## Troubleshooting
 
-To disconnect from Qodana Cloud, you can use the **Qodana: Reset authentication** command. This can be useful in case you
-have several organizations under different Qodana Cloud accounts, or when you need to reset the connection without clearing
-settings.
+To disconnect from Qodana Cloud, you can use the **Qodana: Reset authentication** command. This can be useful in case 
+you have several organizations under different Qodana Cloud accounts, or when you need to reset the connection 
+without clearing settings.
 
-To reset all settings and credentials, you can use the **Qodana: Reset all settings** command.
+To reset all settings and credentials, you can use the **Qodana: Reset all settings** command. This can be useful when
+you face problems with downloading reports.
 
  
