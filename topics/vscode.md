@@ -10,16 +10,13 @@ This section shows how to use Visual Studio Code version 1.81 and later for over
 ## Before you start
 
 Make sure that you have a Qodana Cloud [project](cloud-projects.xml), and this project has at 
-least one inspection [report](cloud-overview-reports.xml) related to the project opened by Visual Studio Code. Also,
-make sure that you have accepted the [%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) in
-Qodana Cloud.
-
-Finally, check whether Java 11 or never is available on your machine running the `java -version` command. If necessary, 
+least one inspection [report](cloud-overview-reports.xml) related to the project opened by Visual Studio Code. 
+Also, check whether Java 11 or later is installed on your machine by running the `java -version` command. If necessary, 
 install Java on your local machine.  
 
 ## Configure the extension
 
-In Visual Studio Code, install the **Qodana Cloud Plugin** extension. After installation, you can configure it.
+In Visual Studio Code, install the **Qodana** extension. After installation, you can configure it.
 
 <img src="vscode-settings.png" dark-src="vscode-settings_dark.png" width="706" alt="Qodana settings in VS Code" border-effect="line"/>
 
@@ -33,7 +30,7 @@ You can configure the extension using the following settings:
 <tr>
 <td>Path Prefix</td>
 <td><p>If necessary, you can override the project path prefix. Here is the rule how the full path to project files is composed:</p>
-<p>Full Path = Workspace + Path Prefix + Path in the <a href="qodana-sarif-output.md">SARIF</a> file</p>
+<p>Full Path = Workspace + Path Prefix + Path in a <a href="qodana-sarif-output.md">SARIF</a> file</p>
 <p>Here are examples of how to define the correct path prefix:</p>
 <table>
 <tr>
@@ -62,7 +59,7 @@ You can configure the extension using the following settings:
 </tr>
 </table>
 <p>In a <a href="ui-overview.md">Qodana Cloud report</a>, you can check with the <menupath>Files</menupath> section to 
-see how the path in the SARIF file is set.</p>
+see how the path in a SARIF file is set.</p>
 <p>Feel free to commit the <code>.vscode/settings.json</code> to your repository to share the Qodana settings with your team!</p>
 </td>
 </tr>
