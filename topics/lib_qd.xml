@@ -1328,6 +1328,7 @@
             <li><a href="baseline.xml"/></li>
             <li><a href="quality-gate.xml"/></li>
             <li><a href="license-audit.xml"/></li>
+            <li><a href="vulnerability-checker.md"/></li>
         </list>
 
         <list filter="dotnet">

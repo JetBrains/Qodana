@@ -238,10 +238,13 @@ to using Qodana Cloud in this case.
 No, you don’t have to provide any payment details until you decide to buy a license for either the Ultimate or Ultimate 
 Plus version of Qodana, which you can do after the trial period ends.
 
-### Can I switch between trial licenses?
+### Can I switch between licenses?
 
-Yes, you can switch between trial licenses for the Ultimate and Ultimate Plus versions one time using your 
+Yes, you can switch between trial versions of the Ultimate and Ultimate Plus licenses one time using your 
 JetBrains Account.
+
+You can also switch from the trial version of the Ultimate and Ultimate Plus licenses to the Community license.
+In this case, you cannot switch back from the Community license to the Ultimate or Ultimate Plus licenses.
 
 ### What are the license costs comprised of?
 
