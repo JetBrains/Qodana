@@ -84,7 +84,7 @@ redirect you to the plugin configuration page.
 continue, you need to log in to Qodana Cloud.
 * **Attached to report** means that the report was downloaded from Qodana Cloud, and now you can 
 [overview](#Overview+inspection+reports) it in the Visual Studio Code UI. 
-* 
+
 ## Overview inspection reports
 
 Once configured, the extension connects to Qodana Cloud and downloads the latest %product% report, so you can overview 
@@ -92,7 +92,11 @@ it in the **PROBLEMS** tab of Visual Studio Code. If it is not the case, configu
 
 <img src="vscode-problems-tab.png" dark-src="vscode-problems-tab_dark.png" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
 
-To disconnect from Qodana Cloud, you can use the **Qodana: Reset authentication** command. 
+## Troubleshooting
+
+To disconnect from Qodana Cloud, you can use the **Qodana: Reset authentication** command. This can be useful in case you
+have several organizations under different Qodana Cloud accounts, or when you need to reset the connection without clearing
+settings.
 
 To reset all settings and credentials, you can use the **Qodana: Reset all settings** command.
 
