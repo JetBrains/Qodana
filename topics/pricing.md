@@ -247,8 +247,8 @@ JetBrains Account.
 
 The total license cost is based on the number of contributors. A contributor is a person who commits 
 to any number of Qodana Cloud projects within the same organization and under a single license. During the 
-[onboarding](cloud-onboarding.md) stage, Qodana Cloud obtains the list of all unique committers from all branches of a Git 
-repository, which then becomes the list of contributors. The minimal number of contributors used for licensing is 3.  
+[onboarding](cloud-onboarding.md) stage, Qodana Cloud requests your repository URL to calculate contributors. 
+The minimal number of contributors used for licensing is 3. 
 
 The number of contributors is calculated every 90 days. For example, if you buy a license for 10 contributors, 
 but during the first 90 days this number rises to 20, then, in the following 90-day period, the license costs will be 
