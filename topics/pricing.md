@@ -170,7 +170,7 @@ only offers a limited period for [data storage](#pricing-data-storage) in Qodana
 The trial versions of the Ultimate or Ultimate Plus licenses are limited by a 60-day trial period. After the trial 
 license expires, you'll have to purchase either the Ultimate or the Ultimate Plus license to continue using Qodana.
 
-You can study the %product% Terms of Service on the [JetBrains](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) website. 
+You can study the [%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) on the JetBrains website. 
 
  ## Frequently asked questions
 
@@ -245,14 +245,19 @@ JetBrains Account.
 
 ### What are the license costs comprised of?
 
-The total license cost is based on the number of contributors. A contributor is a person who commits 
-to any number of Qodana Cloud projects within the same organization and under a single license. During the 
-[onboarding](cloud-onboarding.md) stage, Qodana Cloud requests your repository URL to calculate contributors. 
-The minimal number of contributors used for licensing is 3. 
+The total license cost is based on the number of active contributors. An active contributor is a person who commits 
+to any number of Qodana Cloud projects during the latest 90 days, within the same organization, and under a single 
+license. During the [onboarding](cloud-onboarding.md) stage and while creating a new [project](cloud-projects.xml), Qodana 
+Cloud requests your repository URL to calculate contributors. The minimal number of contributors used for licensing is 3 (three). 
 
-The number of contributors is calculated every 90 days. For example, if you buy a license for 10 contributors, 
-but during the first 90 days this number rises to 20, then, in the following 90-day period, the license costs will be 
-recalculated for 20 contributors.
+The number of actual contributors is calculated based on the subscription plan. For example, using the monthly 
+subscription, on the 1st day of the month you bought a license for 10 (ten) contributors. Within that same month, Qodana 
+found that your project had 20 (twenty) active contributors. In this case, for the upcoming month the license costs would 
+be recalculated for 20 (twenty) contributors. At the end of the second month, the license costs would be recalculated 
+again based on the actual number of active contributors found within that month.
+
+For more details, see the **Fees and Payments** section of the 
+[%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/).
 
 ### What is the minimum number of contributors I can buy the license for?
 
