@@ -240,11 +240,18 @@ Plus version of Qodana, which you can do after the trial period ends.
 
 ### Can I switch between licenses?
 
-Yes, you can switch between trial versions of the Ultimate and Ultimate Plus licenses one time using your 
+Yes, you can switch one time between trial versions of the Ultimate and Ultimate Plus licenses using your 
 JetBrains Account.
 
-You can also switch from the trial version of the Ultimate and Ultimate Plus licenses to the Community license.
-In this case, you cannot switch back from the Community license to the Ultimate or Ultimate Plus licenses.
+You can also switch one time from the trial version of the Ultimate and Ultimate Plus licenses to the Community license.
+Once you convert your trial license to the Community license, the process is irreversible. Ensure you are making an 
+informed decision. Remember that the Community license does not support all the 
+[features](#Features+and+third-party+software+support) available in the Ultimate or Ultimate Plus subscriptions. 
+If you wish to revert back to the Ultimate or Ultimate Plus subscription after conversion, you will need to initiate a 
+paid subscription.
+
+After the trial period has ended, this one-time limitation is shifted, and you can switch between subscription plans 
+the unlimited number of times. In this case, however, all purchased subscriptions are not refunded.
 
 ### What are the license costs comprised of?
 
