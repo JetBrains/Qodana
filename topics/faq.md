@@ -2,10 +2,6 @@
 
 Here is the collection of questions that may let you understand %product% better.
 
-## What can I read about %product?
-
-You can study the [](about-qodana.md) section for better understanding of what %product% is.
-
 ## Can I use Qodana right away, or is customization required?
 
 You can use various ways to run %product% as described on the [](Quick-start.xml) page. All of them require the 
@@ -47,8 +43,11 @@ On that page, you can also study how to set up the default profiles.
 
 ## How can I select the best profile for my project?
 
-You can use either the [`qodana.recommended`](inspection-profiles.md#Default+profiles) profile, or 
-[create](custom-profiles.md) your own profile that will best fit your goals.
+You can use the [`qodana.recommended`](inspection-profiles.md#Default+profiles) profile because it already contains
+the most usable inspections invoked by the default JetBrains IDEs profiles, so no additional configuration 
+is required.  
+
+Alternatively, you can [create](custom-profiles.md) your own profile that will best fit your goals.
 
 ## How can I customize the checks performed by Qodana?
 
@@ -68,10 +67,6 @@ is available by default in the [Qodana Scan](github.md) GitHub action.  If this 
 our tracker or contact us at `qodana-support@jetbrains.com` and attach logs from the `/data/results` directory that you 
 can access them mounting your directory to the path or if you are using GitHub actions, they are uploaded to the 
 workflow artifacts.
-
-## How to make Qodana check formatting rules for Kotlin?
-
-All you need to do is to add IncorrectFormatting inspection to `qodana.yaml`.
 
 ## Does Qodana support custom checks?
 
@@ -97,8 +92,7 @@ in your CI.
 ## Why is there a need to set up SSH keys in my repository?
 
 The SSH key lets %product% identify the repository of the inspected project and calculate the number of contributors, 
-which is a requirement for the Ultimate and Ultimate Plus [license](pricing.md) use. If you plan to run %product%
-under the Community license, you do not need to set up SSH keys.  
+which is a requirement for all types of [licenses](pricing.md).  
 
 ## Is there an option for a self-hosted or on-premises version of Qodana?
 
@@ -106,8 +100,9 @@ You can run %product% under the Community license, which will not require from y
 
 ## Do I really need Qodana Cloud if I want to use Qodana?
 
-You do not need to use Qodana Cloud if you plan to run %product% in your [IDE](qodana-ide-plugin.md), or in case
-you need only the [Community license](pricing.md) features.
+Using Qodana Cloud, you can get access to all [features](pricing.md#Features+and+third-party+software+support) provided 
+by %product% [linters](linters.md). You can also open %product% reports using your [IDE](qodana-ide-plugin.md), and you 
+need to use Qodana Cloud for this. 
 
 ## How can I use multiple linters in one project?
 
@@ -115,14 +110,24 @@ You can use multiple linters as described in the [](monorepo-project.md) section
 
 ## What does each %product% linter represent?
 
-A linter is a %product% component representing a specific technology covered by it. For example, the 
+A linter is a %product% component representing a specific technology. For example, the 
 [Qodana for JVM](qodana-jvm.md) linter lets you inspect the codebase containing the Java, Kotlin, and Groovy code, while
-using the [Qodana for JS](qodana-js.md) linter you can check the JavaScript and TypeScript code. The detailed information
-about all supported technologies is provided on the respective linter pages. 
+using the [Qodana for JS](qodana-js.md) linter you can check the JavaScript and TypeScript code. On the [](linters.md) 
+page, you can find the list of all available linters and the links to the detailed description of each linter. 
 
 ## Where can I run %product%?
 
-You can run %product% locally using either the [JetBrains IDEs](qodana-ide-plugin.md) or the [Docker images](docker-images.md), 
-or you can inspect your code in [CI pipelines](ci.md). 
+You can run %product% in your [CI pipelines](ci.md). You can inspect your code locally using either the 
+[JetBrains IDEs](qodana-ide-plugin.md) or the [Docker images](docker-images.md). 
 
-## What alternatives do I have if I prefer not to use Qodana Cloud?
+## I work solo on my project, can I still use Qodana? 
+
+Yes, but the minimum billing is set for 3 contributors.
+
+## Is there a way to determine the number of contributors in my repositories prior to initiating Qodana? 
+
+Yes, you can use this command to check the number of contributors: 
+
+```shell
+git log --format='%aN' | sort -u | wc -l
+```
