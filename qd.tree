@@ -55,7 +55,11 @@
         <toc-element id="service.md"/>
     </toc-element>
 
-    <toc-element id="qodana-ide-plugin.md"/>
+    <toc-element title="IDE integration">
+        <toc-element id="qodana-ide-plugin.md"/>
+        <toc-element id="vscode.md"/>
+    </toc-element>
+
 
     <!-- The beginning of the Configuration section -->
     <!-- A special introduction page can be created for this section -->
