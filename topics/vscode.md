@@ -75,7 +75,7 @@ For example, from the URL <code>https://qodana.cloud/projects/AGvmx/reports/EDKY
 In the status bar of the Visual Studio Code UI, you can find the **Qodana** icon. This icon can have the following states:
 
 * **Settings are not valid** means that you need to configure the extension. To do it, you can click this icon, which will 
-redirect you to the plugin configuration page.
+redirect you to the extension configuration page.
 * **Not attached to report** means that you have configured the extension, but the report has not been downloaded yet. To 
 download the report, click the icon. 
 * **Attached to report** means that the report was downloaded from Qodana Cloud, and now you can 
