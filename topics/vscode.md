@@ -10,6 +10,9 @@ least one inspection [report](cloud-overview-reports.xml) related to the project
 Also, check whether Java 11 or later is installed on your machine by running the `java -version` command. If necessary, 
 install Java on your local machine.  
 
+Download the extension file from the [GitHub](https://github.com/qodana/qodana-lsp/actions/runs/6314930280) website, 
+from the **Artifacts** section.  
+
 ## Configure the extension
 
 In Visual Studio Code, install the **Qodana** extension. After installation, you can configure it.
