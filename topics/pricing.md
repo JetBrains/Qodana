@@ -176,6 +176,10 @@ You can study the [%product% Terms of Service](https://www.jetbrains.com/legal/d
 
 <!-- This needs to be grouped by licenses and Qodana Cloud -->
 
+<chapter id="faq-pricing-start" title="What do I need to start using Qodana?" initial-collapse-state="collapsed">
+
+</chapter>
+
 ### What do I need to start using Qodana?
 {id="faq-start-using-qodana"}
 
@@ -217,6 +221,10 @@ this section.
 
 You can run %product% linters available under the Community license without using Qodana Cloud, but there are no obstacles
 to using Qodana Cloud in this case. 
+
+### Which minimum steps do I need to perform in Qodana Cloud?
+
+All the required steps are described in the [Quick start](cloud-quickstart.md) section of the Qodana Cloud documentation.
 
 ### What are the EAP and trial licenses?
 
@@ -316,10 +324,6 @@ Compared to the Ultimate license, the Ultimate Plus license provides the followi
     <li><a href="taint-analysis.md">Taint analysis</a></li>
     <li><a href="vulnerability-checker.md"/></li>
 </list>
-
-### Which minimum steps do I need to perform in Qodana Cloud?
-
-All the required steps are described in the [Quick start](cloud-quickstart.md) section of the Qodana Cloud documentation.
 
 ### Are there any restrictions on using the Community license?
 
