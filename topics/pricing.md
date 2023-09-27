@@ -176,7 +176,26 @@ You can study the [%product% Terms of Service](https://www.jetbrains.com/legal/d
 
 <!-- This needs to be grouped by licenses and Qodana Cloud -->
 
-<chapter id="faq-pricing-start" title="What do I need to start using Qodana?" initial-collapse-state="collapsed">
+<chapter id="faq-start-using-qodana" title="What do I need to start using Qodana?" initial-collapse-state="collapsed">
+
+1. You can navigate to the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) page on the JetBrains
+   website and select the subscription option you would like to use.
+
+If you choose the Ultimate or Ultimate Plus trial license, you will be redirected to the
+[onboarding](cloud-onboarding.md) page of Qodana Cloud. This is also applicable for the Community license.
+
+If you plan to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to the JetBrains account
+page for payment details. After the payment, you will be redirected to the [onboarding](cloud-onboarding.md) page of
+Qodana Cloud.
+
+2. During the onboarding stage on the Qodana Cloud website, you’ll generate a public key that will be
+   identified by %product%, as well as a project token for uploading %product% reports to your first project.
+   Although the Community license does not require a Qodana Cloud account, it will be more convenient to use Qodana Cloud
+   in this case too.
+
+<note>The Community license provides restricted functionalities compared to the Ultimate and Ultimate Plus licenses. See
+<a anchor="license-comparison-matrix">the comparison matrix</a> for more details.</note>
+
 
 </chapter>
 
