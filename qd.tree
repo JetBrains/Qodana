@@ -57,7 +57,7 @@
 
     <toc-element toc-title="IDE integration">
         <toc-element id="qodana-ide-plugin.md"/>
-        <!--<toc-element id="vscode.md"/>-->
+        <toc-element id="vscode.md"/>
     </toc-element>
 
 

@@ -10,12 +10,14 @@ least one inspection [report](cloud-overview-reports.xml) related to the project
 Also, check whether Java 11 or later is installed on your machine by running the `java -version` command. If necessary, 
 install Java on your local machine.  
 
-Download the extension file from the [GitHub](https://github.com/qodana/qodana-lsp/actions/runs/6314930280) website, 
-from the **Artifacts** section.  
+Download and install **Qodana** the extension from the 
+[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana-code) website, 
+or by navigating to the **Extensions** view in Visual Studio Code.  
 
 ## Configure the extension
+{id="vs-code-configure-extension"}
 
-In Visual Studio Code, install the **Qodana** extension. After installation, you can configure it.
+Here is an overview of the **Qodana** configuration page. 
 
 <img src="vscode-settings.png" dark-src="vscode-settings_dark.png" width="706" alt="Qodana settings in VS Code" border-effect="line"/>
 
@@ -82,19 +84,21 @@ redirect you to the extension configuration page.
 * **Not attached to report** means that you have configured the extension, but the report has not been downloaded yet. To 
 download the report, click the icon. 
 * **Attached to report** means that the report was downloaded from Qodana Cloud, and now you can 
-[overview](#Overview+inspection+reports) it using Visual Studio Code. 
+[overview](#vs-code-overview-reports) it using Visual Studio Code. 
 
 ## Overview inspection reports
+{id="vs-code-overview-reports"}
 
 Once configured, the extension connects to Qodana Cloud and downloads the latest %product% report, so you can overview 
 it in the **PROBLEMS** tab of Visual Studio Code. If you still do not see the report in the **PROBLEMS** tab, configure 
-the [**Path prefix**](#Configure+the+extension) setting. 
+the [**Path prefix**](#vs-code-configure-extension) setting. 
 
 On this tab, you can click problem items and navigate to code fragments where %product% detected them.
 
 <img src="vscode-problems-tab.png" dark-src="vscode-problems-tab_dark.png" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
 
 ## Troubleshooting
+{id="vs-code-troubleshooting"}
 
 ### I need to switch to another Qodana Cloud account
 
