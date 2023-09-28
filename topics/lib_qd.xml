@@ -1308,34 +1308,97 @@
 
         <p>The %linter% linter provides the following %product% features:</p>
 
-        <list filter="php">
-            <li><a href="baseline.xml"/></li>
-            <li><a href="quality-gate.xml"/></li>
-            <li><a href="php-language-upgrade.xml"/></li>
-            <li><a href="license-audit.xml"/></li>
-            <li><a href="vulnerability-checker.md"/></li>
-            <li><a href="taint-analysis.md"/></li>
-        </list>
+        <table filter="php">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="php-language-upgrade.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="taint-analysis.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
 
-        <list filter="jvm">
-            <li><a href="baseline.xml"/></li>
-            <li><a href="quality-gate.xml"/></li>
-            <li><a href="license-audit.xml"/></li>
-            <li><a href="vulnerability-checker.md"/></li>
-        </list>
+        <table filter="jvm">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
 
-        <list filter="non-jvm">
-            <li><a href="baseline.xml"/></li>
-            <li><a href="quality-gate.xml"/></li>
-            <li><a href="license-audit.xml"/></li>
-        </list>
+        <table filter="non-jvm">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
 
-        <list filter="dotnet">
-            <li><a href="baseline.xml"/></li>
-            <li><a href="quality-gate.xml"/></li>
-        </list>
-
-
+        <table filter="dotnet">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+        </table>
+        <p filter="community">
+            Under the Community license, the %linter% linter provides the <a href="baseline.xml"/> and
+            <a href="quality-gate.xml"/> features.
+        </p>
     </chunk>
 
     <chunk id="github-basic-configuration">
