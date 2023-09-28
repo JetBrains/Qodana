@@ -58,7 +58,7 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="community"/>
+<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,community"/>
 
 ## Try it now
 
