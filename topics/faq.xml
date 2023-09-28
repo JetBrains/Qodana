@@ -13,7 +13,9 @@
     <chapter id="faq-how-can-i-run" title="How can I run %product%?" initial-collapse-state="collapsed">
 
     <p>You can run %product% in your <a href="ci.md">CI pipelines</a>. You can inspect your code locally using either the
-    <a href="qodana-ide-plugin.md">JetBrains IDEs</a> or available <a href="docker-images.md">Docker images</a>.</p>
+    <a href="qodana-ide-plugin.md">JetBrains IDEs</a>, the
+        <a href="https://github.com/JetBrains/qodana-cli">%product% CLI</a> tool, or available
+        <a href="docker-images.md">Docker images</a>.</p>
 
     </chapter>
 
@@ -84,7 +86,7 @@
     </chapter>
 
     <chapter id="faq-qodana-cloud-use" title="Do I really need Qodana Cloud if I want to use Qodana?" initial-collapse-state="collapsed">
-    <p>Using Qodana Cloud, you can get access to all
+    <p>Using Qodana Cloud, you can upload and overview %product% reports from a single place, and get access to all
     <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> provided by %product%
         <a href="linters.md">linters</a>. You can also open %product% reports using your <a href="qodana-ide-plugin.md">IDE</a>,
         and you need Qodana Cloud for these purposes.</p>
@@ -136,16 +138,15 @@
         <list>
             <li><p>You can navigate to the <a href="https://www.jetbrains.com/qodana/buy/">Subscription Options and Pricing</a> page on
                 the JetBrains website and select the subscription option you would like to use.</p>
-                <p>If you choose the Ultimate or Ultimate Plus trial license, you will be redirected to the
-                    <a href="cloud-onboarding.md">onboarding</a> page of Qodana Cloud. This is also applicable for the Community license.</p>
-                <p>If you plan to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to the JetBrains account
+                <p>If you choose the Community license or the trial version of the Ultimate or Ultimate Plus licenses, you will be
+                    redirected to the <a href="cloud-onboarding.md">onboarding</a> page of Qodana Cloud.</p>
+                <p>If you would like to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to the JetBrains account
                     page for payment details. After the payment, you will be redirected to the <a href="cloud-onboarding.md">onboarding</a> page of
                     Qodana Cloud.</p>
             </li>
             <li>During the onboarding stage on the Qodana Cloud website, you’ll generate a public key that will be
-                identified by %product%, as well as a project token for uploading %product% reports to your first project.
-                Although the Community license does not require a Qodana Cloud account, it will be more convenient to use Qodana Cloud
-                in this case too.</li>
+                identified by %product%, as well as a <a href="project-token.md">project token</a> for uploading %product%
+                reports to your first project. </li>
         </list>
         <note>The Community license provides restricted functionalities compared to the Ultimate and Ultimate Plus licenses. See
             <a href="pricing.md" anchor="license-comparison-matrix">the comparison matrix</a> for more details.</note>
@@ -153,8 +154,12 @@
 
     <chapter id="faq-licensing-try-before-buy" title="Can I try Qodana before buying a license?" initial-collapse-state="collapsed">
         <p>Yes, you can choose either the Ultimate or Ultimate Plus trial license and start using Qodana for a 60-day trial period.
+            During this period, you can switch one time between these licenses.
             After 60 days, you’ll need to buy either the Ultimate or Ultimate Plus license to continue using Qodana in your projects.
         </p>
+        <p>You can also choose the Community license, but keep in mind that it provides restricted functionalities
+            compared to the Ultimate and Ultimate Plus licenses. Switching to the Community license from the Ultimate
+        or Ultimate Plus licenses means termination of the trial license, which is irreversible.</p>
     </chapter>
 
     <chapter id="faq-licensing-linters-and-cloud" title="What are %product% linters and Qodana Cloud designed for?" initial-collapse-state="collapsed">
@@ -165,11 +170,9 @@
     </chapter>
 
     <chapter id="faq-licensing-using-without-cloud" title="Can I use %product% linters without creating a Qodana Cloud account?" initial-collapse-state="collapsed">
-        <p>If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account at Qodana Cloud and accomplish
-            the <a href="cloud-onboarding.md">onboarding</a> stage. For more details, see the
-            <a anchor="faq-licensing-start-using-qodana">question</a> in this section.</p>
-        <p>You can run Community linters of %product% without using Qodana Cloud, but you will not be able to make use
-            of Qodana Cloud <a href="cloud-use-cases.xml">features</a>.</p>
+        <p>All licenses require that you create an account at Qodana Cloud and accomplish
+            the <a href="cloud-onboarding.md">onboarding</a> stage. For more details, see
+            <a anchor="faq-licensing-start-using-qodana">this question</a>.</p>
     </chapter>
 
     <chapter id="faq-licensing-minimum-cloud-steps" title="What minimum steps do I need to perform in Qodana Cloud?" initial-collapse-state="collapsed">
@@ -182,7 +185,8 @@
         licenses will expire, which means users will have to switch to a trial license.</p>
 
         <p>A trial license is a time-limited version of either the Ultimate or the Ultimate Plus license. Each trial license
-        duration is limited to 60 days, after which this type of license is no longer valid and cannot be used further. To
+        duration is limited to 60 days, and you can change it one time from Ultimate to Ultimate Plus or vice versa.
+            After the trial period ends, this type of license is no longer valid and cannot be used further. To
             continue using %product%, you’ll have to buy a full version of your license.</p>
     </chapter>
 
@@ -271,10 +275,28 @@
     </chapter>
 
     <chapter id="faq-licensing-cloud-license-storage" title="Where does Qodana store all license information?" initial-collapse-state="collapsed">
-        <p>Qodana Cloud stores all information about your Ultimate and Ultimate Plus licenses. This explains why you
+        <p>Qodana Cloud stores all information about your licenses. This explains why you
             need to create a Qodana Cloud account before running Qodana. Apart from this functionality, Qodana Cloud
-            provides several <a href="cloud-use-cases.xml">helpful features</a>.
+            provides other <a href="cloud-use-cases.xml">features</a>.
         </p>
+    </chapter>
+
+    <chapter id="faq-licensing-how-license-affects-linter" title="How does the license affect the linter functionality?" initial-collapse-state="collapsed">
+
+        <p>
+            If you run the <a href="qodana-jvm.md"/> under the Community license, the features
+            like the <a href="license-audit.xml"/> or <a href="vulnerability-checker.md"/> will be unavailable along with
+            other features that are available only under the Ultimate and Ultimate Plus licenses.
+        </p>
+        <p>Opposed to that, running the <a href="qodana-jvm-community.md"/> linter under the Ultimate or Ultimate Plus
+            licenses does not make sense because it will not extend the existing functionality.</p>
+        <p>To conclude, we recommend running %product% linters under
+            <a href="pricing.md" anchor="pricing-linters-licenses">appropriate licenses</a>.</p>
+
+    </chapter>
+
+    <chapter id="faq-licensing-maximum-community-licenses" title="How many Community licenses can I get under my JetBrains account?" initial-collapse-state="collapsed">
+        <p>You can get up to 5 (five) Community licenses under your JetBrains account.</p>
     </chapter>
 
     <chapter id="faq-licensing-license-difference" title="What is the difference between the Ultimate and Ultimate Plus licenses?" initial-collapse-state="collapsed">
