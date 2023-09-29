@@ -228,8 +228,7 @@
             subscription, on the 1st day of the month you purchased a license for 10 (ten) contributors. Within that same
             month, Qodana found that your project had 20 (twenty) active contributors. In this case, for the upcoming
             month the license costs would be recalculated for 20 (twenty) contributors. At the end of the second month,
-            the license costs would be recalculated again based on the actual number of active contributors found
-            within that month.</p>
+            the license costs would be recalculated again based on the actual number of active contributors.</p>
 
         <p>For more details, see the <menupath>Fees and Payments</menupath> section of the
             <a href="https://www.jetbrains.com/legal/docs/agreements/qodana/license/">%product% Terms of Service</a>.</p>
@@ -322,7 +321,7 @@
 
     <chapter id="faq-zero-errors-report" title="Qodana reports zero errors, though I know it is not true." initial-collapse-state="collapsed">
     <p>Use the <code>qodana.recommended</code> inspection <a href="inspection-profiles.md" anchor="Default+profiles">profile</a>.</p>
-        <p>If the <code>qodana.recommended> profile does not help, try to run another <a href="linters.md">linter</a>.</p>
+        <p>If the <code>qodana.recommended</code> profile does not help, try to run another <a href="linters.md">linter</a>.</p>
     <p>If the problem persists, please create an issue in our tracker or contact us at <code>qodana-support@jetbrains.com</code> and
     attach logs from the <code>/data/results</code> directory that you can get access to by mounting your directory to the path.</p>
     </chapter>
