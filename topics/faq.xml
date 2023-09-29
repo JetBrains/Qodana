@@ -27,10 +27,6 @@
     <code>qodana-support@jetbrains.com</code>.</p>
     </chapter>
 
-    <chapter id="faq-integrate-custom-checks" title="Does Qodana support custom checks?" initial-collapse-state="collapsed">
-
-    </chapter>
-
     <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" initial-collapse-state="collapsed">
     <p>Currently, the on-premises version of %product% is being developed, and we plan to release it in 2024. To stay informed,
         you can <a href="https://www.jetbrains.com/qodana/">subscribe</a> to our updates.</p>
