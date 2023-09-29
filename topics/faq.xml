@@ -28,15 +28,14 @@
     </chapter>
 
     <chapter id="faq-integrate-custom-checks" title="Does Qodana support custom checks?" initial-collapse-state="collapsed">
-    <p>At the moment, you can add your <a href="extending-qodana-structural-search.xml">structural search inspections</a> to
-    the inspection profile or use <a href="extending-qodana-plugins.xml">plugins</a> that will extend inspection
-    capabilities of %product%.</p>
-    <p>Alternatively, you can develop <a href="https://plugins.jetbrains.com/docs/intellij/github-template.html">your own plugin</a> and
-    use its inspections with %product%.</p>
+
     </chapter>
 
     <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" initial-collapse-state="collapsed">
-    <p>You can run %product% under the Community license, which will not require from you to create a Qodana Cloud account.</p>
+    <p>Currently, the on-premises version of %product% is being developed, and we plan to release it in 2024. To stay informed,
+        you can <a href="https://www.jetbrains.com/qodana/">subscribe</a> to our updates.</p>
+        <p>You can also run %product% under the Community license, which will not require from you to create a Qodana Cloud account.
+        However, this option provides limited functionalities</p>
     </chapter>
 
     <chapter id="faq-support-other-techs" title="Are there any plans to support other technologies?" initial-collapse-state="collapsed">
@@ -50,7 +49,6 @@
             <li><a href="https://youtrack.jetbrains.com/issue/QD-1031">Scala</a></li>
             <li><a href="https://youtrack.jetbrains.com/issue/QD-2226">Dart</a></li>
             <li><a href="https://youtrack.jetbrains.com/issue/QD-2153">C/C++</a></li>
-            <li><a href="https://youtrack.jetbrains.com/issue/QD-2122">Code coverage</a></li>
         </list>
 
     </chapter>
@@ -78,18 +76,17 @@
 
     <chapter id="faq-check-customization" title="How can I customize the checks performed by Qodana?" initial-collapse-state="collapsed">
     <p>You can configure your inspection profile as described on the <a href="custom-profiles.md"/> page.</p>
+    <p>If the existing inspections do not fit your needs, you can develop your
+        <a href="extending-qodana-structural-search.xml">structural search inspections</a> and add them to
+        the inspection profile, or use <a href="extending-qodana-plugins.xml">plugins</a> that will extend inspection
+        capabilities of %product%. Alternatively, you can develop
+        <a href="https://plugins.jetbrains.com/docs/intellij/github-template.html">your own plugin</a> and use its
+        inspections with %product%.</p>
     </chapter>
 
     <chapter id="faq-ssh-key-setup" title="Why is there a need to set up SSH keys in my repository?" initial-collapse-state="collapsed">
     <p>The SSH key lets %product% identify the repository of the inspected project and calculate the number of contributors,
     which is a requirement for all types of <a href="pricing.md">licenses</a>.</p>
-    </chapter>
-
-    <chapter id="faq-qodana-cloud-use" title="Do I really need Qodana Cloud if I want to use Qodana?" initial-collapse-state="collapsed">
-    <p>Using Qodana Cloud, you can upload and overview %product% reports from a single place, and get access to all
-    <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> provided by %product%
-        <a href="linters.md">linters</a>. You can also open %product% reports using your <a href="qodana-ide-plugin.md">IDE</a>,
-        and you need Qodana Cloud for these purposes.</p>
     </chapter>
 
 </chapter>
@@ -173,19 +170,20 @@
         <p>All licenses require that you create an account at Qodana Cloud and accomplish
             the <a href="cloud-onboarding.md">onboarding</a> stage. For more details, see
             <a anchor="faq-licensing-start-using-qodana">this question</a>.</p>
+        <p>Besides that, using Qodana Cloud you can upload and overview %product% reports from a single place, and get access to all
+            <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> provided by %product%
+            <a href="linters.md">linters</a>. You can also open %product% reports using your <a href="qodana-ide-plugin.md">IDE</a>,
+            and you need Qodana Cloud for these purposes.</p>
     </chapter>
 
     <chapter id="faq-licensing-minimum-cloud-steps" title="What minimum steps do I need to perform in Qodana Cloud?" initial-collapse-state="collapsed">
         <p>All the required steps are described in the <a href="cloud-quickstart.md"/> section of the Qodana Cloud documentation.</p>
     </chapter>
 
-    <chapter id="faq-licensing-eap-trial" title="What are the EAP and trial licenses?" initial-collapse-state="collapsed">
-
-        <p>An EAP license is a license that gives you full access to Qodana until July 31, 2023. On August 1, 2023, all EAP
-        licenses will expire, which means users will have to switch to a trial license.</p>
+    <chapter id="faq-licensing-eap-trial" title="What is a trial license?" initial-collapse-state="collapsed">
 
         <p>A trial license is a time-limited version of either the Ultimate or the Ultimate Plus license. Each trial license
-        duration is limited to 60 days, and you can change it one time from Ultimate to Ultimate Plus or vice versa.
+        duration is limited to 60 days, and you can change it one time from Ultimate to Ultimate Plus and vice versa.
             After the trial period ends, this type of license is no longer valid and cannot be used further. To
             continue using %product%, you’ll have to buy a full version of your license.</p>
     </chapter>
@@ -227,7 +225,7 @@
             contributors. The minimal number of contributors used for licensing is 3 (three).</p>
 
         <p>The number of actual contributors is calculated based on the subscription plan. For example, using the monthly
-            subscription, on the 1st day of the month you bought a license for 10 (ten) contributors. Within that same
+            subscription, on the 1st day of the month you purchased a license for 10 (ten) contributors. Within that same
             month, Qodana found that your project had 20 (twenty) active contributors. In this case, for the upcoming
             month the license costs would be recalculated for 20 (twenty) contributors. At the end of the second month,
             the license costs would be recalculated again based on the actual number of active contributors found
@@ -311,15 +309,11 @@
 
     </chapter>
     <chapter id="faq-licensing-community-restrictions" title="Are there any restrictions on using the Community license?" initial-collapse-state="collapsed">
-
         <p>No, you can use the Community version of Qodana in any open-source or proprietary projects.</p>
-
     </chapter>
 
     <chapter id="faq-licensing-license-cicd-integrations" title="Which licenses are integrated into CI/CD pipelines?" initial-collapse-state="collapsed">
-
         <p>All %product% subscriptions support integration with the CI/CD solutions described in the <a href="ci.md"/> section.</p>
-
     </chapter>
     </chunk>
 </chapter>
@@ -328,6 +322,7 @@
 
     <chapter id="faq-zero-errors-report" title="Qodana reports zero errors, though I know it is not true." initial-collapse-state="collapsed">
     <p>Use the <code>qodana.recommended</code> inspection <a href="inspection-profiles.md" anchor="Default+profiles">profile</a>.</p>
+        <p>If the <code>qodana.recommended> profile does not help, try to run another <a href="linters.md">linter</a>.</p>
     <p>If the problem persists, please create an issue in our tracker or contact us at <code>qodana-support@jetbrains.com</code> and
     attach logs from the <code>/data/results</code> directory that you can get access to by mounting your directory to the path.</p>
     </chapter>
