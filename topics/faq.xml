@@ -12,8 +12,8 @@
 
     <chapter id="faq-how-can-i-run" title="How can I run %product%?" initial-collapse-state="collapsed">
 
-    <p>You can run %product% in your <a href="ci.md">CI pipelines</a>. You can inspect your code locally using either the
-    <a href="qodana-ide-plugin.md">JetBrains IDEs</a>, the
+    <p>You can run %product% in your <a href="ci.md">CI pipelines</a>. You can also inspect your code locally. To do it,
+        use either the <a href="qodana-ide-plugin.md">JetBrains IDEs</a>, the
         <a href="https://github.com/JetBrains/qodana-cli">%product% CLI</a> tool, or available
         <a href="docker-images.md">Docker images</a>.</p>
 
@@ -28,8 +28,8 @@
     </chapter>
 
     <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" initial-collapse-state="collapsed">
-    <p>Currently, the on-premises version of %product% is being developed, and we plan to release it in 2024. To stay informed,
-        you can <a href="https://www.jetbrains.com/qodana/">subscribe</a> to our updates.</p>
+    <p>Currently, the on-premises version of %product% is being developed, and we plan to release it in 2024. In case
+        you are interested in this solution, you can contact the <a href="mailto:qodana-sales@jetbrains.com">%product% team</a>.</p>
         <p>You can also run %product% under the Community license, which will not require from you to create a Qodana Cloud account.
         However, this option provides limited functionalities</p>
     </chapter>
@@ -164,12 +164,15 @@
 
     <chapter id="faq-licensing-using-without-cloud" title="Can I use %product% linters without creating a Qodana Cloud account?" initial-collapse-state="collapsed">
         <p>All licenses require that you create an account at Qodana Cloud and accomplish
-            the <a href="cloud-onboarding.md">onboarding</a> stage. For more details, see
-            <a anchor="faq-licensing-start-using-qodana">this question</a>.</p>
-        <p>Besides that, using Qodana Cloud you can upload and overview %product% reports from a single place, and get access to all
+            the <a href="cloud-onboarding.md">onboarding</a> stage, see
+            <a anchor="faq-licensing-start-using-qodana">this question</a> for details. Besides that, Qodana Cloud lets
+            you overview %product% reports at a single place and get access to all
             <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> provided by %product%
-            <a href="linters.md">linters</a>. You can also open %product% reports using your <a href="qodana-ide-plugin.md">IDE</a>,
+            <a href="linters.md">linters</a>. Finally, you can open %product% reports using your <a href="qodana-ide-plugin.md">IDE</a>,
             and you need Qodana Cloud for these purposes.</p>
+        <p>To exclude Qodana Cloud, you can download and run the Community linters of %product% like
+            <a href="qodana-jvm-community.md"/>, <a href="qodana-jvm-android.md"/>, and
+            <a href="qodana-python-community.md"/> locally without a license.</p>
     </chapter>
 
     <chapter id="faq-licensing-minimum-cloud-steps" title="What minimum steps do I need to perform in Qodana Cloud?" initial-collapse-state="collapsed">
