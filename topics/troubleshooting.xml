@@ -104,18 +104,62 @@
         </code>
 
         <p>Here, the <code>repo/.git</code> directory contains information that should be accessible by %product%, and
-            the <code>repo/project</code> directory contains the project that needs to be inspected by %product%. </p>
+            the <code>repo/project</code> directory contains the project that needs to be inspected by %product%. All
+            these samples mount the <code>repo/project</code> directory using the
+            <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--project-dir</code></a>
+            option, while the <code>QODANA_TOKEN</code> variable refers to the Qodana Cloud
+            <a href="project-token.md">project token</a>:</p>
 
-        <p>In this case, you can mount the <code>repo</code> root directory using the <code>-v</code> Docker
-            option, and tell %product% to only scan the <code>repo/project</code> directory using the
-            <code>--project-dir=</code> %product% option:</p>
+        <tabs>
+            <tab title="Docker image">
+                <code style="block" lang="bash" prompt="$">
+                    docker run \
+                       -v repo/:/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --project-dir=/data/project/project/
+                </code>
+            </tab>
+            <tab title="Qodana CLI">
+                <code style="block" lang="bash" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --project-dir=/data/project/project/
+                </code>
+            </tab>
+            <tab title="GitHub Actions">
+                <code style="block" lang="yaml">
+                    name: Qodana
+                    on:
+                      workflow_dispatch:
+                      pull_request:
+                      push:
+                        branches:
+                          - main
+                          - 'releases/*'
 
-        <code style="block" lang="bash" prompt="$">
-            docker run \
-              -v repo/:/data/project/ \
-              jetbrains/qodana-&lt;linter&gt; \
-            --project-dir=/data/project/project/
-        </code>
+                    jobs:
+                      qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                          contents: write
+                          pull-requests: write
+                          checks: write
+                        steps:
+                          - uses: actions/checkout@v3
+                            with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                          - name: 'Qodana Scan'
+                          uses: JetBrains/qodana-action@v2023.2
+                          with:
+                            args: --project-dir,project
+                          env:
+                            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code>
+            </tab>
+        </tabs>
+
     </chapter>
 
     <chapter id="before-scanning" title="Error messages about missing files, packages, modules, or classes">
