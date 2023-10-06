@@ -9,7 +9,6 @@
     <var name="linter" value="Qodana for JS"/>
     <var name="linter-shell" value="qodana-js"/>
     <var name="linter-page-url" value="qodana-js.md"/>
-    <var name="docker-tech-guide-page-url" value="qodana-js-docker-techs.xml"/>
     <var name="ide" value="WebStorm"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/webstorm/?Code_Inspection"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/webstorm/?Customizing_Profiles"/>

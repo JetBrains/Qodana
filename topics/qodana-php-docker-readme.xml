@@ -9,7 +9,6 @@
     <var name="linter" value="Qodana for PHP"/>
     <var name="linter-shell" value="qodana-php"/>
     <var name="linter-page-url" value="qodana-php.md"/>
-    <var name="docker-tech-guide-page-url" value="qodana-php-docker-techs.xml"/>
     <var name="ide" value="PhpStorm"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/phpstorm/?Code_Inspection"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/phpstorm/?Customizing_Profiles"/>

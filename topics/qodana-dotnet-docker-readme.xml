@@ -9,7 +9,6 @@
     <var name="linter" value="Qodana for .NET"/>
     <var name="linter-shell" value="qodana-dotnet:2023.2"/>
     <var name="linter-page-url" value="qodana-dotnet.md"/>
-    <var name="docker-tech-guide-page-url" value="qodana-dotnet-docker-techs.xml"/>
     <var name="ide" value="Rider"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>

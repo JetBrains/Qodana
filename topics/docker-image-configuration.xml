@@ -486,11 +486,6 @@
                 </td>
                 <td>Enabled only if %product% is configured for the <code>qodana.starter</code> profile, and the <code>--run-promo true</code> option is invoked</td>
             </tr>
-            <tr>
-                <td><code>--stub-profile</code></td>
-                <td>Absolute path to the fallback profile file; applied if the profile was not specified using any other method</td>
-                <td>None</td>
-            </tr>
         </table>
 
         <chapter id="docker-config-reference-profile-profile-name" title="Profile name">

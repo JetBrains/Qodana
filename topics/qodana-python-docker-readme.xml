@@ -9,7 +9,6 @@
     <var name="linter" value="Qodana for Python"/>
     <var name="linter-shell" value="qodana-python"/>
     <var name="linter-page-url" value="qodana-python.md"/>
-    <var name="docker-tech-guide-page-url" value="qodana-python-docker-techs.xml"/>
     <var name="ide" value="PyCharm Professional"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/pycharm/?Code_Inspection"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/pycharm/?Customizing_Profiles"/>

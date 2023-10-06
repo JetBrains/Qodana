@@ -9,7 +9,6 @@
     <var name="linter" value="Qodana for Go"/>
     <var name="linter-shell" value="qodana-go"/>
     <var name="linter-page-url" value="qodana-go.md"/>
-    <var name="docker-tech-guide-page-url" value="qodana-go-docker-techs.xml"/>
     <var name="ide" value="GoLand"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/go/?Code_Inspection"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/go/?Customizing_Profiles"/>
