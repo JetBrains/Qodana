@@ -46,7 +46,7 @@ To send the results to Qodana Cloud, all you need to do is to specify the `QODAN
 <chunk id="azure-pipelines-qodana-cloud">
 
 1. In the Azure Pipelines UI, create the `QODANA_TOKEN` [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&tabs=yaml%2Cbash#secret-variable-in-the-ui) and
-   save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
+   save the [project token](cloud-projects.xml#cloud-manage-projects) as its value.
 2. In the Azure pipeline file,
    add `QODANA_TOKEN` variable to the `env` section of the `QodanaScan` task:
 

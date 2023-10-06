@@ -6,7 +6,7 @@ Starting from `2022.04`, Qodana functionality is available in TeamCity by defaul
 need to be met:
 
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
-- Your project language is included in the list of fully [supported technologies](https://www.jetbrains.com/help/qodana/linters.html).
+- Your project language is included in the list of fully [supported technologies](linters.md).
 - If you use your own TeamCity agents, make sure that Docker is installed on the agent machines and accessible by the users TeamCity is running under.
   TeamCity agents [hosted by JetBrains](https://www.jetbrains.com/help/teamcity/cloud/supported-platforms-and-environments.html#JetBrains-Hosted+Agents)
   already meet this condition.
@@ -51,10 +51,10 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
    **Inspection profile** defines the inspection profile. For more information, see the [Configure profile](qodana-yaml.md) section.
    The available values are:
       * `Recommended (default)` is the default profile containing a preselected set of IntelliJ inspections 
-      * `Embedded profile` lets you select from any available profiles, see the [Default profiles](https://www.jetbrains.com/help/qodana/qodana-yaml.html#Default+profiles) section for details
+      * `Embedded profile` lets you select from any available profiles, see the [Default profiles](inspection-profiles.md#Default+profiles) section for details
       * `Path to the IntelliJ profile` lets you specify the path to a custom profile. Make sure that the `.idea` directory containing the profile file is added to your working directory.
 
-   You can disable certain inspections later using the [`qodana.yaml`](https://www.jetbrains.com/help/qodana/qodana-yaml.html#exclude-paths) file or [Profile settings](https://www.jetbrains.com/help/qodana/ui-overview.html#Adjust+your+inspection+profile) in your HTML report.
+   You can disable certain inspections later using the [`qodana.yaml`](qodana-yaml.md#exclude-paths) file or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
 
    **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image, see the [](docker-image-configuration.xml#docker-config-reference-docker-environment) section for details.
 

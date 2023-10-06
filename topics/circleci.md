@@ -74,7 +74,7 @@ workflows:
 <chunk id="circleci-qodana-cloud">
 
 To forward inspection results to Qodana Cloud, all you need to do is to create the `QODANA_TOKEN` [project variable](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project) and
-   save the [project token](https://www.jetbrains.com/help/qodana/cloud-projects.html#cloud-manage-projects) as its value.
+   save the [project token](cloud-projects.xml#cloud-manage-projects) as its value.
 
 After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
 

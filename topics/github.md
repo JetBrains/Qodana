@@ -25,7 +25,7 @@ To make Qodana automatically fix found issues and push the changes to your repos
 you need
 to
 1. Choose what kind of fixes to apply
-   - [Specify `fixesStrategy` in the `qodana.yaml` file in your repository root](https://www.jetbrains.com/help/qodana/qodana-yaml.html)
+   - [Specify `fixesStrategy` in the `qodana.yaml` file in your repository root](qodana-yaml.md#Configure+quick-fixes)
    - Or set the action `args` property with the quick-fix strategy to use: `--apply-fixes` or `--cleanup`
 2. Set `push-fixes` property to
    - `pull-request`: create a new branch with fixes and create a pull request to the original branch
@@ -99,19 +99,21 @@ Instead of `main`, you can specify your branch here.
 
 ### Quality gate and baseline
 
-You can combine the [quality gate](https://www.jetbrains.com/help/qodana/quality-gate.html) and [baseline](https://www.jetbrains.com/help/qodana/qodana-baseline.html) features to manage your
+You can combine the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features to manage your
 technical debt, report only new problems, and block pull requests that contain too many problems.
 
 Follow these steps to establish a baseline for your project:
 
-1. Run Qodana [locally](https://www.jetbrains.com/help/qodana/getting-started.html#Analyze+a+project+locally) over your project:
+1. Run Qodana [locally](Quick-start.xml) over your project:
 
 ```shell
 cd project
-qodana scan --show-report
+qodana scan \
+   -e QODANA_TOKEN="<cloud-project-token>" \
+   --show-report
 ```
 
-2. Open your report at `http://localhost:8080/`, [add detected problems](https://www.jetbrains.com/help/qodana/ui-overview.html#Technical+debt) to the baseline,
+2. Open your report at `http://localhost:8080/`, [add detected problems](ui-overview.md#ui-overview-baseline) to the baseline,
    and download the `qodana.sarif.json` file.
 
 3. Upload the `qodana.sarif.json` file to your project root folder on GitHub.

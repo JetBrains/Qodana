@@ -92,7 +92,7 @@
                 <procedure>
                     <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and
                         save the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.</p></step>
-                    <step><p>In a GitHub <a href="https://www.jetbrains.com/help/qodana/github.html#Basic+configuration">workflow</a>,
+                    <step><p>In a GitHub <a href="github.md" anchor="Basic+configuration">workflow</a>,
                         add this snippet to invoke the <code>Qodana Scan</code> action:</p>
 
                         <code style="block" lang="yaml">

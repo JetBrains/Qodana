@@ -110,7 +110,7 @@
         <include src="lib_qd.xml" include-id="github-basic-configuration"/>
 
         <p>To learn more about %product% integration with GitHub, see the
-            <a href="https://www.jetbrains.com/help/qodana/github.html">GitHub Actions</a> section of this
+            <a href="github.md">GitHub Actions</a> section of this
             documentation.</p>
 
     </chapter>
