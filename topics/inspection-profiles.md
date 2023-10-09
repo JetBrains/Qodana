@@ -60,7 +60,55 @@ profile:
     name: <name>
 ```
 
-<include src="lib_qd.xml" include-id="inspection-profiles-profile-name"/>
+The `--profile-name` CLI option lets you run %product% using either the
+[default profiles](inspection-profiles.md#Default+profiles) or the profile name from the
+[custom profile](inspection-profiles.md#Custom+profiles).
+
+This command lets you override the default profile und run %product% using the
+[`qodana.recommended`](inspection-profiles.md#Default+profiles) profile:
+
+<tabs group="cli-settings">
+    <tab title="Docker image" group-key="docker-image">
+        <code style="block" lang="shell" prompt="$">
+            docker run \
+               -v $(pwd):/data/project/ \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               jetbrains/qodana-&lt;linter&gt; \
+               --profile-name qodana.recommended
+        </code>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code style="block" lang="shell" prompt="$">
+            qodana scan \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               -profile-name qodana.recommended
+        </code>
+    </tab>
+</tabs>
+
+If you need to run %product% with a custom profile, you can use its actual profile name. This command lets you bind a 
+custom profile:
+
+<tabs group="cli-settings" filter="for-inspection-profiles">
+    <tab title="Docker image" group-key="docker-image">
+        <code style="block" lang="shell" prompt="$">
+            docker run \
+               -v $(pwd):/data/project/ \
+               -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               jetbrains/qodana-&lt;linter&gt; \
+               --profile-name &lt;profile-name-from-file&gt;
+        </code>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code style="block" lang="shell" prompt="$">
+            qodana scan \
+               -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               --profile-name &lt;profile-name-from-file&gt;
+        </code>
+    </tab>
+</tabs>
 
 ### Profile path
 
@@ -73,7 +121,31 @@ profile:
 
 You can use this with [custom profiles](#Custom+profiles).
 
-<include src="lib_qd.xml" include-id="inspection-profiles-profile-path"/>
+The `--profile-path` CLI option lets you override the path to the file containing the profile.
+
+This command lets you bind the file to the profile directory, and the `--profile-path` option tells %product% which 
+profile file to read:
+
+<tabs group="cli-settings">
+    <tab title="Docker image" group-key="docker-image">
+        <code style="block" lang="shell" prompt="$">
+            docker run \
+               -v $(pwd):/data/project/ \
+               -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               jetbrains/qodana-&lt;linter&gt; \
+               --profile-path /data/project/myprofiles/&lt;file-name&gt;
+        </code>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code style="block" lang="shell" prompt="$">
+            qodana scan \
+               -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               --profile-path /data/project/myprofiles/&lt;file-name&gt;
+        </code>
+    </tab>
+</tabs>
 
 ## Custom profiles
 

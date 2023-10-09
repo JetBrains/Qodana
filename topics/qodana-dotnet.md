@@ -102,7 +102,27 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Install project dependencies
 
-<p><include src="lib_qd.xml" include-id="docker-dotnet-specific-requirements" use-filter="empty"/></p>
+
+%linter% is suitable for analyzing .NET Core projects and provides the following SDK versions:
+
+* 3.0.103
+* 6.0.405
+* 7.0.102
+
+All SDK versions are stored in the `/usr/share/dotnet/sdk` directory of the %linter% container filesystem.
+
+<note>Functionality of .NET Framework-based project analysis will be added in future versions of the linter. Currently,
+it is not recommended to inspect projects that require .NET Framework.</note>
+
+In case a project requires a different version of the SDK, you can set it up before running the analysis using the
+[`bootstrap`](before-running-qodana.md) field in the `qodana.yaml` file.
+For example, this command will install the required version of the SDK that is specified in the
+`global.json` file and located in the root of your project:
+
+<code style="block" lang="yaml">
+    bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
+      bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
+</code>
 
 ### Run analysis
 
