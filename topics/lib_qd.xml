@@ -564,11 +564,7 @@
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
-                <td><a href="quality-gate.xml"/></td>
-                <td>Ultimate and Ultimate Plus</td>
-            </tr>
-            <tr>
-                <td><a href="php-language-upgrade.xml"/></td>
+                <td><a href="code-coverage.md"/></td>
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
@@ -576,11 +572,23 @@
                 <td>Ultimate Plus</td>
             </tr>
             <tr>
-                <td><a href="vulnerability-checker.md"/></td>
-                <td>Ultimate Plus</td>
+                <td><a href="php-language-upgrade.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
                 <td><a href="taint-analysis.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
                 <td>Ultimate Plus</td>
             </tr>
         </table>
@@ -595,12 +603,20 @@
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
-                <td><a href="quality-gate.xml"/></td>
+                <td><a href="code-coverage.md"/></td>
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
                 <td><a href="license-audit.xml"/></td>
                 <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
                 <td><a href="vulnerability-checker.md"/></td>
@@ -618,14 +634,54 @@
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
                 <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
+
+        <table filter="js">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="code-coverage.md"/></td>
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
                 <td><a href="license-audit.xml"/></td>
                 <td>Ultimate Plus</td>
             </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
         </table>
+
 
         <table filter="dotnet">
             <tr>

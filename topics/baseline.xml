@@ -12,7 +12,8 @@
     <p>Using the baseline feature, you can compare your current code with its baseline state and see new, unchanged, and
         resolved problems.</p>
 
-    <p>Baseline is supported by the Community, Ultimate, and Ultimate Plus <a href="pricing.md">linters</a>. </p>
+    <p>This feature is supported by all <a href="pricing.md">linters</a> available under Community, Ultimate, and
+        Ultimate Plus licenses and their trial versions.</p>
 
     <chapter title="How it works">
 

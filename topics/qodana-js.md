@@ -59,7 +59,7 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,non-jvm"/>
+<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,js"/>
 
 ## Try it now
 

@@ -72,8 +72,7 @@ should have the relative paths inside the project. For example, if your codebase
 `<project-root>/src/` directory, then file paths in code coverage reports should be `src/<file-name>`.
 
 2. If you run %product% [locally](Quick-start.xml), use your code coverage tool to generate the code coverage report. 
-Save the report to the directory where %product% can read it. If you run %product% in your [GitHub](github.md) pipeline,  
-configure the workflow as shown in the [](#run-code-coverage) section.
+Save the report to the directory where %product% can read it. If you run %product% in your [GitHub](github.md) pipeline, configure the workflow as shown in the [](#run-code-coverage) section.
 
 ## Run code coverage
 {id="run-code-coverage"}
