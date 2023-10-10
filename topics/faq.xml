@@ -320,7 +320,7 @@
 
     </chapter>
 
-    <chapter id="faq-licensing-data-forwarding-to-qodana-cloud" title="What data does %product% forward to the Qodana Cloud?">
+    <chapter id="faq-licensing-data-forwarding-to-qodana-cloud" title="What data does %product% forward to the Qodana Cloud?" initial-collapse-state="collapsed">
 
         <p>First of all, Qodana Cloud collects information about active contributors of your repository, as well as the
             <a href="project-token.md">project token</a>. This information is then used for calculating license costs
