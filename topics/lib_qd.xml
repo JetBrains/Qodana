@@ -673,12 +673,12 @@
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
-                <td><a href="vulnerability-checker.md"/></td>
-                <td>Ultimate Plus</td>
-            </tr>
-            <tr>
                 <td><a href="quick-fix.md"/></td>
                 <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
             </tr>
         </table>
 
