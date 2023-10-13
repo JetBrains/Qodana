@@ -190,3 +190,8 @@ selected, the issues are listed in the order they appear in the file. You can al
       <td>Functionalities from the <menupath>Tools | Qodana</menupath> menu</td>
    </tr>
 </table>
+
+## Overview Qodana logs
+
+In your IDE, navigate to **Help | Collect Logs and Diagnostic Data**. This will collect all necessary data and save 
+them under a specific directory.   

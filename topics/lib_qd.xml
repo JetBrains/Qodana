@@ -277,18 +277,6 @@
         </tabs>
     </chunk>
 
-    <chunk id="docker-configure-via-qodana-yaml">
-        <p>
-            The <code>qodana.yaml</code> file will be automatically recognized and used for the analysis configuration,
-            so that you don't need to pass any additional parameters.
-        </p>
-        <p>
-            The references to the inspection profiles will be resolved <a
-                href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">in a particular order</a>. To
-            learn about the format, see <a href="qodana-yaml.md"/>.
-        </p>
-    </chunk>
-
     <chunk id="docker-plugins-management">
         <p>
             Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate
@@ -304,6 +292,18 @@
         </code>
         <p>
             Refer to the <a href="docker-image-configuration.xml">technical guide</a> for more details.
+        </p>
+    </chunk>
+
+    <chunk id="docker-configure-via-qodana-yaml">
+        <p>
+            The <code>qodana.yaml</code> file will be automatically recognized and used for the analysis configuration,
+            so that you don't need to pass any additional parameters.
+        </p>
+        <p>
+            The references to the inspection profiles will be resolved <a
+                href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">in a particular order</a>. To
+            learn about the format, see <a href="qodana-yaml.md"/>.
         </p>
     </chunk>
 
