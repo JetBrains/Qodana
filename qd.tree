@@ -9,8 +9,9 @@
     <toc-element id="getting-started.xml" accepts-web-file-names="welcome.html">
         <toc-element id="about-qodana.md"/>
         <toc-element id="pricing.md"/>
-        <toc-element id="project-token.md"/>
         <toc-element id="Quick-start.xml"/>
+        <toc-element id="faq.xml"/>
+        <toc-element id="project-token.md"/>
         <toc-element id="new-in-2023-2.md" show-structure-depth="3" accepts-web-file-names="new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html"/>
         <toc-element id="components.xml">F
             <toc-element id="static-analysis.xml"/>
