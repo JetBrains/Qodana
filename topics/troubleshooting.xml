@@ -162,11 +162,31 @@
 
     </chapter>
 
-    <chapter id="before-scanning" title="Error messages about missing files, packages, modules, or classes">
+    <chapter id="troubleshooting-before-scanning" title="Error messages about missing files, packages, modules, or classes">
         <p>During inspections, %product% may report about missing files, packages, modules, or
             classes. In this case, you need to have your project prepared for code inspection. For example, you can
             create a script and configure %product% for running it as shown in the
             <a href="before-running-qodana.md"/> section.</p>
+    </chapter>
+
+    <chapter id="troubleshooting-switch-off-inspection" title="How to disable a specific inspection for a specific file">
+        <p>To disable inspections for a specific file, in the project root save the
+            <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> file containing this configuration:</p>
+        <code style="block" lang="yaml">
+            exclude:
+              - name: &lt;inspection-name&gt;
+            paths:
+              - &lt;path/to/the/file/from/project/root&gt;
+        </code>
+        <p>You can also suppress the inspection only for a class by adding the <code>noinspection</code> comment above the class:</p>
+        <code style="block" lang="typescript">
+            // noinspection &lt;inspection-name&gt;
+            export class WorkflowJobSubject {
+                private static subject: Observable&lt;GithubEvent&lt;WorkflowJobEvent&gt;&gt; | null =
+                    null;
+            private static GithubWebhookEventSubject: any;
+        </code>
+
     </chapter>
 
 </topic>

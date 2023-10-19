@@ -20,7 +20,7 @@
 
     <chapter title="Prerequisites" id="quickstart-prerequisites">
 
-        <note>You can skip this chapter if you would like to run %product% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a>.</note>
+        <note>You can skip the prerequisites if you would like to run %product% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a>.</note>
 
         <p>Depending on your %product% <a href="pricing.md">license</a>, you probably need to obtain a trial license and accomplish
             the <a href="cloud-onboarding.md">onboarding</a> stage at Qodana Cloud.</p>
@@ -72,14 +72,15 @@
 
     <chapter title="Run Qodana using CLI" id="quickstart-run-using-cli">
 
-        <!-- Here, I can create a small video showing how everything works -->
-
         <p>Qodana provides two options for local analysis of your code.
             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
             Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
 
         <tabs>
             <tab title="Qodana CLI" id="qodana-cli-tab">
+                <p>To run Qodana CLI in the default mode, you must have Docker or Podman installed and running locally.
+                    If you are using Linux, you should be able to run Docker under your current
+                    <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">non-root user</a>.</p>
                 <procedure id="qodana-cli-tab-procedure">
                     <step><p>Install Qodana CLI on your machine using available options:</p>
                         <tabs>
@@ -88,7 +89,7 @@
                                 <code style="block" lang="shell" prompt="$">
                                     brew install jetbrains/utils/qodana
                                 </code>
-                                <p>Install with our installer:</p>
+                                <p>Alternatively, you can install Qodana CLI using our installer:</p>
                                 <code lang="shell" style="block" prompt="$">
                                     curl -fsSL https://jb.gg/qodana-cli/install | bash
                                 </code>
@@ -124,7 +125,6 @@
                         <p>Here, the <code>QODANA_TOKEN</code> variable contains the project token described in the
                             <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
                     </step>
-                    <p>Depending on your tasks, you can configure %product% as explained on the <a href="configure-qodana.xml"/> page.</p>
                 </procedure>
             </tab>
             <tab title="Docker image" id="docker-image-tab">

@@ -58,7 +58,7 @@
 
     <toc-element id="configure-qodana.xml" toc-title="Configuration">
         <toc-element id="qodana-yaml.md"/>
-        <toc-element id="docker-image-configuration.xml" show-structure-depth="3"/>
+        <toc-element id="docker-image-configuration.xml" show-structure-depth="3" accepts-web-file-names="qodana-jvm-docker-techs.html,qodana-jvm-community-docker-techs.html,qodana-jvm-android-docker-techs.html,qodana-php-docker-techs.html,qodana-python-docker-techs.html,qodana-python-community-docker-techs.html,qodana-js-docker-techs.html,qodana-go-docker-techs.html,qodana-dotnet-docker-techs.html"/>
         <toc-element id="inspection-profiles.md">
             <toc-element id="custom-profiles.md" show-structure-depth="3"/>
             <toc-element id="custom-xml-profiles.md"/>
