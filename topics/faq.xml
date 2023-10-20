@@ -129,10 +129,20 @@
         <p>Yes, but the minimum billing option is for 3 (three) contributors.</p>
     </chapter>
 
+    <chapter id="faq-licensing-how-qodana-counts-contributors" title="How does %product% count contributors?">
+        <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section of this documentation.</p>
+    </chapter>
+
     <chapter id="faq-licensing-count-contributors" title="Is there a way to determine the number of contributors in my repositories prior to initiating Qodana?" initial-collapse-state="collapsed">
         <p>Yes, you can use this command to check the number of contributors:</p>
         <code style="block" lang="shell" prompt="$">
             git log --format='%aN' | sort -u | wc -l
+        </code>
+        <p>In the %product% CLI application, you can use the
+            <a href="https://github.com/JetBrains/qodana-cli/tree/main#contributors"><code>contributors</code></a> command
+            for counting active contributors, for example:</p>
+        <code style="block" lang="shell" prompt="$">
+            qodana contributors -d 90
         </code>
     </chapter>
 
@@ -252,8 +262,8 @@
 
     <chapter id="faq-licensing-license-costs" title="How is the cost of a license calculated?" initial-collapse-state="collapsed">
         <p>
-            The total license cost is based on the number of active contributors. An active contributor is a person who
-            has committed to any number of Qodana Cloud projects at any point in the last 90 days, within the same
+            The total license cost is based on the number of active contributors. An active contributor is a person/bot
+            who has committed to any number of Qodana Cloud projects at any point in the last 90 days, within the same
             organization, and under a single license. During the  <a href="cloud-onboarding.md">onboarding</a> stage
             and while creating a new <a href="cloud-projects.xml">project</a>,
             Qodana Cloud requests your repository URL to calculate contributors. The minimal number of contributors

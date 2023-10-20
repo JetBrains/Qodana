@@ -12,6 +12,8 @@
         <li><a href="static-analysis.xml">Static analysis</a></li>
         <li><a href="code-inspections.xml">Code inspections</a></li>
         <li><a href="linters.md">Linters</a></li>
+        <li><a href="project-token.md">Project tokens</a> for identification and verification purposes</li>
+        <li><a href="contributors.md">Contributor counting</a> mechanism</li>
     </list>
 
 </topic>
