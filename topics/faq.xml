@@ -129,7 +129,7 @@
         <p>Yes, but the minimum billing option is for 3 (three) contributors.</p>
     </chapter>
 
-    <chapter id="faq-licensing-how-qodana-counts-contributors" title="How does %product% count contributors?">
+    <chapter id="faq-licensing-how-qodana-counts-contributors" title="How does %product% count contributors?" initial-collapse-state="collapsed">
         <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section of this documentation.</p>
     </chapter>
 
