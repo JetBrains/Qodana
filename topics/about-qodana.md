@@ -3,47 +3,50 @@
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 **Qodana** is a smart code quality platform by JetBrains that transforms the way you view code quality. The platform can 
-analyze code written in 60+ languages including Java, JavaScript, TypeScript, PHP, Kotlin, Python, Go, and C#, and lets you: 
-
-- Automate code reviews
-- Provide unified coding standards
-- Improve the quality of your software
-- Run %product% wherever you want
+analyze code written in 60+ languages including Java, JavaScript, TypeScript, PHP, Kotlin, Python, Go, and C#. 
 
 Dive in to discover how we're reshaping software development.
 
 ## Automate code reviews
 
-You can enable automatic code inspection based on the commits made to your VCS. 
+You can enable code inspection of each commit made to your VCS. 
 
 <img src="qodana-about-code-review.png"  width="1012" alt="Automate code reviews" border-effect="line"/>
 
+Here, %product% can inspect each commit before it becomes a pull request. The inspection report will be uploaded
+to Qodana Cloud, so that you can overview it in details. To learn more about pull requests in GitHub, see the 
+[](github.md#Pull+request+quality+gate) section.
+
 ## Unify coding standards
 
-Using available %product% features, you can decide which number of code problems will cause a build to fail, plan which
-problems need to be solved right away, and which problems can be postponed, or automatically accept suggested quick-fixes. 
+Using available %product% features, you can decide which number of to cause a build fail, plan which
+problems to solve right away and to postpone, or automatically apply suggested quick-fixes to let your team save time. 
+You can read more about available %product% [features](features.xml).
 
 ## Improve the quality of your software
 
-%product% reports provide the detailed description of concrete problems and code fragments that contain such problems, 
-the description of the problem, and recommendations about how this problem can be solved. Using these recommendations, 
-you can improve your code. 
+%product% reports provide detailed description of concrete problems and code fragments that contain such problems, 
+as well as recommendations about how to solve such problems. Using these recommendations, you can improve the quality of 
+your product. To learn more about it, you can visit the [](ui-overview.md) section. 
 
 ## Inspect monorepo projects
 
-You can inspect your project in case it consists of several technologies. For example, you can inspect the project
-using Java as a backend platform, and JavaScript as a front-end technology.
+%product% can inspect your project in case it uses multiple technologies. For example, if your project
+uses Java as a backend platform, and JavaScript as a front-end technology, %product% can inspect it as described in the
+[](monorepo-project.md) section.
 
 ## Collaborate with other team members
 
-[Qodana Cloud](https://qodana.cloud) is a cloud-based solution that helps you accumulate various Qodana reports and track the 
-progress in your project(s) from a single point. These reports are available for all members of your teams within
-your organization.
+[Qodana Cloud](https://qodana.cloud) is a cloud-based solution that helps you accumulate %product% reports and track the 
+progress in your project(s) from a single point. These reports are available for all members of your team(s). The detailed
+description of Qodana Cloud is available starting from the [](cloud-about.xml) page.
 
-## Run %product% wherever you want
+## Run %product% according to your needs
 
 Depending on your needs, you can run %product% either on your local machine, or integrate it into CI/CD pipelines.
-For several CI/CD %product% provides native solutions, for other
+For [](qodana-azure-pipelines.md), [CircleCI](circleci.md), [GitHub](github.md), and 
+[TeamCity](teamcity.md) %product% provides native solutions. With other CI/CD systems, you can use 
+[Docker images](docker-images.md).  
 
 ## Next steps
 
