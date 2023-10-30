@@ -215,9 +215,9 @@ By default, sanity checks are enabled in %product%. You can disable them using t
 disableSanityInspections: true
 ```
 
-## Configure License audit
+## Configure license audit
 
-You can run the [License audit](license-audit.xml) feature by enabling the `CheckDependencyLicenses` inspection:
+You can run the [license audit](license-audit.xml) feature by enabling the `CheckDependencyLicenses` inspection:
 
 ```yaml
 include:
@@ -281,7 +281,7 @@ In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpa
 
 ### Custom dependencies
 
-Currently, the License audit with Qodana is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
+Currently, the license audit with %product% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
 
 ```yaml
 customDependencies:
@@ -304,7 +304,7 @@ fixesStrategy: cleanup/apply
 
 <include src="taint-analysis.md" include-id="running-taint-analysis"/>
 
-## Configure the Vulnerability checker
+## Configure the vulnerability checker
 
 To start using the [](vulnerability-checker.md) feature, enable
 the `VulnerableLibrariesGlobal` inspection:

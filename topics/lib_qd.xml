@@ -419,10 +419,10 @@
 
     <chunk id="license-audit-tab">
 
-        <p filter="license-audit">To overview License audit results, in the inspection report click the <menupath>Project audit</menupath> tab.</p>
+        <p filter="license-audit">To overview license audit results, in the inspection report click the <menupath>Project audit</menupath> tab.</p>
 
         <p filter="ui-overview">The <menupath>Project audit</menupath> tab provides results of inspection by the
-            <a href="license-audit.xml">License audit</a> feature. </p>
+            <a href="license-audit.xml">license audit</a> feature. </p>
 
         <img src="license-audit-overview-tree.png" dark-src="license-audit-overview-tree_dark.png" width="706" alt="The dependency tree" border-effect="line"/>
 

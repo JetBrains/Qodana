@@ -78,11 +78,11 @@ profile:
     name: qodana.sanity  
 ```
 
-### Configure License audit
+### Configure license audit
 
 [License audit](license-audit.xml) lets you track compatibility of dependency licenses with your project license.
 
-To enable License audit, use the `include` option of the [`qodana.yaml`](qodana-yaml.md) file in your project root:
+To enable license audit, use the `include` option of the [`qodana.yaml`](qodana-yaml.md) file in your project root:
 
 ```yaml
 include:

@@ -51,7 +51,7 @@
                         <a href="quality-gate.xml"
                            description="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
                         <a href="quick-fix.md"
-                           description="Use Quick-fix to improve the performance of the project development"/>
+                           description="Use the quick-fix feature to improve the performance of the project development"/>
                         <a href="qodana-sarif-output.md"
                            description="Qodana linters can read and write reports in SARIF format, which is the industry
                            standard for the output of static analysis tools."/>

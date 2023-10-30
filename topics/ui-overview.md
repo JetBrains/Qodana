@@ -10,7 +10,7 @@ Each report contains the following tabs:
 * **[Actual problems](#ui-overview-actual-problems)** exposes the problems that Qodana detected during the latest inspection 
 * **[Baseline](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.xml) and were not fixed since then
 * **[Configuration](#ui-overview-configuration)** lets you configure %product% for future use
-* **[Project audit](#ui-overview-project-audit)** reveals the [License audit](license-audit.xml) results and shows the dependency licenses that are incompatible with the project license 
+* **[Project audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.xml) results and shows the dependency licenses that are incompatible with the project license 
 
 The upper-right corner of the report shows the [code coverage](code-coverage.md) inspection results.
 
@@ -55,7 +55,7 @@ problems move to this tab.
 
 This tab is similar to the **Actual problems** tab. To enable the baseline feature for future
 inspections, follow the instructions that appear in the report UI. For more information, explore the
-[Baseline](baseline.xml) section.
+[](baseline.xml) section.
 
 ## Configuration
 {id="ui-overview-configuration"}
