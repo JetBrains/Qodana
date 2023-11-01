@@ -50,7 +50,7 @@ Depending on the %product% [license](pricing.md#pricing-linters-licenses), you c
 
 * [Baseline](#Configure+baseline) for monitoring current and new problems
 * [Inspections](#Configure+inspections) that you would like to use
-* [License audit](#Configure+License+audit) for checking license compatibility
+* [License audit](#Configure+license+audit) for checking license compatibility
 * [Quality gate](#Configure+quality+gate) for restricting the number of problems
 
 Here are the links to the sections that describe other available features: 
