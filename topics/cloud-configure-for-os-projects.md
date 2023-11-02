@@ -159,7 +159,7 @@ jobs:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 ```
 
-4. Set the number of problems (integer) for the Qodana action [`fail-threshold`](#Configure+quality+gate) option.
+4. Set the number of problems (integer) for the Qodana action [`fail-threshold`](#configure-quality-gate) option.
 5. Under your repository name, click **Settings**.
 6. On the left menu, click **Branches**.
 7. In the branch protection rules section, click **Add rule**.
