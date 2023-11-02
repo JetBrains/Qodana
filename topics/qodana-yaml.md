@@ -126,7 +126,7 @@ When this number of problems is reached, the container executes `exit 255`. This
 
 <note>
 
-When running in [baseline mode](docker-image-configuration.xml#docker-config-reference-baseline), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
+When running in the [baseline mode](docker-image-configuration.xml#docker-config-reference-baseline), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
 
 </note>
 
@@ -216,6 +216,7 @@ disableSanityInspections: true
 ```
 
 ## Configure license audit
+{id="configure-license-audit"}
 
 You can run the [license audit](license-audit.xml) feature by enabling the `CheckDependencyLicenses` inspection:
 
@@ -300,7 +301,8 @@ Using the `fixesStrategy` option, you can choose among the available [quick-fix 
 fixesStrategy: cleanup/apply
 ```
 
-## Configure taint analysis
+## Configure the taint analysis
+{id="configure-taint-analysis"}
 
 <include src="taint-analysis.md" include-id="running-taint-analysis"/>
 

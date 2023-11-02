@@ -150,7 +150,7 @@
                     <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
                 <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
-                    of problems is reached and the <a href="baseline.xml"/> option to compare each new %linter%
+                    of problems is reached and the <a href="baseline.xml"/> feature to compare each new %linter%
                     run to some initial run selected as a <emphasis>baseline</emphasis>.
                     <a anchor="docker-config-reference-docker-environment-run-non-root" href="docker-image-configuration.xml">Running as non-root</a> is also supported.
                 </p>

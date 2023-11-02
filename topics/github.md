@@ -65,12 +65,12 @@ for your project using Qodana. To do it, add these lines to the `code_quality.ym
 This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report
 file using the `sarif_file` key.
 
-> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up baseline and quality gate processing on the Qodana side prior to submitting inspection results to GitHub code scanning, see the
+> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up a baseline and quality gate processing on the Qodana side prior to submitting inspection results to GitHub code scanning, see the
 [Quality gate and baseline](#quality-gate-and-baseline) section for details.
 
 ### Pull request quality gate
 
-You can enforce GitHub to block the merge of pull requests if the Qodana quality gate has failed. To do it, create a
+You can enforce GitHub to block the merge of pull requests if a quality gate has failed. To do it, create a
 [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)
 as described below:
 
@@ -118,7 +118,7 @@ qodana scan \
 
 3. Upload the `qodana.sarif.json` file to your project root folder on GitHub.
 
-4. Append `--baseline,qodana.sarif.json` argument to the Qodana Scan action configuration `args` parameter in the `code_quality.yml` file:
+4. Append the `--baseline,qodana.sarif.json` argument to the Qodana Scan action configuration `args` parameter in the `code_quality.yml` file:
 
 ```yaml
 - name: Qodana Scan
@@ -131,7 +131,7 @@ If you want to update the baseline, you need to repeat these steps once again.
 
 Starting from this, GitHub will generate alters only for the problems that were not added to the baseline as new.
 
-To establish a quality gate additionally to the baseline, add this line to `code_quality.yml` right after the
+To establish a quality gate additionally to a baseline, add this line to `code_quality.yml` right after the
 `baseline-path` line:
 
 ```yaml

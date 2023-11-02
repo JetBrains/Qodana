@@ -124,7 +124,7 @@
             the file containing the build configuration is included in the scope.</note>
 
             <p>To run %feature%, enable the
-                <a href="qodana-yaml.md" anchor="Configure+license+audit"><code>CheckDependencyLicenses</code></a>
+                <a href="qodana-yaml.md" anchor="configure-license-audit"><code>CheckDependencyLicenses</code></a>
                 inspection. </p>
 
             <p>Below are the <code>qodana.yaml</code> configuration samples that tell %product% to install project
@@ -147,7 +147,7 @@
                               - name: CheckDependencyLicenses
                         </code>
                     </tab>
-                    <tab title="Qodana for JS">
+                    <tab title="QoFdana for JS">
                         <code style="block" lang="yaml">
                             bootstrap: |+
                               # Use npm to install dependencies

@@ -12,7 +12,7 @@ Each report contains the following tabs:
 * **[Configuration](#ui-overview-configuration)** lets you configure %product% for future use
 * **[Project audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.xml) results and shows the dependency licenses that are incompatible with the project license 
 
-The upper-right corner of the report shows the [code coverage](code-coverage.md) inspection results.
+The upper-right corner of the report shows [code coverage](code-coverage.md) inspection results.
 
 <img src="ui-overview-code-coverage.png" dark-src="ui-overview-code-coverage_dark.png" alt="Qodana report UI overview" width="296" border-effect="line"/>
 

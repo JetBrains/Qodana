@@ -4,7 +4,7 @@ Taint analysis is the process of assessing the flow of untrusted user input thro
 If you have a taint in your code, hackers can execute these code fragments to cause SQL injection, arithmetic overflow, 
 cross-site scripting, path traversal, etc.
 
-The core goal of taint analysis is to determine if unanticipated input can affect program execution in malicious ways.
+The core goal of the taint analysis is to determine if unanticipated input can affect program execution in malicious ways.
 
 Taint analysis is supported by the [Qodana for PHP](qodana-php.md) linter starting from version 2023.1 of %product%.
 This feature is available under the Ultimate Plus [license](pricing.md) and its trial version.
@@ -33,7 +33,7 @@ To prevent such propagation, the following approaches are applied by the Qodana 
     }
     ```
 
-## Running taint analysis
+## Running the taint analysis
 
 <chunk id="running-taint-analysis">
 

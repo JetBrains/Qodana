@@ -50,8 +50,8 @@ Depending on the %product% [license](pricing.md#pricing-linters-licenses), you c
 
 * [Baseline](#Configure+baseline) for monitoring current and new problems
 * [Inspections](#Configure+inspections) that you would like to use
-* [License audit](#Configure+license+audit) for checking license compatibility
-* [Quality gate](#Configure+quality+gate) for restricting the number of problems
+* [License audit](#configure-license-audit) for checking license compatibility
+* [Quality gate](#configure-quality-gate) for restricting the number of problems
 
 Here are the links to the sections that describe other available features: 
 
@@ -79,10 +79,11 @@ profile:
 ```
 
 ### Configure license audit
+{id="configure-license-audit"}
 
 [License audit](license-audit.xml) lets you track compatibility of dependency licenses with your project license.
 
-To enable license audit, use the `include` option of the [`qodana.yaml`](qodana-yaml.md) file in your project root:
+To enable the license audit, use the `include` option of the [`qodana.yaml`](qodana-yaml.md) file in your project root:
 
 ```yaml
 include:
@@ -100,11 +101,12 @@ You can run %product% with the baseline enabled using the `--baseline` option:
 --baseline <path-to-qodana.sarif.json>
 ```
 
-### Configure quality gate
+### Configure the quality gate
+{id="configure-quality-gate"}
 
 [](quality-gate.xml) lets you configure the ultimate number of problems that will cause a CI/CD pipeline failure.
 
-Once configured, the quality gate will make your CI/CD system:
+Once configured, a quality gate will make your CI/CD system:
 
 * Build the project only if the number of problems contained in it is below the configured threshold
 * Accept only the pull requests containing problems below the configured threshold  
@@ -123,7 +125,7 @@ To enable the quality gate, you can use the `fail-threshold <number>` option.
 Using this example, you can configure GitHub for:
 
 * Forwarding inspection results to %cloud%
-* Blocking the merge of pull requests if the quality gate has failed
+* Blocking the merge of pull requests if a quality gate has failed
 
 Follow these steps:
 
@@ -171,7 +173,7 @@ jobs:
 Using this example, you can configure GitLab CI/CD for:
 
 * Inspecting the `main` branch and all merge requests
-* Blocking merge requests if the quality gate has failed
+* Blocking merge requests if a quality gate has failed
 * Forwarding inspection results to %cloud%
 
 Follow these steps to add a %product% runner to a GitLab CI/CD pipeline:

@@ -674,7 +674,7 @@
 
     <chapter id="docker-config-reference-code-coverage" title="Code coverage">
 
-        <p>You can run <a href="code-coverage.md">code coverage</a> by mapping the directory containing code coverage files to
+        <p>You can run the <a href="code-coverage.md">code coverage</a> by mapping the directory containing code coverage files to
             the <code>/data/coverage</code> directory of a %product% linter image:</p>
 
         <tabs group="cli-settings">

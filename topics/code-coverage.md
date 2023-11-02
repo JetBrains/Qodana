@@ -1,9 +1,9 @@
 [//]: # (title: Code coverage)
 
-**Code coverage** uses generated reports to calculate overall code coverage inside a method, a class, and a file. 
+**Code coverage** uses generated reports to calculate the overall code coverage inside a method, a class, and a file. 
 It also reports on the issues connected with the missing coverage in these entities.
 
-<note>File code coverage is available only in <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/> and <a href="qodana-php.md"/> linters.</note>
+<note>Code coverage for files is available only in <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/> and <a href="qodana-php.md"/> linters.</note>
 
 This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the 
 following linters:
@@ -53,14 +53,14 @@ Once the inspection is complete, reports are available in [%product% reports](ht
 
 ### Code coverage calculation
 
-%product% calculates code coverage based on the number of code lines containing logic with function, method, and class statements
+%product% calculates a code coverage based on the number of code lines containing logic with function, method, and class statements
 being ignored. Here is the snippet containing comments on how it works: 
 
 ```javascript
-function divide(a, b) { // Not analyzed by code coverage
-  return a / b; // Analyzed by code coverage
+function divide(a, b) { // Not analyzed by the code coverage
+  return a / b; // Analyzed by the code coverage
 }
-module.exports = divide; // Analyzed by code coverage
+module.exports = divide; // Analyzed by the code coverage
 ```
 
 ## Prepare the project
@@ -71,10 +71,10 @@ module.exports = divide; // Analyzed by code coverage
 should have the relative paths inside the project. For example, if your codebase files are contained in the 
 `<project-root>/src/` directory, then file paths in code coverage reports should be `src/<file-name>`.
 
-2. If you run %product% [locally](Quick-start.xml), use your code coverage tool to generate the code coverage report. 
+2. If you run %product% [locally](Quick-start.xml), use your code coverage tool to generate a code coverage report. 
 Save the report to the directory where %product% can read it. If you run %product% in your [GitHub](github.md) pipeline, configure the workflow as shown in the [](#run-code-coverage) section.
 
-## Run code coverage
+## Run the code coverage
 {id="run-code-coverage"}
 
 <note>
@@ -159,7 +159,7 @@ steps:
 <p>You can find configuration examples in our <a href="https://github.com/qodana/qodana-coverage">GitHub</a> repository.</p>
 </tab>
     <tab title="GitLab CI/CD" id="code-coverage-gitlab">
-        <p>Create the <a href="gitlab.md">GitLab CI/CD</a> pipeline that will store all code coverage output files in the <code>&lt;project-root-dir&gt;/coverage</code> 
+        <p>Create a <a href="gitlab.md">GitLab CI/CD</a> pipeline that will store all code coverage output files in the <code>&lt;project-root-dir&gt;/coverage</code> 
 directory:</p>
         <code style="block" lang="yaml">
         qodana:
@@ -251,7 +251,7 @@ jobs:
 ## Overview code coverage reports
 {id="overview-code-coverage-reports"}
 
-After you have [prepared the project](#Prepare+the+project) and [ran code coverage](#run-code-coverage), you can overview 
+After you have [prepared the project](#Prepare+the+project) and [ran the code coverage](#run-code-coverage), you can overview 
 code coverage reports in [Qodana Cloud](#Qodana+Cloud) or using your [IDE](#IDE). 
 
 ### Qodana Cloud
@@ -289,7 +289,7 @@ version 2023.2. This feature is available for reports retrieved from Qodana Clou
 
 You can overview locally-based code coverage reports directly in JetBrains IDEs.
 
-In your IDE, navigate to <menupath>Run | Show coverage data</menupath> and open the file containing the code coverage 
+In your IDE, navigate to <menupath>Run | Show coverage data</menupath> and open the file containing a code coverage 
 report. 
 
 <img src="code-coverage-open-locally.png" dark-src="code-coverage-open-locally_dark.png" width="706" alt="The Choose Coverage Suite to Display dialog" border-effect="line"/>
@@ -304,7 +304,7 @@ percentage of the code that has been executed or covered by tests.
 The IDE highlights the codebase test coverage using color marking. By default, the green color means
 that a particular line was covered, and the red color means the uncovered line of code. 
 
-<note>If you see that the code coverage results look incomplete, you probably need to reconfigure your
+<note>If you see that code coverage results look incomplete, you probably need to reconfigure your
 code coverage tool and generate a new code coverage report.</note>
 
 <img src="code-coverage-report.png" dark-src="code-coverage-report_dark.png" width="706" alt="The coverage report overview" border-effect="line"/>

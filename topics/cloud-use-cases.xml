@@ -35,7 +35,7 @@
     <chapter id="cloud-use-case-3" title="Plan your work better" level="4">
 
         <p>In Qodana Cloud, you can build reports to evaluate all pieces of code that require modification, and select
-            issues to add to baseline. This way, the whole team can see the same list of issues and monitor progress
+            the issues to add to a baseline. This way, the whole team can see the same list of issues and monitor progress
             using the interactive Qodana dashboard.</p>
     </chapter>
 </topic>
