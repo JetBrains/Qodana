@@ -7,46 +7,59 @@ analyze code written in 60+ languages including Java, JavaScript, TypeScript, PH
 
 Dive in to discover how we're reshaping software development.
 
-## Automate code reviews
-
-You can enable code inspection of each commit made to your VCS. 
-
-<img src="qodana-about-code-review.png"  width="1012" alt="Automate code reviews" border-effect="line"/>
-
-Here, %product% can inspect each commit before it becomes a pull request. The inspection report will be uploaded
-to Qodana Cloud, so that you can overview it in details. To learn more about pull requests in GitHub, see the 
-[](github.md#Pull+request+quality+gate) section.
-
-## Unify coding standards
-
-Using available %product% features, you can decide which number of to cause a build fail, plan which
-problems to solve right away and to postpone, or automatically apply suggested quick-fixes to let your team save time. 
-You can read more about available %product% [features](features.xml).
-
-## Improve the quality of your software
-
-%product% reports provide detailed description of concrete problems and code fragments that contain such problems, 
-as well as recommendations about how to solve such problems. Using these recommendations, you can improve the quality of 
-your product. To learn more about it, you can visit the [](ui-overview.md) section. 
-
-## Inspect monorepo projects
-
-%product% can inspect your project in case it uses multiple technologies. For example, if your project
-uses Java as a backend platform, and JavaScript as a front-end technology, %product% can inspect it as described in the
-[](monorepo-project.md) section.
-
-## Collaborate with other team members
-
-[Qodana Cloud](https://qodana.cloud) is a cloud-based solution that helps you accumulate %product% reports and track the 
-progress in your project(s) from a single point. These reports are available for all members of your team(s). The detailed
-description of Qodana Cloud is available starting from the [](cloud-about.xml) page.
-
 ## Run %product% according to your needs
 
 Depending on your needs, you can run %product% either on your local machine, or integrate it into CI/CD pipelines.
-For [](qodana-azure-pipelines.md), [CircleCI](circleci.md), [GitHub](github.md), and 
-[TeamCity](teamcity.md) %product% provides native solutions. With other CI/CD systems, you can use 
-[Docker images](docker-images.md).  
+For [](qodana-azure-pipelines.md), [CircleCI](circleci.md), [GitHub](github.md), and
+[TeamCity](teamcity.md) %product% provides native solutions. With other CI/CD systems, you can use
+[Docker images](docker-images.md).
+
+You can inspect your code using the default [inspection profiles](inspection-profiles.md#Default+profiles), which requires 
+no configuration steps and lets you run %product% out of the box. You can also configure the default inspection profiles or 
+create your own inspection profile in the [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
+
+Finally, you can go beyond the existing inspections and develop your own inspection components as described in the
+[](extending-qodana.xml) section.
+
+## Improve the quality of your software
+
+%product% reports provide detailed description of concrete problems and code fragments that contain such problems,
+as well as recommendations about how to solve such problems. Using these recommendations, you can improve the quality of
+your product by preventing bugs in production and learning from the process. For more details, you can study the 
+[](ui-overview.md) section.
+
+## Automate code reviews
+
+You can automate code inspection by running %product% in CI/CD pipelines. 
+
+<img src="qodana-about-code-review.png"  width="1012" alt="Automate code reviews" border-effect="line"/>
+
+The inspection report will be uploaded to Qodana Cloud, so that you can overview it in details. Besides that, you can 
+study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md)
+
+Besides that, in GitHub %product% can inspect pull requests, see the [](github.md#Pull+request+quality+gate) section for
+details.
+
+## Unify coding standards
+
+Using %product% as a [quality gate](quality-gate.xml), you can decide the number of problems to cause a build fail, plan 
+the problems to be solved right away and postponed by putting them to a [baseline](baseline.xml), or automatically apply 
+suggested [quick-fixes](quick-fix.md) to let your team save time.
+
+## Collaborate with other team members
+
+%product% analyzes your code on your side using your CI/CD pipelines, and [Qodana Cloud](https://qodana.cloud) is a 
+cloud-based application that helps you accumulate %product% reports and track the progress in your project(s) from a 
+single point. Such reports are available for all members of your team(s). To become more familiar with Qodana Cloud, 
+visit the [](cloud-about.xml) page.
+
+## Take advantage of our pricing model
+
+%product% license costs under the Ultimate and Ultimate Plus licenses depend on the number of active contributors, and 
+this lets you inspect the unlimited number of code lines.  
+
+You can also run %product% under the free Community license; however, in this case %product% functionality will be
+restricted. To compare %product% licenses, you can visit the [](pricing.md) page.
 
 ## Next steps
 
@@ -56,8 +69,8 @@ For [](qodana-azure-pipelines.md), [CircleCI](circleci.md), [GitHub](github.md),
 
 ## Contact us
 
-If you encounter a bug or would like to suggest a new feature,
-use the <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or email the support team at
+If you would like to suggest a new feature or encounter unexpected behaviour, use the 
+<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or email the support team at
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 
 To actively participate in the Qodana community, join our [GitHub Discussions forum](https://github.com/JetBrains/Qodana/discussions).
