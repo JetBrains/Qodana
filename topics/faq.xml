@@ -46,7 +46,7 @@
         </list>
     </chapter>
 
-    <chapter id="faq-qodana-jba-entities" title="How are the JetBrains and Qodana entities related?" initial-collapse-state="collapsed">
+    <chapter id="faq-qodana-jba-entities" title="What is the relation between JetBrains Account and Qodana Cloud entities?" initial-collapse-state="collapsed">
         <p>In a JetBrains Account (JBA), you can create several Companies.</p>
         <p>Each created JBA Company can possess several %product% licenses.</p>
         <p>In Qodana Cloud, you can create <a href="cloud-organizations.xml">organizations</a>. In this case, each
