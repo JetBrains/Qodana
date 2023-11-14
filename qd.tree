@@ -31,6 +31,23 @@
         </toc-element>
     </toc-element>
 
+    <!-- The Use cases section -->
+
+    <toc-element toc-title="Use cases">
+        <toc-element id="monorepo-project.md"/>
+        <toc-element id="ci.md">
+            <toc-element id="qodana-azure-pipelines.md"/>
+            <toc-element id="bitbucket.md"/>
+            <toc-element id="circleci.md"/>
+            <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.html"/>
+            <toc-element id="gitlab.md"/>
+            <toc-element id="jenkins.md"/>
+            <toc-element id="space-automation.md"/>
+            <toc-element id="teamcity.md" accepts-web-file-names="teamcity-plugins.html,teamcity-plugin-configuration.html,teamcity-plugin-quick-start.html"/>
+        </toc-element>
+
+    </toc-element>
+
     <!-- Deployment section -->
 
     <toc-element id="deploy-qodana.xml" toc-title="Deployment">
@@ -71,7 +88,6 @@
 
     <toc-element id="inspect-your-code.xml" toc-title="Code inspection">
         <toc-element id="before-running-qodana.md"/>
-        <toc-element id="monorepo-project.md"/>
         <toc-element id="results.md">
             <toc-element id="ui-overview.md"/>
             <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
@@ -92,19 +108,6 @@
         <toc-element id="quick-fix.md"/>
         <toc-element id="taint-analysis.md"/>
         <toc-element id="vulnerability-checker.md"/>
-    </toc-element>
-
-    <!-- Integration section -->
-
-    <toc-element id="ci.md">
-        <toc-element id="qodana-azure-pipelines.md"/>
-        <toc-element id="bitbucket.md"/>
-        <toc-element id="circleci.md"/>
-        <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.html"/>
-        <toc-element id="gitlab.md"/>
-        <toc-element id="jenkins.md"/>
-        <toc-element id="space-automation.md"/>
-        <toc-element id="teamcity.md" accepts-web-file-names="teamcity-plugins.html,teamcity-plugin-configuration.html,teamcity-plugin-quick-start.html"/>
     </toc-element>
 
     <!--Qodana Cloud section -->

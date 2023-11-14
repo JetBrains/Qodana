@@ -1,4 +1,4 @@
-[//]: # (title: Integration with CI systems)
+[//]: # (title: Add Qodana to your CI)
 
 Qodana [linters](linters.md) are packed into ready-to-use [Docker images](docker-images.md). They can be 
 integrated into virtually any Continuous Integration (CI) system in a similar manner.
