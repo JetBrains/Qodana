@@ -10,6 +10,8 @@ to scan your code with Qodana.
 
 ### Basic configuration
 
+<chunk id="azure-basic-config">
+
 After you've installed the [Qodana Azure Pipelines extension](https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana) to your organization, to configure the Qodana Scan task, edit your `azure-pipelines.yml` file:
 
 ```yaml
@@ -38,6 +40,8 @@ Triggering this job depends on [what type of repository you are using in Azure P
 
 The task can be run on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed.
 And since most of the Qodana Docker images are Linux-based, the docker daemon must be able to run Linux containers.
+
+</chunk>
 
 ### Qodana Cloud
 

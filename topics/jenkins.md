@@ -16,6 +16,8 @@ including building, testing, and deploying software. This section explains how y
 
 ## Prepare your project
 
+<chunk id="jenkins-prepare-project">
+
 Make sure that these plugins are installed on your Jenkins instance:
 
 * [Docker](%Dplugin%) and [Docker Pipeline](%DPplugin%) are required for running Docker images
@@ -31,7 +33,11 @@ Create a Multibranch Pipeline project as described on the [Jenkins documentation
 In the root directory of your project repository, create the `Jenkinsfile`. This file will contain Jenkins 
 configuration scripts described in this section. 
 
+</chunk>
+
 ## Basic configuration
+
+<chunk id="jenkins-basic-config">
 
 This is the basic configuration of the Jenkins Pipeline.
 
@@ -62,8 +68,11 @@ pipeline {
 In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
 [project token](project-token.md) generated in Qodana Cloud and contained in 
 the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %product%
-[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. You can see these sections 
-to learn how to generate the project token in Qodana Cloud:
+[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. 
+
+</chunk>
+
+You can see these sections to learn how to generate the project token in Qodana Cloud:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
 * The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization

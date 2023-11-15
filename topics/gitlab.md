@@ -22,6 +22,8 @@ that will be used by GitLab CI/CD.
 
 ## Basic configuration
 
+<chunk id="gitlab-basic-config">
+
 This is the basic pipeline configuration.
 
 ```yaml
@@ -54,6 +56,8 @@ configuration options described in the [](docker-image-configuration.xml) sectio
 The `variables` keyword defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
 referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %product% 
 [linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters.
+
+</chunk>
 
 You can see these sections to learn how to generate the project token:
 

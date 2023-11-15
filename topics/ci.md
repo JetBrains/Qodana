@@ -1,20 +1,22 @@
-[//]: # (title: Add Qodana to your CI)
+[//]: # (title: Integration with CI systems)
 
-Qodana [linters](linters.md) are packed into ready-to-use [Docker images](docker-images.md). They can be 
-integrated into virtually any Continuous Integration (CI) system in a similar manner.
+<var name="azure" value="https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana"/>
+<var name="circleci" value="https://circleci.com/developer/orbs/orb/jetbrains/qodana"/>
+<var name="github" value="https://github.com/marketplace/actions/qodana-scan"/>
 
-The Qodana UI can be part of the CI user interface in case your CI supports the UI extension. If it doesn't, you can
-spin the Qodana UI on your own following the [guidelines](html-report.md).
+You can build %product% into virtually any Continuous Integration (CI) system. Below is the list of %product% solutions
+for several CI products that %product% already provides: 
 
+| CI integration guide          | %product% solution                          |
+|-------------------------------|---------------------------------------------|
+| [](qodana-azure-pipelines.md) | [Qodana Azure Pipelines extension](%azure%) |
+| [](bitbucket.md)              | [Docker images](docker-images.md)           |
+| [](circleci.md)               | [CircleCI Qodana orb](%circleci%)           |
+| [](github.md)                 | [Qodana Scan GitHub action](%github%)       |
+| [](gitlab.md)                 | [Docker images](docker-images.md)           |
+| [](jenkins.md)                | [Docker images](docker-images.md)           |
+| [](space-automation.md)       | [Docker images](docker-images.md)           |
+| [](teamcity.md)               | Built in TeamCity starting from 2022.04     |
 
-You can learn more about %product% integration solutions provided for:
-
-- [](qodana-azure-pipelines.md)
-- [](bitbucket.md)
-- [](circleci.md)
-- [](github.md)
-- [](gitlab.md)
-- [](jenkins.md)
-- [](space-automation.md)
-- [](teamcity.md)
+If you don't find your CI in this table, you can configure and run %product% [Docker images](docker-images.md) in your pipeline. 
 

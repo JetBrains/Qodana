@@ -35,6 +35,8 @@
 
     <chapter id="quality-gate-local-run" title="Local run">
 
+        <chunk id="quality-gate-run-locally">
+
         <p>You can run %product% locally with the configured quality gate using either the
             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool or available
             <a href="docker-images.md">Docker images</a>:</p>
@@ -68,9 +70,14 @@
                 </p>
             </tab>
         </tabs>
+
+        </chunk>
+
     </chapter>
 
     <chapter id="quality-gate-github-actions" title="GitHub Actions">
+
+        <chunk id="quality-gate-github-actions">
 
         <p>You can enforce GitHub to block merge of pull requests if the <a href="quality-gate.xml">quality gate</a> has failed. To do it,
             create a <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
@@ -118,9 +125,14 @@
                 <step>Search for the <menupath>Qodana</menupath> status check, then check it.</step>
                 <step>Click <menupath>Create</menupath>.</step>
             </procedure>
+
+        </chunk>
+
     </chapter>
 
     <chapter id="quality-gate-jenkins" title="Jenkins">
+
+        <chunk id="quality-gate-jenkins">
 
         <p>To set up a quality gate in a <a href="jenkins.md">Jenkins</a> Pipeline, you can add the
             <code>--fail-threshold &lt;number&gt;</code> option to the <code>steps</code> block:</p>
@@ -155,6 +167,8 @@
         <p>The <code>QODANA_TOKEN</code> variable in this snippet refers to the
             <a href="project-token.md">project token</a> contained in the <code>qodana-token</code> credentials and
             required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
+
+        </chunk>
 
     </chapter>
 
