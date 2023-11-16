@@ -109,7 +109,7 @@
                 </p>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
-                <p>In the project root directory, run this command to inspect your code and overview the inspection
+                <p>In the project root directory, run this command to inspect your code and view the inspection
                     report locally:</p>
                 <code filter="non-gs" style="block" lang="shell" prompt="$">
                     qodana scan \
@@ -419,7 +419,7 @@
 
     <chunk id="license-audit-tab">
 
-        <p filter="license-audit">To overview license audit results, in the inspection report click the <menupath>Project audit</menupath> tab.</p>
+        <p filter="license-audit">To view license audit results, in the inspection report click the <menupath>Project audit</menupath> tab.</p>
 
         <p filter="ui-overview">The <menupath>Project audit</menupath> tab provides results of inspection by the
             <a href="license-audit.xml">license audit</a> feature. </p>
@@ -429,11 +429,11 @@
         <p>License audit inspection results are grouped into a dependency tree.</p>
 
         <list type="decimal">
-            <li>If applicable, you can expand a specific dependency to overview its dependency tree.</li>
+            <li>If applicable, you can expand a specific dependency to see its dependency tree.</li>
             <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and dependencies
                 which licenses are incompatible with the project license.</li>
             <li>Under <menupath>Project licenses</menupath> you can find the list of project licenses. Using
-                <menupath>License rules</menupath>, you can overview the rules of license compatibility.</li>
+                <menupath>License rules</menupath>, you can view the rules of license compatibility.</li>
             <li>You can download the list of dependencies in various formats.</li>
         </list>
     </chunk>
@@ -443,8 +443,8 @@
         <list>
             <li><a href="docker-images.md">Docker images</a> let you inspect
                 <a href="Quick-start.xml">local projects</a> and build %product% into your CI/CD pipelines.</li>
-            <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %product%, connect to Qodana Cloud, open and overview inspection reports.</li>
-            <li><a href="vscode.md">Qodana extension</a> for Visual Studio Code lets you retrieve reports from Qodana Cloud and overview inspection reports.</li>
+            <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %product%, connect to Qodana Cloud, open and study inspection reports.</li>
+            <li><a href="vscode.md">Qodana extension</a> for Visual Studio Code lets you retrieve reports from Qodana Cloud and study inspection reports.</li>
             <li><a href="ci.md">Integration tools</a> include applications for seamless integration with CI/CD systems
                 like GitHub and TeamCity, and guides for configuring %product% Docker images for CI/CD. </li>
             <li><a href="qodana_gradle_plugin.md"/> provides the Gradle interface for running %product% in IntelliJ IDEA.</li>
@@ -835,5 +835,14 @@
             the pipeline, and it can also contain %product% <a href="docker-image-configuration.xml">options</a>.</p>
     </chunk>
 
+    <chunk id="linter-next-steps-footer">
+        <list>
+            <li><a href="ci.md">Run %product% in your CI pipeline</a></li>
+            <li><a href="%config-file%">Configure %linter% Docker image</a></li>
+            <li><a href="ci.md">Run %linter% in your CI pipeline</a></li>
+            <li><a href="github.md">Run %linter% using GitHub Actions</a></li>
+            <li><a href="configure-qodana.xml">Configure %product%</a></li>
+        </list>
+    </chunk>
 
 </topic>

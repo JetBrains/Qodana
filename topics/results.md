@@ -4,10 +4,10 @@
 
 Project analysis reports are available in several forms.
 
-As a result of local analysis, they are contained in [JSON](qodana-sarif-output.md) format, and you can overview them in 
+As a result of local analysis, they are contained in [JSON](qodana-sarif-output.md) format, and you can view them in 
 the form of [web reports](ui-overview.md). 
 
-To be able to collect reports and overview them in a more convenient form, you can configure forwarding to 
+To be able to collect reports and view them in a more convenient form, you can configure forwarding to 
 [Qodana Cloud](cloud-overview-reports.xml), which is available from local runs and from running in [CI pipelines](ci.md).
 
 

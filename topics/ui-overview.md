@@ -1,6 +1,6 @@
 [//]: # (title: Inspection report)
 
-%product% lets you overview inspection reports in an interactive and user-friendly form either 
+%product% lets you study inspection reports in an interactive and user-friendly form either 
 [locally](html-report.md) or in [Qodana Cloud](cloud-overview-reports.xml).
 
 <img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Qodana report UI overview" width="706" border-effect="line"/>
@@ -19,7 +19,7 @@ The upper-right corner of the report shows [code coverage](code-coverage.md) ins
 ## Actual problems
 {id="ui-overview-actual-problems"}
 
-Using this tab, you can overview the problems found as a result of the latest inspection.
+Using this tab, you can see the problems found as a result of the latest inspection.
 
 <img src="ui-overview-actual-problems.png" dark-src="ui-overview-actual-problems_dark.png" alt="The Actual problems tab" width="706" border-effect="line"/>
 

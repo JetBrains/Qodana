@@ -7,7 +7,7 @@
 <!-- I need to mention here more about OS projects -->
 
 This section explains how you can inspect your open-source projects using %product%, and how you can use %cloud% to 
-overview %product% inspection results in a convenient form and free for open-source projects. 
+view %product% inspection results in a convenient form and free for open-source projects. 
 
 ## Before you start 
 
@@ -204,7 +204,7 @@ qodana:
 In this sample, specify the %product% linter and the quality gate using `--fail-threshold` option. 
 Using this configuration, %product% will inspect the main branch and all merge requests coming to your repository.
 
-## Overview inspection results
+## Inspection result overview
 
-After your project is inspected and inspection results are uploaded to %cloud%, you can overview results as shown 
+After your project is inspected and inspection results are uploaded to %cloud%, you can view results as shown 
 [on this page](cloud-overview-reports.xml).

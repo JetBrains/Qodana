@@ -127,10 +127,10 @@ You can open and study [SARIF-formatted %product% reports](qodana-sarif-output.m
 </procedure>
 </chunk>
 
-## Overview Qodana reports
+## Qodana report overview
 {id="ide-plugin-study-reports"}
 
-Using the **Server-Side Analysis** tool window of your IDE, you can overview %product% reports and navigate to the code fragments 
+Using the **Server-Side Analysis** tool window of your IDE, you can view %product% reports and navigate to the code fragments 
 containing such problems.
 
 <img src="ide-plugin-report-navigating.png" dark-src="ide-plugin-report-navigating_dark.png" width="706" alt="Navigating to problems in the IDE" animated="true" border-effect="line"/>
@@ -191,7 +191,7 @@ selected, the issues are listed in the order they appear in the file. You can al
    </tr>
 </table>
 
-## Overview Qodana logs
+## Qodana log overview
 
 In your IDE, navigate to **Help | Collect Logs and Diagnostic Data**. This will collect all necessary data and save 
 them under a specific directory.   

@@ -45,8 +45,17 @@
             <li><a href="https://youtrack.jetbrains.com/issue/QD-2153">C/C++</a></li>
         </list>
     </chapter>
-</chapter>
 
+    <chapter id="faq-qodana-jba-entities" title="What is the relation between JetBrains Account and Qodana entities?" initial-collapse-state="collapsed">
+        <p>In a JetBrains Account (JBA), you can create several Companies.</p>
+        <p>Each created JBA Company can possess several %product% licenses.</p>
+        <p>In Qodana Cloud, you need to create at least one <a href="cloud-organizations.xml">organization</a> that
+            will correspond to a specific license within a specific JBA Company.</p>
+        <p>In Qodana Cloud, you can also create a JBA Company during the <a href="cloud-onboarding.md">onboarding</a> stage.
+            In this case, the JBA Company and the Qodana Cloud organization will share the same name. </p>
+        <p>%product% does not use JetBrains Account teams.</p>
+    </chapter>
+</chapter>
 
 <chapter title="Deployment and configuration" id="faq-deployment-and-configuration">
 
@@ -196,7 +205,7 @@
             All licenses require that you create an account at Qodana Cloud and complete the
             <a href="cloud-onboarding.md">onboarding</a> stage (see
             <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, Qodana
-            Cloud lets you overview Qodana reports in a single place and provides access to all of the
+            Cloud lets you view Qodana reports in a single place and provides access to all of the
             <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> offered by %product%
             <a href="linters.md">linters</a>. Finally, for the purposes of opening %product% reports from within your
             <a href="qodana-ide-plugin.md">IDE</a>, you need a Qodana Cloud account.
@@ -419,7 +428,7 @@
         </p>
         <p>
             Besides that, Qodana forwards <a href="qodana-sarif-output.md">SARIF-formatted</a> inspection reports to
-            Qodana Cloud, which lets you overview inspection results using the Qodana Cloud UI.
+            Qodana Cloud, which lets you view inspection results using the Qodana Cloud UI.
         </p>
     </chapter>
     </chunk>

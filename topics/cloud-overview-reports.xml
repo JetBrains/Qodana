@@ -3,7 +3,7 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Overview reports"
+       title="Report overview"
        id="cloud-overview-reports">
 
     <p>Information from project reports is aggregated and displayed in several sections marked on this image.</p>
@@ -51,7 +51,7 @@
         </tr>
     </table>
 
-    <p>To overview the project reports, click it. This will open the <a href="ui-overview.md">report page</a>.</p>
+    <p>To see the project reports, click it. This will open the <a href="ui-overview.md">report page</a>.</p>
 
     <img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
 

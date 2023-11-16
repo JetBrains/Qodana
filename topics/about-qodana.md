@@ -7,11 +7,6 @@ to automate code reviews, build quality gates, and enforce code quality guidelin
 JetBrains ecosystems. The platform can be integrated into any CI/CD pipeline and can analyze code written in 60+ languages
 including Java, JavaScript, TypeScript, PHP, Kotlin, Python, Go, and C#.
 
-<!-- The below lines were commented out because the video contains the outdated UI -->
-<!-- Watch this video to get a quick Qodana overview.
-
-<video href="dgIw64OdjdU"/> -->
-
 ## Basic components 
 
 Qodana consists of these basic components:
@@ -59,7 +54,7 @@ This diagram describes several steps:
    * <a href="qodana-sarif-output.md">JSON files</a> formatted according to the SARIF specification
    * <a href="ui-overview.md">Interactive HTML reports</a>
 
-You can overview inspection results for all your projects using [Qodana Cloud](cloud-about.xml).
+You can study inspection results for all your projects using [Qodana Cloud](cloud-about.xml).
 
 4. Based on the inspection results, you can improve your code using your IDE, and run %product% again to track the 
 progress.  

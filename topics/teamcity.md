@@ -42,7 +42,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    The **Forward reports to TeamCity tests** checkbox configures %product% report availability in 
    the [Test](https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab) tab of TeamCity UI. Using this 
-   option, you can overview codebase problems along with other problems detected. 
+   option, you can view codebase problems along with other problems detected. 
 
    **Linter** configures the [Qodana Linter](linters.md).
 

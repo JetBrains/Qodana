@@ -1,7 +1,7 @@
 [//]: # (title: Visual Studio Code)
 
 Visual Studio Code is a source code editor available for Windows, macOS and Linux. This section shows how to use Visual 
-Studio Code version 1.81 and later for overviewing %product% reports from [Qodana Cloud](cloud-about.xml).
+Studio Code version 1.81 and later for viewing %product% reports from [Qodana Cloud](cloud-about.xml).
 
 ## Before you start
 
@@ -84,12 +84,12 @@ redirect you to the extension configuration page.
 * **Not attached to report** means that you have configured the extension, but the report has not been downloaded yet. To 
 download the report, click the icon. 
 * **Attached to report** means that the report was downloaded from Qodana Cloud, and now you can 
-[overview](#vs-code-overview-reports) it using Visual Studio Code. 
+[view](#vs-code-overview-reports) it using Visual Studio Code. 
 
-## Overview inspection reports
+## Inspection report overview
 {id="vs-code-overview-reports"}
 
-Once configured, the extension connects to Qodana Cloud and downloads the latest %product% report, so you can overview 
+Once configured, the extension connects to Qodana Cloud and downloads the latest %product% report, so you can see 
 it in the **PROBLEMS** tab of Visual Studio Code. If you still do not see the report in the **PROBLEMS** tab, configure 
 the [**Path prefix**](#vs-code-configure-extension) setting. 
 

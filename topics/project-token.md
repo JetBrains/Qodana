@@ -38,8 +38,8 @@ To avoid this, you should obtain compatible and up-to-date licenses for each lin
 ## Report collection
 
 Additionally, your local %product% report is bound with the project in [Qodana Cloud](cloud-projects.xml). After binding, 
-you can overview actual %product% [reports](cloud-overview-reports.xml) in an aggregated and handy format, as well as 
-keep historical overview of older Qodana reports. 
+you can view actual %product% [reports](cloud-overview-reports.xml) in an aggregated and handy format, as well as 
+keep a historical overview of older Qodana reports. 
 
 Once the project token is generated, you can regenerate or delete it as shown in the 
 [](cloud-projects.xml#cloud-manage-projects) section of the Qodana Cloud documentation.
