@@ -837,11 +837,10 @@
 
     <chunk id="linter-next-steps-footer">
         <list>
-            <li><a href="ci.md">Run the %linter% linter in your CI pipeline</a></li>
+            <li><a href="ci.md">Run %product% in your CI pipeline</a></li>
             <li><a href="%config-file%">Configure the %linter% Docker image</a></li>
-            <li><a href="github.md">Run the %linter% linter using GitHub Actions</a></li>
+            <li><a href="github.md">Run %product% using GitHub Actions</a></li>
             <li filter="for-php-linter"><a href="php-language-upgrade.xml">See how migration between PHP versions will affect the code quality</a></li>
-            <li><a href="configure-qodana.xml">See available configuration options</a></li>
         </list>
     </chunk>
 
