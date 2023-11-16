@@ -36,6 +36,11 @@
     <toc-element toc-title="Use cases">
         <toc-element id="monorepo-project.md"/>
         <toc-element id="add-qodana-to-ci.md"/>
+        <toc-element id="cloud-configure-for-os-projects.md"/>
+        <toc-element id="create-quality-gate.md"/>
+        <toc-element id="inspect-python-code.md"/>
+        <!-- configure profile is missing -->
+        <!-- exclude a folder is missing -->
     </toc-element>
 
     <!-- Deployment section -->
@@ -142,9 +147,6 @@
                 <toc-element id="cloud-profile-settings.xml" accepts-web-file-names="cloud-manage-members.html"/>
         </toc-element>
 
-        <toc-element toc-title="Tutorials" expand-mode="expand">
-            <toc-element id="cloud-configure-for-os-projects.md"/>
-        </toc-element>
     </toc-element>
 
     <!-- Extending Qodana section -->

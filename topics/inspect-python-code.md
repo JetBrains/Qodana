@@ -28,8 +28,6 @@ Here is the list of technologies and features supported by both linters.
 </tab>
 </tabs>
 
-
-
 Here are several configuration snippets showing how you can inspect Python code.
 
 <!-- I need to modify all these tabs accordingly -->
@@ -39,7 +37,7 @@ Here are several configuration snippets showing how you can inspect Python code.
     <include src="lib_qd.xml" include-id="github-basic-configuration"/>
 </tab>
 <tab id="inspect-python-code-jenkins" title="Jenkins">
-    <include src="quality-gate.xml" include-id="quality-gate-jenkins"/>
+    <include src="jenkins.md" include-id="jenkins-basic-config"/>
 </tab>
 <tab id="inspect-python-code-local" title="Run locally">
 <include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/>
