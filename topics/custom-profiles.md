@@ -313,6 +313,8 @@ inspections:
 
 ### Exclude paths
 
+<chunk id="custom-profiles-exclude-paths">
+
 You can use the `ignore` block to ignore specific [scopes](%idea-scopes%) and paths while inspecting your code. 
 
 In the sample below, the `vendor/**` value employs [glob patterns](%wiki-glob%) for ignoring the contents
@@ -332,6 +334,8 @@ inspections:
     ignore:
       - "scope#file:*.js:testData//*" # Ignore a scope
 ```
+
+</chunk>
 
 ### Create a profile from scratch
 
