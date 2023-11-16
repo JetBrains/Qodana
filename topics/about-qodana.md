@@ -35,7 +35,7 @@ You can automate code inspection by running %product% in CI/CD pipelines.
 <img src="qodana-about-code-review.png"  width="1012" alt="Automate code reviews" border-effect="line"/>
 
 The inspection report will be uploaded to Qodana Cloud, so that you can view it in details. Besides that, you can 
-study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md)
+study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md).
 
 Besides that, in GitHub %product% can inspect [pull requests](github.md#Pull+request+quality+gate).
 
