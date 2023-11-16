@@ -8,6 +8,7 @@
 <var name="ide" value="GoLand"/>
 <var name="docker-image" value="jetbrains/qodana-go:2023.2"/>
 <var name="ide-url" value="https://www.jetbrains.com/go/"/>
+<var name="config-file" value="qodana-go-docker-readme.xml"/>
 
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.
 
@@ -53,7 +54,4 @@
 
 ## Next steps
 
-- <a href="docker-image-configuration.xml">Configure %linter% Docker image</a>
-- <a href="github.md">Run %linter% on GitHub</a>
-- <a href="service.md">Use %linter% as a Service</a>
-- <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
+<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>

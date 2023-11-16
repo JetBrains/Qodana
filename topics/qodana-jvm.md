@@ -100,4 +100,4 @@
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer"/>
+<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>

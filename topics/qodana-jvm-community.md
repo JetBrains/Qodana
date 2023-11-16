@@ -8,6 +8,7 @@
 <var name="ide" value="IntelliJ IDEA Community"/>
 <var name="tech" value="jvm"/>
 <var name="docker-image" value="jetbrains/qodana-jvm-community:2023.2"/>
+<var name="config-file" value="qodana-jvm-community-docker-readme.xml"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/).  <include src="lib_qd.xml" include-id="linter-intro"/>
 
@@ -70,7 +71,4 @@
 
 ## Next steps
 
-- <a href="qodana-jvm-community-docker-readme.xml">Configure %linter% Docker image</a>
-- <a href="github.md">Run %linter% on GitHub</a>
-- <a href="service.md">Use %linter% as a Service</a>
-- <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
+<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>

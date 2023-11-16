@@ -7,6 +7,7 @@
 <var name="linter" value="Qodana for Python"/>
 <var name="ide" value="PyCharm Professional"/>
 <var name="docker-image" value="jetbrains/qodana-python:2023.2"/>
+<var name="config-file" value="qodana-python-docker-readme.xml"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
@@ -87,7 +88,4 @@ The command will be automatically executed before the analysis.
 
 ## Next steps
 
-- <a href="qodana-python-docker-readme.xml">Configure %linter% Docker image</a>
-- <a href="github.md">Run %linter% on GitHub</a>
-- <a href="service.md">Use %linter% as a Service</a>
-- <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
+<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>

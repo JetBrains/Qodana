@@ -7,6 +7,7 @@
 <var name="linter" value="Qodana for .NET"/>
 <var name="ide" value="Rider"/>
 <var name="docker-image" value="jetbrains/qodana-dotnet:2023.2"/>
+<var name="config-file" value="qodana-dotnet-docker-readme.xml"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/rider/) and provides static analysis for .NET projects.
 It brings all the smarts from Rider, which help you:
@@ -134,8 +135,4 @@ For example, this command will install the required version of the SDK that is s
 
 ## Next steps
 
-- <a href="qodana-dotnet-docker-readme.xml">Configure %linter% Docker image</a>
-- <a href="github.md">Run %linter% on GitHub</a>
-- <a href="service.md">Use %linter% as a Service</a>
-- <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
-
+<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>

@@ -7,6 +7,7 @@
 <var name="linter" value="Qodana for JS"/>
 <var name="ide" value="WebStorm"/>
 <var name="docker-image" value="jetbrains/qodana-js:2023.2"/>
+<var name="config-file" value="qodana-js-docker-readme.xml"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/). It provides static analysis for JavaScript or TypeScript projects.
 
@@ -93,7 +94,4 @@ include:
 
 ## Next steps
 
-- <a href="docker-image-configuration.xml">Configure %linter% Docker image</a>
-- <a href="github.md">Run %linter% on GitHub</a>
-- <a href="service.md">Use %linter% as a Service</a>
-- <a href="ci.md">Extend your CI/CD with %linter% plugins</a>
+<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
