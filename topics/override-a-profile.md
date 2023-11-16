@@ -30,9 +30,9 @@ Starting from 2023.2, all %product% linters provide JavaScript and TypeScript in
 To enable them, you need to enable the `JavaScript and TypeScript` inspection category, your configuration file look like:
 
 ```yaml
-name: "My custom profile" # Paste here the name of your profile
+name: "Enable JS and TS" 
     
-baseProfile: qodana.recommended # Override qodana.recommended
+baseProfile: qodana.recommended
 
 inspections:
    - group: "category:JavaScript and TypeScript"
@@ -45,9 +45,9 @@ Suppose, before running the [Qodana for PHP](qodana-php.md) linter you need to e
 inspection from the `qodana.recommended` profile. Here is the configuration for this:
 
 ```yaml
-name: "My custom profile" # Paste here the name of your profile
+name: "Exclude PhpDeprecationInspection"
     
-baseProfile: qodana.recommended # Override qodana.recommended
+baseProfile: qodana.recommended
 
 inspections:
    - inspection: PhpDeprecationInspection

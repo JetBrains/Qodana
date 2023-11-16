@@ -324,7 +324,9 @@ The scope definition `scope#file:*.js:testData//*` ignores all files with the `.
 recursively contained in the `testData/` directory. 
 
 ```yaml
-name: "Ignoring paths"
+name: "Ignore paths"
+
+baseProfile: qodana.recommended
 
 inspections:
   - inspection: NpmUsedModulesInstalled
