@@ -35,7 +35,7 @@
 
     <chapter id="quality-gate-local-run" title="Local run">
 
-        <chunk id="quality-gate-run-locally">
+        <chunk id="quality-gate-local-run-chunk">
 
         <p>You can run %product% locally with the configured quality gate using either the
             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool or available
@@ -77,7 +77,7 @@
 
     <chapter id="quality-gate-github-actions" title="GitHub Actions">
 
-        <chunk id="quality-gate-github-actions">
+        <chunk id="quality-gate-github-actions-chunk">
 
         <p>You can enforce GitHub to block merge of pull requests if the <a href="quality-gate.xml">quality gate</a> has failed. To do it,
             create a <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
@@ -132,7 +132,7 @@
 
     <chapter id="quality-gate-jenkins" title="Jenkins">
 
-        <chunk id="quality-gate-jenkins">
+        <chunk id="quality-gate-jenkins-chunk">
 
         <p>To set up a quality gate in a <a href="jenkins.md">Jenkins</a> Pipeline, you can add the
             <code>--fail-threshold &lt;number&gt;</code> option to the <code>steps</code> block:</p>

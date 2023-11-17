@@ -11,13 +11,13 @@ You can configure other %product% features ad described in the <a href="features
 
 <tabs>
 <tab id="quality-gate-use-case-github" title="GitHub Actions">
-    <include src="quality-gate.xml" include-id="quality-gate-github-actions"/>
+    <include src="quality-gate.xml" include-id="quality-gate-github-actions-chunk"/>
 </tab>
 <tab id="quality-gate-use-case-jenkins" title="Jenkins">
-    <include src="quality-gate.xml" include-id="quality-gate-jenkins"/>
+    <include src="quality-gate.xml" include-id="quality-gate-jenkins-chunk"/>
 </tab>
 <tab id="quality-gate-use-case-local" title="Local run">
-    <include src="quality-gate.xml" include-id="quality-gate-run-locally"/>
+    <include src="quality-gate.xml" include-id="quality-gate-local-run-chunk"/>
 </tab>
 </tabs>
 
