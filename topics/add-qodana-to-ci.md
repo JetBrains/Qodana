@@ -1,6 +1,15 @@
 [//]: # (title: Add Qodana to your CI)
 
 <var name="github" value="https://github.com/marketplace/actions/qodana-scan"/>
+<var name="JenkinsLink" value="https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
+<var name="Multipipe" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#branches-and-pull-requests"/>
+<var name="MultipipeCreate" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
+<var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
+<var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
+<var name="DPplugin" value="https://plugins.jenkins.io/docker-workflow/"/>
+<var name="Gplugin" value="https://plugins.jenkins.io/git/"/>
+<var name="JPullRequests" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#supporting-pull-requests" />
+<var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
 Currently, %product% provides solutions for various CI systems; several of them are native, while for several others we 
 have developed the guides explaining how to run %product% Docker images as shown in this table: 
