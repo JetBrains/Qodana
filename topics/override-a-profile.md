@@ -1,5 +1,8 @@
 [//]: # (title: Override a profile)
 
+<var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
+<var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
+
 %product% inspection profile configures the inspections to scan your code. If you enable too few
 inspections, you may miss the crucial problems. On the other hand, enabling too many inspections can negatively affect
 inspection performance while your code is scanned using inspections irrelevant to your project. 
