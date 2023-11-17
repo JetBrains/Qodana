@@ -32,7 +32,7 @@ your product by preventing bugs in production and learning from the process. For
 
 You can automate code inspection by running %product% in CI/CD pipelines. 
 
-<img src="qodana-about-code-review.png"  width="1012" alt="Automate code reviews" border-effect="line"/>
+<img src="qodana-about-code-review.png" dark-src="qodana-about-code-review_dark.png" width="706" alt="Automate code reviews" border-effect="line"/>
 
 The inspection report will be uploaded to Qodana Cloud, so that you can view it in detail. Besides that, you can 
 study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md).
