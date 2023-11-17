@@ -1,6 +1,7 @@
 [//]: # (title: Inspect Python code)
 
-<var name="linter-name" value="jetbrains/qodana-python<-community>:2023.2"/>
+<var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
+<var name="docker-image" value="jetbrains/qodana-python&lt;-community&gt;:2023.2"/>
 
 To inspect your Python codebase, depending on your %product% [license](pricing.md) you can employ the  following linters: 
 

@@ -1,5 +1,7 @@
 [//]: # (title: Create quality gate)
 
+<var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
+
 Using [quality gates](quality-gate.xml), you can configure the number of problems in your codebase that you can accept. 
 For example, if you set a quality gate for ten problems, a build workflow will fail once the eleventh problem is 
 detected. This use case shows you how you can configure %product% quality gate for local runs as well as using in GitHub 
