@@ -2,22 +2,20 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-**Qodana** is a smart code quality platform by JetBrains best suited for collaborative work in teams. 
+**Qodana** is a smart code quality platform by JetBrains best suited for working in teams. 
 It can analyze code written in 60+ languages including Java, JavaScript, TypeScript, PHP, Kotlin, Python, Go, and C#. 
-
-Dive in to discover how we're reshaping software development.
 
 ## Run %product% in your CI/CD pipeline or locally
 
 Qodana provides native solutions for [](qodana-azure-pipelines.md), [CircleCI](circleci.md), [GitHub](github.md), and
 [TeamCity](teamcity.md). With other CI/CD systems, you can use [Docker images](docker-images.md). 
 
+To run %product% locally, you can use [Docker images](docker-images.md), the
+[%product% CLI](https://github.com/jetbrains/qodana-cli) tool, and [JetBrains IDEs](qodana-ide-plugin.md).
+
 You can inspect your code using the default [inspection profiles](inspection-profiles.md#Default+profiles), which requires
 no configuration steps and lets you run %product% out of the box. You can also configure the default inspection profiles or
 create your own inspection profile in the [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
-
-To run %product% locally, you can use [Docker images](docker-images.md), the 
-[%product% CLI](https://github.com/jetbrains/qodana-cli) tool, and [JetBrains IDEs](qodana-ide-plugin.md).
 
 Finally, you can go beyond the existing inspections and [extend %product%](extending-qodana.xml).
 
@@ -28,26 +26,25 @@ as well as recommendations about how to solve such problems. Using these recomme
 your product by preventing bugs in production and learning from the process. For more details, you can study the 
 [](ui-overview.md) section.
 
-## Automate code reviews
+## Optimize code reviews
 
-You can automate code inspection by running %product% in CI/CD pipelines. 
-
-<img src="qodana-about-code-review.png" dark-src="qodana-about-code-review_dark.png" width="706" alt="Automate code reviews" border-effect="line"/>
+%product% ensures your code is healthy before it even enters the review and testing phase. Achieve quick wins like fewer 
+bugs, vulnerabilities, and conflicting licenses, and meet long-term goals like maintainable code that makes it easy to 
+ship new features and implement changes.
 
 The inspection report will be uploaded to Qodana Cloud, so that you can view it in detail. Besides that, you can 
 study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md).
 
 Besides that, in GitHub %product% can inspect [pull requests](github.md#Pull+request+quality+gate).
 
-## Unify coding standards
+## Enforce coding standards
 
 Using %product% as a [quality gate](quality-gate.xml), you can decide the number of problems to cause a build fail, plan 
 the problems to be solved right away and postponed by putting them to a [baseline](baseline.xml), or automatically apply 
 suggested [quick-fixes](quick-fix.md) to let your team save time.
 
-## Collaborate with other team members
+## Share reports with other team members
 
-%product% can help you increase collaboration by analyzing the code in your CI/CD pipelines. 
 [Qodana Cloud](https://qodana.cloud) helps you accumulate %product% reports and track the progress in your project(s) 
 from a single point. Such reports are available for all members of your team(s). To become more familiar with Qodana 
 Cloud, visit the [](cloud-about.xml) page.
