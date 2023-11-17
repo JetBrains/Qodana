@@ -2,94 +2,74 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-**Qodana** is a smart code quality platform by JetBrains. This powerful static analysis engine enables development teams
-to automate code reviews, build quality gates, and enforce code quality guidelines enterprise-wide – all within their
-JetBrains ecosystems. The platform can be integrated into any CI/CD pipeline and can analyze code written in 60+ languages
-including Java, JavaScript, TypeScript, PHP, Kotlin, Python, Go, and C#.
+**Qodana** is a smart code quality platform by JetBrains best suited for collaborative work in teams. 
+It can analyze code written in 60+ languages including Java, JavaScript, TypeScript, PHP, Kotlin, Python, Go, and C#. 
 
-## Basic components 
+Dive in to discover how we're reshaping software development.
 
-Qodana consists of these basic components:
+## Run %product% in your CI/CD pipeline or locally
 
-* <a href="static-analysis.xml">Static analysis</a> mechanism of Qodana means automated analysis of your codebase. 
-* <a href="linters.md">Linters</a> are the components that let you analyze your code, find duplicate 
-functions and incompatible licenses.
-* <a href="code-inspections.xml">Code inspections</a> are the linter components that immediately analyze your code for 
-specific issues.
+Qodana provides native solutions for [](qodana-azure-pipelines.md), [CircleCI](circleci.md), [GitHub](github.md), and
+[TeamCity](teamcity.md). With other CI/CD systems, you can use [Docker images](docker-images.md). 
 
-The diagram below shows how all these components are combined in Qodana.
+You can inspect your code using the default [inspection profiles](inspection-profiles.md#Default+profiles), which requires
+no configuration steps and lets you run %product% out of the box. You can also configure the default inspection profiles or
+create your own inspection profile in the [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
 
-<img src="basic-components.png" dark-src="basic-components_dark.png" width="706" alt="Basic components of Qodana"/> 
+To run %product% locally, you can use [Docker images](docker-images.md), the 
+[%product% CLI](https://github.com/jetbrains/qodana-cli) tool, and [JetBrains IDEs](qodana-ide-plugin.md).
 
-The fourth essential component is [Qodana Cloud](cloud-about.xml) that aggregates Qodana [reports](html-report.md) and 
-processes [license information](project-token.md).
+Finally, you can go beyond the existing inspections and [extend %product%](extending-qodana.xml).
 
-<note>
-You can employ %product% linters available under the 
-<a href="pricing.md">Ultimate and Ultimate Plus</a> licenses only after you 
-create a <a href="cloud-quickstart.md">Qodana Cloud account</a>.
-</note>
+## Improve the quality of your software
 
-## Qodana workflow
+%product% reports provide detailed description of concrete problems and code fragments that contain such problems,
+as well as recommendations about how to solve such problems. Using these recommendations, you can improve the quality of
+your product by preventing bugs in production and learning from the process. For more details, you can study the 
+[](ui-overview.md) section.
 
-The diagram below provides an overview of a typical Qodana use-case.  
+## Automate code reviews
 
-<img src="basic-workflow.png" dark-src="basic-workflow_dark.png" width="706" alt="Basic Qodana workflow"/>
+You can automate code inspection by running %product% in CI/CD pipelines. 
 
-This diagram describes several steps:
+<img src="qodana-about-code-review.png" dark-src="qodana-about-code-review_dark.png" width="706" alt="Automate code reviews" border-effect="line"/>
 
-1. Set up Qodana using [available options](#Setting+up+Qodana).
+The inspection report will be uploaded to Qodana Cloud, so that you can view it in detail. Besides that, you can 
+study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md).
 
-2. Take all necessary configuration steps:
+Besides that, in GitHub %product% can inspect [pull requests](github.md#Pull+request+quality+gate).
 
-   * Configure an inspection profile as described in the [](qodana-yaml.md) section
-   * Configure Docker images using the [](docker-image-configuration.xml) section
-   * Explore integration options using the [](ci.md) section
+## Unify coding standards
 
-3. <a href="inspect-your-code.xml">Inspect your codebase</a> using available linters and 
-<a href="features.xml">features</a>. You can run Qodana either [locally or within a CI/CD pipeline](#Running+Qodana). 
+Using %product% as a [quality gate](quality-gate.xml), you can decide the number of problems to cause a build fail, plan 
+the problems to be solved right away and postponed by putting them to a [baseline](baseline.xml), or automatically apply 
+suggested [quick-fixes](quick-fix.md) to let your team save time.
 
-    Inspection results are available in these forms:
+## Collaborate with other team members
 
-   * <a href="qodana-sarif-output.md">JSON files</a> formatted according to the SARIF specification
-   * <a href="ui-overview.md">Interactive HTML reports</a>
+%product% can help you increase collaboration by analyzing the code in your CI/CD pipelines. 
+[Qodana Cloud](https://qodana.cloud) helps you accumulate %product% reports and track the progress in your project(s) 
+from a single point. Such reports are available for all members of your team(s). To become more familiar with Qodana 
+Cloud, visit the [](cloud-about.xml) page.
 
-You can study inspection results for all your projects using [Qodana Cloud](cloud-about.xml).
+## Take advantage of our pricing model
 
-4. Based on the inspection results, you can improve your code using your IDE, and run %product% again to track the 
-progress.  
+%product% license costs under the Ultimate and Ultimate Plus licenses depend on the number of active contributors, and 
+this lets you inspect an unlimited number of code lines.  
 
-## Setting up Qodana
-
-<include src="lib_qd.xml" include-id="qodana-deployment-options"/>
-
-## Running Qodana
-
-You can run %product% [locally](Quick-start.xml) in a standalone mode using a PC or a server. Alternatively, inspecting 
-your code within a [CI/CD pipeline](ci.md) means that your code will be inspected by %product% as part of a 
-building and/or deployment process.
-
-## Qodana Cloud
-
-[Qodana Cloud](https://qodana.cloud) is a cloud-based solution that helps you accumulate various Qodana reports and track the 
-progress in your project(s) from a single point. To learn more about Qodana Cloud, you can study the 
-[documentation](cloud-about.xml).
-
-## Qodana playground
-
-[Qodana Playground](https://qodana.teamcity.com/overview?mode=builds) is a sandbox environment that runs in TeamCity, a
-cloud-based CI system developed by JetBrains. You can use it to see Qodana in action and try various options yourself.
-
-## Contact us
-
-If you encounter a bug or would like to suggest a new feature,
-use the <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or email the support team at 
-<a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>. 
-
-To actively participate in the Qodana community, join our [GitHub Discussions forum](https://github.com/JetBrains/Qodana/discussions).
+You can also run %product% under the free Community license; however, in this case %product% functionality will be
+restricted. To compare %product% licenses, you can visit the [](pricing.md) page.
 
 ## Next steps
 
 - <a href="Quick-start.xml">Quick start guide</a>
-- <a href="components.xml">Qodana components</a>
-- <a href="deploy-qodana.xml">How to deploy Qodana</a>
+- <a href="https://www.jetbrains.com/qodana/request-a-demo/">Request a demo</a>
+- <a href="features.xml">%product% features</a>
+
+## Contact us
+
+If you would like to suggest a new feature or encounter unexpected behaviour, use the 
+<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or email the support team at
+<a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
+
+To actively participate in the Qodana community, join our [GitHub Discussions forum](https://github.com/JetBrains/Qodana/discussions).
