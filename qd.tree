@@ -39,7 +39,7 @@
         <toc-element id="cloud-configure-for-os-projects.md"/>
         <toc-element id="create-quality-gate.md"/>
         <toc-element id="inspect-python-code.md"/>
-        <!-- configure profile is missing -->
+        <toc-element id="override-a-profile.md"/>
         <!-- exclude a folder is missing -->
     </toc-element>
 
