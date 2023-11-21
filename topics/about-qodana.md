@@ -14,16 +14,16 @@ To run %product% locally, you can use [Docker images](docker-images.md), the
 [%product% CLI](https://github.com/jetbrains/qodana-cli) tool, and [JetBrains IDEs](qodana-ide-plugin.md).
 
 You can inspect your code using the default [inspection profiles](inspection-profiles.md#Default+profiles), which requires
-no configuration steps and lets you run %product% out of the box. You can also configure the default inspection profiles or
+no configuration and lets you run %product% out of the box. You can also configure the default inspection profiles or
 create your own inspection profile in the [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
 
 Finally, you can go beyond the existing inspections and [extend %product%](extending-qodana.xml).
 
 ## Improve the quality of your software
 
-%product% reports provide detailed description of concrete problems and code fragments that contain such problems,
-as well as recommendations about how to solve such problems. Using these recommendations, you can improve the quality of
-your product by preventing bugs in production and learning from the process. For more details, you can study the 
+%product% reports provide detailed descriptions of concrete problems and the code fragments that contain them,
+as well as recommendations about how to solve these problems. Using these recommendations, you can improve the quality of
+your product by preventing bugs in production and learning from the process. For more details, you can read the 
 [](ui-overview.md) section.
 
 ## Optimize code reviews
@@ -32,30 +32,29 @@ your product by preventing bugs in production and learning from the process. For
 bugs, vulnerabilities, and conflicting licenses, and meet long-term goals like maintainable code that makes it easy to 
 ship new features and implement changes.
 
-The inspection report will be uploaded to Qodana Cloud, so that you can view it in detail. Besides that, you can 
-study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md).
-
-Besides that, in GitHub %product% can inspect [pull requests](github.md#Pull+request+quality+gate).
+The inspection report will be uploaded to Qodana Cloud so that you can view it in detail. You can 
+study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md), and, in GitHub, 
+%product% can inspect [pull requests](github.md#Pull+request+quality+gate).
 
 ## Enforce coding standards
 
-Using %product% as a [quality gate](quality-gate.xml), you can decide the number of problems to cause a build fail, plan 
-the problems to be solved right away and postponed by putting them to a [baseline](baseline.xml), or automatically apply 
-suggested [quick-fixes](quick-fix.md) to let your team save time.
+Using %product% as a [quality gate](quality-gate.xml), you can decide the number of problems that cause a build to fail,  
+prioritize problems to be solved right away, postpone others by putting them to a [baseline](baseline.xml), or 
+automatically apply suggested [quick-fixes](quick-fix.md) to let your team save time.
 
 ## Share reports with other team members
 
-[Qodana Cloud](https://qodana.cloud) helps you accumulate %product% reports and track the progress in your project(s) 
-from a single point. Such reports are available for all members of your team(s). To become more familiar with Qodana 
+[Qodana Cloud](https://qodana.cloud) helps you accumulate %product% reports and track the progress in your projects 
+from a single point. These reports are available for all members of your teams. To familiarize yourself with Qodana 
 Cloud, visit the [](cloud-about.xml) page.
 
 ## Take advantage of our pricing model
 
-%product% license costs under the Ultimate and Ultimate Plus licenses depend on the number of active contributors, and 
-this lets you inspect an unlimited number of code lines.  
+%product% license costs under the Ultimate and Ultimate Plus licenses depend on the number of active contributors, not
+project size, so you can inspect an unlimited number of code lines.  
 
-You can also run %product% under the free Community license; however, in this case %product% functionality will be
-restricted. To compare %product% licenses, you can visit the [](pricing.md) page.
+You can also run %product% with restricted functionality with a free Community license. To compare %product% licenses, 
+you can visit the [](pricing.md) page.
 
 ## Next steps
 
@@ -65,7 +64,7 @@ restricted. To compare %product% licenses, you can visit the [](pricing.md) page
 
 ## Contact us
 
-If you would like to suggest a new feature or encounter unexpected behaviour, use the 
+If you would like to suggest a new feature or encounter unexpected behavior, please use our 
 <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or email the support team at
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 

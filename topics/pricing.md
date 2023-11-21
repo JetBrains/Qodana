@@ -110,8 +110,6 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Features and third-party software support
 
-<note>Currently, %product% supports only free plugins. </note>
-
 | Feature                                               | Community | Ultimate  | Ultimate Plus | 
 |-------------------------------------------------------|-----------|-----------|---------------|
 | [Monorepo support](monorepo-project.md)               | &#x2714;  | &#x2714;  | &#x2714;      | 
