@@ -11,7 +11,7 @@
         <toc-element id="pricing.md"/>
         <toc-element id="Quick-start.xml"/>
         <toc-element id="faq.xml"/>
-        <toc-element id="new-in-2023-2.md" show-structure-depth="3" accepts-web-file-names="new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html"/>
+        <toc-element id="new-in-2023-3.md" show-structure-depth="3" accepts-web-file-names="new-in-2023-2.md,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html"/>
         <toc-element id="components.xml">
             <toc-element id="static-analysis.xml"/>
             <toc-element id="linters.md" accepts-web-file-names="supported-technologies.html">
