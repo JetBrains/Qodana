@@ -27,7 +27,7 @@
 
                 <img src="cloud-project-creation-step-1.png" dark-src="cloud-project-creation-step-1_dark.png" alt="The second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 
-                <p>After connecting, Qodana Cloud provides a public key that will be identified by your Qodana Cloud account.</p>
+                <p>After connecting, Qodana Cloud provides a public key that will be used to authenticate your Qodana Cloud account.</p>
 
                 <img src="cloud-project-creation-step-1-key.png" dark-src="cloud-project-creation-step-1-key_dark.png" alt="The public key generated during the second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 

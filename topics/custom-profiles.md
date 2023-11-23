@@ -457,3 +457,7 @@ inspections:
       ignoreObjectMethods: false
       ignoreAnonymousClassMethods: true
 ```
+
+## Set up a profile
+
+<include src="inspection-profiles.md" include-id="set-up-a-profile"/>

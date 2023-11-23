@@ -49,6 +49,8 @@ certain type of results.
 
 ## Set up a profile
 
+<chunk id="set-up-a-profile">
+
 You can set up a profile using either the `qodana.yaml` file or the [Shell commands](docker-image-configuration.xml). 
 
 ### Profile name
@@ -81,7 +83,7 @@ This command lets you override the default profile und run %product% using the
         <code style="block" lang="shell" prompt="$">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               -profile-name qodana.recommended
+               --profile-name qodana.recommended
         </code>
     </tab>
 </tabs>
@@ -146,6 +148,8 @@ profile file to read:
         </code>
     </tab>
 </tabs>
+
+</chunk>
 
 ## Custom profiles
 

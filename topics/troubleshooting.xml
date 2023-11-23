@@ -189,4 +189,10 @@
 
     </chapter>
 
+    <chapter id="troubleshooting-whitelist" title="The list of IP addresses required by Qodana Cloud">
+
+        <include src="lib_qd.xml" include-id="whitelist-of-ip-addresses" use-filter="for-troubleshooting"/>
+
+    </chapter>
+
 </topic>
