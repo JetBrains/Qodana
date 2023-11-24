@@ -32,15 +32,15 @@ your product by preventing bugs in production and learning from the process. For
 bugs, vulnerabilities, and conflicting licenses, and meet long-term goals like maintainable code that makes it easy to 
 ship new features and implement changes.
 
-The inspection report will be uploaded to Qodana Cloud so that you can view it in detail. You can 
+The inspection report will be uploaded to Qodana Cloud so that you can view it in detail. You can also
 study %product% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md). In GitHub, 
-%product% can inspect [pull requests](github.md#Pull+request+quality+gate).
+%product% can leave comments right in your [pull requests](github.md#Pull+request+quality+gate).
 
 ## Enforce coding standards
 
-Using %product% as a [quality gate](quality-gate.xml), you can decide the number of problems that cause a build to fail,  
-prioritize problems to be solved right away, postpone others by putting them to a [baseline](baseline.xml), or 
-automatically apply suggested [quick-fixes](quick-fix.md) to let your team save time.
+Using %product% as a [quality gate](quality-gate.xml), you can decide the number of problems that cause a build to fail, prioritize problems 
+to be solved right away, postpone others by putting them to a [baseline](baseline.xml), or automatically apply suggested 
+[quick-fixes](quick-fix.md) to let your team save time.
 
 ## Share reports with other team members
 
