@@ -278,10 +278,6 @@
     </chunk>
 
     <chunk id="docker-plugins-management">
-        <p>
-            Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate
-            with us to make it work.
-        </p>
         <p>Any free IntelliJ platform plugins or your custom plugin can be added by mounting it to the container
             plugins' directory using the following command:
         </p>
