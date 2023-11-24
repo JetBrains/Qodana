@@ -121,7 +121,7 @@ profile:
     path: relative/path/in/your/project.xml
 ```
 
-You can use this with [custom profiles](#Custom+profiles).
+You can use this with [custom profiles](#inspection-profiles-custom-profiles).
 
 The `--profile-path` CLI option lets you override the path to the file containing the profile.
 
@@ -152,6 +152,7 @@ profile file to read:
 </chunk>
 
 ## Custom profiles
+{id="inspection-profiles-custom-profiles"}
 
 You can configure inspection profiles using two formats: 
 
