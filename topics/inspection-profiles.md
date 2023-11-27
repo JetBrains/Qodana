@@ -64,7 +64,7 @@ profile:
 
 The `--profile-name` CLI option lets you run %product% using either the
 [default profiles](inspection-profiles.md#Default+profiles) or the profile name from the
-[custom profile](inspection-profiles.md#Custom+profiles).
+[custom profile](inspection-profiles.md#inspection-profiles-custom-profiles).
 
 This command lets you override the default profile und run %product% using the
 [`qodana.recommended`](inspection-profiles.md#Default+profiles) profile:

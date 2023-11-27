@@ -525,7 +525,7 @@
 
             <p filter="for-inspection-profiles">The <code>--profile-name</code> option lets you run %product% using either
                 the <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a> or
-                the profile name from the <a href="inspection-profiles.md" anchor="Custom+profiles">custom profile</a>. </p>
+                the profile name from the <a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">custom profile</a>. </p>
 
             <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file.</tip>
 
