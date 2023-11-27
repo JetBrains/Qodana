@@ -8,7 +8,8 @@
 
     <p>This section explains how you can configure the <a href="docker-images.md">Docker images</a> of
         %product% and the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool. You can use both tools
-        <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>.</p>
+        <a href="Quick-start.xml">locally</a> and in <a href="ci.md">CI/CD pipelines</a>. Several options are available
+     in Qodana CLI only.</p>
 
     <p>In several cases, you can configure them using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file,
         which is also mentioned in this section.</p>
@@ -46,48 +47,12 @@
         </table>
 
         <p>If you run the <code>qodana init</code> command in the project directory, Qodana CLI will let you choose
-            the <a href="linters.md">linter</a> that will be run during inspection, and saves the choice in
+            the <a href="linters.md">linter</a> that will be run during inspection, and save the choice in
             <code>qodana.yaml</code>. Once done, you do not need to specify the linter in the commands, which is
             shown throughout this section.</p>
 
-        <p>If necessary, you can use these options with the <code>qodana init</code> command:</p>
-
-        <table>
-            <tr>
-                <td>Option</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -f, --force
-                    </code>
-                </td>
-                <td>
-                    Force initialization (overwrite the existing valid <code>qodana.yaml</code> file)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -h, --help
-                    </code>
-                </td>
-                <td>
-                    Help for the <code>init</code> command
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -i, --project-dir &lt;string&gt;
-                    </code>
-                </td>
-                <td>
-                    Root directory of the project to configure (default is <code>.</code>)
-                </td>
-            </tr>
-        </table>
+        <p>The detailed description of the <code>qodana init</code> command is available in the
+        <a anchor="docker-config-reference-project-initialization"/> section.</p>
 
     </chapter>
 
@@ -756,6 +721,7 @@
             <tip><p>During inspection, Qodana CLI automatically saves inspection reports in the
                 <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
                 <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
+                <p>To view the generated report in your browser, in the project root run the <code>qodana show</code> command.</p>
             </tip>
 
             <p>The <code>--save-report</code> option in the Docker command lets you save the generated HTML report to your
@@ -795,6 +761,7 @@
                            --port 4040 \
                            --show-report
                     </code>
+                    <p>Alternatively, in the project root you can run the <code>qodana show</code> command.</p>
                 </tab>
             </tabs>
 
@@ -1033,7 +1000,7 @@
             <tr>
                 <td>Option</td>
                 <td>Description</td>
-                <td>Default value</td>
+                <td>Default setting</td>
             </tr>
             <tr>
                 <td><code>--script</code></td>
@@ -1101,25 +1068,16 @@
 
     </chapter>
 
-    <chapter id="docker-config-reference-run-without-container"></chapter>
-
     <!-- What is this for?  And how can I run it? -->
 
     <chapter id="docker-config-reference-qodana-cloud" title="Qodana Cloud">
 
-        <table>
-            <tr>
-                <td>Option</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td><code>-a</code>, <code>--analysis-id=</code></td>
-                <td>Unique report identifier (GUID) to be used by <a href="https://qodana.cloud">Qodana Cloud</a></td>
-            </tr>
-        </table>
+        <p>To forward reports to Qodana Cloud, you can:</p>
 
-        <p>To forward reports to Qodana Cloud, you can set the list of Docker environments as explained in the
-            <a href="cloud-forward-reports.xml"/> section.</p>
+        <list>
+            <li>Run the <code>qodana send</code> command as explained in the <a anchor="docker-config-reference-reports-to-qodana-cloud"/></li>
+            <li>Set the list of Docker environments as explained in the <a href="cloud-forward-reports.xml"/> section</li>
+        </list>
 
     </chapter>
 
@@ -1250,6 +1208,331 @@
         </chapter>
 
     </chapter>
+
+    <chapter id="docker-config-reference-qodana-cli-options" title="Options available only in Qodana CLI">
+
+        <chapter id="docker-config-reference-project-initialization" title="Initial project configuration">
+
+            <p>You can use these options with the <code>qodana init &lt;options&gt;</code> command:</p>
+
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -f, --force
+                        </code>
+                    </td>
+                    <td>
+                        Force initialization (overwrite the existing valid <code>qodana.yaml</code> file)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -h, --help
+                        </code>
+                    </td>
+                    <td>
+                        Help for the <code>init</code> command
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -i, --project-dir &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Root directory of the project to configure (default is <code>.</code>)
+                    </td>
+                </tr>
+            </table>
+
+        </chapter>
+
+    <chapter id="docker-config-reference-contributor-counting" title="Contributor counting">
+
+        <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section.</p>
+
+        <p>To count contributors using Qodana CLI, you can run the <code>qodana contributors &lt;options&gt;</code> command with the following options:</p>
+
+        <table>
+            <tr>
+                <td>Option</td>
+                <td>Description</td>
+                <td>Default setting</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -d, --days &lt;int&gt;
+                    </code>
+                </td>
+                <td>
+                    Number of days to calculate the number of active contributors for
+                </td>
+                <td>
+                    30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -h, --help
+                    </code>
+                </td>
+                <td>
+                    Help for the <code>qodana contributors</code> command
+                </td>
+                <td>
+                    None
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -i, --project-dir &lt;string&gt;
+                    </code>
+                </td>
+                <td>
+                    Root directory of the project to configure
+                </td>
+                <td>
+                <code>.</code>
+                </td>
+            </tr>
+        </table>
+
+    </chapter>
+
+    <chapter id="docker-config-reference-contributor-counting" title="Project information">
+
+        <p>Using the <code>qodana cloc &lt;options&gt;</code> command, you can view information about your project, such
+            as languages and lines of code. Here is the list of available options
+            for this command:</p>
+
+        <table>
+            <tr>
+                <td>Option</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -o, --output &lt;string&gt;
+                    </code>
+                </td>
+                <td>
+                    The output format that accepts the <code>tabular</code>, <code>wide</code>, <code>json</code>,
+                    <code>csv</code>, <code>csv-stream</code>, <code>cloc-yaml</code>, <code>html</code>,
+                    <code>html-table</code>, <code>sql</code>, <code>sql-insert</code>, <code>openmetrics</code> values.
+                    The default setting is <code>tabular</code>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -h, --help
+                    </code>
+                </td>
+                <td>
+                    Help for the <code>qodana cloc</code> command
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -i, --project-dir &lt;stringArray&gt;
+                    </code>
+                </td>
+                <td>
+                    Project directory. This option can be specified multiple times to check multiple projects.  If not
+                    specified, the current directory will be used
+                </td>
+            </tr>
+        </table>
+
+    </chapter>
+
+        <chapter id="docker-config-reference-reports-to-qodana-cloud" title="Forward reports to Qodana Cloud">
+
+            <p>You can run the <code>qodana send &lt;options&gt;</code> command for forwarding reports to Qodana Cloud. Here is the list
+            of available options for ths command:</p>
+
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                    <td>Default setting</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -l, --linter &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override the linter
+                    </td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -h, --help
+                        </code>
+                    </td>
+                    <td>
+                        Help for the <code>qodana send</code> command
+                    </td>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -i, --project-dir &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Root directory of the inspected project
+                    </td>
+                    <td><code>.</code></td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -r, --report-dir &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Path for the generated HTML report that contains the <code>index.html</code> file inside
+                    </td>
+                    <td><code>/Users/tv/Library/Caches/JetBrains/Qodana/e3b0c442-250e5c26/results/report</code></td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -o, --results-dir &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override the directory to save %product% inspection results to
+                    </td>
+                    <td><code>/Users/tv/Library/Caches/JetBrains/Qodana/e3b0c442-250e5c26/results</code></td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -y, --yaml-name &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override the <code>qodana.yaml</code> name
+                    </td>
+                    <td>None</td>
+                </tr>
+
+            </table>
+
+            <p>Besides that, Qodana CLI provides the following option:</p>
+
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-a</code>, <code>--analysis-id=</code></td>
+                    <td>Unique report identifier (GUID) to be used by <a href="https://qodana.cloud">Qodana Cloud</a></td>
+                </tr>
+            </table>
+
+        </chapter>
+
+    <chapter id="docker-config-reference-view-sarif-files" title="View SARIF-formatted files">
+
+        <p>You can run the <code>qodana view &lt;options&gt;</code> command uning these options:</p>
+
+        <table>
+            <tr>
+                <td>Option</td>
+                <td>Description</td>
+                <td>Default setting</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -f, --sarif-file &lt;string&gt;
+                    </code>
+                </td>
+                <td>
+                    Path to the SARIF-formatted file
+                </td>
+                <td><code>./qodana.sarif.json</code></td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -h, --help
+                    </code>
+                </td>
+                <td>
+                    Help for the <code>qodana view</code> command
+                </td>
+                <td>None</td>
+            </tr>
+        </table>
+
+
+    </chapter>
+
+    <chapter id="docker-config-reference-view-sarif-files" title="Show the %product% report">
+
+        <!-- The link from the Show the report section needs to be added to this section -->
+
+        <p>You can run the <code>qodana show &lt;options&gt;</code> command using these options:</p>
+
+        <table>
+            <tr>
+                <td>Option</td>
+                <td>Description</td>
+                <td>Default setting</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -f, --sarif-file &lt;string&gt;
+                    </code>
+                </td>
+                <td>
+                    Path to the SARIF-formatted file
+                </td>
+                <td><code>./qodana.sarif.json</code></td>
+            </tr>
+            <tr>
+                <td>
+                    <code>
+                        -h, --help
+                    </code>
+                </td>
+                <td>
+                    Help for the <code>qodana view</code> command
+                </td>
+                <td>None</td>
+            </tr>
+        </table>
+
+
+    </chapter>
+
+
+
+    </chapter>
+
 
     <chapter id="docker-config-reference-order-resolving-profile" title="Order of resolving a profile">
 
