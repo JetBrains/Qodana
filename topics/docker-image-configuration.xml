@@ -1211,7 +1211,7 @@
 
     <chapter id="docker-config-reference-qodana-cli-options" title="Options available only in Qodana CLI">
 
-        <chapter id="docker-config-reference-project-initialization" title="Initial project configuration">
+        <chapter id="docker-config-reference-project-initialization" title="Project configuration">
 
             <p>You can use these options with the <code>qodana init &lt;options&gt;</code> command:</p>
 
@@ -1252,6 +1252,424 @@
                 </tr>
             </table>
 
+        </chapter>
+
+        <chapter id="docker-config-reference-scan-project" title="Scanning projects">
+
+            <p>You can use these options with the <code>qodana scan &lt;options&gt;</code> command:</p>
+
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -l, --linter &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Use to run Qodana in a container (default). Choose linter (image) to use. Not compatible with <code>--ide</code> option. Available images are: <code>jetbrains/qodana-jvm-community</code>, <code>jetbrains/qodana-jvm</code>, <code>jetbrains/qodana-jvm-android</code>, <code>jetbrains/qodana-php</code>, <code>jetbrains/qodana-python</code>, <code>jetbrains/qodana-python-community</code>, <code>jetbrains/qodana-js</code>, <code>jetbrains/qodana-go</code>, <code>jetbrains/qodana-dotnet</code>, though you can use any Docker image with Qodana inside
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --ide  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Use to run Qodana without a container. Path to the installed IDE, or a downloaded one: provide direct URL or a product code. Not compatible with the <code>--linter</code> option. Available codes are <code>QDJVMC</code>, <code>QDJVM</code>, <code>QDPHP</code>, <code>QDPY</code>, <code>QDPYC</code>, <code>QDJS</code>, <code>QDGO</code>, <code>QDNET</code>, add <code>-EAP</code> part to obtain EAP versions
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -i, --project-dir  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Root directory of the inspected project (default <code>.</code>)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -o, --results-dir  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override directory to save Qodana inspection results to (default &lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/results)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --cache-dir  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override cache directory (default &lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/cache)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --report-dir  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override directory to save Qodana HTML report to (default &lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --print-problems
+                        </code>
+                    </td>
+                    <td>
+                        Print all found problems by Qodana in the CLI output
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --clear-cache
+                        </code>
+                    </td>
+                    <td>
+                        Clear the local Qodana cache before running the analysis
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -w, --show-report
+                        </code>
+                    </td>
+                    <td>
+                        Serve HTML report on port
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --port int
+                        </code>
+                    </td>
+                    <td>
+                        Port to serve the report on (default 8080)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --yaml-name &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override qodana.yaml name to use: <code>qodana.yaml</code> or <code>qodana.yml</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -a, --analysis-id  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Unique report identifier (GUID) to be used by Qodana Cloud (default "&lt;generated value&gt;")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -b, --baseline  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Provide the path to an existing SARIF report to be used in the baseline state calculation
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --baseline-include-absent
+                        </code>
+                    </td>
+                    <td>
+                        Include in the output report the results from the baseline run that are absent in the current run
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --full-history --commit
+                        </code>
+                    </td>
+                    <td>
+                        Go through the full commit history and run the analysis on each commit. If combined with <code>--commit</code>, analysis will be started from the given commit. Could take a long time.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --commit --script local-changes
+                        </code>
+                    </td>
+                    <td>
+                        Base changes commit to reset to, resets git and runs linter with <code>--script local-changes</code>: analysis will be run only on changed files since the given commit. If combined with <code>--full-history</code>, full history analysis will be started from the given commit.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --fail-threshold  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Set the number of problems that will serve as a quality gate. If this number is reached, the inspection run is terminated with a non-zero exit code
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --disable-sanity
+                        </code>
+                    </td>
+                    <td>
+                        Skip running the inspections configured by the sanity profile
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -d, --source-directory  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Directory inside the project-dir directory must be inspected. If not specified, the whole project is inspected
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -n, --profile-name  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Profile name defined in the project
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -p, --profile-path  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Path to the profile file
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --run-promo  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Set to <code>true</code> to have the application run the inspections configured by the promo profile; set to <code>false</code> otherwise (default: <code>true</code> only if Qodana is executed with the default profile)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --script  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override the run scenario (default <code>default</code>)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --stub-profile  &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Absolute path to the fallback profile file. This option is applied in case the profile was not specified using any available options
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --apply-fixes
+                        </code>
+                    </td>
+                    <td>
+                        Apply all available quick-fixes, including cleanup
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --cleanup
+                        </code>
+                    </td>
+                    <td>
+                        Run project cleanup
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --property &lt;stringArray&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Set a JVM property to be used while running Qodana using the <code>--property property.name=value1,value2,...,valueN</code> notation
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -s, --save-report
+                        </code>
+                    </td>
+                    <td>
+                        Generate HTML report (default true)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -e, --env &lt;stringArray&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Only for container runs. Define additional environment variables for the Qodana container (you can use the flag multiple times). CLI is not reading full host environment variables and does not pass it to the Qodana container for security reasons
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -v, --volume &lt;stringArray&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Only for container runs. Define additional volumes for the Qodana container (you can use the flag multiple times)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -u, --user &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Only for container runs. User to run Qodana container as. Please specify user id – <code>$UID</code> or user id and group id <code>$(id -u):$(id -g)</code>. Use <code>root</code> to run as the root user (default: the current user)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --skip-pull
+                        </code>
+                    </td>
+                    <td>
+                        Only for container runs. Skip pulling the latest Qodana container
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -h, --help
+                        </code>
+                    </td>
+                    <td>
+                        help for scan
+                    </td>
+                </tr>
+            </table>
+
+
+
+        </chapter>
+
+        <chapter id="docker-config-reference-show-report" title="Showing reports">
+
+            <p>You can use these options with the <code>qodana show &lt;options&gt;</code> command:</p>
+
+
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -d, --dir-only
+                        </code>
+                    </td>
+                    <td>
+                        Open report directory only, don't serve it
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -h, --help
+                        </code>
+                    </td>
+                    <td>
+                        help for show
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -l, --linter &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Override linter to use
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -p, --port &lt;int&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Specify port to serve report at (default 8080)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -i, --project-dir &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Root directory of the inspected project (default ".")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            -r, --report-dir &lt;string&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Specify HTML report path (the one with index.html inside) (default &lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report)
+                    </td>
+                </tr>
+            </table>
         </chapter>
 
     <chapter id="docker-config-reference-contributor-counting" title="Contributor counting">
@@ -1358,7 +1776,7 @@
 
     </chapter>
 
-        <chapter id="docker-config-reference-reports-to-qodana-cloud" title="Forward reports to Qodana Cloud">
+        <chapter id="docker-config-reference-reports-to-qodana-cloud" title="Forwarding reports to Qodana Cloud">
 
             <p>You can run the <code>qodana send &lt;options&gt;</code> command for forwarding reports to Qodana Cloud. Here is the list
             of available options for ths command:</p>
@@ -1453,9 +1871,9 @@
 
         </chapter>
 
-    <chapter id="docker-config-reference-view-sarif-files" title="View SARIF-formatted files">
+    <chapter id="docker-config-reference-view-sarif-files" title="Viewing SARIF-formatted files">
 
-        <p>You can run the <code>qodana view &lt;options&gt;</code> command uning these options:</p>
+        <p>You can run the <code>qodana view &lt;options&gt;</code> command using these options:</p>
 
         <table>
             <tr>
@@ -1490,7 +1908,7 @@
 
     </chapter>
 
-    <chapter id="docker-config-reference-show-the-qodana-report" title="Show the %product% report">
+    <chapter id="docker-config-reference-show-the-qodana-report" title="Opening SARIF-formatted reports">
 
         <!-- The link from the Show the report section needs to be added to this section -->
 
@@ -1528,6 +1946,8 @@
 
 
     </chapter>
+
+        <chapter id="docker-config-reference-show-the-qodana-report"
 
 
 
