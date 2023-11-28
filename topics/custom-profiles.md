@@ -460,4 +460,4 @@ inspections:
 
 ## Set up a profile
 
-<include src="lib_qd.xml" include-id="set-up-a-profile"/>
+To learn how to employ the configured profile, see the [](inspection-profiles.md#Set+up+a+profile) section. 
