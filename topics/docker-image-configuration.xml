@@ -1309,7 +1309,7 @@
 
     </chapter>
 
-    <chapter id="docker-config-reference-contributor-counting" title="Project information">
+    <chapter id="docker-config-reference-project-information" title="Project information">
 
         <p>Using the <code>qodana cloc &lt;options&gt;</code> command, you can view information about your project, such
             as languages and lines of code. Here is the list of available options
@@ -1490,7 +1490,7 @@
 
     </chapter>
 
-    <chapter id="docker-config-reference-view-sarif-files" title="Show the %product% report">
+    <chapter id="docker-config-reference-show-the-qodana-report" title="Show the %product% report">
 
         <!-- The link from the Show the report section needs to be added to this section -->
 

@@ -121,8 +121,6 @@ profile:
     path: relative/path/in/your/project.xml
 ```
 
-You can use this with [custom profiles](#Custom+profiles).
-
 The `--profile-path` CLI option lets you override the path to the file containing the profile.
 
 This command lets you bind the file to the profile directory, and the `--profile-path` option tells %product% which 
