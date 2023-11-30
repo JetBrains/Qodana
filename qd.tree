@@ -24,6 +24,7 @@
                 <toc-element id="qodana-js.md"/>
                 <toc-element id="qodana-go.md"/>
                 <toc-element id="qodana-dotnet.md"/>
+                <toc-element id="qodana-dotnet-community.md"/>
             </toc-element>
             <toc-element id="code-inspections.xml"/>
             <toc-element id="project-token.md"/>

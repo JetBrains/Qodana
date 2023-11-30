@@ -682,7 +682,6 @@
             </tr>
         </table>
 
-
         <table filter="dotnet">
             <tr>
                 <td>Feature</td>
@@ -709,6 +708,17 @@
             </tr>
             <tr>
                 <td><a href="quality-gate.xml"/></td>
+                <td>Community</td>
+            </tr>
+        </table>
+
+        <table filter="cdnet">
+            <tr>
+                <td>Feature</td>
+                <td>Available under the license</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
                 <td>Community</td>
             </tr>
         </table>
