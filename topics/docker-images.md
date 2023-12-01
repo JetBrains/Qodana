@@ -12,3 +12,4 @@ for [Qodana linters](linters.md):
 - [](qodana-js-docker-readme.xml)
 - [](qodana-go-docker-readme.xml)
 - [](qodana-dotnet-docker-readme.xml)
+- [](qodana-cdnet-docker-readme.xml)

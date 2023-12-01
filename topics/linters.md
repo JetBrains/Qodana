@@ -45,7 +45,10 @@ Currently, several linters provide inspections for several programming languages
             <p><img src="dotnet.png" dark-src="dotnet_dark.png" alt="C, C++, C#, VB.NET" width="296"/></p>
             <p>C and C++ inspections are limited by projects containing <code>.sln</code> files. </p>
         </td>
-        <td><a href="qodana-dotnet.md"/></td>
+        <td>
+            <p><a href="qodana-dotnet.md"/></p>
+            <p><a href="qodana-dotnet-community.md"/></p>
+        </td>
     </tr>
     <tr>
         <td><img src="python.png" dark-src="python_dark.png" alt="Python" width="296"/></td>

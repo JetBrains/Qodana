@@ -30,10 +30,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.2-$CI_DEFAULT_BRANCH-
-           - qodana-2023.2-
+           - qodana-2023.3-$CI_DEFAULT_BRANCH-
+           - qodana-2023.3-
         paths:
            - .qodana/cache
    variables:
@@ -74,10 +74,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.2-$CI_DEFAULT_BRANCH-
-           - qodana-2023.2-
+           - qodana-2023.3-$CI_DEFAULT_BRANCH-
+           - qodana-2023.3-
         paths:
            - .qodana/cache
    variables:
@@ -98,10 +98,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.2-$CI_DEFAULT_BRANCH-
-           - qodana-2023.2-
+           - qodana-2023.3-$CI_DEFAULT_BRANCH-
+           - qodana-2023.3-
         paths:
            - .qodana/cache
    variables:
@@ -134,10 +134,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2023.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2023.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2023.2-$CI_DEFAULT_BRANCH-
-           - qodana-2023.2-
+           - qodana-2023.3-$CI_DEFAULT_BRANCH-
+           - qodana-2023.3-
         paths:
            - .qodana/cache
    variables:

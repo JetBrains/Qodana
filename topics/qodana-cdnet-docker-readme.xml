@@ -3,16 +3,16 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Qodana for .NET"
-       id="qodana-dotnet-docker-readme">
+       title="Qodana Community for .NET"
+       id="qodana-cdnet-docker-readme">
 
-    <var name="linter" value="Qodana for .NET"/>
+    <var name="linter" value="Qodana Community for .NET"/>
     <var name="linter-shell" value="qodana-dotnet:2023.3-eap"/>
-    <var name="linter-page-url" value="qodana-dotnet.md"/>
-    <var name="ide" value="Rider"/>
-    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html"/>
+    <var name="linter-page-url" value="qodana-dotnet-community.md"/>
+    <var name="ide" value="ReSharper"/>
+    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/resharper/Code_Analysis__Index.html"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
-    <var name="docker-image" value="jetbrains/qodana-dotnet:2023.3-eap"/>
+    <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
     <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 
 
@@ -50,26 +50,26 @@
                 <code style="block" lang="yaml">
                     name: Qodana
                     on:
-                      workflow_dispatch:
-                      pull_request:
-                      push:
-                        branches:
-                          - main
-                          - 'releases/*'
+                    workflow_dispatch:
+                    pull_request:
+                    push:
+                    branches:
+                    - main
+                    - 'releases/*'
 
                     jobs:
-                      qodana:
-                        runs-on: ubuntu-latest
-                        steps:
-                          - uses: actions/checkout@v3
-                            with:
-                              fetch-depth: 0
-                          - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2022.3.3
+                    qodana:
+                    runs-on: ubuntu-latest
+                    steps:
+                    - uses: actions/checkout@v3
+                    with:
+                    fetch-depth: 0
+                    - name: 'Qodana Scan'
+                    uses: JetBrains/qodana-action@v2023.3
                 </code>
 
                 <p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
-                repository.</p>
+                    repository.</p>
 
                 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
                     (reports issues that appeared only in that pull request).</note>
@@ -78,13 +78,13 @@
                     <code>pr-mode</code> <a href="github.md" anchor="Configuration">parameter</a>  in the <code>with</code> section:</p>
 
                 <p>By default, <code>Qodana Scan</code> uses the experimental mode of the Qodana for .NET linter.
-                If you are experiencing issues with it, you can
+                    If you are experiencing issues with it, you can
                     <a href="https://youtrack.jetbrains.com/newIssue?project=QD">report an issue</a> in our bug tracker.</p>
 
 
 
                 <code style="block" lang="yaml">
-                      pr-mode: false
+                    pr-mode: false
                 </code>
 
                 <p>To authorize in <a href="cloud-about.xml">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
@@ -97,9 +97,9 @@
 
                         <code style="block" lang="yaml">
                             - name: 'Qodana Scan'
-                              uses: JetBrains/qodana-action@v2022.3.3
-                              env:
-                                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                            uses: JetBrains/qodana-action@v2022.3.3
+                            env:
+                            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code>
                     </step>
                 </procedure>
@@ -133,12 +133,12 @@
                 <p>
                     You can pass the reference to the existing profile by mapping the profile inside the container:
                 </p>
-                    <code style="block" lang="shell" prompt="$">
-                        qodana scan -l %docker-image% \
-                        --results-dir &lt;output-directory&gt; \
-                        --profile-path &lt;path-to-profile&gt; \
-                        --show-report
-                    </code>
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan -l %docker-image% \
+                    --results-dir &lt;output-directory&gt; \
+                    --profile-path &lt;path-to-profile&gt; \
+                    --show-report
+                </code>
             </tab>
         </tabs>
 

@@ -7,7 +7,7 @@
 <var name="linter" value="Qodana Community for JVM"/>
 <var name="ide" value="IntelliJ IDEA Community"/>
 <var name="tech" value="jvm"/>
-<var name="docker-image" value="jetbrains/qodana-jvm-community:2023.2"/>
+<var name="docker-image" value="jetbrains/qodana-jvm-community:2023.3-eap"/>
 <var name="config-file" value="qodana-jvm-community-docker-readme.xml"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/).  <include src="lib_qd.xml" include-id="linter-intro"/>

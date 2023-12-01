@@ -6,7 +6,7 @@
 
 <var name="linter" value="Qodana for .NET"/>
 <var name="ide" value="Rider"/>
-<var name="docker-image" value="jetbrains/qodana-dotnet:2023.2"/>
+<var name="docker-image" value="jetbrains/qodana-dotnet:2023.3-eap"/>
 <var name="config-file" value="qodana-dotnet-docker-readme.xml"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/rider/) and provides static analysis for .NET projects.
@@ -127,11 +127,14 @@ For example, this command will install the required version of the SDK that is s
 
 ### Run analysis
 
-<p><include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project"/></p>
+<p><include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/></p>
+
+#### Roslyn analyzers
+
+.NET projects have Roslyn analyzers as separate inspections, and you can configure them using the
+<code>EditorConfig</code> files. This is an experimental feature, so use them at your own risk.
 
 <p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-gs,other,empty,non-php"/></p>
-
-
 
 ## Next steps
 
