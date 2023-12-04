@@ -48,15 +48,12 @@ Although %linter% is licensed under the Community [license](pricing.md), it requ
 
 ### Configure the project
 
-<p><include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty"/></p>
+<include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty"/>
 
-<p>The %linter% does not support configuring inspections using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.
-You can use <code>EditorConfig</code> and <code>*.DotSettings</code> files for these purposes.</p>
-
-%linter% supports Roslyn analyzers, where each analyzer acts as a separate inspection. 
-
-.NET projects have Roslyn analyzers as separate inspections, and you can configure them using the 
-<code>EditorConfig</code> files. This is an experimental feature, so use them at your own risk.
+The %linter% does not support configuring inspections using the [`qodana.yaml`](qodana-yaml.md) file.
+You can use `EditorConfig` and `*.DotSettings` files for these purposes. Besides that, %linter% supports Roslyn analyzers, 
+with each analyzer considered as a separate inspection. You can configure Roslyn analyzers using the `EditorConfig` 
+files. This is an experimental feature, so use them at your own risk.
 
 ### Build the project
 
