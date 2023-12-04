@@ -10,7 +10,7 @@ Each report contains the following tabs:
 * **[Actual problems](#ui-overview-actual-problems)** exposes the problems that Qodana detected during the latest inspection 
 * **[Baseline](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.xml) and were not fixed since then
 * **[Configuration](#ui-overview-configuration)** lets you configure %product% for future use
-* **[Project audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.xml) results and shows the dependency licenses that are incompatible with the project license 
+* **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.xml) results and shows the dependency licenses that are incompatible with the project license 
 
 The upper-right corner of the report shows [code coverage](code-coverage.md) inspection results.
 
@@ -73,7 +73,7 @@ See the [Adjust your inspection profile](#Adjust+your+inspection+profile) sectio
 > To learn more about inspection profiles, see the [](qodana-yaml.md#Set+up+a+profile) section.
 > You can also edit profile settings in the [`qodana.yaml`](qodana-yaml.md) file.
 
-## Project audit
+## License audit
 {id="ui-overview-project-audit"}
 
 <include src="lib_qd.xml" include-id="license-audit-tab" use-filter="ui-overview,empty" />

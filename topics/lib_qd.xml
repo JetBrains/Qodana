@@ -419,9 +419,9 @@
 
     <chunk id="license-audit-tab">
 
-        <p filter="license-audit">To view license audit results, in the inspection report click the <menupath>Project audit</menupath> tab.</p>
+        <p filter="license-audit">To view license audit results, in the inspection report click the <menupath>License audit</menupath> tab.</p>
 
-        <p filter="ui-overview">The <menupath>Project audit</menupath> tab provides results of inspection by the
+        <p filter="ui-overview">The <menupath>License audit</menupath> tab provides results of inspection by the
             <a href="license-audit.xml">license audit</a> feature. </p>
 
         <img src="license-audit-overview-tree.png" dark-src="license-audit-overview-tree_dark.png" width="706" alt="The dependency tree" border-effect="line"/>
@@ -432,9 +432,9 @@
             <li>If applicable, you can expand a specific dependency to see its dependency tree.</li>
             <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and dependencies
                 which licenses are incompatible with the project license.</li>
-            <li>Under <menupath>Project licenses</menupath> you can find the list of project licenses. Using
-                <menupath>License rules</menupath>, you can view the rules of license compatibility.</li>
-            <li>You can download the list of dependencies in various formats.</li>
+            <li>In the <menupath>Licenses</menupath> section, you can find the list of project, module and dependency licenses.
+                Using <menupath>Open license rules</menupath>, you can view the rules of license compatibility.</li>
+            <li>You can download the list of licenses in various formats.</li>
         </list>
     </chunk>
 

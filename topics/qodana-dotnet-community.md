@@ -33,8 +33,7 @@ C and C++ inspections of %linter% are limited by projects containing `.sln` file
 * Java 11 version or later
 * .NET SDK version 7 or later
 
-These executables should be accessible using the path (`$PATH` on Linux and macOS, or `%PATH%` on Windows) variable of your 
-operating system. 
+These executables should be accessible using the `PATH` variable of your operating system. 
 
 Using the [`bootstrap`](before-running-qodana.md) field in the `qodana.yaml` file, you can install the required packages. 
 
