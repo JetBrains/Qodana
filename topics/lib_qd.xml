@@ -695,6 +695,10 @@
                 <td><a href="quality-gate.xml"/></td>
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
         </table>
 
         <table filter="community">

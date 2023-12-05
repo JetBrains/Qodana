@@ -37,6 +37,10 @@
             <td><a href="qodana-go.md"/></td>
             <td>Go Modules</td>
         </tr>
+        <tr>
+            <td><a href="qodana-dotnet.md"/></td>
+            <td></td>
+        </tr>
     </table>
 
     <p>This feature is available under the Ultimate Plus license and its trial version.</p>
