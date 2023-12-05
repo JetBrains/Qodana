@@ -1,7 +1,6 @@
 [//]: # (title: Qodana Community for .NET)
 
-<!-- What technologies does this linter support -->
-
+<var name="dotsettings" value="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#solution-team-shared-layer"/>
 <var name="linter" value="Qodana Community for .NET"/>
 <var name="ide" value="ReSharper"/>
 <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
@@ -18,7 +17,7 @@ It brings all the smarts from ReSharper, which help you:
 * Upload inspection results to [Qodana Cloud](cloud-about.xml)
 
 %linter% provides inspections for the C, C++, C# and VB.NET programming languages.
-C and C++ inspections of %linter% are limited by projects containing `.sln` files. 
+C and C++ inspections of %linter% are limited by projects containing `.sln` solution files or `.csproj` project files.
 
 ## Supported features
 
@@ -47,8 +46,8 @@ Qodana Cloud [project token](cloud-onboarding.md).
 <include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty"/>
 
 The %linter% does not support inspection configuration using the [`qodana.yaml`](qodana-yaml.md) file.
-You can use `EditorConfig` and `*.DotSettings` files for these purposes. Besides that, %linter% supports Roslyn analyzers, 
-with each analyzer considered as a separate inspection. You can configure Roslyn analyzers using the `EditorConfig` 
+You can use `.editorconfig` and [`.DotSettings`](%dotsettings%) files for these purposes. Besides that, %linter% supports Roslyn analyzers, 
+with each analyzer considered as a separate inspection. You can configure Roslyn analyzers using the `.editorconfig` 
 files. This is an experimental feature, so use them at your own risk.
 
 ### Build the project
@@ -64,7 +63,7 @@ If you wish to run your custom build, use the `--no-build` option while running 
 ```
 
 In this case, in the [`bootstrap`](before-running-qodana.md) section of the [`qodana.yaml`](qodana-yaml.md) file you can specify how to build 
-your project.
+your project, or run the build in a pipeline before passing it to %product%.
 
 ## Run the linter
 

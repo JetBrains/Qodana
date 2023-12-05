@@ -456,11 +456,11 @@
 
         <p>By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
         it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
-        file name using the <code>--property</code> option. For example, to make %product% always analyze the <code>MySolution.sln</code> solution
+        file name using the <code>--solution</code> option. For example, to make %product% always analyze the <code>MySolution.sln</code> solution
         file, you can use:</p>
 
         <code style="block" lang="shell">
-            --property=qodana.net.solution=MySolution.sln
+            --solution=qodana.net.solution=MySolution.sln
         </code>
 
         <p>Alternatively, you can specify the solution file name in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
@@ -471,11 +471,11 @@
                 solution: MySolution.sln
         </code>
 
-        <p>If you project contains no solution files and multiple project files, you need to specify the exact file
+        <p>If your project contains no solution files and multiple project files, you need to specify the exact file
             name of a project. For example, for the <code>MyProject.csproj</code> project file it can be:</p>
 
         <code style="block" lang="shell">
-            --property=qodana.net.project=MyProject.csproj
+            --project=qodana.net.project=MyProject.csproj
         </code>
 
         <p>Alternatively, you can specify the project file name in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
