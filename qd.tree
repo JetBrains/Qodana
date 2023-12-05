@@ -35,6 +35,7 @@
     <!-- Deployment section -->
 
     <toc-element id="deploy-qodana.xml" toc-title="Deployment">
+        <toc-element id="native-mode.md"/>
         <toc-element id="docker-images.md">
             <toc-element id="qodana-jvm-docker-readme.xml"/>
             <toc-element id="qodana-jvm-community-docker-readme.xml"/>

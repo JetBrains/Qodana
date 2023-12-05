@@ -22,6 +22,9 @@ It brings all the smarts from Rider, which help you:
 %linter% provides inspections for the C, C++, C#, VB.NET, JavaScript, and TypeScript programming languages.
 C and C++ inspections of %linter% are limited by projects containing `.sln` files. 
 
+Starting from version 2023.3, the functionality of .NET Framework-based project analysis is available in the 
+[native mode](native-mode.md) of %product%.
+
 ## Supported technologies
 
 %linter% provides inspections for the following technologies.
@@ -103,7 +106,6 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Install project dependencies
 
-
 %linter% is suitable for analyzing .NET Core projects and provides the following SDK versions:
 
 * 3.0.103
@@ -111,9 +113,6 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 * 7.0.102
 
 All SDK versions are stored in the `/usr/share/dotnet/sdk` directory of the %linter% container filesystem.
-
-<note>Functionality of .NET Framework-based project analysis will be added in future versions of the linter. Currently,
-it is not recommended to inspect projects that require .NET Framework.</note>
 
 In case a project requires a different version of the SDK, you can set it up before running the analysis using the
 [`bootstrap`](before-running-qodana.md) field in the `qodana.yaml` file.
@@ -125,7 +124,18 @@ For example, this command will install the required version of the SDK that is s
       bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
 </code>
 
-### Run analysis
+### Build the project
+
+Build the project before inspecting it using %product%. You can do it by using the [`bootstrap`](before-running-qodana.md)
+option of the [`qodana.yaml`](qodana-yaml.md) file contained in your project directory.
+
+### Configure %product%
+
+Starting from version 2023.3 of %product%, the native mode is the recommended method for running %product%. 
+We recommend running the native mode on the same machine where you build a project because this can guarantee
+that %product% has access to private NuGet feeds.
+
+#### Specify a solution
 
 <p><include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/></p>
 
@@ -134,7 +144,46 @@ For example, this command will install the required version of the SDK that is s
 .NET projects have Roslyn analyzers as separate inspections, and you can configure them using the
 <code>EditorConfig</code> files. This is an experimental feature, so use them at your own risk.
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-gs,other,empty,non-php"/></p>
+### Run Qodana
+
+<p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is the recommended method 
+for the %linter% linter. Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
+
+<tabs>
+    <tab id="qodana-dotnet-cli-tab" title="Native mode using Qodana CLI">
+        <p>Assuming that you have already
+            <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installed</a> Qodana CLI on your
+            machine and followed the recommendations from 
+<a href="native-mode.md" anchor="Before+you+start">this section</a>, you can run this command in the project root directory:</p>
+        <code style="block" lang="shell" prompt="$">
+            qodana scan \
+            &nbsp;&nbsp;&nbsp;--ide QDNET/&lt;path-to-Rider-binary-file&gt;
+        </code>
+        <p>Here, the <code>--ide</code> option employs the JetBrains IDE binary file either by downloading it or using 
+a file from your local storage.</p>
+    </tab>
+    <tab id="qodana-dotnet-docker-image-tab" title="Docker image">
+        <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
+        <code filter="non-gs" style="block" lang="shell" prompt="$">
+            docker pull %docker-image%
+        </code>
+        <p>Start local analysis with <code>source-directory</code>
+            pointing to the root of your project and
+            <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
+        <code style="block" lang="shell" prompt="$">
+        docker run \
+        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+        &nbsp;&nbsp;&nbsp;-p 8080:8080 \
+        &nbsp;&nbsp;&nbsp;%docker-image% \
+        &nbsp;&nbsp;&nbsp;--show-report
+        </code>
+        <p>Open <code>http://localhost:8080</code> in your browser to examine inspection results.
+            Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
+            details. When done, you can stop the web server by pressing Ctrl-C in the
+            console.</p>
+    </tab>
+</tabs>
 
 ## Next steps
 

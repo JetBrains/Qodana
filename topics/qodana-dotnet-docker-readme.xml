@@ -31,6 +31,19 @@
                 </p>
             </note>
 
+            <p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is
+                the recommended method for the %linter% linter:</p>
+
+            <code style="block" lang="shell" prompt="$">
+                qodana scan \
+                &nbsp;&nbsp;&nbsp;--ide QDNET/&lt;path-to-Rider-binary-file&gt;
+            </code>
+
+            <p>Here, the <code>--ide</code> option employs the JetBrains IDE binary file either by downloading it or using
+                a file from your local storage.</p>
+
+            <p>Here are the alternative methods for running %product% based on Docker.</p>
+
             <include src="lib_qd.xml" include-id="docker-local-analysis"/>
 
         </chapter>

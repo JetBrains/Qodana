@@ -339,7 +339,6 @@
         <p>Qodana provides two options for local analysis of your code.
             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
             Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
-        <p></p>
         <tabs>
             <tab id="qodana-cli-tab" title="Qodana CLI">
                 <p filter="non-gs">Assuming that you have already
@@ -441,6 +440,7 @@
     <chunk id="qodana-deployment-options">
         <p>%product% provides several deployment options to better fit your needs:</p>
         <list>
+            <li><a href="native-mode.md">Native mode</a> available in the <a href="qodana-dotnet.md">Qodana for .NET</a> linter</li>
             <li><a href="docker-images.md">Docker images</a> let you inspect
                 <a href="Quick-start.xml">local projects</a> and build %product% into your CI/CD pipelines.</li>
             <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %product%, connect to Qodana Cloud, open and study inspection reports.</li>
