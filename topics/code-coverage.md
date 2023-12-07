@@ -3,7 +3,8 @@
 **Code coverage** uses generated reports to calculate the overall code coverage inside a method, a class, and a file. 
 It also reports on the issues connected with the missing coverage in these entities.
 
-<note>Code coverage for files is available only in <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/> and <a href="qodana-php.md"/> linters.</note>
+<note>Code coverage for files is available only in <a href="qodana-js.md"/>, <a href="qodana-php.md"/>, and 
+<a href="qodana-python.md"/> linters.</note>
 
 This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the 
 following linters:
@@ -36,7 +37,7 @@ following linters:
     <tr>
         <td><a href="qodana-dotnet.md"/></td>
         <td><a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a></td>
-        <td><code>lcov.info</code></td>
+        <td><code>lcov</code></td>
     </tr>
     <tr>
         <td><a href="qodana-python.md"/></td>
@@ -60,13 +61,14 @@ Code coverage employs several inspections that are already included in the `qoda
 
 <!-- Do I need to enable any inspections in case of .NET -->
 
-| Linter                  | Employed inspection                                                                                |
-|-------------------------|----------------------------------------------------------------------------------------------------|
-| [](qodana-jvm.md)       | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html) |
-| [](qodana-js.md)        | [`JsCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JsCoverageInspection.html)   |
-| [](qodana-php.md)       | [`PhpCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PhpCoverageInspection.html) |
-| [](qodana-python.md)    | `PyCoverageInspection`|
-| [](qodana-go.md)        | `GoCoverageInspection` |
+| Linter               | Employed inspection                                                                                |
+|----------------------|----------------------------------------------------------------------------------------------------|
+| [](qodana-jvm.md)    | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html) |
+| [](qodana-js.md)     | [`JsCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JsCoverageInspection.html)   |
+| [](qodana-php.md)    | [`PhpCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PhpCoverageInspection.html) |
+| [](qodana-python.md) | `PyCoverageInspection`|
+| [](qodana-go.md)     | `GoCoverageInspection` |
+| [](qodana-dotnet.md) |`NetCoverageInspection`|
 
 Once the inspection is complete, reports are available in [%product% reports](html-report.md) and JetBrains IDEs.
 
