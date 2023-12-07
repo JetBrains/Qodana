@@ -52,7 +52,7 @@
             shown throughout this section.</p>
 
         <p>The detailed description of the <code>qodana init</code> command is available in the
-        <a anchor="docker-config-reference-project-initialization"/> section.</p>
+        <a anchor="docker-config-reference-qodana-init"/> section.</p>
 
     </chapter>
 

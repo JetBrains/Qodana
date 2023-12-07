@@ -25,21 +25,12 @@ C and C++ inspections of %linter% are limited by projects containing `.sln` solu
 
 ## Analyze a project locally
 
-### Install project dependencies
-
-%linter% requires the following software to be accessible by it: 
-
-* Java 11 version or later
-* .NET SDK version 7 or later
-
-These executables should be accessible using the `PATH` variable of your operating system. 
-
-Using the [`bootstrap`](before-running-qodana.md) field in the `qodana.yaml` file, you can install the required packages. 
-
-Although %linter% is licensed under the Community [license](pricing.md), it requires the 
-Qodana Cloud [project token](cloud-onboarding.md). 
-
 ### Prepare the project
+
+Because %linter% is licensed under the Community [license](pricing.md), it requires the
+Qodana Cloud [project token](project-token.md).  
+
+Docker should also be up and running on the machine. 
 
 <include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty"/>
 
@@ -61,6 +52,7 @@ docker run \
 &nbsp;&nbsp;&nbsp;%docker-image% \
 &nbsp;&nbsp;&nbsp;--no-build
 ```
+{prompt="$"}
 
 In this case, in the [`bootstrap`](before-running-qodana.md) section of the [`qodana.yaml`](qodana-yaml.md) file you can specify how to build 
 your project, or run the build in a pipeline before passing it to %product%.
@@ -75,8 +67,10 @@ docker run \
 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
 &nbsp;&nbsp;&nbsp;%docker-image%
 ```
+{prompt="$"}
 
-Here,  the `QODANA_TOKEN` variable specifies the [project token](project-token.md). 
+Here,  the `QODANA_TOKEN` variable specifies the [project token](project-token.md). After %product% finishes inspecting
+your code, you can open [Qodana Cloud](https://qodana.cloud) to see the inspection report.
 
 ## Next steps
 
