@@ -725,6 +725,11 @@
                 <td><a href="baseline.xml"/></td>
                 <td>Community</td>
             </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Community</td>
+            </tr>
+
         </table>
     </chunk>
 

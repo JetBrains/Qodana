@@ -39,9 +39,7 @@ Using the [`bootstrap`](before-running-qodana.md) field in the `qodana.yaml` fil
 Although %linter% is licensed under the Community [license](pricing.md), it requires the 
 Qodana Cloud [project token](cloud-onboarding.md). 
 
-## Run analysis
-
-### Configure the project
+### Prepare the project
 
 <include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty"/>
 
@@ -57,18 +55,28 @@ When %linter% starts, it builds your project. If the project build fails, code a
 If you wish to run your custom build, use the `--no-build` option while running the linter: 
 
 ```shell
-    qodana scan \
-       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-       --no-build
+docker run \
+&nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+&nbsp;&nbsp;&nbsp;%docker-image% \
+&nbsp;&nbsp;&nbsp;--no-build
 ```
 
 In this case, in the [`bootstrap`](before-running-qodana.md) section of the [`qodana.yaml`](qodana-yaml.md) file you can specify how to build 
 your project, or run the build in a pipeline before passing it to %product%.
 
-## Run the linter
+### Run the linter
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-gs,other,empty,non-php"/></p>
+Use this command to run the Dockerized version of the %linter% linter: 
 
+```shell
+docker run \
+&nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+&nbsp;&nbsp;&nbsp;%docker-image%
+```
+
+Here,  the `QODANA_TOKEN` variable specifies the [project token](project-token.md). 
 
 ## Next steps
 

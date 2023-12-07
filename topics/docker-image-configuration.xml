@@ -483,7 +483,7 @@
         <p>By default, %product% inspects your code using the <code>qodana.starter</code> profile.</p>
 
         <p>You can configure and override %product% profiles either in the <a href="inspection-profiles.md" anchor="Set+up+a+profile"><code>qodana.yaml</code></a>
-            file, or using the CLI options from this table</p>
+            file, or using the CLI options from this table.</p>
 
         <table>
             <tr>
@@ -1072,12 +1072,8 @@
 
     <chapter id="docker-config-reference-qodana-cloud" title="Qodana Cloud">
 
-        <p>To forward reports to Qodana Cloud, you can:</p>
-
-        <list>
-            <li>Run the <code>qodana send</code> command as explained in the <a anchor="docker-config-reference-reports-to-qodana-cloud"/></li>
-            <li>Set the list of Docker environments as explained in the <a href="cloud-forward-reports.xml"/> section</li>
-        </list>
+        <p>To forward reports to Qodana Cloud, you can set the list of Docker environments as explained in the
+            <a href="cloud-forward-reports.xml"/> section.</p>
 
     </chapter>
 
@@ -1211,7 +1207,7 @@
 
     <chapter id="docker-config-reference-qodana-cli-options" title="Options available only in Qodana CLI">
 
-        <chapter id="docker-config-reference-project-initialization" title="Project configuration">
+        <chapter id="docker-config-reference-qodana-init" title="Project configuration">
 
             <p>You can use these options with the <code>qodana init &lt;options&gt;</code> command:</p>
 
@@ -1222,10 +1218,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -f,
-                            --force
-                        </code>
+                        <code>-f</code>,
+                        <code>--force</code>
                     </td>
                     <td>
                         Force initialization (overwrite the existing valid <code>qodana.yaml</code> file)
@@ -1233,19 +1227,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -h, --help
-                        </code>
+                        <code>-h</code>, <code>--help</code>
                     </td>
                     <td>
-                        Help for the <code>init</code> command
+                        Help for the <code>qodana init</code> command
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -i, --project-dir &lt;string&gt;
-                        </code>
+                        <code>-i</code>, <code>--project-dir &lt;string&gt;</code>
                     </td>
                     <td>
                         Root directory of the project to configure (default is <code>.</code>)
@@ -1255,7 +1245,7 @@
 
         </chapter>
 
-        <chapter id="docker-config-reference-scan-project" title="Scan projects">
+        <chapter id="docker-config-reference-qodana-scan" title="Scan projects">
 
             <p>You can use these options with the <code>qodana scan &lt;options&gt;</code> command:</p>
 
@@ -1266,9 +1256,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -l, --linter &lt;string&gt;
-                        </code>
+                        <code>-l</code>, <code>--linter &lt;string&gt;</code>
                     </td>
                     <td>
                         Use to run Qodana in a container (default). Choose linter (image) to use. Not compatible with <code>--ide</code> option. Available images are: <code>jetbrains/qodana-jvm-community</code>, <code>jetbrains/qodana-jvm</code>, <code>jetbrains/qodana-jvm-android</code>, <code>jetbrains/qodana-php</code>, <code>jetbrains/qodana-python</code>, <code>jetbrains/qodana-python-community</code>, <code>jetbrains/qodana-js</code>, <code>jetbrains/qodana-go</code>, <code>jetbrains/qodana-dotnet</code>, though you can use any Docker image with Qodana inside
@@ -1286,9 +1274,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -i, --project-dir  &lt;string&gt;
-                        </code>
+                        <code>-i</code>, <code>--project-dir  &lt;string&gt;</code>
                     </td>
                     <td>
                         Root directory of the inspected project (default <code>.</code>)
@@ -1296,9 +1282,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -o, --results-dir  &lt;string&gt;
-                        </code>
+                        <code>-o</code>, <code>--results-dir  &lt;string&gt;</code>
                     </td>
                     <td>
                         Override directory to save Qodana inspection results to (default &lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/results)
@@ -1346,12 +1330,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -w, --show-report
-                        </code>
+                        <code>-w</code>, <code>--show-report</code>
                     </td>
                     <td>
-                        Serve HTML report on port
+                        Serve an HTML report on a specific port
                     </td>
                 </tr>
                 <tr>
@@ -1376,9 +1358,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -a, --analysis-id  &lt;string&gt;
-                        </code>
+                        <code>-a</code>, <code>--analysis-id  &lt;string&gt;</code>
                     </td>
                     <td>
                         Unique report identifier (GUID) to be used by Qodana Cloud (default "&lt;generated value&gt;")
@@ -1386,9 +1366,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -b, --baseline  &lt;string&gt;
-                        </code>
+                        <code>-b</code>, <code>--baseline  &lt;string&gt;</code>
                     </td>
                     <td>
                         Provide the path to an existing SARIF report to be used in the baseline state calculation
@@ -1446,9 +1424,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -d, --source-directory  &lt;string&gt;
-                        </code>
+                        <code>-d</code>, <code>--source-directory  &lt;string&gt;</code>
                     </td>
                     <td>
                         Directory inside the project-dir directory must be inspected. If not specified, the whole project is inspected
@@ -1456,9 +1432,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -n, --profile-name  &lt;string&gt;
-                        </code>
+                        <code>-n</code>, <code>--profile-name  &lt;string&gt;</code>
                     </td>
                     <td>
                         Profile name defined in the project
@@ -1466,9 +1440,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -p, --profile-path  &lt;string&gt;
-                        </code>
+                        <code>-p</code>, <code>--profile-path  &lt;string&gt;</code>
                     </td>
                     <td>
                         Path to the profile file
@@ -1536,9 +1508,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -s, --save-report
-                        </code>
+                        <code>-s</code>, <code>--save-report</code>
                     </td>
                     <td>
                         Generate HTML report (default true)
@@ -1546,9 +1516,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -e, --env &lt;stringArray&gt;
-                        </code>
+                        <code>-e</code>, <code>--env &lt;stringArray&gt;</code>
                     </td>
                     <td>
                         Only for container runs. Define additional environment variables for the Qodana container (you can use the flag multiple times). CLI is not reading full host environment variables and does not pass it to the Qodana container for security reasons
@@ -1556,9 +1524,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -v, --volume &lt;stringArray&gt;
-                        </code>
+                        <code>-v</code>, <code>--volume &lt;stringArray&gt;</code>
                     </td>
                     <td>
                         Only for container runs. Define additional volumes for the Qodana container (you can use the flag multiple times)
@@ -1566,9 +1532,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -u, --user &lt;string&gt;
-                        </code>
+                        <code>-u</code>, <code>--user &lt;string&gt;</code>
                     </td>
                     <td>
                         Only for container runs. User to run Qodana container as. Please specify user id – <code>$UID</code> or user id and group id <code>$(id -u):$(id -g)</code>. Use <code>root</code> to run as the root user (default: the current user)
@@ -1586,12 +1550,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -h, --help
-                        </code>
+                        <code>-h</code>, <code>--help</code>
                     </td>
                     <td>
-                        help for scan
+                        Help for the <code>qodana scan</code> command
                     </td>
                 </tr>
             </table>
@@ -1600,10 +1562,9 @@
 
         </chapter>
 
-        <chapter id="docker-config-reference-show-report" title="Show reports">
+        <chapter id="docker-config-reference-qodana-show" title="Show reports">
 
             <p>You can use these options with the <code>qodana show &lt;options&gt;</code> command:</p>
-
 
             <table>
                 <tr>
@@ -1612,29 +1573,23 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -d, --dir-only
-                        </code>
+                        <code>-d</code>, <code>--dir-only</code>
                     </td>
                     <td>
-                        Open report directory only, don't serve it
+                        Open report directory only
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -h, --help
-                        </code>
+                        <code>-h</code>, <code>--help</code>
                     </td>
                     <td>
-                        help for show
+                        Help for the <code>qodana show</code> command
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -l, --linter &lt;string&gt;
-                        </code>
+                        <code>-l</code>, <code>--linter &lt;string&gt;</code>
                     </td>
                     <td>
                         Override linter to use
@@ -1642,19 +1597,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -p, --port &lt;int&gt;
-                        </code>
+                        <code>-p</code>, <code>--port &lt;int&gt;</code>
                     </td>
                     <td>
-                        Specify port to serve report at (default 8080)
+                        Specify the port to serve a report at (default 8080)
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -i, --project-dir &lt;string&gt;
-                        </code>
+                        <code>-i</code>, <code>--project-dir &lt;string&gt;</code>
                     </td>
                     <td>
                         Root directory of the inspected project (default ".")
@@ -1662,127 +1613,18 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -r, --report-dir &lt;string&gt;
-                        </code>
+                        <code>-r</code>, <code>--report-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Specify HTML report path (the one with index.html inside) (default &lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report)
+                        Specify the HTML report path (the one with <code>index.html</code> inside) (default &lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report)
                     </td>
                 </tr>
             </table>
         </chapter>
 
-    <chapter id="docker-config-reference-contributor-counting" title="Count contributors">
+        <chapter id="docker-config-reference-qodana-view" title="View SARIF-formatted files">
 
-        <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section.</p>
-
-        <p>To count contributors using Qodana CLI, you can run the <code>qodana contributors &lt;options&gt;</code> command with the following options:</p>
-
-        <table>
-            <tr>
-                <td>Option</td>
-                <td>Description</td>
-                <td>Default setting</td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -d, --days &lt;int&gt;
-                    </code>
-                </td>
-                <td>
-                    Number of days to calculate the number of active contributors for
-                </td>
-                <td>
-                    30
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -h, --help
-                    </code>
-                </td>
-                <td>
-                    Help for the <code>qodana contributors</code> command
-                </td>
-                <td>
-                    None
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -i, --project-dir &lt;string&gt;
-                    </code>
-                </td>
-                <td>
-                    Root directory of the project to configure
-                </td>
-                <td>
-                <code>.</code>
-                </td>
-            </tr>
-        </table>
-
-    </chapter>
-
-    <chapter id="docker-config-reference-project-information" title="Project information">
-
-        <p>Using the <code>qodana cloc &lt;options&gt;</code> command, you can view information about your project, such
-            as languages and lines of code. Here is the list of available options
-            for this command:</p>
-
-        <table>
-            <tr>
-                <td>Option</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -o, --output &lt;string&gt;
-                    </code>
-                </td>
-                <td>
-                    The output format that accepts the <code>tabular</code>, <code>wide</code>, <code>json</code>,
-                    <code>csv</code>, <code>csv-stream</code>, <code>cloc-yaml</code>, <code>html</code>,
-                    <code>html-table</code>, <code>sql</code>, <code>sql-insert</code>, <code>openmetrics</code> values.
-                    The default setting is <code>tabular</code>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -h, --help
-                    </code>
-                </td>
-                <td>
-                    Help for the <code>qodana cloc</code> command
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -i, --project-dir &lt;stringArray&gt;
-                    </code>
-                </td>
-                <td>
-                    Project directory. This option can be specified multiple times to check multiple projects.  If not
-                    specified, the current directory will be used
-                </td>
-            </tr>
-        </table>
-
-    </chapter>
-
-
-
-        <chapter id="docker-config-reference-reports-to-qodana-cloud" title="Forwarding reports to Qodana Cloud">
-
-            <p>You can run the <code>qodana send &lt;options&gt;</code> command for forwarding reports to Qodana Cloud. Here is the list
-            of available options for ths command:</p>
+            <p>You can run the <code>qodana view &lt;options&gt;</code> command using these options:</p>
 
             <table>
                 <tr>
@@ -1792,74 +1634,80 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            -l, --linter &lt;string&gt;
-                        </code>
+                        <code>-f</code>, <code>--sarif-file &lt;string&gt;</code>
                     </td>
                     <td>
-                        Override the linter
+                        Path to the SARIF-formatted file
+                    </td>
+                    <td><code>./qodana.sarif.json</code></td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-h</code>, <code>--help</code>
+                    </td>
+                    <td>
+                        Help for the <code>qodana view</code> command
                     </td>
                     <td>None</td>
                 </tr>
-                <tr>
-                    <td>
-                        <code>
-                            -h, --help
-                        </code>
-                    </td>
-                    <td>
-                        Help for the <code>qodana send</code> command
-                    </td>
-                    <td>None</td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>
-                            -i, --project-dir &lt;string&gt;
-                        </code>
-                    </td>
-                    <td>
-                        Root directory of the inspected project
-                    </td>
-                    <td><code>.</code></td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>
-                            -r, --report-dir &lt;string&gt;
-                        </code>
-                    </td>
-                    <td>
-                        Path for the generated HTML report that contains the <code>index.html</code> file inside
-                    </td>
-                    <td><code>/Users/tv/Library/Caches/JetBrains/Qodana/e3b0c442-250e5c26/results/report</code></td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>
-                            -o, --results-dir &lt;string&gt;
-                        </code>
-                    </td>
-                    <td>
-                        Override the directory to save %product% inspection results to
-                    </td>
-                    <td><code>/Users/tv/Library/Caches/JetBrains/Qodana/e3b0c442-250e5c26/results</code></td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>
-                            -y, --yaml-name &lt;string&gt;
-                        </code>
-                    </td>
-                    <td>
-                        Override the <code>qodana.yaml</code> name
-                    </td>
-                    <td>None</td>
-                </tr>
-
             </table>
 
-            <p>Besides that, Qodana CLI provides the following option:</p>
+        </chapter>
+
+        <chapter id="docker-config-reference-qodana-contributors" title="Count contributors">
+
+            <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section.</p>
+
+            <p>To count contributors using Qodana CLI, you can run the <code>qodana contributors &lt;options&gt;</code> command with the following options:</p>
+
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                    <td>Default setting</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-d</code>, <code>--days &lt;int&gt;</code>
+                    </td>
+                    <td>
+                        Number of days to calculate the number of active contributors for
+                    </td>
+                    <td>
+                        30
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-h</code>, <code>--help</code>
+                    </td>
+                    <td>
+                        Help for the <code>qodana contributors</code> command
+                    </td>
+                    <td>
+                        None
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-i</code>, <code>--project-dir &lt;string&gt;</code>
+                    </td>
+                    <td>
+                        Root directory of the project to configure
+                    </td>
+                    <td>
+                    <code>.</code>
+                    </td>
+                </tr>
+            </table>
+
+    </chapter>
+
+        <chapter id="docker-config-reference-qodana-cloc" title="Project information">
+
+            <p>Using the <code>qodana cloc &lt;options&gt;</code> command, you can view information about your project, such
+                as languages and lines of code. Here is the list of available options
+                for this command:</p>
 
             <table>
                 <tr>
@@ -1867,85 +1715,35 @@
                     <td>Description</td>
                 </tr>
                 <tr>
-                    <td><code>-a</code>, <code>--analysis-id=</code></td>
-                    <td>Unique report identifier (GUID) to be used by <a href="https://qodana.cloud">Qodana Cloud</a></td>
+                    <td>
+                        <code>-o</code>, <code>--output &lt;string&gt;</code>
+                    </td>
+                    <td>
+                        The output format that accepts the <code>tabular</code>, <code>wide</code>, <code>json</code>,
+                        <code>csv</code>, <code>csv-stream</code>, <code>cloc-yaml</code>, <code>html</code>,
+                        <code>html-table</code>, <code>sql</code>, <code>sql-insert</code>, <code>openmetrics</code> values.
+                        The default setting is <code>tabular</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-h</code>, <code>--help</code>
+                    </td>
+                    <td>
+                        Help for the <code>qodana cloc</code> command
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-i</code>, <code>--project-dir &lt;stringArray&gt;</code>
+                    </td>
+                    <td>
+                        The project directory. This option can be specified multiple times to check multiple projects.  If not
+                        specified, the current directory will be used
+                    </td>
                 </tr>
             </table>
 
-        </chapter>
-
-    <chapter id="docker-config-reference-view-sarif-files" title="Viewing SARIF-formatted files">
-
-        <p>You can run the <code>qodana view &lt;options&gt;</code> command using these options:</p>
-
-        <table>
-            <tr>
-                <td>Option</td>
-                <td>Description</td>
-                <td>Default setting</td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -f, --sarif-file &lt;string&gt;
-                    </code>
-                </td>
-                <td>
-                    Path to the SARIF-formatted file
-                </td>
-                <td><code>./qodana.sarif.json</code></td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -h, --help
-                    </code>
-                </td>
-                <td>
-                    Help for the <code>qodana view</code> command
-                </td>
-                <td>None</td>
-            </tr>
-        </table>
-
-
-    </chapter>
-
-    <chapter id="docker-config-reference-show-the-qodana-report" title="Opening SARIF-formatted reports">
-
-        <!-- The link from the Show the report section needs to be added to this section -->
-
-        <p>You can run the <code>qodana show &lt;options&gt;</code> command using these options:</p>
-
-        <table>
-            <tr>
-                <td>Option</td>
-                <td>Description</td>
-                <td>Default setting</td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -f, --sarif-file &lt;string&gt;
-                    </code>
-                </td>
-                <td>
-                    Path to the SARIF-formatted file
-                </td>
-                <td><code>./qodana.sarif.json</code></td>
-            </tr>
-            <tr>
-                <td>
-                    <code>
-                        -h, --help
-                    </code>
-                </td>
-                <td>
-                    Help for the <code>qodana view</code> command
-                </td>
-                <td>None</td>
-            </tr>
-        </table>
     </chapter>
 
     </chapter>
