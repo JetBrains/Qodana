@@ -20,7 +20,7 @@ It brings all the smarts from Rider, which help you:
 * Upload inspection results to [Qodana Cloud](cloud-about.xml)
 
 %linter% provides inspections for the C, C++, C#, VB.NET, JavaScript, and TypeScript programming languages.
-C and C++ inspections of %linter% are limited by projects containing `.sln` files. 
+C and C++ inspections of %linter% are limited by projects containing `.sln` solution files or `.csproj` project files.
 
 Starting from version 2023.3, the functionality of .NET Framework-based project analysis is available in the 
 [native mode](native-mode.md) of %product%.
@@ -81,6 +81,7 @@ Starting from version 2023.3, the functionality of .NET Framework-based project 
     <tr>
         <td>Frameworks and libraries</td>
         <td>
+            <p>.NET Framework</p>
             <p>.NET Core</p>
             <p>Handlebars/Mustache</p>
             <p>Less</p>
@@ -104,13 +105,13 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ## Analyze a project locally
 
-### Install project dependencies
+### Install project dependencies (non-native mode)
 
-%linter% is suitable for analyzing .NET Core projects and provides the following SDK versions:
+%linter% is suitable for analyzing .NET projects, and the Dockerized version of this linter provides the following SDK versions:
 
-* 3.0.103
-* 6.0.405
-* 7.0.102
+* 6.0.417
+* 7.0.404
+* 8.0.100
 
 All SDK versions are stored in the `/usr/share/dotnet/sdk` directory of the %linter% container filesystem.
 
@@ -131,7 +132,7 @@ option of the [`qodana.yaml`](qodana-yaml.md) file contained in your project dir
 
 ### Configure %product%
 
-Starting from version 2023.3 of %product%, the native mode is the recommended method for running %product%. 
+Starting from version 2023.3 of %product%, the native mode is the recommended method for running the %linter% linter. 
 We recommend running the native mode on the same machine where you build a project because this can guarantee
 that %product% has access to private NuGet feeds.
 
@@ -142,7 +143,25 @@ that %product% has access to private NuGet feeds.
 #### Roslyn analyzers
 
 .NET projects have Roslyn analyzers as separate inspections, and you can configure them using the
-<code>EditorConfig</code> files. This is an experimental feature, so use them at your own risk.
+<code>EditorConfig</code> files. To disable them, you can [configure the %product% profile](custom-profiles.md) using 
+the `qodana.yaml` file, for example: 
+
+```yaml
+name: "Custom profile"
+
+baseProfile: qodana.starter
+
+groups: # List of configured groups
+  - groupId: InspectionsToExclude
+    groups:
+      - "category:C#/Roslyn Analyzers"
+
+inspections: # Group invocation
+  - group: InspectionsToExclude
+    enabled: false # Disable the InspectionsToExclude group
+```
+
+Another configuration example is available [on GitHub](https://github.com/hybloid/fluentassertions/blob/develop/qodana.yaml).
 
 ### Run Qodana
 
@@ -157,10 +176,14 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
 <a href="native-mode.md" anchor="Before+you+start">this section</a>, you can run this command in the project root directory:</p>
         <code style="block" lang="shell" prompt="$">
             qodana scan \
-            &nbsp;&nbsp;&nbsp;--ide QDNET/&lt;path-to-Rider-binary-file&gt;
+            &nbsp;&nbsp;&nbsp;--ide QDNET
         </code>
-        <p>Here, the <code>--ide</code> option employs the JetBrains IDE binary file either by downloading it or using 
-a file from your local storage.</p>
+        <p>Here, the <code>--ide</code> option downloads and employs the JetBrains IDE binary file.</p>
+        <p>Alternatively, in the <code>qodana.yaml</code> file you can save the <code>ide: QDNET</code> configuration, 
+    and then run %product% using this command:</p>
+        <code style="block" lang="shell" prompt="$">
+            qodana scan
+        </code>
     </tab>
     <tab id="qodana-dotnet-docker-image-tab" title="Docker image">
         <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>

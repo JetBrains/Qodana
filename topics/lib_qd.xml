@@ -297,8 +297,9 @@
 
     <chunk id="docker-configure-via-qodana-yaml">
         <p>
-            The <code>qodana.yaml</code> file will be automatically recognized and used for the analysis configuration,
-            so that you don't need to pass any additional parameters.
+            %product% automatically recognizes the <code>qodana.yaml</code> file for the analysis configuration,
+            so that you don't need to pass any additional parameters. In the <code>qodana.yaml</code> file, you can save
+            <code>ide: QDNET</code> to run %product% in the <a href="native-mode.md">native mode</a>.
         </p>
         <p>
             The references to the inspection profiles will be resolved <a
@@ -459,7 +460,11 @@
         file name using the <code>--solution</code> option and a relative path to a solution file. For example, to
             make %product% always analyze the <code>MySolution.sln</code> solution file, you can use:</p>
 
-        <code style="block" lang="shell">
+        <code style="block" lang="shell" filter="for-dotnet">
+          --property=qodana.net.solution=MySolution.sln
+        </code>
+
+        <code style="block" lang="shell" filter="cdnet">
             --solution=MySolution.sln
         </code>
 
@@ -475,7 +480,11 @@
             <code>--project</code> option and a relative path to a project file. For example, for the
             <code>MyProject.csproj</code> project file you can use:</p>
 
-        <code style="block" lang="shell">
+        <code style="block" lang="shell" filter="for-dotnet">
+            --property=qodana.net.project=MyProject.csproj
+        </code>
+
+        <code style="block" lang="shell" filter="cdnet">
             --project=MyProject.csproj
         </code>
 

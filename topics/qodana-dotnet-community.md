@@ -32,7 +32,7 @@ Qodana Cloud [project token](project-token.md).
 
 Docker should also be up and running on the machine. 
 
-<include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty"/>
+<include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty,cdnet"/>
 
 The %linter% does not support inspection configuration using the [`qodana.yaml`](qodana-yaml.md) file.
 You can use `.editorconfig` and [`.DotSettings`](%dotsettings%) files for these purposes. Besides that, %linter% supports Roslyn analyzers, 

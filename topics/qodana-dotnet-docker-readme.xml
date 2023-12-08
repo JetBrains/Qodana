@@ -32,17 +32,22 @@
             </note>
 
             <p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is
-                the recommended method for the %linter% linter:</p>
+                the recommended method for the %linter% linter if you are targeting .NET Framework or have private NuGet
+                feeds:</p>
 
             <code style="block" lang="shell" prompt="$">
                 qodana scan \
-                &nbsp;&nbsp;&nbsp;--ide QDNET/&lt;path-to-Rider-binary-file&gt;
+                &nbsp;&nbsp;&nbsp;--ide QDNET
             </code>
 
-            <p>Here, the <code>--ide</code> option employs the JetBrains IDE binary file either by downloading it or using
-                a file from your local storage.</p>
+            <p>Here, the <code>--ide</code> option downloads and uses the JetBrains IDE binary file.</p>
+            <p>Alternatively, in the <code>qodana.yaml</code> file you can save the <code>ide: QDNET</code> configuration,
+                and then run %product% using this command:</p>
+            <code style="block" lang="shell" prompt="$">
+                qodana scan
+            </code>
 
-            <p>Here are the alternative methods for running %product% based on Docker.</p>
+            <p>This is how you can run the Dockerized version of the %linter% linter:</p>
 
             <include src="lib_qd.xml" include-id="docker-local-analysis"/>
 
@@ -135,11 +140,12 @@
                     <code>/data/profile.xml</code> inside the container:
                 </p>
                 <code style="block" lang="shell" prompt="$">
-                    docker run --rm -it -p 8080:8080 \
-                    -v &lt;source-directory&gt;/:/data/project/ \
-                    -v &lt;output-directory&gt;/:/data/results/ \
-                    -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
-                    %docker-image% --show-report
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-p 8080:8080 \
+                    &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
+                    &nbsp;&nbsp;&nbsp;-v &lt;inspection-profile.xml&gt;:/data/profile.xml \
+                    &nbsp;&nbsp;&nbsp;%docker-image% --show-report
                 </code>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -147,10 +153,11 @@
                     You can pass the reference to the existing profile by mapping the profile inside the container:
                 </p>
                     <code style="block" lang="shell" prompt="$">
-                        qodana scan -l %docker-image% \
-                        --results-dir &lt;output-directory&gt; \
-                        --profile-path &lt;path-to-profile&gt; \
-                        --show-report
+                        qodana scan \
+                        &nbsp;&nbsp;&nbsp;-l %docker-image% \
+                        &nbsp;&nbsp;&nbsp;--results-dir &lt;output-directory&gt; \
+                        &nbsp;&nbsp;&nbsp;--profile-path &lt;path-to-profile&gt; \
+                        &nbsp;&nbsp;&nbsp;--show-report
                     </code>
             </tab>
         </tabs>
@@ -165,7 +172,7 @@
 
     <chapter id="Analyzing+specific+solution+or+project" title="Analyze specific solution or project">
 
-        <include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project"/>
+        <include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/>
 
     </chapter>
 
