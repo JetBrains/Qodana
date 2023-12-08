@@ -232,7 +232,7 @@ Here is an example of the [`qodana.yaml`](qodana-yaml.md) file configuration for
 dotnet:
   solution: <your-solution-file>
 
-bootstrap: dotnet build, cd test/ICSharpCode.SharpZipLib.Tests && \\
+bootstrap: dotnet build, cd <path-to-dir-with-test-project-file> && \\
   dotnet add package coverlet.msbuild && \\
   ((dotnet test /p:CollectCoverage=true /p:CoverletOutput=<your-project-folder>/.qodana/code-coverage /p:CoverletOutputFormat=lcov))
 ```
@@ -244,7 +244,7 @@ The [`bootstrap`](before-running-qodana.md) command performs several steps befor
 | Command step                                                    | Description                                                                                   |
 |-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | `dotnet build`                                                  | Build a project or a solution                                                                 |
-| `cd test/ICSharpCode.SharpZipLib.Tests`                         | Navigate to the test folder                                                                   |
+| `cd <path-to-dir-with-test-project-file>`                       | Navigate to the directory containing the project test file                                    |
 | `dotnet add package coverlet.msbuild`                           | Add the `coverlet.msbuild` package to the project. This command needs to be repeated for each |
 | `dotnet test ... `                                              | Execute tests in the project, and:                                                            |
 | `/p:CollectCoverage=true`                                       | Enable code coverage                                                                          |
