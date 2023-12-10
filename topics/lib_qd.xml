@@ -69,12 +69,10 @@
                         <p>Run the following command:</p>
                         <code style="block" lang="shell" prompt="$">
                             docker run \
-                               -p 8080:8080 \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                -v &lt;output-directory&gt;/:/data/results/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               jetbrains/%linter-shell% \
-                               --show-report
+                               jetbrains/%linter-shell%
                         </code>
                         <p>
                             where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
@@ -296,11 +294,14 @@
     </chunk>
 
     <chunk id="docker-configure-via-qodana-yaml">
-        <p>
+        <p filter="for-dotnet">
             %product% automatically recognizes the <code>qodana.yaml</code> file for the analysis configuration,
             so that you don't need to pass any additional parameters. In the <code>qodana.yaml</code> file, you can save
             <code>ide: QDNET</code> to run %product% in the <a href="native-mode.md">native mode</a>.
         </p>
+        <p filter="for-others">
+            %product% automatically recognizes the <code>qodana.yaml</code> file for the analysis configuration,
+            so that you don't need to pass any additional parameters.</p>
         <p>
             The references to the inspection profiles will be resolved <a
                 href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">in a particular order</a>. To

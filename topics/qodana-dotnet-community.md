@@ -47,10 +47,10 @@ If you wish to run your custom build, use the `--no-build` option while running 
 
 ```shell
 docker run \
-&nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-&nbsp;&nbsp;&nbsp;%docker-image% \
-&nbsp;&nbsp;&nbsp;--no-build
+   -v &lt;source-directory&gt;/:/data/project/ \
+   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+   %docker-image% \
+   --no-build
 ```
 {prompt="$"}
 
@@ -63,9 +63,9 @@ Use this command to run the Dockerized version of the %linter% linter:
 
 ```shell
 docker run \
-&nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-&nbsp;&nbsp;&nbsp;%docker-image%
+   -v &lt;source-directory&gt;/:/data/project/ \
+   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+   %docker-image%
 ```
 {prompt="$"}
 

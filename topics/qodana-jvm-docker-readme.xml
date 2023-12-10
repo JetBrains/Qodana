@@ -50,7 +50,7 @@
 
     <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
 
-        <include src="lib_qd.xml" include-id="docker-configure-via-qodana-yaml"/>
+        <include src="lib_qd.xml" include-id="docker-configure-via-qodana-yaml" use-filter="empty,for-others"/>
 
     </chapter>
 

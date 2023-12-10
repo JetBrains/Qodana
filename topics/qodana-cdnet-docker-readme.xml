@@ -7,7 +7,7 @@
        id="qodana-cdnet-docker-readme">
 
     <var name="linter" value="Qodana Community for .NET"/>
-    <var name="linter-shell" value="qodana-dotnet:2023.3-eap"/>
+    <var name="linter-shell" value="qodana-cdnet:2023.3-eap"/>
     <var name="linter-page-url" value="qodana-dotnet-community.md"/>
     <var name="ide" value="ReSharper"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/resharper/Code_Analysis__Index.html"/>
@@ -20,9 +20,26 @@
         <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
     </p>
 
-    <include src="lib_qd.xml" include-id="linter-docker-image-intro"/>
+    <p>
+        The Docker image for the <a href="%linter-page-url%">%linter%</a> linter is provided to support different usage
+        scenarios:
+    </p>
+    <list>
+        <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
+        </li>
+        <li>Single-shot analysis (for example, performed <i>locally</i>).
+        </li>
+    </list>
 
-    <chapter id="quick-start-recommended-profile" title="Quick start with the recommended profile">
+    <p>You can run the %linter% linter using two methods.
+        <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest method. If necessary,
+        check the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> to install
+        Qodana CLI. Alternatively, you can use the Docker commands from the <menupath>Docker image</menupath> tab.</p>
+
+    <chapter id="quick-start-recommended-profile" title="Quick start">
+
+        <note>The %linter% linter does not support profiles and their configuration options.</note>
+
         <chapter id="Run+analysis+locally" title="Run analysis locally">
 
             <note>
@@ -31,17 +48,135 @@
                 </p>
             </note>
 
-            <include src="lib_qd.xml" include-id="docker-local-analysis"/>
+            <tabs group="docker-options">
+                <tab title="Docker image" group-key="docker-image">
+                    <procedure>
+                        <step>
+                            <p>
+                                Pull the image from Docker Hub (only necessary to update to the <code>latest</code> version):
+                            </p>
+                            <code style="block" lang="shell" prompt="$">docker pull jetbrains/%linter-shell%
+                            </code>
+                        </step>
+                        <step>
+                            <p>Run the following command to start inspecting your source code:</p>
+                            <code style="block" lang="shell" prompt="$">
+                                docker run \
+                                -v &lt;source-directory&gt;/:/data/project/ \
+                                -v &lt;output-directory&gt;/:/data/results/ \
+                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                                jetbrains/%linter-shell%
+                            </code>
+                            <p>
+                                where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
+                                respectively, the project source code directory and the analysis results directory. The
+                                <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                                required by the
+                                <a href="pricing.md" anchor="pricing-linters-licenses">linter license</a>. Using the linter
+                                without the project token is useless because it does not support showing inspection results
+                                locally.
+                            </p>
+                        </step>
+                    </procedure>
+                    <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                        -v &lt;source-directory&gt;/:/data/project/ \
+                        -v &lt;output-directory&gt;/:/data/results/ \
+                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        jetbrains/%linter-shell%
+                    </code>
+                    <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">the inspection report</a>.
+                    </p>
+                    <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
+                        using it in <code>docker run</code> again.
+                    </p>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <p>In the project root directory, run this command to inspect your code and view the inspection
+                        report locally:</p>
+                    <code filter="non-gs" style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        -l %docker-image% \
+                        --show-report
+                    </code>
+                    <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        -l %docker-image% \
+                        --results-dir &lt;output-directory&gt;
+                    </code>
+                    <p>The <code>output-directory</code> specifies the directory where the SARIF-formatted report will be
+                        saved. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                        required by the
+                        <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
+                </tab>
+            </tabs>
 
         </chapter>
 
         <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
 
-            <include src="lib_qd.xml" include-id="docker-ci-analysis"/>
+            <tabs group="docker-options">
+                <tab title="Docker image" group-key="docker-image">
+                    <p>Use the following command as a task in a generic Shell executor:</p>
+                    <code style="block" lang="shell" prompt="$">
+                        docker run \
+                        -v &lt;source-directory&gt;/:/data/project/ \
+                        -v &lt;output-directory&gt;/:/data/results/ \
+                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        jetbrains/%linter-shell%
+                    </code>
+                    <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
+                        the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
+                            results directory</a>. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                        required by the
+                        <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
+                    </p>
+                    <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
+                        of problems is reached and the <a href="baseline.xml"/> feature to compare each new %linter%
+                        run to some initial run selected as a <emphasis>baseline</emphasis>.
+                    </p>
+                    <tip>
+                        <p>
+                            For details on available CI integrations, see <a href="ci.md"/>.
+                        </p>
+                    </tip>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <p>Run this command in the project root directory:</p>
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        -l %docker-image% \
+                        --results-dir &lt;output-directory&gt;
+                    </code>
+                    <p>This will save inspection results to the directory specified by <code>output-directory</code>.</p>
+                    <p>You can also apply the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
+                        of problems is reached by using the <code>--fail-threshold</code>
+                        <a href="https://github.com/JetBrains/qodana-cli#options-1">option</a>.</p>
+                    <p>The <a href="baseline.xml"/> feature compares each new %linter% run to some initial run using
+                        the <code>--baseline</code> and
+                        <code>--baseline-include-absent</code> options.
+                    </p>
+                    <tip>
+                        <p>
+                            For details on available CI integrations, see <a href="ci.md"/>.
+                        </p>
+                    </tip>
+
+                </tab>
+            </tabs>
+
 
             <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis in GitHub">
 
                 <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
+
+                <p>This feature requires that you specify the %linter% name either in the <a href="qodana-yaml.md" anchor="Specify+a+linter"><code>qodana.yaml</code></a> file,
+                or using the <a href="github.md" anchor="Configuration"><code>args</code></a> configuration option of GitHub, for example: <code style="block" lang="yaml">args: --linter,%linter-shell%</code> </p>
 
                 <p>In GitHub, %product% is implemented as the <code>Qodana Scan</code> GitHub Action.To configure the
                     <code>Qodana Scan</code> GitHub Action, save the <code>.github/workflows/code_quality.yml</code> file
@@ -50,41 +185,22 @@
                 <code style="block" lang="yaml">
                     name: Qodana
                     on:
-                    workflow_dispatch:
-                    pull_request:
-                    push:
-                    branches:
-                    - main
-                    - 'releases/*'
+                      workflow_dispatch:
+                      pull_request:
+                      push:
+                        branches:
+                          - main
+                          - 'releases/*'
 
                     jobs:
-                    qodana:
-                    runs-on: ubuntu-latest
-                    steps:
-                    - uses: actions/checkout@v3
-                    with:
-                    fetch-depth: 0
-                    - name: 'Qodana Scan'
-                    uses: JetBrains/qodana-action@v2023.3
-                </code>
-
-                <p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
-                    repository.</p>
-
-                <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
-                    (reports issues that appeared only in that pull request).</note>
-
-                <p>Because <code>Qodana Scan</code> is experimental, you may need to additionally configure the
-                    <code>pr-mode</code> <a href="github.md" anchor="Configuration">parameter</a>  in the <code>with</code> section:</p>
-
-                <p>By default, <code>Qodana Scan</code> uses the experimental mode of the Qodana for .NET linter.
-                    If you are experiencing issues with it, you can
-                    <a href="https://youtrack.jetbrains.com/newIssue?project=QD">report an issue</a> in our bug tracker.</p>
-
-
-
-                <code style="block" lang="yaml">
-                    pr-mode: false
+                      qodana:
+                        runs-on: ubuntu-latest
+                        steps:
+                          - uses: actions/checkout@v3
+                            with:
+                              fetch-depth: 0
+                          - name: 'Qodana Scan'
+                            uses: JetBrains/qodana-action@v2023.3
                 </code>
 
                 <p>To authorize in <a href="cloud-about.xml">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
@@ -97,9 +213,9 @@
 
                         <code style="block" lang="yaml">
                             - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2022.3.3
-                            env:
-                            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                              uses: JetBrains/qodana-action@v2022.3.3
+                              env:
+                                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code>
                     </step>
                 </procedure>
@@ -108,72 +224,53 @@
         </chapter>
     </chapter>
 
-    <chapter id="Using+an+existing+profile" title="Using an existing profile">
-
-        <p filter="for-dotnet, non-dotnet">
-            This section is intended for users familiar with configuring code analysis via <a
-                href="https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html">%ide% inspection profiles</a>.
-        </p>
-
-        <tabs group="docker-options" filter="common">
-            <tab title="Docker image" group-key="docker-image">
-                <p>
-                    You can pass the reference to the existing profile by mapping the profile to
-                    <code>/data/profile.xml</code> inside the container:
-                </p>
-                <code style="block" lang="shell" prompt="$">
-                    docker run --rm -it -p 8080:8080 \
-                    -v &lt;source-directory&gt;/:/data/project/ \
-                    -v &lt;output-directory&gt;/:/data/results/ \
-                    -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
-                    %docker-image% --show-report
-                </code>
-            </tab>
-            <tab title="Qodana CLI" group-key="qodana-cli">
-                <p>
-                    You can pass the reference to the existing profile by mapping the profile inside the container:
-                </p>
-                <code style="block" lang="shell" prompt="$">
-                    qodana scan -l %docker-image% \
-                    --results-dir &lt;output-directory&gt; \
-                    --profile-path &lt;path-to-profile&gt; \
-                    --show-report
-                </code>
-            </tab>
-        </tabs>
-
-    </chapter>
-
     <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
 
-        <include src="lib_qd.xml" include-id="docker-configure-via-qodana-yaml"/>
+        <include src="lib_qd.xml" include-id="docker-configure-via-qodana-yaml" use-filter="for-others"/>
 
     </chapter>
 
     <chapter id="Analyzing+specific+solution+or+project" title="Analyze specific solution or project">
 
-        <include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project"/>
+        <include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty,cdnet"/>
 
-    </chapter>
+        <chapter id="docker-cdnet-specific-solution-project-configure-solution" title="Configure a solution">
 
-    <chapter id="Inspect+using+private+nuget+repositories" title="Inspect projects using private NuGet repositories">
+            <p>A solution configuration defines which projects in the solution are build, and which project
+                configurations are used for specific projects within the solution.</p>
 
-        <p>%linter% does not support authentication for private NuGet repositories using, for example,
-            Windows Authentication. To overcome this limitation, you can place all required packages within the %product%
-            cache as shown below:</p>
+            <p>Each newly-created solution includes the <code>Debug</code> and <code>Release</code>
+                configurations, which can be complemented by your custom configurations.</p>
 
-        <procedure>
-            <step>In the local filesystem, create the folder that will contain cache. For example, it can be
-                <code>C:/Temp/QodanaCache</code>.</step>
-            <step><a href="qodana-dotnet-docker-readme.xml" anchor="quick-start-recommended-profile">Run %product%</a>
-                using the <code>--cache-dir C:/Temp/QodanaCache</code> option.</step>
-            <step>Copy all NuGet packages contained by default in the
-                <code interpolate-variables="false">%userprofile%\.nuget\packages</code>
-                folder to <code>C:/Temp/QodanaCache/nuget</code>. If you have a custom package folder, copy packages
-                from that folder instead of <code interpolate-variables="false">%userprofile%\.nuget\packages</code>.</step>
-            <step>Run %product% using the <code>--cache-dir C:/Temp/QodanaCache</code> once more.</step>
+            <p>You can switch configurations of the current solution using the <code>--configuration</code>
+                option. For example, use this to switch to the <code>Release</code>
+                configuration:</p>
 
-        </procedure>
+            <code style="block" lang="shell">
+                --configuration=Release
+            </code>
+
+            <p>Alternatively, you can specify the configuration in <code>qodana.yaml</code>:</p>
+
+            <code style="block" lang="yaml">
+                dotnet:
+                  configuration: Release
+            </code>
+
+            <p>By default, the solution platform is set to <code>Any CPU</code>.You can override this using the
+                <code>--platform</code> option:</p>
+
+            <code style="block" lang="shell">
+                --platform=x86
+            </code>
+
+            <p>Alternatively, you can specify the platform in <code>qodana.yaml</code>:</p>
+
+            <code style="block" lang="yaml">
+                dotnet:
+                  platform: x86
+            </code>
+        </chapter>
 
 
     </chapter>
@@ -181,7 +278,10 @@
     <chapter id="Usage+statistics" title="Usage statistics">
 
         <p>
-            <include src="lib_qd.xml" include-id="docker-usage-statistics"/>
+            According to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP user
+            agreement</a>, we can use third-party services to analyze the usage of our features to further improve the
+            user experience. All data will be collected <a href="https://www.jetbrains.com/company/privacy.html">
+            anonymously</a>. You can disable statistics by using the <code>--no-statistics=true</code> command.
         </p>
 
     </chapter>
