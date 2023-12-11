@@ -2,7 +2,7 @@
 <!DOCTYPE product-profile
         SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
 
-<product-profile id="qd" name="Qodana" start-page="getting-started.xml" status="release">
+<product-profile id="qd" name="Qodana" start-page="getting-started.xml" status="deprecated">
 
     <!-- Getting started section -->
 
