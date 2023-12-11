@@ -145,7 +145,8 @@
                     &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                     &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
                     &nbsp;&nbsp;&nbsp;-v &lt;inspection-profile.xml&gt;:/data/profile.xml \
-                    &nbsp;&nbsp;&nbsp;%docker-image% --show-report
+                    &nbsp;&nbsp;&nbsp;%docker-image% \
+                    &nbsp;&nbsp;&nbsp;--show-report
                 </code>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
