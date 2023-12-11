@@ -6,6 +6,12 @@
 <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
 <var name="config-file" value="qodana-cdnet-docker-readme.xml"/>
 
+<note>%linter% is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
+Any use of the EAP product is at your own risk. Your feedback is very welcome in our
+<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
+<a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
+</note>
+
 %linter% is a community linter based on [%ide%](https://www.jetbrains.com/rider/) and provides static analysis for .NET projects.
 It brings all the smarts from ReSharper, which help you:
 
