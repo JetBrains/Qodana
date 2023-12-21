@@ -2,8 +2,14 @@
 
 **Quick-fix** lets you improve development performance through fixing codebase problems automatically.
 
-This feature is available starting from version 2023.2 of %product% and supported by all [linters](linters.md) except
-Qodana for .NET under the Ultimate and Ultimate Plus [licenses](pricing.md) and their trial versions.
+This feature is available starting from version 2023.2 of %product% and supported by the following linters and their 
+trial versions:
+
+* [Qodana for JVM](qodana-jvm.md)
+* [Qodana for Python](qodana-python.md)
+* [Qodana for PHP](qodana-php.md)
+* [Qodana for JS](qodana-js.md)
+* [Qodana for Go](qodana-go.md)
 
 ## How it works
 

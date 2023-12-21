@@ -1,4 +1,4 @@
-[//]: # (title: Pricing and licenses)
+[//]: # (title: Pricing Model)
 
 Depending on your needs, you can choose a suitable license described in this table:
 
@@ -7,6 +7,9 @@ Depending on your needs, you can choose a suitable license described in this tab
 | Community     | Free                                                                                      | Best suited to solving isolated problems                                                                                                                                                  |
 | Ultimate      | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. A trial version is available.                                                                                                                |
 | Ultimate Plus | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Comes with all the same functionality as the Ultimate license, but also includes additional [features](features.xml) and unlimited historical data storage. A trial version is available. |
+
+You can find the actual license prices on the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) 
+page of the JetBrains website.
 
 ## License comparison matrix
 {id="license-comparison-matrix"}
@@ -111,8 +114,6 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Features and third-party software support
 
-<note>Currently, %product% supports only free plugins. </note>
-
 | Feature                                               | Community | Ultimate  | Ultimate Plus | 
 |-------------------------------------------------------|-----------|-----------|---------------|
 | [Monorepo support](monorepo-project.md)               | &#x2714;  | &#x2714;  | &#x2714;      | 
@@ -146,6 +147,7 @@ This is the list of linters that you can run using the Community license:
 * [Qodana Community for JVM](qodana-jvm-community.md)      
 * [Qodana Community for Android](qodana-jvm-android.md)     
 * [Qodana Community for Python](qodana-python-community.md) 
+* [](qodana-dotnet-community.md)
 
 This is the list of linters that require either the Ultimate or the Ultimate Plus license:
 
@@ -157,12 +159,6 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 * [Qodana for .NET](qodana-dotnet.md)                       
 
 ## Qodana licensing: an overview
-
-During the EAP (Early Access Program) stage, you can run Qodana with the built-in EAP 
-licenses free of charge. However, the EAP period will expire on July 31, 2023, and it cannot be extended.
-
-After July 31, 2023, you will have to switch either to a Community license or a trial license for the Ultimate or 
-Ultimate Plus versions.
 
 The Community license is free to use, though its functionality is limited only to the Community versions of Qodana 
 linters. Furthermore, it lacks numerous helpful [features](features.xml) that are available in the paid versions and 

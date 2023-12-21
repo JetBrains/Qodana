@@ -73,7 +73,7 @@
             </tr>
             <tr>
                 <td><a href="taint-analysis.md"/></td>
-                <td>Secure your PHP code from malicious user data</td>
+                <td>Secure your PHP code from malicious user data. Available only in the <a href="qodana-php.md"/> linter</td>
                 <td>Ultimate Plus</td>
             </tr>
             <tr>

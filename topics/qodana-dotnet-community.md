@@ -22,6 +22,8 @@ It brings all the smarts from ReSharper, which help you:
 * Introduce coding best practices
 * Upload inspection results to [Qodana Cloud](cloud-about.xml)
 
+<note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+
 %linter% provides inspections for the C, C++, C# and VB.NET programming languages.
 C and C++ inspections of %linter% are limited by projects containing `.sln` solution files or `.csproj` project files.
 

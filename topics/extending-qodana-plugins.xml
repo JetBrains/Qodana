@@ -19,8 +19,6 @@
     <p>You can extend %product% using either existing plugins from repositories, or by developing
         <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p>
 
-    <note>Currently, %product% supports only free plugins. </note>
-
     <chapter id="extending-qodana-repository-plugins" title="Plugins from repositories">
 
         <p>This section explains how to inspect PHP code using the <a href="qodana-php.md"/> linter enhanced with the
