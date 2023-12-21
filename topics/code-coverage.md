@@ -3,9 +3,6 @@
 **Code coverage** uses generated reports to calculate the overall code coverage inside a method, a class, and a file. 
 It also reports on the issues connected with the missing coverage in these entities.
 
-<note>Code coverage for files is available only in <a href="qodana-js.md"/>, <a href="qodana-php.md"/>, and 
-<a href="qodana-python.md"/> linters.</note>
-
 This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the 
 following linters:
 
@@ -51,6 +48,8 @@ following linters:
     </tr>
 </table>
 
+<note>Code coverage for files is available only in <a href="qodana-js.md"/>, <a href="qodana-php.md"/>, and
+<a href="qodana-python.md"/> linters.</note>
 
 ## How it works
 
@@ -66,9 +65,9 @@ Code coverage employs several inspections that are already included in the `qoda
 | [](qodana-jvm.md)    | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html) |
 | [](qodana-js.md)     | [`JsCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JsCoverageInspection.html)   |
 | [](qodana-php.md)    | [`PhpCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PhpCoverageInspection.html) |
-| [](qodana-python.md) | `PyCoverageInspection`|
-| [](qodana-go.md)     | `GoCoverageInspection` |
-| [](qodana-dotnet.md) |`NetCoverageInspection`|
+| [](qodana-python.md) | [`PyCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PyCoverageInspection.html)                                                                         |
+| [](qodana-go.md)     | [`GoCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/GoCoverageInspection.html)   |
+| [](qodana-dotnet.md) | `NetCoverageInspection`                                                                            |
 
 Once the inspection is complete, reports are available in [%product% reports](html-report.md) and JetBrains IDEs.
 

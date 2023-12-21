@@ -645,6 +645,10 @@
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>
+                <td><a href="code-coverage.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
                 <td><a href="license-audit.xml"/></td>
                 <td>Ultimate Plus</td>
             </tr>
@@ -700,6 +704,10 @@
             </tr>
             <tr>
                 <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="code-coverage.md"/></td>
                 <td>Ultimate and Ultimate Plus</td>
             </tr>
             <tr>

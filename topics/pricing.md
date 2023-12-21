@@ -70,43 +70,44 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Frameworks and libraries
 
-| Framework or library | Community  | Ultimate and Ultimate Plus |
-|----------------------|------------|----------------------------|
-| Django               | &#x2714;   | &#x2714;                   |
-| Google App Engine    | &#x2714;   | &#x2714;                   |
-| JavaBeans            | &#x2714;   | &#x2714;                   |
-| JavaFX               | &#x2714;   | &#x2714;                   |
-| JPA                  | &#x2714;   | &#x2714;                   |
-| JUnit                | &#x2714;   | &#x2714;                   |
-| Jupyter              | &#x2714;   | &#x2714;                   |
-| Lombok               | &#x2714;   | &#x2714;                   |
-| Pyramid              | &#x2714;   | &#x2714;                   |
-| Reactive Streams     | &#x2714;   | &#x2714;                   |
-| TestNG               | &#x2714;   | &#x2714;                   |
-| Angular              | &#x274c;   | &#x2714;                   | 
-| Cucumber             | &#x274c;   | &#x2714;                   |
-| .NET Core            | &#x274c;   | &#x2714;                   |
-| EJS                  | &#x274c;   | &#x2714;                   |
-| Handlebars/Mustache  | &#x274c;   | &#x2714;                   |
-| Jakarta EE           | &#x274c;   | &#x2714;                   |
-| Java EE              | &#x274c;   | &#x2714;                   |
-| JAX-RS               | &#x274c;   | &#x2714;                   |
-| Joomla!              | &#x274c;   | &#x2714;                   |
-| JSP                  | &#x274c;   | &#x2714;                   |
-| Less                 | &#x274c;   | &#x2714;                   |
-| Node.JS              | &#x274c;   | &#x2714;                   |
-| NUnit                | &#x274c;   | &#x2714;                   |
-| PHPUnit              | &#x274c;   | &#x2714;                   |
-| PostCSS              | &#x274c;   | &#x2714;                   |
-| Psalm                | &#x274c;   | &#x2714;                   |
-| Pug/Jade             | &#x274c;   | &#x2714;                   |
-| React                | &#x274c;   | &#x2714;                   |
-| Sass/SCSS            | &#x274c;   | &#x2714;                   |
-| Spring               | &#x274c;   | &#x2714;                   |
-| Unity                | &#x274c;   | &#x2714;                   |
-| Unreal Engine        | &#x274c;   | &#x2714;                   |
-| Vue                  | &#x274c;   | &#x2714;                   |
-| Xunit                | &#x274c;   | &#x2714;                   |
+| Framework or library | Community | Ultimate and Ultimate Plus |
+|----------------------|-----------|----------------------------|
+| Django               | &#x2714;  | &#x2714;                   |
+| Google App Engine    | &#x2714;  | &#x2714;                   |
+| JavaBeans            | &#x2714;  | &#x2714;                   |
+| JavaFX               | &#x2714;  | &#x2714;                   |
+| JPA                  | &#x2714;  | &#x2714;                   |
+| JUnit                | &#x2714;  | &#x2714;                   |
+| Jupyter              | &#x2714;  | &#x2714;                   |
+| Lombok               | &#x2714;  | &#x2714;                   |
+| Pyramid              | &#x2714;  | &#x2714;                   |
+| Reactive Streams     | &#x2714;  | &#x2714;                   |
+| TestNG               | &#x2714;  | &#x2714;                   |
+| Angular              | &#x274c;  | &#x2714;                   | 
+| Cucumber             | &#x274c;  | &#x2714;                   |
+| .NET Core            | &#x274c;  | &#x2714;                   |
+| .NET Framework       | &#x274c;  | &#x2714;                   |
+| EJS                  | &#x274c;  | &#x2714;                   |
+| Handlebars/Mustache  | &#x274c;  | &#x2714;                   |
+| Jakarta EE           | &#x274c;  | &#x2714;                   |
+| Java EE              | &#x274c;  | &#x2714;                   |
+| JAX-RS               | &#x274c;  | &#x2714;                   |
+| Joomla!              | &#x274c;  | &#x2714;                   |
+| JSP                  | &#x274c;  | &#x2714;                   |
+| Less                 | &#x274c;  | &#x2714;                   |
+| Node.JS              | &#x274c;  | &#x2714;                   |
+| NUnit                | &#x274c;  | &#x2714;                   |
+| PHPUnit              | &#x274c;  | &#x2714;                   |
+| PostCSS              | &#x274c;  | &#x2714;                   |
+| Psalm                | &#x274c;  | &#x2714;                   |
+| Pug/Jade             | &#x274c;  | &#x2714;                   |
+| React                | &#x274c;  | &#x2714;                   |
+| Sass/SCSS            | &#x274c;  | &#x2714;                   |
+| Spring               | &#x274c;  | &#x2714;                   |
+| Unity                | &#x274c;  | &#x2714;                   |
+| Unreal Engine        | &#x274c;  | &#x2714;                   |
+| Vue                  | &#x274c;  | &#x2714;                   |
+| Xunit                | &#x274c;  | &#x2714;                   |
 
 ### Features and third-party software support
 
