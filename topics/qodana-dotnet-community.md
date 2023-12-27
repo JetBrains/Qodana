@@ -3,7 +3,7 @@
 <var name="dotsettings" value="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#solution-team-shared-layer"/>
 <var name="linter" value="Qodana Community for .NET"/>
 <var name="ide" value="ReSharper"/>
-<var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
+<var name="docker-image" value="jetbrains/qodana-cdnet:2023.3"/>
 <var name="config-file" value="qodana-cdnet-docker-readme.xml"/>
 
 <note>%linter% is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.

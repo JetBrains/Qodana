@@ -6,7 +6,7 @@
 
 <var name="linter" value="Qodana for .NET"/>
 <var name="ide" value="Rider"/>
-<var name="docker-image" value="jetbrains/qodana-dotnet:2023.3-eap"/>
+<var name="docker-image" value="jetbrains/qodana-dotnet:2023.3"/>
 <var name="config-file" value="qodana-dotnet-docker-readme.xml"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/rider/) and provides static analysis for .NET projects.

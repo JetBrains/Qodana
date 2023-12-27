@@ -177,6 +177,11 @@
                                 <td>jetbrains/qodana-dotnet</td>
                                 <td>.NET projects, based on Rider.</td>
                             </tr>
+                            <tr>
+                                <td>jetbrains/qodana-cdnet</td>
+                                <td>.NET projects, based on ReSharper.</td>
+                            </tr>
+
                         </table>
                     </step>
                     <step>
