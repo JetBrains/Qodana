@@ -20,6 +20,9 @@
                 <td>
                     Available under <a href="pricing.md">licenses</a>
                 </td>
+                <td>
+                    Supported by
+                </td>
             </tr>
             <tr>
                 <td><a href="baseline.xml"/></td>
@@ -30,6 +33,7 @@
                         <p>Ultimate</p>
                         <p>Ultimate Plus</p>
                 </td>
+                <td>All <a href="linters.md">linters</a></td>
             </tr>
             <tr>
                 <td><a href="code-coverage.md"/></td>
@@ -38,11 +42,27 @@
                         <p>Ultimate</p>
                         <p>Ultimate Plus</p>
                 </td>
+                <td>
+                    <p><a href="qodana-jvm.md"/></p>
+                    <p><a href="qodana-js.md"/></p>
+                    <p><a href="qodana-php.md"/></p>
+                    <p><a href="qodana-dotnet.md"/></p>
+                    <p><a href="qodana-python.md"/></p>
+                    <p><a href="qodana-go.md"/></p>
+                </td>
             </tr>
             <tr>
                 <td><a href="license-audit.xml"/></td>
                 <td>Verify your project license for compatibility with the licenses of its dependencies</td>
                 <td>Ultimate Plus</td>
+                <td>
+                    <p><a href="qodana-jvm.md"/></p>
+                    <p><a href="qodana-js.md"/></p>
+                    <p><a href="qodana-php.md"/></p>
+                    <p><a href="qodana-dotnet.md"/></p>
+                    <p><a href="qodana-python.md"/></p>
+                    <p><a href="qodana-go.md"/></p>
+                </td>
             </tr>
             <tr>
                 <td><a href="php-language-upgrade.xml"/></td>
@@ -50,6 +70,9 @@
                 <td>
                         <p>Ultimate</p>
                         <p>Ultimate Plus</p>
+                </td>
+                <td>
+                    <p><a href="qodana-php.md"/></p>
                 </td>
             </tr>
             <tr>
@@ -62,6 +85,7 @@
                         <p>Ultimate</p>
                         <p>Ultimate Plus</p>
                 </td>
+                <td>All <a href="linters.md">linters</a></td>
             </tr>
             <tr>
                 <td><a href="quick-fix.md"/></td>
@@ -70,19 +94,33 @@
                         <p>Ultimate</p>
                         <p>Ultimate Plus</p>
                 </td>
+                <td>
+                    <p><a href="qodana-jvm.md"/></p>
+                    <p><a href="qodana-js.md"/></p>
+                    <p><a href="qodana-php.md"/></p>
+                    <p><a href="qodana-python.md"/></p>
+                    <p><a href="qodana-go.md"/></p>
+                </td>
             </tr>
             <tr>
                 <td><a href="taint-analysis.md"/></td>
                 <td>Secure your PHP code from malicious user data. Available only in the <a href="qodana-php.md"/> linter</td>
                 <td>Ultimate Plus</td>
+                <td>
+                    <p><a href="qodana-php.md"/></p>
+                </td>
             </tr>
             <tr>
                 <td><a href="vulnerability-checker.md"/></td>
                 <td>Check third-party packages for vulnerabilities</td>
                 <td>Ultimate Plus</td>
+                <td>
+                    <p><a href="qodana-jvm.md"/></p>
+                    <p><a href="qodana-js.md"/></p>
+                    <p><a href="qodana-dotnet.md"/></p>
+                    <p><a href="qodana-python.md"/></p>
+                    <p><a href="qodana-go.md"/></p>
+                </td>
             </tr>
         </table>
-
- <!--       <p>You can overview the %product% reports from all your projects using <a href="cloud-about.xml">Qodana Cloud</a>.</p> -->
-
 </topic>

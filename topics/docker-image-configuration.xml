@@ -675,6 +675,10 @@
 
     <chapter id="docker-config-reference-code-coverage" title="Code coverage">
 
+        <note>
+            For the <a href="qodana-go.md"/> linter, the code coverage requires that a project contains no <code>.idea</code> directory.
+        </note>
+
         <p>You can run the <a href="code-coverage.md">code coverage</a> by mapping the directory containing code coverage files to
             the <code>/data/coverage</code> directory of a %product% linter image:</p>
 
