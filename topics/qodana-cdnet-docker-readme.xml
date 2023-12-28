@@ -7,12 +7,12 @@
        id="qodana-cdnet-docker-readme">
 
     <var name="linter" value="Qodana Community for .NET"/>
-    <var name="linter-shell" value="qodana-cdnet:2023.3"/>
+    <var name="linter-shell" value="qodana-cdnet:2023.3-eap"/>
     <var name="linter-page-url" value="qodana-dotnet-community.md"/>
     <var name="ide" value="ReSharper"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/resharper/Code_Analysis__Index.html"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
-    <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3"/>
+    <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
     <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 
 
@@ -35,6 +35,8 @@
         <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest method. If necessary,
         check the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> to install
         Qodana CLI. Alternatively, you can use the Docker commands from the <menupath>Docker image</menupath> tab.</p>
+
+    <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
 
     <chapter id="quick-start-recommended-profile" title="Quick start">
 
