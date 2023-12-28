@@ -38,10 +38,6 @@ You can configure and run %product% locally using your IDE, and then forward ins
    <p>In your IDE, navigate to <menupath>Tools | Qodana | Try Code Analysis with Qodana</menupath>.</p> 
 </step>
 <step>
-   <p>In the <menupath>Run Qodana</menupath> dialog, click the <menupath>Try locally</menupath> button. </p>
-   <img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="First step of the Run Qodana dialog" border-effect="line"/>
-</step>
-<step>
    <p>In the upper part of the <menupath>Run Qodana</menupath> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
    <p>Under the text field, configure the options to make %product%:</p>
       <list>
@@ -57,36 +53,11 @@ You can configure and run %product% locally using your IDE, and then forward ins
 </step>
 </procedure>
 
-## Configure %product% for CI
-{id="ide-plugin-cicd"}
-
-You can add %product% into CI pipelines using the configuration wizard.
-
-<note>Depending on the %product% license, you will need to generate and use the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
-
-<procedure>
-   <step>
-      <p>In your IDE, navigate to <menupath>Tools | Qodana | Try Code Analysis with Qodana</menupath>.</p>
-   </step>
-   <step>
-      <p>In the <menupath>Run Qodana</menupath> dialog, click the <menupath>Add to CI Pipeline</menupath> button. </p>
-      <img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="First step of the Run Qodana dialog" border-effect="line"/>
-   </step>
-   <step>
-      <p>In the <menupath>Run Qodana</menupath> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
-      <img src="ide-plugin-cicd-1.png" dark-src="ide-plugin-cicd-1_dark.png" width="706" alt="Second step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
-   </step>
-   <step>
-      <p>Select the CI solution you would like to configure %product% for, and study the instructions.</p>
-      <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="Third step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
-   </step>
-</procedure>
-
 ## Connect to Qodana Cloud
 {id="ide-plugin-connect-cloud"}
 
-You can connect your local project to a specific Qodana Cloud [project](cloud-projects.xml), get the latest %product% 
-report, and overview it using the IDE.
+You can log in to Qodana Cloud and connect your local project to a specific Qodana Cloud [project](cloud-projects.xml) to get the 
+latest %product% report and overview it using the IDE.
 
 <procedure>
    <step>
@@ -107,6 +78,45 @@ report, and overview it using the IDE.
        <p>In the <menupath>Server-Side Analysis</menupath> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
     </step>
 </procedure>
+
+## Configure %product% for CI
+{id="ide-plugin-cicd"}
+
+Once you logged in Qodana Cloud, you can add %product% into your CI pipelines using the configuration wizard.
+
+<note>Depending on the %product% license, you will need to generate and use the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
+
+<!-- The second step here needs to be split into two variants -->
+<!-- Where is the configuration added in the third step of the first tab? -->
+
+<tabs>
+<tab id="ide-plugin-logged" title="Logged in Qodana Cloud">
+<procedure>
+<step>
+<p>In your IDE, navigate to <menupath>Tools | Qodana | Add Qodana to CI Pipeline</menupath></p>
+</step>
+<step>
+<p>In the <menupath>Add qodana.yaml</menupath> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file and then click <menupath>Next</menupath>.</p>
+      <img src="ide-plugin-cicd-1.png" dark-src="ide-plugin-cicd-1_dark.png" width="706" alt="Configure the qodana.yaml file" border-effect="line"/>
+</step>
+<step>
+<p>In the <menupath>Add Qodana to CI Pipeline</menupath> dialog, follow the recommendations for your CI/CD solution.</p>
+      <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="Third step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
+</step>
+</procedure>
+</tab>
+<tab id="ide-plugin-logged-linked" title="Logged in Qodana Cloud and linked the project">
+<procedure>
+<step>
+<p>In your IDE, navigate to <menupath>Tools | Qodana | Add Qodana to CI Pipeline</menupath>.</p>
+</step>
+<step>
+<p>In the <menupath>Add Qodana to CI Pipeline</menupath> dialog, follow the recommendations for your CI/CD solution.</p>
+      <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="Third step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
+</step>
+</procedure>
+</tab>
+</tabs>
 
 ## Open a local report
 {id="ide-plugin-local-report"}
