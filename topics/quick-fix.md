@@ -47,28 +47,28 @@ You can apply quick-fix strategies using the following available options:
             <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters. </p>
         <tabs>
             <tab title="Docker">
-                <code style="block" lang="shell" prompt="$">
+                <code-block lang="shell" prompt="$">
                     docker run \
                        -v &lt;source-directory&gt;/:/data/project/  \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --fixes-strategy &lt;cleanup/apply&gt;
-                </code>
+                </code-block>
             </tab>
             <tab title="Qodana CLI">
-                <code style="block" lang="shell" prompt="$">
+                <code-block lang="shell" prompt="$">
                 qodana scan \
                    -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                    &lt;--apply-fixes/--cleanup&gt;
-                </code>
+                </code-block>
             </tab>
         </tabs>
     </tab>
     <tab title="qodana.yaml" id="quick-fix-qodana-yaml">
         <p>You can use the <code>fixesStrategy</code> option in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
-        <code style="block" lang="yaml">
+        <code-block lang="yaml">
             fixesStrategy: cleanup/apply
-        </code>
+        </code-block>
     </tab>
     <tab title="CI pipeline" id="quick-fix-ci-pipeline">
         <p>Learn the <a href="github.md"/> section for details.</p>

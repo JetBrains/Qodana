@@ -2,11 +2,11 @@
 
 Depending on your needs, you can choose a suitable license described in this table:
 
-| License       | Subscription conditions                                                                   | Description                                                                                                                                                                               |
-|---------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Community     | Free                                                                                      | Best suited to solving isolated problems                                                                                                                                                  |
-| Ultimate      | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. A trial version is available.                                                                                                                |
-| Ultimate Plus | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Comes with all the same functionality as the Ultimate license, but also includes additional [features](features.xml) and unlimited historical data storage. A trial version is available. |
+| License       | Subscription conditions                                                                   | Description                                                                                                                                                                             |
+|---------------|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Community     | Free                                                                                      | Best suited to solving isolated problems                                                                                                                                                |
+| Ultimate      | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. A trial version is available.                                                                                                              |
+| Ultimate Plus | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Comes with all the same functionality as the Ultimate license, but also includes additional [features](features.topic) and unlimited historical data storage. A trial version is available. |
 
 You can find the actual license prices on the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) 
 page of the JetBrains website.
@@ -114,20 +114,20 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Features and third-party software support
 
-| Feature                                               | Community | Ultimate  | Ultimate Plus | 
-|-------------------------------------------------------|-----------|-----------|---------------|
-| [Monorepo support](monorepo-project.md)               | &#x2714;  | &#x2714;  | &#x2714;      | 
-| [CI/CD integrations](ci.md)                           | &#x2714;  | &#x2714;  | &#x2714;      |
-| [Custom plugin support](extending-qodana-plugins.xml) | &#x2714;  | &#x2714;  | &#x2714;      |
-| [](baseline.xml)                                      | &#x2714;  | &#x2714;  | &#x2714;      |
-| [](quality-gate.xml)                                  | &#x2714;  | &#x2714;  | &#x2714;      |
-| Docker and Kubernetes support                         | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](code-coverage.md)                                  | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](quick-fix.md)                                      | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](php-language-upgrade.xml)                          | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](license-audit.xml)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](taint-analysis.md)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](vulnerability-checker.md)                          | &#x274c;  | &#x274c;  | &#x2714;      |
+| Feature                                                 | Community | Ultimate  | Ultimate Plus | 
+|---------------------------------------------------------|-----------|-----------|---------------|
+| [Monorepo support](monorepo-project.md)                 | &#x2714;  | &#x2714;  | &#x2714;      | 
+| [CI/CD integrations](ci.md)                             | &#x2714;  | &#x2714;  | &#x2714;      |
+| [Custom plugin support](extending-qodana-plugins.topic) | &#x2714;  | &#x2714;  | &#x2714;      |
+| [](baseline.topic)                                      | &#x2714;  | &#x2714;  | &#x2714;      |
+| [](quality-gate.topic)                                  | &#x2714;  | &#x2714;  | &#x2714;      |
+| Docker and Kubernetes support                           | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](code-coverage.md)                                    | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](quick-fix.md)                                        | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](php-language-upgrade.topic)                          | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](license-audit.topic)                                     | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](taint-analysis.md)                                   | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](vulnerability-checker.md)                            | &#x274c;  | &#x274c;  | &#x2714;      |
 
 ### Data storage and processing
 {id="pricing-data-storage"}
@@ -161,7 +161,7 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 ## Qodana licensing: an overview
 
 The Community license is free to use, though its functionality is limited only to the Community versions of Qodana 
-linters. Furthermore, it lacks numerous helpful [features](features.xml) that are available in the paid versions and 
+linters. Furthermore, it lacks numerous helpful [features](features.topic) that are available in the paid versions and 
 only offers a limited period for [data storage](#pricing-data-storage) in Qodana Cloud.
 
 The trial versions of the Ultimate or Ultimate Plus licenses are limited by a 60-day trial period. After the trial 
@@ -218,7 +218,7 @@ continue using %product%, you’ll have to buy a full version of your license.
 
 Both %product% linters and Qodana Cloud are essential parts of the product named %product%. You can inspect your codebase
 using %product% linters, and you can use Qodana Cloud for managing your projects and licenses, as well as collecting
-%product% reports in a single place. For more details, see the [](cloud-use-cases.xml) page of the Qodana Cloud
+%product% reports in a single place. For more details, see the [](cloud-use-cases.topic) page of the Qodana Cloud
 documentation.
 
 ### Can I use %product% linters without creating a Qodana Cloud account?
@@ -254,7 +254,7 @@ the unlimited number of times. In this case, however, all purchased subscription
 
 The total license cost is based on the number of active contributors. An active contributor is a person who commits 
 to any number of Qodana Cloud projects during the latest 90 days, within the same organization, and under a single 
-license. During the [onboarding](cloud-onboarding.md) stage and while creating a new [project](cloud-projects.xml), Qodana 
+license. During the [onboarding](cloud-onboarding.md) stage and while creating a new [project](cloud-projects.topic), Qodana 
 Cloud requests your repository URL to calculate contributors. The minimal number of contributors used for licensing is 3 (three). 
 
 The number of actual contributors is calculated based on the subscription plan. For example, using the monthly 
@@ -302,7 +302,7 @@ the number of prepaid Active Contributors, We will not refund or otherwise credi
 
 Qodana Cloud stores all information about your Ultimate and Ultimate Plus licenses. This explains why you need to 
 create a Qodana Cloud account before running Qodana. Apart from this functionality, Qodana Cloud provides several other 
-[helpful features](cloud-use-cases.xml).
+[helpful features](cloud-use-cases.topic).
 
 ### Which minimum steps do I need to perform in Qodana Cloud?
 
@@ -316,11 +316,9 @@ No, you can use the Community version of Qodana in any open-source or proprietar
 
 Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:
 
-<list>
-    <li><a href="license-audit.xml"/></li>
-    <li><a href="taint-analysis.md"/></li>
-    <li><a href="vulnerability-checker.md"/></li>
-</list>
+* [](license-audit.topic)
+* [](taint-analysis.md)
+* [](vulnerability-checker.md)
 
 ### Which licenses are integrated into CI/CD pipelines?
 

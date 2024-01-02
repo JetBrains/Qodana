@@ -23,7 +23,7 @@ Otherwise, you can download the required JDK version, and [mount it](#Mount+JDK)
 
 ## Configure Qodana
 
-<include src="lib_qd.xml" include-id="configure-jdk-qodana-yaml" use-filter="configure-jdk,empty"/>
+<include from="lib_qd.topic" element-id="configure-jdk-qodana-yaml" use-filter="configure-jdk,empty"/>
 
 If you specify here any JDK from the [list of available versions](#Available+versions), it will be automatically 
 downloaded by %product%. If you would like to use the JDK beyond this list, you will have to download it and then 

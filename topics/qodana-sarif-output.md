@@ -236,17 +236,17 @@ When the 'sanity' inspections fail, this typically means that the project config
 
 The possible values for `exitCode` are:
 
-| Value | Description                                                                                                  |
-|-------|--------------------------------------------------------------------------------------------------------------|
-| `0`   | Successful execution                                                                                         |
-| `1`   | Any internal error                                                                                           |
-| `137` | Out of memory, the Docker container for Qodana needs at least 6 GB of RAM                                    |
-| `255` | Successful execution and exit resulted from the exceeded [`fail-threshold`](quality-gate.xml) property value |
+| Value | Description                                                                                                 |
+|-------|-------------------------------------------------------------------------------------------------------------|
+| `0`   | Successful execution                                                                                        |
+| `1`   | Any internal error                                                                                          |
+| `137` | Out of memory, the Docker container for Qodana needs at least 6 GB of RAM                                   |
+| `255` | Successful execution and exit resulted from the exceeded [`fail-threshold`](quality-gate.topic) property value |
 
 Here is the description of the other fields from the `invocations` object:
 
 The `toolExecutionNotifications` field contains notifications generated during a %product% run, such as a reached
-[threshold](quality-gate.xml).
+[threshold](quality-gate.topic).
 
 <note>
 After the linter process has exited successfully,
@@ -346,7 +346,7 @@ Each `result` object consists of the following fields:
 | `level`               | The SARIF [severity level](#SARIF+severity)                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `message`             | A [`message`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317459) object with the nested `text` field containing the result/problem description in the format of an IntelliJ IDEA message string                                                                                                                                                                                                                |
 | `locations`           | Array of the [`location`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317670) objects. Always contains a single element comprised of the [`physicalLocation`](#The+physicalLocation+object) and the [`logicalLocations`](#The+logicalLocations+object) objects                                                                                                                                                  |
-| `partialFingerprints` | Contains hashes for comparing results between different runs. Used by the [baseline](baseline.xml) feature                                                                                                                                                                                                                                                                                                                                |
+| `partialFingerprints` | Contains hashes for comparing results between different runs. Used by the [baseline](baseline.topic) feature                                                                                                                                                                                                                                                                                                                                         |
 | `baselineState`       | <p>Indicates whether a linter was executed in baseline mode and can accept the following values:</p> <list><li>`new` denotes that the problem was detected only in the current run but not in the baseline run</li><li>`absent` denotes that the problem was detected only in the baseline run but not in the current run</li> <li>`unchanged` denotes that the problem was detected both in the current run and in the baseline run</li></list> |
 | `properties`          | The `propertyBag` containing the `ideaSeverity` field with the original IntelliJ IDEA inspection severity as a value                                                                                                                                                                                                                                                                                                                             |
 
@@ -427,7 +427,7 @@ The `physicalLocation` object contains the following fields:
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `artifactLocation` | <p>The [`artifactLocation`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317427) object containing the following fields:</p> <list><li>`uri` denotes the path relative to the project root</li> <li>`uriBaseId` always has the `SRCROOT` value</li> </list> |
 | `region`           | Contains information about the problem location and the snippet that should be highlighted. See the [section below](#The+region+object) for details                                                                                                                                         |
-| `contextRegion`    | Contains information about the text that surrounds the snippet from the `region` field. This field is used for comparing problems in the [baseline](baseline.xml) mode                                                                                                               |
+| `contextRegion`    | Contains information about the text that surrounds the snippet from the `region` field. This field is used for comparing problems in the [baseline](baseline.topic) mode                                                                                                                       |
 
 ##### The region object
 
@@ -592,6 +592,6 @@ regular [`result`](#results) objects.
 The [SARIF severity values](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317648)
 correspond to the severity values of IntelliJ IDEA according to this table:
 
-<include src="lib_qd.xml" include-id="qodana-severity-levels" use-filter="for-report,empty"/>
+<include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-report,empty"/>
 
 The original IntelliJ IDEA inspection severity is stored in the `propertyBag` field of the same object.

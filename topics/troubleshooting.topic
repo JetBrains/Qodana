@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Troubleshooting"
+       id="troubleshooting">
+
+    <p>This section contains information that can help you troubleshoot common problems.</p>
+
+    <chapter id="troubleshooting-mounted-directories" title="List of Docker image paths">
+
+        <table>
+            <tr>
+                <td>Path</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/project</code>
+                </td>
+                <td>Root directory of the project to be analyzed</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/results</code>
+                </td>
+                <td>Directory to store the analysis results</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/opt/idea</code>
+                </td>
+                <td>Directory containing the IDE distribution</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/root/.config/idea</code>
+                </td>
+                <td>Directory where the IDE contains configuration</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>/data/profile.xml</code>
+                </td>
+                <td><p>Used if a profile was not previously configured either via the CLI or the <code>qodana.yaml</code>
+                    file.</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>For Maven and Gradle projects, %product% uses the following directories to access third-party libraries:</p>
+
+        <table>
+            <tr>
+                <td>Path</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td><code>/data/cache/.m2</code></td>
+                <td>Maven project dependencies</td>
+            </tr>
+            <tr>
+                <td><code>/data/cache/gradle</code></td>
+                <td>Gradle project dependencies</td>
+            </tr>
+        </table>
+
+        <p>Mounting these directories saves %product% from downloading all dependencies again while using these linters:</p>
+            <list>
+                <li><a href="qodana-jvm.md"/></li>
+                <li><a href="qodana-jvm-community.md"/></li>
+                <li><a href="qodana-jvm-android.md"/></li>
+            </list>
+    </chapter>
+
+    <chapter id="troubleshooting-qodana-log-files" title="List of files for investigating Qodana behavior">
+        <p>There are several options for examining %product% behavior using the <code>/data/results</code> directory:</p>
+        <list>
+            <li>The <code>/data/results/projectStructure/Modules.json</code> file lists all modules detected by %product%.
+                It should be identical to the list that you expect to see while opening the project in IDEA. If it is not
+                the case, check <code>pom.xml</code> for Maven or the <code>build.gradle</code> file for Gradle configurations.</li>
+
+            <li>In the <code>/data/results/</code> directory, each inspection that detected a possible problem creates
+                its own file named <code>ID.json</code>, where <code>ID</code> is the inspection name that can be used in
+                <code>qodana.yaml</code> for including or excluding inspections. You can find the complete list of
+                inspection IDs in the <code>/data/results/.descriptions.json</code> file using the
+                <code>/groups/*/inspections/*/shortName</code> pattern.</li>
+            <li>In <code>/data/results/log/idea.log</code>, you can investigate suspicious warnings.</li>
+        </list>
+
+
+    </chapter>
+
+    <chapter id="troubleshooting-inspect-specific-directory" title="How to inspect a specific project directory within a repository">
+
+        <p>A typical project structure can have a directory structure similar to this:</p>
+
+        <code-block lang="bash">
+            repo/
+               .git/
+               project/
+               ...
+        </code-block>
+
+        <p>Here, the <code>repo/.git</code> directory contains information that should be accessible by %product%, and
+            the <code>repo/project</code> directory contains the project that needs to be inspected by %product%. All
+            these samples mount the <code>repo/project</code> directory using the
+            <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--project-dir</code></a>
+            option, while the <code>QODANA_TOKEN</code> variable refers to the Qodana Cloud
+            <a href="project-token.md">project token</a>:</p>
+
+        <tabs>
+            <tab title="Docker image">
+                <code-block lang="bash" prompt="$">
+                    docker run \
+                       -v repo/:/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --project-dir=/data/project/project/
+                </code-block>
+            </tab>
+            <tab title="Qodana CLI">
+                <code-block lang="bash" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       --project-dir=/data/project/project/
+                </code-block>
+            </tab>
+            <tab title="GitHub Actions">
+                <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                      workflow_dispatch:
+                      pull_request:
+                      push:
+                        branches:
+                          - main
+                          - 'releases/*'
+
+                    jobs:
+                      qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                          contents: write
+                          pull-requests: write
+                          checks: write
+                        steps:
+                          - uses: actions/checkout@v3
+                            with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                          - name: 'Qodana Scan'
+                          uses: JetBrains/qodana-action@v2023.3
+                          with:
+                            args: --project-dir,project
+                          env:
+                            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code-block>
+            </tab>
+        </tabs>
+
+    </chapter>
+
+    <chapter id="troubleshooting-before-scanning" title="Error messages about missing files, packages, modules, or classes">
+        <p>During inspections, %product% may report about missing files, packages, modules, or
+            classes. In this case, you need to have your project prepared for code inspection. For example, you can
+            create a script and configure %product% for running it as shown in the
+            <a href="before-running-qodana.md"/> section.</p>
+    </chapter>
+
+    <chapter id="troubleshooting-switch-off-inspection" title="How to disable a specific inspection for a specific file">
+        <p>To disable inspections for a specific file, in the project root save the
+            <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> file containing this configuration:</p>
+        <code-block lang="yaml">
+            exclude:
+              - name: &lt;inspection-name&gt;
+            paths:
+              - &lt;path/to/the/file/from/project/root&gt;
+        </code-block>
+        <p>You can also suppress the inspection only for a class by adding the <code>noinspection</code> comment above the class:</p>
+        <code-block lang="typescript">
+            // noinspection &lt;inspection-name&gt;
+            export class WorkflowJobSubject {
+                private static subject: Observable&lt;GithubEvent&lt;WorkflowJobEvent&gt;&gt; | null =
+                    null;
+            private static GithubWebhookEventSubject: any;
+        </code-block>
+
+    </chapter>
+
+</topic>

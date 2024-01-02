@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Quick start"
+       id="Quick-start.xml">
+
+    <p>The current version of %product% (%product-version%) provides the <a href="linters.md">linters</a> that let you analyze
+        Java, Kotlin, Groovy, PHP, JavaScript, TypeScript, C#, Visual Basic, C, C++, Python, and Golang projects. You can
+        also extend the default linter configuration using various <a href="features.topic">features</a>. </p>
+
+    <p>As an example, this section explains how you can quickly start working with %product% using:</p>
+
+    <list>
+        <li><a anchor="quickstart-run-in-ide">JetBrains IDEs</a></li>
+        <li><a anchor="quickstart-run-using-cli">Command-line interface</a></li>
+        <li><a anchor="quickstart-run-in-github">GitHub Actions</a></li>
+    </list>
+
+    <chapter title="Prerequisites" id="quickstart-prerequisites">
+
+        <note>You can skip the prerequisites if you would like to run %product% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a>.</note>
+
+        <p>Depending on your %product% <a href="pricing.md">license</a>, you probably need to obtain a trial license and accomplish
+            the <a href="cloud-onboarding.md">onboarding</a> stage at Qodana Cloud.</p>
+        <p>To run %product% in the CLI and GitHub, you will be using a project token available after creating a Qodana Cloud
+            <a href="cloud-projects.topic">project</a>. To learn more about it, see the <a href="project-token.md"/> section.</p>
+
+    </chapter>
+
+    <chapter title="Run Qodana in JetBrains IDEs" id="quickstart-run-in-ide">
+
+        <p>Starting from version 2023.2, %product% is available in IntelliJ IDEA and PyCharm (both the Professional and
+            Community editions), PhpStorm, WebStorm, GoLand, and Rider.</p>
+
+        <tip>You do not need to buy a separate %product% license to run it in the IDE.</tip>
+
+        <p>Here is the short video showing how you can run %product% in your IDE.</p>
+
+        <img src="quickstart-run-in-ide.png" dark-src="quickstart-run-in-ide_dark.png" width="792" alt="Running Qodana in an IDE" border-effect="line" animated="true"/>
+
+        <p>Here is the description of all steps shown in this video:</p>
+
+        <procedure>
+                <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
+                <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
+                <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Start Qodana</ui-path> button.</step>
+                <step>In the dialog that opens, click the <ui-path>Try locally</ui-path> button, and then click <ui-path>Run</ui-path>.</step>
+                <step>
+                    <p>On the <ui-path>Server-Side Analysis</ui-path> tab, you can view inspection results. It
+                        also contains two links in the upper part of the tab.</p>
+                    <img src="quickstart-run-in-ide-report-links.png" dark-src="quickstart-run-in-ide-report-links_dark.png" width="706" alt="Links on the Server-Side Analysis tab" border-effect="line"/>
+        <tabs>
+            <tab title="Open Qodana report in browser" id="quickstart-open-report-in-browser">
+                <p>Open the inspection report in an <a href="html-report.md">intuitive and easy-to-use form</a>.</p>
+
+                <img src="quickstart-run-in-ide-report.png" dark-src="quickstart-run-in-ide-report_dark.png" width="706" alt="Qodana report" border-effect="line"/>
+            </tab>
+            <tab title="Add Qodana to CI/CD pipeline" id="quickstart-add-qodana-to-cicd">
+                <p>Open the configuration wizard for using %product% in CI/CD pipelines.</p>
+
+                <img src="quickstart-run-in-ide-cicd.png" dark-src="quickstart-run-in-ide-cicd_dark.png" width="706" alt="Qodana report" border-effect="line"/>
+
+                <p>To learn more about %product% and CI/CD pipelines, see the <a href="ci.md"/> section.</p>
+            </tab>
+        </tabs>
+    </step>
+</procedure>
+
+    </chapter>
+
+    <chapter title="Run Qodana using CLI" id="quickstart-run-using-cli">
+
+        <p>Qodana provides two options for local analysis of your code.
+            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
+            Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
+
+        <tabs>
+            <tab title="Qodana CLI" id="qodana-cli-tab">
+                <p>To run Qodana CLI in the default mode, you must have Docker or Podman installed and running locally.
+                    If you are using Linux, you should be able to run Docker under your current
+                    <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">non-root user</a>.</p>
+                <procedure id="qodana-cli-tab-procedure">
+                    <step><p>Install Qodana CLI on your machine using available options:</p>
+                        <tabs>
+                            <tab title="macOS and Linux">
+                                <p>Install with <a href="https://brew.sh/">Homebrew</a> (recommended):</p>
+                                <code-block lang="shell" prompt="$">
+                                    brew install jetbrains/utils/qodana
+                                </code-block>
+                                <p>Alternatively, you can install Qodana CLI using our installer:</p>
+                                <code-block lang="shell" prompt="$">
+                                    curl -fsSL https://jb.gg/qodana-cli/install | bash
+                                </code-block>
+                            </tab>
+                            <tab title="Windows">
+                                <p>Install with <a href="https://scoop.sh/">Scoop</a>:</p>
+                                <code-block lang="shell">
+                                    scoop bucket add jetbrains https://github.com/JetBrains/scoop-utils
+                                    scoop install qodana
+                                </code-block>
+                            </tab>
+                            <tab title="Other">
+                                <p>Install with <a href="https://go.dev/doc/install">Go</a>:</p>
+                                <code-block lang="shell" prompt="$">
+                                    go install github.com/JetBrains/qodana-cli@latest
+                                </code-block>
+                            </tab>
+                        </tabs>
+                    </step>
+                    <step>
+                        <p>In the project root directory, run this command:</p>
+                        <code-block lang="shell" prompt="$">qodana init</code-block>
+                        <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
+                            all necessary configuration options.</p>
+                    </step>
+                    <step>
+                        <p>In the project root directory, run this command to inspect your code:</p>
+                        <code-block lang="shell" prompt="$">
+                            qodana scan \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               --show-report
+                        </code-block>
+                        <p>Here, the <code>QODANA_TOKEN</code> variable contains the project token described in the
+                            <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
+                    </step>
+                </procedure>
+            </tab>
+            <tab title="Docker image" id="docker-image-tab">
+                <p>This section assumes that you have the Docker application deployed on your machine.</p>
+                <procedure id="qodana-docker-image-procedure">
+                    <step>
+                        <p>Pull the image from Docker Hub (only necessary to get the latest version):</p>
+                        <code-block lang="shell" prompt="$">
+                            docker pull &lt;image&gt;
+                        </code-block>
+                        <p>Here, <code>image</code> denotes the Docker image name of a %product% linter from this table:</p>
+                        <table>
+                            <tr>
+                                <td>Image name</td>
+                                <td>Application</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-jvm</td>
+                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA Ultimate.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-jvm-community</td>
+                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA Community.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-jvm-android</td>
+                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA with the Android support.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-php</td>
+                                <td>PHP projects, based on PhpStorm.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-python</td>
+                                <td>Python projects, based on PyCharm Professional.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-python-community</td>
+                                <td>Python projects, based on PyCharm Community.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-js</td>
+                                <td>JavaScript and TypeScript projects, based on WebStorm.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-go</td>
+                                <td>Golang projects, based on Goland.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-dotnet</td>
+                                <td>.NET projects, based on Rider.</td>
+                            </tr>
+                            <tr>
+                                <td>jetbrains/qodana-cdnet</td>
+                                <td>.NET projects, based on ReSharper.</td>
+                            </tr>
+
+                        </table>
+                    </step>
+                    <step>
+                        <p>Run this command to analyze your codebase:</p>
+                        <code-block lang="shell" prompt="$">
+                            docker run \
+                               -p 8080:8080 \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               jetbrains/qodana-&lt;linter&gt; \
+                               --show-report
+                        </code-block>
+                        <p>Here, <code>&lt;source-directory&gt;</code> points to the root of your project, and
+                            the <code>QODANA_TOKEN</code> variable contains the project token described in the
+                            <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
+                    </step>
+                    <step>
+                        <p>Check inspection results <a href="html-report.md">in your browser</a> at
+                            <code>http://localhost:8080</code>.</p>
+                    </step>
+                </procedure>
+            </tab>
+        </tabs>
+        <tip>Depending on your tasks, you can configure %product% as explained on the <a href="configure-qodana.topic"/> page.</tip>
+    </chapter>
+
+    <chapter title="Run Qodana on GitHub" id="quickstart-run-in-github">
+
+        <p>Here is the short video showing how you can configure and run %product% in GitHub.</p>
+
+        <img src="quickstart-run-in-github.png" dark-src="quickstart-run-in-github_dark.png" width="706" alt="Running Qodana in GitHub" border-effect="line" animated="true"/>
+
+        <p>Assuming that you already generated a project token as described in the <a anchor="quickstart-prerequisites"/> chapter, follow these steps to configure %product% in GitHub:</p>
+
+        <include from="lib_qd.topic" element-id="github-basic-configuration"/>
+
+        <tip>You can learn more about how to use %product% in CI/CD pipelines in the <a href="ci.md"/> section.</tip>
+
+        <!-- Here, I can create a small video showing how everything works -->
+
+    </chapter>
+
+    <chapter title="Next steps" id="quick-start-next-steps">
+        <list>
+            <li><a href="cloud-about.topic">Study inspection results using Qodana Cloud</a></li>
+            <li><a href="custom-profiles.md">Configure %product% profiles</a></li>
+            <li><a href="qodana-ide-plugin.md">Use JetBrains IDEs to inspect your code</a></li>
+            <li><a href="ci.md">Build %product% into your CI pipelines</a></li>
+            <li><a href="docker-image-configuration.topic">Configure Docker images</a></li>
+        </list>
+    </chapter>
+
+</topic>

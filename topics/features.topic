@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Features"
+       id="features">
+
+        <p>Using %product%, you can significantly enhance your code inspection workflow. To better achieve your
+           goals, you may want to start using several features that are available out of the box: </p>
+
+        <table>
+            <tr>
+                <td>
+                    Feature
+                </td>
+                <td>
+                    Description
+                </td>
+                <td>
+                    Available under <a href="pricing.md">licenses</a>
+                </td>
+                <td>
+                    Supported by
+                </td>
+            </tr>
+            <tr>
+                <td><a href="baseline.topic"/></td>
+                <td>Group the existing code problems
+                    into several categories to efficiently monitor your code evolution</td>
+                <td>
+                        <p>Community</p>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
+                </td>
+                <td>All <a href="linters.md">linters</a></td>
+            </tr>
+            <tr>
+                <td><a href="code-coverage.md"/></td>
+                <td>Support for the test code coverage</td>
+                <td>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
+                </td>
+                <td>
+                    <p><a href="qodana-jvm.md"/></p>
+                    <p><a href="qodana-js.md"/></p>
+                    <p><a href="qodana-php.md"/></p>
+                    <p><a href="qodana-dotnet.md"/></p>
+                    <p><a href="qodana-python.md"/></p>
+                    <p><a href="qodana-go.md"/></p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.topic"/></td>
+                <td>Verify your project license for compatibility with the licenses of its dependencies</td>
+                <td>Ultimate Plus</td>
+                <td>
+                    <p><a href="qodana-jvm.md"/></p>
+                    <p><a href="qodana-js.md"/></p>
+                    <p><a href="qodana-php.md"/></p>
+                    <p><a href="qodana-dotnet.md"/></p>
+                    <p><a href="qodana-python.md"/></p>
+                    <p><a href="qodana-go.md"/></p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="php-language-upgrade.topic"/></td>
+                <td>Monitor problems specific to a specific PHP version that may arise when you decide to migrate between versions</td>
+                <td>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
+                </td>
+                <td>
+                    <p><a href="qodana-php.md"/></p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.topic"/></td>
+                <td>Ensure that your code contains the minimum
+                    number of problems or is completely free of them. If combined with the baseline, this feature will make
+                    your code quality monitoring even more flexible</td>
+                <td>
+                        <p>Community</p>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
+                </td>
+                <td>All <a href="linters.md">linters</a></td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Use the quick-fix feature to improve the performance of the project development</td>
+                <td>
+                        <p>Ultimate</p>
+                        <p>Ultimate Plus</p>
+                </td>
+                <td>
+                    <p><a href="qodana-jvm.md"/></p>
+                    <p><a href="qodana-js.md"/></p>
+                    <p><a href="qodana-php.md"/></p>
+                    <p><a href="qodana-python.md"/></p>
+                    <p><a href="qodana-go.md"/></p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="taint-analysis.md"/></td>
+                <td>Secure your PHP code from malicious user data. Available only in the <a href="qodana-php.md"/> linter</td>
+                <td>Ultimate Plus</td>
+                <td>
+                    <p><a href="qodana-php.md"/></p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Check third-party packages for vulnerabilities</td>
+                <td>Ultimate Plus</td>
+                <td>
+                    <p><a href="qodana-jvm.md"/></p>
+                    <p><a href="qodana-js.md"/></p>
+                    <p><a href="qodana-dotnet.md"/></p>
+                    <p><a href="qodana-python.md"/></p>
+                    <p><a href="qodana-go.md"/></p>
+                </td>
+            </tr>
+        </table>
+</topic>

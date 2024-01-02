@@ -7,9 +7,11 @@
 <var name="linter" value="Qodana for PHP"/>
 <var name="ide" value="PhpStorm"/>
 <var name="docker-image" value="jetbrains/qodana-php:2023.3"/>
-<var name="config-file" value="qodana-php-docker-readme.xml"/>
+<var name="config-file" value="qodana-php-docker-readme.topic"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). <include src="lib_qd.xml" include-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). 
+
+<include from="lib_qd.topic" element-id="linter-intro"/>
 
 ## Supported technologies
 
@@ -72,14 +74,12 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,php"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,php"/>
 
-## Try it now
+## Analyze a project locally
 
-### Analyze a project locally
-
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="php-only,jvm-php,non-gs,other,empty"/></p>
+<include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="php-only,jvm-php,non-gs,other,empty"/>
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty,for-php-linter"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty,for-php-linter"/>

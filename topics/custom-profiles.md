@@ -78,7 +78,7 @@ profile will override such settings contained in `Project Default`.
 
 {id="custom-profiles-default-profile-tip"}
 
-<tip>You can overview the default IDE profile by navigating to <menupath>Settings | Editor | Inspections</menupath>.</tip>
+<tip>You can overview the default IDE profile by navigating to <ui-path>Settings | Editor | Inspections</ui-path>.</tip>
 
 ## name
 
@@ -170,7 +170,7 @@ Here, `groups` lists several values:
 
 By default, %product% uses severity levels inherited from the JetBrains IDEs shown in this table:
 
-<include src="lib_qd.xml" include-id="qodana-severity-levels" use-filter="for-profile,empty"/>
+<include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
 
 ## inspections
 {id="inspections-group"}

@@ -72,7 +72,7 @@ TODO: Clarify whether the "from within your IDE" part really depends on `.git/`
 or rather on the path that is mounted to `/data/project`.
 -->
 
-The `qodana-backend.sarif.json` and `qodana-frontend.sarif.json` files can contain [baseline](baseline.xml)
+The `qodana-backend.sarif.json` and `qodana-frontend.sarif.json` files can contain [baseline](baseline.topic)
 data for the `backend` and `frontend` projects.
 
 Here are the contents of the `root/` folder: 
@@ -103,34 +103,34 @@ You can inspect your monorepo in the `root/` folder using either [Docker](docker
 
 <tabs>
     <tab id="monorepo-docker-image-tab" title="Docker">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             docker run --rm \ 
               -v "$PWD":/data/project/ \
               jetbrains/qodana-jvm:latest-eap \
               --source-directory backend \
               --baseline qodana-backend.sarif.json
-        </code>
-        <code style="block" lang="shell" prompt="$">
+        </code-block>
+        <code-block lang="shell" prompt="$">
             docker run --rm \ 
               -v "$PWD":/data/project/ \
               jetbrains/qodana-js:latest-eap \
               --source-directory frontend \
               --baseline qodana-frontend.sarif.json
-        </code>
+        </code-block>
     </tab>
     <tab id="monorepo-cli-tab" title="Qodana CLI">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan \
               --linter jetbrains/qodana-jvm:latest-eap \
               --source-directory backend \
               --baseline qodana-backend.sarif.json
-        </code>
-        <code style="block" lang="shell" prompt="$">
+        </code-block>
+        <code-block lang="shell" prompt="$">
             qodana scan \
               --linter jetbrains/qodana-js:latest-eap \
               --source-directory frontend \
               --baseline qodana-frontend.sarif.json
-        </code>
+        </code-block>
     </tab>
 
 </tabs>

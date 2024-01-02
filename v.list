@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars
-        SYSTEM "https://resources.jetbrains.com/stardust/vars.dtd">
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/vars.dtd">
 
 <vars>
 
     <var name="dbIcon" value="dbe.png" type="string"/>
 
-    <var name="sample"
-
-         value="Sometext"
-         type="string"
-    />
     <var name="language"
          product="rm"
          value="Ruby"
@@ -26,11 +21,6 @@
          value="Python"
          type="string"
     />
-    <!-- <var name="language"
-          product="fx"
-          value="ActionScript"
-          type="string"
-     />-->
     <var name="language"
          product="ij"
          value="Java"
@@ -51,13 +41,7 @@
          value="Rails"
          type="string"
     />
-    <!--
-        <var name="framework"
-             product="pp"
-             value="Django"
-             type="string"
-        />
-    -->
+
     <var name="framework"
          product="py"
          value="Django"
@@ -68,27 +52,16 @@
          value="Ruby"
          type="string"
     />
-    <!--
-        <var name="SDK"
-             product="pp"
-             value="Python"
-             type="string"
-        />
-    -->
-    <!--<var name="symbols"
-         product="fx"
-         value="Classes and Interfaces"
-         type="string"
-    />-->
+
     <var name="symbols"
          product="ij"
          value="Classes, Interfaces, Enumerations and Annotations"
          type="string"
     />
-    <var name="product"
+    <!--<var name="product"
          value="$p1//product-profile[@id=$p2]/@name"
          type="xpath"
-    />
+    />-->
     <!--product="all" after type-->
     <var name="customSeeAlsoTitle"
          type="xpath"
@@ -123,21 +96,13 @@
          value="Locating Symbols in Assembly Explorer"
          type="string"
     />
-    <!-- <var name="explorer"
-          product="10"
-          value="Solution Explorer"
-          type="string"
-     />-->
+
     <var name="explorer"
          product="dpk"
          value="Assembly Explorer"
          type="string"
     />
-    <!--<var name="editor"
-         product="10"
-         value="code editor"
-         type="string"
-    />-->
+
     <var name="editor"
          product="dpk"
          value="code viewer"
@@ -279,5 +244,8 @@
     <var name="finding_in_file_custom_title" value="Finding and replacing text in a file" product="!ij"/>
     <var name="finding_in_project_custom_title" value="Search for a target and usages within a project" product="ij"/>
     <var name="finding_in_project_custom_title" value="Finding and replacing text in a project" product="!ij"/>
+
+    <var name="qodana-version" instance="qd" value="2023.3"/>
+    <var name="product" instance="qd" value="Qodana"/>
 
 </vars>

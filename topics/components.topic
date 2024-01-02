@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Components"
+       id="components">
+
+    <p>This section introduces the concepts that %product% is based upon, such as:</p>
+
+    <list>
+        <li><a href="static-analysis.topic">Static analysis</a></li>
+        <li><a href="code-inspections.topic">Code inspections</a></li>
+        <li><a href="linters.md">Linters</a></li>
+        <li><a href="project-token.md">Project tokens</a> for identification and verification purposes</li>
+        <li><a href="contributors.md">Contributor counting</a> mechanism</li>
+    </list>
+
+</topic>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ihp
-        SYSTEM "https://resources.jetbrains.com/stardust/ihp.dtd">
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/ihp.dtd">
 <ihp version="2.0">
     <settings>
         <caps for="toc-element">sentence</caps>
@@ -9,13 +9,13 @@
     <module name="qd-docs"/>
     <vars src="v.list"/>
     <topics dir="topics"/>
-    <images dir="images" version="2023.3"
-            web-path="https://resources.jetbrains.com/help/img/qodana/2023.3/"/>
+    <images dir="images" version="WS-migrate"
+            web-path="https://resources.jetbrains.com/help/img/qodana/WS-migrate/"/>
     <categories src="c.list"/>
 
-    <product src="qd.tree" web-path="/qodana/2023.3/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2023.3" keymaps-mode="none"/>
+    <instance src="qd.tree" web-path="/qodana/WS-migrate/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="WS-migrate" keymaps-mode="none"/>
 
-    <product src="qd_tc.tree" web-path="/qodana-teamcity-plugin/2023.3/"
-             teamcity-build-path="Documentation_Teamware_Qodana" version="2023.3" keymaps-mode="none"/>
+    <instance src="qd_tc.tree" web-path="/qodana-teamcity-plugin/WS-migrate/"
+             teamcity-build-path="Documentation_Teamware_Qodana" version="WS-migrate" keymaps-mode="none"/>
 </ihp>

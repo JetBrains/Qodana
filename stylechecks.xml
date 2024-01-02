@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE style-checks
-        SYSTEM "https://resources.jetbrains.com/stardust/style-checker.dtd">
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/style-checker.dtd">
 <style-checks>
     <style-check replacement="checkbox">
         <lookup>check-box</lookup>

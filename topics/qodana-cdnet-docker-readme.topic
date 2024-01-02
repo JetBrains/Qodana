@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Qodana Community for .NET"
+       id="qodana-cdnet-docker-readme">
+
+    <var name="linter" value="Qodana Community for .NET"/>
+    <var name="linter-shell" value="qodana-cdnet:2023.3-eap"/>
+    <var name="linter-page-url" value="qodana-dotnet-community.md"/>
+    <var name="ide" value="ReSharper"/>
+    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/resharper/Code_Analysis__Index.html"/>
+    <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
+    <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
+    <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+
+
+    <p>
+        <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
+    </p>
+
+    <p>
+        The Docker image for the <a href="%linter-page-url%">%linter%</a> linter is provided to support different usage
+        scenarios:
+    </p>
+    <list>
+        <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
+        </li>
+        <li>Single-shot analysis (for example, performed <i>locally</i>).
+        </li>
+    </list>
+
+    <p>You can run the %linter% linter using two methods.
+        <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest method. If necessary,
+        check the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> to install
+        Qodana CLI. Alternatively, you can use the Docker commands from the <ui-path>Docker image</ui-path> tab.</p>
+
+    <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+
+    <chapter id="quick-start-recommended-profile" title="Quick start">
+
+        <note>The %linter% linter does not support profiles and their configuration options.</note>
+
+        <chapter id="quick-start-dotsettings" title="Use DotSettings to configure code inspections">
+
+            <p>If you have previously worked on the target solution with ReSharper, you may have already
+                <a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html">configured code
+                    inspections settings</a>. If so, InspectCode will find your
+                <a href="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html">custom settings</a>
+                in <code>.DotSettings</code> files and apply
+                them. If there are no settings files, then the default severity levels will be used for all inspections.
+                Besides custom severity levels for code inspections, InspectCode will look for the following settings in
+                <code>.DotSettings</code> files:</p>
+
+            <list style="bullet">
+                <li>
+                    Whether the solution-wide analysis is enabled
+                </li>
+                <li>
+                    <a href="https://www.jetbrains.com/help/resharper/Coding_Assistance__Naming_Style.html">Naming rules</a> (this can only be configured using <code>.DotSettings</code> files)
+                </li>
+                <li>
+                    <a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html#exclude_items">Files, folders, and file masks excluded from code analysis</a>
+                </li>
+                <li>
+                    <a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html#exclude_generated">Files, file masks, and regions with generated code, where the code analysis is partly disabled</a> (this can only be configured using <code>.DotSettings</code> files)
+                </li>
+                <li>
+                    A place where the code analysis engine should store caches. You can specify it on the <ui-path>Environment | General</ui-path> page of ReSharper options
+                </li>
+                <li>
+                    Target languages (<ui-path>ReSharper | Options | Environment | Products — Features</ui-path>)
+                </li>
+            </list>
+
+            <p>If you want to configure InspectCode on a CI server, you can make all configurations locally with
+                ReSharper, <a href="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#saveTo">save the settings to the Solution Team-Shared layer</a>,
+                and then commit the resulting <code>YourSolution.sln.DotSettings</code> file in the solution directory
+                to your VCS. InspectCode on the server will find and apply these settings.</p>
+
+            <p>By default, InspectCode also runs Roslyn analyzers on the target solution. If you want to disable
+                Roslyn analyzers, you can do it in the solution's <code>.DotSettings</code> file, for example:</p>
+
+            <code-block lang="xml">
+                &lt;wpf:ResourceDictionary xml:space=&quot;preserve&quot;
+                      xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+                      xmlns:s=&quot;clr-namespace:System;assembly=mscorlib&quot;
+                      xmlns:ss=&quot;urn:shemas-jetbrains-com:settings-storage-xaml&quot;
+                      xmlns:wpf=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;
+
+                    &lt;!-- Enable/disable Roslyn analyzers and Source Generators --&gt;
+                  	&lt;s:Boolean x:Key=&quot;/Default/CodeInspection/Roslyn/RoslynEnabled/@EntryValue&quot;&gt;False&lt;/s:Boolean&gt;
+
+                    &lt;!-- Include/exclude Roslyn analyzers in Solution-Wide Analysis --&gt;
+                  	&lt;s:Boolean x:Key=&quot;/Default/CodeInspection/Roslyn/UseRoslynInSwea/@EntryValue&quot;&gt;False&lt;/s:Boolean&gt;
+
+                  &lt;/wpf:ResourceDictionary&gt;
+            </code-block>
+
+        </chapter>
+
+        <chapter id="quick-start-editorconfig" title="Use EditorConfig to configure code inspections">
+
+            <p>If you <a href="https://www.jetbrains.com/help/resharper/Using_EditorConfig.html">use EditorConfig</a> to
+                maintain code styles for your project, you can also configure code inspections from
+                <code>.editorconfig</code> files.</p>
+
+            <p>As EditorConfig convention suggests, InspectCode will apply inspection settings defined in files named
+                <code>.editorconfig</code> in the directory of the current file and in all its parent directories until
+                it reaches the root filepath or finds an EditorConfig file with <code>root=true</code>. File masks specified in
+                <code>.editorconfig</code> files, for example <code>*Test.cs</code> are also taken into account.</p>
+
+            <p>Inspection settings in <code>.editorconfig</code> files are configured similarly to other properties —
+                by adding the corresponding lines:</p>
+
+            <code-block lang="shell">
+                [inspection_property]=[error | warning | suggestion | hint | none]
+            </code-block>
+
+            <p>For example, you can change the
+                <a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Code_Inspections.html#severity">severity level</a>
+                of the <code>Possible 'System.NullReferenceException'</code> inspection to <code>Error</code> with the
+                following line:</p>
+
+            <code-block lang="shell">
+                resharper_possible_null_reference_exception_highlighting=error
+            </code-block>
+
+            <p>or you can disable the <code>Redundant argument with default value</code> inspection with the following line:</p>
+
+            <code-block lang="shell">
+                resharper_redundant_argument_default_value_highlighting=none
+            </code-block>
+
+            <tip>Inspection settings from <code>.editorconfig</code> files have higher priority than the settings
+                configured on the <ui-path>Code Inspection | Inspection Severity</ui-path> page of InspectCode options.</tip>
+
+            <p>You can find EditorConfig property for each inspection on pages in the
+                <a href="https://www.jetbrains.com/help/resharper/Reference_Code_Inspection_Index.html">Code inspection index</a>
+                section as well as on the
+                <a href="https://www.jetbrains.com/help/resharper/EditorConfig_Index.html">Index of EditorConfig properties</a> page. —
+                just use the browser search to find the property for the desired inspection.</p>
+
+        </chapter>
+
+        <chapter id="Run+analysis+locally" title="Run analysis locally">
+
+            <note>
+                <p>
+                    <include from="lib_qd.topic" element-id="docker-ram-note"/>
+                </p>
+            </note>
+
+            <tabs group="docker-options">
+                <tab title="Docker image" group-key="docker-image">
+                    <procedure>
+                        <step>
+                            <p>
+                                Pull the image from Docker Hub (only necessary to update to the <code>latest</code> version):
+                            </p>
+                            <code-block lang="shell" prompt="$">docker pull jetbrains/%linter-shell%
+                            </code-block>
+                        </step>
+                        <step>
+                            <p>Run the following command to start inspecting your source code:</p>
+                            <code-block lang="shell" prompt="$">
+                                docker run \
+                                &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                                &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
+                                &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                                &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
+                            </code-block>
+                            <p>
+                                where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
+                                respectively, the project source code directory and the analysis results directory. The
+                                <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                                required by the
+                                <a href="pricing.md" anchor="pricing-linters-licenses">linter license</a>. Using the linter
+                                without the project token is useless because it does not support showing inspection results
+                                locally.
+                            </p>
+                        </step>
+                    </procedure>
+                    <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
+                    <code-block lang="shell" prompt="$">
+                        docker run \
+                        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                        &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
+                    </code-block>
+                    <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">the inspection report</a>.
+                    </p>
+                    <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
+                        using it in <code>docker run</code> again.
+                    </p>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <p>In the project root directory, run this command to inspect your code and view the inspection
+                        report locally:</p>
+                    <code-block filter="non-gs" lang="shell" prompt="$">
+                        qodana scan \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;-l %docker-image% \
+                        &nbsp;&nbsp;&nbsp;--show-report
+                    </code-block>
+                    <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
+                    <code-block lang="shell" prompt="$">
+                        qodana scan \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;-l %docker-image% \
+                        &nbsp;&nbsp;&nbsp;--results-dir &lt;output-directory&gt;
+                    </code-block>
+                    <p>The <code>output-directory</code> specifies the directory where the SARIF-formatted report will be
+                        saved. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                        required by the
+                        <a href="pricing.md" anchor="pricing-linters-licenses">license</a>.</p>
+                </tab>
+            </tabs>
+
+        </chapter>
+
+        <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
+
+            <tabs group="docker-options">
+                <tab title="Docker image" group-key="docker-image">
+                    <p>Use the following command as a task in a generic Shell executor:</p>
+                    <code-block lang="shell" prompt="$">
+                        docker run \
+                        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                        &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
+                    </code-block>
+                    <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
+                        the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
+                            results directory</a>. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                        required by the
+                        <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
+                    </p>
+                    <p>Consider using the <a href="quality-gate.topic"/> feature to make the build fail when a certain number
+                        of problems is reached and the <a href="baseline.topic"/> feature to compare each new linter
+                        run to some initial run selected as a <emphasis>baseline</emphasis>.
+                    </p>
+                    <tip>
+                        <p>
+                            For details on available CI integrations, see <a href="ci.md"/>.
+                        </p>
+                    </tip>
+                </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <p>Run this command in the project root directory:</p>
+                    <code-block lang="shell" prompt="$">
+                        qodana scan \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;-l %docker-image% \
+                        &nbsp;&nbsp;&nbsp;--results-dir &lt;output-directory&gt;
+                    </code-block>
+                    <p>This will save inspection results to the directory specified by <code>output-directory</code>.</p>
+                    <p>You can also apply the <a href="quality-gate.topic"/> feature to make the build fail when a certain number
+                        of problems is reached by using the <code>--fail-threshold</code>
+                        <a href="https://github.com/JetBrains/qodana-cli#options-1">option</a>.</p>
+                    <p>The <a href="baseline.topic"/> feature compares each new %linter% run to some initial run using
+                        the <code>--baseline</code> and
+                        <code>--baseline-include-absent</code> options.
+                    </p>
+                    <tip>
+                        <p>
+                            For details on available CI integrations, see <a href="ci.md"/>.
+                        </p>
+                    </tip>
+
+                </tab>
+            </tabs>
+
+
+            <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis in GitHub">
+
+                <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
+
+                <p>This feature requires that you specify the %linter% name either in the <a href="qodana-yaml.md" anchor="Specify+a+linter"><code>qodana.yaml</code></a> file,
+                or using the <a href="github.md" anchor="Configuration"><code>args</code></a> configuration option of GitHub, for example: <code lang="yaml">args: --linter,%linter-shell%</code> </p>
+
+                <p>In GitHub, %product% is implemented as the <code>Qodana Scan</code> GitHub Action.To configure the
+                    <code>Qodana Scan</code> GitHub Action, save the <code>.github/workflows/code_quality.yml</code> file
+                    containing the workflow configuration:</p>
+
+                <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                      workflow_dispatch:
+                      pull_request:
+                      push:
+                        branches:
+                          - main
+                          - 'releases/*'
+
+                    jobs:
+                      qodana:
+                        runs-on: ubuntu-latest
+                        steps:
+                          - uses: actions/checkout@v3
+                            with:
+                              fetch-depth: 0
+                          - name: 'Qodana Scan'
+                            uses: JetBrains/qodana-action@v2023.3
+                </code-block>
+
+                <p>To authorize in <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
+
+                <procedure>
+                    <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and
+                        save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p></step>
+                    <step><p>In a GitHub <a href="github.md" anchor="basic-configuration">workflow</a>,
+                        add this snippet to invoke the <code>Qodana Scan</code> action:</p>
+
+                        <code-block lang="yaml">
+                            - name: 'Qodana Scan'
+                              uses: JetBrains/qodana-action@v2022.3.3
+                              env:
+                                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                        </code-block>
+                    </step>
+                </procedure>
+            </chapter>
+
+        </chapter>
+    </chapter>
+
+    <include from="lib_qd.topic" element-id="docker-configure-via-qodana-yaml" use-filter="for-others"/>
+
+    <chapter id="Analyzing+specific+solution+or+project" title="Analyze specific solution or project">
+
+        <include from="lib_qd.topic" element-id="docker-dotnet-specific-solution-project" use-filter="empty,cdnet"/>
+
+        <chapter id="docker-cdnet-specific-solution-project-configure-solution" title="Configure a solution">
+
+            <p>A solution configuration defines which projects in the solution are build, and which project
+                configurations are used for specific projects within the solution.</p>
+
+            <p>Each newly-created solution includes the <code>Debug</code> and <code>Release</code>
+                configurations, which can be complemented by your custom configurations.</p>
+
+            <p>You can switch configurations of the current solution using the <code>--configuration</code>
+                option. For example, use this to switch to the <code>Release</code>
+                configuration:</p>
+
+            <code-block lang="shell">
+                --configuration=Release
+            </code-block>
+
+            <p>Alternatively, you can specify the configuration in <code>qodana.yaml</code>:</p>
+
+            <code-block lang="yaml">
+                dotnet:
+                  configuration: Release
+            </code-block>
+
+            <p>By default, the solution platform is set to <code>Any CPU</code>.You can override this using the
+                <code>--platform</code> option:</p>
+
+            <code-block lang="shell">
+                --platform=x86
+            </code-block>
+
+            <p>Alternatively, you can specify the platform in <code>qodana.yaml</code>:</p>
+
+            <code-block lang="yaml">
+                dotnet:
+                  platform: x86
+            </code-block>
+        </chapter>
+
+
+    </chapter>
+
+    <chapter id="Usage+statistics" title="Usage statistics">
+
+        <p>
+            According to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP user
+            agreement</a>, we can use third-party services to analyze the usage of our features to further improve the
+            user experience. All data will be collected <a href="https://www.jetbrains.com/company/privacy.html">
+            anonymously</a>. You can disable statistics by using the <code>--no-statistics=true</code> CLI option.
+        </p>
+
+    </chapter>
+
+</topic>

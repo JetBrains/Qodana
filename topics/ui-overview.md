@@ -1,16 +1,16 @@
 [//]: # (title: Inspection report)
 
 %product% lets you study inspection reports in an interactive and user-friendly form either 
-[locally](html-report.md) or in [Qodana Cloud](cloud-overview-reports.xml).
+[locally](html-report.md) or in [Qodana Cloud](cloud-overview-reports.topic).
 
 <img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Qodana report UI overview" width="706" border-effect="line"/>
 
 Each report contains the following tabs:
 
 * **[Actual problems](#ui-overview-actual-problems)** exposes the problems that Qodana detected during the latest inspection 
-* **[Baseline](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.xml) and were not fixed since then
+* **[Baseline](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.topic) and were not fixed since then
 * **[Configuration](#ui-overview-configuration)** lets you configure %product% for future use
-* **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.xml) results and shows the dependency licenses that are incompatible with the project license 
+* **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.topic) results and shows the dependency licenses that are incompatible with the project license 
 
 The upper-right corner of the report shows [code coverage](code-coverage.md) inspection results.
 
@@ -55,7 +55,7 @@ problems move to this tab.
 
 This tab is similar to the **Actual problems** tab. To enable the baseline feature for future
 inspections, follow the instructions that appear in the report UI. For more information, explore the
-[](baseline.xml) section.
+[](baseline.topic) section.
 
 ## Configuration
 {id="ui-overview-configuration"}
@@ -76,7 +76,7 @@ See the [Adjust your inspection profile](#Adjust+your+inspection+profile) sectio
 ## License audit
 {id="ui-overview-project-audit"}
 
-<include src="lib_qd.xml" include-id="license-audit-tab" use-filter="ui-overview,empty" />
+<include from="lib_qd.topic" element-id="license-audit-tab" use-filter="ui-overview,empty" />
 
 ## Adjust your inspection profile 
 
@@ -93,7 +93,7 @@ suggest that you follow that goal and fix new problems as soon as they appear.
 In case the number of problems is above your expectations, we suggest using the Qodana features to examine them.
 
 When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
-the [baseline](docker-image-configuration.xml#docker-config-reference-baseline) mode.
+the [baseline](docker-image-configuration.topic#docker-config-reference-baseline) mode.
 
 ## Adjust the analysis scope
 

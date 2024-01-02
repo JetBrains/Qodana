@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Configure Qodana"
+       id="configure-qodana">
+
+        <p>This section explains how you can configure %product% for your needs.</p>
+
+        <p>You have the following methods for configuring %product%:</p>
+
+        <list>
+            <li><a href="qodana-yaml.md"/> contained in the root directory of your project</li>
+            <li><a href="inspection-profiles.md" anchor="Default+profiles">Default</a> and <a href="inspection-profiles.md" anchor="Custom+profiles">custom profiles</a> to tailor %product% to your needs </li>
+            <li><a href="docker-image-configuration.topic">Shell commands</a> suitable for running %product% using Docker or Qodana CLI</li>
+            <li><a href="ci.md"/> is explained for several popular CI/CD systems </li>
+        </list>
+</topic>

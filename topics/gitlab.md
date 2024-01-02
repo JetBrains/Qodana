@@ -9,9 +9,9 @@ section explains how you can run %product% [Docker images](docker-images.md) wit
 [pipelines](https://docs.gitlab.com/ee/ci/pipelines/) and covers the following cases:
 
 * Inspecting specific branches and merge requests
-* Forwarding inspection reports to [Qodana Cloud](cloud-about.xml)
+* Forwarding inspection reports to [Qodana Cloud](cloud-about.topic)
 * Exposing %product% reports in the GitLab CI/CD user interface
-* Using the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features
+* Using the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features
 
 ## Prepare your project
 
@@ -49,7 +49,7 @@ The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab 
 so subsequent runs will be faster. 
 
 The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %product% 
-configuration options described in the [](docker-image-configuration.xml) section. 
+configuration options described in the [](docker-image-configuration.topic) section. 
 
 The `variables` keyword defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
 referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %product% 
@@ -58,7 +58,7 @@ referring to the [project token](project-token.md) generated in Qodana Cloud. Th
 You can see these sections to learn how to generate the project token:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
 ## Inspect specific branches
 
@@ -89,7 +89,7 @@ qodana:
 ## Expose Qodana reports
 
 To make a report available in any given merge request without using Qodana Cloud,
-you can use the [`artifacts`]() [`expose_as`](%GitLabExpose%) keywords
+you can use the [`expose_as`](%GitLabExpose%) keywords
 and change the path to the artifacts:
 
 ```yaml
@@ -117,16 +117,18 @@ qodana:
 
 Assuming that you have configured your pipeline in a similar manner, this is what it may look like:
 
-1. Qodana report affiliated with a pipeline in a merge request
-   <img src="gitlab-exposed-artifacts.png" alt="Qodana report affiliated with a pipeline in a merge request" width="706" border-effect="line"/>
+1. Qodana report affiliated with a pipeline in a merge request:
 
-2. Available actions for a given exposed Qodana artifact
-   <img src="gitlab-exposed-artifacts-expanded.png" alt="Available actions for a given exposed Qodana artifact" width="706" border-effect="line"/>
+<img src="gitlab-exposed-artifacts.png" alt="Qodana report affiliated with a pipeline in a merge request" width="706" border-effect="line"/>
+
+2. Available actions for a given exposed Qodana artifact:
+
+<img src="gitlab-exposed-artifacts-expanded.png" alt="Available actions for a given exposed Qodana artifact" width="706" border-effect="line"/>
 
 ## Quality gate and baseline
 
 You can use the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `script` block to 
-invoke the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features.
+invoke the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 
 ```yaml
 qodana:

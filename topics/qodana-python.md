@@ -7,7 +7,7 @@
 <var name="linter" value="Qodana for Python"/>
 <var name="ide" value="PyCharm Professional"/>
 <var name="docker-image" value="jetbrains/qodana-python:2023.3"/>
-<var name="config-file" value="qodana-python-docker-readme.xml"/>
+<var name="config-file" value="qodana-python-docker-readme.topic"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
@@ -63,13 +63,11 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,non-jvm"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,non-jvm"/>
 
-## Try it now
+## Analyze a project locally
 
-### Analyze a project locally
-
-#### Install project dependencies
+### Install project dependencies
 
 For a basic Python project that has no external dependencies, no preliminary steps are required. 
 
@@ -82,10 +80,10 @@ bootstrap: pip install -r requirements.txt
 
 The command will be automatically executed before the analysis.
 
-#### Run analysis
+### Run analysis
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/></p>
+<include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/>
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>

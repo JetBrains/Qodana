@@ -30,12 +30,12 @@ case, in your repository create the empty `qodana.yaml` file to eliminate warnin
 In your operating system, save the `QODANA_CLOUD` environment variable containing the %product% Cloud
 [project token](project-token.md).
 
-[Install Qodana CLI](Quick-start.xml#quickstart-run-using-cli) on the machine where you plan to run %product%.
+[Install Qodana CLI](Quick-start.topic#quickstart-run-using-cli) on the machine where you plan to run %product%.
 
 Starting from the version 2023.3 of %product%, the sanity inspection will report in case the `qodana.yaml` file 
 containing the `bootstrap` option is missing in your project directory. The [`bootstrap`](before-running-qodana.md) 
 option should contain instructions for building the project. If you do not wish to build the project, you can disable
-this inspection using the `--disable-sanity` option, add this inspection to a [baseline](baseline.xml), or create the `qodana.yaml`
+this inspection using the `--disable-sanity` option, add this inspection to a [baseline](baseline.topic), or create the `qodana.yaml`
 file that will contain the `ide: QDNET` configuration. 
 
 We recommend running the native mode on the same machine where you build a project because this can guarantee
@@ -48,18 +48,18 @@ from the [previous section](#Before+you+start), you have two options for running
 
 <tabs group="cli-settings">
     <tab title="Qodana CLI" group-key="native-mode-qodana-cli">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan \
             &nbsp;&nbsp;&nbsp;--ide QDNET
-        </code>
+        </code-block>
         <p>This command will download the required JetBrains IDE binary file and start %product%.</p>
         <p>If you have already specified <code>ide: QDNET</code> in the <code>qodana.yaml</code> file, you do not have
         to use it in this command, so this command is already sufficient:</p>
-        <code style="block" lang="shell" prompt="$">qodana scan</code>
+        <code-block lang="shell" prompt="$">qodana scan</code-block>
     </tab>
     <tab title="qodana.yaml" group-key="native-mode-qodana-yaml">
     <p>In the <code>qodana.yaml</code> file, save the <code>ide: QDNET</code> configuration. Run %product% using this 
     command:</p> 
-    <code style="block" lang="shell" prompt="$">qodana scan</code>
+    <code-block lang="shell" prompt="$">qodana scan</code-block>
     </tab>
 </tabs>

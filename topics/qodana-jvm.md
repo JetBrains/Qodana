@@ -8,9 +8,11 @@
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="tech" value="jvm"/>
 <var name="docker-image" value="jetbrains/qodana-jvm:2023.3"/>
-<var name="config-file" value="qodana-jvm-docker-readme.xml"/>
+<var name="config-file" value="qodana-jvm-docker-readme.topic"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/idea/). <include src="lib_qd.xml" include-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/idea/). 
+
+<include from="lib_qd.topic" element-id="linter-intro"/>
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
 
@@ -88,16 +90,15 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,jvm"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,jvm"/>
 
-## Try it now
+## Analyze a project locally
 
-### Analyze a project locally
+> Before running %product%, you can [configure the JDK](configure-jdk.md) for your project.
+{style="note"}
 
-<note>Before running %product%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
-
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
+<include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/>
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>

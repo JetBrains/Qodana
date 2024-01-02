@@ -4,7 +4,7 @@
 <var name="linter" value="Qodana Community for .NET"/>
 <var name="ide" value="ReSharper"/>
 <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
-<var name="config-file" value="qodana-cdnet-docker-readme.xml"/>
+<var name="config-file" value="qodana-cdnet-docker-readme.topic"/>
 
 <note>%linter% is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
 Any use of the EAP product is at your own risk. Your feedback is very welcome in our
@@ -20,7 +20,7 @@ It brings all the smarts from ReSharper, which help you:
 * Highlight spelling problems
 * Improve overall code structure
 * Introduce coding best practices
-* Upload inspection results to [Qodana Cloud](cloud-about.xml)
+* Upload inspection results to [Qodana Cloud](cloud-about.topic)
 
 <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
 
@@ -29,7 +29,7 @@ C and C++ inspections of %linter% are limited by projects containing `.sln` solu
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,cdnet"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,cdnet"/>
 
 ## Analyze a project locally
 
@@ -40,7 +40,7 @@ Qodana Cloud [project token](project-token.md).
 
 Docker should also be up and running on the machine. 
 
-<include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty,cdnet"/>
+<include from="lib_qd.topic" element-id="docker-dotnet-specific-solution-project" use-filter="empty,cdnet"/>
 
 The %linter% does not support inspection configuration using the [`qodana.yaml`](qodana-yaml.md) file.
 You can use `.editorconfig` and [`.DotSettings`](%dotsettings%) files for these purposes. Besides that, %linter% supports Roslyn analyzers, 
@@ -82,4 +82,4 @@ your code, you can open [Qodana Cloud](https://qodana.cloud) to see the inspecti
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>
