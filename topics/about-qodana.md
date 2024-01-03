@@ -59,9 +59,9 @@ restricted. To compare %product% licenses, you can visit the [](pricing.md) page
 
 ## Next steps
 
-- <a href="Quick-start.xml">Quick start guide</a>
+- <a href="Quick-start.topic">Quick start guide</a>
 - <a href="https://www.jetbrains.com/qodana/request-a-demo/">Request a demo</a>
-- <a href="features.xml">%product% features</a>
+- <a href="features.topic">%product% features</a>
 
 ## Contact us
 

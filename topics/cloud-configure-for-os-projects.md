@@ -28,10 +28,10 @@ In the %cloud% UI, navigate to your organization.
 <img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true"/>
 </step>
 <step>
-In your organization, create a <a href="cloud-teams.xml">team</a>.
+In your organization, create a <a href="cloud-teams.topic">team</a>.
 </step>
 <step>
-In your team, create a <a href="cloud-projects.xml">project</a>. 
+In your team, create a <a href="cloud-projects.topic">project</a>. 
 </step>
 <step>
 In the project, click <menupath>Generate token</menupath> to generate a project token.
@@ -40,7 +40,7 @@ In the project, click <menupath>Generate token</menupath> to generate a project 
 </step>
 </procedure>
 
-<tip>To learn more about using project tokens, see the <a href="cloud-forward-reports.xml"/> section.</tip>
+<tip>To learn more about using project tokens, see the <a href="cloud-forward-reports.topic"/> section.</tip>
 
 ## Inspect your projects
 

@@ -44,15 +44,15 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 </step>
 <step>
 <p>In the <menupath>Your project name</menupath> field, specify the name of the Qodana Cloud 
-<a href="cloud-projects.xml">project</a>. In the field below it, specify the name of the <a href="cloud-teams.xml">team</a> 
+<a href="cloud-projects.topic">project</a>. In the field below it, specify the name of the <a href="cloud-teams.topic">team</a> 
 that the project will be accessible for.</p>
 
 <img src="cloud-onboarding-step-3.png" dark-src="cloud-onboarding-step-3_dark.png" alt="The third step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>
 <step>
 <p>Open your project locally using the JetBrains IDE, or learn how to configure %product% for running in a CI/CD pipeline. 
-This step also contains the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> that you can 
-copy and use for <a href="cloud-forward-reports.xml">uploading %product% reports</a> to Qodana Cloud.</p>
+This step also contains the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> that you can 
+copy and use for <a href="cloud-forward-reports.topic">uploading %product% reports</a> to Qodana Cloud.</p>
 
 <img src="cloud-onboarding-step-4.png" dark-src="cloud-onboarding-step-4_dark.png" alt="The fourth step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>

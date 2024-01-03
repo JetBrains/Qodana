@@ -62,6 +62,6 @@ Here, the Node.JS version can be retrieved from either an environment variable o
 
 <note>
 If you run the Dockerized version of %product%, you will need to specify the <code>-u 0</code> Docker 
-<a href="docker-image-configuration.xml" anchor="docker-config-reference-docker-environment-run-non-root">option</a> 
+<a href="docker-image-configuration.topic" anchor="docker-config-reference-docker-environment-run-non-root">option</a> 
 because <code>nodenv</code> requires root privileges.
 </note>

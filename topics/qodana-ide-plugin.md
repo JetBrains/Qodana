@@ -45,9 +45,9 @@ You can configure and run %product% locally using your IDE, and then forward ins
    <p>In the upper part of the <menupath>Run Qodana</menupath> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
    <p>Under the text field, configure the options to make %product%:</p>
       <list>
-         <li><a href="cloud-forward-reports.xml">Forward inspection results</a> to Qodana Cloud using the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a></li>
+         <li><a href="cloud-forward-reports.topic">Forward inspection results</a> to Qodana Cloud using the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
          <li><a href="qodana-yaml.md">Save <code>qodana.yaml</code></a> in your project root</li>
-         <li><a href="baseline.xml">Run the baseline</a> feature</li>
+         <li><a href="baseline.topic">Run the baseline</a> feature</li>
       </list>
    <img src="ide-plugin-run-qodana-2.png" dark-src="ide-plugin-run-qodana-2_dark.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
     <p>Click <menupath>Run</menupath> for inspecting your code.</p>
@@ -62,7 +62,7 @@ You can configure and run %product% locally using your IDE, and then forward ins
 
 You can add %product% into CI pipelines using the configuration wizard.
 
-<note>Depending on the %product% license, you will need to generate and use the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
+<note>Depending on the %product% license, you will need to generate and use the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
 
 <procedure>
    <step>
@@ -100,7 +100,7 @@ report, and overview it using the IDE.
    <p>This will redirect you to the authentication page.</p>
    </step>
    <step>
-      <p>Select the <a href="cloud-projects.xml">Qodana Cloud project</a> to link your local project with.</p>
+      <p>Select the <a href="cloud-projects.topic">Qodana Cloud project</a> to link your local project with.</p>
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
     <step>
@@ -166,7 +166,7 @@ This table describes each button from top to bottom:
    <tr>
       <td><menupath>View Options</menupath></td>
       <td>Filter out code issues by their severity and configure their sorting. When no grouping or sorting options are 
-selected, the issues are listed in the order they appear in the file. You can also filter all issues by the <a href="baseline.xml">baseline</a></td>
+selected, the issues are listed in the order they appear in the file. You can also filter all issues by the <a href="baseline.topic">baseline</a></td>
    </tr>
    <tr>
       <td><menupath>Open Editor Preview</menupath></td>
