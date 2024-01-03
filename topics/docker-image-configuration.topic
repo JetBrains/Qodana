@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Shell commands" id="docker-image-configuration.xml">
+	title="Shell commands" id="docker-image-configuration">
 
     <p>This section explains how you can configure the <a href="docker-images.md">Docker images</a> of
         %instance% and the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool. You can use both tools

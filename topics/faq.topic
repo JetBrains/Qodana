@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Frequently Asked Questions" id="faq.xml">
+	title="Frequently Asked Questions" id="faq">
 
 <p>Here is a collection of answers to questions that will help you better understand basic Qodana concepts.</p><chapter title="General questions" id="faq-supported-technologies">
 

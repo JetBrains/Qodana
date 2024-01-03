@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Qodana Cloud components" id="cloud-running-introduction.xml">
+	title="Qodana Cloud components" id="cloud-running-introduction">
 
     <p>The basic entity in <a href="https://qodana.cloud">Qodana Cloud</a> is an organization. Every Qodana Cloud user
         creates and becomes an organization member. Later, they can create additional organizations. </p><p>Each organization can contain several teams, where each team provides unified access to projects for its team

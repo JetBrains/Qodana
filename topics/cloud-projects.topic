@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Projects" id="cloud-projects.xml">
+	title="Projects" id="cloud-projects">
 
     <p>Projects accumulate Qodana <a href="cloud-overview-reports.topic">reports</a>.</p><p>Each project is uniquely identified by a <a href="project-token.md">project token</a>. This token is used for uploading %instance% reports.</p><chapter id="cloud-create-project" title="Create a project">
 

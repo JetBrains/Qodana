@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Quick start" id="Quick-start.xml">
+	title="Quick start" id="Quick-start">
 
     <p>The current version of %instance% (%product-version%) provides the <a href="linters.md">linters</a> that let you analyze
         Java, Kotlin, Groovy, PHP, JavaScript, TypeScript, C#, Visual Basic, C, C++, Python, and Golang projects. You can
