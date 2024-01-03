@@ -122,10 +122,10 @@
 		</toc-element>
 	</toc-element>
 	<!-- Extending Qodana section -->
-	<toc-element title="Extending Qodana" topic="extending-qodana.topic">
+	<toc-element toc-title="Extending Qodana" topic="extending-qodana.topic">
 		<toc-element topic="extending-qodana-plugins.topic"/>
 		<toc-element topic="extending-qodana-structural-search.topic"/>
 	</toc-element>
 	<!-- Troubleshooting section -->
-	<toc-element title="Troubleshooting" topic="troubleshooting.topic"/>
+	<toc-element toc-title="Troubleshooting" topic="troubleshooting.topic"/>
 </instance-profile>
