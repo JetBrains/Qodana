@@ -96,7 +96,7 @@
 	</toc-element>
 	<!--Qodana Cloud section -->
 	<toc-element toc-title="Qodana Cloud" topic="cloud-about.topic">
-		<toc-element toc-title="Introduction" expand-mode="expand">
+		<toc-element toc-title="Introduction"> <!-- WRS-3846: expand-mode="expand" -->
 			<toc-element toc-title="Use cases" topic="cloud-use-cases.topic"/>
 			<toc-element topic="cloud-get-access.topic"/>
 			<toc-element accepts-web-file-names="cloud-subscription-plan.html" topic="cloud-account-types.md"/>
@@ -109,15 +109,15 @@
 			<toc-element topic="cloud-organizations.topic"/>
 			<toc-element topic="cloud-teams.topic"/>
 			<toc-element accepts-web-file-names="cloud-manage-projects.html" topic="cloud-projects.topic"/>
-			<toc-element toc-title="Reports" expand-mode="expand">
+			<toc-element toc-title="Reports"> <!-- WRS-3846: expand-mode="expand" -->
 				<toc-element topic="cloud-forward-reports.topic"/>
 				<toc-element accepts-web-file-names="cloud-project-reports.html,cloud-reports.html" topic="cloud-overview-reports.topic"/>
 			</toc-element>
 		</toc-element>
-		<toc-element toc-title="Configuration" expand-mode="expand">
+		<toc-element toc-title="Configuration"> <!-- WRS-3846: expand-mode="expand" -->
 			<toc-element accepts-web-file-names="cloud-manage-members.html" topic="cloud-profile-settings.topic"/>
 		</toc-element>
-		<toc-element toc-title="Tutorials" expand-mode="expand">
+		<toc-element toc-title="Tutorials"> <!-- WRS-3846: expand-mode="expand" -->
 			<toc-element topic="cloud-configure-for-os-projects.md"/>
 		</toc-element>
 	</toc-element>
