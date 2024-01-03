@@ -99,12 +99,12 @@ Instead of `main`, you can specify your branch here.
 
 ### Quality gate and baseline
 
-You can combine the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features to manage your
+You can combine the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features to manage your
 technical debt, report only new problems, and block pull requests that contain too many problems.
 
 Follow these steps to establish a baseline for your project:
 
-1. Run Qodana [locally](Quick-start.xml) over your project:
+1. Run Qodana [locally](Quick-start.topic) over your project:
 
 ```shell
 cd project

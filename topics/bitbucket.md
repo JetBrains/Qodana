@@ -7,7 +7,7 @@
 gives teams one place to plan, collaborate, test, and deploy their code. This
 section explains how you can run %product% [Docker images](docker-images.md) within Bitbucket Cloud 
 [pipelines](%pipeline%) and covers 
-application of the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features.
+application of the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 
 ## Prepare your project
 
@@ -23,7 +23,7 @@ This configuration will be used as a basis for all examples in this section.
 
 ## Quality gate
 
-Using the [`--fail-threshold`](docker-image-configuration.xml#docker-config-reference-quality-gate) option, you can 
+Using the [`--fail-threshold`](docker-image-configuration.topic#docker-config-reference-quality-gate) option, you can 
 configure the limit of problems accepted in your project:  
 
 ```yaml
@@ -50,8 +50,8 @@ definitions:
 
 ## Baseline
 
-Use the [`--baseline <path/to/qodana.sarif.json>`](docker-image-configuration.xml#docker-config-reference-baseline) option to 
-specify the path to the SARIF-formatted file used as a [baseline](baseline.xml):
+Use the [`--baseline <path/to/qodana.sarif.json>`](docker-image-configuration.topic#docker-config-reference-baseline) option to 
+specify the path to the SARIF-formatted file used as a [baseline](baseline.topic):
 
 ```yaml
 image: atlassian/default-image:4

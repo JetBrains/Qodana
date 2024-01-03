@@ -13,10 +13,10 @@ view %product% inspection results in a convenient form and free for open-source 
 
 Depending on your needs, it may be useful to know how to:
 
-* [Inspect your code](inspect-your-code.xml) using %product%
-* Configure %product% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.xml)
-* Run %product% either [locally](Quick-start.xml) on in your [CI/CD pipelines](ci.md)
-* [Forward reports](cloud-forward-reports.xml) to %cloud%
+* [Inspect your code](inspect-your-code.topic) using %product%
+* Configure %product% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.topic)
+* Run %product% either [locally](Quick-start.topic) on in your [CI/CD pipelines](ci.md)
+* [Forward reports](cloud-forward-reports.topic) to %cloud%
 
 ## Prepare %cloud%
 If you plan to create a separate team and project in your Qodana Cloud account, follow the steps below.
@@ -44,7 +44,7 @@ In the project, click <menupath>Generate token</menupath> to generate a project 
 
 ## Inspect your projects
 
-You can inspect your codebase using methods described in the [](inspect-your-code.xml) section. 
+You can inspect your codebase using methods described in the [](inspect-your-code.topic) section. 
 
 Depending on the %product% [license](pricing.md#pricing-linters-licenses), you can configure various features, for example:
 
@@ -56,7 +56,7 @@ Depending on the %product% [license](pricing.md#pricing-linters-licenses), you c
 Here are the links to the sections that describe other available features: 
 
 * [](code-coverage.md)
-* [](php-language-upgrade.xml)
+* [](php-language-upgrade.topic)
 * [](quick-fix.md)
 * [](taint-analysis.md)
 * [](vulnerability-checker.md)
@@ -81,7 +81,7 @@ profile:
 ### Configure license audit
 {id="configure-license-audit"}
 
-[License audit](license-audit.xml) lets you track compatibility of dependency licenses with your project license.
+[License audit](license-audit.topic) lets you track compatibility of dependency licenses with your project license.
 
 To enable the license audit, use the `include` option of the [`qodana.yaml`](qodana-yaml.md) file in your project root:
 
@@ -92,7 +92,7 @@ include:
 
 ### Configure baseline
 
-[Baseline](baseline.xml) lets you create a snapshot of your project that will be used as a basis for 
+[Baseline](baseline.topic) lets you create a snapshot of your project that will be used as a basis for 
 subsequent analysis. To enable it, select inspections and download the `qodana.sarif.json` file. 
 
 You can run %product% with the baseline enabled using the `--baseline` option:
@@ -104,7 +104,7 @@ You can run %product% with the baseline enabled using the `--baseline` option:
 ### Configure the quality gate
 {id="configure-quality-gate"}
 
-[](quality-gate.xml) lets you configure the ultimate number of problems that will cause a CI/CD pipeline failure.
+[](quality-gate.topic) lets you configure the ultimate number of problems that will cause a CI/CD pipeline failure.
 
 Once configured, a quality gate will make your CI/CD system:
 
@@ -207,4 +207,4 @@ Using this configuration, %product% will inspect the main branch and all merge r
 ## Inspection result overview
 
 After your project is inspected and inspection results are uploaded to %cloud%, you can view results as shown 
-[on this page](cloud-overview-reports.xml).
+[on this page](cloud-overview-reports.topic).

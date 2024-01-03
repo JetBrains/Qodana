@@ -3,13 +3,13 @@
 Basically, names of Docker images are similar to the names of linters. The following Docker images are provided 
 for [Qodana linters](linters.md):
 
-- [](qodana-jvm-docker-readme.xml)
-- [](qodana-jvm-community-docker-readme.xml)
-- [](qodana-jvm-android-docker-readme.xml)
-- [](qodana-php-docker-readme.xml)
-- [](qodana-python-docker-readme.xml)
-- [](qodana-python-community-docker-readme.xml)
-- [](qodana-js-docker-readme.xml)
-- [](qodana-go-docker-readme.xml)
-- [](qodana-dotnet-docker-readme.xml)
-- [](qodana-cdnet-docker-readme.xml)
+- [](qodana-jvm-docker-readme.topic)
+- [](qodana-jvm-community-docker-readme.topic)
+- [](qodana-jvm-android-docker-readme.topic)
+- [](qodana-php-docker-readme.topic)
+- [](qodana-python-docker-readme.topic)
+- [](qodana-python-community-docker-readme.topic)
+- [](qodana-js-docker-readme.topic)
+- [](qodana-go-docker-readme.topic)
+- [](qodana-dotnet-docker-readme.topic)
+- [](qodana-cdnet-docker-readme.topic)

@@ -20,7 +20,7 @@ It brings all the smarts from ReSharper, which help you:
 * Highlight spelling problems
 * Improve overall code structure
 * Introduce coding best practices
-* Upload inspection results to [Qodana Cloud](cloud-about.xml)
+* Upload inspection results to [Qodana Cloud](cloud-about.topic)
 
 <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
 

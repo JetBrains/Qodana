@@ -66,13 +66,13 @@ the `qodana-token` [global credentials](%JenkinsCred%). The project token is req
 to learn how to generate the project token in Qodana Cloud:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
 This configuration uses the `docker` agent to invoke %product% [Docker images](docker-images.md). Using the 
 `WORKSPACE` variable, the `args` block mounts the local checkout directory to the project directory of a Docker image, 
 and `image` specifies the Docker image invoked.  
 
-The `stage` block calls %product%. Here, you can also specify the [options](docker-image-configuration.xml) 
+The `stage` block calls %product%. Here, you can also specify the [options](docker-image-configuration.topic) 
 you would like to configure %product% with like the [quality gate and baseline](#Quality+gate+and+baseline) features.
 
 ## Inspect specific branches
@@ -112,7 +112,7 @@ of the Jenkins documentation.
 
 ## Quality gate and baseline
 
-This configuration invokes the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features using the 
+This configuration invokes the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features using the 
 `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines specified in the `steps` block.
 
 ```groovy

@@ -17,7 +17,7 @@ You can inspect your code using the default [inspection profiles](inspection-pro
 no configuration steps and lets you run %product% out of the box. You can also configure the default inspection profiles or
 create your own inspection profile in the [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
 
-Finally, you can go beyond the existing inspections and [extend %product%](extending-qodana.xml).
+Finally, you can go beyond the existing inspections and [extend %product%](extending-qodana.topic).
 
 ## Improve the quality of your software
 
@@ -39,15 +39,15 @@ Besides that, in GitHub %product% can inspect [pull requests](github.md#Pull+req
 
 ## Enforce coding standards
 
-Using %product% as a [quality gate](quality-gate.xml), you can decide the number of problems to cause a build fail, plan 
-the problems to be solved right away and postponed by putting them to a [baseline](baseline.xml), or automatically apply 
+Using %product% as a [quality gate](quality-gate.topic), you can decide the number of problems to cause a build fail, plan 
+the problems to be solved right away and postponed by putting them to a [baseline](baseline.topic), or automatically apply 
 suggested [quick-fixes](quick-fix.md) to let your team save time.
 
 ## Share reports with other team members
 
 [Qodana Cloud](https://qodana.cloud) helps you accumulate %product% reports and track the progress in your project(s) 
 from a single point. Such reports are available for all members of your team(s). To become more familiar with Qodana 
-Cloud, visit the [](cloud-about.xml) page.
+Cloud, visit the [](cloud-about.topic) page.
 
 ## Take advantage of our pricing model
 

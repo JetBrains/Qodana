@@ -1,12 +1,12 @@
 [//]: # (title: Visual Studio Code)
 
 Visual Studio Code is a source code editor available for Windows, macOS and Linux. This section shows how to use Visual 
-Studio Code version 1.81 and later for viewing %product% reports from [Qodana Cloud](cloud-about.xml).
+Studio Code version 1.81 and later for viewing %product% reports from [Qodana Cloud](cloud-about.topic).
 
 ## Before you start
 
-Make sure that you have a Qodana Cloud [project](cloud-projects.xml), and this project has at 
-least one inspection [report](cloud-overview-reports.xml) related to the project opened by Visual Studio Code. 
+Make sure that you have a Qodana Cloud [project](cloud-projects.topic), and this project has at 
+least one inspection [report](cloud-overview-reports.topic) related to the project opened by Visual Studio Code. 
 Also, check whether Java 11 or later is installed on your machine by running the `java -version` command. If necessary, 
 install Java on your local machine.  
 

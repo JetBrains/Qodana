@@ -126,7 +126,7 @@ When this number of problems is reached, the container executes `exit 255`. This
 
 <note>
 
-When running in the [baseline mode](docker-image-configuration.xml#docker-config-reference-baseline), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
+When running in the [baseline mode](docker-image-configuration.topic#docker-config-reference-baseline), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
 
 </note>
 
@@ -140,7 +140,7 @@ script:
 ```
 
 You can override the standard %product% behavior, which can be helpful in the case of the 
-[PHP version migration](php-language-upgrade.xml). To inspect your code from this perspective, you can run the 
+[PHP version migration](php-language-upgrade.topic). To inspect your code from this perspective, you can run the 
 `php-migration` scenario.     
 
 By default, %product% employs the `default` scenario, which means the normal %product% run equivalent to this setting:
@@ -218,7 +218,7 @@ disableSanityInspections: true
 ## Configure license audit
 {id="configure-license-audit"}
 
-You can run the [license audit](license-audit.xml) feature by enabling the `CheckDependencyLicenses` inspection:
+You can run the [license audit](license-audit.topic) feature by enabling the `CheckDependencyLicenses` inspection:
 
 ```yaml
 include:

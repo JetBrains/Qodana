@@ -91,7 +91,7 @@ module.exports = divide; // Analyzed by the code coverage
 should have the relative paths inside the project. For example, if your codebase files are contained in the 
 `<project-root>/src/` directory, then file paths in code coverage reports should be `src/<file-name>`.
 
-2. If you run %product% [locally](Quick-start.xml), use your code coverage tool to generate a code coverage report. 
+2. If you run %product% [locally](Quick-start.topic), use your code coverage tool to generate a code coverage report. 
 Save the report to the directory where %product% can read it. If you run %product% in your [GitHub](github.md) pipeline, configure the workflow as shown in the [](#run-code-coverage) section.
 
 For the [](qodana-dotnet.md) linter, configure <a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a> for the test project.

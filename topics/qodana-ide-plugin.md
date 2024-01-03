@@ -31,7 +31,7 @@ You can also have access to %product% using the **Problems | Server-Side Analysi
 {id="ide-plugin-run-qodana"}
 
 You can configure and run %product% locally using your IDE, and then forward inspection reports to 
-[Qodana Cloud](cloud-about.xml) for storage and analysis purposes.
+[Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
 <procedure>
 <step>
@@ -85,7 +85,7 @@ You can add %product% into CI pipelines using the configuration wizard.
 ## Connect to Qodana Cloud
 {id="ide-plugin-connect-cloud"}
 
-You can connect your local project to a specific Qodana Cloud [project](cloud-projects.xml), get the latest %product% 
+You can connect your local project to a specific Qodana Cloud [project](cloud-projects.topic), get the latest %product% 
 report, and overview it using the IDE.
 
 <procedure>

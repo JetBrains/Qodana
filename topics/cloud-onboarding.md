@@ -3,7 +3,7 @@
 Onboarding is an essential step in preparing %product% for working with your project, which lets you: 
 
 - Connect your project repository to Qodana Cloud
-- Create a Qodana Cloud [organization](cloud-organizations.xml), a [team](cloud-teams.xml), and a [project](cloud-projects.xml)
+- Create a Qodana Cloud [organization](cloud-organizations.topic), a [team](cloud-teams.topic), and a [project](cloud-projects.topic)
 - Generate a [project token](project-token.md) required by the Ultimate and Ultimate Plus linters
 - Set up code inspection
 

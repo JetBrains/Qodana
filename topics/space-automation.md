@@ -43,14 +43,14 @@ the `qodana-token` secret. This token is required by the paid %product% [linters
 and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
 Once the project token is generated, in the **Settings** section of your JetBrains Space environment 
 [create a secret](%Space-secret%) with the `qodana-token` name. Save the project token as the value for this secret.
 
 The `shellScript` block contains the `qodana` command for running %product%, and it can also contain the 
-[options](docker-image-configuration.xml) that can be used during the run like [quality gate](quality-gate.xml) or 
-[baseline](baseline.xml).
+[options](docker-image-configuration.topic) that can be used during the run like [quality gate](quality-gate.topic) or 
+[baseline](baseline.topic).
 
 ## Inspect specific branches
 
@@ -85,7 +85,7 @@ job("Qodana") {
 ## Quality gate and baseline
 
 You can use the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `shellScript` 
-block to invoke the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features.
+block to invoke the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 
 ```kotlin
 job("Qodana") {

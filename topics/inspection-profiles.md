@@ -49,7 +49,7 @@ certain type of results.
 
 ## Set up a profile
 
-You can set up a profile using either the `qodana.yaml` file or the [Shell commands](docker-image-configuration.xml). 
+You can set up a profile using either the `qodana.yaml` file or the [Shell commands](docker-image-configuration.topic). 
 
 ### Profile name
 
