@@ -36,7 +36,7 @@
             </tr>
             <tr>
                 <td>Windows</td>
-                <td><code interpolate-variables="false">%LOCALAPPDATA%\</code></td>
+                <td><code ignore-vars="true">%LOCALAPPDATA%\</code></td>
             </tr>
         </table>
 
@@ -493,7 +493,7 @@
             <tr>
                 <td><code>-n</code>, <code>--profile-name</code></td>
                 <td><p>The <a anchor="docker-config-reference-profile-profile-name">profile name</a> taken either from the list of predefined %instance% profiles, or a custom profile name
-                    stored in XML-formatted profile files as <code interpolate-variables="false">&lt;option name="myName" value="%profileName%"/&gt;</code>.</p>
+                    stored in XML-formatted profile files as <code ignore-vars="true">&lt;option name="myName" value="%profileName%"/&gt;</code>.</p>
                     <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file</p>
 
                 </td>
