@@ -170,7 +170,7 @@ Here, `groups` lists several values:
 
 By default, %product% uses severity levels inherited from the JetBrains IDEs shown in this table:
 
-<include src="lib_qd.xml" include-id="qodana-severity-levels" use-filter="for-profile,empty"/>
+<include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
 
 ## inspections
 {id="inspections-group"}

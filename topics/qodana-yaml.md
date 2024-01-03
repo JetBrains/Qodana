@@ -194,7 +194,7 @@ You can configure the JDK version for these linters:
 * [](qodana-jvm-community.md)
 * [](qodana-jvm-android.md)
 
-<include src="lib_qd.xml" include-id="configure-jdk-qodana-yaml" use-filter="configure-jdk-qodana-yaml,empty"/>
+<include from="lib_qd.topic" element-id="configure-jdk-qodana-yaml" use-filter="configure-jdk-qodana-yaml,empty"/>
 
 To learn more about configuring JDK, see the [](configure-jdk.md) section. 
 
@@ -304,14 +304,14 @@ fixesStrategy: cleanup/apply
 ## Configure the taint analysis
 {id="configure-taint-analysis"}
 
-<include src="taint-analysis.md" include-id="running-taint-analysis"/>
+<include from="taint-analysis.md" element-id="running-taint-analysis"/>
 
 ## Configure the vulnerability checker
 
 To start using the [](vulnerability-checker.md) feature, enable
 the `VulnerableLibrariesGlobal` inspection:
 
-<include src="vulnerability-checker.md" include-id="package-checking-enable"/>
+<include from="vulnerability-checker.md" element-id="package-checking-enable"/>
 
 ## Manage plugins
 

@@ -76,7 +76,7 @@ See the [Adjust your inspection profile](#Adjust+your+inspection+profile) sectio
 ## License audit
 {id="ui-overview-project-audit"}
 
-<include src="lib_qd.xml" include-id="license-audit-tab" use-filter="ui-overview,empty" />
+<include from="lib_qd.topic" element-id="license-audit-tab" use-filter="ui-overview,empty" />
 
 ## Adjust your inspection profile 
 

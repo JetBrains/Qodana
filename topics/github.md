@@ -9,7 +9,7 @@ allows you to run Qodana on a GitHub repository.
 
 ### Basic configuration
 
-<include src="lib_qd.xml" include-id="github-basic-configuration"/>
+<include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
 (reports issues that appeared only in that pull request).</note> 

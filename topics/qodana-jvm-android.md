@@ -10,7 +10,7 @@
 <var name="docker-image" value="jetbrains/qodana-jvm-android:2023.3"/>
 <var name="config-file" value="qodana-jvm-android-docker-readme.xml"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/idea/) with the [Android Support](https://plugins.jetbrains.com/plugin/1792-android-support) plugin and provides static analysis for Android projects. <include src="lib_qd.xml" include-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/idea/) with the [Android Support](https://plugins.jetbrains.com/plugin/1792-android-support) plugin and provides static analysis for Android projects. <include from="lib_qd.topic" element-id="linter-intro"/>
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
 
@@ -67,7 +67,7 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,community"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,community"/>
 
 ## Try it now
 
@@ -75,8 +75,8 @@
 
 <note>Before running %product%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>

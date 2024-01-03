@@ -17,7 +17,7 @@ for storing a pipeline configuration.
 
 ## Basic configuration
 
-<include src="lib_qd.xml" include-id="bitbucket-basic-configuration"/>
+<include from="lib_qd.topic" element-id="bitbucket-basic-configuration"/>
 
 This configuration will be used as a basis for all examples in this section.
 

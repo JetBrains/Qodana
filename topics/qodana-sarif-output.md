@@ -592,6 +592,6 @@ regular [`result`](#results) objects.
 The [SARIF severity values](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317648)
 correspond to the severity values of IntelliJ IDEA according to this table:
 
-<include src="lib_qd.xml" include-id="qodana-severity-levels" use-filter="for-report,empty"/>
+<include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-report,empty"/>
 
 The original IntelliJ IDEA inspection severity is stored in the `propertyBag` field of the same object.

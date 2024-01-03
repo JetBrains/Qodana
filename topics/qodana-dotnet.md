@@ -101,7 +101,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,dotnet"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,dotnet"/>
 
 ## Analyze a project locally
 
@@ -138,7 +138,7 @@ that %product% has access to private NuGet feeds.
 
 #### Specify a solution
 
-<p><include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/></p>
+<p><include from="lib_qd.topic" element-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/></p>
 
 #### Roslyn analyzers
 
@@ -210,4 +210,4 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>

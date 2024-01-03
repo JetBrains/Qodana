@@ -10,7 +10,7 @@
 <var name="docker-image" value="jetbrains/qodana-jvm-community:2023.3"/>
 <var name="config-file" value="qodana-jvm-community-docker-readme.xml"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/idea/).  <include src="lib_qd.xml" include-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/idea/).  <include from="lib_qd.topic" element-id="linter-intro"/>
 
 ## Supported technologies
 
@@ -59,7 +59,7 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,community"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,community"/>
 
 ## Try it now
 
@@ -67,8 +67,8 @@
 
 <note>Before running %product%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>
