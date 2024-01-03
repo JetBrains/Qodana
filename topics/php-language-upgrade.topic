@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="PHP version migration" id="php-language-upgrade" help-id="qodana-php-language-upgrade">
+
+        <p>If you need to see how migration from one PHP version to another will affect your code quality, you can
+        use the <code>php-migration</code> %instance% scenario. If you run this scenario, you will be able
+            to see the codebase problems that will arise after you upgrade to a newer PHP version.</p><p>This feature is supported by the <a href="qodana-php.md"/> linter and available under the Ultimate and Ultimate Plus
+        <a href="pricing.md">licenses</a> and their trial versions. </p><img src="language-migration.png" dark-src="language-migration_dark.png" width="706" alt="PHP language migration"/>
+
+        <p>You can configure this scenario either in the <code>qodana.yaml</code> file or invoke it
+            using the CLI. </p><tabs>
+            <tab title="qodana.yaml">
+                <note>The CLI options override the settings of the <code>qodana.yaml</code> file.</note>
+                <code-block lang="yaml">
+                    script:
+                      name: php-migration
+                      parameters:
+                          fromLevel: &lt;old-php-version&gt;
+                          toLevel: &lt;upgraded-php-version&gt;
+                </code-block>
+                <p>This snippet specifies the <code>php-migration</code> scenario using the
+                    <code>name</code> parameter. The <code>fromLevel</code> and
+                    <code>toLevel</code> parameters denote the old and upgraded PHP versions respectively. </p>
+
+                <p>This is the example of the <code>qodana.yaml</code> configuration:</p>
+
+                <code-block lang="yaml">
+                    script:
+                      name: php-migration
+                      parameters:
+                          fromLevel: 7.1
+                          toLevel: 8.0
+                </code-block>
+            </tab>
+            <tab title="CLI">
+                <p>Here, you have two options for running this feature:</p>
+                <tabs group="cli-commands">
+                    <tab title="Qodana CLI" group-key="qodana-cli">
+                        <code-block lang="shell" prompt="$">
+                            qodana scan \
+                               --script php-migration:&lt;old-php-version&gt;-to-&lt;upgraded-php-version&gt;
+                        </code-block>
+                    </tab>
+                    <tab title="Docker image" group-key="docker-image">
+                        <code-block lang="shell" prompt="$">
+                            docker run \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               jetbrains/qodana-&lt;linter&gt; \
+                               --script php-migration:&lt;old-php-version&gt;-to-&lt;upgraded-php-version&gt;
+
+                        </code-block>
+                    </tab>
+                </tabs>
+                <p>This snippet specifies the <code>php-migration</code> scenario for the
+                    <code>--script</code> option followed by the colon <code>:</code>
+                    character, and PHP versions separated by the <code>-to-</code> character combination.
+                </p>
+
+                <p>This is the example of the CLI command:</p>
+
+                <tabs group="cli-commands">
+                    <tab title="Qodana CLI" group-key="qodana-cli">
+                        <code-block lang="shell" prompt="$">
+                            qodana scan \
+                               --script php-migration:7.1-to-8.0
+                        </code-block>
+                    </tab>
+                    <tab title="Docker image" group-key="docker-image">
+                        <code-block lang="shell" prompt="$">
+                            docker run \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               jetbrains/qodana-&lt;linter&gt; \
+                               --script php-migration:7.1-to-8.0
+                        </code-block>
+                    </tab>
+                </tabs>
+            </tab>
+        </tabs>
+
+    <chapter title="Example">
+
+    <p>To show how the language migration feature works, the following PHP code snippet will be inspected:</p>
+
+    <code-block lang="php">
+        &lt;?php
+            function f($a) {
+                switch ($a) {
+                    case 1:
+                        return 1;
+                    case 2:
+                        return 2;
+                    default:
+                        return 3;
+                }
+            }
+    </code-block>
+
+    <p>If you run %instance% with version 7.1 of the PHP runtime, the report will contain the following problems:</p>
+
+    <code-block lang="shell">
+
+        Analysis results: 2 problems detected
+
+        Grouping problems by severity: Info: 2
+        Name                                               Severity Count problems
+        Missing return type declaration                    Info     1
+        Unused declaration                                 Info     1
+
+    </code-block>
+
+    <p>Running %instance% with version 8.0 of the PHP runtime will produce the following output: </p>
+
+    <code-block lang="shell">
+
+        Analysis results: 3 problems detected
+
+        Grouping problems by severity: Info: 3
+        Name                                               Severity Count problems
+        Missing return type declaration                    Info     1
+        Unused declaration                                 Info     1
+        'switch' can be replaced with 'match' expression   Info     1
+
+    </code-block>
+
+    <p>Running %instance% with the migration feature enabled will produce the following report:</p>
+
+    <code-block lang="shell">
+
+        Analysis results: 1 problems detected
+
+        Grouping problems by severity: Info: 1
+        Name                                               Severity Count problems
+        'switch' can be replaced with 'match' expression   Info     1
+    </code-block>
+
+    <p>As you can see, the migration report contains only the problem contained in the version 8.0 report and missing
+    from the version 7.1 report.</p>
+
+    </chapter>
+
+</topic>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Frequently Asked Questions" id="faq.xml">
+
+<p>Here is a collection of answers to questions that will help you better understand basic Qodana concepts.</p><chapter title="General questions" id="faq-supported-technologies">
+
+    <chapter id="faq-how-can-i-run" title="How can I run %instance%?" default-state="collapsed">
+        <p>Depending on your needs, you can run %instance% using:</p>
+        <list>
+            <li><a href="ci.md">CI pipelines</a></li>
+            <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a>, the
+                <a href="https://github.com/JetBrains/qodana-cli">%instance% CLI</a> tool, or available
+                <a href="docker-images.md">Docker images</a> </li>
+        </list>
+    </chapter>
+
+    <chapter id="faq-integrate-cicd" title="How can I build Qodana into "/><CI/>/CD name&gt; pipelines?" initial-collapse-state="collapsed"&gt;
+        <p>Any %instance% linter is a Linux Docker image, so any CI/CD platform that supports Docker should be able to run
+            it. We’re working on <a href="ci.md">extending our documentation</a> to provide the best examples of how to
+            integrate %instance% with different CI/CD platforms. If you are experiencing any difficulties, please contact our
+            support at <code>qodana-support@jetbrains.com</code>.
+        </p>
+    </chapter>
+
+    <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" default-state="collapsed">
+        <p>The on-premises version of %instance% is currently under development, and we plan to release it in 2024. To
+            register your interest in this solution, you can contact the <a href="mailto:qodana-sales@jetbrains.com">%instance% team</a>.</p>
+        <p>You can also run %instance% under the Community license, which doesn’t require you to create a %instance%
+            Cloud account. However, this option provides limited functionalities.</p>
+    </chapter>
+
+    <chapter id="faq-support-other-techs" title="Are there any plans to support other technologies?" default-state="collapsed">
+        <p>The list of technologies already supported by %instance% is available on the <a href="linters.md"/> page.</p>
+        <p>Qodana will eventually cover all technologies supported by JetBrains IDEs. You can create an issue on our
+            tracker or vote for an existing one to let us know what technology we should focus on, for example:</p>
+        <list>
+            <li><a href="https://youtrack.jetbrains.com/issue/QD-1031">Scala</a></li>
+            <li><a href="https://youtrack.jetbrains.com/issue/QD-2226">Dart</a></li>
+            <li><a href="https://youtrack.jetbrains.com/issue/QD-2153">C/C++</a></li>
+        </list>
+    </chapter>
+
+    <chapter id="faq-qodana-jba-entities" title="What is the relation between JetBrains Account and Qodana entities?" default-state="collapsed">
+        <p>In a JetBrains Account (JBA), you can create several Companies.</p>
+        <p>Each created JBA Company can possess several %instance% licenses.</p>
+        <p>In Qodana Cloud, you need to create at least one <a href="cloud-organizations.topic">organization</a> that
+            will correspond to a specific license within a specific JBA Company.</p>
+        <p>In Qodana Cloud, you can also create a JBA Company during the <a href="cloud-onboarding.md">onboarding</a> stage.
+            In this case, the JBA Company and the Qodana Cloud organization will share the same name. </p>
+        <p>%instance% does not use JetBrains Account teams.</p>
+    </chapter>
+</topic>

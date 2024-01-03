@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Code inspections" id="code-inspections">
+
+    <p>Each inspection is a set of conditions to check code, detect and correct abnormal fragments in it. Qodana
+        inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
+        and thus facilitate improving the overall code structure. Using inspections, Qodana implements its
+        <a href="static-analysis.topic">static analysis</a> mechanism. You can visit the
+        <a href="https://www.jetbrains.com/help/inspectopedia/">Inspectopedia</a> website and learn more about the
+        inspections used by %instance%.
+    </p><p>All inspections are highly configurable, so you can configure:</p><list>
+        <li>What inspections to run for your codebase. There are lots of various inspections, so you can enable or
+            disable them for some reasons.</li>
+        <li>What directories and files to include in your code checking. If you feel that you do not need to inspect
+            any file or group of files, you can exclude them from code analysis.</li>
+        <li>How to configure and use <a href="qodana-yaml.md">inspection profiles</a>. You can use the preset combinations
+            of inspections specified by inspection profiles aimed for solving specific tasks, or create your own profile
+        aimed for your satisfying your unique needs.</li>
+    </list>
+
+</topic>

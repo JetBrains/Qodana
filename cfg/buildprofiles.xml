@@ -1,64 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildprofiles>
-    <variables>
-        <download-page/>
-        <search-scope/>
-        <fallback-url>https://www.jetbrains.com/help/qodana/</fallback-url>
-        <help-app-version>3</help-app-version>
-        <config-feedbackRequireEmail>false</config-feedbackRequireEmail>
-        <hide-last-modified>true</hide-last-modified>
-        <config-showDownloadButton>false</config-showDownloadButton>
-        <config-disqus-id>jetbrains</config-disqus-id>
-        <config-disqus-show>false</config-disqus-show>
-        <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
-        <config-feedback-enabled>false</config-feedback-enabled>
-        <config-feedback-widget>false</config-feedback-widget>
-        <config-webmaster>webmaster@jetbrains.com</config-webmaster>
-        <config-feedback-support>mailto:qodana-support@jetbrains.com/</config-feedback-support>
-        <config-sideblocks>true</config-sideblocks>
-        <config-search-scopes-provider>https://data.services.jetbrains.com/search/</config-search-scopes-provider>
-        <enable-browser-edits>true</enable-browser-edits>
-        <browser-edits-url>https://github.com/JetBrains/Qodana/edit/2023.3/</browser-edits-url>
-        <disable-prev-next-links>true</disable-prev-next-links>
-        <disable-variable-interpolation>true</disable-variable-interpolation>
-        <config-versions-switcher>https://data.services.jetbrains.com/help-versions</config-versions-switcher>
-        <web-root>https://www.jetbrains.com/help</web-root>
-        <og-twitter>@qodanaevolves</og-twitter>
-        <og-image>https://resources.jetbrains.com/storage/products/qodana/img/meta/preview.png</og-image>
-    </variables>
-
-    <build-profile product="qd">
-        <variables>
-            <config-feedback-enabled>true</config-feedback-enabled>
-            <config-feedback-widget>true</config-feedback-widget>
-            <config-feedback-url>https://forms-service.jetbrains.com/feedback</config-feedback-url>
-        </variables>
-    </build-profile>
-
-    <build-profile product="qd_tc">
-        <variables>
-            <images-prefix-override>img/</images-prefix-override>
-        </variables>
-        <noindex-content-in-deprecated>false</noindex-content-in-deprecated>
-        <noindex-content-in-eap>false</noindex-content-in-eap>
-        <noindex-content-in-release>false</noindex-content-in-release>
-    </build-profile>
-
-    <build-profile product="qd_tc_cf">
-        <variables>
-            <images-prefix-override>img/</images-prefix-override>
-        </variables>
-        <noindex-content-in-deprecated>false</noindex-content-in-deprecated>
-        <noindex-content-in-eap>false</noindex-content-in-eap>
-        <noindex-content-in-release>false</noindex-content-in-release>
-    </build-profile>
-
-    <build-profile product="qd_tc_la">
-        <variables>
-            <images-prefix-override>img/</images-prefix-override>
-        </variables>
-        <noindex-content-in-deprecated>false</noindex-content-in-deprecated>
-        <noindex-content-in-eap>false</noindex-content-in-eap>
-        <noindex-content-in-release>false</noindex-content-in-release>
-    </build-profile>
+	<variables>
+		<download-page/>
+		<search-scope/>
+		<fallback-url>https://www.jetbrains.com/help/qodana/</fallback-url>
+		<help-app-version>3</help-app-version>
+		<feedbackRequireEmail>false</feedbackRequireEmail>
+		<hide-last-modified>true</hide-last-modified>
+		<showDownloadButton>false</showDownloadButton>
+		<disqus-id>jetbrains</disqus-id>
+		<disqus-show>false</disqus-show>
+		<feedback-url>https://data.services.jetbrains.com/feedback</feedback-url>
+		<feedback-enabled>false</feedback-enabled>
+		<feedback-widget>false</feedback-widget>
+		<webmaster>webmaster@jetbrains.com</webmaster>
+		<feedback-support>mailto:qodana-support@jetbrains.com/</feedback-support>
+		<sideblocks>true</sideblocks>
+		<search-scopes-provider>https://data.services.jetbrains.com/search/</search-scopes-provider>
+		<enable-browser-edits>true</enable-browser-edits>
+		<browser-edits-url>https://github.com/JetBrains/Qodana/edit/2023.3/</browser-edits-url>
+		<disable-prev-next-links>true</disable-prev-next-links>
+		<disable-variable-interpolation>true</disable-variable-interpolation>
+		<versions-switcher>https://data.services.jetbrains.com/help-versions</versions-switcher>
+		<web-root>https://www.jetbrains.com/help</web-root>
+		<og-twitter>@qodanaevolves</og-twitter>
+		<og-image>https://resources.jetbrains.com/storage/products/qodana/img/meta/preview.png</og-image>
+	</variables>
+	<build-profile instance="qd">
+		<variables>
+			<feedback-enabled>true</feedback-enabled>
+			<feedback-widget>true</feedback-widget>
+			<feedback-url>https://forms-service.jetbrains.com/feedback</feedback-url>
+		</variables>
+	</build-profile>
+	<build-profile instance="qd">
+		<variables>
+			<images-prefix-override>img/</images-prefix-override>
+		</variables>
+		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
+		<noindex-content-in-eap>false</noindex-content-in-eap>
+		<noindex-content-in-release>false</noindex-content-in-release>
+	</build-profile>
+	<build-profile instance="qd">
+		<variables>
+			<images-prefix-override>img/</images-prefix-override>
+		</variables>
+		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
+		<noindex-content-in-eap>false</noindex-content-in-eap>
+		<noindex-content-in-release>false</noindex-content-in-release>
+	</build-profile>
+	<build-profile instance="qd">
+		<variables>
+			<images-prefix-override>img/</images-prefix-override>
+		</variables>
+		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
+		<noindex-content-in-eap>false</noindex-content-in-eap>
+		<noindex-content-in-release>false</noindex-content-in-release>
+	</build-profile>
 </buildprofiles>
