@@ -6,14 +6,5 @@
 		<instance id="qd" master="writerside.cfg" family="idea">
 			<artifact type="web2" platform="primary" local-update="true" local-update-path="qodana" image-bundle="true" local-update-images="true"/>
 		</instance>
-		<product id="qd_tc" master="project.ihp" family="idea">
-			<artifact type="web2" platform="primary" local-update="true" local-update-path="qodana_tc" image-bundle="true" local-update-images="true"/>
-		</product>
-		<product id="qd_tc_cf" master="project.ihp" family="idea">
-			<artifact type="web2" platform="primary" local-update="true" local-update-path="qodana_tc_cf" image-bundle="true" local-update-images="true"/>
-		</product>
-		<product id="qd_tc_la" master="project.ihp" family="idea">
-			<artifact type="web2" platform="primary" local-update="true" local-update-path="qodana_tc_la" image-bundle="true" local-update-images="true"/>
-		</product>
 	</builds>
 </root>
