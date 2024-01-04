@@ -275,7 +275,7 @@
                 <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
 
                 <p>This feature requires that you specify the %linter% name either in the <a href="qodana-yaml.md" anchor="Specify+a+linter"><code>qodana.yaml</code></a> file,
-                or using the <a href="github.md" anchor="Configuration"><code>args</code></a> configuration option of GitHub, for example: <code-block lang="yaml">args: --linter,%linter-shell%</code-block> </p>
+                or using the <a href="github.md" anchor="Configuration"><code>args</code></a> configuration option of GitHub, for example: <code lang="yaml">args: --linter,%linter-shell%</code> </p>
 
                 <p>In GitHub, %instance% is implemented as the <code>Qodana Scan</code> GitHub Action.To configure the
                     <code>Qodana Scan</code> GitHub Action, save the <code>.github/workflows/code_quality.yml</code> file

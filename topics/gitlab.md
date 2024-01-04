@@ -89,7 +89,7 @@ qodana:
 ## Expose Qodana reports
 
 To make a report available in any given merge request without using Qodana Cloud,
-you can use the [`artifacts`]() [`expose_as`](%GitLabExpose%) keywords
+you can use the [`expose_as`](%GitLabExpose%) keywords
 and change the path to the artifacts:
 
 ```yaml

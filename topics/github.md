@@ -5,9 +5,10 @@
 The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
 allows you to run Qodana on a GitHub repository.
 
-<anchor name="basic-configuration"></anchor>
+<anchor name="basic-configuration"/>
 
 ### Basic configuration
+
 
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
@@ -95,7 +96,7 @@ Instead of `main`, you can specify your branch here.
 9. Search for the `Qodana` status check, then check it.
 10. Click **Create**.
 
-<anchor name="quality-gate-and-baseline"></anchor>
+<anchor name="quality-gate-and-baseline"/>
 
 ### Quality gate and baseline
 

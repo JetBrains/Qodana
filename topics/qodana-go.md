@@ -50,7 +50,7 @@
 
 ### Analyze a project locally
 
-<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,non-gs,other,empty"/></p>
+<include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,non-gs,other,empty"/>
 
 ## Next steps
 

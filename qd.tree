@@ -95,7 +95,7 @@
 		<toc-element accepts-web-file-names="teamcity-plugins.html,teamcity-plugin-configuration.html,teamcity-plugin-quick-start.html" topic="teamcity.md"/>
 	</toc-element>
 	<!--Qodana Cloud section -->
-	<toc-element toc-title="Qodana Cloud" topic="cloud-about.topic">
+	<toc-element topic="cloud-about.topic">
 		<toc-element toc-title="Introduction"> <!-- WRS-3846: expand-mode="expand" -->
 			<toc-element toc-title="Use cases" topic="cloud-use-cases.topic"/>
 			<toc-element topic="cloud-get-access.topic"/>
@@ -122,10 +122,10 @@
 		</toc-element>
 	</toc-element>
 	<!-- Extending Qodana section -->
-	<toc-element toc-title="Extending Qodana" topic="extending-qodana.topic">
+	<toc-element topic="extending-qodana.topic">
 		<toc-element topic="extending-qodana-plugins.topic"/>
 		<toc-element topic="extending-qodana-structural-search.topic"/>
 	</toc-element>
 	<!-- Troubleshooting section -->
-	<toc-element toc-title="Troubleshooting" topic="troubleshooting.topic"/>
+	<toc-element topic="troubleshooting.topic"/>
 </instance-profile>

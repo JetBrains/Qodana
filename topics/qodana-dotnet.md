@@ -138,7 +138,7 @@ that %product% has access to private NuGet feeds.
 
 #### Specify a solution
 
-<p><include from="lib_qd.topic" element-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/></p>
+<include from="lib_qd.topic" element-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/>
 
 #### Roslyn analyzers
 

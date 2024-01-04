@@ -19,7 +19,7 @@ Using the IDE, you can:
 
 ## UI overview
 
-%product% functionality is available using the <menupath>Tools | Qodana</menupath> menu of your IDE.
+%product% functionality is available using the <ui-path>Tools | Qodana</ui-path> menu of your IDE.
 
 <img src="ide-plugin-intro-menu.png" dark-src="ide-plugin-intro-menu_dark.png" width="706" alt="The Qodana menu" border-effect="line"/>
 

@@ -63,7 +63,7 @@
 
     <chapter id="quality-gate-github-actions" title="GitHub Actions">
 
-        <p>You can enforce GitHub to block merge of pull requests if the <a href="quality-gate.topic">quality gate</a> has failed. To do it,
+        <p>You can enforce GitHub to block merge of pull requests if the quality gate has failed. To do it,
             create a <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
 
             <procedure>
