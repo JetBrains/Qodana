@@ -44,12 +44,12 @@ You can configure and run %product% locally using your IDE, and then forward ins
 <step>
    <p>In the upper part of the <ui-path>Run Qodana</ui-path> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
    <p>Under the text field, configure the options to make %product%:</p>
-      <list>
-         <li><a href="cloud-forward-reports.topic">Forward inspection results</a> to Qodana Cloud using the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
-         <li><a href="qodana-yaml.md">Save <code>qodana.yaml</code></a> in your project root</li>
-         <li><a href="baseline.topic">Run the baseline</a> feature</li>
-      </list>
-   <img src="ide-plugin-run-qodana-2.png" dark-src="ide-plugin-run-qodana-2_dark.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+
+* [Forward inspection results](cloud-forward-reports.topic) to Qodana Cloud using the [project token](cloud-projects.topic#cloud-manage-projects)
+* [Save `qodana.yaml`](qodana-yaml.md) in your project root
+* [Run the baseline](baseline.topic) feature
+
+<img src="ide-plugin-run-qodana-2.png" dark-src="ide-plugin-run-qodana-2_dark.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
     <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
 </step>
 <step>
