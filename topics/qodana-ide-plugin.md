@@ -35,22 +35,30 @@ You can configure and run %product% locally using your IDE, and then forward ins
 
 <procedure>
 <step>
-   <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+
+In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.
+
 </step>
 <step>
-   <p>In the <ui-path>Run Qodana</ui-path> dialog, click the <ui-path>Try locally</ui-path> button. </p>
-   <img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="First step of the Run Qodana dialog" border-effect="line"/>
+
+In the <ui-path>Run Qodana</ui-path> dialog, click the <ui-path>Try locally</ui-path> button.
+
+<img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="First step of the Run Qodana dialog" border-effect="line"/>
 </step>
 <step>
-   <p>In the upper part of the <ui-path>Run Qodana</ui-path> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
-   <p>Under the text field, configure the options to make %product%:</p>
+
+In the upper part of the <ui-path>Run Qodana</ui-path> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.
+
+Under the text field, configure the options to make %product%:
 
 * [Forward inspection results](cloud-forward-reports.topic) to Qodana Cloud using the [project token](cloud-projects.topic#cloud-manage-projects)
 * [Save `qodana.yaml`](qodana-yaml.md) in your project root
 * [Run the baseline](baseline.topic) feature
 
 <img src="ide-plugin-run-qodana-2.png" dark-src="ide-plugin-run-qodana-2_dark.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
-    <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
+
+Click <ui-path>Run</ui-path> for inspecting your code.
+
 </step>
 <step>
    <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
