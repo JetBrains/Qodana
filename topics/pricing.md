@@ -316,11 +316,9 @@ No, you can use the Community version of Qodana in any open-source or proprietar
 
 Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:
 
-<list>
-    <li><a href="license-audit.topic"/></li>
-    <li><a href="taint-analysis.md"/></li>
-    <li><a href="vulnerability-checker.md"/></li>
-</list>
+* [](license-audit.topic)
+* [](taint-analysis.md)
+* [](vulnerability-checker.md)
 
 ### Which licenses are integrated into CI/CD pipelines?
 
