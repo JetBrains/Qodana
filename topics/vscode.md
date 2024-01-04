@@ -59,7 +59,7 @@ You can configure the extension using the following settings:
 <td>baz</td>
 </tr>
 </table>
-<p>In a <a href="ui-overview.md">Qodana Cloud report</a>, you can check with the <menupath>Files</menupath> section to 
+<p>In a <a href="ui-overview.md">Qodana Cloud report</a>, you can check with the <ui-path>Files</ui-path> section to 
 see how the path in a SARIF file is set.</p>
 <p>Feel free to commit the <code>.vscode/settings.json</code> to your repository to share the Qodana settings with your team!</p>
 </td>
@@ -69,7 +69,7 @@ see how the path in a SARIF file is set.</p>
 <td>
 <p>You can get the Project ID value by opening the project from the 
 <a href="ui-overview.md" anchor="ui-overview-actual-problems">Qodana Cloud report</a> using the 
-<menupath>Open file in ...</menupath> button and choosing Visual Studio Code as the tool for opening. </p>
+<ui-path>Open file in ...</ui-path> button and choosing Visual Studio Code as the tool for opening. </p>
 <p>Alternatively, the ID is contained in your Qodana Cloud project URL. This URL has the following structure: 
 <code>https://qodana.cloud/projects/PROJECT_ID/reports/REPORT_ID</code>. From this URL, use only <code>PROJECT_ID</code>.
 For example, from the URL <code>https://qodana.cloud/projects/AGvmx/reports/EDKYd</code> you will need <code>AGvmx</code>.</p>

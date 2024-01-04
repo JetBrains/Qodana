@@ -78,7 +78,7 @@ profile will override such settings contained in `Project Default`.
 
 {id="custom-profiles-default-profile-tip"}
 
-<tip>You can overview the default IDE profile by navigating to <menupath>Settings | Editor | Inspections</menupath>.</tip>
+<tip>You can overview the default IDE profile by navigating to <ui-path>Settings | Editor | Inspections</ui-path>.</tip>
 
 ## name
 

@@ -34,7 +34,7 @@ In your organization, create a <a href="cloud-teams.topic">team</a>.
 In your team, create a <a href="cloud-projects.topic">project</a>. 
 </step>
 <step>
-In the project, click <menupath>Generate token</menupath> to generate a project token.
+In the project, click <ui-path>Generate token</ui-path> to generate a project token.
 
 <img src="qc-generate-token.png" dark-src="qc-generate-token_dark.png" alt="Generate the project token" width="706" border-effect="line"/>
 </step>

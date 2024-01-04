@@ -166,7 +166,7 @@ Another configuration example is available [on GitHub](https://github.com/hybloi
 ### Run Qodana
 
 <p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is the recommended method 
-for the %linter% linter. Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
+for the %linter% linter. Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
 
 <tabs>
     <tab id="qodana-dotnet-cli-tab" title="Native mode using Qodana CLI">
