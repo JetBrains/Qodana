@@ -39,11 +39,9 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 
 <p>Copy this public key and save it in your VCS on the project level. For example, read how to do it on: </p>
 
-<list>
-    <li>[GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key)</li> 
-    <li>[GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys) - start from step 2, i.e. skip the SSH key generation step</li>
-    <li>[JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step</li>
-</list>
+* [GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key)
+* [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys) - start from step 2, i.e. skip the SSH key generation step
+* [JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step 
 
 <warning>Do not store the key on the account level, so that it cannot be shared by other repositories within your account.</warning>
 </step>
