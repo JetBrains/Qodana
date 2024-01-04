@@ -1,8 +1,7 @@
 [//]: # (title: JetBrains IDEs)
 
-Starting from version 2022.3, you can run [%product%](about-qodana.md) in JetBrains IDEs to inspect your codebase for problems and use
-the recommendations to eliminate them. The following IDEs installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/) are supported: 
-IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider.
+You can run [%product%](about-qodana.md) in JetBrains IDEs to inspect your codebase. %product% supports several JetBrains IDEs 
+installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/), such as IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider.
 
 Using the IDE, you can:
 
@@ -14,7 +13,7 @@ Using the IDE, you can:
 
 ## UI overview
 
-%product% functionality is available using the <menupath>Tools | Qodana</menupath> menu of your IDE.
+In your IDE, navigate to <menupath>Tools | Qodana</menupath>.
 
 <img src="ide-plugin-intro-menu.png" dark-src="ide-plugin-intro-menu_dark.png" width="706" alt="The Qodana menu" border-effect="line"/>
 
@@ -76,7 +75,7 @@ latest %product% report and overview it.
 ## Configure %product% for CI
 {id="ide-plugin-cicd"}
 
-Once you logged in [Qodana Cloud](https://qodana.cloud), you can configure %product% in your CI pipelines.
+Once you logged in to [Qodana Cloud](https://qodana.cloud), you can configure %product% in your CI pipelines.
 
 <note>Depending on the %product% <a href="pricing.md">license</a>, you will need to generate and use the 
 <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a>. To learn more about project tokens, see
