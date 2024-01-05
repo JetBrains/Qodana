@@ -7,7 +7,7 @@
 <var name="linter" value="Qodana for PHP"/>
 <var name="ide" value="PhpStorm"/>
 <var name="docker-image" value="jetbrains/qodana-php:2023.3"/>
-<var name="config-file" value="qodana-php-docker-readme.xml"/>
+<var name="config-file" value="qodana-php-docker-readme.topic"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). 
 

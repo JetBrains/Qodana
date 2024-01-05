@@ -8,7 +8,7 @@
 <var name="ide" value="IntelliJ IDEA"/>
 <var name="tech" value="jvm"/>
 <var name="docker-image" value="jetbrains/qodana-jvm-android:2023.3"/>
-<var name="config-file" value="qodana-jvm-android-docker-readme.xml"/>
+<var name="config-file" value="qodana-jvm-android-docker-readme.topic"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/) with the [Android Support](https://plugins.jetbrains.com/plugin/1792-android-support) plugin and provides static analysis for Android projects. 
 

@@ -8,7 +8,7 @@
 <var name="ide" value="IntelliJ IDEA Community"/>
 <var name="tech" value="jvm"/>
 <var name="docker-image" value="jetbrains/qodana-jvm-community:2023.3"/>
-<var name="config-file" value="qodana-jvm-community-docker-readme.xml"/>
+<var name="config-file" value="qodana-jvm-community-docker-readme.topic"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/).  
 
