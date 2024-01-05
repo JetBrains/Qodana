@@ -5,12 +5,12 @@
 <var name="GitLabExpose" value="https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as"/>
 
 [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) is a tool for software development that uses various CI/CD methodologies. This 
-section explains how you can run %product% [Docker images](docker-images.md) within GitLab CI/CD 
+section explains how you can run %instance% [Docker images](docker-images.md) within GitLab CI/CD 
 [pipelines](https://docs.gitlab.com/ee/ci/pipelines/) and covers the following cases:
 
 * Inspecting specific branches and merge requests
 * Forwarding inspection reports to [Qodana Cloud](cloud-about.topic)
-* Exposing %product% reports in the GitLab CI/CD user interface
+* Exposing %instance% reports in the GitLab CI/CD user interface
 * Using the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features
 
 ## Prepare your project
@@ -42,17 +42,17 @@ qodana:
       - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
-In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %product% 
+In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %instance% 
 [Docker image](docker-images.md) of your choice.
 
-The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab caches to store the %product% cache,
+The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab caches to store the %instance% cache,
 so subsequent runs will be faster. 
 
-The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %product% 
+The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %instance% 
 configuration options described in the [](docker-image-configuration.topic) section. 
 
 The `variables` keyword defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
-referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %product% 
+referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %instance% 
 [linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters.
 
 You can see these sections to learn how to generate the project token:
@@ -62,7 +62,7 @@ You can see these sections to learn how to generate the project token:
 
 ## Inspect specific branches
 
-Using the [`only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except) keyword, you can tell %product% which 
+Using the [`only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except) keyword, you can tell %instance% which 
 branches to inspect. To inspect only the `main` branch and incoming merge requests, you can use this configuration:
 
 ```yaml

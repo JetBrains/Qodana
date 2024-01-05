@@ -9,9 +9,9 @@ and have a [project token](cloud-projects.topic#cloud-manage-projects) generated
 
 <tip>This is how you can learn more about <a href="cloud-running-introduction.topic">Qodana Cloud components</a>.</tip>
 
-Use the generated project token for [forwarding %product% reports](cloud-forward-reports.topic) to Qodana Cloud.
+Use the generated project token for [forwarding %instance% reports](cloud-forward-reports.topic) to Qodana Cloud.
 
-Finally, run %product% [locally](Quick-start.topic#quickstart-run-using-cli) or in a [CI/CD pipeline](ci.md), 
+Finally, run %instance% [locally](Quick-start.topic#quickstart-run-using-cli) or in a [CI/CD pipeline](ci.md), 
 and [view](cloud-overview-reports.topic) inspection results in Qodana Cloud.
 
 If necessary, you can create additional teams and projects without the onboarding wizard:

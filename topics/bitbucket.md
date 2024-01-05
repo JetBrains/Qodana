@@ -5,7 +5,7 @@
 
 [Bitbucket Cloud](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-cloud/) is a tool that
 gives teams one place to plan, collaborate, test, and deploy their code. This
-section explains how you can run %product% [Docker images](docker-images.md) within Bitbucket Cloud 
+section explains how you can run %instance% [Docker images](docker-images.md) within Bitbucket Cloud 
 [pipelines](%pipeline%) and covers 
 application of the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 

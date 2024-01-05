@@ -9,7 +9,7 @@
 <var name="Space-creview" value="https://www.jetbrains.com/help/space/automation-dsl.html#codereviewopened"/>
 
 [Space Automation](https://www.jetbrains.com/help/space/automation-concepts.html) is a CI/CD tool that helps you automate 
-development workflows in the JetBrains Space environment. This section explains how you can configure and run %product% 
+development workflows in the JetBrains Space environment. This section explains how you can configure and run %instance% 
 [Docker images](docker-images.md) within Space Automation jobs.
 
 ## Prepare your project
@@ -20,7 +20,7 @@ file will contain configuration scripts written in [Kotlin](https://kotlinlang.o
 
 ## Basic configuration
 
-This is the basic configuration script for running %product% in JetBrains Automation jobs. 
+This is the basic configuration script for running %instance% in JetBrains Automation jobs. 
 
 ```kotlin
 job("Qodana") {
@@ -36,10 +36,10 @@ job("Qodana") {
 ```
 
 The [`container`](https://www.jetbrains.com/help/space/run-a-step-in-a-container.html) block specifies which 
-[Docker image](docker-images.md) of %product% to run.  
+[Docker image](docker-images.md) of %instance% to run.  
 
 The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in Qodana Cloud and contained in 
-the `qodana-token` secret. This token is required by the paid %product% [linters](pricing.md#pricing-linters-licenses), 
+the `qodana-token` secret. This token is required by the paid %instance% [linters](pricing.md#pricing-linters-licenses), 
 and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
@@ -48,7 +48,7 @@ and is optional for using with the Community linters. You can see these sections
 Once the project token is generated, in the **Settings** section of your JetBrains Space environment 
 [create a secret](%Space-secret%) with the `qodana-token` name. Save the project token as the value for this secret.
 
-The `shellScript` block contains the `qodana` command for running %product%, and it can also contain the 
+The `shellScript` block contains the `qodana` command for running %instance%, and it can also contain the 
 [options](docker-image-configuration.topic) that can be used during the run like [quality gate](quality-gate.topic) or 
 [baseline](baseline.topic).
 

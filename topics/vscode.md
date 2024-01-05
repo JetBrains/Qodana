@@ -1,7 +1,7 @@
 [//]: # (title: Visual Studio Code)
 
 Visual Studio Code is a source code editor available for Windows, macOS and Linux. This section shows how to use Visual 
-Studio Code version 1.81 and later for viewing %product% reports from [Qodana Cloud](cloud-about.topic).
+Studio Code version 1.81 and later for viewing %instance% reports from [Qodana Cloud](cloud-about.topic).
 
 ## Before you start
 
@@ -89,11 +89,11 @@ download the report, click the icon.
 ## Inspection report overview
 {id="vs-code-overview-reports"}
 
-Once configured, the extension connects to Qodana Cloud and downloads the latest %product% report, so you can see 
+Once configured, the extension connects to Qodana Cloud and downloads the latest %instance% report, so you can see 
 it in the **PROBLEMS** tab of Visual Studio Code. If you still do not see the report in the **PROBLEMS** tab, configure 
 the [**Path prefix**](#vs-code-configure-extension) setting. 
 
-On this tab, you can click problem items and navigate to code fragments where %product% detected them.
+On this tab, you can click problem items and navigate to code fragments where %instance% detected them.
 
 <img src="vscode-problems-tab.png" dark-src="vscode-problems-tab_dark.png" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
 
@@ -105,7 +105,7 @@ On this tab, you can click problem items and navigate to code fragments where %p
 You can use the **Qodana: Reset authentication** command to switch between Qodana Cloud accounts without clearing settings. 
 This can be useful in case you have several organizations under different Qodana Cloud accounts.
 
-### I cannot get %product% reports using current settings
+### I cannot get %instance% reports using current settings
 
 You can use the **Qodana: Reset all settings** command to reset all settings and credentials and try to configure 
 the extension again, or use other settings.

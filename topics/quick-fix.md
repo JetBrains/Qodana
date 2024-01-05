@@ -2,7 +2,7 @@
 
 **Quick-fix** lets you improve development performance through fixing codebase problems automatically.
 
-This feature is available starting from version 2023.2 of %product% and supported by the following linters and their 
+This feature is available starting from version 2023.2 of %instance% and supported by the following linters and their 
 trial versions:
 
 * [Qodana for JVM](qodana-jvm.md)
@@ -31,7 +31,7 @@ You can choose between several quick-fix strategies mentioned in this table.
     <tr>
         <td><code>APPLY</code></td>
         <td>
-            <p>%product% attempts to evaluate and fix all problems detected in the codebase.</p>
+            <p>%instance% attempts to evaluate and fix all problems detected in the codebase.</p>
             <p>This approach may lead to serious code modifications that can affect the project logic and behavior. These changes
 should be reviewed before submitting</p>
         </td>
@@ -42,7 +42,7 @@ You can apply quick-fix strategies using the following available options:
 
 <tabs>
     <tab title="Docker and Qodana CLI" id="quick-fix-cli-docker">
-        <p>Run %product% with the <code>--fixes-strategy</code> option invoked. The <code>QODANA_TOKEN</code> variable 
+        <p>Run %instance% with the <code>--fixes-strategy</code> option invoked. The <code>QODANA_TOKEN</code> variable 
             refers to the <a href="project-token.md">project token</a> required by the 
             <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters. </p>
         <tabs>

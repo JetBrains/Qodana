@@ -1,13 +1,13 @@
 [//]: # (title: SARIF output)
 
-%product% reports are formatted according to the
+%instance% reports are formatted according to the
 [SARIF specification](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html) and are contained in a JSON file.
-The %product% implementation of SARIF follows the general format rules, but also specifies several custom properties
+The %instance% implementation of SARIF follows the general format rules, but also specifies several custom properties
 contained in [property bags](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317448).
 
 ## Report structure
 
-Here is the structure of reports produced by %product%:
+Here is the structure of reports produced by %instance%:
 
 
 ```json
@@ -30,21 +30,21 @@ Here is the structure of reports produced by %product%:
 
 <anchor name="sarif-run-object"/>
 
-Each report is represented by a `runs` array containing a single %product%
+Each report is represented by a `runs` array containing a single %instance%
 [`run`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317484).
 This object contains several nested objects, such as:
 
 | Object                                                  | Description                                                           |
 |---------------------------------------------------------|-----------------------------------------------------------------------|
-| [`tool`](#tool)                                         | Information about the %product% linter, plugins and inspections       |
-| [`invocations`](#invocations)                           | Result of the %product% invocation                                    |
+| [`tool`](#tool)                                         | Information about the %instance% linter, plugins and inspections       |
+| [`invocations`](#invocations)                           | Result of the %instance% invocation                                    |
 | [`versionControlProvenance`](#versionControlProvenance) | The version control system from which the project was checked out     |
-| [`results`](#results)                                   | Codebase problems detected by %product%                               |
-| [`automationDetails`](#automationDetails)               | Identification of the %product% run                                   |
+| [`results`](#results)                                   | Codebase problems detected by %instance%                               |
+| [`automationDetails`](#automationDetails)               | Identification of the %instance% run                                   |
 | [`newlineSequences`](#newlineSequences)                 | The newline sequences that were used for calculating the line numbers |
-| [`properties`](#properties)                             | Custom %product% properties, see below                                |
+| [`properties`](#properties)                             | Custom %instance% properties, see below                                |
 
-The custom %product% properties are:
+The custom %instance% properties are:
 
 | Property        | Description                                                                                                          |
 |-----------------|----------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,7 @@ The custom %product% properties are:
 ### tool
 
 The [`tool`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317529) object describes
-the %product% [linter](linters.md), bundled plugins, and the available inspections.
+the %instance% [linter](linters.md), bundled plugins, and the available inspections.
 
 ```json
 {
@@ -121,9 +121,9 @@ The object consists of the following fields:
 
 | Field      | Description                                                                                                                                                        |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`     | ID of the %product% linter                                                                                                                                         |
-| `fullName` | Full name of the %product% linter                                                                                                                                  |
-| `version`  | Version of the %product% linter                                                                                                                                    |
+| `name`     | ID of the %instance% linter                                                                                                                                         |
+| `fullName` | Full name of the %instance% linter                                                                                                                                  |
+| `version`  | Version of the %instance% linter                                                                                                                                    |
 | `rules`    | Descriptions of the available inspections, as [`reportingDescriptor`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317836) objects |
 | `taxa`     | The categories of the inspections, including the relationships between categories                                                                                  |
 
@@ -189,8 +189,8 @@ This object contains the following fields:
 
 | Field     | Description                            |
 |-----------|----------------------------------------|
-| `name`    | The ID of the %product% plugin         |
-| `version` | The version of the %product% plugin    |
+| `name`    | The ID of the %instance% plugin         |
+| `version` | The version of the %instance% plugin    |
 | `rules`   | The inspections provided by the plugin |
 
 Each inspection from the plugin is described by a
@@ -207,9 +207,9 @@ with the following fields:
 
 ### invocations
 
-The `invocations` array contains a single element describing the %product%
+The `invocations` array contains a single element describing the %instance%
 [`invocation`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317567),
-telling whether %product% ran successfully or not.
+telling whether %instance% ran successfully or not.
 
 ```json
 {
@@ -245,7 +245,7 @@ The possible values for `exitCode` are:
 
 Here is the description of the other fields from the `invocations` object:
 
-The `toolExecutionNotifications` field contains notifications generated during a %product% run, such as a reached
+The `toolExecutionNotifications` field contains notifications generated during a %instance% run, such as a reached
 [threshold](quality-gate.topic).
 
 <note>
@@ -306,7 +306,7 @@ The `vcsType` property always has the value `Git`.
 ### results
 
 The `results` array describes the problems detected during inspection.
-Each problem detected by %product% is described by a separate
+Each problem detected by %instance% is described by a separate
 [`result`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317638) object.
 
 ```json
@@ -456,7 +456,7 @@ contains the following fields:
 | `charOffset`     | The number of UTF-16 code units between the beginning of the file and the beginning of the region                                                                                                        |
 | `charLength`     | The length of the region, measured in UTF-16 code units                                                                                                                                                  |
 | `snippet`        | The [`artifactContent`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317422) object containing the `text` field with the value equal to the text of the specified region |
-| `sourceLanguage` | Programming language of the inspected snippet. Used for highlighting in the user interface of %product%                                                                                                  |
+| `sourceLanguage` | Programming language of the inspected snippet. Used for highlighting in the user interface of %instance%                                                                                                  |
 
 #### The logicalLocations object
 
@@ -504,12 +504,12 @@ The `automationDetails` object contains the following fields:
 |--------------|----------------------------------------------------------------------------------------------------------------------|
 | `id`         | User-readable string, unique per report                                                                              |
 | `guid`       | Unique machine-readable report ID                                                                                    |
-| `properties` | Additional information about the run, for %product%, it contains the URL of the CI/CD build that produced the report |
+| `properties` | Additional information about the run, for %instance%, it contains the URL of the CI/CD build that produced the report |
 
 ### newlineSequences
 
 The [`newlineSequences`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317510) array
-contains unique strings, each of which specifies a character sequence that %product% treated as a line break during a run.
+contains unique strings, each of which specifies a character sequence that %instance% treated as a line break during a run.
 
 ```json
 {
@@ -523,7 +523,7 @@ contains unique strings, each of which specifies a character sequence that %prod
 ### properties
 
 In addition to the inspections configured in the inspection profile,
-%product% runs a few extra inspections for sanity-checking the project configuration.
+%instance% runs a few extra inspections for sanity-checking the project configuration.
 If these extra inspections find any problems, the project configuration is probably wrong.
 The results of these extra inspections are recorded in the `qodana.sanity.results` property in the same format as the
 regular [`result`](#results) objects.

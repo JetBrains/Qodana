@@ -17,7 +17,7 @@ page of the JetBrains website.
 This section enumerates the technologies and features that are available for each license.
 
 All technologies and features mentioned in the Ultimate and Ultimate Plus columns are available for both the trial and 
-full versions of the respective %product% license type.
+full versions of the respective %instance% license type.
 
 ### Programming languages
 
@@ -167,7 +167,7 @@ only offers a limited period for [data storage](#pricing-data-storage) in Qodana
 The trial versions of the Ultimate or Ultimate Plus licenses are limited by a 60-day trial period. After the trial 
 license expires, you'll have to purchase either the Ultimate or the Ultimate Plus license to continue using Qodana.
 
-You can study the [%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) on the JetBrains website. 
+You can study the [%instance% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) on the JetBrains website. 
 
  ## Frequently asked questions
 
@@ -187,7 +187,7 @@ page for payment details. After the payment, you will be redirected to the [onbo
 Qodana Cloud.  
 
 2. During the onboarding stage on the Qodana Cloud website, you’ll generate a public key that will be 
-identified by %product%, as well as a project token for uploading %product% reports to your first project.
+identified by %instance%, as well as a project token for uploading %instance% reports to your first project.
 Although the Community license does not require a Qodana Cloud account, it will be more convenient to use Qodana Cloud
 in this case too.
 
@@ -212,22 +212,22 @@ licenses will expire, which means users will have to switch to a trial license.
 
 A trial license is a time-limited version of either the Ultimate or the Ultimate Plus license. Each trial license 
 duration is limited to 60 days, after which this type of license is no longer valid and cannot be used further. To 
-continue using %product%, you’ll have to buy a full version of your license.
+continue using %instance%, you’ll have to buy a full version of your license.
 
-### What are %product% linters and Qodana Cloud designed for?
+### What are %instance% linters and Qodana Cloud designed for?
 
-Both %product% linters and Qodana Cloud are essential parts of the product named %product%. You can inspect your codebase
-using %product% linters, and you can use Qodana Cloud for managing your projects and licenses, as well as collecting
-%product% reports in a single place. For more details, see the [](cloud-use-cases.topic) page of the Qodana Cloud
+Both %instance% linters and Qodana Cloud are essential parts of the product named %instance%. You can inspect your codebase
+using %instance% linters, and you can use Qodana Cloud for managing your projects and licenses, as well as collecting
+%instance% reports in a single place. For more details, see the [](cloud-use-cases.topic) page of the Qodana Cloud
 documentation.
 
-### Can I use %product% linters without creating a Qodana Cloud account?
+### Can I use %instance% linters without creating a Qodana Cloud account?
 
 If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account at Qodana Cloud and accomplish
 the [onboarding](cloud-onboarding.md) stage. For more details, see [the first question](#faq-start-using-qodana) in
 this section.
 
-You can run %product% linters available under the Community license without using Qodana Cloud, but there are no obstacles
+You can run %instance% linters available under the Community license without using Qodana Cloud, but there are no obstacles
 to using Qodana Cloud in this case. 
 
 ### Do I need to provide payment details for a trial license?
@@ -264,16 +264,16 @@ be recalculated for 20 (twenty) contributors. At the end of the second month, th
 again based on the actual number of active contributors found within that month.
 
 For more details, see the **Fees and Payments** section of the 
-[%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/).
+[%instance% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/).
 
 ### What is the minimum number of contributors I can buy the license for?
 
-You can buy a %product% license for 3 (three) or more contributors.
+You can buy a %instance% license for 3 (three) or more contributors.
 
 ### What do I need to know about subscription billing?
 
 Here is the billing description taken from the 
-[%product% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/): 
+[%instance% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/): 
 
 **Monthly Subscriptions** – At the beginning of each Subscription Period, You will specify the expected number of 
 Active Contributors (3 or more). At the end of the Subscription Period, You will be charged Subscription fees according 
@@ -322,6 +322,6 @@ Compared to the Ultimate license, the Ultimate Plus license provides the followi
 
 ### Which licenses are integrated into CI/CD pipelines?
 
-All %product% licenses support integration with the CI/CD solutions described in the [](ci.md) section.
+All %instance% licenses support integration with the CI/CD solutions described in the [](ci.md) section.
 
 

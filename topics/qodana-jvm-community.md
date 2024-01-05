@@ -67,7 +67,7 @@
 
 ### Analyze a project locally
 
-<note>Before running %product%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
+<note>Before running %instance%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
 
 <include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/>
 

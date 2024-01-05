@@ -1,6 +1,6 @@
 [//]: # (title: Inspection report)
 
-%product% lets you study inspection reports in an interactive and user-friendly form either 
+%instance% lets you study inspection reports in an interactive and user-friendly form either 
 [locally](html-report.md) or in [Qodana Cloud](cloud-overview-reports.topic).
 
 <img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Qodana report UI overview" width="706" border-effect="line"/>
@@ -9,7 +9,7 @@ Each report contains the following tabs:
 
 * **[Actual problems](#ui-overview-actual-problems)** exposes the problems that Qodana detected during the latest inspection 
 * **[Baseline](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.topic) and were not fixed since then
-* **[Configuration](#ui-overview-configuration)** lets you configure %product% for future use
+* **[Configuration](#ui-overview-configuration)** lets you configure %instance% for future use
 * **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.topic) results and shows the dependency licenses that are incompatible with the project license 
 
 The upper-right corner of the report shows [code coverage](code-coverage.md) inspection results.

@@ -6,7 +6,7 @@
 <var name="java-glob" value="https://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-"/>
 
 Inspection profiles let you configure the inspections, the scope of files that these inspections analyze, 
-and inspection severity settings. %product% uses inspection profiles to know how and what to inspect in a codebase.
+and inspection severity settings. %instance% uses inspection profiles to know how and what to inspect in a codebase.
 
 You can employ profiles either using CLI or configuring the `qodana.yaml` file as shown in the [](#Set+up+a+profile) section.
 
@@ -28,7 +28,7 @@ If you want a fresh start, you have two options:
 
 1. Use Qodana in the default mode to execute the [three-phase analysis](#three-phase-analysis). You do not need to 
 create the [`qodana.yaml`](qodana-yaml.md) file in this case, but you can add it later to amend the set of inspections.
-2. Run %product% using the `qodana.recommended` profile. In this case, you need to create the `qodana.yaml` file with a 
+2. Run %instance% using the `qodana.recommended` profile. In this case, you need to create the `qodana.yaml` file with a 
 reference to the [`qodana.recommended`](#Default+profiles) profile. This profile contains the 
 inspections for critical or severe issues in the codebase. This profile does not contain any style checks, and 
 non-critical folders, such as `tests`, are ignored.
@@ -60,11 +60,11 @@ profile:
     name: <name>
 ```
 
-The `--profile-name` CLI option lets you run %product% using either the
+The `--profile-name` CLI option lets you run %instance% using either the
 [default profiles](inspection-profiles.md#Default+profiles) or the profile name from the
 [custom profile](inspection-profiles.md#Custom+profiles).
 
-This command lets you override the default profile und run %product% using the
+This command lets you override the default profile und run %instance% using the
 [`qodana.recommended`](inspection-profiles.md#Default+profiles) profile:
 
 <tabs group="cli-settings">
@@ -86,7 +86,7 @@ This command lets you override the default profile und run %product% using the
     </tab>
 </tabs>
 
-If you need to run %product% with a custom profile, you can use its actual profile name. This command lets you bind a 
+If you need to run %instance% with a custom profile, you can use its actual profile name. This command lets you bind a 
 custom profile:
 
 <tabs group="cli-settings" filter="for-inspection-profiles">
@@ -123,7 +123,7 @@ You can use this with [custom profiles](#Custom+profiles).
 
 The `--profile-path` CLI option lets you override the path to the file containing the profile.
 
-This command lets you bind the file to the profile directory, and the `--profile-path` option tells %product% which 
+This command lets you bind the file to the profile directory, and the `--profile-path` option tells %instance% which 
 profile file to read:
 
 <tabs group="cli-settings">
@@ -151,5 +151,5 @@ profile file to read:
 
 You can configure inspection profiles using two formats: 
 
-* [YAML format](custom-profiles.md) is available starting from version 2023.2 of %product%
+* [YAML format](custom-profiles.md) is available starting from version 2023.2 of %instance%
 * [XML format](custom-xml-profiles.md) can be used as an alternative to YAML

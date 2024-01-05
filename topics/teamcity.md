@@ -40,7 +40,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    **Report ID** uniquely identifies the report to let you distinguish between multiple reports when several inspection steps are configured within a single build.
 
-   The **Forward reports to TeamCity tests** checkbox configures %product% report availability in 
+   The **Forward reports to TeamCity tests** checkbox configures %instance% report availability in 
    the [Test](https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab) tab of TeamCity UI. Using this 
    option, you can view codebase problems along with other problems detected. 
 
@@ -64,7 +64,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
 ### Configure the project token
 
-The [project token](project-token.md) is required by the paid %product% [linters](pricing.md#pricing-linters-licenses),
+The [project token](project-token.md) is required by the paid %instance% [linters](pricing.md#pricing-linters-licenses),
 and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:  
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
@@ -72,7 +72,7 @@ and is optional for using with the Community linters. You can see these sections
 
 To apply the generated project token, follow these steps:
 
-1. In the TeamCity UI, open the build step that will run %product%.
+1. In the TeamCity UI, open the build step that will run %instance%.
 2. In the **Cloud Token** field, insert the [Qodana Cloud token](cloud-projects.topic#cloud-manage-projects) value.
 
    <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>

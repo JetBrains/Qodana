@@ -6,7 +6,7 @@ cross-site scripting, path traversal, etc.
 
 The core goal of the taint analysis is to determine if unanticipated input can affect program execution in malicious ways.
 
-Taint analysis is supported only by the [Qodana for PHP](qodana-php.md) linter starting from version 2023.1 of %product%.
+Taint analysis is supported only by the [Qodana for PHP](qodana-php.md) linter starting from version 2023.1 of %instance%.
 This feature is available under the Ultimate Plus [license](pricing.md).
 
 ## How it works

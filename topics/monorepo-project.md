@@ -14,7 +14,7 @@ the `backend/` folder contains a Java project,
 the `frontend/` folder contains a JavaScript project,
 and the `.git/` folder contains VCS-related information.
 
-This section explains how to prepare the projects from this example monorepo so that %product% can inspect them using
+This section explains how to prepare the projects from this example monorepo so that %instance% can inspect them using
 either the [Docker images](docker-images.md) or the [Qodana Scan GitHub Action](github.md).
 
 ## Prepare your project
@@ -39,14 +39,14 @@ The alternative is to place each `qodana.yaml` in its own project directory,
 which reverses the above advantages and disadvantages.
 -->
 
-%product% provides several [linters](linters.md), and each linter can inspect a specific set of programming languages.
-Because there is no linter that can inspect Java and JavaScript at the same time, %product% needs to be run twice over
+%instance% provides several [linters](linters.md), and each linter can inspect a specific set of programming languages.
+Because there is no linter that can inspect Java and JavaScript at the same time, %instance% needs to be run twice over
 the repository, once for each project.
 
-To configure %product% for inspecting two projects, you need to create two separate [`qodana.yaml`](qodana-yaml.md) 
-files. %product% also expects `qodana.yaml` to be contained in the root folder. This means that before 
-running %product% on the project from the `backend/` folder, that project's `qodana.yaml` file needs to be copied to 
-the root folder. If you run %product% using [Docker](#Docker), you can copy files using the 
+To configure %instance% for inspecting two projects, you need to create two separate [`qodana.yaml`](qodana-yaml.md) 
+files. %instance% also expects `qodana.yaml` to be contained in the root folder. This means that before 
+running %instance% on the project from the `backend/` folder, that project's `qodana.yaml` file needs to be copied to 
+the root folder. If you run %instance% using [Docker](#Docker), you can copy files using the 
 [`bootstrap`](before-running-qodana.md) configuration option in `qodana.yaml`, for example:
 
 <!--
@@ -65,7 +65,7 @@ This means that the project's qodana.yaml cannot affect the linter to be chosen.
 bootstrap: cp qodana-backend.yaml qodana.yaml
 ```
 
-When %product% runs, it uses the `.git/` folder for linking detected problems to the corresponding
+When %instance% runs, it uses the `.git/` folder for linking detected problems to the corresponding
 source code in a Git repository, and for exploring inspection reports [from within your IDE](qodana-ide-plugin.md).
 <!--
 TODO: Clarify whether the "from within your IDE" part really depends on `.git/`
@@ -97,9 +97,9 @@ GitHub Actions.
 ### Docker
 
 You can inspect your monorepo in the `root/` folder using either [Docker](docker-images.md) or 
-[%product% CLI](https://github.com/JetBrains/qodana-cli).
+[%instance% CLI](https://github.com/JetBrains/qodana-cli).
 
-<note>You can use %product% CLI only with Azure and CircleCI.</note>
+<note>You can use %instance% CLI only with Azure and CircleCI.</note>
 
 <tabs>
     <tab id="monorepo-docker-image-tab" title="Docker">
@@ -137,7 +137,7 @@ You can inspect your monorepo in the `root/` folder using either [Docker](docker
 
 ### GitHub Actions
 
-You can use the [Qodana Scan](github.md) GitHub action for running %product% on GitHub. Here is the GitHub action
+You can use the [Qodana Scan](github.md) GitHub action for running %instance% on GitHub. Here is the GitHub action
 configuration for inspecting the monorepo:
 
 ```yaml

@@ -28,7 +28,7 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 ## Run custom commands
 
-Using the `bootstrap` option of `qodana.yaml`, %product% can perform actions before running inspections. 
+Using the `bootstrap` option of `qodana.yaml`, %instance% can perform actions before running inspections. 
 
 To install a specific package in the Qodana container using the `apt` tool, add this line to `qodana.yaml`:
 
@@ -139,11 +139,11 @@ script:
       <parameter>: <value>
 ```
 
-You can override the standard %product% behavior, which can be helpful in the case of the 
+You can override the standard %instance% behavior, which can be helpful in the case of the 
 [PHP version migration](php-language-upgrade.topic). To inspect your code from this perspective, you can run the 
 `php-migration` scenario.     
 
-By default, %product% employs the `default` scenario, which means the normal %product% run equivalent to this setting:
+By default, %instance% employs the `default` scenario, which means the normal %instance% run equivalent to this setting:
 
 ```yaml
 script:
@@ -209,7 +209,7 @@ php:
 
 ## Disable sanity checks
 
-By default, sanity checks are enabled in %product%. You can disable them using this snippet: 
+By default, sanity checks are enabled in %instance%. You can disable them using this snippet: 
 
 ```yaml
 disableSanityInspections: true
@@ -282,7 +282,7 @@ In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpa
 
 ### Custom dependencies
 
-Currently, the license audit with %product% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
+Currently, the license audit with %instance% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
 
 ```yaml
 customDependencies:
@@ -330,6 +330,6 @@ Plugin cache is stored in the `/data/cache/plugins` directory.
 To install third-party software required for your plugins, you can:
 
 * Use the [`bootstrap`](before-running-qodana.md) option
-* Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %product% `Dockerfile`
+* Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %instance% `Dockerfile`
 examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
 

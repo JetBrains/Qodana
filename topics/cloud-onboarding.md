@@ -1,6 +1,6 @@
 [//]: # (title: Onboarding)
 
-Onboarding is an essential step in preparing %product% for working with your project, which lets you: 
+Onboarding is an essential step in preparing %instance% for working with your project, which lets you: 
 
 - Connect your project repository to Qodana Cloud
 - Create a Qodana Cloud [organization](cloud-organizations.topic), a [team](cloud-teams.topic), and a [project](cloud-projects.topic)
@@ -48,9 +48,9 @@ that the project will be accessible for.</p>
 <img src="cloud-onboarding-step-3.png" dark-src="cloud-onboarding-step-3_dark.png" alt="The third step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>
 <step>
-<p>Open your project locally using the JetBrains IDE, or learn how to configure %product% for running in a CI/CD pipeline. 
+<p>Open your project locally using the JetBrains IDE, or learn how to configure %instance% for running in a CI/CD pipeline. 
 This step also contains the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> that you can 
-copy and use for <a href="cloud-forward-reports.topic">uploading %product% reports</a> to Qodana Cloud.</p>
+copy and use for <a href="cloud-forward-reports.topic">uploading %instance% reports</a> to Qodana Cloud.</p>
 
 <img src="cloud-onboarding-step-4.png" dark-src="cloud-onboarding-step-4_dark.png" alt="The fourth step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>

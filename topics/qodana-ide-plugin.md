@@ -1,6 +1,6 @@
 [//]: # (title: JetBrains IDEs)
 
-Starting from version 2022.3, you can use [%product%](about-qodana.md) to inspect your codebase for problems and use
+Starting from version 2022.3, you can use [%instance%](about-qodana.md) to inspect your codebase for problems and use
 the recommendations to eliminate them using JetBrains IDEs installed via 
 [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/) such as IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, 
 PyCharm, and Rider.
@@ -11,26 +11,26 @@ less functional compared to version 2022.3. </note>
 
 Using the IDE, you can:
 
-* [Run %product% locally](#ide-plugin-run-qodana)
-* [Configure %product% for running in a CI pipeline](#ide-plugin-cicd)
+* [Run %instance% locally](#ide-plugin-run-qodana)
+* [Configure %instance% for running in a CI pipeline](#ide-plugin-cicd)
 * [Connect to Qodana Cloud](#ide-plugin-connect-cloud)
 * [Open a report from local storage](#ide-plugin-local-report)
-* [Study %product% reports in your IDE](#ide-plugin-study-reports)
+* [Study %instance% reports in your IDE](#ide-plugin-study-reports)
 
 ## UI overview
 
-%product% functionality is available using the <ui-path>Tools | Qodana</ui-path> menu of your IDE.
+%instance% functionality is available using the <ui-path>Tools | Qodana</ui-path> menu of your IDE.
 
 <img src="ide-plugin-intro-menu.png" dark-src="ide-plugin-intro-menu_dark.png" width="706" alt="The Qodana menu" border-effect="line"/>
 
-You can also have access to %product% using the **Problems | Server-Side Analysis** tool window of your IDE.
+You can also have access to %instance% using the **Problems | Server-Side Analysis** tool window of your IDE.
 
 <img src="ide-plugin-intro-tool-window.png" dark-src="ide-plugin-intro-tool-window_dark.png" width="706" alt="The Server-Side Analysis tool window" border-effect="line"/>
 
-## Run %product% locally
+## Run %instance% locally
 {id="ide-plugin-run-qodana"}
 
-You can configure and run %product% locally using your IDE, and then forward inspection reports to 
+You can configure and run %instance% locally using your IDE, and then forward inspection reports to 
 [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
 <procedure>
@@ -49,7 +49,7 @@ In the <ui-path>Run Qodana</ui-path> dialog, click the <ui-path>Try locally</ui-
 
 In the upper part of the <ui-path>Run Qodana</ui-path> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.
 
-Under the text field, configure the options to make %product%:
+Under the text field, configure the options to make %instance%:
 
 * [Forward inspection results](cloud-forward-reports.topic) to Qodana Cloud using the [project token](cloud-projects.topic#cloud-manage-projects)
 * [Save `qodana.yaml`](qodana-yaml.md) in your project root
@@ -65,12 +65,12 @@ Click <ui-path>Run</ui-path> for inspecting your code.
 </step>
 </procedure>
 
-## Configure %product% for CI
+## Configure %instance% for CI
 {id="ide-plugin-cicd"}
 
-You can add %product% into CI pipelines using the configuration wizard.
+You can add %instance% into CI pipelines using the configuration wizard.
 
-<note>Depending on the %product% license, you will need to generate and use the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
+<note>Depending on the %instance% license, you will need to generate and use the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
 
 <procedure>
    <step>
@@ -85,7 +85,7 @@ You can add %product% into CI pipelines using the configuration wizard.
       <img src="ide-plugin-cicd-1.png" dark-src="ide-plugin-cicd-1_dark.png" width="706" alt="Second step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
    </step>
    <step>
-      <p>Select the CI solution you would like to configure %product% for, and study the instructions.</p>
+      <p>Select the CI solution you would like to configure %instance% for, and study the instructions.</p>
       <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="Third step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
    </step>
 </procedure>
@@ -93,7 +93,7 @@ You can add %product% into CI pipelines using the configuration wizard.
 ## Connect to Qodana Cloud
 {id="ide-plugin-connect-cloud"}
 
-You can connect your local project to a specific Qodana Cloud [project](cloud-projects.topic), get the latest %product% 
+You can connect your local project to a specific Qodana Cloud [project](cloud-projects.topic), get the latest %instance% 
 report, and overview it using the IDE.
 
 <procedure>
@@ -119,7 +119,7 @@ report, and overview it using the IDE.
 ## Open a local report
 {id="ide-plugin-local-report"}
 
-You can open and study [SARIF-formatted %product% reports](qodana-sarif-output.md) in your IDE. 
+You can open and study [SARIF-formatted %instance% reports](qodana-sarif-output.md) in your IDE. 
 
 <chunk id="ide-open-local-report">
 <procedure>
@@ -138,7 +138,7 @@ You can open and study [SARIF-formatted %product% reports](qodana-sarif-output.m
 ## Qodana report overview
 {id="ide-plugin-study-reports"}
 
-Using the **Server-Side Analysis** tool window of your IDE, you can view %product% reports and navigate to the code fragments 
+Using the **Server-Side Analysis** tool window of your IDE, you can view %instance% reports and navigate to the code fragments 
 containing such problems.
 
 <img src="ide-plugin-report-navigating.png" dark-src="ide-plugin-report-navigating_dark.png" width="706" alt="Navigating to problems in the IDE" animated="true" border-effect="line"/>

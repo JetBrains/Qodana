@@ -63,7 +63,7 @@ docker run \
 {prompt="$"}
 
 In this case, in the [`bootstrap`](before-running-qodana.md) section of the [`qodana.yaml`](qodana-yaml.md) file you can specify how to build 
-your project, or run the build in a pipeline before passing it to %product%.
+your project, or run the build in a pipeline before passing it to %instance%.
 
 ### Run the linter
 
@@ -77,7 +77,7 @@ docker run \
 ```
 {prompt="$"}
 
-Here,  the `QODANA_TOKEN` variable specifies the [project token](project-token.md). After %product% finishes inspecting
+Here,  the `QODANA_TOKEN` variable specifies the [project token](project-token.md). After %instance% finishes inspecting
 your code, you can open [Qodana Cloud](https://qodana.cloud) to see the inspection report.
 
 ## Next steps

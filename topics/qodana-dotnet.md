@@ -23,7 +23,7 @@ It brings all the smarts from Rider, which help you:
 C and C++ inspections of %linter% are limited by projects containing `.sln` solution files or `.csproj` project files.
 
 Starting from version 2023.3, the functionality of .NET Framework-based project analysis is available in the 
-[native mode](native-mode.md) of %product%.
+[native mode](native-mode.md) of %instance%.
 
 ## Supported technologies
 
@@ -127,14 +127,14 @@ For example, this command will install the required version of the SDK that is s
 
 ### Build the project
 
-Build the project before inspecting it using %product%. You can do it by using the [`bootstrap`](before-running-qodana.md)
+Build the project before inspecting it using %instance%. You can do it by using the [`bootstrap`](before-running-qodana.md)
 option of the [`qodana.yaml`](qodana-yaml.md) file contained in your project directory.
 
-### Configure %product%
+### Configure %instance%
 
-Starting from version 2023.3 of %product%, the native mode is the recommended method for running the %linter% linter. 
+Starting from version 2023.3 of %instance%, the native mode is the recommended method for running the %linter% linter. 
 We recommend running the native mode on the same machine where you build a project because this can guarantee
-that %product% has access to private NuGet feeds.
+that %instance% has access to private NuGet feeds.
 
 #### Specify a solution
 
@@ -143,7 +143,7 @@ that %product% has access to private NuGet feeds.
 #### Roslyn analyzers
 
 .NET projects have Roslyn analyzers as separate inspections, and you can configure them using the
-<code>EditorConfig</code> files. To disable them, you can [configure the %product% profile](custom-profiles.md) using 
+<code>EditorConfig</code> files. To disable them, you can [configure the %instance% profile](custom-profiles.md) using 
 the `qodana.yaml` file, for example: 
 
 ```yaml
@@ -180,7 +180,7 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
         </code>
         <p>Here, the <code>--ide</code> option downloads and employs the JetBrains IDE binary file.</p>
         <p>Alternatively, in the <code>qodana.yaml</code> file you can save the <code>ide: QDNET</code> configuration, 
-    and then run %product% using this command:</p>
+    and then run %instance% using this command:</p>
         <code style="block" lang="shell" prompt="$">
             qodana scan
         </code>
