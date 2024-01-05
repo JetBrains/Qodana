@@ -45,16 +45,14 @@
         <procedure>
                 <step>In your IDE, navigate to the <menupath>Problems</menupath> tool window. </step>
                 <step>In the <menupath>Problems</menupath> tool window, click the <menupath>Server-Side Analysis</menupath> tab.</step>
-                <step>On the <menupath>Server-Side Analysis</menupath> tab, click the <menupath>Start Qodana</menupath> button.</step>
-                <step>In the dialog that opens, click the <menupath>Try locally</menupath> button, and then click <menupath>Run</menupath>.</step>
+                <step>On the <menupath>Server-Side Analysis</menupath> tab, click the <menupath>Try locally</menupath> button.</step>
                 <step>
-                    <p>On the <menupath>Server-Side Analysis</menupath> tab, you can view inspection results. It
-                        also contains two links in the upper part of the tab.</p>
+                    On the <menupath>Server-Side Analysis</menupath> tab, you can view inspection results. It
+                        also contains two links in the upper part of the tab.
                     <img src="quickstart-run-in-ide-report-links.png" dark-src="quickstart-run-in-ide-report-links_dark.png" width="706" alt="Links on the Server-Side Analysis tab" border-effect="line"/>
         <tabs>
-            <tab title="Open Qodana report in browser" id="quickstart-open-report-in-browser">
-                <p>Open the inspection report in an <a href="html-report.md">intuitive and easy-to-use form</a>.</p>
-
+            <tab title="Open Qodana Cloud" id="quickstart-open-report-in-browser">
+                <p>Open the inspection report in an <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
                 <img src="quickstart-run-in-ide-report.png" dark-src="quickstart-run-in-ide-report_dark.png" width="706" alt="Qodana report" border-effect="line"/>
             </tab>
             <tab title="Add Qodana to CI/CD pipeline" id="quickstart-add-qodana-to-cicd">
@@ -93,6 +91,10 @@
                                 <code lang="shell" style="block" prompt="$">
                                     curl -fsSL https://jb.gg/qodana-cli/install | bash
                                 </code>
+                                <p>You can also install %product% using <a href="https://go.dev/doc/install">Go</a>:</p>
+                                <code style="block" lang="shell" prompt="$">
+                                    go install github.com/JetBrains/qodana-cli@latest
+                                </code>
                             </tab>
                             <tab title="Windows">
                                 <p>Install with <a href="https://scoop.sh/">Scoop</a>:</p>
@@ -100,9 +102,7 @@
                                     scoop bucket add jetbrains https://github.com/JetBrains/scoop-utils
                                     scoop install qodana
                                 </code>
-                            </tab>
-                            <tab title="Other">
-                                <p>Install with <a href="https://go.dev/doc/install">Go</a>:</p>
+                                <p>You can also install %product% using <a href="https://go.dev/doc/install">Go</a>:</p>
                                 <code style="block" lang="shell" prompt="$">
                                     go install github.com/JetBrains/qodana-cli@latest
                                 </code>
@@ -110,20 +110,15 @@
                         </tabs>
                     </step>
                     <step>
-                        <p>In the project root directory, run this command:</p>
-                        <code style="block" lang="shell" prompt="$">qodana init</code>
-                        <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
-                            all necessary configuration options.</p>
-                    </step>
-                    <step>
-                        <p>In the project root directory, run this command to inspect your code:</p>
+                        <p>In the project root directory, declare the <code>QODANA_TOKEN</code> variable containing the project
+                            token described in the <a anchor="quickstart-prerequisites">prerequisites</a>:</p>
                         <code style="block" lang="shell" prompt="$">
-                            qodana scan \
-                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               --show-report
+                            QODANA_TOKEN="&lt;cloud-project-token&gt;"
                         </code>
-                        <p>Here, the <code>QODANA_TOKEN</code> variable contains the project token described in the
-                            <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
+                        <p>Now you can run %product%:</p>
+                        <code style="block" lang="shell" prompt="$">
+                            qodana scan
+                        </code>
                     </step>
                 </procedure>
             </tab>
