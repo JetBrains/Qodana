@@ -122,12 +122,12 @@
 
     </chapter>
 
-    <chapter title="Run %feature%" id="license-audit-running-feature">
+    <chapter title="Run license audit" id="license-audit-running-feature">
 
             <note>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">inspection scopes</a>, make sure that
             the file containing the build configuration is included in the scope.</note>
 
-            <p>To run %feature%, enable the
+            <p>To run the license audit feature, enable the
                 <a href="qodana-yaml.md" anchor="configure-license-audit"><code>CheckDependencyLicenses</code></a>
                 inspection. </p>
 

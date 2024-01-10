@@ -16,7 +16,8 @@
             <li><a href="ci.md">CI pipelines</a></li>
             <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a>, the
                 <a href="https://github.com/JetBrains/qodana-cli">%product% CLI</a> tool, or available
-                <a href="docker-images.md">Docker images</a> </li>
+                <a href="docker-images.md">Docker images</a></li>
+            <li><a href="native-mode.md">Native mode</a> available for the <a href="qodana-dotnet.md"/> linter</li>
         </list>
     </chapter>
 
