@@ -27,7 +27,7 @@ in your build pipelines any further.
 You can also provide %product% with a pre-built project, or specify the build steps in your CI/CD pipeline. In this 
 case, in your repository create the empty `qodana.yaml` file to eliminate warnings related to project building.
 
-In your operating system, save the `QODANA_CLOUD` environment variable containing the %product% Cloud
+In your operating system, save the `QODANA_TOKEN` environment variable containing the %product% Cloud
 [project token](project-token.md).
 
 [Install Qodana CLI](Quick-start.xml#quickstart-run-using-cli) on the machine where you plan to run %product%.
