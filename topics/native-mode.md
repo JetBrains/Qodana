@@ -12,8 +12,7 @@ credentials, and resolve dependencies.
 ## Before you start
 
 <note>The native mode is incompatible with several Docker image-related options like <code>-l, --linter</code>, 
-<code>-e, --env</code>, and <code>-v, --volume</code>. Besides that, you cannot use the <code>QODANA_TOKEN</code> Docker 
-environment variable.</note>
+<code>-e, --env</code>, and <code>-v, --volume</code>. </note>
 
 Make sure that you have a proper version of the .NET SDK and all required dependencies installed on your machine.
 
@@ -27,7 +26,7 @@ in your build pipelines any further.
 You can also provide %product% with a pre-built project, or specify the build steps in your CI/CD pipeline. In this 
 case, in your repository create the empty `qodana.yaml` file to eliminate warnings related to project building.
 
-In your operating system, save the `QODANA_CLOUD` environment variable containing the %product% Cloud
+In your operating system, save the `QODANA_TOKEN` environment variable containing the %product% Cloud
 [project token](project-token.md).
 
 [Install Qodana CLI](Quick-start.xml#quickstart-run-using-cli) on the machine where you plan to run %product%.
