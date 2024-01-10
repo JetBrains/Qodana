@@ -1,131 +1,158 @@
-<?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE instance-profile
-		SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
-<instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="release">
-	<!-- Getting started section -->
-	<toc-element accepts-web-file-names="welcome.html" topic="getting-started.topic">
-		<toc-element topic="about-qodana.md"/>
-		<toc-element topic="pricing.md"/>
-		<toc-element topic="Quick-start.topic"/>
-		<toc-element topic="faq.topic"/>
-		<toc-element show-structure-depth="3" accepts-web-file-names="new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html" topic="new-in-2023-3.md"/>
-		<toc-element topic="components.topic">
-			<toc-element topic="static-analysis.topic"/>
-			<toc-element accepts-web-file-names="supported-technologies.html" topic="linters.md">
-				<toc-element topic="qodana-jvm.md"/>
-				<toc-element topic="qodana-jvm-community.md"/>
-				<toc-element topic="qodana-jvm-android.md"/>
-				<toc-element topic="qodana-php.md"/>
-				<toc-element topic="qodana-python.md"/>
-				<toc-element topic="qodana-python-community.md"/>
-				<toc-element topic="qodana-js.md"/>
-				<toc-element topic="qodana-go.md"/>
-				<toc-element topic="qodana-dotnet.md"/>
-				<toc-element topic="qodana-dotnet-community.md"/>
-			</toc-element>
-			<toc-element topic="code-inspections.topic"/>
-			<toc-element topic="project-token.md"/>
-			<toc-element topic="contributors.md"/>
-		</toc-element>
-	</toc-element>
-	<!-- Deployment section -->
-	<toc-element toc-title="Deployment" topic="deploy-qodana.topic">
-		<toc-element topic="native-mode.md"/>
-		<toc-element topic="docker-images.md">
-			<toc-element topic="qodana-jvm-docker-readme.topic"/>
-			<toc-element topic="qodana-jvm-community-docker-readme.topic"/>
-			<toc-element topic="qodana-jvm-android-docker-readme.topic"/>
-			<toc-element topic="qodana-php-docker-readme.topic"/>
-			<toc-element topic="qodana-python-docker-readme.topic"/>
-			<toc-element topic="qodana-python-community-docker-readme.topic"/>
-			<toc-element topic="qodana-js-docker-readme.topic"/>
-			<toc-element topic="qodana-go-docker-readme.topic"/>
-			<toc-element topic="qodana-dotnet-docker-readme.topic"/>
-			<toc-element topic="qodana-cdnet-docker-readme.topic"/>
-		</toc-element>
-		<toc-element topic="qodana_gradle_plugin.md"/>
-		<toc-element topic="service.md"/>
-	</toc-element>
-	<toc-element toc-title="IDE integration">
-		<toc-element accepts-web-file-names="qodana_plugins.html" topic="qodana-ide-plugin.md"/>
-		<toc-element topic="vscode.md"/>
-	</toc-element>
-	<!-- Configuration section -->
-	<toc-element toc-title="Configuration" topic="configure-qodana.topic">
-		<toc-element topic="qodana-yaml.md"/>
-		<toc-element show-structure-depth="3" accepts-web-file-names="qodana-jvm-docker-techs.html,qodana-jvm-community-docker-techs.html,qodana-jvm-android-docker-techs.html,qodana-php-docker-techs.html,qodana-python-docker-techs.html,qodana-python-community-docker-techs.html,qodana-js-docker-techs.html,qodana-go-docker-techs.html,qodana-dotnet-docker-techs.html" topic="docker-image-configuration.topic"/>
-		<toc-element topic="inspection-profiles.md">
-			<toc-element show-structure-depth="3" topic="custom-profiles.md"/>
-			<toc-element topic="custom-xml-profiles.md"/>
-		</toc-element>
-		<toc-element topic="configure-jdk.md"/>
-	</toc-element>
-	<!-- Inspect your code section -->
-	<toc-element toc-title="Code inspection" topic="inspect-your-code.topic">
-		<toc-element topic="before-running-qodana.md"/>
-		<toc-element topic="monorepo-project.md"/>
-		<toc-element topic="results.md">
-			<toc-element topic="ui-overview.md"/>
-			<toc-element accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html" topic="qodana-inspection-output.md">
-				<toc-element accepts-web-file-names="qodana-intellij-docker-sarif.html" topic="qodana-sarif-output.md"/>
-			</toc-element>
-			<toc-element topic="html-report.md"/>
-		</toc-element>
-	</toc-element>
-	<!-- Features section -->
-	<toc-element topic="features.topic">
-		<toc-element accepts-web-file-names="qodana-baseline.html" topic="baseline.topic"/>
-		<toc-element topic="code-coverage.md"/>
-		<toc-element accepts-web-file-names="about-license-audit.html" topic="license-audit.topic"/>
-		<toc-element accepts-web-file-names="qodana-php-language-upgrade.html" topic="php-language-upgrade.topic"/>
-		<toc-element topic="quality-gate.topic"/>
-		<toc-element topic="quick-fix.md"/>
-		<toc-element topic="taint-analysis.md"/>
-		<toc-element topic="vulnerability-checker.md"/>
-	</toc-element>
-	<!-- Integration section -->
-	<toc-element topic="ci.md">
-		<toc-element topic="qodana-azure-pipelines.md"/>
-		<toc-element topic="bitbucket.md"/>
-		<toc-element topic="circleci.md"/>
-		<toc-element accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.html" topic="github.md"/>
-		<toc-element topic="gitlab.md"/>
-		<toc-element topic="jenkins.md"/>
-		<toc-element topic="space-automation.md"/>
-		<toc-element accepts-web-file-names="teamcity-plugins.html,teamcity-plugin-configuration.html,teamcity-plugin-quick-start.html" topic="teamcity.md"/>
-	</toc-element>
-	<!--Qodana Cloud section -->
-	<toc-element topic="cloud-about.topic">
-		<toc-element toc-title="Introduction"> <!-- WRS-3846: expand-mode="expand" -->
-			<toc-element toc-title="Use cases" topic="cloud-use-cases.topic"/>
-			<toc-element topic="cloud-get-access.topic"/>
-			<toc-element accepts-web-file-names="cloud-subscription-plan.html" topic="cloud-account-types.md"/>
-			<toc-element accepts-web-file-names="cloud-change-user-roles.html" topic="cloud-user-roles.topic"/>
-		</toc-element>
-		<toc-element toc-title="Running Qodana Cloud">
-			<toc-element topic="cloud-quickstart.md"/>
-			<toc-element topic="cloud-onboarding.md"/>
-			<toc-element topic="cloud-running-introduction.topic"/>
-			<toc-element topic="cloud-organizations.topic"/>
-			<toc-element topic="cloud-teams.topic"/>
-			<toc-element accepts-web-file-names="cloud-manage-projects.html" topic="cloud-projects.topic"/>
-			<toc-element toc-title="Reports"> <!-- WRS-3846: expand-mode="expand" -->
-				<toc-element topic="cloud-forward-reports.topic"/>
-				<toc-element accepts-web-file-names="cloud-project-reports.html,cloud-reports.html" topic="cloud-overview-reports.topic"/>
-			</toc-element>
-		</toc-element>
-		<toc-element toc-title="Configuration"> <!-- WRS-3846: expand-mode="expand" -->
-			<toc-element accepts-web-file-names="cloud-manage-members.html" topic="cloud-profile-settings.topic"/>
-		</toc-element>
-		<toc-element toc-title="Tutorials"> <!-- WRS-3846: expand-mode="expand" -->
-			<toc-element topic="cloud-configure-for-os-projects.md"/>
-		</toc-element>
-	</toc-element>
-	<!-- Extending Qodana section -->
-	<toc-element topic="extending-qodana.topic">
-		<toc-element topic="extending-qodana-plugins.topic"/>
-		<toc-element topic="extending-qodana-structural-search.topic"/>
-	</toc-element>
-	<!-- Troubleshooting section -->
-	<toc-element topic="troubleshooting.topic"/>
-</instance-profile>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE product-profile
+        SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
+
+<product-profile id="qd" name="Qodana" start-page="getting-started.xml" status="release">
+
+    <!-- Getting started section -->
+
+    <toc-element id="getting-started.xml" accepts-web-file-names="welcome.html">
+        <toc-element id="about-qodana.md"/>
+        <toc-element id="pricing.md"/>
+        <toc-element id="Quick-start.xml"/>
+        <toc-element id="faq.xml"/>
+        <toc-element id="new-in-2023-3.md" show-structure-depth="3" accepts-web-file-names="new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html"/>
+        <toc-element id="components.xml">
+            <toc-element id="static-analysis.xml"/>
+            <toc-element id="linters.md" accepts-web-file-names="supported-technologies.html">
+                <toc-element id="qodana-jvm.md"/>
+                <toc-element id="qodana-jvm-community.md"/>
+                <toc-element id="qodana-jvm-android.md"/>
+                <toc-element id="qodana-php.md"/>
+                <toc-element id="qodana-python.md"/>
+                <toc-element id="qodana-python-community.md"/>
+                <toc-element id="qodana-js.md"/>
+                <toc-element id="qodana-go.md"/>
+                <toc-element id="qodana-dotnet.md"/>
+                <toc-element id="qodana-dotnet-community.md"/>
+            </toc-element>
+            <toc-element id="code-inspections.xml"/>
+            <toc-element id="project-token.md"/>
+            <toc-element id="contributors.md"/>
+            <toc-element id="inspectopedia.md"/>
+        </toc-element>
+    </toc-element>
+
+    <!-- Deployment section -->
+
+    <toc-element id="deploy-qodana.xml" toc-title="Deployment">
+        <toc-element id="native-mode.md"/>
+        <toc-element id="docker-images.md">
+            <toc-element id="qodana-jvm-docker-readme.xml"/>
+            <toc-element id="qodana-jvm-community-docker-readme.xml"/>
+            <toc-element id="qodana-jvm-android-docker-readme.xml"/>
+            <toc-element id="qodana-php-docker-readme.xml"/>
+            <toc-element id="qodana-python-docker-readme.xml"/>
+            <toc-element id="qodana-python-community-docker-readme.xml"/>
+            <toc-element id="qodana-js-docker-readme.xml"/>
+            <toc-element id="qodana-go-docker-readme.xml"/>
+            <toc-element id="qodana-dotnet-docker-readme.xml"/>
+            <toc-element id="qodana-cdnet-docker-readme.xml"/>
+        </toc-element>
+        <toc-element id="qodana_gradle_plugin.md"/>
+        <toc-element id="service.md"/>
+    </toc-element>
+
+    <toc-element toc-title="IDE integration">
+        <toc-element id="qodana-ide-plugin.md" accepts-web-file-names="qodana_plugins.html"/>
+        <toc-element id="vscode.md"/>
+    </toc-element>
+
+
+    <!-- Configuration section -->
+
+    <toc-element id="configure-qodana.xml" toc-title="Configuration">
+        <toc-element id="qodana-yaml.md"/>
+        <toc-element id="docker-image-configuration.xml" show-structure-depth="3" accepts-web-file-names="qodana-jvm-docker-techs.html,qodana-jvm-community-docker-techs.html,qodana-jvm-android-docker-techs.html,qodana-php-docker-techs.html,qodana-python-docker-techs.html,qodana-python-community-docker-techs.html,qodana-js-docker-techs.html,qodana-go-docker-techs.html,qodana-dotnet-docker-techs.html"/>
+        <toc-element id="inspection-profiles.md">
+            <toc-element id="custom-profiles.md" show-structure-depth="3"/>
+            <toc-element id="custom-xml-profiles.md"/>
+        </toc-element>
+        <toc-element id="configure-jdk.md"/>
+    </toc-element>
+
+    <!-- Inspect your code section -->
+
+    <toc-element id="inspect-your-code.xml" toc-title="Code inspection">
+        <toc-element id="before-running-qodana.md"/>
+        <toc-element id="monorepo-project.md"/>
+        <toc-element id="results.md">
+            <toc-element id="ui-overview.md"/>
+            <toc-element id="qodana-inspection-output.md" accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html">
+                <toc-element id="qodana-sarif-output.md" accepts-web-file-names="qodana-intellij-docker-sarif.html"/>
+            </toc-element>
+            <toc-element id="html-report.md"/>
+        </toc-element>
+    </toc-element>
+
+    <!-- Features section -->
+
+    <toc-element id="features.xml">
+        <toc-element id="baseline.xml" accepts-web-file-names="qodana-baseline.html"/>
+        <toc-element id="code-coverage.md"/>
+        <toc-element id="license-audit.xml" accepts-web-file-names="about-license-audit.html"/>
+        <toc-element id="php-language-upgrade.xml" accepts-web-file-names="qodana-php-language-upgrade.html"/>
+        <toc-element id="quality-gate.xml"/>
+        <toc-element id="quick-fix.md"/>
+        <toc-element id="taint-analysis.md"/>
+        <toc-element id="vulnerability-checker.md"/>
+    </toc-element>
+
+    <!-- Integration section -->
+
+    <toc-element id="ci.md">
+        <toc-element id="qodana-azure-pipelines.md"/>
+        <toc-element id="bitbucket.md"/>
+        <toc-element id="circleci.md"/>
+        <toc-element id="github.md" accepts-web-file-names="github-overview.html,qodana-intellij-github-action.html,github-actions.html,qodana-github-action.html"/>
+        <toc-element id="gitlab.md"/>
+        <toc-element id="jenkins.md"/>
+        <toc-element id="space-automation.md"/>
+        <toc-element id="teamcity.md" accepts-web-file-names="teamcity-plugins.html,teamcity-plugin-configuration.html,teamcity-plugin-quick-start.html"/>
+    </toc-element>
+
+    <!--Qodana Cloud section -->
+
+    <toc-element id="cloud-about.xml" toc-title="Qodana Cloud">
+        <toc-element toc-title="Introduction" expand-mode="expand">
+            <toc-element id="cloud-use-cases.xml" toc-title="Use cases"/>
+            <toc-element id="cloud-get-access.xml"/>
+            <toc-element id="cloud-account-types.md" accepts-web-file-names="cloud-subscription-plan.html"/>
+            <toc-element id="cloud-user-roles.xml" accepts-web-file-names="cloud-change-user-roles.html"/>
+        </toc-element>
+
+        <toc-element toc-title="Running Qodana Cloud">
+            <toc-element id="cloud-quickstart.md"/>
+            <toc-element id="cloud-onboarding.md"/>
+            <toc-element id="cloud-running-introduction.xml"/>
+            <toc-element id="cloud-organizations.xml"/>
+            <toc-element id="cloud-teams.xml"/>
+            <toc-element id="cloud-projects.xml" accepts-web-file-names="cloud-manage-projects.html"/>
+
+            <toc-element toc-title="Reports" expand-mode="expand">
+                <toc-element id="cloud-forward-reports.xml"/>
+                <toc-element id="cloud-overview-reports.xml" accepts-web-file-names="cloud-project-reports.html,cloud-reports.html"/>
+            </toc-element>
+        </toc-element>
+
+        <toc-element toc-title="Configuration" expand-mode="expand">
+                <toc-element id="cloud-profile-settings.xml" accepts-web-file-names="cloud-manage-members.html"/>
+        </toc-element>
+
+        <toc-element toc-title="Tutorials" expand-mode="expand">
+            <toc-element id="cloud-configure-for-os-projects.md"/>
+        </toc-element>
+    </toc-element>
+
+    <!-- Extending Qodana section -->
+
+    <toc-element title="Extending Qodana" id="extending-qodana.xml">
+        <toc-element id="extending-qodana-plugins.xml"/>
+        <toc-element id="extending-qodana-structural-search.xml"/>
+    </toc-element>
+
+    <!-- Troubleshooting section -->
+
+    <toc-element title="Troubleshooting" id="troubleshooting.xml"/>
+
+</product-profile>
