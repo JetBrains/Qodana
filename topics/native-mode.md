@@ -12,8 +12,7 @@ credentials, and resolve dependencies.
 ## Before you start
 
 <note>The native mode is incompatible with several Docker image-related options like <code>-l, --linter</code>, 
-<code>-e, --env</code>, and <code>-v, --volume</code>. Besides that, you cannot use the <code>QODANA_TOKEN</code> Docker 
-environment variable.</note>
+<code>-e, --env</code>, and <code>-v, --volume</code>. </note>
 
 Make sure that you have a proper version of the .NET SDK and all required dependencies installed on your machine.
 
