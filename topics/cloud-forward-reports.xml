@@ -30,7 +30,8 @@
         shown in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation. This
         token will be invoked using the <code>QODANA_TOKEN</code> variable.</p>
 
-    <include src="lib_qd.xml" include-id="whitelist-of-ip-addresses" use-filter="for-ci"/>
+    <note>To enable and keep the communication with Qodana Cloud, you may need to whitelist the IP address range
+        54.76.32.8/32.</note>
 
     <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
