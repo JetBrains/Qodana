@@ -882,4 +882,13 @@
         </list>
     </chunk>
 
+    <chunk id="whitelist-of-ip-addresses">
+        <p filter="for-troubleshooting">To enable and keep the communication with Qodana Cloud, you may need to whitelist the IP address range
+            54.76.32.8/32.</p>
+
+        <note filter="for-ci">To enable and keep the communication with Qodana Cloud, you may need to whitelist the IP address range
+            54.76.32.8/32.</note>
+    </chunk>
+
+
 </topic>
