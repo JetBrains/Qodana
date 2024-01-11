@@ -30,6 +30,8 @@
         shown in the <a href="cloud-projects.xml" anchor="cloud-manage-projects"/> section of this documentation. This
         token will be invoked using the <code>QODANA_TOKEN</code> variable.</p>
 
+    <include src="lib_qd.xml" include-id="whitelist-of-ip-addresses" use-filter="for-ci"/>
+
     <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
         <p>You can forward %product% reports to Qodana Cloud using either Docker or Qodana CLI:</p>
