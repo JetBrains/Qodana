@@ -94,4 +94,4 @@ inspections:
 This use case showed how to configure inspections and inspection paths. To learn more about advanced configuration
 techniques, more configuration examples and creating configurations from scratch, you can visit the [](custom-profiles.md) section.
 
-
+Once you have configured %product%, you can run it using recommendations from the [](Quick-start.xml) section.

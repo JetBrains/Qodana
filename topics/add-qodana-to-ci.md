@@ -11,8 +11,8 @@
 <var name="JPullRequests" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#supporting-pull-requests" />
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
-Currently, %product% provides solutions for various CI systems; several of them are native, while for several others we 
-have developed the guides explaining how to run %product% Docker images as shown in this table: 
+Currently, %product% provides solutions for various CI systems; several of them are implemented as native solutions, while 
+for several others we have developed the guides explaining how to run %product% Docker images as shown in this table: 
 
 | Native solutions                | [Docker images](docker-images.md) |
 |---------------------------------|-----------------------------------|
@@ -36,3 +36,7 @@ Jenkins is a good example of the Docker image integration.
 
 <include src="jenkins.md" include-id="jenkins-basic-config"/>
 
+## What's next
+
+You can extend the existing CI configurations. For example, you can employ the [](quality-gate.xml) or [](baseline.xml)
+features. 

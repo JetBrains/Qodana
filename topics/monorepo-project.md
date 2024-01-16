@@ -52,7 +52,7 @@ Using Qodana CLI and Docker images, %product% needs to be run twice over the rep
 To configure %product% for inspecting two projects, you need to create two separate [`qodana.yaml`](qodana-yaml.md) 
 files. %product% also expects `qodana.yaml` to be contained in the root folder of the monorepo project. This means that 
 before running %product% on the project from the `backend/` folder, that project's `qodana.yaml` file needs to be copied to 
-the root folder. If you run %product% using [Docker](#Docker), you can copy files using the 
+the root folder. If you run %product% using [Docker](#Run+Qodana), you can copy files using the 
 [`bootstrap`](before-running-qodana.md) configuration option in `qodana.yaml`, for example:
 
 <!--
@@ -113,12 +113,12 @@ Qodana Cloud.
 The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project directory to inspect.</p>
         <code style="block" lang="shell" prompt="$">
             qodana scan \
-              -e QODANA_TOKEN="<cloud-project-token-for-backend-project>" \
+              -e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
               --source-directory backend
         </code>
         <code style="block" lang="shell" prompt="$">
             qodana scan \
-              -e QODANA_TOKEN="<cloud-project-token-for-frontend-project>" \
+              -e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
               --source-directory frontend
         </code>
     </tab>
@@ -128,19 +128,19 @@ The <a href="docker-image-configuration.xml" anchor="docker-config-reference-dir
         <code style="block" lang="shell" prompt="$">
             docker run \ 
               -v "$PWD":/data/project/ \
-              -e QODANA_TOKEN="<cloud-project-token-for-backend-project>" \
+              -e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
               jetbrains/qodana-jvm:latest \
               --source-directory backend
         </code>
         <code style="block" lang="shell" prompt="$">
             docker run \ 
               -v "$PWD":/data/project/ \
-              -e QODANA_TOKEN="<cloud-project-token-for-frontend-project>" \
+              -e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
               jetbrains/qodana-js:latest \
               --source-directory frontend
         </code>
     </tab>
-    <tab id="monorepo-cli-tab" title="GitHub Actions">
+    <tab id="monorepo-github-tab" title="GitHub Actions">
 <p>You can use the <a href="github.md">Qodana Scan</a> GitHub action for running %product% on GitHub as explained 
 in this procedure.</p>
 <procedure>
@@ -150,7 +150,8 @@ in this procedure.</p>
     </step>
     <step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
         <code>.github/workflows/code_quality.yml</code> file.</step>
-    <step><p>Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+    <step>
+        <p>Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
 <code style="block" xml:lang="yaml">
 name: Qodana
 on:
