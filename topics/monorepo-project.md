@@ -107,51 +107,51 @@ Qodana Cloud.
 ## Run Qodana
 
 <tabs>
-    <tab id="monorepo-cli-tab" title="Qodana CLI">
-        <note>You can use %product% CLI only with Azure and CircleCI.</note>
-        <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to specific project tokens created at Qodana Cloud.
+<tab id="monorepo-cli-tab" title="Qodana CLI">
+<note>You can use %product% CLI only with Azure and CircleCI.</note>
+<p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to specific project tokens created at Qodana Cloud.
 The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project directory to inspect.</p>
-        <code style="block" lang="shell" prompt="$">
-            qodana scan \
-              -e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
-              --source-directory backend
-        </code>
-        <code style="block" lang="shell" prompt="$">
-            qodana scan \
-              -e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
-              --source-directory frontend
-        </code>
-    </tab>
-    <tab id="monorepo-docker-image-tab" title="Docker">
-        <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to specific project tokens created at Qodana Cloud.
+<code style="block" lang="shell" prompt="$">
+qodana scan \
+&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
+&nbsp;&nbsp;--source-directory backend
+</code>
+<code style="block" lang="shell" prompt="$">
+qodana scan \
+&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
+&nbsp;&nbsp;--source-directory frontend
+</code>
+</tab>
+<tab id="monorepo-docker-image-tab" title="Docker">
+<p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to specific project tokens created at Qodana Cloud.
 The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project directory to inspect.</p>
-        <code style="block" lang="shell" prompt="$">
-            docker run \ 
-              -v "$PWD":/data/project/ \
-              -e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
-              jetbrains/qodana-jvm:latest \
-              --source-directory backend
-        </code>
-        <code style="block" lang="shell" prompt="$">
-            docker run \ 
-              -v "$PWD":/data/project/ \
-              -e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
-              jetbrains/qodana-js:latest \
-              --source-directory frontend
-        </code>
-    </tab>
-    <tab id="monorepo-github-tab" title="GitHub Actions">
+<code style="block" lang="shell" prompt="$">
+docker run \ 
+&nbsp;&nbsp;-v "$PWD":/data/project/ \
+&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
+&nbsp;&nbsp;jetbrains/qodana-jvm:latest \
+&nbsp;&nbsp;--source-directory backend
+</code>
+<code style="block" lang="shell" prompt="$">
+docker run \ 
+&nbsp;&nbsp;-v "$PWD":/data/project/ \
+&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
+&nbsp;&nbsp;jetbrains/qodana-js:latest \
+&nbsp;&nbsp;--source-directory frontend
+</code>
+</tab>
+<tab id="monorepo-github-tab" title="GitHub Actions">
 <p>You can use the <a href="github.md">Qodana Scan</a> GitHub action for running %product% on GitHub as explained 
 in this procedure.</p>
 <procedure>
-    <step>On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN_BACKEND</code> and
-    <code>QODANA_TOKEN_FRONTEND</code> <a href="%github-secret%">encrypted secrets</a> and save the project tokens 
-    <a anchor="Qodana+Cloud">generated</a> at Qodana Cloud as their values.
-    </step>
-    <step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
-        <code>.github/workflows/code_quality.yml</code> file.</step>
-    <step>
-        <p>Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+<step>On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN_BACKEND</code> and
+<code>QODANA_TOKEN_FRONTEND</code> <a href="%github-secret%">encrypted secrets</a> and save the project tokens 
+<a anchor="Qodana+Cloud">generated</a> at Qodana Cloud as their values.
+</step>
+<step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
+<code>.github/workflows/code_quality.yml</code> file.</step>
+<step>
+<p>Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
 <code style="block" xml:lang="yaml">
 name: Qodana
 on:
@@ -193,7 +193,7 @@ jobs:
           artifact-name: qodana-frontend
         env:
             QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_FRONTEND }}
-    </code>
+</code>
 </step>
 </procedure>
 </tab>

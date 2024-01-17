@@ -39,7 +39,7 @@ To inspect your Java codebase, depending on your %product% [license](pricing.md)
 | [](qodana-jvm-android.md)  | Android, Java, Kotlin, Groovy |
 
 </tab>
-<tab id="inspect-java-code-techs-pls" title="Markup languages">
+<tab id="inspect-java-code-techs-markup" title="Markup languages">
 
 | Linter name                | Supported languages                                                                       |
 |----------------------------|-------------------------------------------------------------------------------------------|
@@ -48,7 +48,7 @@ To inspect your Java codebase, depending on your %product% [license](pricing.md)
 | [](qodana-jvm-android.md)  | HTML, JSON and JSON5, RELAX NG, TOML, XML, XPath, XSLT, YAML                              |
 
 </tab>
-<tab id="inspect-java-code-techs-pls" title="Scripting languages">
+<tab id="inspect-java-code-techs-scripting" title="Scripting languages">
 
 | Linter name                | Supported languages                    |
 |----------------------------|----------------------------------------|
@@ -57,7 +57,7 @@ To inspect your Java codebase, depending on your %product% [license](pricing.md)
 | [](qodana-jvm-android.md)  | Shell script                           |
 
 </tab>
-<tab id="inspect-java-code-techs-pls" title="Databases and ORM">
+<tab id="inspect-java-code-techs-db" title="Databases and ORM">
 
 | Linter name                  | Supported technologies                                             |
 |------------------------------|--------------------------------------------------------------------|
@@ -66,7 +66,7 @@ To inspect your Java codebase, depending on your %product% [license](pricing.md)
 | [](qodana-jvm-android.md)    | None                                                               |
 
 </tab>
-<tab id="inspect-java-code-techs-pls" title="Build management">
+<tab id="inspect-java-code-techs-build" title="Build management">
 
 | Linter name                | Supported technologies |
 |----------------------------|------------------------|
@@ -75,7 +75,7 @@ To inspect your Java codebase, depending on your %product% [license](pricing.md)
 | [](qodana-jvm-android.md)  | Ant, Gradle, Maven     |
 
 </tab>
-<tab id="inspect-java-code-techs-pls" title="Frameworks and libraries">
+<tab id="inspect-java-code-techs-frameworks" title="Frameworks and libraries">
 
 | Linter name                   | Supported technologies                                                                              |
 |-------------------------------|-----------------------------------------------------------------------------------------------------|
