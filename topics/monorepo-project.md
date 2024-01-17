@@ -152,7 +152,7 @@ in this procedure.</p>
 <code>.github/workflows/code_quality.yml</code> file.</step>
 <step>
 <p>Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
-<code style="block" xml:lang="yaml">
+<code style="block" lang="yaml">
 name: Qodana
 on:
   workflow_dispatch:
@@ -167,7 +167,6 @@ jobs:
           fetch-depth: 0
       - name: 'Use qodana-backend config'
         run: cp ./qodana-backend.yaml ./qodana.yaml
-
       - name: 'Qodana Backend'
         uses: JetBrains/qodana-action@v2023.3
         with:
@@ -184,7 +183,6 @@ jobs:
           fetch-depth: 0
       - name: 'Use qodana-frontend config'
         run: cp ./qodana-frontend.yaml ./qodana.yaml
-
       - name: 'Qodana Frontend'
         uses: JetBrains/qodana-action@v2023.3
         with:
