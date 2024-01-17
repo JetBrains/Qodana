@@ -88,6 +88,7 @@ To inspect your Java codebase, depending on your %product% [license](pricing.md)
 </tab>
 </tabs>
 
+## Inspect your code
 
 Here are several configuration snippets showing how you can inspect Java code.
 
@@ -131,8 +132,8 @@ the `qodana-token` [global credentials](%JenkinsCred%). The project token is req
 [linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters.
 
 </tab>
-<tab id="inspect-python-code-local" title="Run locally">
-<include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="jvm-only,empty"/>
+<tab id="inspect-java-code-local" title="Local run">
+<include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="jvm-only,non-gs,empty"/>
 </tab>
 </tabs>
 

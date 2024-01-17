@@ -16,7 +16,7 @@ the `backend/` folder contains a Java project,
 the `frontend/` folder contains a JavaScript project,
 and the `.git/` folder contains VCS-related information.
 
-This section explains how to prepare the projects from this example monorepo so that %product% can inspect them using:
+This section explains how to prepare and inspect a monorepo using:
 
 * [Qodana CLI](https://github.com/JetBrains/qodana-cli)
 * [Docker images](docker-images.md) of %product%
@@ -44,16 +44,13 @@ The alternative is to place each `qodana.yaml` in its own project directory,
 which reverses the above advantages and disadvantages.
 -->
 
-%product% provides several [linters](linters.md), and each linter can inspect a specific set of programming languages.
-Using Qodana CLI and Docker images, %product% needs to be run twice over the repository, once for each project.
-
-### qodana.yaml file
+### The qodana.yaml file
 
 To configure %product% for inspecting two projects, you need to create two separate [`qodana.yaml`](qodana-yaml.md) 
 files. %product% also expects `qodana.yaml` to be contained in the root folder of the monorepo project. This means that 
 before running %product% on the project from the `backend/` folder, that project's `qodana.yaml` file needs to be copied to 
-the root folder. If you run %product% using [Docker](#Run+Qodana), you can copy files using the 
-[`bootstrap`](before-running-qodana.md) configuration option in `qodana.yaml`, for example:
+the root folder, the same for the `frontend/` folder. If you plan to run %product% using [Docker](#Run+Qodana), you can copy 
+files using the [`bootstrap`](before-running-qodana.md) configuration option in `qodana.yaml`, for example:
 
 <!--
 Implementation note: qodana.yaml is read by several programs:
@@ -70,12 +67,12 @@ This means that the project's qodana.yaml cannot affect the linter to be chosen.
 
 <tabs>
     <tab id="monorepo-yaml-backend-tab" title="The backend project">
-        <code style="block" lang="shell" prompt="$">
+        <code style="block" lang="yaml">
             bootstrap: cp qodana-backend.yaml qodana.yaml            
         </code>
     </tab>
     <tab id="monorepo-yaml-frontend-tab" title="The frontend project">
-        <code style="block" lang="shell" prompt="$">
+        <code style="block" lang="yaml">
             bootstrap: cp qodana-frontend.yaml qodana.yaml
         </code>
     </tab>
@@ -101,21 +98,25 @@ root/
 You can view inspection reports using [Qodana Cloud](https://qodana.cloud). On the Qodana Cloud website, create two 
 [projects](cloud-projects.xml) for storing inspection reports for the `frontend` and `backend` projects. 
 
-After you create the projects, you can use their [project tokens](project-token.md) to get project reports uploaded to
-Qodana Cloud.
+After you create the projects, you can use their [project tokens](project-token.md).
 
 ## Run Qodana
+
+Because each %product% [linter](linters.md) can inspect a specific set of programming languages, Qodana CLI and Docker 
+images of %product% need to be run twice over the monorepo repository, once for each project contained in it.
 
 <tabs>
 <tab id="monorepo-cli-tab" title="Qodana CLI">
 <note>You can use %product% CLI only with Azure and CircleCI.</note>
-<p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to specific project tokens created at Qodana Cloud.
-The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project directory to inspect.</p>
+<p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
+The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project folder to inspect.
+Here is the snippet for the <code>backend</code> project:</p>
 <code style="block" lang="shell" prompt="$">
 qodana scan \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
 &nbsp;&nbsp;--source-directory backend
 </code>
+<p>Here is the snippet for the <code>frontend</code> project:</p>
 <code style="block" lang="shell" prompt="$">
 qodana scan \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
@@ -123,8 +124,9 @@ qodana scan \
 </code>
 </tab>
 <tab id="monorepo-docker-image-tab" title="Docker">
-<p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to specific project tokens created at Qodana Cloud.
-The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project directory to inspect.</p>
+<p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
+The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> 
+option specifies which project directory to inspect. Here is the snippet for the <code>backend</code> project:</p>
 <code style="block" lang="shell" prompt="$">
 docker run \ 
 &nbsp;&nbsp;-v "$PWD":/data/project/ \
@@ -132,6 +134,7 @@ docker run \
 &nbsp;&nbsp;jetbrains/qodana-jvm:latest \
 &nbsp;&nbsp;--source-directory backend
 </code>
+<p>Here is the snippet for the <code>frontend</code> project:</p>
 <code style="block" lang="shell" prompt="$">
 docker run \ 
 &nbsp;&nbsp;-v "$PWD":/data/project/ \
@@ -152,7 +155,8 @@ in this procedure.</p>
 <code>.github/workflows/code_quality.yml</code> file.</step>
 <step>
 <p>Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
-<code style="block" lang="yaml">
+
+```yaml
 name: Qodana
 on:
   workflow_dispatch:
@@ -191,13 +195,13 @@ jobs:
           artifact-name: qodana-frontend
         env:
             QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_FRONTEND }}
-</code>
+```
 </step>
 </procedure>
 </tab>
 </tabs>
 
-### Inspection result overview
+## View inspection results
 
 Congratulations, now you can navigate to [Qodana Cloud](https://qodana.cloud) and study inspection results for each project 
 inside your monorepo project.

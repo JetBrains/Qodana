@@ -35,12 +35,12 @@
 
     <toc-element toc-title="Use cases">
         <toc-element id="monorepo-project.md"/>
+        <toc-element id="override-a-profile.md"/>
         <toc-element id="add-qodana-to-ci.md"/>
         <toc-element id="cloud-configure-for-os-projects.md"/>
         <toc-element id="create-quality-gate.md"/>
         <toc-element id="inspect-java-code.md"/>
         <toc-element id="inspect-python-code.md"/>
-        <toc-element id="override-a-profile.md"/>
         <!-- exclude a folder is missing -->
     </toc-element>
 

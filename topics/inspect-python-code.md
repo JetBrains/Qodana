@@ -73,7 +73,7 @@ the `qodana-token` [global credentials](%JenkinsCred%). The project token is req
 [linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters.
 
 </tab>
-<tab id="inspect-python-code-local" title="Run locally">
+<tab id="inspect-python-code-local" title="Local run">
 <include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/>
 </tab>
 </tabs>

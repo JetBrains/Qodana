@@ -1,4 +1,4 @@
-[//]: # (title: Add Qodana to your CI)
+[//]: # (title: Add Qodana to your CI pipeline)
 
 <var name="github" value="https://github.com/marketplace/actions/qodana-scan"/>
 <var name="JenkinsLink" value="https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
@@ -11,8 +11,8 @@
 <var name="JPullRequests" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#supporting-pull-requests" />
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
-Currently, %product% provides solutions for various CI systems; several of them are implemented as native solutions, while 
-for several others we have developed the guides explaining how to run %product% Docker images as shown in this table: 
+%product% provides solutions for various CI systems; several of them are implemented as native solutions, while 
+for several others you can run Docker images of %product%, see the table below: 
 
 | Native solutions                | [Docker images](docker-images.md) |
 |---------------------------------|-----------------------------------|
@@ -21,7 +21,7 @@ for several others we have developed the guides explaining how to run %product% 
 | [](github.md)                   | [](jenkins.md)                    |
 | [](teamcity.md)                 | [](space-automation.md)           |
 
-This use case explains how you can configure %product% for running in GitHub Actions and Jenkins pipelines. The complete 
+This section shows how you can configure %product% for GitHub Actions and Jenkins pipelines. The complete 
 guides for other CI systems including basic configuration examples are available in the [](ci.md) section. 
 
 ## GitHub Actions
@@ -30,7 +30,7 @@ guides for other CI systems including basic configuration examples are available
 
 ## Jenkins
 
-Jenkins is a good example of the Docker image integration. 
+Jenkins is a good example of how you can use Docker images of %product%. 
 
 <include src="jenkins.md" include-id="jenkins-prepare-project"/>
 
@@ -38,5 +38,5 @@ Jenkins is a good example of the Docker image integration.
 
 ## What's next
 
-You can extend the existing CI configurations. For example, you can employ the [](quality-gate.xml) or [](baseline.xml)
-features. 
+You can extend the existing CI configurations. For example, you can employ the [quality gate](quality-gate.xml) or 
+[baseline](baseline.xml) features. 
