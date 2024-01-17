@@ -1,8 +1,8 @@
 [//]: # (title: Prepare your project)
 
-When %instance% runs on your project, it tries to figure out the build system and project structure by itself. 
-If %instance% cannot figure out the project structure, it will run the inspections nevertheless, but some inspections may 
-report that they cannot find classes, packages, files or cannot resolve references. In these cases, %instance% needs a 
+When %product% runs on your project, it tries to figure out the build system and project structure by itself. 
+If %product% cannot figure out the project structure, it will run the inspections nevertheless, but some inspections may 
+report that they cannot find classes, packages, files or cannot resolve references. In these cases, %product% needs a 
 bit of help. Typical actions to prepare the project for Qodana are:
 
 * Install third-party packages or libraries
@@ -35,33 +35,8 @@ set -eu
 #npm install
 ```
 
-Run the script within a %instance% Docker container using the `bootstrap` option:
+Run the script within a %product% Docker container using the `bootstrap` option:
 
 ```shell
 bootstrap: sh ./prepare-qodana.sh
 ```
-
-## Examples
-
-This configuration tells %instance% to install a specific version of Node.JS and project dependencies:
-
-```yaml
-bootstrap: |+
-  set -eu
-   
-  # Sets the node version to be used
-  nodenv install 18.14.2
-  nodenv global 18.14.2
-  npm install -g yarn
-  
-  # Install project dependencies
-  yarn install --frozen-lockfile
-```
-
-Here, the Node.JS version can be retrieved from either an environment variable or `package.json`.
-
-<note>
-If you run the Dockerized version of %instance%, you will need to specify the <code>-u 0</code> Docker 
-<a href="docker-image-configuration.topic" anchor="docker-config-reference-docker-environment-run-non-root">option</a> 
-because <code>nodenv</code> requires root privileges.
-</note>
