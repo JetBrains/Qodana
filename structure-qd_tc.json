@@ -1,0 +1,23 @@
+{
+    "depends_on_trees": [],
+    "module_topics": [
+        {
+            "id": "qodana-teamcity-plugin.md",
+            "origin": "qodana",
+            "location": null
+        },
+        {
+            "id": "teamcity-plugin-quick-start.md",
+            "origin": "qodana",
+            "location": null
+        },
+        {
+            "id": "teamcity-plugin-configuration.md",
+            "origin": "qodana",
+            "location": null
+        }
+    ],
+    "included_topics": [],
+    "xml_topics": [],
+    "markdown_topics": []
+}

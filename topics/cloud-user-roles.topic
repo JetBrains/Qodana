@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="User roles" id="cloud-user-roles">
+
+    <p>The role assigned to your <a href="https://qodana.cloud">Qodana Cloud</a> account will depend on the case.</p>
+
+    <table>
+        <tr>
+            <td>Case</td>
+            <td>Role assigned</td>
+            <td>Permissions</td>
+        </tr>
+        <tr>
+            <td>You do not have an account yet</td>
+            <td>Viewer</td>
+            <td>View organizations, teams and their users, projects and their reports</td>
+        </tr>
+        <tr>
+            <td>You joined an existing organization</td>
+            <td>Editor or Administrator</td>
+            <td>Viewer's permissions, as well as creating teams and projects.</td>
+        </tr>
+        <tr>
+            <td>You created an organization</td>
+            <td>Administrator</td>
+            <td>Manage organizations, teams, their users, projects and project reports. Complete deletion of all these
+                entities from Qodana Cloud</td>
+        </tr>
+
+
+    </table>
+
+
+
+
+
+</topic>
