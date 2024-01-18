@@ -79,7 +79,8 @@ To apply the generated project token, follow these steps:
 1. In the TeamCity UI, open the build step that will run %instance%.
 2. In the **Cloud Token** field, insert the [Qodana Cloud token](cloud-projects.topic#cloud-manage-projects) value.
 
-   <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
+
+<img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
 
 ### (Optional) Add a configuration script
 {id="add-script"}
@@ -92,7 +93,7 @@ this file to the working directory manually. Alternatively, you can write a scri
 <img src="teamcity-plugin-1.png" alt="Navigating to the build configuration" width="706" border-effect="line"/>
 
 2. On the build configuration page, select **Build Steps** from the **Edit configuration** list.
-
+ 
 <img src="teamcity-plugin-2.png" alt="Navigating to the step configuration" width="706" border-effect="line"/>
 
 3. On the **Build steps** page, click the **Add build step** button.

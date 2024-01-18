@@ -4,104 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ad40852-bba8-4864-8342-2a723d1505d4" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/cfg/build-script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/build-script.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cfg/buildprofiles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/buildprofiles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.ihp" beforeDir="false" afterPath="$PROJECT_DIR$/project.ihp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd_tc.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd_tc.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redirection-rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/redirection-rules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Quick-start.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/about-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/about-qodana.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/baseline.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/before-running-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/before-running-qodana.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/bitbucket.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/bitbucket.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/circleci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/circleci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-about.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-forward-reports.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-get-access.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-onboarding.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-onboarding.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-organizations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-overview-reports.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-profile-settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-projects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-quickstart.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-quickstart.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-running-introduction.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-teams.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-use-cases.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-coverage.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-coverage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-inspections.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/components.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/configure-jdk.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/configure-jdk.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/configure-qodana.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/contributors.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/contributors.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom-xml-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom-xml-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/deploy-qodana.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-images.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-images.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-plugins.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-structural-search.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/faq.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/features.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/getting-started.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/github.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/github.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gitlab.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/gitlab.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/html-report.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/html-report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspect-your-code.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspection-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspection-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jenkins.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jenkins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/license-audit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/monorepo-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/monorepo-project.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native-mode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/native-mode.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/new-in-2023-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2023-3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/php-language-upgrade.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/project-token.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/project-token.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-cdnet-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet-community.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-go-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-go.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-go.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-inspection-output.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-inspection-output.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-js-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-js.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-js.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm-android-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm-android.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-jvm-android.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm-community-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-jvm-community.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-jvm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-php-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-php.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-php.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-python-community-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-python-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-python-community.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-python-docker-readme.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-sarif-output.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-sarif-output.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana_gradle_plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana_gradle_plugin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quality-gate.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quick-fix.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quick-fix.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/results.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/results.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/space-automation.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/space-automation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/static-analysis.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/teamcity.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/teamcity.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/troubleshooting.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ui-overview.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ui-overview.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/vscode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vscode.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/vulnerability-checker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vulnerability-checker.md" afterDir="false" />
-    </list>
+    <list default="true" id="0ad40852-bba8-4864-8342-2a723d1505d4" name="Changes" comment="initinal migration" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,33 +54,33 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2b8rDFqxFL66fYdfhjjetyQSkwE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.Enable generate summary features in internal mode": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "WRS-3839-migration-to-WRS-20240118",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.Enable generate summary features in internal mode&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;WRS-3839-migration-to-WRS-20240118&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -187,6 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705607425294</updated>
       <workItem from="1705607426313" duration="914000" />
+      <workItem from="1705608515203" duration="117000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -204,7 +108,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705607616644</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="initinal migration">
+      <option name="closed" value="true" />
+      <created>1705608532568</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705608532568</updated>
+    </task>
+    <task id="LOCAL-00004" summary="initinal migration add files">
+      <option name="closed" value="true" />
+      <created>1705608547512</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705608547512</updated>
+    </task>
+    <task id="LOCAL-00005" summary="initinal migration">
+      <option name="closed" value="true" />
+      <created>1705608625350</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705608625350</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +163,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="initinal migration add files" />
+    <MESSAGE value="initinal migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="initinal migration" />
   </component>
 </project>
