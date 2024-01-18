@@ -316,6 +316,7 @@ No, you can use the Community version of Qodana in any open-source or proprietar
 
 Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:
 
+
 * [](license-audit.topic)
 * [](taint-analysis.md)
 * [](vulnerability-checker.md)

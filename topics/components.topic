@@ -6,12 +6,15 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Components" id="components">
 
-    <p>This section introduces the concepts that %instance% is based upon, such as:</p><list>
+    <p>This section introduces the concepts that %instance% is based upon, such as:</p>
+
+    <list>
         <li><a href="static-analysis.topic">Static analysis</a></li>
         <li><a href="code-inspections.topic">Code inspections</a></li>
         <li><a href="linters.md">Linters</a></li>
         <li><a href="project-token.md">Project tokens</a> for identification and verification purposes</li>
         <li><a href="contributors.md">Contributor counting</a> mechanism</li>
+        <li><a href="https://www.jetbrains.com/help/inspectopedia/WhatIsNewInspections.html"/> for discovering %instance% inspections</li>
     </list>
 
 </topic>

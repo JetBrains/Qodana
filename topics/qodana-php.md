@@ -9,9 +9,7 @@
 <var name="docker-image" value="jetbrains/qodana-php:2023.3"/>
 <var name="config-file" value="qodana-php-docker-readme.topic"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). 
-
-<include from="lib_qd.topic" element-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). <include from="lib_qd.topic" element-id="linter-intro"/>
 
 ## Supported technologies
 
@@ -80,7 +78,7 @@
 
 ### Analyze a project locally
 
-<include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="php-only,jvm-php,non-gs,other,empty"/>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="php-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Next steps
 

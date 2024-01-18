@@ -17,7 +17,9 @@
     <var name="plugin-config" value="https://www.jetbrains.com/help/phpstorm/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory"/>
 
     <p>You can extend %instance% using either existing plugins from repositories, or by developing
-        <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p><chapter id="extending-qodana-repository-plugins" title="Plugins from repositories">
+        <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p>
+
+    <chapter id="extending-qodana-repository-plugins" title="Plugins from repositories">
 
         <p>This section explains how to inspect PHP code using the <a href="qodana-php.md"/> linter enhanced with the
             <a href="%php-ea-plugin%">Php Inspections (EA Extended)</a>

@@ -189,4 +189,12 @@
 
     </chapter>
 
+    <chapter id="troubleshooting-whitelist" title="The list of IP addresses required by Qodana Cloud">
+
+        <p>To enable and keep the communication with Qodana Cloud, you may need to whitelist the IP address range
+            54.76.32.8/32.</p>
+
+    </chapter>
+
+
 </topic>

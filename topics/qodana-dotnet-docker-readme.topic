@@ -18,7 +18,8 @@
 
     <p>
         <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
-    </p><include from="lib_qd.topic" element-id="linter-docker-image-intro"/>
+    </p>
+	<include from="lib_qd.topic" element-id="linter-docker-image-intro"/>
 
     <chapter id="quick-start-recommended-profile" title="Quick start with the recommended profile">
         <chapter id="Run+analysis+locally" title="Run analysis locally">

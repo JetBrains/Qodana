@@ -12,7 +12,9 @@
     <var name="TeamCityLink" value="https://www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
     <var name="SpaceAutomationLink" value="https://www.jetbrains.com/help/space/secrets-and-parameters.html#creating-secrets-and-parameters"/>
 
-    <p>This section explains how you can forward %instance% reports to Qodana Cloud using this software:</p><list>
+    <p>This section explains how you can forward %instance% reports to Qodana Cloud using this software:</p>
+
+    <list>
         <li><a anchor="cloud-forward-reports-local-run">Docker and Qodana CLI</a></li>
         <li><a anchor="cloud-forward-reports-azure">Azure Pipelines</a></li>
         <li><a anchor="cloud-forward-reports-bitbucket">Bitbucket Cloud</a></li>
@@ -26,7 +28,12 @@
 
     <p>For all these cases, you need to generate a unique Qodana Cloud <a href="project-token.md">project token</a> as
         shown in the <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section of this documentation. This
-        token will be invoked using the <code>QODANA_TOKEN</code> variable.</p><chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
+        token will be invoked using the <code>QODANA_TOKEN</code> variable.</p>
+
+    <note>To enable and keep the communication with Qodana Cloud, you may need to whitelist the IP address range
+        54.76.32.8/32.</note>
+
+    <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
         <p>You can forward %instance% reports to Qodana Cloud using either Docker or Qodana CLI:</p>
 

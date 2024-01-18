@@ -8,7 +8,11 @@
 
     <p>The current version of %instance% (%product-version%) provides the <a href="linters.md">linters</a> that let you analyze
         Java, Kotlin, Groovy, PHP, JavaScript, TypeScript, C#, Visual Basic, C, C++, Python, and Golang projects. You can
-        also extend the default linter configuration using various <a href="features.topic">features</a>. </p><p>As an example, this section explains how you can quickly start working with %instance% using:</p><list>
+        also extend the default linter configuration using various <a href="features.topic">features</a>. </p>
+
+    <p>As an example, this section explains how you can quickly start working with %instance% using:</p>
+
+    <list>
         <li><a anchor="quickstart-run-in-ide">JetBrains IDEs</a></li>
         <li><a anchor="quickstart-run-using-cli">Command-line interface</a></li>
         <li><a anchor="quickstart-run-in-github">GitHub Actions</a></li>
@@ -41,16 +45,14 @@
         <procedure>
                 <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
                 <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
-                <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Start Qodana</ui-path> button.</step>
-                <step>In the dialog that opens, click the <ui-path>Try locally</ui-path> button, and then click <ui-path>Run</ui-path>.</step>
+                <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try locally</ui-path> button.</step>
                 <step>
-                    <p>On the <ui-path>Server-Side Analysis</ui-path> tab, you can view inspection results. It
-                        also contains two links in the upper part of the tab.</p>
+                    On the <ui-path>Server-Side Analysis</ui-path> tab, you can view inspection results. It
+                        also contains two links in the upper part of the tab.
                     <img src="quickstart-run-in-ide-report-links.png" dark-src="quickstart-run-in-ide-report-links_dark.png" width="706" alt="Links on the Server-Side Analysis tab" border-effect="line"/>
         <tabs>
-            <tab title="Open Qodana report in browser" id="quickstart-open-report-in-browser">
-                <p>Open the inspection report in an <a href="html-report.md">intuitive and easy-to-use form</a>.</p>
-
+            <tab title="Open Qodana Cloud" id="quickstart-open-report-in-browser">
+                <p>Open the inspection report in an <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
                 <img src="quickstart-run-in-ide-report.png" dark-src="quickstart-run-in-ide-report_dark.png" width="706" alt="Qodana report" border-effect="line"/>
             </tab>
             <tab title="Add Qodana to CI/CD pipeline" id="quickstart-add-qodana-to-cicd">
@@ -89,6 +91,10 @@
                                 <code-block lang="shell" prompt="$">
                                     curl -fsSL https://jb.gg/qodana-cli/install | bash
                                 </code-block>
+                                <p>You can also install %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
+                                <code-block lang="shell" prompt="$">
+                                    go install github.com/JetBrains/qodana-cli@latest
+                                </code-block>
                             </tab>
                             <tab title="Windows">
                                 <p>Install with <a href="https://scoop.sh/">Scoop</a>:</p>
@@ -96,9 +102,7 @@
                                     scoop bucket add jetbrains https://github.com/JetBrains/scoop-utils
                                     scoop install qodana
                                 </code-block>
-                            </tab>
-                            <tab title="Other">
-                                <p>Install with <a href="https://go.dev/doc/install">Go</a>:</p>
+                                <p>You can also install %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
                                 <code-block lang="shell" prompt="$">
                                     go install github.com/JetBrains/qodana-cli@latest
                                 </code-block>
@@ -106,20 +110,15 @@
                         </tabs>
                     </step>
                     <step>
-                        <p>In the project root directory, run this command:</p>
-                        <code-block lang="shell" prompt="$">qodana init</code-block>
-                        <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
-                            all necessary configuration options.</p>
-                    </step>
-                    <step>
-                        <p>In the project root directory, run this command to inspect your code:</p>
+                        <p>In the project root directory, declare the <code>QODANA_TOKEN</code> variable containing the project
+                            token described in the <a anchor="quickstart-prerequisites">prerequisites</a>:</p>
                         <code-block lang="shell" prompt="$">
-                            qodana scan \
-                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               --show-report
+                            QODANA_TOKEN="&lt;cloud-project-token&gt;"
                         </code-block>
-                        <p>Here, the <code>QODANA_TOKEN</code> variable contains the project token described in the
-                            <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
+                        <p>Now you can run %instance%:</p>
+                        <code-block lang="shell" prompt="$">
+                            qodana scan
+                        </code-block>
                     </step>
                 </procedure>
             </tab>
