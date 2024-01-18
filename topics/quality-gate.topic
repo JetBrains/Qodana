@@ -10,14 +10,23 @@
 
     <p><emphasis>Quality gate</emphasis> is the maximum number of problems that can be detected by %instance% without
         causing a CI/CD workflow or pipeline fail. Once the quality gate limit is reached, %instance% terminates with
-        exit code 255. </p><p>This feature lets you control your code quality and build software that meets your quality metrics.
+        exit code 255. </p>
+
+    <p>This feature lets you control your code quality and build software that meets your quality metrics.
         For example, if you set a quality gate for ten problems, a build workflow will fail once the eleventh
-        problem is detected.</p><p>The quality gate and fail threshold terms are used interchangeably with the former being a feature in overall, and
-        the latter meaning a configuration option. </p><p>This feature is supported by all linters available under Community, Ultimate, and Ultimate Plus
-        <a href="pricing.md">licenses</a> and their trial versions. </p><note>In combination with the <a href="baseline.topic">baseline</a>, the quality gate feature will help
+        problem is detected.</p>
+
+    <p>The quality gate and fail threshold terms are used interchangeably with the former being a feature in overall, and
+        the latter meaning a configuration option. </p>
+
+    <p>This feature is supported by all linters available under Community, Ultimate, and Ultimate Plus
+        <a href="pricing.md">licenses</a> and their trial versions. </p>
+
+    <note>In combination with the <a href="baseline.topic">baseline</a>, the quality gate feature will help
         you ensure that the overall technical debt will not grow beyond a certain threshold.</note>
 
-    <p>This section explains how to configure a quality gate for:</p><list>
+    <p>This section explains how to configure a quality gate for:</p>
+    <list>
         <li><a anchor="quality-gate-local-run">Local run using a Docker or Qodana CLI command</a></li>
         <li><a anchor="quality-gate-github-actions">GitHub actions</a></li>
         <li><a anchor="quality-gate-jenkins">Jenkins</a></li>
@@ -63,7 +72,7 @@
 
     <chapter id="quality-gate-github-actions" title="GitHub Actions">
 
-        <p>You can enforce GitHub to block merge of pull requests if the quality gate has failed. To do it,
+        <p>You can enforce GitHub to block merge of pull requests if the <a href="quality-gate.topic">quality gate</a> has failed. To do it,
             create a <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
 
             <procedure>

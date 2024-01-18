@@ -118,20 +118,20 @@ To learn about running code coverage using the [](qodana-dotnet.md) linter, skip
         <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> command samples:</p>
         <tabs>
             <tab title="Docker" id="code-coverage-docker">
-                <code style="block" lang="shell" prompt="$">
+                <code-block lang="shell" prompt="$">
                     docker run \
                         -v $(pwd):/data/project/ \
                         -v /directory/with/coverage/report/:/data/coverage \
                         -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                         jetbrains/qodana-&lt;linter&gt;
-                </code>
+                </code-block>
             </tab>
             <tab title="Qodana CLI" id="code-coverage-cli">
-                <code style="block" lang="shell" prompt="$">
+                <code-block lang="shell" prompt="$">
                     qodana scan \
                        -v /directory/with/coverage/report/:/data/coverage \
                        -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
-                </code>
+                </code-block>
             </tab>
         </tabs>
     </tab>
@@ -196,7 +196,7 @@ jobs:
 <tab title="GitLab CI/CD" id="code-coverage-gitlab">
 <p>Create a <a href="gitlab.md">GitLab CI/CD</a> pipeline that will store all code coverage output files in the <code>&lt;project-root-dir&gt;/coverage</code> 
 directory:</p>
-        <code style="block" lang="yaml">
+        <code-block lang="yaml">
         qodana:
            image:
               name: jetbrains/qodana-&lt;linter&gt;
@@ -218,7 +218,7 @@ directory:</p>
               paths:
                  - .qodana/results/report
               expose_as: 'Qodana report'
-        </code>
+        </code-block>
         <p>
             This uses the <code>QODANA_TOKEN</code> variable to contain the <a href="project-token.md">project token</a>.
             The <code>--coverage-dir=$CI_PROJECT_DIR/coverage</code> in the <code>script</code> block runs %instance% with the

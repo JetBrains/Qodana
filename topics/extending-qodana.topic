@@ -10,7 +10,8 @@
         technologies, and <a href="qodana-yaml.md">inspection profiles</a> let you additionally customize each linter to
         fit your needs using the default inspection base. Still, it may be useful to analyze your codebase using
         third-party inspection tools that are not covered by standard %instance% packages, and you can do it in several
-        ways:</p><list>
+        ways:</p>
+        <list>
             <li><a href="extending-qodana-plugins.topic">Using plugins</a></li>
             <li><a href="extending-qodana-structural-search.topic">Using structural search patterns</a></li>
         </list>

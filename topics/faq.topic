@@ -6,19 +6,22 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Frequently Asked Questions" id="faq">
 
-<p>Here is a collection of answers to questions that will help you better understand basic Qodana concepts.</p><chapter title="General questions" id="faq-supported-technologies">
+<p>Here is a collection of answers to questions that will help you better understand basic Qodana concepts.</p>
 
-    <chapter id="faq-how-can-i-run" title="How can I run %instance%?" default-state="collapsed">
+<chapter title="General questions" id="faq-supported-technologies">
+
+    <chapter id="faq-how-can-i-run" title="How can I run %instance%?" default-state="collapsed" collapsible="true">
         <p>Depending on your needs, you can run %instance% using:</p>
         <list>
             <li><a href="ci.md">CI pipelines</a></li>
             <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a>, the
                 <a href="https://github.com/JetBrains/qodana-cli">%instance% CLI</a> tool, or available
-                <a href="docker-images.md">Docker images</a> </li>
+                <a href="docker-images.md">Docker images</a></li>
+            <li><a href="native-mode.md">Native mode</a> available for the <a href="qodana-dotnet.md"/> linter</li>
         </list>
     </chapter>
 
-    <chapter id="faq-integrate-cicd" title="How can I build Qodana into "/><CI/>/CD name&gt; pipelines?" initial-collapse-state="collapsed"&gt;
+    <chapter id="faq-integrate-cicd" title="How can I build Qodana into &lt;CI/CD name&gt; pipelines?" default-state="collapsed" collapsible="true">
         <p>Any %instance% linter is a Linux Docker image, so any CI/CD platform that supports Docker should be able to run
             it. We’re working on <a href="ci.md">extending our documentation</a> to provide the best examples of how to
             integrate %instance% with different CI/CD platforms. If you are experiencing any difficulties, please contact our
@@ -26,14 +29,14 @@
         </p>
     </chapter>
 
-    <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" default-state="collapsed">
+    <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" default-state="collapsed" collapsible="true">
         <p>The on-premises version of %instance% is currently under development, and we plan to release it in 2024. To
             register your interest in this solution, you can contact the <a href="mailto:qodana-sales@jetbrains.com">%instance% team</a>.</p>
         <p>You can also run %instance% under the Community license, which doesn’t require you to create a %instance%
             Cloud account. However, this option provides limited functionalities.</p>
     </chapter>
 
-    <chapter id="faq-support-other-techs" title="Are there any plans to support other technologies?" default-state="collapsed">
+    <chapter id="faq-support-other-techs" title="Are there any plans to support other technologies?" default-state="collapsed" collapsible="true">
         <p>The list of technologies already supported by %instance% is available on the <a href="linters.md"/> page.</p>
         <p>Qodana will eventually cover all technologies supported by JetBrains IDEs. You can create an issue on our
             tracker or vote for an existing one to let us know what technology we should focus on, for example:</p>
@@ -44,7 +47,7 @@
         </list>
     </chapter>
 
-    <chapter id="faq-qodana-jba-entities" title="What is the relation between JetBrains Account and Qodana entities?" default-state="collapsed">
+    <chapter id="faq-qodana-jba-entities" title="What is the relation between JetBrains Account and Qodana entities?" default-state="collapsed" collapsible="true">
         <p>In a JetBrains Account (JBA), you can create several Companies.</p>
         <p>Each created JBA Company can possess several %instance% licenses.</p>
         <p>In Qodana Cloud, you need to create at least one <a href="cloud-organizations.topic">organization</a> that
@@ -53,4 +56,422 @@
             In this case, the JBA Company and the Qodana Cloud organization will share the same name. </p>
         <p>%instance% does not use JetBrains Account teams.</p>
     </chapter>
+</chapter>
+
+<chapter title="Deployment and configuration" id="faq-deployment-and-configuration">
+
+    <chapter id="faq-customization-required" title="Can I run %instance% right away? How hard is it to configure Qodana?" default-state="collapsed" collapsible="true">
+        <p>%instance% can be run in various ways, as described on the <a href="Quick-start.topic"/> page. We’ve tried to
+            make it as easy as possible to configure %instance%, so all of these methods require the minimum number of
+            preparation steps.
+        </p>
+    </chapter>
+
+    <chapter id="faq-linter-description" title="What does each %instance% linter represent?" default-state="collapsed" collapsible="true">
+        <p>A linter is a Qodana component representing a specific technology. For example, the <a href="qodana-jvm.md"/>
+            linter lets you inspect the codebase containing the Java, Kotlin, and Groovy code, while the
+            <a href="qodana-js.md"/> linter lets you check on the JavaScript and TypeScript code. On the
+            <a href="linters.md"/> page, you can find the list of all available linters and the links to the detailed
+            description of each one.
+        </p>
+    </chapter>
+
+    <chapter id="faq-multiple-linters" title="Can I use multiple linters in one project?" default-state="collapsed" collapsible="true">
+        <p>Yes, you can use multiple linters in a single project, as described in the <a href="monorepo-project.md"/>
+            section.
+        </p>
+    </chapter>
+
+    <chapter id="faq-check-customization" title="How can I customize the checks performed by Qodana?" default-state="collapsed" collapsible="true">
+        <p>You can configure your inspection profile as described on the <a href="custom-profiles.md"/> page.</p>
+        <p>If the existing inspections do not fit your needs, you can develop your own
+            <a href="extending-qodana-structural-search.topic">structural search inspections</a> and add them to the
+            inspection profile or use <a href="extending-qodana-plugins.topic">plugins</a> that will extend the inspection
+            capabilities of %instance%. Alternatively, you can develop
+            <a href="https://plugins.jetbrains.com/docs/intellij/github-template.html">your own plugin</a> and use its
+            inspections with Qodana.</p>
+    </chapter>
+
+    <chapter id="faq-ssh-key-setup" title="Why is there a need to set up an SSH key in my repository?" default-state="collapsed" collapsible="true">
+        <p>The SSH key lets Qodana connect to the repository of the inspected project and calculate the number of
+            contributors, which is a requirement for all types of <a href="pricing.md">licenses</a>.
+        </p>
+    </chapter>
+
+</chapter>
+
+<chapter title="Inspection profiles" id="faq-inspection-profiles">
+
+    <chapter id="faq-profile-explained" title="What is a profile?" default-state="collapsed" collapsible="true">
+        <p>A %instance% inspection profile is a set of pre-configured inspections, including their state, configuration
+            options, and the path to which they are applied. %instance% inspection profiles are the same as IntelliJ IDEA
+            inspection profiles and can be <a href="custom-xml-profiles.md">reused</a>.
+        </p>
+    </chapter>
+
+    <chapter id="faq-what-profiles-offered" title="What inspection profiles does Qodana offer?" default-state="collapsed" collapsible="true">
+        <p>You can find the list of the default Qodana inspection profiles on the
+            <a href="inspection-profiles.md" anchor="Default+profiles"/> page, where you can also find out how to set
+            up the default profiles.
+        </p>
+    </chapter>
+
+    <chapter id="faq-how-select-profile" title="How can I choose the best profile for my project?" default-state="collapsed" collapsible="true">
+        <p>We recommend using the
+            <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.recommended</code></a> profile
+            because it already provides the most usable inspections invoked by the default JetBrains IDEs profiles, so
+            no additional configuration is required.
+        </p>
+        <p>Alternatively, you can <a href="custom-profiles.md">create</a> your own profile to best suit your needs.
+        </p>
+    </chapter>
+
+    <chapter id="faq-sarif-import" title="Can I import SARIF of another analysis tool to Qodana?" default-state="collapsed" collapsible="true">
+        <p>Currently, it is not possible to display the results of external analysis tools in Qodana UI, though we are working on it.</p>
+    </chapter>
+
+</chapter>
+
+<chapter title="Licensing" id="faq-licensing">
+
+    <snippet id="faq-licensing-for-pricing">
+    <chapter id="faq-licensing-minimum-contributors" title="I work solo on my project, can I still use Qodana?" default-state="collapsed" collapsible="true">
+        <p>Yes, but the minimum billing option is for 3 (three) contributors.</p>
+    </chapter>
+
+    <chapter id="faq-licensing-how-qodana-counts-contributors" title="How does %instance% count contributors?" default-state="collapsed" collapsible="true">
+        <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section of this documentation.</p>
+    </chapter>
+
+    <chapter id="faq-licensing-count-contributors" title="Is there a way to determine the number of contributors in my repositories prior to initiating Qodana?" default-state="collapsed" collapsible="true">
+        <p>Yes, you can use this command to check the number of contributors:</p>
+        <code-block lang="shell" prompt="$">
+            git log --format='%aN' | sort -u | wc -l
+        </code-block>
+        <p>In the %instance% CLI application, you can use the
+            <a href="https://github.com/JetBrains/qodana-cli/tree/main#contributors"><code>contributors</code></a> command
+            for counting active contributors, for example:</p>
+        <code-block lang="shell" prompt="$">
+            qodana contributors -d 90
+        </code-block>
+    </chapter>
+
+    <chapter id="faq-licensing-start-using-qodana" title="What do I need to start using Qodana?" default-state="collapsed" collapsible="true">
+        <list>
+            <li>
+                <p>You can navigate to the
+                    <a href="https://www.jetbrains.com/qodana/buy/">Subscription Options and Pricing</a> page on the
+                    JetBrains website and select the subscription option you would like to use.</p>
+                <p>If you choose the Community license or the trial version of the Ultimate or Ultimate Plus licenses,
+                    you’ll be redirected to the Qodana Cloud onboarding page.</p>
+                <p>If you would like to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to
+                the JetBrains account page to provide payment details. After payment is made, you’ll be redirected to
+                    the Qodana Cloud <a href="cloud-onboarding.md">onboarding page</a>.</p>
+            </li>
+            <li>
+                <p>During the onboarding stage on the Qodana Cloud website, we’ll generate a public key for you to add
+                to your repository so that %instance% can connect to it, as well as a
+                    <a href="project-token.md">project token</a> for uploading Qodana reports to your first project.
+                </p>
+            </li>
+        </list>
+        <note>The Community license provides restricted functionalities compared to the Ultimate and Ultimate Plus
+            licenses. See <a href="pricing.md" anchor="license-comparison-matrix">the comparison matrix</a> for more
+            details.
+        </note>
+    </chapter>
+
+    <chapter id="faq-licensing-try-before-buy" title="Can I try Qodana before buying a license?" default-state="collapsed" collapsible="true">
+        <p>Yes, you can choose either the Ultimate or Ultimate Plus trial license and start using Qodana for free with
+            a 60-day trial period. During this period, you can switch between these licenses one time. After 60 days,
+            you’ll need to buy either the Ultimate or Ultimate Plus license to continue using Qodana in your projects.
+        </p>
+        <p>
+            You can also choose the Community license, but keep in mind that it provides restricted functionalities
+            compared to the Ultimate and Ultimate Plus licenses. Switching to the Community license from the Ultimate or
+            Ultimate Plus licenses will mean that your trial license is irreversibly terminated.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-linters-and-cloud" title="What are %instance% linters and Qodana Cloud designed for?" default-state="collapsed" collapsible="true">
+            <p>Both Qodana linters and Qodana Cloud are essential parts of the product named Qodana. You can inspect
+                your codebase using Qodana linters, and you can use Qodana Cloud for managing your projects and
+                licenses, as well as collecting Qodana reports in a single place. For more details, see the
+                <a href="cloud-use-cases.topic"/> page of the Qodana Cloud documentation.
+            </p>
+    </chapter>
+
+    <chapter id="faq-licensing-using-without-cloud" title="Can I use %instance% linters without creating a Qodana Cloud account?" default-state="collapsed" collapsible="true">
+        <p>
+            All licenses require that you create an account at Qodana Cloud and complete the
+            <a href="cloud-onboarding.md">onboarding</a> stage (see
+            <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, Qodana
+            Cloud lets you view Qodana reports in a single place and provides access to all of the
+            <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> offered by %instance%
+            <a href="linters.md">linters</a>. Finally, for the purposes of opening %instance% reports from within your
+            <a href="qodana-ide-plugin.md">IDE</a>, you need a Qodana Cloud account.
+        </p>
+        <p>
+            To exclude Qodana Cloud, you can download and run the Community linters of %instance%, like
+            <a href="qodana-jvm-community.md"/>, <a href="qodana-jvm-android.md"/>, and <a href="qodana-python-community.md"/>,
+            locally without a license.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-minimum-cloud-steps" title="What are the minimum steps I need to perform to get started with Qodana Cloud?" default-state="collapsed" collapsible="true">
+        <p>
+            All of the required steps are described in the <a href="cloud-quickstart.md"/> section of the Qodana Cloud
+            documentation.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-eap-trial" title="What is a trial license?" default-state="collapsed" collapsible="true">
+        <p>
+            A trial license is a time-limited version of either the Ultimate or the Ultimate Plus license. Each trial
+            license duration is limited to 60 days, and you can change it from Ultimate to Ultimate Plus and vice versa
+            just once. After the trial period ends, this type of license is no longer valid and can no longer be used.
+            To continue using %instance%, you’ll have to purchase a full version of your license.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-trial-notification" title="Will I be notified when my trial license period is coming to an end?" default-state="collapsed" collapsible="true">
+        <p>Yes, you’ll be notified when your trial period expires.
+        </p>
+        <p>After its expiry, you’ll need to buy either the Ultimate or Ultimate Plus license. Expired trial licenses
+            cannot be extended.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-payment-details" title="Do I need to provide payment details for a trial license?" default-state="collapsed" collapsible="true">
+        <p>
+            No, you don’t have to provide any payment details until you decide to buy a license for either the Ultimate
+            or Ultimate Plus version of Qodana, which you can do after the trial period ends.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-switching-licenses" title="Can I switch between licenses?" default-state="collapsed" collapsible="true">
+
+        <p>
+            Yes, you can switch between trial versions of the Ultimate and Ultimate Plus licenses using your JetBrains
+            Account, but remember that this can only be done once.
+        </p>
+        <p>
+            You can also switch one time from the trial version of the Ultimate and Ultimate Plus licenses to the
+            Community license. Once you’ve converted your trial license to the Community license, the process is
+            irreversible. Ensure you are making an informed decision. Remember that the Community license does not
+            support all the <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> available
+            in the Ultimate or Ultimate Plus subscriptions. If you wish to revert to the Ultimate or Ultimate Plus
+            subscription after conversion, you’ll need to move to a paid subscription.
+        </p>
+        <p>
+            After the trial period has ended, this one-time limitation is removed, and you can switch between
+            subscription plans an unlimited number of times. In this case, however, all purchased subscriptions are not
+            refunded.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-license-costs" title="How is the cost of a license calculated?" default-state="collapsed" collapsible="true">
+        <p>
+            The total license cost is based on the number of active contributors. An active contributor is a person/bot
+            who has committed to any number of Qodana Cloud projects at any point in the last 90 days, within the same
+            organization, and under a single license. During the  <a href="cloud-onboarding.md">onboarding</a> stage
+            and while creating a new <a href="cloud-projects.topic">project</a>,
+            Qodana Cloud requests your repository URL to calculate contributors. The minimal number of contributors
+            used for licensing is 3 (three).
+        </p>
+        <p>
+            The number of actual contributors is calculated based on the subscription plan. For example, using the
+            monthly subscription, on the first day of the month, you purchased a license for 10 (ten) contributors.
+            Within that same month, Qodana found that your project had 20 (twenty) active contributors. In this case,
+            for the upcoming month, the license costs would be recalculated for 20 (twenty) contributors. At the end of
+            the second month, the license costs would be recalculated again based on the actual number of active contributors.
+        </p>
+
+        <p>For more details, see the <ui-path>Fees and Payments</ui-path> section of the
+            <a href="https://www.jetbrains.com/legal/docs/agreements/qodana/license/">%instance% Terms of Service</a>.</p>
+        <p>
+            For more details, see the Fees and Payments section of the
+            <a href="https://www.jetbrains.com/legal/docs/agreements/qodana/license/">%instance% Terms of Service</a>.
+        </p>
+
+    </chapter>
+
+    <chapter id="faq-licensing-subscription-billing" title="What do I need to know about subscription billing?" default-state="collapsed" collapsible="true">
+        <p>
+            Here is the billing description taken from the
+            <a href="https://www.jetbrains.com/legal/docs/agreements/qodana/license/">%instance% Terms of Service</a>:
+        </p>
+        <p>
+            <ui-path>Monthly Subscriptions</ui-path> – At the beginning of each Subscription Period, You will specify the expected number
+            of Active Contributors (three or more). At the end of the Subscription Period, You will be charged
+            Subscription fees according to Your Subscription Plan based on the number of Active Contributors that You
+            determined. Qodana checks the actual number of Active Contributors at the end of every Subscription Period.
+            If that number is higher than the number of Active Contributors that You specified for that Subscription
+            Period, You will not be charged for overuse. However, the number of Active Contributors You specify for the
+            next Subscription Period cannot be lower than the actual number from the preceding Subscription Period.
+        </p>
+        <p>
+            <ui-path>Annual Subscriptions</ui-path> – Fees for annual Subscriptions are charged as a combination of upfront payment for a
+            number of Active Contributors selected by You and additional charges for Active Contributors exceeding the
+            prepaid number during the Subscription Period (overuse):
+        </p>
+        <p>
+            </p>
+	<list>
+                <li><ui-path>Prepayment</ui-path> – At the beginning of Your annual Subscription, You will specify the expected monthly number of Active
+                    Contributors (3 or more). You will be charged upfront for the Subscription fee, which will be calculated based on the
+                    number of Active Contributors that You specified multiplied by the monthly fee per Active Contributor based on
+                    Your Subscription Plan per each month of Your Subscription.
+                </li>
+                <li>
+                    <ui-path>Overuse</ui-path> – Qodana will check the actual number of Active Contributors at the end of every calendar month. If the
+                    actual number of Active Contributors exceeds the monthly number of Active Contributors that You specified, You will be
+                    charged a Subscription fee for each Active Contributor exceeding the monthly number of prepaid Active Contributors. The
+                    invoice for the overuse will be issued at the end of every calendar quarter and at the end of Your Subscription period
+                    (unless the Subscription Period is renewed). If the number of actual Active Contributors during any month is lower than
+                    the number of prepaid Active Contributors, We will not refund or otherwise credit the difference.
+                </li>
+            </list>
+	<p>
+            </p>
+	<list>
+                <li>
+                    <ui-path>Prepayment</ui-path> – At the beginning of Your annual Subscription, You will specify the
+                    expected monthly number of Active Contributors (three or more). You will be charged upfront for the
+                    Subscription fee, which will be calculated based on the number of Active Contributors that You
+                    specified multiplied by the monthly fee per Active Contributor based on Your Subscription Plan per
+                    each month of Your Subscription.
+                </li>
+                <li>
+                    <ui-path>Overuse</ui-path> – Qodana will check the actual number of Active Contributors at the
+                    end of every calendar month. If the actual number of Active Contributors exceeds the monthly number
+                    of Active Contributors that You specified, You will be charged a Subscription fee for each Active
+                    Contributor exceeding the monthly number of prepaid Active Contributors. The invoice for the overuse
+                    will be issued at the end of every calendar quarter and at the end of Your Subscription period
+                    (unless the Subscription Period is renewed). If the number of actual Active Contributors during any
+                    month is lower than the number of prepaid Active Contributors, We will not refund or otherwise
+                    credit the difference.
+                </li>
+            </list>
+	</chapter>
+
+    <chapter id="faq-licensing-cloud-license-storage" title="Where does Qodana store license information?" default-state="collapsed" collapsible="true">
+        <p>
+            Qodana Cloud stores all information about your licenses. This explains why you must create a Qodana Cloud
+            account before running Qodana. Aside from this functionality, Qodana Cloud provides other
+            <a href="cloud-use-cases.topic">features</a>.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-how-license-affects-linter" title="How does the license affect the linter functionality?" default-state="collapsed" collapsible="true">
+        <p>
+            We recommend running Qodana linters under
+            <a href="pricing.md" anchor="pricing-linters-licenses">appropriate licenses</a>, based on your tasks.
+        </p>
+        <p>
+            You can only run paid linters like <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, or
+            <a href="qodana-php.md"/> using the Ultimate and Ultimate Plus licenses – it is impossible to run them if
+            you’re using the Community license.
+        </p>
+        <p>
+            The Community linters like <a href="qodana-jvm-community.md"/>, <a href="qodana-jvm-android.md"/>, and
+            <a href="qodana-python-community.md"/> can be used either with the Community license, or without a license at all.
+        </p>
+        <p>
+            There is no need to run a linter like <a href="qodana-jvm-community.md"/> under the Ultimate or Ultimate
+            Plus licenses, since it will not extend the existing functionality.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-maximum-community-licenses" title="How many Community licenses can I have under a single JetBrains account?" default-state="collapsed" collapsible="true">
+        <p>
+            You can have up to 5 (five) Community licenses under your JetBrains account.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-license-difference" title="What is the difference between the Ultimate and Ultimate Plus licenses?" default-state="collapsed" collapsible="true">
+        <p>
+            Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:
+        </p>
+
+        <list>
+            <li><a href="license-audit.topic"/></li>
+            <li><a href="taint-analysis.md"/></li>
+            <li><a href="vulnerability-checker.md"/></li>
+        </list>
+
+    </chapter>
+    <chapter id="faq-licensing-community-restrictions" title="Are there any restrictions on using the Community license?" default-state="collapsed" collapsible="true">
+        <p>
+            No, you can use a Qodana Community license in your work on any open-source or proprietary projects.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-license-cicd-integrations" title="What licenses are integrated into CI/CD pipelines?" default-state="collapsed" collapsible="true">
+        <p>
+            All Qodana subscriptions support integration with the CI/CD solutions described in the <a href="ci.md"/> section.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-free-for-os-projects" title="Can I use %instance% for free in my open-source project?" default-state="collapsed" collapsible="true">
+        <p>
+            Yes, you can run the Community Qodana linters under the Community license. See the
+            <a href="pricing.md" anchor="pricing-linters-licenses"/> page for more details.
+        </p>
+    </chapter>
+
+    <chapter id="faq-licensing-data-forwarding-to-qodana-cloud" title="What data does %instance% forward to the Qodana Cloud?" default-state="collapsed" collapsible="true">
+        <p>
+            First and foremost, Qodana Cloud collects information about active contributors of your repository, as well
+            as the <a href="project-token.md">project token</a>. This information is then used for calculating license
+            costs and enabling <a href="pricing.md" anchor="Features+and+third-party+software+support">paid features</a>.
+        </p>
+        <p>
+            Besides that, Qodana forwards <a href="qodana-sarif-output.md">SARIF-formatted</a> inspection reports to
+            Qodana Cloud, which lets you view inspection results using the Qodana Cloud UI.
+        </p>
+    </chapter>
+    </snippet>
+</chapter>
+
+<chapter title="Troubleshooting" id="faq-troubleshooting">
+
+    <chapter id="faq-zero-errors-report" title="Qodana reports zero errors, but this doesn’t seem correct." default-state="collapsed" collapsible="true">
+    <p>Use the <code>qodana.recommended</code> inspection <a href="inspection-profiles.md" anchor="Default+profiles">profile</a>.</p>
+        <p>If the <code>qodana.recommended</code> profile does not help, try to run another <a href="linters.md">linter</a>.</p>
+    <p>If the problem persists, please create an issue in our tracker or contact us at <code>qodana-support@jetbrains.com</code> and
+    attach logs from the <code>/data/results</code> directory that you can get access to by mounting your directory to the path.</p>
+    </chapter>
+
+    <chapter id="faq-reduce-analysis-time" title="Is there a way to reduce analysis time?" default-state="collapsed" collapsible="true">
+        <p>
+            Yes, you can use
+            <a href="docker-image-configuration.topic" anchor="docker-config-reference-cache-dependencies">caching</a>,
+            and this is available by default in the <a href="github.md">Qodana Scan</a> GitHub action. If this does
+            not help, create an issue in our tracker or contact us at <code>qodana-support@jetbrains.com</code> and
+            attach logs from the <code>/data/results</code> directory. To access logs, mount your directory. If you are
+            using GitHub actions, they are uploaded to the workflow artifacts.
+        </p>
+    </chapter>
+
+    <chapter id="faq-out-of-memory-error" title="Qodana fails with the Out of Memory error." default-state="collapsed" collapsible="true">
+        <p>
+            Try to set more memory in Docker Desktop preferences, as some projects and build tools inside them, like
+            Gradle, could require more memory than the default 2 GB.
+        </p>
+    </chapter>
+
+    <chapter id="faq-cannot-download-gradle" title="Qodana can't download Gradle because I use proxy." default-state="collapsed" collapsible="true">
+        <p>
+            Before starting %instance%, please run the <code>./gradlew</code> command in the root folder. This will let
+            %instance% use this downloaded version of Gradle.
+        </p>
+        <p>
+            If your project was created on Windows, make sure to run <code>git update-index --chmod=+x gradlew</code> to
+            make the file executable in your CI.
+        </p>
+    </chapter>
+
+</chapter>
+
 </topic>

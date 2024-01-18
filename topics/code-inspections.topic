@@ -12,7 +12,11 @@
         <a href="static-analysis.topic">static analysis</a> mechanism. You can visit the
         <a href="https://www.jetbrains.com/help/inspectopedia/">Inspectopedia</a> website and learn more about the
         inspections used by %instance%.
-    </p><p>All inspections are highly configurable, so you can configure:</p><list>
+    </p>
+
+    <p>All inspections are highly configurable, so you can configure:</p>
+
+    <list>
         <li>What inspections to run for your codebase. There are lots of various inspections, so you can enable or
             disable them for some reasons.</li>
         <li>What directories and files to include in your code checking. If you feel that you do not need to inspect
