@@ -5,13 +5,13 @@
 <var name="GitLabExpose" value="https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as"/>
 
 [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) is a tool for software development that uses various CI/CD methodologies. This 
-section explains how you can run %product% [Docker images](docker-images.md) within GitLab CI/CD 
+section explains how you can run %instance% [Docker images](docker-images.md) within GitLab CI/CD 
 [pipelines](https://docs.gitlab.com/ee/ci/pipelines/) and covers the following cases:
 
 * Inspecting specific branches and merge requests
-* Forwarding inspection reports to [Qodana Cloud](cloud-about.xml)
-* Exposing %product% reports in the GitLab CI/CD user interface
-* Using the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features
+* Forwarding inspection reports to [Qodana Cloud](cloud-about.topic)
+* Exposing %instance% reports in the GitLab CI/CD user interface
+* Using the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features
 
 ## Prepare your project
 
@@ -42,27 +42,27 @@ qodana:
       - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
-In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %product% 
+In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %instance% 
 [Docker image](docker-images.md) of your choice.
 
-The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab caches to store the %product% cache,
+The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab caches to store the %instance% cache,
 so subsequent runs will be faster. 
 
-The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %product% 
-configuration options described in the [](docker-image-configuration.xml) section. 
+The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %instance% 
+configuration options described in the [](docker-image-configuration.topic) section. 
 
 The `variables` keyword defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
-referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %product% 
+referring to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %instance% 
 [linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters.
 
 You can see these sections to learn how to generate the project token:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
 ## Inspect specific branches
 
-Using the [`only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except) keyword, you can tell %product% which 
+Using the [`only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except) keyword, you can tell %instance% which 
 branches to inspect. To inspect only the `main` branch and incoming merge requests, you can use this configuration:
 
 ```yaml
@@ -118,15 +118,17 @@ qodana:
 Assuming that you have configured your pipeline in a similar manner, this is what it may look like:
 
 1. Qodana report affiliated with a pipeline in a merge request
-   <img src="gitlab-exposed-artifacts.png" alt="Qodana report affiliated with a pipeline in a merge request" width="706" border-effect="line"/>
+
+<img src="gitlab-exposed-artifacts.png" alt="Qodana report affiliated with a pipeline in a merge request" width="706" border-effect="line"/>
 
 2. Available actions for a given exposed Qodana artifact
-   <img src="gitlab-exposed-artifacts-expanded.png" alt="Available actions for a given exposed Qodana artifact" width="706" border-effect="line"/>
+
+<img src="gitlab-exposed-artifacts-expanded.png" alt="Available actions for a given exposed Qodana artifact" width="706" border-effect="line"/>
 
 ## Quality gate and baseline
 
 You can use the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `script` block to 
-invoke the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features.
+invoke the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 
 ```yaml
 qodana:

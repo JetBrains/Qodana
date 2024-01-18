@@ -7,7 +7,7 @@
 <var name="linter" value="Qodana for JS"/>
 <var name="ide" value="WebStorm"/>
 <var name="docker-image" value="jetbrains/qodana-js:2023.3"/>
-<var name="config-file" value="qodana-js-docker-readme.xml"/>
+<var name="config-file" value="qodana-js-docker-readme.topic"/>
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/). It provides static analysis for JavaScript or TypeScript projects.
 
@@ -60,7 +60,7 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,js"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,js"/>
 
 ## Try it now
 
@@ -90,8 +90,8 @@ include:
 
 #### Run analysis
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,js-only,non-gs,empty"/></p>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,js-only,non-gs,empty"/></p>
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>

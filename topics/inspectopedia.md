@@ -1,7 +1,7 @@
 [//]: # (title: Inspectopedia)
 
 You may wonder what a specific inspection reports about, and why it can be a problem in your codebase.
-To learn more about inspections employed by %product%, you can use the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) 
+To learn more about inspections employed by %instance%, you can use the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) 
 website.
 
 Using the table of contents, you can explore the sections containing description of inspections related to various technologies.
