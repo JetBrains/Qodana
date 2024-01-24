@@ -1,15 +1,12 @@
 [//]: # (title: Inspectopedia)
 
-You may wonder what a specific inspection reports about, and why it can be a problem in your codebase.
-To learn more about inspections employed by %product%, you can use the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) 
-website.
+Sometimes you need more info about what a specific inspection reports, or why it is a problem in your codebase. 
+[Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) provides details about inspections: descriptions, severity levels, languages covered, etc. 
 
-Using the table of contents, you can explore the sections containing description of inspections related to various technologies.
+You can use the table of contents to explore all available inspections:
 
-<img src="inspectopedia-toc.png" dark-src="inspectopedia-toc_dark.png" alt="Table of contents on the Inspectopedia website" width="296" border-effect="line"/>
+<img src="inspectopedia-toc.png" alt="Table of contents on the Inspectopedia website" width="296" border-effect="line"/>
 
-Alternatively, you can jump to a specific inspection page using the **Search** window in the upper-right part of 
-the website and the name of a concrete inspection.
+Alternatively, you can search for the concrete inspections by their names, or identifiers:
 
-<img src="inspectopedia-search.png" dark-src="inspectopedia-search_dark.png" alt="Searching for an inspection" width="706" border-effect="line"/>
-
+<img src="inspectopedia-search.png" alt="Searching for an inspection" width="706" border-effect="line"/>
