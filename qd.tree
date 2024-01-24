@@ -82,6 +82,7 @@
             </toc-element>
             <toc-element id="html-report.md"/>
         </toc-element>
+        <toc-element id="inspectopedia.md" />
     </toc-element>
 
     <!-- Features section -->
@@ -152,7 +153,5 @@
 
     <!-- Troubleshooting section -->
     <toc-element title="Troubleshooting" id="troubleshooting.xml"/>
-
-    <toc-element toc-title="Inspectopedia" href="https://www.jetbrains.com/help/inspectopedia/WhatIsNewInspections.html" />
 
 </product-profile>
