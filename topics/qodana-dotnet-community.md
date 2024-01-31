@@ -24,8 +24,8 @@ It brings all the smarts from ReSharper, which help you:
 
 <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
 
-%linter% provides inspections for the C, C++, C# and VB.NET programming languages.
-C and C++ inspections of %linter% are limited by projects containing `.sln` solution files or `.csproj` project files.
+%linter% lets you inspect .NET Core projects that use the C# and Visual Basic.NET (VB.NET) languages. 
+It also supports C/C++ inspections for projects containing `.sln` solution files.
 
 ## Supported features
 
@@ -35,17 +35,93 @@ C and C++ inspections of %linter% are limited by projects containing `.sln` solu
 
 ### Prepare the project
 
-Because %linter% is licensed under the Community [license](pricing.md), it requires the
-Qodana Cloud [project token](project-token.md).  
+If you plan to run %linter% on a local machine, make sure that Docker on this machine is up and running. 
 
-Docker should also be up and running on the machine. 
+<p>By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
+it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
+file name using the <code>--solution</code> option and a relative path to a solution file. For example, to
+    make %product% always analyze the <code>MySolution.sln</code> solution file, you can use:</p>
 
-<include src="lib_qd.xml" include-id="docker-dotnet-specific-solution-project" use-filter="empty,cdnet"/>
+%linter% requires the relative path to a solution or a project file from the repository root. 
+
+You can configure it using either the `qodana.yaml` file or the `--solution` CLI option:
+
+<tabs>
+<tab id="qodana-cdnet-solution-specify-qodana-yaml" title="qodana.yaml">
+<code style="block" lang="yaml">
+dotnet:
+&nbsp;&nbsp;solution: &lt;relative-path-to-solution-file&gt;
+</code>
+</tab>
+<tab id="qodana-cdnet-solution-specify-cli" title="CLI option">
+<code style="block" lang="shell">
+--solution=&lt;relative-path-to-solution-file&gt;
+</code>
+</tab>
+</tabs>
+
+If your project contains no solution files and multiple project files, you need to use the `--project` option and a 
+relative path to a project file. For example, for the `MyProject.csproj` project file you can use:
+
+<tabs>
+<tab id="qodana-cdnet-project-config-qodana-yaml" title="qodana.yaml">
+<code style="block" lang="yaml">
+dotnet:
+&nbsp;&nbsp;project: MyProject.csproj
+</code>
+</tab>
+<tab id="qodana-cdnet-project-config-cli" title="CLI option">
+<code style="block" lang="shell">
+--project=MyProject.csproj
+</code>
+</tab>
+</tabs>
 
 The %linter% does not support inspection configuration using the [`qodana.yaml`](qodana-yaml.md) file.
-You can use `.editorconfig` and [`.DotSettings`](%dotsettings%) files for these purposes. Besides that, %linter% supports Roslyn analyzers, 
-with each analyzer considered as a separate inspection. You can configure Roslyn analyzers using the `.editorconfig` 
+You can use `.editorconfig` and [`.DotSettings`](%dotsettings%) files for these purposes. Besides that, %linter% supports Roslyn analyzers,
+with each analyzer considered as a separate inspection. You can configure Roslyn analyzers using the `.editorconfig`
 files. This is an experimental feature, so use them at your own risk.
+
+#### Configure a solution
+
+A solution configuration defines which projects in the solution to build, and which project configurations to use for 
+specific projects within the solution.
+
+Each newly created solution includes the `Debug` and `Release` configurations, which can be complemented by your custom 
+configurations.
+
+You can switch configurations of the current solution using either `qodana.yaml` or the `--property` CLI option. For 
+example, use this to switch to the `Release` configuration:
+
+<tabs>
+<tab id="qodana-cdnet-solution-config-qodana-yaml" title="qodana.yaml">
+<code style="block" lang="yaml">
+dotnet:
+&nbsp;&nbsp;configuration: Release
+</code>
+</tab>
+<tab id="qodana-cdnet-solution-config-cli" title="CLI option">
+<code style="block" lang="shell">
+--property=qodana.net.configuration=Release
+</code>
+</tab>
+</tabs>
+
+By default, the solution platform is set to `Any CPU`, and you can override it the following ways: </p>
+
+<tabs>
+<tab id="qodana-cdnet-platform-config-qodana-yaml" title="qodana.yaml">
+<code style="block" lang="yaml">
+dotnet:
+&nbsp;&nbsp;platform: x86
+</code>
+</tab>
+<tab id="qodana-cdnet-platform-config-cli" title="CLI option">
+<code style="block" lang="shell">
+--property=qodana.net.platform=x86
+</code>
+</tab>
+</tabs>
 
 ### Build the project
 

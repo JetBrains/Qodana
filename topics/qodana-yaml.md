@@ -321,9 +321,9 @@ You can specify the plugins that will be downloaded and invoked during inspectio
 plugins:
   - id: <plugin.id>
 ```
-Here, `<plugin-id>` denotes the plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
-for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional) the Plugin ID will be 
-`com.intellij.grazie.pro`.
+Here, `<plugin-id>` denotes the Plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
+for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional) the Plugin ID will be `com.intellij.grazie.pro`. To find the Plugin ID, on the plugin
+page click the **Overview** tab and then navigate to the **Additional Information** section.
 
 Plugin cache is stored in the `/data/cache/plugins` directory.
 

@@ -28,7 +28,24 @@
 
             <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Install and configure the plugin">
 
-                <p>To run the inspections from the plugin, %product% needs access to these files:</p>
+                <p>The easiest method for running inspections from the plugin is using the
+                    <a href="qodana-yaml.md" anchor="Manage+plugins"<code>plugin</code> option
+                of the <code>qodana.yaml</code> file:</p>
+
+                <code style="block" lang="yaml">
+                    plugins:
+                    &nbsp;&nbsp;- id: &lt;plugin.id&gt;
+                </code>
+
+                <p>Here, <code>&lt;plugin-id&gt;</code> denotes the Plugin ID from
+                    <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example,
+                for <a href="https://plugins.jetbrains.com/plugin/16136-grazie-professional">Grazie Professional</a> the
+                    Plugin ID value will be <code>com.intellij.grazie.pro</code>. To find the Plugin ID, on the plugin
+                    page click the <menupath>Overview</menupath> tab and then navigate to the
+                    <menupath>Additional Information</menupath> section.</p>
+
+
+                <p>Alternatively, you need to prepare the following files:</p>
 
                 <list>
                     <li>The code of the plugin</li>
@@ -78,10 +95,11 @@
         <chapter id="extending-qodana-repository-plugins-run-qodana" title="Run %product%">
             <p>Use this snippet for running %product% locally:</p>
             <code style="block" lang="bash">
-                docker run --rm \
+                docker run \
                    -p 8080:8080 \
                    -v &lt;project-directory&gt;:/data/project/ \
                    -v &lt;report-directory&gt;:/data/results/ \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                    -v &lt;path-to-plugin-file&gt;/PhpInspectionsEA.jar:/opt/idea/plugins/PhpInspectionsEA.jar \
                    -v &lt;path-to-plugin-config&gt;/ea_extended.xml:/root/.config/idea/options/ea_extended.xml \
                    jetbrains/qodana-php --show-report

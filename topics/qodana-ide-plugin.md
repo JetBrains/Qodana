@@ -67,6 +67,10 @@ latest %product% report and overview it.
       <p>Select the <a href="cloud-projects.xml">Qodana Cloud project</a> to link your local project with.</p>
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
+   <step>
+        <p>By enabling the <menupath>Always load most relevant Qodana report</menupath> option, you can get actual reports automatically retrieved from Qodana Cloud.</p>
+      <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
+    </step> 
     <step>
        <p>In the <menupath>Server-Side Analysis</menupath> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
     </step>
@@ -118,9 +122,10 @@ containing such problems.
 
 <img src="ide-plugin-report-navigating.png" dark-src="ide-plugin-report-navigating_dark.png" width="706" alt="Navigating to problems in the IDE" animated="true" border-effect="line"/>
 
+The upper part contains information about the project and branch names, the inspection date, and the number of problems. 
 The left part of the **Server-Side Analysis** tool window contains several buttons. 
 
-<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Buttons in the Server-Side Analysis tool window" border-effect="line"/>
+<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Functionalities of the Server-Side Analysis tool window" border-effect="line"/>
 
 This table describes each button from top to bottom:
 

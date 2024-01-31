@@ -9,12 +9,13 @@
     <var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
     <p><emphasis>Quality gate</emphasis> is the maximum number of problems that can be detected by %product% without
-        causing a CI/CD workflow or pipeline fail. Once the quality gate limit is reached, %product% terminates with
-        exit code 255. </p>
-
-    <p>This feature lets you control your code quality and build software that meets your quality metrics.
-        For example, if you set a quality gate for ten problems, a build workflow will fail once the eleventh
+        causing a CI/CD workflow or pipeline fail, which lets you control your code quality and build software that
+        meets your quality metrics. Once the quality gate limit is reached, %product% terminates with
+        exit code 255. For example, if you set a quality gate for ten problems, a build workflow will fail once the eleventh
         problem is detected.</p>
+
+    <p>Starting from version 2023.3 of %product%, you can also configure quality gates specifically to
+        severity levels and <a href="code-coverage.md">code coverage</a>.</p>
 
     <p>The quality gate and fail threshold terms are used interchangeably with the former being a feature in overall, and
         the latter meaning a configuration option. </p>
@@ -22,8 +23,8 @@
     <p>This feature is supported by all linters available under Community, Ultimate, and Ultimate Plus
         <a href="pricing.md">licenses</a> and their trial versions. </p>
 
-    <note>In combination with the <a href="baseline.xml">baseline</a>, the quality gate feature will help
-        you ensure that the overall technical debt will not grow beyond a certain threshold.</note>
+    <tip>In combination with the <a href="baseline.xml">baseline</a>, the quality gate feature will help
+        you ensure that the overall technical debt will not grow beyond a certain threshold.</tip>
 
     <p>This section explains how to configure a quality gate for:</p>
     <list>
@@ -31,6 +32,7 @@
         <li><a anchor="quality-gate-github-actions">GitHub actions</a></li>
         <li><a anchor="quality-gate-jenkins">Jenkins</a></li>
         <li><a anchor="quality-gate-gitlab-ci">Gitlab CI/CD</a></li>
+        <li><a anchor="quality-gate-severity-configuration">Various severities and code coverage thresholds</a></li>
     </list>
 
     <chapter id="quality-gate-local-run" title="Local run">
@@ -66,6 +68,12 @@
                     required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
                     linters.
                 </p>
+            </tab>
+            <tab title="qodana.yaml">
+                <p>In <code>qodana.yaml</code>, you can use the <code>failThreshold</code> option:</p>
+                <code style="block" lang="yaml">
+                    failThreshold: &lt;number&gt;
+                </code>
             </tab>
         </tabs>
     </chapter>
@@ -182,4 +190,38 @@
         </p>
 
     </chapter>
+
+    <chapter id="quality-gate-severity-configuration" title="Severity levels and code coverage">
+        <p>You can configure %product% to make a build fail specifically to dedicated severities and code coverage settings.</p>
+        <p>In case of severity and code coverage quality gates, %product% follows these rules: </p>
+        <list>
+            <li>Given a severity threshold of X, when finding X results the run will succeed. When finding X+1 results, the run will fail</li>
+            <li>Given a test coverage threshold of Y, when having a Y% of covered lines the run will succeed. If only Y-1% are covered, the run will fail</li>
+        </list>
+        <p>If you configure a quality gate for multiple severity and code coverage thresholds, exceeding at least one of
+            them will make the build fail. Such configuration will accompany an absolute quality gate meaning a build
+            fail once the minimal threshold value is exceeded.</p>
+        <!-- This can also be added to qodana.yaml section -->
+        <p>Here is the sample quality gate configuration for the <code>qodana.yaml</code> file:</p>
+        <code style="block" lang="yaml">
+            failThreshold: 20
+
+            failureConditions:
+            &nbsp;&nbsp;severityThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;any: 0
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: 1
+            &nbsp;&nbsp;&nbsp;&nbsp;high: 2
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
+            &nbsp;&nbsp;&nbsp;&nbsp;low: 4
+            &nbsp;&nbsp;&nbsp;&nbsp;info: 5
+            &nbsp;&nbsp;testCoverageThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;fresh: 6 # Fresh code coverage
+            &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
+        </code>
+
+        <p>According to this sample, a build will fail if either the total number of problems exceeds 20, or it occurs to
+            any number within any severity or code coverage setting.</p>
+
+    </chapter>
 </topic>
+
