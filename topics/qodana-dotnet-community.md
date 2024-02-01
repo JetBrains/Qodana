@@ -13,7 +13,7 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 </note>
 
 %linter% is a community linter based on [%ide%](https://www.jetbrains.com/rider/) and provides static analysis for .NET projects.
-It brings all the smarts from ReSharper, which help you:
+It brings all the smarts from ReSharper, which helps you:
 
 * Detect anomalous code and probable bugs
 * Eliminate dead code
@@ -37,10 +37,10 @@ It also supports C/C++ inspections for projects containing `.sln` solution files
 
 If you plan to run %linter% on a local machine, make sure that Docker on this machine is up and running. 
 
-<p>By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
+By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
 it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
-file name using the <code>--solution</code> option and a relative path to a solution file. For example, to
-    make %product% always analyze the <code>MySolution.sln</code> solution file, you can use:</p>
+filename using the `--solution` option and a relative path to a solution file. For example, to
+make %product% always analyze the `MySolution.sln` solution file, you can use:
 
 %linter% requires the relative path to a solution or a project file from the repository root. 
 
@@ -95,15 +95,15 @@ example, use this to switch to the `Release` configuration:
 
 <tabs>
 <tab id="qodana-cdnet-solution-config-qodana-yaml" title="qodana.yaml">
-<code style="block" lang="yaml">
+```yaml
 dotnet:
 &nbsp;&nbsp;configuration: Release
-</code>
+```
 </tab>
 <tab id="qodana-cdnet-solution-config-cli" title="CLI option">
-<code style="block" lang="shell">
+```yaml
 --property=qodana.net.configuration=Release
-</code>
+```
 </tab>
 </tabs>
 
@@ -111,15 +111,15 @@ By default, the solution platform is set to `Any CPU`, and you can override it t
 
 <tabs>
 <tab id="qodana-cdnet-platform-config-qodana-yaml" title="qodana.yaml">
-<code style="block" lang="yaml">
+```yaml
 dotnet:
 &nbsp;&nbsp;platform: x86
-</code>
+```
 </tab>
 <tab id="qodana-cdnet-platform-config-cli" title="CLI option">
-<code style="block" lang="shell">
+```yaml
 --property=qodana.net.platform=x86
-</code>
+```
 </tab>
 </tabs>
 
