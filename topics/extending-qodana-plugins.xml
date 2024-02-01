@@ -26,10 +26,10 @@
             plugin. You can repeat these steps for any relevant IDE plugin from
             <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> or any custom repository. </p>
 
-            <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Install and configure the plugin">
+        <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Install and configure the plugin">
 
                 <p>The easiest method for running inspections from the plugin is using the
-                    <a href="qodana-yaml.md" anchor="Manage+plugins"<code>plugin</code> option
+                    <a href="qodana-yaml.md" anchor="Manage+plugins"><code>plugin</code></a> option
                 of the <code>qodana.yaml</code> file:</p>
 
                 <code style="block" lang="yaml">
@@ -111,7 +111,4 @@
             inspections and produce inspection results as described in the
             <a href="%inspection-url%">Inspections</a> section of the documentation portal. </p>
     </chapter>
-
-
-
 </topic>

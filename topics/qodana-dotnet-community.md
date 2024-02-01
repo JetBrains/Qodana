@@ -93,35 +93,55 @@ configurations.
 You can switch configurations of the current solution using either `qodana.yaml` or the `--property` CLI option. For 
 example, use this to switch to the `Release` configuration:
 
-<tabs>
-<tab id="qodana-cdnet-solution-config-qodana-yaml" title="qodana.yaml">
-```yaml
+<table header-style="none">
+<tr>
+<td>
+<code>qodana.yaml</code>
+</td>
+<td>
+<code style="block" lang="yaml">
 dotnet:
 &nbsp;&nbsp;configuration: Release
-```
-</tab>
-<tab id="qodana-cdnet-solution-config-cli" title="CLI option">
-```yaml
+</code>
+</td>
+</tr>
+<tr>
+<td>
+CLI option
+</td>
+<td>
+<code style="block" lang="shell">
 --property=qodana.net.configuration=Release
-```
-</tab>
-</tabs>
+</code>
+</td>
+</tr>
+</table>
 
-By default, the solution platform is set to `Any CPU`, and you can override it the following ways: </p>
+By default, the solution platform is set to `Any CPU`, and you can override it in the following ways: </p>
 
-<tabs>
-<tab id="qodana-cdnet-platform-config-qodana-yaml" title="qodana.yaml">
-```yaml
+<table header-style="none">
+<tr>
+<td>
+<code>qodana.yaml</code>
+</td>
+<td>
+<code style="block" lang="yaml">
 dotnet:
 &nbsp;&nbsp;platform: x86
-```
-</tab>
-<tab id="qodana-cdnet-platform-config-cli" title="CLI option">
-```yaml
+</code>
+</td>
+</tr>
+<tr>
+<td>
+CLI option
+</td>
+<td>
+<code style="block" lang="shell">
 --property=qodana.net.platform=x86
-```
-</tab>
-</tabs>
+</code>
+</td>
+</tr>
+</table>
 
 ### Build the project
 
