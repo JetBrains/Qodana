@@ -44,38 +44,33 @@ make %product% always analyze the `MySolution.sln` solution file, you can use:
 
 %linter% requires the relative path to a solution or a project file from the repository root. 
 
-You can configure it using either the `qodana.yaml` file or the `--solution` CLI option:
+You can configure it in the `qodana.yaml` file:
 
-<tabs>
-<tab id="qodana-cdnet-solution-specify-qodana-yaml" title="qodana.yaml">
-<code style="block" lang="yaml">
+```yaml
 dotnet:
-&nbsp;&nbsp;solution: &lt;relative-path-to-solution-file&gt;
-</code>
-</tab>
-<tab id="qodana-cdnet-solution-specify-cli" title="CLI option">
-<code style="block" lang="shell">
---solution=&lt;relative-path-to-solution-file&gt;
-</code>
-</tab>
-</tabs>
+  solution: <relative-path-to-solution-file>
+```
+
+Alternatively, you can do it using the `--solution` CLI option:
+
+```shell
+--solution=<relative-path-to-solution-file>
+```
 
 If your project contains no solution files and multiple project files, you need to use the `--project` option and a 
-relative path to a project file. For example, for the `MyProject.csproj` project file you can use:
+relative path to a project file. For example, for the `MyProject.csproj` project file, you can save the following 
+configuration to the `qodana.yaml` file:
 
-<tabs>
-<tab id="qodana-cdnet-project-config-qodana-yaml" title="qodana.yaml">
-<code style="block" lang="yaml">
+```yaml
 dotnet:
-&nbsp;&nbsp;project: MyProject.csproj
-</code>
-</tab>
-<tab id="qodana-cdnet-project-config-cli" title="CLI option">
-<code style="block" lang="shell">
+  project: MyProject.csproj
+```
+
+Alternatively, you can do it using the `--project` CLI option:
+
+```shell
 --project=MyProject.csproj
-</code>
-</tab>
-</tabs>
+```
 
 The %linter% does not support inspection configuration using the [`qodana.yaml`](qodana-yaml.md) file.
 You can use `.editorconfig` and [`.DotSettings`](%dotsettings%) files for these purposes. Besides that, %linter% supports Roslyn analyzers,
@@ -90,58 +85,31 @@ specific projects within the solution.
 Each newly created solution includes the `Debug` and `Release` configurations, which can be complemented by your custom 
 configurations.
 
-You can switch configurations of the current solution using either `qodana.yaml` or the `--property` CLI option. For 
-example, use this to switch to the `Release` configuration:
+You can switch configurations of the current solution in the `qodana.yaml` file:
 
-<table header-style="none">
-<tr>
-<td>
-<code>qodana.yaml</code>
-</td>
-<td>
-<code style="block" lang="yaml">
+```yaml
 dotnet:
-&nbsp;&nbsp;configuration: Release
-</code>
-</td>
-</tr>
-<tr>
-<td>
-CLI option
-</td>
-<td>
-<code style="block" lang="shell">
+  configuration: Release
+```
+
+Alternatively, you can do it using the `--property` CLI option:
+
+```shell
 --property=qodana.net.configuration=Release
-</code>
-</td>
-</tr>
-</table>
+```
 
-By default, the solution platform is set to `Any CPU`, and you can override it in the following ways: </p>
+By default, the solution platform is set to `Any CPU`, and you can override it in the `qodana.yaml` file:
 
-<table header-style="none">
-<tr>
-<td>
-<code>qodana.yaml</code>
-</td>
-<td>
-<code style="block" lang="yaml">
+```yaml
 dotnet:
-&nbsp;&nbsp;platform: x86
-</code>
-</td>
-</tr>
-<tr>
-<td>
-CLI option
-</td>
-<td>
-<code style="block" lang="shell">
+  platform: x86
+```
+
+Alternatively, you can do it using the `--property` CLI option:
+
+```shell
 --property=qodana.net.platform=x86
-</code>
-</td>
-</tr>
-</table>
+```
 
 ### Build the project
 
