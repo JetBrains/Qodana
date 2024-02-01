@@ -78,18 +78,15 @@
                     in the project root folder under the <code>qodana-inspection-profile.xml</code> filename. </p>
                 </step>
                 </procedure>
-
             </chapter>
 
         <chapter id="extending-qodana-repository-plugins-configure-qodana" title="Configure %product%">
-
             <p>In the project root directory, create the <code>qodana.yaml</code> file and specify the path to the
                 <a href="inspection-profiles.md" anchor="Profile+path">profile</a> location in it:</p>
             <code style="block" lang="yaml">
                 profile:
                     path: ./qodana-inspection-profile.xml
             </code>
-
         </chapter>
 
         <chapter id="extending-qodana-repository-plugins-run-qodana" title="Run %product%">
@@ -105,8 +102,6 @@
                    jetbrains/qodana-php --show-report
             </code>
         </chapter>
-
-
     </chapter>
 
     <chapter id="extending-qodana-developing-plugins" title="Custom plugins">
