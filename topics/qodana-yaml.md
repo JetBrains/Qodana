@@ -112,23 +112,9 @@ include:
 ```
 
 
-## Set a fail threshold
+## Set a quality gate
 
-Add a fail threshold to use as a quality gate:
-
-```yaml
-failThreshold: <number>
-```
-
-[//]: # "Explain exit 255"
-
-When this number of problems is reached, the container executes `exit 255`. This can be used to make a CI step fail. The default value is `10000`.
-
-<note>
-
-When running in the [baseline mode](docker-image-configuration.xml#docker-config-reference-baseline), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
-
-</note>
+<include src="quality-gate.xml" include-id="quality-gate-basics"/>
 
 ## Override the default run scenario
 
