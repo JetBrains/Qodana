@@ -777,11 +777,10 @@
     <chapter id="docker-config-reference-quality-gate" title="Quality gate">
 
         <p>%product% lets you configure a <a href="quality-gate.xml">quality gate</a> or the number of problems that
-            will act as a threshold. Once the threshold is reached, the inspection run is terminated.</p>
+            will act as a threshold. Once the threshold is exceeded, the inspection run is terminated.</p>
 
-        <tip>You can specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node to
-            <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">qodana.yaml</a>. However, the Docker command option
-            overrides the settings in the <code>qodana.yaml</code> file. </tip>
+        <tip>You can specify the threshold as explained in the <a href="qodana-yaml.md" anchor="Set+a+quality+gate"/>
+            section. However, the Docker command option overrides the settings in the <code>qodana.yaml</code> file. </tip>
 
         <table>
             <tr>
