@@ -51,7 +51,7 @@ dotnet:
   solution: <relative-path-to-solution-file>
 ```
 
-Alternatively, you can do it using the `--solution` CLI option:
+Alternatively, you can do it using the `--solution` option:
 
 ```shell
 --solution=<relative-path-to-solution-file>
@@ -66,7 +66,7 @@ dotnet:
   project: MyProject.csproj
 ```
 
-Alternatively, you can do it using the `--project` CLI option:
+Alternatively, you can do it using the `--project` option:
 
 ```shell
 --project=MyProject.csproj
@@ -92,7 +92,7 @@ dotnet:
   configuration: Release
 ```
 
-Alternatively, you can do it using the `--property` CLI option:
+Alternatively, you can do it using the `--property` option:
 
 ```shell
 --property=qodana.net.configuration=Release
@@ -105,7 +105,7 @@ dotnet:
   platform: x86
 ```
 
-Alternatively, you can do it using the `--property` CLI option:
+Alternatively, you can do it using the `--property` option:
 
 ```shell
 --property=qodana.net.platform=x86
@@ -141,7 +141,7 @@ docker run \
 ```
 {prompt="$"}
 
-Here,  the `QODANA_TOKEN` variable specifies the [project token](project-token.md). After %product% finishes inspecting
+Here, the `QODANA_TOKEN` variable specifies the [project token](project-token.md). After %product% finishes inspecting
 your code, you can open [Qodana Cloud](https://qodana.cloud) to see the inspection report.
 
 ## Next steps

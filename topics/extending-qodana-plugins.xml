@@ -28,7 +28,7 @@
 
         <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Install and configure the plugin">
 
-                <p>The easiest method for running inspections from the plugin is using the
+                <p>The easiest method for installing a plugin is using the
                     <a href="qodana-yaml.md" anchor="Manage+plugins"><code>plugin</code></a> option
                 of the <code>qodana.yaml</code> file:</p>
 
@@ -40,8 +40,9 @@
                 <p>Here, <code>&lt;plugin-id&gt;</code> denotes the Plugin ID from
                     <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example,
                 for <a href="https://plugins.jetbrains.com/plugin/16136-grazie-professional">Grazie Professional</a> the
-                    Plugin ID value will be <code>com.intellij.grazie.pro</code>. To find the Plugin ID, on the plugin
-                    page click the <menupath>Overview</menupath> tab and then navigate to the
+                    Plugin ID value will be <code>com.intellij.grazie.pro</code>. To find the ID of a specific plugin,
+                    on the plugin page of <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>  click the
+                    <menupath>Overview</menupath> tab, and then navigate to the
                     <menupath>Additional Information</menupath> section.</p>
 
 
