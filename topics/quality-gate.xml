@@ -10,26 +10,26 @@
 
     <p><emphasis>Quality gate</emphasis> is a set of metrics that let you control your code quality and build
         software that meets your quality expectations. If a quality gate condition fails, %product% terminates with
-        exit code 255, which makes a CI/CD workflow or pipeline fail. For example, if a quality gate for all project
-        problems is set to 10 and code coverage is set to 40%, a build workflow will fail if %product% detects either
+        exit code 255, which makes a CI/CD workflow or pipeline fail. For example, if a quality gate for a project
+        is set to 10 problems and code coverage is set to 40%, a build workflow will fail if %product% detects either
         the eleventh problem or code coverage below 40%. </p>
 
     <p>The quality gate and fail threshold terms are used interchangeably with the former being a feature in overall, and
         the latter meaning a configuration option. </p>
 
-    <p>This feature is supported by all linters available under Community, Ultimate, and Ultimate Plus
+    <p>%product% provides this feature in all linters available under Community, Ultimate, and Ultimate Plus
         <a href="pricing.md">licenses</a> and their trial versions. </p>
 
     <chapter id="quality-gate-how-it-works" title="How it works">
         <chunk id="quality-gate-basics">
-        <p>You can configure a quality gate for problems of all severities altogether, specific severities and code
+        <p>You can configure a quality gate for a specific problem severity, entire number of all project problems, and code
             coverage thresholds. %product% follows these rules:</p>
         <list>
             <li>Given a severity threshold of X, when finding X results the run will succeed. When finding X+1 results, the run will fail</li>
             <li>Given a test coverage threshold of Y, when having a Y% of covered lines the run will succeed. If only Y-1% are covered, the run will fail</li>
         </list>
-        <p>If you configure a quality gate for multiple severities and code coverage thresholds, and exceeding at least one of
-            them will make the build fail.</p>
+        <p>If you configure a quality gate for multiple severities and code coverage thresholds, then exceeding at least
+            one setting limitation will make the build fail.</p>
 
         <tip>If you configure together a quality gate and a <a href="baseline.xml">baseline</a>, you will be able you keep the number
             of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
