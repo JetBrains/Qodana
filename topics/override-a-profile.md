@@ -63,9 +63,9 @@ inspections:
      enabled: false # Disable the inspection
 ```
 
-## Exclude a path
+## Specify inspection path(s)
 
-You can tell %product% ignoring specific paths while inspecting your code. Suppose, you would like to ignore the 
+You can tell %product% ignoring specific paths while inspecting your code. Suppose you would like to ignore the 
 `vendor` directory in your project root. You can do it by using the [`ignore`](custom-profiles.md#inspections-group) block, so the final 
 configuration is shown below:
 

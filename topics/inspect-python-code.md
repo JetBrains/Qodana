@@ -13,7 +13,6 @@ To inspect your Python codebase, depending on your %product% [license](pricing.m
 | [](qodana-python.md)           | Ultimate and Ultimate Plus  |
 | [](qodana-python-community.md) | Community                   |
 
-
 </tab>
 <tab id="inspect-python-code-techs" title="Supported technologies and features">
 
@@ -31,9 +30,18 @@ Here is the list of technologies and features supported by both linters.
 </tab>
 </tabs>
 
-Here are several configuration snippets showing how you can inspect Python code.
+## Install project dependencies
 
-<!-- I need to modify all these tabs accordingly -->
+You can install project dependencies using the [`bootstrap`](before-running-qodana.md) configuration option, for example:
+
+```yaml
+bootstrap: |
+  pip install -r requirements.txt
+```
+
+## Inspect your code
+
+Here are several configuration snippets showing how you can inspect Python code.
 
 <tabs>
 <tab id="inspect-python-code-github" title="GitHub Actions">
@@ -54,7 +62,7 @@ pipeline {
               -v "${WORKSPACE}":/data/project
               --entrypoint=""
               '''
-            image 'jetbrains/qodana-python<-community>:2023.2'
+            image 'jetbrains/qodana-python<-community>:2023.3'
         }
     }
     stages {
