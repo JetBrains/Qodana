@@ -22,8 +22,8 @@
 
     <chapter id="quality-gate-how-it-works" title="How it works">
         <chunk id="quality-gate-basics">
-        <p>You can configure a quality gate for a specific problem severity, entire number of all project problems, and code
-            coverage thresholds. %product% follows these rules:</p>
+        <p>You can configure a quality gate for a specific problem severity, for all project problems independently of their
+            severities, and code coverage thresholds. %product% follows these rules:</p>
         <list>
             <li>Given a severity threshold of X, when finding X results the run will succeed. When finding X+1 results, the run will fail</li>
             <li>Given a test coverage threshold of Y, when having a Y% of covered lines the run will succeed. If only Y-1% are covered, the run will fail</li>
@@ -34,12 +34,13 @@
         <tip>If you configure together a quality gate and a <a href="baseline.xml">baseline</a>, you will be able you keep the number
             of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
 
-        <p>Here is a sample quality gate configuration for the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
+        <p>Here is a sample quality gate configuration for the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file using
+            the <code>failureConditions</code> option:</p>
 
         <code style="block" lang="yaml">
             failureConditions:
             &nbsp;&nbsp;severityThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;any: 20 # The total number of problems in all severities
+            &nbsp;&nbsp;&nbsp;&nbsp;any: 20 # All project problems without considering severities
             &nbsp;&nbsp;&nbsp;&nbsp;critical: 1
             &nbsp;&nbsp;&nbsp;&nbsp;high: 2
             &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
@@ -50,10 +51,13 @@
             &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
         </code>
         </chunk>
-        <p>You can use the <code>fail-threshold</code> option for configuring the absolute number of problems for a quality gate.
-        Below are several configuration examples for the <code>fail-threshold</code> option. </p>
+        <p>You can also employ the <code>fail-threshold</code> option for
+            all project problems independently of their severities. However, this approach is less flexible compared to
+            the <code>failureConditions</code> option.</p>
 
         <note>Application of the <code>fail-threshold</code> option overrides configurations made in the <code>qodana.yaml</code> file.</note>
+
+        <p>Below are several configuration examples of using the <code>fail-threshold</code> option.</p>
 
         <tabs>
             <tab title="Qodana CLI">
