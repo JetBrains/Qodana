@@ -154,4 +154,6 @@
     <!-- Troubleshooting section -->
     <toc-element title="Troubleshooting" id="troubleshooting.xml"/>
 
+    <toc-element toc-title="Inspectopedia" href="https://www.jetbrains.com/help/inspectopedia/WhatIsNewInspections.html"/>
+
 </product-profile>
