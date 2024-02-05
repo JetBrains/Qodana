@@ -31,9 +31,10 @@ Add the following to the `build.gradle.kts` configuration file:
   </tab>
  </tabs>
 
+<var name="qodana-label">Gradle Plugin Portal</var>
 <note>
 
-The latest version is: [![](https://img.shields.io/gradle-plugin-portal/v/org.jetbrains.qodana?color=green&label=Gradle%20Plugin%20Portal&logo=gradle)](https://plugins.gradle.org/plugin/org.jetbrains.qodana)
+The latest version is: [![](https://img.shields.io/gradle-plugin-portal/v/org.jetbrains.qodana?color=green&label=%qodana-label%&logo=gradle)](https://plugins.gradle.org/plugin/org.jetbrains.qodana)
 
 </note>
 
