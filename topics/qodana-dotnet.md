@@ -29,7 +29,7 @@ Starting from version 2023.3, the functionality of .NET Framework-based project 
 
 %linter% provides inspections for the following technologies.
 
-<table header-style="none">
+<table style="none">
     <tr>
         <td>Programming languages</td>
         <td>
@@ -120,10 +120,10 @@ In case a project requires a different version of the SDK, you can set it up bef
 For example, this command will install the required version of the SDK that is specified in the
 `global.json` file and located in the root of your project:
 
-<code style="block" lang="yaml">
+<code-block lang="yaml">
     bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
       bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
-</code>
+</code-block>
 
 ### Build the project
 
@@ -138,7 +138,7 @@ that %instance% has access to private NuGet feeds.
 
 #### Specify a solution
 
-<include from="lib_qd.topic" element-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/>
+<p><include from="lib_qd.topic" element-id="docker-dotnet-specific-solution-project" use-filter="empty,for-dotnet"/></p>
 
 #### Roslyn analyzers
 
@@ -174,16 +174,16 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
             <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installed</a> Qodana CLI on your
             machine and followed the recommendations from 
 <a href="native-mode.md" anchor="Before+you+start">this section</a>, you can run this command in the project root directory:</p>
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan \
             &nbsp;&nbsp;&nbsp;--ide QDNET
-        </code>
+        </code-block>
         <p>Here, the <code>--ide</code> option downloads and employs the JetBrains IDE binary file.</p>
         <p>Alternatively, in the <code>qodana.yaml</code> file you can save the <code>ide: QDNET</code> configuration, 
     and then run %instance% using this command:</p>
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan
-        </code>
+        </code-block>
     </tab>
     <tab id="qodana-dotnet-docker-image-tab" title="Docker image">
         <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
@@ -193,14 +193,14 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
         <p>Start local analysis with <code>source-directory</code>
             pointing to the root of your project and
             <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
         docker run \
         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
         &nbsp;&nbsp;&nbsp;-p 8080:8080 \
         &nbsp;&nbsp;&nbsp;%docker-image% \
         &nbsp;&nbsp;&nbsp;--show-report
-        </code>
+        </code-block>
         <p>Open <code>http://localhost:8080</code> in your browser to examine inspection results.
             Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
             details. When done, you can stop the web server by pressing Ctrl-C in the

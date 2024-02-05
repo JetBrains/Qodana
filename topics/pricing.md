@@ -8,7 +8,7 @@ Depending on your needs, you can choose a suitable license described in this tab
 | Ultimate      | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. A trial version is available.                                                                                                                |
 | Ultimate Plus | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Comes with all the same functionality as the Ultimate license, but also includes additional [features](features.topic) and unlimited historical data storage. A trial version is available. |
 
-Here are the links to essential %product% documents:
+Here are the links to essential %instance% documents:
 
 * [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/)
 * [Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) related to the linters licensed under the Ultimate and Ultimate Plus licenses

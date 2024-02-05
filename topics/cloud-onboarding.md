@@ -41,7 +41,7 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 
 * [GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key)
 * [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys) - start from step 2, i.e. skip the SSH key generation step
-* [JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step 
+* [JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step
 
 <warning>Do not store the key on the account level, so that it cannot be shared by other repositories within your account.</warning>
 </step>

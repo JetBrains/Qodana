@@ -6,7 +6,9 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Troubleshooting" id="troubleshooting">
 
-    <p>This section contains information that can help you troubleshoot common problems.</p><chapter id="troubleshooting-mounted-directories" title="List of Docker image paths">
+    <p>This section contains information that can help you troubleshoot common problems.</p>
+
+    <chapter id="troubleshooting-mounted-directories" title="List of Docker image paths">
 
         <table>
             <tr>
@@ -186,5 +188,13 @@
         </code-block>
 
     </chapter>
+
+    <chapter id="troubleshooting-whitelist" title="The list of IP addresses required by Qodana Cloud">
+
+        <p>To provide correct work of the contributor counting functionality, add the IP address range
+            54.76.32.8/32 to a list of allowed inbound connections on your side.</p>
+
+    </chapter>
+
 
 </topic>

@@ -1,8 +1,8 @@
 [//]: # (title: Prepare your project)
 
-When %product% runs on your project, it tries to figure out the build system and project structure by itself. 
-If %product% cannot figure out the project structure, it will run the inspections nevertheless, but some inspections may 
-report that they cannot find classes, packages, files or cannot resolve references. In these cases, %product% needs a 
+When %instance% runs on your project, it tries to figure out the build system and project structure by itself. 
+If %instance% cannot figure out the project structure, it will run the inspections nevertheless, but some inspections may 
+report that they cannot find classes, packages, files or cannot resolve references. In these cases, %instance% needs a 
 bit of help. Typical actions to prepare the project for Qodana are:
 
 * Install third-party packages or libraries
@@ -35,7 +35,7 @@ set -eu
 #npm install
 ```
 
-Run the script within a %product% Docker container using the `bootstrap` option:
+Run the script within a %instance% Docker container using the `bootstrap` option:
 
 ```shell
 bootstrap: sh ./prepare-qodana.sh

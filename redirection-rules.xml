@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/stardust/redirection-rules.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
 <rules>
     <rule id="1e77e8d0">
         <accepts>docker-techs.html</accepts>

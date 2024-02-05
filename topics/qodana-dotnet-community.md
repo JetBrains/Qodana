@@ -4,7 +4,7 @@
 <var name="linter" value="Qodana Community for .NET"/>
 <var name="ide" value="ReSharper"/>
 <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
-<var name="config-file" value="qodana-cdnet-docker-readme.xml"/>
+<var name="config-file" value="qodana-cdnet-docker-readme.topic"/>
 
 <note>%linter% is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
 Any use of the EAP product is at your own risk. Your feedback is very welcome in our
@@ -20,7 +20,7 @@ It brings all the smarts from ReSharper, which helps you:
 * Highlight spelling problems
 * Improve overall code structure
 * Introduce coding best practices
-* Upload inspection results to [Qodana Cloud](cloud-about.xml)
+* Upload inspection results to [Qodana Cloud](cloud-about.topic)
 
 <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
 
@@ -29,7 +29,7 @@ It also supports C/C++ inspections for projects containing `.sln` solution files
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,cdnet"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,cdnet"/>
 
 ## Analyze a project locally
 
@@ -37,10 +37,10 @@ It also supports C/C++ inspections for projects containing `.sln` solution files
 
 If you plan to run %linter% on a local machine, make sure that Docker on this machine is up and running. 
 
-By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
+By default, %instance% tries to locate and employ a single solution file, or, if no solution file is present,
 it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
 filename using the `--solution` option and a relative path to a solution file. For example, to
-make %product% always analyze the `MySolution.sln` solution file, you can use:
+make %instance% always analyze the `MySolution.sln` solution file, you can use:
 
 %linter% requires the relative path to a solution or a project file from the repository root. 
 
@@ -127,7 +127,7 @@ docker run \
 {prompt="$"}
 
 In this case, in the [`bootstrap`](before-running-qodana.md) section of the [`qodana.yaml`](qodana-yaml.md) file you can specify how to build 
-your project, or run the build in a pipeline before passing it to %product%.
+your project, or run the build in a pipeline before passing it to %instance%.
 
 ### Run the linter
 
@@ -141,9 +141,9 @@ docker run \
 ```
 {prompt="$"}
 
-Here, the `QODANA_TOKEN` variable specifies the [project token](project-token.md). After %product% finishes inspecting
+Here, the `QODANA_TOKEN` variable specifies the [project token](project-token.md). After %instance% finishes inspecting
 your code, you can open [Qodana Cloud](https://qodana.cloud) to see the inspection report.
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>

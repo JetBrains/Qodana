@@ -9,10 +9,18 @@
     <p>%instance% implements the static analysis mechanism to automatically analyze your codebase without your participation.
         This means that you just run %instance% to inspect your code and expect recommendations on how you could improve
         your codebase. No other actions like running additional scripts, downloading external libraries, or any
-        additional configuring is required.</p><p>The second fact about static analysis says that your software can be explored by %instance% without building and
+        additional configuring is required.</p>
+
+    <p>The second fact about static analysis says that your software can be explored by %instance% without building and
         deploying your software because code inspection is carried out on the codebase basis. So, no other activities are
-    required from this side either.</p><p>Once the static analysis stage is complete, you can explore vulnerabilities and faults in your code and see exact
+    required from this side either.</p>
+
+    <p>Once the static analysis stage is complete, you can explore vulnerabilities and faults in your code and see exact
         lines where %instance% detected imperfections. %instance% is equipped with a multitude of
-        <a href="code-inspections.topic">inspections</a> responsible for detecting particular problems.</p><p>To sum up, static analysis mechanism of %instance% is an efficient way for keeping your software quality under
+        <a href="code-inspections.topic">inspections</a> responsible for detecting particular problems.</p>
+
+    <p>To sum up, static analysis mechanism of %instance% is an efficient way for keeping your software quality under
         control. You can observe the list of currently <a href="linters.md">supported technologies</a>,
-        but keep in mind that this list will be growing over time.</p></topic>
+        but keep in mind that this list will be growing over time.</p>
+
+</topic>

@@ -10,9 +10,7 @@
 <var name="docker-image" value="jetbrains/qodana-jvm:2023.3"/>
 <var name="config-file" value="qodana-jvm-docker-readme.topic"/>
 
-%linter% is based on [%ide%](https://www.jetbrains.com/idea/). 
-
-<include from="lib_qd.topic" element-id="linter-intro"/>
+%linter% is based on [%ide%](https://www.jetbrains.com/idea/). <include from="lib_qd.topic" element-id="linter-intro"/>
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
 
@@ -20,7 +18,7 @@
 
 %linter% provides inspections for the following technologies.
 
-<table header-style="none">
+<table style="none">
     <tr>
         <td>Programming languages</td>
         <td>
@@ -98,7 +96,7 @@
 
 <note>Before running %instance%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
 
-<include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Next steps
 

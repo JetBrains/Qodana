@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Quality gate"
+       id="quality-gate">
+
+    <var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
+
+    <p><emphasis>Quality gate</emphasis> is a set of metrics that let you control your code quality and build
+        software that meets your quality expectations. If a quality gate condition fails, %product% terminates with
+        exit code 255, which makes a CI/CD workflow or pipeline fail. For example, if a quality gate for a project
+        is set to 10 problems and code coverage is set to 40%, a build workflow will fail if %product% detects either
+        the eleventh problem or code coverage below 40%. </p>
+
+    <p>The quality gate and fail threshold terms are used interchangeably with the former being a feature in overall, and
+        the latter meaning a configuration option. </p>
+
+    <p>%product% provides this feature in all linters available under Community, Ultimate, and Ultimate Plus
+        <a href="pricing.md">licenses</a> and their trial versions. </p>
+
+    <chapter id="quality-gate-how-it-works" title="How it works">
+        <chunk id="quality-gate-basics">
+        <p>You can configure a quality gate for a specific problem severity, for all project problems independently of their
+            severities, and code coverage thresholds. %product% follows these rules:</p>
+        <list>
+            <li>Given a severity threshold of X, when finding X results the run will succeed. When finding X+1 results, the run will fail</li>
+            <li>Given a test coverage threshold of Y, when having a Y% of covered lines the run will succeed. If only Y-1% are covered, the run will fail</li>
+        </list>
+        <p>If you configure a quality gate for multiple severities and code coverage thresholds, then exceeding at least
+            one setting limitation will make the build fail.</p>
+
+        <tip>If you configure together a quality gate and a <a href="baseline.xml">baseline</a>, you will be able you keep the number
+            of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
+
+        <p>Here is a sample quality gate configuration for the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file using
+            the <code>failureConditions</code> option:</p>
+
+        <code style="block" lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;severityThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;any: 20 # All project problems without considering severities
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: 1
+            &nbsp;&nbsp;&nbsp;&nbsp;high: 2
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
+            &nbsp;&nbsp;&nbsp;&nbsp;low: 4
+            &nbsp;&nbsp;&nbsp;&nbsp;info: 5
+            &nbsp;&nbsp;testCoverageThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;fresh: 6 # Fresh code coverage
+            &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
+        </code>
+        </chunk>
+        <p>You can also employ the <code>fail-threshold</code> option for
+            all project problems independently of their severities. However, this approach is less flexible compared to
+            the <code>failureConditions</code> option.</p>
+
+        <note>Application of the <code>fail-threshold</code> option overrides configurations made in the <code>qodana.yaml</code> file.</note>
+
+        <p>Below are several configuration examples of using the <code>fail-threshold</code> option.</p>
+
+        <tabs>
+            <tab title="Qodana CLI">
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                    &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;--fail-threshold &lt;number&gt;
+                </code>
+                <p>In this command, the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.
+                    The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                    required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
+                    linters.
+                </p>
+            </tab>
+            <tab title="Docker image">
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                    &nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/  \
+                    &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
+                    &nbsp;&nbsp;--fail-threshold &lt;number&gt;
+                </code>
+                <p>In this command, <code>&lt;source-directory&gt;</code> is the full local path to the project source code, and
+                    the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate. The
+                    <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                    required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
+                    linters.
+                </p>
+            </tab>
+            <tab title="GitHub Actions">
+                <p>You can enforce GitHub to block merge of pull requests if the <a href="quality-gate.xml">quality gate</a> has failed. To do it,
+                    create a <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
+
+                <procedure>
+                    <step>Create a new or open an existing GitHub Actions workflow that invokes the
+                        <a href="https://github.com/marketplace/actions/qodana-scan">Qodana scan</a> action.</step>
+                    <step><p>Set the workflow to run on <code>pull_request</code> events that target the <code>main</code> branch.</p>
+                        <code style="block" lang="yaml">
+                            name: Qodana
+                            on:
+                            &nbsp;&nbsp;pull_request:
+                            &nbsp;&nbsp;&nbsp;&nbsp;branches:
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main
+
+                            jobs:
+                            &nbsp;&nbsp;qodana:
+                            &nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest
+                            &nbsp;&nbsp;&nbsp;&nbsp;permissions:
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents: write
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pull-requests: write
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checks: write
+                            &nbsp;&nbsp;&nbsp;&nbsp;steps:
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v3
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch-depth: 0  # a full history is required for pull request analysis
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: 'Qodana Scan'
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2023.3
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env:
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                        </code>
+
+                        <p>Instead of <code>main</code>, you can specify your branch here. The
+                            <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                            required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
+                            linters.</p>
+                    </step>
+                    <step>Set the fail threshold (number) for the Qodana Action <code>fail-threshold</code> option.</step>
+                    <step>Under your repository name, click <menupath>Settings</menupath>.</step>
+                    <step>On the left menu, click <menupath>Branches</menupath>.</step>
+                    <step>In the branch protection rules section, click <menupath>Add rule</menupath>.</step>
+                    <step>Add <code>main</code> to <menupath>Branch name pattern</menupath>.</step>
+                    <step>Select <menupath>Require status checks to pass before merging</menupath>.</step>
+                    <step>Search for the <menupath>Qodana</menupath> status check, then check it.</step>
+                    <step>Click <menupath>Create</menupath>.</step>
+                </procedure>
+            </tab>
+            <tab title="Jenkins">
+                <p>To set up a quality gate in a <a href="jenkins.md">Jenkins</a> Pipeline, you can add the
+                    <code>--fail-threshold &lt;number&gt;</code> option to the <code>steps</code> block:</p>
+
+                <code style="block" lang="groovy">
+                    pipeline {
+                    &nbsp;&nbsp;&nbsp;environment {
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN=credentials('qodana-token')
+                    &nbsp;&nbsp;&nbsp;}
+                    &nbsp;&nbsp;&nbsp;agent {
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;docker {
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args '''
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v &lt;path-to-project&gt;:/data/project
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--entrypoint=""
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image 'jetbrains/qodana-&lt;linter&gt;'
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                    &nbsp;&nbsp;&nbsp;}
+                    &nbsp;&nbsp;&nbsp;stages {
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stage('Qodana') {
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;steps {
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sh '''
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;qodana \
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--fail-threshold &lt;number&gt;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                    &nbsp;&nbsp;&nbsp;}
+                    }
+                </code>
+
+                <p>The <code>QODANA_TOKEN</code> variable in this snippet refers to the
+                    <a href="project-token.md">project token</a> contained in the <code>qodana-token</code> credentials and
+                    required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
+            </tab>
+            <tab title="GitLab CI/CD">
+                <p>To run a quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, you can save this
+                    configuration to the <code>.gitlab-ci.yml</code> file:</p>
+                <code style="block" lang="yaml">
+                    qodana:
+                    &nbsp;image:
+                    &nbsp;&nbsp;&nbsp;name: jetbrains/qodana-&lt;linter&gt;
+                    &nbsp;&nbsp;&nbsp;entrypoint: ['']
+                    variables:
+                    &nbsp;&nbsp;&nbsp;QODANA_TOKEN: $qodana_token
+                    script:
+                    &nbsp;&nbsp;&nbsp;- qodana --fail-threshold &lt;number&gt;
+                    artifacts:
+                    &nbsp;&nbsp;paths:
+                    &nbsp;&nbsp;&nbsp;&nbsp;- qodana
+                </code>
+
+                <p>In this sample, the <code>script</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
+                    option. The <code>QODANA_TOKEN</code> variable in this snippet refers to the
+                    <a href="project-token.md">project token</a> and required by the
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
+                </p>
+            </tab>
+        </tabs>
+    </chapter>
+</topic>
+

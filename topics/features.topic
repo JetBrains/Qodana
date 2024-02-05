@@ -7,7 +7,9 @@
 	title="Features" id="features">
 
         <p>Using %instance%, you can significantly enhance your code inspection workflow. To better achieve your
-           goals, you may want to start using several features that are available out of the box: </p><table>
+           goals, you may want to start using several features that are available out of the box: </p>
+
+        <table>
             <tr>
                 <td>
                     Feature

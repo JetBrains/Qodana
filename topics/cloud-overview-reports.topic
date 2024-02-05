@@ -6,16 +6,25 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Report overview" id="cloud-overview-reports">
 
-    <p>Information from project reports is aggregated and displayed in several sections marked on this image.</p><img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report overview" width="706" border-effect="line" title="Qodana Cloud report sample"/>
+    <p>Information from project reports is aggregated and displayed in several sections marked on this image.</p>
 
-    <p>Here is the description of each section:</p><p>1. The project name, the branch name, time passed since the last inspection run, the number of detected problems and their severity.</p><p>2. The codebase amount <a href="code-coverage.md">covered with tests</a>.</p><p>3. The context menu that lets you:</p><list>
+    <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report overview" width="706" border-effect="line" title="Qodana Cloud report sample"/>
+
+    <p>Here is the description of each section:</p>
+
+    <p>1. The project name, the branch name, time passed since the last inspection run, the number of detected problems and their severity.</p>
+    <p>2. The codebase amount <a href="code-coverage.md">covered with tests</a>.</p>
+    <p>3. The context menu that lets you:</p>
+    <list>
         <li>Navigate to the VCS containing your codebase</li>
         <li>Rename the project</li>
         <li>Copy or regenerate the <a href="project-token.md">project token</a></li>
         <li>Delete the project</li>
     </list>
 
-    <p>This table shows how Qodana Cloud interprets and displays several reports depending on their metadata.</p><table>
+    <p>This table shows how Qodana Cloud interprets and displays several reports depending on their metadata.</p>
+
+    <table>
         <tr>
             <td>Branch name</td>
             <td>Commit time</td>
@@ -42,7 +51,19 @@
         </tr>
     </table>
 
-    <p>To see the project reports, click it. This will open the <a href="ui-overview.md">report page</a>.</p><img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
+    <p>To see the project reports, click it. This will open the <a href="ui-overview.md">report page</a>.</p>
 
-    <p>The upper part of the report page contains:</p><p>1. Branch selector. Using it, you can overview reports for each branch in your project.</p><p>2. Commit hash and time passed since the last inspection run.</p><p>3. Timeline describing the date of inspection, number of problems detected.</p><p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-sarif-output.md">SARIF format</a>, and opening the help guide.</p><p>5. Selector for overviewing either the absolute number of detected problems, or the number of problems
-    relatively to a <a href="baseline.topic">baseline</a> set for this project.</p><p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p></topic>
+    <img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
+
+    <p>The upper part of the report page contains:</p>
+
+    <p>1. Branch selector. Using it, you can overview reports for each branch in your project.</p>
+    <p>2. Commit hash and time passed since the last inspection run.</p>
+    <p>3. Timeline describing the date of inspection, number of problems detected.</p>
+    <p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-sarif-output.md">SARIF format</a>, and opening the help guide.</p>
+    <p>5. Selector for overviewing either the absolute number of detected problems, or the number of problems
+    relatively to a <a href="baseline.topic">baseline</a> set for this project.</p>
+
+    <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
+
+</topic>

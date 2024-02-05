@@ -6,7 +6,9 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="User roles" id="cloud-user-roles">
 
-    <p>The role assigned to your <a href="https://qodana.cloud">Qodana Cloud</a> account will depend on the case.</p><table>
+    <p>The role assigned to your <a href="https://qodana.cloud">Qodana Cloud</a> account will depend on the case.</p>
+
+    <table>
         <tr>
             <td>Case</td>
             <td>Role assigned</td>

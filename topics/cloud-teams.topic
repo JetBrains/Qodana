@@ -8,7 +8,9 @@
 
     <p>A team is a part of an <a href="cloud-organizations.topic">organization</a> accumulating specific
         <a href="cloud-projects.topic">projects</a>. Using teams, you can group users around dedicated projects in
-        <a href="https://qodana.cloud">Qodana Cloud</a>.</p><chapter id="cloud-teams-create-team" title="Create a team">
+        <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
+
+    <chapter id="cloud-teams-create-team" title="Create a team">
 
         <p>During the <a href="cloud-onboarding.md">onboarding</a> stage, Qodana Cloud helps you create a team, so
             you need this step only for creating additional teams.</p>

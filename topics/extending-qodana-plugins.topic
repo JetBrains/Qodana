@@ -17,16 +17,36 @@
     <var name="plugin-config" value="https://www.jetbrains.com/help/phpstorm/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory"/>
 
     <p>You can extend %instance% using either existing plugins from repositories, or by developing
-        <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p><chapter id="extending-qodana-repository-plugins" title="Plugins from repositories">
+        <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p>
+
+    <chapter id="extending-qodana-repository-plugins" title="Plugins from repositories">
 
         <p>This section explains how to inspect PHP code using the <a href="qodana-php.md"/> linter enhanced with the
             <a href="%php-ea-plugin%">Php Inspections (EA Extended)</a>
             plugin. You can repeat these steps for any relevant IDE plugin from
             <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> or any custom repository. </p>
 
-            <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Install and configure the plugin">
+        <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Install and configure the plugin">
 
-                <p>To run the inspections from the plugin, %instance% needs access to these files:</p>
+                <p>The easiest method for installing a plugin is using the
+                    <a href="qodana-yaml.md" anchor="Manage+plugins"><code>plugin</code></a> option
+                of the <code>qodana.yaml</code> file:</p>
+
+                <code-block lang="yaml">
+                    plugins:
+                    &nbsp;&nbsp;- id: &lt;plugin.id&gt;
+                </code-block>
+
+                <p>Here, <code>&lt;plugin-id&gt;</code> denotes the Plugin ID from
+                    <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example,
+                for <a href="https://plugins.jetbrains.com/plugin/16136-grazie-professional">Grazie Professional</a> the
+                    Plugin ID value will be <code>com.intellij.grazie.pro</code>. To find the ID of a specific plugin,
+                    on the plugin page of <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>  click the
+                    <ui-path>Overview</ui-path> tab, and then navigate to the
+                    <ui-path>Additional Information</ui-path> section.</p>
+
+
+                <p>Alternatively, you need to prepare the following files:</p>
 
                 <list>
                     <li>The code of the plugin</li>
@@ -59,34 +79,30 @@
                     in the project root folder under the <code>qodana-inspection-profile.xml</code> filename. </p>
                 </step>
                 </procedure>
-
             </chapter>
 
         <chapter id="extending-qodana-repository-plugins-configure-qodana" title="Configure %instance%">
-
             <p>In the project root directory, create the <code>qodana.yaml</code> file and specify the path to the
                 <a href="inspection-profiles.md" anchor="Profile+path">profile</a> location in it:</p>
             <code-block lang="yaml">
                 profile:
                     path: ./qodana-inspection-profile.xml
             </code-block>
-
         </chapter>
 
         <chapter id="extending-qodana-repository-plugins-run-qodana" title="Run %instance%">
             <p>Use this snippet for running %instance% locally:</p>
             <code-block lang="bash">
-                docker run --rm \
+                docker run \
                    -p 8080:8080 \
                    -v &lt;project-directory&gt;:/data/project/ \
                    -v &lt;report-directory&gt;:/data/results/ \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                    -v &lt;path-to-plugin-file&gt;/PhpInspectionsEA.jar:/opt/idea/plugins/PhpInspectionsEA.jar \
                    -v &lt;path-to-plugin-config&gt;/ea_extended.xml:/root/.config/idea/options/ea_extended.xml \
                    jetbrains/qodana-php --show-report
             </code-block>
         </chapter>
-
-
     </chapter>
 
     <chapter id="extending-qodana-developing-plugins" title="Custom plugins">
@@ -96,7 +112,4 @@
             inspections and produce inspection results as described in the
             <a href="%inspection-url%">Inspections</a> section of the documentation portal. </p>
     </chapter>
-
-
-
 </topic>

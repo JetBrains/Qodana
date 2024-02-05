@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Getting started"
+       id="getting-started">
+
+        <section-starting-page>
+                <title>Discover Qodana</title>
+                <description>
+                        These topics will help you get started with Qodana.
+                </description>
+
+                <tip-group>
+                        <title>These are two sections you should definitely start with</title>
+                        <a href="about-qodana.md"
+                           description="Qodana is a code quality platform that brings into your CI/CD pipelines all the smart features you love in the JetBrains IDEs as well as project-level checks."
+                           type="install"/>
+                        <a href="Quick-start.xml"
+                           description="Learn how to get started with Qodana in a few simple steps."
+                           type="start"/>
+                </tip-group>
+
+                <main-group>
+                        <title>Deploy, configure, and launch Qodana</title>
+                        <a href="docker-images.md"
+                           description="Learn how to deploy Qodana locally using Docker images."/>
+                        <a href="qodana-ide-plugin.md"
+                           description="You can view Qodana reports in JetBrains IDEs."/>
+                        <a href="ci.md"
+                           description="Our documentation provides several how-tos for integration with the most
+                           popular CI/CD systems."/>
+                        <a href="configure-qodana.xml"
+                           description="Explore how to configure Qodana using various options."/>
+                        <!-- I can add to this section all possibilities for inspection results. This is important -->
+                        <a href="inspect-your-code.xml"
+                           description="Learn how you can start inspecting your code and obtain code inspection results."/>
+                </main-group>
+
+                <highlighted-group>
+                        <title>Qodana features</title>
+                        <a href="baseline.xml"
+                           description="Track your project changes through studying new, unchanged, and resolved problems."/>
+                        <a href="code-coverage.md"
+                           description="Inspect the quality of code coverage."/>
+                        <a href="license-audit.xml"
+                           description="Check license compatibility between your software license and dependency licenses."/>
+                        <a href="php-language-upgrade.xml"
+                           description="See how updating PHP will affect your codebase quality."/>
+                        <a href="quality-gate.xml"
+                           description="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
+                        <a href="quick-fix.md"
+                           description="Use the quick-fix feature to improve the performance of the project development"/>
+                        <a href="qodana-sarif-output.md"
+                           description="Qodana linters can read and write reports in SARIF format, which is the industry
+                           standard for the output of static analysis tools."/>
+                        <a href="taint-analysis.md"
+                           description="Secure your PHP code from malicious user data."/>
+                        <a href="vulnerability-checker.md"
+                           description="Check third-party packages for vulnerabilities."/>
+                </highlighted-group>
+                
+        </section-starting-page>
+</topic>

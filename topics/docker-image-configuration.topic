@@ -9,12 +9,18 @@
     <p>This section explains how you can configure the <a href="docker-images.md">Docker images</a> of
         %instance% and the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool. You can use both tools
         <a href="Quick-start.topic">locally</a> and in <a href="ci.md">CI/CD pipelines</a>. Several options are available
-     in Qodana CLI only.</p><p>In several cases, you can configure them using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file,
-        which is also mentioned in this section.</p><p>Starting from version 2022.3 of %instance%, the
+     in Qodana CLI only.</p>
+
+    <p>In several cases, you can configure them using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file,
+        which is also mentioned in this section.</p>
+
+    <p>Starting from version 2022.3 of %instance%, the
         <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters require the
         <code>QODANA_TOKEN</code> variable to refer to the <a href="project-token.md">project token</a>. If you run the
         Community linters of %instance%, using <code>QODANA_TOKEN</code> is
-        necessary only if you wish to view %instance% reports in Qodana Cloud.</p><chapter id="docker-config-reference-qodana-cli" title="Qodana CLI">
+        necessary only if you wish to view %instance% reports in Qodana Cloud.</p>
+
+    <chapter id="docker-config-reference-qodana-cli" title="Qodana CLI">
 
         <p><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> stores files in the
             <code>&lt;userCacheDir&gt;</code> directory, which is mentioned several times throughout this section. Here
@@ -771,11 +777,10 @@
     <chapter id="docker-config-reference-quality-gate" title="Quality gate">
 
         <p>%instance% lets you configure a <a href="quality-gate.topic">quality gate</a> or the number of problems that
-            will act as a threshold. Once the threshold is reached, the inspection run is terminated.</p>
+            will act as a threshold. Once the threshold is exceeded, the inspection run is terminated.</p>
 
-        <tip>You can specify the threshold by adding the <code>failThreshold: &lt;number&gt;</code> node to
-            <a href="qodana-yaml.md" anchor="Set+a+fail+threshold">qodana.yaml</a>. However, the Docker command option
-            overrides the settings in the <code>qodana.yaml</code> file. </tip>
+        <tip>You can specify the threshold as explained in the <a href="qodana-yaml.md" anchor="Set+a+quality+gate"/>
+            section. However, the Docker command option overrides the settings in the <code>qodana.yaml</code> file. </tip>
 
         <table>
             <tr>

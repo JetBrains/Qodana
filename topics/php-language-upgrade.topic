@@ -8,11 +8,17 @@
 
         <p>If you need to see how migration from one PHP version to another will affect your code quality, you can
         use the <code>php-migration</code> %instance% scenario. If you run this scenario, you will be able
-            to see the codebase problems that will arise after you upgrade to a newer PHP version.</p><p>This feature is supported by the <a href="qodana-php.md"/> linter and available under the Ultimate and Ultimate Plus
-        <a href="pricing.md">licenses</a> and their trial versions. </p><img src="language-migration.png" dark-src="language-migration_dark.png" width="706" alt="PHP language migration"/>
+            to see the codebase problems that will arise after you upgrade to a newer PHP version.</p>
+
+    <p>This feature is supported by the <a href="qodana-php.md"/> linter and available under the Ultimate and Ultimate Plus
+        <a href="pricing.md">licenses</a> and their trial versions. </p>
+
+    <img src="language-migration.png" dark-src="language-migration_dark.png" width="706" alt="PHP language migration"/>
 
         <p>You can configure this scenario either in the <code>qodana.yaml</code> file or invoke it
-            using the CLI. </p><tabs>
+            using the CLI. </p>
+
+        <tabs>
             <tab title="qodana.yaml">
                 <note>The CLI options override the settings of the <code>qodana.yaml</code> file.</note>
                 <code-block lang="yaml">
@@ -86,7 +92,7 @@
     <p>To show how the language migration feature works, the following PHP code snippet will be inspected:</p>
 
     <code-block lang="php">
-        &lt;?php
+        <![CDATA[<?php]]>
             function f($a) {
                 switch ($a) {
                     case 1:

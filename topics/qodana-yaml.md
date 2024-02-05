@@ -28,7 +28,7 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 ## Run custom commands
 
-Using the `bootstrap` option of `qodana.yaml`, %product% can perform actions before running inspections. 
+Using the `bootstrap` option of `qodana.yaml`, %instance% can perform actions before running inspections. 
 
 To install a specific package in the Qodana container using the `apt` tool, add this line to `qodana.yaml`:
 
@@ -114,7 +114,7 @@ include:
 
 ## Set a quality gate
 
-<include src="quality-gate.xml" include-id="quality-gate-basics"/>
+<include from="quality-gate.topic" element-id="quality-gate-basics"/>
 
 ## Override the default run scenario
 
@@ -125,11 +125,11 @@ script:
       <parameter>: <value>
 ```
 
-You can override the standard %product% behavior, which can be helpful in the case of the 
-[PHP version migration](php-language-upgrade.xml). To inspect your code from this perspective, you can run the 
+You can override the standard %instance% behavior, which can be helpful in the case of the 
+[PHP version migration](php-language-upgrade.topic). To inspect your code from this perspective, you can run the 
 `php-migration` scenario.     
 
-By default, %product% employs the `default` scenario, which means the normal %product% run equivalent to this setting:
+By default, %instance% employs the `default` scenario, which means the normal %instance% run equivalent to this setting:
 
 ```yaml
 script:
@@ -180,7 +180,7 @@ You can configure the JDK version for these linters:
 * [](qodana-jvm-community.md)
 * [](qodana-jvm-android.md)
 
-<include src="lib_qd.xml" include-id="configure-jdk-qodana-yaml" use-filter="configure-jdk-qodana-yaml,empty"/>
+<include from="lib_qd.topic" element-id="configure-jdk-qodana-yaml" use-filter="configure-jdk-qodana-yaml,empty"/>
 
 To learn more about configuring JDK, see the [](configure-jdk.md) section. 
 
@@ -195,7 +195,7 @@ php:
 
 ## Disable sanity checks
 
-By default, sanity checks are enabled in %product%. You can disable them using this snippet: 
+By default, sanity checks are enabled in %instance%. You can disable them using this snippet: 
 
 ```yaml
 disableSanityInspections: true
@@ -204,7 +204,7 @@ disableSanityInspections: true
 ## Configure license audit
 {id="configure-license-audit"}
 
-You can run the [license audit](license-audit.xml) feature by enabling the `CheckDependencyLicenses` inspection:
+You can run the [license audit](license-audit.topic) feature by enabling the `CheckDependencyLicenses` inspection:
 
 ```yaml
 include:
@@ -268,7 +268,7 @@ In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpa
 
 ### Custom dependencies
 
-Currently, the license audit with %product% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
+Currently, the license audit with %instance% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
 
 ```yaml
 customDependencies:
@@ -290,14 +290,14 @@ fixesStrategy: cleanup/apply
 ## Configure the taint analysis
 {id="configure-taint-analysis"}
 
-<include src="taint-analysis.md" include-id="running-taint-analysis"/>
+<include from="taint-analysis.md" element-id="running-taint-analysis"/>
 
 ## Configure the vulnerability checker
 
 To start using the [](vulnerability-checker.md) feature, enable
 the `VulnerableLibrariesGlobal` inspection:
 
-<include src="vulnerability-checker.md" include-id="package-checking-enable"/>
+<include from="vulnerability-checker.md" element-id="package-checking-enable"/>
 
 ## Manage plugins
 
@@ -316,6 +316,6 @@ Plugin cache is stored in the `/data/cache/plugins` directory.
 To install third-party software required for your plugins, you can:
 
 * Use the [`bootstrap`](before-running-qodana.md) option
-* Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %product% `Dockerfile`
+* Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %instance% `Dockerfile`
 examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
 
