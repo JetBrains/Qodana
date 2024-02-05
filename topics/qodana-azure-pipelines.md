@@ -60,7 +60,7 @@ To send the results to Qodana Cloud, all you need to do is to specify the `QODAN
 
 After the token is set for analysis, all Qodana Scan job results will be uploaded to your Qodana Cloud project.
 
-![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
+![Qodana Cloud](qodana-cloud.gif)
 
 ### SARIF SAST Scans Tab
 
