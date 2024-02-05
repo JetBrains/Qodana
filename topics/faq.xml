@@ -21,7 +21,7 @@
         </list>
     </chapter>
 
-    <chapter id="faq-integrate-cicd" title="How can I build Qodana into <CI/CD name> pipelines?" initial-collapse-state="collapsed">
+    <chapter id="faq-integrate-cicd" title="How can I build Qodana into &lt;CI/CD name&gt; pipelines?" initial-collapse-state="collapsed">
         <p>Any %product% linter is a Linux Docker image, so any CI/CD platform that supports Docker should be able to run
             it. We’re working on <a href="ci.md">extending our documentation</a> to provide the best examples of how to
             integrate %product% with different CI/CD platforms. If you are experiencing any difficulties, please contact our

@@ -70,6 +70,8 @@ latest %product% report and overview it.
    <step>
         <p>By enabling the <menupath>Always load most relevant Qodana report</menupath> option, you can get actual reports automatically retrieved from Qodana Cloud.</p>
       <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
+        <p>In this case, the IDE will search and fetch from Qodana Cloud the report that best corresponds to the current 
+        revision (HEAD). If the report is not found, the IDE instead retrieves the latest available report from Qodana Cloud.</p>
     </step> 
     <step>
        <p>In the <menupath>Server-Side Analysis</menupath> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
