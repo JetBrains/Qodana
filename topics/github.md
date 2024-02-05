@@ -17,7 +17,7 @@ allows you to run Qodana on a GitHub repository.
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
 
-![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
+![Qodana Cloud](qodana-cloud.gif)
 
 ### Apply quick-fixes
 

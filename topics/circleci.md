@@ -80,7 +80,7 @@ After the token is set for analysis, all Qodana job results will be uploaded to 
 
 </snippet>
 
-![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
+![Qodana Cloud](qodana-cloud.gif)
 
 ## Commands and parameters
 
