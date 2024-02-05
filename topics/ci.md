@@ -7,7 +7,7 @@ The Qodana UI can be part of the CI user interface in case your CI supports the 
 spin the Qodana UI on your own following the [guidelines](html-report.md).
 
 
-You can learn more about %product% integration solutions provided for:
+You can learn more about %instance% integration solutions provided for:
 
 - [](qodana-azure-pipelines.md)
 - [](bitbucket.md)
