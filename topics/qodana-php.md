@@ -11,6 +11,8 @@
 
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). <include src="lib_qd.xml" include-id="linter-intro"/>
 
+<note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+
 ## Supported technologies
 
 %linter% provides inspections for the following technologies.

@@ -11,6 +11,8 @@
 
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/). It provides static analysis for JavaScript or TypeScript projects.
 
+<note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+
 ## Supported technologies
 
 %linter% provides inspections for the following technologies.

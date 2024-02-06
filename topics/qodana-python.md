@@ -11,6 +11,8 @@
 
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
+<note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+
 ## Supported technologies
 
 %linter% provides inspections for the following technologies.

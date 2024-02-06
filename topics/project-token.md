@@ -43,3 +43,23 @@ keep a historical overview of older Qodana reports.
 
 Once the project token is generated, you can regenerate or delete it as shown in the 
 [](cloud-projects.xml#cloud-manage-projects) section of the Qodana Cloud documentation.
+
+## Linters that require project tokens
+
+Here is the list of linters that require project tokens: 
+
+* [](qodana-jvm.md)
+* [](qodana-php.md)
+* [](qodana-python.md)
+* [](qodana-js.md)
+* [](qodana-go.md)
+* [](qodana-dotnet.md)
+* [](qodana-dotnet-community.md)
+
+This is the list of linters where project token usage is optional: 
+
+* [](qodana-jvm-community.md)
+* [](qodana-jvm-android.md)
+* [](qodana-python-community.md)
+
+Without a project token, you will not be able to upload and study inspection results in [Qodana Cloud](cloud-about.xml). 

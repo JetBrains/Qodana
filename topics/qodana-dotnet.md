@@ -25,6 +25,8 @@ C and C++ inspections of %linter% are limited by projects containing `.sln` solu
 Starting from version 2023.3, the functionality of .NET Framework-based project analysis is available in the 
 [native mode](native-mode.md) of %product%.
 
+<note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+
 ## Supported technologies
 
 %linter% provides inspections for the following technologies.

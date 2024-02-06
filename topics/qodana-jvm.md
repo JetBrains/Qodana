@@ -14,6 +14,8 @@
 
 %linter% provides inspections for Java, Kotlin, and Groovy.
 
+<note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+
 ## Supported technologies
 
 %linter% provides inspections for the following technologies.

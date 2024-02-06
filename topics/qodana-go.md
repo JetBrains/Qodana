@@ -12,6 +12,8 @@
 
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.
 
+<note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+
 ## Supported technologies
 
 %linter% provides inspections for the following technologies.
