@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<!--suppress TopicContentShortcutHardcodedInspections -->
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       id="lib_qd" title="Library of includes"
+       is-library="true">
+
+    <chunk id="docker-ram-note">
+        Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker
+        Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for <a
+            href="https://docs.docker.com/desktop/windows/#resources">Windows
+    </a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
+    </chunk>
+
+    <chunk id="linter-intro">
+        It brings all the smarts from %ide%, which help you:
+        <list>
+            <li>detect anomalous code and probable bugs</li>
+            <li>eliminate dead code</li>
+            <li>highlight spelling problems</li>
+            <li>improve overall code structure</li>
+            <li>introduce coding best practices</li>
+            <li>Upload inspection results to <a href="cloud-about.xml">Qodana Cloud</a></li>
+        </list>
+    </chunk>
+
+    <chunk id="linter-docker-image-intro">
+        <p>
+            The Docker image for the <a href="%linter-page-url%">%linter%</a> linter is provided to support different usage
+            scenarios:
+        </p>
+        <list>
+            <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
+            </li>
+            <li>Single-shot analysis (for example, performed <i>locally</i>).
+            </li>
+        </list>
+        <p>If you are familiar with
+            <a href="%code-inspection-ide-help-url%">%ide% code inspections</a>
+            and know what to expect from the static analysis outside the editor, you can skip the following section and
+            continue from <a anchor="Using+an+existing+profile">Using an existing profile</a>.
+        </p>
+        <p>If you are just starting in the field, we recommend proceeding with the <a
+                anchor="quick-start-recommended-profile">default setup
+        </a> we provide. You will see the
+            results of the most common checks performed on your code base. Later, you can <a
+                    anchor="Configure+via+qodana.yaml">adjust them
+            </a> to suit your needs better.
+        </p>
+        <p>You can run the %linter% linter using two methods.
+            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest method. If necessary,
+            check the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> to install
+            Qodana CLI. Alternatively, you can use the Docker commands from the <menupath>Docker image</menupath> tab.</p>
+    </chunk>
+
+    <chunk id="docker-local-analysis">
+        <tabs group="docker-options">
+            <tab title="Docker image" group-key="docker-image">
+                <procedure>
+                    <step>
+                        <p>
+                            Pull the image from Docker Hub (only necessary to update to the <code>latest</code> version):
+                        </p>
+                        <code style="block" lang="shell" prompt="$">docker pull jetbrains/%linter-shell%
+                        </code>
+                    </step>
+                    <step>
+                        <p>Run the following command:</p>
+                        <code style="block" lang="shell" prompt="$">
+                            docker run \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               -v &lt;output-directory&gt;/:/data/results/ \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               jetbrains/%linter-shell%
+                        </code>
+                        <p>
+                            where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
+                            respectively, the project source code directory and the analysis results directory. The
+                            <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                            required by the
+                            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
+                        </p>
+                    </step>
+                </procedure>
+                <p>This command will run the analysis on your source code and start the web server to provide a convenient
+                    view of the results. Open <code>http://localhost:8080</code> in your browser to examine the found
+                    problems and performed checks. Here you can also reconfigure the analysis. See the
+                    <a href="ui-overview.md"/>
+                    for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the
+                    Docker console.
+                </p>
+                <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v &lt;source-directory&gt;/:/data/project/ \
+                       -v &lt;output-directory&gt;/:/data/results/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/%linter-shell%
+                </code>
+                <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
+                    necessary results</a>. You can further tune the command as described in the <a
+                        href="docker-image-configuration.xml">technical guide</a>.
+                </p>
+                <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
+                    using it in <code>docker run</code> again.
+                </p>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <p>In the project root directory, run this command to inspect your code and view the inspection
+                    report locally:</p>
+                <code filter="non-gs" style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --show-report
+                </code>
+                <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --results-dir &lt;output-directory&gt;
+                </code>
+                <p>The <code>output-directory</code> specifies the directory where the SARIF-formatted report will be
+                    saved. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                    required by the
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
+            </tab>
+        </tabs>
+    </chunk>
+
+    <chunk id="docker-ci-analysis">
+        <tabs group="docker-options">
+            <tab title="Docker image" group-key="docker-image">
+                <p>Use the following command as a task in a generic Shell executor:</p>
+                <code style="block" lang="shell" prompt="$">
+                    docker run \
+                       -v &lt;source-directory&gt;/:/data/project/ \
+                       -v &lt;output-directory&gt;/:/data/results/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/%linter-shell%
+                </code>
+                <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
+                    the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
+                        results directory</a>. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                    required by the
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
+                </p>
+                <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
+                    of problems is reached and the <a href="baseline.xml"/> feature to compare each new %linter%
+                    run to some initial run selected as a <emphasis>baseline</emphasis>.
+                    <a anchor="docker-config-reference-docker-environment-run-non-root" href="docker-image-configuration.xml">Running as non-root</a> is also supported.
+                </p>
+                <tip>
+                    <p>
+                        For details on available CI integrations, see <a href="ci.md"/>.
+                    </p>
+                </tip>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <p>Run this command in the project root directory:</p>
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --results-dir &lt;output-directory&gt;
+                </code>
+                <p>This will save inspection results to the directory specified by <code>output-directory</code>.</p>
+                <p>You can also apply the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
+                    of problems is reached by using the <code>--fail-threshold</code>
+                    <a href="https://github.com/JetBrains/qodana-cli#options-1">option</a>.</p>
+                <p>The <a href="baseline.xml"/> feature compares each new %linter% run to some initial run using
+                    the <code>--baseline</code> and
+                    <code>--baseline-include-absent</code> options.
+                </p>
+                <tip>
+                    <p>
+                        For details on available CI integrations, see <a href="ci.md"/>.
+                    </p>
+                </tip>
+
+            </tab>
+        </tabs>
+    </chunk>
+
+    <chunk id="docker-using-existing-profile">
+        <p>
+            This section is intended for users familiar with configuring code analysis via <a
+                href="%code-inspection-profiles-ide-help-url%">%ide% inspection profiles</a>.
+        </p>
+
+        <tabs group="docker-options">
+            <tab title="Docker image" group-key="docker-image">
+                <p>You can pass the reference to the existing profile in <a
+                        href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">multiple ways</a>. Here are some
+                    examples:
+                </p>
+                <list>
+                    <li>
+                        <p>
+                            Mapping the profile to <code>/data/profile.xml</code> inside the container:
+                        </p>
+                        <code style="block" lang="shell" prompt="$">
+                            docker run \
+                               -p 8080:8080 \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               -v &lt;output-directory&gt;/:/data/results/ \
+                               -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               jetbrains/%linter-shell% \
+                               --show-report
+                        </code>
+                    </li>
+                    <li>
+                        <p>
+                            Using the name of the profile in your project <code>.idea/inspectionProfiles/</code> folder.
+                        </p>
+                        <code style="block" lang="shell" prompt="$">
+                            docker run \
+                               -p 8080:8080 \
+                               -v &lt;source-directory&gt;/:/data/project/ \
+                               -v &lt;output-directory&gt;/:/data/results/ \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               jetbrains/%linter-shell% \
+                               --show-report \
+                               --profile-name &lt;custom-profile-name&gt;
+                        </code>
+                        <note>
+                            <p>
+                                <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                            </p>
+                        </note>
+                    </li>
+                </list>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <p>You can pass the reference to the existing profile in <a
+                    href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">multiple ways</a>. Here are some
+                    examples, run both commands in the project root directory:</p>
+                <list>
+                <li>
+                    <p>
+                        Mapping the profile inside the container:
+                    </p>
+                    <code style="block" lang="shell" prompt="$">
+                        qodana scan \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           -l %docker-image% \
+                           --results-dir &lt;output-directory&gt; \
+                           --profile-path &lt;path-to-profile&gt; \
+                           --show-report
+                    </code>
+                </li>
+                <li>
+                <p>
+                    Using the name of the profile in your project <code>.idea/inspectionProfiles/</code> folder:
+                </p>
+                <code style="block" lang="shell" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --results-dir &lt;output-directory&gt; \
+                       --profile-name &lt;custom-profile-name&gt; \
+                       --show-report
+                </code>
+                    <note>
+                        <p>
+                            <include src="lib_qd.xml" include-id="inspection-profile-name-note"/>
+                        </p>
+                    </note>
+                </li>
+                </list>
+            </tab>
+        </tabs>
+    </chunk>
+
+    <chunk id="docker-plugins-management">
+        <p>
+            Paid plugins are not yet supported. Each vendor must clarify licensing terms for CI usage and collaborate
+            with us to make it work.
+        </p>
+        <p>Any free IntelliJ platform plugins or your custom plugin can be added by mounting it to the container
+            plugins' directory using the following command:
+        </p>
+        <code style="block" lang="shell" prompt="$">
+            docker run \
+            -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% \
+            jetbrains/%linter-shell%
+        </code>
+        <p>
+            Refer to the <a href="docker-image-configuration.xml">technical guide</a> for more details.
+        </p>
+    </chunk>
+
+    <chunk id="docker-configure-via-qodana-yaml">
+        <p filter="for-dotnet">
+            %product% automatically recognizes the <code>qodana.yaml</code> file for the analysis configuration,
+            so that you don't need to pass any additional parameters. In the <code>qodana.yaml</code> file, you can save
+            <code>ide: QDNET</code> to run %product% in the <a href="native-mode.md">native mode</a>.
+        </p>
+        <p filter="for-others">
+            %product% automatically recognizes the <code>qodana.yaml</code> file for the analysis configuration,
+            so that you don't need to pass any additional parameters.</p>
+        <p>
+            The references to the inspection profiles will be resolved <a
+                href="docker-image-configuration.xml" anchor="docker-config-reference-order-resolving-profile">in a particular order</a>. To
+            learn about the format, see <a href="qodana-yaml.md"/>.
+        </p>
+    </chunk>
+
+    <chunk id="docker-usage-statistics">
+        According to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP user
+        agreement</a>, we can use third-party services to analyze the usage of our features to further improve the
+        user experience. All data will be collected <a href="https://www.jetbrains.com/company/privacy.html">
+        anonymously</a>. You can disable the reporting of usage statistics by adjusting the options of the
+        Docker command you use. Refer to the <a href="docker-image-configuration.xml" anchor="docker-config-reference-properties-user-statistics">technical guide</a> for
+        details.
+    </chunk>
+
+    <chunk id="inspection-profile-name-note">
+        Note that the name of the profile does not necessarily
+        match the name of the containing file stored in <code>.idea/inspectionProfiles</code>. The actual
+        name is stored as the <code>&lt;option name="myName" value="%\profileName%" /&gt;</code> value in the profile <code>xml</code> file and is visible in the %ide% UI. For details on
+        working with inspection profiles in %ide%, see the <a
+            href="%code-inspection-profiles-ide-help-url%">%ide% documentation</a>.
+    </chunk>
+
+    <!-- \\\\\\\\\ UNIVERSAL CHUNK FOR LOCAL QODANA RUNS EXCEPT DOCKER IMAGES ////////// -->
+    <!-- The jvm-only, py-only, and js-only filters are applied only for dedicated images respectively -->
+    <!-- The gs-only filter is applied for the Getting started page -->
+    <!-- The jvm-php filter is applied for all images apart from Python and JS linters -->
+    <!-- The other filter applies to all images that use this filter -->
+    <!-- The non-gs filter is applied for all images and excludes the content from the Getting Started page -->
+    <!-- Paragraphs without filters are applied to all images -->
+
+    <chunk id="qodana-cli-quickstart">
+        <p filter="jvm-only"> To be able to run the analysis, make sure the project can be successfully built and run in the desired environment,
+            that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
+            executed, and so on.</p>
+        <p>Qodana provides two options for local analysis of your code.
+            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
+            Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
+        <tabs>
+            <tab id="qodana-cli-tab" title="Qodana CLI">
+                <p filter="non-gs">Assuming that you have already
+                    <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installed</a> Qodana CLI on your
+                    machine, you can run this command in the project root directory:</p>
+                <procedure filter="gs-only">
+                    <step>Install Qodana CLI on your machine using available
+                        <a href="https://github.com/JetBrains/qodana-cli/releases/latest">options</a>.</step>
+                    <step><p>In the project root directory, run this command:</p>
+                        <code style="block" lang="shell" prompt="$">qodana init</code>
+                        <p>This will create the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file containing
+                            all necessary configuration options.</p>
+                    </step>
+                    <step><p>In the project root directory, run this command to inspect your code:</p>
+                        <code style="block" lang="shell" prompt="$">
+                            qodana scan \
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                               --show-report
+                        </code>
+                        <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
+                    </step>
+                </procedure>
+                <code filter="non-gs" style="block" prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %docker-image% \
+                       --show-report
+                </code>
+                <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
+            </tab>
+            <tab id="docker-image-tab" title="Docker image">
+                <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
+                    procedure is basically the same.</p>
+                <p filter="non-gs">To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
+                <code filter="non-gs" style="block" lang="shell" prompt="$">
+                    docker pull %docker-image%
+                </code>
+                <p filter="non-php">Start local analysis with <code>source-directory</code>
+                    pointing to the root of your project and
+                    <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
+                <code filter="gs-only" style="block" lang="shell" prompt="$">
+                    docker run --rm -it \
+                       -v &lt;source-directory&gt;/:/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -p 8080:8080 \
+                       jetbrains/qodana-&lt;linter&gt; \
+                       --show-report
+                </code>
+                <p filter="php-only">If you use PHP Composer, Qodana will install your project dependencies
+                    automatically right before the code analysis starts.</p>
+                <p filter="php-only">In case you need to change the language level, add the following to
+                    <code>&lt;source-directory&gt;/.idea/php.xml</code>:</p>
+                <code filter="php-only" lang="xml" style="block">
+                    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+                    &lt;project version="4"&gt;
+                        &lt;component name="PhpProjectSharedConfiguration" php_language_level="&lt;desired level&gt;" /&gt;
+                    &lt;/project&gt;
+                </code>
+                <p filter="php-only">Run the analysis locally:</p>
+                <code filter="non-gs" style="block" lang="shell" prompt="$">
+                    docker run --rm -it \
+                       -v &lt;source-directory&gt;/:/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -p 8080:8080 \
+                       %docker-image% \
+                       --show-report
+                </code>
+                <p filter="php-only">with <code>source-directory</code> pointing to the root of your project, and
+                    <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>.</p>
+                <p>Open <code>http://localhost:8080</code> in your browser to examine inspection results.
+                    Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
+                    details. When done, you can stop the web server by pressing Ctrl-C in the
+                    console.</p>
+            </tab>
+        </tabs>
+    </chunk>
+
+    <chunk id="license-audit-tab">
+
+        <p filter="license-audit">To view license audit results, in the inspection report click the <menupath>License audit</menupath> tab.</p>
+
+        <p filter="ui-overview">The <menupath>License audit</menupath> tab provides results of inspection by the
+            <a href="license-audit.xml">license audit</a> feature. </p>
+
+        <img src="license-audit-overview-tree.png" dark-src="license-audit-overview-tree_dark.png" width="706" alt="The dependency tree" border-effect="line"/>
+
+        <p>License audit inspection results are grouped into a dependency tree.</p>
+
+        <list type="decimal">
+            <li>If applicable, you can expand a specific dependency to see its dependency tree.</li>
+            <li>Using <menupath>Only alerted</menupath>, you can switch between all project dependencies and dependencies
+                which licenses are incompatible with the project license.</li>
+            <li>In the <menupath>Licenses</menupath> section, you can find the list of project, module and dependency licenses.
+                Using <menupath>Open license rules</menupath>, you can view the rules of license compatibility.</li>
+            <li>You can download the list of licenses in various formats.</li>
+        </list>
+    </chunk>
+
+    <chunk id="qodana-deployment-options">
+        <p>%product% provides several deployment options to better fit your needs:</p>
+        <list>
+            <li><a href="native-mode.md">Native mode</a> available in the <a href="qodana-dotnet.md">Qodana for .NET</a> linter</li>
+            <li><a href="docker-images.md">Docker images</a> let you inspect
+                <a href="Quick-start.xml">local projects</a> and build %product% into your CI/CD pipelines.</li>
+            <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %product%, connect to Qodana Cloud, open and study inspection reports.</li>
+            <li><a href="vscode.md">Qodana extension</a> for Visual Studio Code lets you retrieve reports from Qodana Cloud and study inspection reports.</li>
+            <li><a href="ci.md">Integration tools</a> include applications for seamless integration with CI/CD systems
+                like GitHub and TeamCity, and guides for configuring %product% Docker images for CI/CD. </li>
+            <li><a href="qodana_gradle_plugin.md"/> provides the Gradle interface for running %product% in IntelliJ IDEA.</li>
+            <li><a href="service.md">Cloud service</a> is a cloud-based version of %product%. </li>
+        </list>
+    </chunk>
+
+    <chunk id="docker-dotnet-specific-solution-project">
+
+        <p>By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
+        it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
+        file name using the <code>--solution</code> option and a relative path to a solution file. For example, to
+            make %product% always analyze the <code>MySolution.sln</code> solution file, you can use:</p>
+
+        <code style="block" lang="shell" filter="for-dotnet">
+          --property=qodana.net.solution=MySolution.sln
+        </code>
+
+        <code style="block" lang="shell" filter="cdnet">
+            --solution=MySolution.sln
+        </code>
+
+        <p>Alternatively, you can specify the solution file name in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
+            file using the <code>solution</code> option and a relative path to a solution file:</p>
+
+        <code style="block" lang="yaml">
+            dotnet:
+                solution: MySolution.sln
+        </code>
+
+        <p>If your project contains no solution files and multiple project files, you need to use the
+            <code>--project</code> option and a relative path to a project file. For example, for the
+            <code>MyProject.csproj</code> project file you can use:</p>
+
+        <code style="block" lang="shell" filter="for-dotnet">
+            --property=qodana.net.project=MyProject.csproj
+        </code>
+
+        <code style="block" lang="shell" filter="cdnet">
+            --project=MyProject.csproj
+        </code>
+
+        <p>Alternatively, you can specify the project file name in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
+            file using the <code>project</code> option:</p>
+
+        <code style="block" lang="yaml">
+            dotnet:
+                project: MyProject.csproj
+        </code>
+
+        <chapter id="docker-dotnet-specific-solution-project-configure-solution" title="Configure a solution" filter="for-dotnet">
+
+            <p>A solution configuration defines which projects in the solution to build, and which project
+                configurations to use for specific projects within the solution.</p>
+
+            <p>Each newly created solution includes the <code>Debug</code> and <code>Release</code>
+                configurations, which can be complemented by your custom configurations.</p>
+
+            <p>You can switch configurations of the current solution using the <code>--property</code>
+                configuration option. For example, use this to switch to the <code>Release</code>
+                configuration:</p>
+
+            <code style="block" lang="shell">
+                --property=qodana.net.configuration=Release
+            </code>
+
+            <p>Alternatively, you can specify the configuration in <code>qodana.yaml</code>:</p>
+
+            <code style="block" lang="yaml">
+                dotnet:
+                  configuration: Release
+            </code>
+
+            <p>By default, the solution platform is set to <code>Any CPU</code>.You can override this using the
+                <code>--property</code> option:</p>
+
+            <code style="block" lang="shell">
+                --property=qodana.net.platform=x86
+            </code>
+
+            <p>Alternatively, you can specify the platform in <code>qodana.yaml</code>:</p>
+
+            <code style="block" lang="yaml">
+                dotnet:
+                  platform: x86
+            </code>
+        </chapter>
+    </chunk>
+
+    <chunk id="configure-jdk-qodana-yaml">
+
+        <p filter="configure-jdk">In the <a href="qodana-yaml.md"><code style="inline">qodana.yaml</code></a> file, you
+            can specify the JDK version using the <code style="inline">projectJDK</code> option, for example: </p>
+
+        <p filter="configure-jdk-qodana-yaml">Use the <code style="inline">projectJDK</code> option to specify
+            the JDK version, for example: </p>
+
+        <code style="block" lang="yaml">
+            projectJDK: 11
+        </code>
+
+        <p>or:</p>
+
+        <code style="block" lang="yaml">
+            projectJDK: 1.8
+        </code>
+
+        <p>You can also specify JDK using the name:</p>
+
+        <code style="block" lang="yaml">
+            projectJDK: corretto-19
+        </code>
+    </chunk>
+
+    <chunk id="linters-supported-features">
+
+        <p>The %linter% linter provides the following %product% features:</p>
+
+        <table filter="php">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="code-coverage.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="php-language-upgrade.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="taint-analysis.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
+
+        <table filter="jvm">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="code-coverage.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
+
+        <table filter="non-jvm">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="code-coverage.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
+
+        <table filter="js">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="code-coverage.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quick-fix.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="vulnerability-checker.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
+
+        <table filter="dotnet">
+            <tr>
+                <td>Feature</td>
+                <td>Available under licenses</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="code-coverage.md"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="license-audit.xml"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
+
+        <table filter="community">
+            <tr>
+                <td>Feature</td>
+                <td>Available under the license</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Community</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Community</td>
+            </tr>
+        </table>
+
+        <table filter="cdnet">
+            <tr>
+                <td>Feature</td>
+                <td>Available under the license</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.xml"/></td>
+                <td>Community</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.xml"/></td>
+                <td>Community</td>
+            </tr>
+
+        </table>
+    </chunk>
+
+    <chunk id="github-basic-configuration">
+
+        <procedure>
+            <step>On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+                <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+                and save the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.
+            </step>
+            <step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
+                <code>.github/workflows/code_quality.yml</code> file.</step>
+            <step>To inspect the <code>main</code> branch, release branches, and the pull requests coming
+            to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+                <code style="block" lang="yaml">
+                    name: Qodana
+                    on:
+                      workflow_dispatch:
+                      pull_request:
+                      push:
+                        branches:
+                          - main
+                          - 'releases/*'
+
+                    jobs:
+                      qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                          contents: write
+                          pull-requests: write
+                          checks: write
+                        steps:
+                          - uses: actions/checkout@v3
+                            with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                          - name: 'Qodana Scan'
+                            uses: JetBrains/qodana-action@v2023.3
+                            env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code>
+            </step>
+        </procedure>
+    </chunk>
+
+    <chunk id="qodana-severity-levels">
+
+        <table>
+            <tr>
+                <td>IDE severity</td>
+                <td filter="for-report">SARIF severity</td>
+                <td filter="for-profile"><a href="qodana-sarif-output.md">SARIF</a> severity</td>
+                <td><a href="ui-overview.md">Qodana report</a> severity</td>
+            </tr>
+            <tr>
+                <td>ERROR</td>
+                <td>ERROR</td>
+                <td>Critical</td>
+            </tr>
+            <tr>
+                <td>WARNING</td>
+                <td>WARNING</td>
+                <td>High</td>
+            </tr>
+            <tr>
+                <td>WEAK WARNING</td>
+                <td>NOTE</td>
+                <td>Moderate</td>
+            </tr>
+            <tr>
+                <td>TYPO</td>
+                <td>NOTE</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td>INFORMATION</td>
+                <td>NOTE</td>
+                <td>Info</td>
+            </tr>
+            <tr>
+                <td>OTHER</td>
+                <td>NOTE</td>
+                <td>Info</td>
+            </tr>
+        </table>
+    </chunk>
+
+    <chunk id="bitbucket-basic-configuration">
+        <p>Here is the basic configuration snippet for the <code>bitbucket-pipelines.yml</code> file that lets you run %product%
+            in Bitbucket Cloud pipelines:</p>
+
+        <code style="block" lang="yaml">
+            image: atlassian/default-image:4
+
+            pipelines:
+              branches:
+                main:
+                  - step:
+                      name: Qodana
+                      caches:
+                        - qodana
+                      image: jetbrains/qodana-&lt;linter&gt;
+                      script:
+                        - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
+                        - qodana --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_CLONE_DIR/.qodana/cache
+                      artifacts:
+                        - .qodana/report
+
+            definitions:
+              caches:
+                qodana: .qodana/cache
+        </code>
+
+        <p>Here, the <code>branches</code> block specifies which branches to inspect.</p>
+
+        <p>The <code>image</code> block specifies the %product% <a href="linters.md">linter</a> that will be invoked in the pipeline.</p>
+
+        <p>The <code>script</code> block contains the <code>- export QODANA_TOKEN=$QODANA_TOKEN</code> line that specifies the
+            <a href="project-token.md">project token</a> required by Qodana Cloud and saved as the <code>$QODANA_TOKEN</code>
+            <a href="https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Secured-variables">variable</a>.
+            The <code>&#45; qodana ...</code> line in this block tells Bitbucket which directories to use while running
+            the pipeline, and it can also contain %product% <a href="docker-image-configuration.xml">options</a>.</p>
+    </chunk>
+
+    <chunk id="linter-next-steps-footer">
+        <list>
+            <li><a href="ci.md">Run %product% in your CI pipeline</a></li>
+            <li><a href="%config-file%">Configure the %linter% Docker image</a></li>
+            <li><a href="github.md">Run %product% using GitHub Actions</a></li>
+            <li filter="for-php-linter"><a href="php-language-upgrade.xml">See how migration between PHP versions will affect the code quality</a></li>
+        </list>
+    </chunk>
+
+</topic>

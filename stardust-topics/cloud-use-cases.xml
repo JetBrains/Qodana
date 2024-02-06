@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Qodana Cloud use-cases"
+       id="cloud-use-cases">
+
+    <chapter id="cloud-use-case-1" title="Get deeper insights into your project trends" level="4">
+
+        <p>Using <a href="https://qodana.cloud">Qodana Cloud</a>, you can aggregate Qodana reports from various
+            projects, explore development trends, and analyze team and project performance.</p>
+
+        <p>To organize your work, Qodana Cloud provides a hierarchy consisting of organizations, teams, and projects.
+            These entities let you assign several projects to a single team. Also, you can achieve transparency using
+            real-time widgets.</p>
+
+        <p>Each project stores history of inspection results and compares results between commits. You can examine the
+            absolute number of problems detected, or compare the number of problems against a baseline taken during a
+            specific Qodana run.</p>
+
+    </chapter>
+
+    <chapter id="cloud-use-case-2" title="Open problems detected by Qodana in your favorite IDE" level="4">
+
+        <p>If you are already a Qodana user, you might know that you can open issues spotted by Qodana right in your IDE.
+            This feature is available in Qodana Cloud meaning that you can fix server-side errors in the editor like
+            you work with other suggestions given by the IDE.</p>
+
+        <p>Using Qodana, you can run resource-intensive checks outside your development environment without affecting
+            performance of your IDE. In fact, we created Qodana to ensure that you no longer have to choose between code
+            quality and IDE performance.</p>
+    </chapter>
+
+    <chapter id="cloud-use-case-3" title="Plan your work better" level="4">
+
+        <p>In Qodana Cloud, you can build reports to evaluate all pieces of code that require modification, and select
+            the issues to add to a baseline. This way, the whole team can see the same list of issues and monitor progress
+            using the interactive Qodana dashboard.</p>
+    </chapter>
+</topic>

@@ -11,7 +11,11 @@
     Each organization is created on the basis of a specific JetBrains account. Depending on your choice, it will be either
         private or public.
         Each account in Qodana Cloud is based on the organization that becomes its default organization.
-    </p><p>You can navigate between organizations using the list in the left part of the Qodana Cloud UI.</p><img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true" preview-src="qc-settings-organization-navigate-between.png"/>
+    </p>
+
+    <p>You can navigate between organizations using the list in the left part of the Qodana Cloud UI.</p>
+
+    <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true" preview-src="qc-settings-organization-navigate-between.png"/>
 
     <chapter id="cloud-organizations-create-organization" title="Create an organization">
 

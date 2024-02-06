@@ -16,7 +16,7 @@
 
 %linter% provides inspections for the following technologies.
 
-<table header-style="none">
+<table style="none">
     <tr>
         <td>Programming languages</td>
         <td>
@@ -50,7 +50,7 @@
 
 ### Analyze a project locally
 
-<include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,non-gs,other,empty"/>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,non-gs,other,empty"/></p>
 
 ## Next steps
 

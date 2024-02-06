@@ -1,25 +1,19 @@
 [//]: # (title: JetBrains IDEs)
 
-Starting from version 2022.3, you can use [%instance%](about-qodana.md) to inspect your codebase for problems and use
-the recommendations to eliminate them using JetBrains IDEs installed via 
-[JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/) such as IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, 
-PyCharm, and Rider.
-
-<note>Prior to version 2022.3, this functionality was available as a plugin published 
-on <a href="https://plugins.jetbrains.com/plugin/16938-qodana">JetBrains Marketplace</a>. However, this plugin can be 
-less functional compared to version 2022.3. </note>
+You can run [%instance%](about-qodana.md) in JetBrains IDEs to inspect your codebase. %instance% supports several JetBrains IDEs 
+installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/), such as IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider.
 
 Using the IDE, you can:
 
 * [Run %instance% locally](#ide-plugin-run-qodana)
-* [Configure %instance% for running in a CI pipeline](#ide-plugin-cicd)
 * [Connect to Qodana Cloud](#ide-plugin-connect-cloud)
+* [Configure %instance% for running in a CI pipeline](#ide-plugin-cicd)
 * [Open a report from local storage](#ide-plugin-local-report)
 * [Study %instance% reports in your IDE](#ide-plugin-study-reports)
 
 ## UI overview
 
-%instance% functionality is available using the <ui-path>Tools | Qodana</ui-path> menu of your IDE.
+In your IDE, navigate to <ui-path>Tools | Qodana</ui-path>.
 
 <img src="ide-plugin-intro-menu.png" dark-src="ide-plugin-intro-menu_dark.png" width="706" alt="The Qodana menu" border-effect="line"/>
 
@@ -30,71 +24,33 @@ You can also have access to %instance% using the **Problems | Server-Side Analys
 ## Run %instance% locally
 {id="ide-plugin-run-qodana"}
 
-You can configure and run %instance% locally using your IDE, and then forward inspection reports to 
-[Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
+You can run %instance% locally and then forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
 <procedure>
 <step>
-
-In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.
-
+   <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
-
-In the <ui-path>Run Qodana</ui-path> dialog, click the <ui-path>Try locally</ui-path> button.
-
-<img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="First step of the Run Qodana dialog" border-effect="line"/>
-</step>
-<step>
-
-In the upper part of the <ui-path>Run Qodana</ui-path> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.
-
-Under the text field, configure the options to make %instance%:
-
-* [Forward inspection results](cloud-forward-reports.topic) to Qodana Cloud using the [project token](cloud-projects.topic#cloud-manage-projects)
-* [Save `qodana.yaml`](qodana-yaml.md) in your project root
-* [Run the baseline](baseline.topic) feature
-
-<img src="ide-plugin-run-qodana-2.png" dark-src="ide-plugin-run-qodana-2_dark.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
-
-Click <ui-path>Run</ui-path> for inspecting your code.
-
+   <p>In the <ui-path>Run Qodana</ui-path> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
+   <p>Under the text field, configure the options to make %instance%:</p>
+      <list>
+         <li><a href="cloud-forward-reports.topic">Send inspection results</a> to Qodana Cloud using the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
+         <li><a href="qodana-yaml.md">Save <code>qodana.yaml</code></a> in your project root</li>
+         <li><a href="baseline.topic">Run the baseline</a> feature</li>
+      </list>
+   <img src="ide-plugin-run-qodana-2.png" dark-src="ide-plugin-run-qodana-2_dark.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+    <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
 </step>
 <step>
    <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
 </step>
 </procedure>
 
-## Configure %instance% for CI
-{id="ide-plugin-cicd"}
-
-You can add %instance% into CI pipelines using the configuration wizard.
-
-<note>Depending on the %instance% license, you will need to generate and use the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> at Qodana Cloud.</note>
-
-<procedure>
-   <step>
-      <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p>
-   </step>
-   <step>
-      <p>In the <ui-path>Run Qodana</ui-path> dialog, click the <ui-path>Add to CI Pipeline</ui-path> button. </p>
-      <img src="ide-plugin-run-qodana-1.png" dark-src="ide-plugin-run-qodana-1_dark.png" width="706" alt="First step of the Run Qodana dialog" border-effect="line"/>
-   </step>
-   <step>
-      <p>In the <ui-path>Run Qodana</ui-path> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
-      <img src="ide-plugin-cicd-1.png" dark-src="ide-plugin-cicd-1_dark.png" width="706" alt="Second step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
-   </step>
-   <step>
-      <p>Select the CI solution you would like to configure %instance% for, and study the instructions.</p>
-      <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="Third step of the CI/CD configuration in the Run Qodana dialog" border-effect="line"/>
-   </step>
-</procedure>
-
 ## Connect to Qodana Cloud
 {id="ide-plugin-connect-cloud"}
 
-You can connect your local project to a specific Qodana Cloud [project](cloud-projects.topic), get the latest %instance% 
-report, and overview it using the IDE.
+You can log in to Qodana Cloud and connect your project opened in the IDE to a specific Qodana Cloud [project](cloud-projects.topic) to get the 
+latest %instance% report and overview it.
 
 <procedure>
    <step>
@@ -111,9 +67,32 @@ report, and overview it using the IDE.
       <p>Select the <a href="cloud-projects.topic">Qodana Cloud project</a> to link your local project with.</p>
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
+   <step>
+        <p>By enabling the <ui-path>Always load most relevant Qodana report</ui-path> option, you can get actual reports automatically retrieved from Qodana Cloud.</p>
+      <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
+    </step> 
     <step>
        <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
     </step>
+</procedure>
+
+## Configure %instance% for CI
+{id="ide-plugin-cicd"}
+
+Once you logged in to [Qodana Cloud](https://qodana.cloud), you can configure %instance% in your CI pipelines.
+
+<note>Depending on the %instance% <a href="pricing.md">license</a>, you will need to generate and use the 
+<a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>. To learn more about project tokens, see
+the <a href="project-token.md"/> section.</note>
+
+<procedure>
+<step>
+<p>In your IDE, navigate to <ui-path>Tools | Qodana | Add Qodana to CI Pipeline</ui-path></p>
+</step>
+<step>
+<p>In the <ui-path>Add Qodana to CI Pipeline</ui-path> dialog, follow the recommendations applicable to your CI/CD solution.</p>
+      <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="The Add Qodana to CI pipeline dialog" border-effect="line"/>
+</step>
 </procedure>
 
 ## Open a local report
@@ -121,7 +100,7 @@ report, and overview it using the IDE.
 
 You can open and study [SARIF-formatted %instance% reports](qodana-sarif-output.md) in your IDE. 
 
-<chunk id="ide-open-local-report">
+<snippet id="ide-open-local-report">
 <procedure>
    <step>
         <p>In your IDE, navigate to <ui-path>Tools | Qodana | Open Local Report</ui-path>.</p>
@@ -133,7 +112,7 @@ You can open and study [SARIF-formatted %instance% reports](qodana-sarif-output.
       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, you can overview inspection results.</p>
    </step>
 </procedure>
-</chunk>
+</snippet>
 
 ## Qodana report overview
 {id="ide-plugin-study-reports"}
@@ -143,9 +122,10 @@ containing such problems.
 
 <img src="ide-plugin-report-navigating.png" dark-src="ide-plugin-report-navigating_dark.png" width="706" alt="Navigating to problems in the IDE" animated="true" border-effect="line"/>
 
+The upper part contains information about the project and branch names, the inspection date, and the number of problems. 
 The left part of the **Server-Side Analysis** tool window contains several buttons. 
 
-<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Buttons in the Server-Side Analysis tool window" border-effect="line"/>
+<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Functionalities of the Server-Side Analysis tool window" border-effect="line"/>
 
 This table describes each button from top to bottom:
 

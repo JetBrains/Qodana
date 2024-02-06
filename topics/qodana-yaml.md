@@ -112,23 +112,9 @@ include:
 ```
 
 
-## Set a fail threshold
+## Set a quality gate
 
-Add a fail threshold to use as a quality gate:
-
-```yaml
-failThreshold: <number>
-```
-
-[//]: # "Explain exit 255"
-
-When this number of problems is reached, the container executes `exit 255`. This can be used to make a CI step fail. The default value is `10000`.
-
-<note>
-
-When running in the [baseline mode](docker-image-configuration.topic#docker-config-reference-baseline), a threshold is calculated as the sum of _new_ and _absent_ problems. _Unchanged_ results are ignored.
-
-</note>
+<include from="quality-gate.topic" element-id="quality-gate-basics"/>
 
 ## Override the default run scenario
 
@@ -321,9 +307,9 @@ You can specify the plugins that will be downloaded and invoked during inspectio
 plugins:
   - id: <plugin.id>
 ```
-Here, `<plugin-id>` denotes the plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
-for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional) the Plugin ID will be 
-`com.intellij.grazie.pro`.
+Here, `<plugin-id>` denotes the Plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
+for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional) the Plugin ID will be `com.intellij.grazie.pro`. To find the Plugin ID, on the plugin
+page click the **Overview** tab and then navigate to the **Additional Information** section.
 
 Plugin cache is stored in the `/data/cache/plugins` directory.
 

@@ -16,12 +16,13 @@
     <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 
 
-    <p>
-        <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
-    </p><p>
+    <p><img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
+    </p>
+	<p>
         The Docker image for the <a href="%linter-page-url%">%linter%</a> linter is provided to support different usage
         scenarios:
-    </p><list>
+    </p>
+    <list>
         <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
         </li>
         <li>Single-shot analysis (for example, performed <i>locally</i>).
@@ -31,7 +32,9 @@
     <p>You can run the %linter% linter using two methods.
         <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest method. If necessary,
         check the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> to install
-        Qodana CLI. Alternatively, you can use the Docker commands from the <ui-path>Docker image</ui-path> tab.</p><note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
+        Qodana CLI. Alternatively, you can use the Docker commands from the <ui-path>Docker image</ui-path> tab.</p>
+
+    <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
 
     <chapter id="quick-start-recommended-profile" title="Quick start">
 
@@ -275,9 +278,9 @@
                 <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
 
                 <p>This feature requires that you specify the %linter% name either in the <a href="qodana-yaml.md" anchor="Specify+a+linter"><code>qodana.yaml</code></a> file,
-                or using the <a href="github.md" anchor="Configuration"><code>args</code></a> configuration option of GitHub, for example: <code lang="yaml">args: --linter,%linter-shell%</code> </p>
-
-                <p>In GitHub, %instance% is implemented as the <code>Qodana Scan</code> GitHub Action.To configure the
+                or using the <a href="github.md" anchor="Configuration"><code>args</code></a> configuration option of GitHub, for example: </p>
+	<code-block lang="yaml">args: --linter,%linter-shell%</code-block>
+	<p>In GitHub, %instance% is implemented as the <code>Qodana Scan</code> GitHub Action.To configure the
                     <code>Qodana Scan</code> GitHub Action, save the <code>.github/workflows/code_quality.yml</code> file
                     containing the workflow configuration:</p>
 

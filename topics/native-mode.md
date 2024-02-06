@@ -12,8 +12,7 @@ credentials, and resolve dependencies.
 ## Before you start
 
 <note>The native mode is incompatible with several Docker image-related options like <code>-l, --linter</code>, 
-<code>-e, --env</code>, and <code>-v, --volume</code>. Besides that, you cannot use the <code>QODANA_TOKEN</code> Docker 
-environment variable.</note>
+<code>-e, --env</code>, and <code>-v, --volume</code>. </note>
 
 Make sure that you have a proper version of the .NET SDK and all required dependencies installed on your machine.
 
@@ -27,7 +26,7 @@ in your build pipelines any further.
 You can also provide %instance% with a pre-built project, or specify the build steps in your CI/CD pipeline. In this 
 case, in your repository create the empty `qodana.yaml` file to eliminate warnings related to project building.
 
-In your operating system, save the `QODANA_CLOUD` environment variable containing the %instance% Cloud
+In your operating system, save the `QODANA_TOKEN` environment variable containing the %instance% Cloud
 [project token](project-token.md).
 
 [Install Qodana CLI](Quick-start.topic#quickstart-run-using-cli) on the machine where you plan to run %instance%.
@@ -48,18 +47,18 @@ from the [previous section](#Before+you+start), you have two options for running
 
 <tabs group="cli-settings">
     <tab title="Qodana CLI" group-key="native-mode-qodana-cli">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan \
             &nbsp;&nbsp;&nbsp;--ide QDNET
-        </code>
+        </code-block>
         <p>This command will download the required JetBrains IDE binary file and start %instance%.</p>
         <p>If you have already specified <code>ide: QDNET</code> in the <code>qodana.yaml</code> file, you do not have
         to use it in this command, so this command is already sufficient:</p>
-        <code style="block" lang="shell" prompt="$">qodana scan</code>
+        <code-block lang="shell" prompt="$">qodana scan</code-block>
     </tab>
     <tab title="qodana.yaml" group-key="native-mode-qodana-yaml">
     <p>In the <code>qodana.yaml</code> file, save the <code>ide: QDNET</code> configuration. Run %instance% using this 
     command:</p> 
-    <code style="block" lang="shell" prompt="$">qodana scan</code>
+    <code-block lang="shell" prompt="$">qodana scan</code-block>
     </tab>
 </tabs>

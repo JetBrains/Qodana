@@ -10,7 +10,9 @@
 
     <p>Making sure that your project license is compatible with the licenses of its dependencies is never an easy task, but
         this is required for legal purposes. To automate this process and avoid mistakes, you can use %feature%
-        currently supported by several %instance% linters:</p><table>
+        currently supported by several %instance% linters:</p>
+
+    <table>
         <tr>
             <td>Linter</td>
             <td>Tools supported</td>
@@ -41,7 +43,9 @@
         </tr>
     </table>
 
-    <p>This feature is available under the Ultimate Plus license and its trial version.</p><chapter title="How it works" id="license-audit-how-it-works">
+    <p>This feature is available under the Ultimate Plus license and its trial version.</p>
+
+    <chapter title="How it works" id="license-audit-how-it-works">
 
         <p>%feature% collects information about project and dependency licenses using configuration files of dependency
             management tools and files containing license texts. Based on the information collected, it builds the
@@ -118,12 +122,12 @@
 
     </chapter>
 
-    <chapter title="Run %feature%" id="license-audit-running-feature">
+    <chapter title="Run license audit" id="license-audit-running-feature">
 
             <note>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">inspection scopes</a>, make sure that
             the file containing the build configuration is included in the scope.</note>
 
-            <p>To run %feature%, enable the
+            <p>To run the license audit feature, enable the
                 <a href="qodana-yaml.md" anchor="configure-license-audit"><code>CheckDependencyLicenses</code></a>
                 inspection. </p>
 

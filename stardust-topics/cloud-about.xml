@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Qodana Cloud"
+       id="cloud-about">
+
+    <img src="qc-about-diagram.png" dark-src="qc-about-diagram_dark.png" width="706" alt="The Qodana Cloud diagram" />
+
+    <p>In case you run Qodana in multiple projects or repositories, you can find that it would be good to load and
+        aggregate all inspection reports in a single place, especially if the codebase is distributed across several
+        servers and virtual private networks and each team works independently. This is when a centralized solution for
+        collecting and displaying report information from all Qodana instances would come in handy.</p>
+
+    <p><a href="https://qodana.cloud">Qodana Cloud</a> is a cloud-based solution that helps you accumulate various Qodana
+        reports and track the progress in your project(s) from a single point: Qodana instances automatically forward
+    inspection reports to Qodana Cloud based on project tokens.</p>
+
+    <p>For more information, see the <a href="cloud-use-cases.xml">Qodana Cloud use-cases</a> page.</p>
+</topic>

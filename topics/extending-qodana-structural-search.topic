@@ -13,7 +13,9 @@
         powerful and flexible mechanism built into JetBrains IDEs. It employs
         <a href="https://www.jetbrains.com/help/idea/search-templates.html">search templates</a> to let you inspect the
         codebase taking into account its semantics. You can create your own search templates and use them as
-        %instance% inspections.</p><chapter title="How it works" id="extending-qodana-structural-search-example">
+        %instance% inspections.</p>
+
+    <chapter title="How it works" id="extending-qodana-structural-search-example">
 
         <p>As an example, consider this search template:</p>
         <code-block>$Instance$.$MethodCall$($Parameter$)</code-block>

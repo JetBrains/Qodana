@@ -69,20 +69,20 @@ This command lets you override the default profile und run %instance% using the
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                jetbrains/qodana-&lt;linter&gt; \
                --profile-name qodana.recommended
-        </code>
+        </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                -profile-name qodana.recommended
-        </code>
+        </code-block>
     </tab>
 </tabs>
 
@@ -91,22 +91,22 @@ custom profile:
 
 <tabs group="cli-settings" filter="for-inspection-profiles">
     <tab title="Docker image" group-key="docker-image">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
                -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                jetbrains/qodana-&lt;linter&gt; \
                --profile-name &lt;profile-name-from-file&gt;
-        </code>
+        </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan \
                -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --profile-name &lt;profile-name-from-file&gt;
-        </code>
+        </code-block>
     </tab>
 </tabs>
 
@@ -128,22 +128,22 @@ profile file to read:
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
                -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                jetbrains/qodana-&lt;linter&gt; \
                --profile-path /data/project/myprofiles/&lt;file-name&gt;
-        </code>
+        </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan \
                -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --profile-path /data/project/myprofiles/&lt;file-name&gt;
-        </code>
+        </code-block>
     </tab>
 </tabs>
 

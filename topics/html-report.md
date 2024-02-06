@@ -23,28 +23,28 @@ can run the Dockerized version of nginx, or invoke the Python or PHP built-in we
     <p>Serve the report using the web server of your choice:</p>
     <tabs>
         <tab title="Dockerized version of nginx">
-            <code style="block" prompt="$">
+            <code-block prompt="$">
                 docker run -it --rm -p 8000:80 \
                   -v $(pwd):/usr/share/nginx/html nginx
-            </code>
+            </code-block>
             <p>In your browser, navigate to <a href="http://localhost:8000">http://localhost:8000</a> to see the generated report.</p>
         </tab>
         <tab title="Python 2">
-            <code style="block" prompt="$">
+            <code-block prompt="$">
                 python2 -m SimpleHTTPServer
-            </code>
+            </code-block>
             <p>In your browser, navigate to <a href="http://localhost:8000">http://localhost:8000</a> to see the generated report.</p>
         </tab>
         <tab title="Python 3">
-            <code style="block" prompt="$">
+            <code-block prompt="$">
                 python3 -m http.server
-            </code>
+            </code-block>
             <p>In your browser, navigate to <a href="http://localhost:8000">http://localhost:8000</a> to see the generated report.</p>
         </tab>
         <tab title="PHP">
-            <code style="block" prompt="$">
+            <code-block prompt="$">
                 php -S localhost:8000
-            </code> 
+            </code-block> 
             <p>In your browser, navigate to <a href="http://localhost:8000">http://localhost:8000</a> to see the generated report.</p>
         </tab>
     </tabs>    

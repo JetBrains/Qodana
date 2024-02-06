@@ -6,18 +6,18 @@ for example:
 
 <tabs>
     <tab title="Qodana CLI" id="project-token-cli-tab">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             qodana scan \
                -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
-        </code>
+        </code-block>
     </tab>
     <tab title="Docker image" id="project-token-docker">
-        <code style="block" lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                 jetbrains/qodana-&lt;linter&gt;        
-        </code>
+        </code-block>
     </tab>
 </tabs>
 

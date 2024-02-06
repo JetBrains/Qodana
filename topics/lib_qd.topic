@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 <!--suppress TopicContentShortcutHardcodedInspections -->
+
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
@@ -490,10 +491,10 @@
 
         <chapter id="docker-dotnet-specific-solution-project-configure-solution" title="Configure a solution" filter="for-dotnet">
 
-            <p>A solution configuration defines which projects in the solution are build, and which project
-                configurations are used for specific projects within the solution.</p>
+            <p>A solution configuration defines which projects in the solution to build, and which project
+                configurations to use for specific projects within the solution.</p>
 
-            <p>Each newly-created solution includes the <code>Debug</code> and <code>Release</code>
+            <p>Each newly created solution includes the <code>Debug</code> and <code>Release</code>
                 configurations, which can be complemented by your custom configurations.</p>
 
             <p>You can switch configurations of the current solution using the <code>--property</code>

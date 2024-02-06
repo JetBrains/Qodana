@@ -15,7 +15,7 @@
 
 %linter% provides inspections for the following technologies.
 
-<table header-style="none">
+<table style="none">
     <tr>
         <td>Programming languages</td>
         <td>
@@ -84,7 +84,7 @@ The command will be automatically executed before the analysis.
 
 #### Run analysis
 
-<include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/></p>
 
 ## Next steps
 

@@ -7,7 +7,12 @@ Onboarding is an essential step in preparing %instance% for working with your pr
 - Generate a [project token](project-token.md) required by the Ultimate and Ultimate Plus linters
 - Set up code inspection
 
-Onboarding uses information from your JetBrains account including licenses and companies. 
+Onboarding uses information from your JetBrains account, which includes licenses and companies. 
+
+<note>
+To provide correct work of the contributor counting functionality, add the IP address range
+54.76.32.8/32 to a list of allowed inbound connections on your side.
+</note>
 
 Below is the description of the steps.
 
@@ -36,7 +41,7 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 
 * [GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key)
 * [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys) - start from step 2, i.e. skip the SSH key generation step
-* [JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step 
+* [JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step
 
 <warning>Do not store the key on the account level, so that it cannot be shared by other repositories within your account.</warning>
 </step>
