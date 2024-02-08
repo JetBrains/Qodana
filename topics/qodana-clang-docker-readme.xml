@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Qodana for C/C++"
+       id="qodana-clang-docker-readme">
+
+    <var name="linter" value="Qodana for C/C++ (CMake)"/>
+    <var name="linter-shell" value="qodana-clang:2023.3-eap"/>
+    <var name="linter-page-url" value="qodana-clang.md"/>
+    <var name="ide" value="CLion"/>
+    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
+    <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
+    <var name="docker-image" value="jetbrains/qodana-clang:2023.3-eap"/>
+    <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+
+    <p>
+        <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
+    </p>
+
+    <include src="lib_qd.xml" include-id="linter-docker-image-intro"/>
+
+    <chapter id="quick-start-recommended-profile" title="Quick start with the recommended profile">
+        <chapter id="Run+analysis+locally" title="Run analysis locally">
+
+            <note>
+                <p>
+                    <include src="lib_qd.xml" include-id="docker-ram-note"/>
+                </p>
+            </note>
+
+            <p>This is how you can run the Dockerized version of the %linter% linter:</p>
+
+            <include src="lib_qd.xml" include-id="docker-local-analysis"/>
+
+        </chapter>
+
+        <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
+
+            <include src="lib_qd.xml" include-id="docker-ci-analysis"/>
+
+            <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis in GitHub">
+
+                <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
+
+                <p>In GitHub, %product% is implemented as the <code>Qodana Scan</code> GitHub Action.To configure the
+                    <code>Qodana Scan</code> GitHub Action, save the <code>.github/workflows/code_quality.yml</code> file
+                    containing the workflow configuration:</p>
+
+                <code style="block" lang="yaml">
+                    name: Qodana
+                    on:
+                    &nbsp;&nbsp;workflow_dispatch:
+                    &nbsp;&nbsp;pull_request:
+                    &nbsp;&nbsp;push:
+                    &nbsp;&nbsp;&nbsp;&nbsp;branches:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'releases/*'
+
+                    jobs:
+                    &nbsp;&nbsp;qodana:
+                    &nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest
+                    &nbsp;&nbsp;&nbsp;&nbsp;steps:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v3
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch-depth: 0
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: 'Qodana Scan'
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2022.3.3
+                </code>
+
+                <p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
+                    repository.</p>
+
+                <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
+                    (reports issues that appeared only in that pull request).</note>
+
+                <p>Because <code>Qodana Scan</code> is experimental, you may need to additionally configure the
+                    <code>pr-mode</code> <a href="github.md" anchor="Configuration">parameter</a>  in the <code>with</code> section:</p>
+
+                <p>By default, <code>Qodana Scan</code> uses the experimental mode of the Qodana for .NET linter.
+                    If you are experiencing issues with it, you can
+                    <a href="https://youtrack.jetbrains.com/newIssue?project=QD">report an issue</a> in our bug tracker.</p>
+
+                <code style="block" lang="yaml">
+                    pr-mode: false
+                </code>
+
+                <p>To authorize in <a href="cloud-about.xml">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
+
+                <procedure>
+                    <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and
+                        save the <a href="cloud-projects.xml" anchor="cloud-manage-projects">project token</a> as its value.</p></step>
+                    <step><p>In a GitHub <a href="github.md" anchor="Basic+configuration">workflow</a>,
+                        add this snippet to invoke the <code>Qodana Scan</code> action:</p>
+
+                        <code style="block" lang="yaml">
+                            - name: 'Qodana Scan'
+                            &nbsp;&nbsp;uses: JetBrains/qodana-action@v2022.3.3
+                            &nbsp;&nbsp;env:
+                            &nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                        </code>
+                    </step>
+                </procedure>
+            </chapter>
+
+        </chapter>
+    </chapter>
+
+    <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
+
+        <include src="lib_qd.xml" include-id="docker-configure-via-qodana-yaml" use-filter="empty,for-dotnet"/>
+
+    </chapter>
+
+    <chapter id="Usage+statistics" title="Usage statistics">
+
+        <p>
+            <include src="lib_qd.xml" include-id="docker-usage-statistics"/>
+        </p>
+
+    </chapter>
+
+</topic>
