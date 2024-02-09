@@ -8,33 +8,33 @@
 
     <var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
-    <p><emphasis>Quality gate</emphasis> is a set of metrics that let you control your code quality and build
-        software that meets your quality expectations. If a quality gate condition fails, %product% terminates with
-        exit code 255, which makes a CI/CD workflow or pipeline fail. For example, if a quality gate for a project
-        is set to 10 problems and code coverage is set to 40%, a build workflow will fail if %product% detects either
-        the eleventh problem or code coverage below 40%. </p>
+    <p><emphasis>Quality gate</emphasis> are quality control techniques consisting of a set of metrics that let you
+        control your code quality and build software that meets your quality expectations. If a quality gate condition
+        fails, %product% terminates using exit code 255, which makes a CI/CD workflow or pipeline fail. For example, if
+        a quality gate for a project is set to 10 problems and code coverage is set to 40%, a build workflow will fail
+        if %product% detects either an eleventh problem or code coverage below 40%. </p>
 
-    <p>The quality gate and fail threshold terms are used interchangeably with the former being a feature in overall, and
-        the latter meaning a configuration option. </p>
+    <p>The terms quality gate and fail threshold are used interchangeably, with the former representing a specific
+        feature and the latter referring to a configuration option. </p>
 
     <p>%product% provides this feature in all linters available under Community, Ultimate, and Ultimate Plus
-        <a href="pricing.md">licenses</a> and their trial versions. </p>
+        <a href="pricing.md">licenses</a> including their trial versions. </p>
 
     <chapter id="quality-gate-how-it-works" title="How it works">
         <chunk id="quality-gate-basics">
         <p>You can configure a quality gate for a specific problem severity, for all project problems independently of their
-            severities, and code coverage thresholds. %product% follows these rules:</p>
+            severities, and for code coverage thresholds. %product% follows these rules:</p>
         <list>
-            <li>Given a severity threshold of X, when finding X results the run will succeed. When finding X+1 results, the run will fail</li>
-            <li>Given a test coverage threshold of Y, when having a Y% of covered lines the run will succeed. If only Y-1% are covered, the run will fail</li>
+            <li>Given a severity threshold of X, when finding X results, the run will succeed. When finding X+1 results, the run will fail.</li>
+            <li>Given a test coverage threshold of Y, when Y% of lines are covered, the run will succeed. If only Y-1% are covered, the run will fail.</li>
         </list>
-        <p>If you configure a quality gate for multiple severities and code coverage thresholds, then exceeding at least
-            one setting limitation will make the build fail.</p>
+        <p>If you configure a quality gate for multiple severities and code coverage thresholds, then exceeding just one
+            setting limitation will make the build fail.</p>
 
-        <tip>If you configure together a quality gate and a <a href="baseline.xml">baseline</a>, you will be able you keep the number
+        <tip>If you configure a quality gate and <a href="baseline.xml">baseline</a> together, you'll be able to keep the number
             of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
 
-        <p>Here is a sample quality gate configuration for the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file using
+        <p>Here's a sample quality gate configuration for the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file using
             the <code>failureConditions</code> option:</p>
 
         <code style="block" lang="yaml">
@@ -57,7 +57,7 @@
 
         <note>Application of the <code>fail-threshold</code> option overrides configurations made in the <code>qodana.yaml</code> file.</note>
 
-        <p>Below are several configuration examples of using the <code>fail-threshold</code> option.</p>
+        <p>Below are several configuration examples that use the <code>fail-threshold</code> option.</p>
 
         <tabs>
             <tab title="Qodana CLI">
@@ -82,18 +82,19 @@
                 </code>
                 <p>In this command, <code>&lt;source-directory&gt;</code> is the full local path to the project source code, and
                     the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate. The
-                    <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
-                    required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
+                    <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>, which
+                    is required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
                     linters.
                 </p>
             </tab>
             <tab title="GitHub Actions">
-                <p>You can enforce GitHub to block merge of pull requests if the <a href="quality-gate.xml">quality gate</a> has failed. To do it,
-                    create a <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
+                <p>You can configure GitHub to block the merging of pull requests if the
+                    <a href="quality-gate.xml">quality gate</a> has failed. To do this, you can create a
+                    <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
 
                 <procedure>
-                    <step>Create a new or open an existing GitHub Actions workflow that invokes the
-                        <a href="https://github.com/marketplace/actions/qodana-scan">Qodana scan</a> action.</step>
+                    <step>Create a new GitHub Actions workflow that invokes the
+                        <a href="https://github.com/marketplace/actions/qodana-scan">Qodana scan</a> action or open an existing one.</step>
                     <step><p>Set the workflow to run on <code>pull_request</code> events that target the <code>main</code> branch.</p>
                         <code style="block" lang="yaml">
                             name: Qodana
@@ -120,7 +121,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code>
 
-                        <p>Instead of <code>main</code>, you can specify your branch here. The
+                        <p>Instead of the <code>main</code>, you can specify your preferred branch here. The
                             <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                             required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
                             linters.</p>
@@ -167,11 +168,12 @@
                 </code>
 
                 <p>The <code>QODANA_TOKEN</code> variable in this snippet refers to the
-                    <a href="project-token.md">project token</a> contained in the <code>qodana-token</code> credentials and
-                    required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
+                    <a href="project-token.md">project token</a> contained in the <code>qodana-token</code> credentials,
+                    which is required by the
+                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
             </tab>
             <tab title="GitLab CI/CD">
-                <p>To run a quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, you can save this
+                <p>If you want to run a quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, you can save this
                     configuration to the <code>.gitlab-ci.yml</code> file:</p>
                 <code style="block" lang="yaml">
                     qodana:
@@ -189,7 +191,7 @@
 
                 <p>In this sample, the <code>script</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
                     option. The <code>QODANA_TOKEN</code> variable in this snippet refers to the
-                    <a href="project-token.md">project token</a> and required by the
+                    <a href="project-token.md">project token</a>, which is required by the
                     <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
             </tab>
