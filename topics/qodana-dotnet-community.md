@@ -27,6 +27,33 @@ It brings all the smarts from ReSharper, which helps you:
 %linter% lets you inspect .NET Core projects that use the C# and Visual Basic.NET (VB.NET) languages. 
 It also supports C/C++ inspections for projects containing `.sln` solution files.
 
+## Supported technologies
+
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>C#</p>
+            <p>C</p>
+            <p>C++</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Markup languages</td>
+        <td>
+            <p>XML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>.NET Core</p>
+            <p>EntityFramework</p>
+            <p>Unreal Engine</p>
+        </td>
+    </tr>
+</table>
+
 ## Supported features
 
 <include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,cdnet"/>

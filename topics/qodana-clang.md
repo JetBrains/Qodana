@@ -1,4 +1,4 @@
-[//]: # (title: Qodana for C/C++ )
+[//]: # (title: Qodana for C/C++ \(CMake\))
 
 <var name="linter" value="Qodana for C/C++ (CMake)"/>
 <var name="ide" value="Clion"/>
@@ -29,9 +29,48 @@ CLion `Clang-Tidy` inspections is available in the [General](%clion-inspections-
 CLion documentation website. Information about the `MISRA checks` inspections is available in the 
 [Static Analysis Tools](%misra-inspections%) section of the Clion documentation website.
 
-## Prerequisites
+## Supported technologies
 
-Make sure that the Clang Tidy and CMake tools are installed on your system.
+<table header-style="none">
+    <tr>
+        <td>Programming languages</td>
+        <td>
+            <p>C</p>
+            <p>C++</p>
+            <p>Android</p>
+            <p>Objective-C</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>Abseil</p>
+            <p>Altera</p>
+            <p>Boost</p>
+            <p>MPI</p>
+            <p>OpenMP</p>
+        </td>
+    </tr>
+</table>
+
+## Supported features
+
+The %linter% linter provides the following %product% features:
+
+<table>
+    <tr>
+        <td>Feature</td>
+        <td>Available under licenses</td>
+    </tr>
+    <tr>
+        <td><a href="baseline.xml"/></td>
+        <td>Community, Ultimate and Ultimate Plus</td>
+    </tr>
+    <tr>
+        <td><a href="quality-gate.xml"/></td>
+        <td>Community, Ultimate and Ultimate Plus</td>
+    </tr>
+</table>
 
 ## How it works
 
@@ -59,7 +98,9 @@ To get the list of CLion-specific inspections, you can run this command:
 clang-tidy -checks="-*,clion-*" -list-checks
 ```
 
-## Configure the project
+## Prepare the project
+
+Make sure that the Clang Tidy and CMake tools are installed on your system.
 
 In the [`qodana.yaml`](qodana-yaml.md#Example+of+different+configuration+options) file, you can enable or disable inspections using the `include` and `exclude` configuration 
 options. Alternatively, you can configure inspections in the `.clang-tidy` file, see the configuration example on the 
