@@ -19,9 +19,17 @@
         <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
     </p>
 
-    <include src="lib_qd.xml" include-id="linter-docker-image-intro"/>
+    <p>
+        The Docker image for the <a href="%linter-page-url%">%linter%</a> linter is provided to support different usage
+        scenarios:
+    </p>
+    <list>
+        <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
+        </li>
+        <li>Single-shot analysis (for example, performed <i>locally</i>).
+        </li>
+    </list>
 
-    <chapter id="quick-start-recommended-profile" title="Quick start with the recommended profile">
         <chapter id="Run+analysis+locally" title="Run analysis locally">
 
             <note>
@@ -105,7 +113,7 @@
             </chapter>
 
         </chapter>
-    </chapter>
+
 
     <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
 
