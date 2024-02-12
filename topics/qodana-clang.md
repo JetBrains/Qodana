@@ -20,9 +20,9 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 </note>
 
 %linter% lets you inspect your C and C++ projects. This linter is based on the [Clang Tidy](%clang-tidy%) linter, 
-operates on the AMD64 and AArch64 architectures, and lets you inspect only projects compiled with 
+operates on the AMD64 and ARM64 architectures, and lets you inspect only projects compiled with 
 [CMake](https://cmake.org/). It extends the existing Clang Tidy inspections by supplying the `Clang-Tidy` and 
-`MISRA checks` inspections. 
+`MISRA checks` inspections provided by CLion. 
 
 The list of the standard Clang Tidy inspections is available on the [Clang website](%clang-website%). The list of the 
 CLion `Clang-Tidy` inspections is available in the [General](%clion-inspections-general%) section on the 
@@ -77,26 +77,9 @@ The %linter% linter provides the following %product% features:
 The Docker image of %linter% employs Clang 16.0.0 and LLVM 16. You can see the 
 [`Dockerfile`](%dockerfile%) for the detailed description of all software employed by the linter.  
 
-The %linter% linter runs CMake to compile project files, generates a compilation command database, and saves it to the 
-`compile_commands.json` file in the `build` subdirectory of the project directory. The linter parses the compilation 
-command database, inspects the project, generates inspection reports, and saves them
-locally or uploads to Qodana Cloud.
-
-### Enabled inspections
-
-You can get the full list of enabled inspections using this command: 
-
-<!-- I think I need to provide this for Windows too -->
-
-```shell
-clang-tidy -list-checks -checks="*"
-```
-
-To get the list of CLion-specific inspections, you can run this command:
-
-```shell
-clang-tidy -checks="-*,clion-*" -list-checks
-```
+The linter runs CMake to compile project files, generates a compilation command database, and saves it to the 
+`build/compile_commands.json` file of the project directory. The linter reads the compilation command database, inspects 
+the project, generates inspection reports, and saves them locally or uploads to Qodana Cloud.
 
 ## Prepare the project
 
@@ -104,7 +87,28 @@ Make sure that the Clang Tidy and CMake tools are installed on your system.
 
 In the [`qodana.yaml`](qodana-yaml.md#Example+of+different+configuration+options) file, you can enable or disable inspections using the `include` and `exclude` configuration 
 options. Alternatively, you can configure inspections in the `.clang-tidy` file, see the configuration example on the 
-[GitHub website](%clang-config%). After configuring, save this file to the project root.
+[GitHub website](%clang-config%). After configuring, save this file to the project root. 
+
+<tip>
+<p>You can get the list of all available Clang Tidy inspections using this command:</p>
+<tabs>
+<tab id="qodana-clang-full-linux" title="Linux" group-key="clang-linux">
+<code>clang-tidy -list-checks -checks="*"</code>
+</tab>
+<tab id="qodana-clang-full-windows" title="Windows" group-key="clang-windows">
+<code>./clang-tidy.exe -list-checks -checks="*"</code>
+</tab>
+</tabs>
+<p>To obtain the list of all inspections available in Clang Tidy by default, you can run this command:</p>
+<tabs>
+<tab id="qodana-clang-full-linux" title="Linux" group-key="clang-linux">
+<code>clang-tidy -list-checks</code>
+</tab>
+<tab id="qodana-clang-full-windows" title="Windows" group-key="clang-windows">
+<code>./clang-tidy.exe -list-checks</code>
+</tab>
+</tabs>
+</tip>
 
 In the `qodana.yaml` file, use the [`bootstrap`](before-running-qodana.md) option to specify a command for generating 
 a compilation command database contained in the `compile_commands.json` file, for example:
