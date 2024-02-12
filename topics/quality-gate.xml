@@ -8,14 +8,14 @@
 
     <var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
-    <p><emphasis>Quality gate</emphasis> are quality control techniques consisting of a set of metrics that let you
+    <p><emphasis>Quality gate</emphasis> are quality control techniques that let you
         control your code quality and build software that meets your quality expectations. If a quality gate condition
         fails, %product% terminates using exit code 255, which makes a CI/CD workflow or pipeline fail. For example, if
         a quality gate for a project is set to 10 problems and code coverage is set to 40%, a build workflow will fail
-        if %product% detects either an eleventh problem or code coverage below 40%. </p>
+        if %product% detects either an eleventh problem or code coverage below the 40% threshold. </p>
 
-    <p>The terms quality gate and fail threshold are used interchangeably, with the former representing a specific
-        feature and the latter referring to a configuration option. </p>
+    <p>The terms <emphasis>quality gate</emphasis> and <emphasis>fail threshold</emphasis> are used interchangeably,
+        with the former representing a specific feature and the latter referring to a configuration option. </p>
 
     <p>%product% provides this feature in all linters available under Community, Ultimate, and Ultimate Plus
         <a href="pricing.md">licenses</a> including their trial versions. </p>
@@ -25,8 +25,8 @@
         <p>You can configure a quality gate for a specific problem severity, for all project problems independently of their
             severities, and for code coverage thresholds. %product% follows these rules:</p>
         <list>
-            <li>Given a severity threshold of X, when finding X results, the run will succeed. When finding X+1 results, the run will fail.</li>
-            <li>Given a test coverage threshold of Y, when Y% of lines are covered, the run will succeed. If only Y-1% are covered, the run will fail.</li>
+            <li>Given a severity threshold of <emphasis>X</emphasis>, when finding <emphasis>X</emphasis> results, the run will succeed. When finding <emphasis>X+1</emphasis> results, the run will fail.</li>
+            <li>Given a test coverage threshold of <emphasis>Y</emphasis>, when <emphasis>Y%</emphasis> of lines are covered, the run will succeed. If only <emphasis>Y-1%</emphasis> are covered, the run will fail.</li>
         </list>
         <p>If you configure a quality gate for multiple severities and code coverage thresholds, then exceeding just one
             setting limitation will make the build fail.</p>
@@ -121,7 +121,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code>
 
-                        <p>Instead of the <code>main</code>, you can specify your preferred branch here. The
+                        <p>Instead of <code>main</code>, you can specify your preferred branch here. The
                             <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                             required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
                             linters.</p>
