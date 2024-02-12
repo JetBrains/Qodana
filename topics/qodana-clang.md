@@ -99,12 +99,12 @@ options. Alternatively, you can configure inspections in the `.clang-tidy` file,
 <code>./clang-tidy.exe -list-checks -checks="*"</code>
 </tab>
 </tabs>
-<p>To obtain the list of all inspections available in Clang Tidy by default, you can run this command:</p>
+<p>To obtain the list of all inspections enabled in Clang Tidy by default, you can run this command:</p>
 <tabs>
-<tab id="qodana-clang-full-linux" title="Linux" group-key="clang-linux">
+<tab id="qodana-clang-enabled-linux" title="Linux" group-key="clang-linux">
 <code>clang-tidy -list-checks</code>
 </tab>
-<tab id="qodana-clang-full-windows" title="Windows" group-key="clang-windows">
+<tab id="qodana-clang-enabled-windows" title="Windows" group-key="clang-windows">
 <code>./clang-tidy.exe -list-checks</code>
 </tab>
 </tabs>
