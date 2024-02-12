@@ -48,9 +48,11 @@ which reverses the above advantages and disadvantages.
 
 To configure %product% for inspecting two projects, you need to create two separate [`qodana.yaml`](qodana-yaml.md) 
 files. %product% also expects `qodana.yaml` to be contained in the root folder of the monorepo project. This means that 
-before running %product% on the project from the `backend/` folder, that project's `qodana.yaml` file needs to be copied to 
-the root folder, the same for the `frontend/` folder. If you plan to run %product% using [Docker](#Run+Qodana), you can copy 
+before running %product% on the project from the `backend/` folder, that project's `qodana.yaml` file needs to be 
+copied to both the root folder and the `frontend/` folder. If you plan to run %product% using [Docker](#Run+Qodana), you can copy 
 files using the [`bootstrap`](before-running-qodana.md) configuration option in `qodana.yaml`, for example:
+
+
 
 <!--
 Implementation note: qodana.yaml is read by several programs:
@@ -149,7 +151,7 @@ in this procedure.</p>
 <procedure>
 <step>On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN_BACKEND</code> and
 <code>QODANA_TOKEN_FRONTEND</code> <a href="%github-secret%">encrypted secrets</a> and save the project tokens 
-<a anchor="Qodana+Cloud">generated</a> at Qodana Cloud as their values.
+<a anchor="Qodana+Cloud">generated</a> on Qodana Cloud as their values.
 </step>
 <step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
 <code>.github/workflows/code_quality.yml</code> file.</step>
@@ -203,5 +205,5 @@ jobs:
 
 ## View inspection results
 
-Congratulations, now you can navigate to [Qodana Cloud](https://qodana.cloud) and study inspection results for each project 
+Congratulations, now you can navigate to [Qodana Cloud](https://qodana.cloud) and study the inspection results for each project 
 inside your monorepo project.

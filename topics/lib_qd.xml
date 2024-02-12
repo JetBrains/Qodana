@@ -337,7 +337,7 @@
             that is, a JRE is properly configured, project dependencies are installed, build scripts or startup tasks are
             executed, and so on.</p>
         <p>Qodana provides two options for local analysis of your code.
-            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
+            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start with.
             Alternatively, you can use the Docker command from the <menupath>Docker image</menupath> tab.</p>
         <p></p>
         <tabs>
@@ -373,7 +373,7 @@
             <tab id="docker-image-tab" title="Docker image">
                 <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
                     procedure is basically the same.</p>
-                <p filter="non-gs">To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
+                <p filter="non-gs">To start, pull the image from Docker Hub (only the latest version is necessary):</p>
                 <code filter="non-gs" style="block" lang="shell" prompt="$">
                     docker pull %docker-image%
                 </code>
@@ -409,9 +409,9 @@
                 </code>
                 <p filter="php-only">with <code>source-directory</code> pointing to the root of your project, and
                     <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>.</p>
-                <p>Open <code>http://localhost:8080</code> in your browser to examine inspection results.
+                <p>Open <code>http://localhost:8080</code> in your browser to examine the inspection results.
                     Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                    details. When done, you can stop the web server by pressing Ctrl-C in the
+                    details. When you're done, you can stop the web server by pressing Ctrl-C while in the
                     console.</p>
             </tab>
         </tabs>
@@ -724,7 +724,7 @@
             <step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
                 <code>.github/workflows/code_quality.yml</code> file.</step>
             <step>To inspect the <code>main</code> branch, release branches, and the pull requests coming
-            to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+            to your repository, save the following workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
                 <code style="block" lang="yaml">
                     name: Qodana
                     on:

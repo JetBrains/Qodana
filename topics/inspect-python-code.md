@@ -18,14 +18,14 @@ To inspect your Python codebase, depending on your %product% [license](pricing.m
 
 Here is the list of technologies and features supported by both linters.
 
-| Supported technologies and features                                                                                                                                      | [](qodana-python.md) | [](qodana-python-community.md) |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------------|
-| Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, Shell script, MongoJS, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid   | &#x2714;             | &#x2714;                       |
-| [](baseline.xml)                                                                                                                                                         | &#x2714;             | &#x2714;                       |
-| [](quality-gate.xml)                                                                                                                                                     | &#x2714;             | &#x2714;                       |
-| [](license-audit.xml)                                                                                                                                                    | &#x2714;             | &#x274c;                       |
-| [](quick-fix.md)                                                                                                                                                         | &#x2714;             | &#x274c;                       |
-| [](vulnerability-checker.md)                                                                                                                                             | &#x2714;             | &#x274c;                       |
+| Supported technologies and features                                                                                                                                     | [](qodana-python.md) | [](qodana-python-community.md) |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------------|
+| Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, shell scripts, MongoJS, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid | &#x2714;             | &#x2714;                       |
+| [](baseline.xml)                                                                                                                                                        | &#x2714;             | &#x2714;                       |
+| [](quality-gate.xml)                                                                                                                                                    | &#x2714;             | &#x2714;                       |
+| [](license-audit.xml)                                                                                                                                                   | &#x2714;             | &#x274c;                       |
+| [](quick-fix.md)                                                                                                                                                        | &#x2714;             | &#x274c;                       |
+| [](vulnerability-checker.md)                                                                                                                                            | &#x2714;             | &#x274c;                       |
 
 </tab>
 </tabs>
@@ -78,7 +78,7 @@ pipeline {
 In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
 [project token](project-token.md) generated in Qodana Cloud and contained in
 the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %product%
-[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters.
+[linters](pricing.md#pricing-linters-licenses), and is optional for using the Community linters.
 
 </tab>
 <tab id="inspect-python-code-local" title="Local run">
