@@ -8,7 +8,7 @@
 <var name="ide" value="GoLand"/>
 <var name="docker-image" value="jetbrains/qodana-go:2023.3"/>
 <var name="ide-url" value="https://www.jetbrains.com/go/"/>
-<var name="config-file" value="qodana-go-docker-readme.xml"/>
+<var name="config-file" value="qodana-go-docker-readme.topic"/>
 
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.
 
@@ -18,7 +18,7 @@
 
 %linter% provides inspections for the following technologies.
 
-<table header-style="none">
+<table style="none">
     <tr>
         <td>Programming languages</td>
         <td>
@@ -46,14 +46,14 @@
 
 ## Supported features
 
-<include src="lib_qd.xml" include-id="linters-supported-features" use-filter="empty,non-jvm"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,non-jvm"/>
 
 ## Try it now
 
 ### Analyze a project locally
 
-<p><include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,non-gs,other,empty"/></p>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,non-gs,other,empty"/></p>
 
 ## Next steps
 
-<include src="lib_qd.xml" include-id="linter-next-steps-footer" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="linter-next-steps-footer" use-filter="empty"/>

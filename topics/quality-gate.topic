@@ -1,76 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Quality gate"
-       id="quality-gate">
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Quality gate" id="quality-gate">
 
     <var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
-    <p><emphasis>Quality gates</emphasis> are techniques that let you control your code quality and build software that
-        meets your quality expectations. If a quality gate condition fails, %product% terminates using exit code 255,
-        which makes a CI/CD workflow or pipeline fail. For example, if a quality gate for a project is set to 10 problems
-        and code coverage is set to 40%, a build workflow will fail if %product% detects either an eleventh problem or
-        code coverage below the 40% threshold.</p>
+    <p><emphasis>Quality gate</emphasis> are quality control techniques that let you
+        control your code quality and build software that meets your quality expectations. If a quality gate condition
+        fails, %instance% terminates using exit code 255, which makes a CI/CD workflow or pipeline fail. For example, if
+        a quality gate for a project is set to 10 problems and code coverage is set to 40%, a build workflow will fail
+        if %instance% detects either an eleventh problem or code coverage below the 40% threshold. </p>
 
-    <p>The terms <emphasis>quality gate</emphasis>, <emphasis>threshold</emphasis> and <emphasis>fail threshold</emphasis>
-        are used interchangeably.</p>
+    <p>The terms <emphasis>quality gate</emphasis> and <emphasis>fail threshold</emphasis> are used interchangeably,
+        with the former representing a specific feature and the latter referring to a configuration option. </p>
 
-    <p>You can configure a single quality gate for the total number of project problems, multiple quality gates for
-        each separate <a href="faq.xml" anchor="faq-severities">problem severity</a>, and
-        <a href="code-coverage.md">code coverage</a> thresholds as explained in the table below.</p>
-
-    <table>
-        <tr>
-            <td>Quality gate type</td>
-            <td>Support in linters</td>
-            <td>Availability under licenses</td>
-        </tr>
-        <tr>
-            <td><a anchor="quality-gate-project-threshold"/></td>
-            <td>All <a href="linters.md">linters</a></td>
-            <td>Community, Ultimate, and Ultimate Plus</td>
-        </tr>
-        <tr>
-            <td><a anchor="quality-gate-severity-threshold"/></td>
-            <td>All <a href="linters.md">linters</a> except <a href="qodana-dotnet-community.md"/></td>
-            <td>Community, Ultimate, and Ultimate Plus licenses depending on a linter</td>
-        </tr>
-        <tr>
-            <td><a anchor="quality-gate-code-coverage"/></td>
-            <td><a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, <a href="qodana-php.md"/>,
-                <a href="qodana-dotnet.md"/>, <a href="qodana-python.md"/>, and <a href="qodana-go.md"/></td>
-            <td>Ultimate and Ultimate Plus</td>
-        </tr>
-    </table>
+    <p>%instance% provides this feature in all linters available under Community, Ultimate, and Ultimate Plus
+        <a href="pricing.md">licenses</a> including their trial versions. </p>
 
     <chapter id="quality-gate-how-it-works" title="How it works">
-
-        <p>%product% follows these rules:</p>
+        <snippet id="quality-gate-basics">
+        <p>You can configure a quality gate for a specific problem severity, for all project problems independently of their
+            severities, and for code coverage thresholds. %instance% follows these rules:</p>
         <list>
-            <li>Given a <a anchor="quality-gate-project-threshold">total quality gate</a> of <emphasis>A</emphasis>, when finding <emphasis>A</emphasis> problems, the run will succeed. When finding <emphasis>A+1</emphasis> problems, the run will fail.</li>
-            <li>Given a <a anchor="quality-gate-severity-threshold">severity quality gate</a> of <emphasis>B</emphasis>, when finding <emphasis>B</emphasis> problems, the run will succeed. When finding <emphasis>B+1</emphasis> problems, the run will fail.</li>
-            <li>Given a <a anchor="quality-gate-code-coverage">code coverage quality gate</a> of <emphasis>C</emphasis>, when <emphasis>C%</emphasis> of lines are covered, the run will succeed. If only <emphasis>C-1%</emphasis> are covered, the run will fail.</li>
+            <li>Given a severity threshold of <emphasis>X</emphasis>, when finding <emphasis>X</emphasis> results, the run will succeed. When finding <emphasis>X+1</emphasis> results, the run will fail.</li>
+            <li>Given a test coverage threshold of <emphasis>Y</emphasis>, when <emphasis>Y%</emphasis> of lines are covered, the run will succeed. If only <emphasis>Y-1%</emphasis> are covered, the run will fail.</li>
         </list>
+        <p>If you configure a quality gate for multiple severities and code coverage thresholds, then exceeding just one
+            setting limitation will make the build fail.</p>
 
-            <tip>If you configure a quality gate and <a href="baseline.xml">baseline</a> together, you'll be able to keep the number
-                of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
+        <tip>If you configure a quality gate and <a href="baseline.topic">baseline</a> together, you'll be able to keep the number
+            of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
 
-    </chapter>
+        <p>Here's a sample quality gate configuration for the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file using
+            the <code>failureConditions</code> option:</p>
 
-    <chapter id="quality-gate-project-threshold" title="Total problems">
+        <code-block lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;severityThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;any: 20 # All project problems without considering severities
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: 1
+            &nbsp;&nbsp;&nbsp;&nbsp;high: 2
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
+            &nbsp;&nbsp;&nbsp;&nbsp;low: 4
+            &nbsp;&nbsp;&nbsp;&nbsp;info: 5
+            &nbsp;&nbsp;testCoverageThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;fresh: 6 # Fresh code coverage
+            &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
+        </code-block>
+        </snippet>
+        <p>You can also employ the <code>fail-threshold</code> option for
+            all project problems independently of their severities. However, this approach is less flexible compared to
+            the <code>failureConditions</code> option.</p>
 
-        <p>You can configure a single quality gate for the entire project using the <code>fail-threshold</code> option
-            available in all %product% <a href="linters.md">linters</a>, see examples below.</p>
+        <note>Application of the <code>fail-threshold</code> option overrides configurations made in the <code>qodana.yaml</code> file.</note>
+
+        <p>Below are several configuration examples that use the <code>fail-threshold</code> option.</p>
 
         <tabs>
             <tab title="Qodana CLI">
-                <code style="block" lang="shell" prompt="$">
+                <code-block lang="shell" prompt="$">
                     qodana scan \
                     &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                     &nbsp;&nbsp;--fail-threshold &lt;number&gt;
-                </code>
+                </code-block>
                 <p>In this command, the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate.
                     The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                     required by the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
@@ -78,13 +73,13 @@
                 </p>
             </tab>
             <tab title="Docker image">
-                <code style="block" lang="shell" prompt="$">
+                <code-block lang="shell" prompt="$">
                     docker run \
                     &nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/  \
                     &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                     &nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
                     &nbsp;&nbsp;--fail-threshold &lt;number&gt;
-                </code>
+                </code-block>
                 <p>In this command, <code>&lt;source-directory&gt;</code> is the full local path to the project source code, and
                     the <code>--fail-threshold &lt;number&gt;</code> option configures the quality gate. The
                     <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>, which
@@ -94,14 +89,14 @@
             </tab>
             <tab title="GitHub Actions">
                 <p>You can configure GitHub to block the merging of pull requests if the
-                    <a href="quality-gate.xml">quality gate</a> has failed. To do this, you can create a
+                    <a href="quality-gate.topic">quality gate</a> has failed. To do this, you can create a
                     <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
 
                 <procedure>
                     <step>Create a new GitHub Actions workflow that invokes the
                         <a href="https://github.com/marketplace/actions/qodana-scan">Qodana scan</a> action or open an existing one.</step>
                     <step><p>Set the workflow to run on <code>pull_request</code> events that target the <code>main</code> branch.</p>
-                        <code style="block" lang="yaml">
+                        <code-block lang="yaml">
                             name: Qodana
                             on:
                             &nbsp;&nbsp;pull_request:
@@ -124,7 +119,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2023.3
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env:
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-                        </code>
+                        </code-block>
 
                         <p>Instead of <code>main</code>, you can specify your preferred branch here. The
                             <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
@@ -132,20 +127,20 @@
                             linters.</p>
                     </step>
                     <step>Set the fail threshold (number) for the Qodana Action <code>fail-threshold</code> option.</step>
-                    <step>Under your repository name, click <menupath>Settings</menupath>.</step>
-                    <step>On the left menu, click <menupath>Branches</menupath>.</step>
-                    <step>In the branch protection rules section, click <menupath>Add rule</menupath>.</step>
-                    <step>Add <code>main</code> to <menupath>Branch name pattern</menupath>.</step>
-                    <step>Select <menupath>Require status checks to pass before merging</menupath>.</step>
-                    <step>Search for the <menupath>Qodana</menupath> status check, then check it.</step>
-                    <step>Click <menupath>Create</menupath>.</step>
+                    <step>Under your repository name, click <ui-path>Settings</ui-path>.</step>
+                    <step>On the left menu, click <ui-path>Branches</ui-path>.</step>
+                    <step>In the branch protection rules section, click <ui-path>Add rule</ui-path>.</step>
+                    <step>Add <code>main</code> to <ui-path>Branch name pattern</ui-path>.</step>
+                    <step>Select <ui-path>Require status checks to pass before merging</ui-path>.</step>
+                    <step>Search for the <ui-path>Qodana</ui-path> status check, then check it.</step>
+                    <step>Click <ui-path>Create</ui-path>.</step>
                 </procedure>
             </tab>
             <tab title="Jenkins">
                 <p>To set up a quality gate in a <a href="jenkins.md">Jenkins</a> Pipeline, you can add the
                     <code>--fail-threshold &lt;number&gt;</code> option to the <code>steps</code> block:</p>
 
-                <code style="block" lang="groovy">
+                <code-block lang="groovy">
                     pipeline {
                     &nbsp;&nbsp;&nbsp;environment {
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN=credentials('qodana-token')
@@ -170,7 +165,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
                     &nbsp;&nbsp;&nbsp;}
                     }
-                </code>
+                </code-block>
 
                 <p>The <code>QODANA_TOKEN</code> variable in this snippet refers to the
                     <a href="project-token.md">project token</a> contained in the <code>qodana-token</code> credentials,
@@ -180,7 +175,7 @@
             <tab title="GitLab CI/CD">
                 <p>If you want to run a quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, you can save this
                     configuration to the <code>.gitlab-ci.yml</code> file:</p>
-                <code style="block" lang="yaml">
+                <code-block lang="yaml">
                     qodana:
                     &nbsp;image:
                     &nbsp;&nbsp;&nbsp;name: jetbrains/qodana-&lt;linter&gt;
@@ -192,7 +187,7 @@
                     artifacts:
                     &nbsp;&nbsp;paths:
                     &nbsp;&nbsp;&nbsp;&nbsp;- qodana
-                </code>
+                </code-block>
 
                 <p>In this sample, the <code>script</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
                     option. The <code>QODANA_TOKEN</code> variable in this snippet refers to the
@@ -201,58 +196,5 @@
                 </p>
             </tab>
         </tabs>
-
-        <p>For all %product% linters except <a href="qodana-dotnet-community.md"/>, you can configure a project quality
-            gate using the following <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration:</p>
-
-        <p>All linters except <a href="qodana-dotnet-community.md"/> support the
-            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration of a project quality gate using the
-            <code>severityThresholds.any</code> option:</p>
-
-        <code style="block" lang="yaml">
-            failureConditions:
-            &nbsp;&nbsp;severityThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number-of-project-problems&gt;
-        </code>
     </chapter>
-
-    <chapter id="quality-gate-severity-threshold" title="Severity-specific problems">
-
-            <p>All <a href="linters.md">linters</a> except <a href="qodana-dotnet-community.md"/> let you configure
-                separate quality gates for each <a href="faq.xml" anchor="faq-severities">problem severity</a>, and
-                exceeding just one setting limitation will make the build fail, including the
-                <a anchor="quality-gate-project-threshold">project quality gate</a>.</p>
-
-        <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> severity quality gate configuration:</p>
-
-        <code style="block" lang="yaml">
-            failureConditions:
-            &nbsp;&nbsp;severityThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number&gt; # Project quality gate
-            &nbsp;&nbsp;&nbsp;&nbsp;critical: &lt;number&gt; # Critical severity
-            &nbsp;&nbsp;&nbsp;&nbsp;high: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;moderate: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;low: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;info: &lt;number&gt;
-        </code>
-
-    </chapter>
-
-    <chapter id="quality-gate-code-coverage" title="Code coverage threshold">
-
-        <p>You can configure the total and <a href="code-coverage.md" anchor="Fresh+code">fresh code</a> coverage
-            thresholds for the <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, <a href="qodana-php.md"/>,
-            <a href="qodana-dotnet.md"/>, <a href="qodana-python.md"/>, and <a href="qodana-go.md"/> linters. </p>
-
-        <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration sample:</p>
-
-        <code style="block" lang="yaml">
-            failureConditions:
-            &nbsp;&nbsp;testCoverageThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;fresh: &lt;number&gt; # Fresh code coverage
-            &nbsp;&nbsp;&nbsp;&nbsp;total: &lt;number&gt; # Total code coverage
-        </code>
-    </chapter>
-
 </topic>
-

@@ -8,14 +8,14 @@
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
 
-Starting from version 2023.2, you can create and configure %product% profiles using YAML. %product% also provides 
+Starting from version 2023.2, you can create and configure %instance% profiles using YAML. %instance% also provides 
 several improvements related to profile configuration, such as:
 
 * Support for file paths and [scopes](%idea-scopes%)
 * Support for inspection parameters
 * Profile relationship, so profiles can be extended and included
 
-This sample shows how you can fine-tune %product% for your needs.
+This sample shows how you can fine-tune %instance% for your needs.
 
 ```yaml
 name: "My custom profile" # Profile name
@@ -69,16 +69,16 @@ can accept the following values:
 | `Default`             | The [default profile](#custom-profiles-default-profile-tip) taken from the JetBrains IDE                                                                                                                              |
 | `Project Default`     | The profile is basically similar to `Default`, but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                                                                            |
 | `Custom profile name` | Any name of an XML or YAML profile contained in the `.idea/inspectionProfiles` directory                                                                                                                              |
-| `qodana.starter`      | The [default](inspection-profiles.md#Default+profiles) %product% profile, a subset of the `qodana.recommended` profile                                                                                                |
-| `qodana.recommended`  | The [default](inspection-profiles.md#Default+profiles) %product% profile implementing the default profiles of JetBrains IDEs                                                                                          |
+| `qodana.starter`      | The [default](inspection-profiles.md#Default+profiles) %instance% profile, a subset of the `qodana.recommended` profile                                                                                                |
+| `qodana.recommended`  | The [default](inspection-profiles.md#Default+profiles) %instance% profile implementing the default profiles of JetBrains IDEs                                                                                          |
 | `empty`               | Severities and parameters of inspections are taken from `Project Default`, but none of the inspections are included. Using `empty`, you can you can build your profile [from scratch](#Create+a+profile+from+scratch) |
 
-If this parameter is missing, %product% will employ the `Project Default` profile, so all settings applied in your custom 
+If this parameter is missing, %instance% will employ the `Project Default` profile, so all settings applied in your custom 
 profile will override such settings contained in `Project Default`. 
 
 {id="custom-profiles-default-profile-tip"}
 
-<tip>You can overview the default IDE profile by navigating to <menupath>Settings | Editor | Inspections</menupath>.</tip>
+<tip>You can overview the default IDE profile by navigating to <ui-path>Settings | Editor | Inspections</ui-path>.</tip>
 
 ## name
 
@@ -164,13 +164,13 @@ Here, `groups` lists several values:
 | `category:Java/Probable bugs`      | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of the JetBrains IDE                                                      |
 | `IncludedInspections`              | Name of the existing user-defined group, or a group from an included profile                                                                                                                                                       |
 | `!ExcludedInspections`             | Negate the existing `ExcludedInspections` inspection group, either user-defined or included from another profile                                                                                                                   |
-| `severity:WEAK WARNING`            | Include or exclude inspections by a certain [severity](#profile-severity-levels) level. Because the severity value is taken from the `Default` [profile](#baseProfile), %product% is not aware of the changes made in your profile |
+| `severity:WEAK WARNING`            | Include or exclude inspections by a certain [severity](#profile-severity-levels) level. Because the severity value is taken from the `Default` [profile](#baseProfile), %instance% is not aware of the changes made in your profile |
 
 {id="profile-severity-levels"}
 
-By default, %product% uses severity levels inherited from the JetBrains IDEs shown in this table:
+By default, %instance% uses severity levels inherited from the JetBrains IDEs shown in this table:
 
-<include src="lib_qd.xml" include-id="qodana-severity-levels" use-filter="for-profile,empty"/>
+<include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
 
 ## inspections
 {id="inspections-group"}
@@ -263,7 +263,7 @@ inspections:
     enabled: false
 ```
 
-In this case, the effective profile configuration read by %product% will look like this:
+In this case, the effective profile configuration read by %instance% will look like this:
 
 ```yaml
 inspections:

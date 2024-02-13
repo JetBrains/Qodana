@@ -1,25 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Inspect your code"
-       id="inspect-your-code">
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Inspect your code" id="inspect-your-code">
 
-    <p>The most interesting and intriguing part of the interaction with %product% is analysis of your code. To better
-        prepare for that, you may want to revisit the <a href="configure-qodana.xml"/> section, or learn how to
-        <a href="before-running-qodana.md">prepare your project</a> before running %product%.
-    Otherwise, we suggest you to take a tour to our <a href="features.xml">guides</a> that provide examples of how you
-        can tune %product% for solving specific tasks.</p>
+    <p>The most interesting and intriguing part of the interaction with %instance% is analysis of your code. To better
+        prepare for that, you may want to revisit the <a href="configure-qodana.topic"/> section, or learn how to
+        <a href="before-running-qodana.md">prepare your project</a> before running %instance%.
+    Otherwise, we suggest you to take a tour to our <a href="features.topic">guides</a> that provide examples of how you
+        can tune %instance% for solving specific tasks.</p>
 
     <p>Inspection of your code will depend on:
-        <list>
-            <li>How you are planning to <a href="deploy-qodana.xml">deploy %product%</a></li>
+        </p>
+	<list>
+            <li>How you are planning to <a href="deploy-qodana.topic">deploy %instance%</a></li>
             <li>What <a href="linters.md">linter</a> you need to run</li>
         </list>
-    </p>
-
-    <p>%product% inspection results are available in two forms:</p>
+	<p>%instance% inspection results are available in two forms:</p>
 
         <list>
             <li><a href="qodana-sarif-output.md">JSON files</a></li>

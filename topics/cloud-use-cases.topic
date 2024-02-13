@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Qodana Cloud use-cases"
-       id="cloud-use-cases">
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Qodana Cloud use-cases" id="cloud-use-cases">
 
-    <chapter id="cloud-use-case-1" title="Get deeper insights into your project trends" level="4">
+    <chapter id="cloud-use-case-1" title="Get deeper insights into your project trends">
 
         <p>Using <a href="https://qodana.cloud">Qodana Cloud</a>, you can aggregate Qodana reports from various
             projects, explore development trends, and analyze team and project performance.</p>
@@ -21,7 +21,7 @@
 
     </chapter>
 
-    <chapter id="cloud-use-case-2" title="Open problems detected by Qodana in your favorite IDE" level="4">
+    <chapter id="cloud-use-case-2" title="Open problems detected by Qodana in your favorite IDE">
 
         <p>If you are already a Qodana user, you might know that you can open issues spotted by Qodana right in your IDE.
             This feature is available in Qodana Cloud meaning that you can fix server-side errors in the editor like
@@ -32,7 +32,7 @@
             quality and IDE performance.</p>
     </chapter>
 
-    <chapter id="cloud-use-case-3" title="Plan your work better" level="4">
+    <chapter id="cloud-use-case-3" title="Plan your work better">
 
         <p>In Qodana Cloud, you can build reports to evaluate all pieces of code that require modification, and select
             the issues to add to a baseline. This way, the whole team can see the same list of issues and monitor progress

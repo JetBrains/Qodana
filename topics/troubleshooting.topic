@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Troubleshooting"
-       id="troubleshooting">
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Troubleshooting" id="troubleshooting">
 
     <p>This section contains information that can help you troubleshoot common problems.</p>
 
@@ -49,7 +49,7 @@
             </tr>
         </table>
 
-        <p>For Maven and Gradle projects, %product% uses the following directories to access third-party libraries:</p>
+        <p>For Maven and Gradle projects, %instance% uses the following directories to access third-party libraries:</p>
 
         <table>
             <tr>
@@ -66,7 +66,7 @@
             </tr>
         </table>
 
-        <p>Mounting these directories saves %product% from downloading all dependencies again while using these linters:</p>
+        <p>Mounting these directories saves %instance% from downloading all dependencies again while using these linters:</p>
             <list>
                 <li><a href="qodana-jvm.md"/></li>
                 <li><a href="qodana-jvm-community.md"/></li>
@@ -75,9 +75,9 @@
     </chapter>
 
     <chapter id="troubleshooting-qodana-log-files" title="List of files for investigating Qodana behavior">
-        <p>There are several options for examining %product% behavior using the <code>/data/results</code> directory:</p>
+        <p>There are several options for examining %instance% behavior using the <code>/data/results</code> directory:</p>
         <list>
-            <li>The <code>/data/results/projectStructure/Modules.json</code> file lists all modules detected by %product%.
+            <li>The <code>/data/results/projectStructure/Modules.json</code> file lists all modules detected by %instance%.
                 It should be identical to the list that you expect to see while opening the project in IDEA. If it is not
                 the case, check <code>pom.xml</code> for Maven or the <code>build.gradle</code> file for Gradle configurations.</li>
 
@@ -96,39 +96,39 @@
 
         <p>A typical project structure can have a directory structure similar to this:</p>
 
-        <code style="block" lang="bash">
+        <code-block lang="bash">
             repo/
                .git/
                project/
                ...
-        </code>
+        </code-block>
 
-        <p>Here, the <code>repo/.git</code> directory contains information that should be accessible by %product%, and
-            the <code>repo/project</code> directory contains the project that needs to be inspected by %product%. All
+        <p>Here, the <code>repo/.git</code> directory contains information that should be accessible by %instance%, and
+            the <code>repo/project</code> directory contains the project that needs to be inspected by %instance%. All
             these samples mount the <code>repo/project</code> directory using the
-            <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--project-dir</code></a>
+            <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--project-dir</code></a>
             option, while the <code>QODANA_TOKEN</code> variable refers to the Qodana Cloud
             <a href="project-token.md">project token</a>:</p>
 
         <tabs>
             <tab title="Docker image">
-                <code style="block" lang="bash" prompt="$">
+                <code-block lang="bash" prompt="$">
                     docker run \
                        -v repo/:/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
                        --project-dir=/data/project/project/
-                </code>
+                </code-block>
             </tab>
             <tab title="Qodana CLI">
-                <code style="block" lang="bash" prompt="$">
+                <code-block lang="bash" prompt="$">
                     qodana scan \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        --project-dir=/data/project/project/
-                </code>
+                </code-block>
             </tab>
             <tab title="GitHub Actions">
-                <code style="block" lang="yaml">
+                <code-block lang="yaml">
                     name: Qodana
                     on:
                       workflow_dispatch:
@@ -156,36 +156,36 @@
                             args: --project-dir,project
                           env:
                             QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-                </code>
+                </code-block>
             </tab>
         </tabs>
 
     </chapter>
 
     <chapter id="troubleshooting-before-scanning" title="Error messages about missing files, packages, modules, or classes">
-        <p>During inspections, %product% may report about missing files, packages, modules, or
+        <p>During inspections, %instance% may report about missing files, packages, modules, or
             classes. In this case, you need to have your project prepared for code inspection. For example, you can
-            create a script and configure %product% for running it as shown in the
+            create a script and configure %instance% for running it as shown in the
             <a href="before-running-qodana.md"/> section.</p>
     </chapter>
 
     <chapter id="troubleshooting-switch-off-inspection" title="How to disable a specific inspection for a specific file">
         <p>To disable inspections for a specific file, in the project root save the
             <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> file containing this configuration:</p>
-        <code style="block" lang="yaml">
+        <code-block lang="yaml">
             exclude:
               - name: &lt;inspection-name&gt;
             paths:
               - &lt;path/to/the/file/from/project/root&gt;
-        </code>
+        </code-block>
         <p>You can also suppress the inspection only for a class by adding the <code>noinspection</code> comment above the class:</p>
-        <code style="block" lang="typescript">
+        <code-block lang="typescript">
             // noinspection &lt;inspection-name&gt;
             export class WorkflowJobSubject {
                 private static subject: Observable&lt;GithubEvent&lt;WorkflowJobEvent&gt;&gt; | null =
                     null;
             private static GithubWebhookEventSubject: any;
-        </code>
+        </code-block>
 
     </chapter>
 

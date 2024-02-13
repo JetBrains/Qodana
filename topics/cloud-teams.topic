@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Teams"
-       id="cloud-teams">
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Teams" id="cloud-teams">
 
-    <p>A team is a part of an <a href="cloud-organizations.xml">organization</a> accumulating specific
-        <a href="cloud-projects.xml">projects</a>. Using teams, you can group users around dedicated projects in
+    <p>A team is a part of an <a href="cloud-organizations.topic">organization</a> accumulating specific
+        <a href="cloud-projects.topic">projects</a>. Using teams, you can group users around dedicated projects in
         <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
 
     <chapter id="cloud-teams-create-team" title="Create a team">
@@ -17,12 +17,12 @@
 
         <procedure>
             <step>
-                <p>On the organization page, click <menupath>Create team</menupath>.</p>
+                <p>On the organization page, click <ui-path>Create team</ui-path>.</p>
                 <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create a team" width="706" border-effect="line"/>
-                <p>This will open the <menupath>New team</menupath> dialog.</p>
+                <p>This will open the <ui-path>New team</ui-path> dialog.</p>
             </step>
             <step>
-                <p>In the <menupath>New team</menupath> dialog, specify the team name and click <menupath>Create team</menupath>.</p>
+                <p>In the <ui-path>New team</ui-path> dialog, specify the team name and click <ui-path>Create team</ui-path>.</p>
                 <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="The New team dialog" width="706" border-effect="line"/>
             </step>
         </procedure>
@@ -43,8 +43,8 @@
 
         <img src="qc-configure-team.png" dark-src="qc-configure-team_dark.png" width="706" alt="Configure a team" border-effect="line"/>
 
-        <p>You can click <menupath>Invite members</menupath> to add new members to a team, configure
-            <a href="cloud-user-roles.xml">user roles</a> of the existing team members, or delete them. </p>
+        <p>You can click <ui-path>Invite members</ui-path> to add new members to a team, configure
+            <a href="cloud-user-roles.topic">user roles</a> of the existing team members, or delete them. </p>
 
         <img src="qc-teams-managing-members.png" dark-src="qc-teams-managing-members_dark.png" alt="Managing team members" width="706" border-effect="line"/>
 

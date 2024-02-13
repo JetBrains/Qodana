@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Report overview"
-       id="cloud-overview-reports">
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Report overview" id="cloud-overview-reports">
 
     <p>Information from project reports is aggregated and displayed in several sections marked on this image.</p>
 
@@ -62,8 +62,8 @@
     <p>3. Timeline describing the date of inspection, number of problems detected.</p>
     <p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-sarif-output.md">SARIF format</a>, and opening the help guide.</p>
     <p>5. Selector for overviewing either the absolute number of detected problems, or the number of problems
-    relatively to a <a href="baseline.xml">baseline</a> set for this project.</p>
+    relatively to a <a href="baseline.topic">baseline</a> set for this project.</p>
 
-    <p>To learn more about %product% report UI, see the <a href="ui-overview.md"/> section.</p>
+    <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 
 </topic>
