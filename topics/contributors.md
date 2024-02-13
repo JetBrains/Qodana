@@ -1,8 +1,8 @@
 [//]: # (title: Contributor counting)
 
-%product% license costs are comprised of the number of active contributors to your project. An active contributor is a 
+%instance% license costs are comprised of the number of active contributors to your project. An active contributor is a 
 person/bot who has committed to any number of Qodana Cloud projects within the past 90 days under a single 
-%product% license. For example, on the 30th of June, %product% will calculate and charge for the unique contributors 
+%instance% license. For example, on the 30th of June, %instance% will calculate and charge for the unique contributors 
 detected within 30 days of June, 31 days of May, and 29 days of March. 
 
 Active contributors are counted using SSH keys. The mechanism of key generation and contributor counting
@@ -26,7 +26,7 @@ Each key pair can be:
 
 ## Contributor counting
 
-After you save the generated key in your VCS, %product% will use the following command to clone the project metadata 
+After you save the generated key in your VCS, %instance% will use the following command to clone the project metadata 
 of your repository: 
 
 ```shell
@@ -34,7 +34,7 @@ git clone -n --filter=blob:none --shallow-since='90 days ago' <repo>
 ```
 {prompt="$"}
 
-After cloning, %product% will extract the contributors from all commits made for the last 90 days: 
+After cloning, %instance% will extract the contributors from all commits made for the last 90 days: 
 
 ```shell
 git log --since '90 days ago' --pretty=format:%ae||%an||%H||%ai

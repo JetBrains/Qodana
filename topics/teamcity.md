@@ -40,7 +40,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    **Report ID** uniquely identifies the report to let you distinguish between multiple reports when several inspection steps are configured within a single build.
 
-   The **Forward reports to TeamCity tests** checkbox configures %product% report availability in 
+   The **Forward reports to TeamCity tests** checkbox configures %instance% report availability in 
    the [Test](https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab) tab of TeamCity UI. Using this 
    option, you can view codebase problems along with other problems detected. 
 
@@ -56,24 +56,24 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    You can disable certain inspections later using the [`qodana.yaml`](qodana-yaml.md#exclude-paths) file or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
 
-   **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image, see the [](docker-image-configuration.xml#docker-config-reference-docker-environment) section for details.
+   **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image, see the [](docker-image-configuration.topic#docker-config-reference-docker-environment) section for details.
 
-   **Additional Qodana arguments** lets you extend the default Qodana functionality, see the [Docker image configuration](docker-image-configuration.xml) page for details.
+   **Additional Qodana arguments** lets you extend the default Qodana functionality, see the [Docker image configuration](docker-image-configuration.topic) page for details.
 
 7. Click **Save**. Now you can run Qodana in the build.
 
 ### Configure the project token
 
-The [project token](project-token.md) is required by the paid %product% [linters](pricing.md#pricing-linters-licenses),
+The [project token](project-token.md) is required by the paid %instance% [linters](pricing.md#pricing-linters-licenses),
 and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:  
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
 To apply the generated project token, follow these steps:
 
-1. In the TeamCity UI, open the build step that will run %product%.
-2. In the **Cloud Token** field, insert the [Qodana Cloud token](cloud-projects.xml#cloud-manage-projects) value.
+1. In the TeamCity UI, open the build step that will run %instance%.
+2. In the **Cloud Token** field, insert the [Qodana Cloud token](cloud-projects.topic#cloud-manage-projects) value.
 
    <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
 

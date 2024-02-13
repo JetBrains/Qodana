@@ -5,11 +5,11 @@
 The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
 allows you to run Qodana on a GitHub repository.
 
-<anchor name="basic-configuration"></anchor>
+<anchor name="basic-configuration"/>
 
 ### Basic configuration
 
-<include src="lib_qd.xml" include-id="github-basic-configuration"/>
+<include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
 (reports issues that appeared only in that pull request).</note> 
@@ -17,7 +17,7 @@ allows you to run Qodana on a GitHub repository.
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
 
-![Qodana Cloud](https://user-images.githubusercontent.com/13538286/214899046-572649db-fe62-49b2-a368-b5d07737c1c1.gif)
+![Qodana Cloud](qodana-cloud.gif)
 
 ### Apply quick-fixes
 
@@ -95,16 +95,16 @@ Instead of `main`, you can specify your branch here.
 9. Search for the `Qodana` status check, then check it.
 10. Click **Create**.
 
-<anchor name="quality-gate-and-baseline"></anchor>
+<anchor name="quality-gate-and-baseline"/>
 
 ### Quality gate and baseline
 
-You can combine the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features to manage your
+You can combine the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features to manage your
 technical debt, report only new problems, and block pull requests that contain too many problems.
 
 Follow these steps to establish a baseline for your project:
 
-1. Run Qodana [locally](Quick-start.xml) over your project:
+1. Run Qodana [locally](Quick-start.topic) over your project:
 
 ```shell
 cd project

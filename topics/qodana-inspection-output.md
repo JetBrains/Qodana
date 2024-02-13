@@ -35,6 +35,6 @@ In addition to programmatic output, you can generate a human-readable report in 
   </category>
   <category ref="procedures">
     <a href="html-report.md"/>
-    <a href="docker-image-configuration.xml"/>
+    <a href="docker-image-configuration.topic"/>
   </category>
  </seealso>

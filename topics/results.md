@@ -8,6 +8,6 @@ As a result of local analysis, they are contained in [JSON](qodana-sarif-output.
 the form of [web reports](ui-overview.md). 
 
 To be able to collect reports and view them in a more convenient form, you can configure forwarding to 
-[Qodana Cloud](cloud-overview-reports.xml), which is available from local runs and from running in [CI pipelines](ci.md).
+[Qodana Cloud](cloud-overview-reports.topic), which is available from local runs and from running in [CI pipelines](ci.md).
 
 
