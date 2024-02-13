@@ -95,7 +95,7 @@ the [**Path prefix**](#vs-code-configure-extension) setting.
 
 On this tab, you can click problem items and navigate to code fragments where %instance% detected them.
 
-<img src="vscode-problems-tab.png" dark-src="vscode-problems-tab_dark.png" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
+<img src="vscode-problems-tab.animated.gif" dark-src="vscode-problems-tab_dark.animated.gif" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
 
 ## Troubleshooting
 {id="vs-code-troubleshooting"}
