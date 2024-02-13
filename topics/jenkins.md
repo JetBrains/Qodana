@@ -11,7 +11,7 @@
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
 [Jenkins](https://www.jenkins.io/doc/) is a self-contained, open-source server that automates software-related tasks 
-including building, testing, and deploying software. This section explains how you can configure %product%
+including building, testing, and deploying software. This section explains how you can configure %instance%
 [Docker images](docker-images.md) in Jenkins [Multibranch Pipelines](%Multipipe%)
 
 ## Prepare your project
@@ -61,23 +61,23 @@ pipeline {
 
 In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
 [project token](project-token.md) generated in Qodana Cloud and contained in 
-the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %product%
+the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %instance%
 [linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. You can see these sections 
 to learn how to generate the project token in Qodana Cloud:
 
 * The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.xml#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
-This configuration uses the `docker` agent to invoke %product% [Docker images](docker-images.md). Using the 
+This configuration uses the `docker` agent to invoke %instance% [Docker images](docker-images.md). Using the 
 `WORKSPACE` variable, the `args` block mounts the local checkout directory to the project directory of a Docker image, 
 and `image` specifies the Docker image invoked.  
 
-The `stage` block calls %product%. Here, you can also specify the [options](docker-image-configuration.xml) 
-you would like to configure %product% with like the [quality gate and baseline](#Quality+gate+and+baseline) features.
+The `stage` block calls %instance%. Here, you can also specify the [options](docker-image-configuration.topic) 
+you would like to configure %instance% with like the [quality gate and baseline](#Quality+gate+and+baseline) features.
 
 ## Inspect specific branches
 
-Using the `when` block, you can tell %product% which branches of your project to inspect. For example, this configuration 
+Using the `when` block, you can tell %instance% which branches of your project to inspect. For example, this configuration 
 lets you inspect only the `feature` branch. 
 
 ```groovy
@@ -112,7 +112,7 @@ of the Jenkins documentation.
 
 ## Quality gate and baseline
 
-This configuration invokes the [quality gate](quality-gate.xml) and [baseline](baseline.xml) features using the 
+This configuration invokes the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features using the 
 `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines specified in the `steps` block.
 
 ```groovy

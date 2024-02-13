@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<platforms>
+    <platform id="primary">
+        <delimiter>+</delimiter>
+        <mappings>ctrl:Ctrl;control:Ctrl;alt:Alt;shift:Shift;command:⌘;meta:⌘</mappings>
+        <directory-separator>\</directory-separator>
+    </platform>
+    <platform id="secondary">
+        <mappings>ctrl:^;control:Control;alt:⌥;shift:⇧;command:⌘;meta:⌘</mappings>
+        <directory-separator>/</directory-separator>
+    </platform>
+</platforms>

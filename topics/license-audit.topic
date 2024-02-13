@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="License audit"
-       id="license-audit">
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="License audit" id="license-audit">
 
     <var name="feature" value="License audit"/>
 
     <p>Making sure that your project license is compatible with the licenses of its dependencies is never an easy task, but
         this is required for legal purposes. To automate this process and avoid mistakes, you can use %feature%
-        currently supported by several %product% linters:</p>
+        currently supported by several %instance% linters:</p>
 
     <table>
         <tr>
@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td><a href="qodana-dotnet.md"/></td>
-            <td></td>
+            <td/>
         </tr>
     </table>
 
@@ -114,10 +114,10 @@
 
         <p>For all linters except <a href="qodana-jvm.md"/>, you also need to have project
             dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> option of
-            the <a href="qodana-yaml.md"><code style="inline">qodana.yaml</code></a> file.</p>
+            the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
 
 
-        <p>After %product% has finished analyzing your project, the results become available in the
+        <p>After %instance% has finished analyzing your project, the results become available in the
             <a anchor="license-audit-verifying-data">report</a>.</p>
 
     </chapter>
@@ -131,28 +131,28 @@
                 <a href="qodana-yaml.md" anchor="configure-license-audit"><code>CheckDependencyLicenses</code></a>
                 inspection. </p>
 
-            <p>Below are the <code>qodana.yaml</code> configuration samples that tell %product% to install project
+            <p>Below are the <code>qodana.yaml</code> configuration samples that tell %instance% to install project
                 dependencies and enable %feature%:</p>
 
                 <tabs>
                     <tab title="Qodana for JVM">
-                        <code style="block" lang="yaml">
+                        <code-block lang="yaml">
                             include:
                               - name: CheckDependencyLicenses
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Qodana for PHP">
-                        <code style="block" lang="yaml">
+                        <code-block lang="yaml">
                             bootstrap: |+
                               # Install dependencies
                               php composer.phar update
 
                             include:
                               - name: CheckDependencyLicenses
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="QoFdana for JS">
-                        <code style="block" lang="yaml">
+                        <code-block lang="yaml">
                             bootstrap: |+
                               # Use npm to install dependencies
                               npm install
@@ -165,27 +165,27 @@
 
                             include:
                               - name: CheckDependencyLicenses
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Qodana for Python">
-                        <code style="block" lang="yaml">
+                        <code-block lang="yaml">
                             bootstrap: |+
                               # Install dependencies
                               pip install -r requirements.txt
 
                             include:
                               - name: CheckDependencyLicenses
-                        </code>
+                        </code-block>
                     </tab>
                     <tab title="Qodana for Go">
-                        <code style="block" lang="yaml">
+                        <code-block lang="yaml">
                             bootstrap: |+
                               # Install dependencies
                               go mod tidy
 
                             include:
                               - name: CheckDependencyLicenses
-                        </code>
+                        </code-block>
                     </tab>
                 </tabs>
 
@@ -193,11 +193,11 @@
 
         <chapter title="Ignore dependencies" id="license-audit-ignoring-dependencies">
             <p>You can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
-            <code style="block" lang="yaml">
+            <code-block lang="yaml">
                 dependencyIgnores:
                   - name: "aapt2-proto"
                   - name: "dexlib2"
-            </code>
+            </code-block>
         </chapter>
 
         <chapter title="Allow or prohibit dependency licenses" id="license-allow-prohibit-licenses">
@@ -207,7 +207,7 @@
                 <code>prohibited</code> keys accept the lists of allowed and prohibited dependency licenses respectively.
                 As a result, the <code>AGPL-3.0-only</code> becomes compatible with the <code>AFL-2.0</code> project
                 license, while the <code>Apache-1.0</code> dependency license becomes incompatible.</p>
-            <code style="block" lang="yaml">
+            <code-block lang="yaml">
                 licenseRules:
                   - keys:
                       - "AFL-2.0"
@@ -215,16 +215,16 @@
                       - "AGPL-3.0-only"
                     prohibited:
                       - "Apache-1.0"
-            </code>
+            </code-block>
 
             <p>All keys from this sample can accept several values:</p>
 
-            <code style="block" lang="yaml">
+            <code-block lang="yaml">
                 licenseRules:
                   - keys:
                     - "PROPRIETARY-LICENSE"
                     allowed: ["CC0-1.0", "CPL-1.0", "CC-BY-4.0", "EPL-1.0", "CDDL-1.0"]
-            </code>
+            </code-block>
 
 
         </chapter>
@@ -233,12 +233,12 @@
             <p>You can override a dependency license identifier. This can be useful when a dependency is dual-licensed,
                 and you want to omit some license, or when the license name cannot be detected from the dependency
                 sources correctly.</p>
-            <p>Using this sample, you can tell %product% to detect only the <code>CDDL-1.1</code> and
+            <p>Using this sample, you can tell %instance% to detect only the <code>CDDL-1.1</code> and
                 <code>GPL-2.0-with-classpath-exception</code> licenses for <code>jaxb-runtime</code> version 2.3.1.
             </p>
             <p>In this sample, <code>url</code> is optional.</p>
 
-            <code style="block" lang="yaml">
+            <code-block lang="yaml">
                 dependencyOverrides:
                   - name: "jaxb-runtime"
                     version: "2.3.1"
@@ -248,27 +248,27 @@
                         url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
                       - key: "GPL-2.0-with-classpath-exception"
                         url: "https://github.com/javaee/jaxb-v2/blob/master/LICENSE"
-            </code>
+            </code-block>
         </chapter>
 
         <chapter title="Create custom dependencies" id="license-audit-custom-dependencies">
             <p>If you want to include the dependency that should be mentioned in the report but is impossible to detect
                 from the project sources, you can use the <code>customDependencies</code> key to specify it:</p>
 
-            <code style="block" lang="yaml">
+            <code-block lang="yaml">
                 customDependencies:
                   - name: ".babelrc JSON Schema (.babelrc-schema.json)"
                     version: "JSON schema for Babel 6+ configuration files"
                     licenses:
                       - key: "Apache-2.0"
                         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
-            </code>
+            </code-block>
         </chapter>
 
     </chapter>
 
     <chapter title="Verify data" id="license-audit-verifying-data">
-        <include src="lib_qd.xml" include-id="license-audit-tab" use-filter="license-audit,empty"/>
+        <include from="lib_qd.topic" element-id="license-audit-tab" use-filter="license-audit,empty"/>
     </chapter>
 
 </topic>

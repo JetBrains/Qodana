@@ -3,7 +3,7 @@
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 The [Gradle Qodana plugin](https://plugins.gradle.org/plugin/org.jetbrains.qodana) provides the Gradle interface for running 
-code inspections provided by %product%. To start, apply the Gradle plugin `org.jetbrains.qodana` in the Gradle 
+code inspections provided by %instance%. To start, apply the Gradle plugin `org.jetbrains.qodana` in the Gradle 
 configuration file.
 
  <tabs group="languages">
