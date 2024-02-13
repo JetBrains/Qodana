@@ -118,9 +118,11 @@ qodana:
 Assuming that you have configured your pipeline in a similar manner, this is what it may look like:
 
 1. Qodana report affiliated with a pipeline in a merge request
+
    <img src="gitlab-exposed-artifacts.png" alt="Qodana report affiliated with a pipeline in a merge request" width="706" border-effect="line"/>
 
 2. Available actions for a given exposed Qodana artifact
+   
    <img src="gitlab-exposed-artifacts-expanded.png" alt="Available actions for a given exposed Qodana artifact" width="706" border-effect="line"/>
 
 ## Quality gate and baseline
