@@ -24,6 +24,9 @@ operates on the AMD64 and ARM64 architectures, and lets you inspect only project
 [CMake](https://cmake.org/). It extends the existing Clang Tidy inspections by supplying the `Clang-Tidy` and 
 `MISRA checks` inspections provided by CLion. 
 
+%linter% is available under the Community, Ultimate, and Ultimate Plus licenses. However, the `Clang-Tidy` and
+`MISRA checks` inspections from CLion are available only under the Ultimate and Ultimate Plus licenses.
+
 The list of the standard Clang Tidy inspections is available on the [Clang website](%clang-website%). The list of the 
 CLion `Clang-Tidy` inspections is available in the [General](%clion-inspections-general%) section on the 
 CLion documentation website. Information about the `MISRA checks` inspections is available in the 
@@ -111,7 +114,7 @@ options. Alternatively, you can configure inspections in the `.clang-tidy` file,
 </tip>
 
 In the `qodana.yaml` file, use the [`bootstrap`](before-running-qodana.md) option to specify a command for generating 
-a compilation command database contained in the `compile_commands.json` file, for example:
+a compilation command database contained in the `build/compile_commands.json` file, for example:
 
 ```yaml
 bootstrap: mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
@@ -130,7 +133,7 @@ bootstrap: sudo apt-get update; sudo apt-get install -y <list of required packag
 
 ## Run %linter%
 
-%linter% parses a compilation command database contained in the `compile_commands.json` file and runs the `Clang Tidy` 
+%linter% reads a compilation command database contained in the `build/compile_commands.json` file and runs the `Clang Tidy` 
 tool using this database.
 
 Here is the Docker command for running the %linter% linter:
@@ -147,7 +150,7 @@ Here, the `QODANA_TOKEN` variable refers to the [project token](project-token.md
 to Qodana Cloud. If you omit the `QODANA_TOKEN` variable, the inspection results will be available in the 
 `qodana.sarif.json` saved in the `/results` directory of your project root. 
 
-To override the location of a compilation command database, you can specify the location of the 
+To override the location of a compilation command database, you can specify the location for the 
 `compile_commands.json` file relatively to the project root, so the Docker command will look like:
 
 ```shell
