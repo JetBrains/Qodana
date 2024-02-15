@@ -14,50 +14,55 @@
         a quality gate for a project is set to 10 problems and code coverage is set to 40%, a build workflow will fail
         if %product% detects either an eleventh problem or code coverage below the 40% threshold. </p>
 
-    <p>The terms <emphasis>quality gate</emphasis> and <emphasis>fail threshold</emphasis> are used interchangeably,
-        with the former representing a specific feature and the latter referring to a configuration option. </p>
+    <p>The terms <emphasis>quality gate</emphasis>, <emphasis>threshold</emphasis> and <emphasis>fail threshold</emphasis>
+        are used interchangeably.</p>
 
-    <p>%product% provides this feature in all linters available under Community, Ultimate, and Ultimate Plus
-        <a href="pricing.md">licenses</a> including their trial versions. </p>
+    <p>You can configure a single quality gate for an entire project, multiple quality gates for all
+        <a href="faq.xml" anchor="faq-severities">problem severities</a>, and
+        <a href="code-coverage.md">code coverage</a> thresholds as explained in the table below.</p>
+
+    <table header-style="none">
+        <tr>
+            <td>Quality gate type</td>
+            <td>Support in linters</td>
+            <td>Availability under licenses</td>
+        </tr>
+        <tr>
+            <td><a anchor="quality-gate-project-threshold"/></td>
+            <td>All <a href="linters.md">linters</a></td>
+            <td>Community, Ultimate, and Ultimate Plus</td>
+        </tr>
+        <tr>
+            <td><a anchor="quality-gate-project-threshold"/></td>
+            <td>All linters except <a href="qodana-dotnet.md"/> and <a href="qodana-dotnet-community"/></td>
+            <td>Community, Ultimate, and Ultimate Plus licenses depending on a linter</td>
+        </tr>
+        <tr>
+            <td><a anchor="quality-gate-code-coverage"/></td>
+            <td><a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, <a href="qodana-php.md"/>,
+                <a href="qodana-dotnet.md"/>, <a href="qodana-python.md"/>, and <a href="qodana-go.md"/></td>
+            <td>Ultimate and Ultimate Plus</td>
+        </tr>
+    </table>
 
     <chapter id="quality-gate-how-it-works" title="How it works">
-        <chunk id="quality-gate-basics">
-        <p>You can configure a quality gate for a specific problem severity, for all project problems independently of their
-            severities, and for code coverage thresholds. %product% follows these rules:</p>
+
+        <p>%product% follows these rules:</p>
         <list>
-            <li>Given a severity threshold of <emphasis>X</emphasis>, when finding <emphasis>X</emphasis> results, the run will succeed. When finding <emphasis>X+1</emphasis> results, the run will fail.</li>
-            <li>Given a test coverage threshold of <emphasis>Y</emphasis>, when <emphasis>Y%</emphasis> of lines are covered, the run will succeed. If only <emphasis>Y-1%</emphasis> are covered, the run will fail.</li>
+            <li>Given a <a anchor="quality-gate-project-threshold">project quality gate</a> of <emphasis>A</emphasis>, when finding <emphasis>A</emphasis> problems, the run will succeed. When finding <emphasis>A+1</emphasis> problems, the run will fail.</li>
+            <li>Given a <a anchor="quality-gate-project-threshold">severity quality gate</a> of <emphasis>B</emphasis>, when finding <emphasis>B</emphasis> problems, the run will succeed. When finding <emphasis>B+1</emphasis> problems, the run will fail.</li>
+            <li>Given a <a anchor="quality-gate-code-coverage">code coverage threshold</a> of <emphasis>C</emphasis>, when <emphasis>C%</emphasis> of lines are covered, the run will succeed. If only <emphasis>C-1%</emphasis> are covered, the run will fail.</li>
         </list>
-        <p>If you configure a quality gate for multiple severities and code coverage thresholds, then exceeding just one
-            setting limitation will make the build fail.</p>
 
-        <tip>If you configure a quality gate and <a href="baseline.xml">baseline</a> together, you'll be able to keep the number
-            of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
+            <tip>If you configure a quality gate and <a href="baseline.xml">baseline</a> together, you'll be able to keep the number
+                of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
 
-        <p>Here's a sample quality gate configuration for the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file using
-            the <code>failureConditions</code> option:</p>
+    </chapter>
 
-        <code style="block" lang="yaml">
-            failureConditions:
-            &nbsp;&nbsp;severityThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;any: 20 # All project problems without considering severities
-            &nbsp;&nbsp;&nbsp;&nbsp;critical: 1
-            &nbsp;&nbsp;&nbsp;&nbsp;high: 2
-            &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
-            &nbsp;&nbsp;&nbsp;&nbsp;low: 4
-            &nbsp;&nbsp;&nbsp;&nbsp;info: 5
-            &nbsp;&nbsp;testCoverageThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;fresh: 6 # Fresh code coverage
-            &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
-        </code>
-        </chunk>
-        <p>You can also employ the <code>fail-threshold</code> option for
-            all project problems independently of their severities. However, this approach is less flexible compared to
-            the <code>failureConditions</code> option.</p>
+    <chapter id="quality-gate-project-threshold" title="Project quality gate">
 
-        <note>Application of the <code>fail-threshold</code> option overrides configurations made in the <code>qodana.yaml</code> file.</note>
-
-        <p>Below are several configuration examples that use the <code>fail-threshold</code> option.</p>
+        <p>You can configure a single quality gate for the entire project using the <code>fail-threshold</code> option
+            available in all %product% <a href="linters.md">linters</a>, see examples below.</p>
 
         <tabs>
             <tab title="Qodana CLI">
@@ -196,6 +201,55 @@
                 </p>
             </tab>
         </tabs>
+
+        <p>For all %product% linters except <a href="qodana-dotnet.md"/> and
+            <a href="qodana-dotnet-community.md"/>, you can configure a project quality gate using the following
+            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration:</p>
+
+        <code style="block" lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;severityThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number-of-project-problems&gt;
+        </code>
     </chapter>
+
+    <chapter id="quality-gate-severity-threshold" title="Severity quality gate">
+
+            <p>For all <a href="linters.md">linters</a> except <a href="qodana-dotnet.md"/> and
+                <a href="qodana-dotnet-community.md"/>, you can configure separate quality gates for each
+                <a href="faq.xml" anchor="faq-severities">problem severity</a>, and exceeding just one setting limitation
+                will make the build fail, including the <a anchor="quality-gate-project-threshold">project quality gate</a>.</p>
+
+        <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> quality gate configuration:</p>
+
+        <code style="block" lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;severityThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number&gt; # Project quality gate
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: &lt;number&gt; # Critical severity
+            &nbsp;&nbsp;&nbsp;&nbsp;high: &lt;number&gt; # High severity
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: &lt;number&gt; # Moderate severity
+            &nbsp;&nbsp;&nbsp;&nbsp;low: &lt;number&gt; # Low severity
+            &nbsp;&nbsp;&nbsp;&nbsp;info: &lt;number&gt; # Info severity
+        </code>
+
+    </chapter>
+
+    <chapter id="quality-gate-code-coverage" title="Code coverage threshold">
+
+        <p>You can configure the total and <a href="code-coverage.md" anchor="Fresh+code">fresh code</a> coverage
+            thresholds for the <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, <a href="qodana-php.md"/>,
+            <a href="qodana-dotnet.md"/>, <a href="qodana-python.md"/>, and <a href="qodana-go.md"/> linters. </p>
+
+        <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration sample:</p>
+
+        <code style="block" lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;testCoverageThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;fresh: &lt;number&gt; # Fresh code coverage
+            &nbsp;&nbsp;&nbsp;&nbsp;total: &lt;number&gt; # Total code coverage
+        </code>
+    </chapter>
+
 </topic>
 

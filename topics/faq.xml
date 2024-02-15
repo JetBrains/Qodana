@@ -100,7 +100,7 @@
 
 </chapter>
 
-<chapter title="Inspection profiles" id="faq-inspection-profiles">
+<chapter title="Inspecting code" id="faq-inspection-profiles">
 
     <chapter id="faq-profile-explained" title="What is a profile?" initial-collapse-state="collapsed">
         <p>A %product% inspection profile is a set of pre-configured inspections, including their state, configuration
@@ -128,6 +128,51 @@
 
     <chapter id="faq-sarif-import" title="Can I import SARIF of another analysis tool to Qodana?" initial-collapse-state="collapsed">
         <p>Currently, it is not possible to display the results of external analysis tools in Qodana UI, though we are working on it.</p>
+    </chapter>
+    <chapter id="faq-severities" title="Can I get more information about %product% report severities?">
+
+        <p>This table shows the relation between the JetBrains IDE, SARIF, and %product% severities.</p>
+
+        <table>
+            <tr>
+                <td>IDE severity</td>
+                <td filter="for-report">SARIF severity</td>
+                <td filter="for-profile"><a href="qodana-sarif-output.md">SARIF</a> severity</td>
+                <td><a href="ui-overview.md">Qodana report</a> severity</td>
+            </tr>
+            <tr>
+                <td>ERROR</td>
+                <td>ERROR</td>
+                <td>Critical</td>
+            </tr>
+            <tr>
+                <td>WARNING</td>
+                <td>WARNING</td>
+                <td>High</td>
+            </tr>
+            <tr>
+                <td>WEAK WARNING</td>
+                <td>NOTE</td>
+                <td>Moderate</td>
+            </tr>
+            <tr>
+                <td>TYPO</td>
+                <td>NOTE</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td>INFORMATION</td>
+                <td>NOTE</td>
+                <td>Info</td>
+            </tr>
+            <tr>
+                <td>OTHER</td>
+                <td>NOTE</td>
+                <td>Info</td>
+            </tr>
+        </table>
+
+
     </chapter>
 
 </chapter>
