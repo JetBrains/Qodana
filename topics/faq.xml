@@ -136,8 +136,7 @@
         <table>
             <tr>
                 <td>IDE severity</td>
-                <td filter="for-report">SARIF severity</td>
-                <td filter="for-profile"><a href="qodana-sarif-output.md">SARIF</a> severity</td>
+                <td><a href="qodana-sarif-output.md">SARIF</a> severity</td>
                 <td><a href="ui-overview.md">Qodana report</a> severity</td>
             </tr>
             <tr>

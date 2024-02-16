@@ -17,11 +17,11 @@
     <p>The terms <emphasis>quality gate</emphasis>, <emphasis>threshold</emphasis> and <emphasis>fail threshold</emphasis>
         are used interchangeably.</p>
 
-    <p>You can configure a single quality gate for an entire project, multiple quality gates for all
-        <a href="faq.xml" anchor="faq-severities">problem severities</a>, and
+    <p>You can configure a single quality gate for an entire project, multiple quality gates for each separate
+        <a href="faq.xml" anchor="faq-severities">problem severity</a>, and
         <a href="code-coverage.md">code coverage</a> thresholds as explained in the table below.</p>
 
-    <table header-style="none">
+    <table>
         <tr>
             <td>Quality gate type</td>
             <td>Support in linters</td>
@@ -33,8 +33,8 @@
             <td>Community, Ultimate, and Ultimate Plus</td>
         </tr>
         <tr>
-            <td><a anchor="quality-gate-project-threshold"/></td>
-            <td>All linters except <a href="qodana-dotnet.md"/> and <a href="qodana-dotnet-community.md"/></td>
+            <td><a anchor="quality-gate-severity-threshold"/></td>
+            <td>All <a href="linters.md">linters</a> except <a href="qodana-dotnet-community.md"/></td>
             <td>Community, Ultimate, and Ultimate Plus licenses depending on a linter</td>
         </tr>
         <tr>
@@ -50,7 +50,7 @@
         <p>%product% follows these rules:</p>
         <list>
             <li>Given a <a anchor="quality-gate-project-threshold">project quality gate</a> of <emphasis>A</emphasis>, when finding <emphasis>A</emphasis> problems, the run will succeed. When finding <emphasis>A+1</emphasis> problems, the run will fail.</li>
-            <li>Given a <a anchor="quality-gate-project-threshold">severity quality gate</a> of <emphasis>B</emphasis>, when finding <emphasis>B</emphasis> problems, the run will succeed. When finding <emphasis>B+1</emphasis> problems, the run will fail.</li>
+            <li>Given a <a anchor="quality-gate-severity-threshold">severity quality gate</a> of <emphasis>B</emphasis>, when finding <emphasis>B</emphasis> problems, the run will succeed. When finding <emphasis>B+1</emphasis> problems, the run will fail.</li>
             <li>Given a <a anchor="quality-gate-code-coverage">code coverage threshold</a> of <emphasis>C</emphasis>, when <emphasis>C%</emphasis> of lines are covered, the run will succeed. If only <emphasis>C-1%</emphasis> are covered, the run will fail.</li>
         </list>
 
@@ -202,9 +202,12 @@
             </tab>
         </tabs>
 
-        <p>For all %product% linters except <a href="qodana-dotnet.md"/> and
-            <a href="qodana-dotnet-community.md"/>, you can configure a project quality gate using the following
-            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration:</p>
+        <p>For all %product% linters except <a href="qodana-dotnet-community.md"/>, you can configure a project quality
+            gate using the following <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration:</p>
+
+        <p>All linters except <a href="qodana-dotnet-community.md"/> support the
+            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration of a project quality gate using the
+            <code>severityThresholds.any</code> option:</p>
 
         <code style="block" lang="yaml">
             failureConditions:
@@ -215,12 +218,12 @@
 
     <chapter id="quality-gate-severity-threshold" title="Severity quality gate">
 
-            <p>For all <a href="linters.md">linters</a> except <a href="qodana-dotnet.md"/> and
-                <a href="qodana-dotnet-community.md"/>, you can configure separate quality gates for each
-                <a href="faq.xml" anchor="faq-severities">problem severity</a>, and exceeding just one setting limitation
-                will make the build fail, including the <a anchor="quality-gate-project-threshold">project quality gate</a>.</p>
+            <p>All <a href="linters.md">linters</a> except <a href="qodana-dotnet-community.md"/> let you configure
+                separate quality gates for each <a href="faq.xml" anchor="faq-severities">problem severity</a>, and
+                exceeding just one setting limitation will make the build fail, including the
+                <a anchor="quality-gate-project-threshold">project quality gate</a>.</p>
 
-        <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> quality gate configuration:</p>
+        <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> severity quality gate configuration:</p>
 
         <code style="block" lang="yaml">
             failureConditions:
