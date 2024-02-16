@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td><a anchor="quality-gate-project-threshold"/></td>
-            <td>All linters except <a href="qodana-dotnet.md"/> and <a href="qodana-dotnet-community"/></td>
+            <td>All linters except <a href="qodana-dotnet.md"/> and <a href="qodana-dotnet-community.md"/></td>
             <td>Community, Ultimate, and Ultimate Plus licenses depending on a linter</td>
         </tr>
         <tr>
@@ -227,10 +227,10 @@
             &nbsp;&nbsp;severityThresholds:
             &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number&gt; # Project quality gate
             &nbsp;&nbsp;&nbsp;&nbsp;critical: &lt;number&gt; # Critical severity
-            &nbsp;&nbsp;&nbsp;&nbsp;high: &lt;number&gt; # High severity
-            &nbsp;&nbsp;&nbsp;&nbsp;moderate: &lt;number&gt; # Moderate severity
-            &nbsp;&nbsp;&nbsp;&nbsp;low: &lt;number&gt; # Low severity
-            &nbsp;&nbsp;&nbsp;&nbsp;info: &lt;number&gt; # Info severity
+            &nbsp;&nbsp;&nbsp;&nbsp;high: &lt;number&gt;
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: &lt;number&gt;
+            &nbsp;&nbsp;&nbsp;&nbsp;low: &lt;number&gt;
+            &nbsp;&nbsp;&nbsp;&nbsp;info: &lt;number&gt;
         </code>
 
     </chapter>

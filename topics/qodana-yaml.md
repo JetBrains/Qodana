@@ -114,7 +114,21 @@ include:
 
 ## Set a quality gate
 
-<include src="quality-gate.xml" include-id="quality-gate-basics"/>
+You can configure severity quality gates and code coverage thresholds as shown below:
+
+```yaml
+failureConditions:
+  severityThresholds:
+    any: <number> # Project quality gate
+    critical: <number> # Critical severity
+    high: <number>
+    moderate: <number>
+    low: <number>
+    info: <number>
+  testCoverageThresholds:
+    fresh: <number> # Fresh code coverage
+    total: <number> # Total code coverage
+```
 
 ## Override the default run scenario
 
