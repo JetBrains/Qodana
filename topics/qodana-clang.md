@@ -1,6 +1,6 @@
-[//]: # (title: Qodana for C/C++ \(CMake\))
+[//]: # (title: Qodana for C/C++)
 
-<var name="linter" value="Qodana for C/C++ (CMake)"/>
+<var name="linter" value="Qodana for C/C++"/>
 <var name="ide" value="Clion"/>
 <var name="docker-image" value="jetbrains/qodana-clang:2023.3-eap"/>
 <var name="config-file" value="qodana-clang-docker-readme.xml"/>
@@ -19,42 +19,19 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 </note>
 
-%linter% lets you inspect your C and C++ projects. This linter is based on the [Clang Tidy](%clang-tidy%) linter, 
-operates on the AMD64 and ARM64 architectures, and lets you inspect only projects compiled with 
-[CMake](https://cmake.org/). It extends the existing Clang Tidy inspections by supplying the `Clang-Tidy` and 
-`MISRA checks` inspections provided by CLion. 
+%linter% lets you inspect your C, C++, and Objective-C projects. The linter is based on the [Clang-Tidy](%clang-tidy%) linter, 
+operates on the AMD64 and ARM64 architectures, and lets you inspect projects containing a compilation database. To read
+more about compilation databases, you can visit the [CLion documentation portal](https://www.jetbrains.com/help/clion/compilation-database.html).
+It extends the existing Clang-Tidy inspections by supplying the `Clang-Tidy` and `MISRA checks` inspections provided by 
+CLion. 
 
 %linter% is available under the Community, Ultimate, and Ultimate Plus licenses. However, the `Clang-Tidy` and
 `MISRA checks` inspections from CLion are available only under the Ultimate and Ultimate Plus licenses.
 
-The list of the standard Clang Tidy inspections is available on the [Clang website](%clang-website%). The list of the 
+The list of the standard Clang-Tidy inspections is available on the [Clang website](%clang-website%). The list of the 
 CLion `Clang-Tidy` inspections is available in the [General](%clion-inspections-general%) section on the 
 CLion documentation website. Information about the `MISRA checks` inspections is available in the 
 [Static Analysis Tools](%misra-inspections%) section of the Clion documentation website.
-
-## Supported technologies
-
-<table header-style="none">
-    <tr>
-        <td>Programming languages</td>
-        <td>
-            <p>C</p>
-            <p>C++</p>
-            <p>Android</p>
-            <p>Objective-C</p>
-        </td>
-    </tr>
-    <tr>
-        <td>Frameworks and libraries</td>
-        <td>
-            <p>Abseil</p>
-            <p>Altera</p>
-            <p>Boost</p>
-            <p>MPI</p>
-            <p>OpenMP</p>
-        </td>
-    </tr>
-</table>
 
 ## Supported features
 
@@ -80,21 +57,21 @@ The %linter% linter provides the following %product% features:
 The Docker image of %linter% employs Clang 16.0.0 and LLVM 16. You can see the 
 [`Dockerfile`](%dockerfile%) for the detailed description of all software employed by the linter.  
 
-The linter runs CMake to compile project files, generates a compilation command database, and saves it to the 
-`build/compile_commands.json` file of the project directory. The linter reads the compilation command database, inspects 
-the project, generates inspection reports, and saves them locally or uploads to Qodana Cloud.
+The linter requires a compilation database contained in the `build/compile_commands.json` file of the project directory. 
+The linter reads the compilation database, inspects the project, generates inspection reports, and saves them locally or 
+uploads to Qodana Cloud.
 
 ## Prepare the project
 
-Make sure that the Clang Tidy and CMake tools are installed on your system.
+Make sure that Clang-Tidy is deployed on your system.
 
 In the [`qodana.yaml`](qodana-yaml.md#Example+of+different+configuration+options) file, you can enable or disable inspections using the `include` and `exclude` configuration 
 options. Alternatively, you can configure inspections in the `.clang-tidy` file, see the configuration example on the 
 [GitHub website](%clang-config%). After configuring, save this file to the project root. 
 
 <tip>
-<p>You can get the list of all available Clang Tidy inspections using this command:</p>
-<tabs>
+<p>You can get the list of all available Clang-Tidy inspections using this command:</p>
+<tabs group="clang-tidy-commands">
 <tab id="qodana-clang-full-linux" title="Linux" group-key="clang-linux">
 <code>clang-tidy -list-checks -checks="*"</code>
 </tab>
@@ -102,8 +79,8 @@ options. Alternatively, you can configure inspections in the `.clang-tidy` file,
 <code>./clang-tidy.exe -list-checks -checks="*"</code>
 </tab>
 </tabs>
-<p>To obtain the list of all inspections enabled in Clang Tidy by default, you can run this command:</p>
-<tabs>
+<p>To obtain the list of all inspections enabled in Clang-Tidy by default, you can run this command:</p>
+<tabs group="clang-tidy-commands">
 <tab id="qodana-clang-enabled-linux" title="Linux" group-key="clang-linux">
 <code>clang-tidy -list-checks</code>
 </tab>
@@ -113,17 +90,16 @@ options. Alternatively, you can configure inspections in the `.clang-tidy` file,
 </tabs>
 </tip>
 
-In the `qodana.yaml` file, use the [`bootstrap`](before-running-qodana.md) option to specify a command for generating 
-a compilation command database contained in the `build/compile_commands.json` file, for example:
+Generate a compilation database as explained in the 
+[CLion documentation portal](https://www.jetbrains.com/help/clion/compilation-database.html#compdb_generate), and save 
+it to the `<project-root>/build/compile_commands.json` file. I case of CMake, in the `qodana.yaml` file, use the 
+[`bootstrap`](before-running-qodana.md) option to specify a command for generating a compilation database, for example:
 
 ```yaml
 bootstrap: mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
 ```
 
-Here, `cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON` generates and saves the `compile_commands.json` file to the `build` directory
-inside your project.
-
-If your project requires specific packages not mentioned in the [`Dockerfile`](%dockerfile%), then in the `qodana.yaml` 
+If your project requires specific packages not previously mentioned in the [`Dockerfile`](%dockerfile%), then in the `qodana.yaml` 
 file you can use the following `bootstrap` command that will install the required packages:
 
 ```yaml
@@ -133,8 +109,8 @@ bootstrap: sudo apt-get update; sudo apt-get install -y <list of required packag
 
 ## Run %linter%
 
-%linter% reads a compilation command database contained in the `build/compile_commands.json` file and runs the `Clang Tidy` 
-tool using this database.
+%linter% reads a compilation command database contained in the `build/compile_commands.json` file and runs the `Clang-Tidy` 
+tool.
 
 Here is the Docker command for running the %linter% linter:
 

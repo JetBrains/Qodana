@@ -3,10 +3,10 @@
 
 <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       title="Qodana for C/C++ (CMake)"
+       title="Qodana for C/C++"
        id="qodana-clang-docker-readme">
 
-    <var name="linter" value="Qodana for C/C++ (CMake)"/>
+    <var name="linter" value="Qodana for C/C++"/>
     <var name="linter-shell" value="qodana-clang:2023.3-eap"/>
     <var name="linter-page-url" value="qodana-clang.md"/>
     <var name="ide" value="CLion"/>
