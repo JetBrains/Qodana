@@ -1,7 +1,7 @@
 [//]: # (title: Qodana for C/C++)
 
 <var name="linter" value="Qodana for C/C++"/>
-<var name="ide" value="Clion"/>
+<var name="ide" value="CLion"/>
 <var name="docker-image" value="jetbrains/qodana-clang:2023.3-eap"/>
 <var name="config-file" value="qodana-clang-docker-readme.xml"/>
 <var name="clang-tidy" value="https://clang.llvm.org/extra/clang-tidy"/>
@@ -19,10 +19,11 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 </note>
 
-%linter% lets you inspect your C, C++, and Objective-C projects. The linter is based on the [Clang-Tidy](%clang-tidy%) linter, 
+%linter% lets you inspect your C, C++, and Objective-C projects and is based on the [Clang-Tidy](%clang-tidy%) linter, 
 operates on the AMD64 and ARM64 architectures, and lets you inspect projects containing a compilation database. To read
 more about compilation databases, you can visit the [CLion documentation portal](https://www.jetbrains.com/help/clion/compilation-database.html).
-It extends the existing Clang-Tidy inspections by supplying the `Clang-Tidy` and `MISRA checks` inspections provided by 
+
+%linter% extends the existing Clang-Tidy inspections by supplying the `Clang-Tidy` and `MISRA checks` inspections provided by 
 CLion. 
 
 %linter% is available under the Community, Ultimate, and Ultimate Plus licenses. However, the `Clang-Tidy` and
@@ -31,7 +32,7 @@ CLion.
 The list of the standard Clang-Tidy inspections is available on the [Clang website](%clang-website%). The list of the 
 CLion `Clang-Tidy` inspections is available in the [General](%clion-inspections-general%) section on the 
 CLion documentation website. Information about the `MISRA checks` inspections is available in the 
-[Static Analysis Tools](%misra-inspections%) section of the Clion documentation website.
+[Static Analysis Tools](%misra-inspections%) section of the CLion documentation website.
 
 ## Supported features
 
