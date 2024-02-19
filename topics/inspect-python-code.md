@@ -3,7 +3,7 @@
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="docker-image" value="jetbrains/qodana-python&lt;-community&gt;:2023.2"/>
 
-To inspect your Python codebase, depending on your %product% [license](pricing.md) you can employ the following linters: 
+To inspect your Python codebase, depending on your %product% [license](pricing.md), you can employ the following linters: 
 
 <tabs>
 <tab id="inspect-python-code-linters" title="Linters">
@@ -77,7 +77,7 @@ pipeline {
 
 In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
 [project token](project-token.md) generated in Qodana Cloud and contained in
-the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %product%
+the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by paid %product%
 [linters](pricing.md#pricing-linters-licenses), and is optional for using the Community linters.
 
 </tab>

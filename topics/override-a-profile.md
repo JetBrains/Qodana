@@ -1,14 +1,14 @@
-[//]: # (title: Configure Qodana your own way)
+[//]: # (title: Configure Qodana your way)
 
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
 
 %product% inspection profiles configure the inspections that you are going to use. If you enable too few inspections, you may 
-miss the crucial problems, which will affect your project overall. On the other hand, enabling too many inspections 
+miss critical problems, which will affect your project overall. On the other hand, enabling too many inspections 
 can negatively affect inspection performance and can result in using inspections that are irrelevant to your project. 
 
 %product% provides the default `qodana.starter` and `qodana.recommended` [profiles](inspection-profiles.md#Default+profiles) that come in handy in most 
-cases. You can also override a default profile according to your needs, and this section provides basic recommendations 
+cases. You can override a default profile according to your needs, and this section provides basic recommendations 
 taken from the [](custom-profiles.md) section.
 
 ## Initial configuration

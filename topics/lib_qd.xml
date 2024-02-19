@@ -410,7 +410,7 @@
                 <p filter="php-only">with <code>source-directory</code> pointing to the root of your project, and
                     <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>.</p>
                 <p>Open <code>http://localhost:8080</code> in your browser to examine the inspection results.
-                    Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
+                    Here, you can also reconfigure the analysis – see the <a href="ui-overview.md"/> section for
                     details. When you're done, you can stop the web server by pressing Ctrl-C while in the
                     console.</p>
             </tab>

@@ -20,7 +20,7 @@ This section explains how to prepare and inspect a monorepo using:
 
 * [Qodana CLI](https://github.com/JetBrains/qodana-cli)
 * [Docker images](docker-images.md) of %product%
-* [Qodana Scan](github.md) GitHub Action
+* The [Qodana Scan](github.md) GitHub action
 
 ## Prepare your project
 
@@ -97,8 +97,8 @@ root/
 
 ### Qodana Cloud
 
-You can view inspection reports using [Qodana Cloud](https://qodana.cloud). On the Qodana Cloud website, create two 
-[projects](cloud-projects.xml) for storing inspection reports for the `frontend` and `backend` projects. 
+You can view inspection reports using [Qodana Cloud](https://qodana.cloud). On the Qodana Cloud website, create one 
+[project](cloud-projects.xml) for storing inspection reports for the `frontend` project, and another one for the `backend` project. 
 
 After you create the projects, you can use their [project tokens](project-token.md).
 
@@ -109,7 +109,7 @@ images of %product% need to be run twice over the monorepo repository, once for 
 
 <tabs>
 <tab id="monorepo-cli-tab" title="Qodana CLI">
-<note>You can use %product% CLI only with Azure and CircleCI.</note>
+<note>You can only use %product% CLI with Azure and CircleCI.</note>
 <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
 The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project folder to inspect.
 Here is the snippet for the <code>backend</code> project:</p>
@@ -151,7 +151,7 @@ in this procedure.</p>
 <procedure>
 <step>On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN_BACKEND</code> and
 <code>QODANA_TOKEN_FRONTEND</code> <a href="%github-secret%">encrypted secrets</a> and save the project tokens 
-<a anchor="Qodana+Cloud">generated</a> on Qodana Cloud as their values.
+<a anchor="Qodana+Cloud">generated</a> in Qodana Cloud as their values.
 </step>
 <step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
 <code>.github/workflows/code_quality.yml</code> file.</step>
@@ -206,4 +206,4 @@ jobs:
 ## View inspection results
 
 Congratulations, now you can navigate to [Qodana Cloud](https://qodana.cloud) and study the inspection results for each project 
-inside your monorepo project.
+inside your monorepo project!
