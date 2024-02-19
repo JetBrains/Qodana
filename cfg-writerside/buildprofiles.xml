@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildprofiles>
+	<sitemap priority="0.35" change-frequency="monthly"/>
 	<variables>
 		<download-page/>
 		<search-scope/>
@@ -32,6 +33,7 @@
 			<feedback-enabled>true</feedback-enabled>
 			<feedback-widget>true</feedback-widget>
 			<feedback-url>https://forms-service.jetbrains.com/feedback</feedback-url>
+			<website-title>Qodana Documentation</website-title>
 		</variables>
 	</build-profile>
 	<build-profile instance="qd_tc">
@@ -41,6 +43,7 @@
 		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
 		<noindex-content-in-eap>false</noindex-content-in-eap>
 		<noindex-content-in-release>false</noindex-content-in-release>
+		<website-title>Qodana TeamCity Plugin Documentation</website-title>
 	</build-profile>
 	<build-profile product="qd_tc_cf">
 		<variables>
