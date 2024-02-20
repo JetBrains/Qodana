@@ -9,6 +9,8 @@
 <var name="docker-image" value="jetbrains/qodana-js:2023.3"/>
 <var name="config-file" value="qodana-js-docker-readme.topic"/>
 
+<link-summary>%linter% is based on %ide% and provides static analysis for JavaScript or TypeScript projects.</link-summary>
+
 %linter% is based on [%ide%](https://www.jetbrains.com/webstorm/). It provides static analysis for JavaScript or TypeScript projects.
 
 <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>

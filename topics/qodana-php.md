@@ -9,6 +9,8 @@
 <var name="docker-image" value="jetbrains/qodana-php:2023.3"/>
 <var name="config-file" value="qodana-php-docker-readme.topic"/>
 
+<link-summary>%linter% is based on %ide% and provides inspections for PHP, JavaScript, and TypeScript.</link-summary>
+
 %linter% is based on [%ide%](https://www.jetbrains.com/phpstorm/). <include from="lib_qd.topic" element-id="linter-intro"/>
 
 <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>

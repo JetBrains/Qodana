@@ -10,6 +10,9 @@
 <var name="docker-image" value="jetbrains/qodana-jvm-community:2023.3"/>
 <var name="config-file" value="qodana-jvm-community-docker-readme.topic"/>
 
+<link-summary>%linter% is based on %ide% and provides inspections for Java, Kotlin, and Groovy.</link-summary>
+
+
 %linter% is based on [%ide%](https://www.jetbrains.com/idea/).  <include from="lib_qd.topic" element-id="linter-intro"/>
 
 ## Supported technologies

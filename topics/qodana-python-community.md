@@ -10,6 +10,8 @@
 <var name="docker-image" value="jetbrains/qodana-python-community:2023.3"/>
 <var name="config-file" value="qodana-python-community-docker-readme.topic"/>
 
+<link-summary>%linter% is based on %ide% and provides static analysis for Python projects.</link-summary>
+
 %linter% is based on [%ide%](https://www.jetbrains.com/pycharm/) and provides static analysis for Python projects.
 
 ## Supported technologies

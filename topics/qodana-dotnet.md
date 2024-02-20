@@ -9,6 +9,9 @@
 <var name="docker-image" value="jetbrains/qodana-dotnet:2023.3"/>
 <var name="config-file" value="qodana-dotnet-docker-readme.topic"/>
 
+<link-summary>%linter% is based on %ide% and provides static analysis for .NET projects that use C, C++, C#, VB.NET, 
+JavaScript, and TypeScript.</link-summary>
+
 %linter% is based on [%ide%](https://www.jetbrains.com/rider/) and provides static analysis for .NET projects.
 It brings all the smarts from Rider, which help you:
 

@@ -6,6 +6,9 @@
 <var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
 <var name="config-file" value="qodana-cdnet-docker-readme.topic"/>
 
+<link-summary>%linter% is based on %ide% and provides static analysis for .NET projects that use C# and Visual Basic.NET (VB.NET) code.</link-summary>
+
+
 <note>%linter% is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
 Any use of the EAP product is at your own risk. Your feedback is very welcome in our
 <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at

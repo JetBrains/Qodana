@@ -8,58 +8,74 @@
 
     <var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
-    <p><emphasis>Quality gate</emphasis> are quality control techniques that let you
-        control your code quality and build software that meets your quality expectations. If a quality gate condition
-        fails, %instance% terminates using exit code 255, which makes a CI/CD workflow or pipeline fail. For example, if
-        a quality gate for a project is set to 10 problems and code coverage is set to 40%, a build workflow will fail
-        if %instance% detects either an eleventh problem or code coverage below the 40% threshold. </p>
+    <p><emphasis>Quality gates</emphasis> are techniques that let you control your code quality and build software that
+        meets your quality expectations. If a quality gate condition fails, %product% terminates using exit code 255,
+        which makes a CI/CD workflow or pipeline fail. For example, if a quality gate for a project is set to 10 problems
+        and code coverage is set to 40%, a build workflow will fail if %product% detects either an eleventh problem or
+        code coverage below the 40% threshold.</p>
 
-    <p>The terms <emphasis>quality gate</emphasis> and <emphasis>fail threshold</emphasis> are used interchangeably,
-        with the former representing a specific feature and the latter referring to a configuration option. </p>
+    <p>The terms <emphasis>quality gate</emphasis>, <emphasis>threshold</emphasis> and <emphasis>fail threshold</emphasis>
+        are used interchangeably.</p>
 
-    <p>%instance% provides this feature in all linters available under Community, Ultimate, and Ultimate Plus
-        <a href="pricing.md">licenses</a> including their trial versions. </p>
+    <p>You can configure a single quality gate for the total number of project problems, multiple quality gates for
+        each separate <a href="faq.topic" anchor="faq-severities">problem severity</a>, and
+        <a href="code-coverage.md">code coverage</a> thresholds as explained in the table below.</p>
+
+    <table>
+        <tr>
+            <td>Quality gate type</td>
+            <td>Linter support</td>
+            <td>Availability under licenses</td>
+        </tr>
+        <tr>
+            <td><a anchor="quality-gate-project-threshold"/></td>
+            <td>All <a href="linters.md">linters</a></td>
+            <td>Community, Ultimate, and Ultimate Plus</td>
+        </tr>
+        <tr>
+            <td><a anchor="quality-gate-severity-threshold"/></td>
+            <td>All <a href="linters.md">linters</a> except <a href="qodana-dotnet-community.md"/></td>
+            <td>Community, Ultimate, and Ultimate Plus licenses depending on a linter</td>
+        </tr>
+        <tr>
+            <td><a anchor="quality-gate-code-coverage"/></td>
+            <td><a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, <a href="qodana-php.md"/>,
+                <a href="qodana-dotnet.md"/>, <a href="qodana-python.md"/>, and <a href="qodana-go.md"/></td>
+            <td>Ultimate and Ultimate Plus</td>
+        </tr>
+    </table>
 
     <chapter id="quality-gate-how-it-works" title="How it works">
-        <snippet id="quality-gate-basics">
-        <p>You can configure a quality gate for a specific problem severity, for all project problems independently of their
-            severities, and for code coverage thresholds. %instance% follows these rules:</p>
+
+        <p>%product% follows these rules:</p>
         <list>
-            <li>Given a severity threshold of <emphasis>X</emphasis>, when finding <emphasis>X</emphasis> results, the run will succeed. When finding <emphasis>X+1</emphasis> results, the run will fail.</li>
-            <li>Given a test coverage threshold of <emphasis>Y</emphasis>, when <emphasis>Y%</emphasis> of lines are covered, the run will succeed. If only <emphasis>Y-1%</emphasis> are covered, the run will fail.</li>
+            <li>Given the <a anchor="quality-gate-project-threshold">total number of project problems</a> of <emphasis>A</emphasis>, when finding <emphasis>A</emphasis> problems in the project, the run will succeed. When finding <emphasis>A+1</emphasis> problems, the run will fail.</li>
+            <li>Given the <a anchor="quality-gate-severity-threshold">severity-specific number of problems</a> of <emphasis>B</emphasis>, when finding <emphasis>B</emphasis> problems of a specific severity, the run will succeed. When finding <emphasis>B+1</emphasis> problems, the run will fail.</li>
+            <li>Given a <a anchor="quality-gate-code-coverage">code coverage threshold</a> of <emphasis>C</emphasis>, when <emphasis>C%</emphasis> of lines are covered, the run will succeed. If only <emphasis>C-1%</emphasis> are covered, the run will fail.</li>
         </list>
-        <p>If you configure a quality gate for multiple severities and code coverage thresholds, then exceeding just one
-            setting limitation will make the build fail.</p>
 
         <tip>If you configure a quality gate and <a href="baseline.topic">baseline</a> together, you'll be able to keep the number
             of new problems under control, and the overall technical debt will not grow beyond a certain threshold.</tip>
 
-        <p>Here's a sample quality gate configuration for the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file using
-            the <code>failureConditions</code> option:</p>
+    </chapter>
 
-        <code-block lang="yaml">
-            failureConditions:
-            &nbsp;&nbsp;severityThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;any: 20 # All project problems without considering severities
-            &nbsp;&nbsp;&nbsp;&nbsp;critical: 1
-            &nbsp;&nbsp;&nbsp;&nbsp;high: 2
-            &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
-            &nbsp;&nbsp;&nbsp;&nbsp;low: 4
-            &nbsp;&nbsp;&nbsp;&nbsp;info: 5
-            &nbsp;&nbsp;testCoverageThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;fresh: 6 # Fresh code coverage
-            &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
-        </code-block>
-        </snippet>
-        <p>You can also employ the <code>fail-threshold</code> option for
-            all project problems independently of their severities. However, this approach is less flexible compared to
-            the <code>failureConditions</code> option.</p>
+    <chapter id="quality-gate-project-threshold" title="Total number of problems">
 
-        <note>Application of the <code>fail-threshold</code> option overrides configurations made in the <code>qodana.yaml</code> file.</note>
-
-        <p>Below are several configuration examples that use the <code>fail-threshold</code> option.</p>
+        <p>You can configure a quality gate for the total number of project problems in all %product%
+            <a href="linters.md">linters</a>.</p>
 
         <tabs>
+            <tab title="qodana.yaml">
+                <p>All linters except <a href="qodana-dotnet-community.md"/> support the
+                    <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration for total problems using the
+                    <code>severityThresholds.any</code> option:</p>
+
+                <code-block lang="yaml">
+                    failureConditions:
+                    &nbsp;&nbsp;severityThresholds:
+                    &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number-of-project-problems&gt;
+                </code-block>
+            </tab>
             <tab title="Qodana CLI">
                 <code-block lang="shell" prompt="$">
                     qodana scan \
@@ -88,9 +104,8 @@
                 </p>
             </tab>
             <tab title="GitHub Actions">
-                <p>You can configure GitHub to block the merging of pull requests if the
-                    <a href="quality-gate.topic">quality gate</a> has failed. To do this, you can create a
-                    <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
+                <p>You can configure GitHub to block the merging of pull requests if the quality gate has failed. To do
+                    this, you can create a <a href="https://docs.github.com/en/%protectionrule%">branch protection rule</a> as described below:</p>
 
                 <procedure>
                     <step>Create a new GitHub Actions workflow that invokes the
@@ -127,13 +142,13 @@
                             linters.</p>
                     </step>
                     <step>Set the fail threshold (number) for the Qodana Action <code>fail-threshold</code> option.</step>
-                    <step>Under your repository name, click <ui-path>Settings</ui-path>.</step>
-                    <step>On the left menu, click <ui-path>Branches</ui-path>.</step>
-                    <step>In the branch protection rules section, click <ui-path>Add rule</ui-path>.</step>
-                    <step>Add <code>main</code> to <ui-path>Branch name pattern</ui-path>.</step>
-                    <step>Select <ui-path>Require status checks to pass before merging</ui-path>.</step>
-                    <step>Search for the <ui-path>Qodana</ui-path> status check, then check it.</step>
-                    <step>Click <ui-path>Create</ui-path>.</step>
+                    <step>Under your repository name, click <menupath>Settings</menupath>.</step>
+                    <step>On the left menu, click <menupath>Branches</menupath>.</step>
+                    <step>In the branch protection rules section, click <menupath>Add rule</menupath>.</step>
+                    <step>Add <code>main</code> to <menupath>Branch name pattern</menupath>.</step>
+                    <step>Select <menupath>Require status checks to pass before merging</menupath>.</step>
+                    <step>Search for the <menupath>Qodana</menupath> status check, then check it.</step>
+                    <step>Click <menupath>Create</menupath>.</step>
                 </procedure>
             </tab>
             <tab title="Jenkins">
@@ -197,4 +212,46 @@
             </tab>
         </tabs>
     </chapter>
+
+    <chapter id="quality-gate-severity-threshold" title="Severity-specific problems">
+
+        <p>All <a href="linters.md">linters</a> except <a href="qodana-dotnet-community.md"/> let you configure
+            separate quality gates for each <a href="faq.topic" anchor="faq-severities">problem severity</a>, and
+            exceeding just one setting limitation will make the build fail, including the
+            <a anchor="quality-gate-project-threshold">total number of problems</a>.</p>
+
+        <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> severity configuration:</p>
+
+        <code-block lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;severityThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number&gt; # Total problems
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: &lt;number&gt; # Critical severity
+            &nbsp;&nbsp;&nbsp;&nbsp;high: &lt;number&gt;
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: &lt;number&gt;
+            &nbsp;&nbsp;&nbsp;&nbsp;low: &lt;number&gt;
+            &nbsp;&nbsp;&nbsp;&nbsp;info: &lt;number&gt;
+        </code-block>
+
+    </chapter>
+
+    <chapter id="quality-gate-code-coverage" title="Code coverage threshold">
+
+        <link-summary>You can configure the total and fresh code coverage
+            thresholds for the linters that support the code coverage feature.</link-summary>
+
+        <p>You can configure the total and <a href="code-coverage.md" anchor="Fresh+code">fresh code</a> coverage
+            thresholds for the <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, <a href="qodana-php.md"/>,
+            <a href="qodana-dotnet.md"/>, <a href="qodana-python.md"/>, and <a href="qodana-go.md"/> linters. </p>
+
+        <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration sample:</p>
+
+        <code-block lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;testCoverageThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;fresh: &lt;number&gt; # Fresh code coverage
+            &nbsp;&nbsp;&nbsp;&nbsp;total: &lt;number&gt; # Total code coverage
+        </code-block>
+    </chapter>
+
 </topic>

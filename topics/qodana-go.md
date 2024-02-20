@@ -10,6 +10,8 @@
 <var name="ide-url" value="https://www.jetbrains.com/go/"/>
 <var name="config-file" value="qodana-go-docker-readme.topic"/>
 
+<link-summary>%linter% is based on %ide% and provides static analysis for Go projects.</link-summary>
+
 %linter% is based on [%ide%](%ide-url%) and provides static analysis for Go projects.
 
 <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>

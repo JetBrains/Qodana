@@ -753,7 +753,7 @@
             </step>
             <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
                 <code>.github/workflows/code_quality.yml</code> file.</step>
-            <step>To inspect the <code>main</code> branch, release branches, and the pull requests coming
+            <step>To inspect the <code>main</code> branch, release branches and the pull requests coming
             to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
                 <code-block lang="yaml">
                     name: Qodana
@@ -761,9 +761,9 @@
                       workflow_dispatch:
                       pull_request:
                       push:
-                        branches:
-                          - main
-                          - 'releases/*'
+                        branches: # Specify your branches here
+                          - main # The 'main' branch
+                          - 'releases/*' # The release branches
 
                     jobs:
                       qodana:
