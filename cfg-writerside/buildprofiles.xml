@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildprofiles>
+	<sitemap priority="0.35" change-frequency="monthly"/>
+	<variables>
+		<download-page/>
+		<search-scope/>
+		<fallback-url>https://www.jetbrains.com/help/qodana/</fallback-url>
+		<help-app-version>3</help-app-version>
+		<feedbackRequireEmail>false</feedbackRequireEmail>
+		<hide-last-modified>true</hide-last-modified>
+		<showDownloadButton>false</showDownloadButton>
+		<disqus-id>jetbrains</disqus-id>
+		<disqus-show>false</disqus-show>
+		<feedback-url>https://data.services.jetbrains.com/feedback</feedback-url>
+		<feedback-enabled>false</feedback-enabled>
+		<feedback-widget>false</feedback-widget>
+		<webmaster>webmaster@jetbrains.com</webmaster>
+		<feedback-support>mailto:qodana-support@jetbrains.com/</feedback-support>
+		<sideblocks>true</sideblocks>
+		<search-scopes-provider>https://data.services.jetbrains.com/search/</search-scopes-provider>
+		<enable-browser-edits>true</enable-browser-edits>
+		<browser-edits-url>https://github.com/JetBrains/Qodana/edit/2023.3/</browser-edits-url>
+		<disable-prev-next-links>true</disable-prev-next-links>
+		<disable-variable-interpolation>true</disable-variable-interpolation>
+		<versions-switcher>https://data.services.jetbrains.com/help-versions</versions-switcher>
+		<web-root>https://www.jetbrains.com/help</web-root>
+		<og-twitter>@qodanaevolves</og-twitter>
+		<og-image>https://resources.jetbrains.com/storage/products/qodana/img/meta/preview.png</og-image>
+		<include-in-head>thirdparty/dpk-gtm-analytics.html</include-in-head>
+	</variables>
+	<build-profile instance="qd">
+		<variables>
+			<feedback-enabled>true</feedback-enabled>
+			<feedback-widget>true</feedback-widget>
+			<feedback-url>https://forms-service.jetbrains.com/feedback</feedback-url>
+			<website-title>Qodana Documentation</website-title>
+		</variables>
+	</build-profile>
+	<build-profile instance="qd_tc">
+		<variables>
+			<images-prefix-override>img/</images-prefix-override>
+		</variables>
+		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
+		<noindex-content-in-eap>false</noindex-content-in-eap>
+		<noindex-content-in-release>false</noindex-content-in-release>
+		<website-title>Qodana TeamCity Plugin Documentation</website-title>
+	</build-profile>
+	<build-profile product="qd_tc_cf">
+		<variables>
+			<images-prefix-override>img/</images-prefix-override>
+		</variables>
+		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
+		<noindex-content-in-eap>false</noindex-content-in-eap>
+		<noindex-content-in-release>false</noindex-content-in-release>
+	</build-profile>
+	<build-profile product="qd_tc_la">
+		<variables>
+			<images-prefix-override>img/</images-prefix-override>
+		</variables>
+		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
+		<noindex-content-in-eap>false</noindex-content-in-eap>
+		<noindex-content-in-release>false</noindex-content-in-release>
+	</build-profile>
+</buildprofiles>

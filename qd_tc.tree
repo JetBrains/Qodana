@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE product-profile
-        SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-<product-profile id="qd_tc" name="Qodana TeamCity Plugin" start-page="qodana-teamcity-plugin.md" status="eap">
-
-    <toc-element id="qodana-teamcity-plugin.md" toc-title="Introduction" accepts-web-file-names-ref="4d0d5387">
-        <toc-element id="teamcity-plugin-quick-start.md"/>
-        <toc-element id="teamcity-plugin-configuration.md"/>
-    </toc-element>
-</product-profile>
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+<instance-profile id="qd_tc" name="Qodana TeamCity Plugin" start-page="qodana-teamcity-plugin.md" status="eap">
+	<toc-element toc-title="Introduction" accepts-web-file-names-ref="4d0d5387" topic="qodana-teamcity-plugin.md">
+		<toc-element topic="teamcity-plugin-quick-start.md"/>
+		<toc-element topic="teamcity-plugin-configuration.md"/>
+	</toc-element>
+</instance-profile>

@@ -3,7 +3,7 @@
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 The [Gradle Qodana plugin](https://plugins.gradle.org/plugin/org.jetbrains.qodana) provides the Gradle interface for running 
-code inspections provided by %product%. To start, apply the Gradle plugin `org.jetbrains.qodana` in the Gradle 
+code inspections provided by %instance%. To start, apply the Gradle plugin `org.jetbrains.qodana` in the Gradle 
 configuration file.
 
  <tabs group="languages">
@@ -31,9 +31,10 @@ Add the following to the `build.gradle.kts` configuration file:
   </tab>
  </tabs>
 
+<var name="qodana-label">Gradle Plugin Portal</var>
 <note>
 
-The latest version is: [![](https://img.shields.io/gradle-plugin-portal/v/org.jetbrains.qodana?color=green&label=Gradle%20Plugin%20Portal&logo=gradle)](https://plugins.gradle.org/plugin/org.jetbrains.qodana)
+The latest version is: [![](https://img.shields.io/gradle-plugin-portal/v/org.jetbrains.qodana?color=green&label=%qodana-label%&logo=gradle)](https://plugins.gradle.org/plugin/org.jetbrains.qodana)
 
 </note>
 

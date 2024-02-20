@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Structural search" id="extending-qodana-structural-search">
+
+    <var name="struct-search" value="https://www.jetbrains.com/help/idea/tutorial-work-with-structural-search-and-replace.html#ssr_inspection_settings"/>
+    <var name="struct-search-replace" value="https://www.jetbrains.com/help/idea/structural-search-and-replace.html#to_search_structurally"/>
+
+    <p><a href="https://www.jetbrains.com/help/idea/structural-search-and-replace.html">Structural search</a> is a
+        powerful and flexible mechanism built into JetBrains IDEs. It employs
+        <a href="https://www.jetbrains.com/help/idea/search-templates.html">search templates</a> to let you inspect the
+        codebase taking into account its semantics. You can create your own search templates and use them as
+        %instance% inspections.</p>
+
+    <chapter title="How it works" id="extending-qodana-structural-search-example">
+
+        <p>As an example, consider this search template:</p>
+        <code-block>$Instance$.$MethodCall$($Parameter$)</code-block>
+
+        <p>It lets you detect the <code lang="java">System.out.println()</code> Java statement. To make it detect the
+            statements with hardcoded text like <code lang="java">System.out.println("Hardcoded text!")</code>, the
+            template should take the modifiers described below:</p>
+        <table>
+            <tr><td>Variable</td><td>Value</td><td>Explanation</td></tr>
+            <tr><td>$Instance$</td><td>[0,1]</td><td>Accepts zero or one value.</td></tr>
+            <tr><td>$MethodCall$</td><td>text=println</td><td>Searching for the <emphasis>println</emphasis> method.</td></tr>
+            <tr><td>$Parameter$</td><td>text=^\".*\"$</td><td>Any text enclosed in quote characters.</td></tr>
+        </table>
+
+        <p>This procedure explains how to use this search template for inspecting your codebase using %instance%.</p>
+
+        <procedure id="extending-qodana-structural-search-example-procedure">
+            <step>
+                <p>Using the
+                    <ui-path><a href="%struct-search-replace%">Structural Search</a></ui-path> dialog of
+                    IntelliJ IDEA, create the template:</p>
+                <img src="extending-qodana-1.png" dark-src="extending-qodana-1_dark.png" alt="Search template" width="706" border-effect="line"/>
+            </step>
+            <step>
+                <p>Convert the template to inspection as described on the
+                    <a href="%struct-search%">Work with structural search and replace</a> page of the
+                    IntelliJ IDEA documentation portal. For example, it can be saved as
+                    <code>Hardcoded-print</code>.</p>
+            </step>
+            <step>
+                <p>Use <ui-path>Settings | Editor | Inspections</ui-path> to enable the inspection in the
+                    <ui-path>Structural search</ui-path> group of inspections. For more details, see
+                    the <a href="https://www.jetbrains.com/help/idea/customizing-profiles.html">Configure profiles</a>
+                    page.</p>
+                <img src="extending-qodana-enabling-inspection.png" dark-src="extending-qodana-enabling-inspection_dark.png" alt="Enabling inspection" width="706" border-effect="line"/>
+            </step>
+            <step>
+                <p>In the <ui-path>Inspections</ui-path> section of the <ui-path>Settings</ui-path> dialog, export the
+                    updated profile.</p>
+            </step>
+            <step>
+                <p>In the project root directory, create the <code>qodana.yaml</code> file and specify the path to the
+                    <a href="inspection-profiles.md" anchor="Profile+path">profile</a> location in it:</p>
+                <code-block lang="yaml">
+                    profile:
+                    path: path/to/the/profile/file
+                </code-block>
+            </step>
+            <step>
+                <p>Inspect your code using %instance%:</p>
+                <code-block lang="shell" prompt="$">
+                    docker run --rm -p 8080:8080 \
+                    -v &lt;project-directory&gt;:/data/project/ \
+                    -v &lt;report-directory&gt;:/data/results/ \
+                    jetbrains/qodana-jvm --show-report
+                </code-block>
+            </step>
+            <step>
+                <p>You can observe the problems detected by the structural search inspection under the
+                    <ui-path>Structural search</ui-path> category in the %instance% report.</p>
+                <img src="extending-qodana-ss-inspection-report.png" dark-src="extending-qodana-ss-inspection-report_dark.png" alt="Observing the Structural Search inspection results" width="706" border-effect="line"/>
+            </step>
+        </procedure>
+
+    </chapter>
+
+</topic>

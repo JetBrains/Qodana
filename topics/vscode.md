@@ -1,12 +1,12 @@
 [//]: # (title: Visual Studio Code)
 
 Visual Studio Code is a source code editor available for Windows, macOS and Linux. This section shows how to use Visual 
-Studio Code version 1.81 and later for viewing %product% reports from [Qodana Cloud](cloud-about.xml).
+Studio Code version 1.81 and later for viewing %instance% reports from [Qodana Cloud](cloud-about.topic).
 
 ## Before you start
 
-Make sure that you have a Qodana Cloud [project](cloud-projects.xml), and this project has at 
-least one inspection [report](cloud-overview-reports.xml) related to the project opened by Visual Studio Code. 
+Make sure that you have a Qodana Cloud [project](cloud-projects.topic), and this project has at 
+least one inspection [report](cloud-overview-reports.topic) related to the project opened by Visual Studio Code. 
 Also, check whether Java 11 or later is installed on your machine by running the `java -version` command. If necessary, 
 install Java on your local machine.  
 
@@ -59,7 +59,7 @@ You can configure the extension using the following settings:
 <td>baz</td>
 </tr>
 </table>
-<p>In a <a href="ui-overview.md">Qodana Cloud report</a>, you can check with the <menupath>Files</menupath> section to 
+<p>In a <a href="ui-overview.md">Qodana Cloud report</a>, you can check with the <ui-path>Files</ui-path> section to 
 see how the path in a SARIF file is set.</p>
 <p>Feel free to commit the <code>.vscode/settings.json</code> to your repository to share the Qodana settings with your team!</p>
 </td>
@@ -69,7 +69,7 @@ see how the path in a SARIF file is set.</p>
 <td>
 <p>You can get the Project ID value by opening the project from the 
 <a href="ui-overview.md" anchor="ui-overview-actual-problems">Qodana Cloud report</a> using the 
-<menupath>Open file in ...</menupath> button and choosing Visual Studio Code as the tool for opening. </p>
+<ui-path>Open file in ...</ui-path> button and choosing Visual Studio Code as the tool for opening. </p>
 <p>Alternatively, the ID is contained in your Qodana Cloud project URL. This URL has the following structure: 
 <code>https://qodana.cloud/projects/PROJECT_ID/reports/REPORT_ID</code>. From this URL, use only <code>PROJECT_ID</code>.
 For example, from the URL <code>https://qodana.cloud/projects/AGvmx/reports/EDKYd</code> you will need <code>AGvmx</code>.</p>
@@ -89,13 +89,13 @@ download the report, click the icon.
 ## Inspection report overview
 {id="vs-code-overview-reports"}
 
-Once configured, the extension connects to Qodana Cloud and downloads the latest %product% report, so you can see 
+Once configured, the extension connects to Qodana Cloud and downloads the latest %instance% report, so you can see 
 it in the **PROBLEMS** tab of Visual Studio Code. If you still do not see the report in the **PROBLEMS** tab, configure 
 the [**Path prefix**](#vs-code-configure-extension) setting. 
 
-On this tab, you can click problem items and navigate to code fragments where %product% detected them.
+On this tab, you can click problem items and navigate to code fragments where %instance% detected them.
 
-<img src="vscode-problems-tab.png" dark-src="vscode-problems-tab_dark.png" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
+<img src="vscode-problems-tab.animated.gif" dark-src="vscode-problems-tab_dark.animated.gif" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
 
 ## Troubleshooting
 {id="vs-code-troubleshooting"}
@@ -105,7 +105,7 @@ On this tab, you can click problem items and navigate to code fragments where %p
 You can use the **Qodana: Reset authentication** command to switch between Qodana Cloud accounts without clearing settings. 
 This can be useful in case you have several organizations under different Qodana Cloud accounts.
 
-### I cannot get %product% reports using current settings
+### I cannot get %instance% reports using current settings
 
 You can use the **Qodana: Reset all settings** command to reset all settings and credentials and try to configure 
 the extension again, or use other settings.
