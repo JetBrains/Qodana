@@ -26,7 +26,7 @@
     <list>
         <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
         </li>
-        <li>Single-shot analysis (for example, performed <i>locally</i>).
+        <li>Single-shot analysis (for example, performed <i>locally</i>)
         </li>
     </list>
 
@@ -38,12 +38,12 @@
                 </p>
             </note>
 
-            <p>This is how you can run the Dockerized version of the %linter% linter:</p>
+            <p>Do the following to run the Dockerized version of the %linter% linter:</p>
 
                     <procedure>
                         <step>
                             <p>
-                                Pull the image from Docker Hub (only necessary to update to the <code>latest</code> version):
+                                Pull the image from Docker Hub:
                             </p>
                             <code style="block" lang="shell" prompt="$">docker pull jetbrains/%linter-shell%
                             </code>
@@ -58,8 +58,8 @@
                                 &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
                             </code>
                             <p>
-                                where <code>source-directory</code> and <code>output-directory</code> are full local paths to,
-                                respectively, the project source code directory and the analysis results directory. The
+                                where <code>source-directory</code> and <code>output-directory</code> are full local paths
+                                to the project source code directory and the analysis results directory, respectively. The
                                 <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
                                 required by the
                                 <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
@@ -77,39 +77,15 @@
 
         <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
 
-                        <p>Use the following command as a task in a generic Shell executor:</p>
-                        <code style="block" lang="shell" prompt="$">
-                            docker run \
-                            &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-                            &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
-                            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
-                        </code>
-                        <p>where <code>source-directory</code> and <code>output-directory</code> are full paths to, respectively,
-                            the project source code directory and the <a href="qodana-inspection-output.md" anchor="Basic+output">analysis
-                                results directory</a>. The <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
-                            required by the
-                            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
-                        </p>
-                        <p>Consider using the <a href="quality-gate.xml"/> feature to make the build fail when a certain number
-                            of problems is reached and the <a href="baseline.xml"/> feature to compare each new %linter%
-                            run to some initial run selected as a <emphasis>baseline</emphasis>.
-                            <a anchor="docker-config-reference-docker-environment-run-non-root" href="docker-image-configuration.xml">Running as non-root</a> is also supported.
-                        </p>
-                        <tip>
-                            <p>
-                                For details on available CI integrations, see <a href="ci.md"/>.
-                            </p>
-                        </tip>
-        </chapter>
+        <tip>To learn more how to run %linter% in your CI pipelines, see the <a href="ci.md"/> section.</tip>
 
             <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis in GitHub">
 
                 <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
 
-                <p>In GitHub, %product% is implemented as the <code>Qodana Scan</code> GitHub Action.To configure the
-                    <code>Qodana Scan</code> GitHub Action, save the <code>.github/workflows/code_quality.yml</code> file
-                    containing the workflow configuration:</p>
+                <p>In GitHub, %product% is implemented as the
+                    <a href="https://github.com/marketplace/actions/qodana-scan"><code>Qodana Scan</code></a> GitHub action.
+                    To configure it, save the <code>.github/workflows/code_quality.yml</code> file containing the workflow configuration:</p>
 
                 <code style="block" lang="yaml">
                     name: Qodana
@@ -160,17 +136,18 @@
                     </step>
                 </procedure>
             </chapter>
+        </chapter>
 
     <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
         <p>
             %product% recognizes the <code>qodana.yaml</code> file for the analysis configuration,
             so that you don't need to pass any additional parameters. For %linter%, you can configure:</p>
         <list>
-            <li>Inspections using the <code>include</code> and <code>exclude</code> options, see the
-                <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options">YAML file</a> section for details</li>
+            <li>Inspections using the <code>include</code> and <code>exclude</code> options. See the
+                <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options">YAML file</a> section for details.</li>
             <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
-                option</li>
-            <li>Quality gate using the <a href="quality-gate.xml"><code>fail-threshold</code></a> option</li>
+                option.</li>
+            <li>Quality gate using the <a href="quality-gate.xml"><code>fail-threshold</code></a> option.</li>
         </list>
     </chapter>
 
@@ -178,8 +155,8 @@
         <p>
             According to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP user
             agreement</a>, we can use third-party services to analyze the usage of our features to further improve the
-            user experience. All data will be collected <a href="https://www.jetbrains.com/company/privacy.html">
-            anonymously</a>. You can disable statistics by using the <code>--no-statistics=true</code> CLI option.
+            user experience. All data is collected <a href="https://www.jetbrains.com/company/privacy.html">
+            anonymously</a>. To disable the statistics, use the <code>--no-statistics=true</code> CLI option.
         </p>
     </chapter>
 
