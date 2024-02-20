@@ -114,7 +114,7 @@ include:
 
 ## Set a quality gate
 
-<include from="quality-gate.topic" element-id="quality-gate-basics"/>
+See the [](quality-gate.topic) section for details.
 
 ## Override the default run scenario
 
