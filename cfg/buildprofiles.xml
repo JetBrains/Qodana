@@ -35,7 +35,7 @@
 	</build-profile>
 	<build-profile instance="qd_tc">
 		<variables>
-			<images-prefix-override>img/</images-prefix-override>
+<!--			<images-prefix-override>img/</images-prefix-override>-->
 		</variables>
 		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
 		<noindex-content-in-eap>false</noindex-content-in-eap>
@@ -43,7 +43,7 @@
 	</build-profile>
 	<build-profile product="qd_tc_cf">
 		<variables>
-			<images-prefix-override>img/</images-prefix-override>
+<!--			<images-prefix-override>img/</images-prefix-override>-->
 		</variables>
 		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
 		<noindex-content-in-eap>false</noindex-content-in-eap>
@@ -51,7 +51,7 @@
 	</build-profile>
 	<build-profile product="qd_tc_la">
 		<variables>
-			<images-prefix-override>img/</images-prefix-override>
+<!--			<images-prefix-override>img/</images-prefix-override>-->
 		</variables>
 		<noindex-content-in-deprecated>false</noindex-content-in-deprecated>
 		<noindex-content-in-eap>false</noindex-content-in-eap>
