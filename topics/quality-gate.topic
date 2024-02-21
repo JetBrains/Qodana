@@ -49,7 +49,6 @@
     </table>
 
     <chapter id="quality-gate-how-it-works" title="How it works">
-
         <p>%product% follows these rules:</p>
         <list>
             <li>Given the <a anchor="quality-gate-project-threshold">total number of project problems</a> of <emphasis>A</emphasis>, when finding <emphasis>A</emphasis> problems in the project, the run will succeed. When finding <emphasis>A+1</emphasis> problems, the run will fail.</li>
