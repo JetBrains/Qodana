@@ -8,6 +8,9 @@
 
     <var name="protectionrule" value="repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
+    <link-summary>Quality gates let you control your code quality and build software that
+        meets your quality expectations. If a quality gate condition fails, Qodana terminates. </link-summary>
+
     <p><emphasis>Quality gates</emphasis> are techniques that let you control your code quality and build software that
         meets your quality expectations. If a quality gate condition fails, %product% terminates using exit code 255,
         which makes a CI/CD workflow or pipeline fail. For example, if a quality gate for a project is set to 10 problems
@@ -64,12 +67,24 @@
         <p>You can configure a quality gate for the total number of project problems in all %product%
             <a href="linters.md">linters</a>.</p>
 
+        <note>
+            When running in the baseline mode, a threshold is calculated as the sum of new and absent problems.
+            Unchanged results are ignored.
+        </note>
+
+        <note>
+            CLI configurations override the settings saved in the
+            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.
+        </note>
+
         <tabs>
             <tab title="qodana.yaml">
-                <p>All linters except <a href="qodana-dotnet-community.md"/> support the
-                    <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration for total problems using the
+                <p>This is the basic <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration supported by all linters:</p>
+                <code-block lang="yaml">
+                    failThreshold: &lt;number&gt;
+                </code-block>
+                <p>Alternatively, all linters except <a href="qodana-dotnet-community.md"/> support the
                     <code>severityThresholds.any</code> option:</p>
-
                 <code-block lang="yaml">
                     failureConditions:
                     &nbsp;&nbsp;severityThresholds:
@@ -226,7 +241,7 @@
             failureConditions:
             &nbsp;&nbsp;severityThresholds:
             &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number&gt; # Total problems
-            &nbsp;&nbsp;&nbsp;&nbsp;critical: &lt;number&gt; # Critical severity
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: &lt;number&gt; # Critical and other severities
             &nbsp;&nbsp;&nbsp;&nbsp;high: &lt;number&gt;
             &nbsp;&nbsp;&nbsp;&nbsp;moderate: &lt;number&gt;
             &nbsp;&nbsp;&nbsp;&nbsp;low: &lt;number&gt;

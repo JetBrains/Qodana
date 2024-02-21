@@ -129,7 +129,8 @@
     <chapter id="faq-sarif-import" title="Can I import SARIF of another analysis tool to Qodana?" default-state="collapsed" collapsible="true">
         <p>Currently, it is not possible to display the results of external analysis tools in Qodana UI, though we are working on it.</p>
     </chapter>
-    <chapter id="faq-severities" title="Can I get more information about %product% report severities?">
+
+    <chapter id="faq-severities" title="Can I get more information about %product% report severities?" default-state="collapsed" collapsible="true">
 
         <p>This table shows the relation between the JetBrains IDE, SARIF, and %product% severities.</p>
 

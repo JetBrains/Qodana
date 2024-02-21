@@ -3,6 +3,8 @@
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
 
+<link-summary>Qodana runs are configured via the `qodana.yaml` configuration file contained in the root directory of your project.</link-summary>
+
 Qodana runs are configured via the `qodana.yaml` configuration file contained in the root directory of your project.
 Configuration settings of `qodana.yaml` override the default inspection profile settings and default configurations of Qodana linters.
 You can specify such overrides in the [HTML report](results.md),
@@ -114,7 +116,40 @@ include:
 
 ## Set a quality gate
 
-See the [](quality-gate.topic) section for details.
+You have several options to configure [quality gates](quality-gate.topic).
+
+First of all, you can add a fail threshold to control the total number of problems in a project, which is supported by
+all linters: 
+
+```yaml
+failThreshold: <number>
+```
+
+> When running in the baseline mode, a threshold is calculated as the sum of new and absent problems. Unchanged results are ignored.
+{style="note"}
+
+All linters except [](qodana-dotnet-community.md) let you use the following configuration: 
+
+```yaml
+failureConditions:
+  severityThresholds:
+    any: <number> # Total problems
+    critical: <number> # Critical and other severities
+    high: <number>
+    moderate: <number>
+    low: <number>
+    info: <number>
+  testCoverageThresholds:
+    fresh: <number> # Fresh code coverage
+    total: <number> # Total code coverage
+```
+
+In this configuration, exceeding just one setting limitation will make the build fail.
+
+The `severityThresholds:any` option lets you configure the total number of problems. Options like 
+`severityThresholds:critical` let you configure quality gates for each [problem severity](faq.topic#faq-severities).
+The `testCoverageThresholds:fresh` and `testCoverageThresholds:total` options let you configure the total and fresh code 
+coverage supported by [several linters](quality-gate.topic#quality-gate-code-coverage). 
 
 ## Override the default run scenario
 

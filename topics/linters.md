@@ -2,6 +2,9 @@
 
 <var name="image-version" value="2023.3"/>
 
+<link-summary>A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its 
+quality and can cause problems. Basically, each Qodana linter is associated with a specific programming language.</link-summary>
+
 A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its quality and 
 can cause problems. Basically, each Qodana linter is associated with a specific programming language and helps you:
 
