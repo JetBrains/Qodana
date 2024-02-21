@@ -45,18 +45,18 @@
                             <p>
                                 Pull the image from Docker Hub:
                             </p>
-                            <code style="block" lang="shell" prompt="$">docker pull jetbrains/%linter-shell%
-                            </code>
+                            <code-block lang="shell" prompt="$">docker pull jetbrains/%linter-shell%
+                            </code-block>
                         </step>
                         <step>
                             <p>Run the following command:</p>
-                            <code style="block" lang="shell" prompt="$">
+                            <code-block lang="shell" prompt="$">
                                 docker run \
                                 &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                                 &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                                 &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
-                            </code>
+                            </code-block>
                             <p>
                                 where <code>source-directory</code> and <code>output-directory</code> are full local paths
                                 to the project source code directory and the analysis results directory, respectively. The
@@ -77,9 +77,9 @@
 
         <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
 
-        <tip>To learn more how to run %linter% in your CI pipelines, see the <a href="ci.md"/> section.</tip>
+        <tip>To learn how to run %linter% in your CI pipelines, see the <a href="ci.md"/> section.</tip>
 
-            <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis in GitHub">
+            <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis on GitHub">
 
                 <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
 
@@ -87,7 +87,7 @@
                     <a href="https://github.com/marketplace/actions/qodana-scan"><code>Qodana Scan</code></a> GitHub action.
                     To configure it, save the <code>.github/workflows/code_quality.yml</code> file containing the workflow configuration:</p>
 
-                <code style="block" lang="yaml">
+                <code-block lang="yaml">
                     name: Qodana
                     on:
                     &nbsp;&nbsp;workflow_dispatch:
@@ -108,8 +108,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2023.3
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
-
-                </code>
+                </code-block>
 
                 <p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
                     repository.</p>
@@ -117,7 +116,7 @@
                 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
                     (reports issues that appeared only in that pull request).</note>
 
-                <p>To authorize in <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
+                <p>To authorize <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
 
                 <procedure>
                     <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and
@@ -125,14 +124,14 @@
                     <step><p>In a GitHub <a href="github.md" anchor="Basic+configuration">workflow</a>,
                         add this snippet to invoke the <code>Qodana Scan</code> action:</p>
 
-                        <code style="block" lang="yaml">
+                        <code-block lang="yaml">
                             - name: 'Qodana Scan'
                             &nbsp;&nbsp;uses: JetBrains/qodana-action@v2023.3
                             &nbsp;&nbsp;with:
                             &nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
                             &nbsp;&nbsp;env:
                             &nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-                        </code>
+                        </code-block>
                     </step>
                 </procedure>
             </chapter>

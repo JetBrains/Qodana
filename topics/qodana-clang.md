@@ -32,9 +32,11 @@ CLion.
 
 <tip>
 <p>You can learn more inspections using these links:</p>
-<a href="%clang-website%">Standard Clang-Tidy inspections</a>
-<a href="%clion-inspections-general%">CLion's Clang-Tidy inspections</a>
-<a href="%misra-inspections%">CLion's MISRA checks</a>
+<list>
+<li><a href="%clang-website%">Standard Clang-Tidy inspections</a></li>
+<li><a href="%clion-inspections-general%">CLion's Clang-Tidy inspections</a></li>
+<li><a href="%misra-inspections%">CLion's MISRA checks</a></li>
+</list>
 </tip>
 
 ## Supported features
