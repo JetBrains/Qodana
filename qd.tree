@@ -21,6 +21,7 @@
 				<toc-element topic="qodana-go.md"/>
 				<toc-element topic="qodana-dotnet.md"/>
 				<toc-element topic="qodana-dotnet-community.md"/>
+				<toc-element id="qodana-clang.md"/>
 			</toc-element>
 			<toc-element topic="code-inspections.topic"/>
 			<toc-element topic="project-token.md"/>
@@ -41,6 +42,7 @@
 			<toc-element topic="qodana-go-docker-readme.topic"/>
 			<toc-element topic="qodana-dotnet-docker-readme.topic"/>
 			<toc-element topic="qodana-cdnet-docker-readme.topic"/>
+			<toc-element topic="qodana-clang-docker-readme.topic"/>
 		</toc-element>
 		<toc-element topic="qodana_gradle_plugin.md"/>
 		<toc-element topic="service.md"/>
