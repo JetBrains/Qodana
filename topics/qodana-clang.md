@@ -80,19 +80,19 @@ inspections. Alternatively, you can configure inspections in the <code>.clang-ti
 <p>You can get the list of all available Clang-Tidy inspections using the following command:</p>
 <tabs group="clang-tidy-commands">
 <tab id="qodana-clang-full-linux" title="Linux" group-key="clang-linux">
-<code>clang-tidy -list-checks -checks="*"</code>
+<code-block>clang-tidy -list-checks -checks="*"</code-block>
 </tab>
 <tab id="qodana-clang-full-windows" title="Windows" group-key="clang-windows">
-<code>./clang-tidy.exe -list-checks -checks="*"</code>
+<code-block>./clang-tidy.exe -list-checks -checks="*"</code-block>
 </tab>
 </tabs>
 <p>To obtain the list of all inspections enabled in Clang-Tidy by default, you can run the following command:</p>
 <tabs group="clang-tidy-commands">
 <tab id="qodana-clang-enabled-linux" title="Linux" group-key="clang-linux">
-<code>clang-tidy -list-checks</code>
+<code-block>clang-tidy -list-checks</code-block>
 </tab>
 <tab id="qodana-clang-enabled-windows" title="Windows" group-key="clang-windows">
-<code>./clang-tidy.exe -list-checks</code>
+<code-block>./clang-tidy.exe -list-checks</code-block>
 </tab>
 </tabs>
 </tip>
@@ -102,18 +102,18 @@ inspections. Alternatively, you can configure inspections in the <code>.clang-ti
 and save it to the <code>build</code> directory under the project root.</p>
 <p>If you use CMake, you can also generate a compilation database by specifying the following 
 <a href="before-running-qodana.md"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:</p>
-<code style="block" lang="yaml">
+<code-block lang="yaml">
 bootstrap: mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
-</code>
+</code-block>
 </step>
 <step>
 <p>If your project requires specific packages not previously mentioned in the 
 <a href="%dockerfile%"><code>Dockerfile</code></a>, add the following <code>bootstrap</code> command to your 
 <code>qodana.yaml</code> file to install the required packages:</p>
-<code style="block" lang="yaml">
+<code-block lang="yaml">
 bootstrap: sudo apt-get update; sudo apt-get install -y &lt;list of required packages&gt; |
 &nbsp;&nbsp;rm -rf build;  mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
-</code>
+</code-block>
 </step>
 </procedure>
 
