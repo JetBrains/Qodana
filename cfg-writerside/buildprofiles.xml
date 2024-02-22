@@ -27,6 +27,7 @@
 		<og-twitter>@qodanaevolves</og-twitter>
 		<og-image>https://resources.jetbrains.com/storage/products/qodana/img/meta/preview.png</og-image>
 		<include-in-head>thirdparty/dpk-gtm-analytics.html</include-in-head>
+		<website-title>%instance% Documentation</website-title>
 	</variables>
 	<build-profile instance="qd">
 		<variables>
