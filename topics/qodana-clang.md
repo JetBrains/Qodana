@@ -20,24 +20,14 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 </note>
 
-%linter% lets you inspect C, C++, and Objective-C projects containing 
-[compilation databases](https://clang.llvm.org/docs/JSONCompilationDatabase.html). This linter is based on the
+%linter% lets you inspect C and C++ projects containing [compilation databases](https://clang.llvm.org/docs/JSONCompilationDatabase.html). This linter is based on the
 [Clang-Tidy](%clang-tidy%) linter and works on the AMD64 and ARM64 architectures.
 
-%linter% extends the existing Clang-Tidy inspections by supplying the `Clang-Tidy` and `MISRA checks` inspections provided by 
-CLion. 
+%linter% extends standard [Clang-Tidy](%clang-website%) inspections by supplying CLion's 
+[additional inspections](%clion-inspections-general%) and [`MISRA`](%misra-inspections%) checks. 
 
 %linter% is available under the Community, Ultimate, and Ultimate Plus licenses. However, the `Clang-Tidy` and
 `MISRA checks` inspections from CLion are available only under the Ultimate and Ultimate Plus licenses.
-
-<tip>
-<p>You can learn more about inspections using these links:</p>
-<list>
-<li><a href="%clang-website%">Standard Clang-Tidy inspections</a></li>
-<li><a href="%clion-inspections-general%">CLion's Clang-Tidy inspections</a></li>
-<li><a href="%misra-inspections%">CLion's MISRA checks</a></li>
-</list>
-</tip>
 
 ## Supported features
 
