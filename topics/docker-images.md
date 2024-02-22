@@ -1,5 +1,7 @@
 [//]: # (title: Qodana Docker images)
 
+<link-summary>Basically, names of Docker images are similar to the names of linters. </link-summary>
+
 Basically, names of Docker images are similar to the names of linters. The following Docker images are provided 
 for [Qodana linters](linters.md):
 

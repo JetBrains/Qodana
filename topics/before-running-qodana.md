@@ -1,5 +1,7 @@
 [//]: # (title: Prepare your project)
 
+<link-summary>You can prepare your project before running Qodana.</link-summary>
+
 When %instance% runs on your project, it tries to figure out the build system and project structure by itself. 
 If %instance% cannot figure out the project structure, it will run the inspections nevertheless, but some inspections may 
 report that they cannot find classes, packages, files or cannot resolve references. In these cases, %instance% needs a 

@@ -8,6 +8,8 @@
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
 
+<link-summary>Starting from version 2023.2, you can create and configure Qodana profiles using YAML. </link-summary>
+
 Starting from version 2023.2, you can create and configure %instance% profiles using YAML. %instance% also provides 
 several improvements related to profile configuration, such as:
 
@@ -61,6 +63,8 @@ This sample consists of several nodes:
 
 ## baseProfile
 
+<link-summary>This block lets you specify the profile that will serve as a basis for your profile configuration. </link-summary>
+
 The `baseProfile` block lets you specify the profile that will serve as a basis for your profile configuration. It
 can accept the following values: 
 
@@ -89,6 +93,8 @@ name: "Name of your profile"
 ```
 
 ## groups
+
+<link-summary>This block contains a list of user-defined groups for combining inspection categories and single inspections.</link-summary>
 
 The `groups` block is a list of user-defined groups. Here, you can combine inspection categories and
 single inspections, and then configure their usage in the [`inspections`](#inspections-group) block.
@@ -174,6 +180,8 @@ By default, %instance% uses severity levels inherited from the JetBrains IDEs sh
 
 ## inspections
 {id="inspections-group"}
+
+<link-summary>This block configures inspection runs, paths and scopes, severities, and others.</link-summary>
 
 Using `inspections`, you can:
 

@@ -349,6 +349,8 @@
 
     <chapter id="docker-config-reference-directories" title="Directories">
 
+        <link-summary>Override the default paths. </link-summary>
+
         <p>Using these options, you can override the paths described in the
             <a anchor="docker-config-reference-image-paths">Docker image paths</a> section.</p>
 

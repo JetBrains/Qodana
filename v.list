@@ -254,7 +254,7 @@
     <var type="string" name="project_view" value="Project view"/>
 
     <!--current product version-->
-    <var name="product-version" type="xpath" value=" $p1//ihp/product[@src=concat($p2,'.tree')]/@version"/>
+    <var name="product-version" type="xpath" value="2023.3"/>
 
     <var product="cl" name="cygwin_min_ver" value="2.8" type="string"/>
     <var product="cl" name="lldb_bundled_ver" value="6.0" type="string"/>

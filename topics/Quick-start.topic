@@ -70,6 +70,9 @@
 
     <chapter title="Run Qodana using CLI" id="quickstart-run-using-cli">
 
+        <link-summary>Qodana provides two options for local analysis of your code. Qodana CLI is the easiest option to
+            start. Alternatively, you can use a Docker command.</link-summary>
+
         <p>Qodana provides two options for local analysis of your code.
             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
             Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
@@ -204,6 +207,8 @@
     </chapter>
 
     <chapter title="Run Qodana on GitHub" id="quickstart-run-in-github">
+
+        <link-summary>You can configure Qodana in a few simple steps.</link-summary>
 
         <p>Here is the short video showing how you can configure and run %instance% in GitHub.</p>
 

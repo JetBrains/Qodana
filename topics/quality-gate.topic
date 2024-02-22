@@ -152,13 +152,13 @@
                             linters.</p>
                     </step>
                     <step>Set the fail threshold (number) for the Qodana Action <code>fail-threshold</code> option.</step>
-                    <step>Under your repository name, click <menupath>Settings</menupath>.</step>
-                    <step>On the left menu, click <menupath>Branches</menupath>.</step>
-                    <step>In the branch protection rules section, click <menupath>Add rule</menupath>.</step>
-                    <step>Add <code>main</code> to <menupath>Branch name pattern</menupath>.</step>
-                    <step>Select <menupath>Require status checks to pass before merging</menupath>.</step>
-                    <step>Search for the <menupath>Qodana</menupath> status check, then check it.</step>
-                    <step>Click <menupath>Create</menupath>.</step>
+                    <step>Under your repository name, click <ui-path>Settings</ui-path>.</step>
+                    <step>On the left menu, click <ui-path>Branches</ui-path>.</step>
+                    <step>In the branch protection rules section, click <ui-path>Add rule</ui-path>.</step>
+                    <step>Add <code>main</code> to <ui-path>Branch name pattern</ui-path>.</step>
+                    <step>Select <ui-path>Require status checks to pass before merging</ui-path>.</step>
+                    <step>Search for the <ui-path>Qodana</ui-path> status check, then check it.</step>
+                    <step>Click <ui-path>Create</ui-path>.</step>
                 </procedure>
             </tab>
             <tab title="Jenkins">

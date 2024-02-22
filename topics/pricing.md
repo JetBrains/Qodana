@@ -1,5 +1,8 @@
 [//]: # (title: Pricing Model)
 
+<link-summary>Qodana provides the Community, Ultimate, and Ultimate Plus licenses. Read more to study the differences 
+between them.</link-summary>
+
 Depending on your needs, you can choose a suitable license described in this table:
 
 | License       | Subscription conditions                                                                   | Description                                                                                                                                                                               |

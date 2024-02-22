@@ -151,11 +151,11 @@ docker run \
 <p>You can use the <a href="github.md">Qodana Scan</a> GitHub action for running %product% on GitHub as explained 
 in this procedure.</p>
 <procedure>
-<step>On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN_BACKEND</code> and
+<step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN_BACKEND</code> and
 <code>QODANA_TOKEN_FRONTEND</code> <a href="%github-secret%">encrypted secrets</a> and save the project tokens 
 <a anchor="Qodana+Cloud">generated</a> in Qodana Cloud as their values.
 </step>
-<step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
+<step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
 <code>.github/workflows/code_quality.yml</code> file.</step>
 <step>
 <p>Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>

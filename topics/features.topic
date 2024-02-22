@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Features" id="features">
 
+    <link-summary>Use Qodana features to enhance your code inspection workflow.</link-summary>
+
         <p>Using %instance%, you can significantly enhance your code inspection workflow. To better achieve your
            goals, you may want to start using several features that are available out of the box: </p>
 
