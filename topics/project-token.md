@@ -1,5 +1,7 @@
 [//]: # (title: Project tokens)
 
+<link-summary>A project token contains information that Qodana linters use for identification and verification. </link-summary>
+
 Generally available [paid linters](pricing.md#pricing-linters-licenses) require that you use the 
 `QODANA_TOKEN` variable to provide a [project token](cloud-projects.topic#cloud-manage-projects) while running %instance%, 
 for example: 

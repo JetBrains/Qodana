@@ -68,13 +68,8 @@
             <a href="linters.md">linters</a>.</p>
 
         <note>
-            When running in the baseline mode, a threshold is calculated as the sum of new and absent problems.
-            Unchanged results are ignored.
-        </note>
-
-        <note>
-            CLI configurations override the settings saved in the
-            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.
+            If you run %product% with the quality gate and the <a href="baseline.topic">baseline</a> features enabled, a
+            threshold will be calculated as the sum of new and absent problems. Unchanged results are ignored.
         </note>
 
         <tabs>

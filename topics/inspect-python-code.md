@@ -1,7 +1,9 @@
 [//]: # (title: Inspect Python code)
 
+<link-summary>A use case explaining how you can Qodana to inspect your Python code.</link-summary>
+
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
-<var name="docker-image" value="jetbrains/qodana-python&lt;-community&gt;:2023.2"/>
+<var name="docker-image" value="jetbrains/qodana-python&lt;-community&gt;:2023.3"/>
 
 To inspect your Python codebase, depending on your %product% [license](pricing.md), you can employ the following linters: 
 
@@ -21,9 +23,9 @@ Here is the list of technologies and features supported by both linters.
 | Supported technologies and features                                                                                                                                     | [](qodana-python.md) | [](qodana-python-community.md) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------------|
 | Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, shell scripts, MongoJS, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid | &#x2714;             | &#x2714;                       |
-| [](baseline.xml)                                                                                                                                                        | &#x2714;             | &#x2714;                       |
-| [](quality-gate.xml)                                                                                                                                                    | &#x2714;             | &#x2714;                       |
-| [](license-audit.xml)                                                                                                                                                   | &#x2714;             | &#x274c;                       |
+| [](baseline.topic)                                                                                                                                                      | &#x2714;             | &#x2714;                       |
+| [](quality-gate.topic)                                                                                                                                                  | &#x2714;             | &#x2714;                       |
+| [](license-audit.topic)                                                                                                                                                    | &#x2714;             | &#x274c;                       |
 | [](quick-fix.md)                                                                                                                                                        | &#x2714;             | &#x274c;                       |
 | [](vulnerability-checker.md)                                                                                                                                            | &#x2714;             | &#x274c;                       |
 
@@ -45,7 +47,8 @@ Here are several configuration snippets showing how you can inspect Python code.
 
 <tabs>
 <tab id="inspect-python-code-github" title="GitHub Actions">
-    <include src="lib_qd.xml" include-id="github-basic-configuration"/>
+<include from="lib_qd.topic" element-id="github-basic-configuration"/>
+
 </tab>
 <tab id="inspect-python-code-jenkins" title="Jenkins">
 
@@ -62,7 +65,7 @@ pipeline {
               -v "${WORKSPACE}":/data/project
               --entrypoint=""
               '''
-            image 'jetbrains/qodana-python<-community>:2023.3'
+            image '%docker-image%'
         }
     }
     stages {
@@ -82,7 +85,38 @@ the `qodana-token` [global credentials](%JenkinsCred%). The project token is req
 
 </tab>
 <tab id="inspect-python-code-local" title="Local run">
-<include src="lib_qd.xml" include-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/>
+<p>Qodana provides two options for local analysis of your code.
+    <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
+    Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
+<tabs>
+    <tab id="qodana-cli-tab" title="Qodana CLI">
+        <p>Assuming that you have already
+            <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installed</a> Qodana CLI on your
+            machine, you can run this command in the project root directory:</p>
+        <code-block prompt="$">
+            qodana scan \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               -l %docker-image%
+        </code-block>
+        <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
+    </tab>
+    <tab id="docker-image-tab" title="Docker image">
+        <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
+        <code-block lang="shell" prompt="$">
+            docker pull %docker-image%
+        </code-block>
+        <p>Start local analysis with <code>source-directory</code>
+            pointing to the root of your project and
+            <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
+        <code-block lang="shell" prompt="$">
+            docker run \
+               -v &lt;source-directory&gt;/:/data/project/ \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               %docker-image%
+        </code-block>
+    </tab>
+</tabs>
+
 </tab>
 </tabs>
 

@@ -2,6 +2,8 @@
 
 <var name="github-secret" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 
+<link-summary>A use case explaining how you can use Qodana for inspecting monorepo projects.</link-summary>
+
 A monorepo is a repository containing several projects, for example:
 
 ```text
@@ -69,14 +71,14 @@ This means that the project's qodana.yaml cannot affect the linter to be chosen.
 
 <tabs>
     <tab id="monorepo-yaml-backend-tab" title="The backend project">
-        <code style="block" lang="yaml">
+        <code-block lang="yaml">
             bootstrap: cp qodana-backend.yaml qodana.yaml            
-        </code>
+        </code-block>
     </tab>
     <tab id="monorepo-yaml-frontend-tab" title="The frontend project">
-        <code style="block" lang="yaml">
+        <code-block lang="yaml">
             bootstrap: cp qodana-frontend.yaml qodana.yaml
-        </code>
+        </code-block>
     </tab>
 </tabs>
 
@@ -98,7 +100,7 @@ root/
 ### Qodana Cloud
 
 You can view inspection reports using [Qodana Cloud](https://qodana.cloud). On the Qodana Cloud website, create one 
-[project](cloud-projects.xml) for storing inspection reports for the `frontend` project, and another one for the `backend` project. 
+[project](cloud-projects.topic) for storing inspection reports for the `frontend` project, and another one for the `backend` project. 
 
 After you create the projects, you can use their [project tokens](project-token.md).
 
@@ -111,39 +113,39 @@ images of %product% need to be run twice over the monorepo repository, once for 
 <tab id="monorepo-cli-tab" title="Qodana CLI">
 <note>You can only use %product% CLI with Azure and CircleCI.</note>
 <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
-The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project folder to inspect.
+The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project folder to inspect.
 Here is the snippet for the <code>backend</code> project:</p>
-<code style="block" lang="shell" prompt="$">
+<code-block lang="shell" prompt="$">
 qodana scan \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
 &nbsp;&nbsp;--source-directory backend
-</code>
+</code-block>
 <p>Here is the snippet for the <code>frontend</code> project:</p>
-<code style="block" lang="shell" prompt="$">
+<code-block lang="shell" prompt="$">
 qodana scan \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
 &nbsp;&nbsp;--source-directory frontend
-</code>
+</code-block>
 </tab>
 <tab id="monorepo-docker-image-tab" title="Docker">
 <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
-The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> 
+The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--source-directory</code></a> 
 option specifies which project directory to inspect. Here is the snippet for the <code>backend</code> project:</p>
-<code style="block" lang="shell" prompt="$">
+<code-block lang="shell" prompt="$">
 docker run \ 
 &nbsp;&nbsp;-v "$PWD":/data/project/ \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
 &nbsp;&nbsp;jetbrains/qodana-jvm:latest \
 &nbsp;&nbsp;--source-directory backend
-</code>
+</code-block>
 <p>Here is the snippet for the <code>frontend</code> project:</p>
-<code style="block" lang="shell" prompt="$">
+<code-block lang="shell" prompt="$">
 docker run \ 
 &nbsp;&nbsp;-v "$PWD":/data/project/ \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
 &nbsp;&nbsp;jetbrains/qodana-js:latest \
 &nbsp;&nbsp;--source-directory frontend
-</code>
+</code-block>
 </tab>
 <tab id="monorepo-github-tab" title="GitHub Actions">
 <p>You can use the <a href="github.md">Qodana Scan</a> GitHub action for running %product% on GitHub as explained 

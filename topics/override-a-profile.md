@@ -3,6 +3,8 @@
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
 
+<link-summary>A use case explaining how you can configure Qodana for various tasks.</link-summary>
+
 %product% inspection profiles configure the inspections that you are going to use. If you enable too few inspections, you may 
 miss critical problems, which will affect your project overall. On the other hand, enabling too many inspections 
 can negatively affect inspection performance and can result in using inspections that are irrelevant to your project. 
@@ -18,17 +20,17 @@ taken from the [](custom-profiles.md) section.
       <p>In your project root, create the YAML-formatted file. Save the following configuration, which 
     will contain the <a href="custom-profiles.md" anchor="name"/> and <a href="custom-profiles.md" anchor="baseProfile"/> 
 blocks for naming your %product% profile and overriding the <code>qodana.recommended</code> profile:</p>
-      <code style="block" lang="yaml">
+      <code-block lang="yaml">
       name: "Configuring Qodana" # Paste the name of your profile
       baseProfile: qodana.recommended # Override qodana.recommended
-      </code>
+      </code-block>
    </step>
    <step>
       <p>In the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file, provide the path to the file configured in the previous step:</p> 
-      <code style="block" lang="yaml">
+      <code-block lang="yaml">
       profile:
          path: &lt;relative-path-to-yaml-config-file&gt;
-      </code>
+      </code-block>
    </step>
 </procedure>
 
@@ -87,4 +89,4 @@ inspections:
 You can visit the [](custom-profiles.md) section to learn more about advanced configuration techniques, more configuration examples, 
 and creating configurations from scratch.
 
-Once you have configured %product%, you can run it using the recommendations from the [](Quick-start.xml) section.
+Once you have configured %product%, you can run it using the recommendations from the [](Quick-start.topic) section.

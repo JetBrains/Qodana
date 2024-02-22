@@ -18,10 +18,8 @@ Alternatively, you can edit the `qodana.yaml` configuration file manually.
 This section will guide you through the necessary settings.
 
 <note>
-
-Configuration through `qodana.yaml` is only supported by Qodana.
+Configuration through <code>qodana.yaml</code> is only supported by Qodana.
 It is not supported by any other JetBrains products like IntelliJ IDEA or PhpStorm.
-
 </note>
 
 <warning>
