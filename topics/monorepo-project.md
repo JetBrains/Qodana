@@ -1,5 +1,7 @@
 [//]: # (title: Inspect a monorepo project)
 
+<var name="github-secret" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+
 A monorepo is a repository containing several projects, for example:
 
 ```text
@@ -14,8 +16,11 @@ the `backend/` folder contains a Java project,
 the `frontend/` folder contains a JavaScript project,
 and the `.git/` folder contains VCS-related information.
 
-This section explains how to prepare the projects from this example monorepo so that %instance% can inspect them using
-either the [Docker images](docker-images.md) or the [Qodana Scan GitHub Action](github.md).
+This section explains how to prepare and inspect a monorepo using:
+
+* [Qodana CLI](https://github.com/JetBrains/qodana-cli)
+* [Docker images](docker-images.md) of %product%
+* The [Qodana Scan](github.md) GitHub action
 
 ## Prepare your project
 
@@ -39,15 +44,15 @@ The alternative is to place each `qodana.yaml` in its own project directory,
 which reverses the above advantages and disadvantages.
 -->
 
-%instance% provides several [linters](linters.md), and each linter can inspect a specific set of programming languages.
-Because there is no linter that can inspect Java and JavaScript at the same time, %instance% needs to be run twice over
-the repository, once for each project.
+### The qodana.yaml file
 
-To configure %instance% for inspecting two projects, you need to create two separate [`qodana.yaml`](qodana-yaml.md) 
-files. %instance% also expects `qodana.yaml` to be contained in the root folder. This means that before 
-running %instance% on the project from the `backend/` folder, that project's `qodana.yaml` file needs to be copied to 
-the root folder. If you run %instance% using [Docker](#Docker), you can copy files using the 
-[`bootstrap`](before-running-qodana.md) configuration option in `qodana.yaml`, for example:
+To configure %product% for inspecting two projects, you need to create two separate [`qodana.yaml`](qodana-yaml.md) 
+files. %product% also expects `qodana.yaml` to be contained in the root folder of the monorepo project. This means that 
+before running %product% on the project from the `backend/` folder, that project's `qodana.yaml` file needs to be 
+copied to both the root folder and the `frontend/` folder. If you plan to run %product% using [Docker](#Run+Qodana), you can copy 
+files using the [`bootstrap`](before-running-qodana.md) configuration option in `qodana.yaml`, for example:
+
+
 
 <!--
 Implementation note: qodana.yaml is read by several programs:
@@ -61,19 +66,22 @@ This means that the project's qodana.yaml cannot affect the linter to be chosen.
 * In the case of Qodana CLI, the project-specific `qodana.yaml` needs to be copied
   to the root folder before running `qodana scan`.
 -->
-```yaml
-bootstrap: cp qodana-backend.yaml qodana.yaml
-```
 
-When %instance% runs, it uses the `.git/` folder for linking detected problems to the corresponding
+<tabs>
+    <tab id="monorepo-yaml-backend-tab" title="The backend project">
+        <code style="block" lang="yaml">
+            bootstrap: cp qodana-backend.yaml qodana.yaml            
+        </code>
+    </tab>
+    <tab id="monorepo-yaml-frontend-tab" title="The frontend project">
+        <code style="block" lang="yaml">
+            bootstrap: cp qodana-frontend.yaml qodana.yaml
+        </code>
+    </tab>
+</tabs>
+
+When %product% runs, it uses the `.git/` folder for linking detected problems to the corresponding
 source code in a Git repository, and for exploring inspection reports [from within your IDE](qodana-ide-plugin.md).
-<!--
-TODO: Clarify whether the "from within your IDE" part really depends on `.git/`
-or rather on the path that is mounted to `/data/project`.
--->
-
-The `qodana-backend.sarif.json` and `qodana-frontend.sarif.json` files can contain [baseline](baseline.topic)
-data for the `backend` and `frontend` projects.
 
 Here are the contents of the `root/` folder: 
 
@@ -84,61 +92,71 @@ root/
     frontend/
     .git/
     qodana-backend.yaml
-    qodana-backend.sarif.json
     qodana-frontend.yaml
-    qodana-frontend.sarif.json
 ```
+
+### Qodana Cloud
+
+You can view inspection reports using [Qodana Cloud](https://qodana.cloud). On the Qodana Cloud website, create one 
+[project](cloud-projects.xml) for storing inspection reports for the `frontend` project, and another one for the `backend` project. 
+
+After you create the projects, you can use their [project tokens](project-token.md).
 
 ## Run Qodana
 
-After [preparing the project](#Prepare+your+project), you can inspect your code using Docker or 
-GitHub Actions.
-
-### Docker
-
-You can inspect your monorepo in the `root/` folder using either [Docker](docker-images.md) or 
-[%instance% CLI](https://github.com/JetBrains/qodana-cli).
-
-<note>You can use %instance% CLI only with Azure and CircleCI.</note>
+Because each %product% [linter](linters.md) can inspect a specific set of programming languages, Qodana CLI and Docker 
+images of %product% need to be run twice over the monorepo repository, once for each project contained in it.
 
 <tabs>
-    <tab id="monorepo-docker-image-tab" title="Docker">
-        <code-block lang="shell" prompt="$">
-            docker run --rm \ 
-              -v "$PWD":/data/project/ \
-              jetbrains/qodana-jvm:latest-eap \
-              --source-directory backend \
-              --baseline qodana-backend.sarif.json
-        </code-block>
-        <code-block lang="shell" prompt="$">
-            docker run --rm \ 
-              -v "$PWD":/data/project/ \
-              jetbrains/qodana-js:latest-eap \
-              --source-directory frontend \
-              --baseline qodana-frontend.sarif.json
-        </code-block>
-    </tab>
-    <tab id="monorepo-cli-tab" title="Qodana CLI">
-        <code-block lang="shell" prompt="$">
-            qodana scan \
-              --linter jetbrains/qodana-jvm:latest-eap \
-              --source-directory backend \
-              --baseline qodana-backend.sarif.json
-        </code-block>
-        <code-block lang="shell" prompt="$">
-            qodana scan \
-              --linter jetbrains/qodana-js:latest-eap \
-              --source-directory frontend \
-              --baseline qodana-frontend.sarif.json
-        </code-block>
-    </tab>
-
-</tabs>
-
-### GitHub Actions
-
-You can use the [Qodana Scan](github.md) GitHub action for running %instance% on GitHub. Here is the GitHub action
-configuration for inspecting the monorepo:
+<tab id="monorepo-cli-tab" title="Qodana CLI">
+<note>You can only use %product% CLI with Azure and CircleCI.</note>
+<p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
+The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project folder to inspect.
+Here is the snippet for the <code>backend</code> project:</p>
+<code style="block" lang="shell" prompt="$">
+qodana scan \
+&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
+&nbsp;&nbsp;--source-directory backend
+</code>
+<p>Here is the snippet for the <code>frontend</code> project:</p>
+<code style="block" lang="shell" prompt="$">
+qodana scan \
+&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
+&nbsp;&nbsp;--source-directory frontend
+</code>
+</tab>
+<tab id="monorepo-docker-image-tab" title="Docker">
+<p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
+The <a href="docker-image-configuration.xml" anchor="docker-config-reference-directories"><code>--source-directory</code></a> 
+option specifies which project directory to inspect. Here is the snippet for the <code>backend</code> project:</p>
+<code style="block" lang="shell" prompt="$">
+docker run \ 
+&nbsp;&nbsp;-v "$PWD":/data/project/ \
+&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
+&nbsp;&nbsp;jetbrains/qodana-jvm:latest \
+&nbsp;&nbsp;--source-directory backend
+</code>
+<p>Here is the snippet for the <code>frontend</code> project:</p>
+<code style="block" lang="shell" prompt="$">
+docker run \ 
+&nbsp;&nbsp;-v "$PWD":/data/project/ \
+&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
+&nbsp;&nbsp;jetbrains/qodana-js:latest \
+&nbsp;&nbsp;--source-directory frontend
+</code>
+</tab>
+<tab id="monorepo-github-tab" title="GitHub Actions">
+<p>You can use the <a href="github.md">Qodana Scan</a> GitHub action for running %product% on GitHub as explained 
+in this procedure.</p>
+<procedure>
+<step>On the <menupath>Settings</menupath> tab of the GitHub UI, create the <code>QODANA_TOKEN_BACKEND</code> and
+<code>QODANA_TOKEN_FRONTEND</code> <a href="%github-secret%">encrypted secrets</a> and save the project tokens 
+<a anchor="Qodana+Cloud">generated</a> in Qodana Cloud as their values.
+</step>
+<step>On the <menupath>Actions</menupath> tab of the GitHub UI, set up a new workflow and create the
+<code>.github/workflows/code_quality.yml</code> file.</step>
+<step>
+<p>Save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
 
 ```yaml
 name: Qodana
@@ -154,15 +172,15 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Use qodana-backend config'
-        run: cp qodana-backend.yaml qodana.yaml
-
+        run: cp ./qodana-backend.yaml ./qodana.yaml
       - name: 'Qodana Backend'
         uses: JetBrains/qodana-action@v2023.3
         with:
           args: |
             --source-directory,backend,
-            --baseline,qodana-backend.sarif.json
           artifact-name: qodana-backend
+        env:
+            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_BACKEND }}
   qodana-frontend:
     runs-on: ubuntu-latest
     steps:
@@ -170,18 +188,22 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Use qodana-frontend config'
-        run: cp qodana-frontend.yaml qodana.yaml
-
+        run: cp ./qodana-frontend.yaml ./qodana.yaml
       - name: 'Qodana Frontend'
         uses: JetBrains/qodana-action@v2023.3
         with:
           args: |
             --source-directory,frontend,
-            --baseline,qodana-frontend.sarif.json
           artifact-name: qodana-frontend
+        env:
+            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_FRONTEND }}
 ```
+</step>
+</procedure>
+</tab>
+</tabs>
 
+## View inspection results
 
-
-
-
+Congratulations, now you can navigate to [Qodana Cloud](https://qodana.cloud) and study the inspection results for each project 
+inside your monorepo project!

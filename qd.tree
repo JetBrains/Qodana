@@ -27,6 +27,12 @@
 			<toc-element topic="contributors.md"/>
 		</toc-element>
 	</toc-element>
+	<!-- Use cases section -->
+	<toc-element toc-title="Use cases">
+		<toc-element toc-title="monorepo-project.md"/>
+		<toc-element toc-title="override-a-profile.md"/>
+		<toc-element toc-title="inspect-python-code.md"/>
+	</toc-element>
 	<!-- Deployment section -->
 	<toc-element toc-title="Deployment" topic="deploy-qodana.topic">
 		<toc-element topic="native-mode.md"/>
@@ -62,7 +68,6 @@
 	<!-- Inspect your code section -->
 	<toc-element toc-title="Code inspection" topic="inspect-your-code.topic">
 		<toc-element topic="before-running-qodana.md"/>
-		<toc-element topic="monorepo-project.md"/>
 		<toc-element topic="results.md">
 			<toc-element topic="ui-overview.md"/>
 			<toc-element accepts-web-file-names="output.html,qodana-output.html,qodana-intellij-output.html" topic="qodana-inspection-output.md">
