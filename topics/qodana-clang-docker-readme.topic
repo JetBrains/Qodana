@@ -24,9 +24,9 @@
         scenarios:
     </p>
     <list>
-        <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
+        <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>).
         </li>
-        <li>Single-shot analysis (for example, performed <i>locally</i>)
+        <li>Single-shot analysis (for example, performed <i>locally</i>).
         </li>
     </list>
 

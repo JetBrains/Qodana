@@ -31,7 +31,7 @@ CLion.
 `MISRA checks` inspections from CLion are available only under the Ultimate and Ultimate Plus licenses.
 
 <tip>
-<p>You can learn more inspections using these links:</p>
+<p>You can learn more about inspections using these links:</p>
 <list>
 <li><a href="%clang-website%">Standard Clang-Tidy inspections</a></li>
 <li><a href="%clion-inspections-general%">CLion's Clang-Tidy inspections</a></li>
@@ -63,8 +63,8 @@ The %linter% linter provides the following %product% features:
 The Docker image of %linter% employs Clang 16.0.0 and LLVM 16. You can see the 
 [`Dockerfile`](%dockerfile%) for the detailed description of all software employed by the linter.  
 
-The linter searches for the compilation database file contained in the `build/compile_commands.json` file of the 
-project directory and reads this file, inspects the project, generates inspection reports, and saves them locally or 
+The linter searches for the compilation database file, `build/compile_commands.json`, in the build directory under the 
+project root, reads this file, inspects the project, generates inspection reports, and saves them locally or 
 uploads to Qodana Cloud.
 
 ## Prepare the project
@@ -100,7 +100,7 @@ inspections. Alternatively, you can configure inspections in the <code>.clang-ti
 </tip>
 </step>
 <step>
-<p>Generate the <code>compile_commands.json</code> file as explained in the <a href="%compdb-generate%">CLion documentation portal</a>, 
+<p>Generate the <code>compile_commands.json</code> file, as explained in the <a href="%compdb-generate%">CLion documentation portal</a>, 
 and save it to the <code>build</code> directory under the project root.</p>
 <p>If you use CMake, you can also generate a compilation database by specifying the following 
 <a href="before-running-qodana.md"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:</p>
@@ -137,8 +137,8 @@ In this command, the `QODANA_TOKEN` variable refers to the [project token](proje
 to Qodana Cloud. If you omit the `QODANA_TOKEN` variable, the inspection results will be available in the 
 `qodana.sarif.json` saved in the `/results` directory of your project root. 
 
-To override the location of a compilation command database, you can specify the location for the 
-`compile_commands.json` file relatively to the project root, so the Docker command will look like:
+You can also set a custom location for the compilation database file. For this, specify the path relative to the 
+project root in the Docker command:
 
 ```shell
 docker run \
