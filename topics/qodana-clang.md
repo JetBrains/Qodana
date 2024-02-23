@@ -14,20 +14,20 @@
 <var name="compdb-generate" value="https://www.jetbrains.com/help/clion/compilation-database.html#compdb_generate"/>
 
 <note>
-%linter% is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
-Any use of the EAP product is at your own risk. Your feedback is very welcome in our 
-<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
+%linter% is currently in early access, which means it may be unreliable, not work as intended, and contain errors.
+Any use of EAP products is entirely at your own risk. We welcome your feedback and encourage you to post it to our 
+<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or email it to us at
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 </note>
 
-%linter% lets you inspect C and C++ projects containing [compilation databases](https://clang.llvm.org/docs/JSONCompilationDatabase.html). This linter is based on the
-[Clang-Tidy](%clang-tidy%) linter and works on the AMD64 and ARM64 architectures.
+%linter% lets you inspect C and C++ projects containing [compilation databases](https://clang.llvm.org/docs/JSONCompilationDatabase.html). Based on the [Clang-Tidy](%clang-tidy%) 
+linter, this linter operates on the AMD64 and ARM64 architectures.
 
 %linter% extends standard [Clang-Tidy](%clang-website%) inspections by supplying CLion's 
 [additional inspections](%clion-inspections-general%) and [`MISRA`](%misra-inspections%) checks. 
 
-%linter% is available under the Community, Ultimate, and Ultimate Plus licenses. However, the `Clang-Tidy` and
-`MISRA checks` inspections from CLion are available only under the Ultimate and Ultimate Plus licenses.
+%linter% is open to users with Community, Ultimate, and Ultimate Plus subscriptions. However, the additional inspections 
+and `MISRA` checks provided by CLion are only available to Ultimate and Ultimate Plus license holders.
 
 ## Supported features
 
@@ -36,15 +36,15 @@ The %linter% linter provides the following %product% features:
 <table>
     <tr>
         <td>Feature</td>
-        <td>Available under licenses</td>
+        <td>Available with the license types</td>
     </tr>
     <tr>
         <td><a href="baseline.topic"/></td>
-        <td>Community, Ultimate and Ultimate Plus</td>
+        <td>Community, Ultimate, and Ultimate Plus</td>
     </tr>
     <tr>
         <td><a href="quality-gate.topic"/></td>
-        <td>Community, Ultimate and Ultimate Plus</td>
+        <td>Community, Ultimate, and Ultimate Plus</td>
     </tr>
 </table>
 
@@ -66,10 +66,11 @@ uploads to Qodana Cloud.
 <step>
 <p>Open the <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options"><code>qodana.yaml</code></a> file 
 and use the <code>include</code> and <code>exclude</code> configuration options to configure the list of 
-inspections. Alternatively, you can configure inspections in the <code>.clang-tidy</code> file, see the configuration example on the
-<a href="%clang-config%">GitHub</a> website. After configuring, save this file under the project root.</p>
+inspections. Alternatively, you can configure inspections in the <code>.clang-tidy</code> file - see the configuration 
+example on the <a href="%clang-config%">GitHub website</a> for more details. After configuring your inspections, save 
+this file to the project root.</p>
 <tip>
-<p>You can get the list of all available Clang-Tidy inspections using the following command:</p>
+<p>For the full list of available Clang-Tidy inspections, use this command:</p>
 <tabs group="clang-tidy-commands">
 <tab id="qodana-clang-full-linux" title="Linux" group-key="clang-linux">
 <code-block>clang-tidy -list-checks -checks="*"</code-block>
@@ -78,7 +79,7 @@ inspections. Alternatively, you can configure inspections in the <code>.clang-ti
 <code-block>./clang-tidy.exe -list-checks -checks="*"</code-block>
 </tab>
 </tabs>
-<p>To obtain the list of all inspections enabled in Clang-Tidy by default, you can run the following command:</p>
+<p>To see a list of all the inspections that are enabled in Clang-Tidy by default, run this command:</p>
 <tabs group="clang-tidy-commands">
 <tab id="qodana-clang-enabled-linux" title="Linux" group-key="clang-linux">
 <code-block>clang-tidy -list-checks</code-block>
@@ -91,16 +92,16 @@ inspections. Alternatively, you can configure inspections in the <code>.clang-ti
 </step>
 <step>
 <p>Generate the <code>compile_commands.json</code> file, as explained in the <a href="%compdb-generate%">CLion documentation portal</a>, 
-and save it to the <code>build</code> directory under the project root.</p>
+and save it to the <code>build</code> directory of the project root.</p>
 <p>If you use CMake, you can also generate a compilation database by specifying the following 
-<a href="before-running-qodana.md"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:</p>
+<a href="before-running-qodana.md"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file as follows:</p>
 <code-block lang="yaml">
 bootstrap: mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
 </code-block>
 </step>
 <step>
-<p>If your project requires specific packages not previously mentioned in the 
-<a href="%dockerfile%"><code>Dockerfile</code></a>, add the following <code>bootstrap</code> command to your 
+<p>If your project requires specific packages not mentioned in the <a href="%dockerfile%"><code>Dockerfile</code></a>, 
+then you can use the following <code>bootstrap</code> command in the your 
 <code>qodana.yaml</code> file to install the required packages:</p>
 <code-block lang="yaml">
 bootstrap: sudo apt-get update; sudo apt-get install -y &lt;list of required packages&gt; |
@@ -125,7 +126,7 @@ The linter will read the `build/compile_commands.json` file and run the Clang-Ti
 
 In this command, the `QODANA_TOKEN` variable refers to the [project token](project-token.md) that lets you upload inspection results
 to Qodana Cloud. If you omit the `QODANA_TOKEN` variable, the inspection results will be available in the 
-`qodana.sarif.json` saved in the `/results` directory of your project root. 
+`qodana.sarif.json` that is saved in the `/results` directory of your project root. 
 
 You can also set a custom location for the compilation database file. For this, specify the path relative to the 
 project root in the Docker command:

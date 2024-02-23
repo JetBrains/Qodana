@@ -24,9 +24,9 @@
         scenarios:
     </p>
     <list>
-        <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>).
+        <li>Running the analysis on a regular basis as part of your continuous integration efforts (CI-based execution).
         </li>
-        <li>Single-shot analysis (for example, performed <i>locally</i>).
+        <li>Single-shot analysis (performed locally, for instance).
         </li>
     </list>
 
@@ -67,11 +67,11 @@
                         </step>
                     </procedure>
                     <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
-                        necessary results</a>. You can further tune the command as described in the <a
+                        necessary results</a>. You can then fine-tune the command further as described in the <a
                             href="docker-image-configuration.topic">technical guide</a>.
                     </p>
-                    <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
-                        using it in <code>docker run</code> again.
+                    <p>If you run the analysis several times in a row, make sure you clean the results directory before
+                        using it in <code>docker run</code> once again.
                     </p>
         </chapter>
 
@@ -79,13 +79,14 @@
 
         <tip>To learn how to run %linter% in your CI pipelines, see the <a href="ci.md"/> section.</tip>
 
-            <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis on GitHub">
+            <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis in GitHub">
 
                 <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
 
                 <p>In GitHub, %product% is implemented as the
                     <a href="https://github.com/marketplace/actions/qodana-scan"><code>Qodana Scan</code></a> GitHub action.
-                    To configure it, save the <code>.github/workflows/code_quality.yml</code> file containing the workflow configuration:</p>
+                    To configure it, save the <code>.github/workflows/code_quality.yml</code> file containing the
+                    following workflow configuration:</p>
 
                 <code-block lang="yaml">
                     name: Qodana
@@ -113,7 +114,7 @@
                 <p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
                     repository.</p>
 
-                <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
+                <note><code>fetch-depth: 0</code> is required for checkout when Qodana is working in pull request mode
                     (reports issues that appeared only in that pull request).</note>
 
                 <p>To authorize <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
@@ -139,14 +140,14 @@
 
     <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
         <p>
-            %product% recognizes the <code>qodana.yaml</code> file for the analysis configuration,
-            so that you don't need to pass any additional parameters. For %linter%, you can configure:</p>
+            %product% reads configuration settings from the <code>qodana.yaml</code> file,
+            so you don't need to pass any additional parameters. For %linter%, you can configure:</p>
         <list>
             <li>Inspections using the <code>include</code> and <code>exclude</code> options. See the
                 <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options">YAML file</a> section for details.</li>
             <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
                 option.</li>
-            <li>Quality gate using the <a href="quality-gate.topic"><code>fail-threshold</code></a> option.</li>
+            <li>Quality gates using the <a href="quality-gate.topic"><code>fail-threshold</code></a> option.</li>
         </list>
     </chapter>
 
