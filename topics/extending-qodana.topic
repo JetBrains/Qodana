@@ -6,6 +6,10 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Extending Qodana" id="extending-qodana">
 
+    <link-summary>Apart from the available solutions, it may be useful to analyze your codebase using
+        third-party inspection tools that are not covered by standard Qodana packages, and you can learn how to extend
+        Qodana.</link-summary>
+
     <p>Basically, %instance% provides several <a href="linters.md">linters</a> supporting a variety of
         technologies, and <a href="qodana-yaml.md">inspection profiles</a> let you additionally customize each linter to
         fit your needs using the default inspection base. Still, it may be useful to analyze your codebase using

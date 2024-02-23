@@ -1,5 +1,7 @@
 [//]: # (title: TeamCity)
 
+<link-summary>Starting from version 2022.04, Qodana functionality is available in TeamCity by default.</link-summary>
+
 <var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
 
 Starting from `2022.04`, Qodana functionality is available in TeamCity by default. To start using it, these prerequisites

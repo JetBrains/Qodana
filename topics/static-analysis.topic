@@ -6,6 +6,10 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Static analysis" id="static-analysis">
 
+    <link-summary>Qodana implements the static analysis mechanism to automatically analyze your codebase without your participation.
+        This means that you just run Qodana to inspect your code and expect recommendations on how you could improve
+        your codebase.</link-summary>
+
     <p>%instance% implements the static analysis mechanism to automatically analyze your codebase without your participation.
         This means that you just run %instance% to inspect your code and expect recommendations on how you could improve
         your codebase. No other actions like running additional scripts, downloading external libraries, or any

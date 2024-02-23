@@ -1,5 +1,7 @@
 [//]: # (title: Quick start)
 
+<link-summary>Learn how you can start using Qodana Cloud.</link-summary>
+
 To start using Qodana Cloud, navigate to the [Qodana Cloud website](https://qodana.cloud) and 
 [create your account](cloud-get-access.topic).
 

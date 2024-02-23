@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Report overview" id="cloud-overview-reports">
 
+    <link-summary>Learn how Qodana Cloud aggregates and displays information from project reports.</link-summary>
+
     <p>Information from project reports is aggregated and displayed in several sections marked on this image.</p>
 
     <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report overview" width="706" border-effect="line" title="Qodana Cloud report sample"/>

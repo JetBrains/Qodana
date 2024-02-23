@@ -1,5 +1,7 @@
 [//]: # (title: Onboarding)
 
+<link-summary>Onboarding is an essential step in preparing Qodana for working with your project.</link-summary>
+
 Onboarding is an essential step in preparing %instance% for working with your project, which lets you: 
 
 - Connect your project repository to Qodana Cloud

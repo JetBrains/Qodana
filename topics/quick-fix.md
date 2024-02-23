@@ -13,6 +13,8 @@ trial versions:
 
 ## How it works
 
+<link-summary>Learn about available quick-fix strategies and running Qodana with the quick-fix feature enabled.</link-summary>
+
 You can choose between several quick-fix strategies mentioned in this table. 
 
 <table>

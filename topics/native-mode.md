@@ -1,5 +1,7 @@
 [//]: # (title: Native mode)
 
+<link-summary>The Qodana for .NET linter supports the native mode, which lets you run this linter without Docker.</link-summary>
+
 By default, %instance% runs its linters using Docker based on Linux images. 
 In specific cases, you have to deal with private packages or run %instance% on the operating systems that
 provide incomplete support for Docker. 

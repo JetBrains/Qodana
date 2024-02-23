@@ -349,7 +349,7 @@
 
     <chapter id="docker-config-reference-directories" title="Directories">
 
-        <link-summary>Override the default paths. </link-summary>
+        <link-summary>Learn available CLI options for overriding default paths. </link-summary>
 
         <p>Using these options, you can override the paths described in the
             <a anchor="docker-config-reference-image-paths">Docker image paths</a> section.</p>
@@ -423,6 +423,10 @@
         </chapter>
 
         <chapter id="docker-config-reference-cache-dependencies" title="Cache dependencies">
+
+            <link-summary>You can improve Qodana performance by persisting cache between runs. For example, package and
+                dependency management tools such as Maven, Gradle, npm, Yarn, and NuGet keep a local cache of
+                downloaded dependencies.</link-summary>
 
             <tip><p><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> automatically manages cache and requires no action.</p>
             <p>After the first run, Qodana CLI stores cache in the <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/cache</code>

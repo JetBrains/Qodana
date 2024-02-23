@@ -1,5 +1,7 @@
 [//]: # (title: Configure the JDK)
 
+<link-summary>Learn how you can configure the JDK for running Qodana.</link-summary>
+
 ## Default versions
 
 This table shows the JDK versions that are by default used by %instance%:

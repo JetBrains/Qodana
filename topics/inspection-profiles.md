@@ -5,6 +5,9 @@
 <var name="qodana.recommended" value="https://github.com/JetBrains/qodana-profiles/blob/master/.idea/inspectionProfiles/qodana.recommended.yaml"/>
 <var name="java-glob" value="https://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-"/>
 
+<link-summary>Inspection profiles let you configure the inspections, the scope of files that these inspections analyze, 
+and inspection severity settings.</link-summary>
+
 Inspection profiles let you configure the inspections, the scope of files that these inspections analyze, 
 and inspection severity settings. %instance% uses inspection profiles to know how and what to inspect in a codebase.
 
@@ -12,7 +15,9 @@ You can employ profiles either using CLI or configuring the `qodana.yaml` file a
 
 ## Default profiles
 
-Out of the box, Qodana provides several predefined profiles hosted on 
+<link-summary>Out of the box, Qodana provides two predefined profiles hosted on GitHub, namely qodana.starter and qodana.recommended.</link-summary>
+
+Out of the box, Qodana provides a couple of predefined profiles hosted on 
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles):
 
 * `qodana.starter` is the default profile and a subset of `qodana.recommended` triggering the [3-phase analysis](#three-phase-analysis) 
@@ -148,6 +153,8 @@ profile file to read:
 </tabs>
 
 ## Custom profiles
+
+<link-summary>Learn how you can create custom Qodana configurations using YAML and XML formats.</link-summary>
 
 You can configure inspection profiles using two formats: 
 

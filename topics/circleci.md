@@ -1,5 +1,7 @@
 [//]: # (title: CircleCI)
 
+<link-summary>You can build Qodana into your CircleCI pipelines using the CircleCI Qodana orb.</link-summary>
+
 CircleCI is a cloud-based CI/CD system. You can build %instance% into your CircleCI 
 [pipelines](https://circleci.com/docs/concepts#pipelines) using the CircleCI Qodana 
 [orb](https://circleci.com/docs/orb-concepts) as described in this procedure:

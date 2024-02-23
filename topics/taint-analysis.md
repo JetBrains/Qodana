@@ -1,5 +1,9 @@
 [//]: # (title: Taint analysis)
 
+<link-summary>Taint analysis is the process of assessing the flow of untrusted user input throughout the body of a 
+function or a method. If you have a taint in your code, hackers can execute these code fragments to cause SQL injection, 
+arithmetic overflow, cross-site scripting, path traversal.</link-summary>
+
 Taint analysis is the process of assessing the flow of untrusted user input throughout the body of a function or a method.
 If you have a taint in your code, hackers can execute these code fragments to cause SQL injection, arithmetic overflow, 
 cross-site scripting, path traversal, etc.

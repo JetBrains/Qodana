@@ -70,6 +70,8 @@ file using the `sarif_file` key.
 
 ### Pull request quality gate
 
+<link-summary>You can enforce GitHub to block the merge of pull requests if a quality gate has failed.</link-summary>
+
 You can enforce GitHub to block the merge of pull requests if a quality gate has failed. To do it, create a
 [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)
 as described below:

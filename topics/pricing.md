@@ -1,6 +1,6 @@
 [//]: # (title: Pricing Model)
 
-<link-summary>Qodana provides the Community, Ultimate, and Ultimate Plus licenses. Read more to study the differences 
+<link-summary>Qodana provides the Community, Ultimate, and Ultimate Plus licenses. You can learn more about the differences 
 between them.</link-summary>
 
 Depending on your needs, you can choose a suitable license described in this table:
@@ -120,6 +120,8 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Features and third-party software support
 
+<link-summary>You can study the list of features available for each Qodana license.</link-summary>
+
 | Feature                                               | Community | Ultimate  | Ultimate Plus | 
 |-------------------------------------------------------|-----------|-----------|---------------|
 | [Monorepo support](monorepo-project.md)               | &#x2714;  | &#x2714;  | &#x2714;      | 
@@ -138,6 +140,8 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 ### Data storage and processing
 {id="pricing-data-storage"}
 
+<link-summary>Storage and processing conditions depending on licenses.</link-summary>
+
 | Feature                                 | Community | Ultimate  | Ultimate Plus | 
 |-----------------------------------------|-----------|-----------|---------------|
 | Detailed historical data storage        | 30 days   | 180 days  | Unlimited     |
@@ -147,6 +151,8 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Linters available for each license
 {id="pricing-linters-licenses"}
+
+<link-summary>You can study the lists of linters available under specific licenses.</link-summary>
 
 This is the list of linters that you can run using the Community license:
 

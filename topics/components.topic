@@ -14,7 +14,7 @@
         <li><a href="linters.md">Linters</a></li>
         <li><a href="project-token.md">Project tokens</a> for identification and verification purposes</li>
         <li><a href="contributors.md">Contributor counting</a> mechanism</li>
-        <li><a href="https://www.jetbrains.com/help/inspectopedia/WhatIsNewInspections.html"/> for discovering %instance% inspections</li>
+        <li><a href="https://www.jetbrains.com/help/inspectopedia/WhatIsNewInspections.html">Inspectopedia</a> for discovering %instance% inspections</li>
     </list>
 
 </topic>

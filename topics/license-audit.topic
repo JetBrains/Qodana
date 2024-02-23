@@ -8,6 +8,8 @@
 
     <var name="feature" value="License audit"/>
 
+    <link-summary>Using the license audit, you can check whether your project license is compatible with dependency licenses.</link-summary>
+
     <p>Making sure that your project license is compatible with the licenses of its dependencies is never an easy task, but
         this is required for legal purposes. To automate this process and avoid mistakes, you can use %feature%
         currently supported by several %instance% linters:</p>

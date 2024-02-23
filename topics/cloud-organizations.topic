@@ -6,11 +6,13 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Organizations" id="cloud-organizations">
 
+    <link-summary>Organizations provide top-level structuring of all entities in Qodana Cloud. Every organization is
+        created on the basis of a specific JetBrains account.</link-summary>
 
     <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.
-    Each organization is created on the basis of a specific JetBrains account. Depending on your choice, it will be either
+    Every organization is created on the basis of a specific JetBrains account. Depending on your choice, it will be either
         private or public.
-        Each account in Qodana Cloud is based on the organization that becomes its default organization.
+        Every account in Qodana Cloud is based on the organization that becomes its default organization.
     </p>
 
     <p>You can navigate between organizations using the list in the left part of the Qodana Cloud UI.</p>

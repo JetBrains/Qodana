@@ -1,5 +1,7 @@
 [//]: # (title: Azure Pipelines)
 
+<link-summary>You can use the Qodana Azure Pipelines extension to inspect your code using Qodana.</link-summary>
+
 # Qodana Scan
 
 Qodana Scan is an Azure Pipelines task
