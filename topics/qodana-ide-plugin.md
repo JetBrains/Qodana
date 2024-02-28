@@ -31,14 +31,14 @@ You can run %instance% locally and then forward inspection reports to [Qodana Cl
    <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
-   <p>In the <ui-path>Run Qodana</ui-path> dialog, configure the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
-   <p>Under the text field, configure the options to make %instance%:</p>
+   <p>In the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
       <list>
-         <li><a href="cloud-forward-reports.topic">Send inspection results</a> to Qodana Cloud using the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
-         <li><a href="qodana-yaml.md">Save <code>qodana.yaml</code></a> in your project root</li>
-         <li><a href="baseline.topic">Run the baseline</a> feature</li>
+        <li>Options used by %product% in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
+         <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
+         <li>The <a href="qodana-yaml.md"><ui-path>Save qodana.yaml in project root</ui-path></a> option</li>
+         <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline</li>
       </list>
-   <img src="ide-plugin-run-qodana-2.png" dark-src="ide-plugin-run-qodana-2_dark.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+   <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
     <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
 </step>
 <step>

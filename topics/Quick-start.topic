@@ -38,21 +38,21 @@
 
         <p>Here is the short video showing how you can run %instance% in your IDE.</p>
 
-        <img src="quickstart-run-in-ide.animated.gif" dark-src="quickstart-run-in-ide_dark.png" width="792" alt="Running Qodana in an IDE" border-effect="line" animated="true" preview-src="quickstart-run-in-ide.png"/>
+        <img src="quickstart-run-in-ide.gif" width="792" alt="Running Qodana in an IDE" border-effect="line" preview-src="quickstart-run-in-ide.png"/>
 
         <p>Here is the description of all steps shown in this video:</p>
 
         <procedure>
                 <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
                 <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
-                <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try locally</ui-path> button.</step>
+                <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try locally</ui-path> button to start %product%.</step>
                 <step>
                     On the <ui-path>Server-Side Analysis</ui-path> tab, you can view inspection results. It
                         also contains two links in the upper part of the tab.
-                    <img src="quickstart-run-in-ide-report-links.png" dark-src="quickstart-run-in-ide-report-links_dark.png" width="706" alt="Links on the Server-Side Analysis tab" border-effect="line"/>
+                    <img src="quickstart-run-in-ide-report-links.png" width="706" alt="Links on the Server-Side Analysis tab" border-effect="line"/>
         <tabs>
-            <tab title="Open Qodana Cloud" id="quickstart-open-report-in-browser">
-                <p>Open the inspection report in an <a href="https://qodana.cloud">Qodana Cloud</a>.</p>
+            <tab title="Open Qodana report in browser" id="quickstart-open-report-in-browser">
+                <p>Open the inspection report in your browser.</p>
                 <img src="quickstart-run-in-ide-report.png" dark-src="quickstart-run-in-ide-report_dark.png" width="706" alt="Qodana report" border-effect="line"/>
             </tab>
             <tab title="Add Qodana to CI/CD pipeline" id="quickstart-add-qodana-to-cicd">

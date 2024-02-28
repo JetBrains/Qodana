@@ -41,7 +41,7 @@ git clone -n --filter=blob:none --shallow-since='90 days ago' <repo>
 After cloning, %instance% will extract the contributors from all commits made for the last 90 days: 
 
 ```shell
-git log --since '90 days ago' --pretty=format:%ae||%an||%H||%ai
+git log --all --since '90 days ago' --pretty=format:%ae||%an||%H||%ai
 ```
 {prompt="$"}
 
