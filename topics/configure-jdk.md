@@ -16,6 +16,8 @@ Using the default version of the JDK does not require any special configuration.
 
 ## Available versions
 
+<link-summary>List of available JDK versions.</link-summary>
+
 <anchor name="configure-jdk-available-versions"/>
 
 Apart from the versions available [by default](#Default+versions), %instance% can automatically download and use these versions of JBR SDK 
@@ -24,6 +26,8 @@ for all JVM linters: 8, 11, 13, 15, 16, 17, 18, 19.
 Otherwise, you can download the required JDK version, and [mount it](#Mount+JDK) to %instance%.
 
 ## Configure Qodana
+
+<link-summary>List of available JDK versions.</link-summary>
 
 <include from="lib_qd.topic" element-id="configure-jdk-qodana-yaml" use-filter="configure-jdk,empty"/>
 
@@ -46,6 +50,8 @@ then searched in the [list of available versions](#Available+versions). If found
 Otherwise, %instance% will download the subsequent version from this list.  
 
 ## Mount JDK
+
+<link-summary>You can mount JDK from your local filesystem to the /root/.jdks folder of the %instance% Docker image.</link-summary>
 
 You can mount JDK from your local filesystem to the `/root/.jdks` folder of the %instance% Docker image:
 

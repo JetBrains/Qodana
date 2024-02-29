@@ -6,6 +6,10 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Baseline" id="baseline" help-id="qodana-baseline">
 
+    <link-summary>Baseline is a snapshot of the codebase problems taken at a specific %instance% run and
+    contained in the qodana.sarif.json file. Using the baseline feature, you can compare your current code with its
+        baseline state and see new, unchanged, and resolved problems.</link-summary>
+
     <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% run and
         contained in the <code>qodana.sarif.json</code> file.</p>
 
@@ -17,7 +21,9 @@
 
     <chapter title="How it works">
 
-    <p>If you run %instance% without a baseline, you will be able to see the problems detected at a current run.</p>
+        <link-summary>Learn how the baseline feature works.</link-summary>
+
+        <p>If you run %instance% without a baseline, you will be able to see the problems detected at a current run.</p>
 
         <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="706" alt="Running Qodana without baseline"/>
 

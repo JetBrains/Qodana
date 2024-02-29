@@ -151,6 +151,8 @@ inspections:
 ### groups.groups
 {id="groups-groups"}
 
+<link-summary>This block contains a list of user-defined groups for combining inspection categories and single inspections.</link-summary>
+
 The list of group IDs with possible exclamation mark character (`!`):
 
 ```yaml

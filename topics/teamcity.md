@@ -17,6 +17,8 @@ need to be met:
 
 ### Add a Qodana runner 
 
+<link-summary>Starting from version 2022.04, Qodana functionality is available in TeamCity by default.</link-summary>
+
 Assuming that you have already created your [project](https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project) and configured your build, follow the steps below.    
 
 1. Navigate to your build configuration.
@@ -70,6 +72,8 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
 ### Configure the project token
 
+<link-summary>The project token is required by the paid %instance% linters, and is optional for using with the Community linters.</link-summary>
+
 The [project token](project-token.md) is required by the paid %instance% [linters](pricing.md#pricing-linters-licenses),
 and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:  
 
@@ -85,6 +89,9 @@ To apply the generated project token, follow these steps:
 
 ### (Optional) Add a configuration script
 {id="add-script"}
+
+<link-summary>Custom profile configuration for Qodana linters is stored in the qodana.yaml file. When using a CI system, 
+you need to put this file to the working directory manually. Alternatively, you can write a script that will do it for you.</link-summary>
 
 Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When using a CI system, you need to put 
 this file to the working directory manually. Alternatively, you can write a script that will do it for you.
@@ -130,6 +137,8 @@ this file to the working directory manually. Alternatively, you can write a scri
    ```
 
 ### Verify inspection results
+
+<link-summary>Now that you have configured and run the build, you can observe inspection results in the TeamCity UI.</link-summary>
 
 Now that you have configured and run the build, you can observe inspection results in the TeamCity UI.  
 

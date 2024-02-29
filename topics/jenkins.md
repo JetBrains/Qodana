@@ -10,11 +10,16 @@
 <var name="JPullRequests" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#supporting-pull-requests" />
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
+<link-summary>This section explains how you can configure %instance%
+Docker images in Jenkins Multibranch Pipelines.</link-summary>
+
 [Jenkins](https://www.jenkins.io/doc/) is a self-contained, open-source server that automates software-related tasks 
 including building, testing, and deploying software. This section explains how you can configure %instance%
 [Docker images](docker-images.md) in Jenkins [Multibranch Pipelines](%Multipipe%)
 
 ## Prepare your project
+
+<link-summary>Preparation steps you need to perform before running %product% in a Jenkins Pipeline.</link-summary>
 
 Make sure that these plugins are installed on your Jenkins instance:
 
@@ -32,6 +37,8 @@ In the root directory of your project repository, create the `Jenkinsfile`. This
 configuration scripts described in this section. 
 
 ## Basic configuration
+
+<link-summary>This section shows the basic configuration of the Jenkins Pipeline.</link-summary>
 
 This is the basic configuration of the Jenkins Pipeline.
 
@@ -77,6 +84,8 @@ you would like to configure %instance% with like the [quality gate and baseline]
 
 ## Inspect specific branches
 
+<link-summary>Using the `when` block, you can tell %instance% which branches of your project to inspect.</link-summary>
+
 Using the `when` block, you can tell %instance% which branches of your project to inspect. For example, this configuration 
 lets you inspect only the `feature` branch. 
 
@@ -111,6 +120,9 @@ You can inspect pull requests as described in the [Supporting Pull Requests](%JP
 of the Jenkins documentation.
 
 ## Quality gate and baseline
+
+<link-summary>You can use the quality gate and baseline features by invoking the --fail-threshold and 
+--baseline path/to/qodana.sarif.json options specified in the `steps` block.</link-summary>
 
 This configuration invokes the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features using the 
 `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines specified in the `steps` block.

@@ -8,17 +8,24 @@
 <var name="Space-filter" value="https://www.jetbrains.com/help/space/run-a-job-on-event-trigger.html#filter-by-branch"/>
 <var name="Space-creview" value="https://www.jetbrains.com/help/space/automation-dsl.html#codereviewopened"/>
 
+<link-summary>This section explains how you can configure and run %instance% Docker images within Space Automation jobs.</link-summary>
+
 [Space Automation](https://www.jetbrains.com/help/space/automation-concepts.html) is a CI/CD tool that helps you automate 
 development workflows in the JetBrains Space environment. This section explains how you can configure and run %instance% 
 [Docker images](docker-images.md) within Space Automation jobs.
 
 ## Prepare your project
 
+<link-summary>Assuming that your JetBrains Space account already has a project and a repository, in the project root 
+create the .space.kts file.</link-summary>
+
 Assuming that your JetBrains Space account already has [a project](%Space-cr-project%) and 
 [a repository](%Space-repo%), in the project root create the [`.space.kts`](%Space-config%) file. This 
 file will contain configuration scripts written in [Kotlin](https://kotlinlang.org/) and mentioned in this section.
 
 ## Basic configuration
+
+<link-summary>This section shows the basic configuration script for running %instance% in JetBrains Automation jobs.</link-summary>
 
 This is the basic configuration script for running %instance% in JetBrains Automation jobs. 
 
@@ -54,6 +61,8 @@ The `shellScript` block contains the `qodana` command for running %instance%, an
 
 ## Inspect specific branches
 
+<link-summary>The startOn block of a Jenkins Pipeline lets you specify the event that will trigger a job.</link-summary>
+
 The [`startOn`](%Space-starton%) block lets you specify the event that will trigger a job. This configuration 
 uses the nested [`branchFilter`](%Space-filter%) block to override the default trigger and run the job only
 after changes made in the `feature` branch. 
@@ -83,6 +92,9 @@ job("Qodana") {
 ```
 
 ## Quality gate and baseline
+
+<link-summary>You can use the --fail-threshold and --baseline path/to/qodana.sarif.json lines in the shellScript 
+block to invoke the quality gate and baseline features.</link-summary>
 
 You can use the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `shellScript` 
 block to invoke the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.

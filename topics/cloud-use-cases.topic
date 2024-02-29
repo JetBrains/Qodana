@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Qodana Cloud use-cases" id="cloud-use-cases">
 
+    <link-summary>Learn more about use cases where Qodana Cloud can come in handy.</link-summary>
+
     <chapter id="cloud-use-case-1" title="Get deeper insights into your project trends">
 
         <p>Using <a href="https://qodana.cloud">Qodana Cloud</a>, you can aggregate Qodana reports from various

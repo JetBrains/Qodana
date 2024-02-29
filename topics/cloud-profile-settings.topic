@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Account settings" id="cloud-profile-settings">
 
+    <link-summary>This section explains how you can navigate to the account settings.</link-summary>
+
     <p>To configure your account, in the left sidebar click <ui-path>Account settings</ui-path>.</p>
 
     <img src="qc-profile-settings.png" dark-src="qc-profile-settings_dark.png" alt="Account settings" width="706" border-effect="line"/>

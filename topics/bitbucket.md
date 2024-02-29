@@ -3,6 +3,8 @@
 <var name="repository" value="https://support.atlassian.com/bitbucket-cloud/docs/create-a-repository-in-bitbucket-cloud/"/>
 <var name="pipeline" value="https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/"/>
 
+<link-summary>Learn how to run %instance% Docker images within Bitbucket Cloud pipelines.</link-summary>
+
 [Bitbucket Cloud](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-cloud/) is a tool that
 gives teams one place to plan, collaborate, test, and deploy their code. This
 section explains how you can run %instance% [Docker images](docker-images.md) within Bitbucket Cloud 
@@ -10,6 +12,8 @@ section explains how you can run %instance% [Docker images](docker-images.md) wi
 application of the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 
 ## Prepare your project
+
+<link-summary>Create a repository and a pipeline in the Bitbucket Cloud UI.</link-summary>
 
 1. Using the Bitbucket Cloud UI, create a [repository](%repository%).
 2. In the Bitbucket Cloud repository, create a [pipeline](%pipeline%). This will generate the `bitbucket-pipelines.yml` file 
@@ -22,6 +26,8 @@ for storing a pipeline configuration.
 This configuration will be used as a basis for all examples in this section.
 
 ## Quality gate
+
+<link-summary>Using the --fail-threshold option, you can configure the limit of problems accepted in your project.</link-summary>
 
 Using the [`--fail-threshold`](docker-image-configuration.topic#docker-config-reference-quality-gate) option, you can 
 configure the limit of problems accepted in your project:  
@@ -49,6 +55,9 @@ definitions:
 ```
 
 ## Baseline
+
+<link-summary>Use the --baseline path/to/qodana.sarif.json option to 
+specify the path to the SARIF-formatted file used as a baseline.</link-summary>
 
 Use the [`--baseline <path/to/qodana.sarif.json>`](docker-image-configuration.topic#docker-config-reference-baseline) option to 
 specify the path to the SARIF-formatted file used as a [baseline](baseline.topic):

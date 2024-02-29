@@ -16,6 +16,9 @@
     <var name="configure-profiles" value="https://www.jetbrains.com/help/phpstorm/customizing-profiles.html#a7a20220"/>
     <var name="plugin-config" value="https://www.jetbrains.com/help/phpstorm/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory"/>
 
+    <link-summary>You can extend %instance% using either existing plugins from repositories, or by developing
+        your own plugins.</link-summary>
+
     <p>You can extend %instance% using either existing plugins from repositories, or by developing
         <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p>
 

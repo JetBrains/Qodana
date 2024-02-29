@@ -28,6 +28,8 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 ## Run custom commands
 
+<link-summary>Using the bootstrap option of qodana.yaml, %instance% can perform actions before running inspections.</link-summary>
+
 Using the `bootstrap` option of `qodana.yaml`, %instance% can perform actions before running inspections. 
 
 To install a specific package in the Qodana container using the `apt` tool, add this line to `qodana.yaml`:
@@ -53,7 +55,11 @@ about custom profiles is also provided [here](inspection-profiles.md#Custom+prof
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}
 
-You can specify that the files in a certain directory are not analyzed. This can be done on a per-inspection basis or for all inspections at once. To exclude all paths in a project from the inspection scope, omit the `paths` node.
+<link-summary>You can specify the files to exclude from analysis.</link-summary>
+
+You can specify the files to exclude from analysis on a per-inspection basis or for all inspections at once. 
+
+To exclude all paths in a project from the inspection scope, omit the `paths` node.
 
 <note>Starting from version 2022.3, if using the <code>qodana.recommended</code> and <code>qodana.starter</code> 
 profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and folders to be ignored 
@@ -95,6 +101,8 @@ You can find specific inspection IDs in the Profile settings in the HTML report 
 
 ## Include an inspection into the analysis scope
 
+<link-summary>You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile.</link-summary>
+
 You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
 
 ### Example
@@ -113,6 +121,8 @@ include:
 
 
 ## Set a quality gate
+
+<link-summary>You have several options for configuring a quality gate.</link-summary>
 
 You have several options to configure [quality gates](quality-gate.topic).
 
@@ -199,13 +209,17 @@ In the example above,
 
 ## Specify a linter
 
-Using the `linter` option, you can specify the linter that you are going to employ. For example:
+<link-summary>You can specify a linter that you are going to employ.</link-summary>
+
+Using the `linter` option, you can specify a linter that you are going to employ. For example:
 
 ```yaml
 linter: jetbrains/qodana-jvm-android:2023.3
 ```
 
 ## Configure the JDK version
+
+<link-summary>For JVM-based linters, you can configure the JDK version.</link-summary>
 
 You can configure the JDK version for these linters:
 
@@ -219,6 +233,8 @@ To learn more about configuring JDK, see the [](configure-jdk.md) section.
 
 ## Configure the PHP version
 
+<link-summary>For JVM-based linters, you can configure the JDK version.</link-summary>
+
 You can configure the PHP version before running the [](qodana-php.md) linter: 
 
 ```yaml
@@ -227,6 +243,8 @@ php:
 ```
 
 ## Disable sanity checks
+
+<link-summary>By default, sanity checks are enabled in %instance%, but you can disable them.</link-summary>
 
 By default, sanity checks are enabled in %instance%. You can disable them using this snippet: 
 
@@ -237,6 +255,8 @@ disableSanityInspections: true
 ## Configure license audit
 {id="configure-license-audit"}
 
+<link-summary>You can enable the license audit feature by enabling the CheckDependencyLicenses inspection.</link-summary>
+
 You can run the [license audit](license-audit.topic) feature by enabling the `CheckDependencyLicenses` inspection:
 
 ```yaml
@@ -245,6 +265,8 @@ include:
 ```
 
 ### Ignore a dependency
+
+<link-summary>You can ignore a dependency to hide the related problems from the report.</link-summary>
 
 Ignore a dependency to hide the related problems from the report:
 
@@ -258,6 +280,8 @@ where `name` is the dependency name to ignore.
 In the example above, the `enry` dependency is completely excluded from the analysis. Because any possible license-related problems are dismissed, the dependency won't be included in the report at all. This is useful to quickly hide internal dependencies that do not need to be mentioned in the report.
 
 ### Allow or prohibit a license
+
+<link-summary>You can override the license compatibility matrix predefined in %product% by allowing or prohibiting licenses.</link-summary>
 
 Override the predefined license compatibility matrix:
 
@@ -280,6 +304,8 @@ where `keys` is the project license(s); the dependency licenses identifiers are 
 
 ### Override a dependency license
 
+<link-summary>You can override a dependency license identifier.</link-summary>
+
 Override a dependency license identifier:
 
 ```yaml
@@ -301,6 +327,8 @@ In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpa
 
 ### Custom dependencies
 
+<link-summary>You can include a custom dependency in the license compatibility matrix.</link-summary>
+
 Currently, the license audit with %instance% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
 
 ```yaml
@@ -314,6 +342,8 @@ customDependencies:
 
 ## Configure quick-fixes
 
+<link-summary>You can apply the cleanup or apply quick-fix strategies.</link-summary>
+
 Using the `fixesStrategy` option, you can choose among the available [quick-fix strategies](quick-fix.md#How+it+works):
 
 ```yaml
@@ -323,9 +353,13 @@ fixesStrategy: cleanup/apply
 ## Configure the taint analysis
 {id="configure-taint-analysis"}
 
+<link-summary>Learn how you can configure the taint analysis feature.</link-summary>
+
 <include from="taint-analysis.md" element-id="running-taint-analysis"/>
 
 ## Configure the vulnerability checker
+
+<link-summary>Learn how you can configure the vulnerability checker feature.</link-summary>
 
 To start using the [](vulnerability-checker.md) feature, enable
 the `VulnerableLibrariesGlobal` inspection:
@@ -333,6 +367,8 @@ the `VulnerableLibrariesGlobal` inspection:
 <include from="vulnerability-checker.md" element-id="package-checking-enable"/>
 
 ## Manage plugins
+
+<link-summary>You can specify the plugins that will be downloaded and invoked during inspection.</link-summary>
 
 You can specify the plugins that will be downloaded and invoked during inspection. 
 

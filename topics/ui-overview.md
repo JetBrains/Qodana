@@ -1,5 +1,8 @@
 [//]: # (title: Inspection report)
 
+<link-summary>%instance% lets you study inspection reports in an interactive and user-friendly form either 
+locally or in Qodana Cloud.</link-summary>
+
 %instance% lets you study inspection reports in an interactive and user-friendly form either 
 [locally](html-report.md) or in [Qodana Cloud](cloud-overview-reports.topic).
 
@@ -50,6 +53,9 @@ the issue.
 ## Baseline
 {id="ui-overview-baseline"}
 
+<link-summary>When you click the Move selected to baseline button on the Actual problems tab, the selected
+problems move to the Baseline tab.</link-summary>
+
 When you click the **Move selected to baseline** button on the **[Actual problems](#ui-overview-actual-problems)** tab, the selected
 problems move to this tab.
 
@@ -59,6 +65,9 @@ inspections, follow the instructions that appear in the report UI. For more info
 
 ## Configuration
 {id="ui-overview-configuration"}
+
+<link-summary>The Configuration tab lists the inspections and lets you adjust your inspection profile by specifying a 
+set of inspections that Qodana will be using the next run.</link-summary>
 
 The **Configuration** tab lists the inspections and lets you adjust your inspection profile by specifying a set of 
 inspections that Qodana will be using the next run.
@@ -75,6 +84,8 @@ See the [Adjust your inspection profile](#Adjust+your+inspection+profile) sectio
 
 ## License audit
 {id="ui-overview-project-audit"}
+
+<link-summary>In the License audit tab, you can configure how %product% will run this feature.</link-summary>
 
 <include from="lib_qd.topic" element-id="license-audit-tab" use-filter="ui-overview,empty" />
 

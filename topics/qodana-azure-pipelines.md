@@ -12,6 +12,8 @@ to scan your code with Qodana.
 
 ### Basic configuration
 
+<link-summary>After you've installed the Qodana Azure Pipelines extension to your organization, edit your azure-pipelines.yml file as shown in this section.</link-summary>
+
 After you've installed the [Qodana Azure Pipelines extension](https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana) to your organization, to configure the Qodana Scan task, edit your `azure-pipelines.yml` file:
 
 ```yaml

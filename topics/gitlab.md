@@ -4,6 +4,8 @@
 <var name="GitLabPredefined" value="https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference"/>
 <var name="GitLabExpose" value="https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as"/>
 
+<link-summary>You can run %instance% Docker images within GitLab CI/CD pipelines.</link-summary>
+
 [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) is a tool for software development that uses various CI/CD methodologies. This 
 section explains how you can run %instance% [Docker images](docker-images.md) within GitLab CI/CD 
 [pipelines](https://docs.gitlab.com/ee/ci/pipelines/) and covers the following cases:
@@ -15,12 +17,17 @@ section explains how you can run %instance% [Docker images](docker-images.md) wi
 
 ## Prepare your project
 
+<link-summary>Make sure that your project repository is accessible by GitLab CI/CD, and in the root directory of your 
+project save the pipeline configuration file.</link-summary>
+
 Make sure that your project repository is accessible by GitLab CI/CD.
 
 In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain the pipeline configuration 
 that will be used by GitLab CI/CD. 
 
 ## Basic configuration
+
+<link-summary>This section shows the basic pipeline configuration.</link-summary>
 
 This is the basic pipeline configuration.
 
@@ -62,6 +69,8 @@ You can see these sections to learn how to generate the project token:
 
 ## Inspect specific branches
 
+<link-summary>This section explains how you can tell %instance% which branches of your project to inspect.</link-summary>
+
 Using the [`only`](https://docs.gitlab.com/ee/ci/yaml/index.html#only--except) keyword, you can tell %instance% which 
 branches to inspect. To inspect only the `main` branch and incoming merge requests, you can use this configuration:
 
@@ -87,6 +96,9 @@ qodana:
 ```
 
 ## Expose Qodana reports
+
+<link-summary>To make a report available in any given merge request without using Qodana Cloud, you can change the path 
+to the artifacts.</link-summary>
 
 To make a report available in any given merge request without using Qodana Cloud,
 you can use the `artifacts` [`expose_as`](%GitLabExpose%) keywords
@@ -126,6 +138,9 @@ Assuming that you have configured your pipeline in a similar manner, this is wha
    <img src="gitlab-exposed-artifacts-expanded.png" alt="Available actions for a given exposed Qodana artifact" width="706" border-effect="line"/>
 
 ## Quality gate and baseline
+
+<link-summary>You can use the --fail-threshold number and --baseline path/to/qodana.sarif.json lines in the script block 
+to invoke the quality gate and baseline features.</link-summary>
 
 You can use the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `script` block to 
 invoke the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.

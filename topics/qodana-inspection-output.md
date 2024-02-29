@@ -2,6 +2,8 @@
 
 ## Basic output
 
+<link-summary>Each Qodana code inspection run produces the following output located in the output directory.</link-summary>
+
 Each Qodana code inspection run produces the following output located in the output directory:
 
 - **log/**: contains  `idea.log`, `gradle.log`, and so on.

@@ -29,6 +29,9 @@ directory where the VCS stores your project before building it.
 
 ### How to choose a proper profile
 
+<link-summary>You can use %product% in the default mode and with the qodana.starter profile invoked, or use the 
+qodana.recommended profile.</link-summary>
+
 If you want a fresh start, you have two options:
 
 1. Use Qodana in the default mode to execute the [three-phase analysis](#three-phase-analysis). You do not need to 
@@ -40,6 +43,8 @@ non-critical folders, such as `tests`, are ignored.
 
 ### Three-phase analysis
 {id="three-phase-analysis"}
+
+<link-summary>Learn more about the three-phase analysis of %product%.</link-summary>
 
 Sometimes it may be challenging to set up analysis for a big project even with the `qodana.recommended` profile due to 
 large number of errors reported. To solve this, Qodana offers a 3-phase analysis, where each phase is focused on a 
@@ -57,6 +62,8 @@ certain type of results.
 You can set up a profile using either the `qodana.yaml` file or the [Shell commands](docker-image-configuration.topic). 
 
 ### Profile name
+
+<link-summary>You can configure the profile name using qodana.yaml.</link-summary>
 
 This is how you can configure the profile name using `qodana.yaml`:
 
@@ -116,6 +123,8 @@ custom profile:
 </tabs>
 
 ### Profile path
+
+<link-summary>You can configure the profile path using qodana.yaml.</link-summary>
 
 This is how you can configure the profile path using `qodana.yaml`:
 

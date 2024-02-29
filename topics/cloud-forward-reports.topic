@@ -12,6 +12,9 @@
     <var name="TeamCityLink" value="https://www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
     <var name="SpaceAutomationLink" value="https://www.jetbrains.com/help/space/secrets-and-parameters.html#creating-secrets-and-parameters"/>
 
+    <link-summary>Learn how you can forward %product% reports to Qodana Cloud using Docker images, Qodana CLI, and all CI/CD software
+        we currently provide integration solutions for.</link-summary>
+
     <p>This section explains how you can forward %instance% reports to Qodana Cloud using this software:</p>
 
     <list>

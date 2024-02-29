@@ -1,5 +1,7 @@
 [//]: # (title: GitHub Actions)
 
+<link-summary>The Qodana Scan GitHub action allows you to run Qodana on a GitHub repository.</link-summary>
+
 ## Usage
 
 The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
@@ -8,6 +10,8 @@ allows you to run Qodana on a GitHub repository.
 <anchor name="basic-configuration"/>
 
 ### Basic configuration
+
+<link-summary>In the GitHub UI, create an encrypted secret for a project token, and configure a workflow file.</link-summary>
 
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
@@ -101,6 +105,9 @@ Instead of `main`, you can specify your branch here.
 
 ### Quality gate and baseline
 
+<link-summary>You can combine the quality gate and baseline features to manage your technical debt, report only new 
+problems, and block pull requests that contain too many problems.</link-summary>
+
 You can combine the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features to manage your
 technical debt, report only new problems, and block pull requests that contain too many problems.
 
@@ -145,6 +152,8 @@ time, pull requests with **new** problems exceeding the `fail-threshold` limit w
 
 ### Get a Qodana badge
 
+<link-summary>You can set up a Qodana workflow badge in your repository.</link-summary>
+
 You can set up a Qodana workflow badge in your repository, to do it, follow these steps:
 
 1. Navigate to the workflow run that you previously configured.
@@ -154,6 +163,8 @@ You can set up a Qodana workflow badge in your repository, to do it, follow thes
 <img src="https://user-images.githubusercontent.com/13538286/148529278-5d585f1d-adc4-4b22-9a20-769901566924.png" alt="Creating status badge" width="706"/>
 
 ## Configuration
+
+<link-summary>The full list of action parameters.</link-summary>
 
 Most likely, you won't need other options than `args`: all other options can be helpful if you are configuring multiple Qodana Scan jobs in one workflow.
 

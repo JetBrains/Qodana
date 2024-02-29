@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="User roles" id="cloud-user-roles">
 
+    <link-summary>This section contains the list of user roles available in Qodana Cloud.</link-summary>
+
     <p>The role assigned to your <a href="https://qodana.cloud">Qodana Cloud</a> account will depend on the case.</p>
 
     <table>

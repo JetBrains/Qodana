@@ -49,6 +49,10 @@
 
     <chapter title="How it works" id="license-audit-how-it-works">
 
+        <link-summary>%feature% collects information about project and dependency licenses using configuration files of dependency
+            management tools and files containing license texts. Based on the information collected, it builds the
+            dependency tree.</link-summary>
+
         <p>%feature% collects information about project and dependency licenses using configuration files of dependency
             management tools and files containing license texts. Based on the information collected, it builds the
             dependency tree containing information about:</p>

@@ -945,6 +945,9 @@
 
         <chapter id="docker-config-reference-properties-user-statistics" title="Disable user statistics">
 
+            <link-summary>You can disable reporting of usage statistics, by adjusting the idea.headless.enable.statistics
+                value of the --property option.</link-summary>
+
             <p>To disable reporting of usage statistics, adjust the <code>idea.headless.enable.statistics</code>
                 value of the <code>--property</code> option:</p>
 
@@ -1133,6 +1136,9 @@
 
     <chapter id="docker-config-reference-docker-environment" title="Docker variables">
 
+        <link-summary>Using the Docker parameters, you can change the Heap size, override the idea.properties file,
+            run %product% as non-root, and forward reports to Qodana Cloud.</link-summary>
+
         <p>Using the <code>-e</code> and <code>-u</code> Docker parameters, you can:</p>
 
         <list>
@@ -1143,6 +1149,9 @@
         </list>
 
         <chapter id="docker-config-reference-docker-environment-heap-size" title="Change the Heap size">
+
+            <link-summary>By default, the Heap size is set to 80% of the host RAM. You can configure this setting using the
+                _JAVA_OPTIONS variable.</link-summary>
 
             <p>By default, the Heap size is set to 80% of the host RAM. You can configure this setting using the
                 <code>_JAVA_OPTIONS</code> variable: </p>
@@ -1203,6 +1212,7 @@
 
         <chapter id="docker-config-reference-docker-environment-run-non-root" title="Run as non-root">
 
+            <link-summary>Using the Docker parameters, you can run %product% as non-root.</link-summary>
 
             <tip>TeamCity and <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> already run %instance%
                 under a current non-root user.</tip>
