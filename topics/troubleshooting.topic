@@ -10,6 +10,8 @@
 
     <chapter id="troubleshooting-mounted-directories" title="List of Docker image paths">
 
+        <link-summary>See the list of Docker image paths.</link-summary>
+
         <table>
             <tr>
                 <td>Path</td>
@@ -75,6 +77,9 @@
     </chapter>
 
     <chapter id="troubleshooting-qodana-log-files" title="List of files for investigating Qodana behavior">
+
+        <link-summary>There are several options for examining %instance% behavior using the /data/results directory.</link-summary>
+
         <p>There are several options for examining %instance% behavior using the <code>/data/results</code> directory:</p>
         <list>
             <li>The <code>/data/results/projectStructure/Modules.json</code> file lists all modules detected by %instance%.
@@ -93,6 +98,8 @@
     </chapter>
 
     <chapter id="troubleshooting-inspect-specific-directory" title="How to inspect a specific project directory within a repository">
+
+        <link-summary>A typical project structure can have a directory structure explained in this section.</link-summary>
 
         <p>A typical project structure can have a directory structure similar to this:</p>
 
@@ -163,6 +170,10 @@
     </chapter>
 
     <chapter id="troubleshooting-before-scanning" title="Error messages about missing files, packages, modules, or classes">
+
+        <link-summary>During inspections, %instance% may report about missing files, packages, modules, or
+            classes. In this case, you need to have your project prepared for code inspection.</link-summary>
+
         <p>During inspections, %instance% may report about missing files, packages, modules, or
             classes. In this case, you need to have your project prepared for code inspection. For example, you can
             create a script and configure %instance% for running it as shown in the
@@ -170,6 +181,9 @@
     </chapter>
 
     <chapter id="troubleshooting-switch-off-inspection" title="How to disable a specific inspection for a specific file">
+
+        <link-summary>Learn how you can disable inspections for a specific file.</link-summary>
+
         <p>To disable inspections for a specific file, in the project root save the
             <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> file containing this configuration:</p>
         <code-block lang="yaml">

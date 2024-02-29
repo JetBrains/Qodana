@@ -9,6 +9,10 @@
     <var name="struct-search" value="https://www.jetbrains.com/help/idea/tutorial-work-with-structural-search-and-replace.html#ssr_inspection_settings"/>
     <var name="struct-search-replace" value="https://www.jetbrains.com/help/idea/structural-search-and-replace.html#to_search_structurally"/>
 
+    <link-summary>Structural search is a powerful and flexible mechanism built into JetBrains IDEs. It employs
+    search templates to let you inspect the codebase taking into account its semantics. You can create your own search
+        templates and use them as %instance% inspections.</link-summary>
+
     <p><a href="https://www.jetbrains.com/help/idea/structural-search-and-replace.html">Structural search</a> is a
         powerful and flexible mechanism built into JetBrains IDEs. It employs
         <a href="https://www.jetbrains.com/help/idea/search-templates.html">search templates</a> to let you inspect the
@@ -16,6 +20,9 @@
         %instance% inspections.</p>
 
     <chapter title="How it works" id="extending-qodana-structural-search-example">
+
+        <link-summary>Learn how you can create and use structural search templates for inspecting your codebase using
+            %product%.</link-summary>
 
         <p>As an example, consider this search template:</p>
         <code-block>$Instance$.$MethodCall$($Parameter$)</code-block>

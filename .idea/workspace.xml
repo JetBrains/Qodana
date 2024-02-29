@@ -6,35 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/baseline.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/baseline.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/bitbucket.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/bitbucket.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-forward-reports.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-forward-reports.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-get-access.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-get-access.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-profile-settings.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-profile-settings.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-running-introduction.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-running-introduction.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-use-cases.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-use-cases.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-user-roles.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-coverage.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-coverage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/configure-jdk.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/configure-jdk.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/github.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/github.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gitlab.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/gitlab.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspection-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspection-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jenkins.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jenkins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/license-audit.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/license-audit.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-inspection-output.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-inspection-output.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quality-gate.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quality-gate.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quick-fix.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quick-fix.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/space-automation.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/space-automation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/teamcity.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/teamcity.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ui-overview.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ui-overview.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/vulnerability-checker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vulnerability-checker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-structural-search.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-structural-search.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/troubleshooting.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/troubleshooting.topic" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +159,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708702574305</updated>
-      <workItem from="1708702579052" duration="44496000" />
+      <workItem from="1708702579052" duration="45271000" />
     </task>
     <servers />
   </component>
