@@ -1,65 +1,60 @@
 # Flexinspect
 
-Starting from version 2024.1 of %product%, you can use the flexInspect feature to develop your own inspections using the API of 
-JetBrains IDEs. This feature provides you a flexible way for developing your own inspections, and you don't have to develop
-a complete plugin anymore.
+Starting from version 2024.1 of %product%, you can use the flexInspect feature to develop your own inspections in 
+IntelliJ IDEA using the API of JetBrains IDEs. This feature provides a flexible way for developing your own inspections, 
+and you don't have to develop a complete plugin anymore.
 
-## Before you start
+You can develop new inspections using Kotlin.
 
-Because all inspections should be developed using Kotlin, make sure that you have a IntelliJ IDEA installed on your machine. 
-In addition to the %product% license, you will need to buy an IntelliJ IDEA license.
+## Prerequisites
 
-In IntelliJ IDEA, you may need to install the `PsiViewer` plugin.
+Make sure that you have a IntelliJ IDEA and Kotlin installed on your machine.
+
+You may also need to install the `PsiViewer` plugin.
 
 ## How it works
 
-Using a PSI tree of your codebase, you can develop your own inspections using Kotlin.
+### PSI tree
 
-A PSI tree is a structure of a file with your code containing basic blocks of the file like package and import statements,
-class statements, and other entities. A PSI tree works as a tool for developing your inspections.
+You can develop your inspections using information provided by a [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) tree.
+The Program Structure Interface, commonly referred to as just PSI, is the layer in the IntelliJ Platform responsible for 
+parsing files and creating the syntactic and semantic code model that powers so many of the platform's features.
+In this case, it reflects basic blocks of the file like package and import statements,
+class statements, and other entities that let you interact with the IntelliJ IDEA API. Using the PSI tree, for example, 
+you can see which methods to invoke, and iterate over a PSI tree.
+A PSI tree works as a tool for developing your inspections.
+
+A PSI (Program Structure Interface) file represents a hierarchy of PSI elements (so-called PSI trees).
+
+### Inspection file
+
+To run your inspection, you need to save an inspection file in the `inspections` directory of your project. %product%
+will use this file to inspect your code locally or 
 
 ## How to start
 
-Open a file that you would like to inspect with your new inspection.
+In your project, create the `inspections` directory. 
 
-To start working with a PSI tree, you need to open a PSI viewer. To do it, 
+In the project navigator in your IDE, right-click the `inspections` directory, navigate to **New | Custom Inspection**
+to create an inspection template. This template already contains all information required for developing your own
+inspection. 
 
-In your IDE, create a new template inspection, a file with the `inspection.kts` extension that will contain the 
-code of your inspection that will interact with the IntelliJ IDEA API. 
-Save this file to the `inspections` directory of your project.
-
-<!-- PsiViewer is the plugin name -->
-
-After opening the file, open the PSI tree of that file that will describe your codebase. Learn how your codebase will
-be inspected.
+In your IDE, open a file that you would like to inspect, and navigate to the PSI Viewer to see the nodes of it.
 
 After you checked the PSI tree and inspection you developed for inspecting your file, you can run the developed inspection
-using %product%.
+using %product%. In this case, the inspection code will interact with the PSI tree nodes of specific code. 
 
-<!-- How can I run a new inspection using Qodana? -->
+After you finish editing your inspection template, the new inspection becomes available for the entire project. 
+All you need in this case it to contain the inspection file in the `inspections` directory, and everything will be 
+applied on the fly. The inspection code will be run on each node of the file's PSI tree if a specific PSI entity type 
+suits the inspection criterion.
 
-### What a PSI tree contains
+### Run your custom inspection in %product%
 
-<!-- Need to describe what a PSI tree contains -->
+To inspect your code with the new inspection locally, run %product% as explained in the 
+[](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
 
-<!-- Example of a codebase and inspection for it are required, with explanations. -->
+To run your custom inspection in a CI pipeline, 
+<!-- How does this work ?-->
 
-<!-- Explanation of how to develop an inspection using a specific example needs to be provided -->
-
-<!-- Where can I take template inspections? Where can I take it? This needs to be added here -->
-
-
-
-Through the API the user works with the PSI tree. PSI tree is a structure of a file containing code, and it contains
-basic blocks of the file like package and import statements, class statement and so on.
-And inspection code interacts with the PSI tree of specific code. Using Kotlin.
-The inspection code will be run on each node of the file's PSI tree if a specific PSI entity type suits the inspection criterion.
-This is specified with the expression in brackets.
-Using the PSI tree, I can see which methods to invoke. And how to develop the inspection.
-The idea is to iterate over a PSI tree and do something useful there.
-
-### Add a new inspection to your CI pipelines
-
-<!-- How can this be added to CI pipelines? -->
-
-### 
+<!-- Link to the examples on GitHub needs to be provided -->
