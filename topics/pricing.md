@@ -295,20 +295,25 @@ Active Contributors that You specified for that Subscription Period, You will no
 number of Active Contributors You specify for the next Subscription Period cannot be lower than the actual number from 
 the preceding Subscription Period.
 
-**Annual Subscriptions** – Fees for annual Subscriptions are charged as a combination of upfront payment for a number 
-of Active Contributors selected by You and additional charges for Active Contributors exceeding the prepaid number 
-during the Subscription Period (overuse):
+**Annual Subscriptions** – fees include upfront payment for a set number of active contributors
+chosen by the customer, plus extra charges for additional active contributors beyond that limit during the
+subscription period (excess usage).
 
-- **Prepayment** – At the beginning of Your annual Subscription, You will specify the expected monthly number of Active 
-Contributors (3 or more). You will be charged upfront for the Subscription fee, which will be calculated based on the 
-number of Active Contributors that You specified multiplied by the monthly fee per Active Contributor based on 
-Your Subscription Plan per each month of Your Subscription.
-- **Overuse** – Qodana will check the actual number of Active Contributors at the end of every calendar month. If the 
-actual number of Active Contributors exceeds the monthly number of Active Contributors that You specified, You will be 
-charged a Subscription fee for each Active Contributor exceeding the monthly number of prepaid Active Contributors. The 
-invoice for the overuse will be issued at the end of every calendar quarter and at the end of Your Subscription period 
-(unless the Subscription Period is renewed). If the number of actual Active Contributors during any month is lower than 
-the number of prepaid Active Contributors, We will not refund or otherwise credit the difference.
+- **Upfront payment** – Customer pays upfront for the annual subscription based
+  on the expected monthly number of active contributors (3 or more) at the monthly fee per active
+  contributor for each month of their subscription.
+- **Overuse/excess usage** – Qodana monitors the number of active contributors each
+  month. If the number of active contributors exceeds the customer's monthly limit, a subscription fee
+  will be applied for each additional active contributor in the next months. Users will not be charged
+  automatically; instead, they can purchase additional licenses either through the provided email link
+  or within their JetBrains Account. If the user doesn’t pay for the extension of the subscription, we may suspend Qodana service for three
+  months until the customer pays for the additional contributors. The subscription will be automatically
+  reactivated three months after its suspension for the number of active contributors for which the
+  customer paid (or when the customer extends their subscription), unless we exercise our right to
+  terminate the Terms.
+
+No refunds or credits will be issued if the number of active contributors during a month is lower than
+the prepaid limit.
 
 ### Where does Qodana store all license information?
 

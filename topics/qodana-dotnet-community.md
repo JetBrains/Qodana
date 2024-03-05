@@ -95,10 +95,10 @@ dotnet:
   configuration: Release
 ```
 
-Alternatively, you can do it using the `--property` option:
+Alternatively, you can do it using the `--configuration` option:
 
 ```shell
---property=qodana.net.configuration=Release
+--configuration=Release
 ```
 
 By default, the solution platform is set to `Any CPU`, and you can override it in the `qodana.yaml` file:
@@ -108,10 +108,10 @@ dotnet:
   platform: x86
 ```
 
-Alternatively, you can do it using the `--property` option:
+Alternatively, you can do it using the `--platform` option:
 
 ```shell
---property=qodana.net.platform=x86
+--platform=x86
 ```
 
 ### Build the project
