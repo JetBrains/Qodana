@@ -128,6 +128,7 @@
 	</toc-element>
 	<!-- Extending Qodana section -->
 	<toc-element title="Extending Qodana" topic="extending-qodana.topic">
+		<toc-element topic="Flexinspect.md"/>
 		<toc-element topic="extending-qodana-plugins.topic"/>
 		<toc-element topic="extending-qodana-structural-search.topic"/>
 	</toc-element>
