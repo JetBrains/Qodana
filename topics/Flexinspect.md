@@ -14,40 +14,30 @@ You may also need to install the `PsiViewer` plugin.
 
 ## How it works
 
-### PSI tree
+To develop your custom inspection, you may need to use a PSI representation while developing a file containing the code of the inspection.
 
-You can develop your inspections using information provided by a [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) tree.
-The Program Structure Interface, commonly referred to as just PSI, is the layer in the IntelliJ Platform responsible for 
-parsing files and creating the syntactic and semantic code model that powers so many of the platform's features.
-In this case, it reflects basic blocks of the file like package and import statements,
-class statements, and other entities that let you interact with the IntelliJ IDEA API. Using the PSI tree, for example, 
-you can see which methods to invoke, and iterate over a PSI tree.
-A PSI tree works as a tool for developing your inspections.
+The [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) or Program Structure Interface creates a representation 
+of the source code as a tree of elements corresponding to a source file's structure. In case of Java code, this reflects 
+basic blocks of a Java file like package and import statements, class statements, and method invocations. In 
+IntelliJ IDEA, PSI is implemented in form of a PSI tree available via the **PSI Viewer** tool.
 
-A PSI (Program Structure Interface) file represents a hierarchy of PSI elements (so-called PSI trees).
-
-### Inspection file
-
-To run your inspection, you need to save an inspection file in the `inspections` directory of your project. %product%
-will use this file to inspect your code locally or 
+To run custom inspections, %product% uses files saved in the `inspections` directory of your project.
 
 ## How to start
 
 In your project, create the `inspections` directory. 
 
 In the project navigator in your IDE, right-click the `inspections` directory, navigate to **New | Custom Inspection**
-to create an inspection template. This template already contains all information required for developing your own
-inspection. 
+to create an inspection template. This template already contains code examples and explanations, which lets you start 
+developing your own inspection. All inspection files have the `inspection.kts` extension.
 
-In your IDE, open a file that you would like to inspect, and navigate to the PSI Viewer to see the nodes of it.
+In your IDE, open a Java file in your project that you would like to inspect with your custom inspection, and then open 
+the PSI Viewer. You will be able to see the PSI elements contained in the file. 
 
-After you checked the PSI tree and inspection you developed for inspecting your file, you can run the developed inspection
-using %product%. In this case, the inspection code will interact with the PSI tree nodes of specific code. 
+All changes made to the inspection template are available on the fly, so you can see how your inspection already works.
 
-After you finish editing your inspection template, the new inspection becomes available for the entire project. 
-All you need in this case it to contain the inspection file in the `inspections` directory, and everything will be 
-applied on the fly. The inspection code will be run on each node of the file's PSI tree if a specific PSI entity type 
-suits the inspection criterion.
+After you finish inspection development, it becomes available for the entire project. The inspection code will be run 
+on each element of the file's PSI tree if a specific PSI entity type suits the inspection criterion.
 
 ### Run your custom inspection in %product%
 
