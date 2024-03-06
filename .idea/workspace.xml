@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="55ff9c92-5129-4796-8136-54da4737cdea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/qodana-clang-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-clang-docker-readme.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/qodana-clang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-clang.md" afterDir="false" />
     </list>
@@ -102,12 +101,12 @@
       </map>
     </option>
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "QD-8320-qodana-clang-ws",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;QD-8320-qodana-clang-ws&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <servers />
   </component>

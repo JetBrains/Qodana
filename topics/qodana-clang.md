@@ -55,7 +55,7 @@ The Docker image of %linter% employs Clang 16.0.0 and LLVM 16. You can see the
 
 The linter searches for the compilation database file, `build/compile_commands.json`, in the build directory under the 
 project root, reads this file, inspects the project, generates inspection reports, and saves them locally or 
-uploads to Qodana Cloud.
+uploads them to Qodana Cloud.
 
 ## Prepare the project
 
@@ -66,7 +66,7 @@ uploads to Qodana Cloud.
 <step>
 <p>Open the <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options"><code>qodana.yaml</code></a> file 
 and use the <code>include</code> and <code>exclude</code> configuration options to configure the list of 
-inspections. Alternatively, you can configure inspections in the <code>.clang-tidy</code> file - see the configuration 
+inspections. Alternatively, you can configure inspections in the <code>.clang-tidy</code> file &mdash; see the configuration 
 example on the <a href="%clang-config%">GitHub website</a> for more details. After configuring your inspections, save 
 this file to the project root.</p>
 <tip>

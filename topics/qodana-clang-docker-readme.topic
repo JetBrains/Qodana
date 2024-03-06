@@ -24,13 +24,13 @@
         scenarios:
     </p>
     <list>
-        <li>Running the analysis on a regular basis as part of your continuous integration efforts (CI-based execution).
+        <li>Running analyses on a regular basis as part of your continuous integration efforts (CI-based execution).
         </li>
-        <li>Single-shot analysis (performed locally, for instance).
+        <li>Single-shot analyses (performed locally, for instance).
         </li>
     </list>
 
-        <chapter id="Run+analysis+locally" title="Run analysis locally">
+        <chapter id="Run+analysis+locally" title="Run analyses locally">
 
             <note>
                 <p>
@@ -75,11 +75,11 @@
                     </p>
         </chapter>
 
-        <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
+        <chapter id="Run+analysis+in+CI" title="Run analyses in CI">
 
         <tip>To learn how to run %linter% in your CI pipelines, see the <a href="ci.md"/> section.</tip>
 
-            <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis in GitHub">
+            <chapter id="qodana-dotnet-docker-readme-github" title="Run analyses in GitHub">
 
                 <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
 
@@ -145,7 +145,7 @@
         <list>
             <li>Inspections using the <code>include</code> and <code>exclude</code> options. See the
                 <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options">YAML file</a> section for details.</li>
-            <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
+            <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>bootstrap</code></a>
                 option.</li>
             <li>Quality gates using the <a href="quality-gate.topic"><code>fail-threshold</code></a> option.</li>
         </list>
