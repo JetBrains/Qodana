@@ -467,3 +467,8 @@ inspections:
       ignoreObjectMethods: false
       ignoreAnonymousClassMethods: true
 ```
+
+## Next steps
+
+After you configure your profile, you can follow the recommendations from the [](inspection-profiles.md#Set+up+a+profile)
+section to run %product% using the profile.

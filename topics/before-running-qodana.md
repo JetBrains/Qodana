@@ -10,7 +10,8 @@ bit of help. Typical actions to prepare the project for Qodana are:
 * Install third-party packages or libraries
 * Run a program that sets up the build environment 
 
-These actions are carried out using the `bootstrap` [option](qodana-yaml.md#Run+custom+commands) of the `qodana.yaml` file:
+These actions are carried out using the `bootstrap` [option](qodana-yaml.md#Run+custom+commands) of the `qodana.yaml` file
+contained in the root directory of your project:
 
 ```yaml
 bootstrap: |+
