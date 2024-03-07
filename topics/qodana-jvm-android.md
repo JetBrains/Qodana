@@ -9,7 +9,7 @@
 <var name="tech" value="jvm"/>
 <var name="docker-image" value="jetbrains/qodana-jvm-android:2023.3"/>
 <var name="config-file" value="qodana-jvm-android-docker-readme.topic"/>
-
+<var name="android-developers-website" value="https://developer.android.com/build/releases/gradle-plugin#android_gradle_plugin_and_android_studio_compatibility"/>
 <link-summary>%linter% is based on %ide% and provides static analysis for Android projects based on 
 Java, Kotlin, and Groovy.</link-summary>
 
@@ -26,7 +26,6 @@ Java, Kotlin, and Groovy.</link-summary>
     <tr>
         <td>Programming languages</td>
         <td>
-            <p>Android</p>
             <p>Java</p>
             <p>Kotlin</p>
             <p>Groovy</p>
@@ -80,6 +79,12 @@ Java, Kotlin, and Groovy.</link-summary>
 <note>Before running %instance%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
 
 <p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
+
+## Android Gradle plugin compatibility
+
+The compatibility table is available on the [Android Developers](%android-developers-website%) website.
+However, %product% and Android Studio may differ. For example, %product% 2023.2 used version 2022.3 of Android Studio, 
+so you need to choose the Android Gradle plugin version that will be suitable in this case.
 
 ## Next steps
 
