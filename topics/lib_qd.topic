@@ -31,9 +31,9 @@
             scenarios:
         </p>
         <list>
-            <li>Running the analysis on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
+            <li>Running analyses on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
             </li>
-            <li>Single-shot analysis (for example, performed <i>locally</i>).
+            <li>Single-shot analyses (for example, performed <i>locally</i>).
             </li>
         </list>
         <p>If you are familiar with
@@ -82,12 +82,8 @@
                     </step>
                 </procedure>
                 <p>This command will run the analysis on your source code and start the web server to provide a convenient
-                    view of the results. Open <code>http://localhost:8080</code> in your browser to examine the found
-                    problems and performed checks. Here you can also reconfigure the analysis. See the
-                    <a href="ui-overview.md"/>
-                    for details. When done, you can stop the web server by pressing <shortcut>Ctrl-C</shortcut> in the
-                    Docker console.
-                </p>
+                    view of the results. Open <a href="https://qodana.cloud">Qodana Cloud</a> in your browser to examine
+                    inspection results. Here you can also reconfigure the analysis. See the <a href="ui-overview.md"/> for details.</p>
                 <p>If you don't need the user interface and prefer to study raw data, use the following command:</p>
                 <code-block lang="shell" prompt="$">
                     docker run \
@@ -102,6 +98,21 @@
                 <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
                     using it in <code>docker run</code> again.
                 </p>
+
+                <p>You can run %linter% using private NuGet feeds:</p>
+                <code-block lang="shell" prompt="$">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_URL=&lt;private-NuGet-feed-URL&gt; \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_USER=&lt;login&gt; \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_PASSWORD=&lt;plaintext-password&gt; \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_NAME=&lt;name-of-private-NuGet-feed&gt; \
+                    &nbsp;&nbsp;&nbsp;%docker-image% \
+                    &nbsp;&nbsp;&nbsp;--show-report
+                </code-block>
+                <p>Configuration examples for using private NuGet feeds are available on the
+                    <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub</a> website.</p>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <p>In the project root directory, run this command to inspect your code and view the inspection

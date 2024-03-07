@@ -189,12 +189,14 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
         <code-block lang="shell" prompt="$">
             qodana scan
         </code-block>
+    <p>If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
+you build a project because this can guarantee that %instance% has access to private NuGet feeds.</p>
     </tab>
     <tab id="qodana-dotnet-docker-image-tab" title="Docker image">
         <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
-        <code filter="non-gs" style="block" lang="shell" prompt="$">
+        <code-block filter="non-gs" style="block" lang="shell" prompt="$">
             docker pull %docker-image%
-        </code>
+        </code-block>
         <p>Start local analysis with <code>source-directory</code>
             pointing to the root of your project and
             <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
@@ -202,14 +204,24 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
         docker run \
         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-        &nbsp;&nbsp;&nbsp;-p 8080:8080 \
         &nbsp;&nbsp;&nbsp;%docker-image% \
         &nbsp;&nbsp;&nbsp;--show-report
         </code-block>
-        <p>Open <code>http://localhost:8080</code> in your browser to examine inspection results.
-            Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-            details. When done, you can stop the web server by pressing Ctrl-C in the
-            console.</p>
+        <p>Open <a href="https://qodana.cloud">Qodana Cloud</a> in your browser to examine inspection results.</p>
+        <p>You can run %linter% using private NuGet feeds:</p>
+        <code-block lang="shell" prompt="$">
+        docker run \
+        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+        &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_URL=&lt;private-NuGet-feed-URL&gt; \
+        &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_USER=&lt;login&gt; \
+        &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_PASSWORD=&lt;plaintext-password&gt; \
+        &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_NAME=&lt;name-of-private-NuGet-feed&gt; \
+        &nbsp;&nbsp;&nbsp;%docker-image% \
+        &nbsp;&nbsp;&nbsp;--show-report
+        </code-block>
+        <p>Configuration examples for using private NuGet feeds are available on the 
+            <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub</a> website.</p>
     </tab>
 </tabs>
 

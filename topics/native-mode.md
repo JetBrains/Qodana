@@ -59,8 +59,9 @@ from the [previous section](#Before+you+start), you have two options for running
         <code-block lang="shell" prompt="$">qodana scan</code-block>
     </tab>
     <tab title="qodana.yaml" group-key="native-mode-qodana-yaml">
-    <p>In the <code>qodana.yaml</code> file, save the <code>ide: QDNET</code> configuration. Run %instance% using this 
-    command:</p> 
+    <p>In the <code>qodana.yaml</code> file, save the following configuration:</p> 
+    <code-block lang="yaml">ide: QDNET</code-block> 
+    <p>Run %instance% using this command:</p> 
     <code-block lang="shell" prompt="$">qodana scan</code-block>
     </tab>
 </tabs>

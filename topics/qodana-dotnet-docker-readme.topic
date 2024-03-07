@@ -30,6 +30,9 @@
                 </p>
             </note>
 
+            <note>If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
+                you build a project because this can guarantee that %instance% has access to private NuGet feeds.</note>
+
             <p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is
                 the recommended method for the %linter% linter if you are targeting .NET Framework or have private NuGet
                 feeds:</p>
@@ -40,8 +43,9 @@
             </code-block>
 
             <p>Here, the <code>--ide</code> option downloads and uses the JetBrains IDE binary file.</p>
-            <p>Alternatively, in the <code>qodana.yaml</code> file you can save the <code>ide: QDNET</code> configuration,
-                and then run %instance% using this command:</p>
+            <p>Alternatively, save the following configuration in the <code>qodana.yaml</code> file:</p>
+                <code-block lang="yaml">ide: QDNET</code-block>
+                <p>Run %instance% using this command:</p>
             <code-block lang="shell" prompt="$">
                 qodana scan
             </code-block>
