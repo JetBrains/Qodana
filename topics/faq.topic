@@ -175,6 +175,11 @@
 
     </chapter>
 
+    <chapter id="faq-inspectopedia-page-reference" title="Where can I learn more about %product% inspections?" default-state="collapsed" collapsible="true">
+        <p>You can visit the <a href="https://www.jetbrains.com/help/inspectopedia/">Inspectopedia</a> website and read
+            about inspections and their availability in %product%.</p>
+    </chapter>
+
 </chapter>
 
 <chapter title="Licensing" id="faq-licensing">
