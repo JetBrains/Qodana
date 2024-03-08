@@ -54,6 +54,8 @@
 
 ### Analyze a project locally
 
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
 <p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,non-gs,other,empty"/></p>
 
 ## Next steps

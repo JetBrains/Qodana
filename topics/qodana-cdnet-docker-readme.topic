@@ -224,7 +224,7 @@
 
             <tabs group="docker-options">
                 <tab title="Docker image" group-key="docker-image">
-                    <p>Use the following command as a task in a generic Shell executor:</p>
+                    <p>Use the following command as a task in a generic shell executor:</p>
                     <code-block lang="shell" prompt="$">
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \

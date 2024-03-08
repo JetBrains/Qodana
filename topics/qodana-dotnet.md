@@ -170,6 +170,8 @@ Another configuration example is available [on GitHub](https://github.com/hybloi
 
 ### Run Qodana
 
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
 <p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is the recommended method 
 for the %linter% linter. Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
 

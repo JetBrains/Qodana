@@ -17,7 +17,7 @@ need to be met:
 
 ### Add a Qodana runner 
 
-<link-summary>Starting from version 2022.04, Qodana functionality is available in TeamCity by default.</link-summary>
+<link-summary>You can configure the %product% runner in a TeamCity build.</link-summary>
 
 Assuming that you have already created your [project](https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project) and configured your build, follow the steps below.    
 
@@ -64,7 +64,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
 
    You can disable certain inspections later using the [`qodana.yaml`](qodana-yaml.md#exclude-paths) file or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
 
-   **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image, see the [](docker-image-configuration.topic#docker-config-reference-docker-environment) section for details.
+   **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image, see the [](docker-image-configuration.topic) section for details.
 
    **Additional Qodana arguments** lets you extend the default Qodana functionality, see the [Docker image configuration](docker-image-configuration.topic) page for details.
 

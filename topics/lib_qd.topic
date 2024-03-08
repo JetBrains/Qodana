@@ -141,7 +141,7 @@
     <snippet id="docker-ci-analysis">
         <tabs group="docker-options">
             <tab title="Docker image" group-key="docker-image">
-                <p>Use the following command as a task in a generic Shell executor:</p>
+                <p>Use the following command as a task in a generic shell executor:</p>
                 <code-block lang="shell" prompt="$">
                     docker run \
                        -v &lt;source-directory&gt;/:/data/project/ \
@@ -883,6 +883,11 @@
             <li><a href="github.md">Run %instance% using GitHub Actions</a></li>
             <li filter="for-php-linter"><a href="php-language-upgrade.topic">See how migration between PHP versions will affect the code quality</a></li>
         </list>
+    </snippet>
+
+    <snippet id="root-and-non-root-users-info-bubble">
+        <tip>You can learn more about running %product% as root and non-root users from the
+            <a href="docker-image-configuration.topic" anchor="docker-config-reference-docker-environment-run-non-root"/> section.</tip>
     </snippet>
 
 </topic>

@@ -134,6 +134,8 @@ your project, or run the build in a pipeline before passing it to %instance%.
 
 ### Run the linter
 
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
 Use this command to run the Dockerized version of the %linter% linter: 
 
 ```shell

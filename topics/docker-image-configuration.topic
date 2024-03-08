@@ -187,7 +187,7 @@
 
             <p>You can automatically download the required plugins from
                 <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> and use them in your CI/CD pipelines.
-                For example, this Shell script will download the
+                For example, this shell script will download the
                 <a href="https://plugins.jetbrains.com/plugin/7303-twig">Twig</a> plugin:</p>
 
             <code-block lang="shell">
@@ -1127,26 +1127,12 @@
 
     <!-- What is this for?  And how can I run it? -->
 
-    <chapter id="docker-config-reference-qodana-cloud" title="Qodana Cloud">
+    <chapter id="docker-config-reference-qodana-cloud" title="Forward reports to Qodana Cloud">
 
         <p>To forward reports to Qodana Cloud, you can set the list of Docker environments as explained in the
             <a href="cloud-forward-reports.topic"/> section.</p>
 
     </chapter>
-
-    <chapter id="docker-config-reference-docker-environment" title="Docker variables">
-
-        <link-summary>Using the Docker parameters, you can change the Heap size, override the idea.properties file,
-            run %product% as non-root, and forward reports to Qodana Cloud.</link-summary>
-
-        <p>Using the <code>-e</code> and <code>-u</code> Docker parameters, you can:</p>
-
-        <list>
-            <li>Change the Heap size</li>
-            <li>Override the <code>idea.properties</code> file</li>
-            <li>Run %instance% as non-root</li>
-            <li>Forward %instance% reports to Qodana Cloud</li>
-        </list>
 
         <chapter id="docker-config-reference-docker-environment-heap-size" title="Change the Heap size">
 
@@ -1178,16 +1164,18 @@
             <p>To learn more about configuring the Heap, see the
                 <a href="https://docs.oracle.com/cd/E19900-01/819-4742/abeik/index.html">Heap Tuning Parameters</a>
                 of the Oracle documentation.</p>
-
         </chapter>
 
         <chapter id="docker-config-reference-docker-environment-idea-properties" title="Override the idea.properties file">
+
+            <link-summary>The idea.properties file configures the default locations of the IDE files. You can override
+                this file using the IDEA_PROPERTIES variable. </link-summary>
 
             <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
 
             <p>The <code>idea.properties</code> configures the default locations of the IDE files.</p>
 
-            <p>You can override the <code>idea.properties</code> file using the <code>IDEA_PROPERTIES</code> variables:</p>
+            <p>You can override the <code>idea.properties</code> file using the <code>IDEA_PROPERTIES</code> variable:</p>
 
             <tabs group="cli-settings">
                 <tab title="Docker image" group-key="docker-image">
@@ -1210,64 +1198,51 @@
 
         </chapter>
 
-        <chapter id="docker-config-reference-docker-environment-run-non-root" title="Run as non-root">
+        <chapter id="docker-config-reference-docker-environment-run-non-root" title="Configure root and non-root users">
 
-            <link-summary>Using the Docker parameters, you can run %product% as non-root.</link-summary>
+            <link-summary>Learn how to set up %product% for running as root and non-root users.</link-summary>
 
-            <tip>TeamCity and <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> already run %instance%
-                under a current non-root user.</tip>
+            <tip>You can build your own Docker image with the required dependencies using our
+                <a href="https://github.com/JetBrains/qodana-docker/blob/main/2023.3/python-community/Dockerfile">Dockerfile</a>.
+            </tip>
 
-            <p>By default, a container runs under the <code>root</code> user so that %instance% can read project information
-                and write inspection results. Therefore, all files in the <code>results/</code> directory are owned by
-                the <code>root</code> user after the run.</p>
+            <tabs>
+                <tab id="docker-config-reference-docker-environment-docker" title="Docker">
+                    <p>By default, a Docker container runs under the <code>root</code> user, so %instance% can
+                        read project information and write inspection results. Therefore, all files in the <code>results/</code>
+                        directory are owned by the <code>root</code> user after the run.</p>
 
-            <p>To overcome this, you can run the container as a regular user:</p>
+                    <p>To overcome this, you can run the container as a regular user:</p>
 
-            <code-block lang="shell" prompt="$">
-                docker run \
-                   -u $(id -u):$(id -g) \
-                   -v $(pwd):/data/project/ \
-                   -v &lt;results-directory&gt;:/data/results/ \
-                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                   jetbrains/qodana-&lt;linter&gt;
-            </code-block>
-
-            <p>In this case, the <code>results/</code> directory on host should already be created and owned by you.
-                Otherwise, Docker will create it as the <code>root</code> user, and %instance% will not be able to write
-                to it.</p>
-
-        </chapter>
-
-        <chapter id="docker-config-reference-docker-environment-qodana-cloud" title="Forward reports to Qodana Cloud">
-
-            <p>You can forward %instance% reports to Qodana Cloud by specifying the <code>QODANA_TOKEN</code> variable
-                that will contain the Qodana Cloud <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</p>
-
-            <tabs group="cli-settings">
-                <tab title="Docker image" group-key="docker-image">
-                    <p>Using Docker also requires a bunch of variables described in the
-                        <a href="cloud-forward-reports.topic" anchor="cloud-forward-reports-local-run">Forward reports</a> section.</p>
                     <code-block lang="shell" prompt="$">
                         docker run \
-                           -v $(pwd):/data/project/ \
-                           -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                           -e QODANA_REMOTE_URL="&lt;project-remote-url&gt;" \
-                           -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
-                           -e QODANA_REVISION="&lt;commit-hash&gt;" \
-                           -e QODANA_JOB_URL="&lt;job-url&gt;" \
-                           jetbrains/qodana-&lt;linter&gt;
+                        -u $(id -u):$(id -g) \
+                        -v $(pwd):/data/project/ \
+                        -v &lt;results-directory&gt;:/data/results/ \
+                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        jetbrains/qodana-&lt;linter&gt;
                     </code-block>
+
+                    <p>In this case, the <code>results/</code> directory on host should already be created and owned by you.
+                        Otherwise, Docker will create it as the <code>root</code> user, and %instance% will not be able to write
+                        to it.</p>
                 </tab>
-                <tab title="Qodana CLI" group-key="qodana-cli">
+                <tab id="docker-config-reference-docker-environment-teamcity-qodana-cli" title="TeamCity and Qodana CLI">
+                    <p>TeamCity and <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> run %instance%
+                        using a current non-root user. This can be inconvenient if you wish to install dependencies
+                        using the <code>apt</code> tool invoked in the
+                        <a href="before-running-qodana.md"><code>bootstrap</code></a> section.</p>
+                    <p>To run %product% as a root user in TeamCity, in the
+                        <a href="teamcity.md" anchor="Add+a+Qodana+runner"><ui-path>Additional arguments for 'docker run'</ui-path></a>
+                        field of the %product% runner configuration add the <code>-u root</code> option.</p>
+                    <p>To run Qodana CLI as a root user, you can append <code>-u root</code>
+                        option to the <code>qodana scan</code> command:</p>
                     <code-block lang="shell" prompt="$">
-                        qodana scan \
-                           -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
+                        qodana scan -u root
                     </code-block>
                 </tab>
             </tabs>
         </chapter>
-
-    </chapter>
 
     <chapter id="docker-config-reference-qodana-cli-options" title="Options available only in Qodana CLI">
 

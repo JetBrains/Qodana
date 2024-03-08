@@ -94,6 +94,8 @@ include:
 
 #### Run analysis
 
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
 <p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,js-only,non-gs,empty"/></p>
 
 ## Next steps

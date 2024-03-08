@@ -78,6 +78,8 @@ Java, Kotlin, and Groovy.</link-summary>
 
 <note>Before running %instance%, you can <a href="configure-jdk.md">configure the JDK</a> for your project.</note>
 
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
 <p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
 
 ## Android Gradle plugin compatibility
