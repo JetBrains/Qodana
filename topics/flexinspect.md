@@ -1,39 +1,50 @@
-# Flexinspect
+# FlexInspect
 
-Starting from version 2024.1 of %product%, you can use the flexInspect feature to develop your own inspections in 
-IntelliJ IDEA using the API of JetBrains IDEs. This feature provides a flexible way for developing your own inspections, 
-and you don't have to develop a complete plugin anymore.
+<var name="feature" value="FlexInspect"/>
 
-You can develop new inspections using Kotlin and run them using the [](qodana-jvm.md), [](qodana-jvm-community.md), and 
+Starting from version 2024.1 of %product%, you can use the %feature% feature to develop your own inspections in 
+IntelliJ IDEA. %feature% uses the API of JetBrains IDEs and provides a flexible way for developing your own inspections 
+and seeing results on the fly.
+
+You can develop your inspections using Kotlin and run your solutions using the [](qodana-jvm.md), [](qodana-jvm-community.md), and 
 [](qodana-jvm-android.md) linters.
 
 ## Prerequisites
 
-Make sure that you have a IntelliJ IDEA and Kotlin installed on your machine.
-
-You may also need to install the `PsiViewer` plugin.
+Make sure that you have IntelliJ IDEA and Kotlin installed on your machine.
 
 ## How it works
 
-To develop your custom inspection, you may need to use a PSI representation while developing a file containing the code of the inspection.
-
-The [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) or Program Structure Interface creates a representation 
-of the source code as a tree of elements corresponding to a source file's structure. In case of Java code, this reflects 
-basic blocks of a Java file like package and import statements, class statements, and method invocations. In 
+While developing your inspections, you can use the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) or Program Structure Interface representation of the source 
+code as a tree of elements corresponding to a source file's structure. In case of Java code, this reflects 
+basic blocks of a Java file like package and import statements, class statements, method invocations, and others. In 
 IntelliJ IDEA, PSI is implemented in form of a PSI tree available via the **PSI Viewer** tool.
 
-To run custom inspections, %product% uses files saved in the `inspections` directory of your project.
+%product% uses the inspection files with the `inspection.kts` extension saved in the `inspections` directory of your 
+project.
 
 ## How to start
 
-In your project, create the `inspections` directory. 
+<procedure>
+<step>In your project, create the <code>inspections</code> directory.</step>
+<step>
+In the project navigator of IntelliJ IDEA, hover over the <code>inspections</code> directory, right-click the directory, navigate 
+to <ui-path>New | Custom Inspection</ui-path>.
+</step>
+<step>
+On the dialog that opens, click <ui-path>Java local inspection</ui-path> and specify the inspection name.
+</step>
+</procedure>
 
-In the project navigator in your IDE, right-click the `inspections` directory, navigate to **New | Custom Inspection**
-to create an inspection template. This template already contains code examples and explanations, which lets you start 
+<img src="flexinspect-intro.gif" width="706" alt="Creating a template inspection" border-effect="line"/>
+
+This template already contains code examples and explanations, which lets you start 
 developing your own inspection. All inspection files have the `inspection.kts` extension.
 
-In your IDE, open a Java file in your project that you would like to inspect with your custom inspection, and then open 
-the PSI Viewer. You will be able to see the PSI elements contained in the file. 
+In your IDE, open a Java file in your project that you would like to inspect with your custom inspection, and then navigate
+to **Tools | View PSI Structure of Current File**. You will be able to see the PSI elements contained in the file. 
+
+<!-- Here a short video needs to be created -->
 
 All changes made to the inspection template are available on the fly, so you can see how your inspection already works.
 
