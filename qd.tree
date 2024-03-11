@@ -7,7 +7,7 @@
 		<toc-element topic="pricing.md"/>
 		<toc-element topic="Quick-start.topic"/>
 		<toc-element topic="faq.topic"/>
-		<toc-element accepts-web-file-names="new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html" topic="new-in-2023-3.md"/>
+		<toc-element accepts-web-file-names="new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html" topic="new-in-2024-1.md"/>
 		<toc-element topic="components.topic">
 			<toc-element topic="static-analysis.topic"/>
 			<toc-element accepts-web-file-names="supported-technologies.html" topic="linters.md">
@@ -81,6 +81,7 @@
 	<toc-element topic="features.topic">
 		<toc-element accepts-web-file-names="qodana-baseline.html" topic="baseline.topic"/>
 		<toc-element topic="code-coverage.md"/>
+		<toc-element topic="flexinspect.md"/>
 		<toc-element accepts-web-file-names="about-license-audit.html" topic="license-audit.topic"/>
 		<toc-element accepts-web-file-names="qodana-php-language-upgrade.html" topic="php-language-upgrade.topic"/>
 		<toc-element topic="quality-gate.topic"/>

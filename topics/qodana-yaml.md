@@ -3,12 +3,17 @@
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
 
-<link-summary>Qodana runs are configured via the `qodana.yaml` configuration file contained in the root directory of your project.</link-summary>
+<link-summary>You can configure Qodana via a YAML-formatted file. By default, this file should have the qodana.yaml 
+name and be contained in the root directory of your project.</link-summary>
 
-Qodana runs are configured via the `qodana.yaml` configuration file contained in the root directory of your project.
-Configuration settings of `qodana.yaml` override the default inspection profile settings and default configurations of Qodana linters.
-You can specify such overrides in the [HTML report](results.md),
-and the changes are imported to `qodana.yaml` automatically.
+By default, Qodana is configured via the `qodana.yaml` configuration file contained in the root directory of your project.
+You can override this filename using the `--config` option, see the 
+[](docker-image-configuration.topic#docker-config-reference-custom-yaml-config) for details. For convenience, this 
+will be referred in this section using the default `qodana.yaml` name.
+
+Configuration applied in `qodana.yaml` override the default inspection profile settings and default configurations of 
+Qodana linters, you can configure it using the [HTML report](results.md) section, and all changes will be applied 
+automatically.
 
 The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/json/)
 project, which allows for completion and basic validation in IDEs.

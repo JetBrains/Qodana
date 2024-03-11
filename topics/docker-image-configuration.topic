@@ -639,6 +639,35 @@
 
     </chapter>
 
+    <chapter id="docker-config-reference-custom-yaml-config" title="Custom configuration file">
+
+        <link-summary>You can save %product% settings in your custom YAML-formatted file. You can then invoke this file
+            using the --config option and a path to a file relatively to the project root.</link-summary>
+
+        <p>Starting from version 2024.1, you can save %product% <a href="qodana-yaml.md">settings</a> in a custom
+            YAML-formatted file. You can employ this configuration file using the <code>--config</code> option and a path
+            to a file relatively to the project root:</p>
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code-block lang="shell" prompt="$">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project \
+                    &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
+                    &nbsp;&nbsp;&nbsp;--config relative/path/to/config.yaml
+                </code-block>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code-block lang="shell" prompt="$">
+                qodana scan \
+                &nbsp;&nbsp;&nbsp;--config relative/path/to/config.yaml
+                </code-block>
+            </tab>
+        </tabs>
+
+        <p>This comes in handy when inspecting <a href="monorepo-project.md">monorepo projects</a>.</p>
+
+    </chapter>
+
 
     <chapter id="docker-config-reference-baseline" title="Baseline">
 

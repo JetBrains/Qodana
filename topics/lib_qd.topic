@@ -461,7 +461,7 @@
 
         <p>By default, %instance% tries to locate and employ a single solution file, or, if no solution file is present,
         it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
-        file name using the <code>--solution</code> option and a relative path to a solution file. For example, to
+        filename using the <code>--solution</code> option and a relative path to a solution file. For example, to
             make %instance% always analyze the <code>MySolution.sln</code> solution file, you can use:</p>
 
         <code-block lang="shell" filter="for-dotnet">
@@ -472,7 +472,7 @@
             --solution=MySolution.sln
         </code-block>
 
-        <p>Alternatively, you can specify the solution file name in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
+        <p>Alternatively, you can specify the solution filename in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
             file using the <code>solution</code> option and a relative path to a solution file:</p>
 
         <code-block lang="yaml">
@@ -492,7 +492,7 @@
             --project=MyProject.csproj
         </code-block>
 
-        <p>Alternatively, you can specify the project file name in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
+        <p>Alternatively, you can specify the project filename in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a>
             file using the <code>project</code> option:</p>
 
         <code-block lang="yaml">
