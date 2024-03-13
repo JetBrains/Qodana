@@ -2,28 +2,33 @@
 
 <var name="feature" value="FlexInspect"/>
 
-Starting from version 2024.1 of %product%, you can use the %feature% feature to develop your own inspections in 
-IntelliJ IDEA. %feature% uses the API of JetBrains IDEs and provides a flexible way for developing your own inspections 
-and seeing results on the fly.
+Starting from version 2024.1 of %product%, you can employ the %feature% feature to develop your own inspections using 
+IntelliJ IDEA and Kotlin. Each inspection is a Kotlin file contained in your project and available on the fly.
 
-You can develop your inspections using Kotlin and run your solutions using the [](qodana-jvm.md), [](qodana-jvm-community.md), and 
+You can run your inspections using the [](qodana-jvm.md), [](qodana-jvm-community.md), and 
 [](qodana-jvm-android.md) linters.
 
 ## Prerequisites
 
-Make sure that you have IntelliJ IDEA and Kotlin installed on your machine.
+Make sure that IntelliJ IDEA and Kotlin are installed on your machine.
 
 ## How it works
 
-While developing your inspections, you can use the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) or Program Structure Interface representation of the source 
-code as a tree of elements corresponding to a source file's structure. In case of Java code, this reflects 
-basic blocks of a Java file like package and import statements, class statements, method invocations, and others. In 
-IntelliJ IDEA, PSI is implemented in form of a PSI tree available via the **PSI Viewer** tool.
+The [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) or Program Structure Interface is a tree representation of the source code elements corresponding to a 
+source file's structure. In case of Java code, this reflects basic blocks of a Java file like package and import 
+statements, class statements, method invocations, and other nodes. %feature% uses the PSI tree representation of your 
+codebase to obtain the list of the codebase nodes that can be inspected using your inspections.
 
-%product% uses the inspection files with the `inspection.kts` extension saved in the `inspections` directory of your 
-project.
+%feature% reads `inspection.kts` files contained in the `inspections` directory of your project. Each inspection file 
+in this directory uses the existing PSI tree representation of your codebase to inspect various nodes of it.  
+
+Once ready, you can run %product% using your inspections right away, without any additional configuration.
 
 ## How to start
+
+### Create an inspection template
+
+To create a new inspection draft, follow the procedure below.
 
 <procedure>
 <step>In your project, create the <code>inspections</code> directory.</step>
@@ -36,17 +41,30 @@ On the dialog that opens, click <ui-path>Java local inspection</ui-path> and spe
 </step>
 </procedure>
 
+Here is the video showing how to create an inspection template.
+
 <img src="flexinspect-intro.gif" width="706" alt="Creating a template inspection" border-effect="line"/>
 
 This template already contains code examples and explanations, which lets you start 
 developing your own inspection. All inspection files have the `inspection.kts` extension.
 
-In your IDE, open a Java file in your project that you would like to inspect with your custom inspection, and then navigate
-to **Tools | View PSI Structure of Current File**. You will be able to see the PSI elements contained in the file. 
+### Study the list of items to inspect
 
-<!-- Here a short video needs to be created -->
+In your IDE, open a Java file in your project that you would like to develop your inspection for, and then navigate
+to **Tools | View PSI Structure of Current File**. 
 
-All changes made to the inspection template are available on the fly, so you can see how your inspection already works.
+<!-- I can probably adapt this section to the next subsection -->
+
+<img src="flexinspect-psi-tree.gif" width="881" alt="Studying a PSI tree of a file" border-effect="line"/>
+
+Here, you can see the PSI elements contained in the file and choose the nodes you would like to inspect. 
+
+### Modify the inspection template to your needs
+
+After you create an inspection template and study the elements of your codebase, you can develop your 
+inspections that invoke these elements and check them against specific conditions. 
+
+All changes made to the inspection template are available on the fly, so you can see how your inspection already working.
 
 After you finish inspection development, it becomes available for the entire project. The inspection code will be run 
 on each element of the file's PSI tree if a specific PSI entity type suits the inspection criterion.
@@ -56,7 +74,13 @@ on each element of the file's PSI tree if a specific PSI entity type suits the i
 To inspect your code with the new inspection locally, run %product% as explained in the 
 [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
 
-To run your custom inspection in a CI pipeline, 
-<!-- How does this work ?-->
+To run your custom inspection in a CI pipeline, you can visit the [](ci.md) section and find the description for your
+CI/CD solution. Because your inspection is already contained in the `inspections` section of your project, it is 
+available for inspecting your code. 
+
+To be able to configure your inspection in the `qodana.yaml` file, you can use the inspection name from 
+the inspection template as shown in the [](qodana-yaml.md#exclude-paths) and 
+[](qodana-yaml.md#Include+an+inspection+into+the+analysis+scope) sections.
+
 
 <!-- Link to the examples on GitHub needs to be provided -->
