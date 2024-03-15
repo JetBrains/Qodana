@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/flexinspect-psi-tree.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/flexinspect-psi-tree_dark.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/flexinspect-create-template.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/flexinspect-create-template_dark.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/flexinspect-how-it-works.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/flexinspect-how-it-works_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/flexinspect-run-qodana-locally.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/flexinspect-run-qodana-locally_dark.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/flexinspect-test-inspection.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/flexinspect-test-inspection_dark.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-intro.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-intro_dark.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-psi-tree.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-psi-tree.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-psi-tree_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-psi-tree_dark.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,6 +172,12 @@
       <updated>1708702574305</updated>
       <workItem from="1708702579052" duration="45271000" />
       <workItem from="1709882467324" duration="11840000" />
+      <workItem from="1710426551722" duration="5000" />
+      <workItem from="1710510043848" duration="6158000" />
+      <workItem from="1710519925768" duration="859000" />
+      <workItem from="1710522000599" duration="2066000" />
+      <workItem from="1710525053952" duration="710000" />
+      <workItem from="1710526532867" duration="1413000" />
     </task>
     <servers />
   </component>
