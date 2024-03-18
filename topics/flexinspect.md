@@ -5,8 +5,8 @@
 Starting from version 2024.1 of %product%, you can employ the %feature% feature to develop your own inspections specific
 to your project using IntelliJ IDEA and Kotlin, and run them instantly.
 
-You can run your inspections using the [](qodana-jvm.md), [](qodana-jvm-community.md), and 
-[](qodana-jvm-android.md) linters.
+You can develop and run your inspections for projects containing the following languages: Java, Kotlin, JS, TypeScript, 
+PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, SHELL, DOCKERFILE, and MARKDOWN. 
 
 ## Prerequisites
 
@@ -70,8 +70,8 @@ a class.
 ### Modify the inspection template to your needs
 
 You can modify the inspection template that you have [already created](#Create+an+inspection+template). To check whether
-a class has a constructor method, you can iterate over all methods and use the `isConstructor()` method. If there is no
-constructor method, the inspection generate the error showing that a class has no constructor method.
+a class has a constructor method, in this example you can iterate over all methods and use the `isConstructor()` method. 
+If there is no constructor method, the inspection generate the error showing that a class has no constructor method.
 
 Here is the Kotlin snippet for the `noConstructor.inspection.kts` file containing inline comments.
 
@@ -138,6 +138,11 @@ see how your inspection outlines the code fragment checked by the inspection.
 
 ### Run your custom inspection using %product%
 
+<note>
+If your custom inspection conflicts with a Qodana inspection, and you would still like to run it, you can 
+<a href="qodana-yaml.md" anchor="exclude-inspection">disable</a> the Qodana inspection.
+</note>
+
 To inspect your code with the new inspection locally, run %product% as explained in the 
 [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
 
@@ -145,7 +150,8 @@ To inspect your code with the new inspection locally, run %product% as explained
 
 To run your custom inspection in a CI pipeline, you can visit the [](ci.md) section and find the description for your
 CI/CD solution. Because your inspection is already contained in the `inspections` section of your project, it is 
-already available for inspecting your code. 
+already available for inspecting your code. If you want to apply your custom inspections to multiple projects, you 
+can create a separate repository with all custom inspections and setup CI pipelines to apply these inspections.
 
 To configure your inspection in the `qodana.yaml` file, you can use the inspection name from 
 the `id` field of the [inspection template](#Modify+the+inspection+template+to+your+needs) as shown in the [](qodana-yaml.md#exclude-paths) and 
