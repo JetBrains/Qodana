@@ -69,7 +69,7 @@ a class.
 
 ### Modify the inspection template to your needs
 
-You can modify the inspection that you have [already created](#Create+an+inspection+template). To check whether
+You can modify the inspection that you have [already created](#Create+an+inspection). To check whether
 a class has a constructor method, in this example you can iterate over all methods and use the `isConstructor()` method. 
 If there is no constructor method, the inspection generate the error showing that a class has no constructor method.
 
