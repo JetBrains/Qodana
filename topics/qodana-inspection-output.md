@@ -29,7 +29,11 @@ An example of the Qodana command-line summary output:
 
 ## UI-compatible output
 
-In addition to programmatic output, you can generate a human-readable report in the HTML format by using the `--save-report` argument.
+In addition to programmatic output, you can generate a human-readable report in the HTML format by using the 
+`--save-report` argument as explained in the [](docker-image-configuration.topic#docker-config-reference-directories-save-report)
+section.
+
+``````
 
  <seealso>
   <category ref="concepts">
