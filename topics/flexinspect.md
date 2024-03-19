@@ -2,7 +2,7 @@
 
 <var name="feature" value="FlexInspect"/>
 
-Starting from version 2024.1 of %product%, you can employ the %feature% feature to develop your own inspections specific
+Starting from version 2024.1 of IntelliJ IDEA, you can employ the %feature% feature to develop your own inspections specific
 to your project using IntelliJ IDEA and Kotlin, and run them instantly.
 
 You can develop and run your inspections for projects containing the following languages: Java, Kotlin, JS, TypeScript, 
@@ -10,7 +10,7 @@ PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, SHELL, DOCKERFILE, and MARKDOW
 
 ## Prerequisites
 
-Make sure that IntelliJ IDEA and Kotlin are installed on your machine.
+Make sure that [IntelliJ IDEA](https://www.jetbrains.com/idea/) and [Kotlin](https://kotlinlang.org/) are installed on your machine.
 
 Depending on your plans, you probably need to learn the [basics of Kotlin](https://kotlinlang.org/docs/kotlin-tour-welcome.html).
 
@@ -21,7 +21,7 @@ In IntelliJ IDEA, PSI is available using the **PSI Viewer** tool.
 
 <img src="flexinspect-how-it-works.png" width="706" alt="PSI tree overview" border-effect="line" thumbnail="true"/>
 
-PSI is a tree representation of the source code elements corresponding to a source file's structure. In case of Java 
+PSI is a tree representation of your code corresponding to a source file's structure. In case of Java 
 code, PSI reflects basic blocks of a Java file like package and import statements, class statements, method invocations, 
 and other nodes. %feature% uses the PSI tree representation of your codebase to obtain the list of the codebase nodes 
 that can be inspected using your inspections.
@@ -29,15 +29,15 @@ that can be inspected using your inspections.
 %feature% reads `inspection.kts` files from the `inspections` directory in your project, and each `inspection.kts` file
 contains Kotlin code to check your codebase nodes using the API provided by the PSI.   
 
-After you develop your inspections, you can run %product% using them right away, without any additional configuration.
+After you develop your inspections, you can run them over your code with IntelliJ IDEA and %product% right away.
 
 ## How to start
 
 This section shows how to create an inspection example that will inspect whether a Java class has a constructor method.
 
-### Create an inspection template
+### Create an inspection
 
-To create a new `inspection.kts` template, follow the procedure below.
+To create a new `inspection.kts` inspection from a template, follow the procedure below.
 
 <procedure>
 <step>In your project, create the <code>inspections</code> directory.</step>
@@ -50,11 +50,11 @@ On the dialog that opens, select the inspection type and specify the inspection 
 </step>
 </procedure>
 
-Here is the animation showing how to create an inspection template.
+Here is the animation showing how to create an inspection.
 
 <img src="flexinspect-create-template.gif" width="881" alt="Creating a template inspection" border-effect="line"/>
 
-A created template already contains code examples and explanations, which lets you start to
+A created file already contains code examples and explanations, which lets you start to
 develop your own inspection. 
 
 ### Study the list of items to inspect
@@ -69,7 +69,7 @@ a class.
 
 ### Modify the inspection template to your needs
 
-You can modify the inspection template that you have [already created](#Create+an+inspection+template). To check whether
+You can modify the inspection that you have [already created](#Create+an+inspection+template). To check whether
 a class has a constructor method, in this example you can iterate over all methods and use the `isConstructor()` method. 
 If there is no constructor method, the inspection generate the error showing that a class has no constructor method.
 
@@ -131,8 +131,9 @@ listOf(
 
 ### Test your inspection in the IDE
 
-All changes applied to the inspection template are available on the fly for your entire project, so in your IDE you can 
-see how your inspection outlines the code fragment checked by the inspection.
+All changes applied to the inspection are available on the fly for your entire project, so in your IDE you can 
+see how your inspection highlights the code checked by the inspection. To see how the new inspection highlights 
+results, open a file containing your code.
 
 <img src="flexinspect-test-inspection.gif" width="881" alt="Testing the inspection in IDE" border-effect="line"/>
 
@@ -143,18 +144,15 @@ If your custom inspection conflicts with a Qodana inspection, and you would stil
 <a href="qodana-yaml.md" anchor="exclude-inspection">disable</a> the Qodana inspection.
 </note>
 
-To inspect your code with the new inspection locally, run %product% as explained in the 
+To inspect your entire project with the new inspection locally, run %product% as explained in the 
 [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
 
 <img src="flexinspect-run-qodana-locally.gif" width="881" alt="Running Qodana locally with a new inspection" border-effect="line"/>
 
-To run your custom inspection in a CI pipeline, you can visit the [](ci.md) section and find the description for your
+To run your custom inspection in a CI pipeline, you can visit the [](ci.md) section and find the instructions for your
 CI/CD solution. Because your inspection is already contained in the `inspections` section of your project, it is 
-already available for inspecting your code. If you want to apply your custom inspections to multiple projects, you 
-can create a separate repository with all custom inspections and setup CI pipelines to apply these inspections.
+already available for inspecting your code.
 
-To configure your inspection in the `qodana.yaml` file, you can use the inspection name from 
-the `id` field of the [inspection template](#Modify+the+inspection+template+to+your+needs) as shown in the [](qodana-yaml.md#exclude-paths) and 
-[](qodana-yaml.md#Include+an+inspection+into+the+analysis+scope) sections.
-
-<!-- Is flexInspect FAQ required here? -->
+You can use the inspection name from the `id` field of the [inspection file](#Modify+the+inspection+template+to+your+needs)
+to [disable or enable](qodana-yaml.md#Example+of+different+configuration+options) your custom inspection in the 
+[`qodana.yaml`](qodana-yaml.md) file.
