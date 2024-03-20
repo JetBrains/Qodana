@@ -33,14 +33,12 @@ In addition to programmatic output, you can generate a human-readable report in 
 `--save-report` argument as explained in the [](docker-image-configuration.topic#docker-config-reference-directories-save-report)
 section.
 
-``````
-
- <seealso>
-  <category ref="concepts">
-    <a href="ui-overview.md"/>
-  </category>
-  <category ref="procedures">
-    <a href="html-report.md"/>
-    <a href="docker-image-configuration.topic"/>
-  </category>
- </seealso>
+<seealso>
+ <category ref="concepts">
+   <a href="ui-overview.md"/>
+ </category>
+ <category ref="procedures">
+   <a href="html-report.md"/>
+   <a href="docker-image-configuration.topic"/>
+ </category>
+</seealso>
