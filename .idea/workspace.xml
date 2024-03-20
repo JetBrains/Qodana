@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/ide-plugin-context-actions.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ide-plugin-context-actions_dark.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +161,7 @@
       <workItem from="1709882467324" duration="11840000" />
       <workItem from="1710951179000" duration="8000" />
       <workItem from="1710956749932" duration="2018000" />
-      <workItem from="1710961377106" duration="1338000" />
+      <workItem from="1710961377106" duration="2227000" />
     </task>
     <servers />
   </component>
