@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/ide-plugin-context-actions.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/ide-plugin-context-actions_dark.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,21 +119,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Writerside.Web Archive (qd).executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;2023.3&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Writerside.Web Archive (qd).executor": "Run",
+    "git-widget-placeholder": "2023.3",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="QodanaCIConfigService">
     <option name="ciType" value="GITHUB" />
     <option name="path" value="$PROJECT_DIR$/.github/workflows/grazie.yml" />
@@ -160,6 +162,9 @@
       <updated>1708702574305</updated>
       <workItem from="1708702579052" duration="45271000" />
       <workItem from="1709882467324" duration="11840000" />
+      <workItem from="1710951179000" duration="8000" />
+      <workItem from="1710956749932" duration="2018000" />
+      <workItem from="1710961377106" duration="1338000" />
     </task>
     <servers />
   </component>

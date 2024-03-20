@@ -182,6 +182,15 @@ selected, the issues are listed in the order they appear in the file. You can al
    </tr>
 </table>
 
+### Suppress inspections
+
+You can suppress inspections around specific codebase fragments like statements, methods, classes. To do it, in the 
+editor area of your IDE navigate to the **Show Context Actions | Ignore Qodana highlighting** context menu, and then 
+select the option you would like to use.
+
+<img src="ide-plugin-context-actions.gif" dark-src="ide-plugin-context-actions_dark.gif" width="1035" alt="Suppressing inspections in the IDE" border-effect="line"/>
+
+
 ## Qodana log overview
 
 In your IDE, navigate to **Help | Collect Logs and Diagnostic Data**. This will collect all necessary data and save 
