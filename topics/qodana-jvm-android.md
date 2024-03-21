@@ -7,7 +7,7 @@
 <var name="linter" value="Qodana Community for Android"/>
 <var name="ide" value="IntelliJ IDEA"/>
 <var name="tech" value="jvm"/>
-<var name="docker-image" value="jetbrains/qodana-jvm-android:2023.3"/>
+<var name="docker-image" value="jetbrains/qodana-jvm-android:2024.1"/>
 <var name="config-file" value="qodana-jvm-android-docker-readme.topic"/>
 <var name="android-developers-website" value="https://developer.android.com/build/releases/gradle-plugin#android_gradle_plugin_and_android_studio_compatibility"/>
 <link-summary>%linter% is based on %ide% and provides static analysis for Android projects based on 

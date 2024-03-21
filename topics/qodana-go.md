@@ -6,7 +6,7 @@
 
 <var name="linter" value="Qodana for Go"/>
 <var name="ide" value="GoLand"/>
-<var name="docker-image" value="jetbrains/qodana-go:2023.3"/>
+<var name="docker-image" value="jetbrains/qodana-go:2024.1"/>
 <var name="ide-url" value="https://www.jetbrains.com/go/"/>
 <var name="config-file" value="qodana-go-docker-readme.topic"/>
 

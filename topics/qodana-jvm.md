@@ -7,7 +7,7 @@
 <var name="linter" value="Qodana for JVM"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="tech" value="jvm"/>
-<var name="docker-image" value="jetbrains/qodana-jvm:2023.3"/>
+<var name="docker-image" value="jetbrains/qodana-jvm:2024.1"/>
 <var name="config-file" value="qodana-jvm-docker-readme.topic"/>
 
 <link-summary>%linter% is based on %ide% and provides inspections for 

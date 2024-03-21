@@ -1,6 +1,6 @@
 [//]: # (title: Linters)
 
-<var name="image-version" value="2023.3"/>
+<var name="image-version" value="2024.1"/>
 
 <link-summary>A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its 
 quality and can cause problems. Basically, each Qodana linter is associated with a specific programming language.</link-summary>

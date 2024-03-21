@@ -200,7 +200,7 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
-        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2023.3"
+        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2024.1"
         pr-mode: false
 ```
 </tab>

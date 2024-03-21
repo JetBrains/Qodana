@@ -1036,11 +1036,11 @@
         </chapter>
     </chapter>
 
-    <chapter id="docker-config-reference-changes" title="Changes">
+    <chapter id="docker-config-reference-changes" title="Diff analysis">
 
-        <warning>This option is deprecated and will be removed soon. For all linters, use
-            <a anchor="docker-config-reference-run-scenario"><code>--script local-changes</code></a> instead.
-        </warning>
+        <link-summary>You can run incremental analysis on a change set like merge or pull requests.</link-summary>
+
+        <note>This feature is not supported by the <a href="qodana-dotnet-community.md"/> linter.</note>
 
         <table>
             <tr>
@@ -1048,14 +1048,17 @@
                 <td>Description</td>
             </tr>
             <tr>
-                <td><code>-c</code>, <code>--changes</code></td>
+                <td><code>--diff-start</code> and <code>--diff-end</code></td>
                 <td>
-                    Inspect uncommitted changes and report new problems
+                    Run incremental analysis on a change set, for example merge or pull requests
                 </td>
             </tr>
         </table>
 
-        <p>%instance% lets you check only locally-modified files using this command:</p>
+        <snippet id="docker-config-reference-changes-examples">
+
+        <p>For example, if you just finished work within a particular commit and would like to analyse the changes, you
+            can employ the <code>--diff-start</code> option:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
@@ -1064,17 +1067,43 @@
                        -v $(pwd):/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
-                       --changes
+                       --diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
                 <code-block lang="shell" prompt="$">
                     qodana scan \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       --changes
+                       --diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
         </tabs>
+
+        <p>If you would like to inspect a set of changes between two commits, you can employ both <code>--diff-start</code>
+        and <code>--diff-end</code> options:</p>
+
+        <tabs group="cli-settings">
+            <tab title="Docker image" group-key="docker-image">
+                <code-block lang="shell" prompt="$">
+                    docker run \
+                    -v $(pwd):/data/project/ \
+                    -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    jetbrains/qodana-&lt;linter&gt; \
+                    --diff-start=&lt;GIT_START_HASH&gt; \
+                    --diff-end=&lt;GIT_END_HASH&gt;
+                </code-block>
+            </tab>
+            <tab title="Qodana CLI" group-key="qodana-cli">
+                <code-block lang="shell" prompt="$">
+                    qodana scan \
+                    -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    --diff-start=&lt;GIT_START_HASH&gt; \
+                    --diff-end=&lt;GIT_END_HASH&gt;
+                </code-block>
+            </tab>
+        </tabs>
+
+        </snippet>
 
     </chapter>
 
@@ -1098,8 +1127,6 @@
         <tip>You can also configure this option using the
             <a href="qodana-yaml.md" anchor="Override+the+default+run+scenario"><code>qodana.yaml</code></a> file.</tip>
 
-        <p>Currently, %instance% supports several run scenarios.</p>
-
         <p>Application of the <code>default</code> run scenario is equivalent to running this command:</p>
 
         <tabs group="cli-settings">
@@ -1120,16 +1147,6 @@
                 </code-block>
             </tab>
         </tabs>
-
-        <p>To inspect local uncommitted changes, you can use <code>local-changes</code> value:</p>
-
-        <code-block lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               jetbrains/qodana-&lt;linter&gt; \
-               --script local-changes
-        </code-block>
 
         <p>To run the <a href="php-language-upgrade.topic">PHP version migration</a> scenario, you can run this command:</p>
 
@@ -1458,16 +1475,6 @@
                     </td>
                     <td>
                         Go through the full commit history and run the analysis on each commit. If combined with <code>--commit</code>, analysis will be started from the given commit. Could take a long time.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>
-                            --commit --script local-changes
-                        </code>
-                    </td>
-                    <td>
-                        Base changes commit to reset to, resets git and runs linter with <code>--script local-changes</code>: analysis will be run only on changed files since the given commit. If combined with <code>--full-history</code>, full history analysis will be started from the given commit.
                     </td>
                 </tr>
                 <tr>

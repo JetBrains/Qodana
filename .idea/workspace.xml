@@ -6,7 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-inspection-output.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-inspection-output.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg-writerside/buildprofiles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg-writerside/buildprofiles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg/buildprofiles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/buildprofiles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/code-coverage.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-coverage.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/inspect-python-code.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspect-python-code.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/new-in-2024-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2024-1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-cdnet-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-cdnet-docker-readme.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet-community.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-go.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-go.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-js.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-js.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm-android.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-jvm-android.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-jvm-community.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-jvm.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-php.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-php.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-python-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-python-community.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-python.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/quality-gate.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quality-gate.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v.list" beforeDir="false" afterPath="$PROJECT_DIR$/v.list" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

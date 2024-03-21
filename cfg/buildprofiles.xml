@@ -18,7 +18,7 @@
 		<sideblocks>true</sideblocks>
 		<search-scopes-provider>https://data.services.jetbrains.com/search/</search-scopes-provider>
 		<enable-browser-edits>true</enable-browser-edits>
-		<browser-edits-url>https://github.com/JetBrains/Qodana/edit/2023.3/</browser-edits-url>
+		<browser-edits-url>https://github.com/JetBrains/Qodana/edit/2024.1/</browser-edits-url>
 		<disable-prev-next-links>true</disable-prev-next-links>
 		<disable-variable-interpolation>true</disable-variable-interpolation>
 		<versions-switcher>https://data.services.jetbrains.com/help-versions</versions-switcher>

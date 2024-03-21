@@ -1,8 +1,13 @@
-# Analyze pull requests
+# Analyze pull and merge requests
 
+<link-summary>You can run incremental analysis on a change set like merge or pull requests. For GitHub, these changes will 
+be picked up automatically.</link-summary>
 
-We can now analyse “local-changes” in QDNET (but not QDNETC), which was previously not supported by this linter. As with our other first-party, this mode is used to run incremental analysis on a change set, i.e. on a pull-request. For users of the qodana-github-action, this change will be picked up automatically.
+<note>This feature is not supported by the <a href="qodana-dotnet-community.md"/> linter.</note>
 
-To be able to implement this,
+You can run incremental analysis on a change set like merge or pull requests. For [GitHub](github.md), these changes will 
+be picked up automatically.
 
-We added this way of “local changes” analysis for other linters too. This new way of running is not enabled by default, but can be toggled using the CLI argument `--force-incremental-script=scope`, for QDNET it is enabled by default and cannot be disabled.
+<include from="docker-image-configuration.topic" element-id="docker-config-reference-changes-examples"/>
+
+<!-- The use cases need to be mentioned here as well from the docker-image-configuration file -->

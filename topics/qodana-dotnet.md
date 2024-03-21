@@ -6,7 +6,7 @@
 
 <var name="linter" value="Qodana for .NET"/>
 <var name="ide" value="Rider"/>
-<var name="docker-image" value="jetbrains/qodana-dotnet:2023.3"/>
+<var name="docker-image" value="jetbrains/qodana-dotnet:2024.1"/>
 <var name="config-file" value="qodana-dotnet-docker-readme.topic"/>
 
 <link-summary>%linter% is based on %ide% and provides static analysis for .NET projects that use C, C++, C#, VB.NET, 
@@ -226,6 +226,60 @@ you build a project because this can guarantee that %instance% has access to pri
             <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub</a> website.</p>
     </tab>
 </tabs>
+
+#### Analyze pull requests
+
+<snippet id="qodana-dotnet-analyze-pull-requests">
+
+You can run incremental analysis on a change set like merge or pull requests.
+
+For example, if you just finished work within a particular commit and would like to analyse the changes, you 
+can employ the `--diff-start` option:
+
+<tabs group="cli-settings">
+    <tab title="Docker image" group-key="docker-image">
+        <code-block lang="shell" prompt="$">
+            docker run \
+            &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;%docker-image% \
+            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+        </code-block>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code-block lang="shell" prompt="$">
+            qodana scan \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+        </code-block>
+    </tab>
+</tabs>
+
+If you would like to inspect a set of changes between two commits, you can employ both `--diff-start` and `--diff-end` 
+options:
+
+<tabs group="cli-settings">
+    <tab title="Docker image" group-key="docker-image">
+        <code-block lang="shell" prompt="$">
+            docker run \
+            &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;%docker-image% \
+            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt; \
+            &nbsp;&nbsp;&nbsp;--diff-end=&lt;GIT_END_HASH&gt;
+        </code-block>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code-block lang="shell" prompt="$">
+            qodana scan \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt; \
+            &nbsp;&nbsp;&nbsp;--diff-end=&lt;GIT_END_HASH&gt;
+        </code-block>
+    </tab>
+</tabs>
+
+</snippet>
 
 ## Next steps
 

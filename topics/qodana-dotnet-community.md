@@ -3,7 +3,7 @@
 <var name="dotsettings" value="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#solution-team-shared-layer"/>
 <var name="linter" value="Qodana Community for .NET"/>
 <var name="ide" value="ReSharper"/>
-<var name="docker-image" value="jetbrains/qodana-cdnet:2023.3-eap"/>
+<var name="docker-image" value="jetbrains/qodana-cdnet:2024.1-eap"/>
 <var name="config-file" value="qodana-cdnet-docker-readme.topic"/>
 
 <link-summary>%linter% is based on %ide% and provides static analysis for .NET projects that use C# and Visual Basic.NET (VB.NET) code.</link-summary>

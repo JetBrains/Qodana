@@ -7,7 +7,7 @@
 
 <var name="linter" value="Qodana Community for Python"/>
 <var name="ide" value="PyCharm Community"/>
-<var name="docker-image" value="jetbrains/qodana-python-community:2023.3"/>
+<var name="docker-image" value="jetbrains/qodana-python-community:2024.1"/>
 <var name="config-file" value="qodana-python-community-docker-readme.topic"/>
 
 <link-summary>%linter% is based on %ide% and provides static analysis for Python projects.</link-summary>

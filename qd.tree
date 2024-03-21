@@ -32,8 +32,9 @@
 		<toc-element topic="monorepo-project.md"/>
 		<toc-element topic="override-a-profile.md"/>
 		<toc-element topic="inspect-python-code.md"/>
+		<toc-element topic="analyze-pr.md"/>
 	</toc-element>
-	<toc-element topic="analyze-pr.md"/>
+
 	<!-- Deployment section -->
 	<toc-element toc-title="Deployment" topic="deploy-qodana.topic">
 		<toc-element topic="native-mode.md"/>
