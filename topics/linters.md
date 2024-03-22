@@ -41,8 +41,6 @@ Currently, several linters provide inspections for several programming languages
         <td><img src="js.png" dark-src="js_dark.png" alt="JavaScript and TypeScript" width="296"/></td>
         <td>
             <p><a href="qodana-js.md"/>&nbsp;/&nbsp;<code>jetbrains/qodana-js:%image-version%</code></p>
-            <p><a href="qodana-php.md"/>&nbsp;/&nbsp;<code>jetbrains/qodana-php:%image-version%</code></p>
-            <p><a href="qodana-dotnet.md"/>&nbsp;/&nbsp;<code>jetbrains/qodana-dotnet:%image-version%</code></p>
         </td>
     </tr>
     <tr>
