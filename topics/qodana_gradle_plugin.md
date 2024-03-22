@@ -98,7 +98,7 @@ Add this to your Gradle configuration file:
       resultsPath.set("some/output/path")
   }
   
-  qodanaScan {
+  tasks.qodanaScan {
       resultsPath.set("some/output/path")
       arguments.set(listOf("--fail-threshold", "0"))
   }
