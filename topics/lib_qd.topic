@@ -548,13 +548,13 @@
             the JDK version, for example: </p>
 
         <code-block lang="yaml">
-            projectJDK: 11
+            projectJDK: &quot;11&quot;
         </code-block>
 
         <p>or:</p>
 
         <code-block lang="yaml">
-            projectJDK: 1.8
+            projectJDK: &quot;1.8&quot;
         </code-block>
 
         <p>You can also specify JDK using the name:</p>
