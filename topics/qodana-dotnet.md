@@ -175,8 +175,8 @@ Another configuration example is available [on GitHub](https://github.com/hybloi
 <p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is the recommended method 
 for the %linter% linter. Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
 
-<tabs>
-    <tab id="qodana-dotnet-cli-tab" title="Native mode using Qodana CLI">
+<tabs group="cli-settings">
+    <tab  group-key="qodana-cli" title="Native mode using Qodana CLI">
         <p>Assuming that you have already
             <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installed</a> Qodana CLI on your
             machine and followed the recommendations from 
@@ -194,7 +194,7 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
     <p>If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
 you build a project because this can guarantee that %instance% has access to private NuGet feeds.</p>
     </tab>
-    <tab id="qodana-dotnet-docker-image-tab" title="Docker image">
+    <tab group-key="docker-image" title="Docker image">
         <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
         <code-block filter="non-gs" style="block" lang="shell" prompt="$">
             docker pull %docker-image%
@@ -237,42 +237,42 @@ For example, if you just finished work within a particular commit and would like
 can employ the `--diff-start` option:
 
 <tabs group="cli-settings">
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code-block lang="shell" prompt="$">
+            qodana scan \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+        </code-block>
+    </tab>
     <tab title="Docker image" group-key="docker-image">
         <code-block lang="shell" prompt="$">
             docker run \
             &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
             &nbsp;&nbsp;&nbsp;%docker-image% \
-            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
-        </code-block>
-    </tab>
-    <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
-            qodana scan \
-            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
             &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
         </code-block>
     </tab>
 </tabs>
 
-If you would like to inspect a set of changes between two commits, you can employ both `--diff-start` and `--diff-end` 
+If you would like to inspect a set of changes between two commits, you can employ both `--diff-start` and `--diff-end`
 options:
 
 <tabs group="cli-settings">
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code-block lang="shell" prompt="$">
+            qodana scan \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt; \
+            &nbsp;&nbsp;&nbsp;--diff-end=&lt;GIT_END_HASH&gt;
+        </code-block>
+    </tab>
     <tab title="Docker image" group-key="docker-image">
         <code-block lang="shell" prompt="$">
             docker run \
             &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
             &nbsp;&nbsp;&nbsp;%docker-image% \
-            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt; \
-            &nbsp;&nbsp;&nbsp;--diff-end=&lt;GIT_END_HASH&gt;
-        </code-block>
-    </tab>
-    <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
-            qodana scan \
-            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
             &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt; \
             &nbsp;&nbsp;&nbsp;--diff-end=&lt;GIT_END_HASH&gt;
         </code-block>

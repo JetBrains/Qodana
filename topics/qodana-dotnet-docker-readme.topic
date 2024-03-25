@@ -142,7 +142,7 @@
             This section is intended for users familiar with configuring code analysis via <a href="https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html">%ide% inspection profiles</a>.
         </p>
 
-        <tabs group="docker-options" filter="common">
+        <tabs group="cli-settings" filter="common">
             <tab title="Docker image" group-key="docker-image">
                 <p>
                     You can pass the reference to the existing profile by mapping the profile to

@@ -53,7 +53,7 @@
     </snippet>
 
     <snippet id="docker-local-analysis">
-        <tabs group="docker-options">
+        <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
                 <procedure>
                     <step>
@@ -139,7 +139,7 @@
     </snippet>
 
     <snippet id="docker-ci-analysis">
-        <tabs group="docker-options">
+        <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
                 <p>Use the following command as a task in a generic shell executor:</p>
                 <code-block lang="shell" prompt="$">
@@ -197,7 +197,7 @@
             This section is intended for users familiar with configuring code analysis via <a href="%code-inspection-profiles-ide-help-url%">%ide% inspection profiles</a>.
         </p>
 
-        <tabs group="docker-options">
+        <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
                 <p>You can pass the reference to the existing profile in <a href="docker-image-configuration.topic" anchor="docker-config-reference-order-resolving-profile">multiple ways</a>. Here are some
                     examples:
