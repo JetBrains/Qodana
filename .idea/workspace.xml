@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,21 +117,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Writerside.Web Archive (qd).executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;2024.1&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Writerside.Web Archive (qd).executor": "Run",
+    "git-widget-placeholder": "2024.1",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/analyze-pr.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/bitbucket.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/flexinspect.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/github.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/new-in-2024-1.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-dotnet.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-ide-plugin.md"
+    ]
   }
-}</component>
+}]]></component>
   <component name="QodanaCIConfigService">
     <option name="ciType" value="GITHUB" />
     <option name="path" value="$PROJECT_DIR$/.github/workflows/grazie.yml" />
@@ -171,10 +179,16 @@
       <workItem from="1710525053952" duration="710000" />
       <workItem from="1710526532867" duration="1564000" />
       <workItem from="1710754002731" duration="4495000" />
+      <workItem from="1711454335577" duration="1472000" />
+      <workItem from="1711461342611" duration="9480000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
