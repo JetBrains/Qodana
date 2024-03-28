@@ -15,10 +15,8 @@ PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, SHELL, DOCKERFILE, and MARKDOW
 
 Make sure that [IntelliJ IDEA](https://www.jetbrains.com/idea/) is installed on your machine.
 
-If you need to develop inspections for other languages apart from Java, in your IntelliJ IDEA you can install a plugin
-that provides the language support. You can install plugins for 
-[PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](https://plugins.jetbrains.com/plugin/9568-go), 
-[Python](https://plugins.jetbrains.com/plugin/631-python) and other languages.
+If you need to develop inspections for other languages different from Java, in your IntelliJ IDEA you can install a plugin
+that provides the language support. You can install plugins for [PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](https://plugins.jetbrains.com/plugin/9568-go), [Python](https://plugins.jetbrains.com/plugin/631-python) and other languages.
 
 Because all inspections are developed using the Kotlin language, you probably need to learn the 
 [basics of Kotlin](https://kotlinlang.org/docs/kotlin-tour-welcome.html).
@@ -26,12 +24,14 @@ Because all inspections are developed using the Kotlin language, you probably ne
 ## How it works
 
 Using your inspections written in Kotlin, IntelliJ IDEA compiles them in runtime and then executes the inspections. 
-The inspection code interacts with the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html) or PSI. This interface provides 
-the API for interacting with your codebase. In IntelliJ IDEA, PSI is available using the **PSI Viewer** tool.  
+The inspection code interacts with the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html) 
+or PSI. This interface provides the API for interacting with your codebase. In IntelliJ IDEA, PSI is available using the 
+**PSI Viewer** tool.  
 
 <img src="flexinspect-how-it-works.png" width="706" alt="PSI tree overview" border-effect="line" thumbnail="true"/>
 
-PSI is a tree representation of your code corresponding to a source file's structure. In case of Java 
+PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a 
+source file's structure. In case of Java 
 code, PSI reflects basic blocks of a Java file like package and import statements, class statements, method invocations, 
 and other nodes. %feature% uses the PSI tree representation of your codebase to obtain the list of the codebase nodes 
 that can be inspected using your inspections.
@@ -144,63 +144,6 @@ listOf(
 
 ```
 {collapsible="true"}
-
-```kotlin
-import org.intellij.lang.annotations.Language
-import com.intellij.psi.PsiClass
-import com.intellij.psi.PsiLocalVariable
-import com.intellij.psi.PsiMethod
-
-/**
- * Full HTML description of inspection: Describe here motivation, examples, etc.
- */
-@Language("HTML")
-val htmlDescription = """
-    <html>
-    <body>
-        HTML description of custom inspection
-    </body>
-    </html>
-""".trimIndent()
-
-
-val everyLocalVariableInMethodInspection = localInspection { psiFile, inspection ->
-    // take all classes declared in file: all PsiClass children of PsiFile node (root)
-    val classes = psiFile.descendantsOfType<PsiClass>()
-
-    classes.forEach { javaClass: PsiClass ->
-        // ignore interfaces
-        if (javaClass.isInterface) {
-            return@forEach
-        }
-        // Iterate all methods of a class
-        for (method in aClass.methods) {
-            if (method.isConstructor) {
-                return
-            }
-        }
-        // Class method for the error message
-        val className = aClass.getQualifiedName()
-        // Generate the error message
-        val message = "The class $className has no constructor"
-        inspection.registerProblem(aClass, message)
-    }
-}
-
-// You can define multiple inspections in one .inspection.kts file 
-listOf(
-        InspectionKts(
-                id = "NewInspection", // inspection id (used in qodana.yaml)
-                localTool = everyLocalVariableInMethodInspection,
-                name = "Template custom inspection inspections/NewInspection.inspection.kts", // Inspection name, displayed in UI
-                htmlDescription = htmlDescription,
-                level = HighlightDisplayLevel.WARNING,
-        )
-        // ...
-)
-```
-{collapsible="true"}
-
 
 ### Test your inspection in the IDE
 

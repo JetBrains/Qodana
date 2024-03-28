@@ -73,6 +73,8 @@ during inspections.</note>
 ### Example
 {id="exclude-example"}
 
+<link-summary>You can exclude inspections for specified project paths.</link-summary>
+
 Exclude all inspections for specified project paths:
 
 ```yaml
