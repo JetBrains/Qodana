@@ -1057,8 +1057,9 @@
 
         <snippet id="docker-config-reference-changes-examples">
 
-        <p>For example, if you just finished work within a particular commit and would like to analyse the changes, you
-            can employ the <code>--diff-start</code> option:</p>
+        <p>For example, if you just finished work and would like to analyze the changes, you
+            can employ the <code>--diff-start</code> option and specify a hash of the commit that will act as a base
+            for comparison:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
