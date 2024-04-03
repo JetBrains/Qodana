@@ -60,9 +60,9 @@ about custom profiles is also provided [here](inspection-profiles.md#Custom+prof
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}
 
-<link-summary>You can specify the files to exclude from analysis.</link-summary>
+<link-summary>You can exclude files and paths from analyses.</link-summary>
 
-You can specify the files to exclude from analysis on a per-inspection basis or for all inspections at once. 
+You can exclude files and paths from analyses on a per-inspection basis and for all inspections at once. 
 
 To exclude all paths in a project from the inspection scope, omit the `paths` node.
 
@@ -70,10 +70,10 @@ To exclude all paths in a project from the inspection scope, omit the `paths` no
 profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and folders to be ignored 
 during inspections.</note>
 
-### Example
+### Examples
 {id="exclude-example"}
 
-<link-summary>You can exclude inspections for specified project paths.</link-summary>
+<link-summary>You can exclude paths from analyses for all inspections, as well as for specific inspections. </link-summary>
 
 Exclude all inspections for specified project paths:
 
@@ -84,6 +84,15 @@ exclude:
       - asm-test/src/main/java/org
       - asm/Visitor.java
       - benchmarks
+```
+
+You can also use patterns, for example: 
+
+```yaml
+exclude:
+  - name: All
+    patterns:
+      - "**/.test/test.js"
 ```
 
 Exclude inspections specified by ID for specified project paths:
@@ -108,9 +117,9 @@ You can find specific inspection IDs in the Profile settings in the HTML report 
 
 ## Include an inspection into the analysis scope
 
-<link-summary>You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile.</link-summary>
+<link-summary>You can tell %product% to analyze files of a certain directory by an inspection that is not contained in the selected profile.</link-summary>
 
-You can specify that the files in a certain directory are analyzed by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
+You can tell %product% to analyze files of a certain directory by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
 
 ### Example
 {id="include-example"}

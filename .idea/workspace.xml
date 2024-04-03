@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/new-in-2024-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2024-1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +178,7 @@
       <workItem from="1711461342611" duration="12099000" />
       <workItem from="1711562419041" duration="1516000" />
       <workItem from="1711614809883" duration="1906000" />
-      <workItem from="1711642454335" duration="21849000" />
+      <workItem from="1711642454335" duration="54615000" />
     </task>
     <servers />
   </component>
