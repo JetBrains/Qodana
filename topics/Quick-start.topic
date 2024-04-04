@@ -197,8 +197,7 @@
                             <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
                     </step>
                     <step>
-                        <p>Check inspection results <a href="html-report.md">in your browser</a> at
-                            <code>http://localhost:8080</code>.</p>
+                        <p>Open your <a href="cloud-about.topic">Qodana Cloud</a> to see inspection results.</p>
                     </step>
                 </procedure>
             </tab>
