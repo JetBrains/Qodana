@@ -189,16 +189,14 @@
                                -p 8080:8080 \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               jetbrains/qodana-&lt;linter&gt; \
-                               --show-report
+                               jetbrains/qodana-&lt;linter&gt;
                         </code-block>
                         <p>Here, <code>&lt;source-directory&gt;</code> points to the root of your project, and
                             the <code>QODANA_TOKEN</code> variable contains the project token described in the
                             <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
                     </step>
                     <step>
-                        <p>Check inspection results <a href="html-report.md">in your browser</a> at
-                            <code>http://localhost:8080</code>.</p>
+                        <p>Navigate to your <a href="cloud-about.topic">Qodana Cloud</a> account to see inspection results.</p>
                     </step>
                 </procedure>
             </tab>
