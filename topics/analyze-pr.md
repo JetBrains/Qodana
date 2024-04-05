@@ -1,24 +1,22 @@
-# Analyze pull and merge requests
+# Analyze changes
 
 <link-summary>For all linter except Qodana Community for .NET, you can run incremental analysis on a change set like 
-merge or pull requests.</link-summary> 
+merge or pull requests, as well as inspect changes between two commits.</link-summary> 
 
 <note>This feature is not supported by the <a href="qodana-dotnet-community.md"/> linter.</note>
 
 Using %product%, you can not only scan your entire codebase, but also run analysis on change sets like merge or pull 
-requests.
+requests, as well as inspect changes between two commits.
 
-## Analyze changes compared to a base commit
+## Analyze pull and merge requests
 
 <link-summary>
-You can use the --diff-start option to compare your code base with a base commit.
+You can use the --diff-start option to inspect changes between the current version of a codebase and a specific commit.
 </link-summary>
 
-<p>For example, if you just finished work and would like to analyze the changes, you
+<p>If you just finished work and would like to analyze the changes, you
     can employ the <code>--diff-start</code> option and specify a hash of the commit that will act as a base
     for comparison:</p>
-
-<!-- These two tabs can be flattened into one -->
 
 <tabs group="cli-settings">
     <tab title="Qodana CLI" group-key="qodana-cli">
@@ -89,9 +87,10 @@ You can use the --diff-start option to compare your code base with a base commit
    variables:
       QODANA_TOKEN: $qodana_token
     script:
-      - qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-      --results-dir=$CI_PROJECT_DIR/.qodana/results \
-      --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+      - >
+        qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
+          --results-dir=$CI_PROJECT_DIR/.qodana/results \
+          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
    artifacts:
       paths:
          - .qodana/results
@@ -184,9 +183,11 @@ and <code>--diff-end</code> options:</p>
    variables:
       QODANA_TOKEN: $qodana_token
     script:
-      - qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-      --results-dir=$CI_PROJECT_DIR/.qodana/results \
-      --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+      - >
+        qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
+          --diff-end=$CI_MERGE_REQUEST_SOURCE_BRANCH_SHA \
+          --results-dir=$CI_PROJECT_DIR/.qodana/results \
+          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
    artifacts:
       paths:
          - .qodana/results

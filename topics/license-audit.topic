@@ -157,7 +157,7 @@
                               - name: CheckDependencyLicenses
                         </code-block>
                     </tab>
-                    <tab title="QoFdana for JS">
+                    <tab title="Qodana for JS">
                         <code-block lang="yaml">
                             bootstrap: |+
                               # Use npm to install dependencies
