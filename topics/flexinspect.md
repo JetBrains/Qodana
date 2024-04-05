@@ -2,9 +2,8 @@
 
 <var name="feature" value="FlexInspect"/>
 
-Starting from version 2024.1 of IntelliJ IDEA, you can employ the %feature% feature to develop your own inspections specific
-to your project using 
-[IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin. Besides that, you can:
+Starting from version 2024.1 of IntelliJ IDEA, you can develop your own inspections specific to your project using 
+[IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin. You can:
 
 - Access the [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of the source code,
 - Debug new inspections on the fly,
@@ -16,8 +15,9 @@ your entire team follows the standards defined by you.
 
 You can develop local inspections that run within a file scope, global inspections that run within a project scope
 using the [%product% functionality of the IDE](qodana-ide-plugin.md#ide-plugin-run-qodana), and inspect your code
-in [CI pipelines](ci.md). Currently, %feature% supports the following languages: Java, Kotlin, JS, TypeScript, 
-PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, SHELL, DOCKERFILE, and MARKDOWN. 
+in [CI pipelines](ci.md). Currently, %feature% supports any language covered by IntelliJ IDEA either natively or through 
+additional plugins. For example, Java, Kotlin, JS, TypeScript, PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, SHELL, 
+DOCKERFILE, and MARKDOWN are supported. 
 
 ## Prerequisites
 
@@ -31,8 +31,10 @@ Because all inspections are developed using the Kotlin language, you need to kno
 
 ## How it works
 
-You write your inspections in Kotlin. IntelliJ IDEA executes them on your code in runtime while compiling the code.
-The inspection code interacts with your code via the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html) or PSI. In IntelliJ IDEA, you can 
+You write your inspections in Kotlin. IntelliJ IDEA compiles the inspection code on the fly, and then it executes 
+compiled inspections.
+
+The inspection code interacts with analyzed code via the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html) or PSI. In IntelliJ IDEA, you can 
 navigate through PSI via the **PSI Viewer** tool. To do it, in IntelliJ IDEA you can open a file that you would like to view 
 with **PSI Viewer**, and then navigate to **Tools | View PSI Structure of Current File**.
 
@@ -56,6 +58,9 @@ This section shows how to create an inspection example that will inspect whether
 
 To create a new `inspection.kts` file, follow the procedure below.
 
+I would say that local inspections are executed per-file individually and run on-the fly in the editor, while the 
+global ones a run once (per-project) and can be run only in "global analysis mode": Qodana project analysis or IDEA's "Inspect Code"
+
 <procedure>
 <step>In your project, create the <code>inspections</code> directory.</step>
 <step>
@@ -65,8 +70,8 @@ to <ui-path>New | Custom Inspection</ui-path>.
 <step>
 <p>On the dialog that opens, you can specify what inspection you would like to create:</p> 
 <list>
-    <li>A local inspection lets you inspect the scope of each separate file in your project,</li>
-    <li>A global inspection lets you inspect the scope of your entire project containing multiple files.</li>
+    <li>A local inspection lets you inspect your codebase file by file in real time,</li>
+    <li>A global inspection lets you inspect your codebase on a per-project basis and can be run only using the IDE functionality of %product%.</li>
 </list>
 Each file can contain multiple inspections. CamelCase is the preferable naming method for <code>inspection.kts</code> 
 file naming.
@@ -83,7 +88,7 @@ develop your own inspection.
 ### Study the PSI tree of your code
 
 <procedure>
-<step>In IntelliJ IDEA, open the file that you would like to inspect using your inspection. </step>
+<step>In IntelliJ IDEA, open the file that you would like to analyze using your inspection. </step>
 <step>Navigate to <ui-path>Tools | View PSI Structure of Current File</ui-path>. Here you can explore the PSI tree of 
 your file, APIs available for PSI nodes contained in the file, and come up with algorithms that would operate with this 
 PSI tree. 
@@ -97,7 +102,7 @@ each method of a class.
 
 ### Create your inspection
 
-You can develop the inspection in the file you have [already created](#Create+an+inspection+file). To check whether
+You can develop the inspection using the template that you have [already created](#Create+an+inspection+file). To check whether
 a class has a constructor method, in this example you can iterate over all methods and use the `isConstructor()` method. 
 If there is no constructor method, the inspection generate the error showing that a class has no constructor method.
 
@@ -159,15 +164,15 @@ listOf(
 
 ### Test your inspection in the IDE
 
-After you created your inspection, you can see the compilation status on the toolbar
-in the upper part of the inspection file. You can also open files using **PSI Viewer**, and create 
-new inspections using inspection examples.
+After you create your inspection, you can see the compilation status on the toolbar
+in the upper part of the inspection file, and recompile an inspection. You can also open files using **PSI Viewer**, and 
+study inspection examples.
 
 <img src="flexinspect-test-your-inspection.png" width="706" alt="FlexInspect toolbar" border-effect="line"/>
 
-All changes applied to the inspection are available on the fly for your entire project, so in your IDE you can 
-see how your inspection highlights the code checked by the inspection. To see how the new inspection functions on your 
-code, open a file containing a problem the inspection is supposed to highlight.
+When you change the code, you need to explicitly recompile the inspection using the recompile button in the left part of 
+the toolbar. To see how the new inspection functions on your code, open a file containing a problem the inspection is 
+supposed to highlight.
 
 <img src="flexinspect-test-inspection.gif" width="881" alt="Testing the inspection in IDE" border-effect="line"/>
 

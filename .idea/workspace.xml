@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Quick-start.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Quick-start.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quality-gate.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quality-gate.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
