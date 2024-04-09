@@ -8,7 +8,7 @@
 
     <var name="feature" value="License audit"/>
 
-    <link-summary>Using the license audit, you can check whether your project license is compatible with dependency licenses.</link-summary>
+    <link-summary>Using the license audit feature, you can check whether your project license is compatible with dependency licenses.</link-summary>
 
     <p>Making sure that your project license is compatible with the licenses of its dependencies is never an easy task, but
         this is required for legal purposes. To automate this process and avoid mistakes, you can use %feature%
@@ -45,7 +45,7 @@
         </tr>
     </table>
 
-    <p>This feature is available under the Ultimate Plus license and its trial version.</p>
+    <p>This feature is available under the Ultimate Plus license and its trial version and enabled by default.</p>
 
     <chapter title="How it works" id="license-audit-how-it-works">
 
@@ -132,6 +132,10 @@
 
             <note>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">inspection scopes</a>, make sure that
             the file containing the build configuration is included in the scope.</note>
+
+            <p>Starting from version 2024.1 of %product%, %feature% is enabled dy default.</p>
+
+            <!-- This can probably be deleted -->
 
             <p>To run the license audit feature, enable the
                 <a href="qodana-yaml.md" anchor="configure-license-audit"><code>CheckDependencyLicenses</code></a>
