@@ -11,8 +11,8 @@
     <link-summary>Using the license audit feature, you can check whether your project license is compatible with dependency licenses.</link-summary>
 
     <p>Making sure that your project license is compatible with the licenses of its dependencies is never an easy task, but
-        this is required for legal purposes. To automate this process and avoid mistakes, you can use %feature%
-        currently supported by several %instance% linters:</p>
+        this is required for legal purposes. To automate this process and avoid mistakes, you can use the license audit
+        feature currently supported by several %instance% linters:</p>
 
     <table>
         <tr>
@@ -133,76 +133,37 @@
             <note>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">inspection scopes</a>, make sure that
             the file containing the build configuration is included in the scope.</note>
 
-            <p>Starting from version 2024.1 of %product%, %feature% is enabled dy default.</p>
+            <p>Starting from version 2024.1 of %product%, %feature% is enabled dy default. You can see inspection results
+            in the <a anchor="license-audit-verifying-data">Project audit</a> tab of the %product% report. To see them
+            in the <a href="ui-overview.md" anchor="ui-overview-actual-problems">Actual problems</a> tab too, in the
+                <a href="qodana-yaml.md">configuration file</a> enable the <code>raiseLicenseProblems</code> option:</p>
 
-            <!-- This can probably be deleted -->
+            <code-block lang="yaml">
+                raiseLicenseProblems: true
+            </code-block>
 
-            <p>To run the license audit feature, enable the
-                <a href="qodana-yaml.md" anchor="configure-license-audit"><code>CheckDependencyLicenses</code></a>
-                inspection. </p>
+            <p>To disable license audit, in the <a href="qodana-yaml.md">configuration file</a>
+                exclude the <code>CheckDependencyLicenses</code> inspection, for example:</p>
 
-            <p>Below are the <code>qodana.yaml</code> configuration samples that tell %instance% to install project
-                dependencies and enable %feature%:</p>
+        <code-block lang="yaml">
+            exclude:
+            &nbsp;&nbsp;- name: CheckDependencyLicenses
+        </code-block>
 
-                <tabs>
-                    <tab title="Qodana for JVM">
-                        <code-block lang="yaml">
-                            include:
-                              - name: CheckDependencyLicenses
-                        </code-block>
-                    </tab>
-                    <tab title="Qodana for PHP">
-                        <code-block lang="yaml">
-                            bootstrap: |+
-                              # Install dependencies
-                              php composer.phar update
+        <chapter title="Enable package-search" id="license-audit-enable-package-search">
 
-                            include:
-                              - name: CheckDependencyLicenses
-                        </code-block>
-                    </tab>
-                    <tab title="Qodana for JS">
-                        <code-block lang="yaml">
-                            bootstrap: |+
-                              # Use npm to install dependencies
-                              npm install
+            <p>Starting from version 2024.1 of %product%, <code>package-search</code> is by default disabled because of
+                inaccurate results and performance issues. To enable <code>package-search</code>, in the <a href="qodana-yaml.md">configuration file</a>
+            enable the <code>enablePackageSearch</code> option:</p>
 
-                              # Install Yarn
-                              npm install -g yarn
+            <code-block lang="yaml">
+                enablePackageSearch: true
+            </code-block>
 
-                              # Use Yarn to install dependencies
-                              yarn install --frozen-lockfile
-
-                            include:
-                              - name: CheckDependencyLicenses
-                        </code-block>
-                    </tab>
-                    <tab title="Qodana for Python">
-                        <code-block lang="yaml">
-                            bootstrap: |+
-                              # Install dependencies
-                              pip install -r requirements.txt
-
-                            include:
-                              - name: CheckDependencyLicenses
-                        </code-block>
-                    </tab>
-                    <tab title="Qodana for Go">
-                        <code-block lang="yaml">
-                            bootstrap: |+
-                              # Install dependencies
-                              go mod tidy
-
-                            include:
-                              - name: CheckDependencyLicenses
-                        </code-block>
-                    </tab>
-                </tabs>
-
-        <p>You can also extend these samples using configuration options described below.</p>
+        </chapter>
 
         <chapter title="Ignore dependencies" id="license-audit-ignoring-dependencies">
-            <p>You can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
+            <p>In the <a href="qodana-yaml.md">configuration file</a>, you can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
             <code-block lang="yaml">
                 dependencyIgnores:
                   - name: "aapt2-proto"
@@ -211,7 +172,7 @@
         </chapter>
 
         <chapter title="Allow or prohibit dependency licenses" id="license-allow-prohibit-licenses">
-            <p>You can override the license matrix and specify the list of
+            <p>In the <a href="qodana-yaml.md">configuration file</a>, you can override the license matrix and specify the list of
                 dependency licenses that are allowed or prohibited for a specific project license.</p>
             <p>In this snippet, the <code>keys</code> key accepts application licenses, and the <code>allowed</code> and
                 <code>prohibited</code> keys accept the lists of allowed and prohibited dependency licenses respectively.
@@ -240,7 +201,8 @@
         </chapter>
 
         <chapter title="Override a dependency license" id="license-audit-override-license">
-            <p>You can override a dependency license identifier. This can be useful when a dependency is dual-licensed,
+            <p>In the <a href="qodana-yaml.md">configuration file</a>, you can override a dependency license identifier.
+                This can be useful when a dependency is dual-licensed,
                 and you want to omit some license, or when the license name cannot be detected from the dependency
                 sources correctly.</p>
             <p>Using this sample, you can tell %instance% to detect only the <code>CDDL-1.1</code> and
@@ -263,7 +225,8 @@
 
         <chapter title="Create custom dependencies" id="license-audit-custom-dependencies">
             <p>If you want to include the dependency that should be mentioned in the report but is impossible to detect
-                from the project sources, you can use the <code>customDependencies</code> key to specify it:</p>
+                from the project sources, in the <a href="qodana-yaml.md">configuration file</a> you can use the
+                <code>customDependencies</code> key to specify it:</p>
 
             <code-block lang="yaml">
                 customDependencies:

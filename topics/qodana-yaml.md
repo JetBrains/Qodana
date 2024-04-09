@@ -271,12 +271,13 @@ disableSanityInspections: true
 ## Configure license audit
 {id="configure-license-audit"}
 
-<link-summary>You can enable the license audit feature by enabling the CheckDependencyLicenses inspection.</link-summary>
+<link-summary>You can configure the license audit feature by configuring the CheckDependencyLicenses inspection.</link-summary>
 
-You can run the [license audit](license-audit.topic) feature by enabling the `CheckDependencyLicenses` inspection:
+Starting from version 2024.1 of %product%, the [license audit](license-audit.topic) feature is enabled by default. You can disable it by 
+excluding the `CheckDependencyLicenses` inspection:
 
 ```yaml
-include:
+exclude:
   - name: CheckDependencyLicenses
 ```
 

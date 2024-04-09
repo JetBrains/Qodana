@@ -423,9 +423,9 @@
 
     <snippet id="license-audit-tab">
 
-        <p filter="license-audit">To view license audit results, in the inspection report click the <ui-path>License audit</ui-path> tab.</p>
+        <p filter="license-audit">To view license audit results, in the inspection report click the <ui-path>Project audit</ui-path> tab.</p>
 
-        <p filter="ui-overview">The <ui-path>License audit</ui-path> tab provides results of inspection by the
+        <p filter="ui-overview">The <ui-path>Project audit</ui-path> tab provides results of inspection by the
             <a href="license-audit.topic">license audit</a> feature. </p>
 
         <img src="license-audit-overview-tree.png" dark-src="license-audit-overview-tree_dark.png" width="706" alt="The dependency tree" border-effect="line"/>
