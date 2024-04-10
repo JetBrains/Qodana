@@ -86,7 +86,10 @@ definitions:
 
 ## Generate Code Insights reports
 
-<link-summary>By default, %product% can generate Code Insights reports and forward them to the Bitbucket Code Insights API.</link-summary>
+<link-summary>By default, %product% lets you use the pull request UI of Bitbucket Cloud to view specific lines of code 
+that contain problems along with their description and recommendations for improvement.</link-summary>
 
-%product% can generate [Code Insights](https://support.atlassian.com/bitbucket-cloud/docs/code-insights/) reports and 
-forward them using the Bitbucket Code Insights API. This feature is enabled by default and does not require any configuration.
+Starting from version 2024.1 of %product%, using the pull request UI of Bitbucket Cloud you can view specific lines of
+code that contain problems along with their description and recommendations for improvement. By default, %product% 
+generates [Code Insights](https://support.atlassian.com/bitbucket-cloud/docs/code-insights/) reports, 
+forwards them using the Bitbucket Code Insights API, and does not require any configuration.

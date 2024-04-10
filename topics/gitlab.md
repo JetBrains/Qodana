@@ -172,12 +172,16 @@ qodana:
 ## Generate Code Quality reports
 {id="gitlab-generate-code-quality-reports"}
 
-<link-summary>By default, %product% can generate Code Quality reports supported by GitLab CI/CD.</link-summary>
+<link-summary>By default, %product% lets you use the merge request UI of GitLab CI/CD to view specific lines of code 
+that contain problems along with their description and recommendations for improvement.</link-summary>
 
-By default, %product% can generate JSON-formatted inspection reports supported by 
-[Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html) and contained in the `gl-code-quality-report.json` 
-file. To configure this, to the `artifacts` block add the `codequality`keyword and specify the path to the 
-`gl-code-quality-report.json` file, for example:
+Starting from version 2024.1 of %product%, using the merge request UI of GitLab CI/CD you can view specific lines of 
+code that contain problems along with their description and recommendations for improvement. 
+
+To implement this feature, %product% generates JSON-formatted inspection reports supported by 
+[Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html) and contained in the `gl-code-quality-report.json` file. To configure this, to the `artifacts` block 
+of the GitLab CI/CD configuration add the `codequality`keyword and specify the path to the `gl-code-quality-report.json` 
+file, for example:
 
 ```yaml
    image:

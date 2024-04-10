@@ -134,7 +134,7 @@
             the file containing the build configuration is included in the scope.</note>
 
             <p>Starting from version 2024.1 of %product%, %feature% is enabled dy default. You can see inspection results
-            in the <a anchor="license-audit-verifying-data">Project audit</a> tab of the %product% report. To see them
+            in the <a anchor="license-audit-verifying-data">License audit</a> tab of the %product% report. To see them
             in the <a href="ui-overview.md" anchor="ui-overview-actual-problems">Actual problems</a> tab too, in the
                 <a href="qodana-yaml.md">configuration file</a> enable the <code>raiseLicenseProblems</code> option:</p>
 
