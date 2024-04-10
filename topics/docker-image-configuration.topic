@@ -1036,9 +1036,10 @@
         </chapter>
     </chapter>
 
-    <chapter id="docker-config-reference-changes" title="Diff analysis">
+    <chapter id="docker-config-reference-changes" title="Analysis of changes">
 
-        <link-summary>You can run incremental analysis on a change set like merge or pull requests.</link-summary>
+        <link-summary>For all linter except Qodana Community for .NET, you can run incremental analysis on a change set like
+            merge or pull requests, as well as inspect changes between two commits.</link-summary>
 
         <note>This feature is not supported by the <a href="qodana-dotnet-community.md"/> linter.</note>
 
@@ -1057,9 +1058,9 @@
 
         <snippet id="docker-config-reference-changes-examples">
 
-        <p>For example, if you just finished work and would like to analyze the changes, you
-            can employ the <code>--diff-start</code> option and specify a hash of the commit that will act as a base
-            for comparison:</p>
+            <p>If you just finished work and would like to analyze the changes, you
+                can employ the <code>--diff-start</code> option and specify a hash of the commit that will act as a base
+                for comparison:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
@@ -1622,6 +1623,29 @@
                     </td>
                     <td>
                         Only for container runs. Skip pulling the latest Qodana container
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --code-climate
+                        </code>
+                    </td>
+                    <td>
+                        Generate a <a href="https://docs.gitlab.com/ee/ci/testing/code_quality.html">Code Quality</a>
+                        report supported by <a href="gitlab.md" anchor="gitlab-generate-code-quality-reports">GitLab CI/CD</a>.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --bitbucket-insights
+                        </code>
+                    </td>
+                    <td>
+                        Generate a <a href="https://support.atlassian.com/bitbucket-cloud/docs/code-insights/">Code Insights</a>
+                        report supported by <a href="bitbucket.md" anchor="Generate+Code+Insights+reports">Bitbucket Cloud</a>
+                        and forward it using the Bitbucket Code Insights API.
                     </td>
                 </tr>
                 <tr>

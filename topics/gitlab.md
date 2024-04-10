@@ -14,6 +14,7 @@ section explains how you can run %instance% [Docker images](docker-images.md) wi
 * Forwarding inspection reports to [Qodana Cloud](cloud-about.topic)
 * Exposing %instance% reports in the GitLab CI/CD user interface
 * Using the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features
+* Generating Code Quality reports
 
 ## Prepare your project
 
@@ -168,6 +169,36 @@ qodana:
       expose_as: 'Qodana report'
 ```
 
+## Generate Code Quality reports
+{id="gitlab-generate-code-quality-reports"}
+
+<link-summary>By default, %product% can generate Code Quality reports supported by GitLab CI/CD.</link-summary>
+
+By default, %product% can generate JSON-formatted inspection reports supported by 
+[Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html) and contained in the `gl-code-quality-report.json` 
+file. To configure this, to the `artifacts` block add the `codequality`keyword and specify the path to the 
+`gl-code-quality-report.json` file, for example:
+
+```yaml
+   image:
+        name: jetbrains/qodana-<linter>
+        entrypoint: [""]
+   cache:
+       - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+         fallback_keys:
+             - qodana-2024.1-$CI_DEFAULT_BRANCH-
+             - qodana-2024.1-
+         paths:
+             - .qodana/cache
+   variables:
+       QODANA_TOKEN: $qodana_token
+   script:
+       - qodana --results-dir=$CI_PROJECT_DIR/.qodana/results
+           --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+   artifacts:  
+       reports:
+           codequality: .qodana/results/gl-code-quality-report.json # Path to the report
+```
 
 <seealso>
     <category ref="external">

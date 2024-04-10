@@ -83,3 +83,10 @@ definitions:
   caches:
     qodana: .qodana/cache
 ```
+
+## Generate Code Insights reports
+
+<link-summary>By default, %product% can generate Code Insights reports and forward them to the Bitbucket Code Insights API.</link-summary>
+
+%product% can generate [Code Insights](https://support.atlassian.com/bitbucket-cloud/docs/code-insights/) reports and 
+forward them using the Bitbucket Code Insights API. This feature is enabled by default and does not require any configuration.
