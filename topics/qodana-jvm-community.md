@@ -72,7 +72,7 @@
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
 
-<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,empty"/></p>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,jvm-only,jvm-php,non-gs,other,linter-omit-jvm,empty"/></p>
 
 ## Next steps
 

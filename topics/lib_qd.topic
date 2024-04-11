@@ -360,8 +360,7 @@
                     <step><p>In the project root directory, run this command to inspect your code:</p>
                         <code-block lang="shell" prompt="$">
                             qodana scan \
-                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               --show-report
+                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
                         </code-block>
                         <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
                     </step>
@@ -369,10 +368,11 @@
                 <code-block filter="non-gs" prompt="$">
                     qodana scan \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       -l %docker-image% \
-                       --show-report
+                       -l %docker-image%
                 </code-block>
                 <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
+                <p filter="linter-omit-jvm">If you omit the linter name <code>%docker-image%</code> here, then the <a href="qodana-jvm.md"/> linter will be run instead.</p>
+                <p filter="linter-omit-py">If you omit the linter name <code>%docker-image%</code> here, then the <a href="qodana-python.md"/> linter will be run instead.</p>
             </tab>
             <tab id="docker-image-tab" title="Docker image">
                 <p filter="gs-only">Start with any of the <a href="linters.md">provided linters</a>. For all linters the
@@ -385,12 +385,10 @@
                     pointing to the root of your project and
                     <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
                 <code-block filter="gs-only" lang="shell" prompt="$">
-                    docker run --rm -it \
+                    docker run \
                        -v &lt;source-directory&gt;/:/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       -p 8080:8080 \
-                       jetbrains/qodana-&lt;linter&gt; \
-                       --show-report
+                       jetbrains/qodana-&lt;linter&gt;
                 </code-block>
                 <p filter="php-only">If you use PHP Composer, Qodana will install your project dependencies
                     automatically right before the code analysis starts.</p>
@@ -404,19 +402,16 @@
                 </code-block>
                 <p filter="php-only">Run the analysis locally:</p>
                 <code-block filter="non-gs" lang="shell" prompt="$">
-                    docker run --rm -it \
+                    docker run \
                        -v &lt;source-directory&gt;/:/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       -p 8080:8080 \
-                       %docker-image% \
-                       --show-report
+                       %docker-image%
                 </code-block>
                 <p filter="php-only">with <code>source-directory</code> pointing to the root of your project, and
                     <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>.</p>
-                <p>Open <code>http://localhost:8080</code> in your browser to examine inspection results.
+                <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine inspection results.
                     Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                    details. When done, you can stop the web server by pressing Ctrl-C in the
-                    console.</p>
+                    details.</p>
             </tab>
         </tabs>
     </snippet>

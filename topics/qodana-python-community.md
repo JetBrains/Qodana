@@ -89,7 +89,7 @@ The command will be automatically executed before the analysis.
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
 
-<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,empty"/></p>
+<p><include from="lib_qd.topic" element-id="qodana-cli-quickstart" use-filter="non-php,py-only,non-gs,linter-omit-py,empty"/></p>
 
 ## Next steps
 
