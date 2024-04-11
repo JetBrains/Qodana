@@ -28,6 +28,7 @@
 		</toc-element>
 	</toc-element>
     <toc-element topic="supported-linters.topic">
+		<toc-element topic="Qodana-for-Python-MD.md"/>
 		<toc-element topic="Qodana-for-Python.topic"/>
 	</toc-element>
     <!-- Use cases section -->
