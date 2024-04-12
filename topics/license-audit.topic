@@ -152,7 +152,8 @@
 
         <chapter title="Enable package-search" id="license-audit-enable-package-search">
 
-            <p>Starting from version 2024.1 of %product%, <code>package-search</code> is by default disabled because of
+            <p>Starting from version 2024.1 of %product%,
+                <a href="https://www.jetbrains.com/help/idea/package-search.html"><code>package-search</code></a> is by default disabled because of
                 inaccurate results and performance issues. To enable <code>package-search</code>, in the <a href="qodana-yaml.md">configuration file</a>
             enable the <code>enablePackageSearch</code> option:</p>
 
