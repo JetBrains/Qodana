@@ -36,7 +36,7 @@
 
         <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
 
-            <include from="lib_qd.topic" element-id="docker-ci-analysis"/>
+            <include from="lib_qd.topic" element-id="docker-ci-analysis" use-filter="empty"/>
 
         </chapter>
     </chapter>
