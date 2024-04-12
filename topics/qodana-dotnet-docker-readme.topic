@@ -52,7 +52,7 @@
 
             <p>This is how you can run the Dockerized version of the %linter% linter:</p>
 
-            <include from="lib_qd.topic" element-id="docker-local-analysis"/>
+            <include from="lib_qd.topic" element-id="docker-local-analysis" use-filter="nuget-dotnet-only,empty"/>
 
         </chapter>
 
