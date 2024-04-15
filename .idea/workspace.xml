@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-create-template.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-create-template.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-create-template_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-create-template_dark.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-psi-tree.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-psi-tree.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-psi-tree_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-psi-tree_dark.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-run-qodana-locally.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-run-qodana-locally.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-run-qodana-locally_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-run-qodana-locally_dark.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-test-inspection.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-test-inspection.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-test-inspection_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-test-inspection_dark.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,30 +130,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Writerside.Web Archive (qd).executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;2024.1&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Writerside.Web Archive (qd).executor": "Run",
+    "git-widget-placeholder": "2024.1",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true",
+    "writerside.last.selected.productQodana": "qd"
   }
-}</component>
+}]]></component>
   <component name="QodanaCIConfigService">
     <option name="ciType" value="GITHUB" />
     <option name="path" value="$PROJECT_DIR$/.github/workflows/grazie.yml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/images" />
     </key>
   </component>
   <component name="RunManager">
@@ -155,6 +164,14 @@
       <option name="instanceName" value="Qodana" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -179,7 +196,10 @@
       <workItem from="1711614809883" duration="1906000" />
       <workItem from="1711642454335" duration="62619000" />
       <workItem from="1712224119373" duration="3789000" />
-      <workItem from="1712934942712" duration="2893000" />
+      <workItem from="1712934942712" duration="4846000" />
+      <workItem from="1713186951486" duration="2355000" />
+      <workItem from="1713193415144" duration="2582000" />
+      <workItem from="1713200338890" duration="14000" />
     </task>
     <servers />
   </component>

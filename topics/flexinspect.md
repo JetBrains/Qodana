@@ -45,7 +45,7 @@ code, PSI reflects basic blocks of a Java file like package and import statement
 and other nodes. %feature% uses the PSI tree representation of your codebase to obtain the list of the codebase nodes 
 that can be inspected using your inspections.
 
-IntelliJ IDEA reads `inspection.kts` files from the `.flexinspect` directory of your project, and each file
+IntelliJ IDEA reads `inspection.kts` files from the `inspections` directory of your project, and each file
 contains Kotlin code to check your codebase nodes using the API provided by the PSI.   
 
 After you develop your inspections, you can run them over your code with IntelliJ IDEA and %product% right away.
@@ -56,7 +56,7 @@ This section shows how to create an inspection example that will inspect whether
 
 ### Create an inspection file
 
-To create a new `inspection.kts` file, follow the procedure below.
+To create a new `inspection.kts` template file, follow the procedure below.
 
 <procedure>
 <step>In your project, create the <code>inspections</code> directory.</step>
@@ -121,7 +121,7 @@ val htmlDescription = """
     </html>
 """.trimIndent()
 
-val noConstructorInspection = localInspection { psiFile, inspection ->
+val NoConstructor = localInspection { psiFile, inspection ->
     val classes = psiFile.descendantsOfType<PsiClass>()
     classes.forEach { clazz ->
         // Ignore interfaces
@@ -144,7 +144,7 @@ val noConstructorInspection = localInspection { psiFile, inspection ->
 listOf(
         InspectionKts(
                 id = "NoConstructor", // inspection id (used in qodana.yaml)
-                localTool = noConstructorInspection,
+                localTool = NoConstructor,
                 name = "The class has no constructor", // Inspection name, displayed in UI
                 htmlDescription = htmlDescription,
                 level = HighlightDisplayLevel.WARNING,
@@ -153,16 +153,20 @@ listOf(
 ```
 {collapsible="true"}
 
+> To debug your inspections, you can add `inspection.registerProblem(<psi-element>, "<debug-message>")` to the 
+inspection codebase and view a debug message in your IDE.
+
 ### Test your inspection in the IDE
 
 After you create your inspection, you can see the compilation status on the toolbar
 in the upper part of the inspection file, and recompile an inspection. You can also open files using **PSI Viewer**, and 
-study inspection examples.
+study inspection examples. When you change the inspection code, you need to explicitly recompile the inspection using the 
+recompile button in the left part of the toolbar, or use the <shortcut>Alt+Shift+Enter</shortcut> / <shortcut>⌥⇧Enter</shortcut> 
+shortcut.  
 
 <img src="flexinspect-test-your-inspection.png" width="706" alt="FlexInspect toolbar" border-effect="line"/>
 
-When you change the code, you need to explicitly recompile the inspection using the recompile button in the left part of 
-the toolbar. To see how the new inspection functions on your code, open a file containing a problem the inspection is 
+To see how the new inspection functions on your code, open a file containing a problem the inspection is 
 supposed to highlight.
 
 <img src="flexinspect-test-inspection.gif" width="881" alt="Testing the inspection in IDE" border-effect="line"/>
@@ -178,6 +182,8 @@ PHP it will be the <a href="qodana-php.md"/> linter.
 If your custom inspection conflicts with a Qodana inspection, and you would still like to run it, you can 
 <a href="qodana-yaml.md" anchor="exclude-inspection">disable</a> the Qodana inspection.
 </note>
+
+%feature% is supported by the [default inspection profiles](inspection-profiles.md#Default+profiles).
 
 To inspect your entire project with the new inspection locally, run %product% as explained in the 
 [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
