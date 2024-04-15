@@ -58,9 +58,6 @@ This section shows how to create an inspection example that will inspect whether
 
 To create a new `inspection.kts` file, follow the procedure below.
 
-I would say that local inspections are executed per-file individually and run on-the fly in the editor, while the 
-global ones a run once (per-project) and can be run only in "global analysis mode": Qodana project analysis or IDEA's "Inspect Code"
-
 <procedure>
 <step>In your project, create the <code>inspections</code> directory.</step>
 <step>
@@ -110,7 +107,6 @@ Here is the Kotlin snippet for the `NoConstructor.inspection.kts` file containin
 
 ```kotlin
 import org.intellij.lang.annotations.Language
-import com.intellij.psi.JavaElementVisitor
 import com.intellij.psi.PsiClass
 
 /**
@@ -125,40 +121,35 @@ val htmlDescription = """
     </html>
 """.trimIndent()
 
-val noConstructorInspection = localInspectionKts { inspection ->
-    object : JavaElementVisitor() {
-        override fun visitClass(aClass: PsiClass) {
-            super.visitClass(aClass)
-
-            // Ignore interfaces
-            if (aClass.isInterface) {
-                return
-            }
-            // Iterate all methods of a class
-            for (method in aClass.methods) {
-                if (method.isConstructor) {
-                    return
-                }
-            }
-            // Class method for the error message
-            val className = aClass.getQualifiedName()
-            // Generate the error message
-            val message = "The class $className has no constructor"
-            inspection.registerProblem(aClass, message)
+val noConstructorInspection = localInspection { psiFile, inspection ->
+    val classes = psiFile.descendantsOfType<PsiClass>()
+    classes.forEach { clazz ->
+        // Ignore interfaces
+        if (clazz.isInterface) {
+            return@forEach
         }
+
+        // Iterate all methods of a class, check if there is a constructor
+        val hasConstructor = clazz.methods.any { method -> method.isConstructor }
+        if (hasConstructor) {
+            return@forEach
+        }
+
+        val className = clazz.qualifiedName
+        val message = "The class $className has no constructor"
+        inspection.registerProblem(clazz, message)
     }
 }
 
 listOf(
         InspectionKts(
-                id = "NoConstructorInClass", // Inspection id (used in qodana.yaml)
+                id = "NoConstructor", // inspection id (used in qodana.yaml)
                 localTool = noConstructorInspection,
                 name = "The class has no constructor", // Inspection name, displayed in UI
                 htmlDescription = htmlDescription,
-                level = HighlightDisplayLevel.WARNING, // Inspection severity
+                level = HighlightDisplayLevel.WARNING,
         )
 )
-
 ```
 {collapsible="true"}
 
@@ -194,7 +185,7 @@ To inspect your entire project with the new inspection locally, run %product% as
 <img src="flexinspect-run-qodana-locally.gif" width="881" alt="Running Qodana locally with a new inspection" border-effect="line"/>
 
 To run your custom inspection in a CI pipeline, you can visit the [](ci.md) section and find the instructions for your
-CI/CD solution. Because your inspection is already contained in the `.flexinspect` directory of your project, it is 
+CI/CD solution. Because your inspection is already contained in the `inspections` directory of your project, it is 
 already available for inspecting your code.
 
 You can use the inspection name from the `id` field of the [inspection file](#Create+an+inspection+file)
