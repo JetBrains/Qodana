@@ -32,11 +32,12 @@
                         <title>Qodana features</title>
                         <a href="baseline.topic" summary="Track your project changes through studying new, unchanged, and resolved problems."/>
                         <a href="code-coverage.md" summary="Inspect the quality of code coverage."/>
+                        <a href="flexinspect.md" summary="Develop your own inspections using IntelliJ IDEA."/>
                         <a href="license-audit.topic" summary="Check license compatibility between your software license and dependency licenses."/>
                         <a href="php-language-upgrade.topic" summary="See how updating PHP will affect your codebase quality."/>
                         <a href="quality-gate.topic" summary="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
-                        <a href="quick-fix.md" summary="Use the quick-fix feature to improve the performance of the project development"/>
-                        <a href="qodana-sarif-output.md" summary="Qodana linters can read and write reports in SARIF format, which is the industry                            standard for the output of static analysis tools."/>
+                        <a href="quick-fix.md" summary="Use the quick-fix feature to improve the performance of the project development."/>
+                        <a href="qodana-sarif-output.md" summary="Qodana linters can read and write reports in SARIF format, which is the industry standard for the output of static analysis tools."/>
                         <a href="taint-analysis.md" summary="Secure your PHP code from malicious user data."/>
                         <a href="vulnerability-checker.md" summary="Check third-party packages for vulnerabilities."/>
                 </secondary>

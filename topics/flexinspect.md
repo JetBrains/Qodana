@@ -6,7 +6,12 @@
 <var name="ts" value="https://www.jetbrains.com/help/idea/typescript-support.html"/>
 <var name="idea-doc" value="https://www.jetbrains.com/help/idea/getting-started.html"/>
 
-Starting from version 2024.1 of IntelliJ IDEA, you can develop your own inspections specific to your project using 
+<link-summary>
+Starting from version 2024.1 of IntelliJ IDEA, you can develop your own inspections specific to your project using the
+IntelliJ API and Kotlin.
+</link-summary>
+
+Starting from version 2024.1 of IntelliJ IDEA, you can develop your own inspections specific to your project using the 
 [IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin. You can:
 
 - Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code,
@@ -27,7 +32,7 @@ and DOCKERFILE are supported.
 
 Make sure that [IntelliJ IDEA](https://www.jetbrains.com/idea/) is installed on your machine.
 
-Out of the box, IntelliJ IDEA support Java and [Kotlin](%kotlin%). The Ultimate edition of 
+Out of the box, IntelliJ IDEA supports Java and [Kotlin](%kotlin%). The Ultimate edition of 
 IntelliJ IDEA also provides the default support for [JavaScript](%js%) and [TypeScript](%ts%). To provide support for 
 other languages like [PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](https://plugins.jetbrains.com/plugin/9568-go), and [Python](https://plugins.jetbrains.com/plugin/631-python), you can install plugins from 
 [JetBrains Marketplace](https://plugins.jetbrains.com/). The detailed information is available on the 
@@ -78,7 +83,7 @@ to <ui-path>New | Custom Inspection</ui-path>.
     <li>A global inspection lets you inspect your codebase on a per-project basis and can be run only using the IDE functionality of %product%.</li>
 </list>
 Each file can contain multiple inspections. CamelCase is the preferable naming method for <code>inspection.kts</code> 
-file naming.
+files.
 </step>
 </procedure>
 
@@ -128,7 +133,7 @@ val htmlDescription = """
     </html>
 """.trimIndent()
 
-val NoConstructor = localInspection { psiFile, inspection ->
+val noConstructor = localInspection { psiFile, inspection ->
     val classes = psiFile.descendantsOfType<PsiClass>()
     classes.forEach { clazz ->
         // Ignore interfaces
@@ -151,7 +156,7 @@ val NoConstructor = localInspection { psiFile, inspection ->
 listOf(
         InspectionKts(
                 id = "NoConstructor", // inspection id (used in qodana.yaml)
-                localTool = NoConstructor,
+                localTool = noConstructor,
                 name = "The class has no constructor", // Inspection name, displayed in UI
                 htmlDescription = htmlDescription,
                 level = HighlightDisplayLevel.WARNING,

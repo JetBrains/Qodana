@@ -18,6 +18,7 @@
         <list>
             <li><a href="extending-qodana-plugins.topic">Using plugins</a></li>
             <li><a href="extending-qodana-structural-search.topic">Using structural search patterns</a></li>
+            <li><a href="flexinspect.md">Using FlexInspect</a></li>
         </list>
 
 </topic>

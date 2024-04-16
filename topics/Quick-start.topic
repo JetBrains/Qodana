@@ -84,8 +84,8 @@
                     <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">non-root user</a>.</p>
                 <procedure id="qodana-cli-tab-procedure">
                     <step><p>Install Qodana CLI on your machine using available options:</p>
-                        <tabs>
-                            <tab title="macOS and Linux">
+                        <tabs group="gs-cli">
+                            <tab title="macOS and Linux" group-key="gs-macos-linux">
                                 <p>Install with <a href="https://brew.sh/">Homebrew</a> (recommended):</p>
                                 <code-block lang="shell" prompt="$">
                                     brew install jetbrains/utils/qodana
@@ -94,20 +94,28 @@
                                 <code-block lang="shell" prompt="$">
                                     curl -fsSL https://jb.gg/qodana-cli/install | bash
                                 </code-block>
-                                <p>You can also install %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
+                                <p>You can install a <code>nightly</code> or any other version the following way:</p>
+                                <code-block lang="shell" prompt="$">
+                                    curl -fsSL https://jb.gg/qodana-cli/install | bash -s -- nightly
+                                </code-block>
+                                <p>On Linux, you can also install %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
                                 <code-block lang="shell" prompt="$">
                                     go install github.com/JetBrains/qodana-cli@latest
                                 </code-block>
                             </tab>
-                            <tab title="Windows">
+                            <tab title="Microsoft Windows" group-key="gs-windows">
+                                <p>Install with <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Windows Package Manager</a> (recommended):</p>
+                                <code-block lang="shell">
+                                    winget install -e --id JetBrains.QodanaCLI
+                                </code-block>
+                                <p>Install with <a href="https://chocolatey.org/">Chocolatey</a>:</p>
+                                <code-block>
+                                    choco install qodana
+                                </code-block>
                                 <p>Install with <a href="https://scoop.sh/">Scoop</a>:</p>
                                 <code-block lang="shell">
                                     scoop bucket add jetbrains https://github.com/JetBrains/scoop-utils
                                     scoop install qodana
-                                </code-block>
-                                <p>You can also install %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
-                                <code-block lang="shell" prompt="$">
-                                    go install github.com/JetBrains/qodana-cli@latest
                                 </code-block>
                             </tab>
                         </tabs>
@@ -115,13 +123,33 @@
                     <step>
                         <p>In the project root directory, declare the <code>QODANA_TOKEN</code> variable containing the project
                             token described in the <a anchor="quickstart-prerequisites">prerequisites</a>:</p>
-                        <code-block lang="shell" prompt="$">
-                            QODANA_TOKEN="&lt;cloud-project-token&gt;"
-                        </code-block>
-                        <p>Now you can run %instance%:</p>
-                        <code-block lang="shell" prompt="$">
-                            qodana scan
-                        </code-block>
+                        <tabs group="gs-cli">
+                            <tab title="macOS and Linux" group-key="gs-macos-linux">
+                                <code-block lang="shell" prompt="$">
+                                    QODANA_TOKEN=&lt;cloud-project-token&gt;
+                                </code-block>
+                            </tab>
+                            <tab title="Microsoft Windows" group-key="gs-windows">
+                                <code-block>
+                                    set QODANA_TOKEN=&lt;cloud-project-token&gt;
+                                </code-block>
+                            </tab>
+                        </tabs>
+                    </step>
+                    <step>
+                        <p>Run %instance%:</p>
+                        <tabs group="gs-cli">
+                            <tab title="macOS and Linux" group-key="gs-macos-linux">
+                                <code-block lang="shell" prompt="$">
+                                    qodana scan
+                                </code-block>
+                            </tab>
+                            <tab title="Microsoft Windows" group-key="gs-windows">
+                                <code-block lang="shell">
+                                    qodana scan
+                                </code-block>
+                            </tab>
+                        </tabs>
                     </step>
                 </procedure>
             </tab>
@@ -186,11 +214,9 @@
                         <p>Run this command to analyze your codebase:</p>
                         <code-block lang="shell" prompt="$">
                             docker run \
-                               -p 8080:8080 \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               jetbrains/qodana-&lt;linter&gt; \
-                               --show-report
+                               jetbrains/qodana-&lt;linter&gt;
                         </code-block>
                         <p>Here, <code>&lt;source-directory&gt;</code> points to the root of your project, and
                             the <code>QODANA_TOKEN</code> variable contains the project token described in the
