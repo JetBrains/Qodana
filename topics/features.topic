@@ -54,6 +54,16 @@
                 </td>
             </tr>
             <tr>
+                <td><a href="flexinspect.md"/></td>
+                <td>Develop your own inspections using <a href="https://www.jetbrains.com/help/idea">IntelliJ IDEA</a> and <a href="https://kotlinlang.org/">Kotlin</a></td>
+                <td>
+                    <p>Community</p>
+                    <p>Ultimate</p>
+                    <p>Ultimate Plus</p>
+                </td>
+                <td>All <a href="linters.md">linters</a> except <a href="qodana-dotnet.md"/> and <a href="qodana-dotnet-community.md"/></td>
+            </tr>
+            <tr>
                 <td><a href="license-audit.topic"/></td>
                 <td>Verify your project license for compatibility with the licenses of its dependencies</td>
                 <td>Ultimate Plus</td>

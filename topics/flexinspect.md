@@ -1,11 +1,15 @@
 # FlexInspect
 
 <var name="feature" value="FlexInspect"/>
+<var name="kotlin" value="https://www.jetbrains.com/help/idea/get-started-with-kotlin.html"/>
+<var name="js" value="https://www.jetbrains.com/help/idea/javascript-specific-guidelines.html"/>
+<var name="ts" value="https://www.jetbrains.com/help/idea/typescript-support.html"/>
+<var name="idea-doc" value="https://www.jetbrains.com/help/idea/getting-started.html"/>
 
 Starting from version 2024.1 of IntelliJ IDEA, you can develop your own inspections specific to your project using 
 [IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin. You can:
 
-- Access the [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of the source code,
+- Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code,
 - Debug new inspections on the fly,
 - Observe your new custom inspections in action including highlighting of the code fragments that do not meet expected behaviour.
 
@@ -17,14 +21,17 @@ You can develop local inspections that run within a file scope, global inspectio
 using the [%product% functionality of the IDE](qodana-ide-plugin.md#ide-plugin-run-qodana), and inspect your code
 in [CI pipelines](ci.md). Currently, %feature% supports any language covered by IntelliJ IDEA either natively or through 
 additional plugins. For example, Java, Kotlin, JS, TypeScript, PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, SHELL, 
-DOCKERFILE, and MARKDOWN are supported. 
+and DOCKERFILE are supported. 
 
 ## Prerequisites
 
 Make sure that [IntelliJ IDEA](https://www.jetbrains.com/idea/) is installed on your machine.
 
-If you need to develop inspections for other languages different from Java, in your IntelliJ IDEA you can install a plugin
-that provides the language support. You can install plugins for [PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](https://plugins.jetbrains.com/plugin/9568-go), [Python](https://plugins.jetbrains.com/plugin/631-python) and other languages.
+Out of the box, IntelliJ IDEA support Java and [Kotlin](%kotlin%). The Ultimate edition of 
+IntelliJ IDEA also provides the default support for [JavaScript](%js%) and [TypeScript](%ts%). To provide support for 
+other languages like [PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](https://plugins.jetbrains.com/plugin/9568-go), and [Python](https://plugins.jetbrains.com/plugin/631-python), you can install plugins from 
+[JetBrains Marketplace](https://plugins.jetbrains.com/). The detailed information is available on the 
+[IntelliJ IDEA](%idea-doc%) documentation portal.   
 
 Because all inspections are developed using the Kotlin language, you need to know the 
 [basics of Kotlin](https://kotlinlang.org/docs/kotlin-tour-welcome.html).
@@ -42,11 +49,11 @@ with **PSI Viewer**, and then navigate to **Tools | View PSI Structure of Curren
 
 PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a source file's structure. In case of Java 
 code, PSI reflects basic blocks of a Java file like package and import statements, class statements, method invocations, 
-and other nodes. %feature% uses the PSI tree representation of your codebase to obtain the list of the codebase nodes 
+and other nodes. %feature% uses the PSI tree representation of your code to obtain the list of the code nodes 
 that can be inspected using your inspections.
 
 IntelliJ IDEA reads `inspection.kts` files from the `inspections` directory of your project, and each file
-contains Kotlin code to check your codebase nodes using the API provided by the PSI.   
+contains Kotlin code to check your code nodes using the API provided by the PSI.   
 
 After you develop your inspections, you can run them over your code with IntelliJ IDEA and %product% right away.
 
@@ -154,7 +161,7 @@ listOf(
 {collapsible="true"}
 
 > To debug your inspections, you can add `inspection.registerProblem(<psi-element>, "<debug-message>")` to the 
-inspection codebase and view a debug message in your IDE.
+inspection code and view a debug message in your IDE.
 
 ### Test your inspection in the IDE
 
