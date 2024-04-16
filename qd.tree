@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
-<instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="eap">
+<instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="release">
 	<!-- Getting started section -->
 	<toc-element accepts-web-file-names="welcome.html" topic="getting-started.topic">
 		<toc-element topic="about-qodana.md"/>
