@@ -32,7 +32,8 @@ and DOCKERFILE are supported.
 
 Make sure that [IntelliJ IDEA](https://www.jetbrains.com/idea/) is installed on your machine.
 
-Out of the box, IntelliJ IDEA supports Java and [Kotlin](%kotlin%). The Ultimate edition of 
+Ensure that your version of IntelliJ IDEA supports the language you want to develop an inspection for. Out of the box, 
+IntelliJ IDEA supports Java and [Kotlin](%kotlin%). The Ultimate edition of 
 IntelliJ IDEA also provides the default support for [JavaScript](%js%) and [TypeScript](%ts%). To provide support for 
 other languages like [PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](https://plugins.jetbrains.com/plugin/9568-go), and [Python](https://plugins.jetbrains.com/plugin/631-python), you can install plugins from 
 [JetBrains Marketplace](https://plugins.jetbrains.com/). The detailed information is available on the 
@@ -43,24 +44,35 @@ Because all inspections are developed using the Kotlin language, you need to kno
 
 ## How it works
 
-You write your inspections in Kotlin. IntelliJ IDEA compiles the inspection code on the fly, and then it executes 
-compiled inspections.
+You write your inspections in Kotlin and store them in the `inspections` directory of your project as
+`.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code to check your code nodes using the API provided 
+by the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html)
+or PSI. IntelliJ IDEA reads `.inspection.kts` files, compiles the inspection code on the fly, and then 
+it executes compiled inspections.
 
-The inspection code interacts with analyzed code via the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html) or PSI. In IntelliJ IDEA, you can 
-navigate through PSI via the **PSI Viewer** tool. To do it, in IntelliJ IDEA you can open a file that you would like to view 
-with **PSI Viewer**, and then navigate to **Tools | View PSI Structure of Current File**.
+In IntelliJ IDEA, you can navigate through PSI via the **PSI Viewer** tool. To do it, in IntelliJ IDEA you can 
+open a file that you would like to view with **PSI Viewer**, and then navigate to **Tools | View PSI Structure of Current File**.
 
 <img src="flexinspect-how-it-works.png" width="706" alt="PSI tree overview" border-effect="line" thumbnail="true"/>
 
-PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a source file's structure. In case of Java 
-code, PSI reflects basic blocks of a Java file like package and import statements, class statements, method invocations, 
-and other nodes. %feature% uses the PSI tree representation of your code to obtain the list of the code nodes 
-that can be inspected using your inspections.
+PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a 
+source file's structure. In case of Java code, PSI reflects basic blocks of a Java file like package and import 
+statements, class statements, method invocations, and other nodes. %feature% uses the PSI tree representation of your 
+code to obtain the list of the code nodes that can be inspected using your inspections.
 
-IntelliJ IDEA reads `inspection.kts` files from the `inspections` directory of your project, and each file
-contains Kotlin code to check your code nodes using the API provided by the PSI.   
+After you develop your inspections, you can run them over your code using IntelliJ IDEA and %product% right away.
 
-After you develop your inspections, you can run them over your code with IntelliJ IDEA and %product% right away.
+## Inspection types
+
+<link-summary>You can create local and global inspections to run them within file and project scopes respectively.</link-summary>
+
+You can create local and global inspections.
+
+A local inspection operates on a file level and inspects each file of your project separately from 
+others. Once you create a local inspection, IntelliJ IDEA will run it for each opened file on the fly.
+
+A global inspection operates on a project level using the project scope for inspection. For example, you can create 
+inspections that can check whether specific files exist in your project. 
 
 ## How to start
 
@@ -68,7 +80,7 @@ This section shows how to create an inspection example that will inspect whether
 
 ### Create an inspection file
 
-To create a new `inspection.kts` template file, follow the procedure below.
+To create a new `.inspection.kts` template file, follow the procedure below.
 
 <procedure>
 <step>In your project, create the <code>inspections</code> directory.</step>
@@ -77,13 +89,12 @@ In the project navigator of IntelliJ IDEA, hover over the <code>inspections</cod
 to <ui-path>New | Custom Inspection</ui-path>.
 </step>
 <step>
-<p>On the dialog that opens, you can specify what inspection you would like to create:</p> 
-<list>
-    <li>A local inspection lets you inspect your codebase file by file in real time,</li>
-    <li>A global inspection lets you inspect your codebase on a per-project basis and can be run only using the IDE functionality of %product%.</li>
-</list>
-Each file can contain multiple inspections. CamelCase is the preferable naming method for <code>inspection.kts</code> 
-files.
+<p>On the dialog that opens, you can choose among the <a anchor="Inspection+types">local and global</a> inspection templates 
+that you can use for your inspection. Empty local and global templates are universal for any language supported by %feature%,
+while local Java, Kotlin, JavaScript and Typescript templates are dedicated to these languages.</p> 
+
+<p>Each file can contain multiple inspections. CamelCase is the preferable naming method for <code>.inspection.kts</code> 
+files.</p>
 </step>
 </procedure>
 
@@ -171,7 +182,7 @@ inspection code and view a debug message in your IDE.
 ### Test your inspection in the IDE
 
 After you create your inspection, you can see the compilation status on the toolbar
-in the upper part of the inspection file, and recompile an inspection. You can also open files using **PSI Viewer**, and 
+in the upper part of the inspection file, and recompile the inspection. You can also open files using **PSI Viewer**, and 
 study inspection examples. When you change the inspection code, you need to explicitly recompile the inspection using the 
 recompile button in the left part of the toolbar, or use the <shortcut>Alt+Shift+Enter</shortcut> / <shortcut>⌥⇧Enter</shortcut> 
 shortcut.  

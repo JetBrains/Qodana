@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/flexinspect-create-template.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-create-template.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/flexinspect-create-template_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-create-template_dark.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Quick-start.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Quick-start.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-psi-tree.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-psi-tree.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/flexinspect-psi-tree_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/flexinspect-psi-tree_dark.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/getting-started.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/getting-started.topic" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
