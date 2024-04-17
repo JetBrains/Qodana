@@ -48,19 +48,23 @@ You write your inspections in Kotlin and store them in the `inspections` directo
 `.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code to check your code nodes using the API provided 
 by the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html)
 or PSI. IntelliJ IDEA reads `.inspection.kts` files, compiles the inspection code on the fly, and then 
-it executes compiled inspections.
+it executes compiled inspections. 
+
+Using %product%, you can run compiled inspections within [IntelliJ IDEA](qodana-ide-plugin.md#ide-plugin-run-qodana) and 
+[CI/CD pipelines](ci.md). 
+
+### Program Structure Interface (PSI)
+
+PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a
+source file's structure. In case of Java code, PSI reflects basic blocks of a Java file like package and import
+statements, class statements, method invocations, and other nodes. %feature% uses the PSI tree representation of your
+code to obtain the list of the code nodes that can be inspected using your inspections.
 
 In IntelliJ IDEA, you can navigate through PSI via the **PSI Viewer** tool. To do it, in IntelliJ IDEA you can 
 open a file that you would like to view with **PSI Viewer**, and then navigate to **Tools | View PSI Structure of Current File**.
 
 <img src="flexinspect-how-it-works.png" width="706" alt="PSI tree overview" border-effect="line" thumbnail="true"/>
 
-PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a 
-source file's structure. In case of Java code, PSI reflects basic blocks of a Java file like package and import 
-statements, class statements, method invocations, and other nodes. %feature% uses the PSI tree representation of your 
-code to obtain the list of the code nodes that can be inspected using your inspections.
-
-After you develop your inspections, you can run them over your code using IntelliJ IDEA and %product% right away.
 
 ## Inspection types
 
