@@ -28,6 +28,11 @@
 		</toc-element>
 	</toc-element>
 
+	<toc-element toc-title="Analyzing your code" hidden="true">
+		<toc-element topic="Python.md" hidden="true"/>
+	</toc-element>
+
+
 	<!-- Use cases section -->
 	<toc-element toc-title="Use cases">
 		<toc-element topic="monorepo-project.md"/>

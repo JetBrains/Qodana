@@ -23,7 +23,7 @@ IntelliJ IDEA and %product% inspections, and run these inspections on your entir
 your entire team follows the standards defined by you.
 
 You can develop local inspections that run within a file scope, global inspections that run within a project scope
-using the [%product% functionality of the IDE](qodana-ide-plugin.md#ide-plugin-run-qodana), and inspect your code
+as described in the [](qodana-ide-plugin.md#ide-plugin-run-qodana) section, and inspect your code
 in [CI pipelines](ci.md). Currently, %feature% supports any language covered by IntelliJ IDEA either natively or through 
 additional plugins. For example, Java, Kotlin, JS, TypeScript, PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, SHELL, 
 and DOCKERFILE are supported. 
@@ -45,13 +45,10 @@ Because all inspections are developed using the Kotlin language, you need to kno
 ## How it works
 
 You write your inspections in Kotlin and store them in the `inspections` directory of your project as
-`.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code to check your code nodes using the API provided 
+`.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code to check your code using the API provided 
 by the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html)
 or PSI. IntelliJ IDEA reads `.inspection.kts` files, compiles the inspection code on the fly, and then 
 it executes compiled inspections. 
-
-Using %product%, you can run compiled inspections within [IntelliJ IDEA](qodana-ide-plugin.md#ide-plugin-run-qodana) and 
-[CI/CD pipelines](ci.md). 
 
 ### Program Structure Interface (PSI)
 
@@ -73,10 +70,11 @@ open a file that you would like to view with **PSI Viewer**, and then navigate t
 You can create local and global inspections.
 
 A local inspection operates on a file level and inspects each file of your project separately from 
-others. Once you create a local inspection, IntelliJ IDEA will run it for each opened file on the fly.
+others. Once you create a local inspection, IntelliJ IDEA will run it for open file in the editor.
 
 A global inspection operates on a project level using the project scope for inspection. For example, you can create 
-inspections that can check whether specific files exist in your project. 
+inspections that can check whether specific files exist in your project. You can run a global inspections as described
+in the [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
 
 ## How to start
 
@@ -185,11 +183,10 @@ inspection code and view a debug message in your IDE.
 
 ### Test your inspection in the IDE
 
-After you create your inspection, you can see the compilation status on the toolbar
-in the upper part of the inspection file, and recompile the inspection. You can also open files using **PSI Viewer**, and 
-study inspection examples. When you change the inspection code, you need to explicitly recompile the inspection using the 
-recompile button in the left part of the toolbar, or use the <shortcut>Alt+Shift+Enter</shortcut> / <shortcut>⌥⇧Enter</shortcut> 
-shortcut.  
+After creating the inspection, you can see the compilation status on the toolbar in the upper part of the inspection file. 
+When you change the inspection code, you need to explicitly recompile the inspection using the recompile button in the 
+left part of the toolbar, or use the <shortcut>Alt+Shift+Enter</shortcut> / <shortcut>⌥⇧Enter</shortcut> shortcut.  
+You can also open files using **PSI Viewer** and study inspection examples.
 
 <img src="flexinspect-test-your-inspection.png" width="706" alt="FlexInspect toolbar" border-effect="line"/>
 
