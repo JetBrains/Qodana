@@ -29,7 +29,7 @@
 	</toc-element>
 
 	<toc-element toc-title="Analyzing your code" hidden="true">
-		<toc-element topic="Python.md" hidden="true"/>
+		<toc-element topic="python.md" hidden="true"/>
 	</toc-element>
 
 
