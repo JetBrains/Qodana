@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-overview-reports.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-overview-reports.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python-draft.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-python-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-python-docker-readme.topic" afterDir="false" />
-    </list>
+    <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

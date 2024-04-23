@@ -257,7 +257,7 @@ selected, the issues are listed in the order they appear in the file. You can al
 Out of the box, Qodana provides a couple of predefined profiles hosted on
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles):
 
-* `qodana.starter` is the default profile and a subset of `qodana.recommended` triggering the [3-phase analysis](#three-phase-analysis)
+* `qodana.starter` is the default profile and a subset of `qodana.recommended` triggering the [3-phase analysis](inspection-profiles.md#three-phase-analysis)
 * `qodana.recommended` is suitable for CI/CD pipelines and mostly implements the default IDE profiles, see the
   [IntelliJ IDEA](https://www.jetbrains.com/help/idea/customizing-profiles.html) documentation for details
 
