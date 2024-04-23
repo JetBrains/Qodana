@@ -42,7 +42,7 @@ You can run %instance% locally and then forward inspection reports to [Qodana Cl
     <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
 </step>
 <step>
-   <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+   <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
 </step>
 </procedure>
 
@@ -50,7 +50,7 @@ You can run %instance% locally and then forward inspection reports to [Qodana Cl
 {id="ide-plugin-connect-cloud"}
 
 You can log in to Qodana Cloud and connect your project opened in the IDE to a specific Qodana Cloud [project](cloud-projects.topic) to get the 
-latest %instance% report and overview it.
+latest %instance% report and view it.
 
 <procedure>
    <step>
@@ -75,7 +75,7 @@ latest %instance% report and overview it.
         closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
     </step> 
     <step>
-       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, overview <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
     </step>
 </procedure>
 
@@ -112,7 +112,7 @@ You can open and study [SARIF-formatted %instance% reports](qodana-sarif-output.
         <p>Select the SARIF-formatted report file you would like to open.</p>
    </step>
    <step>
-      <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, you can overview inspection results.</p>
+      <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, you can view inspection results.</p>
    </step>
 </procedure>
 </snippet>

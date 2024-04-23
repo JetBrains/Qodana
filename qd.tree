@@ -28,8 +28,9 @@
 		</toc-element>
 	</toc-element>
 
+	<!-- The future section about linters. Currently hidden from the TOC -->
 	<toc-element toc-title="Analyzing your code" hidden="true">
-		<toc-element topic="python.md" hidden="true"/>
+		<toc-element topic="python-draft.md" hidden="true"/>
 	</toc-element>
 
 

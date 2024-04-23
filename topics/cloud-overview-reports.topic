@@ -59,11 +59,11 @@
 
     <p>The upper part of the report page contains:</p>
 
-    <p>1. Branch selector. Using it, you can overview reports for each branch in your project.</p>
+    <p>1. Branch selector. Using it, you can view reports for each branch in your project.</p>
     <p>2. Commit hash and time passed since the last inspection run.</p>
     <p>3. Timeline describing the date of inspection, number of problems detected.</p>
     <p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-sarif-output.md">SARIF format</a>, and opening the help guide.</p>
-    <p>5. Selector for overviewing either the absolute number of detected problems, or the number of problems
+    <p>5. Selector for viewing either the absolute number of detected problems, or the number of problems
     relatively to a <a href="baseline.topic">baseline</a> set for this project.</p>
 
     <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>

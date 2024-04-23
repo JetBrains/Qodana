@@ -82,7 +82,7 @@ profile will override such settings contained in `Project Default`.
 
 {id="custom-profiles-default-profile-tip"}
 
-<tip>You can overview the default IDE profile by navigating to <ui-path>Settings | Editor | Inspections</ui-path>.</tip>
+<tip>You can view the default IDE profile by navigating to <ui-path>Settings | Editor | Inspections</ui-path>.</tip>
 
 ## name
 
@@ -232,7 +232,7 @@ include:
 
 The `include` block is not related to [`baseProfile`](#baseProfile). If `baseProfile` contains no values, it is set to `Default`.
 
-To overview the default profile, in the JetBrains IDE navigate to **Settings | Editor | Inspections** and select the 
+To view the default profile, in the JetBrains IDE navigate to **Settings | Editor | Inspections** and select the 
 `Default` profile in the **Profile** drop-down selector.
 
 File contents are included in the order of appearance, thus becoming part of your profile. This means that the settings
