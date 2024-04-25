@@ -19,7 +19,7 @@
 You can inspect your code using the %qp% linter is based on PyCharm Professional and licensed under the Ultimate and 
 Ultimate Plus licenses, and the %qp-co% linter is based on PyCharm Community and licensed under the Community license. 
 To learn more about %product% licenses, navigate to the [](pricing.md) page. To see the list of supported features, you
-can navigate to the [feature matrix](#Feature+matrix).
+can navigate to the [](#python-feature-matrix) section.
 
 ## Prerequisites
 
@@ -518,10 +518,10 @@ hash of the commit that will act as a base for comparison:
     </tab>
 </tabs>
 
-## Feature matrix
+## Supported technologies and features
+{id="python-feature-matrix"}
 
-Here you can find the tables containing supported technologies and %product% features supported by the %qp% and %qp-co% 
-linters.
+This table contains the list of technologies supported by the %qp% and %qp-co% linters.
 
 <table style="none">
     <tr>
@@ -569,6 +569,7 @@ linters.
     </tr>
 </table>
 
+This table shows %product% features supported by both linters.
 
 | Feature                       | %qp-co%  | %qp%      |
 |-------------------------------|----------|-----------|
