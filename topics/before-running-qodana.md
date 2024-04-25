@@ -1,6 +1,6 @@
 [//]: # (title: Prepare your project)
 
-<link-summary>You can use the bootstrap option to prepare your project for inspecting by Qodana.</link-summary>
+<link-summary>You can use the bootstrap option to prepare your project for analyzing by Qodana.</link-summary>
 
 When %instance% runs on your project, it tries to figure out the build system and project structure by itself. 
 If %instance% cannot figure out the project structure, it will run the inspections nevertheless, but some inspections may 

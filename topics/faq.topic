@@ -69,7 +69,7 @@
 
     <chapter id="faq-linter-description" title="What does each %instance% linter represent?" default-state="collapsed" collapsible="true">
         <p>A linter is a Qodana component representing a specific technology. For example, the <a href="qodana-jvm.md"/>
-            linter lets you inspect the codebase containing the Java, Kotlin, and Groovy code, while the
+            linter lets you analyze the codebase containing the Java, Kotlin, and Groovy code, while the
             <a href="qodana-js.md"/> linter lets you check on the JavaScript and TypeScript code. On the
             <a href="linters.md"/> page, you can find the list of all available linters and the links to the detailed
             description of each one.
@@ -93,7 +93,7 @@
     </chapter>
 
     <chapter id="faq-ssh-key-setup" title="Why is there a need to set up an SSH key in my repository?" default-state="collapsed" collapsible="true">
-        <p>The SSH key lets Qodana connect to the repository of the inspected project and calculate the number of
+        <p>The SSH key lets Qodana connect to the repository of the analyzed project and calculate the number of
             contributors, which is a requirement for all types of <a href="pricing.md">licenses</a>.
         </p>
     </chapter>

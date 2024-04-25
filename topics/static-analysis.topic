@@ -7,16 +7,16 @@
 	title="Static analysis" id="static-analysis">
 
     <link-summary>Qodana implements the static analysis mechanism to automatically analyze your codebase without your participation.
-        This means that you just run Qodana to inspect your code and expect recommendations on how you could improve
+        This means that you just run Qodana to analyze your code and expect recommendations on how you could improve
         your codebase.</link-summary>
 
     <p>%instance% implements the static analysis mechanism to automatically analyze your codebase without your participation.
-        This means that you just run %instance% to inspect your code and expect recommendations on how you could improve
+        This means that you just run %instance% to analyze your code and expect recommendations on how you could improve
         your codebase. No other actions like running additional scripts, downloading external libraries, or any
         additional configuring is required.</p>
 
     <p>The second fact about static analysis says that your software can be explored by %instance% without building and
-        deploying your software because code inspection is carried out on the codebase basis. So, no other activities are
+        deploying your software because code analysis is carried out on the codebase basis. So, no other activities are
     required from this side either.</p>
 
     <p>Once the static analysis stage is complete, you can explore vulnerabilities and faults in your code and see exact

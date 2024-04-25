@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Inspect your code" id="inspect-your-code">
+	title="Analyze your code" id="inspect-your-code">
 
     <p>The most interesting and intriguing part of the interaction with %instance% is analysis of your code. To better
         prepare for that, you may want to revisit the <a href="configure-qodana.topic"/> section, or learn how to
@@ -12,13 +12,13 @@
     Otherwise, we suggest you to take a tour to our <a href="features.topic">guides</a> that provide examples of how you
         can tune %instance% for solving specific tasks.</p>
 
-    <p>Inspection of your code will depend on:
+    <p>Analysis of your code will depend on:
         </p>
 	<list>
             <li>How you are planning to <a href="deploy-qodana.topic">deploy %instance%</a></li>
             <li>What <a href="linters.md">linter</a> you need to run</li>
         </list>
-	<p>%instance% inspection results are available in two forms:</p>
+	<p>%instance% analysis reports are available in two forms:</p>
 
         <list>
             <li><a href="qodana-sarif-output.md">JSON files</a></li>

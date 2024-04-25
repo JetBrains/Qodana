@@ -9,19 +9,24 @@
 <var name="qd-image" value="jetbrains/qodana-python<-community>:2024.1"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="PyCharm"/>
+<var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
+<var name="DPplugin" value="https://plugins.jenkins.io/docker-workflow/"/>
+<var name="Gplugin" value="https://plugins.jenkins.io/git/"/>
+<var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
+<var name="MultipipeCreate" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
 
-<link-summary>You can inspect your code using the %qp% and %qp-co% linters.</link-summary>
+<link-summary>You can analyze your code using the %qp% and %qp-co% linters.</link-summary>
 
 <!-- Add a note about draft status -->
 
 <warning>This is a draft document, so we do not recommend that you use it.</warning>
 
-You can inspect your code using the %qp% linter is based on PyCharm Professional and licensed under the Ultimate and 
-Ultimate Plus licenses, and the %qp-co% linter is based on PyCharm Community and licensed under the Community license. 
+You can analyze your Python projects using the %qp% linter based on PyCharm Professional and licensed under the Ultimate and 
+Ultimate Plus licenses, and the %qp-co% linter based on PyCharm Community and licensed under the Community license. 
 To learn more about %product% licenses, navigate to the [](pricing.md) page. To see the list of supported features, you
 can navigate to the [](#python-feature-matrix) section.
 
-## Prerequisites
+## Before your start
 
 %qp% requires a [project token](project-token.md) generated in Qodana Cloud. If you use the %qp-co% linter, the project token is optional.
 
@@ -34,11 +39,13 @@ executed before the analysis:
 bootstrap: pip install -r requirements.txt
 ```
 
-## Basic configuration
+## Run %product%
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 
-By default, you can run these linters using [Qodana CLI](https://github.com/JetBrains/qodana-cli). If necessary,
+### Run %product% locally
+
+By default, you can run the %qp% and %qp-co% linters using [Qodana CLI](https://github.com/JetBrains/qodana-cli). If necessary,
 check the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) to install Qodana CLI.  To run it in the default mode, you must have Docker or Podman 
 installed and running locally. If you are using Linux, you should be able to run Docker under your current
 [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
@@ -70,17 +77,38 @@ Alternatively, you can use the Docker commands from the <ui-path>Docker image</u
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                %qd-image%
         </code-block>
-        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine inspection results.
+        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results.
             Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
             details.</p>
     </tab>
 </tabs>
 
-Now you can set up analysis in CI/CD pipelines, for example [GitHub Actions](github.md).
+### Run %product% in CI/CD pipelines
+
+You can also set up analysis in various CI/CD tools. These examples will be used as a basis further in this section.
+
+#### GitHub Actions
 
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
-Here is the [Jenkins Pipeline](jenkins.md) configuration sample: 
+#### Jenkins
+
+Make sure that these plugins are installed on your Jenkins instance:
+
+* [Docker](%Dplugin%) and [Docker Pipeline](%DPplugin%) are required for running Docker images
+* [git](%Gplugin%) is required for git operations in Jenkins projects
+
+Make sure that Docker is installed and accessible by Jenkins.
+
+If applicable, make sure that Docker is accessible by the `jenkins` user as described in the
+[Manage Docker as a non-root user](%Dockeraccess%) section of the Docker documentation.
+
+Create a Multibranch Pipeline project as described on the [Jenkins documentation portal](%MultipipeCreate%).
+
+In the root directory of your project repository, create the `Jenkinsfile`. This file will contain Jenkins
+configuration scripts described in this section.
+
+Here is the Jenkins Pipeline configuration snippet for running %product%: 
 
 ```groovy
 pipeline {
@@ -109,7 +137,12 @@ pipeline {
 In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
 [project token](project-token.md) generated in Qodana Cloud.
 
-Here is how you can configure [GitLab CI/CD](gitlab.md) for running %product%: 
+#### GitLab CI/CD
+
+Make sure that your project repository is accessible by GitLab CI/CD.
+
+In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain the pipeline configuration
+that will be used by GitLab CI/CD from below:
 
 ```yaml
 qodana:
@@ -138,27 +171,18 @@ referring to the [project token](project-token.md) generated in Qodana Cloud.
 
 You can find more examples in the [](ci.md) section.
 
-### Study inspection reports
+### Explore analysis results
 
-#### Qodana Cloud
+#### View analysis results in Qodana Cloud
 
-Once %product% inspected your project and the inspection report was uploaded to Qodana Cloud, you can study inspections.
+Once %product% analyzed your project and the analysis results were uploaded to Qodana Cloud, you can study analysis reports.
 To do it, navigate to [Qodana Cloud](https://qodana.cloud), and open your report.
 
 <img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
 
-<p>The upper part of the report page contains:</p>
-
-<p>1. Branch selector. Using it, you can overview reports for each branch in your project.</p>
-<p>2. Commit hash and time passed since the last inspection run.</p>
-<p>3. Timeline describing the date of inspection, number of problems detected.</p>
-<p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-sarif-output.md">SARIF format</a>, and opening the help guide.</p>
-<p>5. Selector for overviewing either the absolute number of detected problems, or the number of problems
-relatively to a <a href="baseline.topic">baseline</a> set for this project.</p>
-
 <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 
-#### %ide%
+#### Receive analysis results in %ide%
 
 You can log in to [Qodana Cloud](https://qodana.cloud) and connect your project opened in the IDE to a specific Qodana Cloud [project](cloud-projects.topic) to get the
 latest %instance% report and view it.
@@ -186,7 +210,7 @@ latest %instance% report and view it.
         closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
     </step> 
     <step>
-       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, overview <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, overview <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
     </step>
 </procedure>
 
@@ -196,7 +220,7 @@ containing such problems.
 
 <img src="ide-plugin-report-navigating.png" dark-src="ide-plugin-report-navigating_dark.png" width="706" alt="Navigating to problems in the IDE" animated="true" border-effect="line"/>
 
-The upper part contains information about the project and branch names, the inspection date, and the number of problems.
+The upper part contains information about the project and branch names, the analysis date, and the number of problems.
 The left part of the **Server-Side Analysis** tool window contains several buttons.
 
 <img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Functionalities of the Server-Side Analysis tool window" border-effect="line"/>
@@ -245,7 +269,7 @@ selected, the issues are listed in the order they appear in the file. You can al
    </tr>
    <tr>
       <td><ui-path>Show Qodana in Browser</ui-path></td>
-      <td>Open the inspection report using your default browser</td>
+      <td>Open the report using your default browser</td>
    </tr>
    <tr>
       <td><ui-path>Other</ui-path></td>
@@ -253,9 +277,9 @@ selected, the issues are listed in the order they appear in the file. You can al
    </tr>
 </table>
 
-## Advanced configuration
+## Extend %product% configuration
 
-### Scope of analysis
+### Configure the scope of analysis
 
 Out of the box, Qodana provides several predefined profiles hosted on
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), such as:
@@ -291,11 +315,13 @@ To learn more about configuration basics, you can visit the [](override-a-profil
 available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
 
 
-### Baseline
+### Enable the baseline
 
 [Baseline](baseline.topic) is a snapshot of the codebase problems taken at a specific %instance% run and contained in 
 the `qodana.sarif.json` file. Using the baseline feature, you can compare your current code with its baseline state and 
 see new, unchanged, and resolved problems.
+
+Here you can learn how to run the baseline feature in the %qp% and %qp-co% linters of %product%.
 
 <tabs group="cli-commands">
     <tab title="Qodana CLI" group-key="baseline-qodana-cli">
@@ -336,7 +362,7 @@ see new, unchanged, and resolved problems.
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                           - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2023.3
+                            uses: JetBrains/qodana-action@v2024.1
                             with:
                               args: --baseline,qodana.sarif.json
                             env:
@@ -370,7 +396,7 @@ a baseline. </p>
             <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
             <step>In the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
         </procedure>
-        <p>This animation shows the difference between inspecting a project when a baseline is disabled and enabled.</p>
+        <p>This animation shows how the baseline feature works.</p>
         <img src="baseline-jetbrains-ides-intro.gif" width="793" alt="Running the baseline in the IDE"/>
     </tab>
     <tab title="Jenkins">
@@ -405,7 +431,7 @@ the path to the SARIF-formatted file containg information about a baseline.</p>
     </tab>
 </tabs>
 
-### Quality gate
+### Enable the quality gate
 
 [Quality gates](quality-gate.topic) let you control your code quality and build software that meets your quality 
 expectations. If a quality gate condition fails, Qodana terminates. Using the [`qodana.yaml`](qodana-yaml.md) file, you 
@@ -425,7 +451,7 @@ failureConditions:
     total: 7 # Total percentage
 ```
 
-### Pull requests
+### Analyze pull requests
 
 If you just finished work and would like to analyze the changes, you can employ the `--diff-start` option and specify a 
 hash of the commit that will act as a base for comparison:

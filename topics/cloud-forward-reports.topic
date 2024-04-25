@@ -49,7 +49,7 @@
                 <table>
                     <tr><td>Variable name</td><td>Description</td></tr>
                     <tr><td><code>QODANA_REMOTE_URL</code></td><td>Project URL</td></tr>
-                    <tr><td><code>QODANA_BRANCH</code></td><td>Name of the branch inspected</td></tr>
+                    <tr><td><code>QODANA_BRANCH</code></td><td>Name of the branch analyzed</td></tr>
                     <tr><td><code>QODANA_REVISION</code></td><td>Commit hash</td></tr>
                     <tr><td><code>QODANA_JOB_URL</code></td><td>Job URL</td></tr>
                 </table>

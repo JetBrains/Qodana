@@ -50,7 +50,7 @@ Properties available for configuration in the `qodana { }` top-level configurati
 
 | Name             | Description                                          | Type      | Default Value                           |
 |------------------|------------------------------------------------------|-----------|-----------------------------------------|
-| `projectPath`    | Path to the project folder to inspect.               | `String`  | `project.projectDir`                    |
+| `projectPath`    | Path to the project folder to analyze.               | `String`  | `project.projectDir`                    |
 | `resultsPath`    | Path to the directory to store task results.         | `String`  | `"${projectPath}/build/qodana/results"` |
 | `cachePath`      | Path to the directory to store the generated report. | `String`  | `"${projectPath}/build/qodana/cache/"`  |
 
@@ -106,7 +106,7 @@ Add this to your Gradle configuration file:
 
 > **Note:** Docker requires at least 4GB of memory. Set it in the Docker `Preferences > Resources > Memory` section.
 
-Now you can run inspections with `qodanaScan` Gradle task:
+Now you can run analyses with `qodanaScan` Gradle task:
 
 ```bash
 gradle qodanaScan 

@@ -82,12 +82,12 @@ and `image` specifies the Docker image invoked.
 The `stage` block calls %instance%. Here, you can also specify the [options](docker-image-configuration.topic) 
 you would like to configure %instance% with like the [quality gate and baseline](#Quality+gate+and+baseline) features.
 
-## Inspect specific branches
+## Analyze specific branches
 
-<link-summary>Using the `when` block, you can tell %instance% which branches of your project to inspect.</link-summary>
+<link-summary>Using the `when` block, you can tell %instance% which branches of your project to analyze.</link-summary>
 
-Using the `when` block, you can tell %instance% which branches of your project to inspect. For example, this configuration 
-lets you inspect only the `feature` branch. 
+Using the `when` block, you can tell %instance% which branches of your project to analyze. For example, this configuration 
+lets you analyze only the `feature` branch. 
 
 ```groovy
 pipeline {
@@ -116,7 +116,7 @@ pipeline {
 }
 ```
 
-You can inspect pull requests as described in the [Supporting Pull Requests](%JPullRequests%) section
+You can analyze pull requests as described in the [Supporting Pull Requests](%JPullRequests%) section
 of the Jenkins documentation.
 
 ## Quality gate and baseline

@@ -48,7 +48,7 @@
                     inspections settings</a>. If so, InspectCode will find your
                 <a href="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html">custom settings</a>
                 in <code>.DotSettings</code> files and apply
-                them. If there are no settings files, then the default severity levels will be used for all inspections.
+                them. If there are no settings files, then the default severity levels will be used for all analyses.
                 Besides custom severity levels for code inspections, InspectCode will look for the following settings in
                 <code>.DotSettings</code> files:</p>
 

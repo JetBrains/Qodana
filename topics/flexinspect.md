@@ -16,7 +16,7 @@ Starting from version 2024.1 of IntelliJ IDEA, you can develop your own inspecti
 
 - Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code,
 - Debug new inspections on the fly,
-- Observe your new custom inspections in action including highlighting of the code fragments that do not meet expected behaviour.
+- Observe your new custom inspections in action including highlighting of the code fragments that do not meet expected behavior.
 
 Using %feature%, you can get access to the same API that is used by all 
 IntelliJ IDEA and %product% inspections, and run these inspections on your entire project using %product% to ensure that 
@@ -70,10 +70,10 @@ open a file that you would like to view with **PSI Viewer**, and then navigate t
 You can create local and global inspections.
 
 A local inspection operates on a file level and inspects each file of your project separately from 
-others. Once you create a local inspection, IntelliJ IDEA will run it for open file in the editor.
+others. Once you create a local inspection, IntelliJ IDEA will run it for an opened file in the editor.
 
 A global inspection operates on a project level using the project scope for inspection. For example, you can create 
-inspections that can check whether specific files exist in your project. You can run a global inspections as described
+inspections that can check whether specific files exist in your project. You can run global inspections as described
 in the [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
 
 ## How to start
@@ -126,7 +126,7 @@ each method of a class.
 
 You can develop the inspection using the template that you have [already created](#Create+an+inspection+file). To check whether
 a class has a constructor method, in this example you can iterate over all methods and use the `isConstructor()` method. 
-If there is no constructor method, the inspection generate the error showing that a class has no constructor method.
+If there is no constructor method, the inspection generates the error showing that a class has no constructor method.
 
 Here is the Kotlin snippet for the `NoConstructor.inspection.kts` file containing inline comments.
 

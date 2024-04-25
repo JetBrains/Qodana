@@ -33,9 +33,9 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 ## Run custom commands
 
-<link-summary>Using the bootstrap option of qodana.yaml, %instance% can perform actions before running inspections.</link-summary>
+<link-summary>Using the bootstrap option of qodana.yaml, %instance% can perform actions before running analysis.</link-summary>
 
-Using the `bootstrap` option of `qodana.yaml`, %instance% can perform actions before running inspections. 
+Using the `bootstrap` option of `qodana.yaml`, %instance% can perform actions before running the analysis. 
 
 To install a specific package in the Qodana container using the `apt` tool, add this line to `qodana.yaml`:
 
@@ -64,11 +64,11 @@ about custom profiles is also provided [here](inspection-profiles.md#Custom+prof
 
 You can exclude files and paths from analyses on a per-inspection basis and for all inspections at once. 
 
-To exclude all paths in a project from the inspection scope, omit the `paths` node.
+To exclude all paths in a project from the analysis scope, omit the `paths` node.
 
 <note>Starting from version 2022.3, if using the <code>qodana.recommended</code> and <code>qodana.starter</code> 
 profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and folders to be ignored 
-during inspections.</note>
+during the analysis.</note>
 
 ### Examples
 {id="exclude-example"}

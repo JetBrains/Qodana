@@ -75,17 +75,16 @@
                 <p>The list of the JetBrains IDEs containing this feature is available in the
                     <a href="qodana-ide-plugin.md"/> section.</p>
 
-                <p>This video shows how you can inspect your code using baseline.</p>
+                <p>This animation shows how you can analyze your code using baseline.</p>
 
-                <img src="baseline-jetbrains-ides-intro.animated.gif" dark-src="baseline-jetbrains-ides-intro_dark.png" animated="true" width="788" alt="Running the baseline in the IDE" preview-src="baseline-jetbrains-ides-intro.png"/>
+                <img src="baseline-jetbrains-ides-intro.gif" width="793" alt="Running the baseline in the IDE"/>
 
-                <p>Here is the description of each step from the video:</p>
+                <p>Here is the description of each step from the animation:</p>
 
                 <procedure>
                     <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
                     <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
-                    <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Start Qodana</ui-path> button.</step>
-                    <step>In the dialog that opens, click the <ui-path>Try locally</ui-path> button.</step>
+                    <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
                     <step>In the dialog, expand the <ui-path>Advanced Configuration</ui-path> section, select the baseline file, and then click <ui-path>Run</ui-path>.</step>
                 </procedure>
             </tab>

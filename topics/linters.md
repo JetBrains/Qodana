@@ -14,7 +14,7 @@ can cause problems. Basically, each Qodana linter is associated with a specific 
 * Improve overall code structure
 * Introduce coding best practices
 * Check third-party license compatibility. This feature is available in [several linters](license-audit.topic)
-* Upload inspection results to [Qodana Cloud](cloud-about.topic)
+* Upload analysis reports to [Qodana Cloud](cloud-about.topic)
 
 Currently, several linters provide inspections for several programming languages.
 

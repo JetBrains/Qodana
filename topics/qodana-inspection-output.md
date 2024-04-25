@@ -1,8 +1,8 @@
-[//]: # (title: Qodana code inspection output formats)
+[//]: # (title: Qodana output formats)
 
 ## Basic output
 
-<link-summary>Each Qodana code inspection run produces the following output located in the output directory.</link-summary>
+<link-summary>Each Qodana analysis produces the following output located in the output directory.</link-summary>
 
 Each Qodana code inspection run produces the following output located in the output directory:
 

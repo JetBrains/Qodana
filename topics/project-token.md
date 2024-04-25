@@ -64,4 +64,4 @@ This is the list of linters where project token usage is optional:
 * [](qodana-jvm-android.md)
 * [](qodana-python-community.md)
 
-Without a project token, you will not be able to upload and study inspection results in [Qodana Cloud](cloud-about.topic). 
+Without a project token, you will not be able to upload and study analysis reports in [Qodana Cloud](cloud-about.topic). 

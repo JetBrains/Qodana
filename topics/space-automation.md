@@ -59,7 +59,7 @@ The `shellScript` block contains the `qodana` command for running %instance%, an
 [options](docker-image-configuration.topic) that can be used during the run like [quality gate](quality-gate.topic) or 
 [baseline](baseline.topic).
 
-## Inspect specific branches
+## Analyze specific branches
 
 <link-summary>The startOn block of a Jenkins Pipeline lets you specify the event that will trigger a job.</link-summary>
 
@@ -67,7 +67,7 @@ The [`startOn`](%Space-starton%) block lets you specify the event that will trig
 uses the nested [`branchFilter`](%Space-filter%) block to override the default trigger and run the job only
 after changes made in the `feature` branch. 
 
-The [`codeReviewOpened`](%Space-creview%) trigger lets you inspect code reviews opened in the default branch of 
+The [`codeReviewOpened`](%Space-creview%) trigger lets you analyze code reviews opened in the default branch of 
 the project.
 
 ```kotlin
