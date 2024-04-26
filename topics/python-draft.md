@@ -55,8 +55,8 @@ installed and running locally. If you are using Linux, you should be able to run
 
 Alternatively, you can use the Docker commands from the <ui-path>Docker image</ui-path> tab.
 
-<tabs>
-    <tab id="qodana-cli-tab" title="Qodana CLI">
+<tabs group="cli-settings">
+    <tab group-key="qodana-cli" title="Qodana CLI">
         <code-block prompt="$">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -65,7 +65,7 @@ Alternatively, you can use the Docker commands from the <ui-path>Docker image</u
         <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
         <p>If you omit the <code>-l</code> option, the %qp% linter will run by default.</p>
     </tab>
-    <tab id="docker-image-tab" title="Docker image">
+    <tab group-key="docker-image" title="Docker image">
         <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
         <code-block lang="shell" prompt="$">
             docker pull %qd-image%
@@ -317,8 +317,8 @@ see new, unchanged, and resolved problems.
 
 Here are several examples showing how you can run %product% with the baseline enabled:
 
-<tabs group="cli-commands">
-    <tab title="Qodana CLI" group-key="baseline-qodana-cli">
+<tabs group="cli-settings">
+    <tab title="Qodana CLI" group-key="qodana-cli">
         <code-block lang="shell" prompt="$">
             qodana scan \
                -v &lt;path_to_baseline&gt;:/data/base/ \
@@ -332,7 +332,7 @@ Here are several examples showing how you can run %product% with the baseline en
             <a href="project-token.md">project token</a>.
         </p>
     </tab>
-    <tab title="GitHub Actions">
+    <tab title="GitHub Actions" group-key="github-actions">
                 <code-block lang="yaml">
                     name: Qodana
                     on:
@@ -365,7 +365,7 @@ Here are several examples showing how you can run %product% with the baseline en
 <p>This snippet contains <code>args: --baseline,qodana.sarif.json</code> that specifies the path to the SARIF-formatted file containing
 a baseline. </p>
     </tab>
-    <tab title="Docker image" group-key="baseline-qodana-docker">
+    <tab title="Docker image" group-key="docker-image">
         <code-block lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
@@ -381,7 +381,7 @@ a baseline. </p>
             <a href="project-token.md">project token</a>.
         </p>
     </tab>
-    <tab title="JetBrains IDEs" id="baseline-jetbrains-ides">
+    <tab title="JetBrains IDEs" group-key="jetbrains-ide">
         <procedure>
             <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
             <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
