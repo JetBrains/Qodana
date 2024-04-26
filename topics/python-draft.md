@@ -23,13 +23,13 @@
 
 You can analyze your Python projects using the %qp% linter based on PyCharm Professional and licensed under the Ultimate and 
 Ultimate Plus licenses, and the %qp-co% linter based on PyCharm Community and licensed under the Community license. 
-To learn more about %product% licenses, navigate to the [](pricing.md) page. To see the list of supported features, you
+To learn more about %product% licenses, navigate to the [](pricing.md) section. To see the list of supported features, you
 can navigate to the [](#python-feature-matrix) section.
 
 ## Before your start
 
-%qp% requires a valid %product% license for running, and it can be identified and verified using [project tokens](project-token.md) generated in 
-Qodana Cloud. If you use the %qp-co% linter, the project token is optional because of the Community license.
+%qp% requires a valid %product% license for running, which can be identified and verified using a [project token](project-token.md) generated in 
+Qodana Cloud. If you use the %qp-co% linter, the project token is optional.
 
 If your project has external `pip` dependencies, set them up using the [`bootstrap`](before-running-qodana.md) 
 field in the `qodana.yaml` file. For example, if your project dependencies are specified by the `requirements.txt` file 
@@ -46,14 +46,14 @@ bootstrap: pip install -r requirements.txt
 
 ### Run %product% locally
 
-By default, you can run the %qp% and %qp-co% linters using [Qodana CLI](https://github.com/JetBrains/qodana-cli). If necessary,
+By default, you can run %product% using [Qodana CLI](https://github.com/JetBrains/qodana-cli). If necessary,
 check the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) to install Qodana CLI.  To run it in the default mode, you must have Docker or Podman 
 installed and running locally. If you are using Linux, you should be able to run Docker under your current
 [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
-Alternatively, you can use the Docker commands from the <ui-path>Docker image</ui-path> tab.
-
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
+Alternatively, you can use the Docker commands from the <ui-path>Docker image</ui-path> tab.
 
 <tabs>
     <tab id="qodana-cli-tab" title="Qodana CLI">
@@ -86,8 +86,7 @@ Alternatively, you can use the Docker commands from the <ui-path>Docker image</u
 
 ### Run %product% in CI/CD pipelines
 
-You can also set up analysis in various CI/CD tools. These examples provide basic configuration samples that will be 
-extended later in this section.
+You can also set up analysis in various CI/CD tools. 
 
 #### GitHub Actions
 
@@ -107,10 +106,9 @@ If applicable, make sure that Docker is accessible by the `jenkins` user as desc
 
 Create a Multibranch Pipeline project as described on the [Jenkins documentation portal](%MultipipeCreate%).
 
-In the root directory of your project repository, create the `Jenkinsfile`. This file will contain Jenkins
-configuration scripts described in this section.
+In the root directory of your project repository, create the `Jenkinsfile`. 
 
-Here is the Jenkins Pipeline configuration snippet for running %product%: 
+Save this snippet to `Jenkinsfile`:
 
 ```groovy
 pipeline {
@@ -143,8 +141,8 @@ In this configuration, the `environment` block defines the `QODANA_TOKEN` variab
 
 Make sure that your project repository is accessible by GitLab CI/CD.
 
-In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain the pipeline configuration
-that will be used by GitLab CI/CD from below:
+In the root directory of your project, create the `.gitlab-ci.yml` file. Save this configuration to the `.gitlab-ci-yml` 
+file:
 
 ```yaml
 qodana:
@@ -175,19 +173,18 @@ You can find more examples in the [](ci.md) section.
 
 ### Explore analysis results
 
-#### View analysis results in Qodana Cloud
+#### View results in Qodana Cloud
 
-Once %product% analyzed your project and the analysis results were uploaded to Qodana Cloud, navigate to 
-[Qodana Cloud](https://qodana.cloud), open and study the analysis results report.
+Once %product% analyzed your project uploaded the analysis results to Qodana Cloud, in 
+[Qodana Cloud](https://qodana.cloud) navigate to your project and study the analysis results report.
 
-<img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
+<img src="qc-report-example.png" dark-src="qc-report-example_dark.png" alt="Analysis report example" width="720" border-effect="line"/>
 
 <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 
 #### Receive analysis results in %ide%
 
-You can log in to [Qodana Cloud](https://qodana.cloud) and connect your project opened in the IDE to a specific Qodana Cloud [project](cloud-projects.topic) to get the
-latest %instance% report and view it.
+You can get the latest %instance% report in your %ide% as explained below.
 
 <procedure>
    <step>
@@ -207,27 +204,26 @@ latest %instance% report and view it.
    <step>
         <p>By enabling the <ui-path>Always load most relevant Qodana report</ui-path> option, you get actual reports automatically retrieved from Qodana Cloud.</p>
       <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-        <p>In this case, the IDE will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the 
-        current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
-        closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
+        <p>In this case, %ide% will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the 
+        current revision ID (HEAD). If this report was not found, %ide% will select the previous report with the revision
+        closest to the current revision ID (HEAD). Otherwise, %ide% retrieves the latest available report from Qodana Cloud.</p>
     </step> 
     <step>
-       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, overview <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, view <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
     </step>
 </procedure>
 
-
-Using the **Server-Side Analysis** tool window of your IDE, you can view %instance% reports and navigate to the code fragments
+Using the **Server-Side Analysis** tool window of %ide%, you can view %instance% reports and navigate to the code fragments
 containing such problems.
 
 <img src="ide-plugin-report-navigating.png" dark-src="ide-plugin-report-navigating_dark.png" width="706" alt="Navigating to problems in the IDE" animated="true" border-effect="line"/>
 
-The upper part contains information about the project and branch names, the analysis date, and the number of problems.
-The left part of the **Server-Side Analysis** tool window contains several buttons.
+The upper part of the **Server-Side Analysis** tool window contains information about the project and branch names, the 
+analysis date, and the number of problems. The left part contains several buttons.
 
 <img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Functionalities of the Server-Side Analysis tool window" border-effect="line"/>
 
-This table describes each button from top to bottom:
+This table explains each button from top to bottom:
 
 <table>
    <tr>
@@ -281,19 +277,17 @@ selected, the issues are listed in the order they appear in the file. You can al
 
 ## Extend %product% configuration
 
-### Configure the scope of analysis
+### Adjust the scope of analysis
 
-Out of the box, Qodana provides several predefined profiles hosted on
-[GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), such as:
+Out of the box, Qodana provides two predefined profiles hosted on
+[GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles):
 
-* `qodana.starter` is the default profile and a subset of `qodana.recommended` triggering the [3-phase analysis](inspection-profiles.md#three-phase-analysis)
-* `qodana.recommended` is suitable for CI/CD pipelines and mostly implements the default IDE profiles, see the
-  [IntelliJ IDEA](https://www.jetbrains.com/help/idea/customizing-profiles.html) documentation for details
+* The `qodana.starter` profile is the default profile that triggers the [3-phase analysis](inspection-profiles.md#three-phase-analysis). This is a subset of the `qodana.recommended` profile,
+* The `qodana.recommended` profile is suitable for CI/CD pipelines and mostly implements the default %ide% profile, see the
+  [PyCharm](https://www.jetbrains.com/help/pycharm/customizing-profiles.html) documentation for details.
 
-<!-- A couple of examples need to be added here -->
-
-You can configure these profiles using YAML and XML formats. For example, settings from these default profiles. For example, 
-you can override the `qodana.recommended` profile by enabling JavaScript and TypeScript inspections. To do this, save
+You can configure %product% profiles in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats. For example, 
+you can override the `qodana.recommended` profile by enabling JavaScript and TypeScript inspections. To do this, save 
 this configuration to a YAML-formatted file in your project directory:
 
 ```yaml
@@ -305,17 +299,15 @@ inspections:
      enabled: true # Enable the JavaScript and TypeScript category
 ```
 
-In [`qodana.yaml`](qodana-yaml.md), enable your profile configuration: 
+To enable your profile configuration, save this configuration in the [`qodana.yaml`](qodana-yaml.md) file: 
 
 ```yaml
 profile:
    path: <relative-path-to-yaml-config-file>
 ```
 
-
 To learn more about configuration basics, visit the [](override-a-profile.md) section. Complete guides are 
 available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
-
 
 ### Enable the baseline
 
@@ -323,7 +315,7 @@ available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
 the `qodana.sarif.json` file. Using the baseline feature, you can compare your current code with its baseline state and 
 see new, unchanged, and resolved problems.
 
-Here you can learn how to run the baseline feature in the %qp% and %qp-co% linters of %product%.
+Here are several examples showing how you can run %product% with the baseline enabled:
 
 <tabs group="cli-commands">
     <tab title="Qodana CLI" group-key="baseline-qodana-cli">
@@ -390,8 +382,6 @@ a baseline. </p>
         </p>
     </tab>
     <tab title="JetBrains IDEs" id="baseline-jetbrains-ides">
-    <tip>The list of the JetBrains IDEs supporting this feature is available in the
-            <a href="qodana-ide-plugin.md"/> section.</tip>
         <procedure>
             <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
             <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
@@ -455,8 +445,8 @@ failureConditions:
 
 ### Analyze pull requests
 
-If you just finished work and would like to analyze the changes, employ the `--diff-start` option and specify a 
-hash of the commit that will act as a base for comparison:
+To analyze changes in your code, employ the `--diff-start` option and specify a hash of the commit that will act as a 
+base for comparison:
 
 <tabs group="cli-settings">
     <tab title="Qodana CLI" group-key="qodana-cli">
