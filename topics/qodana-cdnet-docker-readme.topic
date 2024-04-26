@@ -73,7 +73,7 @@
                 </li>
             </list>
 
-            <p>If you want to configure InspectCode on a CI server, you can make all configurations locally with
+            <p>To configure InspectCode on a CI server, make all configurations locally with
                 ReSharper, <a href="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#saveTo">save the settings to the Solution Team-Shared layer</a>,
                 and then commit the resulting <code>YourSolution.sln.DotSettings</code> file in the solution directory
                 to your VCS. InspectCode on the server will find and apply these settings.</p>

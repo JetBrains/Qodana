@@ -35,7 +35,7 @@ In your operating system, save the `QODANA_TOKEN` environment variable containin
 
 Starting from the version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file 
 containing the `bootstrap` option is missing in your project directory. The [`bootstrap`](before-running-qodana.md) 
-option should contain instructions for building the project. If you do not wish to build the project, you can disable
+option should contain instructions for building the project. If you do not wish to build the project, disable
 this inspection using the `--disable-sanity` option, add this inspection to a [baseline](baseline.topic), or create the `qodana.yaml`
 file that will contain the `ide: QDNET` configuration. 
 

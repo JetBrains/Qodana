@@ -161,7 +161,7 @@ selected, the issues are listed in the order they appear in the file. You can al
    </tr>
    <tr>
       <td><ui-path>Open Editor Preview</ui-path></td>
-      <td>Open the preview pane to view the selected issue in its source context. This preview lets you can change the 
+      <td>Open the preview pane to view the selected issue in its source context. This preview lets you change the 
     code and apply available quick-fixes</td>
    </tr>
    <tr>

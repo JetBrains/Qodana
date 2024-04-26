@@ -577,7 +577,7 @@
                 </tab>
             </tabs>
 
-            <p filter="for-inspection-profiles">If you need to run %instance% with a custom profile, you can use its actual
+            <p filter="for-inspection-profiles">To run %instance% with a custom profile, use its actual
                 profile name.</p>
 
             <p filter="for-inspection-profiles">This command lets you bind a custom profile:</p>
@@ -1084,7 +1084,7 @@
             </tab>
         </tabs>
 
-        <p>If you would like to inspect a set of changes between two commits, you can employ both <code>--diff-start</code>
+        <p>To analyze a set of changes between two commits, employ both <code>--diff-start</code>
         and <code>--diff-end</code> options:</p>
 
         <tabs group="cli-settings">

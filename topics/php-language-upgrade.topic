@@ -6,8 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="PHP version migration" id="php-language-upgrade" help-id="qodana-php-language-upgrade">
 
-        <p>If you need to see how migration from one PHP version to another will affect your code quality, you can
-        use the <code>php-migration</code> %instance% scenario. If you run this scenario, you will be able
+        <p>To see how migration from one PHP version to another will affect your code quality,
+        employ the <code>php-migration</code> %instance% scenario. If you run this scenario, you will be able
             to see the codebase problems that will arise after you upgrade to a newer PHP version.</p>
 
     <p>This feature is supported by the <a href="qodana-php.md"/> linter and available under the Ultimate and Ultimate Plus

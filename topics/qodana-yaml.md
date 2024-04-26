@@ -346,7 +346,7 @@ In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpa
 
 <link-summary>You can include a custom dependency in the license compatibility matrix.</link-summary>
 
-Currently, the license audit with %instance% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. If you want to include the dependency that should be mentioned in the report but is impossible to detect from the project sources, you can use `customDependencies` to specify it:
+Currently, the license audit with %instance% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. To include the dependency that should be mentioned in the report but is impossible to detect from the project sources, use `customDependencies` to specify it:
 
 ```yaml
 customDependencies:

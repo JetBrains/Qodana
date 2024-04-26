@@ -255,7 +255,7 @@ can employ the `--diff-start` option:
     </tab>
 </tabs>
 
-If you would like to inspect a set of changes between two commits, you can employ both `--diff-start` and `--diff-end`
+To inspect a set of changes between two commits, employ both `--diff-start` and `--diff-end`
 options:
 
 <tabs group="cli-settings">

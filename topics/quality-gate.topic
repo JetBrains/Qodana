@@ -203,7 +203,7 @@
                     <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.</p>
             </tab>
             <tab title="GitLab CI/CD">
-                <p>If you want to run a quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, you can save this
+                <p>To run a quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, save this
                     configuration to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml">
                     qodana:

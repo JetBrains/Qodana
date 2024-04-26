@@ -28,9 +28,10 @@ can navigate to the [](#python-feature-matrix) section.
 
 ## Before your start
 
-%qp% requires a [project token](project-token.md) generated in Qodana Cloud. If you use the %qp-co% linter, the project token is optional.
+%qp% requires a valid %product% license for running, and it can be identified and verified using [project tokens](project-token.md) generated in 
+Qodana Cloud. If you use the %qp-co% linter, the project token is optional because of the Community license.
 
-If your project has external `pip` dependencies, you can set them up using the [`bootstrap`](before-running-qodana.md) 
+If your project has external `pip` dependencies, set them up using the [`bootstrap`](before-running-qodana.md) 
 field in the `qodana.yaml` file. For example, if your project dependencies are specified by the `requirements.txt` file 
 in your project root, add the following line to [`qodana.yaml`](qodana-yaml.md#Run+custom+commands) that will be 
 executed before the analysis:
@@ -85,7 +86,8 @@ Alternatively, you can use the Docker commands from the <ui-path>Docker image</u
 
 ### Run %product% in CI/CD pipelines
 
-You can also set up analysis in various CI/CD tools. These examples will be used as a basis further in this section.
+You can also set up analysis in various CI/CD tools. These examples provide basic configuration samples that will be 
+extended later in this section.
 
 #### GitHub Actions
 
@@ -175,8 +177,8 @@ You can find more examples in the [](ci.md) section.
 
 #### View analysis results in Qodana Cloud
 
-Once %product% analyzed your project and the analysis results were uploaded to Qodana Cloud, you can study analysis reports.
-To do it, navigate to [Qodana Cloud](https://qodana.cloud), and open your report.
+Once %product% analyzed your project and the analysis results were uploaded to Qodana Cloud, navigate to 
+[Qodana Cloud](https://qodana.cloud), open and study the analysis results report.
 
 <img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
 
@@ -203,7 +205,7 @@ latest %instance% report and view it.
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
    <step>
-        <p>By enabling the <ui-path>Always load most relevant Qodana report</ui-path> option, you can get actual reports automatically retrieved from Qodana Cloud.</p>
+        <p>By enabling the <ui-path>Always load most relevant Qodana report</ui-path> option, you get actual reports automatically retrieved from Qodana Cloud.</p>
       <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
         <p>In this case, the IDE will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the 
         current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
@@ -256,7 +258,7 @@ selected, the issues are listed in the order they appear in the file. You can al
    </tr>
    <tr>
       <td><ui-path>Open Editor Preview</ui-path></td>
-      <td>Open the preview pane to view the selected issue in its source context. This preview lets you can change the 
+      <td>Open the preview pane to view the selected issue in its source context. This preview lets you change the 
     code and apply available quick-fixes</td>
    </tr>
    <tr>
@@ -311,7 +313,7 @@ profile:
 ```
 
 
-To learn more about configuration basics, you can visit the [](override-a-profile.md) section. Complete guides are 
+To learn more about configuration basics, visit the [](override-a-profile.md) section. Complete guides are 
 available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
 
 
@@ -453,7 +455,7 @@ failureConditions:
 
 ### Analyze pull requests
 
-If you just finished work and would like to analyze the changes, you can employ the `--diff-start` option and specify a 
+If you just finished work and would like to analyze the changes, employ the `--diff-start` option and specify a 
 hash of the commit that will act as a base for comparison:
 
 <tabs group="cli-settings">

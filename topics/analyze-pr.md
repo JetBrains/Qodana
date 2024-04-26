@@ -110,7 +110,7 @@ You can use the --diff-start option to inspect changes between the current versi
 
 ## Analyze changes between two commits
 
-<p>If you would like to inspect a set of changes between two commits, you can employ both <code>--diff-start</code>
+<p>To inspect a set of changes between two commits, employ both <code>--diff-start</code>
 and <code>--diff-end</code> options:</p>
 
 <tabs group="cli-settings">

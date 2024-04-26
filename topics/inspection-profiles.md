@@ -98,7 +98,7 @@ This command lets you override the default profile und run %instance% using the
     </tab>
 </tabs>
 
-If you need to run %instance% with a custom profile, you can use its actual profile name. This command lets you bind a 
+To run %instance% with a custom profile, use its actual profile name. This command lets you bind a 
 custom profile:
 
 <tabs group="cli-settings" filter="for-inspection-profiles">
