@@ -32,8 +32,8 @@ can navigate to the [](#python-feature-matrix) section.
 generated in Qodana Cloud. If you use the %qp-co% linter, the project token is optional.
 
 If your project has external `pip` dependencies, set them up using the [`bootstrap`](before-running-qodana.md) 
-field in the `qodana.yaml` file. For example, if your project dependencies are specified by the `requirements.txt` file 
-in your project root, in [`qodana.yaml`](qodana-yaml.md#Run+custom+commands) add the following line:
+field in the [YAML-formatted configuration file](qodana-yaml.md). For example, if your project dependencies are specified 
+by the `requirements.txt` file in your project root, in the configuration file add the following line:
 
 ```yaml
 bootstrap: pip install -r requirements.txt
