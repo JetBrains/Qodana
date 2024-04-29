@@ -28,13 +28,12 @@ can navigate to the [](#python-feature-matrix) section.
 
 ## Before your start
 
-%qp% requires a valid %product% license for running, which can be identified and verified using a [project token](project-token.md) generated in 
-Qodana Cloud. If you use the %qp-co% linter, the project token is optional.
+%qp% requires a valid %product% license for running, and it can be identified and verified using a [project token](project-token.md) 
+generated in Qodana Cloud. If you use the %qp-co% linter, the project token is optional.
 
 If your project has external `pip` dependencies, set them up using the [`bootstrap`](before-running-qodana.md) 
 field in the `qodana.yaml` file. For example, if your project dependencies are specified by the `requirements.txt` file 
-in your project root, add the following line to [`qodana.yaml`](qodana-yaml.md#Run+custom+commands) that will be 
-executed before the analysis:
+in your project root, in [`qodana.yaml`](qodana-yaml.md#Run+custom+commands) add the following line:
 
 ```yaml
 bootstrap: pip install -r requirements.txt
@@ -46,12 +45,10 @@ bootstrap: pip install -r requirements.txt
 
 ### Run %product% locally
 
-By default, you can run %product% using [Qodana CLI](https://github.com/JetBrains/qodana-cli). If necessary,
-check the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) to install Qodana CLI.  To run it in the default mode, you must have Docker or Podman 
+By default, you can run %product% using [Qodana CLI](https://github.com/JetBrains/qodana-cli). To run it, you must have Docker or Podman
 installed and running locally. If you are using Linux, you should be able to run Docker under your current
-[non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
-
-<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+[non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check the 
+[installation page](https://github.com/JetBrains/qodana-cli/releases/latest) for details.   
 
 Alternatively, you can use the Docker commands from the <ui-path>Docker image</ui-path> tab.
 
@@ -78,19 +75,22 @@ Alternatively, you can use the Docker commands from the <ui-path>Docker image</u
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                %qd-image%
         </code-block>
-        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results.
-            Here, you can also reconfigure the analysis, see the <a href="ui-overview.md"/> section for
+        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
+reconfigure the analysis, see the <a href="ui-overview.md"/> section for
             details.</p>
     </tab>
 </tabs>
 
 ### Run %product% in CI/CD pipelines
 
-You can also set up analysis in various CI/CD tools. 
-
 #### GitHub Actions
 
+You can run %product% using the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) as shown 
+below.
+
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
+
+More configuration examples are available in the [](github.md) section.
 
 #### Jenkins
 
@@ -108,7 +108,7 @@ Create a Multibranch Pipeline project as described on the [Jenkins documentation
 
 In the root directory of your project repository, create the `Jenkinsfile`. 
 
-Save this snippet to `Jenkinsfile`:
+Save this snippet to the `Jenkinsfile`:
 
 ```groovy
 pipeline {
@@ -135,14 +135,15 @@ pipeline {
 ```
 
 In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
-[project token](project-token.md) generated in Qodana Cloud.
+[project token](project-token.md).
+
+More configuration examples are available in the [](jenkins.md) section.
 
 #### GitLab CI/CD
 
 Make sure that your project repository is accessible by GitLab CI/CD.
 
-In the root directory of your project, create the `.gitlab-ci.yml` file. Save this configuration to the `.gitlab-ci-yml` 
-file:
+In the root directory of your project, create the `.gitlab-ci.yml` file and save this configuration in it:
 
 ```yaml
 qodana:
@@ -167,15 +168,15 @@ so subsequent runs will be faster,
 * The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %instance%
 configuration options described in the [](docker-image-configuration.topic) section,
 * The `variables` keyword defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
-referring to the [project token](project-token.md) generated in Qodana Cloud. 
+referring to the [project token](project-token.md). 
 
-You can find more examples in the [](ci.md) section.
+You can find more configuration examples in the [](gitlab.md) section.
 
 ### Explore analysis results
 
 #### View results in Qodana Cloud
 
-Once %product% analyzed your project uploaded the analysis results to Qodana Cloud, in 
+Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in 
 [Qodana Cloud](https://qodana.cloud) navigate to your project and study the analysis results report.
 
 <img src="qc-report-example.png" dark-src="qc-report-example_dark.png" alt="Analysis report example" width="720" border-effect="line"/>
@@ -283,39 +284,41 @@ Out of the box, Qodana provides two predefined profiles hosted on
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles):
 
 * The `qodana.starter` profile is the default profile that triggers the [3-phase analysis](inspection-profiles.md#three-phase-analysis). This is a subset of the `qodana.recommended` profile,
-* The `qodana.recommended` profile is suitable for CI/CD pipelines and mostly implements the default %ide% profile, see the
+* The `qodana.recommended` profile is suitable for running in CI/CD pipelines and mostly implements the default %ide% profile, see the
   [PyCharm](https://www.jetbrains.com/help/pycharm/customizing-profiles.html) documentation for details.
 
-You can configure %product% profiles in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats. For example, 
-you can override the `qodana.recommended` profile by enabling JavaScript and TypeScript inspections. To do this, save 
-this configuration to a YAML-formatted file in your project directory:
+You can configure %product% profiles in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats. 
 
-```yaml
+For example, you can override the `qodana.recommended` profile by enabling JavaScript and TypeScript inspections as shown
+below.
+
+<procedure style="steps">
+<step>
+  <p>In the project directory, create a <a href="qodana-yaml.md"><code>YAML</code></a> file and save this profile configuration to it:</p>
+<code-block lang="yaml">
 name: "Enabling JavaScript and TypeScript" 
 baseProfile: qodana.recommended
-
 inspections:
    - group: "category:JavaScript and TypeScript" # Specify the inspection category
      enabled: true # Enable the JavaScript and TypeScript category
-```
-
-To enable your profile configuration, save this configuration in the [`qodana.yaml`](qodana-yaml.md) file: 
-
-```yaml
+</code-block>
+</step>
+<step>
+<p>In the YAML-formatted file, save this configuration to enable your profile:</p>
+<code-block lang="yaml">
 profile:
-   path: <relative-path-to-yaml-config-file>
-```
+  path: &lt;relative-path-to-yaml-config-file&gt;
+</code-block>
+</step>
+</procedure>
 
 To learn more about configuration basics, visit the [](override-a-profile.md) section. Complete guides are 
 available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
 
 ### Enable the baseline
 
-[Baseline](baseline.topic) is a snapshot of the codebase problems taken at a specific %instance% run and contained in 
-the `qodana.sarif.json` file. Using the baseline feature, you can compare your current code with its baseline state and 
-see new, unchanged, and resolved problems.
-
-Here are several examples showing how you can run %product% with the baseline enabled:
+You can use the [baseline](baseline.topic) feature to compare your current code with its baseline state and 
+see new, unchanged, and resolved problems:
 
 <tabs group="cli-settings">
     <tab title="Qodana CLI" group-key="qodana-cli">
@@ -362,7 +365,7 @@ Here are several examples showing how you can run %product% with the baseline en
                             env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
-<p>This snippet contains <code>args: --baseline,qodana.sarif.json</code> that specifies the path to the SARIF-formatted file containing
+<p>This snippet contains the <code>args: --baseline,qodana.sarif.json</code> line that specifies the path to the SARIF-formatted file containing
 a baseline. </p>
     </tab>
     <tab title="Docker image" group-key="docker-image">
@@ -425,9 +428,8 @@ the path to the SARIF-formatted file containg information about a baseline.</p>
 
 ### Enable the quality gate
 
-[Quality gates](quality-gate.topic) let you control your code quality and build software that meets your quality 
-expectations. If a quality gate condition fails, Qodana terminates. Using the [`qodana.yaml`](qodana-yaml.md) file, you 
-can configure quality gates for the total number of project problems, specific problem severities, and code coverage. 
+Using the [YAML](qodana-yaml.md) format, you can configure [quality gates](quality-gate.topic) for the total 
+number of project problems, specific problem severities, and code coverage. 
 
 ```yaml
 failureConditions:

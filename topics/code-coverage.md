@@ -214,10 +214,10 @@ directory:</p>
               name: jetbrains/qodana-&lt;linter&gt;
               entrypoint: [""]
            cache:
-              - key: qodana-2023.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+              - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                 fallback_keys:
-                   - qodana-2023.3-$CI_DEFAULT_BRANCH-
-                   - qodana-2023.3-
+                   - qodana-2024.1-$CI_DEFAULT_BRANCH-
+                   - qodana-2024.1-
                 paths:
                    - .qodana/cache
            variables:
