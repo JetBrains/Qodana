@@ -150,12 +150,10 @@
                 </p>
                 <code-block lang="shell" prompt="$">
                     docker run \
-                    &nbsp;&nbsp;&nbsp;-p 8080:8080 \
                     &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-                    &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
                     &nbsp;&nbsp;&nbsp;-v &lt;inspection-profile.xml&gt;:/data/profile.xml \
-                    &nbsp;&nbsp;&nbsp;%docker-image% \
-                    &nbsp;&nbsp;&nbsp;--show-report
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;%docker-image%
                 </code-block>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -165,9 +163,7 @@
                     <code-block lang="shell" prompt="$">
                         qodana scan \
                         &nbsp;&nbsp;&nbsp;-l %docker-image% \
-                        &nbsp;&nbsp;&nbsp;--results-dir &lt;output-directory&gt; \
-                        &nbsp;&nbsp;&nbsp;--profile-path &lt;path-to-profile&gt; \
-                        &nbsp;&nbsp;&nbsp;--show-report
+                        &nbsp;&nbsp;&nbsp;--profile-path &lt;path-to-profile&gt;
                     </code-block>
             </tab>
         </tabs>

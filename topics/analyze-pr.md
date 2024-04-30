@@ -8,6 +8,9 @@ merge or pull requests, as well as inspect changes between two commits.</link-su
 Using %product%, you can not only scan your entire codebase, but also run analysis on change sets like merge or pull 
 requests, as well as inspect changes between two commits.
 
+<note>All examples from this page use a <a href="project-token.md">project token</a> assigned to the <code>QODANA_TOKEN</code>
+variable.</note>
+
 ## Analyze pull and merge requests
 
 <link-summary>

@@ -76,7 +76,7 @@
 
 For a basic Python project that has no external dependencies, no preliminary steps are required. 
 
-In case the project has external `pip` dependencies, you can set them up using the `bootstrap` field in the `qodana.yaml` file.  
+In case the project has external `pip` dependencies, you can set them up using the `bootstrap` key in the `qodana.yaml` file.  
 For example, if your project dependencies are specified by the `requirements.txt` file in your project root, add the following line to `qodana.yaml`:
 
 ```yaml

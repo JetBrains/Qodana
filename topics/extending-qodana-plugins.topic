@@ -97,13 +97,12 @@
             <p>Use this snippet for running %instance% locally:</p>
             <code-block lang="bash">
                 docker run \
-                   -p 8080:8080 \
                    -v &lt;project-directory&gt;:/data/project/ \
                    -v &lt;report-directory&gt;:/data/results/ \
                    -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                    -v &lt;path-to-plugin-file&gt;/PhpInspectionsEA.jar:/opt/idea/plugins/PhpInspectionsEA.jar \
                    -v &lt;path-to-plugin-config&gt;/ea_extended.xml:/root/.config/idea/options/ea_extended.xml \
-                   jetbrains/qodana-php --show-report
+                   jetbrains/qodana-php
             </code-block>
         </chapter>
     </chapter>

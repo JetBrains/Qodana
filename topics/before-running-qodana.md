@@ -1,6 +1,6 @@
 [//]: # (title: Prepare your project)
 
-<link-summary>You can use the bootstrap option to prepare your project for analyzing by Qodana.</link-summary>
+<link-summary>You can use the bootstrap key to prepare your project for analyzing by Qodana.</link-summary>
 
 When %instance% runs on your project, it tries to figure out the build system and project structure by itself. 
 If %instance% cannot figure out the project structure, it will run the inspections nevertheless, but some inspections may 
@@ -10,7 +10,7 @@ bit of help. Typical actions to prepare the project for Qodana are:
 * Install third-party packages or libraries
 * Run a program that sets up the build environment 
 
-These actions are carried out using the `bootstrap` [option](qodana-yaml.md#Run+custom+commands) of the `qodana.yaml` file
+These actions are carried out using the `bootstrap` [key](qodana-yaml.md#Run+custom+commands) of the `qodana.yaml` file
 contained in the root directory of your project:
 
 ```yaml
@@ -38,7 +38,7 @@ set -eu
 #npm install
 ```
 
-Run the script within a %instance% Docker container using the `bootstrap` option:
+Run the script within a %instance% Docker container using the `bootstrap` key:
 
 ```shell
 bootstrap: sh ./prepare-qodana.sh

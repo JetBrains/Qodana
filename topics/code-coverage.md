@@ -255,7 +255,7 @@ bootstrap: dotnet build, cd <path-to-dir-with-test-project-file> && \\
 
 Here, the `dotnet` option configures the solution file. 
 
-The [`bootstrap`](before-running-qodana.md) command performs several steps before running %instance% and explained in the table:
+The [`bootstrap`](before-running-qodana.md) key performs several steps before running %instance% and explained in the table:
 
 | Command step                                                    | Description                                                                                   |
 |-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------|

@@ -119,7 +119,7 @@
         </p>
 
         <p>For all linters except <a href="qodana-jvm.md"/>, you also need to have project
-            dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> option of
+            dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> key of
             the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
 
 

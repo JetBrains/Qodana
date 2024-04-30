@@ -121,7 +121,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 All SDK versions are stored in the `/usr/share/dotnet/sdk` directory of the %linter% container filesystem.
 
 In case a project requires a different version of the SDK, you can set it up before running the analysis using the
-[`bootstrap`](before-running-qodana.md) field in the `qodana.yaml` file.
+[`bootstrap`](before-running-qodana.md) key in the `qodana.yaml` file.
 For example, this command will install the required version of the SDK that is specified in the
 `global.json` file and located in the root of your project:
 
@@ -133,7 +133,7 @@ For example, this command will install the required version of the SDK that is s
 ### Build the project
 
 Build the project before inspecting it using %instance%. You can do it by using the [`bootstrap`](before-running-qodana.md)
-option of the [`qodana.yaml`](qodana-yaml.md) file contained in your project directory.
+key of the [`qodana.yaml`](qodana-yaml.md) file contained in your project directory.
 
 ### Configure %instance%
 

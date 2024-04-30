@@ -33,9 +33,9 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 ## Run custom commands
 
-<link-summary>Using the bootstrap option of qodana.yaml, %instance% can perform actions before running analysis.</link-summary>
+<link-summary>Using the bootstrap key of qodana.yaml, %instance% can perform actions before running analysis.</link-summary>
 
-Using the `bootstrap` option of `qodana.yaml`, %instance% can perform actions before running the analysis. 
+Using the `bootstrap` key of `qodana.yaml`, %instance% can perform actions before running the analysis. 
 
 To install a specific package in the Qodana container using the `apt` tool, add this line to `qodana.yaml`:
 
@@ -401,7 +401,7 @@ Plugin cache is stored in the `/data/cache/plugins` directory.
 
 To install third-party software required for your plugins, you can:
 
-* Use the [`bootstrap`](before-running-qodana.md) option
+* Use the [`bootstrap`](before-running-qodana.md) key
 * Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %instance% `Dockerfile`
 examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
 

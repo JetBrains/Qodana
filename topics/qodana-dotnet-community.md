@@ -129,7 +129,7 @@ docker run \
 ```
 {prompt="$"}
 
-In this case, in the [`bootstrap`](before-running-qodana.md) section of the [`qodana.yaml`](qodana-yaml.md) file you can specify how to build 
+In this case, in the [`bootstrap`](before-running-qodana.md) key of the [`qodana.yaml`](qodana-yaml.md) file you can specify how to build 
 your project, or run the build in a pipeline before passing it to %instance%.
 
 ### Run the linter

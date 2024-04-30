@@ -209,13 +209,11 @@
                         </p>
                         <code-block lang="shell" prompt="$">
                             docker run \
-                               -p 8080:8080 \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                -v &lt;output-directory&gt;/:/data/results/ \
                                -v &lt;inspection-profile.xml&gt;:/data/profile.xml \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               jetbrains/%linter-shell% \
-                               --show-report
+                               jetbrains/%linter-shell%
                         </code-block>
                     </li>
                     <li>
@@ -224,12 +222,10 @@
                         </p>
                         <code-block lang="shell" prompt="$">
                             docker run \
-                               -p 8080:8080 \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                -v &lt;output-directory&gt;/:/data/results/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                                jetbrains/%linter-shell% \
-                               --show-report \
                                --profile-name &lt;custom-profile-name&gt;
                         </code-block>
                         <note>
@@ -290,8 +286,9 @@
         </p>
         <code-block lang="shell" prompt="$">
             docker run \
-            -v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% \
-            jetbrains/%linter-shell%
+            &nbsp;&nbsp;&nbsp;-v /your/custom/path/%\pluginName%:/opt/idea/plugins/%\pluginName% \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
         </code-block>
         <p>
             Refer to the <a href="docker-image-configuration.topic">technical guide</a> for more details.

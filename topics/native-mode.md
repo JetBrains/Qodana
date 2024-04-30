@@ -19,7 +19,7 @@ credentials, and resolve dependencies.
 Make sure that you have a proper version of the .NET SDK and all required dependencies installed on your machine.
 
 Build the project before inspecting it using %instance%. You can do it by using the [`bootstrap`](before-running-qodana.md)
-option of the [`qodana.yaml`](qodana-yaml.md) file.
+key of the [`qodana.yaml`](qodana-yaml.md) file.
 
 The project building and artifact packaging stages should occur before %instance% or simultaneously with it. Because 
 running %instance% may affect the project state and its files, we recommend that you avoid reusing the same directory 
@@ -34,8 +34,8 @@ In your operating system, save the `QODANA_TOKEN` environment variable containin
 [Install Qodana CLI](Quick-start.topic#quickstart-run-using-cli) on the machine where you plan to run %instance%.
 
 Starting from the version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file 
-containing the `bootstrap` option is missing in your project directory. The [`bootstrap`](before-running-qodana.md) 
-option should contain instructions for building the project. If you do not wish to build the project, disable
+containing the `bootstrap` key is missing in your project directory. The [`bootstrap`](before-running-qodana.md) 
+key should contain instructions for building the project. If you do not wish to build the project, disable
 this inspection using the `--disable-sanity` option, add this inspection to a [baseline](baseline.topic), or create the `qodana.yaml`
 file that will contain the `ide: QDNET` configuration. 
 

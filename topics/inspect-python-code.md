@@ -34,7 +34,7 @@ Here is the list of technologies and features supported by both linters.
 
 ## Install project dependencies
 
-You can install project dependencies using the [`bootstrap`](before-running-qodana.md) configuration option, for example:
+You can install project dependencies using the [`bootstrap`](before-running-qodana.md) key, for example:
 
 ```yaml
 bootstrap: |
