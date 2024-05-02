@@ -1,13 +1,13 @@
 [//]: # (title: Integration with CI systems)
 
-Qodana [linters](linters.md) are packed into ready-to-use [Docker images](docker-images.md). They can be 
-integrated into virtually any Continuous Integration (CI) system in a similar manner.
+All Qodana [linters](linters.md) are available as [Docker images](docker-images.md), which means that you can integrate and run them 
+in any CI/CD tool.
 
-The Qodana UI can be part of the CI user interface in case your CI supports the UI extension. If it doesn't, you can
-spin the Qodana UI on your own following the [guidelines](html-report.md).
+For more information on how to run Docker containers, you can refer to your CI/CD system documentation.
 
+For several tools, we provide native solutions.
 
-You can learn more about %instance% integration solutions provided for:
+So far, we’ve developed integration guides for several CI/CD tools:
 
 - [](qodana-azure-pipelines.md)
 - [](bitbucket.md)

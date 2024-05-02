@@ -14,51 +14,51 @@ IntelliJ API and Kotlin.
 Starting from version 2024.1 of IntelliJ IDEA, you can develop your own inspections specific to your project using the 
 [IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin. You can:
 
-- Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code,
-- Debug new inspections on the fly,
-- Observe your new custom inspections in action including highlighting of the code fragments that do not meet expected behavior.
+- Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code.
+- Debug new inspections on the fly.
+- Observe your new custom inspections in action, including the highlighting of code fragments that don't behave as expected.
 
-Using %feature%, you can get access to the same API that is used by all 
-IntelliJ IDEA and %product% inspections, and run these inspections on your entire project using %product% to ensure that 
-your entire team follows the standards defined by you.
+With %feature%, you get access to the same API that is used by all 
+IntelliJ IDEA and %product% inspections. This allows you to run these inspections on your entire project using %product% 
+to ensure that your entire team follows the standards defined by you.
 
-You can develop local inspections that run within a file scope, global inspections that run within a project scope
-as described in the [](qodana-ide-plugin.md#ide-plugin-run-qodana) section, and inspect your code
+You can develop local inspections that run within a file scope and global inspections that run within a project scope
+as described in the [](qodana-ide-plugin.md#ide-plugin-run-qodana) section, and you can even inspect your code
 in [CI pipelines](ci.md). Currently, %feature% supports any language covered by IntelliJ IDEA either natively or through 
-additional plugins. For example, Java, Kotlin, JS, TypeScript, PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, SHELL, 
-and DOCKERFILE are supported. 
+additional plugins. For example, Java, Kotlin, JavaScript, TypeScript, PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, Shell, 
+and Dockerfile are supported. 
 
 ## Prerequisites
 
-Make sure that [IntelliJ IDEA](https://www.jetbrains.com/idea/) is installed on your machine.
+Start by verifying that [IntelliJ IDEA](https://www.jetbrains.com/idea/) is installed on your machine.
 
-Ensure that your version of IntelliJ IDEA supports the language you want to develop an inspection for. Out of the box, 
+Then, ensure that your version of IntelliJ IDEA supports the language you want to develop an inspection for. Out of the box, 
 IntelliJ IDEA supports Java and [Kotlin](%kotlin%). The Ultimate edition of 
-IntelliJ IDEA also provides the default support for [JavaScript](%js%) and [TypeScript](%ts%). To provide support for 
+IntelliJ IDEA also provides default support for [JavaScript](%js%) and [TypeScript](%ts%). To get support for 
 other languages like [PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](https://plugins.jetbrains.com/plugin/9568-go), and [Python](https://plugins.jetbrains.com/plugin/631-python), you can install plugins from 
-[JetBrains Marketplace](https://plugins.jetbrains.com/). The detailed information is available on the 
+[JetBrains Marketplace](https://plugins.jetbrains.com/). More detailed information about language support is available via the 
 [IntelliJ IDEA](%idea-doc%) documentation portal.   
 
-Because all inspections are developed using the Kotlin language, you need to know the 
-[basics of Kotlin](https://kotlinlang.org/docs/kotlin-tour-welcome.html).
+Since all inspections are developed using the Kotlin language, you'll need to know the 
+[basics of Kotlin](https://kotlinlang.org/docs/kotlin-tour-welcome.html) before you can begin developing your own inspections.
 
 ## How it works
 
 You write your inspections in Kotlin and store them in the `inspections` directory of your project as
-`.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code to check your code using the API provided 
+`.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code that is used to check your code using the API provided 
 by the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html)
 or PSI. IntelliJ IDEA reads `.inspection.kts` files, compiles the inspection code on the fly, and then 
-it executes compiled inspections. 
+executes the compiled inspections. 
 
 ### Program Structure Interface (PSI)
 
-PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a
-source file's structure. In case of Java code, PSI reflects basic blocks of a Java file like package and import
+The PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a
+source file's structure. In the case of Java code, the PSI reflects the basic blocks of a Java file like package and import
 statements, class statements, method invocations, and other nodes. %feature% uses the PSI tree representation of your
 code to obtain the list of the code nodes that can be inspected using your inspections.
 
-In IntelliJ IDEA, you can navigate through PSI via the **PSI Viewer** tool. To do it, in IntelliJ IDEA you can 
-open a file that you would like to view with **PSI Viewer**, and then navigate to **Tools | View PSI Structure of Current File**.
+In IntelliJ IDEA, you can navigate through the PSI using the **PSI Viewer** tool window. To do this, open a file that 
+you would like to view with the **PSI Viewer**, and then navigate to **Tools | View PSI Structure of Current File**.
 
 <img src="flexinspect-how-it-works.png" width="706" alt="PSI tree overview" border-effect="line" thumbnail="true"/>
 
@@ -67,44 +67,44 @@ open a file that you would like to view with **PSI Viewer**, and then navigate t
 
 <link-summary>You can create local and global inspections to run them within file and project scopes respectively.</link-summary>
 
-You can create local and global inspections.
+With IntelliJ IDEA, you can create both local and global inspections.
 
-A local inspection operates on a file level and inspects each file of your project separately from 
-others. Once you create a local inspection, IntelliJ IDEA will run it for an opened file in the editor.
+Local inspections operate on the file level and inspect each file of your project individually. 
+Once you create a local inspection, IntelliJ IDEA will run it on any file opened in the editor.
 
-A global inspection operates on a project level using the project scope for inspection. For example, you can create 
-inspections that can check whether specific files exist in your project. You can run global inspections as described
-in the [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
+Global inspections operate on the project level and use the project scope as a basis for inspection. For example, you can create 
+inspections that can check whether specific files exist in your project. See the [](qodana-ide-plugin.md#ide-plugin-run-qodana) 
+section of the documentation for more information about how to run global inspections.
 
 ## How to start
 
-This section shows how to create an inspection example that will inspect whether a Java class has a constructor method.
+This section shows how to create an example inspection that will inspect whether a Java class has a constructor method.
 
 ### Create an inspection file
 
 To create a new `.inspection.kts` template file, follow the procedure below.
 
 <procedure>
-<step>In your project, create the <code>inspections</code> directory.</step>
+<step>In your project, create an <code>inspections</code> directory.</step>
 <step>
-In the project navigator of IntelliJ IDEA, hover over the <code>inspections</code> directory, right-click the directory, navigate 
-to <ui-path>New | Custom Inspection</ui-path>.
+In the project navigator of IntelliJ IDEA, hover over the <code>inspections</code> directory, right-click on the directory, 
+and then navigate to <ui-path>New | Custom Inspection</ui-path>.
 </step>
 <step>
-<p>On the dialog that opens, you can choose among the <a anchor="Inspection+types">local and global</a> inspection templates 
-that you can use for your inspection. Empty local and global templates are universal for any language supported by %feature%,
-while local Java, Kotlin, JavaScript and Typescript templates are dedicated to these languages.</p> 
+<p>In the resultant dialog, you can choose from among various <a anchor="Inspection+types">local and global</a> inspection templates 
+that you can use as a basis for your inspection. Empty local and global templates are universal for any language supported by %feature%,
+while the local Java, Kotlin, JavaScript, and Typescript templates are language-specific.</p> 
 
-<p>Each file can contain multiple inspections. CamelCase is the preferable naming method for <code>.inspection.kts</code> 
+<p>Note that each file can contain multiple inspections, and CamelCase is the preferred naming method for <code>.inspection.kts</code> 
 files.</p>
 </step>
 </procedure>
 
-Here is the animation showing how you can create an inspection.
+Here's an animation showing you how to create an inspection following the above method.
 
 <img src="flexinspect-create-template.gif" width="881" alt="Creating a template inspection" border-effect="line"/>
 
-The created file already contains code examples and explanations, which lets you start to
+The created file already contains code examples and explanations, which you can then use to
 develop your own inspection. 
 
 ### Study the PSI tree of your code
@@ -112,23 +112,23 @@ develop your own inspection.
 <procedure>
 <step>In IntelliJ IDEA, open the file that you would like to analyze using your inspection. </step>
 <step>Navigate to <ui-path>Tools | View PSI Structure of Current File</ui-path>. Here you can explore the PSI tree of 
-your file, APIs available for PSI nodes contained in the file, and come up with algorithms that would operate with this 
-PSI tree. 
+your file. APIs are available for PSI nodes contained in the file. These APIs can generate algorithms that would operate 
+within the PSI tree. 
 </step>
 </procedure>
 
-For example, to check whether a method is a constructor, you can use the `isConstructor()` PSI method available for 
-each method of a class.
+For example, to check whether a method is a constructor, you can use the `isConstructor()` PSI method, which is available 
+for each method of a class.
 
 <img src="flexinspect-psi-tree.gif" width="881" alt="Studying a PSI tree of a file" border-effect="line"/>
 
 ### Create your inspection
 
-You can develop the inspection using the template that you have [already created](#Create+an+inspection+file). To check whether
-a class has a constructor method, in this example you can iterate over all methods and use the `isConstructor()` method. 
-If there is no constructor method, the inspection generates the error showing that a class has no constructor method.
+You can develop your inspection using the template that you've [already created](#Create+an+inspection+file). In this example, you can iterate 
+over all methods and use the `isConstructor()` method to check whether a class has a constructor method. 
+If there is no constructor method, the inspection generates an error showing that a class has no constructor method.
 
-Here is the Kotlin snippet for the `NoConstructor.inspection.kts` file containing inline comments.
+Here's the Kotlin snippet for the `NoConstructor.inspection.kts` file containing inline comments.
 
 ```kotlin
 import org.intellij.lang.annotations.Language
@@ -179,14 +179,14 @@ listOf(
 {collapsible="true"}
 
 > To debug your inspections, you can add `inspection.registerProblem(<psi-element>, "<debug-message>")` to the 
-inspection code and view a debug message in your IDE.
+inspection code and view the resultant debug message in your IDE.
 
 ### Test your inspection in the IDE
 
 After creating the inspection, you can see the compilation status on the toolbar in the upper part of the inspection file. 
 When you change the inspection code, you need to explicitly recompile the inspection using the recompile button in the 
-left part of the toolbar, or use the <shortcut>Alt+Shift+Enter</shortcut> / <shortcut>⌥⇧Enter</shortcut> shortcut.  
-You can also open files using **PSI Viewer** and study inspection examples.
+left part of the toolbar, or use the <shortcut>Alt+Shift+Enter</shortcut> (Windows) or <shortcut>⌥⇧↩</shortcut> (macOS) shortcut.  
+You can also open files using the **PSI Viewer** and study inspection examples.
 
 <img src="flexinspect-test-your-inspection.png" width="706" alt="FlexInspect toolbar" border-effect="line"/>
 
@@ -198,13 +198,13 @@ supposed to highlight.
 ### Run your custom inspection using %product%
 
 <note>
-You need to select a suitable %product% <a href="linters.md">linter</a> to run your custom inspection. For example, for 
-PHP it will be the <a href="qodana-php.md"/> linter.
+Before you can run your inspection, you'll first need to select a suitable %product% <a href="linters.md">linter</a>. 
+For example, for PHP, this will be the <a href="qodana-php.md"/> linter.
 </note>
 
 <note>
-If your custom inspection conflicts with a Qodana inspection, and you would still like to run it, you can 
-<a href="qodana-yaml.md" anchor="exclude-inspection">disable</a> the Qodana inspection.
+If your custom inspection conflicts with a %product% inspection, and you would still like to run it, you can 
+<a href="qodana-yaml.md" anchor="exclude-inspection">disable</a> the relevant %product% inspection.
 </note>
 
 %feature% is supported by the [default inspection profiles](inspection-profiles.md#Default+profiles).
@@ -215,7 +215,7 @@ To inspect your entire project with the new inspection locally, run %product% as
 <img src="flexinspect-run-qodana-locally.gif" width="881" alt="Running Qodana locally with a new inspection" border-effect="line"/>
 
 To run your custom inspection in a CI pipeline, you can visit the [](ci.md) section and find the instructions for your
-CI/CD solution. Because your inspection is already contained in the `inspections` directory of your project, it is 
+specific CI/CD solution. Because your inspection is already contained in the `inspections` directory of your project, it's 
 already available for inspecting your code.
 
 You can use the inspection name from the `id` field of the [inspection file](#Create+an+inspection+file)

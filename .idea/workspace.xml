@@ -6,27 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/before-running-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/before-running-qodana.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/bitbucket.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/bitbucket.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-coverage.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-coverage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-structural-search.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-structural-search.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspect-python-code.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspect-python-code.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/license-audit.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/license-audit.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native-mode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/native-mode.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/php-language-upgrade.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/php-language-upgrade.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/python-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python-draft.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet-community.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-js.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-js.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-python-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-python-community.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ci.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
