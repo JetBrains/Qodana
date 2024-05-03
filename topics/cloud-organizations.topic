@@ -67,12 +67,12 @@
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
         </list>
 
-        <p>Click the button in the upper-right corner of the UI to switch the status of your organization, or completely leave it.</p>
+        <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
 
         <img src="qc-settings-organization-leave.png" dark-src="qc-settings-organization-leave_dark.png" width="706" alt="Leaving and switching organization status" border-effect="line"/>
 
-        <note>You cannot leave an organization in case you are the only member of it, so you need to assign a new
-            administrator before it.</note>
+        <note>You cannot leave or delete an organization in case you are the only member of it, so you need to assign a new
+            administrator beforehand.</note>
 
 
         <chapter id="cloud-organizations-invitation" title="Manage organization membership">
