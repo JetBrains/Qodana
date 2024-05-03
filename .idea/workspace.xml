@@ -5,9 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/qc-settings-organization-manage-members.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/qc-settings-organization-manage-members_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-project-creation-step-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/cloud-project-creation-step-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-project-creation-step-1_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/cloud-project-creation-step-1_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-project-creation-step-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/cloud-project-creation-step-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-project-creation-step-2_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/cloud-project-creation-step-2_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-project-creation-step-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/cloud-project-creation-step-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-project-creation-step-3_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/cloud-project-creation-step-3_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-overview-reports.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/qc-overview-reports.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-overview-reports_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/qc-overview-reports_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-project-options.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/qc-project-options.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-project-options_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/qc-project-options_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-teams-managing-members.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/qc-teams-managing-members.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-teams-managing-members_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/qc-teams-managing-members_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-organizations.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-organizations.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-overview-reports.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-overview-reports.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-projects.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-projects.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-teams.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-teams.topic" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

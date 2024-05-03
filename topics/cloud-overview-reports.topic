@@ -15,10 +15,10 @@
     <p>Here is the description of each section:</p>
 
     <p>1. The project name, the branch name, time passed since the last inspection run, the number of detected problems and their severity.</p>
-    <p>2. The codebase amount <a href="code-coverage.md">covered with tests</a>.</p>
+    <p>2. Analysis results using the <a href="code-coverage.md">code coverage</a> and <a href="license-audit.topic">license audit</a> features.</p>
     <p>3. The context menu that lets you:</p>
     <list>
-        <li>Navigate to the VCS containing your codebase</li>
+        <li>Configure HTTPS or SSH URL of the VCS</li>
         <li>Rename the project</li>
         <li>Copy or regenerate the <a href="project-token.md">project token</a></li>
         <li>Delete the project</li>

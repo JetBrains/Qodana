@@ -71,7 +71,8 @@
 
         <img src="qc-settings-organization-leave.png" dark-src="qc-settings-organization-leave_dark.png" width="706" alt="Leaving and switching organization status" border-effect="line"/>
 
-        <note>You cannot leave an organization in case you are the only member of it.</note>
+        <note>You cannot leave an organization in case you are the only member of it, so you need to assign a new
+            administrator before it.</note>
 
 
         <chapter id="cloud-organizations-invitation" title="Manage organization membership">
@@ -96,7 +97,7 @@
                 </step>
                 <step>
                     <p>In the <ui-path>Invite members to ... organization</ui-path> dialog that opens, you can manage members of your organization.</p>
-                    <img src="qc-settings-organization-invitation.png" dark-src="qc-settings-organization-invitation_dark.png" width="706" alt="Managing organization membership" border-effect="line"/>
+                    <img src="qc-settings-organization-manage-members.png" dark-src="qc-settings-organization-manage-members.png" width="706" alt="Managing organization membership" border-effect="line"/>
                 </step>
             </procedure>
 
