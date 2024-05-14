@@ -7,7 +7,7 @@ For more information on how to run Docker containers, you can refer to your CI/C
 
 For several tools, we provide native solutions.
 
-So far, we’ve developed integration guides for several CI/CD tools:
+So far, we’ve developed integration guides for the following CI/CD tools:
 
 - [](qodana-azure-pipelines.md)
 - [](bitbucket.md)

@@ -32,7 +32,7 @@ and Dockerfile are supported.
 
 Start by verifying that [IntelliJ IDEA](https://www.jetbrains.com/idea/) is installed on your machine.
 
-Then, ensure that your version of IntelliJ IDEA supports the language you want to develop an inspection for. Out of the box, 
+Then, ensure that your version of IntelliJ IDEA supports the language for which you want to develop an inspection. Out of the box, 
 IntelliJ IDEA supports Java and [Kotlin](%kotlin%). The Ultimate edition of 
 IntelliJ IDEA also provides default support for [JavaScript](%js%) and [TypeScript](%ts%). To get support for 
 other languages like [PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](https://plugins.jetbrains.com/plugin/9568-go), and [Python](https://plugins.jetbrains.com/plugin/631-python), you can install plugins from 
@@ -111,7 +111,7 @@ develop your own inspection.
 
 <procedure>
 <step>In IntelliJ IDEA, open the file that you would like to analyze using your inspection. </step>
-<step>Navigate to <ui-path>Tools | View PSI Structure of Current File</ui-path>. Here you can explore the PSI tree of 
+<step>Navigate to <ui-path>Tools | View PSI Structure of Current File</ui-path>. Here, you can explore the PSI tree of 
 your file. APIs are available for PSI nodes contained in the file. These APIs can generate algorithms that would operate 
 within the PSI tree. 
 </step>
@@ -185,7 +185,7 @@ inspection code and view the resultant debug message in your IDE.
 
 After creating the inspection, you can see the compilation status on the toolbar in the upper part of the inspection file. 
 When you change the inspection code, you need to explicitly recompile the inspection using the recompile button in the 
-left part of the toolbar, or use the <shortcut>Alt+Shift+Enter</shortcut> (Windows) or <shortcut>⌥⇧↩</shortcut> (macOS) shortcut.  
+left part of the toolbar or use the <shortcut>Alt+Shift+Enter</shortcut> (Windows) or <shortcut>⌥⇧↩</shortcut> (macOS) shortcut.  
 You can also open files using the **PSI Viewer** and study inspection examples.
 
 <img src="flexinspect-test-your-inspection.png" width="706" alt="FlexInspect toolbar" border-effect="line"/>
