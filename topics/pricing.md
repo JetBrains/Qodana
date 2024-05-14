@@ -34,14 +34,14 @@ full versions of the respective %instance% license type.
 | Java                 | &#x2714;           | &#x2714;                   | 
 | Kotlin               | &#x2714;           | &#x2714;                   | 
 | Python               | &#x2714;           | &#x2714;                   |  
-| C                    | &#x274c;           | &#x2714;                   | 
-| C#                   | &#x274c;           | &#x2714;                   | 
-| C++                  | &#x274c;           | &#x2714;                   | 
+| C                    | &#x2714;           | &#x2714;                   | 
+| C#                   | &#x2714;           | &#x2714;                   | 
+| C++                  | &#x2714;           | &#x2714;                   | 
+| VB.NET               | &#x2714;           | &#x2714;                   | 
 | Golang               | &#x274c;           | &#x2714;                   | 
 | JavaScript           | &#x274c;           | &#x2714;                   | 
 | PHP                  | &#x274c;           | &#x2714;                   | 
 | TypeScript           | &#x274c;           | &#x2714;                   | 
-| VB.NET               | &#x274c;           | &#x2714;                   | 
 
 Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
@@ -160,6 +160,7 @@ This is the list of linters that you can run using the Community license:
 * [Qodana Community for Android](qodana-jvm-android.md)     
 * [Qodana Community for Python](qodana-python-community.md) 
 * [](qodana-dotnet-community.md)
+* [](qodana-clang.md)
 
 This is the list of linters that require either the Ultimate or the Ultimate Plus license:
 
@@ -168,7 +169,8 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 * [Qodana for PHP](qodana-php.md)                           
 * [Qodana for JS](qodana-js.md)                             
 * [Qodana for Go](qodana-go.md)                             
-* [Qodana for .NET](qodana-dotnet.md)                       
+* [Qodana for .NET](qodana-dotnet.md)       
+* [](qodana-clang.md)
 
 ## Qodana licensing: an overview
 

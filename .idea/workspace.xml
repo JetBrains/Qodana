@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/topics/qodana-clang-docker-readme.topic" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/qodana-clang.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/docker-images.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-images.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

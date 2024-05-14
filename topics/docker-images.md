@@ -16,3 +16,4 @@ for [Qodana linters](linters.md):
 - [](qodana-go-docker-readme.topic)
 - [](qodana-dotnet-docker-readme.topic)
 - [](qodana-cdnet-docker-readme.topic)
+- [](qodana-clang-docker-readme.topic)

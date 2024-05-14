@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Qodana for C/C++"
+       id="qodana-clang-docker-readme">
+
+    <var name="linter" value="Qodana for C/C++"/>
+    <var name="linter-shell" value="qodana-clang:2024.1-eap"/>
+    <var name="linter-page-url" value="qodana-clang.md"/>
+    <var name="ide" value="CLion"/>
+    <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
+    <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
+    <var name="docker-image" value="jetbrains/qodana-clang:2024.1-eap"/>
+    <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+
+    <link-summary>Deployment examples for the %linter% linter.</link-summary>
+
+    <p>
+        <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
+    </p>
+
+    <p>
+        The Docker image for the <a href="%linter-page-url%">%linter%</a> linter is provided to support different usage
+        scenarios:
+    </p>
+    <list>
+        <li>Running analyses on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
+        </li>
+        <li>Single-shot analyses (for example, performed <i>locally</i>)
+        </li>
+    </list>
+
+        <chapter id="Run+analysis+locally" title="Run analysis locally">
+
+            <note>
+                <p>
+                    <include from="lib_qd.topic" element-id="docker-ram-note"/>
+                </p>
+            </note>
+
+            <p>Do the following to run the Dockerized version of the %linter% linter:</p>
+
+                    <procedure>
+                        <step>
+                            <p>
+                                Pull the image from Docker Hub:
+                            </p>
+                            <code-block lang="shell" prompt="$">docker pull jetbrains/%linter-shell%
+                            </code-block>
+                        </step>
+                        <step>
+                            <p>Run the following command:</p>
+                            <code-block lang="shell" prompt="$">
+                                docker run \
+                                &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                                &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
+                                &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                                &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
+                            </code-block>
+                            <p>
+                                where <code>source-directory</code> and <code>output-directory</code> are full local paths
+                                to the project source code directory and the analysis results directory, respectively. The
+                                <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
+                                required by the
+                                <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
+                            </p>
+                        </step>
+                    </procedure>
+                    <p>The <code>output-directory</code> will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the
+                        necessary results</a>. You can further tune the command as described in the <a
+                            href="docker-image-configuration.topic">technical guide</a>.
+                    </p>
+                    <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before
+                        using it in <code>docker run</code> again.
+                    </p>
+        </chapter>
+
+        <chapter id="Run+analysis+in+CI" title="Run analysis in CI">
+
+        <tip>To learn more how to run %linter% in your CI pipelines, see the <a href="ci.md"/> section.</tip>
+
+            <chapter id="qodana-dotnet-docker-readme-github" title="Run analysis in GitHub">
+
+                <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
+
+                <p>In GitHub, %product% is implemented as the
+                    <a href="https://github.com/marketplace/actions/qodana-scan"><code>Qodana Scan</code></a> GitHub action.
+                    To configure it, save the <code>.github/workflows/code_quality.yml</code> file containing the workflow configuration:</p>
+
+                <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                    &nbsp;&nbsp;workflow_dispatch:
+                    &nbsp;&nbsp;pull_request:
+                    &nbsp;&nbsp;push:
+                    &nbsp;&nbsp;&nbsp;&nbsp;branches:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'releases/*'
+
+                    jobs:
+                    &nbsp;&nbsp;qodana:
+                    &nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest
+                    &nbsp;&nbsp;&nbsp;&nbsp;steps:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v3
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch-depth: 0
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: 'Qodana Scan'
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.1
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
+
+                </code-block>
+
+                <p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
+                    repository.</p>
+
+                <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
+                    (reports issues that appeared only in that pull request).</note>
+
+                <p>To authorize in <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
+
+                <procedure>
+                    <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and
+                        save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p></step>
+                    <step><p>In a GitHub <a href="github.md" anchor="Basic+configuration">workflow</a>,
+                        add this snippet to invoke the <code>Qodana Scan</code> action:</p>
+
+                        <code-block lang="yaml">
+                            - name: 'Qodana Scan'
+                            &nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.1
+                            &nbsp;&nbsp;with:
+                            &nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
+                            &nbsp;&nbsp;env:
+                            &nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                        </code-block>
+                    </step>
+                </procedure>
+            </chapter>
+        </chapter>
+
+    <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
+        <p>
+            %product% recognizes the <code>qodana.yaml</code> file for the analysis configuration,
+            so that you don't need to pass any additional parameters. For %linter%, you can configure:</p>
+        <list>
+            <li>Inspections using the <code>include</code> and <code>exclude</code> options. See the
+                <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options">YAML file</a> section for details.</li>
+            <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
+                option.</li>
+            <li>Quality gate using the <a href="quality-gate.topic"><code>fail-threshold</code></a> option.</li>
+        </list>
+    </chapter>
+
+    <chapter id="Usage+statistics" title="Usage statistics">
+        <p>
+            According to the <a href="https://www.jetbrains.com/legal/agreements/user_eap.html">JetBrains EAP user
+            agreement</a>, we can use third-party services to analyze the usage of our features to further improve the
+            user experience. All data is collected <a href="https://www.jetbrains.com/company/privacy.html">
+            anonymously</a>. To disable the statistics, use the <code>--no-statistics=true</code> CLI option.
+        </p>
+    </chapter>
+
+</topic>

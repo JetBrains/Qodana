@@ -197,6 +197,8 @@ script:
 
 ## Example of different configuration options
 
+<link-summary>Navigate to the section to see the combination of different configuration options.</link-summary>
+
 ```yaml
 version: 1.0
 failThreshold: 0
