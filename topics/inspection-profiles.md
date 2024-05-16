@@ -93,7 +93,7 @@ This command lets you override the default profile und run %instance% using the
         <code-block lang="shell" prompt="$">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               -profile-name qodana.recommended
+               --profile-name qodana.recommended
         </code-block>
     </tab>
 </tabs>

@@ -1,4 +1,4 @@
-# Python
+[//]: # (title: Python)
 
 <no-index/>
 

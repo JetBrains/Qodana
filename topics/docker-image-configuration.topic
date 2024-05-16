@@ -644,11 +644,11 @@
         <link-summary>You can save %product% settings in your custom YAML-formatted file. You can then invoke this file
             using the --config option and a path to a file relatively to the project root.</link-summary>
 
-        <p>Starting from version 2024.1, your project can have several %product%
-            <a href="qodana-yaml.md">configurations</a> contained in YAML-formatted files. This lets you run %product%
-            under various configurations while inspecting monorepo projects or running a single CI job.</p>
+        <p>Your project can have several %product%
+            <a href="qodana-yaml.md">configurations</a> contained in YAML-formatted files. This comes in handy if you
+            analyze monorepo projects or run a single CI job.</p>
 
-            <p>You can employ this configuration file using the <code>--config</code> option and a path
+            <p>You can use the <code>--config</code> option and a path
             to a file relatively to the project root:</p>
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
@@ -669,7 +669,6 @@
             </tab>
         </tabs>
 
-        <p>This comes in handy when inspecting <a href="monorepo-project.md">monorepo projects</a>.</p>
 
     </chapter>
 

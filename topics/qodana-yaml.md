@@ -6,7 +6,7 @@
 <link-summary>You can configure Qodana via a YAML-formatted file. By default, this file should have the qodana.yaml 
 name and be contained in the root directory of your project.</link-summary>
 
-By default, Qodana is configured via the `qodana.yaml` configuration file contained in the root directory of your project.
+By default, Qodana reads configurations from the `qodana.yaml` file contained in the root directory of your project.
 You can override this filename using the `--config` option, see the 
 [](docker-image-configuration.topic#docker-config-reference-custom-yaml-config) for details. For convenience, this 
 will be referred in this section using the default `qodana.yaml` name.

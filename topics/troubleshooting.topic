@@ -210,5 +210,8 @@
 
     </chapter>
 
+    <chapter id="troubleshooting-severities" title="Severity levels">
+        <include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
+    </chapter>
 
 </topic>

@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fea68c51-1358-442b-b077-fa4bb9f724f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/topics/qodana-clang-docker-readme.topic" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/qodana-clang.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/ide-plugin-configure-profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/ide-plugin-configure-profile_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/inspection-profiles-draft.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-images.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-images.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/inspection-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspection-profiles.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/python-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python-draft.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/troubleshooting.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/troubleshooting.topic" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +154,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/topics" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
