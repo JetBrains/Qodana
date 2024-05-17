@@ -19,8 +19,6 @@
 
 <link-summary>You can analyze your code using the %qp% and %qp-co% linters.</link-summary>
 
-<!-- Add a note about draft status -->
-
 <warning>This is a draft document, so we do not recommend that you use it.</warning>
 
 All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze 
@@ -33,6 +31,7 @@ Ultimate Plus [licenses](pricing.md),
 To see the list of supported features, you can navigate to the [](#python-feature-matrix) section.
 
 ## Before your start
+{id="python-before-you-start"}
 
 Create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, obtain a [project token](project-token.md) that
 will be used by %product% for identifying and verifying a license. 
@@ -50,7 +49,7 @@ bootstrap: pip install -r requirements.txt
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 
 ### JetBrains IDEs
-{id="run-qodana-ides"}
+{id="python-run-qodana-ides"}
 
 You can run %instance% in IDE and forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
@@ -75,7 +74,7 @@ You can run %instance% in IDE and forward inspection reports to [Qodana Cloud](c
 </procedure>
 
 ### GitHub Actions
-{id="run-qodana-github"}
+{id="python-run-qodana-github"}
 
 You can run %product% using the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) as shown 
 below.
@@ -85,7 +84,7 @@ below.
 More configuration examples are available in the [](github.md) section.
 
 ### Jenkins
-{id="run-qodana-jenkins"}
+{id="python-run-qodana-jenkins"}
 
 Make sure that these plugins are installed on your Jenkins instance:
 
@@ -133,7 +132,7 @@ In this configuration, the `environment` block defines the `QODANA_TOKEN` variab
 More configuration examples are available in the [](jenkins.md) section.
 
 ### GitLab CI/CD
-{id="run-qodana-gitlab"}
+{id="python-run-qodana-gitlab"}
 
 Make sure that your project repository is accessible by GitLab CI/CD.
 
@@ -167,7 +166,7 @@ referring to the [project token](project-token.md).
 You can find more configuration examples in the [](gitlab.md) section.
 
 ### Local run
-{id="run-qodana-locally"}
+{id="python-run-qodana-locally"}
 
 Because %product% linters are distributed in Docker containers, to run %product% locally you must have Docker installed and 
 running locally. If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check 
@@ -207,7 +206,7 @@ reconfigure the analysis, see the <a href="ui-overview.md"/> section for
 ## Explore analysis results
 
 ### JetBrains IDEs
-{id="explore-results-ides"}
+{id="python-explore-results-ides"}
 
 You can get the latest %instance% report in your IDE as explained below.
 
@@ -291,7 +290,7 @@ available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
 You can skip analysis for specific problems using the [baseline](baseline.topic) feature. 
 
 #### JetBrains IDEs
-{id="enable-baseline-ides"}
+{id="python-enable-baseline-ides"}
 
 <procedure>
     <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
@@ -301,7 +300,7 @@ You can skip analysis for specific problems using the [baseline](baseline.topic)
 </procedure>
 
 #### GitHub Actions
-{id="enable-baseline-github"}
+{id="python-enable-baseline-github"}
 
 This snippet contains the `args: --baseline,qodana.sarif.json` line that specifies the path to the SARIF-formatted file containing
 a baseline:
@@ -336,7 +335,7 @@ a baseline:
 </code-block>
 
 #### Jenkins
-{id="enable-baseline-jenkins"}
+{id="python-enable-baseline-jenkins"}
 
 The `stages` block contains the `--baseline <path/to/qodana.sarif.json>` line that specifies
 the path to the SARIF-formatted file containg information about a baseline:
@@ -369,7 +368,7 @@ pipeline {
 ```
 
 #### GitLab CI/CD
-{id="enable-baseline-gitlab"}
+{id="python-enable-baseline-gitlab"}
 
 You can use the  `--baseline <path/to/qodana.sarif.json>` line in the `script` block to
 invoke the baseline feature.
@@ -399,7 +398,7 @@ qodana:
 
 
 #### Local run
-{id="enable-baseline-local-run"}
+{id="python-enable-baseline-local-run"}
 
 In these snippets, the `--baseline` option configures the path to the SARIF-formatted file containin a baseline: 
 
@@ -447,7 +446,7 @@ failureConditions:
 ### Analyze pull requests
 
 #### GitHub Actions
-{id="pull-requests-github"}
+{id="python-pull-requests-github"}
 
 In GitHub Actions, `--diff-start` can be omitted because it will be added automatically while running
 %product%, so you can follow this procedure:
@@ -490,7 +489,7 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
 
 
 #### GitLab CI/CD
-{id="pull-requests-gitlab"}
+{id="python-pull-requests-gitlab"}
 
 In the root directory of your project, save the `.gitlab-ci.yml` file containing the following snippet:
 
@@ -522,7 +521,7 @@ In the root directory of your project, save the `.gitlab-ci.yml` file containing
 Here, the `--diff-start` option specifies a hash of the commit that will act as a base for comparison.
 
 #### Local run
-{id="pull-requests-local-run"}
+{id="python-pull-requests-local-run"}
 
 To analyze changes in your code, employ the `--diff-start` option and specify a hash of the commit that will act as a
 base for comparison:
