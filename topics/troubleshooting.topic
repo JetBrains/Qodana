@@ -211,6 +211,9 @@
     </chapter>
 
     <chapter id="troubleshooting-severities" title="Severity levels">
+
+        <link-summary>This table showing the relation between various severities.</link-summary>
+
         <include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
     </chapter>
 

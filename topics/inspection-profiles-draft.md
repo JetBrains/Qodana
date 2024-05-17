@@ -85,10 +85,19 @@ this step and [run Qodana](qodana-ide-plugin.md#ide-plugin-run-qodana). Otherwis
    <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
-   <p>In the <ui-path>profile</ui-path> section of the <ui-path>Run Qodana</ui-path> dialog, replace the <code>qodana.starter</code> profile name with <code>qodana.recommended</code>.</p>
+   <p>In the <ui-path>profile</ui-path> section of the <ui-path>Run Qodana</ui-path> dialog, replace this block:</p> 
+<code-block lang="yaml">
+profile:
+&nbsp;&nbsp;name: qodana.starter
+</code-block> 
+<p>with:</p>
+<code-block lang="yaml">
+profile:
+&nbsp;&nbsp;name: qodana.recommended
+</code-block> 
+   <img src="ide-plugin-configure-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
 </step>
 <step><p>In the lower part of the dialog, check the <ui-path>Save qodana.yaml to project root</ui-path> option.</p>
-   <img src="ide-plugin-configure-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
 </step>
 <step>
     <p>Click <ui-path>Run</ui-path> for inspecting your code using the <code>qodana.recommended</code> profile.</p>
@@ -207,6 +216,35 @@ profile:
 </step>
 </procedure>
 
+#### JetBrains IDE
+{id="inspection-custom-profiles-ide"}
+
+If you have already configured the [`qodana.yaml`](#inspection-default-profiles-yaml-file) file, you can skip
+this step and [run Qodana](qodana-ide-plugin.md#ide-plugin-run-qodana). Otherwise, follow this procedure.
+
+<procedure>
+<step>
+   <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+</step>
+<step>
+   <p>In the <ui-path>profile</ui-path> section of the <ui-path>Run Qodana</ui-path> dialog, replace this block: </p>
+<code-block lang="yaml">
+    profile:
+    &nbsp;&nbsp;name: qodana.starter
+</code-block> 
+<p>with:</p>
+<code-block lang="yaml">
+    profile:
+    &nbsp;&nbsp;path: .qodana/&lt;custom-profile.yaml&gt;
+</code-block> 
+   <img src="ide-plugin-configure-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
+</step>
+<step><p>In the lower part of the dialog, check the <ui-path>Save qodana.yaml to project root</ui-path> option.</p>
+</step>
+<step>
+    <p>Click <ui-path>Run</ui-path> for inspecting your code using the <code>qodana.recommended</code> profile.</p>
+</step>
+</procedure>
 
 #### GitHub Actions
 {id="inspection-custom-profiles-github"}
@@ -251,7 +289,7 @@ Otherwise, you can configure the [Qodana Scan](github.md) GitHub action as shown
                     env:
                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
-        <p>Here, the line <code>--profile-name</code> option specifies the <code>qodana.recommended</code> profile.</p>
+        <p>Here, the line <code>--profile-path</code> option specifies the relative path to the profile.</p>
     </step>
 </procedure>
 
@@ -272,7 +310,7 @@ the relative path to the directory containing the profile.
                -v $(pwd)/.qodana/&lt;custom-profile.yaml&gt;:/data/project/myprofiles/&lt;custom-profile.yaml&gt; \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                jetbrains/qodana-&lt;linter&gt; \
-               --profile-name /data/project/myprofiles/&lt;custom-profile.yaml&gt;
+               --profile-path /data/project/myprofiles/&lt;custom-profile.yaml&gt;
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
