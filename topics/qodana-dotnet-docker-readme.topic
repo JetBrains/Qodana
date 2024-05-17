@@ -86,7 +86,7 @@
                             with:
                               fetch-depth: 0
                           - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2022.3.3
+                            uses: JetBrains/qodana-action@v2024.1
                 </code-block>
 
                 <p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
@@ -117,7 +117,7 @@
 
                         <code-block lang="yaml">
                             - name: 'Qodana Scan'
-                              uses: JetBrains/qodana-action@v2022.3.3
+                              uses: JetBrains/qodana-action@v2024.1
                               env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
