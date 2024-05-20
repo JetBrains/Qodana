@@ -526,25 +526,13 @@ Here, the `--diff-start` option specifies a hash of the commit that will act as 
 To analyze changes in your code, employ the `--diff-start` option and specify a hash of the commit that will act as a
 base for comparison:
 
-<tabs group="cli-settings">
-    <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
-            qodana scan \
-            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-            &nbsp;&nbsp;&nbsp;-l %qd-image% \
-            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
-        </code-block>
-    </tab>
-    <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
-            docker run \
-            &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
-            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-            &nbsp;&nbsp;&nbsp;%qd-image% \
-            &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
-        </code-block>
-    </tab>
-</tabs>
+<code-block lang="shell" prompt="$">
+    docker run \
+    &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+    &nbsp;&nbsp;&nbsp;%qd-image% \
+    &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+</code-block>
 
 ## Supported technologies and features
 {id="python-feature-matrix"}
