@@ -51,22 +51,22 @@ bootstrap: pip install -r requirements.txt
 ### JetBrains IDEs
 {id="python-run-qodana-ides"}
 
-You can run %instance% in IDE and forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
+You can run %instance% in %ide% and forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
 <procedure>
 <step>
-   <p>In the IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+   <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
    <p>In the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
       <list>
-        <li>Options used by %product% in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
+        <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
          <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
          <li>The <a href="qodana-yaml.md"><ui-path>Save qodana.yaml in project root</ui-path></a> option</li>
          <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline</li>
       </list>
    <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
-    <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
+    <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
 </step>
 <step>
    <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>

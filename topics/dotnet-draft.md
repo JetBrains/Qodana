@@ -24,31 +24,41 @@
 <warning>This is a draft document, so we do not recommend that you use it.</warning>
 
 All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
-Python projects, you can use the following linters:
+.NET projects, you can use the following %product% linters:
 
-* %qp% is based on Rider and licensed under the Ultimate and
-  Ultimate Plus [licenses](pricing.md),
-* %qp-co% is based on ReSharper and licensed under the Community license.
+* %qp% is based on Rider, licensed under the Ultimate and
+  Ultimate Plus [licenses](pricing.md), and available as a native solution and the `%qp-linter%` Docker image,
+* %qp-co% is based on ReSharper, licensed under the Community license, and available as the `%qp-co-linter%` Docker image.
 
-To see the list of supported features, you can navigate to the [](#dotnet-feature-matrix) section.
-
-<!-- The native mode needs to be added here -->
+To see the list features supported by these linters, you can navigate to the [](#dotnet-feature-matrix) section.
 
 ## Before your start
 {id="dotnet-before-you-start"}
 
-Create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, obtain a [project token](project-token.md) that
-will be used by %product% for identifying and verifying a license.
+### Qodana Cloud
+{id="dotnet-before-you-start-qodana-cloud"}
+
+To run linters, you need to obtain a [project token](project-token.md) that
+will be used by %product% for identifying and verifying a license. 
+
+Navigate to [Qodana Cloud](https://qodana.cloud) and create an [account](cloud-quickstart.md) there.
+
+In Qodana Cloud, create an [organization](cloud-organizations.topic), a [team](cloud-teams.topic), and a 
+[project](cloud-projects.topic).
+
+On the [project card](cloud-projects.topic#cloud-manage-projects), you can find the project token that you will be using
+in this section.
 
 ### SDK version
+{id="dotnet-sdk-version"}
 
 <!-- Is this available only for the Qodana for .NET linter? -->
 
 The Dockerized version of %qp% provides the following SDK versions:
 
-* 6.0.417
-* 7.0.404
-* 8.0.100
+* 6.0.417,
+* 7.0.404,
+* 8.0.100.
 
 All SDK versions are stored in the `/usr/share/dotnet/sdk` directory of the %product% container filesystem.
 
@@ -62,7 +72,246 @@ For example, this command will install the required version of the SDK that is s
       bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
 </code-block>
 
-### Solution configuration
+## Build the project
+{id="dotnet-build-project"}
+
+During the start, %product% builds your project. If the project build fails, code analysis cannot be performed. 
+You can configure the project build using the [`bootstrap`](before-running-qodana.md) key of the [`qodana.yaml`](qodana-yaml.md) file contained in your 
+project directory.
+
+<!-- The bootstrap command examples should be provided here -->
+
+Alternatively, you can build your project in a pipeline before %product% starts.
+
+<!-- GitHub pipeline build needs to be provided here -->
+
+If you wish to run your custom build, use the `--no-build` option:
+
+```shell
+docker run \
+   -v <source-directory>/:/data/project/ \
+   -e QODANA_TOKEN="<cloud-project-token>" \
+   %qd-image% \
+   --no-build
+```
+{prompt="$"}
+
+<!-- GitHub pipeline using no-build should be provided here -->
+
+<!-- The native mode needs to be explained in the Run Qodana section -->
+
+## Run %product%
+{id="dotnet-run-qodana"}
+
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
+You can run the %qp% linter either in the [native mode](#dotnet-run-qodana-native-mode) (recommended) or using the 
+linter in a [container mode](#dotnet-run-qodana-container-mode). 
+
+You can run the %qp-co% linter in a [container mode](#dotnet-run-qodana-container-mode).
+
+> Before running %product%, you need to [prepare](#dotnet-before-you-start) and [build](#dotnet-build-project) your project.
+{style="note"}
+
+### Native mode
+{id="dotnet-run-qodana-native-mode"}
+
+The [native mode](native-mode.md) is the recommended method for running the %qp% linter that lets you run the linter 
+without using Docker containers. 
+
+> If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
+you build a project because this can guarantee that %instance% has access to private NuGet feeds.
+{style="note"}
+
+#### YAML file
+{id="dotnet-run-qodana-native-yaml"}
+
+Using the YAML configuration is the preferred method of configuring the linter because it lets you use such configuration
+across all software that runs %product% without additional configuration.
+
+You can configure the native mode by adding this line to the [`qodana.yaml`](qodana-yaml.md) file:
+
+```yaml
+ide: QDNET
+```
+
+
+#### JetBrains IDEs
+{id="dotnet-run-qodana-native-mode-ides"}
+
+You can run %instance% in %ide% and forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
+
+<procedure>
+<step>
+   <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+</step>
+<step>
+   <p>In the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
+      <list>
+        <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
+          You can see that the native mode is already configured.</li>
+         <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
+         <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
+      </list>
+   <img src="ide-plugin-dotnet-run-qodana.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+    <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
+</step>
+<step>
+   <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+</step>
+</procedure>
+
+#### GitHub Actions
+{id="dotnet-run-qodana-native-mode-github"}
+
+<!-- This should refer to the normal GitHub section -->
+
+If you have already configured the [`qodana.yaml`](#dotnet-run-qodana-native-yaml) file, you can skip this and navigate 
+to the [GitHub Actions](#dotnet-run-qodana-container-mode-github) section below.
+
+You can run %product% using the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) as shown
+below.
+
+<procedure>
+    <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+        <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+        and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+    </step>
+    <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
+        <code>.github/workflows/code_quality.yml</code> file.</step>
+    <step>To inspect the <code>main</code> branch, release branches and the pull requests coming
+    to your repository in the native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+        <code-block lang="yaml">
+            name: Qodana
+            on:
+              workflow_dispatch:
+              pull_request:
+              push:
+                branches: # Specify your branches here
+                  - main # The 'main' branch
+                  - 'releases/*' # The release branches
+            jobs:
+              qodana:
+                runs-on: ubuntu-latest
+                permissions:
+                  contents: write
+                  pull-requests: write
+                  checks: write
+                steps:
+                  - uses: actions/checkout@v3
+                    with:
+                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                      fetch-depth: 0  # a full history is required for pull request analysis
+                  - name: 'Qodana Scan'
+                    uses: JetBrains/qodana-action@v2024.1
+                    with:
+                        args: --ide,QDNET
+                    env:
+                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+      <p>This configuration invokes the native mode using:</p>
+          <code-block lang="yaml">
+             with:
+             &nbsp;&nbsp;&nbsp;args: --ide,QDNET
+          </code-block>
+    </step>
+</procedure>
+
+#### Local run
+{id="dotnet-run-qodana-native-mode-local-run"}
+
+Assuming that you have already installed [Qodana CLI](https://github.com/JetBrains/qodana-cli/releases/latest) on your
+machine, you can run this command in the project root directory:
+
+```Shell
+qodana scan \
+   --ide QDNET
+```
+{prompt="$"}
+
+Here, the `--ide` option downloads and employs the JetBrains IDE binary file.
+
+Alternatively, in the `qodana.yaml` file save `ide: QDNET`, and then run %instance% using the
+following command:
+
+```Shell
+qodana scan
+```
+{prompt="$"}
+
+
+### Container mode
+{id="dotnet-run-qodana-container-mode"}
+
+The container mode is available for the %qp% and %qp-co% linters. For the %qp% linter, the 
+[native mode](#dotnet-run-qodana-native-mode) is the recommended method.
+
+For the %qp-co% linter, only the container mode is available.
+
+#### GitHub Actions
+{id="dotnet-run-qodana-container-mode-github"}
+
+You can run %product% using the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) as shown
+below.
+
+<procedure>
+    <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+        <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+        and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+    </step>
+    <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
+        <code>.github/workflows/code_quality.yml</code> file.</step>
+    <step>To analyze the <code>main</code> branch, release branches and the pull requests coming
+    to your repository in the container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+        <code-block lang="yaml">
+            name: Qodana
+            on:
+              workflow_dispatch:
+              pull_request:
+              push:
+                branches: # Specify your branches here
+                  - main # The 'main' branch
+                  - 'releases/*' # The release branches
+            jobs:
+              qodana:
+                runs-on: ubuntu-latest
+                permissions:
+                  contents: write
+                  pull-requests: write
+                  checks: write
+                steps:
+                  - uses: actions/checkout@v3
+                    with:
+                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                      fetch-depth: 0  # a full history is required for pull request analysis
+                  - name: 'Qodana Scan'
+                    uses: JetBrains/qodana-action@v2024.1
+                    env:
+                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+    </step>
+</procedure>
+
+
+#### Local run
+{id="dotnet-run-qodana-container-mode-local-run"}
+
+<p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
+<code-block filter="non-gs" style="block" lang="shell" prompt="$">
+    docker pull %qd-image%
+</code-block>
+<p>Start local analysis with <code>source-directory</code>
+    pointing to the root of your project and
+    <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
+<code-block lang="shell" prompt="$">
+docker run \
+&nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+&nbsp;&nbsp;&nbsp;%qd-image%
+</code-block>
+<p>Open <a href="https://qodana.cloud">Qodana Cloud</a> in your browser to examine analysis results.</p>
+
+### Analyze a specific solution
 
 By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
 it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
@@ -70,9 +319,8 @@ filename as shown below.
 
 #### Specify a solution
 
-You can specify a solution in various ways. Using a [`YAML configuration`](#dotnet-specify-solution-yaml) is the most 
-convenient method because once configured, you can use it in any software that runs %product% without any additional 
-configuration.
+You can specify a solution in various ways. Using a [`YAML configuration`](#dotnet-specify-solution-yaml) is the most
+convenient method because you can configure it once and use the configuration across all software that runs %product%.
 
 ##### YAML file
 {id="dotnet-specify-solution-yaml"}
@@ -94,14 +342,8 @@ dotnet:
 ##### Docker
 {id="dotnet-specify-solution-local-run"}
 
-To start, pull the image from Docker Hub (only necessary to get the latest version):
-
-<code-block lang="shell" prompt="$">
-    docker pull %qd-image%
-</code-block>
-
-Start local analysis with `source-directory` pointing to the root of your project and `QODANA_TOKEN` referring to the 
-[project token](project-token.md):
+The %qp% linter uses the `--property` option, while the %qp-co% linter uses the `--solution` option to specify a path to
+a solution file:
 
 <tabs group="docker-commands">
   <tab title="%qp%" group-key="qodana-dotnet">
@@ -124,7 +366,8 @@ Start local analysis with `source-directory` pointing to the root of your projec
     </tab>
 </tabs>
 
-If your project contains no solution files and multiple project files, you need to employ a project file:
+If your project contains no solution files and multiple project files, you need to employ a project file using the
+`--property` and `--project` options:
 
 <tabs group="docker-commands">
 <tab title="%qp%" group-key="qodana-dotnet">
@@ -152,8 +395,7 @@ docker run \
 A solution configuration defines which projects in the solution to build, and which project configurations to use for
 specific projects within the solution.
 
-Each newly created solution includes the `Debug` and `Release` configurations, which can be complemented by your custom
-configurations.
+Every solution contains the `Debug` and `Release` configurations that you can employ as shown below.
 
 ##### YAML file
 {id="dotnet-configure-solution-yaml"}
@@ -165,7 +407,7 @@ dotnet:
   configuration: Release
 ```
 
-By default, the solution platform is set to `Any CPU`, and you can override it in the `qodana.yaml` file:
+By default, the solution platform is set to `Any CPU`, and you can override it, for example:
 
 ```yaml
 dotnet:
@@ -176,7 +418,7 @@ dotnet:
 ##### Docker
 {id="dotnet-configure-solution-local-run"}
 
-You can configure a solution using the `--configuration` option:
+You can apply a configuration using the `--property` and `--configuration` options:
 
 <tabs group="docker-commands">
 <tab title="%qp%" group-key="qodana-dotnet">
@@ -199,7 +441,7 @@ docker run \
 </tab>
 </tabs>
 
-By default, the solution platform is set to `Any CPU`, and you can override it using the `--platform` option:
+By default, the solution platform is set to `Any CPU`, and you can override it as shown below:
 
 <tabs group="docker-commands">
 <tab title="%qp%" group-key="qodana-dotnet">
@@ -222,93 +464,35 @@ docker run \
 </tab>
 </tabs>
 
-### Build the project
 
-During the start, %product% builds your project. If the project build fails, code analysis cannot be performed. 
-You can configure the project build using the [`bootstrap`](before-running-qodana.md) key of the [`qodana.yaml`](qodana-yaml.md) file contained in your 
-project directory.
+### Analyze projects using private NuGet repositories
 
-<!-- The bootstrap command examples should be provided here -->
+You can run %qp% using private NuGet feeds. The linter does not support authentication for private NuGet repositories using, for 
+example, Windows Authentication. To overcome this limitation, you can place all required packages within the %instance% 
+cache as shown below:
 
-Alternatively, you can build your project in a pipeline before %product% starts.
-
-<!-- GitHub pipeline build needs to be provided here -->
-
-If you wish to run your custom build, use the `--no-build` option while running the linter:
-
-```shell
-docker run \
-   -v <source-directory>/:/data/project/ \
-   -e QODANA_TOKEN="<cloud-project-token>" \
-   %qd-image% \
-   --no-build
-```
-{prompt="$"}
-
-<!-- GitHub pipeline using no-build should be provided here -->
-
-<!-- The native mode needs to be explained in the Run Qodana section -->
-
-## Run %product%
-
-<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
-
-<p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is the recommended method 
-for the %qp% linter. Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
-
-<!-- Mention the possibility to run Qodana for .NET in the native mode -->
-
-<tabs group="cli-settings">
-    <tab  group-key="qodana-cli" title="Native mode using Qodana CLI">
-        <p>Assuming that you have already
-            <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installed</a> Qodana CLI on your
-            machine and followed the recommendations from 
-<a href="native-mode.md" anchor="Before+you+start">this section</a>, you can run this command in the project root directory:</p>
-        <code-block lang="shell" prompt="$">
-            qodana scan \
-            &nbsp;&nbsp;&nbsp;--ide QDNET
-        </code-block>
-        <p>Here, the <code>--ide</code> option downloads and employs the JetBrains IDE binary file.</p>
-        <p>Alternatively, in the <code>qodana.yaml</code> file you can save the <code>ide: QDNET</code> configuration, 
-    and then run %instance% using this command:</p>
-        <code-block lang="shell" prompt="$">
-            qodana scan
-        </code-block>
-    <p>If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
-you build a project because this can guarantee that %instance% has access to private NuGet feeds.</p>
-    </tab>
-    <tab group-key="docker-image" title="Docker image">
-        <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
-        <code-block filter="non-gs" style="block" lang="shell" prompt="$">
-            docker pull %qd-image%
-        </code-block>
-        <p>Start local analysis with <code>source-directory</code>
-            pointing to the root of your project and
-            <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
-        <code-block lang="shell" prompt="$">
-        docker run \
-        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-        &nbsp;&nbsp;&nbsp;%qd-image% \
-        &nbsp;&nbsp;&nbsp;--show-report
-        </code-block>
-        <p>Open <a href="https://qodana.cloud">Qodana Cloud</a> in your browser to examine inspection results.</p>
-        <p>You can run %qp% using private NuGet feeds:</p>
-        <code-block lang="shell" prompt="$">
-        docker run \
-        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-        &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_URL=&lt;private-NuGet-feed-URL&gt; \
-        &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_USER=&lt;login&gt; \
-        &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_PASSWORD=&lt;plaintext-password&gt; \
-        &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_NAME=&lt;name-of-private-NuGet-feed&gt; \
-        &nbsp;&nbsp;&nbsp;%qd-image% \
-        &nbsp;&nbsp;&nbsp;--show-report
-        </code-block>
-        <p>Configuration examples for using private NuGet feeds are available on the 
-            <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub</a> website.</p>
-    </tab>
-</tabs>
+<procedure>
+    <step>In the local filesystem, create the folder that will contain cache. For example, it can be
+        <code>C:/Temp/QodanaCache</code>.</step>
+    <step><p>Run %instance% using the <code>--cache-dir C:/Temp/QodanaCache</code> option:</p>
+      <code-block lang="shell" prompt="$">
+          docker run \
+          &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+          &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+          &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_URL=&lt;private-NuGet-feed-URL&gt; \
+          &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_USER=&lt;login&gt; \
+          &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_PASSWORD=&lt;plaintext-password&gt; \
+          &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_NAME=&lt;name-of-private-NuGet-feed&gt; \
+          &nbsp;&nbsp;&nbsp;%qp-linter% \
+          &nbsp;&nbsp;&nbsp;--cache-dir C:/Temp/QodanaCache
+      </code-block>
+</step>
+    <step>Copy all NuGet packages contained by default in the
+        <code ignore-vars="true">%userprofile%\.nuget\packages</code>
+        folder to <code>C:/Temp/QodanaCache/nuget</code>. If you have a custom package folder, copy packages
+        from that folder instead of <code ignore-vars="true">%userprofile%\.nuget\packages</code>.</step>
+    <step>Run %instance% using the <code>--cache-dir C:/Temp/QodanaCache</code> once more.</step>
+</procedure>
 
 ## Explore analysis results
 
@@ -351,27 +535,32 @@ Once %product% analyzed your project and uploaded the analysis results to Qodana
 
 <!-- This image needs to be replaced with something from .NET -->
 
-<img src="qc-report-example.png" dark-src="qc-report-example_dark.png" alt="Analysis report example" width="720" border-effect="line"/>
+<img src="dotnet-report-example.png" alt="Analysis report example" width="720" border-effect="line"/>
 
 <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 
 
 ## Extend the configuration
+{id="dotnet-extend-configuration"}
 
 ### Adjust the scope of analysis
 
 #### %qp%
 
-%qp% automatically recognizes the [`qodana.yaml`](qodana-yaml.md) file for the analysis configuration, so that you don't need to provide any
-additional parameters.
+%qp% reads configuration from the [`qodana.yaml`](qodana-yaml.md) file located in the root directory of your project. 
+For example, add this configuration to run the linter using the [`qodana.recommended`](inspection-profiles.md) inspection profile:
 
-You can also use `.editorconfig` and [`.DotSettings`](%dotsettings%) files for configuring %qp%.
+```yaml
+version: "1.0"
+profile:
+    name: qodana.recommended
+```
 
-Also, the %qp% linter supports Roslyn analyzers,
-with each analyzer considered as a separate inspection. You can configure Roslyn analyzers using the `.editorconfig`
-files. This is an experimental feature, so use them at your own risk.
+You can analyze your code using Roslyn analyzers with each analyzer considered as a separate 
+inspection. You can configure Roslyn analyzers as explained in the [](#dotnet-extend-configuration-editorconfig) section. 
+This is an experimental feature, so use them at your own risk.
 
-To disable them, you can [configure the %instance% profile](custom-profiles.md) using
+To disable Roslyn analyzers, you can [configure the %instance% profile](custom-profiles.md) using
 the `qodana.yaml` file, for example:
 
 ```yaml
@@ -393,14 +582,15 @@ Configuration examples are available [on GitHub](https://github.com/hybloid/flue
 
 If you are familiar with configuring code analysis via
 [%ide% inspection profiles](https://www.jetbrains.com/help/rider/Code_Analysis__Code_Inspections.html), you can pass the
-reference to the existing profile by mapping the profile to the `/data/profile.xml` file inside the container:
+reference to the existing profile by mapping the profile:
 
 <code-block lang="shell" prompt="$">
 docker run \
-&nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-&nbsp;&nbsp;&nbsp;-v &lt;inspection-profile.xml&gt;:/data/profile.xml \
+&nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+&nbsp;&nbsp;&nbsp;-v $(pwd)/.qodana/&lt;inspection-profile.xml&gt;:/data/project/myprofiles/&lt;inspection-profile.xml&gt; \
 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-&nbsp;&nbsp;&nbsp;%qp-linter%
+&nbsp;&nbsp;&nbsp;%qp-linter% \
+&nbsp;&nbsp;&nbsp;--profile-path /data/project/myprofiles/&lt;inspection-profile.xml&gt;
 </code-block>
 
 #### %qp-co%
@@ -413,7 +603,7 @@ for all analyses. Besides custom severity levels for code inspections, InspectCo
 `.DotSettings` files:
 
 * Whether the solution-wide analysis is enabled.
-* [Naming rules](https://www.jetbrains.com/help/resharper/Coding_Assistance__Naming_Style.html) (this can only be configured using `DotSettings` files).
+* [Naming rules](https://www.jetbrains.com/help/resharper/Coding_Assistance__Naming_Style.html) (this can only be configured using `.DotSettings` files).
 * [Files, folders, and file masks excluded from code analysis](https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html#exclude_items).
 * [Files, file masks, and regions with generated code, where the code analysis is partly disabled](https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html#exclude_generated) (this can only be configured using `.DotSettings` files).
 * A place where the code analysis engine should store caches. You can specify it on the **Environment | General** page of ReSharper options.
@@ -424,8 +614,10 @@ To configure InspectCode on a CI server, make all configurations locally with Re
 and then commit the resulting `YourSolution.sln.DotSettings` file in the solution directory to your VCS. InspectCode on
 the server will find and apply these settings.
 
-By default, InspectCode also runs Roslyn analyzers on the target solution. If you want to disable  Roslyn analyzers, you
-can do it in the solution's `.DotSettings` file, for example:
+By default, InspectCode also runs Roslyn analyzers on the target solution. To configure Roslyn analyzers, see the 
+[](#dotnet-extend-configuration-editorconfig) section. 
+
+To disable Roslyn analyzers, in the solution's `.DotSettings` file add the following configuration:
 
 ```xml
 <wpf:ResourceDictionary xml:space="preserve"
@@ -442,6 +634,50 @@ can do it in the solution's `.DotSettings` file, for example:
 
      </wpf:ResourceDictionary>
 ```
+
+#### Configure code inspections using EditorConfig
+{id="dotnet-extend-configuration-editorconfig"}
+
+<p>If you use <a href="https://www.jetbrains.com/help/resharper/Using_EditorConfig.html">EditorConfig</a> to
+    maintain code styles for your project, you can also configure code inspections from
+    <code>.editorconfig</code> files.</p>
+
+<p>As EditorConfig convention suggests, InspectCode will apply inspection settings defined in files named
+    <code>.editorconfig</code> in the directory of the current file and in all its parent directories until
+    it reaches the root filepath or finds an EditorConfig file with <code>root=true</code>. File masks specified in
+    <code>.editorconfig</code> files, for example <code>*Test.cs</code> are also taken into account.</p>
+
+<p>Inspection settings in <code>.editorconfig</code> files are configured similarly to other properties —
+    by adding the corresponding lines:</p>
+
+<code-block lang="shell">
+    [inspection_property]=[error | warning | suggestion | hint | none]
+</code-block>
+
+<p>For example, you can change the
+    <a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Code_Inspections.html#severity">severity level</a>
+    of the <code>Possible 'System.NullReferenceException'</code> inspection to <code>Error</code> with the
+    following line:</p>
+
+<code-block lang="shell">
+    resharper_possible_null_reference_exception_highlighting=error
+</code-block>
+
+<p>or you can disable the <code>Redundant argument with default value</code> inspection with the following line:</p>
+
+<code-block lang="shell">
+    resharper_redundant_argument_default_value_highlighting=none
+</code-block>
+
+<tip>Inspection settings from <code>.editorconfig</code> files have higher priority than the settings
+    configured on the <ui-path>Code Inspection | Inspection Severity</ui-path> page of InspectCode options.</tip>
+
+<p>You can find EditorConfig property for each inspection on pages in the
+    <a href="https://www.jetbrains.com/help/resharper/Reference_Code_Inspection_Index.html">Code inspection index</a>
+    section as well as on the
+    <a href="https://www.jetbrains.com/help/resharper/EditorConfig_Index.html">Index of EditorConfig properties</a> page. —
+    just use the browser search to find the property for the desired inspection.</p>
+
 
 ### Enable the baseline
 
@@ -492,69 +728,6 @@ a baseline:
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 </code-block>
 
-#### Jenkins
-{id="dotnet-enable-baseline-jenkins"}
-
-The `stages` block contains the `--baseline <path/to/qodana.sarif.json>` line that specifies
-the path to the SARIF-formatted file containg information about a baseline:
-
-```groovy
-pipeline {
-    environment {
-        QODANA_TOKEN=credentials('qodana-token')
-    }
-    agent {
-        docker {
-            args '''
-              -v "${WORKSPACE}":/data/project
-              --entrypoint=""
-              '''
-            image '%qd-image%'
-        }
-    }
-    stages {
-        stage('Qodana') {
-            steps {
-                sh '''
-                qodana \
-                --baseline <path/to/qodana.sarif.json>
-                '''
-            }
-        }
-    }
-}
-```
-
-#### GitLab CI/CD
-{id="dotnet-enable-baseline-gitlab"}
-
-You can use the  `--baseline <path/to/qodana.sarif.json>` line in the `script` block to
-invoke the baseline feature.
-
-```yaml
-qodana:
-   image:
-      name: jetbrains/qodana-<linter>
-      entrypoint: [""]
-   cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-        fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
-        paths:
-           - .qodana/cache
-   variables:
-      QODANA_TOKEN: $qodana_token           - 
-   script:
-      - qodana --baseline <path/to/qodana.sarif.json> --results-dir=$CI_PROJECT_DIR/.qodana/results
-         --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-   artifacts:
-      paths:
-         - qodana/report/
-      expose_as: 'Qodana report'
-```
-
-
 #### Local run
 {id="dotnet-enable-baseline-local-run"}
 
@@ -594,77 +767,8 @@ failureConditions:
 #### GitHub Actions
 {id="dotnet-pull-requests-github"}
 
-In GitHub Actions, `--diff-start` can be omitted because it will be added automatically while running
-%product%, so you can follow this procedure:
-<procedure>
-<step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
-<a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
-and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
-</step>
-<step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
-<code>.github/workflows/code_quality.yml</code> file.</step>
-<step><p>Add this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>
-<code-block lang="yaml">
-&nbsp;&nbsp;&nbsp;&nbsp;name: Qodana
-&nbsp;&nbsp;&nbsp;&nbsp;on:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workflow_dispatch:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pull_request:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;branches: # Specify your branches here
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main # The 'main' branch
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'releases/*' # The release branches
-&nbsp;&nbsp;&nbsp;&nbsp;jobs:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;qodana:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;permissions:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents: write
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pull-requests: write
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checks: write
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;steps:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v3
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch-depth: 0  # a full history is required for pull request analysis
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: 'Qodana Scan'
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.1
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-</code-block>
-</step>
-</procedure>
-
-
-#### GitLab CI/CD
-{id="dotnet-pull-requests-gitlab"}
-
-In the root directory of your project, save the `.gitlab-ci.yml` file containing the following snippet:
-
-<code-block lang="yaml">
-            qodana:
-   image:
-      name: %qd-image%
-      entrypoint: [""]
-   cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-        fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
-        paths:
-           - .qodana/cache
-   variables:
-      QODANA_TOKEN: $qodana_token
-    script:
-      - >
-        qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-          --results-dir=$CI_PROJECT_DIR/.qodana/results \
-          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-   artifacts:
-      paths:
-         - .qodana/results
-      expose_as: 'Qodana report'
-</code-block>
-
-Here, the `--diff-start` option specifies a hash of the commit that will act as a base for comparison.
+Because the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) automatically analyzes all pull requests, you can use 
+[this configuration](#dotnet-run-qodana-container-mode-github).
 
 #### Local run
 {id="dotnet-pull-requests-local-run"}
@@ -680,8 +784,69 @@ base for comparison:
     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
 </code-block>
 
+## Usage statistics
+
+According to the [JetBrains EAP user
+agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the 
+usage of our features to further improve the user experience. All data will be collected 
+[anonymously](https://www.jetbrains.com/company/privacy.html). You can disable statistics by using the 
+`--no-statistics=true` CLI option, for example:
+
+```Shell
+docker run \
+   -v <source-directory>/:/data/project/ \
+   -e QODANA_TOKEN="<cloud-project-token>" \
+   %qd-image% \
+   --no-statistics=true
+```
+
 ## Supported technologies and features
 {id="dotnet-feature-matrix"}
+
+<!-- These need to be compared for both linters because now it's not clear what is what -->
+
+<link-summary>Comparison matrix of two .NET linters.</link-summary>
+
+| Programming languages | %qp%      | %qp-co%                       |
+|-----------------------|-----------|-------------------------------|
+|C#| &#x2714;| &#x2714;                      |
+|C++| &#x2714;| &#x2714;                      |
+|VB.NET| &#x2714;| Only Visual Basic inspections |
+|C| &#x2714;| &#x274c;                      |
+|JavaScript| &#x2714;| &#x274c;                      |
+|TypeScript| &#x2714;| &#x274c;                      |
+
+| Frameworks and libraries | %qp%      | %qp-co%   |
+|--------------------------|-----------|-----------|
+| .NET Framework           |&#x2714;| &#x274c;          |
+| .NET Core                         |&#x2714;| &#x274c;          |
+| Handlebars/Mustache                         |&#x2714;|&#x274c;           |
+| Less                         |&#x2714;| &#x274c;          |
+| Node.JS                         |&#x2714;| &#x274c;          |
+| NUnit                         |&#x2714;| &#x274c;          |
+| Pug/Jade                         |&#x2714;| &#x274c;          |
+| Sass/SCSS                         |&#x2714;| &#x274c;          |
+| Unity                         |&#x2714;| &#x274c;          |
+| Unreal Engine                         | &#x2714;| &#x274c;  |
+| Vue                         |&#x2714;| &#x274c;          |
+| Xunit                         |&#x2714;| &#x274c;          |
+|                          ||           |
+|                          ||           |
+|                          ||           |
+
+| Databases and ORM | %qp%      | %qp-co%   |
+|--------------------------|-----------|-----------|
+|MongoJS|||
+|MySQL|||
+|Oracle|||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+
 
 <table style="none">
     <tr>
@@ -727,11 +892,11 @@ base for comparison:
         <td>Markup languages</td>
         <td>
             <p>CSS</p>
-            <p>HTML</p>
+            <p>HTML - 2</p>
             <p>JSON and JSON5</p>
             <p>RELAX NG</p>
             <p>T4</p>
-            <p>XML</p>
+            <p>XML - 2</p>
             <p>XPath</p>
             <p>XSLT</p>
             <p>YAML</p>
@@ -751,19 +916,16 @@ base for comparison:
     </tr>
 </table>
 
-<table filter="cdnet">
-    <tr>
-        <td>Feature</td>
-        <td>Available under the license</td>
-    </tr>
-    <tr>
-        <td><a href="baseline.topic"/></td>
-        <td>Community</td>
-    </tr>
-    <tr>
-        <td><a href="quality-gate.topic"/></td>
-        <td>Community</td>
-    </tr>
-</table>
-
 Here, C and C++ inspections are applicable for projects containing `.sln` files.
+
+
+Below is the list of features supported by the %qp% and %qp-co% linters:
+
+| Feature       | %qp%      | %qp-co%   |
+|---------------|-----------|-----------|
+| Baseline      | &#x2714;  | &#x2714;  |
+| Quality gate  | &#x2714;  | &#x2714;  |
+| Code coverage | &#x2714;  | &#x274c;  |
+| License audit | &#x2714;  | &#x274c;  |
+
+
