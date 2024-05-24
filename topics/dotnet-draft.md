@@ -30,7 +30,7 @@ All %product% linters are based on IDEs designed for particular programming lang
   Ultimate Plus [licenses](pricing.md), and available as a native solution and the `%qp-linter%` Docker image,
 * %qp-co% is based on ReSharper, licensed under the Community license, and available as the `%qp-co-linter%` Docker image.
 
-To see the list features supported by these linters, you can navigate to the [](#dotnet-feature-matrix) section.
+You can compare these linters by navigating to the [](#dotnet-feature-matrix) section.
 
 ## Before your start
 {id="dotnet-before-you-start"}
@@ -83,8 +83,6 @@ project directory.
 
 Alternatively, you can build your project in a pipeline before %product% starts.
 
-<!-- GitHub pipeline build needs to be provided here -->
-
 If you wish to run your custom build, use the `--no-build` option:
 
 ```shell
@@ -96,9 +94,36 @@ docker run \
 ```
 {prompt="$"}
 
-<!-- GitHub pipeline using no-build should be provided here -->
+This is the GitHub Actions configuration sample invoking the `--no-build` option:
 
-<!-- The native mode needs to be explained in the Run Qodana section -->
+<code-block lang="yaml">
+    name: Qodana
+    on:
+      workflow_dispatch:
+      pull_request:
+      push:
+        branches: # Specify your branches here
+          - main # The 'main' branch
+          - 'releases/*' # The release branches
+    jobs:
+      qodana:
+        runs-on: ubuntu-latest
+        permissions:
+          contents: write
+          pull-requests: write
+          checks: write
+        steps:
+          - uses: actions/checkout@v3
+            with:
+              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+              fetch-depth: 0  # a full history is required for pull request analysis
+          - name: 'Qodana Scan'
+            uses: JetBrains/qodana-action@v2024.1
+            with:
+                args: --no-build
+            env:
+              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+</code-block>
 
 ## Run %product%
 {id="dotnet-run-qodana"}
@@ -465,7 +490,7 @@ docker run \
 </tabs>
 
 
-### Analyze projects using private NuGet repositories
+### Private NuGet repositories
 
 You can run %qp% using private NuGet feeds. The linter does not support authentication for private NuGet repositories using, for 
 example, Windows Authentication. To overcome this limitation, you can place all required packages within the %instance% 
@@ -635,7 +660,7 @@ To disable Roslyn analyzers, in the solution's `.DotSettings` file add the follo
      </wpf:ResourceDictionary>
 ```
 
-#### Configure code inspections using EditorConfig
+#### EditorConfig
 {id="dotnet-extend-configuration-editorconfig"}
 
 <p>If you use <a href="https://www.jetbrains.com/help/resharper/Using_EditorConfig.html">EditorConfig</a> to
@@ -805,59 +830,35 @@ docker run \
 
 <!-- These need to be compared for both linters because now it's not clear what is what -->
 
-<link-summary>Comparison matrix of two .NET linters.</link-summary>
+<link-summary>Comparison matrix of the .NET linters.</link-summary>
 
-| Programming languages | %qp%      | %qp-co%                       |
-|-----------------------|-----------|-------------------------------|
-|C#| &#x2714;| &#x2714;                      |
-|C++| &#x2714;| &#x2714;                      |
-|VB.NET| &#x2714;| Only Visual Basic inspections |
-|C| &#x2714;| &#x274c;                      |
-|JavaScript| &#x2714;| &#x274c;                      |
-|TypeScript| &#x2714;| &#x274c;                      |
-
-| Frameworks and libraries | %qp%      | %qp-co%   |
-|--------------------------|-----------|-----------|
-| .NET Framework           |&#x2714;| &#x274c;          |
-| .NET Core                         |&#x2714;| &#x274c;          |
-| Handlebars/Mustache                         |&#x2714;|&#x274c;           |
-| Less                         |&#x2714;| &#x274c;          |
-| Node.JS                         |&#x2714;| &#x274c;          |
-| NUnit                         |&#x2714;| &#x274c;          |
-| Pug/Jade                         |&#x2714;| &#x274c;          |
-| Sass/SCSS                         |&#x2714;| &#x274c;          |
-| Unity                         |&#x2714;| &#x274c;          |
-| Unreal Engine                         | &#x2714;| &#x274c;  |
-| Vue                         |&#x2714;| &#x274c;          |
-| Xunit                         |&#x2714;| &#x274c;          |
-|                          ||           |
-|                          ||           |
-|                          ||           |
-
-| Databases and ORM | %qp%      | %qp-co%   |
-|--------------------------|-----------|-----------|
-|MongoJS|||
-|MySQL|||
-|Oracle|||
-||||
-||||
-||||
-||||
-||||
-||||
-||||
-
-
-<table style="none">
+<table>
+    <tr>
+      <td>Support for</td>
+      <td>Name</td>
+      <td>%qp%</td>
+      <td>%qp-co%</td>
+    </tr>
     <tr>
         <td>Programming languages</td>
         <td>
             <p>C#</p>
-            <p>C</p>
-            <p>C++</p>
+            <p>C++ <b>*</b></p>
+            <p>VB.NET <b>**</b></p>
+            <p>C <b>*</b></p>
             <p>JavaScript</p>
             <p>TypeScript</p>
-            <p>VB.NET</p>
+        </td>
+        <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
         </td>
     </tr>
     <tr>
@@ -876,6 +877,12 @@ docker run \
             <p>Vue</p>
             <p>Xunit</p>
         </td>
+        <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+        <td>
+            <p>&#x274c; None</p>
+        </td>
     </tr>
         <tr>
         <td>Databases and ORM</td>
@@ -887,19 +894,39 @@ docker run \
             <p>SQL</p>
             <p>SQL server</p>
         </td>
+       <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+        <td>
+            <p>&#x274c; None</p>
+        </td>
     </tr>
     <tr>
         <td>Markup languages</td>
         <td>
+            <p>HTML</p>
+            <p>XML</p>
             <p>CSS</p>
-            <p>HTML - 2</p>
             <p>JSON and JSON5</p>
             <p>RELAX NG</p>
             <p>T4</p>
-            <p>XML - 2</p>
             <p>XPath</p>
             <p>XSLT</p>
             <p>YAML</p>
+        </td>
+        <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
         </td>
     </tr>
     <tr>
@@ -907,25 +934,45 @@ docker run \
         <td>
             <p>Shell script</p>
         </td>
+       <td>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x274c;</p>
+        </td>
     </tr>
     <tr>
         <td>Build management</td>
         <td>
             <p>MSBuild</p>
         </td>
+       <td>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x274c;</p>
+        </td>
+    </tr>
+    <tr>
+      <td>%product% features</td>
+      <td>
+        <p><a href="baseline.topic">Baseline</a></p>
+        <p><a href="quality-gate.topic">Quality gate</a></p>
+        <p><a href="code-coverage.md">Code coverage</a></p>
+        <p><a href="license-audit.topic">License audit</a></p>
+      </td>
+      <td>
+            <p>&#x2714; All from the list</p>
+      </td>
+      <td>
+         <p>&#x2714;</p>
+         <p>&#x2714;</p>
+         <p>&#x274c;</p>
+         <p>&#x274c;</p>
+      </td>
     </tr>
 </table>
 
-Here, C and C++ inspections are applicable for projects containing `.sln` files.
+\* C and C++ inspections are applicable for projects containing `.sln` files.
 
-
-Below is the list of features supported by the %qp% and %qp-co% linters:
-
-| Feature       | %qp%      | %qp-co%   |
-|---------------|-----------|-----------|
-| Baseline      | &#x2714;  | &#x2714;  |
-| Quality gate  | &#x2714;  | &#x2714;  |
-| Code coverage | &#x2714;  | &#x274c;  |
-| License audit | &#x2714;  | &#x274c;  |
-
-
+** Supports Visual Basic inspections  only.
