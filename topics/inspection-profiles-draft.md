@@ -26,12 +26,12 @@ Out of the box, you can employ these %product% profiles:
     <tr>
         <td>Profile name</td>
         <td>Description</td>
-        <td>How to configure</td>
+        <td>How to enable</td>
     </tr>
     <tr>
         <td><code>qodana.starter</code></td>
         <td>The default %product% profile, subset of the <code>qodana.recommended</code> profile</td>
-        <td>No configuration is required</td>
+        <td>Enabled by default</td>
     </tr>
     <tr>
         <td><code>qodana.recommended</code></td>
