@@ -12,9 +12,8 @@
 <link-summary>Inspection profiles configure inspections, file scopes that these inspections analyze, 
 and severities.</link-summary>
 
-Inspection profiles configure [inspections](code-inspections.topic), file scopes that these inspections analyze, and 
-[severities](troubleshooting.topic#troubleshooting-severities). Using inspection profiles, you tell %instance% about
-a scope and methods of inspection.
+Inspection profiles define [inspections](code-inspections.topic), file scopes that these inspections analyze, and 
+[severities](troubleshooting.topic#troubleshooting-severities).
 
 ## %product% profiles
 {id="Default+profiles"}
@@ -36,9 +35,23 @@ Out of the box, you can employ these %product% profiles:
     </tr>
     <tr>
         <td><code>qodana.recommended</code></td>
-        <td>Implements default profiles of JetBrains IDEs like <a href="https://www.jetbrains.com/help/idea/customizing-profiles.html">IntelliJ IDEA</a> and others. Contains 
-        inspections for critical or severe issues in the codebase. Does not perform style checks and ignores 
-        non-critical folders like <code>tests</code></td>
+        <td><p>Implements default profiles of JetBrains IDEs like 
+        <a href="https://www.jetbrains.com/help/idea/customizing-profiles.html">IntelliJ IDEA</a> with the following 
+        exceptions:</p> 
+        <list>
+            <li>
+                By default, Qodana provides analysis only for specific languages and frameworks. This means that, for 
+                example, Groovy or JavaScript inspections are available but disabled by default. Inspections
+                of the <code>INFORMATION</code> <a href="troubleshooting.topic" anchor="troubleshooting-severities">IDE severity</a> 
+                are also disabled.</li>
+            <li>
+                Several inspections that affect code highlighting in IDEs and global inspections were removed from %product% linters.  
+            </li>
+            <li>
+                Flaky inspections that are still available in IDEs were removed from %product% linters.
+            </li>
+        </list>
+        </td>
         <td>See <a anchor="profiles-set-up-a-qodana-profile"/></td>
     </tr>
 </table>
@@ -67,7 +80,6 @@ all software products.
 <step>In the root directory of your project, create the <code>qodana.yaml</code> file.</step>
 <step><p>In the <code>qodana.yaml</code> file, save the following configuration:</p>
 <code-block lang="yaml">
-version: "1.0"
 profile:
 &nbsp;&nbsp;&nbsp;&nbsp;name: qodana.recommended
 </code-block>
@@ -97,7 +109,7 @@ profile:
 </code-block> 
    <img src="ide-plugin-configure-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
 </step>
-<step><p>In the lower part of the dialog, check the <ui-path>Save qodana.yaml to project root</ui-path> option.</p>
+<step><p>Below the configuration field, check the <ui-path>Save qodana.yaml in project root</ui-path> option.</p>
 </step>
 <step>
     <p>Click <ui-path>Run</ui-path> for inspecting your code using the <code>qodana.recommended</code> profile.</p>
@@ -209,7 +221,6 @@ all software products.
 <step>In the root directory of your project, create the <code>qodana.yaml</code> file.</step>
 <step><p>In the <code>qodana.yaml</code> file, save the following configuration:</p>
 <code-block lang="yaml">
-version: "1.0"
 profile:
 &nbsp;&nbsp;&nbsp;&nbsp;path: .qodana/&lt;custom-profile.yaml&gt;
 </code-block>
@@ -237,9 +248,9 @@ this step and [run Qodana](qodana-ide-plugin.md#ide-plugin-run-qodana). Otherwis
     profile:
     &nbsp;&nbsp;path: .qodana/&lt;custom-profile.yaml&gt;
 </code-block> 
-   <img src="ide-plugin-configure-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
+   <img src="ide-plugin-configure-profile-2.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
 </step>
-<step><p>In the lower part of the dialog, check the <ui-path>Save qodana.yaml to project root</ui-path> option.</p>
+<step><p>In the lower part of the dialog, check the <ui-path>Save qodana.yaml in project root</ui-path> option.</p>
 </step>
 <step>
     <p>Click <ui-path>Run</ui-path> for inspecting your code using the <code>qodana.recommended</code> profile.</p>

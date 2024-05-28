@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/ide-plugin-configure-profile-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/ide-plugin-configure-profile-2_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/dotnet-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet-draft.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-configure-profile.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ide-plugin-configure-profile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-configure-profile_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ide-plugin-configure-profile_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/inspection-profiles-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspection-profiles-draft.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +80,9 @@
       </map>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2grje1WrXCW47b53A1DmdM0O0hw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
