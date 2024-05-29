@@ -23,7 +23,7 @@ Finally, you can go beyond the existing inspections and [extend %instance%](exte
 
 %instance% reports provide detailed description of concrete problems and code fragments that contain such problems,
 as well as recommendations about how to solve such problems. Using these recommendations, you can improve the quality of
-your product by preventing bugs in production and learning from the process. For more details, you can study the 
+your product by preventing bugs in production and learning from the process. For more details, you can examine the 
 [](ui-overview.md) section.
 
 ## Optimize code reviews
@@ -33,7 +33,7 @@ bugs, vulnerabilities, and conflicting licenses, and meet long-term goals like m
 ship new features and implement changes.
 
 The inspection report will be uploaded to Qodana Cloud, so that you can view it in detail. Besides that, you can 
-study %instance% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md).
+review %instance% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md).
 
 Besides that, in GitHub %instance% can inspect [pull requests](github.md#Pull+request+quality+gate).
 

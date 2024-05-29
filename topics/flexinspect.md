@@ -107,7 +107,7 @@ Here's an animation showing you how to create an inspection following the above 
 The created file already contains code examples and explanations, which you can then use to
 develop your own inspection. 
 
-### Study the PSI tree of your code
+### Review the PSI tree of your code
 
 <procedure>
 <step>In IntelliJ IDEA, open the file that you would like to analyze using your inspection. </step>
@@ -120,7 +120,7 @@ within the PSI tree.
 For example, to check whether a method is a constructor, you can use the `isConstructor()` PSI method, which is available 
 for each method of a class.
 
-<img src="flexinspect-psi-tree.gif" width="881" alt="Studying a PSI tree of a file" border-effect="line"/>
+<img src="flexinspect-psi-tree.gif" width="881" alt="Reviewing a PSI tree of a file" border-effect="line"/>
 
 ### Create your inspection
 
@@ -186,7 +186,7 @@ inspection code and view the resultant debug message in your IDE.
 After creating the inspection, you can see the compilation status on the toolbar in the upper part of the inspection file. 
 When you change the inspection code, you need to explicitly recompile the inspection using the recompile button in the 
 left part of the toolbar or use the <shortcut>Alt+Shift+Enter</shortcut> (Windows) or <shortcut>⌥⇧↩</shortcut> (macOS) shortcut.  
-You can also open files using the **PSI Viewer** and study inspection examples.
+You can also open files using the **PSI Viewer** and review inspection examples.
 
 <img src="flexinspect-test-your-inspection.png" width="706" alt="FlexInspect toolbar" border-effect="line"/>
 

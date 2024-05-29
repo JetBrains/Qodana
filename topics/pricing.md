@@ -120,7 +120,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Features and third-party software support
 
-<link-summary>You can study the list of features available for each Qodana license.</link-summary>
+<link-summary>You can review the list of features available for each Qodana license.</link-summary>
 
 | Feature                                               | Community | Ultimate  | Ultimate Plus | 
 |-------------------------------------------------------|-----------|-----------|---------------|
@@ -152,7 +152,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 ### Linters available for each license
 {id="pricing-linters-licenses"}
 
-<link-summary>You can study the lists of linters available under specific licenses.</link-summary>
+<link-summary>You can review the lists of linters available under specific licenses.</link-summary>
 
 This is the list of linters that you can run using the Community license:
 
@@ -181,7 +181,7 @@ only offers a limited period for [data storage](#pricing-data-storage) in Qodana
 The trial versions of the Ultimate or Ultimate Plus licenses are limited by a 60-day trial period. After the trial 
 license expires, you'll have to purchase either the Ultimate or the Ultimate Plus license to continue using Qodana.
 
-You can study the [%instance% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) on the JetBrains website. 
+You can review the [%instance% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) on the JetBrains website. 
 
  ## Frequently asked questions
 

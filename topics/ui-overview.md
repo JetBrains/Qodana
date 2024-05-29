@@ -1,9 +1,9 @@
 [//]: # (title: Inspection report)
 
-<link-summary>%instance% lets you study inspection reports in an interactive and user-friendly form either 
+<link-summary>%instance% lets you review inspection reports in an interactive and user-friendly form either 
 locally or in Qodana Cloud.</link-summary>
 
-%instance% lets you study inspection reports in an interactive and user-friendly form either 
+%instance% lets you review inspection reports in an interactive and user-friendly form either 
 [locally](html-report.md) or in [Qodana Cloud](cloud-overview-reports.topic).
 
 <img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Qodana report UI overview" width="706" border-effect="line"/>

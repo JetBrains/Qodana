@@ -108,7 +108,7 @@
     </chapter>
 
     <chapter id="extending-qodana-developing-plugins" title="Custom plugins">
-        <p>To learn how to develop plugins, you can study the
+        <p>To learn how to develop plugins, you can review the
             <a href="https://plugins.jetbrains.com/docs/intellij/getting-started.html">Creating Your First Plugin</a>
             page of the IntelliJ Platform Plugin SDK documentation portal. Besides that, each plugin should perform
             inspections and produce inspection results as described in the

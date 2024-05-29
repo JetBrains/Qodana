@@ -549,14 +549,14 @@ You can get the latest %instance% report in your IDE as explained below.
         closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
     </step> 
     <step>
-       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, view <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+       <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, view <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
     </step>
 </procedure>
 
 ### Qodana Cloud
 
 Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in
-[Qodana Cloud](https://qodana.cloud) navigate to your project and study the analysis results report.
+[Qodana Cloud](https://qodana.cloud) navigate to your project and review the analysis results report.
 
 <!-- This image needs to be replaced with something from .NET -->
 

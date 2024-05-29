@@ -30,7 +30,7 @@
 
                 <secondary>
                         <title>Qodana features</title>
-                        <a href="baseline.topic" summary="Track your project changes through studying new, unchanged, and resolved problems."/>
+                        <a href="baseline.topic" summary="Track your project changes through reviewing new, unchanged, and resolved problems."/>
                         <a href="code-coverage.md" summary="Inspect the quality of code coverage."/>
                         <a href="flexinspect.md" summary="Develop your own inspections using IntelliJ IDEA."/>
                         <a href="license-audit.topic" summary="Check license compatibility between your software license and dependency licenses."/>

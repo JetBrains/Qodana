@@ -251,7 +251,7 @@
 
     <chapter title="Next steps" id="quick-start-next-steps">
         <list>
-            <li><a href="cloud-about.topic">Study inspection results using Qodana Cloud</a></li>
+            <li><a href="cloud-about.topic">Review inspection results using Qodana Cloud</a></li>
             <li><a href="custom-profiles.md">Configure %instance% profiles</a></li>
             <li><a href="qodana-ide-plugin.md">Use JetBrains IDEs to inspect your code</a></li>
             <li><a href="ci.md">Build %instance% into your CI pipelines</a></li>

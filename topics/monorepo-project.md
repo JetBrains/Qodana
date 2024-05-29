@@ -178,5 +178,5 @@ jobs:
 
 ## View inspection results
 
-Congratulations, now you can navigate to [Qodana Cloud](https://qodana.cloud) and study the inspection results for each project 
+Congratulations, now you can navigate to [Qodana Cloud](https://qodana.cloud) and review the inspection results for each project 
 inside your monorepo project!

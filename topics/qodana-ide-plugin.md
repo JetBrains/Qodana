@@ -9,7 +9,7 @@ Using the IDE, you can:
 * [Connect to Qodana Cloud](#ide-plugin-connect-cloud)
 * [Configure %instance% for running in a CI pipeline](#ide-plugin-cicd)
 * [Open a report from local storage](#ide-plugin-local-report)
-* [Study %instance% reports in your IDE](#ide-plugin-study-reports)
+* [Review %instance% reports in your IDE](#ide-plugin-study-reports)
 
 ## UI overview
 
@@ -42,7 +42,7 @@ You can run %instance% locally and then forward inspection reports to [Qodana Cl
     <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
 </step>
 <step>
-   <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+   <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
 </step>
 </procedure>
 
@@ -75,7 +75,7 @@ latest %instance% report and view it.
         closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
     </step> 
     <step>
-       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+       <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
     </step>
 </procedure>
 
@@ -101,7 +101,7 @@ the <a href="project-token.md"/> section.</note>
 ## Open a local report
 {id="ide-plugin-local-report"}
 
-You can open and study [SARIF-formatted %instance% reports](qodana-sarif-output.md) in your IDE. 
+You can open and review [SARIF-formatted %instance% reports](qodana-sarif-output.md) in your IDE. 
 
 <snippet id="ide-open-local-report">
 <procedure>
@@ -112,7 +112,7 @@ You can open and study [SARIF-formatted %instance% reports](qodana-sarif-output.
         <p>Select the SARIF-formatted report file you would like to open.</p>
    </step>
    <step>
-      <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, you can view inspection results.</p>
+      <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view inspection results.</p>
    </step>
 </procedure>
 </snippet>
@@ -120,15 +120,15 @@ You can open and study [SARIF-formatted %instance% reports](qodana-sarif-output.
 ## Qodana report overview
 {id="ide-plugin-study-reports"}
 
-Using the **Server-Side Analysis** tool window of your IDE, you can view %instance% reports and navigate to the code fragments 
+Using the **Server-Side Analysis** tab of your IDE, you can view %instance% reports and navigate to the code fragments 
 containing such problems.
 
 <img src="ide-plugin-report-navigating.png" dark-src="ide-plugin-report-navigating_dark.png" width="706" alt="Navigating to problems in the IDE" animated="true" border-effect="line"/>
 
 The upper part contains information about the project and branch names, the inspection date, and the number of problems. 
-The left part of the **Server-Side Analysis** tool window contains several buttons. 
+The left part of the **Server-Side Analysis** tab contains several buttons. 
 
-<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Functionalities of the Server-Side Analysis tool window" border-effect="line"/>
+<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Functionalities of the Server-Side Analysis tab" border-effect="line"/>
 
 This table describes each button from top to bottom:
 
