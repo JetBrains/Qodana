@@ -33,9 +33,6 @@ To see the list of supported features, you can navigate to the [](#python-featur
 ## Before your start
 {id="python-before-you-start"}
 
-Create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, obtain a [project token](project-token.md) that
-will be used by %product% for identifying and verifying a license. 
-
 If your project has external `pip` dependencies, set them up using the [`bootstrap`](before-running-qodana.md) 
 key in the [`qodana.yaml`](qodana-yaml.md) file. For example, if your project dependencies are specified 
 by the `requirements.txt` file in your project root, in the configuration file add the following line:
@@ -59,9 +56,11 @@ You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cl
 </step>
 <step>
    <p>In the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
+   <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+    <p>This dialog contains the following components:</p>
       <table>
         <tr>        
-          <td>Option</td>
+          <td>Name</td>
           <td>Description</td>
         </tr>
         <tr>
@@ -81,7 +80,6 @@ You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cl
           <td>Using the <a href="baseline.topic">baseline</a> feature, you can skip analysis for specific problems</td>
         </tr>
       </table>
-   <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
     <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
 </step>
 <step>
@@ -90,39 +88,38 @@ You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cl
 </procedure>
 
 The examples below require a [project token](project-token.md) related to
-%product% license. To obtain a project token, you need to [create a Qodana Cloud account](cloud-get-access.topic), and then 
+%product% license. To generate a project token, you need to [create a Qodana Cloud account](cloud-get-access.topic), and then 
 follow the instructions from the [](cloud-quickstart.md) section. 
 
-### GitHub Actions
-{id="python-run-qodana-github"}
+### CI/CD
+{id="python-run-qodana-cicd"}
 
-You can run %product% using the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) as shown 
-below.
+Before running %product%, create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, generate a
+[project token](project-token.md) that will be used by %product% for identifying and verifying a license. In Qodana Cloud,
+you can review [inspection reports](#python-explore-results-qodana-cloud).
+
+<tabs>
+<tab title="GitHub Actions">
+<p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> 
+as shown below.</p>
 
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
-More configuration examples are available in the [](github.md) section.
-
-### Jenkins
-{id="python-run-qodana-jenkins"}
-
-Make sure that these plugins are installed on your Jenkins instance:
-
-* [Docker](%Dplugin%) and [Docker Pipeline](%DPplugin%) are required for running Docker images
-* [git](%Gplugin%) is required for git operations in Jenkins projects
-
-Make sure that Docker is installed and accessible by Jenkins.
-
-If applicable, make sure that Docker is accessible by the `jenkins` user as described in the
-[Manage Docker as a non-root user](%Dockeraccess%) section of the Docker documentation.
-
-Create a Multibranch Pipeline project as described on the [Jenkins documentation portal](%MultipipeCreate%).
-
-In the root directory of your project repository, create the `Jenkinsfile`. 
-
-Save this snippet to the `Jenkinsfile`:
-
-```groovy
+<p>More configuration examples are available in the <a href="github.md"/> section.</p>
+</tab>
+<tab title="Jenkins">
+<p>Make sure that these plugins are installed on your Jenkins instance:</p>
+<list>
+<li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
+<li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects.</li>
+</list>
+<p>Make sure that Docker is installed and accessible by Jenkins.</p>
+<p>If applicable, make sure that Docker is accessible by the <code>jenkins</code> user as described in the
+<a href="%Dockeraccess%">Manage Docker as a non-root user</a> section of the Docker documentation.</p>
+<p>Create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
+<p>In the root directory of your project repository, create the <code>Jenkinsfile</code>.</p>
+<p>Save this snippet to the <code>Jenkinsfile</code>:</p>
+<code-block lang="groovy">
 pipeline {
     environment {
         QODANA_TOKEN=credentials('qodana-token')
@@ -144,21 +141,12 @@ pipeline {
         }
     }
 }
-```
-
-In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
-[project token](project-token.md).
-
-More configuration examples are available in the [](jenkins.md) section.
-
-### GitLab CI/CD
-{id="python-run-qodana-gitlab"}
-
-Make sure that your project repository is accessible by GitLab CI/CD.
-
-In the root directory of your project, create the `.gitlab-ci.yml` file and save this configuration in it:
-
-```yaml
+</code-block>
+</tab>
+<tab title="GitLab CI/CD">
+<p>Make sure that your project repository is accessible by GitLab CI/CD.</p>
+<p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> file and save this configuration in it:</p>
+<code-block lang="yaml">
 qodana:
    image:
       name: %qd-image%
@@ -174,25 +162,34 @@ qodana:
       QODANA_TOKEN: $qodana_token
    script:
       - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-```
-Here: 
-* The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab CI/CD caches to store the %instance% cache,
-so subsequent runs will be faster,
-* The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %instance%
-configuration options described in the [](docker-image-configuration.topic) section,
-* The `variables` keyword defines the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
-referring to the [project token](project-token.md). 
-
-You can find more configuration examples in the [](gitlab.md) section.
+</code-block>
+<p>In this snippet:</p>
+<list>
+<li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
+  so subsequent runs will be faster,</li>
+<li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
+  configuration options described in the <a href="docker-image-configuration.topic"/> section,</li>
+<li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
+<a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
+<a href="project-token.md">project token</a>.</li>
+</list>
+</tab>
+</tabs>
 
 ### Other ways to run locally
 {id="python-run-qodana-locally"}
 
-Because %product% linters are distributed in Docker containers, to run %product% locally you must have Docker installed and 
-running locally. If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check 
+>Before running %product%, create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, generate a
+[project token](project-token.md) that will be used by %product% for identifying and verifying a license. In Qodana Cloud,
+you can review [inspection reports](#python-explore-results-qodana-cloud).
+{style="note"}
+
+You have two options to run %product% locally: you can either run [Qodana CLI](https://github.com/JetBrains/qodana-cli) or directly use the Docker image of %product%.
+As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
+If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check 
 the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) for details.
 
-You can run %product% locally using [Qodana CLI](https://github.com/JetBrains/qodana-cli) or Docker:
+Here are some examples of how you can run %product% locally. 
 
 <tabs group="cli-settings">
     <tab group-key="qodana-cli" title="Qodana CLI">
@@ -228,7 +225,7 @@ reconfigure the analysis, see the <a href="ui-overview.md"/> section for
 ### JetBrains IDEs
 {id="python-explore-results-ides"}
 
-You can load the latest %instance% report from Qodana Cloud to your IDE as explained below.
+You can load the latest %instance% report from [Qodana Cloud](#python-explore-results-qodana-cloud) to your IDE as explained below.
 
 <procedure>
    <step>
@@ -246,7 +243,7 @@ You can load the latest %instance% report from Qodana Cloud to your IDE as expla
       <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
    </step>
    <step>
-      <p>By enabling the <ui-path>Always load most relevant Qodana report</ui-path> option, you will receive the most actual and relevant reports from Qodana Cloud.</p>
+      <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will be able to receive the most actual and relevant reports from Qodana Cloud.</p>
       <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
         <p>In this case, the IDE will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the 
         current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
@@ -258,6 +255,7 @@ You can load the latest %instance% report from Qodana Cloud to your IDE as expla
 </procedure>
 
 ### Qodana Cloud
+{id="python-explore-results-qodana-cloud"}
 
 Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in 
 [Qodana Cloud](https://qodana.cloud) navigate to your project and review the analysis results report.
@@ -268,7 +266,7 @@ Once %product% analyzed your project and uploaded the analysis results to Qodana
 
 ## Extend %product% configuration
 
-### Adjust the scope of analysis
+### Adjusting the scope of analysis
 
 Out of the box, Qodana provides two predefined profiles hosted on
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles):
@@ -305,9 +303,10 @@ profile:
 To learn more about configuration basics, visit the [](override-a-profile.md) section. Complete guides are 
 available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
 
-### Enable the baseline
+### Enabling the baseline
 
-You can skip analysis for specific problems using the [baseline](baseline.topic) feature. 
+You can skip analysis for specific problems using the [baseline](baseline.topic) feature. Information about a baseline is contained
+in a SARIF-formatted file.
 
 #### JetBrains IDEs
 {id="python-enable-baseline-ides"}
@@ -319,12 +318,12 @@ You can skip analysis for specific problems using the [baseline](baseline.topic)
     <step>In the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
 </procedure>
 
-#### GitHub Actions
-{id="python-enable-baseline-github"}
+#### CI/CD
+{id="python-enable-baseline-cicd"}
 
-This snippet contains the `args: --baseline,qodana.sarif.json` line that specifies the path to the SARIF-formatted file containing
-a baseline:
-
+<tabs>
+<tab title="GitHub Actions">
+<p>This snippet contains the <code>args: --baseline,qodana.sarif.json</code> line that specifies the path to the SARIF-formatted baseline file:</p>
 <code-block lang="yaml">
     name: Qodana
     on:
@@ -333,6 +332,7 @@ a baseline:
       push:
         branches: # Specify your branches here
           - main # The 'main' branch
+          - master # The 'master' branch
           - 'releases/*' # The release branches
     jobs:
       qodana:
@@ -353,14 +353,11 @@ a baseline:
             env:
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 </code-block>
-
-#### Jenkins
-{id="python-enable-baseline-jenkins"}
-
-The `stages` block contains the `--baseline <path/to/qodana.sarif.json>` line that specifies
-the path to the SARIF-formatted file containg information about a baseline:
-
-```groovy
+</tab>
+<tab title="Jenkins">
+<p>The <code>stages</code> block contains the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line that specifies
+the path to the SARIF-formatted baseline file:</p>
+<code-block lang="groovy">
 pipeline {
     environment {
         QODANA_TOKEN=credentials('qodana-token')
@@ -379,24 +376,21 @@ pipeline {
             steps {
                 sh '''
                 qodana \
-                --baseline <path/to/qodana.sarif.json>
+                --baseline &lt;path/to/qodana.sarif.json&gt;
                 '''
             }
         }
     }
 }
-```
-
-#### GitLab CI/CD
-{id="python-enable-baseline-gitlab"}
-
-You can use the  `--baseline <path/to/qodana.sarif.json>` line in the `script` block to
-invoke the baseline feature.
-
-```yaml
+</code-block>
+</tab>
+<tab title="GitLab CI/CD">
+<p>You can use the  <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block to
+invoke the baseline feature.</p>
+<code-block lang="yaml">
 qodana:
    image:
-      name: jetbrains/qodana-<linter>
+      name: %qd-image%
       entrypoint: [""]
    cache:
       - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
@@ -408,14 +402,15 @@ qodana:
    variables:
       QODANA_TOKEN: $qodana_token           - 
    script:
-      - qodana --baseline <path/to/qodana.sarif.json> --results-dir=$CI_PROJECT_DIR/.qodana/results
+      - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
    artifacts:
       paths:
          - qodana/report/
       expose_as: 'Qodana report'
-```
-
+</code-block>
+</tab>
+</tabs>
 
 #### Local run
 {id="python-enable-baseline-local-run"}
@@ -444,7 +439,7 @@ In these snippets, the `--baseline` option configures the path to the SARIF-form
     </tab>
 </tabs>
 
-### Enable the quality gate
+### Enabling the quality gate
 
 You can configure [quality gates](quality-gate.topic) for the total number of project problems, specific problem severities, and code 
 coverage by saving this snippet to the [`qodana.yaml`](qodana-yaml.md) file: 
@@ -463,13 +458,13 @@ failureConditions:
     total: 7 # Total percentage
 ```
 
-### Analyze pull requests
+### Analyzing pull requests
 
-#### GitHub Actions
-{id="python-pull-requests-github"}
+#### CI/CD
+{id="python-pull-requests-cicd"}
 
-In GitHub Actions, `--diff-start` can be omitted because it will be added automatically while running
-%product%, so you can follow this procedure:
+<tabs>
+<tab title="GitHub Actions">
 <procedure>
 <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
 <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
@@ -506,13 +501,9 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
 </code-block>
 </step>
 </procedure>
-
-
-#### GitLab CI/CD
-{id="python-pull-requests-gitlab"}
-
-In the root directory of your project, save the `.gitlab-ci.yml` file containing the following snippet:
-
+</tab>
+<tab title="GitLab CI/CD">
+<p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
 <code-block lang="yaml">
             qodana:
    image:
@@ -537,8 +528,9 @@ In the root directory of your project, save the `.gitlab-ci.yml` file containing
          - .qodana/results
       expose_as: 'Qodana report'
 </code-block>
-
-Here, the `--diff-start` option specifies a hash of the commit that will act as a base for comparison.
+<p>Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a base for comparison.</p>
+</tab>
+</tabs>
 
 #### Local run
 {id="python-pull-requests-local-run"}

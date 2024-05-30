@@ -6,19 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Quick-start.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Quick-start.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/about-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/about-qodana.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/dotnet-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet-draft.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/getting-started.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/getting-started.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/monorepo-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/monorepo-project.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-report-example.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/qc-report-example.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-report-example_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/qc-report-example_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/python-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python-draft.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-cdnet-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-cdnet-docker-readme.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ui-overview.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ui-overview.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
