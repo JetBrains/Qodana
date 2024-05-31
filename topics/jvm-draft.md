@@ -1,54 +1,60 @@
-[//]: # (title: Python)
+[//]: # (title: JVM)
 
 <no-index/>
 
 <show-structure for="chapter" depth="3"/>
 
-<var name="qp" value="Qodana for Python"/>
-<var name="qp-co" value="Qodana Community for Python"/>
-<var name="qp-linter" value="jetbrains/qodana-python:2024.1"/>
-<var name="qp-co-linter" value="jetbrains/qodana-python-community:2024.1"/>
-<var name="qd-image" value="jetbrains/qodana-python<-community>:2024.1"/>
+<!-- Linter-related variables -->
+<var name="qp" value="Qodana for JVM"/>
+<var name="qp-co" value="Qodana Community for JVM"/>
+<var name="qp-a" value="Qodana Community for Android"/>
+<var name="qp-linter" value="jetbrains/qodana-jvm:2024.1"/>
+<var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2024.1"/>
+<var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2024.1"/>
+<var name="qd-image" value="jetbrains/qodana-jvm<-community/-android>:2024.1"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
-<var name="ide" value="PyCharm"/>
+<var name="ide" value="IntelliJ IDEA Ultimate"/>
+<var name="ide-co" value="IntelliJ IDEA Community"/>
+<var name="ide-a" value="IntelliJ IDEA"/>
+
+<!-- Content-related variables -->
 <var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
 <var name="DPplugin" value="https://plugins.jenkins.io/docker-workflow/"/>
 <var name="Gplugin" value="https://plugins.jenkins.io/git/"/>
 <var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="MultipipeCreate" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
 
-<link-summary>You can analyze your Python code using the %qp% and %qp-co% linters.</link-summary>
+
+<link-summary>You can analyze your Java code using the %qp% and %qp-co% linters.</link-summary>
 
 <warning>This is a draft document, so we do not recommend that you use it.</warning>
 
-All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze 
+All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
 Python projects, you can use the following linters:
 
-* %qp% is based on PyCharm Professional and licensed under the Ultimate and 
-Ultimate Plus [licenses](pricing.md), 
-* %qp-co% is based on PyCharm Community and licensed under the Community license.
+* %qp% is based on %ide% and licensed under the Ultimate and
+  Ultimate Plus [licenses](pricing.md),
+* %qp-co% and %qp-a% are based on %ide-co% and licensed under the Community license.
 
-To see the list of supported features, you can navigate to the [](#python-feature-matrix) section.
+To see the list of supported features, you can navigate to the [](#jvm-feature-matrix) section.
 
 ## Before your start
-{id="python-before-you-start"}
+{id="jvm-before-you-start"}
 
-If your project has external `pip` dependencies, set them up using the [`bootstrap`](before-running-qodana.md) 
-key in the [`qodana.yaml`](qodana-yaml.md) file. For example, if your project dependencies are specified 
-by the `requirements.txt` file in your project root, in the configuration file add the following line:
+<!-- Bootstrap needs to be mentioned here -->
 
-```yaml
-bootstrap: pip install -r requirements.txt
-```
+Before running %instance%, you can [configure the JDK](configure-jdk.md) for your project.
+
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
 
 ## Run %product%
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 
 ### JetBrains IDEs
-{id="python-run-qodana-ides"}
+{id="jvm-run-qodana-ides"}
 
-You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes. 
+You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
 <procedure>
 <step>
@@ -88,15 +94,15 @@ You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cl
 </procedure>
 
 The examples below require a [project token](project-token.md) related to
-%product% license. To generate a project token, you need to [create a Qodana Cloud account](cloud-get-access.topic), and then 
-follow the instructions from the [](cloud-quickstart.md) section. 
+%product% license. To generate a project token, you need to [create a Qodana Cloud account](cloud-get-access.topic), and then
+follow the instructions from the [](cloud-quickstart.md) section.
 
 ### CI/CD
-{id="python-run-qodana-cicd"}
+{id="jvm-run-qodana-cicd"}
 
 Before running %product%, create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, generate a
 [project token](project-token.md) that will be used by %product% for identifying and verifying a license. In Qodana Cloud,
-you can review [inspection reports](#python-explore-results-qodana-cloud).
+you can review [inspection reports](#jvm-explore-results-qodana-cloud).
 
 <tabs>
 <tab title="GitHub Actions">
@@ -177,19 +183,19 @@ qodana:
 </tabs>
 
 ### Other ways to run locally
-{id="python-run-qodana-locally"}
+{id="jvm-run-qodana-locally"}
 
 >Before running %product%, create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, generate a
 [project token](project-token.md) that will be used by %product% for identifying and verifying a license. In Qodana Cloud,
-you can review [inspection reports](#python-explore-results-qodana-cloud).
+you can review [inspection reports](#jvm-explore-results-qodana-cloud).
 {style="note"}
 
 You have two options to run %product% locally: you can either run [Qodana CLI](https://github.com/JetBrains/qodana-cli) or directly use the Docker image of %product%.
 As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
-If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check 
+If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check
 the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) for details.
 
-Here are some examples of how you can run %product% locally. 
+Here are some examples of how you can run %product% locally.
 
 <tabs group="cli-settings">
     <tab group-key="qodana-cli" title="Qodana CLI">
@@ -223,9 +229,9 @@ reconfigure the analysis, see the <a href="ui-overview.md"/> section for
 ## Explore analysis results
 
 ### JetBrains IDEs
-{id="python-explore-results-ides"}
+{id="jvm-explore-results-ides"}
 
-You can load the latest %instance% report from [Qodana Cloud](#python-explore-results-qodana-cloud) to your IDE as explained below.
+You can load the latest %instance% report from [Qodana Cloud](#jvm-explore-results-qodana-cloud) to your IDE as explained below.
 
 <procedure>
    <step>
@@ -255,9 +261,9 @@ You can load the latest %instance% report from [Qodana Cloud](#python-explore-re
 </procedure>
 
 ### Qodana Cloud
-{id="python-explore-results-qodana-cloud"}
+{id="jvm-explore-results-qodana-cloud"}
 
-Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in 
+Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in
 [Qodana Cloud](https://qodana.cloud) navigate to your project and review the analysis results report.
 
 <img src="qc-report-example.png" dark-src="qc-report-example_dark.png" alt="Analysis report example" width="720" border-effect="line"/>
@@ -275,32 +281,11 @@ Out of the box, Qodana provides two predefined profiles hosted on
 * `qodana.recommended` is suitable for running in CI/CD pipelines and mostly implements the default %ide% profile, see the
   [PyCharm](https://www.jetbrains.com/help/pycharm/customizing-profiles.html) documentation for details.
 
-You can customize %product% profiles using configurations in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats. 
+You can customize %product% profiles using configurations in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
 
-For example, you can enable JavaScript and TypeScript inspections by overriding the `qodana.recommended` profile as shown
-below.
+<!-- The example of profile configuring needs to be added here -->
 
-<procedure>
-<step>
-  <p>In the project directory, create a YAML file and save this profile configuration to it:</p>
-<code-block lang="yaml">
-name: "Enabling JavaScript and TypeScript" 
-baseProfile: qodana.recommended
-inspections:
-   - group: "category:JavaScript and TypeScript" # Specify the inspection category
-     enabled: true # Enable the JavaScript and TypeScript category
-</code-block>
-</step>
-<step>
-<p>In the <code>qodana.yaml</code> file, save this configuration to enable your profile:</p>
-<code-block lang="yaml">
-profile:
-  path: &lt;relative-path-to-yaml-config-file&gt;
-</code-block>
-</step>
-</procedure>
-
-To learn more about configuration basics, visit the [](override-a-profile.md) section. Complete guides are 
+To learn more about configuration basics, visit the [](override-a-profile.md) section. Complete guides are
 available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
 
 ### Enabling the baseline
@@ -309,7 +294,7 @@ You can skip analysis for specific problems using the [baseline](baseline.topic)
 in a SARIF-formatted file.
 
 #### JetBrains IDEs
-{id="python-enable-baseline-ides"}
+{id="jvm-enable-baseline-ides"}
 
 <procedure>
     <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
@@ -319,7 +304,7 @@ in a SARIF-formatted file.
 </procedure>
 
 #### CI/CD
-{id="python-enable-baseline-cicd"}
+{id="jvm-enable-baseline-cicd"}
 
 <tabs>
 <tab title="GitHub Actions">
@@ -413,9 +398,9 @@ qodana:
 </tabs>
 
 #### Local run
-{id="python-enable-baseline-local-run"}
+{id="jvm-enable-baseline-local-run"}
 
-In these snippets, the `--baseline` option configures the path to the SARIF-formatted file containin a baseline: 
+In these snippets, the `--baseline` option configures the path to the SARIF-formatted file containin a baseline:
 
 <tabs group="cli-settings">
     <tab group-key="qodana-cli" title="Qodana CLI">
@@ -438,25 +423,6 @@ In these snippets, the `--baseline` option configures the path to the SARIF-form
         </code-block>
     </tab>
 </tabs>
-
-### Enabling the quality gate
-
-You can configure [quality gates](quality-gate.topic) for the total number of project problems, specific problem severities, and code 
-coverage by saving this snippet to the [`qodana.yaml`](qodana-yaml.md) file: 
-
-```yaml
-failureConditions:
-  severityThresholds:
-    any: 50 # Total number of problems in all severities
-    critical: 1 # Severities
-    high: 2
-    moderate: 3
-    low: 4
-    info: 5
-  testCoverageThresholds:
-    fresh: 6 # Fresh code coverage
-    total: 7 # Total percentage
-```
 
 ### Analyzing pull requests
 
@@ -533,7 +499,7 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
 </tabs>
 
 #### Local run
-{id="python-pull-requests-local-run"}
+{id="jvm-pull-requests-local-run"}
 
 To analyze changes in your code, employ the `--diff-start` option and specify a hash of the commit that will act as a
 base for comparison:
@@ -546,69 +512,223 @@ base for comparison:
     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
 </code-block>
 
+
 ## Supported technologies and features
-{id="python-feature-matrix"}
+{id="jvm-feature-matrix"}
 
-This table contains the list of technologies supported by both linters.
+<!-- This list needs to be re-checked -->
 
-<table style="none">
+<table>
+    <tr>
+      <td>Support for</td>
+      <td>Name</td>
+      <td>%qp%</td>
+      <td>%qp-co%</td>
+      <td>%qp-a%</td>  
+    </tr>
     <tr>
         <td>Programming languages</td>
         <td>
-            <p>Python</p>
+            <p>Java</p>
+            <p>Kotlin</p>
+            <p>Groovy</p>
+        </td>
+        <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+        <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+        <td>
+            <p>&#x2714; All from the list</p>
         </td>
     </tr>
     <tr>
         <td>Frameworks and libraries</td>
         <td>
-            <p>Django</p>
-            <p>Google App Engine</p>
-            <p>Jupyter</p>
-            <p>Pyramid</p>
+            <p>JavaBeans</p>
+            <p>JUnit</p>
+            <p>Lombok</p>
+            <p>TestNG</p>
+            <p>JPA</p>
+            <p>Reactive&nbsp;Streams</p>
+            <p>JavaFX</p>
+            <p>Jakarta EE</p>
+            <p>Java EE</p>
+            <p>JAX-RS</p>
+            <p>JSP</p>
+            <p>Spring</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
         </td>
     </tr>
-    <tr>
+        <tr>
         <td>Databases and ORM</td>
         <td>
+            <p>Hibernate ORM</p>
             <p>MongoJS</p>
-            <p>MySQL</p>
             <p>Oracle</p>
+            <p>MySQL</p>
             <p>PostgreSQL</p>
             <p>SQL</p>
-            <p>SQL Server</p>
+            <p>SQL server</p>
+        </td>
+       <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+        <td>
+            <p>&#x274c; None</p>
+        </td>
+        <td>
+            <p>&#x274c; None</p>
         </td>
     </tr>
     <tr>
         <td>Markup languages</td>
         <td>
             <p>CSS</p>
+            <p>FreeMarker</p>
             <p>HTML</p>
             <p>JSON and JSON5</p>
             <p>RELAX NG</p>
             <p>XML</p>
+            <p>XPath</p>
+            <p>XSLT</p>
             <p>YAML</p>
+            <p>TOML</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
+        </td>
+        <td>
+            <p>&#x274c; None</p>
+        </td>
+        <td>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
     </tr>
     <tr>
         <td>Scripting languages</td>
         <td>
             <p>Shell script</p>
+            <p>Expression&nbsp;Language&nbsp;(EL)</p>
+        </td>
+       <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+        </td>
+       <td>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
         </td>
     </tr>
-
+    <tr>
+        <td>Build management</td>
+        <td>
+            <p>Ant</p>
+            <p>Gradle</p>
+            <p>Maven</p>
+        </td>
+       <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+       <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+       <td>
+            <p>&#x2714; All from the list</p>
+        </td>
+    </tr>
+    <tr>
+      <td>%product% features</td>
+      <td>
+        <p><a href="baseline.topic">Baseline</a></p>
+        <p><a href="quality-gate.topic">Quality gate</a></p>
+        <p><a href="code-coverage.md">Code coverage</a></p>
+        <p><a href="license-audit.topic">License audit</a></p>
+        <p><a href="quick-fix.md">Quick-fix</a></p>
+        <p><a href="vulnerability-checker.md">Vulnerability checker</a></p>
+      </td>
+      <td>
+            <p>&#x2714; All from the list</p>
+      </td>
+      <td>
+         <p>&#x2714;</p>
+         <p>&#x2714;</p>
+         <p>&#x274c;</p>
+         <p>&#x274c;</p>
+         <p>&#x274c;</p>
+         <p>&#x274c;</p>
+      </td>
+      <td>
+         <p>&#x2714;</p>
+         <p>&#x2714;</p>
+         <p>&#x274c;</p>
+         <p>&#x274c;</p>
+         <p>&#x274c;</p>
+         <p>&#x274c;</p>
+      </td>
+    </tr>
 </table>
-
-Here is the list of %product% features supported per each linter.
-
-| Feature                       | %qp-co%  | %qp%      |
-|-------------------------------|----------|-----------|
-| [](baseline.topic)            | &#x2714; | &#x2714;  |
-| [](quality-gate.topic)        | &#x2714; | &#x2714;  |
-| [](code-coverage.md)          | &#x274c; | &#x2714;  |
-| [](license-audit.topic)       | &#x274c; | &#x2714;  |
-| [](quick-fix.md)              | &#x274c; | &#x2714;  |
-| [](vulnerability-checker.md)  | &#x274c; | &#x2714;  |
-
-
-
-
