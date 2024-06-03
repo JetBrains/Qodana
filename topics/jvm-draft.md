@@ -11,7 +11,7 @@
 <var name="qp-linter" value="jetbrains/qodana-jvm:2024.1"/>
 <var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2024.1"/>
 <var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2024.1"/>
-<var name="qd-image" value="jetbrains/qodana-jvm<-community/-android>:2024.1"/>
+<var name="qd-image" value="jetbrains/qodana-jvm<-community><-android>:2024.1"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="ide-co" value="IntelliJ IDEA Community"/>
@@ -54,11 +54,11 @@ Before running %instance%, you can [configure the JDK](configure-jdk.md) for you
 ### JetBrains IDEs
 {id="jvm-run-qodana-ides"}
 
-You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
+You can run %instance% in %ide-a% and send inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
 <procedure>
 <step>
-   <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+   <p>In %ide-a%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
    <p>In the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
@@ -92,10 +92,6 @@ You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cl
    <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
 </step>
 </procedure>
-
-The examples below require a [project token](project-token.md) related to
-%product% license. To generate a project token, you need to [create a Qodana Cloud account](cloud-get-access.topic), and then
-follow the instructions from the [](cloud-quickstart.md) section.
 
 ### CI/CD
 {id="jvm-run-qodana-cicd"}
@@ -195,7 +191,7 @@ As %product% linters are distributed in Docker containers, Docker needs to be in
 If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check
 the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) for details.
 
-Here are some examples of how you can run %product% locally.
+Here are the examples of how you can run %product% locally.
 
 <tabs group="cli-settings">
     <tab group-key="qodana-cli" title="Qodana CLI">
@@ -400,7 +396,7 @@ qodana:
 #### Local run
 {id="jvm-enable-baseline-local-run"}
 
-In these snippets, the `--baseline` option configures the path to the SARIF-formatted file containin a baseline:
+In these snippets, the `--baseline` option configures the path to the SARIF-formatted file containing a baseline:
 
 <tabs group="cli-settings">
     <tab group-key="qodana-cli" title="Qodana CLI">

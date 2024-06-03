@@ -189,7 +189,7 @@ As %product% linters are distributed in Docker containers, Docker needs to be in
 If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check 
 the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) for details.
 
-Here are some examples of how you can run %product% locally. 
+Here are the examples of how you can run %product% locally. 
 
 <tabs group="cli-settings">
     <tab group-key="qodana-cli" title="Qodana CLI">
