@@ -13,25 +13,25 @@
 and severities.</link-summary>
 
 Inspection profiles define [inspections](code-inspections.topic), file scopes that these inspections analyze, and 
-[severities](troubleshooting.topic#troubleshooting-severities).
+[severities](troubleshooting.topic#troubleshooting-severities). This section explains how you can use existing 
+%product% profiles, create your own profile, and set up profiles for analyzing your projects using %product%.
 
-## %product% profiles
-{id="Default+profiles"}
+## Existing %product% profiles
+{id="inspection-profiles-existing-profiles"}
 
 <link-summary>Out of the box, Qodana provides the qodana.starter and qodana.recommended profiles.</link-summary>
 
-Out of the box, you can employ these %product% profiles: 
+
+Out of the box, you can use the following %product% profiles: 
 
 <table>
     <tr>
         <td>Profile name</td>
         <td>Description</td>
-        <td>How to enable</td>
     </tr>
     <tr>
         <td><code>qodana.starter</code></td>
-        <td>The default %product% profile, subset of the <code>qodana.recommended</code> profile</td>
-        <td>Enabled by default</td>
+        <td>The subset of the <code>qodana.recommended</code> profile, enabled in %product% by default</td>
     </tr>
     <tr>
         <td><code>qodana.recommended</code></td>
@@ -52,75 +52,144 @@ Out of the box, you can employ these %product% profiles:
             </li>
         </list>
         </td>
-        <td>See <a anchor="profiles-set-up-a-qodana-profile"/></td>
+    </tr>
+    <tr>
+        <td><code>empty</code></td>
+        <td>Lets you build profiles from scratch, see the <a anchor="inspection-profiles-custom-profiles"/> section for details</td>
     </tr>
 </table>
 
-Both profiles are hosted on [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), so you can learn them in details.
+The `qodana.starter` and `qodana.recommended` profiles are hosted on 
+[GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), so you can learn them in details.
 
-You can override these profiles as explained in the [](#Custom+profiles) section.
+To learn how to set up the existing %product% profiles, see the [](#inspection-profiles-setup-a-profile) section. 
 
-### Set up a %product% profile
-{id="profiles-set-up-a-qodana-profile"}
+## Custom profiles
+{id="inspection-profiles-custom-profiles"}
 
-<link-summary>This explains how you can apply an existing %product% profile.</link-summary>
+<link-summary>You can create custom profiles in the YAML and XML formats, and then run %product% using them.</link-summary>
 
-This section shows how you can apply the `qodana.recommended` profile. 
+You can create custom profiles using the following formats:
 
-#### YAML file
-{id="inspection-default-profiles-yaml-file"}
+* [YAML](custom-profiles.md) is the preferable format,
+* [XML](custom-xml-profiles.md) can be used as an alternative to YAML.
 
-<!-- Add a link-summary here -->
-<link-summary>YAML configuration is the universal method for applying an existing inspection profile.</link-summary>
+Custom profiles can either override the [existing profiles](#inspection-profiles-existing-profiles) or
+be created from scratch. Because profile configurations should be contained in dedicated files, our recommendation is 
+to save them in the `.qodana` directory of your project.
 
-The [`qodana.yaml`](qodana-yaml.md) file is the universal configuration method that you can use across
-all software products. 
+<!-- This needs to be replaced with another example-->
 
-<procedure>
-<step>In the root directory of your project, create the <code>qodana.yaml</code> file.</step>
-<step><p>In the <code>qodana.yaml</code> file, save the following configuration:</p>
-<code-block lang="yaml">
-profile:
-&nbsp;&nbsp;&nbsp;&nbsp;name: qodana.recommended
-</code-block>
-</step>
-</procedure>
+For example, to use the existing `qodana.recommended` profile and additionally enable the 
+`JavaScript and TypeScript` inspection category, in the profile file save this [YAML](custom-profiles.md) configuration:
 
-#### JetBrains IDE
-{id="inspection-default-profiles-ide"}
+```yaml
+name: "Configuring Qodana" 
+baseProfile: qodana.recommended
 
-If you have already configured the [`qodana.yaml`](#inspection-default-profiles-yaml-file) file, you can skip 
-this step and [run Qodana](qodana-ide-plugin.md#ide-plugin-run-qodana). Otherwise, follow this procedure.
+inspections:
+   - group: "category:JavaScript and TypeScript" # Specify the inspection category
+     enabled: true # Enable the JavaScript and TypeScript category
+```
+
+To analyze your code using the `JavaScript and TypeScript` inspection category only, in the profile file save this 
+YAML configuration instead:
+
+```yaml
+name: "Configuring Qodana" 
+baseProfile: empty
+
+inspections:
+   - group: "category:JavaScript and TypeScript" # Specify the inspection category
+     enabled: true # Enable the JavaScript and TypeScript category
+```
+
+> The detailed reference guide is available in the [](custom-profiles.md) and [](override-a-profile.md) sections. 
+
+After you created your own profile, save the file in the `.qodana` directory of your project so that %product% can 
+ignore this file during code analysis.
+
+> If you run Qodana in a [CI/CD pipeline](ci.md), make sure the file containing the profile resides in the working
+directory where the VCS stores your project before building it.
+{style="note"}
+
+To learn how to set up a custom profile, see the [](#inspection-profiles-setup-a-profile) section.
+
+## Set up a profile
+{id="inspection-profiles-setup-a-profile"}
+
+<link-summary>Learn how to set up %product% and custom profiles.</link-summary>
+
+### YAML configuration
+{id="inspection-profiles-yaml-file"}
+
+<link-summary>YAML configuration is the universal configuration method that works for all software.</link-summary>
+
+A YAML file is a universal %product% configuration. This means that you can configure the [`qodana.yaml`](qodana-yaml.md) file
+once and then re-use it for running %product% with Docker, GitHub, JetBrains IDEs or any other [software](ci.md) currently 
+supported by %product%, and it will work the same in all cases.
+
+<tabs group="profile-setup">
+    <tab title="Qodana profile" group-key="qodana-profile">
+        <p>To set up the <code>qodana.recommended</code> profile, in the project root save the <code>qodana.yaml</code> file 
+        containing the following configuration:</p>
+            <code-block lang="yaml">
+            profile:
+            &nbsp;&nbsp;&nbsp;&nbsp;name: qodana.recommended
+            </code-block>
+    </tab>
+    <tab title="Custom profile" group-key="custom-profile">
+        <p>To set up your custom profile, in the <code>qodana.yaml</code> file save this configuration containing the relative 
+        path to the profile file, for example:</p>
+            <code-block lang="yaml">
+            profile:
+            &nbsp;&nbsp;&nbsp;&nbsp;path: .qodana/&lt;custom-profile.yaml&gt;
+            </code-block>
+    </tab>
+</tabs>
+
+### JetBrains IDE
+{id="inspection-profiles-ide"}
+
+<link-summary>You can configure profiles before running %product% in JetBrains IDEs.</link-summary>
 
 <procedure>
 <step>
    <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
-   <p>In the <ui-path>profile</ui-path> section of the <ui-path>Run Qodana</ui-path> dialog, replace this block:</p> 
-<code-block lang="yaml">
-profile:
-&nbsp;&nbsp;name: qodana.starter
-</code-block> 
-<p>with:</p>
-<code-block lang="yaml">
-profile:
-&nbsp;&nbsp;name: qodana.recommended
-</code-block> 
-   <img src="ide-plugin-configure-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
+   <p>In the <code>profile</code> section of the <ui-path>Run Qodana</ui-path> dialog, replace the 
+        <code>qodana.starter</code> profile invocation depending on your needs:</p>
+    <tabs group="profile-setup">
+        <tab title="Qodana profile" group-key="qodana-profile">
+            <code-block lang="yaml">
+            profile:
+            &nbsp;&nbsp;name: qodana.recommended
+            </code-block>
+        </tab>
+        <tab title="Custom profile" group-key="custom-profile">
+            <code-block lang="yaml">
+            profile:
+            &nbsp;&nbsp;&nbsp;&nbsp;path: .qodana/&lt;custom-profile.yaml&gt;
+            </code-block>
+        </tab>
+    </tabs>
 </step>
-<step><p>Below the configuration field, check the <ui-path>Save qodana.yaml in project root</ui-path> option.</p>
+<step><p>In <ui-path>Run Qodana</ui-path> dialog, check the <ui-path>Save qodana.yaml in project root</ui-path> option.</p>
+   <img src="ide-plugin-configure-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
 </step>
 <step>
     <p>Click <ui-path>Run</ui-path> for inspecting your code using the <code>qodana.recommended</code> profile.</p>
 </step>
 </procedure>
 
-#### GitHub Actions
-{id="inspection-default-profiles-github"}
+### GitHub Actions
+{id="inspection-profiles-github"}
 
-If you have already configured the [`qodana.yaml`](#inspection-default-profiles-yaml-file) file, you can skip this step.
-Otherwise, you can configure the [Qodana Scan](github.md) GitHub action as shown below.
+<link-summary>You can configure profiles before running %product% in GitHub.</link-summary>
+
+> Running %product% using GitHub requires a [project token](project-token.md).
+{style="note"}
 
 <procedure>
     <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
@@ -130,7 +199,9 @@ Otherwise, you can configure the [Qodana Scan](github.md) GitHub action as shown
     <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
         <code>.github/workflows/code_quality.yml</code> file.</step>
     <step>To inspect the <code>main</code> branch, release branches and the pull requests coming
-    to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+    to your repository, save the workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+        <tabs group="profile-setup">
+            <tab title="Qodana profile" group-key="qodana-profile">
         <code-block lang="yaml">
             name: Qodana
             on:
@@ -159,119 +230,9 @@ Otherwise, you can configure the [Qodana Scan](github.md) GitHub action as shown
                     env:
                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
-        <p>Here, the line <code>--profile-name</code> option specifies the <code>qodana.recommended</code> profile.</p>
-    </step>
-</procedure>
-
-<!-- Are the Jenkins and GitLab config examples required here? -->
-
-#### Local run
-{id="inspection-default-profiles-local-run"}
-
-If you have already configured the [`qodana.yaml`](#inspection-default-profiles-yaml-file) file, you can skip this step.
-Otherwise, you can use `--profile-name` CLI option to configure the `qodana.recommended` profile.
-
-<tabs group="cli-settings">
-    <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
-            docker run \
-               -v $(pwd):/data/project/ \
-               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               jetbrains/qodana-&lt;linter&gt; \
-               --profile-name qodana.recommended
-        </code-block>
-    </tab>
-    <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
-            qodana scan \
-               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               --profile-name qodana.recommended
-        </code-block>
-    </tab>
-</tabs>
-
-## Custom profiles
-{id="Custom+profiles"}
-
-<link-summary>Learn how you can create custom Qodana configurations in the YAML and XML formats.</link-summary>
-
-You can create your own profile either by overriding the existing [Qodana profiles](#Default+profiles) or creating it from
-scratch. Currently, %product% supports the following formats: 
-
-* [YAML format](custom-profiles.md) is the preferable format,
-* [XML format](custom-xml-profiles.md) can be used as an alternative to YAML.
-
-### Set up your profile
-
-After you created your own profile, you can specify a relative path to the file containing it. The recommendation is to
-store custom profile configurations inside the `.qodana` directory of your project root because %product% does not
-analyze this directory.
-
-> If you run Qodana in a [CI/CD pipeline](ci.md), make sure the file containing the profile resides in the working
-directory where the VCS stores your project before building it.
-{style="note"}
-
-#### YAML file
-{id="inspection-custom-profiles-yaml-file"}
-
-The [`qodana.yaml`](qodana-yaml.md) file is the universal configuration method that you can use across
-all software products.
-
-<procedure>
-<step>In the root directory of your project, create the <code>qodana.yaml</code> file.</step>
-<step><p>In the <code>qodana.yaml</code> file, save the following configuration:</p>
-<code-block lang="yaml">
-profile:
-&nbsp;&nbsp;&nbsp;&nbsp;path: .qodana/&lt;custom-profile.yaml&gt;
-</code-block>
-</step>
-</procedure>
-
-#### JetBrains IDE
-{id="inspection-custom-profiles-ide"}
-
-If you have already configured the [`qodana.yaml`](#inspection-default-profiles-yaml-file) file, you can skip
-this step and [run Qodana](qodana-ide-plugin.md#ide-plugin-run-qodana). Otherwise, follow this procedure.
-
-<procedure>
-<step>
-   <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
-</step>
-<step>
-   <p>In the <ui-path>profile</ui-path> section of the <ui-path>Run Qodana</ui-path> dialog, replace this block: </p>
-<code-block lang="yaml">
-    profile:
-    &nbsp;&nbsp;name: qodana.starter
-</code-block> 
-<p>with:</p>
-<code-block lang="yaml">
-    profile:
-    &nbsp;&nbsp;path: .qodana/&lt;custom-profile.yaml&gt;
-</code-block> 
-   <img src="ide-plugin-configure-profile-2.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
-</step>
-<step><p>In the lower part of the dialog, check the <ui-path>Save qodana.yaml in project root</ui-path> option.</p>
-</step>
-<step>
-    <p>Click <ui-path>Run</ui-path> for inspecting your code using the <code>qodana.recommended</code> profile.</p>
-</step>
-</procedure>
-
-#### GitHub Actions
-{id="inspection-custom-profiles-github"}
-
-If you have already configured the [`qodana.yaml`](#inspection-custom-profiles-yaml-file) file, you can skip this step.
-Otherwise, you can configure the [Qodana Scan](github.md) GitHub action as shown below.
-
-<procedure>
-    <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
-        <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
-        and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
-    </step>
-    <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
-        <code>.github/workflows/code_quality.yml</code> file.</step>
-    <step>To inspect the <code>main</code> branch, release branches and the pull requests coming
-    to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+            <p>Here, the <code>--profile-name</code> option specifies the <code>qodana.recommended</code> profile.</p>
+        </tab>
+            <tab title="Custom profile" group-key="custom-profile">
         <code-block lang="yaml">
             name: Qodana
             on:
@@ -300,19 +261,44 @@ Otherwise, you can configure the [Qodana Scan](github.md) GitHub action as shown
                     env:
                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
-        <p>Here, the line <code>--profile-path</code> option specifies the relative path to the profile.</p>
+            <p>Here, the <code>--profile-path</code> option specifies the relative path to the file containing a custom profile.</p>
+</tab>
+        </tabs>
     </step>
 </procedure>
 
-#### Local run
-{id="inspection-custom-profiles-local-run"}
+### Local run
+{id="inspection-profiles-local-run"}
 
-If you have already configured the [`qodana.yaml`](#inspection-custom-profiles-yaml-file) file, you can skip this step and
-run %product% without additional configuration options. Otherwise, you can use the `--profile-path` option to specify 
-the relative path to the directory containing the profile.
+<link-summary>You can configure profiles before running %product% locally.</link-summary>
 
-<!-- This needs to be tested once more -->
+> Running %product% using GitHub requires a [project token](project-token.md).
+{style="note"}
 
+<tabs group="profile-setup">
+<tab title="Qodana profile" group-key="qodana-profile">
+<p>You can set up the <code>qodana.recommended</code> profile using the <code>--profile-name</code> option:</p>
+<tabs group="cli-settings">
+    <tab title="Docker image" group-key="docker-image">
+        <code-block lang="shell" prompt="$">
+            docker run \
+               -v $(pwd):/data/project/ \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               jetbrains/qodana-&lt;linter&gt; \
+               --profile-name qodana.recommended
+        </code-block>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code-block lang="shell" prompt="$">
+            qodana scan \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               --profile-name qodana.recommended
+        </code-block>
+    </tab>
+</tabs>
+</tab>
+<tab title="Custom profile" group-key="custom-profile">
+<p>You can set up your custom profile using the <code>--profile-path</code> option:</p>
 <tabs group="cli-settings" filter="for-inspection-profiles">
     <tab title="Docker image" group-key="docker-image">
         <code-block lang="shell" prompt="$">
@@ -332,4 +318,6 @@ the relative path to the directory containing the profile.
                --profile-path .qodana/&lt;custom-profile.yaml&gt;
         </code-block>
     </tab>
+</tabs>
+</tab>
 </tabs>

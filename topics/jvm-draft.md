@@ -549,7 +549,6 @@ base for comparison:
             <p>JPA</p>
             <p>Reactive&nbsp;Streams</p>
             <p>JavaFX</p>
-            <p>Jakarta EE</p>
             <p>Java EE</p>
             <p>JAX-RS</p>
             <p>JSP</p>
@@ -567,7 +566,6 @@ base for comparison:
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -581,17 +579,15 @@ base for comparison:
             <p>&#x274c;</p>
             <p>&#x274c;</p>
             <p>&#x274c;</p>
-            <p>&#x274c;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x274c;</p>
             <p>&#x274c;</p>
             <p>&#x2714;</p>
             <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x2714;</p>
             <p>&#x274c;</p>
             <p>&#x274c;</p>
             <p>&#x274c;</p>
@@ -643,10 +639,7 @@ base for comparison:
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
-        </td>
-        <td>
-            <p>&#x274c; None</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x274c;</p>
@@ -655,8 +648,20 @@ base for comparison:
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
+        </td>
+        <td>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x274c;</p>
+            <p>&#x274c;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
         </td>
