@@ -55,7 +55,7 @@ You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cl
    <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
-   <p>In the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
+   <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
    <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
     <p>This dialog contains the following components:</p>
       <table>
@@ -73,7 +73,7 @@ You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cl
         </tr>
         <tr>
           <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
-          <td>By checking this option, you can save the %product% configuration made in this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
+          <td>By checking this option, you can save the %product% configuration made on this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
         </tr>
         <tr>
           <td>The <ui-path>Use Qodana analysis baseline</ui-path> option</td>
@@ -315,7 +315,7 @@ in a SARIF-formatted file.
     <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
     <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
     <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
-    <step>In the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
+    <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
 </procedure>
 
 #### CI/CD

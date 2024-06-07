@@ -85,7 +85,7 @@
                     <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
                     <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
                     <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
-                    <step>In the dialog, expand the <ui-path>Advanced Configuration</ui-path> section, select the baseline file, and then click <ui-path>Run</ui-path>.</step>
+                    <step>On the dialog, expand the <ui-path>Advanced Configuration</ui-path> section, select the baseline file, and then click <ui-path>Run</ui-path>.</step>
                 </procedure>
             </tab>
         </tabs>

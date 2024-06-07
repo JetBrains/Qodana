@@ -171,7 +171,7 @@ You can run %instance% in %ide% and forward inspection reports to [Qodana Cloud]
    <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
-   <p>In the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
+   <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
       <list>
         <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
           You can see that the native mode is already configured.</li>
@@ -532,7 +532,7 @@ You can get the latest %instance% report in your IDE as explained below.
    </step>
    <step>
       <p>
-         In the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
+         On the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
       </p>
       <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to Qodana Cloud" border-effect="line"/>
    <p>This will redirect you to the authentication page.</p>
@@ -715,7 +715,7 @@ You can skip analysis for specific problems using the [baseline](baseline.topic)
     <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
     <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
     <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
-    <step>In the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
+    <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
 </procedure>
 
 #### GitHub Actions

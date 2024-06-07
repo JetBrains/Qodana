@@ -96,7 +96,7 @@
 
                 </step>
                 <step>
-                    <p>In the <ui-path>Invite members to ... organization</ui-path> dialog that opens, you can manage members of your organization.</p>
+                    <p>On the <ui-path>Invite members to ... organization</ui-path> dialog that opens, you can manage members of your organization.</p>
                     <img src="qc-settings-organization-manage-members.png" dark-src="qc-settings-organization-manage-members.png" width="706" alt="Managing organization membership" border-effect="line"/>
                 </step>
             </procedure>

@@ -81,7 +81,7 @@ line to `qodana.yaml`:
 ```yaml
 bootstrap: yarn install
 ```
-The command will be automatically executed before the analysis. You can use the `npm` or `yarn` commands to install dependencies.
+The command will be automatically executed before the analysis. You can use the `pnpm`, `npm` or `yarn` commands to install dependencies.
 
 #### Enable ESLint
 

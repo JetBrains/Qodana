@@ -12,9 +12,9 @@
 <link-summary>Inspection profiles configure inspections, file scopes that these inspections analyze, 
 and severities.</link-summary>
 
-Inspection profiles define [inspections](code-inspections.topic), file scopes that these inspections analyze, and 
-[severities](troubleshooting.topic#troubleshooting-severities). This section explains how you can use existing 
-%product% profiles, create your own profile, and set up profiles for analyzing your projects using %product%.
+Inspection profiles define [inspections](code-inspections.topic), the file scopes that these inspections analyze, and 
+inspection [severities](troubleshooting.topic#troubleshooting-severities). This section explains how you can use 
+existing %product% profiles, create your own profiles, and set up profiles for analyzing your projects using %product%.
 
 ## Existing %product% profiles
 {id="inspection-profiles-existing-profiles"}
@@ -42,8 +42,8 @@ Out of the box, you can use the following %product% profiles:
             <li>
                 By default, Qodana provides analysis only for specific languages and frameworks. This means that, for 
                 example, Groovy or JavaScript inspections are available but disabled by default. Inspections
-                of the <code>INFORMATION</code> <a href="troubleshooting.topic" anchor="troubleshooting-severities">IDE severity</a> 
-                are also disabled.</li>
+                of the <code>INFORMATION</code> <a href="troubleshooting.topic" anchor="troubleshooting-severities">severity</a> 
+                in the IDE are also disabled.</li>
             <li>
                 Several inspections that affect code highlighting in IDEs and global inspections were removed from %product% linters.  
             </li>
@@ -53,16 +53,12 @@ Out of the box, you can use the following %product% profiles:
         </list>
         </td>
     </tr>
-    <tr>
-        <td><code>empty</code></td>
-        <td>Lets you build profiles from scratch, see the <a anchor="inspection-profiles-custom-profiles"/> section for details</td>
-    </tr>
 </table>
 
 The `qodana.starter` and `qodana.recommended` profiles are hosted on 
-[GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), so you can learn them in details.
+[GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), so you can learn them in detail.
 
-To learn how to set up the existing %product% profiles, see the [](#inspection-profiles-setup-a-profile) section. 
+To learn how to set up existing %product% profiles, see the [](#inspection-profiles-setup-a-profile) section. 
 
 ## Custom profiles
 {id="inspection-profiles-custom-profiles"}
@@ -71,42 +67,28 @@ To learn how to set up the existing %product% profiles, see the [](#inspection-p
 
 You can create custom profiles using the following formats:
 
-* [YAML](custom-profiles.md) is the preferable format,
+* [YAML](custom-profiles.md) is the preferred format,
 * [XML](custom-xml-profiles.md) can be used as an alternative to YAML.
 
-Custom profiles can either override the [existing profiles](#inspection-profiles-existing-profiles) or
-be created from scratch. Because profile configurations should be contained in dedicated files, our recommendation is 
-to save them in the `.qodana` directory of your project.
-
-<!-- This needs to be replaced with another example-->
+Custom profiles can either override [existing profiles](#inspection-profiles-existing-profiles) or be created from 
+scratch. Since profile configurations should be contained in dedicated files, we recommend saving them in the `.qodana` 
+directory of your project.
 
 For example, to use the existing `qodana.recommended` profile and additionally enable the 
-`JavaScript and TypeScript` inspection category, in the profile file save this [YAML](custom-profiles.md) configuration:
+`Java/Java language level migration aids` inspection category, save this [YAML](custom-profiles.md) configuration in the profile file:
 
 ```yaml
 name: "Configuring Qodana" 
 baseProfile: qodana.recommended
 
 inspections:
-   - group: "category:JavaScript and TypeScript" # Specify the inspection category
-     enabled: true # Enable the JavaScript and TypeScript category
+   - group: "category:Java/Java language level migration aids" # Specify the inspection category
+     enabled: true # Enable the inspection category
 ```
 
-To analyze your code using the `JavaScript and TypeScript` inspection category only, in the profile file save this 
-YAML configuration instead:
+> A detailed reference guide is available in the [](custom-profiles.md) section. 
 
-```yaml
-name: "Configuring Qodana" 
-baseProfile: empty
-
-inspections:
-   - group: "category:JavaScript and TypeScript" # Specify the inspection category
-     enabled: true # Enable the JavaScript and TypeScript category
-```
-
-> The detailed reference guide is available in the [](custom-profiles.md) and [](override-a-profile.md) sections. 
-
-After you created your own profile, save the file in the `.qodana` directory of your project so that %product% can 
+After you create your own profile, save the file in the `.qodana` directory of your project so that %product% can 
 ignore this file during code analysis.
 
 > If you run Qodana in a [CI/CD pipeline](ci.md), make sure the file containing the profile resides in the working
@@ -125,9 +107,9 @@ To learn how to set up a custom profile, see the [](#inspection-profiles-setup-a
 
 <link-summary>YAML configuration is the universal configuration method that works for all software.</link-summary>
 
-A YAML file is a universal %product% configuration. This means that you can configure the [`qodana.yaml`](qodana-yaml.md) file
-once and then re-use it for running %product% with Docker, GitHub, JetBrains IDEs or any other [software](ci.md) currently 
-supported by %product%, and it will work the same in all cases.
+A YAML file serves as a universal %product% configuration. This means that you can configure %product% using the [`qodana.yaml`](qodana-yaml.md) file
+once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs or any other [software](ci.md) currently 
+supported by %product%. The settings will remain consistent across all these platforms.
 
 <tabs group="profile-setup">
     <tab title="Qodana profile" group-key="qodana-profile">
@@ -158,28 +140,31 @@ supported by %product%, and it will work the same in all cases.
    <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
-   <p>In the <code>profile</code> section of the <ui-path>Run Qodana</ui-path> dialog, replace the 
-        <code>qodana.starter</code> profile invocation depending on your needs:</p>
+   <p>On the <code>profile</code> section of the <ui-path>Run Qodana</ui-path> dialog, paste the profile configuration:</p>
     <tabs group="profile-setup">
         <tab title="Qodana profile" group-key="qodana-profile">
             <code-block lang="yaml">
             profile:
             &nbsp;&nbsp;name: qodana.recommended
             </code-block>
+<p>This is an example of how the result will look:</p> 
+<img src="inspection-profiles-ide-default-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
         </tab>
         <tab title="Custom profile" group-key="custom-profile">
             <code-block lang="yaml">
             profile:
             &nbsp;&nbsp;&nbsp;&nbsp;path: .qodana/&lt;custom-profile.yaml&gt;
             </code-block>
+<p>This is an example of how the result will look:</p> 
+ <img src="inspection-profiles-ide-custom-profile.png" width="793" alt="Configuring a custom profile" border-effect="line"/>
         </tab>
     </tabs>
 </step>
-<step><p>In <ui-path>Run Qodana</ui-path> dialog, check the <ui-path>Save qodana.yaml in project root</ui-path> option.</p>
-   <img src="ide-plugin-configure-profile.png" width="793" alt="Configuring a Qodana profile" border-effect="line"/>
+<step><p>On the <ui-path>Run Qodana</ui-path> dialog, check the <ui-path>Save qodana.yaml in project root</ui-path> option.</p>
+   <img src="inspection-profiles-ide-save-file.png" width="793" alt="Saving qodana.yaml to a project root" border-effect="line"/>
 </step>
 <step>
-    <p>Click <ui-path>Run</ui-path> for inspecting your code using the <code>qodana.recommended</code> profile.</p>
+    <p>Click <ui-path>Run</ui-path> to start analyzing your code.</p>
 </step>
 </procedure>
 

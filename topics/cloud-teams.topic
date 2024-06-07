@@ -22,7 +22,7 @@
                 <p>This will open the <ui-path>New team</ui-path> dialog.</p>
             </step>
             <step>
-                <p>In the <ui-path>New team</ui-path> dialog, specify the team name and click <ui-path>Create team</ui-path>.</p>
+                <p>On the <ui-path>New team</ui-path> dialog, specify the team name and click <ui-path>Create team</ui-path>.</p>
                 <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="The New team dialog" width="706" border-effect="line"/>
             </step>
         </procedure>

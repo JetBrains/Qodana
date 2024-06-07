@@ -31,7 +31,7 @@ You can run %instance% locally and then forward inspection reports to [Qodana Cl
    <p>In your IDE, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
 </step>
 <step>
-   <p>In the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
+   <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
       <list>
         <li>Options used by %product% in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
          <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
@@ -58,7 +58,7 @@ latest %instance% report and view it.
    </step>
    <step>
       <p>
-         In the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
+         On the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
       </p>
       <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to Qodana Cloud" border-effect="line"/>
    <p>This will redirect you to the authentication page.</p>
@@ -93,7 +93,7 @@ the <a href="project-token.md"/> section.</note>
 <p>In your IDE, navigate to <ui-path>Tools | Qodana | Add Qodana to CI Pipeline</ui-path></p>
 </step>
 <step>
-<p>In the <ui-path>Add Qodana to CI Pipeline</ui-path> dialog, follow the recommendations applicable to your CI/CD solution.</p>
+<p>On the <ui-path>Add Qodana to CI Pipeline</ui-path> dialog, follow the recommendations applicable to your CI/CD solution.</p>
       <img src="ide-plugin-cicd-2.png" dark-src="ide-plugin-cicd-2_dark.png" width="706" alt="The Add Qodana to CI pipeline dialog" border-effect="line"/>
 </step>
 </procedure>

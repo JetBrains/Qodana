@@ -91,7 +91,7 @@ In the project navigator of IntelliJ IDEA, hover over the <code>inspections</cod
 and then navigate to <ui-path>New | Custom Inspection</ui-path>.
 </step>
 <step>
-<p>In the resultant dialog, you can choose from among various <a anchor="Inspection+types">local and global</a> inspection templates 
+<p>On the resultant dialog, you can choose from among various <a anchor="Inspection+types">local and global</a> inspection templates 
 that you can use as a basis for your inspection. Empty local and global templates are universal for any language supported by %feature%,
 while the local Java, Kotlin, JavaScript, and Typescript templates are language-specific.</p> 
 
