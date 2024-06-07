@@ -207,7 +207,7 @@ If your custom inspection conflicts with a %product% inspection, and you would s
 <a href="qodana-yaml.md" anchor="exclude-inspection">disable</a> the relevant %product% inspection.
 </note>
 
-%feature% is supported by the [default inspection profiles](inspection-profiles.md#Default+profiles).
+%feature% is supported by the [default inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles).
 
 To inspect your entire project with the new inspection locally, run %product% as explained in the 
 [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.

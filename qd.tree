@@ -34,7 +34,6 @@
 		<toc-element topic="python-draft.md" hidden="true"/>
 		<toc-element topic="dotnet-draft.md" hidden="true"/>
 		<toc-element topic="jvm-draft.md" hidden="true"/>
-		<toc-element topic="inspection-profiles-draft.md" hidden="true"/>
 	</toc-element>
 
 

@@ -111,14 +111,14 @@
 
     <chapter id="faq-what-profiles-offered" title="What inspection profiles does Qodana offer?" default-state="collapsed" collapsible="true">
         <p>You can find the list of the default Qodana inspection profiles on the
-            <a href="inspection-profiles.md" anchor="Default+profiles"/> page, where you can also find out how to set
+            <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"/> page, where you can also find out how to set
             up the default profiles.
         </p>
     </chapter>
 
     <chapter id="faq-how-select-profile" title="How can I choose the best profile for my project?" default-state="collapsed" collapsible="true">
         <p>We recommend using the
-            <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.recommended</code></a> profile
+            <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"><code>qodana.recommended</code></a> profile
             because it already provides the most usable inspections invoked by the default JetBrains IDEs profiles, so
             no additional configuration is required.
         </p>
@@ -467,7 +467,7 @@
 <chapter title="Troubleshooting" id="faq-troubleshooting">
 
     <chapter id="faq-zero-errors-report" title="Qodana reports zero errors, but this doesn’t seem correct." default-state="collapsed" collapsible="true">
-    <p>Use the <code>qodana.recommended</code> inspection <a href="inspection-profiles.md" anchor="Default+profiles">profile</a>.</p>
+    <p>Use the <code>qodana.recommended</code> inspection <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">profile</a>.</p>
         <p>If the <code>qodana.recommended</code> profile does not help, try to run another <a href="linters.md">linter</a>.</p>
     <p>If the problem persists, please create an issue in our tracker or contact us at <code>qodana-support@jetbrains.com</code> and
     attach logs from the <code>/data/results</code> directory that you can get access to by mounting your directory to the path.</p>

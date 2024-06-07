@@ -61,7 +61,7 @@ following linters:
 For the missing code coverage issues, the predefined threshold in %instance% is currently set to 50%.
 
 Code coverage employs several inspections that are already included in the `qodana.recommended` and `qodana.starter` 
-[default inspection profiles](inspection-profiles.md#Default+profiles), so you do not need to enable them:  
+[default inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles), so you do not need to enable them:  
 
 <!-- Do I need to enable any inspections in case of .NET -->
 

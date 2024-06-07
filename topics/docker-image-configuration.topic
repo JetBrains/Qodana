@@ -148,7 +148,7 @@
 
             <p>To learn more about profiles, see the
                 <a anchor="docker-config-reference-order-resolving-profile">Order of resolving a profile</a> and
-                <a href="inspection-profiles.md" anchor="Set+up+a+profile">Set up a profile</a> sections in this documentation.</p>
+                <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"/> sections in this documentation.</p>
 
         </chapter>
 
@@ -507,7 +507,7 @@
 
         <p>By default, %instance% inspects your code using the <code>qodana.starter</code> profile.</p>
 
-        <p>You can configure and override %instance% profiles either in the <a href="inspection-profiles.md" anchor="Set+up+a+profile"><code>qodana.yaml</code></a>
+        <p>You can configure and override %instance% profiles either in the <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"><code>qodana.yaml</code></a>
             file, or using the CLI options from this table.</p>
 
         <table>
@@ -518,14 +518,14 @@
             </tr>
             <tr>
                 <td><code>--disable-sanity</code></td>
-                <td>Skip running the inspections configured by the <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.sanity</code></a> profile</td>
+                <td>Skip running the inspections configured by the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"><code>qodana.sanity</code></a> profile</td>
                 <td>Enabled</td>
             </tr>
             <tr>
                 <td><code>-n</code>, <code>--profile-name</code></td>
                 <td><p>The <a anchor="docker-config-reference-profile-profile-name">profile name</a> taken either from the list of predefined %instance% profiles, or a custom profile name
                     stored in XML-formatted profile files as <code ignore-vars="true">&lt;option name="myName" value="%profileName%"/&gt;</code>.</p>
-                    <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file</p>
+                    <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"><code>qodana.yaml</code></a> file</p>
 
                 </td>
                 <td><code>qodana.starter</code></td>
@@ -534,7 +534,7 @@
                 <td><code>-p</code>, <code>--profile-path</code></td>
                 <td>
                     <p>The <a anchor="docker-config-reference-profile-profile-path">absolute path</a> to the profile file.</p>
-                    <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+path"><code>qodana.yaml</code></a> file</p>
+                    <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"><code>qodana.yaml</code></a> file</p>
                 </td>
                 <td>None</td>
             </tr>
@@ -550,13 +550,13 @@
         <chapter id="docker-config-reference-profile-profile-name" title="Profile name">
 
             <p filter="for-inspection-profiles">The <code>--profile-name</code> option lets you run %instance% using either
-                the <a href="inspection-profiles.md" anchor="Default+profiles">default profiles</a> or
-                the profile name from a <a href="inspection-profiles.md" anchor="Custom+profiles">custom profile</a>. </p>
+                the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profiles</a> or
+                the profile name from a <a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">custom profile</a>. </p>
 
-            <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file.</tip>
+            <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="inspection-profiles-yaml-file"><code>qodana.yaml</code></a> file.</tip>
 
             <p filter="for-inspection-profiles">This command lets you override the default profile und run %instance% using the
-                <a href="inspection-profiles.md" anchor="Default+profiles"><code>qodana.recommended</code></a> profile: </p>
+                <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"><code>qodana.recommended</code></a> profile: </p>
 
             <tabs group="cli-settings" filter="for-inspection-profiles">
                 <tab title="Docker image" group-key="docker-image">
@@ -609,7 +609,7 @@
 
             <p>The <code>--profile-path</code> option lets you override the path to the file containing the profile.</p>
 
-            <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="Profile+name"><code>qodana.yaml</code></a> file.</tip>
+            <tip>You can also configure this option using the <a href="inspection-profiles.md" anchor="inspection-profiles-yaml-file"><code>qodana.yaml</code></a> file.</tip>
 
             <p>This command lets you bind the file to the profile directory,
                 and the <code>--profile-path</code> option tells %instance% which profile file to read:</p>

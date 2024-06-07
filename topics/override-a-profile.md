@@ -9,7 +9,7 @@
 miss critical problems, which will affect your project overall. On the other hand, enabling too many inspections 
 can negatively affect inspection performance and can result in using inspections that are irrelevant to your project. 
 
-%product% provides the default `qodana.starter` and `qodana.recommended` [profiles](inspection-profiles.md#Default+profiles) that come in handy in most 
+%product% provides the default `qodana.starter` and `qodana.recommended` [profiles](inspection-profiles.md#inspection-profiles-existing-profiles) that come in handy in most 
 cases. You can override a default profile according to your needs, and this section provides basic recommendations 
 taken from the [](custom-profiles.md) section.
 

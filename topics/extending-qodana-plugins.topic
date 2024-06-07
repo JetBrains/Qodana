@@ -86,7 +86,7 @@
 
         <chapter id="extending-qodana-repository-plugins-configure-qodana" title="Configure %instance%">
             <p>In the project root directory, create the <code>qodana.yaml</code> file and specify the path to the
-                <a href="inspection-profiles.md" anchor="Profile+path">profile</a> location in it:</p>
+                <a href="inspection-profiles.md" anchor="inspection-profiles-yaml-file">profile</a> location in it:</p>
             <code-block lang="yaml">
                 profile:
                     path: ./qodana-inspection-profile.xml

@@ -73,8 +73,8 @@ can accept the following values:
 | `Default`             | The [default profile](#custom-profiles-default-profile-tip) taken from the JetBrains IDE                                                                                                                              |
 | `Project Default`     | The profile is basically similar to `Default`, but contains user changes stored in the `.idea/inspectionProfiles/Project_Default.xml` file                                                                            |
 | `Custom profile name` | Any name of an XML or YAML profile contained in the `.idea/inspectionProfiles` directory                                                                                                                              |
-| `qodana.starter`      | The [default](inspection-profiles.md#Default+profiles) %instance% profile, a subset of the `qodana.recommended` profile                                                                                                |
-| `qodana.recommended`  | The [default](inspection-profiles.md#Default+profiles) %instance% profile implementing the default profiles of JetBrains IDEs                                                                                          |
+| `qodana.starter`      | The [default](inspection-profiles.md#inspection-profiles-existing-profiles) %instance% profile, a subset of the `qodana.recommended` profile                                                                                                |
+| `qodana.recommended`  | The [default](inspection-profiles.md#inspection-profiles-existing-profiles) %instance% profile implementing the default profiles of JetBrains IDEs                                                                                          |
 | `empty`               | Severities and parameters of inspections are taken from `Project Default`, but none of the inspections are included. Using `empty`, you can you can build your profile [from scratch](#Create+a+profile+from+scratch) |
 
 If this parameter is missing, %instance% will employ the `Project Default` profile, so all settings applied in your custom 
@@ -287,7 +287,7 @@ inspections:
 
 ## Configuration examples
 
-Here you can find several examples of profile configuration. The [](inspection-profiles.md#Set+up+a+profile) section
+Here you can find several examples of profile configuration. The [](inspection-profiles.md#inspection-profiles-setup-a-profile) section
 explains how to run your profile while inspecting code.
 
 ### Exclude an inspection
@@ -470,5 +470,5 @@ inspections:
 
 ## Next steps
 
-After you configure your profile, you can follow the recommendations from the [](inspection-profiles.md#Set+up+a+profile)
+After you configure your profile, you can follow the recommendations from the [](inspection-profiles.md#inspection-profiles-setup-a-profile)
 section to run %product% using the profile.

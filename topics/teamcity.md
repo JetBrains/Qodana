@@ -59,7 +59,7 @@ using the basic options. Otherwise, click **Show advanced options** to expand th
    **Inspection profile** defines the inspection profile. For more information, see the [Configure profile](qodana-yaml.md) section.
    The available values are:
       * `Recommended (default)` is the default profile containing a preselected set of IntelliJ inspections 
-      * `Embedded profile` lets you select from any available profiles, see the [Default profiles](inspection-profiles.md#Default+profiles) section for details
+      * `Embedded profile` lets you select from any available profiles, see the [Default profiles](inspection-profiles.md#inspection-profiles-existing-profiles) section for details
       * `Path to the IntelliJ profile` lets you specify the path to a custom profile. Make sure that the `.idea` directory containing the profile file is added to your working directory.
 
    You can disable certain inspections later using the [`qodana.yaml`](qodana-yaml.md#exclude-paths) file or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.

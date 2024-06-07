@@ -54,8 +54,8 @@ To learn more about use-cases, see the [](before-running-qodana.md) section.
 
 ## Set up a profile
 
-Profile invocation is explained in the [Inspection profiles](inspection-profiles.md#Set+up+a+profile) section. Information
-about custom profiles is also provided [here](inspection-profiles.md#Custom+profiles).
+Profile invocation is explained in the [Inspection profiles](inspection-profiles.md#inspection-profiles-setup-a-profile) section. Information
+about custom profiles is also provided [here](inspection-profiles.md#inspection-profiles-custom-profiles).
 
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}
