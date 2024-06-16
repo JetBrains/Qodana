@@ -248,7 +248,7 @@ Here is an example of the [`qodana.yaml`](qodana-yaml.md) file configuration for
 dotnet:
   solution: <your-solution-file>
 
-bootstrap: dotnet build, cd <path-to-dir-with-test-project-file> && \\
+bootstrap: dotnet build; cd <path-to-dir-with-test-project-file> && \\
   dotnet add package coverlet.msbuild && \\
   ((dotnet test /p:CollectCoverage=true /p:CoverletOutput=<your-project-folder>/.qodana/code-coverage /p:CoverletOutputFormat=lcov))
 ```

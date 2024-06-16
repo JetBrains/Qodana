@@ -57,7 +57,7 @@ Java, Kotlin, and Groovy.</link-summary>
         <td>Databases and ORM</td>
         <td>
             <p>Hibernate ORM</p>
-            <p>MongoJS</p>
+            <p>MongoDB</p>
             <p>Oracle</p>
             <p>MySQL</p>
             <p>PostgreSQL</p>

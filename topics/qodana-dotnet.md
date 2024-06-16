@@ -69,7 +69,7 @@ Starting from version 2023.3, the functionality of .NET Framework-based project 
         <tr>
         <td>Databases and ORM</td>
         <td>
-            <p>MongoJS</p>
+            <p>MongoDB</p>
             <p>MySQL</p>
             <p>Oracle</p>
             <p>PostgreSQL</p>

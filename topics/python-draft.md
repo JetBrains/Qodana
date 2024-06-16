@@ -570,7 +570,7 @@ This table contains the list of technologies supported by both linters.
     <tr>
         <td>Databases and ORM</td>
         <td>
-            <p>MongoJS</p>
+            <p>MongoDB</p>
             <p>MySQL</p>
             <p>Oracle</p>
             <p>PostgreSQL</p>

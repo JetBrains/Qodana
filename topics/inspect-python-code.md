@@ -22,10 +22,10 @@ Here is the list of technologies and features supported by both linters.
 
 | Supported technologies and features                                                                                                                                     | [](qodana-python.md) | [](qodana-python-community.md) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------------|
-| Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, shell scripts, MongoJS, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid | &#x2714;             | &#x2714;                       |
+| Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, shell scripts, MongoDB, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid | &#x2714;             | &#x2714;                       |
 | [](baseline.topic)                                                                                                                                                      | &#x2714;             | &#x2714;                       |
 | [](quality-gate.topic)                                                                                                                                                  | &#x2714;             | &#x2714;                       |
-| [](license-audit.topic)                                                                                                                                                    | &#x2714;             | &#x274c;                       |
+| [](license-audit.topic)                                                                                                                                                 | &#x2714;             | &#x274c;                       |
 | [](quick-fix.md)                                                                                                                                                        | &#x2714;             | &#x274c;                       |
 | [](vulnerability-checker.md)                                                                                                                                            | &#x2714;             | &#x274c;                       |
 

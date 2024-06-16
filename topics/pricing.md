@@ -68,7 +68,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 | Technology    | Community   | Ultimate and Ultimate Plus  |
 |---------------|-------------|-----------------------------|
-| MongoJS       | &#x2714;    | &#x2714;                    |
+| MongoDB       | &#x2714;    | &#x2714;                    |
 | MySQL         | &#x2714;    | &#x2714;                    |
 | Oracle        | &#x2714;    | &#x2714;                    |
 | PostgreSQL    | &#x2714;    | &#x2714;                    |
