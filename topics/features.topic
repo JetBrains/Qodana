@@ -61,7 +61,7 @@
                     <p>Ultimate</p>
                     <p>Ultimate Plus</p>
                 </td>
-                <td>All <a href="linters.md">linters</a> except <a href="qodana-dotnet.md"/> and <a href="qodana-dotnet-community.md"/></td>
+                <td>All <a href="linters.md">linters</a> except <a href="qodana-dotnet.md"/>, <a href="qodana-dotnet-community.md"/> and <a href="qodana-clang.md"/></td>
             </tr>
             <tr>
                 <td><a href="license-audit.topic"/></td>

@@ -122,20 +122,21 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 <link-summary>You can review the list of features available for each Qodana license.</link-summary>
 
-| Feature                                               | Community | Ultimate  | Ultimate Plus | 
-|-------------------------------------------------------|-----------|-----------|---------------|
-| [Monorepo support](monorepo-project.md)               | &#x2714;  | &#x2714;  | &#x2714;      | 
-| [CI/CD integrations](ci.md)                           | &#x2714;  | &#x2714;  | &#x2714;      |
+| Feature                                                | Community | Ultimate  | Ultimate Plus | 
+|--------------------------------------------------------|-----------|-----------|---------------|
+| [Monorepo support](monorepo-project.md)                | &#x2714;  | &#x2714;  | &#x2714;      | 
+| [CI/CD integrations](ci.md)                            | &#x2714;  | &#x2714;  | &#x2714;      |
 | [Custom plugin support](extending-qodana-plugins.topic) | &#x2714;  | &#x2714;  | &#x2714;      |
-| [](baseline.topic)                                      | &#x2714;  | &#x2714;  | &#x2714;      |
-| [](quality-gate.topic)                                  | &#x2714;  | &#x2714;  | &#x2714;      |
-| Docker and Kubernetes support                         | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](code-coverage.md)                                  | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](quick-fix.md)                                      | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](php-language-upgrade.topic)                          | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](license-audit.topic)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](taint-analysis.md)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](vulnerability-checker.md)                          | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](baseline.topic)                                     | &#x2714;  | &#x2714;  | &#x2714;      |
+| [](quality-gate.topic)                                 | &#x2714;  | &#x2714;  | &#x2714;      |
+| [](flexinspect.md)                                     | &#x2714;  | &#x2714;  | &#x2714;      |
+| Docker and Kubernetes support                          | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](code-coverage.md)                                   | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](quick-fix.md)                                       | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](php-language-upgrade.topic)                         | &#x274c;  | &#x2714;  | &#x2714;      |
+| [](license-audit.topic)                                | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](taint-analysis.md)                                  | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](vulnerability-checker.md)                           | &#x274c;  | &#x274c;  | &#x2714;      |
 
 ### Data storage and processing
 {id="pricing-data-storage"}
