@@ -6,9 +6,9 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Troubleshooting" id="troubleshooting">
 
-    <p>This section contains information that can help you troubleshoot common problems.</p>
+    <p>This section contains information that can help you troubleshoot problems.</p>
 
-    <chapter id="troubleshooting-mounted-directories" title="List of Docker image paths">
+    <chapter id="troubleshooting-mounted-directories" title="Docker image paths">
 
         <link-summary>See the list of Docker image paths.</link-summary>
 
@@ -97,76 +97,20 @@
 
     </chapter>
 
-    <chapter id="troubleshooting-inspect-specific-directory" title="How to inspect a specific project directory within a repository">
+    <chapter id="troubleshooting-whitelist" title="IP addresses required by Qodana Cloud">
 
-        <link-summary>A typical project structure can have a directory structure explained in this section.</link-summary>
+        <p>To provide correct work of the contributor counting functionality, add the IP address range
+            54.76.32.8/32 to a list of allowed inbound connections on your side.</p>
 
-        <p>A typical project structure can have a directory structure similar to this:</p>
+    </chapter>
 
-        <code-block lang="bash">
-            repo/
-               .git/
-               project/
-               ...
-        </code-block>
+    <chapter id="troubleshooting-severities" title="Severity levels">
 
-        <p>Here, the <code>repo/.git</code> directory contains information that should be accessible by %instance%, and
-            the <code>repo/project</code> directory contains the project that needs to be inspected by %instance%. All
-            these samples mount the <code>repo/project</code> directory using the
-            <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--project-dir</code></a>
-            option, while the <code>QODANA_TOKEN</code> variable refers to the Qodana Cloud
-            <a href="project-token.md">project token</a>:</p>
+        <link-summary>This table shows the relation between various severities.</link-summary>
 
-        <tabs>
-            <tab title="Docker image">
-                <code-block lang="bash" prompt="$">
-                    docker run \
-                       -v repo/:/data/project/ \
-                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt; \
-                       --project-dir=/data/project/project/
-                </code-block>
-            </tab>
-            <tab title="Qodana CLI">
-                <code-block lang="bash" prompt="$">
-                    qodana scan \
-                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       --project-dir=/data/project/project/
-                </code-block>
-            </tab>
-            <tab title="GitHub Actions">
-                <code-block lang="yaml">
-                    name: Qodana
-                    on:
-                      workflow_dispatch:
-                      pull_request:
-                      push:
-                        branches:
-                          - main
-                          - 'releases/*'
+        <p>This table shows the relation between severities in JetBrains IDEs, SARIF files, and %product% reports.</p>
 
-                    jobs:
-                      qodana:
-                        runs-on: ubuntu-latest
-                        permissions:
-                          contents: write
-                          pull-requests: write
-                          checks: write
-                        steps:
-                          - uses: actions/checkout@v3
-                            with:
-                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                              fetch-depth: 0  # a full history is required for pull request analysis
-                          - name: 'Qodana Scan'
-                          uses: JetBrains/qodana-action@v2024.1
-                          with:
-                            args: --project-dir,project
-                          env:
-                            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-                </code-block>
-            </tab>
-        </tabs>
-
+        <include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
     </chapter>
 
     <chapter id="troubleshooting-before-scanning" title="Error messages about missing files, packages, modules, or classes">
@@ -180,7 +124,7 @@
             <a href="before-running-qodana.md"/> section.</p>
     </chapter>
 
-    <chapter id="troubleshooting-switch-off-inspection" title="How to disable a specific inspection for a specific file">
+    <chapter id="troubleshooting-switch-off-inspection" title="Disable a specific inspection for a specific file">
 
         <link-summary>Learn how you can disable inspections for a specific file.</link-summary>
 
@@ -202,19 +146,101 @@
         </code-block>
 
     </chapter>
+    <chapter id="troubleshooting-inspect-specific-directory" title="Inspect a specific project directory within a repository">
 
-    <chapter id="troubleshooting-whitelist" title="The list of IP addresses required by Qodana Cloud">
+        <link-summary>A typical project structure can have a directory structure explained in this section.</link-summary>
 
-        <p>To provide correct work of the contributor counting functionality, add the IP address range
-            54.76.32.8/32 to a list of allowed inbound connections on your side.</p>
+        <p>A typical project structure can have a directory structure similar to this:</p>
+
+        <code-block lang="bash">
+            repo/
+            .git/
+            project/
+            ...
+        </code-block>
+
+        <p>Here, the <code>repo/.git</code> directory contains information that should be accessible by %instance%, and
+            the <code>repo/project</code> directory contains the project that needs to be inspected by %instance%. All
+            these samples mount the <code>repo/project</code> directory using the
+            <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--project-dir</code></a>
+            option, while the <code>QODANA_TOKEN</code> variable refers to the Qodana Cloud
+            <a href="project-token.md">project token</a>:</p>
+
+        <tabs>
+            <tab title="Docker image">
+                <code-block lang="bash" prompt="$">
+                    docker run \
+                    -v repo/:/data/project/ \
+                    -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    jetbrains/qodana-&lt;linter&gt; \
+                    --project-dir=/data/project/project/
+                </code-block>
+            </tab>
+            <tab title="Qodana CLI">
+                <code-block lang="bash" prompt="$">
+                    qodana scan \
+                    -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    --project-dir=/data/project/project/
+                </code-block>
+            </tab>
+            <tab title="GitHub Actions">
+                <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                        workflow_dispatch:
+                        pull_request:
+                        push:
+                            branches:
+                                - main
+                                - 'releases/*'
+
+                    jobs:
+                        qodana:
+                            runs-on: ubuntu-latest
+                            permissions:
+                                contents: write
+                                pull-requests: write
+                                checks: write
+                            steps:
+                                - uses: actions/checkout@v3
+                                  with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                - name: 'Qodana Scan'
+                                  uses: JetBrains/qodana-action@v2024.1
+                                  with:
+                                      args: --project-dir,project
+                                  env:
+                                    QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code-block>
+            </tab>
+        </tabs>
 
     </chapter>
 
-    <chapter id="troubleshooting-severities" title="Severity levels">
+    <chapter id="troubleshooting-run-behind-a-proxy" title="Run %product% behind a proxy server">
 
-        <link-summary>This table showing the relation between various severities.</link-summary>
-
-        <include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
+        <p>Follow these steps to run %product% behind a proxy server:</p>
+        <procedure>
+            <step>Create the <code>proxy.settings.xml</code> file. Make sure that this file is accessible by %product%.</step>
+            <step><p>In the <code>proxy.settings.xml</code> file, save information about the proxy server:</p>
+                <code-block lang="xml">
+                    &lt;application&gt;
+                        &lt;component name="HttpConfigurable"&gt;
+                            &lt;option name="USE_HTTP_PROXY" value="true" /&gt;
+                            &lt;option name="PROXY_HOST" value="&lt;ProxyHost&gt;" /&gt;
+                            &lt;option name="PROXY_PORT" value="&lt;ProxyPort&gt;" /&gt;
+                            &lt;!-- Add more settings as needed --&gt;
+                        &lt;/component&gt;
+                    &lt;/application&gt;
+                </code-block>
+            </step>
+            <step><p>In the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>qodana.yaml</code></a> file, save this <code>boostrap</code> command to copy
+                that will copy the <code>proxy.settings.xml</code> file to a %product% Docker image:</p>
+                <code-block>
+                    boostrap: cp proxy.settings.xml /root/.config/idea/options/proxy.settings.xml
+                </code-block>
+            </step>
+        </procedure>
     </chapter>
-
 </topic>
