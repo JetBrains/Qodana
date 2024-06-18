@@ -220,9 +220,9 @@
 
     <chapter id="troubleshooting-run-behind-a-proxy" title="Run %product% behind a proxy server">
 
-        <p>Follow these steps to run %product% behind a proxy server:</p>
-        <procedure>
-            <step>Create the <code>proxy.settings.xml</code> file. Make sure that this file is accessible by %product%.</step>
+        <p>Follow these steps to prepare an existing %product% Docker image to run behind a proxy server:</p>
+        <procedure id="troubleshooting-behind-a-proxy-existing">
+            <step>Create the <code>proxy.settings.xml</code> file and save it in the <code>.qodana</code> directory at the root of your project.</step>
             <step><p>In the <code>proxy.settings.xml</code> file, save information about the proxy server:</p>
                 <code-block lang="xml">
                     &lt;application&gt;
@@ -235,12 +235,57 @@
                     &lt;/application&gt;
                 </code-block>
             </step>
-            <step><p>In the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>qodana.yaml</code></a> file, save this <code>boostrap</code> command to copy
-                that will copy the <code>proxy.settings.xml</code> file to a %product% Docker image:</p>
+            <step><p>In the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>qodana.yaml</code></a> file,
+                save this <code>boostrap</code> command that will copy the <code>proxy.settings.xml</code> file
+                to a %product% Docker image:</p>
                 <code-block>
-                    boostrap: cp proxy.settings.xml /root/.config/idea/options/proxy.settings.xml
+                    boostrap: cp .qodana/proxy.settings.xml /root/.config/idea/options/proxy.settings.xml
                 </code-block>
             </step>
         </procedure>
+    <p>To create your custom %product% image containing proxy server settings, follow this procedure:</p>
+        <procedure id="troubleshooting-behind-a-proxy-custom">
+            <step><p>Create the <code>proxy.settings.xml</code> file and include the proxy server information in it:</p>
+                <code-block lang="xml">
+                    &lt;application&gt;
+                        &lt;component name="HttpConfigurable"&gt;
+                            &lt;option name="USE_HTTP_PROXY" value="true" /&gt;
+                            &lt;option name="PROXY_HOST" value="&lt;ProxyHost&gt;" /&gt;
+                            &lt;option name="PROXY_PORT" value="&lt;ProxyPort&gt;" /&gt;
+                            &lt;!-- Add more settings as needed --&gt;
+                        &lt;/component&gt;
+                    &lt;/application&gt;
+                </code-block>
+            </step>
+            <step>
+                <p>Use this sample to create <code>Dockerfile</code>:</p>
+                <code-block lang="docker">
+                    FROM docker.io/jetbrains/qodana-&lt;linter&gt;:2024.1
+                    LABEL version="1.0.0"
+
+                    ##Copy the proxy.settings.xml file
+                    COPY proxy.settings.xml /root/.config/idea/options/proxy.settings.xml
+
+                    ##Copy the gradle.properties file (optional)
+                    COPY gradle.properties ~/.gradle/gradle.properties
+
+                    ##Install certificates
+                    COPY &lt;your_certificate&gt; &lt;path_to_certificate&gt;
+                    RUN $JAVA_HOME/bin/keytool -import -trustcacerts -alias dc-ca -keystore $JAVA_HOME/lib/security/cacerts -noprompt -storepass changeit -file &lt;path_to_certificate&gt;
+                    COPY &lt;your_certificate&gt; /etc/ssl/certs
+                    RUN chmod  444 /etc/ssl/certs/&lt;your_certificate&gt;
+
+                    ##Set proxy
+                    ENV http_proxy &lt;proxy&gt;
+                    ENV https_proxy &lt;proxy&gt;
+                    ENV HTTP_PROXY &lt;proxy&gt;
+                    ENV HTTPS_PROXY &lt;proxy&gt;
+                    ENV ftp_proxy $http_proxy
+                    ENV dns_proxy $http_proxy
+                    ENV rsync_proxy $http_proxy
+                </code-block>
+            </step>
+        </procedure>
+
     </chapter>
 </topic>
