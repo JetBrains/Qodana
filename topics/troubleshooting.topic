@@ -220,6 +220,8 @@
 
     <chapter id="troubleshooting-run-behind-a-proxy" title="Run %product% behind a proxy server">
 
+        <p>Depending on your needs, you can run %product% behind a proxy server using an existing %product% Docker image,
+            or create a Docker image from scratch.</p>
         <p>Follow these steps to prepare an existing %product% Docker image to run behind a proxy server:</p>
         <procedure id="troubleshooting-behind-a-proxy-existing">
             <step>Create the <code>proxy.settings.xml</code> file and save it in the <code>.qodana</code> directory at the root of your project.</step>

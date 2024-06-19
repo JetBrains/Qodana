@@ -26,7 +26,9 @@
 			<toc-element topic="code-inspections.topic"/>
 			<toc-element topic="project-token.md"/>
 			<toc-element topic="contributors.md"/>
+			<toc-element topic="repository-key.md" hidden="true"/>
 		</toc-element>
+
 	</toc-element>
 
 	<!-- The future section about linters. Currently hidden from the TOC -->
@@ -142,11 +144,11 @@
 		</toc-element>
 	</toc-element>
 	<!-- Extending Qodana section -->
-	<toc-element title="Extending Qodana" topic="extending-qodana.topic">
+	<toc-element topic="extending-qodana.topic">
 		<toc-element topic="extending-qodana-plugins.topic"/>
 		<toc-element topic="extending-qodana-structural-search.topic"/>
 	</toc-element>
 	<!-- Troubleshooting section -->
-	<toc-element title="Troubleshooting" topic="troubleshooting.topic"/>
+	<toc-element topic="troubleshooting.topic"/>
 	<toc-element toc-title="Inspectopedia" href="https://www.jetbrains.com/help/inspectopedia/WhatIsNewInspections.html"/>
 </instance-profile>

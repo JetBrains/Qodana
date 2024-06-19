@@ -62,7 +62,8 @@ about custom profiles is also provided [here](inspection-profiles.md#inspection-
 
 <link-summary>You can exclude files and paths from analyses.</link-summary>
 
-You can exclude files and paths from analyses on a per-inspection basis and for all inspections at once. 
+You can exclude files and paths from analyses on a per-inspection basis and for all inspections at once.
+Information about inspection IDs is available on the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) website.
 
 To exclude all paths in a project from the analysis scope, omit the `paths` node.
 
@@ -119,7 +120,9 @@ You can find specific inspection IDs in the Profile settings in the HTML report 
 
 <link-summary>You can tell %product% to analyze files of a certain directory by an inspection that is not contained in the selected profile.</link-summary>
 
-You can tell %product% to analyze files of a certain directory by an inspection that is not contained in the selected profile. This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
+You can tell %product% to analyze files of a certain directory by an inspection that is not contained in the selected profile. 
+This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
+Information about inspection IDs is available on the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) website.
 
 ### Example
 {id="include-example"}
