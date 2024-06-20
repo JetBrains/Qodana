@@ -6,15 +6,16 @@ By default, %instance% runs its linters using Docker based on Linux images.
 In specific cases, you have to deal with private packages or run %instance% on the operating systems that
 provide incomplete support for Docker. 
 
-To overcome this, starting from version 2023.3 %instance% supports the native mode for the [](qodana-dotnet.md) mode by default. 
+To overcome this, %instance% supports the native mode for the [](qodana-dotnet.md) linter. 
 In this case, %instance% reuses its execution environment, which lets you execute %instance% in exactly the same 
 environment as you use for building the projects, use the correct operating system, have access to all repository
 credentials, and resolve dependencies. 
 
 ## Before you start
 
-<note>The native mode is incompatible with several Docker image-related options like <code>-l, --linter</code>, 
-<code>-e, --env</code>, and <code>-v, --volume</code>. </note>
+> The native mode is incompatible with Docker containers of %product%, which means that you run
+> the [](qodana-dotnet.md) linter either as a Docker container or in a native mode.
+> {style="note"}
 
 Make sure that you have a proper version of the .NET SDK and all required dependencies installed on your machine.
 
@@ -44,24 +45,53 @@ that %instance% has access to private NuGet feeds.
 
 ## How it works
 
+> The native mode is incompatible with several Docker image-related options like `-l, --linter`,
+`-e, --env`, and `-v, --volume`.
+> {style="note"}
+
 Assuming that you have already installed [Qodana CLI](https://github.com/JetBrains/qodana-cli) and followed the instructions
 from the [previous section](#Before+you+start), you have two options for running %instance% in the native mode:  
 
 <tabs group="cli-settings">
     <tab title="Qodana CLI" group-key="native-mode-qodana-cli">
-        <code-block lang="shell" prompt="$">
-            qodana scan \
-            &nbsp;&nbsp;&nbsp;--ide QDNET
-        </code-block>
-        <p>This command will download the required JetBrains IDE binary file and start %instance%.</p>
-        <p>If you have already specified <code>ide: QDNET</code> in the <code>qodana.yaml</code> file, you do not have
-        to use it in this command, so this command is already sufficient:</p>
-        <code-block lang="shell" prompt="$">qodana scan</code-block>
+        <procedure>
+            <step>
+                <p>In the project root directory, declare the <code>QODANA_TOKEN</code> variable containing the 
+                <a href="project-token.md">project token</a>:</p>
+                <code-block lang="shell" prompt="$">
+                    QODANA_TOKEN=&lt;cloud-project-token&gt;
+                </code-block>
+            </step>
+            <step>
+                <p>Run %product% using this command:</p>
+                <code-block lang="shell" prompt="$">
+                    qodana scan \
+                    &nbsp;&nbsp;&nbsp;--ide QDNET
+                </code-block>
+                <p>This command will download the required JetBrains IDE binary file and start %instance%.</p>
+                <p>If you have already specified <code>ide: QDNET</code> in the <code>qodana.yaml</code> file, you can 
+                use this command:</p>
+                <code-block lang="shell" prompt="$">qodana scan</code-block>
+            </step>
+        </procedure>
     </tab>
     <tab title="qodana.yaml" group-key="native-mode-qodana-yaml">
-    <p>In the <code>qodana.yaml</code> file, save the following configuration:</p> 
-    <code-block lang="yaml">ide: QDNET</code-block> 
-    <p>Run %instance% using this command:</p> 
-    <code-block lang="shell" prompt="$">qodana scan</code-block>
+    <procedure>
+            <step>
+                <p>In the <code>qodana.yaml</code> file, save the following configuration:</p> 
+                <code-block lang="yaml">ide: QDNET</code-block> 
+            </step>
+            <step>
+                <p>In the project root directory, declare the <code>QODANA_TOKEN</code> variable containing the 
+                <a href="project-token.md">project token</a>:</p>
+                <code-block lang="shell" prompt="$">
+                    QODANA_TOKEN=&lt;cloud-project-token&gt;
+                </code-block>
+            </step>
+            <step>
+                <p>Run %instance% using this command:</p> 
+                <code-block lang="shell" prompt="$">qodana scan</code-block>
+            </step>
+    </procedure>
     </tab>
 </tabs>
