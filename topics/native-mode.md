@@ -32,7 +32,7 @@ case, in your repository create the empty `qodana.yaml` file to eliminate warnin
 In your operating system, save the `QODANA_TOKEN` environment variable containing the %instance% Cloud
 [project token](project-token.md).
 
-[Install Qodana CLI](Quick-start.topic#quickstart-run-using-cli) on the machine where you plan to run %instance%.
+[Install Qodana CLI](Quick-start.topic#quickstart-run-using-cli) on the machine where you plan to run %instance% locally.
 
 Starting from the version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file 
 containing the `bootstrap` key is missing in your project directory. The [`bootstrap`](before-running-qodana.md) 
@@ -49,49 +49,70 @@ that %instance% has access to private NuGet feeds.
 `-e, --env`, and `-v, --volume`.
 > {style="note"}
 
-Assuming that you have already installed [Qodana CLI](https://github.com/JetBrains/qodana-cli) and followed the instructions
-from the [previous section](#Before+you+start), you have two options for running %instance% in the native mode:  
+You can enable the native mode ba saving this configuration in the [`qodana.yaml`](qodana-yaml.md) file: 
+
+```yaml
+ide: QDNET
+```
+
+This configuration tells %product% to download and employ the required JetBrains IDE binary file while running.
+
+Below are the examples showing how you can run %product% in the native mode:
 
 <tabs group="cli-settings">
     <tab title="Qodana CLI" group-key="native-mode-qodana-cli">
-        <procedure>
-            <step>
-                <p>In the project root directory, declare the <code>QODANA_TOKEN</code> variable containing the 
-                <a href="project-token.md">project token</a>:</p>
-                <code-block lang="shell" prompt="$">
-                    QODANA_TOKEN=&lt;cloud-project-token&gt;
-                </code-block>
-            </step>
-            <step>
-                <p>Run %product% using this command:</p>
-                <code-block lang="shell" prompt="$">
-                    qodana scan \
-                    &nbsp;&nbsp;&nbsp;--ide QDNET
-                </code-block>
-                <p>This command will download the required JetBrains IDE binary file and start %instance%.</p>
-                <p>If you have already specified <code>ide: QDNET</code> in the <code>qodana.yaml</code> file, you can 
-                use this command:</p>
-                <code-block lang="shell" prompt="$">qodana scan</code-block>
-            </step>
-        </procedure>
+                <procedure>
+                    <step>
+                        <p>Make sure that the <code>QODANA_TOKEN</code> variable is defined in the environment and refers to a proper 
+                        <a href="project-token.md">project token</a>. If necessary, you can define it:</p>
+                        <code-block lang="shell" prompt="$">
+                            QODANA_TOKEN=&lt;cloud-project-token&gt;
+                        </code-block>
+                    </step>
+                    <step>
+                        <p>If you have already enabled the native mode using the <code>qodana.yaml</code> file, use this 
+                        command:</p>
+                        <code-block lang="shell" prompt="$">qodana scan</code-block>
+                        <p>You can also run %product% without configuring the <code>qodana.yaml</code> file:</p>
+                        <code-block lang="shell" prompt="$">
+                            qodana scan \
+                            &nbsp;&nbsp;&nbsp;--ide QDNET
+                        </code-block>
+                    </step>
+                </procedure>
     </tab>
-    <tab title="qodana.yaml" group-key="native-mode-qodana-yaml">
-    <procedure>
-            <step>
-                <p>In the <code>qodana.yaml</code> file, save the following configuration:</p> 
-                <code-block lang="yaml">ide: QDNET</code-block> 
-            </step>
-            <step>
-                <p>In the project root directory, declare the <code>QODANA_TOKEN</code> variable containing the 
-                <a href="project-token.md">project token</a>:</p>
-                <code-block lang="shell" prompt="$">
-                    QODANA_TOKEN=&lt;cloud-project-token&gt;
-                </code-block>
-            </step>
-            <step>
-                <p>Run %instance% using this command:</p> 
-                <code-block lang="shell" prompt="$">qodana scan</code-block>
-            </step>
-    </procedure>
+    <tab title="GitHub Actions" group-key="native-mode-github">
+        <p>If you have already enabled the native mode using the <code>qodana.yaml</code> file, you can use a 
+        <a href="github.md" anchor="Basic+configuration">basic configuration</a> sample from the GitHub Actions section.</p>
+        <p>To run %product% without configuring the <code>qodana.yaml</code> file, in your GitHub repository navigate to 
+        a <a href="github.md" anchor="Basic+configuration">workflow configuration</a> file and specify the <code>--ide,QDNET</code> option:</p>
+        <code-block lan="yaml">
+        name: Qodana
+        on:
+          workflow_dispatch:
+          pull_request:
+          push:
+            branches:
+              - master
+              - 'releases/*'
+        jobs:
+          qodana:
+            runs-on: ubuntu-latest
+            permissions:
+              contents: write
+              pull-requests: write
+              checks: write
+            steps:
+              - uses: actions/checkout@v3
+                with:
+                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                  fetch-depth: 0  # a full history is required for pull request analysis
+              - name: 'Qodana Scan'
+                uses: JetBrains/qodana-action@v2024.1
+                with:
+                  args: --ide,QDNET
+                env:
+                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
     </tab>
 </tabs>
