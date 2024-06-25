@@ -16,6 +16,12 @@
 <var name="Gplugin" value="https://plugins.jenkins.io/git/"/>
 <var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="MultipipeCreate" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
+<var name="TeamCityProject" value="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project"/>
+<var name="TeamCityBuildConfig" value="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html"/>
+<var name="TeamCityBuildSteps" value="https://www.jetbrains.com/help/teamcity/configuring-build-steps.html"/>
+<var name="TeamCityCommandLine" value="https://www.jetbrains.com/help/teamcity/command-line.html#General+Settings"/>
+<var name="TeamCityPullRequests" value="https://www.jetbrains.com/help/teamcity/pull-requests.html"/>
+<var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
 
 <link-summary>You can analyze your Python code using the %qp% and %qp-co% linters.</link-summary>
 
@@ -174,9 +180,12 @@ qodana:
 <a href="project-token.md">project token</a>.</li>
 </list>
 </tab>
+<tab title="TeamCity">
+  <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+</tab>
 </tabs>
 
-### Other ways to run locally
+### Command line
 {id="python-run-qodana-locally"}
 
 >Before running %product%, create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, generate a
@@ -275,33 +284,8 @@ Out of the box, Qodana provides two predefined profiles hosted on
 * `qodana.recommended` is suitable for running in CI/CD pipelines and mostly implements the default %ide% profile, see the
   [PyCharm](https://www.jetbrains.com/help/pycharm/customizing-profiles.html) documentation for details.
 
-You can customize %product% profiles using configurations in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats. 
-
-For example, you can enable JavaScript and TypeScript inspections by overriding the `qodana.recommended` profile as shown
-below.
-
-<procedure>
-<step>
-  <p>In the project directory, create a YAML file and save this profile configuration to it:</p>
-<code-block lang="yaml">
-name: "Enabling JavaScript and TypeScript" 
-baseProfile: qodana.recommended
-inspections:
-   - group: "category:JavaScript and TypeScript" # Specify the inspection category
-     enabled: true # Enable the JavaScript and TypeScript category
-</code-block>
-</step>
-<step>
-<p>In the <code>qodana.yaml</code> file, save this configuration to enable your profile:</p>
-<code-block lang="yaml">
-profile:
-  path: &lt;relative-path-to-yaml-config-file&gt;
-</code-block>
-</step>
-</procedure>
-
-To learn more about configuration basics, visit the [](override-a-profile.md) section. Complete guides are 
-available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
+You can customize %product% profiles using configurations in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
+To learn more about configuration basics, visit the [](override-a-profile.md) section.
 
 ### Enabling the baseline
 
@@ -410,9 +394,18 @@ qodana:
       expose_as: 'Qodana report'
 </code-block>
 </tab>
+<tab title="TeamCity">
+<include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+</tab>
+<tab title="TeamCity">
+
+Using the **Additional Qodana arguments** field of the [`Qodana`](teamcity.md#teamcity-qodana-runner) runner configuration, 
+you can configure the [baseline](baseline.topic) feature by adding the `--baseline <path/to/qodana.sarif.json>` option. 
+
+</tab>
 </tabs>
 
-#### Local run
+#### Command line
 {id="python-enable-baseline-local-run"}
 
 In these snippets, the `--baseline` option configures the path to the SARIF-formatted file containin a baseline: 
@@ -530,9 +523,14 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
 </code-block>
 <p>Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a base for comparison.</p>
 </tab>
+<tab title="TeamCity">
+<p>Information about configuring TeamCity for analyzing pull and merge requests is available on the 
+<a href="%TeamCityPullRequests%">TeamCity</a> documentation portal.
+</p>
+</tab>
 </tabs>
 
-#### Local run
+#### Command line
 {id="python-pull-requests-local-run"}
 
 To analyze changes in your code, employ the `--diff-start` option and specify a hash of the commit that will act as a

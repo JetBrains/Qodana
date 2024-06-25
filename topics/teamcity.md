@@ -1,10 +1,16 @@
 [//]: # (title: TeamCity)
 
-<link-summary>Starting from version 2022.04, Qodana functionality is available in TeamCity by default.</link-summary>
+<link-summary>Qodana functionality is available in TeamCity by default as a build step runner.</link-summary>
 
-<var name="TeamCityLink" value="www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
+<var name="TeamCityProject" value="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project"/>
+<var name="TeamCityBuildConfig" value="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html"/>
+<var name="TeamCityBuildSteps" value="https://www.jetbrains.com/help/teamcity/configuring-build-steps.html"/>
+<var name="TeamCityCommandLine" value="https://www.jetbrains.com/help/teamcity/command-line.html#General+Settings"/>
+<var name="TeamCityPullRequests" value="https://www.jetbrains.com/help/teamcity/pull-requests.html"/>
+<var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
 
-Starting from `2022.04`, Qodana functionality is available in TeamCity by default. To start using it, these prerequisites
+%product% is available in TeamCity as the `Qodana` 
+[build runner](https://www.jetbrains.com/help/teamcity/build-runner.html). To start using it, these prerequisites
 need to be met:
 
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
@@ -15,140 +21,186 @@ need to be met:
 
 <note>Currently, running Qodana on Windows-based build agents of TeamCity is not supported.</note>
 
-### Add a Qodana runner 
+### Add the Qodana runner
+{id="teamcity-qodana-runner"}
 
 <link-summary>You can configure the %product% runner in a TeamCity build.</link-summary>
 
-Assuming that you have already created your [project](https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project) and configured your build, follow the steps below.    
+<snippet id="teamcity-add-a-qodana-runner">
 
-1. Navigate to your build configuration.
-   
-   <img src="teamcity-plugin-1.png" alt="Navigating to the build configuration" width="706" border-effect="line"/>
+Assuming that you have already created your [project](%TeamCityProject%) and [build configuration](%TeamCityBuildConfig%), follow the steps below.    
 
-2. On the build configuration page, select **Build Steps** from the **Edit configuration** list.
-   
-   <img src="teamcity-plugin-2.png" alt="Navigating to the step configuration" width="706" border-effect="line"/>
+<procedure>
+   <step>
+      In the TeamCity UI, navigate to the <a href="%TeamCityBuildConfig%">configuration page</a> of a build where you would 
+      like to run %product%.
+   </step>
+   <step>
+      On the <ui-path>Build Configuration Settings</ui-path> page, navigate to the <a href="%TeamCityBuildSteps%"><ui-path>Build steps</ui-path></a> page.
+   </step>
+   <step>
+      On the <ui-path>Build steps</ui-path> page, click the <ui-path>Add build step</ui-path> button.
+   </step>
+   <step>
+      On the page that opens, select the <ui-path>Qodana</ui-path> runner.
+   </step>
+   <step>
+      <p>On the <ui-path>New Build Step: Qodana</ui-path> page, click <ui-path>Show advanced options</ui-path> and configure the <ui-path>%product%</ui-path> runner:</p> 
+   <list>
+   <li>
+      <ui-path>Step name</ui-path> uniquely identifies this step among other build steps.
+   </li>
+   <li>
+      <ui-path>Step ID</ui-path> uniquely identifies this step among other build steps.
+   </li>
+   <li>
+      <ui-path>Execute step</ui-path> configures the build condition that will trigger this build step.
+   </li>
+   <li>
+      <ui-path>Working directory</ui-path> sets the directory for the build process, see the <a href="https://www.jetbrains.com/help/teamcity/build-working-directory.html">TeamCity</a> documentation for details. 
+      You can leave this field empty if the <code>Checkout directory</code> parameter is specified on the <ui-path>Version Control Settings</ui-path> tab.
+   </li>
+   <li>
+      <ui-path>Report ID</ui-path> uniquely identifies the report to let you distinguish between multiple reports when several inspection steps are configured within a single build.
+   </li>
+   <li>
+      The <ui-path>Forward reports to TeamCity tests</ui-path> checkbox configures %instance% report availability in 
+         the <a href="https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab">Test tab</a> of the 
+      TeamCity UI. Using this option, you can view codebase problems along with other problems detected. 
+   </li>
+   <li>
+      <ui-path>Linter</ui-path> configures the <a href="linters.md">%product% linter</a>.
+   </li>
+   <li>
+      <ui-path>Version</ui-path> is by default set to <code>Latest</code>.
+   </li>
+   <li>
+      <p><ui-path>Inspection profile</ui-path> defines an <a href="inspection-profiles.md">inspection profile</a>:</p>
+      <list>
+         <li><code>Recommended (default)</code> is one of the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profiles</a>.</li>
+         <li><code>Embedded profile</code> lets you select a default profile, see the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"/> section for details.</li>
+         <li><code>Path to the IntelliJ profile</code> lets you specify the path to your <a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">custom profile</a>. To use this option, 
+      make sure that you also configure the custom profile in the <a href="inspection-profiles.md" anchor="inspection-profiles-yaml-file"><code>qodana.yaml</code></a> file.</li>
+      </list>
+   </li>
+   <li><ui-path>Cloud Token</ui-path> configures a <a href="project-token.md">project token</a> generated in Qodana Cloud. </li>
+   <li>
+      <ui-path>Additional Docker arguments</ui-path> configures the arguments accepted by a Docker image, see the <a href="docker-image-configuration.topic"/> section for details.
+   </li>
+   <li>
+      <ui-path>Additional Qodana arguments</ui-path> lets you extend the default Qodana functionality, see the <a href="docker-image-configuration.topic" anchor="docker-config-reference-option-overview"/> section for details.
+   </li>
+   </list>
+      <img src="teamcity-runner.png" alt="Configuring the Qodana runner" width="680" border-effect="line"/>
+   </step>
+   <step>
+      Click the <ui-path>Save</ui-path> button.
+   </step>
+</procedure>
 
-3. On the **Build steps** page, click the **Add build step** button.
-   
-   <img src="teamcity-plugin-3.png" alt="Creating a new build step" width="706" border-effect="line"/>
+</snippet>
 
-4. From the **Runner type** list, select **Qodana** as a runner. On the **New Build Step** page, you can configure the `Qodana` runner
-using the basic options. Otherwise, click **Show advanced options** to expand the list of configuration options.
-   
-   <img src="teamcity-plugin-4.png" alt="Expanding all configuration options of the Qodana runner" width="706" border-effect="line"/>
-   
-5. Fill in the fields using this description.
+### Quality gate and baseline
 
-   **Step name** uniquely identifies this step among other build steps.
+<snippet id="teamcity-code-quality-baseline">
 
-   **Execute step** configures the build condition that will trigger this build step.
-   
-   **Working directory** sets the directory for the build process. For more information, see the [TeamCity](https://www.jetbrains.com/help/teamcity/2021.2/build-working-directory.html) documentation. You can leave this field empty if the `Checkout directory` parameter is specified on the **Version Control Settings** tab.
+Using the **Additional Qodana arguments** field of the [`Qodana`](#teamcity-qodana-runner) runner configuration, you can configure the 
+[quality gate](quality-gate.topic) and [baseline](baseline.topic) features:
 
-   **Report ID** uniquely identifies the report to let you distinguish between multiple reports when several inspection steps are configured within a single build.
+* `--fail-threshold <number>` option for configuring a quality gate, 
+* `--baseline <path/to/qodana.sarif.json>` option for configuring a baseline. 
 
-   The **Forward reports to TeamCity tests** checkbox configures %instance% report availability in 
-   the [Test](https://www.jetbrains.com/help/teamcity/build-results-page.html#Tests+Tab) tab of TeamCity UI. Using this 
-   option, you can view codebase problems along with other problems detected. 
+To configure both options, in the **Additional Qodana arguments** field separate them using a space character: 
 
-   **Linter** configures the [Qodana Linter](linters.md).
+```Shell
+--fail-threshold <number> --baseline <path/to/qodana.sarif.json>
+```
 
-   **Version** is by default set to `Latest`.
+</snippet>
 
-   **Inspection profile** defines the inspection profile. For more information, see the [Configure profile](qodana-yaml.md) section.
-   The available values are:
-      * `Recommended (default)` is the default profile containing a preselected set of IntelliJ inspections 
-      * `Embedded profile` lets you select from any available profiles, see the [Default profiles](inspection-profiles.md#inspection-profiles-existing-profiles) section for details
-      * `Path to the IntelliJ profile` lets you specify the path to a custom profile. Make sure that the `.idea` directory containing the profile file is added to your working directory.
+### Analyze pull requests and specific branches
 
-   You can disable certain inspections later using the [`qodana.yaml`](qodana-yaml.md#exclude-paths) file or [Profile settings](ui-overview.md#Adjust+your+inspection+profile) in your HTML report.
+Information about configuring TeamCity for analyzing pull and merge requests is available on the 
+[TeamCity](%TeamCityPullRequests%) documentation portal.
 
-   **Additional arguments for 'docker run'** configures the arguments accepted by a Docker image, see the [](docker-image-configuration.topic) section for details.
+To learn how to analyze specific branches, see the [Trigger Settings](%TeamCityBranches%) section of the TeamCity documentation.
 
-   **Additional Qodana arguments** lets you extend the default Qodana functionality, see the [Docker image configuration](docker-image-configuration.topic) page for details.
-
-7. Click **Save**. Now you can run Qodana in the build.
-
-### Configure the project token
-
-<link-summary>The project token is required by the paid %instance% linters, and is optional for using with the Community linters.</link-summary>
-
-The [project token](project-token.md) is required by the paid %instance% [linters](pricing.md#pricing-linters-licenses),
-and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:  
-
-* The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
-
-To apply the generated project token, follow these steps:
-
-1. In the TeamCity UI, open the build step that will run %instance%.
-2. In the **Cloud Token** field, insert the [Qodana Cloud token](cloud-projects.topic#cloud-manage-projects) value.
-
-   <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
-
-### (Optional) Add a configuration script
+### Add a configuration script
 {id="add-script"}
 
 <link-summary>Custom profile configuration for Qodana linters is stored in the qodana.yaml file. When using a CI system, 
 you need to put this file to the working directory manually. Alternatively, you can write a script that will do it for you.</link-summary>
 
-Custom profile configuration for Qodana linters is stored in `qodana.yaml`. When using a CI system, you need to put 
-this file to the working directory manually. Alternatively, you can write a script that will do it for you.
+<!-- This should be rewritten the same way as before -->
 
-1. Navigate to your build configuration.
-   
-   <img src="teamcity-plugin-1.png" alt="Navigating to the build configuration" width="706" border-effect="line"/>
+Custom profile configuration for Qodana linters is stored in the [`qodana.yaml`](qodana-yaml.md) file. When using a CI 
+system, you need to put this file to the working directory manually. Alternatively, you can write a script that will do it for you.
 
-2. On the build configuration page, select **Build Steps** from the **Edit configuration** list.
-   
-   <img src="teamcity-plugin-2.png" alt="Navigating to the step configuration" width="706" border-effect="line"/>
+<procedure>
+   <step>
+      In the TeamCity UI, navigate to the <a href="%TeamCityBuildConfig%">configuration page</a> of a build where you would 
+      like to run %product%.
+   </step>
+   <step>
+      On the <ui-path>Build Configuration Settings</ui-path> page, navigate to the <a href="%TeamCityBuildSteps%"><ui-path>Build steps</ui-path></a> page.
+   </step>
+   <step>
+      On the <ui-path>Build steps</ui-path> page, click the <ui-path>Add build step</ui-path> button.
+   </step>
+   <step>
+      On the page that opens, select the <code>Command line</code> runner.
+   </step>
+   <step>
+      <p>Configure the <code>Command line</code> runner as described on the <a href="%TeamCityCommandLine%">TeamCity documentation portal</a>.</p>
+      <img src="teamcity-plugin-5.png" alt="Expanding all configuration options of the Command Line runner" width="706" border-effect="line"/>
+   </step>
+   <step>
+      <p>In the <ui-path>Custom script</ui-path> field, paste a script that adds a 
+custom <code>qodana.yaml</code> file to the working directory. In the example below, the script appends the 
+following inspection exclusions to the configuration file:</p>
+<code-block lang="shell">
+<![CDATA[ 
+#!/bin/sh
 
-3. On the **Build steps** page, click the **Add build step** button.
-   
-   <img src="teamcity-plugin-3.png" alt="Creating a new build step" width="706" border-effect="line"/>
+FILE="./qodana.yaml"
 
-4. From the **Runner type** list, select **Command Line**. On the **New Build Step** page, you can configure the
-   `Command Line` runner using the basic options. Otherwise, click **Show advanced options** to expand the list of configuration options.
-   
-   <img src="teamcity-plugin-5.png" alt="Expanding all configuration options of the Command Line runner" width="706" border-effect="line"/>
+/bin/cat <<EOM >$FILE
+exclude:
+- name: Annotator
+- name: AnotherInspectionId
+  paths:
+   - relative/path
+   - another/relative/path
+- name: ProhibitedDependencyLicense
 
-5. Fill in the fields using the [Command Line](https://www.jetbrains.com/help/teamcity/command-line.html#General+Settings)
-   runner description from the TeamCity documentation portal.
+EOM
+]]>
+</code-block>
+   </step>
+</procedure>
 
-   In the **Custom script** editor, paste a script that adds a custom `qodana.yaml` to the working directory. In the
-   example below, the script appends the following inspection exclusions to the configuration file:
-
-   ```shell
-   #!/bin/sh
-   
-   FILE="./qodana.yaml"
-   
-   /bin/cat <<EOM >$FILE
-   exclude:
-   - name: Annotator
-   - name: AnotherInspectionId
-     paths:
-       - relative/path
-       - another/relative/path
-   - name: ProhibitedDependencyLicense
-  
-   EOM  
-   ```
+<!-- Add a use case about code quality and baseline -->
+<!-- Add the analysis of specific branches use case here as well -->
+<!-- Case about analyzing pull requests needs to be added here -->
 
 ### Verify inspection results
 
-<link-summary>Now that you have configured and run the build, you can observe inspection results in the TeamCity UI.</link-summary>
+<link-summary>Now that you have configured and run the build, you can see analysis results.</link-summary>
 
-Now that you have configured and run the build, you can observe inspection results in the TeamCity UI.  
+Now that you have configured and run the build, you can examine analysis results in [Qodana Cloud](cloud-overview-reports.topic).  
 
-1. Navigate to the project build page. In the **Overview** tab, click the build entry.
-   
-   <img src="teamcity-plugin-verification-1.png" alt="Navigating to the build entry" width="706" border-effect="line"/>
+Alternatively, you can view analysis results using the TeamCity UI, follow the steps below:
 
-2. On the build page, navigate to the **Qodana** tab to find the inspection report. To learn more about Qodana 
-reports, see the <a href="ui-overview.md"/> section of this documentation.
-   
-   <img src="teamcity-plugin-verification-2.png" alt="Navigating to the Qodana tab" width="706" border-effect="line"/>
+<!-- Images here should be updated as well -->
 
-
+<procedure>
+<step>
+<p>Navigate to a project build page. On the <ui-path>Overview</ui-path> tab, click the build entry.</p>
+<img src="teamcity-plugin-verification-1.png" alt="Navigating to the build entry" width="706" border-effect="line"/>
+</step>
+<step>
+<p>On the build page, navigate to the <ui-path>Qodana</ui-path> tab to find the inspection report. To learn more about Qodana 
+reports, see the <a href="ui-overview.md"/> section of this documentation.</p>
+<img src="teamcity-plugin-verification-2.png" alt="Navigating to the Qodana tab" width="706" border-effect="line"/>
+</step>
+</procedure>

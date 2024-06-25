@@ -253,7 +253,7 @@
 
     <chapter id="faq-licensing-using-without-cloud" title="Can I use %instance% linters without creating a Qodana Cloud account?" default-state="collapsed" collapsible="true">
         <p>
-            All licenses require that you create an account at Qodana Cloud and complete the
+            All licenses require that you create an account in Qodana Cloud and complete the
             <a href="cloud-onboarding.md">onboarding</a> stage (see
             <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, Qodana
             Cloud lets you view Qodana reports in a single place and provides access to all of the

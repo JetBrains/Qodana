@@ -1285,7 +1285,7 @@
                         using the <code>apt</code> tool invoked in the
                         <a href="before-running-qodana.md"><code>bootstrap</code></a> section.</p>
                     <p>To run %product% as a root user in TeamCity, in the
-                        <a href="teamcity.md" anchor="Add+a+Qodana+runner"><ui-path>Additional arguments for 'docker run'</ui-path></a>
+                        <a href="teamcity.md" anchor="teamcity-qodana-runner"><ui-path>Additional Docker arguments</ui-path></a>
                         field of the %product% runner configuration add the <code>-u root</code> option.</p>
                     <p>To run Qodana CLI as a root user, you can append <code>-u root</code>
                         option to the <code>qodana scan</code> command:</p>
