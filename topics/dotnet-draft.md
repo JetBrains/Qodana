@@ -18,12 +18,19 @@
 <var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="MultipipeCreate" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
 <var name="dotsettings" value="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#solution-team-shared-layer"/>
+<var name="TeamCityProject" value="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project"/>
+<var name="TeamCityBuildConfig" value="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html"/>
+<var name="TeamCityBuildSteps" value="https://www.jetbrains.com/help/teamcity/configuring-build-steps.html"/>
+<var name="TeamCityCommandLine" value="https://www.jetbrains.com/help/teamcity/command-line.html#General+Settings"/>
+<var name="TeamCityPullRequests" value="https://www.jetbrains.com/help/teamcity/pull-requests.html"/>
+<var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
+<var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 
 <link-summary>You can analyze your .NET code using the %qp% and %qp-co% linters.</link-summary>
 
 <warning>This is a draft document, so we do not recommend that you use it.</warning>
 
-[//]: # (TODO All information from this setion needs to be packed into tabs)
+[//]: # (TODO All information from this setion needs to be packed into tabs?)
 
 All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:
@@ -34,7 +41,7 @@ All %product% linters are based on IDEs designed for particular programming lang
 
 You can compare these linters by navigating to the feature matrix.
 
-[//]: # (TODO The prerequisites section containing CI/CD and Command line tabs to each software can be added here)
+[//]: # (TODO The prerequisites section containing CI/CD and Command line tabs to each software can be added here?)
 
 ## Before your start
 {id="dotnet-before-you-start"}
@@ -45,79 +52,187 @@ You can compare these linters by navigating to the feature matrix.
 To run linters, you need to obtain a [project token](project-token.md) that
 will be used by %product% for identifying and verifying a license. 
 
-Navigate to [Qodana Cloud](https://qodana.cloud) and create an [account](cloud-quickstart.md) there.
-
-In Qodana Cloud, create an [organization](cloud-organizations.topic), a [team](cloud-teams.topic), and a 
-[project](cloud-projects.topic).
-
-On the [project card](cloud-projects.topic#cloud-manage-projects), you can find the project token that you will be using
-in this section.
+<procedure>
+<step>
+Navigate to <a href="https://qodana.cloud">Qodana Cloud</a> and create an <a href="cloud-quickstart.md">account</a> there.
+</step>
+<step>
+In Qodana Cloud, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>, 
+and a <a href="cloud-projects.topic">project</a>.
+</step>
+<step>
+On the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project card</a>, you can find the project token 
+that you will be using in this section.
+</step>
+</procedure>
 
 ### SDK version
 {id="dotnet-sdk-version"}
 
-[//]: # (TODO Probably, all SDK versions should be provided here, this should be demonstrated)
+[//]: # (TODO Probably, all SDK versions should be provided here, this should be demonstrated?)
 
-#### %qp%
-{id="dotnet-sdk-version-dotnet"}
+<tabs group="linter-tabs">
+<tab group-key="linter-tabs-dotnet" title="%qp%">
 
-[//]: # (TODO This can be probably reorganized)
+[//]: # (TODO This can be probably reorganized?)
 
-If you project targets the .NET framework or specific TFMs, the only option in this case is concluded in running the
-%qp% linter in the [native mode](native-mode.md).
+<p>If you project targets the .NET framework or specific TFMs, the only option in this case is concluded in running the
+%qp% linter in the <a href="native-mode.md">native mode</a>.</p>
 
 [//]: # (TODO What is the example how it can be handled?)
 
-If you run %qp% in the native mode, you should handle SDK availability for %ide%.
+<p>If you run %qp% in the native mode, you should handle SDK availability for %ide%.</p>
 
+<p>The Dockerized version of %qp% provides the following SDK versions:</p>
 
-The Dockerized version of %qp% provides the following SDK versions:
+<list>
+<li>6.0.417,</li>
+<li>7.0.404,</li>
+<li>8.0.100.</li>
+</list>
 
-* 6.0.417,
-* 7.0.404,
-* 8.0.100.
+<p>All SDK versions are stored in the <code>/usr/share/dotnet/sdk</code> directory of the 
+%product% container filesystem.</p>
+</tab>
+<tab group-key="linter-tabs-cdnet" title="%qp-co%">
 
-All SDK versions are stored in the `/usr/share/dotnet/sdk` directory of the %product% container filesystem.
-
-#### %qp-co%
-{id="dotnet-sdk-version-cdnet"}
-
-In case a project requires a different version of the SDK, you can set it  using the
-[`bootstrap`](before-running-qodana.md) key in the `qodana.yaml` file.
+<p>In case a project requires a different version of the SDK, you can set it  using the
+<a href="before-running-qodana.md"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file.
 For example, this command will install the required version of the SDK that is specified in the
-`global.json` file and located in the root of your project:
+<code>global.json</code> file and located in the root of your project:</p>
 
 <code-block lang="yaml">
     bootstrap: curl -fsSL https://dot.net/v1/dotnet-install.sh |
       bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
 </code-block>
 
+</tab>
+</tabs>
+
+### Software prerequisites
+{id="dotnet-software-prerequisites"}
+
+This shows how to configure software from this section to %product% analysis. All configuration samples
+use a [project token](project-token.md), see the [](#dotnet-before-you-start-qodana-cloud) for details.
+
+<tabs>
+<tab title="CI/CD">
+<p>This section contains examples for the following CI/CD solutions:</p>
+<tabs>
+<tab title="GitHub Actions">
+<p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
+<procedure>
+<step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+    <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+    and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+</step>
+<step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
+    <code>.github/workflows/code_quality.yml</code> file. This file will be used for further examples.
+</step>
+</procedure>
+</tab>
+<tab title="Jenkins">
+<procedure>
+<step>
+  <p>Make sure that these plugins are installed on your Jenkins instance:</p>
+  <list>
+  <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
+  <li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects.</li>
+  </list>
+  <p>Make sure that Docker is installed and accessible by Jenkins.</p>
+  <p>If applicable, make sure that Docker is accessible by the <code>jenkins</code> user as described in the
+  <a href="%Dockeraccess%">Manage Docker as a non-root user</a> section of the Docker documentation.</p>
+</step>
+<step>
+  <p>Create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
+</step>
+<step>
+  <p>In the root directory of your project repository, save the <code>Jenkinsfile</code>.</p>
+</step>
+</procedure>
+</tab>
+<tab title="GitLab CI/CD">
+<procedure>
+<step><p>Make sure that your project repository is accessible by GitLab CI/CD.</p></step>
+<step><p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> file that will contain configurations for running %product%.</p></step>
+</procedure>
+</tab>
+<tab title="TeamCity">
+  <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+</tab>
+</tabs>
+</tab>
+<tab title="Command line">
+
+<p>You have two options to run %product% locally: you can either run 
+<a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> or directly use the Docker image of %product%.
+As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
+If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>, check
+the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> for details.</p>
+
+</tab>
+<tab title="JetBrains IDEs">
+<procedure>
+<step>
+   <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+</step>
+<step>
+   <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
+   <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+    <p>This dialog contains the following components:</p>
+      <table>
+        <tr>        
+          <td>Name</td>
+          <td>Description</td>
+        </tr>
+        <tr>
+          <td>The <code>qodana.yaml</code> file</td>
+          <td>In the text field, you can set up code analysis used by Qodana in this file. You can learn more about available <a href="qodana-yaml.md">configuration options</a></td>
+        </tr>
+        <tr>
+          <td>The <ui-path>Send inspection results to Qodana Cloud</ui-path> option</td>
+          <td>If you want to <a href="cloud-forward-reports.topic">send reports to Qodana Cloud</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud</a></td>
+        </tr>
+        <tr>
+          <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
+          <td>By checking this option, you can save the %product% configuration made on this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
+        </tr>
+        <tr>
+          <td>The <ui-path>Use Qodana analysis baseline</ui-path> option</td>
+          <td>Using the <a href="baseline.topic">baseline</a> feature, you can skip analysis for specific problems</td>
+        </tr>
+      </table>
+    <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
+</step>
+<step>
+   <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+</step>
+</procedure>
+</tab>
+</tabs>
+
+
 ## Build the project
 {id="dotnet-build-project"}
 
-### %qp%
-{id="dotnet-build-project-dotnet"}
+<tabs group="linter-tabs">
+<tab group-key="linter-tabs-dotnet" title="%qp%">
+<p>We recommend that you build a project before %product% analyzes it. To build it, you can use the 
+<a href="before-running-qodana.md"><code>bootstrap</code></a> key 
+of the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file contained in your project directory. This is especially 
+recommended if you employ source generators.</p>
 
-We recommend that you build a project before %product% analyzes it. To build it, you can use the [`bootstrap`](before-running-qodana.md) key 
-of the [`qodana.yaml`](qodana-yaml.md) file contained in your project directory. This is especially recommended if you employ source
-generators.
-
-If the project build fails, code analysis cannot be performed.
-
-### %qp-co%
-{id="dotnet-build-project-cdnet"}
-
-The %qp-co% linter builds your project by default before analysis. If you wish to run your custom build, use the 
-`--no-build` %product% option:
-
-[//]: # (TODO Probably, the JetBrains IDEs section can be added here)
-
-
-#### CI/CD
+<p>If the project build fails, code analysis cannot be performed.</p>
+</tab>
+<tab group-key="linter-tabs-cdnet" title="%qp-co%">
+<p>The %qp-co% linter builds your project by default before analysis. If you wish to run your custom build, use the 
+<code>--no-build</code> %product% option:</p>
 
 <tabs>
+<tab title="CI/CD">
+<p>This section contains examples for the following CI/CD solutions:</p>
+<tabs>
 <tab title="GitHub Actions">
-
 <p>This is the GitHub Actions configuration sample invoking the <code>--no-build</code> option:</p>
 
 <code-block lang="yaml">
@@ -151,21 +266,66 @@ The %qp-co% linter builds your project by default before analysis. If you wish t
 
 </tab>
 <tab title="Jenkins">
-<!-- The snippet should be added here -->
+<p>Save this snippet to the <code>Jenkinsfile</code>:</p>
+<code-block lang="groovy">
+pipeline {
+    environment {
+        QODANA_TOKEN=credentials('qodana-token')
+    }
+    agent {
+        docker {
+            args '''
+              -v "${WORKSPACE}":/data/project
+              --entrypoint=""
+              '''
+            image '%qd-image%'
+        }
+    }
+    stages {
+        stage('Qodana') {
+            steps {
+                sh '''
+                qodana \
+                --no-build
+                '''
+            }
+        }
+    }
+}
+</code-block>
+
 </tab>
 <tab title="GitLab CI/CD">
-<!-- The snippet should be added here -->
+<code-block lang="yaml">
+qodana:
+   image:
+      name: %qd-image%
+      entrypoint: [""]
+   cache:
+      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+        fallback_keys:
+           - qodana-2024.1-$CI_DEFAULT_BRANCH-
+           - qodana-2024.1-
+        paths:
+           - .qodana/cache
+   variables:
+      QODANA_TOKEN: $qodana_token           - 
+   script:
+      - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache --no-build
+   artifacts:
+      paths:
+         - qodana/report/
+      expose_as: 'Qodana report'
+</code-block>
 </tab>
 <tab title="TeamCity">
-<!-- The snippet should be added here -->
-</tab>
-<tab title="Other">
-<p>See the <a href="ci.md"/> section.</p>
+<p>Using the <ui-path>Additional Qodana arguments</ui-path> field of the 
+<a href="teamcity.md" anchor="teamcity-qodana-runner"><code>Qodana</code></a> runner configuration, 
+you can configure the <code>--no-build</code> option.</p>
 </tab>
 </tabs>
-
-#### Command line
-
+</tab>
+<tab title="Command line">
 <tabs>
 <tab title="Qodana CLI">
 <code-block lang="shell" prompt="$">
@@ -183,6 +343,48 @@ The %qp-co% linter builds your project by default before analysis. If you wish t
   &nbsp;&nbsp;&nbsp;%qd-image% \
   &nbsp;&nbsp;&nbsp;--no-build
 </code-block>
+</tab>
+</tabs>
+</tab>
+<tab title="JetBrains IDEs">
+<procedure>
+<step>
+   <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+</step>
+<step>
+   <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
+   <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+    <p>This dialog contains the following components:</p>
+      <table>
+        <tr>        
+          <td>Name</td>
+          <td>Description</td>
+        </tr>
+        <tr>
+          <td>The <code>qodana.yaml</code> file</td>
+          <td>In the text field, you can set up code analysis used by Qodana in this file. You can learn more about available <a href="qodana-yaml.md">configuration options</a></td>
+        </tr>
+        <tr>
+          <td>The <ui-path>Send inspection results to Qodana Cloud</ui-path> option</td>
+          <td>If you want to <a href="cloud-forward-reports.topic">send reports to Qodana Cloud</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud</a></td>
+        </tr>
+        <tr>
+          <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
+          <td>By checking this option, you can save the %product% configuration made on this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
+        </tr>
+        <tr>
+          <td>The <ui-path>Use Qodana analysis baseline</ui-path> option</td>
+          <td>Using the <a href="baseline.topic">baseline</a> feature, you can skip analysis for specific problems</td>
+        </tr>
+      </table>
+    <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
+</step>
+<step>
+   <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+</step>
+</procedure>
+</tab>
+</tabs>
 </tab>
 </tabs>
 
@@ -203,14 +405,14 @@ You can run the %qp-co% linter in a container mode.
 ### Native mode
 {id="dotnet-run-qodana-native-mode"}
 
-<!-- This can be re-organized to follow the IDE, CI/CD and Command line topic structure, so ide:QDNET can be shown for all of them -->
+[//]: # (TODO This can be re-organized to follow the IDE, CI/CD and Command line topic structure, so ide:QDNET can be shown for all of them?)
 
 The [native mode](native-mode.md) is the recommended method for running the %qp% linter that lets you run the linter 
 without using Docker containers. 
 
 > If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
 > you build a project because this can guarantee that %instance% has access to private NuGet feeds.
-> {style="note"}
+{style="note"}
 
 <snippet id="dotnet-run-qodana-native-mode-yaml">
 Using a YAML configuration is the preferred method of configuring the linter because it lets you use such configuration
@@ -239,12 +441,10 @@ You can run %instance% in %ide% and forward inspection reports to [Qodana Cloud]
       <list>
         <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
           You can see that the native mode is already configured.</li>
-         <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
+         <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
+          using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
          <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
       </list>
-
-[//]: # (TODO This can be outlined for better visibility)
-
    <img src="ide-plugin-dotnet-run-qodana.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
     <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
 </step>

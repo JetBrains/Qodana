@@ -34,13 +34,13 @@
 	<!-- The future section about linters. Currently hidden from the TOC -->
 	<toc-element toc-title="Analyzing your code" hidden="true">
 		<toc-element topic="python-draft.md" hidden="true"/>
-		<!--<toc-element topic="dotnet-draft.md" hidden="true"/>-->
-		<toc-element topic="jvm-draft.md" hidden="true"/>
-	</toc-element>
+	<!--<toc-element topic="dotnet-draft.md" hidden="true"/>-->
+    <toc-element topic="jvm-draft.md" hidden="true"/>
+</toc-element>
 
 
 
-	<!-- Use cases section -->
+<!-- Use cases section -->
 	<toc-element toc-title="Use cases">
 		<toc-element topic="monorepo-project.md"/>
 		<toc-element topic="override-a-profile.md"/>
