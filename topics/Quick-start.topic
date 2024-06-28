@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Quick start" id="Quick-start">
 
+    <var name="version" value=":2024.1"/>
+
     <p>The current version of %instance% (%product-version%) provides the <a href="linters.md">linters</a> that let you analyze
         Java, Kotlin, Groovy, PHP, JavaScript, TypeScript, C#, Visual Basic, C, C++, Python, and Golang projects. You can
         also extend the default linter configuration using various <a href="features.topic">features</a>. </p>
@@ -168,46 +170,49 @@
                                 <td>Application</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-jvm</td>
+                                <td>jetbrains/qodana-jvm%version%</td>
                                 <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA Ultimate.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-jvm-community</td>
+                                <td>jetbrains/qodana-jvm-community%version%</td>
                                 <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA Community.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-jvm-android</td>
+                                <td>jetbrains/qodana-jvm-android%version%</td>
                                 <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA with the Android support.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-php</td>
+                                <td>jetbrains/qodana-php%version%</td>
                                 <td>PHP projects, based on PhpStorm.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-python</td>
+                                <td>jetbrains/qodana-python%version%</td>
                                 <td>Python projects, based on PyCharm Professional.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-python-community</td>
+                                <td>jetbrains/qodana-python-community%version%</td>
                                 <td>Python projects, based on PyCharm Community.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-js</td>
+                                <td>jetbrains/qodana-js%version%</td>
                                 <td>JavaScript and TypeScript projects, based on WebStorm.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-go</td>
+                                <td>jetbrains/qodana-go%version%</td>
                                 <td>Golang projects, based on Goland.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-dotnet</td>
+                                <td>jetbrains/qodana-dotnet%version%</td>
                                 <td>.NET projects, based on Rider.</td>
                             </tr>
                             <tr>
-                                <td>jetbrains/qodana-cdnet</td>
+                                <td>jetbrains/qodana-cdnet%version%-eap</td>
                                 <td>.NET projects, based on ReSharper.</td>
                             </tr>
-
+                            <tr>
+                                <td>jetbrains/qodana-clang%version%-eap</td>
+                                <td>C and C++ projects containing compilation databases.</td>
+                            </tr>
                         </table>
                     </step>
                     <step>

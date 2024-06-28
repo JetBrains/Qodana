@@ -3,6 +3,8 @@
 <link-summary>For all linter except Qodana Community for .NET, you can run incremental analysis on a change set like 
 merge or pull requests, as well as inspect changes between two commits.</link-summary> 
 
+<var name="mrp" value="https://docs.gitlab.com/ee/ci/pipelines/merged_results_pipelines.html"/>
+
 <note>This feature is not supported by the <a href="qodana-dotnet-community.md"/> linter.</note>
 
 Using %product%, you can not only scan your entire codebase, but also run analysis on change sets like merge or pull 
@@ -73,7 +75,8 @@ You can use the --diff-start option to inspect changes between the current versi
     </procedure>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-cicd">
-<p>Make sure that your project repository is accessible by GitLab CI/CD.</p>
+<p>Make sure that your project repository is accessible by GitLab CI/CD and the 
+<a href="%mrp%"><code>Merged results pipeline</code></a> feature is enabled.</p>
 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
         <code-block lang="yaml">
             qodana:

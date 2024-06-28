@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/teamcity-runner.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/Quick-start.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Quick-start.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/faq.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/faq.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/python-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python-draft.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/teamcity.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/teamcity.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/dotnet-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet-draft.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/repository-key.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/repository-key.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Writerside.Web Archive (qd).executor": "Run",
     "git-widget-placeholder": "2024.1",
-    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images"
+    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
+    "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>
   <component name="RecentsManager">

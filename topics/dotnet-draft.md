@@ -23,14 +23,18 @@
 
 <warning>This is a draft document, so we do not recommend that you use it.</warning>
 
+[//]: # (TODO All information from this setion needs to be packed into tabs)
+
 All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:
 
 * %qp% is based on Rider, licensed under the Ultimate and
-  Ultimate Plus [licenses](pricing.md), and available as a native solution and the `%qp-linter%` Docker image,
+  Ultimate Plus [licenses](pricing.md), and available as a [native solution](native-mode.md) and the `%qp-linter%` Docker image,
 * %qp-co% is based on ReSharper, licensed under the Community license, and available as the `%qp-co-linter%` Docker image.
 
 You can compare these linters by navigating to the [](#dotnet-feature-matrix) section.
+
+[//]: # (TODO The prerequisites section containing CI/CD and Command line tabs to each software can be added here)
 
 ## Before your start
 {id="dotnet-before-you-start"}
@@ -52,7 +56,20 @@ in this section.
 ### SDK version
 {id="dotnet-sdk-version"}
 
-<!-- Is this available only for the Qodana for .NET linter? -->
+[//]: # (TODO Probably, all SDK versions should be provided here, this should be demonstrated)
+
+#### %qp%
+{id="dotnet-sdk-version-dotnet"}
+
+[//]: # (TODO This can be probably reorganized)
+
+If you project targets the .NET framework or specific TFMs, the only option in this case is concluded in running the
+%qp% linter in the [native mode](native-mode.md).
+
+[//]: # (TODO What is the example how it can be handled?)
+
+If you run %qp% in the native mode, you should handle SDK availability for %ide%.
+
 
 The Dockerized version of %qp% provides the following SDK versions:
 
@@ -62,7 +79,10 @@ The Dockerized version of %qp% provides the following SDK versions:
 
 All SDK versions are stored in the `/usr/share/dotnet/sdk` directory of the %product% container filesystem.
 
-In case a project requires a different version of the SDK, you can set it using the
+#### %qp-co%
+{id="dotnet-sdk-version-cdnet"}
+
+In case a project requires a different version of the SDK, you can set it  using the
 [`bootstrap`](before-running-qodana.md) key in the `qodana.yaml` file.
 For example, this command will install the required version of the SDK that is specified in the
 `global.json` file and located in the root of your project:
@@ -75,26 +95,30 @@ For example, this command will install the required version of the SDK that is s
 ## Build the project
 {id="dotnet-build-project"}
 
-During the start, %product% builds your project. If the project build fails, code analysis cannot be performed. 
-You can configure the project build using the [`bootstrap`](before-running-qodana.md) key of the [`qodana.yaml`](qodana-yaml.md) file contained in your 
-project directory.
+### %qp%
+{id="dotnet-build-project-dotnet"}
 
-<!-- The bootstrap command examples should be provided here -->
+We recommend that you build a project before %product% analyzes it. To build it, you can use the [`bootstrap`](before-running-qodana.md) key 
+of the [`qodana.yaml`](qodana-yaml.md) file contained in your project directory. This is especially recommended if you employ source
+generators.
 
-Alternatively, you can build your project in a pipeline before %product% starts.
+If the project build fails, code analysis cannot be performed.
 
-If you wish to run your custom build, use the `--no-build` option:
+### %qp-co%
+{id="dotnet-build-project-cdnet"}
 
-```shell
-docker run \
-   -v <source-directory>/:/data/project/ \
-   -e QODANA_TOKEN="<cloud-project-token>" \
-   %qd-image% \
-   --no-build
-```
-{prompt="$"}
+The %qp-co% linter builds your project by default before analysis. If you wish to run your custom build, use the 
+`--no-build` %product% option:
 
-This is the GitHub Actions configuration sample invoking the `--no-build` option:
+[//]: # (TODO Probably, the JetBrains IDEs section can be added here)
+
+
+#### CI/CD
+
+<tabs>
+<tab title="GitHub Actions">
+
+<p>This is the GitHub Actions configuration sample invoking the <code>--no-build</code> option:</p>
 
 <code-block lang="yaml">
     name: Qodana
@@ -125,33 +149,71 @@ This is the GitHub Actions configuration sample invoking the `--no-build` option
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 </code-block>
 
+</tab>
+<tab title="Jenkins">
+<!-- The snippet should be added here -->
+</tab>
+<tab title="GitLab CI/CD">
+<!-- The snippet should be added here -->
+</tab>
+<tab title="TeamCity">
+<!-- The snippet should be added here -->
+</tab>
+<tab title="Other">
+<p>See the <a href="ci.md"/> section.</p>
+</tab>
+</tabs>
+
+#### Command line
+
+<tabs>
+<tab title="Qodana CLI">
+<code-block lang="shell" prompt="$">
+  qodana scan \
+  &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+  &nbsp;&nbsp;&nbsp;%qd-image% \
+  &nbsp;&nbsp;&nbsp;--no-build
+</code-block>
+</tab>
+<tab title="Docker image" prompt="$">
+<code-block lang="shell" prompt="$">
+  docker run \
+  &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+  &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+  &nbsp;&nbsp;&nbsp;%qd-image% \
+  &nbsp;&nbsp;&nbsp;--no-build
+</code-block>
+</tab>
+</tabs>
+
 ## Run %product%
 {id="dotnet-run-qodana"}
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
+> Before running %product%, you need to [prepare](#dotnet-before-you-start) and [build](#dotnet-build-project) your project.
+> {style="note"}
 
 You can run the %qp% linter either in the [native mode](#dotnet-run-qodana-native-mode) (recommended) or using the 
 linter in a [container mode](#dotnet-run-qodana-container-mode). 
 
 You can run the %qp-co% linter in a [container mode](#dotnet-run-qodana-container-mode).
 
-> Before running %product%, you need to [prepare](#dotnet-before-you-start) and [build](#dotnet-build-project) your project.
-{style="note"}
 
 ### Native mode
 {id="dotnet-run-qodana-native-mode"}
+
+<!-- This can be re-organized to follow the IDE, CI/CD and Command line topic structure, so ide:QDNET can be shown for all of them -->
 
 The [native mode](native-mode.md) is the recommended method for running the %qp% linter that lets you run the linter 
 without using Docker containers. 
 
 > If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
-you build a project because this can guarantee that %instance% has access to private NuGet feeds.
-{style="note"}
+> you build a project because this can guarantee that %instance% has access to private NuGet feeds.
+> {style="note"}
 
-#### YAML file
-{id="dotnet-run-qodana-native-yaml"}
-
-Using the YAML configuration is the preferred method of configuring the linter because it lets you use such configuration
+<snippet id="dotnet-run-qodana-native-mode-yaml">
+Using a YAML configuration is the preferred method of configuring the linter because it lets you use such configuration
 across all software that runs %product% without additional configuration.
 
 You can configure the native mode by adding this line to the [`qodana.yaml`](qodana-yaml.md) file:
@@ -159,10 +221,12 @@ You can configure the native mode by adding this line to the [`qodana.yaml`](qod
 ```yaml
 ide: QDNET
 ```
-
+</snippet>
 
 #### JetBrains IDEs
 {id="dotnet-run-qodana-native-mode-ides"}
+
+[//]: # (TODO This needs to be related to the native mode)
 
 You can run %instance% in %ide% and forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
@@ -178,6 +242,9 @@ You can run %instance% in %ide% and forward inspection reports to [Qodana Cloud]
          <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
          <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
       </list>
+
+[//]: # (TODO This can be outlined for better visibility)
+
    <img src="ide-plugin-dotnet-run-qodana.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
     <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
 </step>
@@ -189,7 +256,7 @@ You can run %instance% in %ide% and forward inspection reports to [Qodana Cloud]
 #### GitHub Actions
 {id="dotnet-run-qodana-native-mode-github"}
 
-<!-- This should refer to the normal GitHub section -->
+[//]: # (TODO This should refer to the normal GitHub section)
 
 If you have already configured the [`qodana.yaml`](#dotnet-run-qodana-native-yaml) file, you can skip this and navigate 
 to the [GitHub Actions](#dotnet-run-qodana-container-mode-github) section below.
