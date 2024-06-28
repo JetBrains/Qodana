@@ -32,7 +32,7 @@ All %product% linters are based on IDEs designed for particular programming lang
   Ultimate Plus [licenses](pricing.md), and available as a [native solution](native-mode.md) and the `%qp-linter%` Docker image,
 * %qp-co% is based on ReSharper, licensed under the Community license, and available as the `%qp-co-linter%` Docker image.
 
-You can compare these linters by navigating to the [](#dotnet-feature-matrix) section.
+You can compare these linters by navigating to the feature matrix.
 
 [//]: # (TODO The prerequisites section containing CI/CD and Command line tabs to each software can be added here)
 
@@ -195,9 +195,9 @@ The %qp-co% linter builds your project by default before analysis. If you wish t
 > {style="note"}
 
 You can run the %qp% linter either in the [native mode](#dotnet-run-qodana-native-mode) (recommended) or using the 
-linter in a [container mode](#dotnet-run-qodana-container-mode). 
+linter in a container mode. 
 
-You can run the %qp-co% linter in a [container mode](#dotnet-run-qodana-container-mode).
+You can run the %qp-co% linter in a container mode.
 
 
 ### Native mode
@@ -258,8 +258,8 @@ You can run %instance% in %ide% and forward inspection reports to [Qodana Cloud]
 
 [//]: # (TODO This should refer to the normal GitHub section)
 
-If you have already configured the [`qodana.yaml`](#dotnet-run-qodana-native-yaml) file, you can skip this and navigate 
-to the [GitHub Actions](#dotnet-run-qodana-container-mode-github) section below.
+If you have already configured the `qodana.yaml` file, you can skip this and navigate 
+to the GitHub Actions section below.
 
 You can run %product% using the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) as shown
 below.
@@ -411,7 +411,7 @@ filename as shown below.
 
 #### Specify a solution
 
-You can specify a solution in various ways. Using a [`YAML configuration`](#dotnet-specify-solution-yaml) is the most
+You can specify a solution in various ways. Using a YAML configuration is the most
 convenient method because you can configure it once and use the configuration across all software that runs %product%.
 
 ##### YAML file
@@ -648,8 +648,10 @@ profile:
     name: qodana.recommended
 ```
 
+[//]: # (TODO The reference to the section needs to be added here)
+
 You can analyze your code using Roslyn analyzers with each analyzer considered as a separate 
-inspection. You can configure Roslyn analyzers as explained in the [](#dotnet-extend-configuration-editorconfig) section. 
+inspection. You can configure Roslyn analyzers as explained in the  section. 
 This is an experimental feature, so use them at your own risk.
 
 To disable Roslyn analyzers, you can [configure the %instance% profile](custom-profiles.md) using
@@ -706,8 +708,10 @@ To configure InspectCode on a CI server, make all configurations locally with Re
 and then commit the resulting `YourSolution.sln.DotSettings` file in the solution directory to your VCS. InspectCode on
 the server will find and apply these settings.
 
+[//]: # (TODO The reference needs to be added here)
+
 By default, InspectCode also runs Roslyn analyzers on the target solution. To configure Roslyn analyzers, see the 
-[](#dotnet-extend-configuration-editorconfig) section. 
+ section. 
 
 To disable Roslyn analyzers, in the solution's `.DotSettings` file add the following configuration:
 
@@ -859,8 +863,9 @@ failureConditions:
 #### GitHub Actions
 {id="dotnet-pull-requests-github"}
 
-Because the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) automatically analyzes all pull requests, you can use 
-[this configuration](#dotnet-run-qodana-container-mode-github).
+[//]: # (TODO The reference needs to be fixed here)
+
+Because the [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) automatically analyzes all pull requests, you can use.
 
 #### Local run
 {id="dotnet-pull-requests-local-run"}

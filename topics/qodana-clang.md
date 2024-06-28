@@ -13,7 +13,7 @@
 <var name="misra-inspections" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#stat-analysis-tools"/>
 <var name="compdb-generate" value="https://www.jetbrains.com/help/clion/compilation-database.html#compdb_generate"/>
 
-<link-summary>%linter% lets you inspect C and C++ projects containing compilation databases. </link-summary>
+<link-summary>%linter% lets you analyze C and C++ projects containing compilation databases. </link-summary>
 
 <note>
 %linter% is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
@@ -22,7 +22,7 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 </note>
 
-%linter% lets you inspect C and C++ projects containing 
+%linter% lets you analyze C and C++ projects containing 
 [compilation databases](https://clang.llvm.org/docs/JSONCompilationDatabase.html). This linter is based on the
 [Clang-Tidy](%clang-tidy%) linter and works on the AMD64 and ARM64 architectures.
 
@@ -66,7 +66,7 @@ The Docker image of %linter% employs Clang 16.0.0 and LLVM 16. You can see the
 [`Dockerfile`](%dockerfile%) for the detailed description of all software employed by the linter.  
 
 The linter searches for the compilation database file contained in the `build/compile_commands.json` file of the 
-project directory and reads this file, inspects the project, generates inspection reports, and saves them locally or 
+project directory and reads this file, analyzes the project, generates analysis reports, and saves them locally or 
 uploads to Qodana Cloud.
 
 ## Prepare the project
@@ -100,6 +100,9 @@ inspections. Alternatively, you can configure inspections in the <code>.clang-ti
 </tab>
 </tabs>
 </tip>
+</step>
+<step><p>Open the <code>.clang-tidy</code> file and configure the list of files and paths that will be analyzed by %linter%.</p>
+<tip>If you already have the <code>compile_commands.json</code> file, you can also configure files and paths in this file.</tip>
 </step>
 <step>
 <p>Generate the <code>compile_commands.json</code> file as explained in the <a href="%compdb-generate%">CLion documentation portal</a>, 
