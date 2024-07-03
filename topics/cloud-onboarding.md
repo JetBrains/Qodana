@@ -39,7 +39,7 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 
 <img src="cloud-onboarding-step-2-key.png" dark-src="cloud-onboarding-step-2-key_dark.png" alt="The public key generated during the second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 
-<p>Copy this public key and save it in your VCS on the project level. For example, read how to do it on: </p>
+<p>Copy this public key and save it in your VCS on the project level as explained in the <a href="repository-key.md"/> section.</p>
 
 * [GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key)
 * [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys) - start from step 2, i.e. skip the SSH key generation step

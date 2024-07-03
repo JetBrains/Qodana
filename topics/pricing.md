@@ -278,6 +278,10 @@ found that your project had 20 (twenty) active contributors. In this case, for t
 be recalculated for 20 (twenty) contributors. At the end of the second month, the license costs would be recalculated 
 again based on the actual number of active contributors found within that month.
 
+> In case the email addresses of contributors to your GitHub project are set as private, please contact our support team at
+> <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a> for assistance with the contributor counting issue.
+> {style="warning"}
+
 For more details, see the **Fees and Payments** section of the 
 [%instance% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/).
 

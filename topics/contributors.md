@@ -12,6 +12,10 @@ detected within 30 days of June, 31 days of May, and 29 days of March.
 Active contributors are counted using SSH keys. The mechanism of key generation and contributor counting
 is explained below.
 
+> In case the email addresses of contributors to your GitHub project are set as private, please contact our support team at 
+> <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a> for assistance with the contributor counting issue.
+> {style="warning"}
+
 ## Key generation
 
 During the [onboarding stage](cloud-onboarding.md), Qodana Cloud generates an SSH key pair for counting the number of 
