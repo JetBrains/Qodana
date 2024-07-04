@@ -44,7 +44,7 @@
         <img src="qc-configure-team.png" dark-src="qc-configure-team_dark.png" width="706" alt="Configure a team" border-effect="line"/>
 
         <p>You can click <ui-path>Invite members</ui-path> to add new members to a team, configure
-            <a href="cloud-user-roles.topic">user roles</a> of the existing team members, or delete them. </p>
+            <a href="cloud-user-roles-draft.md">user roles</a> of the existing team members, or delete them. </p>
 
         <img src="qc-teams-managing-members.png" dark-src="qc-teams-managing-members_dark.png" alt="Managing team members" width="706" border-effect="line"/>
 

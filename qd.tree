@@ -123,6 +123,7 @@
 			<toc-element topic="cloud-get-access.topic"/>
 			<toc-element accepts-web-file-names="cloud-subscription-plan.html" topic="cloud-account-types.md"/>
 			<toc-element accepts-web-file-names="cloud-change-user-roles.html" topic="cloud-user-roles.topic"/>
+			<toc-element topic="cloud-user-roles-draft.md" hidden="true"/>
 		</toc-element>
 		<toc-element toc-title="Running Qodana Cloud">
 			<toc-element topic="cloud-quickstart.md"/>
