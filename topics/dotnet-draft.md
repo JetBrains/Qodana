@@ -949,32 +949,39 @@ By default, the solution platform is set to `Any CPU`, and you can override it a
 
 ### Private NuGet repositories
 
-You can run %qp% using private NuGet feeds. The linter does not support authentication for private NuGet repositories using, for 
-example, Windows Authentication. To overcome this limitation, you can place all required packages within the %instance% 
-cache as shown below:
+Depending on the linter, you can run them using private NuGet repositories as shown below.
 
-<procedure>
-    <step>In the local filesystem, create the folder that will contain cache. For example, it can be
-        <code>C:/Temp/QodanaCache</code>.</step>
-    <step><p>Run %instance% using the <code>--cache-dir C:/Temp/QodanaCache</code> option:</p>
-      <code-block lang="shell" prompt="$">
-          docker run \
-          &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-          &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-          &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_URL=&lt;private-NuGet-feed-URL&gt; \
-          &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_USER=&lt;login&gt; \
-          &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_PASSWORD=&lt;plaintext-password&gt; \
-          &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_NAME=&lt;name-of-private-NuGet-feed&gt; \
-          &nbsp;&nbsp;&nbsp;%qp-linter% \
-          &nbsp;&nbsp;&nbsp;--cache-dir C:/Temp/QodanaCache
-      </code-block>
-</step>
-    <step>Copy all NuGet packages contained by default in the
-        <code ignore-vars="true">%userprofile%\.nuget\packages</code>
-        folder to <code>C:/Temp/QodanaCache/nuget</code>. If you have a custom package folder, copy packages
-        from that folder instead of <code ignore-vars="true">%userprofile%\.nuget\packages</code>.</step>
-    <step>Run %instance% using the <code>--cache-dir C:/Temp/QodanaCache</code> once more.</step>
-</procedure>
+<tabs group="linter-tabs">
+    <tab title="%qp%" group-key="linter-tabs-dotnet">
+        <p>If you run %qp% using private NuGet repositories, the native mode of this linter is the recommended method of running. 
+        In this case, you do not have to additionally configure the linter, and if you run it on the same machine where you have 
+        built the project, it will be able to have access to the same feeds. </p>
+        <p>Alternatively, use this configuration to employ a Docker image of the %qp% linter:</p>
+        <code-block lang="shell" prompt="$">
+            docker run \
+            &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_URL=&lt;private-NuGet-feed-URL&gt; \
+            &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_USER=&lt;login&gt; \
+            &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_PASSWORD=&lt;plaintext-password&gt; \
+            &nbsp;&nbsp;&nbsp;%qp-linter% \
+        </code-block>
+        <p>Other configuration examples are available on our <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub repository</a>.</p>
+    </tab>
+    <tab title="%qp-co%" group-key="linter-tabs-cdnet">
+        <procedure>
+            <step>In the local filesystem, create the folder that will contain cache. For example, it can be
+                <code>C:/Temp/QodanaCache</code>.</step>
+            <step><a href="qodana-dotnet-docker-readme.topic" anchor="quick-start-recommended-profile">Run %instance%</a>
+                using the <code>--cache-dir C:/Temp/QodanaCache</code> option.</step>
+            <step>Copy all NuGet packages contained by default in the
+                <code ignore-vars="true">%userprofile%\.nuget\packages</code>
+                folder to <code>C:/Temp/QodanaCache/nuget</code>. If you have a custom package folder, copy packages
+                from that folder instead of <code ignore-vars="true">%userprofile%\.nuget\packages</code>.</step>
+            <step>Run %instance% using the <code>--cache-dir C:/Temp/QodanaCache</code> once more.</step>
+        </procedure>
+    </tab>
+</tabs>
 
 ## Explore analysis results
 
