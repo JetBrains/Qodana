@@ -5,11 +5,11 @@ installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/), s
 
 Using the IDE, you can:
 
-* [Run %instance% locally](#ide-plugin-run-qodana)
-* [Connect to Qodana Cloud](#ide-plugin-connect-cloud)
-* [Configure %instance% for running in a CI pipeline](#ide-plugin-cicd)
-* [Open a report from local storage](#ide-plugin-local-report)
-* [Review %instance% reports in your IDE](#ide-plugin-study-reports)
+* [Run %instance% locally](#ide-plugin-run-qodana),
+* [Connect to Qodana Cloud](#ide-plugin-connect-cloud),
+* [Configure %instance% for running in a CI pipeline](#ide-plugin-cicd),
+* [Open a report from local storage](#ide-plugin-local-report),
+* [Examine %instance% reports in your IDE](#ide-plugin-study-reports).
 
 ## UI overview
 
