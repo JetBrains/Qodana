@@ -3,9 +3,9 @@
 <link-summary>Using Visual Studio Code, you can run %product%, explore %product% reports and connect to Qodana Cloud. </link-summary>
 
 Visual Studio Code is a source code editor available for Windows, macOS and Linux. This section shows you can use 
-%product% in Visual Studio Code, namely:
+%product% in Visual Studio Code:
 
-* [Run %product% locally](#vs-code-run-locally),
+* [Run %product% locally](#vs-code-run-locally) in Visual Studio Code,
 * [Connect to Qodana Cloud](#vs-code-connect-to-qodana-cloud),
 * [Explore %product% reports](#vs-code-explore-reports) local or downloaded from Qodana Cloud,
 * [Configure %product% in Visual Studio Code](#vs-code-configure-extension).
@@ -70,7 +70,7 @@ To return the **PROBLEMS** tab to the default state, in the **%product%** view c
 ## Connect to Qodana Cloud
 {id="vs-code-connect-to-qodana-cloud"}
 
-<link-summary>You can run Qodana in Visual Studio Code and forward inspection reports to Qodana Cloud. </link-summary>
+<link-summary>Connect to Qodana Cloud to forward and get %product% reports in Visual Studio Code. </link-summary>
 
 To forward %product% reports to Qodana Cloud and get the latest %product% reports, log in to Qodana Cloud and connect 
 your project opened in the IDE to a specific Qodana Cloud [project](cloud-projects.topic) as shown below.
@@ -113,7 +113,7 @@ You can also view analysis reports generated after local %product% runs using th
 ## Configure Qodana
 {id="vs-code-configure-extension"}
 
-<link-summary>Learn how you can configure the Path Prefix and Full Path settings. </link-summary>
+<link-summary>Learn how you can configure the Path Prefix and Full Path settings in Visual Studio Code. </link-summary>
 
 Here is an overview of the **Qodana** configuration page.
 
