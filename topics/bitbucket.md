@@ -45,7 +45,7 @@ pipelines:
           image: jetbrains/qodana-<linter> # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
           script:
             - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
-            - qodana --fail-threshold <number-of-problems> --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_HOME/.qodana/cache
+            - qodana --fail-threshold <number-of-problems> --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=~/.qodana/cache
           artifacts:
             - .qodana/report
 
@@ -75,13 +75,13 @@ pipelines:
           image: jetbrains/qodana-<linter> # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
           script:
             - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
-            - qodana --baseline <path/to/qodana.sarif.json> --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$BITBUCKET_HOME/.qodana/cache
+            - qodana --baseline <path/to/qodana.sarif.json> --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=~/.qodana/cache
           artifacts:
             - .qodana/report
 
 definitions:
   caches:
-    qodana: .qodana/cache
+    qodana: ~/.qodana/cache
 ```
 
 ## Generate Code Insights reports
