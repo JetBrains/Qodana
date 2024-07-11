@@ -70,6 +70,7 @@
 	<toc-element toc-title="IDE integration">
 		<toc-element accepts-web-file-names="qodana_plugins.html" topic="qodana-ide-plugin.md"/>
 		<toc-element topic="vscode.md"/>
+		<toc-element topic="vscode-draft.md"/>
 	</toc-element>
 	<!-- Configuration section -->
 	<toc-element toc-title="Configuration" topic="configure-qodana.topic">
