@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/vs-code-local-run-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/vs-code-local-run-3_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-user-roles-draft.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/vs-code-local-run-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/vs-code-local-run-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/vs-code-ui-navigate-alt.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/vs-code-ui-navigate-alt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/vs-code-ui-navigate.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/vs-code-ui-navigate.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/vscode-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vscode-draft.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
