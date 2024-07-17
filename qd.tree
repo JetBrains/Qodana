@@ -6,6 +6,7 @@
 		<toc-element topic="about-qodana.md"/>
 		<toc-element topic="pricing.md"/>
 		<toc-element topic="Quick-start.topic"/>
+		<toc-element topic="set-up-your-project.md"/>
 		<toc-element topic="faq.topic"/>
 		<toc-element accepts-web-file-names="new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html" topic="new-in-2024-1.md"/>
 		<toc-element topic="components.topic">
