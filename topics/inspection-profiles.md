@@ -17,8 +17,7 @@ existing %product% profiles, create your own profiles, and set up profiles for a
 ## Existing %product% profiles
 {id="inspection-profiles-existing-profiles"}
 
-<link-summary>Out of the box, Qodana provides the qodana.starter and qodana.recommended profiles.</link-summary>
-
+<link-summary>Out of the box, Qodana provides the qodana.starter, qodana.recommended, and qodana.sanity profiles.</link-summary>
 
 Out of the box, you can use the following %product% profiles: 
 
@@ -51,9 +50,18 @@ Out of the box, you can use the following %product% profiles:
         </list>
         </td>
     </tr>
+    <tr>
+        <td><code>qodana.sanity</code></td>
+        <td><p>This profile is enabled by default to analyze whether a project is configured properly. If 
+        <code>qodana.sanity</code> inspections detect problems, this means that all other %product% inspections may work 
+        improperly and the project should be reconfigured.</p> 
+        <p>To learn how disable inspections of this profile, see the <a href="qodana-yaml.md" anchor="Disable+sanity+checks"/> and 
+            <a href="docker-image-configuration.topic" anchor="docker-config-reference-profile"/> sections.</p>
+        </td>
+    </tr>
 </table>
 
-The `qodana.starter` and `qodana.recommended` profiles are hosted on 
+All profiles are hosted on 
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), so you can learn them in detail.
 
 To learn how to set up existing %product% profiles, see the [](#inspection-profiles-setup-a-profile) section. 
@@ -99,6 +107,10 @@ To learn how to set up a custom profile, see the [](#inspection-profiles-setup-a
 {id="inspection-profiles-setup-a-profile"}
 
 <link-summary>Learn how to set up %product% and custom profiles.</link-summary>
+
+<note>You can disable the <code>qodana.sanity</code> profile using recommendations from the 
+<a href="qodana-yaml.md" anchor="Disable+sanity+checks"/> and 
+<a href="docker-image-configuration.topic" anchor="docker-config-reference-profile"/> sections.</note>
 
 ### YAML configuration
 {id="inspection-profiles-yaml-file"}
@@ -250,7 +262,7 @@ supported by %product%. The settings will remain consistent across all these pla
     </step>
 </procedure>
 
-### Local run
+### Command line
 {id="inspection-profiles-local-run"}
 
 <link-summary>You can configure profiles before running %product% locally.</link-summary>
