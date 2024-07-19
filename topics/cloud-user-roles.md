@@ -5,7 +5,8 @@
 The role assigned to a [Qodana Cloud](https://qodana.cloud) user defines the set of the permissions that will be
 granted to them. A permission means an ability to perform a specific action. 
 
-Currently, Qodana Cloud supports the Viewer, Editor, Admin and Owner roles.
+Currently, Qodana Cloud supports the Viewer, Editor, Admin and Owner roles, where each subsequent role in this list 
+starting from the Editor inherits existing permissions from the previous role and extends with new permissions. 
 
 The Viewer, Editor, and Admin roles can be assigned on the [organization](#organization-roles) and [team](#team-roles) levels. 
 The Owner role is available only on the organization level.
@@ -54,8 +55,8 @@ Below you can find the detailed description of all team-level roles and their pe
         This role is suitable for developers, devops and QA specialists.</p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are also available in the Viewer role,</li>
-            <li>&#x2714; are available in this role and not available in the Viewer role.</li>
+            <li>&#x2713; are inherited from the Viewer role,</li>
+            <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
             <tr>
@@ -128,8 +129,8 @@ Below you can find the detailed description of all team-level roles and their pe
         This role is suitable for team managers, team leads, and senior developers.</p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are also available in the Editor role,</li>
-            <li>&#x2714; are available in this role and not available in the Editor role.</li>
+            <li>&#x2713; are inherited from the Editor role,</li>
+            <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
             <tr>
@@ -254,8 +255,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are also available in the Viewer role,</li>
-            <li>&#x2714; are available in this role and not available in the Viewer role.</li>
+            <li>&#x2713; are inherited from the Viewer role,</li>
+            <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
             <tr>
@@ -331,8 +332,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are also available in the Editor role,</li>
-            <li>&#x2714; are available in this role and not available in the Editor role.</li>
+            <li>&#x2713; are inherited from the Editor role,</li>
+            <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
             <tr>
@@ -464,8 +465,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are also available in the Admin role,</li>
-            <li>&#x2714; are available in this role and not available in the Admin role.</li>
+            <li>&#x2713; are inherited from the Admin role,</li>
+            <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
             <tr>
