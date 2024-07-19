@@ -5,8 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/topics/vscode-old.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspection-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspection-profiles.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/baseline-jetbrains-ides-intro.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/baseline-jetbrains-ides-intro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/baseline-jetbrains-ides-intro_dark.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/baseline-jetbrains-ides-intro_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/basic-components.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/basic-components_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/basic-workflow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/basic-workflow_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-plugin-code-highlighting.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-plugin-code-highlighting_dark.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-project-creation-step-1-key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud-project-creation-step-1-key_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/code-coverage-coverage-window.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/code-coverage-coverage-window_dark.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/code-coverage-report-qodana.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/code-coverage-report-qodana_dark.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-cicd-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-cicd-1_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-code-highlighting.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-code-highlighting_dark.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-configure-profile-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-configure-profile-2_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-configure-profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-configure-profile_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-report-navigating.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-report-navigating_dark.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-run-qodana-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ide-plugin-run-qodana-1_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/license-audit-license-rules.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/license-audit-license-rules_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/license-audit-tpl-enabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/license-audit-tpl-enabled_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/license-audit-tpl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/license-audit-tpl_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/profile-settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-invitation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-invitation_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qodana-about-code-review.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/qodana-about-code-review_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/tab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/teamcity-plugin-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/teamcity-plugin-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/teamcity-plugin-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/teamcity-plugin-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ui-overview-open-file-in.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ui-overview-open-file-in_dark.animated.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/vscode-problems-tab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/vscode-problems-tab_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/workflow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/workflow_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-organizations.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-organizations.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-teams.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-teams.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-user-roles.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles.topic" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/vscode-draft.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/vscode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vscode.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +147,7 @@
     "Writerside.Web Archive (qd).executor": "Run",
     "git-widget-placeholder": "2024.1",
     "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>

@@ -1,6 +1,4 @@
-[//]: # (title: User roles draft)
-
-<no-index/>
+[//]: # (title: User roles)
 
 <link-summary>This section contains the list of user roles available in Qodana Cloud.</link-summary>
 
@@ -28,10 +26,37 @@ Below you can find the detailed description of all team-level roles and their pe
     <tab title="Viewer" group-key="viewer">
         <p>View teams, projects, reports and users associated with a team. This role is suitable for users outside 
         a team who would like to view reports.</p>
+        <table>
+            <tr>
+                <td>Permission</td>
+                <td>View</td>
+            </tr>
+            <tr>
+                <td>Teams</td>
+                <td>&#x2714;</td>
+            </tr>
+            <tr>
+                <td>Team users</td>
+                <td>&#x2714;</td>
+            </tr>
+            <tr>
+                <td>Projects</td>
+                <td>&#x2714;</td>
+            </tr>
+            <tr>
+                <td>Reports</td>
+                <td>&#x2714;</td>
+            </tr>
+        </table>
     </tab>
     <tab title="Editor" group-key="editor">
         <p>Manage team projects and project reports, members and tokens.
         This role is suitable for developers, devops and QA specialists.</p>
+        <p>Here is the explanation to the permission marking:</p>
+        <list>
+            <li>&#x2713; are also available in the Viewer role,</li>
+            <li>&#x2714; are available in this role and not available in the Viewer role.</li>
+        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -43,21 +68,21 @@ Below you can find the detailed description of all team-level roles and their pe
             <tr>
                 <td>Teams</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team users</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
                 <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
             </tr>
@@ -92,7 +117,7 @@ Below you can find the detailed description of all team-level roles and their pe
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
             </tr>
@@ -101,6 +126,11 @@ Below you can find the detailed description of all team-level roles and their pe
     <tab title="Admin" group-key="admin">
         <p>Manage teams and team members.
         This role is suitable for team managers, team leads, and senior developers.</p>
+        <p>Here is the explanation to the permission marking:</p>
+        <list>
+            <li>&#x2713; are also available in the Editor role,</li>
+            <li>&#x2714; are available in this role and not available in the Editor role.</li>
+        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -112,14 +142,14 @@ Below you can find the detailed description of all team-level roles and their pe
             <tr>
                 <td>Teams</td>
                 <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
             </tr>
             <tr>
                 <td>Team users</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td></td>
             </tr>
@@ -132,45 +162,45 @@ Below you can find the detailed description of all team-level roles and their pe
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
             </tr>
             <tr>
                 <td>Project members</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project tokens</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
             </tr>
             <tr>
                 <td>Public keys</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
             </tr>
         </table>
     </tab>
@@ -222,6 +252,11 @@ Below you can find the detailed description of all organization-level roles and 
         <p>
             Manage teams and team members within an organization, and view everything related to an organization. This role is suitable for team-leads and managers.
         </p>
+        <p>Here is the explanation to the permission marking:</p>
+        <list>
+            <li>&#x2713; are also available in the Viewer role,</li>
+            <li>&#x2714; are available in this role and not available in the Viewer role.</li>
+        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -234,15 +269,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organizations</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -274,7 +309,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Teams</td>
                 <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
                 <td></td>
@@ -294,6 +329,11 @@ Below you can find the detailed description of all organization-level roles and 
             Manage organizations and their users, projects, project tokens and reports. This role is suitable for 
             members of IT departments.
         </p>
+        <p>Here is the explanation to the permission marking:</p>
+        <list>
+            <li>&#x2713; are also available in the Editor role,</li>
+            <li>&#x2714; are available in this role and not available in the Editor role.</li>
+        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -306,15 +346,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organizations</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td></td>
                 <td></td>
@@ -322,7 +362,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Contributors</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -338,7 +378,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization settings</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -346,7 +386,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization events</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -361,17 +401,17 @@ Below you can find the detailed description of all organization-level roles and 
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -422,6 +462,11 @@ Below you can find the detailed description of all organization-level roles and 
             Full control over an organization and its entities including users, teams, projects and project reports. 
             This role is suitable for IT department leads.
         </p>
+        <p>Here is the explanation to the permission marking:</p>
+        <list>
+            <li>&#x2713; are also available in the Admin role,</li>
+            <li>&#x2714; are available in this role and not available in the Admin role.</li>
+        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -434,23 +479,23 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organizations</td>
                 <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Contributors</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -458,15 +503,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Membership requests</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Organization settings</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -474,7 +519,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization events</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -506,65 +551,65 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Public keys</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project members</td>
                 <td></td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project tokens</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
+                <td>&#x2713;</td>
                 <td></td>
             </tr>
         </table>

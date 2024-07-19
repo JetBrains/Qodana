@@ -24,7 +24,7 @@
         <p>You can create either private or public organizations. Reports stored in private organizations are accessible only
             by a user who created an organization and users who were invited to them.
             Reports stored in public organizations are available for all Qodana Cloud users, including unauthorized users with the
-            <a href="cloud-user-roles-draft.md">viewer role</a>. </p>
+            <a href="cloud-user-roles.md">viewer role</a>. </p>
 
         <p>Each organization is created on the basis of a <a href="cloud-get-access.topic">JetBrains account</a>.</p>
 
@@ -80,8 +80,8 @@
             <p>Within your organization, you can:</p>
 
             <list>
-                <li>Invite new members using email addresses, and assign them <a href="cloud-user-roles-draft.md">user roles</a></li>
-                <li>Change <a href="cloud-user-roles-draft.md">roles</a> of the existing organization members</li>
+                <li>Invite new members using email addresses, and assign them <a href="cloud-user-roles.md">user roles</a></li>
+                <li>Change <a href="cloud-user-roles.md">roles</a> of the existing organization members</li>
                 <li>Exclude members from your organization</li>
             </list>
 

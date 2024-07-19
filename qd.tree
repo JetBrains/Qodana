@@ -71,7 +71,6 @@
 	<toc-element toc-title="IDE integration">
 		<toc-element accepts-web-file-names="qodana_plugins.html" topic="qodana-ide-plugin.md"/>
 		<toc-element topic="vscode.md"/>
-		<toc-element topic="vscode-draft.md" hidden="true"/>
 	</toc-element>
 	<!-- Configuration section -->
 	<toc-element toc-title="Configuration" topic="configure-qodana.topic">
@@ -124,8 +123,7 @@
 			<toc-element toc-title="Use cases" topic="cloud-use-cases.topic"/>
 			<toc-element topic="cloud-get-access.topic"/>
 			<toc-element accepts-web-file-names="cloud-subscription-plan.html" topic="cloud-account-types.md"/>
-			<toc-element accepts-web-file-names="cloud-change-user-roles.html" topic="cloud-user-roles.topic"/>
-			<toc-element topic="cloud-user-roles-draft.md" hidden="true"/>
+			<toc-element accepts-web-file-names="cloud-change-user-roles.html" topic="cloud-user-roles.md"/>
 		</toc-element>
 		<toc-element toc-title="Running Qodana Cloud">
 			<toc-element topic="cloud-quickstart.md"/>
