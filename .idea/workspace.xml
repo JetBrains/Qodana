@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-user-roles.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/set-up-your-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/set-up-your-project.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,16 +84,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Writerside.Web Archive (qd).executor": "Run",
-    "git-widget-placeholder": "2024.1",
-    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editing.templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Writerside.Web Archive (qd).executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;2024.1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/about-qodana.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/cloud-user-roles.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/inspection-profiles.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/repository-key.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/set-up-your-project.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/vscode.md&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
