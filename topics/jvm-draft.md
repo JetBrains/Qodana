@@ -8,10 +8,12 @@
 <var name="qp" value="Qodana for JVM"/>
 <var name="qp-co" value="Qodana Community for JVM"/>
 <var name="qp-a" value="Qodana Community for Android"/>
-<var name="qp-linter" value="jetbrains/qodana-jvm:2024.1"/>
-<var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2024.1"/>
-<var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2024.1"/>
-<var name="qd-image" value="jetbrains/qodana-jvm<-community><-android>:2024.1"/>
+<var name="qp-an" value="Qodana for Android"/>
+<var name="qp-linter" value="jetbrains/qodana-jvm:2024.2-eap"/>
+<var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2024.2-eap"/>
+<var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2024.2-eap"/>
+<var name="qp-an-linter" value="jetbrains/qodana-android:2024.2-eap"/>
+<var name="qd-image" value="jetbrains/qodana<-jvm><-community><-android>:2024.2-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="ide-co" value="IntelliJ IDEA Community"/>
@@ -23,7 +25,12 @@
 <var name="Gplugin" value="https://plugins.jenkins.io/git/"/>
 <var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="MultipipeCreate" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
-
+<var name="TeamCityProject" value="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project"/>
+<var name="TeamCityBuildConfig" value="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html"/>
+<var name="TeamCityBuildSteps" value="https://www.jetbrains.com/help/teamcity/configuring-build-steps.html"/>
+<var name="TeamCityCommandLine" value="https://www.jetbrains.com/help/teamcity/command-line.html#General+Settings"/>
+<var name="TeamCityPullRequests" value="https://www.jetbrains.com/help/teamcity/pull-requests.html"/>
+<var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
 
 <link-summary>You can analyze your Java code using the %qp% and %qp-co% linters.</link-summary>
 
@@ -32,7 +39,7 @@
 All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
 Python projects, you can use the following linters:
 
-* %qp% is based on %ide% and licensed under the Ultimate and
+* %qp% and %qp-an% are based on %ide% and licensed under the Ultimate and
   Ultimate Plus [licenses](pricing.md),
 * %qp-co% and %qp-a% are based on %ide-co% and licensed under the Community license.
 
@@ -176,9 +183,12 @@ qodana:
 <a href="project-token.md">project token</a>.</li>
 </list>
 </tab>
+<tab title="TeamCity">
+  <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+</tab>
 </tabs>
 
-### Other ways to run locally
+### Command line
 {id="jvm-run-qodana-locally"}
 
 >Before running %product%, create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, generate a
@@ -201,7 +211,6 @@ Here are the examples of how you can run %product% locally.
                -l %qd-image%
         </code-block>
         <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
-        <p>If you omit the <code>-l</code> option, the %qp% linter will run by default.</p>
     </tab>
     <tab group-key="docker-image" title="Docker image">
         <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
@@ -275,7 +284,7 @@ Out of the box, Qodana provides two predefined profiles hosted on
 
 * `qodana.starter` is the default profile and a subset of the more comprehensive `qodana.recommended` profile,
 * `qodana.recommended` is suitable for running in CI/CD pipelines and mostly implements the default %ide% profile, see the
-  [PyCharm](https://www.jetbrains.com/help/pycharm/customizing-profiles.html) documentation for details.
+  [%ide-a%](https://www.jetbrains.com/help/idea/customizing-profiles.html) documentation for details.
 
 You can customize %product% profiles using configurations in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
 
@@ -391,9 +400,15 @@ qodana:
       expose_as: 'Qodana report'
 </code-block>
 </tab>
+<tab title="TeamCity">
+
+Using the **Additional Qodana arguments** field of the [`Qodana`](teamcity.md#teamcity-qodana-runner) runner configuration,
+you can configure the [baseline](baseline.topic) feature by adding the `--baseline <path/to/qodana.sarif.json>` option.
+
+</tab>
 </tabs>
 
-#### Local run
+#### Command line
 {id="jvm-enable-baseline-local-run"}
 
 In these snippets, the `--baseline` option configures the path to the SARIF-formatted file containing a baseline:
@@ -419,6 +434,31 @@ In these snippets, the `--baseline` option configures the path to the SARIF-form
         </code-block>
     </tab>
 </tabs>
+
+### Enabling the quality gate
+
+Depending on the linter, you can configure the quality gate for: 
+
+* The total number of project problems, available for all linters,
+* Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>, available for all linters,
+* <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qp% linter.
+
+You can configure [quality gates](quality-gate.topic) by saving this snippet to the [`qodana.yaml`](qodana-yaml.md) file:
+
+```yaml
+failureConditions:
+  severityThresholds:
+    any: 50 # Total number of problems in all severities
+    critical: 1 # Severities
+    high: 2
+    moderate: 3
+    low: 4
+    info: 5
+  testCoverageThresholds: # Only Qodana for JVM 
+    fresh: 6 # Fresh code coverage
+    total: 7 # Total percentage
+```
+
 
 ### Analyzing pull requests
 
@@ -492,9 +532,14 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
 </code-block>
 <p>Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a base for comparison.</p>
 </tab>
+<tab title="TeamCity">
+<p>Information about configuring TeamCity for analyzing pull and merge requests is available on the 
+<a href="%TeamCityPullRequests%">TeamCity</a> documentation portal.
+</p>
+</tab>
 </tabs>
 
-#### Local run
+#### Command line
 {id="jvm-pull-requests-local-run"}
 
 To analyze changes in your code, employ the `--diff-start` option and specify a hash of the commit that will act as a
@@ -518,7 +563,7 @@ base for comparison:
     <tr>
       <td>Support for</td>
       <td>Name</td>
-      <td>%qp%</td>
+      <td>%qp% and %qp-an%</td>
       <td>%qp-co%</td>
       <td>%qp-a%</td>  
     </tr>
@@ -530,13 +575,19 @@ base for comparison:
             <p>Groovy</p>
         </td>
         <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
     </tr>
     <tr>
@@ -561,7 +612,7 @@ base for comparison:
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
@@ -574,24 +625,24 @@ base for comparison:
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
         <tr>
@@ -606,13 +657,31 @@ base for comparison:
             <p>SQL server</p>
         </td>
        <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x274c; None</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
         <td>
-            <p>&#x274c; None</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -642,26 +711,26 @@ base for comparison:
             <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
         <td>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
         </td>
@@ -677,12 +746,12 @@ base for comparison:
             <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
        <td>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -693,13 +762,19 @@ base for comparison:
             <p>Maven</p>
         </td>
        <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
        <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
        <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
     </tr>
     <tr>
@@ -713,23 +788,28 @@ base for comparison:
         <p><a href="vulnerability-checker.md">Vulnerability checker</a></p>
       </td>
       <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
       </td>
       <td>
          <p>&#x2714;</p>
          <p>&#x2714;</p>
-         <p>&#x274c;</p>
-         <p>&#x274c;</p>
-         <p>&#x274c;</p>
-         <p>&#x274c;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
       </td>
       <td>
          <p>&#x2714;</p>
          <p>&#x2714;</p>
-         <p>&#x274c;</p>
-         <p>&#x274c;</p>
-         <p>&#x274c;</p>
-         <p>&#x274c;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
       </td>
     </tr>
 </table>

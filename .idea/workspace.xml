@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/set-up-your-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/set-up-your-project.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/jvm-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm-draft.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/python-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python-draft.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,16 +93,6 @@
     &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/about-qodana.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/cloud-user-roles.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/inspection-profiles.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/repository-key.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/set-up-your-project.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/vscode.md&quot;
-    ]
   }
 }</component>
   <component name="RecentsManager">

@@ -6,9 +6,9 @@
 
 <var name="qp" value="Qodana for Python"/>
 <var name="qp-co" value="Qodana Community for Python"/>
-<var name="qp-linter" value="jetbrains/qodana-python:2024.1"/>
-<var name="qp-co-linter" value="jetbrains/qodana-python-community:2024.1"/>
-<var name="qd-image" value="jetbrains/qodana-python<-community>:2024.1"/>
+<var name="qp-linter" value="jetbrains/qodana-python:2024.2-eap"/>
+<var name="qp-co-linter" value="jetbrains/qodana-python-community:2024.2-eap"/>
+<var name="qd-image" value="jetbrains/qodana-python<-community>:2024.2-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="PyCharm"/>
 <var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
@@ -93,9 +93,9 @@ You can run %instance% in %ide% and send inspection reports to [Qodana Cloud](cl
 </step>
 </procedure>
 
-The examples below require a [project token](project-token.md) related to
+<!--The examples below require a [project token](project-token.md) related to
 %product% license. To generate a project token, you need to [create a Qodana Cloud account](cloud-get-access.topic), and then 
-follow the instructions from the [](cloud-quickstart.md) section. 
+follow the instructions from the [](cloud-quickstart.md) section.--> 
 
 ### CI/CD
 {id="python-run-qodana-cicd"}
@@ -395,9 +395,6 @@ qodana:
 </code-block>
 </tab>
 <tab title="TeamCity">
-<include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
-</tab>
-<tab title="TeamCity">
 
 Using the **Additional Qodana arguments** field of the [`Qodana`](teamcity.md#teamcity-qodana-runner) runner configuration, 
 you can configure the [baseline](baseline.topic) feature by adding the `--baseline <path/to/qodana.sarif.json>` option. 
@@ -434,8 +431,9 @@ In these snippets, the `--baseline` option configures the path to the SARIF-form
 
 ### Enabling the quality gate
 
-You can configure [quality gates](quality-gate.topic) for the total number of project problems, specific problem severities, and code 
-coverage by saving this snippet to the [`qodana.yaml`](qodana-yaml.md) file: 
+You can configure [quality gates](quality-gate.topic) for the total number of project problems and specific problem 
+severities in both linters, and code coverage thresholds available only in the %qp% linter, by saving this snippet to 
+the [`qodana.yaml`](qodana-yaml.md) file: 
 
 ```yaml
 failureConditions:
@@ -602,10 +600,10 @@ Here is the list of %product% features supported per each linter.
 |-------------------------------|----------|-----------|
 | [](baseline.topic)            | &#x2714; | &#x2714;  |
 | [](quality-gate.topic)        | &#x2714; | &#x2714;  |
-| [](code-coverage.md)          | &#x274c; | &#x2714;  |
-| [](license-audit.topic)       | &#x274c; | &#x2714;  |
-| [](quick-fix.md)              | &#x274c; | &#x2714;  |
-| [](vulnerability-checker.md)  | &#x274c; | &#x2714;  |
+| [](code-coverage.md)          | &nbsp;   | &#x2714;  |
+| [](license-audit.topic)       | &nbsp;   | &#x2714;  |
+| [](quick-fix.md)              | &nbsp;   | &#x2714;  |
+| [](vulnerability-checker.md)  | &nbsp;   | &#x2714;  |
 
 
 
