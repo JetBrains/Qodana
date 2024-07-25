@@ -972,8 +972,7 @@ Depending on the linter, you can run them using private NuGet repositories as sh
         <procedure>
             <step>In the local filesystem, create the folder that will contain cache. For example, it can be
                 <code>C:/Temp/QodanaCache</code>.</step>
-            <step><a href="qodana-dotnet-docker-readme.topic" anchor="quick-start-recommended-profile">Run %instance%</a>
-                using the <code>--cache-dir C:/Temp/QodanaCache</code> option.</step>
+            <step>Run %instance% using the <code>--cache-dir C:/Temp/QodanaCache</code> option.</step>
             <step>Copy all NuGet packages contained by default in the
                 <code ignore-vars="true">%userprofile%\.nuget\packages</code>
                 folder to <code>C:/Temp/QodanaCache/nuget</code>. If you have a custom package folder, copy packages
@@ -1319,15 +1318,20 @@ docker run \
             <p>TypeScript</p>
         </td>
         <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -1347,10 +1351,21 @@ docker run \
             <p>Xunit</p>
         </td>
         <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x274c; None</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
         <tr>
@@ -1364,10 +1379,15 @@ docker run \
             <p>SQL server</p>
         </td>
        <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x274c; None</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -1384,18 +1404,26 @@ docker run \
             <p>YAML</p>
         </td>
         <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -1407,7 +1435,7 @@ docker run \
             <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -1419,7 +1447,7 @@ docker run \
             <p>&#x2714;</p>
         </td>
         <td>
-            <p>&#x274c;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -1431,13 +1459,16 @@ docker run \
         <p><a href="license-audit.topic">License audit</a></p>
       </td>
       <td>
-            <p>&#x2714; All from the list</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
       </td>
       <td>
          <p>&#x2714;</p>
          <p>&#x2714;</p>
-         <p>&#x274c;</p>
-         <p>&#x274c;</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
       </td>
     </tr>
 </table>

@@ -5,11 +5,11 @@
 This feature is available starting from version 2023.2 of %instance% and supported by the following linters and their 
 trial versions:
 
-* [Qodana for JVM](qodana-jvm.md)
-* [Qodana for Python](qodana-python.md)
-* [Qodana for PHP](qodana-php.md)
-* [Qodana for JS](qodana-js.md)
-* [Qodana for Go](qodana-go.md)
+* [%jvm%](jvm.md)
+* [%python%](python.md)
+* [%php%](php.md)
+* [%js%](js.md)
+* [%go%](golang.md)
 
 ## How it works
 

@@ -292,7 +292,7 @@ explains how to run your profile while inspecting code.
 
 ### Exclude an inspection
 
-This sample shows how you can exclude the `PhpDeprecationInspection` inspection from the [Qodana for PHP](qodana-php.md) 
+This sample shows how you can exclude the `PhpDeprecationInspection` inspection from the [%php%](php.md) 
 linter:
 
 ```yaml
@@ -346,7 +346,7 @@ inspections:
 ### Create a profile from scratch
 
 Using `baseProfile`, this configuration defines the empty profile, and then it includes only the `Java/Data flow`
-inspection group from the [Qodana for JVM](qodana-jvm.md) linter.
+inspection group from the [Qodana for JVM](jvm.md) linter.
 
 ```yaml
 name: "Java/Data flow only"
@@ -381,7 +381,7 @@ inspections:
 ### Override the existing profile
 
 You can exclude inspection categories from the [`qodana.starter`](%qodana.starter%) profile
-that are not related to the [Qodana for .NET](qodana-dotnet.md) linter.
+that are not related to the [Qodana for .NET](dotnet.md) linter.
 
 ```yaml
 name: "My custom profile"

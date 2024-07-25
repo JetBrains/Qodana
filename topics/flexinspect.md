@@ -198,7 +198,7 @@ supposed to highlight.
 
 <note>
 Before you can run your inspection, you'll first need to select a suitable %product% <a href="linters.md">linter</a>. 
-For example, for PHP, this will be the <a href="qodana-php.md"/> linter.
+For example, for PHP, this will be the <a href="php.md">%php%</a> linter.
 </note>
 
 <note>

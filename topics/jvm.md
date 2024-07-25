@@ -37,7 +37,7 @@
 <warning>This is a draft document, so we do not recommend that you use it.</warning>
 
 All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
-Python projects, you can use the following linters:
+Java projects, you can use the following linters:
 
 * %qp% and %qp-an% are based on %ide% and licensed under the Ultimate and
   Ultimate Plus [licenses](pricing.md),
@@ -127,7 +127,7 @@ as shown below.</p>
 <a href="%Dockeraccess%">Manage Docker as a non-root user</a> section of the Docker documentation.</p>
 <p>Create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
 <p>In the root directory of your project repository, create the <code>Jenkinsfile</code>.</p>
-<p>Save this snippet to the <code>Jenkinsfile</code>:</p>
+<p>Save the basic configuration snippet to the <code>Jenkinsfile</code>:</p>
 <code-block lang="groovy">
 pipeline {
     environment {
@@ -151,6 +151,7 @@ pipeline {
     }
 }
 </code-block>
+<p>More configuration options are available in the <a href="jenkins.md"/>section.</p>
 </tab>
 <tab title="GitLab CI/CD">
 <p>Make sure that your project repository is accessible by GitLab CI/CD.</p>
@@ -182,9 +183,11 @@ qodana:
 <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
 <a href="project-token.md">project token</a>.</li>
 </list>
+<p>More configuration options are available in the <a href="gitlab.md"/>section.</p>
 </tab>
 <tab title="TeamCity">
   <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+<p>More configuration options are available in the <a href="teamcity.md"/>section.</p>
 </tab>
 </tabs>
 
@@ -201,7 +204,7 @@ As %product% linters are distributed in Docker containers, Docker needs to be in
 If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check
 the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) for details.
 
-Here are the examples of how you can run %product% locally.
+Here are the examples of how you can run %product% using the command line.
 
 <tabs group="cli-settings">
     <tab group-key="qodana-cli" title="Qodana CLI">
@@ -213,7 +216,7 @@ Here are the examples of how you can run %product% locally.
         <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
     </tab>
     <tab group-key="docker-image" title="Docker image">
-        <p>To start, pull the image from Docker Hub (only necessary to get the latest version):</p>
+        <p>Pull the image from Docker Hub:</p>
         <code-block lang="shell" prompt="$">
             docker pull %qd-image%
         </code-block>
@@ -339,7 +342,7 @@ in a SARIF-formatted file.
           - name: 'Qodana Scan'
             uses: JetBrains/qodana-action@v2024.1
             with:
-              args: --baseline,qodana.sarif.json
+              args: --baseline,&lt;path/to/qodana.sarif.json&gt;
             env:
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 </code-block>
@@ -441,7 +444,7 @@ Depending on the linter, you can configure the quality gate for:
 
 * The total number of project problems, available for all linters,
 * Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>, available for all linters,
-* <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qp% linter.
+* <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qp% and %qp-an% linters.
 
 You can configure [quality gates](quality-gate.topic) by saving this snippet to the [`qodana.yaml`](qodana-yaml.md) file:
 

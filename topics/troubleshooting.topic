@@ -70,9 +70,9 @@
 
         <p>Mounting these directories saves %instance% from downloading all dependencies again while using these linters:</p>
             <list>
-                <li><a href="qodana-jvm.md"/></li>
-                <li><a href="qodana-jvm-community.md"/></li>
-                <li><a href="qodana-jvm-android.md"/></li>
+                <li><a href="jvm.md">%jvm%</a></li>
+                <li><a href="jvm.md">%jvm-co%</a></li>
+                <li><a href="jvm.md">%jvm-a%</a></li>
             </list>
     </chapter>
 

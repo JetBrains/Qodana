@@ -5,7 +5,7 @@ merge or pull requests, as well as inspect changes between two commits.</link-su
 
 <var name="mrp" value="https://docs.gitlab.com/ee/ci/pipelines/merged_results_pipelines.html"/>
 
-<note>This feature is not supported by the <a href="qodana-dotnet-community.md"/> linter.</note>
+<note>This feature is not supported by the <a href="dotnet.md"/> linter.</note>
 
 Using %product%, you can not only scan your entire codebase, but also run analysis on change sets like merge or pull 
 requests, as well as inspect changes between two commits.

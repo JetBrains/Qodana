@@ -6,7 +6,7 @@ By default, %instance% runs its linters using Docker based on Linux images.
 In specific cases, you have to deal with private packages or run %instance% on the operating systems that
 provide incomplete support for Docker. 
 
-To overcome this, %instance% supports the native mode for the [](qodana-dotnet.md) linter. 
+To overcome this, %instance% supports the native mode for the [%dotnet%](dotnet.md) linter. 
 In this case, %instance% reuses its execution environment, which lets you execute %instance% in exactly the same 
 environment as you use for building the projects, use the correct operating system, have access to all repository
 credentials, and resolve dependencies. 
@@ -14,7 +14,7 @@ credentials, and resolve dependencies.
 ## Before you start
 
 > The native mode is incompatible with Docker containers of %product%, which means that you run
-> the [](qodana-dotnet.md) linter either as a Docker container or in a native mode.
+> the [%dotnet%](dotnet.md) linter either as a Docker container or in a native mode.
 > {style="note"}
 
 Make sure that you have a proper version of the .NET SDK and all required dependencies installed on your machine.

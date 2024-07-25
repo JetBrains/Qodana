@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
-<instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="release">
+<instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="eap">
 	<!-- Getting started section -->
 	<toc-element accepts-web-file-names="welcome.html" topic="getting-started.topic">
 		<toc-element topic="about-qodana.md"/>
@@ -8,22 +8,10 @@
 		<toc-element topic="Quick-start.topic"/>
 		<toc-element topic="set-up-your-project.md" hidden="true"/>
 		<toc-element topic="faq.topic"/>
-		<toc-element accepts-web-file-names="new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html" topic="new-in-2024-1.md"/>
+		<!--		<toc-element accepts-web-file-names="new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html" topic="new-in-2024-1.md"/> -->
 		<toc-element topic="components.topic">
 			<toc-element topic="static-analysis.topic"/>
-			<toc-element accepts-web-file-names="supported-technologies.html" topic="linters.md">
-				<toc-element topic="qodana-jvm.md"/>
-				<toc-element topic="qodana-jvm-community.md"/>
-				<toc-element topic="qodana-jvm-android.md"/>
-				<toc-element topic="qodana-php.md"/>
-				<toc-element topic="qodana-python.md"/>
-				<toc-element topic="qodana-python-community.md"/>
-				<toc-element topic="qodana-js.md"/>
-				<toc-element topic="qodana-go.md"/>
-				<toc-element topic="qodana-dotnet.md"/>
-				<toc-element topic="qodana-dotnet-community.md"/>
-				<toc-element topic="qodana-clang.md"/>
-			</toc-element>
+			<!-- Here, add redirect to the Linters page -->
 			<toc-element topic="code-inspections.topic"/>
 			<toc-element topic="project-token.md"/>
 			<toc-element topic="contributors.md"/>
@@ -32,16 +20,23 @@
 
 	</toc-element>
 
-	<!-- The future section about linters. Currently hidden from the TOC -->
-	<toc-element toc-title="Analyzing your code" hidden="true">
-		<toc-element topic="python-draft.md" hidden="true"/>
-	<toc-element topic="dotnet-draft.md" hidden="true"/>
-    <toc-element topic="jvm-draft.md" hidden="true"/>
-</toc-element>
+	<!-- The linter section containing unified pages -->
+	<toc-element toc-title="Analyzing your code" topic="linters.md" accepts-web-file-names="supported-technologies.html">
+		<toc-element topic="python.md" accepts-web-file-names="qodana-python.html,qodana-python-community.html,
+		qodana-python-docker-readme.html,qodana-python-community-docker-readme.html"/>
+	<toc-element topic="dotnet.md" accepts-web-file-names="qodana-dotnet.html,qodana-dotnet-community.html,
+	qodana-dotnet-docker-readme.html,qodana-cdnet-docker-readme.html"/>
+    <toc-element topic="jvm.md" accepts-web-file-names="qodana-jvm.html,qodana-jvm-community.html,qodana-jvm-android.html,
+    qodana-jvm-docker-readme.html,qodana-jvm-community-docker-readme.html,qodana-jvm-android-docker-readme.html"/>
+		<toc-element accepts-web-file-names="qodana-php.html,qodana-php-docker-readme.html"
+					 topic="php.md"/>
+		<toc-element topic="js.md" accepts-web-file-names="qodana-js.html,qodana-js-docker-readme.html"/>
+		<toc-element topic="golang.md" accepts-web-file-names="qodana-go.html,qodana-go-docker-readme.html"/>
+		<toc-element topic="clang.md" accepts-web-file-names="qodana-clang.html,qodana-clang-docker-readme.html"/>
+	</toc-element>
 
 
-
-<!-- Use cases section -->
+	<!-- Use cases section -->
 	<toc-element toc-title="Use cases">
 		<toc-element topic="monorepo-project.md"/>
 		<toc-element topic="override-a-profile.md"/>
@@ -53,17 +48,6 @@
 	<toc-element toc-title="Deployment" topic="deploy-qodana.topic">
 		<toc-element topic="native-mode.md"/>
 		<toc-element topic="docker-images.md">
-			<toc-element topic="qodana-jvm-docker-readme.topic"/>
-			<toc-element topic="qodana-jvm-community-docker-readme.topic"/>
-			<toc-element topic="qodana-jvm-android-docker-readme.topic"/>
-			<toc-element topic="qodana-php-docker-readme.topic"/>
-			<toc-element topic="qodana-python-docker-readme.topic"/>
-			<toc-element topic="qodana-python-community-docker-readme.topic"/>
-			<toc-element topic="qodana-js-docker-readme.topic"/>
-			<toc-element topic="qodana-go-docker-readme.topic"/>
-			<toc-element topic="qodana-dotnet-docker-readme.topic"/>
-			<toc-element topic="qodana-cdnet-docker-readme.topic"/>
-			<toc-element topic="qodana-clang-docker-readme.topic"/>
 		</toc-element>
 		<toc-element topic="qodana_gradle_plugin.md"/>
 		<toc-element topic="service.md"/>

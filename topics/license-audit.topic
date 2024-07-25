@@ -20,27 +20,27 @@
             <td>Tools supported</td>
         </tr>
         <tr>
-            <td><a href="qodana-jvm.md"/></td>
+            <td><a href="jvm.md">%jvm%</a></td>
             <td>Maven and Gradle</td>
         </tr>
         <tr>
-            <td><a href="qodana-php.md"/></td>
+            <td><a href="php.md">%php%</a></td>
             <td>Composer</td>
         </tr>
         <tr>
-            <td><a href="qodana-js.md"/></td>
+            <td><a href="js.md">%js%</a></td>
             <td>npm and Yarn</td>
         </tr>
         <tr>
-            <td><a href="qodana-python.md"/></td>
+            <td><a href="python.md">%python%</a></td>
             <td>pip</td>
         </tr>
         <tr>
-            <td><a href="qodana-go.md"/></td>
+            <td><a href="golang.md">%go%</a></td>
             <td>Go Modules</td>
         </tr>
         <tr>
-            <td><a href="qodana-dotnet.md"/></td>
+            <td><a href="dotnet.md">%dotnet%</a></td>
             <td/>
         </tr>
     </table>
@@ -103,22 +103,22 @@
             license text.</note>
 
 
-        <p>Depending on the location of license information, the <a href="qodana-jvm.md"/> linter performs a
+        <p>Depending on the location of license information, the <a href="jvm.md">%jvm%</a> linter performs a
             sequence of steps to find it. First of all, it searches for any license references in the
             <code>LICENSE.*</code> files. Next, it scans through the <code>pom.xml</code> file. If necessary,
             it then scans through dependency source files. Otherwise, the linter requests the
             <a href="https://package-search.jetbrains.com/"><code>PACKAGE-SEARCH</code></a> plugin.
         </p>
 
-        <p>The <a href="qodana-js.md"/> linter using npm reads information about project and dependency licenses using
-            configuration files of package management tools. The <a href="qodana-php.md"/> linter also reads license information
+        <p>The <a href="js.md">%js%</a> linter using npm reads information about project and dependency licenses using
+            configuration files of package management tools. The <a href="php.md">%php%</a> linter also reads license information
         from the Composer configuration file.</p>
 
-        <p>The <a href="qodana-python.md"/>, <a href="qodana-go.md"/>, and <a href="qodana-js.md"/> linter using
+        <p>The <a href="python.md">%python%</a>, <a href="golang.md">%go%</a>, and <a href="js.md">%js%</a> linter using
             Yarn require that the <code>LICENSE.*</code> file in the project root contains the project license.
         </p>
 
-        <p>For all linters except <a href="qodana-jvm.md"/>, you also need to have project
+        <p>For all linters except <a href="jvm.md">%jvm%</a>, you also need to have project
             dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> key of
             the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
 

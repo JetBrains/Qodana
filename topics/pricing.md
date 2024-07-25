@@ -157,21 +157,21 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 This is the list of linters that you can run using the Community license:
 
-* [Qodana Community for JVM](qodana-jvm-community.md)      
-* [Qodana Community for Android](qodana-jvm-android.md)     
-* [Qodana Community for Python](qodana-python-community.md) 
-* [](qodana-dotnet-community.md)
-* [](qodana-clang.md)
+* [%jvm-co%](jvm.md)      
+* [%jvm-co-a%](jvm.md)     
+* [%python-co%](python.md) 
+* [%dotnet-co%](dotnet.md)
+* [%clang%](clang.md)
 
 This is the list of linters that require either the Ultimate or the Ultimate Plus license:
 
-* [Qodana for JVM](qodana-jvm.md)                           
-* [Qodana for Python](qodana-python.md)                     
-* [Qodana for PHP](qodana-php.md)                           
-* [Qodana for JS](qodana-js.md)                             
-* [Qodana for Go](qodana-go.md)                             
-* [Qodana for .NET](qodana-dotnet.md)       
-* [](qodana-clang.md)
+* [%jvm%](jvm.md)                           
+* [%python%](python.md)                     
+* [%php%](php.md)                           
+* [%js%](js.md)                             
+* [%go%](golang.md)                             
+* [%dotnet%](dotnet.md)       
+* [%clang%](clang.md)
 
 ## Qodana licensing: an overview
 

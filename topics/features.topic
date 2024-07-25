@@ -45,12 +45,12 @@
                         <p>Ultimate Plus</p>
                 </td>
                 <td>
-                    <p><a href="qodana-jvm.md"/></p>
-                    <p><a href="qodana-js.md"/></p>
-                    <p><a href="qodana-php.md"/></p>
-                    <p><a href="qodana-dotnet.md"/></p>
-                    <p><a href="qodana-python.md"/></p>
-                    <p><a href="qodana-go.md"/></p>
+                    <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="js.md">%js%</a></p>
+                    <p><a href="php.md">%php%</a></p>
+                    <p><a href="dotnet.md">%dotnet%</a></p>
+                    <p><a href="python.md">%python%</a></p>
+                    <p><a href="golang.md">%go%</a></p>
                 </td>
             </tr>
             <tr>
@@ -59,19 +59,19 @@
                 <td>
                     <p>Ultimate Plus</p>
                 </td>
-                <td>All <a href="linters.md">linters</a> except <a href="qodana-dotnet.md"/> and <a href="qodana-clang.md"/></td>
+                <td>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet%</a> and <a href="clang.md">%clang%</a></td>
             </tr>
             <tr>
                 <td><a href="license-audit.topic"/></td>
                 <td>Verify your project license for compatibility with the licenses of its dependencies</td>
                 <td>Ultimate Plus</td>
                 <td>
-                    <p><a href="qodana-jvm.md"/></p>
-                    <p><a href="qodana-js.md"/></p>
-                    <p><a href="qodana-php.md"/></p>
-                    <p><a href="qodana-dotnet.md"/></p>
-                    <p><a href="qodana-python.md"/></p>
-                    <p><a href="qodana-go.md"/></p>
+                    <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="js.md">%js%</a></p>
+                    <p><a href="php.md">%php%</a></p>
+                    <p><a href="dotnet.md">%dotnet%</a></p>
+                    <p><a href="python.md">%python%</a></p>
+                    <p><a href="golang.md">%go%</a></p>
                 </td>
             </tr>
             <tr>
@@ -82,7 +82,7 @@
                         <p>Ultimate Plus</p>
                 </td>
                 <td>
-                    <p><a href="qodana-php.md"/></p>
+                    <p><a href="php.md">%php%</a></p>
                 </td>
             </tr>
             <tr>
@@ -105,19 +105,19 @@
                         <p>Ultimate Plus</p>
                 </td>
                 <td>
-                    <p><a href="qodana-jvm.md"/></p>
-                    <p><a href="qodana-js.md"/></p>
-                    <p><a href="qodana-php.md"/></p>
-                    <p><a href="qodana-python.md"/></p>
-                    <p><a href="qodana-go.md"/></p>
+                    <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="js.md">%js%</a></p>
+                    <p><a href="php.md">%php%</a></p>
+                    <p><a href="python.md">%python%</a></p>
+                    <p><a href="golang.md">%go%</a></p>
                 </td>
             </tr>
             <tr>
                 <td><a href="taint-analysis.md"/></td>
-                <td>Secure your PHP code from malicious user data. Available only in the <a href="qodana-php.md"/> linter</td>
+                <td>Secure your PHP code from malicious user data. Available only in the <a href="php.md">%php%</a> linter</td>
                 <td>Ultimate Plus</td>
                 <td>
-                    <p><a href="qodana-php.md"/></p>
+                    <p><a href="php.md">%php%</a></p>
                 </td>
             </tr>
             <tr>
@@ -125,11 +125,11 @@
                 <td>Check third-party packages for vulnerabilities</td>
                 <td>Ultimate Plus</td>
                 <td>
-                    <p><a href="qodana-jvm.md"/></p>
-                    <p><a href="qodana-js.md"/></p>
-                    <p><a href="qodana-dotnet.md"/></p>
-                    <p><a href="qodana-python.md"/></p>
-                    <p><a href="qodana-go.md"/></p>
+                    <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="js.md">%js%</a></p>
+                    <p><a href="dotnet.md">%dotnet%</a></p>
+                    <p><a href="python.md">%python%</a></p>
+                    <p><a href="golang.md">%go%</a></p>
                 </td>
             </tr>
         </table>

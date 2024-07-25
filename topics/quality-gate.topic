@@ -37,13 +37,13 @@
         </tr>
         <tr>
             <td><a anchor="quality-gate-severity-threshold"/></td>
-            <td>All <a href="linters.md">linters</a> except <a href="qodana-dotnet-community.md"/></td>
+            <td>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet-co%</a></td>
             <td>Community, Ultimate, and Ultimate Plus licenses depending on a linter</td>
         </tr>
         <tr>
             <td><a anchor="quality-gate-code-coverage"/></td>
-            <td><a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, <a href="qodana-php.md"/>,
-                <a href="qodana-dotnet.md"/>, <a href="qodana-python.md"/>, and <a href="qodana-go.md"/></td>
+            <td><a href="jvm.md">%jvm%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>,
+                <a href="dotnet.md">%dotnet%</a>, <a href="python.md">%python%</a>, and <a href="golang.md">%go%</a></td>
             <td>Ultimate and Ultimate Plus</td>
         </tr>
     </table>
@@ -83,7 +83,7 @@
                 <code-block lang="yaml">
                     failThreshold: &lt;number&gt;
                 </code-block>
-                <p>Alternatively, all linters except <a href="qodana-dotnet-community.md"/> support the
+                <p>Alternatively, all linters except <a href="dotnet.md">%dotnet-co%</a> support the
                     <code>severityThresholds.any</code> option:</p>
                 <code-block lang="yaml">
                     failureConditions:
@@ -232,7 +232,7 @@
 
         <link-summary>You can configure quality gates for specific problem severities.</link-summary>
 
-        <p>All <a href="linters.md">linters</a> except <a href="qodana-dotnet-community.md"/> let you configure
+        <p>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet-co%</a> let you configure
             separate quality gates for each <a href="faq.topic" anchor="faq-severities">problem severity</a>, and
             exceeding just one setting limitation will make the build fail, including the
             <a anchor="quality-gate-project-threshold">total number of problems</a>.</p>
@@ -260,8 +260,8 @@
             thresholds for the linters that support the code coverage feature.</link-summary>
 
         <p>You can configure the total and <a href="code-coverage.md" anchor="Fresh+code">fresh code</a> coverage
-            thresholds for the <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, <a href="qodana-php.md"/>,
-            <a href="qodana-dotnet.md"/>, <a href="qodana-python.md"/>, and <a href="qodana-go.md"/> linters. </p>
+            thresholds for the <a href="jvm.md">%jvm%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>,
+            <a href="dotnet.md">%dotnet%</a>, <a href="python.md">%python%</a>, and <a href="golang.md">%go%</a> linters. </p>
 
         <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration sample:</p>
 

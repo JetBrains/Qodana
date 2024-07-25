@@ -437,7 +437,7 @@
     <snippet id="qodana-deployment-options">
         <p>%instance% provides several deployment options to better fit your needs:</p>
         <list>
-            <li><a href="native-mode.md">Native mode</a> available in the <a href="qodana-dotnet.md">Qodana for .NET</a> linter</li>
+            <li><a href="native-mode.md">Native mode</a> available in the <a href="dotnet.md">Qodana for .NET</a> linter</li>
             <li><a href="docker-images.md">Docker images</a> let you inspect
                 <a href="Quick-start.topic">local projects</a> and build %instance% into your CI/CD pipelines.</li>
             <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %instance%, connect to Qodana Cloud, open and review inspection reports.</li>

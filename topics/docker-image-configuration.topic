@@ -183,7 +183,7 @@
 
             <link-summary>Learn how you can download plugins from JetBrains Marketplace and run them in your CI/CD pipelines.</link-summary>
 
-            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+            <note>This feature is not available in the <a href="dotnet.md">Qodana for .NET</a> linter.</note>
 
             <p>You can automatically download the required plugins from
                 <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> and use them in your CI/CD pipelines.
@@ -210,13 +210,13 @@
                     <td>
                         <p>The two-character code of the linter that the plugin should be downloaded for. The available values are:</p>
                         <list>
-                            <li>IU - <a href="qodana-jvm.md">Qodana for JVM</a></li>
-                            <li>IC - <a href="qodana-jvm-community.md">Qodana Community for JVM</a></li>
-                            <li>PS - <a href="qodana-php.md">Qodana for PHP</a></li>
-                            <li>PY - <a href="qodana-python.md">Qodana for Python</a></li>
-                            <li>PC - <a href="qodana-python-community.md">Qodana Community for Python</a></li>
-                            <li>WS - <a href="qodana-js.md">Qodana for JS</a></li>
-                            <li>GO - <a href="qodana-go.md">Qodana for Go</a></li>
+                            <li>IU - <a href="jvm.md">%jvm%</a></li>
+                            <li>IC - <a href="jvm.md">%jvm-co%</a></li>
+                            <li>PS - <a href="php.md">%php%</a></li>
+                            <li>PY - <a href="python.md">%python%</a></li>
+                            <li>PC - <a href="python.md">%python-co%</a></li>
+                            <li>WS - <a href="js.md">%js%</a></li>
+                            <li>GO - <a href="golang.md">%go%</a></li>
                         </list>
                     </td>
                     <td><code>PS</code></td>
@@ -541,7 +541,7 @@
             <tr>
                 <td><code>--run-promo</code></td>
                 <td><p>Run promo inspections as a part of the <code>qodana.starter</code> profile</p>
-                    <note>This option is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+                    <note>This option is not available in the <a href="dotnet.md">%dotnet%</a> linter.</note>
                 </td>
                 <td>Enabled only if %instance% is configured for the <code>qodana.starter</code> profile, and the <code>--run-promo true</code> option is invoked</td>
             </tr>
@@ -740,7 +740,7 @@
             the /data/coverage directory of a %instance% linter image.</link-summary>
 
         <note>
-            For the <a href="qodana-go.md"/> linter, the code coverage requires that a project contains no <code>.idea</code> directory.
+            For the <a href="golang.md">%go%</a> linter, the code coverage requires that a project contains no <code>.idea</code> directory.
         </note>
 
         <p>You can run the <a href="code-coverage.md">code coverage</a> by mapping the directory containing code coverage files to
@@ -947,7 +947,7 @@
 
         <chapter id="docker-config-reference-properties-stdout" title="Log INFO messages to STDOUT">
 
-            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+            <note>This feature is not available in the <a href="dotnet.md">%dotnet%</a> linter.</note>
 
             <!-- What does this command mean?-->
 
@@ -1045,7 +1045,7 @@
         <link-summary>For all linter except Qodana Community for .NET, you can run incremental analysis on a change set like
             merge or pull requests, as well as inspect changes between two commits.</link-summary>
 
-        <note>This feature is not supported by the <a href="qodana-dotnet-community.md"/> linter.</note>
+        <note>This feature is not supported by the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
 
         <table>
             <tr>
@@ -1223,7 +1223,7 @@
             <link-summary>The idea.properties file configures the default locations of the IDE files. You can override
                 this file using the IDEA_PROPERTIES variable. </link-summary>
 
-            <note>This feature is not available in the <a href="qodana-dotnet.md"/> linter.</note>
+            <note>This feature is not available in the <a href="dotnet.md">%dotnet%</a> linter.</note>
 
             <p>The <code>idea.properties</code> configures the default locations of the IDE files.</p>
 

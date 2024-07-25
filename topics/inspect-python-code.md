@@ -10,24 +10,24 @@ To inspect your Python codebase, depending on your %product% [license](pricing.m
 <tabs>
 <tab id="inspect-python-code-linters" title="Linters">
 
-| Linter name                    | Suitable %product% licenses |
-|--------------------------------|-----------------------------|
-| [](qodana-python.md)           | Ultimate and Ultimate Plus  |
-| [](qodana-python-community.md) | Community                   |
+| Linter name           | Suitable %product% licenses |
+|-----------------------|-----------------------------|
+| [%python%](python.md) | Ultimate and Ultimate Plus  |
+| [%python-co%](python.md)      | Community                   |
 
 </tab>
 <tab id="inspect-python-code-techs" title="Supported technologies and features">
 
 Here is the list of technologies and features supported by both linters.
 
-| Supported technologies and features                                                                                                                                     | [](qodana-python.md) | [](qodana-python-community.md) |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------------|
-| Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, shell scripts, MongoDB, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid | &#x2714;             | &#x2714;                       |
-| [](baseline.topic)                                                                                                                                                      | &#x2714;             | &#x2714;                       |
-| [](quality-gate.topic)                                                                                                                                                  | &#x2714;             | &#x2714;                       |
-| [](license-audit.topic)                                                                                                                                                 | &#x2714;             | &#x274c;                       |
-| [](quick-fix.md)                                                                                                                                                        | &#x2714;             | &#x274c;                       |
-| [](vulnerability-checker.md)                                                                                                                                            | &#x2714;             | &#x274c;                       |
+| Supported technologies and features                                                                                                                                     | [%python%](python.md) | [%python-co%](python.md) |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|------------------|
+| Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, shell scripts, MongoDB, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid | &#x2714;         | &#x2714;         |
+| [](baseline.topic)                                                                                                                                                      | &#x2714;         | &#x2714;         |
+| [](quality-gate.topic)                                                                                                                                                  | &#x2714;         | &#x2714;         |
+| [](license-audit.topic)                                                                                                                                                 | &#x2714;         | &#x274c;         |
+| [](quick-fix.md)                                                                                                                                                        | &#x2714;         | &#x274c;         |
+| [](vulnerability-checker.md)                                                                                                                                            | &#x2714;         | &#x274c;         |
 
 </tab>
 </tabs>

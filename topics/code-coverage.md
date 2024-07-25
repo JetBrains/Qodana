@@ -16,7 +16,7 @@ following linters:
         <td>Supported report formats</td>
     </tr>
     <tr>
-        <td rowspan="2"><a href="qodana-jvm.md"/></td>
+        <td rowspan="2"><a href="dotnet.md">%dotnet%</a></td>
         <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a> is the recommended tool</td>
         <td><code>ic</code> is the preferable format. <code>XML</code> is also supported.</td>
     </tr>
@@ -25,34 +25,34 @@ following linters:
         <td><code>xml</code></td>
     </tr>
     <tr>
-        <td><a href="qodana-js.md"/></td>
+        <td><a href="js.md">%js%</a></td>
         <td><a href="https://jestjs.io/">Jest</a></td>
         <td><code>lcov</code></td>
     </tr>
     <tr>
-        <td><a href="qodana-php.md"/></td>
+        <td><a href="php.md">%php%</a></td>
         <td><a href="https://phpunit.de/">PhpUnit</a></td>
         <td><code>xml</code></td>
     </tr>
     <tr>
-        <td><a href="qodana-dotnet.md"/></td>
+        <td><a href="dotnet.md">%dotnet%</a></td>
         <td><a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a></td>
         <td><code>lcov</code></td>
     </tr>
     <tr>
-        <td><a href="qodana-python.md"/></td>
+        <td><a href="python.md">%python%</a></td>
         <td><a href="https://coverage.readthedocs.io/en/7.3.2/">Coverage.py</a></td>
         <td><code>xml</code></td>
     </tr>
     <tr>
-        <td><a href="qodana-go.md"/></td>
+        <td><a href="golang.md">%go%</a></td>
         <td><code>go test</code></td>
         <td><code>out</code></td>
     </tr>
 </table>
 
-<note>Code coverage for files is available only in <a href="qodana-js.md"/>, <a href="qodana-php.md"/>, and
-<a href="qodana-python.md"/> linters.</note>
+<note>Code coverage for files is available only in <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, and
+<a href="python.md">%python%</a> linters.</note>
 
 ## How it works
 
@@ -65,14 +65,14 @@ Code coverage employs several inspections that are already included in the `qoda
 
 <!-- Do I need to enable any inspections in case of .NET -->
 
-| Linter               | Employed inspection                                                                                |
-|----------------------|----------------------------------------------------------------------------------------------------|
-| [](qodana-jvm.md)    | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html) |
-| [](qodana-js.md)     | [`JsCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JsCoverageInspection.html)   |
-| [](qodana-php.md)    | [`PhpCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PhpCoverageInspection.html) |
-| [](qodana-python.md) | [`PyCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PyCoverageInspection.html)                                                                         |
-| [](qodana-go.md)     | [`GoCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/GoCoverageInspection.html)   |
-| [](qodana-dotnet.md) | `NetCoverageInspection`                                                                            |
+| Linter                | Employed inspection                                                                                |
+|-----------------------|----------------------------------------------------------------------------------------------------|
+| [%jvm%](jvm.md)       | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html) |
+| [%js%](js.md)         | [`JsCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JsCoverageInspection.html)   |
+| [%php%](php.md)       | [`PhpCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PhpCoverageInspection.html) |
+| [%python%](python.md) | [`PyCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PyCoverageInspection.html)                                                                         |
+| [%go%](golang.md)     | [`GoCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/GoCoverageInspection.html)   |
+| [%dotnet%](dotnet.md) | `NetCoverageInspection`                                                                            |
 
 Once the inspection is complete, reports are available in [%instance% reports](html-report.md) and JetBrains IDEs.
 
@@ -104,7 +104,7 @@ should have the relative paths inside the project. For example, if your codebase
 2. If you run %instance% [locally](Quick-start.topic), use your code coverage tool to generate a code coverage report. 
 Save the report to the directory where %instance% can read it. If you run %instance% in your [GitHub](github.md) pipeline, configure the workflow as shown in the [](#run-code-coverage) section.
 
-For the [](qodana-dotnet.md) linter, configure <a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a> for the test project.
+For the [%dotnet%](dotnet.md) linter, configure <a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a> for the test project.
 
 ## Run the code coverage
 {id="run-code-coverage"}
@@ -116,11 +116,11 @@ You can run %instance% over a single test coverage report generated by a single 
 </note>
 
 <note>
-For the <a href="qodana-go.md"/> linter, the code coverage requires that a project contains no <code>.idea</code> directory. 
+For the <a href="golang.md">%go%</a> linter, the code coverage requires that a project contains no <code>.idea</code> directory. 
 </note>
 
 
-To learn about running code coverage using the [](qodana-dotnet.md) linter, skip to the 
+To learn about running code coverage using the [%dotnet%](dotnet.md) linter, skip to the 
 [](#code-coverage-qodana-for-dotnet) section of this page.
 
 <tabs>
@@ -152,7 +152,7 @@ To learn about running code coverage using the [](qodana-dotnet.md) linter, skip
         directory. You can find various examples of the GitHub Actions configurations on the 
 <a href="https://github.com/qodana/qodana-coverage/tree/7360c03be1f44a4ed0e591218977005b07dd569e/.github/workflows">GitHub</a> website.</p>
 
-Below is the pipeline configuration example for the [](qodana-js.md) linter:
+Below is the pipeline configuration example for the [%js%](js.md) linter:
 
 ```yaml
 name: JavaScript - Jest Test
@@ -242,7 +242,7 @@ directory:</p>
 ### Qodana for .NET
 {id="code-coverage-qodana-for-dotnet"}
 
-Here is an example of the [`qodana.yaml`](qodana-yaml.md) file configuration for the [](qodana-dotnet.md) linter:
+Here is an example of the [`qodana.yaml`](qodana-yaml.md) file configuration for the [%dotnet%](dotnet.md) linter:
 
 ```yaml
 dotnet:
@@ -267,7 +267,7 @@ The [`bootstrap`](before-running-qodana.md) key performs several steps before ru
 | `/p:CoverletOutput=<your-project-folder>/.qodana/code-coverage` | Collect code coverage results to a specific directory                                         |
 | `/p:CoverletOutputFormat=lcov`                                  | Specify the code coverage output format                                                       |
 
-Code coverage inspection results for the [](qodana-dotnet.md) linter are available in [](#Qodana+Cloud).
+Code coverage inspection results for the [Qodana for .NET](dotnet.md) linter are available in [](#Qodana+Cloud).
 
 ### Fresh code
 

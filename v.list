@@ -280,4 +280,18 @@
     <var name="finding_in_project_custom_title" value="Search for a target and usages within a project" product="ij"/>
     <var name="finding_in_project_custom_title" value="Finding and replacing text in a project" product="!ij"/>
 
+    <!-- Qodana project variables since 24.07.2024 -->
+    <var name="jvm" value="Qodana for JVM"/>
+    <var name="jvm-a" value="Qodana for Android"/>
+    <var name="jvm-co" value="Qodana Community for JVM"/>
+    <var name="jvm-co-a" value="Qodana Community for Android"/>
+    <var name="dotnet" value="Qodana for .NET"/>
+    <var name="dotnet-co" value="Qodana Community for .NET"/>
+    <var name="python" value="Qodana for Python"/>
+    <var name="python-co" value="Qodana Community for Python"/>
+    <var name="php" value="Qodana for PHP"/>
+    <var name="js" value="Qodana for JS"/>
+    <var name="go" value="Qodana for Go"/>
+    <var name="clang" value="Qodana for C/C++"/>
+
 </vars>

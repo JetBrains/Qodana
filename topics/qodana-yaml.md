@@ -155,7 +155,7 @@ failThreshold: <number>
 > When running in the baseline mode, a threshold is calculated as the sum of new and absent problems. Unchanged results are ignored.
 {style="note"}
 
-All linters except [](qodana-dotnet-community.md) let you use the following configuration: 
+All linters except [%dotnet-co%](dotnet.md) let you use the following configuration: 
 
 ```yaml
 failureConditions:
@@ -244,9 +244,9 @@ linter: jetbrains/qodana-jvm-android:2024.1
 
 You can configure the JDK version for these linters:
 
-* [](qodana-jvm.md)
-* [](qodana-jvm-community.md)
-* [](qodana-jvm-android.md)
+* [%jvm%](jvm.md)
+* [%jvm-co%](jvm.md)
+* [%jvm-co-a%](jvm.md)
 
 <include from="lib_qd.topic" element-id="configure-jdk-qodana-yaml" use-filter="configure-jdk-qodana-yaml,empty"/>
 
@@ -256,7 +256,7 @@ To learn more about configuring JDK, see the [](configure-jdk.md) section.
 
 <link-summary>For JVM-based linters, you can configure the JDK version.</link-summary>
 
-You can configure the PHP version before running the [](qodana-php.md) linter: 
+You can configure the PHP version before running the [%php%](php.md) linter: 
 
 ```yaml
 php:

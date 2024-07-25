@@ -51,7 +51,7 @@ inspections:
 
 ## Exclude a specific inspection
 
-Suppose, before running the [Qodana for PHP](qodana-php.md) linter, you would like to exclude the `PhpDeprecationInspection` 
+Suppose, before running the [%php%](php.md) linter, you would like to exclude the `PhpDeprecationInspection` 
 inspection supported by the `qodana.recommended` profile. In this case, you can update your configuration as follows:
 
 ```yaml
