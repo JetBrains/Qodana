@@ -17,7 +17,7 @@
             <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a>, the
                 <a href="https://github.com/JetBrains/qodana-cli">%instance% CLI</a> tool, or available
                 <a href="docker-images.md">Docker images</a></li>
-            <li><a href="native-mode.md">Native mode</a> available for the <a href="dotnet.md">%dotnet%</a> linter</li>
+            <li><a href="native-mode.md">Native mode</a> available for the <a href="qodana-dotnet.md"/> linter</li>
         </list>
     </chapter>
 
@@ -31,7 +31,7 @@
 
     <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" default-state="collapsed" collapsible="true">
         <p>The on-premises version of %instance% is available on request. To learn more about this version of %product%,
-            contact us at <a href="mailto:qodana-sales@jetbrains.com">qodana-sales@jetbrains.com</a>.</p>
+            please contact our team at <a href="mailto:qodana-sales@jetbrains.com">qodana-sales@jetbrains.com</a>.</p>
     </chapter>
 
     <chapter id="faq-support-other-techs" title="Are there any plans to support other technologies?" default-state="collapsed" collapsible="true">
@@ -66,9 +66,9 @@
     </chapter>
 
     <chapter id="faq-linter-description" title="What does each %instance% linter represent?" default-state="collapsed" collapsible="true">
-        <p>A linter is a Qodana component representing a specific technology. For example, the <a href="jvm.md">%jvm%</a>
+        <p>A linter is a Qodana component representing a specific technology. For example, the <a href="qodana-jvm.md"/>
             linter lets you analyze the codebase containing the Java, Kotlin, and Groovy code, while the
-            <a href="js.md">%js%</a> linter lets you check on the JavaScript and TypeScript code. On the
+            <a href="qodana-js.md"/> linter lets you check on the JavaScript and TypeScript code. On the
             <a href="linters.md"/> page, you can find the list of all available linters and the links to the detailed
             description of each one.
         </p>
@@ -261,7 +261,7 @@
         </p>
         <p>
             To exclude Qodana Cloud, you can download and run the Community linters of %instance%, like
-            <a href="jvm.md">%jvm-co%</a>, <a href="jvm.md">%jvm-co-a%</a>, and <a href="python.md">%python-co%</a>,
+            <a href="qodana-jvm-community.md"/>, <a href="qodana-jvm-android.md"/>, and <a href="qodana-python-community.md"/>,
             locally without a license.
         </p>
     </chapter>
@@ -397,17 +397,17 @@
             <a href="pricing.md" anchor="pricing-linters-licenses">appropriate licenses</a>, based on your tasks.
         </p>
         <p>
-            You can only run paid linters like <a href="jvm.md">%jvm%</a>, <a href="js.md">%js%</a>, or
-            <a href="php.md"></a> using the Ultimate and Ultimate Plus licenses – it is impossible to run them if
+            You can only run paid linters like <a href="qodana-jvm.md"/>, <a href="qodana-js.md"/>, or
+            <a href="qodana-php.md"/> using the Ultimate and Ultimate Plus licenses – it is impossible to run them if
             you’re using the Community license.
         </p>
         <p>
-            The Community linters like <a href="jvm.md">%jvm-co%</a>, <a href="jvm.md">%jvm-co-a%</a>, and
-            <a href="python.md">%python-co%</a> can be used either with the Community license, or without a license at all.
+            The Community linters like <a href="qodana-jvm-community.md"/>, <a href="qodana-jvm-android.md"/>, and
+            <a href="qodana-python-community.md"/> can be used either with the Community license, or without a license at all.
         </p>
         <p>
-            There is no need to run a linter like <a href="jvm.md">%jvm-co%</a> under the Ultimate or Ultimate
-            Plus licenses because it will not extend the existing functionality.
+            There is no need to run a linter like <a href="qodana-jvm-community.md"/> under the Ultimate or Ultimate
+            Plus licenses, since it will not extend the existing functionality.
         </p>
     </chapter>
 
