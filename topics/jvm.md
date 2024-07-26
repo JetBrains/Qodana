@@ -31,6 +31,7 @@
 <var name="TeamCityCommandLine" value="https://www.jetbrains.com/help/teamcity/command-line.html#General+Settings"/>
 <var name="TeamCityPullRequests" value="https://www.jetbrains.com/help/teamcity/pull-requests.html"/>
 <var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
+<var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 
 <link-summary>You can analyze your Java code using the %qp% and %qp-co% linters.</link-summary>
 
@@ -48,235 +49,487 @@ To see the list of supported features, you can navigate to the [](#jvm-feature-m
 ## Before your start
 {id="jvm-before-you-start"}
 
-<!-- Bootstrap needs to be mentioned here -->
-
 Before running %instance%, you can [configure the JDK](configure-jdk.md) for your project.
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
+<!-- Prerequisites for each software need to be added here from .NET -->
+
+### Qodana Cloud
+
+To run linters, you need to obtain a [project token](project-token.md) that
+will be used by %product% for identifying and verifying a license.
+
+<procedure>
+    <step>
+        Navigate to <a href="https://qodana.cloud">Qodana Cloud</a> and create an <a href="cloud-quickstart.md">account</a> there.
+    </step>
+    <step>
+        In Qodana Cloud, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>, 
+        and a <a href="cloud-projects.topic">project</a>.
+    </step>
+    <step>
+        On the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project card</a>, you can find the <a href="project-token.md">project token</a> 
+        that you will be using further in this section.
+    </step>
+</procedure>
+
+A project token is required for the %qp% and %qp-an% linters, and optional for the %qp-co% and %qp-a% linters.
+
+### Prepare your software
+
+This shows how to configure software from this section to %product% analysis. 
+
+<tabs group="software">
+    <tab title="GitHub Actions" group-key="github">
+        <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
+        <procedure>
+            <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+                <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+                and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+            </step>
+            <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
+                <code>.github/workflows/code_quality.yml</code> file. This file will be used for running %product% as shown in further examples.
+            </step>
+        </procedure>
+    </tab>
+    <tab title="Jenkins" group-key="jenkins">
+        <procedure>
+            <step>
+              <p>Make sure that these plugins are installed on your Jenkins instance:</p>
+              <list>
+              <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
+              <li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects.</li>
+              </list>
+              <p>Make sure that Docker is installed and accessible by Jenkins.</p>
+              <p>If applicable, make sure that Docker is accessible by the <code>jenkins</code> user as described in the
+              <a href="%Dockeraccess%">Manage Docker as a non-root user</a> section of the Docker documentation.</p>
+            </step>
+            <step>
+              <p>Create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
+            </step>
+            <step>
+              <p>In the root directory of your project repository, save the <code>Jenkinsfile</code>.
+                This file will be used for running %product% as shown in further examples.</p>
+            </step>
+        </procedure>
+    </tab>
+    <tab title="GitLab CI/CD" group-key="gitlab">
+        <procedure>
+            <step><p>Make sure that your project repository is accessible by GitLab CI/CD.</p></step>
+            <step><p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> file that will contain configurations for running %product%.</p></step>
+        </procedure>
+    </tab>
+    <tab title="Command line" group-key="command-line">
+        <p>You have two options to run %product% locally: you can either run 
+        <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> or directly use the Docker image of %product%.
+        As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
+        If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>, check
+        the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> for details.</p>
+    </tab>
+</tabs>
 
 ## Run %product%
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 
-### JetBrains IDEs
-{id="jvm-run-qodana-ides"}
-
-You can run %instance% in %ide-a% and send inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
-
-<procedure>
-<step>
-   <p>In %ide-a%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
-</step>
-<step>
-   <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
-   <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
-    <p>This dialog contains the following components:</p>
-      <table>
-        <tr>        
-          <td>Name</td>
-          <td>Description</td>
-        </tr>
-        <tr>
-          <td>The <code>qodana.yaml</code> file</td>
-          <td>In the text field, you can set up code analysis used by Qodana in this file. You can learn more about available <a href="qodana-yaml.md">configuration options</a></td>
-        </tr>
-        <tr>
-          <td>The <ui-path>Send inspection results to Qodana Cloud</ui-path> option</td>
-          <td>If you want to <a href="cloud-forward-reports.topic">send reports to Qodana Cloud</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud</a></td>
-        </tr>
-        <tr>
-          <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
-          <td>By checking this option, you can save the %product% configuration made on this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
-        </tr>
-        <tr>
-          <td>The <ui-path>Use Qodana analysis baseline</ui-path> option</td>
-          <td>Using the <a href="baseline.topic">baseline</a> feature, you can skip analysis for specific problems</td>
-        </tr>
-      </table>
-    <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
-</step>
-<step>
-   <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
-</step>
-</procedure>
-
-### CI/CD
-{id="jvm-run-qodana-cicd"}
-
-Before running %product%, create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, generate a
-[project token](project-token.md) that will be used by %product% for identifying and verifying a license. In Qodana Cloud,
-you can review [inspection reports](#jvm-explore-results-qodana-cloud).
-
-<tabs>
-<tab title="GitHub Actions">
-<p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> 
-as shown below.</p>
-
-<include from="lib_qd.topic" element-id="github-basic-configuration"/>
-
-<p>More configuration examples are available in the <a href="github.md"/> section.</p>
-</tab>
-<tab title="Jenkins">
-<p>Make sure that these plugins are installed on your Jenkins instance:</p>
-<list>
-<li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
-<li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects.</li>
-</list>
-<p>Make sure that Docker is installed and accessible by Jenkins.</p>
-<p>If applicable, make sure that Docker is accessible by the <code>jenkins</code> user as described in the
-<a href="%Dockeraccess%">Manage Docker as a non-root user</a> section of the Docker documentation.</p>
-<p>Create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
-<p>In the root directory of your project repository, create the <code>Jenkinsfile</code>.</p>
-<p>Save the basic configuration snippet to the <code>Jenkinsfile</code>:</p>
-<code-block lang="groovy">
-pipeline {
-    environment {
-        QODANA_TOKEN=credentials('qodana-token')
-    }
-    agent {
-        docker {
-            args '''
-              -v "${WORKSPACE}":/data/project
-              --entrypoint=""
-              '''
-            image '%qd-image%'
-        }
-    }
-    stages {
-        stage('Qodana') {
-            steps {
-                sh '''qodana'''
-            }
-        }
-    }
-}
-</code-block>
-<p>More configuration options are available in the <a href="jenkins.md"/>section.</p>
-</tab>
-<tab title="GitLab CI/CD">
-<p>Make sure that your project repository is accessible by GitLab CI/CD.</p>
-<p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> file and save this configuration in it:</p>
-<code-block lang="yaml">
-qodana:
-   image:
-      name: %qd-image%
-      entrypoint: [""]
-   cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-        fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
-        paths:
-           - .qodana/cache
-   variables:
-      QODANA_TOKEN: $qodana_token
-   script:
-      - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-</code-block>
-<p>In this snippet:</p>
-<list>
-<li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
-  so subsequent runs will be faster,</li>
-<li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
-  configuration options described in the <a href="docker-image-configuration.topic"/> section,</li>
-<li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
-<a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
-<a href="project-token.md">project token</a>.</li>
-</list>
-<p>More configuration options are available in the <a href="gitlab.md"/>section.</p>
-</tab>
-<tab title="TeamCity">
-  <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
-<p>More configuration options are available in the <a href="teamcity.md"/>section.</p>
-</tab>
-</tabs>
-
-### Command line
-{id="jvm-run-qodana-locally"}
-
->Before running %product%, create a [Qodana Cloud account](cloud-quickstart.md). In Qodana Cloud, generate a
-[project token](project-token.md) that will be used by %product% for identifying and verifying a license. In Qodana Cloud,
-you can review [inspection reports](#jvm-explore-results-qodana-cloud).
-{style="note"}
-
-You have two options to run %product% locally: you can either run [Qodana CLI](https://github.com/JetBrains/qodana-cli) or directly use the Docker image of %product%.
-As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
-If you are using Linux, you should be able to run Docker under your current [non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user), check
-the [installation page](https://github.com/JetBrains/qodana-cli/releases/latest) for details.
-
-Here are the examples of how you can run %product% using the command line.
-
-<tabs group="cli-settings">
-    <tab group-key="qodana-cli" title="Qodana CLI">
-        <code-block prompt="$">
-            qodana scan \
-               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               -l %qd-image%
+  <p>You can run all linters described in this section in two modes:</p>
+  <list>
+    <li>The <a href="native-mode.md">native mode</a> is the recommended method that lets you run 
+    the linter without using Docker containers,</li>
+    <li>Container mode is an alternative that involves Docker containers of the %qp% linter.</li>
+  </list>
+  <tabs>
+    <tab title="Native mode">
+      <snippet id="dotnet-run-qodana-native-mode-yaml">
+        <p>Using a YAML configuration is the preferred method of configuring linters because it lets you use such configurations
+            across all software that runs %product% without additional efforts.</p>
+            <p>You can configure the native mode by adding this line to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
+        <code-block lang="yaml">
+            ide: QDNET
         </code-block>
-        <p>Here, the <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>.</p>
+      </snippet>
+        <p>Alternatively, you can implement the native mode configuration as shown in examples below.</p>
+        <tabs group="software">
+            <tab title="GitHub Actions" group-key="github">
+                <procedure>
+                    <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+                        <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+                        and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+                    </step>
+                    <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
+                        <code>.github/workflows/code_quality.yml</code> file.</step>
+                    <step>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                    to your repository in the native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+                        <code-block lang="yaml">
+                            name: Qodana
+                            on:
+                              workflow_dispatch:
+                              pull_request:
+                              push:
+                                branches: # Specify your branches here
+                                  - main # The 'main' branch
+                                  - 'releases/*' # The release branches
+                            jobs:
+                              qodana:
+                                runs-on: ubuntu-latest
+                                permissions:
+                                  contents: write
+                                  pull-requests: write
+                                  checks: write
+                                steps:
+                                  - uses: actions/checkout@v3
+                                    with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                  - name: 'Qodana Scan'
+                                    uses: JetBrains/qodana-action@v2024.2
+                                    with:
+                                        args: --ide,QDNET
+                                    env:
+                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                        </code-block>
+                      <p>This configuration invokes the native mode using:</p>
+                          <code-block lang="yaml">
+                             with:
+                             &nbsp;&nbsp;&nbsp;args: --ide,QDNET
+                          </code-block>
+                    </step>
+                </procedure>
+                <p>More configuration examples are available in the <a href="github.md"/> section.</p>
+            </tab>
+            <tab title="Jenkins" group-key="jenkins">
+                <p>Save this snippet to the <code>Jenkinsfile</code>:</p>
+                <code-block lang="groovy">
+                    pipeline {
+                        environment {
+                            QODANA_TOKEN=credentials('qodana-token')
+                        }
+                        agent {
+                            docker {
+                                args '''
+                                  -v "${WORKSPACE}":/data/project
+                                  --entrypoint=""
+                                  '''
+                                // Uncomment the linter you would like to employ
+                                // image '%qp-linter%' // Qodana for JVM
+                                // image '%qp-co-linter%' // Qodana Community for JVM
+                                // image '%qp-a-linter%' // Qodana Community for Android
+                                // image '%qp-an-linter%' // Qodana for Android
+                            }
+                        }
+                        stages {
+                            stage('Qodana') {
+                                steps {
+                                    sh '''qodana'''
+                                }
+                            }
+                        }
+                    }
+                </code-block>
+                <p>More configuration examples are available in the <a href="jenkins.md"/>section.</p>
+            </tab>
+            <tab title="GitLab CI/CD" group-key="gitlab">
+                <code-block lang="yaml">
+                    qodana:
+                       image:
+                        # Uncomment the linter you would like to employ
+                        # name: %qp-linter% # Qodana for JVM
+                        # name: %qp-co-linter% # Qodana Community for JVM
+                        # name: %qp-a-linter% # Qodana Community for Android
+                        # name: %qp-an-linter% # Qodana for Android
+                          entrypoint: [""]
+                       cache:
+                          - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                            fallback_keys:
+                               - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                               - qodana-2024.2-
+                            paths:
+                               - .qodana/cache
+                       variables:
+                          QODANA_TOKEN: $qodana_token           - 
+                       script:
+                          - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                       artifacts:
+                          paths:
+                             - qodana/report/
+                          expose_as: 'Qodana report'
+                </code-block>
+                  <p>In this snippet:</p>
+                  <list>
+                  <li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
+                    so subsequent runs will be faster,</li>
+                  <li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
+                    configuration options described in the <a href="docker-image-configuration.topic"/> section,</li>
+                  <li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
+                  <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
+                  <a href="project-token.md">project token</a>.</li>
+                  </list>
+            <p>More configuration examples are available in the <a href="gitlab.md"/>section.</p>
+            </tab>
+            <tab title="TeamCity" group-key="teamcity">
+              <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+              Using the **Additional Qodana arguments** field of the [`Qodana`](teamcity.md#teamcity-qodana-runner) runner configuration,
+              you can configure the [baseline](baseline.topic) feature by adding the `--baseline <path/to/qodana.sarif.json>` option.
+              <p>More configuration examples are available in the <a href="teamcity.md"/>section.</p>
+            </tab>
+            <tab title="Command line" group-key="command-line">
+                <p>Follow <a href="https://github.com/JetBrains/qodana-cli/releases/latest">instructions</a> from the GitHub website to install Qodana CLI.</p>
+                <p>Run this command in the project root directory:</p>
+                <code-block lang="shell" prompt="$">
+                    qodana scan \
+                    &nbsp;&nbsp;&nbsp;--ide QDNET
+                </code-block>
+                <p>Here, the <code>--ide</code> option downloads and employs the JetBrains IDE binary file.</p>
+                <p>Alternatively, in the <code>qodana.yaml</code> file save <code>ide: QDNET</code>, and then run %instance% 
+                    using the following command:</p>
+                <code-block lang="shell" prompt="$">
+                    qodana scan
+                </code-block>
+                <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
+                  reconfigure the analysis, see the <a href="ui-overview.md"/> section for
+                  details.</p>
+            </tab>
+            <tab title="JetBrains IDEs" group-key="ides">
+                <procedure>
+                    <step>
+                       <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+                    </step>
+                    <step>
+                       <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
+                          <list>
+                            <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
+                              You can see that the native mode is already configured.</li>
+                             <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
+                              using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
+                             <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
+                          </list>
+                       <img src="ide-plugin-dotnet-run-qodana.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+                        <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
+                    </step>
+                    <step>
+                       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+                    </step>
+                </procedure>
+            </tab>
+        </tabs>
     </tab>
-    <tab group-key="docker-image" title="Docker image">
-        <p>Pull the image from Docker Hub:</p>
-        <code-block lang="shell" prompt="$">
-            docker pull %qd-image%
-        </code-block>
-        <p>Start local analysis with <code>source-directory</code> pointing to the root of your project and
-            <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
-        <code-block lang="shell" prompt="$">
-            docker run \
-               -v &lt;source-directory&gt;/:/data/project/ \
-               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               %qd-image%
-        </code-block>
+    <tab title="Container mode">
+        <p>The container mode is available for the %qp% linter; however, we recommend that you use the native mode.</p>
+        <tabs>
+            <tab title="GitHub Actions" group-key="github">
+                <procedure>
+                    <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+                        <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+                        and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+                    </step>
+                    <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
+                        <code>.github/workflows/code_quality.yml</code> file.</step>
+                    <step>To analyze the <code>main</code> branch, release branches and the pull requests coming
+                    to your repository in the container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+                        <code-block lang="yaml">
+                            name: Qodana
+                            on:
+                              workflow_dispatch:
+                              pull_request:
+                              push:
+                                branches: # Specify your branches here
+                                  - main # The 'main' branch
+                                  - 'releases/*' # The release branches
+                            jobs:
+                              qodana:
+                                runs-on: ubuntu-latest
+                                permissions:
+                                  contents: write
+                                  pull-requests: write
+                                  checks: write
+                                steps:
+                                  - uses: actions/checkout@v3
+                                    with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                  - name: 'Qodana Scan'
+                                    uses: JetBrains/qodana-action@v2024.2
+                                    env:
+                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                        </code-block>
+                    </step>
+                </procedure>
+            </tab>
+            <tab title="Jenkins" group-key="jenkins">
+                <p>Save this snippet to the <code>Jenkinsfile</code>:</p>
+                <code-block lang="groovy">
+                    pipeline {
+                        environment {
+                            QODANA_TOKEN=credentials('qodana-token')
+                        }
+                        agent {
+                            docker {
+                                args '''
+                                  -v "${WORKSPACE}":/data/project
+                                  --entrypoint=""
+                                  '''
+                                // Uncomment the linter you would like to employ
+                                // image '%qp-linter%' // Qodana for JVM
+                                // image '%qp-co-linter%' // Qodana Community for JVM
+                                // image '%qp-a-linter%' // Qodana Community for Android
+                                // image '%qp-an-linter%' // Qodana for Android
+                            }
+                        }
+                        stages {
+                            stage('Qodana') {
+                                steps {
+                                    sh '''qodana'''
+                                }
+                            }
+                        }
+                    }
+                </code-block>
+            </tab>
+            <tab title="GitLab CI/CD" group-key="gitlab">
+                <code-block lang="yaml">
+                    qodana:
+                       image:
+                        # Uncomment the linter you would like to employ
+                        # name: %qp-linter% # Qodana for JVM
+                        # name: %qp-co-linter% # Qodana Community for JVM
+                        # name: %qp-a-linter% # Qodana Community for Android
+                        # name: %qp-an-linter% # Qodana for Android
+                          entrypoint: [""]
+                       cache:
+                          - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                            fallback_keys:
+                               - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                               - qodana-2024.2-
+                            paths:
+                               - .qodana/cache
+                       variables:
+                          QODANA_TOKEN: $qodana_token           - 
+                       script:
+                          - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                       artifacts:
+                          paths:
+                             - qodana/report/
+                          expose_as: 'Qodana report'
+                </code-block>
+              <p>In this snippet:</p>
+              <list>
+              <li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
+                so subsequent runs will be faster,</li>
+              <li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
+                configuration options described in the <a href="docker-image-configuration.topic"/> section,</li>
+              <li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
+              <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
+              <a href="project-token.md">project token</a>.</li>
+              </list>
+            </tab>
+            <tab title="TeamCity" group-key="teamcity">
+              <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+              <p>More configuration examples are available in the <a href="teamcity.md"/>section.</p>
+            </tab>
+            <tab title="Command line" group-key="command-line">
+                <p>Start local analysis with <code>source-directory</code>
+                    pointing to the root of your project and
+                    <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
+                <code-block lang="shell" prompt="$">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;%qd-image%
+                </code-block>
+                <p>Here, you can employ the following linters:</p>
+                <table>
+                  <tr>
+                    <td>Image</td>
+                    <td>Linter</td>
+                  </tr>
+                  <tr>
+                    <td><code>%qp-linter%</code></td>
+                    <td>Qodana for JVM</td>
+                  </tr>
+                  <tr>
+                    <td><code>%qp-co-linter%</code></td>
+                    <td>Qodana Community for JVM</td>
+                  </tr>
+                  <tr>
+                    <td><code>%qp-a-linter%</code></td>
+                    <td>Qodana Community for Android</td>
+                  </tr>
+                  <tr>
+                    <td><code>%qp-an-linter%</code></td>
+                    <td>Qodana for Android</td>
+                  </tr>
+                </table>
         <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-reconfigure the analysis, see the <a href="ui-overview.md"/> section for
+          reconfigure the analysis, see the <a href="ui-overview.md"/> section for
             details.</p>
+            </tab>
+            <tab title="JetBrains IDEs" group-key="ides">
+                <procedure>
+                    <step>
+                       <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
+                    </step>
+                    <step>
+                       <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
+                          <list>
+                            <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
+                              You can see that the native mode is already configured.</li>
+                             <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
+                              using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
+                             <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
+                          </list>
+                           <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+                        <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
+                    </step>
+                    <step>
+                       <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+                    </step>
+                </procedure>
+            </tab>
+        </tabs>
     </tab>
-</tabs>
+  </tabs>
 
 ## Explore analysis results
 
-### JetBrains IDEs
-{id="jvm-explore-results-ides"}
+<tabs group="software">
+    <tab title="JetBrains IDEs" group-key="ides" id="jvm-explore-results-ides">
+      <p>You can load the latest %instance% report from Qodana Cloud to your IDE as explained below.</p>
+      <procedure>
+         <step>
+            <p>In your IDE, navigate to <ui-path>Tools | Qodana | Log in to Qodana</ui-path>.</p>
+         </step>
+         <step>
+            <p>
+               On the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
+            </p>
+            <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to Qodana Cloud" border-effect="line"/>
+         <p>This will redirect you to the authentication page.</p>
+         </step>
+         <step>
+            <p>Select the <a href="cloud-projects.topic">Qodana Cloud project</a> to link your local project with.</p>
+            <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
+         </step>
+         <step>
+            <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will be able to receive the most actual and relevant reports from Qodana Cloud.</p>
+            <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
+              <p>In this case, the IDE will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the 
+              current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
+              closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
+          </step> 
+          <step>
+             <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, view <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+          </step>
+      </procedure>
+    </tab>
+    <tab title="Qodana Cloud" group-key="cloud" id="jvm-explore-results-qodana-cloud">
+      <p>Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in
+      <a href="https://qodana.cloud">Qodana Cloud</a> navigate to your project and review the analysis results report.</p>
+      <img src="qc-report-example.png" dark-src="qc-report-example_dark.png" alt="Analysis report example" width="720" border-effect="line"/>
+      <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
+    </tab>
+</tabs> 
 
-You can load the latest %instance% report from [Qodana Cloud](#jvm-explore-results-qodana-cloud) to your IDE as explained below.
-
-<procedure>
-   <step>
-      <p>In your IDE, navigate to <ui-path>Tools | Qodana | Log in to Qodana</ui-path>.</p>
-   </step>
-   <step>
-      <p>
-         On the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
-      </p>
-      <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to Qodana Cloud" border-effect="line"/>
-   <p>This will redirect you to the authentication page.</p>
-   </step>
-   <step>
-      <p>Select the <a href="cloud-projects.topic">Qodana Cloud project</a> to link your local project with.</p>
-      <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
-   </step>
-   <step>
-      <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will be able to receive the most actual and relevant reports from Qodana Cloud.</p>
-      <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-        <p>In this case, the IDE will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the 
-        current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
-        closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
-    </step> 
-    <step>
-       <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, view <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
-    </step>
-</procedure>
-
-### Qodana Cloud
-{id="jvm-explore-results-qodana-cloud"}
-
-Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in
-[Qodana Cloud](https://qodana.cloud) navigate to your project and review the analysis results report.
-
-<img src="qc-report-example.png" dark-src="qc-report-example_dark.png" alt="Analysis report example" width="720" border-effect="line"/>
-
-<p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 
 ## Extend %product% configuration
 
@@ -301,21 +554,8 @@ available in the [](custom-profiles.md) and [](custom-xml-profiles.md) sections.
 You can skip analysis for specific problems using the [baseline](baseline.topic) feature. Information about a baseline is contained
 in a SARIF-formatted file.
 
-#### JetBrains IDEs
-{id="jvm-enable-baseline-ides"}
-
-<procedure>
-    <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
-    <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
-    <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
-    <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
-</procedure>
-
-#### CI/CD
-{id="jvm-enable-baseline-cicd"}
-
-<tabs>
-<tab title="GitHub Actions">
+<tabs group="software">
+<tab title="GitHub Actions" group-key="github">
 <p>This snippet contains the <code>args: --baseline,qodana.sarif.json</code> line that specifies the path to the SARIF-formatted baseline file:</p>
 <code-block lang="yaml">
     name: Qodana
@@ -340,14 +580,14 @@ in a SARIF-formatted file.
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2024.1
+            uses: JetBrains/qodana-action@v2024.2
             with:
               args: --baseline,&lt;path/to/qodana.sarif.json&gt;
             env:
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 </code-block>
 </tab>
-<tab title="Jenkins">
+<tab title="Jenkins" group-key="jenkins">
 <p>The <code>stages</code> block contains the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line that specifies
 the path to the SARIF-formatted baseline file:</p>
 <code-block lang="groovy">
@@ -361,7 +601,11 @@ pipeline {
               -v "${WORKSPACE}":/data/project
               --entrypoint=""
               '''
-            image '%qd-image%'
+            // Uncomment the linter you would like to employ
+            // image '%qp-linter%' // Qodana for JVM
+            // image '%qp-co-linter%' // Qodana Community for JVM
+            // image '%qp-a-linter%' // Qodana Community for Android
+            // image '%qp-an-linter%' // Qodana for Android
         }
     }
     stages {
@@ -377,13 +621,17 @@ pipeline {
 }
 </code-block>
 </tab>
-<tab title="GitLab CI/CD">
+<tab title="GitLab CI/CD" group-key="gitlab">
 <p>You can use the  <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block to
 invoke the baseline feature.</p>
 <code-block lang="yaml">
 qodana:
    image:
-      name: %qd-image%
+    # Uncomment the linter you would like to employ
+    # name: %qp-linter% # Qodana for JVM
+    # name: %qp-co-linter% # Qodana Community for JVM
+    # name: %qp-a-linter% # Qodana Community for Android
+    # name: %qp-an-linter% # Qodana for Android
       entrypoint: [""]
    cache:
       - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
@@ -403,19 +651,14 @@ qodana:
       expose_as: 'Qodana report'
 </code-block>
 </tab>
-<tab title="TeamCity">
+<tab title="TeamCity" group-key="teamcity">
 
 Using the **Additional Qodana arguments** field of the [`Qodana`](teamcity.md#teamcity-qodana-runner) runner configuration,
 you can configure the [baseline](baseline.topic) feature by adding the `--baseline <path/to/qodana.sarif.json>` option.
 
 </tab>
-</tabs>
-
-#### Command line
-{id="jvm-enable-baseline-local-run"}
-
-In these snippets, the `--baseline` option configures the path to the SARIF-formatted file containing a baseline:
-
+<tab title="Command line" group-key="command-line">
+<p>Choose how you would like to run the baseline feature from the command line:</p>
 <tabs group="cli-settings">
     <tab group-key="qodana-cli" title="Qodana CLI">
         <code-block prompt="$">
@@ -423,7 +666,7 @@ In these snippets, the `--baseline` option configures the path to the SARIF-form
                -v &lt;path_to_baseline&gt;:/data/base/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                -l %qd-image% \
-               --baseline /data/base/qodana.sarif.json
+               --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
         </code-block>
     </tab>
     <tab group-key="docker-image" title="Docker image">
@@ -433,10 +676,21 @@ In these snippets, the `--baseline` option configures the path to the SARIF-form
                -v &lt;path_to_baseline&gt;:/data/base/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                %qd-image% \
-               --baseline /data/base/qodana.sarif.json
+               --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
         </code-block>
     </tab>
 </tabs>
+</tab>
+<tab title="JetBrains IDEs" group-key="ides">
+<procedure>
+    <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
+    <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
+    <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
+    <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
+</procedure>
+</tab>
+</tabs>
+
 
 ### Enabling the quality gate
 
@@ -464,9 +718,6 @@ failureConditions:
 
 
 ### Analyzing pull requests
-
-#### CI/CD
-{id="python-pull-requests-cicd"}
 
 <tabs>
 <tab title="GitHub Actions">
@@ -512,7 +763,11 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
 <code-block lang="yaml">
             qodana:
    image:
-      name: %qd-image%
+    # Uncomment the linter you would like to employ
+    # name: %qp-linter% # Qodana for JVM
+    # name: %qp-co-linter% # Qodana Community for JVM
+    # name: %qp-a-linter% # Qodana Community for Android
+    # name: %qp-an-linter% # Qodana for Android
       entrypoint: [""]
    cache:
       - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
@@ -540,14 +795,9 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
 <a href="%TeamCityPullRequests%">TeamCity</a> documentation portal.
 </p>
 </tab>
-</tabs>
-
-#### Command line
-{id="jvm-pull-requests-local-run"}
-
-To analyze changes in your code, employ the `--diff-start` option and specify a hash of the commit that will act as a
-base for comparison:
-
+<tab title="Command line">
+<p>To analyze changes in your code, employ the <code>--diff-start</code> option and specify a hash of the commit that will 
+act as a base for comparison:</p>
 <code-block lang="shell" prompt="$">
     docker run \
     &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
@@ -555,7 +805,40 @@ base for comparison:
     &nbsp;&nbsp;&nbsp;%qd-image% \
     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
 </code-block>
+<p>Here, you can employ the following linters:</p>
+<table>
+  <tr>
+    <td>Image</td>
+    <td>Linter</td>
+  </tr>
+  <tr>
+    <td><code>%qp-linter%</code></td>
+    <td>Qodana for JVM</td>
+  </tr>
+  <tr>
+    <td><code>%qp-co-linter%</code></td>
+    <td>Qodana Community for JVM</td>
+  </tr>
+  <tr>
+    <td><code>%qp-a-linter%</code></td>
+    <td>Qodana Community for Android</td>
+  </tr>
+  <tr>
+    <td><code>%qp-an-linter%</code></td>
+    <td>Qodana for Android</td>
+  </tr>
+</table>
 
+</tab>
+<tab title="JetBrains IDEs">
+<procedure>
+    <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
+    <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
+    <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
+    <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
+</procedure>
+</tab>
+</tabs>
 
 ## Supported technologies and features
 {id="jvm-feature-matrix"}

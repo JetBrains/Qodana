@@ -44,7 +44,7 @@
                     qodana scan \
                        -v &lt;path_to_baseline&gt;:/data/base/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       --baseline /data/base/qodana.sarif.json
+                       --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                 </code-block>
                 <p>Here, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
                     containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %instance%
@@ -60,7 +60,7 @@
                        -v &lt;path_to_baseline&gt;:/data/base/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
-                       --baseline /data/base/qodana.sarif.json
+                       --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                 </code-block>
                 <p>In this snippet, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
                     containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %instance%
@@ -129,7 +129,7 @@
                             qodana scan \
                                -v &lt;path_to_baseline&gt;:/data/base/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               --baseline /data/base/qodana.sarif.json \
+                               --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json \
                                --baseline-include-absent
                         </code-block>
                 </tab>
@@ -140,7 +140,7 @@
                            -v &lt;path_to_baseline&gt;:/data/base/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;linter&gt; \
-                           --baseline /data/base/qodana.sarif.json \
+                           --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json \
                            --baseline-include-absent
                     </code-block>
                 </tab>

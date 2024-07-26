@@ -5,43 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/topics/clang.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/golang.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/js.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/php.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.ihp" beforeDir="false" afterPath="$PROJECT_DIR$/project.ihp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-coverage.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-coverage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/configure-jdk.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/configure-jdk.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-images.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-images.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/dotnet-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/faq.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/faq.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/features.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/features.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspect-python-code.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspect-python-code.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/license-audit.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/license-audit.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native-mode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/native-mode.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/override-a-profile.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/override-a-profile.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/php-language-upgrade.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/php-language-upgrade.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/project-token.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/project-token.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/python-draft.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quality-gate.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quality-gate.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quick-fix.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quick-fix.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/troubleshooting.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/troubleshooting.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/vulnerability-checker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vulnerability-checker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v.list" beforeDir="false" afterPath="$PROJECT_DIR$/v.list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/writerside.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/writerside.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/baseline.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/baseline.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
