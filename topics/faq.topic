@@ -30,10 +30,8 @@
     </chapter>
 
     <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" default-state="collapsed" collapsible="true">
-        <p>The on-premises version of %instance% is currently under development, and we plan to release it in 2024. To
-            register your interest in this solution, you can contact the <a href="mailto:qodana-sales@jetbrains.com">%instance% team</a>.</p>
-        <p>You can also run %instance% under the Community license, which doesn’t require you to create a %instance%
-            Cloud account. However, this option provides limited functionalities.</p>
+        <p>The on-premises version of %instance% is available on request. To learn more about this version of %product%,
+            contact us at <a href="mailto:qodana-sales@jetbrains.com">qodana-sales@jetbrains.com</a>.</p>
     </chapter>
 
     <chapter id="faq-support-other-techs" title="Are there any plans to support other technologies?" default-state="collapsed" collapsible="true">
