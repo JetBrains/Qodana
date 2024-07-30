@@ -187,11 +187,11 @@ By default, %instance% uses severity levels inherited from the JetBrains IDEs sh
 
 Using `inspections`, you can:
 
-* Enable or disable a specific group or an inspection
-* Define the order of applying these settings
-* Define the paths or scopes to be ignored by the specific group or the inspection
-* Change severity levels of the specific group or the inspection
-* Configure inspection options
+* Enable or disable a specific group or an inspection,
+* Define the order of applying these settings,
+* Define the paths or scopes to be ignored by the specific group or the inspection,
+* Customise severity for specific inspections or inspection groups,
+* Configure inspection options.
 
 ```yaml
 inspections:
@@ -411,6 +411,7 @@ inspections:
 ```
 
 ### Filter by severity
+{id="custom-profiles-filter-by-severity"}
 
 This sample includes all inspections with the `WEAK WARNING` severity level while inspecting Java code:
 
@@ -441,7 +442,8 @@ inspections:
     severity: WARNING
 ```
 
-> Overriding severity levels affects the entire severity-based logic, such as filtering and quality gate settings.
+> If you override severity levels, it will affect all functionalities where severity is used, such as [filtering by 
+> severity](#custom-profiles-filter-by-severity) or [quality gate](quality-gate.topic) settings.
 {style="note"}
 
 ### Configure inspection options
