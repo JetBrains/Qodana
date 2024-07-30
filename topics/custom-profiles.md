@@ -428,7 +428,10 @@ inspections:
     enabled: true
 ```
 
-You can also apply severity level to a specific inspection:
+### Override inspection severity
+
+You can override the severity levels for existing inspections. Here’s how you can assign the `WARNING` severity level to 
+the `JavadocReference` inspection:
 
 ```yaml
 name: "My custom profile"
@@ -437,6 +440,9 @@ inspections:
   - inspection: JavadocReference
     severity: WARNING
 ```
+
+> Overriding severity levels affects the entire severity-based logic, such as filtering and quality gate settings.
+{style="note"}
 
 ### Configure inspection options
 {id="custom-profiles-examples-inspection-options"}

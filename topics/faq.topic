@@ -30,7 +30,7 @@
     </chapter>
 
     <chapter id="faq-self-hosted-on-premises" title="Is there an option for a self-hosted or on-premises version of Qodana?" default-state="collapsed" collapsible="true">
-        <p>The on-premises version of %instance% is available on request. To learn more about this version of %product%,
+        <p>The self-hosted version of %instance% is available on request. To learn more about this version of %product%,
             please contact our team at <a href="mailto:qodana-sales@jetbrains.com">qodana-sales@jetbrains.com</a>.</p>
     </chapter>
 
