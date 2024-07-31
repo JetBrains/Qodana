@@ -187,11 +187,11 @@ By default, %instance% uses severity levels inherited from the JetBrains IDEs sh
 
 Using `inspections`, you can:
 
-* Enable or disable a specific group or an inspection
-* Define the order of applying these settings
-* Define the paths or scopes to be ignored by the specific group or the inspection
-* Change severity levels of the specific group or the inspection
-* Configure inspection options
+* Enable or disable a specific group or an inspection,
+* Define the order of applying these settings,
+* Define the paths or scopes to be ignored by the specific group or the inspection,
+* Customise severity for specific inspections or inspection groups,
+* Configure inspection options.
 
 ```yaml
 inspections:
@@ -292,7 +292,7 @@ explains how to run your profile while inspecting code.
 
 ### Exclude an inspection
 
-This sample shows how you can exclude the `PhpDeprecationInspection` inspection from the [%php%](php.md) 
+This sample shows how you can exclude the `PhpDeprecationInspection` inspection from the [Qodana for PHP](php.md) 
 linter:
 
 ```yaml
@@ -411,6 +411,7 @@ inspections:
 ```
 
 ### Filter by severity
+{id="custom-profiles-filter-by-severity"}
 
 This sample includes all inspections with the `WEAK WARNING` severity level while inspecting Java code:
 
@@ -428,7 +429,10 @@ inspections:
     enabled: true
 ```
 
-You can also apply severity level to a specific inspection:
+### Override inspection severity
+
+You can override the severity levels for existing inspections. Here’s how you can assign the `WARNING` severity level to 
+the `JavadocReference` inspection:
 
 ```yaml
 name: "My custom profile"
@@ -437,6 +441,10 @@ inspections:
   - inspection: JavadocReference
     severity: WARNING
 ```
+
+> If you override severity levels, it will affect all functionalities where severity is used, such as [filtering by 
+> severity](#custom-profiles-filter-by-severity) or [quality gate](quality-gate.topic) settings.
+{style="note"}
 
 ### Configure inspection options
 {id="custom-profiles-examples-inspection-options"}
