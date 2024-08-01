@@ -49,6 +49,9 @@ Alternatively, in the command palette type `Qodana` to see the list of options p
 
 You can run %instance% locally and then forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
 
+> The Docker daemon should be up and running. 
+{style="note"}
+
 <procedure>
     <step>
         <p>In Visual Studio Code, navigate to the <a anchor="vs-code-ui-overview"><ui-path>%product%</ui-path></a> view and then click <ui-path>Run Locally</ui-path>.</p>
