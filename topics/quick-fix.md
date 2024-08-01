@@ -5,11 +5,12 @@
 This feature is available starting from version 2023.2 of %instance% and supported by the following linters and their 
 trial versions:
 
-* [%jvm%](jvm.md)
-* [%python%](python.md)
-* [%php%](php.md)
-* [%js%](js.md)
-* [%go%](golang.md)
+* [%jvm%](jvm.md),
+* [%python%](python.md),
+* [%php%](php.md),
+* [%js%](js.md),
+* [%go%](golang.md),
+* [%dotnet%](dotnet.md).
 
 ## How it works
 
@@ -75,7 +76,7 @@ You can apply quick-fix strategies using the following available options:
             fixesStrategy: cleanup/apply
         </code-block>
     </tab>
-    <tab title="CI pipeline" id="quick-fix-ci-pipeline">
+    <tab title="GitHub Actions" id="quick-fix-ci-pipeline">
         <p>Learn the <a href="github.md"/> section for details.</p>
     </tab>
 </tabs>

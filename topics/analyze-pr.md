@@ -67,7 +67,7 @@ You can use the --diff-start option to inspect changes between the current versi
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2024.1
+            uses: JetBrains/qodana-action@v2024.2
             env:
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -84,10 +84,10 @@ You can use the --diff-start option to inspect changes between the current versi
       name: jetbrains/qodana-&lt;linter&gt;
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:
@@ -162,7 +162,7 @@ and <code>--diff-end</code> options:</p>
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2024.1
+            uses: JetBrains/qodana-action@v2024.2
             with:
               args: --diff-start,&lt;GIT_START_HASH&gt;,--diff-end,&lt;GIT_END_HASH&gt; 
             env:
@@ -180,10 +180,10 @@ and <code>--diff-end</code> options:</p>
       name: jetbrains/qodana-&lt;linter&gt;
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:

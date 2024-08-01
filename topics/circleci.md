@@ -18,7 +18,7 @@ then specify the <code>qodana</code> element along with the %instance% version:
 
 ```yaml
 orbs: 
-    qodana: jetbrains/qodana@2024.1
+    qodana: jetbrains/qodana@2024.2
 ```
 
 If necessary, repeat this step for all required workflows and jobs.
@@ -35,7 +35,7 @@ Using this configuration sample, you can scan your project with %instance% with 
 ```yaml
 version: '2.1'
 orbs:
-  qodana: jetbrains/qodana@2024.1
+  qodana: jetbrains/qodana@2024.2
 jobs:
   code-quality:
     machine:
@@ -55,7 +55,7 @@ This configuration sample invokes the `args` parameter to run the specific linte
 ```yaml
 version: 2.1
 orbs:
-  qodana: jetbrains/qodana@2024.1
+  qodana: jetbrains/qodana@2024.2
 jobs:
   code-quality:
     machine:
@@ -95,8 +95,8 @@ This table contains the list of optional string parameters that can be additiona
 
 | Parameter              | Description                                                                                             | Default value                                                         |
 |------------------------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| `primary-cache-key`    | Customize the generated cache hash                                                                      | `qodana-2024.1-<< pipeline.git.branch >>-<< pipeline.git.revision >>` |
-| `additional-cache-key` | Customize the generated cache hash                                                                      | `qodana-2024.1-<< pipeline.git.branch >>`                             |
+| `primary-cache-key`    | Customize the generated cache hash                                                                      | `qodana-2024.2-<< pipeline.git.branch >>-<< pipeline.git.revision >>` |
+| `additional-cache-key` | Customize the generated cache hash                                                                      | `qodana-2024.2-<< pipeline.git.branch >>`                             |
 | `args`                 | Additional arguments of the [Qodana CLI](https://github.com/jetbrains/qodana-cli#scan) `scan` command   | No default value                                                      |
 | `artifact-name`        | Name of the artifact resulting from scanning project with %instance%, used for uploading of scan results | `qodana-report`                                                       |
 | `cache-dir`            | Directory for %instance% caches                                                                          | `/tmp/cache/qodana`                                                   |

@@ -7,12 +7,12 @@
        id="qodana-clang-docker-readme">
 
     <var name="linter" value="Qodana for C/C++"/>
-    <var name="linter-shell" value="qodana-clang:2024.1-eap"/>
+    <var name="linter-shell" value="qodana-clang:2024.2-eap"/>
     <var name="linter-page-url" value="qodana-clang.md"/>
     <var name="ide" value="CLion"/>
     <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
     <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
-    <var name="docker-image" value="jetbrains/qodana-clang:2024.1-eap"/>
+    <var name="docker-image" value="jetbrains/qodana-clang:2024.2-eap"/>
     <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 
     <link-summary>Deployment examples for the %linter% linter.</link-summary>
@@ -107,7 +107,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch-depth: 0
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: 'Qodana Scan'
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.1
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.2
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
 
@@ -129,7 +129,7 @@
 
                         <code-block lang="yaml">
                             - name: 'Qodana Scan'
-                            &nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.1
+                            &nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.2
                             &nbsp;&nbsp;with:
                             &nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
                             &nbsp;&nbsp;env:

@@ -158,10 +158,10 @@ qodana:
       name: %qd-image%
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:
@@ -331,7 +331,7 @@ in a SARIF-formatted file.
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2024.1
+            uses: JetBrains/qodana-action@v2024.2
             with:
               args: --baseline,qodana.sarif.json
             env:
@@ -377,10 +377,10 @@ qodana:
       name: %qd-image%
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:
@@ -486,7 +486,7 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch-depth: 0  # a full history is required for pull request analysis
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: 'Qodana Scan'
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.2
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 </code-block>
@@ -501,10 +501,10 @@ and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">proje
       name: %qd-image%
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:

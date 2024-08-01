@@ -1,12 +1,14 @@
 [//]: # (title: Native mode)
 
-<link-summary>The Qodana for .NET linter supports the native mode, which lets you run this linter without Docker.</link-summary>
+<link-summary>The native mode lets you run this linter without Docker.</link-summary>
 
 By default, %instance% runs its linters using Docker based on Linux images. 
 In specific cases, you have to deal with private packages or run %instance% on the operating systems that
 provide incomplete support for Docker. 
 
-To overcome this, %instance% supports the native mode for the [%dotnet%](dotnet.md) linter. 
+To overcome this, %instance% supports the native mode for all linters except %dotnet-co% and %clang%.
+You can run the native mode on Linux, macOS, and Microsoft Windows.
+
 In this case, %instance% reuses its execution environment, which lets you execute %instance% in exactly the same 
 environment as you use for building the projects, use the correct operating system, have access to all repository
 credentials, and resolve dependencies. 
@@ -38,7 +40,7 @@ Starting from the version 2023.3 of %instance%, the sanity inspection will repor
 containing the `bootstrap` key is missing in your project directory. The [`bootstrap`](before-running-qodana.md) 
 key should contain instructions for building the project. If you do not wish to build the project, disable
 this inspection using the `--disable-sanity` option, add this inspection to a [baseline](baseline.topic), or create the `qodana.yaml`
-file that will contain the `ide: QDNET` configuration. 
+file that will contain the `ide: <linter>` configuration. 
 
 We recommend running the native mode on the same machine where you build a project because this can guarantee
 that %instance% has access to private NuGet feeds.
@@ -49,13 +51,31 @@ that %instance% has access to private NuGet feeds.
 `-e, --env`, and `-v, --volume`.
 > {style="note"}
 
-You can enable the native mode ba saving this configuration in the [`qodana.yaml`](qodana-yaml.md) file: 
+You can enable the native mode ba saving this configuration in the [`qodana.yaml`](qodana-yaml.md) file, for example: 
 
 ```yaml
 ide: QDNET
 ```
 
-This configuration tells %product% to download and employ the required JetBrains IDE binary file while running.
+This configuration tells %product% to download and employ the required JetBrains IDE binary file while running the
+%dotnet% linter.
+
+This table contains the list of linters and the codes that you can use for running in the native mode:
+
+| Linter name                | Linter code |
+|----------------------------|-------------|
+| [%jvm%](jvm.md)            | `QDJVM`     |
+| [%jvm-co%](jvm.md)         | `QDJVMC`    |
+| [%jvm-a%](jvm.md)          | `QDAND`     |
+| [%jvm-co-a%](jvm.md)       | `QDANDC`    |
+| [%dotnet%](dotnet.md)      | `QDNET`     |
+| [%python%](python.md)      | `QDPY`      |
+| [%python-co%](python.md)   | `QDPYC`     |
+| [%php%](php.md)            | `QDPHP`     |
+| [%js%](js.md)              | `QDJS`      |
+| [%go%](golang.md)          | `QDGO`      |
+
+
 
 Below are the examples showing how you can run %product% in the native mode:
 
@@ -76,7 +96,7 @@ Below are the examples showing how you can run %product% in the native mode:
                         <p>You can also run %product% without configuring the <code>qodana.yaml</code> file:</p>
                         <code-block lang="shell" prompt="$">
                             qodana scan \
-                            &nbsp;&nbsp;&nbsp;--ide QDNET
+                            &nbsp;&nbsp;&nbsp;--ide QDJVM
                         </code-block>
                     </step>
                 </procedure>
@@ -108,9 +128,9 @@ Below are the examples showing how you can run %product% in the native mode:
                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                   fetch-depth: 0  # a full history is required for pull request analysis
               - name: 'Qodana Scan'
-                uses: JetBrains/qodana-action@v2024.1
+                uses: JetBrains/qodana-action@v2024.2
                 with:
-                  args: --ide,QDNET
+                  args: --ide,QDJVM
                 env:
                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>

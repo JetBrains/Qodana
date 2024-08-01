@@ -1255,7 +1255,7 @@
             <link-summary>Learn how to set up %product% for running as root and non-root users.</link-summary>
 
             <tip>You can build your own Docker image with the required dependencies using our
-                <a href="https://github.com/JetBrains/qodana-docker/blob/main/2024.1/python-community/Dockerfile">Dockerfile</a>.
+                <a href="https://github.com/JetBrains/qodana-docker/blob/main/2024.2/python-community/Dockerfile">Dockerfile</a>.
             </tip>
 
             <tabs>

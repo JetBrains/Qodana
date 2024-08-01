@@ -207,7 +207,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2024.1
+                                  uses: JetBrains/qodana-action@v2024.2
                                   with:
                                       args: --project-dir,project
                                   env:
@@ -262,7 +262,7 @@
             <step>
                 <p>Use this sample to create <code>Dockerfile</code>:</p>
                 <code-block lang="docker">
-                    FROM docker.io/jetbrains/qodana-&lt;linter&gt;:2024.1
+                    FROM docker.io/jetbrains/qodana-&lt;linter&gt;:2024.2
                     LABEL version="1.0.0"
 
                     ##Copy the proxy.settings.xml file

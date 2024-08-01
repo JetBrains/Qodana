@@ -38,10 +38,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:
@@ -84,10 +84,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:
@@ -111,10 +111,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:
@@ -152,10 +152,10 @@ qodana:
       name: jetbrains/qodana-<linter>
       entrypoint: [""]
    cache:
-      - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2024.1-$CI_DEFAULT_BRANCH-
-           - qodana-2024.1-
+           - qodana-2024.2-$CI_DEFAULT_BRANCH-
+           - qodana-2024.2-
         paths:
            - .qodana/cache
    variables:
@@ -188,10 +188,10 @@ file, for example:
         name: jetbrains/qodana-<linter>
         entrypoint: [""]
    cache:
-       - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+       - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
          fallback_keys:
-             - qodana-2024.1-$CI_DEFAULT_BRANCH-
-             - qodana-2024.1-
+             - qodana-2024.2-$CI_DEFAULT_BRANCH-
+             - qodana-2024.2-
          paths:
              - .qodana/cache
    variables:

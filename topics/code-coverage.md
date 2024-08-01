@@ -200,7 +200,7 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
-        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2024.1"
+        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2024.2"
         pr-mode: false
 ```
 </tab>
@@ -214,10 +214,10 @@ directory:</p>
               name: jetbrains/qodana-&lt;linter&gt;
               entrypoint: [""]
            cache:
-              - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+              - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                 fallback_keys:
-                   - qodana-2024.1-$CI_DEFAULT_BRANCH-
-                   - qodana-2024.1-
+                   - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                   - qodana-2024.2-
                 paths:
                    - .qodana/cache
            variables:

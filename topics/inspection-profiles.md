@@ -219,7 +219,7 @@ supported by %product%. The settings will remain consistent across all these pla
                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                       fetch-depth: 0  # a full history is required for pull request analysis
                   - name: 'Qodana Scan'
-                    uses: JetBrains/qodana-action@v2024.1
+                    uses: JetBrains/qodana-action@v2024.2
                     with:
                       args: --profile-name,qodana.recommended
                     env:
@@ -250,7 +250,7 @@ supported by %product%. The settings will remain consistent across all these pla
                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                       fetch-depth: 0  # a full history is required for pull request analysis
                   - name: 'Qodana Scan'
-                    uses: JetBrains/qodana-action@v2024.1
+                    uses: JetBrains/qodana-action@v2024.2
                     with:
                       args: --profile-path,.qodana/&lt;custom-profile.yaml&gt;
                     env:

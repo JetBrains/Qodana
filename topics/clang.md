@@ -6,8 +6,8 @@
 <var name="config-file" value="qodana-clang-docker-readme.topic"/>
 <var name="clang-tidy" value="https://clang.llvm.org/extra/clang-tidy"/>
 <var name="clang-config" value="https://gist.github.com/fbaeuerlein/2895f889e451a817d7b2b36fd60e2873"/>
-<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.1/base/cpp.Dockerfile"/>
-<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.1/cpp/internal.Dockerfile"/>
+<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.2/base/cpp.Dockerfile"/>
+<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.2/cpp/internal.Dockerfile"/>
 <var name="clang-website" value="https://clang.llvm.org/extra/clang-tidy/checks/list.html"/>
 <var name="clion-inspections-general" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="misra-inspections" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#stat-analysis-tools"/>
@@ -249,7 +249,7 @@ If you run the analysis several times in a row, make sure you've cleaned the res
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch-depth: 0
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: 'Qodana Scan'
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.1
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.2
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
 </code-block>
@@ -265,7 +265,7 @@ If you run the analysis several times in a row, make sure you've cleaned the res
         add this snippet to invoke the <code>Qodana Scan</code> action:</p>
         <code-block lang="yaml">
             - name: 'Qodana Scan'
-            &nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.1
+            &nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.2
             &nbsp;&nbsp;with:
             &nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
             &nbsp;&nbsp;env:

@@ -2,12 +2,12 @@
 
 <var name="linter" value="Qodana for C/C++"/>
 <var name="ide" value="CLion"/>
-<var name="docker-image" value="jetbrains/qodana-clang:2024.1-eap"/>
+<var name="docker-image" value="jetbrains/qodana-clang:2024.2-eap"/>
 <var name="config-file" value="qodana-clang-docker-readme.topic"/>
 <var name="clang-tidy" value="https://clang.llvm.org/extra/clang-tidy"/>
 <var name="clang-config" value="https://gist.github.com/fbaeuerlein/2895f889e451a817d7b2b36fd60e2873"/>
-<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.1/base/cpp.Dockerfile"/>
-<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.1/cpp/internal.Dockerfile"/>
+<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.2/base/cpp.Dockerfile"/>
+<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.2/cpp/internal.Dockerfile"/>
 <var name="clang-website" value="https://clang.llvm.org/extra/clang-tidy/checks/list.html"/>
 <var name="clion-inspections-general" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="misra-inspections" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#stat-analysis-tools"/>
