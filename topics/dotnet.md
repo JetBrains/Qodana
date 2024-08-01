@@ -6,9 +6,9 @@
 
 <var name="qp" value="Qodana for .NET"/>
 <var name="qp-co" value="Qodana Community for .NET"/>
-<var name="qp-linter" value="jetbrains/qodana-dotnet:2024.1"/>
-<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2024.1-eap"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;dotnet/cdnet&gt;:2024.1&lt;-eap&gt;"/>
+<var name="qp-linter" value="jetbrains/qodana-dotnet:2024.2"/>
+<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2024.2-eap"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;dotnet/cdnet&gt;:2024.2&lt;-eap&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="Rider"/>
 <var name="ide-co" value="ReSharper"/>
@@ -28,6 +28,7 @@
 <var name="rider-link" value="https://www.jetbrains.com/help/rider/Introduction.html"/>
 <var name="rs-link" value="https://www.jetbrains.com/help/resharper/Introduction__Index.html"/>
 <var name="tfms" value="https://learn.microsoft.com/en-us/dotnet/standard/frameworks#net-5-os-specific-tfms"/>
+<var name="cpp-links" value="https://jetbrains.com/help/resharper/Introduction__Index.html#supported_langs"/>
 
 <link-summary>You can analyze your .NET code using the %qp% and %qp-co% linters.</link-summary>
 
@@ -36,10 +37,10 @@
 <p>All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:</p>
 
-| Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                             | [Supported languages](#dotnet-feature-matrix) |
-|-------------|----------------------------------|--------------------------------------------|--------------------------------------------------------|-----------------------------------------------|
-| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](native-mode.md) and a Docker image | C#, C++, C, VB.NET, JavaScript, TypeScript    
-| %qp-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                         | C#, C++, VB.NET                               |
+| Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                             | [Supported languages](#dotnet-feature-matrix)            |
+|-------------|----------------------------------|--------------------------------------------|--------------------------------------------------------|----------------------------------------------------------|
+| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](native-mode.md) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript 
+| %qp-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                         | C#, [C++](%cpp-links%), VB.NET                           |
 
 
 <p>You can compare these linters by programming languages and other supported technologies by navigating to the <a anchor="dotnet-feature-matrix">feature matrix</a>.</p>
@@ -72,21 +73,15 @@ A project token is required for the %qp% linter and optional for the %qp-co% lin
 ### SDK version
 {id="dotnet-sdk-version"}
 
-[//]: # (TODO Probably, all SDK versions should be provided here, this should be demonstrated?)
-
-<!-- This can be probably reorganized? -->
 If you project targets the .NET framework or [OS-specific TFMs](%tfms%), the only option in this case is to run the
 %qp% linter in the [native mode](native-mode.md).
-<!-- What is the example how it can be handled? -->
-If you run %qp% in the native mode, you should handle SDK availability for %ide%.
+
+If you run %qp% in the native mode, you should install the SDK to the default location in your operating system so that 
+%ide% can have access to it.
 
 <!-- This table should be made for both linters -->
-The Dockerized version of %qp% provides the following SDK versions:
-<list>
-    <li>6.0.417,</li>
-    <li>7.0.404,</li>
-    <li>8.0.100.</li>
-</list>
+The Dockerized version of %qp% provides versions 6.0, 7.0, and 8.0 of SDK.
+
 <p>All SDK versions are stored in the <code>/usr/share/dotnet/sdk</code> directory of the 
     %product% container filesystem.</p>
 
@@ -117,8 +112,35 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                 <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
                 and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
             </step>
-            <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
-                <code>.github/workflows/code_quality.yml</code> file. This file will be used for further examples.
+            <step><p>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and save the
+                following workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+                  <code-block lang="yaml">
+                      name: Qodana
+                      on:
+                        workflow_dispatch:
+                        pull_request:
+                        push:
+                          branches: # Specify your branches here
+                            - main # The 'main' branch
+                            - 'releases/*' # The release branches
+                      jobs:
+                        qodana:
+                          runs-on: ubuntu-latest
+                          permissions:
+                            contents: write
+                            pull-requests: write
+                            checks: write
+                          steps:
+                            - uses: actions/checkout@v3
+                              with:
+                                ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                fetch-depth: 0  # a full history is required for pull request analysis
+                            - name: 'Qodana Scan'
+                              uses: JetBrains/qodana-action@v2024.2
+                              env:
+                                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                  </code-block>
+                  <p>This configuration will be modified in subsequent examples on this page.</p>
             </step>
         </procedure>
     </tab>
@@ -138,15 +160,67 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
               <p>Create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
             </step>
             <step>
-              <p>In the root directory of your project repository, save the <code>Jenkinsfile</code>.</p>
+              <p>In the root directory of your project repository, save the <code>Jenkinsfile</code> containing the following configuration:</p>
+                <code-block lang="groovy">
+                    pipeline {
+                        environment {
+                            QODANA_TOKEN=credentials('qodana-token')
+                        }
+                        agent {
+                            docker {
+                                args '''
+                                  -v "${WORKSPACE}":/data/project
+                                  --entrypoint=""
+                                  '''
+                                // Uncomment the required linter
+                                // image '%qp-linter%'
+                                // image '%qp-co-linter%'
+                            }
+                        }
+                        stages {
+                            stage('Qodana') {
+                                steps {
+                                    sh '''
+                                    qodana
+                                    '''
+                                }
+                            }
+                        }
+                    }
+                </code-block>
+                  <p>This configuration will be modified in subsequent examples on this page.</p>
             </step>
         </procedure>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
         <procedure>
             <step><p>Make sure that your project repository is accessible by GitLab CI/CD.</p></step>
-            <step><p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> file that will contain configurations for running %product%.</p></step>
+            <step><p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the following configuration in it:</p>
+                <code-block lang="yaml">
+                    qodana:
+                       image: # Uncomment the required linter
+                          # name: %qp-linter%
+                          # name: %qp-co-linter%
+                          entrypoint: [""]
+                       cache:
+                          - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                            fallback_keys:
+                               - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                               - qodana-2024.2-
+                            paths:
+                               - .qodana/cache
+                       variables:
+                          QODANA_TOKEN: $qodana_token           - 
+                       script:
+                          - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache --no-build
+                       artifacts:
+                          paths:
+                             - qodana/report/
+                          expose_as: 'Qodana report'
+                </code-block>
+            </step>
         </procedure>
+        <p>This configuration will be modified in subsequent examples on this page.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
       <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
@@ -157,44 +231,6 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
         If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>, check
         the <a href="https://github.com/JetBrains/qodana-cli/releases/latest">installation page</a> for details.</p>
-    </tab>
-    <tab title="JetBrains IDEs" group-key="ides">
-        <procedure>
-            <step>
-               <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
-            </step>
-            <step>
-               <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
-               <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
-                <p>This dialog contains the following components:</p>
-                  <table>
-                    <tr>        
-                      <td>Name</td>
-                      <td>Description</td>
-                    </tr>
-                    <tr>
-                      <td>The <code>qodana.yaml</code> file</td>
-                      <td>In the text field, you can set up code analysis used by Qodana in this file. You can learn more about available <a href="qodana-yaml.md">configuration options</a></td>
-                    </tr>
-                    <tr>
-                      <td>The <ui-path>Send inspection results to Qodana Cloud</ui-path> option</td>
-                      <td>If you want to <a href="cloud-forward-reports.topic">send reports to Qodana Cloud</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud</a></td>
-                    </tr>
-                    <tr>
-                      <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
-                      <td>By checking this option, you can save the %product% configuration made on this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
-                    </tr>
-                    <tr>
-                      <td>The <ui-path>Use Qodana analysis baseline</ui-path> option</td>
-                      <td>Using the <a href="baseline.topic">baseline</a> feature, you can skip analysis for specific problems</td>
-                    </tr>
-                  </table>
-                <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
-            </step>
-            <step>
-               <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
-            </step>
-        </procedure>
     </tab>
 </tabs>
 
@@ -214,7 +250,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         <code>--no-build</code> %product% option:</p>
         <tabs group="software">
             <tab title="GitHub Actions" group-key="github">
-                <p>This is the GitHub Actions configuration sample invoking the <code>--no-build</code> option:</p>
+                <p>Use this workflow configuration to invoke the <code>--no-build</code> option:</p>
                 <code-block lang="yaml">
                     name: Qodana
                     on:
@@ -237,7 +273,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                           - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2024.1
+                            uses: JetBrains/qodana-action@v2024.2
                             with:
                                 args: --no-build
                             env:
@@ -245,7 +281,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                 </code-block>
             </tab>
             <tab title="Jenkins" group-key="jenkins">
-                <p>Save this snippet to the <code>Jenkinsfile</code>:</p>
+                <p>In the root directory of your project repository, save this configuration to the <code>Jenkinsfile</code>:</p>
                 <code-block lang="groovy">
                     pipeline {
                         environment {
@@ -280,10 +316,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                           name: %qp-co-linter%
                           entrypoint: [""]
                        cache:
-                          - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                          - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                             fallback_keys:
-                               - qodana-2024.1-$CI_DEFAULT_BRANCH-
-                               - qodana-2024.1-
+                               - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                               - qodana-2024.2-
                             paths:
                                - .qodana/cache
                        variables:
@@ -323,6 +359,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                 </tabs>
             </tab>
             <tab title="JetBrains IDEs" group-key="ides">
+                <!-- How can this be run with --no-build? -->
                 <procedure>
                     <step>
                        <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
@@ -428,7 +465,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2024.1
+                                        uses: JetBrains/qodana-action@v2024.2
                                         with:
                                             args: --ide,QDNET
                                         env:
@@ -443,7 +480,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     </procedure>
                 </tab>
                 <tab title="Jenkins" group-key="jenkins">
-                    <p>Save this snippet to the <code>Jenkinsfile</code>:</p>
+                    <p>In the root directory of your project repository, save this snippet to the <code>Jenkinsfile</code>:</p>
                     <code-block lang="groovy">
                         pipeline {
                             environment {
@@ -475,10 +512,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               name: %qp-linter%
                               entrypoint: [""]
                            cache:
-                              - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                              - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                                 fallback_keys:
-                                   - qodana-2024.1-$CI_DEFAULT_BRANCH-
-                                   - qodana-2024.1-
+                                   - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                                   - qodana-2024.2-
                                 paths:
                                    - .qodana/cache
                            variables:
@@ -566,7 +603,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2024.1
+                                        uses: JetBrains/qodana-action@v2024.2
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -606,10 +643,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               name: %qp-linter%
                               entrypoint: [""]
                            cache:
-                              - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                              - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                                 fallback_keys:
-                                   - qodana-2024.1-$CI_DEFAULT_BRANCH-
-                                   - qodana-2024.1-
+                                   - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                                   - qodana-2024.2-
                                 paths:
                                    - .qodana/cache
                            variables:
@@ -697,7 +734,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2024.1
+                                        uses: JetBrains/qodana-action@v2024.2
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -705,7 +742,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     </procedure>
                 </tab>
                 <tab title="Jenkins" group-key="jenkins">
-                    <p>Save this snippet to the <code>Jenkinsfile</code>:</p>
+                    <p>In the root directory of your project repository, save this snippet to the <code>Jenkinsfile</code>:</p>
                     <code-block lang="groovy">
                         pipeline {
                             environment {
@@ -737,10 +774,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               name: %qp-co-linter%
                               entrypoint: [""]
                            cache:
-                              - key: qodana-2024.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                              - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                                 fallback_keys:
-                                   - qodana-2024.1-$CI_DEFAULT_BRANCH-
-                                   - qodana-2024.1-
+                                   - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                                   - qodana-2024.2-
                                 paths:
                                    - .qodana/cache
                            variables:
@@ -966,19 +1003,19 @@ Depending on the linter, you can run them using private NuGet repositories as sh
             &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_PASSWORD=&lt;plaintext-password&gt; \
             &nbsp;&nbsp;&nbsp;%qp-linter% \
         </code-block>
+        <p>Another method is to add credentials to the <code>nuget.config</code> file before analyzing a project. You can 
+            do this by executing a NuGet source update using: </p>
+        <code-block>
+            -Name "MySourceName” -username "User" -password "Password" -configFile "pathToNugetConfigInRepo"
+        </code-block>
         <p>Other configuration examples are available on our <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub repository</a>.</p>
     </tab>
     <tab title="%qp-co%" group-key="linter-tabs-cdnet">
-        <procedure>
-            <step>In the local filesystem, create the folder that will contain cache. For example, it can be
-                <code>C:/Temp/QodanaCache</code>.</step>
-            <step>Run %instance% using the <code>--cache-dir C:/Temp/QodanaCache</code> option.</step>
-            <step>Copy all NuGet packages contained by default in the
-                <code ignore-vars="true">%userprofile%\.nuget\packages</code>
-                folder to <code>C:/Temp/QodanaCache/nuget</code>. If you have a custom package folder, copy packages
-                from that folder instead of <code ignore-vars="true">%userprofile%\.nuget\packages</code>.</step>
-            <step>Run %instance% using the <code>--cache-dir C:/Temp/QodanaCache</code> once more.</step>
-        </procedure>
+        <p>Add credentials to the <code>nuget.config</code> file before analyzing a project. You can do this by 
+        executing a NuGet source update using: </p>
+        <code-block>
+            -Name "MySourceName” -username "User" -password "Password" -configFile "pathToNugetConfigInRepo"
+        </code-block>
     </tab>
 </tabs>
 
@@ -1213,7 +1250,7 @@ a baseline:
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2024.1
+            uses: JetBrains/qodana-action@v2024.2
             with:
               args: --baseline,qodana.sarif.json
             env:

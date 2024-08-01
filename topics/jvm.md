@@ -157,6 +157,7 @@ This shows how to configure software from this section to %product% analysis.
       <p>Alternatively, you can implement the native mode configuration as shown in examples below.</p>
       <tabs group="software">
           <tab title="GitHub Actions" group-key="github">
+              <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
               <procedure>
                   <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
                       <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
