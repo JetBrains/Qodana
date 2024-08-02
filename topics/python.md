@@ -1,7 +1,5 @@
 [//]: # (title: Python)
 
-<no-index/>
-
 <show-structure for="chapter" depth="3"/>
 
 <var name="qp" value="Qodana for Python"/>
@@ -24,8 +22,6 @@
 <var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
 
 <link-summary>You can analyze your Python code using the %qp% and %qp-co% linters.</link-summary>
-
-<warning>This is a draft document, so we do not recommend that you use it.</warning>
 
 All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze 
 Python projects, you can use the following linters:

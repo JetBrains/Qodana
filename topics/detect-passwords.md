@@ -6,17 +6,8 @@
 access sensitive information.
 
 Starting from version 2024.2,  %product% provides the `HardcodedPasswords` inspection that detects hard-coded passwords 
-and covers the following languages:
-
-* [](js.md),
-* [](jvm.md),
-* [](php.md),
-* [](golang.md),
-* [](python.md),
-* [C#](dotnet.md),
-* JSON,
-* YAML,
-* XML.
+and covers the following languages: [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#](dotnet.md),
+JSON, YAML, and XML.
 
 > The `HardcodedPasswords` inspection analyzes files tracked in git with the “unchanged” status.
 {style="note"}

@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/topics/detect-passwords.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/qc-report-example-jvm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/qc-report-example-jvm_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/detect-passwords.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/detect-passwords.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/new-in-2024-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2024-2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,15 +94,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Writerside.Web Archive (qd).executor": "Run",
     "git-widget-placeholder": "2024.2",
-    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics",
+    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/topics" />
       <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/topics" />
     </key>
   </component>
   <component name="RunManager">

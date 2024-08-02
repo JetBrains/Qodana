@@ -1,7 +1,5 @@
 [//]: # (title: .NET)
 
-<no-index/>
-
 <show-structure for="chapter" depth="3"/>
 
 <var name="qp" value="Qodana for .NET"/>
@@ -31,8 +29,6 @@
 <var name="cpp-links" value="https://jetbrains.com/help/resharper/Introduction__Index.html#supported_langs"/>
 
 <link-summary>You can analyze your .NET code using the %qp% and %qp-co% linters.</link-summary>
-
-<warning>This is a draft document, so we do not recommend that you use it.</warning>
 
 <p>All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:</p>
@@ -223,7 +219,9 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         <p>This configuration will be modified in subsequent examples on this page.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
-      <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+        <p>In TeamCity, Create a 
+        <a href="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project">project</a> 
+        and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
     </tab>
     <tab title="Command line" group-key="command-line">
         <p>You have two options to run %product% locally: you can either run 
@@ -403,6 +401,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 
 ## Run %product%
 {id="dotnet-run-qodana"}
+
+<note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
 
