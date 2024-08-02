@@ -1494,8 +1494,10 @@ docker run \
         <p><a href="quality-gate.topic">Quality gate</a></p>
         <p><a href="code-coverage.md">Code coverage</a></p>
         <p><a href="license-audit.topic">License audit</a></p>
+        <p><a href="quick-fix.md">Quick-fix</a></p>
       </td>
       <td>
+            <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
@@ -1504,6 +1506,7 @@ docker run \
       <td>
          <p>&#x2714;</p>
          <p>&#x2714;</p>
+         <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
       </td>

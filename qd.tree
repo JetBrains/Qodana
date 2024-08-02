@@ -42,6 +42,7 @@
 		<toc-element topic="override-a-profile.md"/>
 		<toc-element topic="inspect-python-code.md"/>
 		<toc-element topic="analyze-pr.md"/>
+		<toc-element topic="detect-passwords.md"/>
 	</toc-element>
 
 	<!-- Deployment section -->
