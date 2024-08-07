@@ -310,6 +310,7 @@
             </tab>
         </tabs>
     </chapter>
+
     <chapter id="troubleshooting-contact-us" title="Contact the %product% team or report an issue">
         <p>If you have issues working with %product% or would like to share improvement ideas, you can contact us at <code>qodana-support@jetbrains.com</code> or create an issue in
             <a href="https://youtrack.jetbrains.com/issues?q=project:%20Qodana">our issue tracker</a>.</p>
