@@ -43,11 +43,6 @@
         </chapter>
     </chapter>
 
-    <chapter id="Using+an+existing+profile" title="Using an existing profile">
-
-        <include from="lib_qd.topic" element-id="docker-using-existing-profile"/>
-
-    </chapter>
 
     <chapter id="Configure+via+qodana.yaml" title="Configure via qodana.yaml">
 

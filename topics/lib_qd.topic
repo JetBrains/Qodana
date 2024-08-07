@@ -36,11 +36,6 @@
             <li>Single-shot analyses (for example, performed <i>locally</i>).
             </li>
         </list>
-        <p>If you are familiar with
-            <a href="%code-inspection-ide-help-url%">%ide% code inspections</a>
-            and know what to expect from the static analysis outside the editor, you can skip the following section and
-            continue from <a anchor="Using+an+existing+profile">Using an existing profile</a>.
-        </p>
         <p>If you are just starting in the field, we recommend proceeding with the <a anchor="quick-start-recommended-profile">default setup
         </a> we provide. You will see the
             results of the most common checks performed on your code base. Later, you can <a anchor="Configure+via+qodana.yaml">adjust them
