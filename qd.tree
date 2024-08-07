@@ -21,7 +21,7 @@
 	</toc-element>
 
 	<!-- The linter section containing unified pages -->
-	<toc-element toc-title="Analyzing your code" topic="linters.md" accepts-web-file-names="supported-technologies.html">
+	<toc-element topic="linters.md" accepts-web-file-names="supported-technologies.html">
 		<toc-element topic="python.md" accepts-web-file-names="qodana-python.html,qodana-python-community.html,
 		qodana-python-docker-readme.html,qodana-python-community-docker-readme.html"/>
 	<toc-element topic="dotnet.md" accepts-web-file-names="qodana-dotnet.html,qodana-dotnet-community.html,

@@ -23,14 +23,14 @@
 
 <link-summary>You can analyze your Python code using the %qp% and %qp-co% linters.</link-summary>
 
-All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze 
+All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze 
 Python projects, you can use the following linters:
 
 * %qp% is based on PyCharm Professional and licensed under the Ultimate and 
 Ultimate Plus [licenses](pricing.md), 
 * %qp-co% is based on PyCharm Community and licensed under the Community license.
 
-To see the list of supported features, you can navigate to the [](#python-feature-matrix) section.
+To see the list of supported technologies and features, you can navigate to the [](#python-feature-matrix) section.
 
 ## Before your start
 {id="python-before-you-start"}

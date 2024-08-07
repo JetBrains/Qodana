@@ -558,7 +558,7 @@
 
     <snippet id="linters-supported-features">
 
-        <p>The %linter% linter provides the following %instance% features:</p>
+        <p>The %qp% linter provides the following %instance% features:</p>
 
         <table filter="php">
             <tr>

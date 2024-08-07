@@ -30,7 +30,7 @@
 
 <link-summary>You can analyze your .NET code using the %qp% and %qp-co% linters.</link-summary>
 
-<p>All %product% linters are based on IDEs designed for particular programming languages and frameworks. To analyze
+<p>All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:</p>
 
 | Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                             | [Supported languages](#dotnet-feature-matrix)            |
