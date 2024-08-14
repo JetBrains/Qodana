@@ -1,4 +1,4 @@
-# C and C++
+# C / C++
 
 <show-structure for="chapter" depth="3"/>
 
@@ -161,7 +161,6 @@ The examples below show how to prepare software before running %product%.
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-        <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
         <procedure>
             <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
                 <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
@@ -211,7 +210,8 @@ The examples below show how to prepare software before running %product%.
               <a href="%Dockeraccess%">Manage Docker as a non-root user</a> section of the Docker documentation.</p>
             </step>
             <step>In Jenkins, create the <code>qodana-token</code> <a href="https://www.jenkins.io/doc/book/using/using-credentials/">credential</a> and save the 
-              <a href="project-token.md">project token</a> as its value.</step>
+              <a href="project-token.md">project token</a> as its value.
+            </step>
             <step>
               <p>In Jenkins, create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
             </step>
@@ -245,7 +245,7 @@ The examples below show how to prepare software before running %product%.
                   <p>This configuration sample will be modified throughout the section.</p>
             </step>
         </procedure>
-    </tab>
+    </tab> 
     <tab title="GitLab CI/CD" group-key="gitlab">
         <procedure>
             <step><p>Make sure that your project repository is accessible by GitLab CI/CD.</p></step>
@@ -279,7 +279,7 @@ The examples below show how to prepare software before running %product%.
         and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
     </tab>
     <tab title="Command line" group-key="command-line">
-        As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
+        <p>As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
         If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>.</p>
         <p>Run this command to pull the Docker image of %qp%:</p>
         <code-block lang="shell" prompt="$">
@@ -477,7 +477,7 @@ The examples below show how to prepare software before running %product%.
     <p>More configuration examples are available in the <a href="gitlab.md"/>section.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity" id="jvm-run-qodana-teamcity">
-      <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+      <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,clang"/>
       <p>More configuration examples are available in the <a href="teamcity.md"/>section.</p>
     </tab>
     <tab title="Command line" group-key="command-line">
@@ -521,7 +521,7 @@ further tune the command as described in the <a href="docker-image-configuration
 
 <p>Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in
 <a href="https://qodana.cloud">Qodana Cloud</a> navigate to your project and review the analysis results report.</p>
-<img src="qc-report-example-js.png" alt="Analysis report example" width="720" border-effect="line"/>
+<img src="qc-report-example-clang.png" alt="Analysis report example" width="720" border-effect="line"/>
 <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 
 <!-- Here add about observing locally generated files -->
@@ -712,9 +712,7 @@ in a SARIF-formatted file.
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
-      <p>Using the <ui-path>Additional Qodana arguments</ui-path> field from the <a anchor="jvm-run-qodana-teamcity">previous section</a>  
-      configure the <a href="baseline.topic">baseline</a> feature by specifying the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code>
-      option.</p>
+        <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,clang,baseline"/>
     </tab>
     <tab title="Command line" group-key="command-line">
       <p>Choose how you would like to run the baseline feature from the command line:</p>

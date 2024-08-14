@@ -64,7 +64,6 @@ The examples below show how to prepare software before running %product%.
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-        <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
         <procedure>
             <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
                 <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
@@ -376,7 +375,7 @@ The examples below show how to prepare software before running %product%.
     <p>More configuration examples are available in the <a href="gitlab.md"/>section.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity" id="jvm-run-qodana-teamcity">
-      <include from="teamcity.md" element-id="teamcity-add-a-qodana-runner"/>
+      <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,golang"/>
       <p>More configuration examples are available in the <a href="teamcity.md"/>section.</p>
     </tab>
     <tab title="Command line" group-key="command-line">
@@ -410,18 +409,35 @@ The examples below show how to prepare software before running %product%.
                <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
             </step>
             <step>
-               <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
-                  <list>
-                    <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</li>
-                     <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
-                      using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
-                     <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
-                  </list>
-                   <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+               <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
+               <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+                <p>This dialog contains the following components:</p>
+                  <table>
+                    <tr>        
+                      <td>Name</td>
+                      <td>Description</td>
+                    </tr>
+                    <tr>
+                      <td>The <code>qodana.yaml</code> file</td>
+                      <td>In the text field, you can set up code analysis used by Qodana in this file. You can learn more about available <a href="qodana-yaml.md">configuration options</a></td>
+                    </tr>
+                    <tr>
+                      <td>The <ui-path>Send inspection results to Qodana Cloud</ui-path> option</td>
+                      <td>If you want to <a href="cloud-forward-reports.topic">send reports to Qodana Cloud</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud</a></td>
+                    </tr>
+                    <tr>
+                      <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
+                      <td>By checking this option, you can save the %product% configuration made on this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
+                    </tr>
+                    <tr>
+                      <td>The <ui-path>Use Qodana analysis baseline</ui-path> option</td>
+                      <td>Using the <a href="baseline.topic">baseline</a> feature, you can skip analysis for specific problems</td>
+                    </tr>
+                  </table>
                 <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
             </step>
             <step>
-               <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+               <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
             </step>
         </procedure>
     </tab>
@@ -804,8 +820,10 @@ failureConditions:
   <tab title="Container mode" group-key="container-mode">-->
   <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-      <p>In GitHub Actions, the <code>--diff-start</code> can be omitted because it will be added automatically while running
-        %product%, so you can save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>
+        <p>
+            The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically 
+            analyzes all pull requests, so you do not have to provide any additional configuration:
+        </p>
         <code-block lang="yaml">
                 name: Qodana
                 on:
