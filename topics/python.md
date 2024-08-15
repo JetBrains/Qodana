@@ -67,7 +67,7 @@ will be used by %product% for identifying and verifying a license.
 
 ### Prepare your software
 
-<tabs group="software">
+<tabs group="software" id="prepare-your-software">
     <tab title="GitHub Actions" group-key="github">
         <procedure>
             <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
@@ -642,9 +642,7 @@ in a SARIF-formatted file.
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
-      <p>Using the <ui-path>Additional Qodana arguments</ui-path> field from the <a anchor="jvm-run-qodana-teamcity">previous section</a>  
-      configure the <a href="baseline.topic">baseline</a> feature by specifying the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code>
-      option.</p>
+      <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,python,baseline"/>
     </tab>
     <tab title="Command line" group-key="command-line">
       <p>Choose how you would like to run the baseline feature from the command line:</p>
@@ -705,14 +703,19 @@ in a SARIF-formatted file.
         </code-block>
     </tab>
     <tab group-key="linter-tabs-cdnet" title="%qp-co%">
-        <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems by 
-            saving this snippet to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+        <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems 
+            and specific problem severities by saving this snippet to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
         </p>
         <code-block lang="yaml">
             failureConditions:
             &nbsp;&nbsp;severityThresholds:
             &nbsp;&nbsp;&nbsp;&nbsp;any: 50 # Total number of problems in all severities
-        </code-block> 
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: 1 # Severities
+            &nbsp;&nbsp;&nbsp;&nbsp;high: 2
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
+            &nbsp;&nbsp;&nbsp;&nbsp;low: 4
+            &nbsp;&nbsp;&nbsp;&nbsp;info: 5
+        </code-block>
     </tab>
 </tabs>
 

@@ -93,6 +93,8 @@ The examples below show how to prepare software before running %product%.
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
                               uses: JetBrains/qodana-action@v2024.2
+                              with:
+                                args: --linter,%qp-linter%
                               env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -311,6 +313,8 @@ The examples below show how to prepare software before running %product%.
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
                       uses: JetBrains/qodana-action@v2024.2
+                      with:
+                        args: --linter,%qp-linter%
                       env:
                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           </code-block>
@@ -613,7 +617,7 @@ in a SARIF-formatted file.
                 - name: 'Qodana Scan'
                   uses: JetBrains/qodana-action@v2024.2
                   with:
-                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;
+                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-linter%
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       </code-block>
@@ -671,9 +675,7 @@ in a SARIF-formatted file.
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
-      <p>Using the <ui-path>Additional Qodana arguments</ui-path> field from the <a anchor="jvm-run-qodana-teamcity">previous section</a>  
-      configure the <a href="baseline.topic">baseline</a> feature by specifying the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code>
-      option.</p>
+      <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,golang,baseline"/>
     </tab>
     <tab title="Command line" group-key="command-line">
       <p>Choose how you would like to run the baseline feature from the command line:</p>
@@ -847,6 +849,8 @@ failureConditions:
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
                         uses: JetBrains/qodana-action@v2024.2
+                        with:
+                          args: --linter,%qp-linter%
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>

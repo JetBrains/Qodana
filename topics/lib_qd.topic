@@ -8,7 +8,7 @@
 	id="lib_qd" title="Library of includes" is-library="true">
 
     <snippet id="docker-ram-note">
-        Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker
+        Running analysis is a resource-intensive operation. If you experience issues, consider increasing the Docker
         Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for <a href="https://docs.docker.com/desktop/windows/#resources">Windows
     </a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
     </snippet>
@@ -960,11 +960,11 @@
                     <li>
                         <p><ui-path>Linter</ui-path> configures the <a href="linters.md">%product% linter</a>.</p>
                         <p filter="python">Here, specify either the <code>%qp%</code> or <code>%qp-co%</code> linter.</p>
-                        <p filter="jvm">Here, specify either the <code>%qp%</code>, <code>%qp-co%</code>, <code>%qp-a</code> or the <code>%qp-an%</code> linter.</p>
+                        <p filter="jvm">Here, specify either the <code>%qp%</code>, <code>%qp-co%</code>, <code>%qp-a%</code> or the <code>%qp-an%</code> linter.</p>
                         <p filter="php">Here, specify the <code>%qp%</code> linter.</p>
                         <p filter="js">Here, specify the <code>%qp%</code> linter.</p>
                         <p filter="golang">Here, specify the <code>%qp%</code> linter.</p>
-                        <p filter="clang">Here, select <code>Custom</code> and in the <ui-path>Custom image</ui-path> field specify the %qp% linter.</p>
+                        <p filter="clang">Here, select <code>Custom</code> and in the <ui-path>Custom image</ui-path> field specify the <code>%qp-linter%</code> linter.</p>
                         <p filter="dotnet">Here, specify the <code>%qp%</code> linter.</p>
                         <p filter="dotnet-co">Here, specify the <code>%qp-co%</code> linter.</p>
                         <p filter="dotnet-no-build">Here, specify the <code>%qp-co%</code> linter.</p>
@@ -991,6 +991,10 @@
                         <p filter="dotnet-no-build">In this field, specify the <code>--no-build</code> option.</p>
                         <p filter="baseline">In this field, specify the <a href="baseline.topic">baseline</a> feature using
                             the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> option.</p>
+                        <p filter="clang-compilation-override">
+                            To override the location of a compilation command database, specify the location relatively to
+                            the project root using the <code>--compile-commands &lt;path-to-compile_commands.json&gt;</code> command.
+                        </p>
                     </li>
                 </list>
                 <img src="teamcity-runner.png" alt="Configuring the Qodana runner" width="680" border-effect="line"/>

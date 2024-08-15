@@ -67,7 +67,7 @@ CLion.
 </list>
 </tip>
 
-To see the list of supported technologies and features, you can navigate to the [](#clang-feature-matrix) section.
+To see the list of supported features, navigate to the [](#clang-feature-matrix) section.
 
 ## How it works
 
@@ -84,56 +84,56 @@ uploads to Qodana Cloud.
 ### Prepare your project
 
 <procedure>
-<step>Make sure that Clang-Tidy is deployed on your system. If necessary, install it using the 
-<a href="https://releases.llvm.org/download.html">LLVM website</a>.
-</step>
-<step>
-<p>Open the <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options"><code>qodana.yaml</code></a> file 
-and use the <code>include</code> and <code>exclude</code> configuration options to configure the list of 
-inspections. Alternatively, you can configure inspections in the <code>.clang-tidy</code> file, see the configuration example on the
-<a href="%clang-config%">GitHub</a> website. After configuring, save this file under the project root.</p>
-<tip>
-<p>You can get the list of all available Clang-Tidy inspections using the following command:</p>
-<tabs group="clang-tidy-commands">
-<tab id="qodana-clang-full-linux" title="Linux" group-key="clang-linux">
-<code-block>clang-tidy -list-checks -checks="*"</code-block>
-</tab>
-<tab id="qodana-clang-full-windows" title="Windows" group-key="clang-windows">
-<code-block>./clang-tidy.exe -list-checks -checks="*"</code-block>
-</tab>
-</tabs>
-<p>To obtain the list of all inspections enabled in Clang-Tidy by default, you can run the following command:</p>
-<tabs group="clang-tidy-commands">
-<tab id="qodana-clang-enabled-linux" title="Linux" group-key="clang-linux">
-<code-block>clang-tidy -list-checks</code-block>
-</tab>
-<tab id="qodana-clang-enabled-windows" title="Windows" group-key="clang-windows">
-<code-block>./clang-tidy.exe -list-checks</code-block>
-</tab>
-</tabs>
-</tip>
-</step>
-<step><p>Open the <code>.clang-tidy</code> file and configure the list of files and paths that will be analyzed by %qp%.</p>
-<tip>If you already have the <code>compile_commands.json</code> file, you can also configure files and paths in this file.</tip>
-</step>
-<step>
-<p>Generate the <code>compile_commands.json</code> file as explained in the <a href="%compdb-generate%">CLion documentation portal</a>, 
-and save it to the <code>build</code> directory under the project root.</p>
-<p>If you use CMake, you can also generate a compilation database by specifying the following 
-<a href="before-running-qodana.md"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:</p>
-<code-block lang="yaml">
-bootstrap: mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
-</code-block>
-</step>
-<step>
-<p>If your project requires specific packages not previously mentioned in the 
-<a href="%dockerfile%"><code>Dockerfile</code></a>, add the following <code>bootstrap</code> command to your 
-<code>qodana.yaml</code> file to install the required packages:</p>
-<code-block lang="yaml">
-bootstrap: sudo apt-get update; sudo apt-get install -y &lt;list of required packages&gt; |
-&nbsp;&nbsp;rm -rf build;  mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
-</code-block>
-</step>
+    <step>Make sure that Clang-Tidy is deployed on your system. If necessary, install it using the 
+        <a href="https://releases.llvm.org/download.html">LLVM website</a>.
+    </step>
+    <step>
+        <p>Open the <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options"><code>qodana.yaml</code></a> file 
+        and use the <code>include</code> and <code>exclude</code> configuration options to configure the list of 
+        inspections. Alternatively, you can configure inspections in the <code>.clang-tidy</code> file, see the configuration example on the
+        <a href="%clang-config%">GitHub</a> website. After configuring, save this file under the project root.</p>
+        <tip>
+        <p>You can get the list of all available Clang-Tidy inspections using the following command:</p>
+        <tabs group="clang-tidy-commands">
+        <tab id="qodana-clang-full-linux" title="Linux" group-key="clang-linux">
+        <code-block>clang-tidy -list-checks -checks="*"</code-block>
+        </tab>
+        <tab id="qodana-clang-full-windows" title="Windows" group-key="clang-windows">
+        <code-block>./clang-tidy.exe -list-checks -checks="*"</code-block>
+        </tab>
+        </tabs>
+        <p>To obtain the list of all inspections enabled in Clang-Tidy by default, you can run the following command:</p>
+        <tabs group="clang-tidy-commands">
+        <tab id="qodana-clang-enabled-linux" title="Linux" group-key="clang-linux">
+        <code-block>clang-tidy -list-checks</code-block>
+        </tab>
+        <tab id="qodana-clang-enabled-windows" title="Windows" group-key="clang-windows">
+        <code-block>./clang-tidy.exe -list-checks</code-block>
+        </tab>
+        </tabs>
+        </tip>
+    </step>
+    <step><p>Open the <code>.clang-tidy</code> file and configure the list of files and paths that will be analyzed by %qp%.</p>
+        <tip>If you already have the <code>compile_commands.json</code> file, you can also configure files and paths in this file.</tip>
+    </step>
+    <step>
+        <p>Generate the <code>compile_commands.json</code> file as explained in the <a href="%compdb-generate%">CLion documentation portal</a>, 
+        and save it to the <code>build</code> directory under the project root.</p>
+        <p>If you use CMake, you can also generate a compilation database by specifying the following 
+        <a href="before-running-qodana.md"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:</p>
+        <code-block lang="yaml">
+        bootstrap: mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
+        </code-block>
+    </step>
+    <step>
+        <p>If your project requires specific packages not previously mentioned in the 
+        <a href="%dockerfile%"><code>Dockerfile</code></a>, add the following <code>bootstrap</code> command to your 
+        <code>qodana.yaml</code> file to install the required packages:</p>
+        <code-block lang="yaml">
+        bootstrap: sudo apt-get update; sudo apt-get install -y &lt;list of required packages&gt; |
+        &nbsp;&nbsp;rm -rf build;  mkdir -p build; cd build;cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. || true
+        </code-block>
+    </step>
 </procedure>
 
 ### Qodana Cloud
@@ -157,9 +157,9 @@ will be used by %product% for identifying and verifying a license.
 
 ### Prepare your software
 
-The examples below show how to prepare software before running %product%.
+The examples below show how you can prepare software before running %product%.
 
-<tabs group="software">
+<tabs group="software" id="prepare-your-software">
     <tab title="GitHub Actions" group-key="github">
         <procedure>
             <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
@@ -189,8 +189,10 @@ The examples below show how to prepare software before running %product%.
                                 ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
-                              uses: JetBrains/qodana-action@v2024.2
-                              env:
+                             uses: JetBrains/qodana-action@v2024.2
+                             with:
+                               args: --linter,%qp-linter%
+                             env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
                   <p>This configuration sample will be modified throughout the section.</p>
@@ -215,35 +217,6 @@ The examples below show how to prepare software before running %product%.
             <step>
               <p>In Jenkins, create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
             </step>
-            <step>
-              <p>In the root directory of your project repository, save the <code>Jenkinsfile</code> containing the following configuration:</p>
-                <code-block lang="groovy">
-                    pipeline {
-                        environment {
-                            QODANA_TOKEN=credentials('qodana-token')
-                        }
-                        agent {
-                            docker {
-                                args '''
-                                  -v "${WORKSPACE}":/data/project
-                                  --entrypoint=""
-                                  '''
-                                image '%qp-linter%'
-                            }
-                        }
-                        stages {
-                            stage('Qodana') {
-                                steps {
-                                    sh '''
-                                    qodana
-                                    '''
-                                }
-                            }
-                        }
-                    }
-                </code-block>
-                  <p>This configuration sample will be modified throughout the section.</p>
-            </step>
         </procedure>
     </tab> 
     <tab title="GitLab CI/CD" group-key="gitlab">
@@ -251,26 +224,6 @@ The examples below show how to prepare software before running %product%.
             <step><p>Make sure that your project repository is accessible by GitLab CI/CD.</p></step>
             <step>In GitLab CI/CD, create the <a href="https://docs.gitlab.com/ee/ci/variables/"><code>$qodana_token</code></a> 
             variable and save the <a href="project-token.md">project token</a> as its value.</step>
-            <step><p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the following configuration in it:</p>
-                <code-block lang="yaml">
-                    qodana:
-                       image:
-                          name: %qp-linter%
-                          entrypoint: [""]
-                       cache:
-                          - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                            fallback_keys:
-                               - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                               - qodana-2024.2-
-                            paths:
-                               - .qodana/cache
-                       variables:
-                          QODANA_TOKEN: $qodana_token           - 
-                       script:
-                          - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                </code-block>
-                  <p>This configuration sample will be modified throughout the section.</p>
-            </step>
         </procedure>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
@@ -279,12 +232,12 @@ The examples below show how to prepare software before running %product%.
         and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
     </tab>
     <tab title="Command line" group-key="command-line">
-        <p>As %product% linters are distributed in Docker containers, Docker needs to be installed on your local machine.  
-        If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>.</p>
-        <p>Run this command to pull the Docker image of %qp%:</p>
-        <code-block lang="shell" prompt="$">
-            docker pull %qp-linter%
-        </code-block>
+    <p>Install Docker on the machine were you are going to run %product%.</p>  
+    <p>If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>.</p>
+            <p>Run this command to pull the Docker image of the %qp% linter:</p>
+            <code-block lang="shell" prompt="$">
+                docker pull %qp-linter%
+            </code-block>
     </tab>
 </tabs>
 
@@ -293,6 +246,8 @@ The examples below show how to prepare software before running %product%.
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+
+Based on the [prerequisites](#Prepare+your+project), linter reads the `build/compile_commands.json` file and runs the Clang-Tidy tool.
 
 <!--<p>You can run all linters described in this section in two modes:</p>
 <list>
@@ -387,7 +342,7 @@ The examples below show how to prepare software before running %product%.
     <tab title="GitHub Actions" group-key="github">
       <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
       <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
-      to your repository in the container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+      to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
           <code-block lang="yaml">
               name: Qodana
               on:
@@ -411,9 +366,46 @@ The examples below show how to prepare software before running %product%.
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
                       uses: JetBrains/qodana-action@v2024.2
+                      with:
+                        args: --linter,%qp-linter%
                       env:
                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           </code-block>
+        <p>Here, <code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
+                (reports issues that appeared only in that pull request).</p>
+        <p>To override the location of a compilation command database, you can specify the location for the
+            <code>compile_commands.json</code> file relatively to the project root, so the configuration will look like:
+        </p>
+          <code-block lang="yaml">
+              name: Qodana
+              on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                  branches: # Specify your branches here
+                    - main # The 'main' branch
+                    - 'releases/*' # The release branches
+              jobs:
+                qodana:
+                  runs-on: ubuntu-latest
+                  permissions:
+                    contents: write
+                    pull-requests: write
+                    checks: write
+                  steps:
+                    - uses: actions/checkout@v3
+                      with:
+                        ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                        fetch-depth: 0  # a full history is required for pull request analysis
+                    - name: 'Qodana Scan'
+                      uses: JetBrains/qodana-action@v2024.2
+                      with:
+                        args: --linter,%qp-linter%,--compile-commands,&lt;path-to-compile_commands.json&gt;
+                      env:
+                        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          </code-block>
+
+
   <p>More configuration examples are available in the <a href="github.md"/> section.</p>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
@@ -437,6 +429,35 @@ The examples below show how to prepare software before running %product%.
                     stage('Qodana') {
                         steps {
                             sh '''qodana'''
+                        }
+                    }
+                }
+            }
+        </code-block>
+        <p>To override the location of a compilation command database, you can specify the location for the
+            <code>compile_commands.json</code> file relatively to the project root, so the configuration will look like:
+        </p>
+        <code-block lang="groovy">
+            pipeline {
+                environment {
+                    QODANA_TOKEN=credentials('qodana-token')
+                }
+                agent {
+                    docker {
+                        args '''
+                          -v "${WORKSPACE}":/data/project
+                          --entrypoint=""
+                          '''
+                        image '%qp-linter%'
+                    }
+                }
+                stages {
+                    stage('Qodana') {
+                        steps {
+                            sh '''
+                            qodana \
+                            --compile-commands &lt;path-to-compile_commands.json&gt;
+                            '''
                         }
                     }
                 }
@@ -474,44 +495,72 @@ The examples below show how to prepare software before running %product%.
       <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
       <a href="project-token.md">project token</a>.</li>
       </list>
+        <p>To override the location of a compilation command database, you can specify the location for the
+            <code>compile_commands.json</code> file relatively to the project root, so the configuration will look like:
+        </p>
+        <code-block lang="yaml">
+            qodana:
+               image:
+                  name: %qp-linter% 
+                  entrypoint: [""]
+               cache:
+                  - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                    fallback_keys:
+                       - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                       - qodana-2024.2-
+                    paths:
+                       - .qodana/cache
+               variables:
+                  QODANA_TOKEN: $qodana_token           - 
+               script:
+                  - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache --compile-commands &lt;path-to-compile_commands.json&gt;
+        </code-block>
     <p>More configuration examples are available in the <a href="gitlab.md"/>section.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity" id="jvm-run-qodana-teamcity">
-      <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,clang"/>
+      <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,clang,clang-compilation-override"/>
       <p>More configuration examples are available in the <a href="teamcity.md"/>section.</p>
     </tab>
     <tab title="Command line" group-key="command-line">
-<note> Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker
-        Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for 
-        <a href="https://docs.docker.com/desktop/windows/#resources">Windows</a> and 
-        <a href="https://docs.docker.com/desktop/mac/#resources">macOS</a>.
-</note>
-        <p>Start local analysis with <code>source-directory</code>
-            pointing to the root of your project and
-            <code>QODANA_TOKEN</code> referring to the <a href="project-token.md">project token</a>:</p>
-            <code-block lang="shell" prompt="$">
-                docker run \
-                &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-                &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
-                &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                &nbsp;&nbsp;&nbsp;%qp-linter%
-            </code-block>
+        <note> Running analysis is a resource-intensive operation. If you experience issues, consider increasing the Docker
+                Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for 
+                <a href="https://docs.docker.com/desktop/windows/#resources">Windows</a> and 
+                <a href="https://docs.docker.com/desktop/mac/#resources">macOS</a>.
+        </note>
+        <p>Run this command:</p>
+        <code-block lang="shell" prompt="$">
+            docker run \
+            &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+            &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;%qp-linter%
+        </code-block>
         <p>
-            where <code>source-directory</code> and <code>output-directory</code> are full local paths
-            to the project source code directory and the analysis results directory, respectively. The
+            In this command, <code>source-directory</code> and <code>output-directory</code> are full local paths
+            to the project source code directory and the 
+            <a href="qodana-inspection-output.md" anchor="Basic+output">analysis result</a> directory, respectively. The
             <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
             required by the
             <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
+            If you omit the <code>QODANA_TOKEN</code> variable, the inspection results will be available in the
+            <code>qodana.sarif.json</code> file saved in the <code>output-directory</code> of your project root.
         </p>
-<p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-  reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-    details.</p>
-<p>
-The `output-directory` will contain <a href="qodana-inspection-output.md" anchor="Basic+output">all the necessary results</a>. You can 
-further tune the command as described in the <a href="docker-image-configuration.topic">technical guide</a>.
-</p>
-<p>If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in 
-<code>docker run</code> again.</p>
+        <p>To override the location of a compilation command database, you can specify the location for the
+            <code>compile_commands.json</code> file relatively to the project root, so the Docker command will look like:
+        </p>
+        <code-block lang="shell" prompt="$">
+            docker run \
+            &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+            &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;%qp-linter% \
+            &nbsp;&nbsp;&nbsp;--compile-commands &lt;path-to-compile_commands.json&gt;
+        </code-block>
+        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
+          reconfigure the analysis, see the <a href="ui-overview.md"/> section for
+            details.</p>
+        <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in 
+        <code>docker run</code> again.</p>
     </tab>
 </tabs>
   <!--</tab>-->
@@ -538,7 +587,7 @@ further tune the command as described in the <a href="docker-image-configuration
         <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options">YAML file</a> section for details.</li>
     <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
         option.</li>
-    <li>Quality gate using the <a href="quality-gate.topic"><code>fail-threshold</code></a> option.</li>
+    <li><a anchor="Enabling+the+baseline">Baseline</a> and <a anchor="Enabling+the+quality+gate">quality gate</a> features.</li>
 </list>
 
 
@@ -654,7 +703,7 @@ in a SARIF-formatted file.
                 - name: 'Qodana Scan'
                   uses: JetBrains/qodana-action@v2024.2
                   with:
-                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;
+                    args: --linter,%qp-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       </code-block>
@@ -715,28 +764,15 @@ in a SARIF-formatted file.
         <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,clang,baseline"/>
     </tab>
     <tab title="Command line" group-key="command-line">
-      <p>Choose how you would like to run the baseline feature from the command line:</p>
-      <tabs group="cli-settings">
-          <tab group-key="qodana-cli" title="Qodana CLI">
-              <code-block prompt="$">
-                  qodana scan \
-                     -v &lt;path_to_baseline&gt;:/data/base/ \
-                     -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                     -l %qp-linter% \
-                     --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
-              </code-block>
-          </tab>
-          <tab group-key="docker-image" title="Docker image">
-              <code-block lang="shell" prompt="$">
-                  docker run \
-                     -v &lt;source-directory&gt;/:/data/project/ \
-                     -v &lt;path_to_baseline&gt;:/data/base/ \
-                     -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                     %qp-linter% \
-                     --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
-              </code-block>
-          </tab>
-      </tabs>
+          <p>Run this command invoking the <code>--baseline</code> option:</p>
+          <code-block lang="shell" prompt="$">
+              docker run \
+                 -v &lt;source-directory&gt;/:/data/project/ \
+                 -v &lt;path_to_baseline&gt;:/data/base/ \
+                 -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                 %qp-linter% \
+                 --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+          </code-block>
     </tab>
 </tabs>
 <!--  </tab>
@@ -764,7 +800,7 @@ failureConditions:
 ```
 
 
-## Supported technologies and features
+## Supported features
 {id="clang-feature-matrix"}
 
 The %qp% linter provides the following %product% features:
@@ -783,153 +819,6 @@ The %qp% linter provides the following %product% features:
         <td>Community, Ultimate and Ultimate Plus</td>
     </tr>
 </table>
-
-
-
-## Run %qp%
-<!-- Put it to the run Qodana section -->
-Run the following Docker command:
-
-```shell
-docker run \
-   -v $(pwd):/data/project/ \
-   -v $(pwd)/results/:/data/results/ \
-   -e QODANA_TOKEN="<cloud-project-token>" \
-   %qp-linter%
-```
-{prompt=$}
-
-The linter will read the `build/compile_commands.json` file and run the Clang-Tidy tool.
-
-In this command, the `QODANA_TOKEN` variable refers to the [project token](project-token.md) that lets you upload inspection results
-to Qodana Cloud. If you omit the `QODANA_TOKEN` variable, the inspection results will be available in the
-`qodana.sarif.json` saved in the `/results` directory of your project root.
-
-To override the location of a compilation command database, you can specify the location for the
-`compile_commands.json` file relatively to the project root, so the Docker command will look like:
-
-```shell
-docker run \
-   -v $(pwd):/data/project/ \
-   -v $(pwd)/results/:/data/results/ \
-   -e QODANA_TOKEN="<cloud-project-token>" \
-   %qp-linter% \
-   --compile-commands <path-to-compile_commands.json>
-```
-{prompt=$}
-
-## THE SECOND PART
-
-<p>
-    <img src="https://jb.gg/badges/official-flat-square.svg" alt="official JetBrains project"/>
-</p>
-
-<p>
-    The Docker image for the %clang% linter is provided to support different usage
-    scenarios:
-</p>
-<list>
-    <li>Running analyses on a regular basis as part of your continuous integration (<i>CI-based execution</i>)
-    </li>
-    <li>Single-shot analyses (for example, performed <i>locally</i>)
-    </li>
-</list>
-
-## Run analysis locally
-
-> Running analysis locally is a resource-intensive operation. If you experience issues, consider increasing the Docker
-> Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for 
-> [Windows](https://docs.docker.com/desktop/windows/#resources) and [macOS](https://docs.docker.com/desktop/mac/#resources).
-{style="note"}
-
-Do the following to run the Dockerized version of the %qp% linter:
-<procedure>
-    <step>
-        <p>
-            Pull the image from Docker Hub:
-        </p>
-        <code-block lang="shell" prompt="$">docker pull jetbrains/%linter-shell%
-        </code-block>
-    </step>
-    <step>
-        <p>Run the following command:</p>
-        <code-block lang="shell" prompt="$">
-            docker run \
-            &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
-            &nbsp;&nbsp;&nbsp;-v &lt;output-directory&gt;/:/data/results/ \
-            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-            &nbsp;&nbsp;&nbsp;jetbrains/%linter-shell%
-        </code-block>
-        <p>
-            where <code>source-directory</code> and <code>output-directory</code> are full local paths
-            to the project source code directory and the analysis results directory, respectively. The
-            <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
-            required by the
-            <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
-        </p>
-    </step>
-</procedure>
-
-The `output-directory` will contain [all the necessary results](qodana-inspection-output.md#Basic+output). You can 
-further tune the command as described in the [technical guide](docker-image-configuration.topic).
-
-If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in 
-`docker run` again.
-
-## Run analysis in CI
-
-
-<tip>To learn more how to run %qp% in your CI pipelines, see the <a href="ci.md"/> section.</tip>
-
-### Run analysis in GitHub
-
-> This feature is in experimental mode, which means that its operation can be unstable.
-{style="note"}
-
-<p>In GitHub, %product% is implemented as the
-    <a href="https://github.com/marketplace/actions/qodana-scan"><code>Qodana Scan</code></a> GitHub action.
-    To configure it, save the <code>.github/workflows/code_quality.yml</code> file containing the workflow configuration:</p>
-<code-block lang="yaml">
-    name: Qodana
-    on:
-    &nbsp;&nbsp;workflow_dispatch:
-    &nbsp;&nbsp;pull_request:
-    &nbsp;&nbsp;push:
-    &nbsp;&nbsp;&nbsp;&nbsp;branches:
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'releases/*'
-    jobs:
-    &nbsp;&nbsp;qodana:
-    &nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest
-    &nbsp;&nbsp;&nbsp;&nbsp;steps:
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v3
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch-depth: 0
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: 'Qodana Scan'
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.2
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
-</code-block>
-<p>Using this workflow, Qodana will run on the main branch, release branches, and on the pull requests coming to your
-    repository.</p>
-<note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
-    (reports issues that appeared only in that pull request).</note>
-<p>To authorize in <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
-<procedure>
-    <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and
-        save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p></step>
-    <step><p>In a GitHub <a href="github.md" anchor="Basic+configuration">workflow</a>,
-        add this snippet to invoke the <code>Qodana Scan</code> action:</p>
-        <code-block lang="yaml">
-            - name: 'Qodana Scan'
-            &nbsp;&nbsp;uses: JetBrains/qodana-action@v2024.2
-            &nbsp;&nbsp;with:
-            &nbsp;&nbsp;&nbsp;&nbsp;args: -l jetbrains/%linter-shell%
-            &nbsp;&nbsp;env:
-            &nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-        </code-block>
-    </step>
-</procedure>
 
 ## Usage statistics
 

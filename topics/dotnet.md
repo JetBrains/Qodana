@@ -361,15 +361,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <p>Alternatively, you can implement the native mode configuration as shown in examples below.</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
-                    <procedure>
-                        <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
-                            <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
-                            and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
-                        </step>
-                        <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
-                            <code>.github/workflows/code_quality.yml</code> file.</step>
-                        <step>To inspect the <code>main</code> branch, release branches and the pull requests coming
-                        to your repository in the native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+                        <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                        to your repository in the native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                             <code-block lang="yaml">
                                 name: Qodana
                                 on:
@@ -403,8 +396,6 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                  with:
                                  &nbsp;&nbsp;&nbsp;args: --ide,QDNET
                               </code-block>
-                        </step>
-                    </procedure>
                 </tab>
 <!--                <tab title="Jenkins" group-key="jenkins">
                     <p>In the root directory of your project repository, save this snippet to the <code>Jenkinsfile</code>:</p>

@@ -105,6 +105,11 @@ The examples below show how to prepare software before running %product%.
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
                               uses: JetBrains/qodana-action@v2024.2
+                             with: # Uncomment the linter you wish to use
+                               # args: --linter,%qp-linter%
+                               # args: --linter,%qp-co-linter%
+                               # args: --linter,%qp-a-linter%
+                               # args: --linter,%qp-an-linter%
                               env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -330,6 +335,11 @@ The examples below show how to prepare software before running %product%.
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
                       uses: JetBrains/qodana-action@v2024.2
+                      with: # Uncomment the linter you wish to use
+                        # args: --linter,%qp-linter%
+                        # args: --linter,%qp-co-linter%
+                        # args: --linter,%qp-a-linter%
+                        # args: --linter,%qp-an-linter%
                       env:
                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           </code-block>
@@ -662,8 +672,11 @@ in a SARIF-formatted file.
                     fetch-depth: 0  # a full history is required for pull request analysis
                 - name: 'Qodana Scan'
                   uses: JetBrains/qodana-action@v2024.2
-                  with:
-                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;
+                  with: # Uncomment the linter you wish to use
+                    # args: --linter,%qp-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                    # args: --linter,%qp-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                    # args: --linter,%qp-a-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                    # args: --linter,%qp-an-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       </code-block>
@@ -733,9 +746,7 @@ in a SARIF-formatted file.
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
-      <p>Using the <ui-path>Additional Qodana arguments</ui-path> field from the <a anchor="jvm-run-qodana-teamcity">previous section</a>  
-      configure the <a href="baseline.topic">baseline</a> feature by specifying the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code>
-      option.</p>
+      <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,jvm,baseline"/>
     </tab>
     <tab title="Command line" group-key="command-line">
       <p>Choose how you would like to run the baseline feature from the command line:</p>
@@ -805,22 +816,43 @@ in a SARIF-formatted file.
 * Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>, available for all linters,
 * <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qp% and %qp-an% linters.
 
-Save this snippet to the [`qodana.yaml`](qodana-yaml.md) file:
-
-```yaml
-failureConditions:
-  severityThresholds:
-    any: 50 # Total number of problems in all severities
-    critical: 1 # Severities
-    high: 2
-    moderate: 3
-    low: 4
-    info: 5
-  testCoverageThresholds: # Only Qodana for JVM 
-    fresh: 6 # Fresh code coverage
-    total: 7 # Total percentage
-```
-
+<tabs group="linter-tabs">
+    <tab group-key="linter-tabs-ultimate" title="Qodana for JVM / Android">
+        <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems, 
+            specific problem severities, and code coverage by saving this snippet to the 
+            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+        </p>
+        <code-block lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;severityThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;any: 50 # Total number of problems in all severities
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: 1 # Severities
+            &nbsp;&nbsp;&nbsp;&nbsp;high: 2
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
+            &nbsp;&nbsp;&nbsp;&nbsp;low: 4
+            &nbsp;&nbsp;&nbsp;&nbsp;info: 5
+            &nbsp;&nbsp;testCoverageThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;fresh: 6 # Fresh code coverage
+            &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
+        </code-block>
+    </tab>
+    <tab group-key="linter-tabs-community" title="Qodana Community for JVM / Android">
+        <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems 
+            and specific problem severities by saving this snippet to the 
+            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+        </p>
+        <code-block lang="yaml">
+            failureConditions:
+            &nbsp;&nbsp;severityThresholds:
+            &nbsp;&nbsp;&nbsp;&nbsp;any: 50 # Total number of problems in all severities
+            &nbsp;&nbsp;&nbsp;&nbsp;critical: 1 # Severities
+            &nbsp;&nbsp;&nbsp;&nbsp;high: 2
+            &nbsp;&nbsp;&nbsp;&nbsp;moderate: 3
+            &nbsp;&nbsp;&nbsp;&nbsp;low: 4
+            &nbsp;&nbsp;&nbsp;&nbsp;info: 5
+        </code-block> 
+    </tab>
+</tabs>
 
 ### Analyzing pull requests
 
@@ -932,6 +964,11 @@ failureConditions:
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
                         uses: JetBrains/qodana-action@v2024.2
+                        with: # Uncomment the linter you wish to use
+                          # args: --linter,%qp-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                          # args: --linter,%qp-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                          # args: --linter,%qp-a-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                          # args: --linter,%qp-an-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>

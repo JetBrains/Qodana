@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td><a anchor="quality-gate-code-coverage"/></td>
-            <td><a href="jvm.md">%jvm%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>,
+            <td><a href="jvm.md">%jvm%</a>, <a href="jvm.md">%jvm-a%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>,
                 <a href="dotnet.md">%dotnet%</a>, <a href="python.md">%python%</a>, and <a href="golang.md">%go%</a></td>
             <td>Ultimate and Ultimate Plus</td>
         </tr>
