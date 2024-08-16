@@ -255,7 +255,6 @@ will be used by %product% for identifying and verifying a license.
       <p>The container mode is available for all linters; however, we recommend that you use the native mode.</p>-->
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-      <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
       <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
       to your repository in the container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
           <code-block lang="yaml">
@@ -338,15 +337,15 @@ will be used by %product% for identifying and verifying a license.
         </code-block>
       <p>In this snippet:</p>
       <list>
-      <li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
-        so subsequent runs will be faster,</li>
-      <li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
-        configuration options described in the <a href="docker-image-configuration.topic"/> section,</li>
-      <li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
-      <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
-      <a href="project-token.md">project token</a>.</li>
+        <li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
+          so subsequent runs will be faster,</li>
+        <li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
+          configuration options described in the <a href="docker-image-configuration.topic"/> section,</li>
+        <li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
+        <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
+        <a href="project-token.md">project token</a>.</li>
       </list>
-    <p>More configuration examples are available in the <a href="gitlab.md"/>section.</p>
+      <p>More configuration examples are available in the <a href="gitlab.md"/>section.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity" id="jvm-run-qodana-teamcity">
       <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,python"/>
