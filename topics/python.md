@@ -317,7 +317,7 @@ will be used by %product% for identifying and verifying a license.
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
         <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
-        <p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the following configuration in it:</p>
+        <p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the following configuration there:</p>
         <code-block lang="yaml">
             qodana:
                image: # Specify the linter
@@ -557,7 +557,7 @@ in a SARIF-formatted file.
   <tab title="Container mode" group-key="container-mode">-->
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-      <p>This snippet contains the <code>args: --baseline,qodana.sarif.json</code> line that specifies the path to the SARIF-formatted baseline file:</p>
+                <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>
       <code-block lang="yaml">
           name: Qodana
           on:
@@ -582,11 +582,13 @@ in a SARIF-formatted file.
                     fetch-depth: 0  # a full history is required for pull request analysis
                 - name: 'Qodana Scan'
                   uses: JetBrains/qodana-action@v2024.2
-                  with:
+                  with: # Specify the linter to run
                     args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-image%
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       </code-block>
+      <p>This snippet has the <code>args: --baseline,&lt;path/to/qodana.sarif.json&gt;</code> line that specifies
+        the path to the SARIF file containing a baseline.</p>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
       <p>In the root directory of your project repository, save the <code>Jenkinsfile</code> containing the 
@@ -619,11 +621,10 @@ in a SARIF-formatted file.
       </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
-      <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the 
-        baseline feature.</p>
+                <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
       <code-block lang="yaml">
         qodana:
-           image:
+           image: # Specify the linter to run
               name: %qd-image% 
               entrypoint: [""]
            cache:
@@ -639,6 +640,8 @@ in a SARIF-formatted file.
               - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
                  --cache-dir=$CI_PROJECT_DIR/.qodana/cache
       </code-block>
+      <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the
+          baseline feature.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
       <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,python,baseline"/>
@@ -803,7 +806,8 @@ in a SARIF-formatted file.
     <tab title="GitHub Actions" group-key="github">
         <p>
             The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically 
-            analyzes all pull requests, so you do not have to provide any additional configuration:
+            analyzes all pull requests, so you do not have to provide any additional configuration. Save this configuration
+            to the <code>.github/workflows/code_quality.yml</code> file:
         </p>
         <code-block lang="yaml">
                 name: Qodana
@@ -828,17 +832,17 @@ in a SARIF-formatted file.
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
                         uses: JetBrains/qodana-action@v2024.2
-                        with:
+                        with: # Specify the linter to run
                           args: --linter,%qd-image%
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
   </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
-    <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet and then uncomment the required linter:</p>
+    <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
     <code-block lang="yaml">
      qodana:
-       image:
+       image: # Specify the linter to run
           name: %qd-image% 
           entrypoint: [""]
        cache:

@@ -467,7 +467,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
         <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
-        <p>Save this snippet to the <code>.gitlab-ci.yml</code> file and uncomment the linter that you would like to run:</p>
+        <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
         <code-block lang="yaml">
             qodana:
                image:
@@ -677,7 +677,7 @@ in a SARIF-formatted file.
   <tab title="Container mode" group-key="container-mode">-->
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-      <p>This snippet contains the <code>args: --baseline,qodana.sarif.json</code> line that specifies the path to the SARIF-formatted baseline file:</p>
+                <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>
       <code-block lang="yaml">
           name: Qodana
           on:
@@ -707,6 +707,8 @@ in a SARIF-formatted file.
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       </code-block>
+      <p>This snippet has the <code>args: --baseline,&lt;path/to/qodana.sarif.json&gt;</code> line that specifies
+        the path to the SARIF file containing a baseline.</p>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
       <p>The <code>stages</code> block contains the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line that specifies

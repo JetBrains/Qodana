@@ -4,7 +4,7 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<img src="php-linter.png" dark-src="php-linter_dark.png" alt="Qodana for PHP linter languages" width="296"/>
+<!--<img src="php-linter.png" dark-src="php-linter_dark.png" alt="Qodana for PHP linter languages" width="296"/>-->
 
 <!-- Linter-related variables -->
 <var name="qp" value="Qodana for PHP"/>
@@ -52,7 +52,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ## Explore analysis results
 
-<include from="lib_qd.topic" element-id="explore-analysis-results"/>
+<include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,php"/>
 
 ## Extend %product% configuration
 

@@ -2,7 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-<img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/>
+<!--<img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/>-->
 
 <show-structure for="chapter" depth="3"/>
 
@@ -52,7 +52,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ## Explore analysis results
 
-<include from="lib_qd.topic" element-id="explore-analysis-results"/>
+<include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,golang"/>
 
 ## Extend %product% configuration
 

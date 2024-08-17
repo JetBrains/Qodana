@@ -2,7 +2,7 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM-based languages" width="296"/>
+<!--<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM-based languages" width="296"/>-->
 
 <!-- Linter-related variables -->
 <var name="qp" value="Qodana for JVM"/>
@@ -134,39 +134,6 @@ The examples below show how to prepare software before running %product%.
             <step>
               <p>In Jenkins, create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
             </step>
-            <step>
-              <p>In the root directory of your project repository, save the <code>Jenkinsfile</code> containing the following configuration:</p>
-                <code-block lang="groovy">
-                    pipeline {
-                        environment {
-                            QODANA_TOKEN=credentials('qodana-token')
-                        }
-                        agent {
-                            docker {
-                                args '''
-                                  -v "${WORKSPACE}":/data/project
-                                  --entrypoint=""
-                                  '''
-                                // Uncomment the required linter
-                                // image '%qp-linter%' // %qp%
-                                // image '%qp-co-linter%' // %qp-co%
-                                // image '%qp-a-linter%' // %qp-a%
-                                // image '%qp-an-linter%' // %qp-an%
-                            }
-                        }
-                        stages {
-                            stage('Qodana') {
-                                steps {
-                                    sh '''
-                                    qodana
-                                    '''
-                                }
-                            }
-                        }
-                    }
-                </code-block>
-                  <p>This configuration sample will be modified throughout the section.</p>
-            </step>
         </procedure>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
@@ -174,29 +141,6 @@ The examples below show how to prepare software before running %product%.
             <step><p>Make sure that your project repository is accessible by GitLab CI/CD.</p></step>
             <step>In GitLab CI/CD, create the <a href="https://docs.gitlab.com/ee/ci/variables/"><code>$qodana_token</code></a> 
             variable and save the <a href="project-token.md">project token</a> as its value.</step>
-            <step><p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the following configuration in it:</p>
-                <code-block lang="yaml">
-                    qodana:
-                       image: # Uncomment the required linter
-                          # name: %qp-linter%
-                          # name: %qp-co-linter%
-                          # name: %qp-a-linter%
-                          # name: %qp-an-linter%
-                          entrypoint: [""]
-                       cache:
-                          - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                            fallback_keys:
-                               - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                               - qodana-2024.2-
-                            paths:
-                               - .qodana/cache
-                       variables:
-                          QODANA_TOKEN: $qodana_token           - 
-                       script:
-                          - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                </code-block>
-                  <p>This configuration sample will be modified throughout the section.</p>
-            </step>
         </procedure>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
@@ -311,7 +255,8 @@ The examples below show how to prepare software before running %product%.
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
       <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
-      to your repository in the container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+      to your repository in the container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file 
+      and uncomment the linter that you would like to run:</p>
           <code-block lang="yaml">
               name: Qodana
               on:
@@ -647,7 +592,8 @@ in a SARIF-formatted file.
   <tab title="Container mode" group-key="container-mode">-->
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-      <p>This snippet contains the <code>args: --baseline,qodana.sarif.json</code> line that specifies the path to the SARIF-formatted baseline file:</p>
+      <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file 
+        and uncomment the linter that you would like to run:</p>
       <code-block lang="yaml">
           name: Qodana
           on:
@@ -680,6 +626,8 @@ in a SARIF-formatted file.
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       </code-block>
+      <p>This snippet has the <code>args: --baseline,&lt;path/to/qodana.sarif.json&gt;</code> line that specifies
+        the path to the SARIF file containing a baseline.</p>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
       <p>The <code>stages</code> block contains the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line that specifies
@@ -716,8 +664,8 @@ in a SARIF-formatted file.
       </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
-      <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the 
-        baseline feature.</p>
+        <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file and uncomment 
+          the linter that you would like to run:</p>
       <code-block lang="yaml">
         qodana:
            image:
@@ -744,6 +692,8 @@ in a SARIF-formatted file.
                  - qodana/report/
               expose_as: 'Qodana report'
       </code-block>
+      <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the
+                    baseline feature.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
       <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,jvm,baseline"/>
@@ -939,7 +889,8 @@ in a SARIF-formatted file.
     <tab title="GitHub Actions" group-key="github">
         <p>
             The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically 
-            analyzes all pull requests, so you do not have to provide any additional configuration:
+            analyzes all pull requests, so you do not have to provide any additional configuration. Save this configuration
+            to the <code>.github/workflows/code_quality.yml</code> file:
         </p>
         <code-block lang="yaml">
                 name: Qodana

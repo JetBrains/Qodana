@@ -2,7 +2,7 @@
 
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-<img src="js.png" dark-src="js_dark.png" alt="Qodana for .NET linter languages" width="296"/>
+<!--<img src="js.png" dark-src="js_dark.png" alt="Qodana for .NET linter languages" width="296"/>-->
 
 <show-structure for="chapter" depth="3"/>
 
@@ -75,7 +75,7 @@ include:
 
 ## Explore analysis results
 
-<include from="lib_qd.topic" element-id="explore-analysis-results"/>
+<include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,js"/>
 
 ## Extend %product% configuration
 
