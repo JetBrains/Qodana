@@ -8,9 +8,10 @@ This table shows the JDK versions that are by default used by %instance%:
 
 |---------|-----------|
 |[Linter](linters.md) | JDK version |
-|[Qodana for JVM](jvm.md)|[JBR SDK 17](https://github.com/JetBrains/JetBrainsRuntime/tree/jbr17) |
-|[Qodana Community for JVM](jvm.md)|[JBR SDK 17](https://github.com/JetBrains/JetBrainsRuntime/tree/jbr17) |
+|[Qodana for JVM](jvm.md)|[JBR SDK 21](https://github.com/JetBrains/JetBrainsRuntime/tree/jbr21) |
+|[Qodana Community for JVM](jvm.md)|[JBR SDK 21](https://github.com/JetBrains/JetBrainsRuntime/tree/jbr21) |
 |[Qodana Community for Android](jvm.md)|[Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/what-is-corretto-11.html) |
+|[Qodana for Android](jvm.md)|[Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/what-is-corretto-11.html)|
 
 Using the default version of the JDK does not require any special configuration.
 
