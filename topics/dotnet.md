@@ -27,6 +27,9 @@
 <var name="rs-link" value="https://www.jetbrains.com/help/resharper/Introduction__Index.html"/>
 <var name="tfms" value="https://learn.microsoft.com/en-us/dotnet/standard/frameworks#net-5-os-specific-tfms"/>
 <var name="cpp-links" value="https://jetbrains.com/help/resharper/Introduction__Index.html#supported_langs"/>
+<var name="teamcity-linter-list" value="Here, specify the <code>%qp%</code> linter."/>
+<var name="teamcity-linter-list" value="Here, specify either the %qp% or %qp-co% linter."/>
+
 
 <link-summary>You can analyze your .NET code using the %qp% and %qp-co% linters.</link-summary>
 
@@ -342,7 +345,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
       <list>
         <li>The <a href="native-mode.md">native mode</a> is the recommended method for running the %qp% linter that lets you run 
         the linter without using Docker containers,</li>
-        <li>Container mode is an alternative that involves Docker containers of the %qp% linter.</li>
+        <li>The container mode is an alternative that involves Docker containers of the %qp% linter.</li>
       </list>
       <tabs>
         <tab title="Native mode">
@@ -1144,7 +1147,7 @@ in a SARIF-formatted file.
                                     - name: 'Qodana Scan'
                                       uses: JetBrains/qodana-action@v2024.2
                                       with: 
-                                        args: --ide,&lt;QDNET&gt;,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                                        args: --ide,QDNET,--baseline,&lt;path/to/qodana.sarif.json&gt;
                                       env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                           </code-block>
@@ -1155,7 +1158,7 @@ in a SARIF-formatted file.
                             <p>Run this command in the project root directory:</p>
                             <code-block lang="shell" prompt="$">
                                 qodana scan \
-                                &nbsp;&nbsp;&nbsp;--ide &lt;QDNET&gt; \
+                                &nbsp;&nbsp;&nbsp;--ide QDNET \
                                 &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                             </code-block>
                             <p>Here, the <code>--baseline,&lt;path/to/qodana.sarif.json&gt;</code> option specifies the <a href="baseline.topic">baseline</a> feature.</p>

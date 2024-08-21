@@ -8,6 +8,7 @@
 <var name="TeamCityCommandLine" value="https://www.jetbrains.com/help/teamcity/command-line.html#General+Settings"/>
 <var name="TeamCityPullRequests" value="https://www.jetbrains.com/help/teamcity/pull-requests.html"/>
 <var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
+<var name="teamcity-linter-list" value="Here, specify the linter that you would like to run."/>
 
 %product% is available in TeamCity as the `Qodana` 
 [build runner](https://www.jetbrains.com/help/teamcity/build-runner.html). To start using it, these prerequisites

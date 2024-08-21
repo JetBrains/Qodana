@@ -238,6 +238,7 @@ using %instance% linters, and you can use Qodana Cloud for managing your project
 documentation.
 
 ### Can I use %instance% linters without creating a Qodana Cloud account?
+{id="pricing-linters-without-creating-cloud-account"}
 
 If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account in Qodana Cloud and accomplish
 the [onboarding](cloud-onboarding.md) stage. For more details, see [the first question](#faq-start-using-qodana) in

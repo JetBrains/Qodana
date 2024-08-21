@@ -26,6 +26,8 @@
 <var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/webstorm/customizing-profiles.html"/>
+<var name="native-arg" value="QDJS"/>
+<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
 
 <link-summary>%qp% is based on %ide% and provides static analysis for JavaScript or TypeScript projects.</link-summary>
 
@@ -63,15 +65,15 @@ include:
 
 ### Qodana Cloud
 
-<include from="lib_qd.topic" element-id="before-start-qodana-cloud"/>
+<include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>
 
 ### Prepare your software
 
-<include from="lib_qd.topic" element-id="before-start-prepare-software"/>
+<include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js"/>
 
 ## Explore analysis results
 
@@ -85,7 +87,7 @@ include:
 
 ### Enabling the baseline
 
-<include from="lib_qd.topic" element-id="enabling-baseline"/>
+<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,js"/>
 
 ### Enabling the quality gate
 
@@ -93,7 +95,7 @@ include:
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,js"/>
 
 ## Supported technologies and features
 {id="js-feature-matrix"}

@@ -38,6 +38,7 @@
 <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
+<var name="teamcity-linter-list" value="Here, select Custom and in the field below specify the %qp% linter."/>
 
 <link-summary>%qp% lets you analyze C and C++ projects containing compilation databases. </link-summary>
 
@@ -138,108 +139,16 @@ uploads to Qodana Cloud.
 
 ### Qodana Cloud
 
-To run linters, you need to obtain a [project token](project-token.md) that
-will be used by %product% for identifying and verifying a license.
+<note>
+Clang-Tidy and MISRA checks inspections from CLion are available only under the Ultimate and Ultimate Plus licenses.
+</note>
 
-<procedure>
-    <step>
-        Navigate to <a href="https://qodana.cloud">Qodana Cloud</a> and create an <a href="cloud-quickstart.md">account</a> there.
-    </step>
-    <step>
-        In Qodana Cloud, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>, 
-        and a <a href="cloud-projects.topic">project</a>.
-    </step>
-    <step>
-        On the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project card</a>, you can find the <a href="project-token.md">project token</a> 
-        that you will be using further in this section.
-    </step>
-</procedure>
+<include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,clang"/>
+
 
 ### Prepare your software
 
-The examples below show how you can prepare software before running %product%.
-
-<tabs group="software" id="prepare-your-software">
-    <tab title="GitHub Actions" group-key="github">
-        <procedure>
-            <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
-                <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
-                and save the <a href="project-token.md">project token</a> as its value.
-            </step>
-            <step><p>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and save the
-                following workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
-                  <code-block lang="yaml">
-                      name: Qodana
-                      on:
-                        workflow_dispatch:
-                        pull_request:
-                        push:
-                          branches:
-                            - main
-                      jobs:
-                        qodana:
-                          runs-on: ubuntu-latest
-                          permissions:
-                            contents: write
-                            pull-requests: write
-                            checks: write
-                          steps:
-                            - uses: actions/checkout@v3
-                              with:
-                                ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                                fetch-depth: 0  # a full history is required for pull request analysis
-                            - name: 'Qodana Scan'
-                             uses: JetBrains/qodana-action@v2024.2
-                             with:
-                               args: --linter,%qp-linter%
-                             env:
-                                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-                  </code-block>
-                  <p>This configuration sample will be modified throughout the section.</p>
-            </step>
-        </procedure>
-    </tab>
-    <tab title="Jenkins" group-key="jenkins">
-        <procedure>
-            <step>
-              <p>In Jenkins, make sure that these plugins are up and running:</p>
-              <list>
-              <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
-              <li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects.</li>
-              </list>
-              <p>Make sure that Docker is installed and accessible by Jenkins.</p>
-              <p>If applicable, make sure that Docker is accessible by the <code>jenkins</code> user as described in the
-              <a href="%Dockeraccess%">Manage Docker as a non-root user</a> section of the Docker documentation.</p>
-            </step>
-            <step>In Jenkins, create the <code>qodana-token</code> <a href="https://www.jenkins.io/doc/book/using/using-credentials/">credential</a> and save the 
-              <a href="project-token.md">project token</a> as its value.
-            </step>
-            <step>
-              <p>In Jenkins, create a Multibranch Pipeline project as described on the <a href="%MultipipeCreate%">Jenkins documentation portal</a>.</p>
-            </step>
-        </procedure>
-    </tab> 
-    <tab title="GitLab CI/CD" group-key="gitlab">
-        <procedure>
-            <step><p>Make sure that your project repository is accessible by GitLab CI/CD.</p></step>
-            <step>In GitLab CI/CD, create the <a href="https://docs.gitlab.com/ee/ci/variables/"><code>$qodana_token</code></a> 
-            variable and save the <a href="project-token.md">project token</a> as its value.</step>
-        </procedure>
-    </tab>
-    <tab title="TeamCity" group-key="teamcity">
-        <p>In TeamCity, Create a 
-        <a href="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project">project</a> 
-        and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
-    </tab>
-    <tab title="Command line" group-key="command-line">
-    <p>Install Docker on the machine were you are going to run %product%.</p>  
-    <p>If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>.</p>
-            <p>Run this command to pull the Docker image of the %qp% linter:</p>
-            <code-block lang="shell" prompt="$">
-                docker pull %qp-linter%
-            </code-block>
-    </tab>
-</tabs>
+<include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
 ## Run %product%
 
@@ -782,6 +691,8 @@ in a SARIF-formatted file.
 
 
 ### Enabling the quality gate
+
+<link-summary>You can configure quality gates for the total number of problems and for specific severities.</link-summary>
 
 You can configure [quality gates](quality-gate.topic) for:
 

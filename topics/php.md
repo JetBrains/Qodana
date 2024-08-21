@@ -26,6 +26,8 @@
 <var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/phpstorm/customizing-profiles.html"/>
+<var name="native-arg" value="QDPHP"/>
+<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
 
 <link-summary>%qp% is based on %ide% and provides inspections for PHP, JavaScript, and TypeScript.</link-summary>
 
@@ -40,15 +42,15 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Qodana Cloud
 
-<include from="lib_qd.topic" element-id="before-start-qodana-cloud"/>
+<include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>
 
 ### Prepare your software
 
-<include from="lib_qd.topic" element-id="before-start-prepare-software"/>
+<include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,php"/>
 
 ## Explore analysis results
 
@@ -62,7 +64,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Enabling the baseline
 
-<include from="lib_qd.topic" element-id="enabling-baseline"/>
+<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,php"/>
 
 ### Enabling the quality gate
 
@@ -70,7 +72,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,php"/>
 
 ## Supported technologies and features
 {id="php-feature-matrix"}
