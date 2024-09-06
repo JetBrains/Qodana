@@ -101,6 +101,10 @@
                 <td>Maven project dependencies</td>
             </tr>
             <tr>
+                <td><code>/root/.m2/</code></td>
+                <td>Directory for overriding the <code>settings.xml</code> configuration file for Maven.</td>
+            </tr>
+            <tr>
                 <td><code>/data/cache/gradle</code></td>
                 <td><a anchor="docker-config-reference-gradle-settings">Gradle</a> project dependencies</td>
             </tr>
