@@ -89,9 +89,7 @@ uploads to Qodana Cloud.
         <a href="https://releases.llvm.org/download.html">LLVM website</a>.
     </step>
     <step>
-        <p>Open the <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options"><code>qodana.yaml</code></a> file 
-        and use the <code>include</code> and <code>exclude</code> configuration options to configure the list of 
-        inspections. Alternatively, you can configure inspections in the <code>.clang-tidy</code> file, see the configuration example on the
+        <p>You can configure inspections in the <code>.clang-tidy</code> file, see the configuration example on the
         <a href="%clang-config%">GitHub</a> website. After configuring, save this file under the project root.</p>
         <tip>
         <p>You can get the list of all available Clang-Tidy inspections using the following command:</p>

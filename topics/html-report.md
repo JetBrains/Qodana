@@ -9,6 +9,9 @@ GoLand, PyCharm, and Rider as explained in the <a href="qodana-ide-plugin.md" an
 <p>In this case, your IDE needs to be installed via <a href="https://www.jetbrains.com/toolbox-app/">JetBrains Toolbox App</a>.</p>
 
 </tab>
+<tab title="Visual Studio Code" id="open-report-vscode">
+<p>See the <a href="vscode.md" anchor="vs-code-explore-reports">Visual Studio Code</a> section for details.</p>
+</tab>
 <tab title="Shell commands" id="open-report-shell">
 <p>When you run %instance% with the <code>--save-report</code> option, it stores an HTML version of the report in 
 <code>/data/results/report</code>. This directory is typically mounted via Docker to let you view the HTML report later, 

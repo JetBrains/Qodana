@@ -51,7 +51,7 @@
 		<toc-element topic="docker-images.md">
 		</toc-element>
 		<toc-element topic="qodana_gradle_plugin.md"/>
-		<toc-element topic="service.md"/>
+<!--		<toc-element topic="service.md"/> -->
 	</toc-element>
 	<toc-element toc-title="IDE integration">
 		<toc-element accepts-web-file-names="qodana_plugins.html" topic="qodana-ide-plugin.md"/>

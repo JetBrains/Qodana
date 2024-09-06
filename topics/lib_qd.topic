@@ -46,7 +46,7 @@
             <li><a href="ci.md">Integration tools</a> include applications for seamless integration with CI/CD systems
                 like GitHub and TeamCity, and guides for configuring %instance% Docker images for CI/CD. </li>
             <li><a href="qodana_gradle_plugin.md"/> provides the Gradle interface for running %instance% in IntelliJ IDEA.</li>
-            <li><a href="service.md">Cloud service</a> is a cloud-based version of %instance%. </li>
+            <!--<li><a href="service.md">Cloud service</a> is a cloud-based version of %instance%. </li> -->
         </list>
     </snippet>
 

@@ -104,7 +104,8 @@ should have the relative paths inside the project. For example, if your codebase
 2. If you run %instance% [locally](Quick-start.topic), use your code coverage tool to generate a code coverage report. 
 Save the report to the directory where %instance% can read it. If you run %instance% in your [GitHub](github.md) pipeline, configure the workflow as shown in the [](#run-code-coverage) section.
 
-For the [%dotnet%](dotnet.md) linter, configure <a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a> for the test project.
+For the [%dotnet%](dotnet.md) linter, add the <a href="https://www.nuget.org/packages/coverlet.msbuild"><code>coverlet.msbuild</code></a> 
+and [`coverlet.collector`](https://www.nuget.org/packages/coverlet.collector) packages to the test project.
 
 ## Run the code coverage
 {id="run-code-coverage"}
@@ -242,6 +243,9 @@ directory:</p>
 ### Qodana for .NET
 {id="code-coverage-qodana-for-dotnet"}
 
+> Configuration examples for code coverage are available on the [GitHub](https://github.com/qodana/qodana-coverage) website.
+{style="tip"}
+
 Here is an example of the [`qodana.yaml`](qodana-yaml.md) file configuration for the [%dotnet%](dotnet.md) linter:
 
 ```yaml
@@ -249,7 +253,7 @@ dotnet:
   solution: <your-solution-file>
 
 bootstrap: dotnet build; cd <path-to-dir-with-test-project-file> && \\
-  dotnet add package coverlet.msbuild && \\
+  dotnet add package coverlet.msbuild && dotnet add package coverlet.collector && \\
   ((dotnet test /p:CollectCoverage=true /p:CoverletOutput=<your-project-folder>/.qodana/code-coverage /p:CoverletOutputFormat=lcov))
 ```
 
