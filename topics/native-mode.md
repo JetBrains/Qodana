@@ -16,51 +16,50 @@ credentials, and resolve dependencies.
 ## Before you start
 
 > The native mode is incompatible with Docker containers of %product%, which means that you run
-> the [%dotnet%](dotnet.md) linter either as a Docker container or in a native mode.
+> %product% either as a Docker container or in a native mode.
 > {style="note"}
 
-Make sure that you have a proper version of the .NET SDK and all required dependencies installed on your machine.
-
-Build the project before inspecting it using %instance%. You can do it by using the [`bootstrap`](before-running-qodana.md)
-key of the [`qodana.yaml`](qodana-yaml.md) file.
-
-The project building and artifact packaging stages should occur before %instance% or simultaneously with it. Because 
-running %instance% may affect the project state and its files, we recommend that you avoid reusing the same directory 
-in your build pipelines any further. 
-
-You can also provide %instance% with a pre-built project, or specify the build steps in your CI/CD pipeline. In this 
-case, in your repository create the empty `qodana.yaml` file to eliminate warnings related to project building.
+### General steps
 
 In your operating system, save the `QODANA_TOKEN` environment variable containing the %instance% Cloud
 [project token](project-token.md).
 
-[Install Qodana CLI](Quick-start.topic#quickstart-run-using-cli) on the machine where you plan to run %instance% locally.
+If you wish to run %instance% using a command line, then install [Qodana CLI](Quick-start.topic#quickstart-run-using-cli) on the machine where you will run it.
 
-Starting from the version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file 
-containing the `bootstrap` key is missing in your project directory. The [`bootstrap`](before-running-qodana.md) 
-key should contain instructions for building the project. If you do not wish to build the project, disable
-this inspection using the `--disable-sanity` option, add this inspection to a [baseline](baseline.topic), or create the `qodana.yaml`
-file that will contain the `ide: <linter>` configuration. 
+Starting from the version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file
+containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the 
+`--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
 
-We recommend running the native mode on the same machine where you build a project because this can guarantee
-that %instance% has access to private NuGet feeds.
+### %dotnet%
+
+In addition to general steps, make sure that you have a proper version of the .NET SDK and all required 
+dependencies installed on your machine. 
+
+Build the project before inspecting it using %instance%. You can do it by using the [`bootstrap`](before-running-qodana.md) key of the 
+[`qodana.yaml`](qodana-yaml.md) file. The project building and artifact 
+packaging stages should occur before %instance% or simultaneously with it. Because running %instance% may affect the 
+project state and its files, we recommend that you avoid reusing the same directory in your build pipelines any further. 
+
+You can also provide %instance% with a pre-built project, or specify the build steps in your CI/CD pipeline. In this 
+case, in your repository create the empty `qodana.yaml` file to eliminate warnings related to project building.
 
 ## How it works
 
 > The native mode is incompatible with several Docker image-related options like `-l, --linter`,
 `-e, --env`, and `-v, --volume`.
-> {style="note"}
+{style="note"}
 
-You can enable the native mode ba saving this configuration in the [`qodana.yaml`](qodana-yaml.md) file, for example: 
+> We recommend running the [%dotnet%](dotnet.md) linter in the native mode on the same machine where you build a project 
+> because this can guarantee that %instance% has access to private NuGet feeds.
+{style="note"}
+
+You can enable the native mode by using the `ide` option in the [`qodana.yaml`](qodana-yaml.md) file: 
 
 ```yaml
-ide: QDNET
+ide: <linter>
 ```
 
-This configuration tells %product% to download and employ the required JetBrains IDE binary file while running the
-%dotnet% linter.
-
-This table contains the list of linters and the codes that you can use for running in the native mode:
+This table contains the list of `<linter>` values:
 
 | Linter name                | Linter code |
 |----------------------------|-------------|
@@ -76,6 +75,8 @@ This table contains the list of linters and the codes that you can use for runni
 | [%go%](golang.md)          | `QDGO`      |
 
 
+This configuration tells %product% to download and employ the required JetBrains IDE binary file while running the
+%dotnet% linter.
 
 Below are the examples showing how you can run %product% in the native mode:
 
@@ -96,7 +97,7 @@ Below are the examples showing how you can run %product% in the native mode:
                         <p>You can also run %product% without configuring the <code>qodana.yaml</code> file:</p>
                         <code-block lang="shell" prompt="$">
                             qodana scan \
-                            &nbsp;&nbsp;&nbsp;--ide QDJVM
+                            &nbsp;&nbsp;&nbsp;--ide &lt;linter&gt;
                         </code-block>
                     </step>
                 </procedure>
@@ -105,7 +106,7 @@ Below are the examples showing how you can run %product% in the native mode:
         <p>If you have already enabled the native mode using the <code>qodana.yaml</code> file, you can use a 
         <a href="github.md" anchor="Basic+configuration">basic configuration</a> sample from the GitHub Actions section.</p>
         <p>To run %product% without configuring the <code>qodana.yaml</code> file, in your GitHub repository navigate to 
-        a <a href="github.md" anchor="Basic+configuration">workflow configuration</a> file and specify the <code>--ide,QDNET</code> option:</p>
+        a <a href="github.md" anchor="Basic+configuration">workflow configuration</a> file and specify the <code>--ide,&lt;linter&gt;</code> option:</p>
         <code-block lan="yaml">
         name: Qodana
         on:
@@ -130,7 +131,7 @@ Below are the examples showing how you can run %product% in the native mode:
               - name: 'Qodana Scan'
                 uses: JetBrains/qodana-action@v2024.2
                 with:
-                  args: --ide,QDJVM
+                  args: --ide,&lt;linter&gt;
                 env:
                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>

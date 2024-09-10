@@ -7,6 +7,8 @@
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/native-mode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/native-mode.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/new-in-2024-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2024-2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
