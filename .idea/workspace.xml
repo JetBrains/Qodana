@@ -6,9 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native-mode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/native-mode.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/new-in-2024-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2024-2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/Quick-start.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Quick-start.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/about-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/about-qodana.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-organizations.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-organizations.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-projects.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-projects.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/gitlab.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/gitlab.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-cdnet-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-cdnet-docker-readme.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-clang-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-clang-docker-readme.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-community.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet-community.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet-docker-readme.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/set-up-your-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/set-up-your-project.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/vscode-old.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vscode-old.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/vscode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vscode.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -47,7 +47,7 @@ Alternatively, in the command palette type `Qodana` to see the list of options p
 
 <link-summary>You can run Qodana in Visual Studio Code and then forward inspection reports to Qodana Cloud. </link-summary>
 
-You can run %instance% locally and then forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
+You can run %instance% locally and then forward inspection reports to [Qodana Cloud](https://qodana.cloud) for storage and analysis purposes.
 
 > The Docker daemon should be up and running.
 {style="note"}

@@ -306,7 +306,7 @@
                             uses: JetBrains/qodana-action@v2024.2
                 </code-block>
 
-                <p>To authorize in <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
+                <p>To authorize in <a href="https://qodana.cloud">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
 
                 <procedure>
                     <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and

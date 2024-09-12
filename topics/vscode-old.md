@@ -1,7 +1,7 @@
 [//]: # (title: Visual Studio Code)
 
 Visual Studio Code is a source code editor available for Windows, macOS and Linux. This section shows how to use Visual 
-Studio Code version 1.81 and later for viewing %instance% reports from [Qodana Cloud](cloud-about.topic).
+Studio Code version 1.81 and later for viewing %instance% reports from [Qodana Cloud](https://qodana.cloud).
 
 ## Before you start
 

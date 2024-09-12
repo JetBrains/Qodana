@@ -119,7 +119,7 @@
                 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
                     (reports issues that appeared only in that pull request).</note>
 
-                <p>To authorize in <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
+                <p>To authorize in <a href="https://qodana.cloud">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
 
                 <procedure>
                     <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and

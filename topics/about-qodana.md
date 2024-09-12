@@ -46,8 +46,7 @@ suggested [quick-fixes](quick-fix.md) to let your team save time.
 ## Share reports with other team members
 
 [Qodana Cloud](https://qodana.cloud) helps you accumulate %instance% reports and track the progress in your project(s) 
-from a single point. Such reports are available for all members of your team(s). To become more familiar with Qodana 
-Cloud, visit the [](cloud-about.topic) page.
+from a single point. Such reports are available for all members of your team(s). 
 
 ## Take advantage of our pricing model
 

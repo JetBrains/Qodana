@@ -107,7 +107,7 @@
                     <a href="https://youtrack.jetbrains.com/newIssue?project=QD">report an issue</a> in our bug tracker.</p>
 
 
-                <p>To authorize in <a href="cloud-about.topic">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
+                <p>To authorize in <a href="https://qodana.cloud">Qodana Cloud</a> and forward reports to it, follow these steps:</p>
 
                 <procedure>
                     <step><p>In the GitHub UI, create the <code>QODANA_TOKEN</code> <a href="%GitHubLink%">encrypted secret</a> and

@@ -15,18 +15,18 @@
         Every account in Qodana Cloud is based on the organization that becomes its default organization.
     </p>
 
-    <p>You can navigate between organizations using the list in the left part of the Qodana Cloud UI.</p>
+    <p>You can navigate between organizations using the list in the upper left part of the Qodana Cloud UI.</p>
 
     <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true" preview-src="qc-settings-organization-navigate-between.png"/>
 
     <chapter id="cloud-organizations-create-organization" title="Create an organization">
 
-        <p>You can create either private or public organizations. Reports stored in private organizations are accessible only
+        <p>You can create private or public organizations. Reports stored in private organizations are accessible only
             by a user who created an organization and users who were invited to them.
             Reports stored in public organizations are available for all Qodana Cloud users, including unauthorized users with the
             <a href="cloud-user-roles.md">viewer role</a>. </p>
 
-        <p>Each organization is created on the basis of a <a href="cloud-get-access.topic">JetBrains account</a>.</p>
+        <p>Each organization is created on the basis of a specific <a href="cloud-get-access.topic">JetBrains account</a>.</p>
 
         <procedure>
             <step>
@@ -36,7 +36,7 @@
                 <img src="qc-settings-organization-create.png" dark-src="qc-settings-organization-create_dark.png" width="706" alt="Creating an organization" border-effect="line"/>
             </step>
             <step>
-                <p>Complete the onboarding stage as described in the <a href="cloud-onboarding.md"/> section.</p>
+                <p>Complete the project setup stage. You can read more about this stage in the <a href="set-up-your-project.md"/> section.</p>
             </step>
         </procedure>
     </chapter>

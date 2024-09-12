@@ -11,7 +11,7 @@ section explains how you can run %instance% [Docker images](docker-images.md) wi
 [pipelines](https://docs.gitlab.com/ee/ci/pipelines/) and covers the following cases:
 
 * Inspecting specific branches and merge requests
-* Forwarding inspection reports to [Qodana Cloud](cloud-about.topic)
+* Forwarding inspection reports to [Qodana Cloud](https://qodana.cloud)
 * Exposing %instance% reports in the GitLab CI/CD user interface
 * Using the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features
 * Generating Code Quality reports

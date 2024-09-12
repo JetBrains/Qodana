@@ -24,7 +24,7 @@ You can also have access to %instance% using the **Problems | Server-Side Analys
 ## Run %instance% locally
 {id="ide-plugin-run-qodana"}
 
-You can run %instance% locally and then forward inspection reports to [Qodana Cloud](cloud-about.topic) for storage and analysis purposes.
+You can run %instance% locally and then forward inspection reports to [Qodana Cloud](https://qodana.cloud) for storage and analysis purposes.
 
 <procedure>
 <step>
