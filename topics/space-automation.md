@@ -49,7 +49,7 @@ The `QODANA_TOKEN` variable refers to the [project token](project-token.md) gene
 the `qodana-token` secret. This token is required by the paid %instance% [linters](pricing.md#pricing-linters-licenses), 
 and is optional for using with the Community linters. You can see these sections to learn how to generate the project token:
 
-* The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
+* The [project setup](set-up-your-project.md) section explains how to get the project token generated while first working with Qodana Cloud
 * The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
 Once the project token is generated, in the **Settings** section of your JetBrains Space environment 

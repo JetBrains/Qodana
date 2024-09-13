@@ -65,7 +65,7 @@ referring to the [project token](project-token.md) generated in Qodana Cloud. Th
 
 You can see these sections to learn how to generate the project token:
 
-* The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
+* The [project setup](set-up-your-project.md) section explains how to get the project token generated while first working with Qodana Cloud
 * The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
 ## Inspect specific branches

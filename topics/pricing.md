@@ -196,10 +196,10 @@ You can review the [%instance% Terms of Service](https://www.jetbrains.com/legal
 website and select the subscription option you would like to use. 
 
 If you choose the Ultimate or Ultimate Plus trial license, you will be redirected to the 
-[onboarding](cloud-onboarding.md) page of Qodana Cloud. This is also applicable for the Community license.
+[project setup](set-up-your-project.md) page of Qodana Cloud. This is also applicable for the Community license.
 
 If you plan to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to the JetBrains account 
-page for payment details. After the payment, you will be redirected to the [onboarding](cloud-onboarding.md) page of 
+page for payment details. After the payment, you will be redirected to the [project setup](set-up-your-project.md) page of 
 Qodana Cloud.  
 
 2. During the onboarding stage on the Qodana Cloud website, you’ll generate a public key that will be 
@@ -241,7 +241,7 @@ documentation.
 {id="pricing-linters-without-creating-cloud-account"}
 
 If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account in Qodana Cloud and accomplish
-the [onboarding](cloud-onboarding.md) stage. For more details, see [the first question](#faq-start-using-qodana) in
+the [project setup](set-up-your-project.md) stage. For more details, see [the first question](#faq-start-using-qodana) in
 this section.
 
 You can run %instance% linters available under the Community license without using Qodana Cloud, but there are no obstacles
@@ -271,7 +271,7 @@ the unlimited number of times. In this case, however, all purchased subscription
 
 The total license cost is based on the number of active contributors. An active contributor is a person who commits 
 to any number of Qodana Cloud projects during the latest 90 days, within the same organization, and under a single 
-license. During the [onboarding](cloud-onboarding.md) stage and while creating a new [project](cloud-projects.topic), Qodana 
+license. During the [project setup](set-up-your-project.md) stage and while creating a new [project](cloud-projects.topic), Qodana 
 Cloud requests your repository URL to calculate contributors. The minimal number of contributors used for licensing is 3 (three). 
 
 The number of actual contributors is calculated based on the subscription plan. For example, using the monthly 

@@ -72,7 +72,7 @@ the `qodana-token` [global credentials](%JenkinsCred%). The project token is req
 [linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. You can see these sections 
 to learn how to generate the project token in Qodana Cloud:
 
-* The [](cloud-onboarding.md) section explains how to get the project token generated while first working with Qodana Cloud
+* The [project setup](set-up-your-project.md) section explains how to get the project token generated while first working with Qodana Cloud
 * The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
 
 This configuration uses the `docker` agent to invoke %instance% [Docker images](docker-images.md). Using the 

@@ -5,7 +5,7 @@
 To start using Qodana Cloud, navigate to the [Qodana Cloud website](https://qodana.cloud) and 
 [create your account](cloud-get-access.topic).
 
-After logging in to Qodana Cloud for the first time, you will be redirected to the [onboarding](cloud-onboarding.md) 
+After logging in to Qodana Cloud for the first time, you will be redirected to the [project setup](set-up-your-project.md) 
 page for creating an [organization](cloud-organizations.topic), a [team](cloud-teams.topic), a [project](cloud-projects.topic), 
 and have a [project token](cloud-projects.topic#cloud-manage-projects) generated for your project. 
 

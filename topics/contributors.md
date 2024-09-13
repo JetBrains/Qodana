@@ -18,7 +18,7 @@ is explained below.
 
 ## Key generation
 
-During the [onboarding stage](cloud-onboarding.md), Qodana Cloud generates an SSH key pair for counting the number of 
+During the [project setup](set-up-your-project.md) stage, Qodana Cloud generates an SSH key pair for counting the number of 
 active contributors to your project using this command:
 
 ```shell

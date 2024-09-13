@@ -19,7 +19,7 @@ credentials, and resolve dependencies.
 > %product% either as a Docker container or in a native mode.
 > {style="note"}
 
-### General steps
+### General steps for all linters
 
 In your operating system, save the `QODANA_TOKEN` environment variable containing the %instance% Cloud
 [project token](project-token.md).

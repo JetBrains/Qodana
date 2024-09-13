@@ -8,7 +8,7 @@
 
 <!-- Linter-related variables -->
 <var name="qp" value="Qodana for Go"/>
-<var name="qp-linter" value="jetbrains/qodana-go:2024.2-eap"/>
+<var name="qp-linter" value="jetbrains/qodana-go:2024.2"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="GoLand"/>
 

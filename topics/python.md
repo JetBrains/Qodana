@@ -4,9 +4,9 @@
 
 <var name="qp" value="Qodana for Python"/>
 <var name="qp-co" value="Qodana Community for Python"/>
-<var name="qp-linter" value="jetbrains/qodana-python:2024.2-eap"/>
-<var name="qp-co-linter" value="jetbrains/qodana-python-community:2024.2-eap"/>
-<var name="qd-image" value="jetbrains/qodana-python<-community>:2024.2-eap"/>
+<var name="qp-linter" value="jetbrains/qodana-python:2024.2"/>
+<var name="qp-co-linter" value="jetbrains/qodana-python-community:2024.2"/>
+<var name="qd-image" value="jetbrains/qodana-python<-community>:2024.2"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="PyCharm"/>
 <var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>

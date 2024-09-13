@@ -9,11 +9,11 @@
 <var name="qp-co" value="Qodana Community for JVM"/>
 <var name="qp-a" value="Qodana Community for Android"/>
 <var name="qp-an" value="Qodana for Android"/>
-<var name="qp-linter" value="jetbrains/qodana-jvm:2024.2-eap"/>
-<var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2024.2-eap"/>
-<var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2024.2-eap"/>
-<var name="qp-an-linter" value="jetbrains/qodana-android:2024.2-eap"/>
-<var name="qd-image" value="jetbrains/qodana<-jvm><-community><-android>:2024.2-eap"/>
+<var name="qp-linter" value="jetbrains/qodana-jvm:2024.2"/>
+<var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2024.2"/>
+<var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2024.2"/>
+<var name="qp-an-linter" value="jetbrains/qodana-android:2024.2"/>
+<var name="qd-image" value="jetbrains/qodana<-jvm><-community><-android>:2024.2"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="ide-co" value="IntelliJ IDEA Community"/>

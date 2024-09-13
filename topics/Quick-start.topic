@@ -25,7 +25,7 @@
         <note>You can skip the prerequisites if you would like to run %instance% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a>.</note>
 
         <p>Depending on your %instance% <a href="pricing.md">license</a>, you probably need to obtain a trial license and accomplish
-            the <a href="cloud-onboarding.md">onboarding</a> stage in Qodana Cloud.</p>
+            the <a href="set-up-your-project.md">project setup</a> stage in Qodana Cloud.</p>
         <p>To run %instance% in the CLI and GitHub, you will be using a project token available after creating a Qodana Cloud
             <a href="cloud-projects.topic">project</a>. To learn more about it, see the <a href="project-token.md"/> section.</p>
 

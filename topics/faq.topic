@@ -50,7 +50,7 @@
         <p>Each created JBA Company can possess several %instance% licenses.</p>
         <p>In Qodana Cloud, you need to create at least one <a href="cloud-organizations.topic">organization</a> that
             will correspond to a specific license within a specific JBA Company.</p>
-        <p>In Qodana Cloud, you can also create a JBA Company during the <a href="cloud-onboarding.md">onboarding</a> stage.
+        <p>In Qodana Cloud, you can also create a JBA Company during the <a href="set-up-your-project.md">project setup</a> stage.
             In this case, the JBA Company and the Qodana Cloud organization will share the same name. </p>
         <p>%instance% does not use JetBrains Account teams.</p>
     </chapter>
@@ -214,7 +214,7 @@
                     you’ll be redirected to the Qodana Cloud onboarding page.</p>
                 <p>If you would like to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to
                 the JetBrains account page to provide payment details. After payment is made, you’ll be redirected to
-                    the Qodana Cloud <a href="cloud-onboarding.md">onboarding page</a>.</p>
+                    the Qodana Cloud <a href="set-up-your-project.md">project setup</a> page.</p>
             </li>
             <li>
                 <p>During the onboarding stage on the Qodana Cloud website, we’ll generate a public key for you to add
@@ -252,7 +252,7 @@
     <chapter id="faq-licensing-using-without-cloud" title="Can I use %instance% linters without creating a Qodana Cloud account?" default-state="collapsed" collapsible="true">
         <p>
             All licenses require that you create an account in Qodana Cloud and complete the
-            <a href="cloud-onboarding.md">onboarding</a> stage (see
+            <a href="set-up-your-project.md">project setup</a> stage (see
             <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, Qodana
             Cloud lets you view Qodana reports in a single place and provides access to all of the
             <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> offered by %instance%
@@ -322,7 +322,7 @@
         <p>
             The total license cost is based on the number of active contributors. An active contributor is a person/bot
             who has committed to any number of Qodana Cloud projects at any point in the last 90 days, within the same
-            organization, and under a single license. During the  <a href="cloud-onboarding.md">onboarding</a> stage
+            organization, and under a single license. During the  <a href="set-up-your-project.md">project setup</a> stage
             and while creating a new <a href="cloud-projects.topic">project</a>,
             Qodana Cloud requests your repository URL to calculate contributors. The minimal number of contributors
             used for licensing is 3 (three).
