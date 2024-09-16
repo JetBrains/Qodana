@@ -183,7 +183,7 @@ supported by %product%. The settings will remain consistent across all these pla
 
 <link-summary>You can configure profiles before running %product% in GitHub.</link-summary>
 
-> Running %product% using GitHub requires a [project token](project-token.md).
+> Running %product% using GitHub Actions requires a [project token](project-token.md).
 {style="note"}
 
 <procedure>
@@ -267,7 +267,7 @@ supported by %product%. The settings will remain consistent across all these pla
 
 <link-summary>You can configure profiles before running %product% locally.</link-summary>
 
-> Running %product% using GitHub requires a [project token](project-token.md).
+> Running %product% using a command line requires a [project token](project-token.md).
 {style="note"}
 
 <tabs group="profile-setup">
