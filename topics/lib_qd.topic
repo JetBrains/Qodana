@@ -523,14 +523,6 @@
                 <td><code>QDJVMC</code></td>
                 <td>Qodana Community for JVM</td>
             </tr>
-            <tr>
-                <td><code>QDANDC</code></td>
-                <td>Qodana Community for Android</td>
-            </tr>
-            <tr>
-                <td><code>QDAND</code></td>
-                <td>Qodana for Android</td>
-            </tr>
         </table>
         <p filter="python">Here, <code>&lt;linter-code&gt;</code> refers to one of the following linters:</p>
         <table filter="python">
@@ -758,6 +750,11 @@
             linters without using Docker containers,</li>
           <li>The container mode is an alternative that involves Docker containers.</li>
         </list>
+
+        <note>
+            The native mode is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
+        </note>
+
         <tabs group="native-container">
             <tab title="Native mode" group-key="native-mode">
                 <p>The <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file is a universal method of
@@ -770,9 +767,7 @@
                                 <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                                 <list filter="jvm">
                                     <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                    <li><code>ide: QDAND</code> for the %jvm-a% linter,</li>
-                                    <li><code>ide: QDJVMC</code> for the %jvm-co% linter,</li>
-                                    <li><code>ide: QDANDC</code> for the %jvm-co-a% linter.</li>
+                                    <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
                                 </list>
                                 <list filter="python">
                                     <li><code>ide: QDPY</code> for the %python% linter,</li>
@@ -862,9 +857,7 @@
                             <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                             <list filter="jvm">
                                 <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                <li><code>ide: QDAND</code> for the %jvm-a% linter,</li>
-                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter,</li>
-                                <li><code>ide: QDANDC</code> for the %jvm-co-a% linter.</li>
+                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
                             </list>
                             <list filter="python">
                                 <li><code>ide: QDPY</code> for the %python% linter,</li>
@@ -1321,9 +1314,7 @@
                               <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                               <list filter="jvm">
                                   <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                  <li><code>ide: QDAND</code> for the %jvm-a% linter,</li>
-                                  <li><code>ide: QDJVMC</code> for the %jvm-co% linter,</li>
-                                  <li><code>ide: QDANDC</code> for the %jvm-co-a% linter.</li>
+                                  <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
                               </list>
                               <list filter="python">
                                   <li><code>ide: QDPY</code> for the %python% linter,</li>
@@ -1413,9 +1404,7 @@
                               <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                               <list filter="jvm">
                                   <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                  <li><code>ide: QDAND</code> for the %jvm-a% linter,</li>
-                                  <li><code>ide: QDJVMC</code> for the %jvm-co% linter,</li>
-                                  <li><code>ide: QDANDC</code> for the %jvm-co-a% linter.</li>
+                                  <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
                               </list>
                               <list filter="python">
                                   <li><code>ide: QDPY</code> for the %python% linter,</li>
@@ -1819,9 +1808,7 @@
                             <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                             <list filter="jvm">
                                 <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                <li><code>ide: QDAND</code> for the %jvm-a% linter,</li>
-                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter,</li>
-                                <li><code>ide: QDANDC</code> for the %jvm-co-a% linter.</li>
+                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
                             </list>
                             <list filter="python">
                                 <li><code>ide: QDPY</code> for the %python% linter,</li>
@@ -1915,9 +1902,7 @@
                             <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                             <list filter="jvm">
                                 <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                <li><code>ide: QDAND</code> for the %jvm-a% linter,</li>
-                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter,</li>
-                                <li><code>ide: QDANDC</code> for the %jvm-co-a% linter.</li>
+                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
                             </list>
                             <list filter="python">
                                 <li><code>ide: QDPY</code> for the %python% linter,</li>

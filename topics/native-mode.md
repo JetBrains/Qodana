@@ -13,6 +13,10 @@ In this case, %instance% reuses its execution environment, which lets you execut
 environment as you use for building the projects, use the correct operating system, have access to all repository
 credentials, and resolve dependencies. 
 
+<note>
+    The native mode is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
+</note>
+
 ## Before you start
 
 > The native mode is incompatible with Docker containers of %product%, which means that you run
@@ -65,8 +69,6 @@ This table contains the list of `<linter>` values:
 |----------------------------|-------------|
 | [%jvm%](jvm.md)            | `QDJVM`     |
 | [%jvm-co%](jvm.md)         | `QDJVMC`    |
-| [%jvm-a%](jvm.md)          | `QDAND`     |
-| [%jvm-co-a%](jvm.md)       | `QDANDC`    |
 | [%dotnet%](dotnet.md)      | `QDNET`     |
 | [%python%](python.md)      | `QDPY`      |
 | [%python-co%](python.md)   | `QDPYC`     |

@@ -36,7 +36,7 @@
 <var name="native-arg" value="&lt;linter-code&gt;"/>
 <var name="teamcity-linter-list" value="Here, select either the %qp%, %qp-co%, %qp-a% or the %qp-an% linter."/>
 
-<link-summary>You can analyze your Java code using the %qp% and %qp-co% linters.</link-summary>
+<link-summary>You can analyze your Java code using the %qp%, %qp-co%, %qp-a% and %qp-an% linters.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Java projects, you can use the following linters:

@@ -17,6 +17,9 @@ To provide correct work of the contributor counting functionality, add the IP ad
 54.76.32.8/32 to a list of allowed inbound connections on your side.
 </note>
 
+> The linters available under the Community, Ultimate, and Ultimate Plus licenses may vary. More details can be found in the [Pricing Model](pricing.md#pricing-linters-licenses) section.
+{style="note"}
+
 If you plan to run the [Qodana Scan](github.md) GitHub action on a GitHub-hosted repository, you will need to authorize the 
 `QA Test Qodana App` OAuth App during the project setup. If you do not have access to the repository you intend to analyze, 
 request the necessary access and wait for approval before proceeding. In other cases, you will receive instructions and 
