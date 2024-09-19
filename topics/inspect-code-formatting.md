@@ -18,7 +18,7 @@ Follow these steps to configure formatting analysis.
         </code-block>
     </step>
     <step>
-        <p>In the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file, enable the <code></code> inspection:</p>
+        <p>In the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file, enable the <code>IncorrectFormatting</code> inspection:</p>
         <code-block lang="yaml">
             include:
               - name: IncorrectFormatting
