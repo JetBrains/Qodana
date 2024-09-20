@@ -1,12 +1,13 @@
 [//]: # (title: Inspect code formatting)
 
 You can use %product% to analyze whether your code adheres to correct formatting. Currently, %product% can analyze the
-IntelliJ IDEA, Eclipse, and EditorConfig formats. 
+IntelliJ IDEA, Eclipse, and EditorConfig code style schemes. 
 
 Follow these steps to configure formatting analysis. 
 
 <procedure>
-    <step>In your IDE, configure the format that you would like to employ.</step>
+    <step>In your IDE, configure the <a href="https://www.jetbrains.com/help/idea/configuring-code-style.html">project code style scheme</a> 
+            that you would like to employ.</step>
     <step><p>In the <code>.idea/codeStyles</code> directory of your project, save the <code>codeStyleConfig.xml</code> 
             file containing the following configuration:</p>
         <code-block lang="xml">
