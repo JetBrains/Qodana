@@ -75,7 +75,7 @@ You can use the --diff-start option to inspect changes between the current versi
     </procedure>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-cicd">
-<p>Make sure that your project repository is accessible by GitLab CI/CD and the 
+<p>Make sure that your project repository is accessible to GitLab CI/CD and the 
 <a href="%mrp%"><code>Merged results pipeline</code></a> feature is enabled.</p>
 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
         <code-block lang="yaml">
@@ -172,7 +172,7 @@ and <code>--diff-end</code> options:</p>
     </procedure>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-cicd">
-<p>Make sure that your project repository is accessible by GitLab CI/CD.</p>
+<p>Make sure that your project repository is accessible to GitLab CI/CD.</p>
 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
         <code-block lang="yaml">
             qodana:

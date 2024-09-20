@@ -18,10 +18,10 @@ section explains how you can run %instance% [Docker images](docker-images.md) wi
 
 ## Prepare your project
 
-<link-summary>Make sure that your project repository is accessible by GitLab CI/CD, and in the root directory of your 
+<link-summary>Make sure that your project repository is accessible to GitLab CI/CD, and in the root directory of your 
 project save the pipeline configuration file.</link-summary>
 
-Make sure that your project repository is accessible by GitLab CI/CD.
+Make sure that your project repository is accessible to GitLab CI/CD.
 
 In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain the pipeline configuration 
 that will be used by GitLab CI/CD. 

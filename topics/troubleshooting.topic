@@ -159,7 +159,7 @@
             ...
         </code-block>
 
-        <p>Here, the <code>repo/.git</code> directory contains information that should be accessible by %instance%, and
+        <p>Here, the <code>repo/.git</code> directory contains information that should be accessible to %instance%, and
             the <code>repo/project</code> directory contains the project that needs to be inspected by %instance%. All
             these samples mount the <code>repo/project</code> directory using the
             <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--project-dir</code></a>

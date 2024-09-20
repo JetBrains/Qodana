@@ -152,8 +152,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
               <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
               <li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects.</li>
               </list>
-              <p>Make sure that Docker is installed and accessible by Jenkins.</p>
-              <p>If applicable, make sure that Docker is accessible by the <code>jenkins</code> user as described in the
+              <p>Make sure that Docker is installed and accessible to Jenkins.</p>
+              <p>If applicable, make sure that Docker is accessible to the <code>jenkins</code> user as described in the
               <a href="%Dockeraccess%">Manage Docker as a non-root user</a> section of the Docker documentation.</p>
             </step>
             <step>In Jenkins, create the <code>qodana-token</code> <a href="https://www.jenkins.io/doc/book/using/using-credentials/">credential</a> and save the 
@@ -166,7 +166,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     </tab> 
     <tab title="GitLab CI/CD" group-key="gitlab">
         <procedure>
-            <step><p>Make sure that your project repository is accessible by GitLab CI/CD.</p></step>
+            <step><p>Make sure that your project repository is accessible to GitLab CI/CD.</p></step>
             <step>In GitLab CI/CD, create the <a href="https://docs.gitlab.com/ee/ci/variables/"><code>$qodana_token</code></a> 
             variable and save the <a href="project-token.md">project token</a> as its value.</step>
         </procedure>

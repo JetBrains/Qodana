@@ -16,7 +16,7 @@ need to be met:
 
 - You use TeamCity as a build server for your project. If not, learn how to do it in [TeamCity documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html).
 - Your project language is included in the list of fully [supported technologies](linters.md).
-- If you use your own TeamCity agents, make sure that Docker is installed on the agent machines and accessible by the users TeamCity is running under.
+- If you use your own TeamCity agents, make sure that Docker is installed on the agent machines and accessible to the users TeamCity is running under.
   TeamCity agents [hosted by JetBrains](https://www.jetbrains.com/help/teamcity/cloud/supported-platforms-and-environments.html#JetBrains-Hosted+Agents)
   already meet this condition.
 

@@ -31,7 +31,7 @@ used only in Qodana Cloud. In this case, multiple Qodana organizations can be cr
 <img src="cloud-onboarding-step-1.png" dark-src="cloud-onboarding-step-1_dark.png" alt="The first step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 </step>
 <step>
-<p>In the <ui-path>SSH URL</ui-path> field, provide the SSH URL to your project that can be accessible by Qodana Cloud.</p>
+<p>In the <ui-path>SSH URL</ui-path> field, provide the SSH URL to your project that can be accessible to Qodana Cloud.</p>
 
 <img src="cloud-onboarding-step-2.png" dark-src="cloud-onboarding-step-2_dark.png" alt="The second step of the Qodana Cloud onboarding" width="706" border-effect="line"/>
 

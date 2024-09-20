@@ -73,7 +73,7 @@
                 <step>
                     The <code>ea_extended.xml</code> plugin configuration file is located in the <code>options</code>
                     subdirectory of the <a href="%conf-dir%">IDE config directory</a>. You can save this file to
-                    any directory accessible by %instance%.
+                    any directory accessible to %instance%.
                 </step>
                 <step><p>
                     Navigate to the <a href="%inspection-settings%">Inspections</a> dialog of your IDE, expand
