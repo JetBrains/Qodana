@@ -14,7 +14,7 @@ environment as you use for building the projects, use the correct operating syst
 credentials, and resolve dependencies. 
 
 <note>
-    The native mode is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
+    The native mode is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
 </note>
 
 ## Before you start

@@ -423,8 +423,8 @@
     </snippet>
 
     <snippet id="root-and-non-root-users-info-bubble">
-        <tip>You can learn more about running %product% as root and non-root users from the
-            <a href="docker-image-configuration.topic" anchor="docker-config-reference-docker-environment-run-non-root"/> section.</tip>
+        <tip>Check out the <a href="docker-image-configuration.topic" anchor="docker-config-reference-docker-environment-run-non-root"/> section
+            to learn more about how root and non-root users can run %product%.</tip>
     </snippet>
 
     <snippet id="teamcity-add-a-qodana-runner">
@@ -560,9 +560,9 @@
         <p filter="clang">Because the %qp% linter may require a Qodana Cloud <a href="project-token.md">project token</a> for
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
             these steps to obtain it:</p>
-        <p filter="jvm">Depending on a linter, you may need to obtain a project token that will be used by %product% for identifying and verifying a
+        <p filter="jvm">Depending on the specific linter you're using, you may need to obtain a project token that will be used by %product% for identifying and verifying a
             <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow the steps below:</p>
-        <p filter="python">Depending on a linter, you may need to obtain a project token that will be used by %product% for identifying and verifying a
+        <p filter="python">Depending on the specific linter you're using, you may need to obtain a project token that will be used by %product% for identifying and verifying a
             <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow the steps below:</p>
         <procedure>
             <step>
@@ -684,7 +684,7 @@
                         <p>In Jenkins, make sure that these plugins are up and running:</p>
                         <list>
                             <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
-                            <li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects.</li>
+                            <li><a href="%Gplugin%">Git</a> is required for Git operations in Jenkins projects.</li>
                         </list>
                         <p>Make sure that Docker is installed and accessible to Jenkins.</p>
                         <p>If applicable, make sure that Docker is accessible to the <code>jenkins</code> user as described in the
@@ -710,7 +710,7 @@
                     and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
             </tab>
             <tab title="Command line" group-key="command-line">
-                <p>Install Docker on the machine were you are going to run %product%.</p>
+                <p>Install Docker on the machine where you are going to run %product%.</p>
                 <p>If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>.</p>
                 <tabs group="cli-settings">
                     <tab group-key="qodana-cli" title="Qodana CLI">
@@ -746,13 +746,13 @@
 
         <p>You can run the linters in two modes:</p>
         <list>
-          <li>The <a href="native-mode.md">native mode</a> is the recommended method that lets you run
+          <li><a href="native-mode.md">Native mode</a> is the recommended method that lets you run
             linters without using Docker containers,</li>
-          <li>The container mode is an alternative that involves Docker containers.</li>
+          <li>Container mode is an alternative that involves Docker containers.</li>
         </list>
 
         <note>
-            The native mode is currently in the Early Access, which means it may be not reliable, work not as intended, and contain errors.
+            The native mode is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
         </note>
 
         <tabs group="native-container">
@@ -1255,11 +1255,13 @@
                         <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
                     </step>
                     <step>
-                        <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will be able to receive the most actual and relevant reports from Qodana Cloud.</p>
+                        <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will
+                            be able to receive the most up-to-date and relevant reports from Qodana Cloud.</p>
                         <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-                        <p>In this case, the IDE will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the
-                            current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
-                            closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
+                        <p>In this case, the IDE will search Qodana Cloud and fetch the report that has the revision ID
+                            corresponding to the current revision ID (HEAD). If this report is not found, the IDE will
+                            select the previous report with the revision ID closest to the current revision ID (HEAD).
+                            Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
                     </step>
                     <step>
                         <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, view <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
@@ -1288,9 +1290,9 @@
             <a href="https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles">GitHub</a>:
         </p>
         <list>
-            <li><code>qodana.starter</code> is the default profile and a subset of the more comprehensive <code>qodana.recommended</code> profile,</li>
+            <li><code>qodana.starter</code> is the default profile and a subset of the more comprehensive <code>qodana.recommended</code> profile</li>
             <li><code>qodana.recommended</code>is suitable for running in CI/CD pipelines and mostly implements the default %ide%
-                profile, see the <a href="%ide-documentation%">%ide%</a> documentation for details.</li>
+                profile; see the <a href="%ide-documentation%">%ide%</a> documentation for details.</li>
         </list>
 
         <p>You can customize %product% profiles using configurations in <a href="custom-profiles.md">YAML</a> and

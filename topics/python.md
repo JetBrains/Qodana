@@ -43,7 +43,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 If your project has external `pip` dependencies, set them up using the [`bootstrap`](before-running-qodana.md) 
 key in the [`qodana.yaml`](qodana-yaml.md) file. For example, if your project dependencies are specified 
-by the `requirements.txt` file in your project root, in the configuration file add the following line:
+by the `requirements.txt` file in your project root, go into the configuration file and add the following line:
 
 ```yaml
 bootstrap: pip install -r requirements.txt
