@@ -44,6 +44,7 @@
 		<toc-element topic="analyze-pr.md"/>
 		<toc-element topic="detect-passwords.md"/>
 		<toc-element topic="inspect-code-formatting.md"/>
+		<toc-element topic="unity.md"/>
 	</toc-element>
 
 	<!-- Deployment section -->
