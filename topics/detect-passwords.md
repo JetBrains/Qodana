@@ -28,22 +28,22 @@ file, for example:
 
 ```yaml
 hardcodedPasswords:
-	# regex rules for variable values to report as hardcoded password
-	variableValues:
-	  - "[0-9a-z\\-_\\t.]{0,20}(?:[\\s|']|[\\s|\"]){0,3}(?:=|>|:=|\\|\\|:|<=|=>|:)(?:'|@\"|\"|\\s|=|\\x60){0,5}(?!([a-z]+\\.[a-zA-Z]+)|.*(\\d{4}-\\d{2}-\\d{2}|[a-z]+-[a-z]+.*)|:*(?!([\"']))[0-9A-Za-z]+\\.[0-9A-Za-z]+,|[A-Z]+_[A-Z]+_)(?<CONTENT>[0-9a-z\\-_.=~]{10,150})(?:['|\"\\n\\r\\s\\x60;]|$)"
-	  - "perm:(?<clearSecret>[a-zA-Z=.0-9]{96}|[a-zA-Z=.0-9]{64})"
+  # regex rules for variable values to report as hardcoded password
+  variableValues:
+    - "(?i)(xoxe-\d-[A-Z0-9]{146})"
+    - "perm:(?<clearSecret>[a-zA-Z=.0-9]{96}|[a-zA-Z=.0-9]{64})"
 	
-	# regex rules for variable names to report as hardcoded password
-	variableNames:
-		- "password"
+  # regex rules for variable names to report as hardcoded password
+  variableNames:
+  	- "password"
 	 
-	# regex rules for variable values to ignore (not report) as hardcoded password
+  # regex rules for variable values to ignore (not report) as hardcoded password
   ignoreVariableValues:
     - "do-not-report-this-value"
     
   # regex rules for variable names to ignore (not report) as hardcoded password
   ignoreVariableNames:
-	  - "^(?=.*\bteamcity\b)(?=.*\bkey\b).*$"
+	- "^(?=.*\bteamcity\b)(?=.*\bkey\b).*$"
 ```
 
 To enable your custom hard-coded password setup, save the `HardcodedPasswords` configuration in the

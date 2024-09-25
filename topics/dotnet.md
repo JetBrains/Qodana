@@ -44,7 +44,7 @@
 
 <p>You can compare these linters by programming languages and other supported technologies by navigating to the <a anchor="dotnet-feature-matrix">feature matrix</a>.</p>
 
-## Before your start
+## Before you start
 {id="dotnet-before-you-start"}
 
 ### Qodana Cloud
@@ -73,9 +73,9 @@ A project token is required for the %qp% linter and optional for the %qp-co% lin
 {id="dotnet-sdk-version"}
 
 If you project targets the .NET framework or [OS-specific TFMs](%tfms%), the only option in this case is to run the
-%qp% linter in the [native mode](native-mode.md).
+%qp% linter in [native mode](native-mode.md).
 
-If you run %qp% in the native mode, you should install the SDK to the default location in your operating system so that 
+If you run %qp% in native mode, you should install the SDK to the default location in your operating system so that 
 %ide% can have access to it.
 
 <!-- This table should be made for both linters -->
@@ -343,29 +343,29 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     <tab group-key="linter-tabs-dotnet" title="%qp%">
       <p>You can run the %qp% linter in two modes:</p>
       <list>
-        <li>The <a href="native-mode.md">native mode</a> is the recommended method for running the %qp% linter that lets you run 
+        <li><a href="native-mode.md">Native mode</a> is the recommended method for running the %qp% linter that lets you run 
         the linter without using Docker containers,</li>
-        <li>The container mode is an alternative that involves Docker containers of the %qp% linter.</li>
+        <li>Container mode is an alternative that involves Docker containers of the %qp% linter.</li>
       </list>
       <tabs>
         <tab title="Native mode">
           <note>
-            If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
+            If you plan to use private NuGet feeds, we recommend running native mode on the same machine where
             you build a project because this can guarantee that %instance% has access to private NuGet feeds.
           </note>
           <snippet id="dotnet-run-qodana-native-mode-yaml">
             <p>Using a YAML configuration is the preferred method of configuring the linter because it lets you use such configuration
                 across all software that runs %product% without additional configuration.</p>
-                <p>You can configure the native mode by adding this line to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
+                <p>You can configure native mode by adding this line to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
             <code-block lang="yaml">
                 ide: QDNET
             </code-block>
           </snippet>
-            <p>Alternatively, you can implement the native mode configuration as shown in examples below.</p>
+            <p>Alternatively, you can implement native mode configuration as shown in examples below.</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                         <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
-                        to your repository in the native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+                        to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                             <code-block lang="yaml">
                                 name: Qodana
                                 on:
@@ -394,7 +394,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
-                          <p>This configuration invokes the native mode using:</p>
+                          <p>This configuration invokes native mode using:</p>
                               <code-block lang="yaml">
                                  with:
                                  &nbsp;&nbsp;&nbsp;args: --ide,QDNET
@@ -474,7 +474,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                            <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
                               <list>
                                 <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
-                                  You can see that the native mode is already configured.</li>
+                                  You can see that native mode is already configured.</li>
                                  <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
@@ -490,11 +490,11 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             </tabs>
         </tab>
         <tab title="Container mode">
-            <p>The container mode is available for the %qp% linter; however, we recommend that you use the native mode.</p>
+            <p>Container mode is available for the %qp% linter; however, we recommend that you use native mode.</p>
             <tabs>
                 <tab title="GitHub Actions" group-key="github">
                           <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
-                            to your repository in the container mode, save this workflow configuration to the 
+                            to your repository in container mode, save this workflow configuration to the 
                             <code>.github/workflows/code_quality.yml</code> file:</p>
                             <code-block lang="yaml">
                                 name: Qodana
@@ -620,7 +620,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                         To analyze the <code>main</code> branch, release branches and the pull requests coming
-                        to your repository in the container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+                        to your repository in container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
                             <code-block lang="yaml">
                                 name: Qodana
                                 on:
@@ -722,7 +722,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                            <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
                               <list>
                                 <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
-                                  You can see that the native mode is already configured.</li>
+                                  You can see that native mode is already configured.</li>
                                  <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
@@ -894,7 +894,7 @@ Depending on the linter, you can run them using private NuGet repositories as sh
 
 <tabs group="linter-tabs">
     <tab title="%qp%" group-key="linter-tabs-dotnet">
-        <p>If you run %qp% using private NuGet repositories, the native mode of this linter is the recommended method of running. 
+        <p>If you run %qp% using private NuGet repositories, native mode of this linter is the recommended method of running. 
         In this case, you do not have to additionally configure the linter, and if you run it on the same machine where you have 
         built the project, it will be able to have access to the same feeds. </p>
         <p>Alternatively, use this configuration to employ a Docker image of the %qp% linter:</p>
@@ -946,12 +946,12 @@ Depending on the linter, you can run them using private NuGet repositories as sh
          <step>
             <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will be able to receive the most actual and relevant reports from Qodana Cloud.</p>
             <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-              <p>In this case, the IDE will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the 
+              <p>In this case, the IDE will search and fetch from Qodana Cloud the report with the revision ID corresponding to the 
               current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
               closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
           </step> 
           <step>
-             <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, view <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+             <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
           </step>
       </procedure>
     </tab>
@@ -978,7 +978,7 @@ Depending on the linter, you can run them using private NuGet repositories as sh
                 implements the default %ide% profile.
             </p>
             <tip>You can customize %product% profiles using configurations in <a href="custom-profiles.md">YAML</a> and 
-                <a href="custom-xml-profiles.md">XML</a> formats. To learn more about configuration basics, visit the <a href="override-a-profile.md"/> section.
+                <a href="custom-xml-profiles.md">XML</a> formats. To learn more about configuration basics, visit the <a href="override-a-profile.md"/> section of the documentation.
             </tip>
             <p>%qp% reads configuration from the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file located in the 
                 root directory of your project. For example, add this configuration to run the linter using the 
@@ -1107,9 +1107,9 @@ Depending on the linter, you can run them using private NuGet repositories as sh
     <a href="https://www.jetbrains.com/help/resharper/EditorConfig_Index.html">Index of EditorConfig properties</a> page. —
     just use the browser search to find the property for the desired inspection.</p>
 
-### Enabling the baseline
+### Enabling the baseline feature
 
-You can skip analysis for specific problems using the [baseline](baseline.topic) feature. Information about a baseline is contained
+You can skip analysis for specific problems by using the [baseline](baseline.topic) feature. Information about a baseline is contained
 in a SARIF-formatted file.
 
 <tabs group="linter-tabs">
@@ -1168,9 +1168,8 @@ in a SARIF-formatted file.
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                             </code-block>
-                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                              reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                              details.</p>
+                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                              reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </tab>
                     </tabs>
                 </tab>

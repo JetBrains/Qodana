@@ -1354,7 +1354,7 @@
                         <code>-l</code>, <code>--linter &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>Only for container runs, incompatible with the <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>Choose linter (image) to use. Available images are: <code>jetbrains/qodana-jvm-community</code>, <code>jetbrains/qodana-jvm</code>, <code>jetbrains/qodana-jvm-android</code>, <code>jetbrains/qodana-php</code>, <code>jetbrains/qodana-python</code>, <code>jetbrains/qodana-python-community</code>, <code>jetbrains/qodana-js</code>, <code>jetbrains/qodana-go</code>, <code>jetbrains/qodana-dotnet</code>, though you can use any Docker image with Qodana inside</p>
+                        <note>Only for container runs, incompatible with <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>Choose linter (image) to use. Available images are: <code>jetbrains/qodana-jvm-community</code>, <code>jetbrains/qodana-jvm</code>, <code>jetbrains/qodana-jvm-android</code>, <code>jetbrains/qodana-php</code>, <code>jetbrains/qodana-python</code>, <code>jetbrains/qodana-python-community</code>, <code>jetbrains/qodana-js</code>, <code>jetbrains/qodana-go</code>, <code>jetbrains/qodana-dotnet</code>, though you can use any Docker image with Qodana inside</p>
                     </td>
                 </tr>
                 <tr>
@@ -1604,7 +1604,7 @@
                         <code>-e</code>, <code>--env &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        <note>Only for container runs, incompatible with the <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>Define additional environment variables for the Qodana container (you can use the flag multiple times). CLI is not reading full host environment variables and does not pass it to the Qodana container for security reasons</p>
+                        <note>Only for container runs, incompatible with <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>Define additional environment variables for the Qodana container (you can use the flag multiple times). CLI is not reading full host environment variables and does not pass it to the Qodana container for security reasons</p>
                     </td>
                 </tr>
                 <tr>
@@ -1612,7 +1612,7 @@
                         <code>-v</code>, <code>--volume &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        <note>Only for container runs, incompatible with the <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>Define additional volumes for the Qodana container (you can use the flag multiple times)</p>
+                        <note>Only for container runs, incompatible with <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>Define additional volumes for the Qodana container (you can use the flag multiple times)</p>
                     </td>
                 </tr>
                 <tr>
@@ -1620,7 +1620,7 @@
                         <code>-u</code>, <code>--user &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>Only for container runs, incompatible with the <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>User to run Qodana container as. Please specify user id – <code>$UID</code> or user id and group id <code>$(id -u):$(id -g)</code>. Use <code>root</code> to run as the root user (default: the current user)</p>
+                        <note>Only for container runs, incompatible with <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>User to run Qodana container as. Please specify user id – <code>$UID</code> or user id and group id <code>$(id -u):$(id -g)</code>. Use <code>root</code> to run as the root user (default: the current user)</p>
                     </td>
                 </tr>
                 <tr>
@@ -1630,7 +1630,7 @@
                         </code>
                     </td>
                     <td>
-                        <note>Only for container runs, incompatible with the <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>Skip pulling the latest Qodana container</p>
+                        <note>Only for container runs, incompatible with <a href="native-mode.md">native mode</a> and the <code>--ide</code> option.</note> <p>Skip pulling the latest Qodana container</p>
                     </td>
                 </tr>
                 <tr>

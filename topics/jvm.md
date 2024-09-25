@@ -16,7 +16,7 @@
 <var name="qd-image" value="jetbrains/qodana<-jvm><-community><-android>:2024.2"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
-<var name="ide-co" value="IntelliJ IDEA Community"/>
+<var name="ide-co" value="IntelliJ IDEA Community Edition"/>
 <var name="ide-a" value="IntelliJ IDEA"/>
 
 <!-- Content-related variables -->
@@ -41,13 +41,13 @@
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Java projects, you can use the following linters:
 
-* The %qp% and %qp-an% linters based on %ide% and licensed under the Ultimate and
+* The %qp% and %qp-an% linters based on %ide% and available under the Ultimate and
   Ultimate Plus [licenses](pricing.md),
-* The %qp-co% and %qp-a% linters based on %ide-co% and licensed under the Community license.
+* The %qp-co% and %qp-a% linters based on %ide-co% and available under the Community license.
 
-To see the list of supported technologies and features, you can navigate to the [](#jvm-feature-matrix) section.
+To see the list of supported technologies and features, you can navigate to the [](#jvm-feature-matrix) chapter of this section.
 
-## Before your start
+## Before you start
 {id="jvm-before-you-start"}
 
 Before running %instance%, you may need to [configure the JDK](configure-jdk.md) for your project.
@@ -74,7 +74,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
-### Enabling the baseline
+### Enabling the baseline feature
 
 <include from="lib_qd.topic" element-id="enabling-baseline" filter="empty,jvm"/>
 

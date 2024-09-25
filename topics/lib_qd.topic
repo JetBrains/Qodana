@@ -9,8 +9,8 @@
 
     <snippet id="docker-ram-note">
         Running analysis is a resource-intensive operation. If you experience issues, consider increasing the Docker
-        Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for <a href="https://docs.docker.com/desktop/windows/#resources">Windows
-    </a> and <a href="https://docs.docker.com/desktop/mac/#resources">Mac</a>.
+        Desktop runtime memory limit, which is set to 2 GB by default. See the Docker Desktop documentation for <a href="https://docs.docker.com/desktop/windows/#resources">Windows
+    </a> and <a href="https://docs.docker.com/desktop/mac/#resources">macOS</a>.
     </snippet>
 
 
@@ -561,9 +561,9 @@
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
             these steps to obtain it:</p>
         <p filter="jvm">Depending on the specific linter you're using, you may need to obtain a project token that will be used by %product% for identifying and verifying a
-            <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow the steps below:</p>
+            <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>. To do this, follow the steps below:</p>
         <p filter="python">Depending on the specific linter you're using, you may need to obtain a project token that will be used by %product% for identifying and verifying a
-            <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow the steps below:</p>
+            <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>. To do this, follow the steps below:</p>
         <procedure>
             <step>
                 Navigate to <a href="https://qodana.cloud">Qodana Cloud</a> and create an <a href="cloud-quickstart.md">account</a> there.
@@ -710,7 +710,7 @@
                     and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
             </tab>
             <tab title="Command line" group-key="command-line">
-                <p>Install Docker on the machine where you are going to run %product%.</p>
+                <p>Install Docker on the machine you are going to run %product%.</p>
                 <p>If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>.</p>
                 <tabs group="cli-settings">
                     <tab group-key="qodana-cli" title="Qodana CLI">
@@ -752,13 +752,13 @@
         </list>
 
         <note>
-            The native mode is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
+            Native mode is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
         </note>
 
         <tabs group="native-container">
             <tab title="Native mode" group-key="native-mode">
                 <p>The <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file is a universal method of
-                    the native mode configuration. Alternatively, you can configure it without using the
+                     native mode configuration. Alternatively, you can configure it without using the
                     <code>qodana.yaml</code> file.</p>
                 <tabs group="software">
                     <tab title="GitHub Actions + qodana.yaml" group-key="github-with-yaml">
@@ -786,7 +786,7 @@
                             <step>
                                 <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
                                 <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
-                                    to your repository in the native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+                                    to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                                 <code-block lang="yaml">
                                     name: Qodana
                                     on:
@@ -819,7 +819,7 @@
                     <tab title="GitHub Actions" group-key="github">
                         <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
                         <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
-                            to your repository in the native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+                            to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                         <code-block lang="yaml">
                             name: Qodana
                             on:
@@ -879,9 +879,8 @@
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
                             </code-block>
-                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                                reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                                details.</p>
+                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                                reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </step>
                     </procedure>
                     </tab>
@@ -893,18 +892,17 @@
                             &nbsp;&nbsp;&nbsp;--ide %native-arg%
                         </code-block>
                         <include from="lib_qd.topic" element-id="linters-linter-table"/>
-                        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                            reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                            details.</p>
+                        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                            reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                     </tab>
                 </tabs>
             </tab>
             <tab title="Container mode" group-key="container-mode">
-                <p>The container mode is available for all linters; however, we recommend that you use the native mode whenever possible.</p>
+                <p>Container mode is available for all linters; however, we recommend that you use native mode whenever possible.</p>
                 <tabs group="software">
                     <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
-                            to your repository in the container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+                            to your repository in container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                         <code-block lang="yaml" filter="generic">
                             name: Qodana
                             on:
@@ -1187,9 +1185,8 @@
                                 </code-block>
                             </tab>
                         </tabs>
-                        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                            reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                            details.</p>
+                        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                            reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                     </tab>
                     <tab title="JetBrains IDEs" group-key="ides">
                         <procedure>
@@ -1258,13 +1255,13 @@
                         <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will
                             be able to receive the most up-to-date and relevant reports from Qodana Cloud.</p>
                         <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-                        <p>In this case, the IDE will search Qodana Cloud and fetch the report that has the revision ID
+                        <p>In this case, the IDE will search Qodana Cloud and fetch the report with the revision ID
                             corresponding to the current revision ID (HEAD). If this report is not found, the IDE will
                             select the previous report with the revision ID closest to the current revision ID (HEAD).
                             Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
                     </step>
                     <step>
-                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, view <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
                     </step>
                 </procedure>
             </tab>
@@ -1290,21 +1287,21 @@
             <a href="https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles">GitHub</a>:
         </p>
         <list>
-            <li><code>qodana.starter</code> is the default profile and a subset of the more comprehensive <code>qodana.recommended</code> profile</li>
+            <li><code>qodana.starter</code> is the default profile and a subset of the more comprehensive <code>qodana.recommended</code> profile.</li>
             <li><code>qodana.recommended</code>is suitable for running in CI/CD pipelines and mostly implements the default %ide%
                 profile; see the <a href="%ide-documentation%">%ide%</a> documentation for details.</li>
         </list>
 
         <p>You can customize %product% profiles using configurations in <a href="custom-profiles.md">YAML</a> and
             <a href="custom-xml-profiles.md">XML</a> formats. To learn more about configuration basics, visit the
-            <a href="override-a-profile.md"/> section.
+            <a href="override-a-profile.md"/> section of the documentation.
         </p>
 
     </snippet>
 
     <snippet id="enabling-baseline">
 
-        <p>You can skip analysis for specific problems using the <a href="baseline.topic">baseline</a> feature. Information
+        <p>You can skip analysis for specific problems by using the <a href="baseline.topic">baseline</a> feature. Information
             about a baseline is contained in a SARIF-formatted file.</p>
 
         <tabs group="native-container">
@@ -1431,9 +1428,8 @@
                                   &nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                                   &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                               </code-block>
-                              <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                                  reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                                  details.</p>
+                              <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                                  reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                           </step>
                       </procedure>
                   </tab>
@@ -1448,9 +1444,8 @@
                           &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                       </code-block>
                       <include from="lib_qd.topic" element-id="linters-linter-table"/>
-                <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                  reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                  details.</p>
+                <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                  reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                   </tab>
               </tabs>
           </tab>
@@ -1928,9 +1923,8 @@
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
-                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                                reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                                details.</p>
+                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                                reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </step>
                     </procedure>
                 </tab>
@@ -1944,9 +1938,8 @@
                           &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                       </code-block>
                       <include from="lib_qd.topic" element-id="linters-linter-table"/>
-                <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                  reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                  details.</p>
+                <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                  reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
               </tab>
             </tabs>
         </tab>

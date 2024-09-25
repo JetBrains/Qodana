@@ -70,7 +70,7 @@ latest %instance% report and view it.
    <step>
         <p>By enabling the <ui-path>Always load most relevant Qodana report</ui-path> option, you can get actual reports automatically retrieved from Qodana Cloud.</p>
       <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-        <p>In this case, the IDE will search and fetch from Qodana Cloud the report that has the revision ID corresponding to the 
+        <p>In this case, the IDE will search and fetch from Qodana Cloud the report with the revision ID corresponding to the 
         current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
         closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
     </step> 

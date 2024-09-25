@@ -158,7 +158,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
 
 <!--<p>You can run all linters described in this section in two modes:</p>
 <list>
-  <li>The <a href="native-mode.md">native mode</a> is the recommended method that lets you run 
+  <li><a href="native-mode.md">Native mode</a> is the recommended method that lets you run 
     linters without using Docker containers,</li>
   <li>Container mode is an alternative that involves Docker containers the linters.</li>
 </list>
@@ -167,7 +167,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
     <snippet id="dotnet-run-qodana-native-mode-yaml">
       <p>Using a YAML configuration is the preferred method of configuring linters because it lets you use such configurations
           across all software that runs %product% without additional efforts.</p>
-      <p>Here is the list of values for configuring the native mode:</p>
+      <p>Here is the list of values for configuring native mode:</p>
       <list>
         <li><code>QDJVM</code> for the %jvm% linter,</li>
         <li><code>QDAND</code> for the %jvm-a% linter,</li>
@@ -180,7 +180,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
           ide: QDJVM
       </code-block>
     </snippet>
-      <p>Alternatively, you can implement the native mode configuration as shown in examples below.</p>
+      <p>Alternatively, you can implement native mode configuration as shown in examples below.</p>
       <tabs group="software">
           <tab title="GitHub Actions" group-key="github">
               <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
@@ -192,7 +192,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                   <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
                       <code>.github/workflows/code_quality.yml</code> file.</step>
                   <step>To inspect the <code>main</code> branch, release branches and the pull requests coming
-                  to your repository in the native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+                  to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
                       <code-block lang="yaml">
                           name: Qodana
                           on:
@@ -237,14 +237,13 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
               <code-block lang="shell" prompt="$">
                   qodana scan
               </code-block>
-              <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-                reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-                details.</p>
+              <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
           </tab>
       </tabs>
   </tab>
   <tab title="Container mode" group-key="container-mode">
-      <p>The container mode is available for all linters; however, we recommend that you use the native mode.</p>-->
+      <p>Container mode is available for all linters; however, we recommend that you use native mode.</p>-->
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
       <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
@@ -430,7 +429,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
     </tab>
     <tab title="Command line" group-key="command-line">
         <note> Running analysis is a resource-intensive operation. If you experience issues, consider increasing the Docker
-                Desktop runtime memory limit, which by default is set to 2 GB. See the Docker Desktop documentation for 
+                Desktop runtime memory limit, which is set to 2 GB by default. See the Docker Desktop documentation for 
                 <a href="https://docs.docker.com/desktop/windows/#resources">Windows</a> and 
                 <a href="https://docs.docker.com/desktop/mac/#resources">macOS</a>.
         </note>
@@ -463,9 +462,8 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
             &nbsp;&nbsp;&nbsp;%qp-linter% \
             &nbsp;&nbsp;&nbsp;--compile-commands &lt;path-to-compile_commands.json&gt;
         </code-block>
-        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-          reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-            details.</p>
+        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+          reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
         <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in 
         <code>docker run</code> again.</p>
     </tab>
@@ -494,13 +492,13 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
         <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options">YAML file</a> section for details.</li>
     <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
         option.</li>
-    <li><a anchor="Enabling+the+baseline">Baseline</a> and <a anchor="Enabling+the+quality+gate">quality gate</a> features.</li>
+    <li><a anchor="Enabling+the+baseline+feature">Baseline</a> and <a anchor="Enabling+the+quality+gate">quality gate</a> features.</li>
 </list>
 
 
-### Enabling the baseline
+### Enabling the baseline feature
 
-You can skip analysis for specific problems using the [baseline](baseline.topic) feature. Information about a baseline is contained
+You can skip analysis for specific problems by using the [baseline](baseline.topic) feature. Information about a baseline is contained
 in a SARIF-formatted file.
 
 <!--<tabs group="native-container">
@@ -575,9 +573,8 @@ in a SARIF-formatted file.
             <td>Qodana for Android</td>
           </tr>
         </table>
-        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine analysis results and
-          reconfigure the analysis, see the <a href="ui-overview.md"/> section for
-          details.</p>
+        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+          reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
           </tab>
       </tabs>
   </tab>

@@ -32,10 +32,10 @@
 <link-summary>%qp% is based on %ide% and provides static analysis for JavaScript or TypeScript projects.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
-JavaScript and TypeScript projects, you can use the %qp% linters based on [%ide%](https://www.jetbrains.com/webstorm/) and licensed under the Ultimate and
+JavaScript and TypeScript projects, you can use the %qp% linters based on [%ide%](https://www.jetbrains.com/webstorm/) and available under the Ultimate and
 Ultimate Plus [licenses](pricing.md).
 
-To see the list of supported technologies and features, you can navigate to the [](#js-feature-matrix) section.
+To see the list of supported technologies and features, you can navigate to the [](#js-feature-matrix) chapter of this section.
 
 
 ## Before you start
@@ -85,7 +85,7 @@ include:
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
-### Enabling the baseline
+### Enabling the baseline feature
 
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,js"/>
 

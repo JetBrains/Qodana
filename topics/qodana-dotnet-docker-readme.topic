@@ -30,10 +30,10 @@
                 </p>
             </note>
 
-            <note>If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
+            <note>If you plan to use private NuGet feeds, we recommend running native mode on the same machine where
                 you build a project because this can guarantee that %instance% has access to private NuGet feeds.</note>
 
-            <p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is
+            <p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in native mode, which is
                 the recommended method for the %linter% linter if you are targeting .NET Framework or have private NuGet
                 feeds:</p>
 

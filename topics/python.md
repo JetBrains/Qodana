@@ -30,13 +30,13 @@
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze 
 Python projects, you can use the following linters:
 
-* %qp% is based on PyCharm Professional and licensed under the Ultimate and 
+* %qp% is based on PyCharm Professional and available under the Ultimate and 
 Ultimate Plus [licenses](pricing.md), 
-* %qp-co% is based on PyCharm Community and licensed under the Community license.
+* %qp-co% is based on PyCharm Community Edition and available under the Community license.
 
-To see the list of supported technologies and features, you can navigate to the [](#python-feature-matrix) section.
+To see the list of supported technologies and features, you can navigate to the [](#python-feature-matrix) chapter of this section.
 
-## Before your start
+## Before you start
 {id="python-before-you-start"}
 
 ### Install dependencies
@@ -71,7 +71,7 @@ bootstrap: pip install -r requirements.txt
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
-### Enabling the baseline
+### Enabling the baseline feature
 
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,python"></include>
 

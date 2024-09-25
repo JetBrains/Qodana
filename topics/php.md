@@ -32,12 +32,12 @@
 <link-summary>%qp% is based on %ide% and provides inspections for PHP, JavaScript, and TypeScript.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
-PHP, JavaScript and TypeScript projects, you can use the %qp% linters based on [%ide%](https://www.jetbrains.com/phpstorm/) and licensed under the Ultimate and
+PHP, JavaScript and TypeScript projects, you can use the %qp% linters based on [%ide%](https://www.jetbrains.com/phpstorm/) and available under the Ultimate and
 Ultimate Plus [licenses](pricing.md).
 
-To see the list of supported technologies and features, you can navigate to the [](#php-feature-matrix) section.
+To see the list of supported technologies and features, you can navigate to the [](#php-feature-matrix) chapter of this section.
 
-## Before your start
+## Before you start
 {id="php-before-you-start"}
 
 ### Qodana Cloud
@@ -62,7 +62,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
-### Enabling the baseline
+### Enabling the baseline feature
 
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,php"/>
 

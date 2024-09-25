@@ -25,7 +25,7 @@ It brings all the smarts from Rider, which help you:
 %linter% provides inspections for the C, C++, C#, VB.NET, JavaScript, and TypeScript programming languages.
 C and C++ inspections of %linter% are limited by projects containing `.sln` solution files or `.csproj` project files.
 
-Starting from version 2023.3, the functionality of .NET Framework-based project analysis is available in the 
+Starting from version 2023.3, the functionality of .NET Framework-based project analysis is available in  
 [native mode](native-mode.md) of %instance%.
 
 <note>This linter requires the Qodana Cloud <a href="project-token.md">project token</a>.</note>
@@ -137,8 +137,8 @@ key of the [`qodana.yaml`](qodana-yaml.md) file contained in your project direct
 
 ### Configure %instance%
 
-Starting from version 2023.3 of %instance%, the native mode is the recommended method for running the %linter% linter. 
-We recommend running the native mode on the same machine where you build a project because this can guarantee
+Starting from version 2023.3 of %instance%, native mode is the recommended method for running the %linter% linter. 
+We recommend running native mode on the same machine where you build a project because this can guarantee
 that %instance% has access to private NuGet feeds.
 
 #### Specify a solution
@@ -172,7 +172,7 @@ Another configuration example is available [on GitHub](https://github.com/hybloi
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
 
-<p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the native mode, which is the recommended method 
+<p>You can run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in native mode, which is the recommended method 
 for the %linter% linter. Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
 
 <tabs group="cli-settings">
@@ -191,7 +191,7 @@ for the %linter% linter. Alternatively, you can use the Docker command from the 
         <code-block lang="shell" prompt="$">
             qodana scan
         </code-block>
-    <p>If you plan to use private NuGet feeds, we recommend running the native mode on the same machine where
+    <p>If you plan to use private NuGet feeds, we recommend running native mode on the same machine where
 you build a project because this can guarantee that %instance% has access to private NuGet feeds.</p>
     </tab>
     <tab group-key="docker-image" title="Docker image">
