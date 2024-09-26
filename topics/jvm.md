@@ -147,21 +147,25 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>Java</p>
             <p>Kotlin</p>
             <p>Groovy</p>
+            <p>JavaScript and TypeScript</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-        </td>
-        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
             <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&nbsp;</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -178,6 +182,39 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>JAX-RS</p>
             <p>JSP</p>
             <p>Spring</p>
+            <p>Angular</p>
+            <p>Node.JS</p>
+            <p>React</p>
+            <p>Ktor</p>
+            <p>Micronaut</p>
+            <p>Quarkus</p>
+            <p>OpenRewrite</p>
+            <p>Thymeleaf</p>
+            <p>Vue</p>
+            <p>Apache Velocity</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -187,32 +224,39 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&nbsp;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&nbsp;</p>
             <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&#x2714;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-        </td>
-        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&nbsp;</p>
-            <p>&#x2714;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -229,6 +273,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>PostgreSQL</p>
             <p>SQL</p>
             <p>SQL server</p>
+            <p>Liquibase</p>
         </td>
        <td>
             <p>&#x2714;</p>
@@ -238,6 +283,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&nbsp;</p>
@@ -247,8 +293,10 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
         <td>
+            <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -271,6 +319,10 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>XSLT</p>
             <p>YAML</p>
             <p>TOML</p>
+            <p>Markdown</p>
+            <p>Less</p>
+            <p>SASS/SCSS</p>
+            <p>PostCSS</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -283,6 +335,10 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&nbsp;</p>
@@ -295,6 +351,10 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
         <td>
             <p>&nbsp;</p>
@@ -307,6 +367,10 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>&nbsp;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -349,6 +413,57 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Others</td>
+        <td>
+            <p>Regular expressions</p>
+            <p>Structural search</p>
+            <p>Cron</p>
+            <p>Docker Compose</p>
+            <p>Dockerfile</p>
+            <p>GitHub Actions</p>
+            <p>HTTP Client</p>
+            <p>Kubernetes</p>
+            <p>gRPC request scheme</p>
+            <p>OpenAPI</p>
+        </td>
+       <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+       <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+       <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>

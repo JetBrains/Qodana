@@ -3,7 +3,7 @@
 <instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="release">
 	<!-- Getting started section -->
 	<toc-element accepts-web-file-names="welcome.html" topic="getting-started.topic">
-		<toc-element topic="about-qodana.md"/>
+		<toc-element topic="about-qodana.md" accepts-web-file-names="cloud-about.html"/>
 		<toc-element topic="pricing.md"/>
 		<toc-element topic="Quick-start.topic"/>
 		<toc-element topic="set-up-your-project.md" accepts-web-file-names="cloud-onboarding.md"/>
