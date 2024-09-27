@@ -111,8 +111,24 @@ include:
         </td>
     </tr>
     <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>Angular</p>
+            <p>Cucumber</p>
+            <p>Node.js</p>
+            <p>React</p>
+            <p>Vue</p>
+        </td>
+    </tr>
+    <tr>
         <td>Markup languages</td>
         <td>
+            <p>PostCSS</p>
+            <p>Sass/SCSS</p>
+            <p>Less</p>
+            <p>Handlebars/Mustache</p>
+            <p>EJS</p>
+            <p>Pug/Jade</p>
             <p>CSS</p>
             <p>HTML</p>
             <p>JSON and JSON5</p>
@@ -128,19 +144,11 @@ include:
         </td>
     </tr>
     <tr>
-        <td>Frameworks and libraries</td>
+        <td>Other</td>
         <td>
-            <p>Angular</p>
-            <p>Cucumber</p>
-            <p>EJS</p>
-            <p>Handlebars/Mustache</p>
-            <p>Less</p>
-            <p>Node.js</p>
-            <p>PostCSS</p>
-            <p>Pug/Jade</p>
-            <p>React</p>
-            <p>Sass/SCSS</p>
-            <p>Vue</p>
+            <p>Regular expressions</p>
+            <p>Structural search</p>
+            <p>HTTP Client</p>
         </td>
     </tr>
 </table>

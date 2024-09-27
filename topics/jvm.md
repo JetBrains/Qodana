@@ -131,8 +131,6 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
 ## Supported technologies and features
 {id="jvm-feature-matrix"}
 
-<!-- This list needs to be re-checked -->
-
 <table>
     <tr>
       <td>Support for</td>
@@ -147,7 +145,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>Java</p>
             <p>Kotlin</p>
             <p>Groovy</p>
-            <p>JavaScript and TypeScript</p>
+            <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -183,7 +181,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>JSP</p>
             <p>Spring</p>
             <p>Angular</p>
-            <p>Node.JS</p>
+            <p>Node.js</p>
             <p>React</p>
             <p>Ktor</p>
             <p>Micronaut</p>
@@ -416,7 +414,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
         </td>
     </tr>
     <tr>
-        <td>Others</td>
+        <td>Other</td>
         <td>
             <p>Regular expressions</p>
             <p>Structural search</p>

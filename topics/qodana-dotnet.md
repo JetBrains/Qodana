@@ -90,7 +90,7 @@ Starting from version 2023.3, the functionality of .NET Framework-based project 
             <p>.NET Core</p>
             <p>Handlebars/Mustache</p>
             <p>Less</p>
-            <p>Node.JS</p>
+            <p>Node.js</p>
             <p>NUnit</p>
             <p>Pug/Jade</p>
             <p>Sass/SCSS</p>

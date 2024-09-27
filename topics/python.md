@@ -121,44 +121,115 @@ bootstrap: pip install -r requirements.txt
 ## Supported technologies and features
 {id="python-feature-matrix"}
 
-This table contains the list of technologies supported by both linters.
+This table contains the list of technologies and %product% [features](features.topic) supported by both linters.
 
-<table style="none">
+<table>
+    <tr>
+      <td>Support for</td>
+      <td>Name</td>
+      <td>%qp%</td>
+      <td>%qp-co%</td>
+    </tr>
     <tr>
         <td>Programming languages</td>
         <td>
             <p>Python</p>
+            <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
         <td>Frameworks and libraries</td>
         <td>
-            <p>Django</p>
-            <p>Google App Engine</p>
-            <p>Jupyter</p>
             <p>Pyramid</p>
+            <p>Node.js</p>
+            <p>React</p>
+            <p>Vue</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
         <td>Databases and ORM</td>
         <td>
-            <p>MongoDB</p>
             <p>MySQL</p>
+            <p>MongoDB</p>
             <p>Oracle</p>
-            <p>PostgreSQL</p>
             <p>SQL</p>
             <p>SQL Server</p>
+            <p>PostgreSQL</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
         <td>Markup languages</td>
         <td>
-            <p>CSS</p>
             <p>HTML</p>
             <p>JSON and JSON5</p>
             <p>RELAX NG</p>
             <p>XML</p>
             <p>YAML</p>
+            <p>TOML</p>
+            <p>SASS/SCSS</p>
+            <p>PostCSS</p>
+            <p>Less</p>
+            <p>CSS</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -166,20 +237,59 @@ This table contains the list of technologies supported by both linters.
         <td>
             <p>Shell script</p>
         </td>
+        <td>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        <td>
+            <p>Regular expressions</p>
+            <p>Structural search</p>
+            <p>HTTP Client</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td>%product% features</td>
+        <td>
+            <p><a href="baseline.topic"/></p>
+            <p><a href="quality-gate.topic"/></p>
+            <p><a href="code-coverage.md"/></p>
+            <p><a href="license-audit.topic"/></p>
+            <p><a href="quick-fix.md"/></p>
+            <p><a href="vulnerability-checker.md"/></p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+        </td>
+        <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
     </tr>
 </table>
-
-Here is the list of %product% features supported by each linter.
-
-| Feature                       | %qp-co%  | %qp%      |
-|-------------------------------|----------|-----------|
-| [](baseline.topic)            | &#x2714; | &#x2714;  |
-| [](quality-gate.topic)        | &#x2714; | &#x2714;  |
-| [](code-coverage.md)          | &nbsp;   | &#x2714;  |
-| [](license-audit.topic)       | &nbsp;   | &#x2714;  |
-| [](quick-fix.md)              | &nbsp;   | &#x2714;  |
-| [](vulnerability-checker.md)  | &nbsp;   | &#x2714;  |
-
 
 
 

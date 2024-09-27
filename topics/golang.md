@@ -84,6 +84,14 @@ To see the list of supported technologies and features, you can navigate to the 
         <td>Programming languages</td>
         <td>
             <p>Golang</p>
+            <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>Node.js</p>
+            <p>React</p>
         </td>
     </tr>
     <tr>
@@ -101,6 +109,14 @@ To see the list of supported technologies and features, you can navigate to the 
         <td>Scripting languages</td>
         <td>
             <p>Shell script</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        <td>
+            <p>HTTP Client</p>
+            <p>Regular expressions</p>
+            <p>Structural search</p>
         </td>
     </tr>
 </table>

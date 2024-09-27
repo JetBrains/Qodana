@@ -84,8 +84,21 @@ The %qp% linter provides inspections for the following technologies.
         <td>Programming languages</td>
         <td>
             <p>PHP</p>
-            <p>JavaScript</p>
-            <p>TypeScript</p>
+            <p>JavaScript and TypeScript</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Frameworks and libraries</td>
+        <td>
+            <p>Cucumber</p>
+            <p>Joomla!</p>
+            <p>PHPUnit</p>
+            <p>Psalm</p>
+            <p>Behat</p>
+            <p>Symfony</p>
+            <p>Vue</p>
+            <p>React</p>
+            <p>Node.js</p>
         </td>
     </tr>
     <tr>
@@ -97,7 +110,11 @@ The %qp% linter provides inspections for the following technologies.
             <p>JSON and JSON5</p>
             <p>RELAX NG</p>
             <p>XML</p>
+            <p>XSLT</p>
             <p>YAML</p>
+            <p>Less</p>
+            <p>SASS/SCSS</p>
+            <p>PostCSS</p>
         </td>
     </tr>
     <tr>
@@ -124,14 +141,13 @@ The %qp% linter provides inspections for the following technologies.
         </td>
     </tr>
     <tr>
-        <td>Frameworks and libraries</td>
+        <td>Other</td>
         <td>
-            <p>Cucumber</p>
-            <p>Joomla!</p>
-            <p>PHPUnit</p>
-            <p>Psalm</p>
+            <p>Regular expressions</p>
+            <p>Structural search</p>
+            <p>HTTP Client</p>
         </td>
-    </tr>
+    </tr> 
 </table>
 
 <include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,php"/>

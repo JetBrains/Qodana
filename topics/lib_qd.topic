@@ -77,7 +77,7 @@
 
     <snippet id="linters-supported-features">
 
-        <p>The %qp% linter provides the following %instance% features:</p>
+        <p>The %qp% linter provides the following %instance% <a href="features.topic">features</a>:</p>
 
         <table filter="php">
             <tr>

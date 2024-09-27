@@ -49,70 +49,76 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 | Technology                   | Community | Ultimate and Ultimate Plus |
 |------------------------------|-----------|----------------------------|
-| CSS                          | &#x2714;  | &#x2714;                   |
 | HTML                         | &#x2714;  | &#x2714;                   |
 | JSON and JSON5               | &#x2714;  | &#x2714;                   |
 | RELAX NG                     | &#x2714;  | &#x2714;                   |
 | Shell script                 | &#x2714;  | &#x2714;                   |
 | TOML                         | &#x2714;  | &#x2714;                   |
 | XML                          | &#x2714;  | &#x2714;                   |
-| XPath                        | &#x2714;  | &#x2714;                   |
-| XSLT                         | &#x2714;  | &#x2714;                   |
 | YAML                         | &#x2714;  | &#x2714;                   |
 | Blade                        | &#x274c;  | &#x2714;                   |
+| CSS                          | &#x274c;  | &#x2714;                   |
 | Expression Language (EL)     | &#x274c;  | &#x2714;                   |
+| EJS                          | &#x274c;  | &#x2714;                   |
 | FreeMarker Template Language | &#x274c;  | &#x2714;                   |
+| Handlebars/Mustache          | &#x274c;  | &#x2714;                   |
+| Less                         | &#x274c;  | &#x2714;                   |
+| Markdown                     | &#x274c;  | &#x2714;                   |
+| PostCSS                      | &#x274c;  | &#x2714;                   |
+| Pug/Jade                     | &#x274c;  | &#x2714;                   |
+| Sass/SCSS                    | &#x274c;  | &#x2714;                   |
 | T4                           | &#x274c;  | &#x2714;                   |
+| XPath                        | &#x274c;  | &#x2714;                   |
+| XSLT                         | &#x274c;  | &#x2714;                   |
 
 ### Databases and ORM
 
-| Technology    | Community   | Ultimate and Ultimate Plus  |
-|---------------|-------------|-----------------------------|
-| MongoDB       | &#x2714;    | &#x2714;                    |
-| MySQL         | &#x2714;    | &#x2714;                    |
-| Oracle        | &#x2714;    | &#x2714;                    |
-| PostgreSQL    | &#x2714;    | &#x2714;                    |
-| SQL           | &#x2714;    | &#x2714;                    |
-| SQL Server    | &#x2714;    | &#x2714;                    |
-| Hibernate ORM | &#x274c;    | &#x2714;                    |
+| Technology    | Community | Ultimate and Ultimate Plus |
+|---------------|-----------|----------------------------|
+| Hibernate ORM | &#x274c;  | &#x2714;                   |
+| Liquibase     | &#x274c;  | &#x2714;                   |
+| MongoDB       | &#x274c;  | &#x2714;                   |
+| MySQL         | &#x274c;  | &#x2714;                   |
+| Oracle        | &#x274c;  | &#x2714;                   |
+| PostgreSQL    | &#x274c;  | &#x2714;                   |
+| SQL           | &#x274c;  | &#x2714;                   |
+| SQL Server    | &#x274c;  | &#x2714;                   |
 
 
 ### Frameworks and libraries
 
 | Framework or library | Community | Ultimate and Ultimate Plus |
 |----------------------|-----------|----------------------------|
-| Django               | &#x2714;  | &#x2714;                   |
-| Google App Engine    | &#x2714;  | &#x2714;                   |
 | JavaBeans            | &#x2714;  | &#x2714;                   |
 | JavaFX               | &#x2714;  | &#x2714;                   |
 | JPA                  | &#x2714;  | &#x2714;                   |
 | JUnit                | &#x2714;  | &#x2714;                   |
-| Jupyter              | &#x2714;  | &#x2714;                   |
 | Lombok               | &#x2714;  | &#x2714;                   |
-| Pyramid              | &#x2714;  | &#x2714;                   |
 | Reactive Streams     | &#x2714;  | &#x2714;                   |
 | TestNG               | &#x2714;  | &#x2714;                   |
-| Angular              | &#x274c;  | &#x2714;                   | 
-| Cucumber             | &#x274c;  | &#x2714;                   |
 | .NET Core            | &#x274c;  | &#x2714;                   |
 | .NET Framework       | &#x274c;  | &#x2714;                   |
-| EJS                  | &#x274c;  | &#x2714;                   |
-| Handlebars/Mustache  | &#x274c;  | &#x2714;                   |
-| Jakarta EE           | &#x274c;  | &#x2714;                   |
+| Angular              | &#x274c;  | &#x2714;                   | 
+| Apache Velocity      | &#x274c;  | &#x2714;                   |
+| Behat                | &#x274c;  | &#x2714;                   |
+| Cucumber             | &#x274c;  | &#x2714;                   |
 | Java EE              | &#x274c;  | &#x2714;                   |
 | JAX-RS               | &#x274c;  | &#x2714;                   |
 | Joomla!              | &#x274c;  | &#x2714;                   |
 | JSP                  | &#x274c;  | &#x2714;                   |
-| Less                 | &#x274c;  | &#x2714;                   |
-| Node.JS              | &#x274c;  | &#x2714;                   |
+| Ktor                 | &#x274c;  | &#x2714;                   |
+| Micronaut            | &#x274c;  | &#x2714;                   |
+| Node.js              | &#x274c;  | &#x2714;                   |
 | NUnit                | &#x274c;  | &#x2714;                   |
+| OpenRewrite          | &#x274c;  | &#x2714;                   |
 | PHPUnit              | &#x274c;  | &#x2714;                   |
-| PostCSS              | &#x274c;  | &#x2714;                   |
 | Psalm                | &#x274c;  | &#x2714;                   |
-| Pug/Jade             | &#x274c;  | &#x2714;                   |
+| Pyramid              | &#x274c;  | &#x2714;                   |
+| Quarkus              | &#x274c;  | &#x2714;                   |
 | React                | &#x274c;  | &#x2714;                   |
-| Sass/SCSS            | &#x274c;  | &#x2714;                   |
 | Spring               | &#x274c;  | &#x2714;                   |
+| Symfony              | &#x274c;  | &#x2714;                   |
+| Thymeleaf            | &#x274c;  | &#x2714;                   |
 | Unity                | &#x274c;  | &#x2714;                   |
 | Unreal Engine        | &#x274c;  | &#x2714;                   |
 | Vue                  | &#x274c;  | &#x2714;                   |
