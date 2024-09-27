@@ -5,7 +5,9 @@
 
 You can analyze your Unity project using %product% as explained in this section. 
 
-## Prerequisites
+## Before your start
+
+Before running %product%, you need to take several steps to prepare your project.
 
 ### Qodana Cloud
 
@@ -25,7 +27,9 @@ To run %product%, you need to obtain a [project token](project-token.md) that  w
     </step>
 </procedure>
 
-### Solution and required packages
+### Project, solution and required packages
+
+Make sure that your Unity project has been built.
 
 Unity projects typically don’t include a C# solution and project files, and these need to be generated in order for 
 Qodana to process them. We installed the corresponding .NET SDK in the build environment and executed the following 
@@ -59,20 +63,7 @@ baseProfile: qodana.recommended # Specifying the profile
         </p>
     </tab>
     <tab title="Command line" group-key="command-line">
-        <p>Install Docker on the machine were you are going to run %product%.</p>  
-        <p>If you are using Linux, you should be able to run Docker under your current non-root user.</p>
-      <tabs group="cli-settings">
-          <tab group-key="qodana-cli" title="Qodana CLI">
-              <p>Follow the instructions from the
-              <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> page on GitHub.</p>
-          </tab>
-          <tab group-key="docker-image" title="Docker image">
-            <p>Run this command to pull the Docker image of the %dotnet% linter:</p>
-               <code-block lang="shell" prompt="$">
-                   docker pull %qp-linter%
-               </code-block>
-          </tab>
-      </tabs>
+        <p>Follow the instructions from the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> page on GitHub.</p>
     </tab>
 </tabs>
 
@@ -113,14 +104,10 @@ baseProfile: qodana.recommended # Specifying the profile
         <p>Run this command in the project root directory:</p>
         <code-block lang="shell" prompt="$">
             qodana scan \
-            &nbsp;&nbsp;&nbsp;--ide QDNET
+            &nbsp;&nbsp;&nbsp;-i $(pwd) -o /report
         </code-block>
-        <p>Here, the <code>--ide</code> option downloads and employs the JetBrains IDE binary file.</p>
-        <p>Alternatively, in the <code>qodana.yaml</code> file save <code>ide: QDNET</code>, and then run %instance% 
-            using the following command:</p>
-        <code-block lang="shell" prompt="$">
-            qodana scan
-        </code-block>
+        <p>This command tells %product% to generate the output and report in the <code>/report</code> directory inside
+a project directory.</p>
     </tab>
     <tab title="JetBrains IDEs" group-key="ides">
         <procedure>
@@ -149,3 +136,9 @@ baseProfile: qodana.recommended # Specifying the profile
 
 ## Customize your analysis
 
+Using the recommendations from the [](ui-overview.md) and [](inspection-profiles.md) sections, you can adjust 
+%product% analysis of your project.
+
+For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of your report, you can adjust 
+the inspections that will be used during the analysis. To adjust the existing profile, you can use the recommendations 
+from the [](custom-profiles.md) section.
