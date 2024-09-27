@@ -6,15 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/golang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/golang.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/js.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/php.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/php.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-dotnet.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,16 +83,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Writerside.Web Archive (qd).executor": "Run",
-    "git-widget-placeholder": "2024.2",
-    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Writerside.Web Archive (qd).executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;2024.2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />

@@ -47,6 +47,10 @@ Currently, several linters provide inspections for several programming languages
             <p><a href="js.md">%js%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-js:%image-version%</code></p>
             <p><a href="php.md">%php%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-php:%image-version%</code></p>
             <p><a href="dotnet.md">%dotnet%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-dotnet:%image-version%</code></p>
+            <p><a href="jvm.md">%jvm%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-jvm:%image-version%</code></p>
+            <p><a href="jvm.md">%jvm-a%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-android:%image-version%</code></p>
+            <p><a href="python.md">%python%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-python:%image-version%</code></p>
+            <p><a href="golang.md">%go%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-go:%image-version%</code></p>
         </td>
     </tr>
     <tr>
