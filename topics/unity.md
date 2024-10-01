@@ -3,7 +3,7 @@
 <var name="qp-linter" value="jetbrains/qodana-dotnet:2024.2"/>
 
 
-You can analyze your Unity project using %product% as explained in this section. 
+You can analyze Unity project using %product% as explained in this section. 
 
 ## Before your start
 
@@ -27,12 +27,12 @@ To run %product%, you need to obtain a [project token](project-token.md) that  w
     </step>
 </procedure>
 
-### Project, solution and required packages
+### Solution and packages
 
 Make sure that your Unity project has been built.
 
 Unity projects typically don’t include a C# solution and project files, and these need to be generated in order for 
-Qodana to process them. We installed the corresponding .NET SDK in the build environment and executed the following 
+Qodana to process them. You can install the corresponding .NET SDK in the build environment by executing the following 
 script on each build:
 
 ```Bash
@@ -44,7 +44,7 @@ ${UNITY_EXECUTABLE:-xvfb-run --auto-servernum --server-args='-screen 0 640x480x2
 
 ### Qodana configuration
 
-In the [`qodana.yaml`](qodana-yaml.md) file, save the following configuration to employ the %dotnet% linter in the 
+In the [`qodana.yaml`](qodana-yaml.md) file, save the following configuration to employ the [%dotnet%](dotnet.md) linter in the 
 native mode and use the [`qodana.recommended`](inspection-profiles.md) inspection profile:
 
 ```yaml
@@ -54,6 +54,8 @@ baseProfile: qodana.recommended # Specifying the profile
 ```
 
 ### Prepare your software
+
+Choose the software which you would like to use for running %product%:
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
@@ -136,8 +138,10 @@ a project directory.</p>
 
 ## Customize your analysis
 
-Using the recommendations from the [](ui-overview.md) and [](inspection-profiles.md) sections, you can adjust 
-%product% analysis of your project.
+Using recommendations from the [](ui-overview.md) and [](inspection-profiles.md) sections, you can adjust 
+%product% analysis of your project. For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of a %product% report, you can adjust
+the inspections that will be used during the analysis or exclude them from the analysis. Also, you can exclude directories 
+of your project that you do not want %product% to analyze. 
 
 For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of your report, you can adjust 
 the inspections that will be used during the analysis. To adjust the existing profile, you can use the recommendations 

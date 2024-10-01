@@ -84,16 +84,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Writerside.Web Archive (qd).executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;QD-8706-unity&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Writerside.Web Archive (qd).executor": "Run",
+    "git-widget-placeholder": "QD-8706-unity",
+    "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editing.templates"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/golang.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/inspection-profiles.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/js.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/linters.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/pricing.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/python.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/unity.md"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
