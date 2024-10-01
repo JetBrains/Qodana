@@ -149,12 +149,13 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 <link-summary>Storage and processing conditions depending on licenses.</link-summary>
 
-| Feature                                 | Community | Ultimate  | Ultimate Plus | 
-|-----------------------------------------|-----------|-----------|---------------|
-| Detailed historical data storage        | 30 days   | 180 days  | Unlimited     |
-| Number of projects                      | Unlimited | Unlimited | Unlimited     |
-| Lines of code                           | Unlimited | Unlimited | Unlimited     |
-| Private repositories                    | Unlimited | Unlimited | Unlimited     |
+| Feature                                    | Community | Ultimate  | Ultimate Plus | 
+|--------------------------------------------|-----------|-----------|---------------|
+| Detailed historical data storage           | 30 days   | 180 days  | Unlimited     |
+| Number of [projects](cloud-projects.topic) | Unlimited | Unlimited | Unlimited     |
+| Number of [teams](cloud-teams.topic)       | 1         | Unlimited | Unlimited     |
+| Lines of code                              | Unlimited | Unlimited | Unlimited     |
+| Private repositories                       | Unlimited | Unlimited | Unlimited     |
 
 ### Linters available for each license
 {id="pricing-linters-licenses"}
