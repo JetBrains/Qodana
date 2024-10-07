@@ -1319,6 +1319,19 @@
                 </tr>
                 <tr>
                     <td>
+                        <code>--config &lt;string&gt;</code>
+                    </td>
+                    <td>
+                        Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to
+                        the project directory
+                    </td>
+                    <td>
+                        None
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
                         <code>-f, --force</code>
                     </td>
                     <td>
@@ -1471,7 +1484,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <p>Also, you can use any Docker image that contains %product%.</p>
+                        <p>Also, you can use any Docker image that has %product%.</p>
                     </td>
                 </tr>
                 <tr>
@@ -1607,7 +1620,7 @@
                         </code>
                     </td>
                     <td>
-                        Print all problems found by Qodana in the CLI output
+                        Print in the CLI output all problems found by Qodana
                     </td>
                 </tr>
                 <tr>
@@ -1617,8 +1630,10 @@
                         </code>
                     </td>
                     <td>
-                        Generate a <a href="https://docs.gitlab.com/ee/ci/testing/code_quality.html">Code Quality</a>
-                        report supported by <a href="gitlab.md" anchor="gitlab-generate-code-quality-reports">GitLab CI/CD</a>
+                        Generate a SARIF-formatted <a href="https://docs.gitlab.com/ee/ci/testing/code_quality.html">Code Climate</a>
+                        report supported by <a href="gitlab.md" anchor="gitlab-generate-code-quality-reports">GitLab CI/CD</a>. The
+                        report will be saved in the directory specified by the <code>--results-dir</code> option. By default, this option
+                        is enabled if GitLab CI/CD is running
                     </td>
                 </tr>
                 <tr>
@@ -1629,8 +1644,8 @@
                     </td>
                     <td>
                         Generate a <a href="https://support.atlassian.com/bitbucket-cloud/docs/code-insights/">Code Insights</a>
-                        report supported by <a href="bitbucket.md" anchor="Generate+Code+Insights+reports">Bitbucket Cloud</a>
-                        and forward it using the Bitbucket Code Insights API
+                        report supported by <a href="bitbucket.md" anchor="Generate+Code+Insights+reports">Bitbucket Cloud</a>.
+                        By default, this option is enabled if %product% is being run in the Bitbucket Pipelines
                     </td>
                 </tr>
                 <tr>
@@ -1650,7 +1665,7 @@
                         </code>
                     </td>
                     <td>
-                        Serve an HTML report on a specific port
+                        Serve an HTML report on the port specified by the <code>--port</code> option
                     </td>
                 </tr>
                 <tr>
@@ -1670,8 +1685,7 @@
                         </code>
                     </td>
                     <td>
-                        Set a custom configuration file instead of <code>qodana.yaml</code>. Relative paths in the
-                        configuration will be based on the project directory
+                        Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to the project root directory
                     </td>
                 </tr>
                 <tr>
@@ -1681,7 +1695,7 @@
                         </code>
                     </td>
                     <td>
-                        Unique report identifier (GUID) to be used by Qodana Cloud. The default value is <code>&lt;generated value&gt;</code>
+                        Unique report identifier (GUID) to be used by Qodana Cloud. The default value is <code>2c72b6e8-f09d-472a-bb86-8a7d8e374ed1</code>
                     </td>
                 </tr>
                 <tr>
@@ -1701,30 +1715,29 @@
                         </code>
                     </td>
                     <td>
-                        Include in the output report the results from the baseline run that are absent in the current run
+                        Include baseline problems that are marked absent in the output report
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <code>
-                            --full-history --commit
+                            --full-history [--commit &lt;commit-hash&gt;]
                         </code>
                     </td>
                     <td>
                         Go through the full commit history and run the analysis on each commit. If combined with
-                        <code>--commit</code>, analysis will be started from the given commit. Could take a long time.
+                        <code>--commit</code>, the analysis will be started from the given commit
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <code>
-                            --commit --full-history
+                            --commit &lt;commit-hash&gt; [--full-history]
                         </code>
                     </td>
                     <td>
-                        Base changes commit to reset to, it resets Git and starts a <code>diff</code> run: analysis will
-                        be run only on changed files since the given commit. If combined with the
-                        <code>--full-history</code> option, full history analysis will be started from the given commit.
+                        Reset Git and run analysis only for the files modified since the given commit. If combined with the
+                        <code>--full-history</code> option, full history analysis will be started from the given commit
                     </td>
                 </tr>
                 <tr>
@@ -1734,8 +1747,8 @@
                         </code>
                     </td>
                     <td>
-                        Set the number of problems that will serve as a quality gate. If this number is reached, the
-                        inspection run is terminated with a non-zero exit code
+                        Set the number of problems that will serve as a <a href="quality-gate.topic">quality gate</a>.
+                        Once the quality gate threshold is reached, the analysis will be terminated with a non-zero exit code
                     </td>
                 </tr>
                 <tr>
@@ -1745,7 +1758,8 @@
                         </code>
                     </td>
                     <td>
-                        Skip running the inspections configured by the sanity profile
+                        Skip the inspections configured by the <code>qodana.sanity</code>
+                        <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">inspection profile</a>
                     </td>
                 </tr>
                 <tr>
@@ -1753,8 +1767,8 @@
                         <code>-d, --source-directory &lt;string&gt;</code>
                     </td>
                     <td>
-                        Directory inside the <code>project-dir</code> directory must be inspected. If not specified, the whole
-                        project is inspected
+                        Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
+                        the whole project will be analyzed
                     </td>
                 </tr>
                 <tr>
@@ -1762,7 +1776,7 @@
                         <code>-n, --profile-name &lt;string&gt;</code>
                     </td>
                     <td>
-                        Profile name defined in the project
+                        Specify the <a href="inspection-profiles.md">profile name</a>
                     </td>
                 </tr>
                 <tr>
@@ -1770,19 +1784,20 @@
                         <code>-p, --profile-path &lt;string&gt;</code>
                     </td>
                     <td>
-                        Path to the profile file
+                        Specify the path to the
+                        <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile">profile file</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <code>
-                            --run-promo &lt;string&gt;
+                            --run-promo &lt;true|false&gt;
                         </code>
                     </td>
                     <td>
-                        Set to <code>true</code> to have the application run the inspections configured by the promo
-                        profile; set to <code>false</code> otherwise.
-                        The default value is set to <code>true</code> only if Qodana is executed with the default profile
+                        Set this option to <code>true</code> to employ the promo inspections; set to <code>false</code> otherwise.
+                        The default value is <code>true</code> if %product% is executed using the
+                        <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profile</a>
                     </td>
                 </tr>
                 <tr>
@@ -1792,7 +1807,8 @@
                         </code>
                     </td>
                     <td>
-                        Override the run scenario. The default value is <code>default</code>
+                        Override the run scenario of %product%, see the <a href="qodana-yaml.md" anchor="Override+the+default+run+scenario"/> section foe details.
+                        The default value is <code>default</code>
                     </td>
                 </tr>
                 <tr>
@@ -1802,7 +1818,7 @@
                         </code>
                     </td>
                     <td>
-                        Directory containing <a href="code-coverage.md">code coverage</a> data for analysis
+                        Specify the directory that contains <a href="code-coverage.md">code coverage</a> data for analysis
                     </td>
                 </tr>
                 <tr>
@@ -1812,7 +1828,8 @@
                         </code>
                     </td>
                     <td>
-                        Apply all available quick-fixes, including cleanup
+                        Apply all available quick-fix strategies including cleanup, see the <a href="quick-fix.md"/>
+                        section for details
                     </td>
                 </tr>
                 <tr>
@@ -1822,7 +1839,8 @@
                         </code>
                     </td>
                     <td>
-                        Run project cleanup
+                        Run the <code>CLEANUP</code> quick-fix strategy, see the
+                        <a href="quick-fix.md" anchor="How+it+works">Quick-fix</a> for details
                     </td>
                 </tr>
                 <tr>
@@ -1832,7 +1850,7 @@
                         </code>
                     </td>
                     <td>
-                        Set a JVM property to be used while running Qodana using the
+                        Set a JVM property to be used while running Qodana. Use the
                         <code>--property property.name=value1,value2,...,valueN</code> notation
                     </td>
                 </tr>
@@ -1841,7 +1859,7 @@
                         <code>-s, --save-report</code>
                     </td>
                     <td>
-                        Generate an HTML report. The default value is true
+                        Generate an HTML report. This option is enabled by default
                     </td>
                 </tr>
                 <tr>
@@ -1851,8 +1869,9 @@
                         </code>
                     </td>
                     <td>
-                        %product% analysis time limit in milliseconds. If reached, the analysis is terminated, process
-                        exits with timeout-exit-code code. The default value is <code>-1</code>
+                        Set %product% analysis time limit in milliseconds. Once reached, the analysis will be terminated and the
+                        process will exit with the <code>timeout-exit-code</code> code. The default value is <code>-1</code> meaning
+                        that the timeout is not set
                     </td>
                 </tr>
                 <tr>
@@ -1872,7 +1891,7 @@
                         </code>
                     </td>
                     <td>
-                        <p>Hash of the commit that will act as a base for comparison in <a href="analyze-pr.md">change analysis</a></p>
+                        Set the hash of the commit that will act as a base for comparison in a <a href="analyze-pr.md">change analysis</a>
                     </td>
                 </tr>
                 <tr>
@@ -1882,9 +1901,9 @@
                         </code>
                     </td>
                     <td>
-                        <p>Hash of the commit that will act as an end in <a href="analyze-pr.md">change analysis</a>.
-                            Only files changed between the <code>--diff-start</code> and <code>--diff-end</code> options
-                            will be analyzed</p>
+                        Set the hash of the commit that will act as an end in a <a href="analyze-pr.md">change analysis</a>.
+                        This lets you analyze only files changed between the <code>--diff-start</code> and
+                        <code>--diff-end</code> commits
                     </td>
                 </tr>
                 <tr>
@@ -1907,7 +1926,7 @@
                     </td>
                     <td>
                         <note>This option is available only for the <a href="clang.md">%clang%</a> linter.</note>
-                        <p>Path to the <code>compile_commands.json</code> file. The default value is
+                        <p>Specify the path to the <code>compile_commands.json</code> file. The default value is
                             <code>./build/compile_commands.json"</code></p>
                     </td>
                 </tr>
@@ -1919,7 +1938,7 @@
                     </td>
                     <td>
                         <note>This option is available only for the <a href="clang.md">%clang%</a> linter.</note>
-                        <p>Additional arguments, see the <a href="clang.md"/> section for details</p>
+                        <p>Set additional arguments, see the <a href="clang.md"/> section for details</p>
                     </td>
                 </tr>
                 <tr>
@@ -1930,7 +1949,7 @@
                     </td>
                     <td>
                         <note>This option is available only for the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
-                        <p>Relative path to a solution file, see the <a href="dotnet.md"/> section for details</p>
+                        <p>Set a relative path to a solution file, see the <a href="dotnet.md"/> section for details</p>
                     </td>
                 </tr>
                 <tr>
@@ -1941,7 +1960,7 @@
                     </td>
                     <td>
                         <note>This option is available only for the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
-                        <p>Relative path to a project file, see the <a href="dotnet.md"/> section for details</p>
+                        <p>Set a relative path to a project file, see the <a href="dotnet.md"/> section for details</p>
                     </td>
                 </tr>
                 <tr>
@@ -1974,7 +1993,7 @@
                     </td>
                     <td>
                         <note>This option is available only for the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
-                        <p>Skip building the project before analyses, see the <a href="dotnet.md"/> section for details</p>
+                        <p>Skip project building before analyses, see the <a href="dotnet.md"/> section for details</p>
                     </td>
                 </tr>
                 <tr>
@@ -1983,9 +2002,9 @@
                     </td>
                     <td>
                         <note>Available only in container mode, incompatible with <a href="native-mode.md">native mode</a> and
-                            the <code>--ide</code> option.</note> <p>Define additional environment variables for the
-                        Qodana container (you can use the flag multiple times). CLI is not reading full host environment
-                        variables and does not pass it to the Qodana container for security reasons</p>
+                            the <code>--ide</code> option.</note>
+                        <p>Define additional environment variables for the Qodana container, multiple variables can be specified.
+                            For security reasons, %product% CLI does not read full host environment variables and does not pass it to the %product% container</p>
                     </td>
                 </tr>
                 <tr>
@@ -1994,8 +2013,8 @@
                     </td>
                     <td>
                         <note>Available only in container mode, incompatible with <a href="native-mode.md">native mode</a> and
-                            the <code>--ide</code> option.</note> <p>Define additional volumes for the Qodana container
-                        (you can use the flag multiple times)</p>
+                            the <code>--ide</code> option.</note>
+                        <p>Define additional volumes for the Qodana container, multiple volumes can be specified</p>
                     </td>
                 </tr>
                 <tr>
@@ -2042,7 +2061,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>-a, --analysis-id string</code>
+                        <code>-a, --analysis-id &lt;string&gt;</code>
                     </td>
                     <td>
                         The unique report identifier (GUID) to be used by Qodana Cloud. The default value is
@@ -2051,11 +2070,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>--config string</code>
+                        <code>--config &lt;string&gt;</code>
                     </td>
                     <td>
-                        Set a custom configuration file instead of <code>qodana.yaml</code>. Relative paths in the
-                        configuration will be based on the project directory
+                        Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to the project root directory
                     </td>
                 </tr>
                 <tr>
@@ -2071,20 +2089,20 @@
                         <code>-l, --linter &lt;string&gt;</code>
                     </td>
                     <td>
-                        <p>Override the linter</p>
+                        <p>Override the linter which report will be used for sending to Qodana Cloud</p>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <code>-i, --project-dir string</code>
+                        <code>-i, --project-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Root directory of the inspected project. The default value is <code>.</code>
+                        Root directory of the project which report will be sent to Qodana Cloud. The default value is <code>.</code>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <code>-r, --report-dir string</code>
+                        <code>-r, --report-dir &lt;string&gt;</code>
                     </td>
                     <td>
                         Override the directory for saving Qodana HTML reports. The default value is
@@ -2093,7 +2111,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>-o, --results-dir string</code>
+                        <code>-o, --results-dir &lt;string&gt;</code>
                     </td>
                     <td>
                         Override the directory for saving Qodana analysis results. The default value is
@@ -2117,8 +2135,7 @@
                         <code>--config &lt;string&gt;</code>
                     </td>
                     <td>
-                        Set a custom configuration file instead of <code>qodana.yaml</code>. Relative paths in the
-                        configuration will be based on the project directory
+                        Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to the project root directory
                     </td>
                 </tr>
                 <tr>
@@ -2126,7 +2143,7 @@
                         <code>-d, --dir-only</code>
                     </td>
                     <td>
-                        Open the report directory only
+                        Open the report directory only, without serving it
                     </td>
                 </tr>
                 <tr>
@@ -2142,7 +2159,7 @@
                         <code>-l, --linter &lt;string&gt;</code>
                     </td>
                     <td>
-                        Override the linter that you would like to employ
+                        Override the linter which report should be viewed
                     </td>
                 </tr>
                 <tr>
@@ -2158,7 +2175,7 @@
                         <code>-i, --project-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Root directory of the inspected project. The default value is <code>.</code>
+                        Root directory of the project which report should be viewed. The default value is <code>.</code>
                     </td>
                 </tr>
                 <tr>
@@ -2166,7 +2183,8 @@
                         <code>-r, --report-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Specify the path to an HTML report, directory that contains the <code>index.html</code> file.
+                        Override the directory to save a Qodana HTML report. This is the directory that contains the
+                        <code>index.html</code> file.
                         The default value is <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code>
                     </td>
                 </tr>
@@ -2175,7 +2193,7 @@
                         <code>-o, --results-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Override the directory to save analysis results. The default value is
+                        Override the directory for saving analysis results. The default value is
                         <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results</code>
                     </td>
                 </tr>
@@ -2231,7 +2249,7 @@
                         <code>-d, --days &lt;int&gt;</code>
                     </td>
                     <td>
-                        Number of days to calculate the number of active contributors for
+                        The number of days in the past that should be used for calculating the number of active contributors
                     </td>
                     <td>
                         90
@@ -2253,11 +2271,10 @@
                         <code>-o, --output string</code>
                     </td>
                     <td>
-                        The output format. Available values are <code>tabular</code> <code>json</code>. The default
-                        value is <code>tabular</code>
+                        The output format. Available values are <code>tabular</code> and <code>json</code>
                     </td>
                     <td>
-                        <code>.</code>
+                        <code>tabular</code>
                     </td>
                 </tr>
                 <tr>
@@ -2265,8 +2282,7 @@
                         <code>-i, --project-dir &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        Project directory of the project. It can be specified multiple times to check multiple projects.
-                        If not specified, the current project directory will be used
+                        Project directory of the project, can be specified multiple times to check multiple projects
                     </td>
                     <td>
                     <code>.</code>
@@ -2328,22 +2344,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>--config string</code>
+                        <code>--config &lt;string&gt;</code>
                     </td>
                     <td>
-                        Set a custom configuration file instead of <code>qodana.yaml</code>. Use a relative path based on
-                        the project directory
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>-o</code>, <code>--output &lt;string&gt;</code>
-                    </td>
-                    <td>
-                        The output format that accepts the <code>tabular</code>, <code>wide</code>, <code>json</code>,
-                        <code>csv</code>, <code>csv-stream</code>, <code>cloc-yaml</code>, <code>html</code>,
-                        <code>html-table</code>, <code>sql</code>, <code>sql-insert</code>, <code>openmetrics</code> values.
-                        The default setting is <code>tabular</code>
+                        Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to
+                        the project root directory
                     </td>
                 </tr>
                 <tr>
@@ -2356,27 +2361,19 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>-i</code>, <code>--project-dir &lt;stringArray&gt;</code>
+                        <code>-l</code>, <code>--linter &lt;string&gt;</code>
                     </td>
                     <td>
-                        The project directory. This option can be specified multiple times to check multiple projects.  If not
+                        Specify the linter that you would like to pull
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-i</code>, <code>--project-dir &lt;string&gt;</code>
+                    </td>
+                    <td>
+                        The root directory of the analyzed project. If not
                         specified, the current directory will be used
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>-l</code>, <code>--linter string</code>
-                    </td>
-                    <td>
-                        Specify the linter that you would like to employ
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>-i</code>, <code>--project-dir string</code>
-                    </td>
-                    <td>
-                        The root directory of the analyzed project. The default value is <code>.</code>
                     </td>
                 </tr>
             </table>
