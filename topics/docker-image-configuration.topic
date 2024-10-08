@@ -1807,8 +1807,25 @@
                         </code>
                     </td>
                     <td>
-                        Override the run scenario of %product%, see the <a href="qodana-yaml.md" anchor="Override+the+default+run+scenario"/> section foe details.
-                        The default value is <code>default</code>
+                        <p>Override the run scenario of %product%. Currently, the following run scenarios are available:</p>
+                        <table>
+                            <tr>
+                                <td>Scenario name</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td><code>default</code></td>
+                                <td>The default %product% scenario, enabled by default</td>
+                            </tr>
+                            <tr>
+                                <td><code>php-migration</code></td>
+                                <td><a href="php-language-upgrade.topic">PHP version migration</a> scenario</td>
+                            </tr>
+                            <tr>
+                                <td><code>local-changes</code></td>
+                                <td>Analyze only uncommitted changes. You can see the <a href="analyze-pr.md"/> section to learn more about incremental analysis</td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
                 <tr>
@@ -1870,8 +1887,7 @@
                     </td>
                     <td>
                         Set %product% analysis time limit in milliseconds. Once reached, the analysis will be terminated and the
-                        process will exit with the <code>timeout-exit-code</code> code. The default value is <code>-1</code> meaning
-                        that the timeout is not set
+                        process will exit with the <code>timeout-exit-code</code> code. The default setting is <code>1</code>
                     </td>
                 </tr>
                 <tr>
@@ -1881,7 +1897,8 @@
                         </code>
                     </td>
                     <td>
-                        Set the <code>--timeout</code> option. The default value is <code>1</code>
+                        Override the default <code>timeout</code> setting <code>--timeout</code> option. The default
+                        value set by the <code>timeout</code> option is <code>1</code>
                     </td>
                 </tr>
                 <tr>
@@ -2003,8 +2020,9 @@
                     <td>
                         <note>Available only in container mode, incompatible with <a href="native-mode.md">native mode</a> and
                             the <code>--ide</code> option.</note>
-                        <p>Define additional environment variables for the Qodana container, multiple variables can be specified.
-                            For security reasons, %product% CLI does not read full host environment variables and does not pass it to the %product% container</p>
+                        <p>Define environment variables for the Qodana container, multiple variables can be specified.
+                            For security reasons, %product% CLI does not read environment variables from the host
+                            operating system, so all variables required by %product% should be specified explicitly.</p>
                     </td>
                 </tr>
                 <tr>
@@ -2014,7 +2032,8 @@
                     <td>
                         <note>Available only in container mode, incompatible with <a href="native-mode.md">native mode</a> and
                             the <code>--ide</code> option.</note>
-                        <p>Define additional volumes for the Qodana container, multiple volumes can be specified</p>
+                        <p>Define additional volumes for the Qodana container, multiple volumes can be specified. For example,
+                                <code>qodana scan --volume $(pwd)/.qodana/results:/data/results/</code></p>
                     </td>
                 </tr>
                 <tr>
@@ -2050,7 +2069,7 @@
             </table>
         </chapter>
 
-        <chapter id="docker-config-reference-qodana-send" title="Send project reports to Qodana Cloud">
+        <chapter id="docker-config-reference-qodana-send" title="Send analysis reports to Qodana Cloud">
 
             <p>You can use these options with the <code>qodana send &lt;options&gt;</code> command:</p>
 
@@ -2233,10 +2252,8 @@
 
         <chapter id="docker-config-reference-qodana-contributors" title="Count contributors">
 
-            <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section.</p>
-
-            <p>To count contributors using Qodana CLI, you can run the <code>qodana contributors &lt;options&gt;</code>
-                command with the following options:</p>
+            <p>To obtain information about <a href="contributors.md">contributors</a> to your project, you can run the
+                <code>qodana contributors &lt;options&gt;</code> command with the following options:</p>
 
             <table>
                 <tr>
@@ -2294,8 +2311,7 @@
         <chapter id="docker-config-reference-qodana-cloc" title="View project statistics">
 
             <p>Using the <code>qodana cloc &lt;options&gt;</code> command, you can view information about your project, such
-                as languages and lines of code. Here is the list of available options
-                for this command:</p>
+                as languages and lines of code. Here is the list of options available for this command:</p>
 
             <table>
                 <tr>
@@ -2335,8 +2351,10 @@
 
         <chapter id="docker-config-reference-qodana-pull" title="Pull a %product% image">
 
-            <p>Using the <code>qodana pull &lt;options&gt;</code> command, you can pull the %product% image that you would like to
-                pull and employ.</p>
+            <p>Using the <code>qodana pull &lt;options&gt;</code> command, you can pull the %product% linter that you would
+                like to employ. %product% CLI takes information about the linter using either the
+                <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file configuration or the
+                <code>--linter</code> option.</p>
             <table>
                 <tr>
                     <td>Option</td>
