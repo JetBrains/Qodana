@@ -1307,6 +1307,28 @@
 
     <chapter id="docker-config-reference-qodana-cli-options" title="Options available in Qodana CLI">
 
+        <chapter id="docker-config-reference-global-options" title="Global options">
+
+            <p>%product% CLI provides the following configuration options you can call independently of %product% linters.</p>
+
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>--disable-update-checks</code></td>
+                    <td>Disable checking and notification about new versions of %product% CLI</td>
+                </tr>
+                <tr>
+                    <td><code>--log-level &lt;string&gt;</code></td>
+                    <td>Change log level in the output of %product% CLI. For example, you can set <code>--log-level debug</code>
+                        to receive the detailed log reports. The default setting is <code>error</code></td>
+                </tr>
+            </table>
+
+        </chapter>
+
         <chapter id="docker-config-reference-qodana-init" title="Configure a project">
 
             <p>You can use these options with the <code>qodana init &lt;options&gt;</code> command:</p>
@@ -2133,7 +2155,7 @@
                         <code>-o, --results-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Override the directory for saving Qodana analysis results. The default value is
+                        Override the directory that will be used for sending a %product% report from. The default value is
                         <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results</code>
                     </td>
                 </tr>
