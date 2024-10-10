@@ -20,20 +20,14 @@
         your own plugins.</link-summary>
 
     <p>You can extend %instance% using either existing plugins from repositories, or by developing
-        <a anchor="extending-qodana-developing-plugins">your own</a> plugins.</p>
+        <a anchor="extending-qodana-developing-plugins">your own</a> plugins. This section explains how you can install
+    and run plugins from <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>, as well as run custom plugins.</p>
 
-    <chapter id="extending-qodana-repository-plugins" title="Plugins from repositories">
+        <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Plugins from JetBrains Marketplace">
 
-        <p>This section explains how to inspect PHP code using the <a href="php.md">%php%</a> linter enhanced with the
-            <a href="%php-ea-plugin%">Php Inspections (EA Extended)</a>
-            plugin. You can repeat these steps for any relevant IDE plugin from
-            <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> or any custom repository. </p>
-
-        <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Install and configure the plugin">
-
-                <p>The easiest method for installing a plugin is using the
-                    <a href="qodana-yaml.md" anchor="Manage+plugins"><code>plugin</code></a> option
-                of the <code>qodana.yaml</code> file:</p>
+                <p>To have a plugin installed from <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>
+                    and running, in the <code>qodana.yaml</code> file specify the
+                    <a href="qodana-yaml.md" anchor="Manage+plugins"><code>plugin</code></a> option:</p>
 
                 <code-block lang="yaml">
                     plugins:
@@ -42,76 +36,105 @@
 
                 <p>Here, <code>&lt;plugin-id&gt;</code> denotes the Plugin ID from
                     <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example,
-                for <a href="https://plugins.jetbrains.com/plugin/16136-grazie-professional">Grazie Professional</a> the
-                    Plugin ID value will be <code>com.intellij.grazie.pro</code>. To find the ID of a specific plugin,
-                    on the plugin page of <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>  click the
+                for the <a href="https://plugins.jetbrains.com/plugin/16136-grazie-professional">Grazie Professional</a>
+                    Plugin ID will be <code>com.intellij.grazie.pro</code>. To find the ID of a specific plugin,
+                    on the plugin page of <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> click the
                     <ui-path>Overview</ui-path> tab, and then navigate to the
                     <ui-path>Additional Information</ui-path> section.</p>
 
-
-                <p>Alternatively, you need to prepare the following files:</p>
-
-                <list>
-                    <li>The code of the plugin</li>
-                    <li>The configuration of the plugin</li>
-                    <li>The inspection profile containing the configuration of the plugin inspections</li>
-                </list>
-
-                <p>Here is how you can obtain these files:</p>
-
-                <procedure type="choices">
-                <step><p>Install the plugin using any of the
-                    <a href="%plugin-installation%">installation method</a> available. For any installation
-                    method chosen, you need to know the path to the plugin file after it has been installed. If you
-                    install the plugin using the
-                        <a href="%plugin-settings%">Settings | Plugins</a> dialog of your IDE, see the
-                        <a href="%plugin-dir%">Plugins directory</a> section for reference. If you download the
-                        <code>PhpInspectionsEA.jar</code> plugin file from
-                        <a href="%php-ea-plugin%">JetBrains Marketplace</a>, save it to a directory accessible
-                        by %instance%.</p>
-                </step>
-                <step>
-                    The <code>ea_extended.xml</code> plugin configuration file is located in the <code>options</code>
-                    subdirectory of the <a href="%conf-dir%">IDE config directory</a>. You can save this file to
-                    any directory accessible to %instance%.
-                </step>
-                <step><p>
-                    Navigate to the <a href="%inspection-settings%">Inspections</a> dialog of your IDE, expand
-                    the <ui-path>PHP | Php Inspections (EA Extended)</ui-path> entry, check the inspections you
-                    would like to employ, and <a href="%configure-profiles%">export the inspection profile</a>
-                    in the project root folder under the <code>qodana-inspection-profile.xml</code> filename. </p>
-                </step>
-                </procedure>
+                <p>Now you can run %product%.</p>
             </chapter>
 
-        <chapter id="extending-qodana-repository-plugins-configure-qodana" title="Configure %instance%">
-            <p>In the project root directory, create the <code>qodana.yaml</code> file and specify the path to the
-                <a href="inspection-profiles.md" anchor="inspection-profiles-yaml-file">profile</a> location in it:</p>
-            <code-block lang="yaml">
-                profile:
-                    path: ./qodana-inspection-profile.xml
-            </code-block>
-        </chapter>
+        <chapter id="extending-qodana-repository-plugins-manual-installation" title="Custom plugins">
 
-        <chapter id="extending-qodana-repository-plugins-run-qodana" title="Run %instance%">
-            <p>Use this snippet for running %instance% locally:</p>
-            <code-block lang="bash">
-                docker run \
-                   -v &lt;project-directory&gt;:/data/project/ \
-                   -v &lt;report-directory&gt;:/data/results/ \
-                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                   -v &lt;path-to-plugin-file&gt;/PhpInspectionsEA.jar:/opt/idea/plugins/PhpInspectionsEA.jar \
-                   -v &lt;path-to-plugin-config&gt;/ea_extended.xml:/root/.config/idea/options/ea_extended.xml \
-                   jetbrains/qodana-php
-            </code-block>
-        </chapter>
-    </chapter>
+            <tip>To learn how to develop plugins, you can review the
+                <a href="https://plugins.jetbrains.com/docs/intellij/getting-started.html">Creating Your First Plugin</a>
+                page of the IntelliJ Platform Plugin SDK documentation portal. Besides that, each plugin should perform
+                inspections and produce inspection results as described in the
+                <a href="%inspection-url%">Inspections</a> section of the documentation portal.
+            </tip>
 
-    <chapter id="extending-qodana-developing-plugins" title="Custom plugins">
-        <p>To learn how to develop plugins, you can review the
-            <a href="https://plugins.jetbrains.com/docs/intellij/getting-started.html">Creating Your First Plugin</a>
-            page of the IntelliJ Platform Plugin SDK documentation portal. Besides that, each plugin should perform
-            inspections and produce inspection results as described in the
-            <a href="%inspection-url%">Inspections</a> section of the documentation portal. </p>
-    </chapter>
+            <p>Before running a custom plugin using %product%, prepare the following components:</p>
+
+            <list>
+                <li>Files containing the plugin code, for example <code>.jar</code> files,</li>
+                <li>Plugin configuration contained in a file,</li>
+                <li>The inspection name that enables the plugin.</li>
+            </list>
+
+            <p>Follow this procedure to set up a plugin:</p>
+
+            <procedure>
+                <step>
+                    <p>In your project root directory, create the <code>.qodana</code> directory.</p>
+                </step>
+                <step>
+                    <p>In the <code>.qodana</code> directory, save all files related to a plugin. In case the
+                        plugin consists of several <code>.jar</code> files, you can create a directory inside <code>.qodana</code>
+                        and save them there. You can also download and run plugins from
+                        <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>.</p>
+                </step>
+                <step>In the <code>qodana.yaml</code> file, enable the inspection as described in the
+                    <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">YAML file</a> section.
+                </step>
+                <step>
+                    <p>Run %product% using examples below:</p>
+                    <tabs>
+                        <tab title="Qodana CLI">
+                            <code-block lang="bash" prompt="$">
+                                qodana scan \
+                                &nbsp;&nbsp;&nbsp;-l &lt;linter&gt;
+                                &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/custom-plugins/&lt;plugin-name&gt;.jar \
+                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                            </code-block>
+                        </tab>
+                        <tab title="Docker image">
+                            <code-block lang="bash" prompt="$">
+                                docker run \
+                                &nbsp;&nbsp;&nbsp;-v &lt;project-directory&gt;:/data/project/ \
+                                &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/custom-plugins/&lt;plugin-name&gt;.jar \
+                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                                &nbsp;&nbsp;&nbsp;&lt;linter&gt;
+                            </code-block>
+                        </tab>
+                        <tab title="GitHub Actions">
+                            <code-block lang="yaml" filter="generic">
+                                name: Qodana
+                                on:
+                                    workflow_dispatch:
+                                    pull_request:
+                                    push:
+                                        branches: # Specify your branches here
+                                            - main # The 'main' branch
+                                            - 'releases/*' # The release branches
+                                jobs:
+                                    qodana:
+                                        runs-on: ubuntu-latest
+                                        permissions:
+                                            contents: write
+                                            pull-requests: write
+                                            checks: write
+                                        steps:
+                                            - uses: actions/checkout@v3
+                                              with:
+                                                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                                  fetch-depth: 0  # a full history is required for pull request analysis
+                                            - name: 'Qodana Scan'
+                                              uses: JetBrains/qodana-action@v2024.2
+                                              with:
+                                                  args: >
+                                                        --linter,&lt;linter&gt;,
+                                                        -v,&lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/custom-plugins/&lt;plugin-name&gt;.jar,
+                                                        -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                                              env:
+                                                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                            </code-block>
+                        </tab>
+                    </tabs>
+                    <p>Here, <code>&lt;linter&gt;</code> denotes the <a href="linters.md">linter name</a>, and <code>QODANA_TOKEN</code> refers to a <a href="project-token.md">project token</a>.</p>
+                </step>
+            </procedure>
+        </chapter>
 </topic>
