@@ -15,13 +15,13 @@
     <var name="inspection-settings" value="https://www.jetbrains.com/help/phpstorm/inspections-settings.html"/>
     <var name="configure-profiles" value="https://www.jetbrains.com/help/phpstorm/customizing-profiles.html#a7a20220"/>
     <var name="plugin-config" value="https://www.jetbrains.com/help/phpstorm/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory"/>
+    <var name="extending-qodana-developing-plugins" value="https://plugins.jetbrains.com/docs/intellij/developing-plugins.html"/>
 
     <link-summary>You can extend %instance% using either existing plugins from repositories, or by developing
         your own plugins.</link-summary>
 
-    <p>You can extend %instance% using either existing plugins from repositories, or by developing
-        <a anchor="extending-qodana-developing-plugins">your own</a> plugins. This section explains how you can install
-    and run plugins from <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>, as well as run custom plugins.</p>
+    <p>You can extend %instance% using either existing plugins from repositories like
+        <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>, or using custom plugins.</p>
 
         <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Plugins from JetBrains Marketplace">
 
