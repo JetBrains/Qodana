@@ -1,5 +1,7 @@
 [//]: # (title: Azure Pipelines)
 
+<var name="classic-ui-ref" value="https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops#define-pipelines-using-the-classic-interface"/>
+
 <link-summary>You can use the Qodana Azure Pipelines extension to analyze your code using Qodana.</link-summary>
 
 # Qodana Scan
@@ -42,6 +44,9 @@ Triggering this job depends on [what type of repository you are using in Azure P
 
 The task can be run on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed.
 And since most of the Qodana Docker images are Linux-based, the docker daemon must be able to run Linux containers.
+
+Alternatively, you can configure your pipelines using the Classic interface as explained on the 
+[Microsoft documentation portal](%classic-ui-ref%).
 
 ### Qodana Cloud
 
