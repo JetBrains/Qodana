@@ -42,7 +42,10 @@
                     <ui-path>Overview</ui-path> tab, and then navigate to the
                     <ui-path>Additional Information</ui-path> section.</p>
 
-                <p>Now you can run %product%.</p>
+                <note>Several plugins may have dependencies that are not present in %product% images. You can check the
+                    list of dependencies included in each %product% linter using our
+                    <a href="https://github.com/JetBrains/qodana-docker/blob/main/2024.2/jvm/included_plugins.txt">GitHub repository</a>.
+                    You can navigate to the <ui-path>Versions</ui-path> tab and then click the latest version.</note>
             </chapter>
 
         <chapter id="extending-qodana-repository-plugins-manual-installation" title="Custom plugins">
