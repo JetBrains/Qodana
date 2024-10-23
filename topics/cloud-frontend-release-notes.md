@@ -1,6 +1,8 @@
 <no-index/>
 
-# Frontend
+<show-structure depth="3"/>
+
+# Frontend release notes
 
 <warning>This section is in progress, so we do not recommend to use it.</warning>
 
