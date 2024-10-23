@@ -9,6 +9,10 @@
 		<toc-element topic="set-up-your-project.md" accepts-web-file-names="cloud-onboarding.md"/>
 		<toc-element topic="faq.topic"/>
 		<toc-element accepts-web-file-names="new-in-2024-1.html,new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html" topic="new-in-2024-2.md"/>
+		<toc-element toc-title="Qodana Cloud release notes" hidden="true">
+			<toc-element topic="cloud-backend-release-notes.md" hidden="true"/>
+			<toc-element topic="cloud-frontend-release-notes.md" hidden="true"/>
+		</toc-element>
 		<toc-element topic="components.topic">
 			<toc-element topic="static-analysis.topic"/>
 			<!-- Here, add redirect to the Linters page -->
