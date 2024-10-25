@@ -87,15 +87,6 @@ exclude:
       - benchmarks
 ```
 
-You can also use patterns, for example: 
-
-```yaml
-exclude:
-  - name: All
-    patterns:
-      - "**/.test/test.js"
-```
-
 Exclude inspections specified by ID for specified project paths:
 {id="exclude-inspection"}
 

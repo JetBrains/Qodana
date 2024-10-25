@@ -5,7 +5,7 @@
 Learn how you prepare your project for using %product%.
 </link-summary>
 
-Before running Qodana, you need to create a new [organization](cloud-organizations.topic) or
+Before running Qodana, you need to create a new [organization](cloud-organizations.topic) and
 [project](cloud-projects.topic) in [Qodana Cloud](https://qodana.cloud). This setup process will guide you through 
 configuring your project for various [CI/CD pipelines](ci.md) and local execution using [Qodana CLI](https://github.com/JetBrains/qodana-cli) or 
 [JetBrains IDEs](qodana-ide-plugin.md), and will generate a [project token](project-token.md) required by Qodana linters. Additionally, 
