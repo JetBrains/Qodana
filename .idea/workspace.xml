@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-cloud-release-notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-cloud-release-notes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.ihp" beforeDir="false" afterPath="$PROJECT_DIR$/project.ihp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/writerside.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/writerside.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Writerside.Web Archive (qd).executor": "Run",
-    "git-widget-placeholder": "2024.2",
+    "git-widget-placeholder": "QD-10137-cpp-new",
     "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager"

@@ -38,6 +38,7 @@
 		<toc-element topic="js.md" accepts-web-file-names="qodana-js.html,qodana-js-docker-readme.html"/>
 		<toc-element topic="golang.md" accepts-web-file-names="qodana-go.html,qodana-go-docker-readme.html"/>
 		<toc-element topic="clang.md" accepts-web-file-names="qodana-clang.html,qodana-clang-docker-readme.html"/>
+		<toc-element topic="clang-new.md"/>
 	</toc-element>
 
 
