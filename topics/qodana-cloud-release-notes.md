@@ -17,3 +17,8 @@ The detailed information is available in the [](set-up-your-project.md) section 
 Using the Qodana Cloud API and your CI/CD pipelines, in your Qodana Cloud account you can create new 
 [teams](cloud-teams.topic) and [projects](cloud-projects.topic). To obtain access to the API, please contact our support 
 team at <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
+
+## October 2024
+
+
+a69605711 feat(cloud): QD-10002: Fix permissions for delete report  - can be added after the release
