@@ -1,12 +1,12 @@
 [//]: # (title: Code coverage)
 
-<link-summary>Code coverage uses generated reports to calculate the overall code coverage inside a method, a class, and a file. 
+<link-summary>Code coverage uses generated reports to calculate the overall code coverage inside a method, class, and file. 
 It also reports on the issues connected with the missing coverage in these entities.</link-summary>
 
-**Code coverage** uses generated reports to calculate the overall code coverage inside a method, a class, and a file. 
+**Code coverage** uses generated reports to calculate the overall code coverage inside a method, class, and file. 
 It also reports on the issues connected with the missing coverage in these entities.
 
-This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the 
+This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the
 following linters:
 
 <table>
@@ -74,14 +74,14 @@ Code coverage employs several inspections that are already included in the `qoda
 | [%go%](golang.md)     | [`GoCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/GoCoverageInspection.html)   |
 | [%dotnet%](dotnet.md) | `NetCoverageInspection`                                                                            |
 
-Once the inspection is complete, reports are available in [%instance% reports](html-report.md) and JetBrains IDEs.
+Once analysis is complete, reports are available in [%instance% reports](html-report.md) and JetBrains IDEs.
 
 ### Code coverage calculation
 
-<link-summary>%instance% calculates a code coverage based on the number of code lines containing logic with function, 
+<link-summary>%instance% calculates code coverage based on the number of code lines containing logic, with function, 
 method, and class statements being ignored.</link-summary>
 
-%instance% calculates a code coverage based on the number of code lines containing logic with function, method, and class statements
+%instance% calculates code coverage based on the number of code lines containing logic with function, method, and class statements
 being ignored. Here is the snippet containing comments on how it works: 
 
 ```javascript
@@ -91,23 +91,29 @@ function divide(a, b) { // Not analyzed by the code coverage
 module.exports = divide; // Analyzed by the code coverage
 ```
 
-## Prepare the project
+## Before you start
+{id="code-coverage-before-you-start"}
 
-<link-summary>Learn how to prepare your project before running the code coverage feature.</link-summary>
+<link-summary>Learn how to prepare your coverage tool and project before running the code coverage feature.</link-summary>
 
 <tip>You can find configuration examples on <a href="https://github.com/qodana/qodana-coverage/tree/main">GitHub</a>.</tip>
 
-1. Configure a code coverage tool. While configuring [Jest](https://jestjs.io/), note that all files in coverage reports 
-should have the relative paths inside the project. For example, if your codebase files are contained in the 
-`<project-root>/src/` directory, then file paths in code coverage reports should be `src/<file-name>`.
+1. Configure your code coverage tool. [Jest](https://jestjs.io/) code coverage reports should contain paths relative to a project root. 
+For example, if your codebase files are contained in the `<project-root>/src/` directory, then reports should contain 
+`src/<file-name>` file paths. 
 
-2. If you run %instance% [locally](Quick-start.topic), use your code coverage tool to generate a code coverage report. 
-Save the report to the directory where %instance% can read it. If you run %instance% in your [GitHub](github.md) pipeline, configure the workflow as shown in the [](#run-code-coverage) section.
+    Use your code coverage tool to generate and save code coverage reports to a directory accessible to %instance%. 
+    We recommend using the `<project-root>.qodana/code-coverage` directory. For a [monorepo project](monorepo-project.md) 
+    containing multiple repositories, this directory should be created in each repository.
 
-For the [%dotnet%](dotnet.md) linter, add the <a href="https://www.nuget.org/packages/coverlet.msbuild"><code>coverlet.msbuild</code></a> 
-and [`coverlet.collector`](https://www.nuget.org/packages/coverlet.collector) packages to the test project.
+2. Prepare your project. If you have a monorepo project, save %product% configuration for each repository in a 
+separate `qodana.yaml` file. You can put these files in repository directories, or give them custom names and save them 
+in the root directory of a project.
 
-## Run the code coverage
+    For the [%dotnet%](dotnet.md) linter, add the <a href="https://www.nuget.org/packages/coverlet.msbuild"><code>coverlet.msbuild</code></a> 
+    and [`coverlet.collector`](https://www.nuget.org/packages/coverlet.collector) packages to the test project.
+
+## Run code coverage
 {id="run-code-coverage"}
 
 <link-summary>Learn how to run the code coverage feature.</link-summary>
@@ -117,9 +123,8 @@ You can run %instance% over a single test coverage report generated by a single 
 </note>
 
 <note>
-For the <a href="golang.md">%go%</a> linter, the code coverage requires that a project contains no <code>.idea</code> directory. 
+The <a href="golang.md">%go%</a> linter requires that your project contains no <code>.idea</code> directory. 
 </note>
-
 
 To learn about running code coverage using the [%dotnet%](dotnet.md) linter, skip to the 
 [](#code-coverage-qodana-for-dotnet) section of this page.
@@ -127,14 +132,14 @@ To learn about running code coverage using the [%dotnet%](dotnet.md) linter, ski
 <tabs>
     <tab title="Docker or Qodana CLI" id="code-coverage-docker-cli">
         <p>Map the directory containing code coverage reports to the <code>/data/coverage</code> directory and
-        the project token using the <code>QODANA_TOKEN</code> variable. Here are the Docker and 
+        a project token using the <code>QODANA_TOKEN</code> variable. Here are the Docker and 
         <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> command samples:</p>
         <tabs>
             <tab title="Docker" id="code-coverage-docker">
                 <code-block lang="shell" prompt="$">
                     docker run \
                         -v $(pwd):/data/project/ \
-                        -v /directory/with/coverage/report/:/data/coverage \
+                        -v .qodana/code-coverage/:/data/coverage \
                         -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                         jetbrains/qodana-&lt;linter&gt;
                 </code-block>
@@ -142,11 +147,15 @@ To learn about running code coverage using the [%dotnet%](dotnet.md) linter, ski
             <tab title="Qodana CLI" id="code-coverage-cli">
                 <code-block lang="shell" prompt="$">
                     qodana scan \
-                       -v /directory/with/coverage/report/:/data/coverage \
+                       -v .qodana/code-coverage/:/data/coverage \
                        -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
                 </code-block>
             </tab>
         </tabs>
+        <p>If you have a <a href="monorepo-project.md">monorepo project</a>, use the 
+        <code>-i &lt;path-relative-to-project-root&gt;</code> option for a directory of each repository. If you saved 
+        <a href="qodana-yaml.md">%product% configuration</a> files under 
+        <a anchor="code-coverage-before-you-start">custom names</a>, use the <code>--config &lt;path-relative-to-project-root&gt;</code> option.</p>
     </tab>
 <tab title="GitHub Actions" id="code-coverage-pipeline">
         <p>Create the pipeline that will store all code coverage output files in the <code>&lt;project-root-dir&gt;/.qodana/code-coverage</code> 
@@ -204,6 +213,9 @@ jobs:
         args: "-i,JS/jest,--linter,jetbrains/qodana-js:2024.2"
         pr-mode: false
 ```
+<p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="qodana-yaml.md">%product% configuration</a> 
+files under <a anchor="code-coverage-before-you-start">custom names</a>, then in the <code>args</code> block use the 
+<code>--config &lt;path-relative-to-project-root&gt;</code> option.</p>
 </tab>
 
 <tab title="GitLab CI/CD" id="code-coverage-gitlab">
@@ -226,16 +238,19 @@ directory:</p>
            script:
               - qodana --save-report 
               --results-dir=$CI_PROJECT_DIR/.qodana/results 
-              --coverage-dir=$CI_PROJECT_DIR/coverage
+              --coverage-dir=$CI_PROJECT_DIR/.qodana/code-coverage
            artifacts:
               paths:
                  - .qodana/results/report
               expose_as: 'Qodana report'
         </code-block>
         <p>
-            This uses the <code>QODANA_TOKEN</code> variable to contain the <a href="project-token.md">project token</a>.
-            The <code>--coverage-dir=$CI_PROJECT_DIR/coverage</code> in the <code>script</code> block runs %instance% with the
-            code coverage directory. 
+            The <code>variables</code> block uses the <code>QODANA_TOKEN</code> variable to contain a <a href="project-token.md">project token</a>.
+            The <code>--coverage-dir=$CI_PROJECT_DIR/.qodana/code-coverage</code> in the <code>script</code> block runs %instance% with the
+            code coverage directory. If you have a <a href="monorepo-project.md">monorepo project</a> and saved 
+            <a href="qodana-yaml.md">%product% configuration</a> files under 
+            <a anchor="code-coverage-before-you-start">custom names</a>, then in the <code>script</code> block use the 
+            <code>--config &lt;path-relative-to-project-root&gt;</code> option.
         </p>
 </tab>
 </tabs>
@@ -244,7 +259,7 @@ directory:</p>
 {id="code-coverage-qodana-for-dotnet"}
 
 > Configuration examples for code coverage are available on the [GitHub](https://github.com/qodana/qodana-coverage) website.
-{style="tip"}
+> {style="tip"}
 
 Here is an example of the [`qodana.yaml`](qodana-yaml.md) file configuration for the [%dotnet%](dotnet.md) linter:
 
