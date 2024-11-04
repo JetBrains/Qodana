@@ -347,7 +347,7 @@ jobs:
 ## Report overview
 {id="overview-code-coverage-reports"}
 
-After you have [prepared the project](#Prepare+the+project) and [ran the code coverage](#run-code-coverage), you can view 
+After you have [prepared the project](#code-coverage-before-you-start) and [ran the code coverage](#run-code-coverage), you can view 
 code coverage reports in [Qodana Cloud](#Qodana+Cloud) or using your [IDE](#IDE). 
 
 ### Qodana Cloud
