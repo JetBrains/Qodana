@@ -1,22 +1,22 @@
 [//]: # (title: Taint analysis)
 
-<link-summary>Taint analysis is the process of assessing the flow of untrusted user input throughout the body of a 
-function or a method. If you have a taint in your code, hackers can execute these code fragments to cause SQL injection, 
+<link-summary>Taint analysis is a process of assessing a flow of untrusted user input throughout the body of a 
+function or method. If you have a taint in your code, hackers can execute these code fragments to cause SQL injection, 
 arithmetic overflow, cross-site scripting, path traversal.</link-summary>
 
-Taint analysis is the process of assessing the flow of untrusted user input throughout the body of a function or a method.
+Taint analysis is a process of assessing the flow of untrusted user input throughout the body of a function or a method.
 If you have a taint in your code, hackers can execute these code fragments to cause SQL injection, arithmetic overflow, 
 cross-site scripting, path traversal, etc.
 
 The core goal of the taint analysis is to determine if unanticipated input can affect program execution in malicious ways.
 
-Taint analysis is supported only by the [%php%](php.md) linter starting from version 2023.1 of %instance%.
-This feature is available under the Ultimate Plus [license](pricing.md).
+Taint analysis is supported by the [%php%](php.md) and [%jvm%](jvm.md) linters under the Ultimate Plus 
+[license](pricing.md).
 
 ## How it works
 
-Tainted data are called a **Source**, while a vulnerable function that may contain such data is a **Sink**.
-In this case, tainted data travel from sources to Sinks via propagators, such as function calls or assignments.
+Tainted data is called a **Source**, while a vulnerable function that may contain such data is a **Sink**.
+In this case, tainted data travel from sources to sinks via propagators, such as function calls or assignments.
 
 <img src="taint-analysis.png" dark-src="taint-analysis_dark.png" width="706" alt="Taint analysis diagram" border-effect="line"/>
 
