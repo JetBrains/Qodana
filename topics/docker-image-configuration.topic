@@ -1850,7 +1850,7 @@
                         </table>
                     </td>
                 </tr>
-                <tr>
+                <tr id="docker-image-configuration-coverage-dir">
                     <td>
                         <code>
                             --coverage-dir &lt;string&gt;
@@ -2109,7 +2109,7 @@
                         <code>f9d8a78f-f922-452b-8062-a64afc352537</code>
                     </td>
                 </tr>
-                <tr>
+                <tr id="docker-image-configuration-config">
                     <td>
                         <code>--config &lt;string&gt;</code>
                     </td>
@@ -2133,7 +2133,7 @@
                         <p>Override the linter which report will be used for sending to Qodana Cloud</p>
                     </td>
                 </tr>
-                <tr>
+                <tr id="docker-image-configuration-project-dir">
                     <td>
                         <code>-i, --project-dir &lt;string&gt;</code>
                     </td>

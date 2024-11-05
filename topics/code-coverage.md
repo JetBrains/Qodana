@@ -70,9 +70,9 @@ Code coverage employs several inspections that are already included in the `qoda
 | [%jvm%](jvm.md)       | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html) |
 | [%js%](js.md)         | [`JsCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JsCoverageInspection.html)   |
 | [%php%](php.md)       | [`PhpCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PhpCoverageInspection.html) |
-| [%python%](python.md) | [`PyCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PyCoverageInspection.html)                                                                         |
+| [%python%](python.md) | [`PyCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PyCoverageInspection.html)   |
 | [%go%](golang.md)     | [`GoCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/GoCoverageInspection.html)   |
-| [%dotnet%](dotnet.md) | `NetCoverageInspection`                                                                            |
+| [%dotnet%](dotnet.md) | [`NetCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/NetCoverageInspection.html)                                                                        |
 
 Once analysis is complete, reports are available in [%instance% reports](html-report.md) and JetBrains IDEs.
 
@@ -102,8 +102,9 @@ module.exports = divide; // Analyzed by the code coverage
 For example, if your codebase files are contained in the `<project-root>/src/` directory, then reports should contain 
 `src/<file-name>` file paths. 
 
-    Use your code coverage tool to generate and save code coverage reports to a directory accessible to %instance%. 
-    We recommend using the `<project-root>.qodana/code-coverage` directory. For a [monorepo project](monorepo-project.md) 
+    Use your code coverage tool to generate and save code coverage reports to the `<project-root>/.qodana/code-coverage` 
+    directory. To learn how to override this directory, see the recommendation from the [](#run-code-coverage) chapter.
+    For a [monorepo project](monorepo-project.md) 
     containing multiple repositories, this directory should be created in each repository.
 
 2. Prepare your project. If you have a monorepo project, save %product% configuration for each repository in a 
@@ -153,16 +154,21 @@ To learn about running code coverage using the [%dotnet%](dotnet.md) linter, ski
             </tab>
         </tabs>
         <p>If you have a <a href="monorepo-project.md">monorepo project</a>, use the 
-        <code>-i &lt;path-relative-to-project-root&gt;</code> option for a directory of each repository. If you saved 
+        <a href="docker-image-configuration.topic" anchor="docker-image-configuration-project-dir"><code>-i &lt;path-relative-to-project-root&gt;</code></a> 
+        option to point a repository directory. If you saved 
         <a href="qodana-yaml.md">%product% configuration</a> files under 
-        <a anchor="code-coverage-before-you-start">custom names</a>, use the <code>--config &lt;path-relative-to-project-root&gt;</code> option.</p>
+        <a anchor="code-coverage-before-you-start">custom names</a>, use the 
+        <a href="docker-image-configuration.topic" anchor="docker-image-configuration-config"><code>--config &lt;path-relative-to-project-root&gt;</code></a> option.
+        To override the default code coverage report directory, use the 
+        <a href="docker-image-configuration.topic" anchor="docker-config-reference-code-coverage"><code>--coverage-dir &lt;path-relative-to-project-root&gt;</code></a> option.
+        </p>
     </tab>
 <tab title="GitHub Actions" id="code-coverage-pipeline">
         <p>Create the pipeline that will store all code coverage output files in the <code>&lt;project-root-dir&gt;/.qodana/code-coverage</code> 
         directory. You can find various examples of the GitHub Actions configurations on the 
 <a href="https://github.com/qodana/qodana-coverage/tree/7360c03be1f44a4ed0e591218977005b07dd569e/.github/workflows">GitHub</a> website.</p>
 
-Below is the pipeline configuration example for the [%js%](js.md) linter:
+Below is the pipeline configuration example for the [%js%](js.md) linter running in the `JS/jest` directory of a repository:
 
 ```yaml
 name: JavaScript - Jest Test
@@ -215,7 +221,10 @@ jobs:
 ```
 <p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="qodana-yaml.md">%product% configuration</a> 
 files under <a anchor="code-coverage-before-you-start">custom names</a>, then in the <code>args</code> block use the 
-<code>--config &lt;path-relative-to-project-root&gt;</code> option.</p>
+<a href="docker-image-configuration.topic" anchor="docker-image-configuration-config"><code>--config,&lt;path-relative-to-project-root&gt;</code></a> option.
+To override the default code coverage report directory, use the 
+<a href="docker-image-configuration.topic" anchor="docker-config-reference-code-coverage"><code>--coverage-dir,&lt;path-relative-to-project-root&gt;</code></a> option.
+</p>
 </tab>
 
 <tab title="GitLab CI/CD" id="code-coverage-gitlab">
@@ -246,11 +255,11 @@ directory:</p>
         </code-block>
         <p>
             The <code>variables</code> block uses the <code>QODANA_TOKEN</code> variable to contain a <a href="project-token.md">project token</a>.
-            The <code>--coverage-dir=$CI_PROJECT_DIR/.qodana/code-coverage</code> in the <code>script</code> block runs %instance% with the
-            code coverage directory. If you have a <a href="monorepo-project.md">monorepo project</a> and saved 
+            The <code>--coverage-dir=$CI_PROJECT_DIR/.qodana/code-coverage</code> in the <code>script</code> block enables %instance% to read
+            code coverage reports from a specific directory. If you have a <a href="monorepo-project.md">monorepo project</a> and saved 
             <a href="qodana-yaml.md">%product% configuration</a> files under 
             <a anchor="code-coverage-before-you-start">custom names</a>, then in the <code>script</code> block use the 
-            <code>--config &lt;path-relative-to-project-root&gt;</code> option.
+            <a href="docker-image-configuration.topic" anchor="docker-image-configuration-config"><code>--config &lt;path-relative-to-project-root&gt;</code></a> option.
         </p>
 </tab>
 </tabs>
