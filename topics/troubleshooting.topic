@@ -290,4 +290,31 @@
         </procedure>
 
     </chapter>
+
+    <chapter id="troubleshooting-list-of-exit-codes" title="List of exit codes">
+        <p>%product% provides the following exit codes:</p>
+
+        <table>
+            <tr>
+                <td>Exit code</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td><code>7</code></td>
+                <td>The linter EAP license has expired. Please change the docker tag either to the next EAP version like
+                    <code>20xx.x-eap</code> or to a stable version like <code>20xx.x</code>.</td>
+            </tr>
+            <tr>
+                <td><code>137</code></td>
+                <td>Qodana or Docker crashed due to excessive memory usage. Please increase the amount of RAM dedicated to Docker.</td>
+            </tr>
+            <tr>
+                <td><code>255</code></td>
+                <td>The number of problems detected by Qodana exceeds a set <a href="quality-gate.topic">threshold</a>.</td>
+            </tr>
+        </table>
+
+
+    </chapter>
+
 </topic>
