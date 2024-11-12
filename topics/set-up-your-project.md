@@ -21,7 +21,7 @@ To provide correct work of the contributor counting functionality, add the IP ad
 {style="note"}
 
 If you plan to run the [Qodana Scan](github.md) GitHub action on a GitHub-hosted repository, you will need to authorize the 
-`QA Test Qodana App` OAuth App during the project setup. If you do not have access to the repository you intend to analyze, 
+`Qodana Cloud GitHub App` OAuth App during the project setup. If you do not have access to the repository you intend to analyze, 
 request the necessary access and wait for approval before proceeding. In other cases, you will receive instructions and 
 configuration snippets that will help you start %product% in your project. 
 
