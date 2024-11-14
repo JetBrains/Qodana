@@ -13,12 +13,12 @@ following linters:
     <tr>
         <td>Linter</td>
         <td>Code coverage tool</td>
-        <td>Supported report formats</td>
+        <td>Supported report file extensions</td>
     </tr>
     <tr>
-        <td rowspan="2"><a href="dotnet.md">%dotnet%</a></td>
+        <td rowspan="2"><a href="jvm.md">%jvm%</a></td>
         <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a> is the recommended tool</td>
-        <td><code>ic</code> is the preferable format. <code>xml</code> is also supported.</td>
+        <td><code>ic</code></td>
     </tr>
     <tr>
         <td><a href="https://www.jacoco.org/jacoco/">JaCoCo</a></td>
