@@ -18,7 +18,7 @@ following linters:
     <tr>
         <td rowspan="2"><a href="dotnet.md">%dotnet%</a></td>
         <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a> is the recommended tool</td>
-        <td><code>ic</code> is the preferable format. <code>XML</code> is also supported.</td>
+        <td><code>ic</code> is the preferable format. <code>xml</code> is also supported.</td>
     </tr>
     <tr>
         <td><a href="https://www.jacoco.org/jacoco/">JaCoCo</a></td>
@@ -51,7 +51,7 @@ following linters:
     </tr>
 </table>
 
-<note>Code coverage for files is available only in <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, and
+<note>Code coverage for files is available only for <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, and
 <a href="python.md">%python%</a> linters.</note>
 
 ## How it works
