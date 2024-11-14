@@ -500,6 +500,14 @@
         </p>
     </chapter>
 
+    <chapter id="faq-sensitive-data-uploading" title="I have accidentally uploaded sensitive data to Qodana Cloud, what should I do?" collapsible="true">
+
+        <p>All your data is always encrypted at rest and in transit. If you remain concerned, you can delete the report containing sensitive
+            data using the Qodana Cloud UI.</p>
+
+    </chapter>
+
+
 </chapter>
 
 </topic>
