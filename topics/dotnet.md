@@ -1467,214 +1467,110 @@ in a SARIF-formatted file.
 
 ### Analyzing pull requests
 
-<tabs group="linter-tabs">
-    <tab group-key="linter-tabs-dotnet" title="%qp%">
-        <tabs group="software">
-            <tab title="GitHub Actions" group-key="github">
-                <p>
-                    The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically 
-                    analyzes all pull requests, so you do not have to provide any additional configuration. Save this configuration
-                    to the <code>.github/workflows/code_quality.yml</code> file:
-                </p>
-                <code-block lang="yaml">
-                        name: Qodana
-                        on:
-                          workflow_dispatch:
-                          pull_request:
-                          push:
-                            branches: # Specify your branches here
-                              - main # The 'main' branch
-                              - 'releases/*' # The release branches
-                        jobs:
-                          qodana:
-                            runs-on: ubuntu-latest
-                            permissions:
-                              contents: write
-                              pull-requests: write
-                              checks: write
-                            steps:
-                              - uses: actions/checkout@v3
-                                with:
-                                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                                  fetch-depth: 0  # a full history is required for pull request analysis
-                              - name: 'Qodana Scan'
-                                uses: JetBrains/qodana-action@v2024.2
-                                with:
-                                  args: --linter,%qp-linter%
-                                env:
-                                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-                </code-block>
-            </tab>
-            <tab title="GitLab CI/CD" group-key="gitlab">
-                <p>
-                    In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the 
-                    following snippet:
-                </p>
-                <code-block lang="yaml">
-                    qodana:
-                      image:
-                         name: %qp-linter% 
-                         entrypoint: [""]
-                      cache:
-                         - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                           fallback_keys:
-                              - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                              - qodana-2024.2-
-                           paths:
-                              - .qodana/cache
-                      variables:
-                         QODANA_TOKEN: $qodana_token
-                       script:
-                         - >
-                           qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                             --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                             --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                      artifacts:
-                         paths:
-                            - .qodana/results
-                         expose_as: 'Qodana report'
-                </code-block>
-                <p>
-                    Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a 
-                    base for comparison.
-                </p>
-            </tab>
-            <tab title="TeamCity" group-key="teamcity">
-                <p>Information about configuring TeamCity for analyzing pull and merge requests is available on the 
-                    <a href="%TeamCityPullRequests%">TeamCity</a> documentation portal.
-                </p>
-            </tab>
-            <tab title="Command line" group-key="command-line">
-                <p>
-                    To analyze changes in your code, employ the <code>--diff-start</code> option and specify a hash of the commit 
-                    that will act as a base for comparison:
-                </p>
-                <tabs group="cli-settings">
-                    <tab group-key="qodana-cli" title="Qodana CLI">
-                        <code-block prompt="$">
-                            qodana scan \
-                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               -l %qp-linter% \
-                               --diff-start=&lt;GIT_START_HASH&gt;
-                        </code-block>
-                    </tab>
-                    <tab group-key="docker-image" title="Docker image">
-                        <code-block lang="shell" prompt="$">
-                          docker run \
-                          &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
-                          &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                          &nbsp;&nbsp;&nbsp;%qp-linter% \
-                          &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
-                        </code-block>
-                    </tab>
-                </tabs>
-            </tab>
-        </tabs>
+This feature is supported only by the %dotnet% linter.
+
+<tabs group="software">
+    <tab title="GitHub Actions" group-key="github">
+        <p>
+            The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically 
+            analyzes all pull requests, so you do not have to provide any additional configuration. Save this configuration
+            to the <code>.github/workflows/code_quality.yml</code> file:
+        </p>
+        <code-block lang="yaml">
+                name: Qodana
+                on:
+                  workflow_dispatch:
+                  pull_request:
+                  push:
+                    branches: # Specify your branches here
+                      - main # The 'main' branch
+                      - 'releases/*' # The release branches
+                jobs:
+                  qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                      contents: write
+                      pull-requests: write
+                      checks: write
+                    steps:
+                      - uses: actions/checkout@v3
+                        with:
+                          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                          fetch-depth: 0  # a full history is required for pull request analysis
+                      - name: 'Qodana Scan'
+                        uses: JetBrains/qodana-action@v2024.2
+                        with:
+                          args: --linter,%qp-linter%
+                        env:
+                          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
     </tab>
-    <tab group-key="linter-tabs-cdnet" title="%qp-co%">
-            <tabs group="software">
-            <tab title="GitHub Actions" group-key="github">
-                <p>
-                    The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically 
-                    analyzes all pull requests, so you do not have to provide any additional configuration. Save this configuration
-                    to the <code>.github/workflows/code_quality.yml</code> file:
-                </p>
-                <code-block lang="yaml">
-                        name: Qodana
-                        on:
-                          workflow_dispatch:
-                          pull_request:
-                          push:
-                            branches: # Specify your branches here
-                              - main # The 'main' branch
-                              - 'releases/*' # The release branches
-                        jobs:
-                          qodana:
-                            runs-on: ubuntu-latest
-                            permissions:
-                              contents: write
-                              pull-requests: write
-                              checks: write
-                            steps:
-                              - uses: actions/checkout@v3
-                                with:
-                                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                                  fetch-depth: 0  # a full history is required for pull request analysis
-                              - name: 'Qodana Scan'
-                                uses: JetBrains/qodana-action@v2024.2
-                                with:
-                                  args: --linter,%qp-co-linter%
-                                env:
-                                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+    <tab title="GitLab CI/CD" group-key="gitlab">
+        <p>
+            In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the 
+            following snippet:
+        </p>
+        <code-block lang="yaml">
+            qodana:
+              image:
+                 name: %qp-linter% 
+                 entrypoint: [""]
+              cache:
+                 - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                   fallback_keys:
+                      - qodana-2024.2-$CI_DEFAULT_BRANCH-
+                      - qodana-2024.2-
+                   paths:
+                      - .qodana/cache
+              variables:
+                 QODANA_TOKEN: $qodana_token
+               script:
+                 - >
+                   qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
+                     --results-dir=$CI_PROJECT_DIR/.qodana/results \
+                     --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+              artifacts:
+                 paths:
+                    - .qodana/results
+                 expose_as: 'Qodana report'
+        </code-block>
+        <p>
+            Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a 
+            base for comparison.
+        </p>
+    </tab>
+    <tab title="TeamCity" group-key="teamcity">
+        <p>Information about configuring TeamCity for analyzing pull and merge requests is available on the 
+            <a href="%TeamCityPullRequests%">TeamCity</a> documentation portal.
+        </p>
+    </tab>
+    <tab title="Command line" group-key="command-line">
+        <p>
+            To analyze changes in your code, employ the <code>--diff-start</code> option and specify a hash of the commit 
+            that will act as a base for comparison:
+        </p>
+        <tabs group="cli-settings">
+            <tab group-key="qodana-cli" title="Qodana CLI">
+                <code-block prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %qp-linter% \
+                       --diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
-            <tab title="GitLab CI/CD" group-key="gitlab">
-                <p>
-                    In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the 
-                    following snippet:
-                </p>
-                <code-block lang="yaml">
-                    qodana:
-                      image:
-                         name: %qp-co-linter% 
-                         entrypoint: [""]
-                      cache:
-                         - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                           fallback_keys:
-                              - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                              - qodana-2024.2-
-                           paths:
-                              - .qodana/cache
-                      variables:
-                         QODANA_TOKEN: $qodana_token
-                       script:
-                         - >
-                           qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                             --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                             --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                      artifacts:
-                         paths:
-                            - .qodana/results
-                         expose_as: 'Qodana report'
+            <tab group-key="docker-image" title="Docker image">
+                <code-block lang="shell" prompt="$">
+                  docker run \
+                  &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+                  &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                  &nbsp;&nbsp;&nbsp;%qp-linter% \
+                  &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
-                <p>
-                    Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a 
-                    base for comparison.
-                </p>
-            </tab>
-            <tab title="TeamCity" group-key="teamcity">
-                <p>Information about configuring TeamCity for analyzing pull and merge requests is available on the 
-                    <a href="%TeamCityPullRequests%">TeamCity</a> documentation portal.
-                </p>
-            </tab>
-            <tab title="Command line" group-key="command-line">
-                <p>
-                    To analyze changes in your code, employ the <code>--diff-start</code> option and specify a hash of the commit 
-                    that will act as a base for comparison:
-                </p>
-                <tabs group="cli-settings">
-                    <tab group-key="qodana-cli" title="Qodana CLI">
-                        <code-block prompt="$">
-                            qodana scan \
-                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               -l %qp-co-linter% \
-                               --diff-start=&lt;GIT_START_HASH&gt;
-                        </code-block>
-                    </tab>
-                    <tab group-key="docker-image" title="Docker image">
-                        <code-block lang="shell" prompt="$">
-                          docker run \
-                          &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
-                          &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                          &nbsp;&nbsp;&nbsp;%qp-co-linter% \
-                          &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
-                        </code-block>
-                    </tab>
-                </tabs>
             </tab>
         </tabs>
     </tab>
 </tabs>
+
 
 ## Usage statistics
 

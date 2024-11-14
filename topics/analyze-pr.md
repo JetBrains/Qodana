@@ -1,11 +1,11 @@
 # Analyze changes
 
-<link-summary>For all linter except Qodana Community for .NET, you can run incremental analysis on a change set like 
+<link-summary>For all linters except Qodana Community for .NET and Qodana for C/C++, you can run incremental analysis on a change set like 
 merge or pull requests, as well as inspect changes between two commits.</link-summary> 
 
 <var name="mrp" value="https://docs.gitlab.com/ee/ci/pipelines/merged_results_pipelines.html"/>
 
-<note>This feature is not supported by the <a href="dotnet.md"/> linter.</note>
+<note>This feature is not supported by the <a href="dotnet.md">%dotnet-co%</a> and <a href="clang.md">%clang%</a> linters.</note>
 
 Using %product%, you can not only scan your entire codebase, but also run analysis on change sets like merge or pull 
 requests, as well as inspect changes between two commits.

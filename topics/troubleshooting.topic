@@ -99,7 +99,7 @@
 
     <chapter id="troubleshooting-whitelist" title="IP addresses required by Qodana Cloud">
 
-        <p>To provide correct work of the contributor counting functionality, add the IP address range
+        <p>To provide the correct work of the contributor counting functionality, add the IP address range
             54.76.32.8/32 to a list of allowed inbound connections on your side.</p>
 
     </chapter>
@@ -314,6 +314,13 @@
             </tr>
         </table>
 
+
+    </chapter>
+
+    <chapter id="troubleshooting-sensitive-data" title="I have accidentally uploaded sensitive data to Qodana Cloud, what should I do?">
+
+        <p>All your data is always encrypted at rest and in transit. If you remain concerned, you can delete the report containing sensitive
+            data using the Qodana Cloud UI.</p>
 
     </chapter>
 
