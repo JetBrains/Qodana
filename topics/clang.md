@@ -488,13 +488,14 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
     %product% recognizes the <code>qodana.yaml</code> file for the analysis configuration,
     so that you don't need to pass any additional parameters. For %qp%, you can configure:</p>
 <list>
-    <li>Inspections using the <code>include</code> and <code>exclude</code> options. See the
-        <a href="qodana-yaml.md" anchor="Example+of+different+configuration+options">YAML file</a> section for details.</li>
     <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
         option.</li>
     <li><a anchor="Enabling+the+baseline+feature">Baseline</a> and <a anchor="Enabling+the+quality+gate">quality gate</a> features.</li>
 </list>
 
+<note>The %clang% linter does not support 
+<a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">including</a> and 
+<a href="qodana-yaml.md" anchor="exclude-paths">excluding</a> paths for specific inspections through the <code>qodana.yaml</code> file.</note>
 
 ### Enabling the baseline feature
 
