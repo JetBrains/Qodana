@@ -40,7 +40,14 @@ steps:
   - task: QodanaScan@2024
 ```
 
-Triggering this job depends on [what type of repository you are using in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops#classic-build-pipelines-and-yaml-pipelines).
+Triggering this job depends on the [repository type that you are using in Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops#classic-build-pipelines-and-yaml-pipelines).
+
+If you use the classic editor to create pipelines, add the `Qodana Scan` task to the pipeline configuration and then 
+click it. This will open the task configuration as shown below.
+
+<img src="azure-pipelines-task-config.png" width="706" alt="The Qodana Scan task UI config" border-effect="line"/>
+
+The description of these fields is available in the [](#Configuration) chapter of this section.
 
 The task can be run on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed.
 And since most of the Qodana Docker images are Linux-based, the docker daemon must be able to run Linux containers.
@@ -79,16 +86,16 @@ To display Qodana report summary in Azure DevOps UI in 'Scans' tab, install Micr
 
 ## Configuration
 
-You probably won't need other options than `args`: all other options can be helpful if you are configuring multiple Qodana Scan jobs in one workflow.
+You won't probably need other options than `args`: all other options can be helpful if you are configuring multiple `Qodana Scan` jobs in one workflow.
 
-| Name           | Description                                                                                                                                                                 | Default Value                           |
-|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| `args`         | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend`. Optional. | -                                       |
-| `resultsDir`   | Directory to store the analysis results. Optional.                                                                                                                          | `$(Agent.TempDirectory)/qodana/results` |
-| `uploadResult` | Upload Qodana results as an artifact to the job. Optional.                                                                                                                  | `false`                                 |
-| `uploadSarif`  | Upload qodana.sarif.json as an qodana.sarif artifact to the job. Optional.                                                                                                  | `true`                                  |
-| `artifactName` | Specify Qodana results artifact name, used for results uploading. Optional.                                                                                                 | `qodana-report`                         |
-| `cacheDir`     | Directory to store Qodana caches. Optional.                                                                                                                                 | `$(Agent.TempDirectory)/qodana/cache`   |
+| YAML option    | UI element of the classic editor | Description                                                                                                                                                                 | Default Value                           |
+|----------------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| `args`         | **Qodana CLI arguments**        | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend`. Optional. | None                                    |
+| `resultsDir`   | **Results Directory**           | Directory to store the analysis results. Optional.                                                                                                                          | `$(Agent.TempDirectory)/qodana/results` |
+| `uploadResult` | **Upload Result**               | Upload Qodana results as an artifact to the job. Optional.                                                                                                                  | `false`                                 |
+| `uploadSarif`  | **Upload SARIF**                | Upload qodana.sarif.json as an qodana.sarif artifact to the job. Optional.                                                                                                  | `true`                                  |
+| `artifactName` | **Artifact Name**               | Specify Qodana results artifact name, used for results uploading. Optional.                                                                                                 | `qodana-report`                         |
+| `cacheDir`     | **Cache Directory**             | Directory to store Qodana caches. Optional.                                                                                                                                 | `$(Agent.TempDirectory)/qodana/cache`   |
 
 [gh:qodana]: https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml
 [youtrack]: https://youtrack.jetbrains.com/issues/QD
