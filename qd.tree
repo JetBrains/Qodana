@@ -2,10 +2,10 @@
 <!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 <instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="release">
 	<!-- Getting started section -->
-	<toc-element accepts-web-file-names="welcome.html" topic="getting-started.topic">
-		<toc-element topic="about-qodana.md" accepts-web-file-names="cloud-about.html"/>
+	<toc-element accepts-web-file-names="welcome.html,index.html" topic="getting-started.topic">
+		<toc-element topic="about-qodana.md" accepts-web-file-names="cloud-about.html,qodana.html"/>
 		<toc-element topic="pricing.md"/>
-		<toc-element topic="Quick-start.topic"/>
+		<toc-element topic="Quick-start.topic" accepts-web-file-names="cli.html"/>
 		<toc-element topic="set-up-your-project.md" accepts-web-file-names="cloud-onboarding.md"/>
 		<toc-element topic="faq.topic"/>
 		<toc-element accepts-web-file-names="new-in-2024-1.html,new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html" topic="new-in-2024-2.md"/>
@@ -25,10 +25,10 @@
 	<toc-element topic="linters.md" accepts-web-file-names="supported-technologies.html">
 		<toc-element topic="python.md" accepts-web-file-names="qodana-python.html,qodana-python-community.html,
 		qodana-python-docker-readme.html,qodana-python-community-docker-readme.html"/>
-	<toc-element topic="dotnet.md" accepts-web-file-names="qodana-dotnet.html,qodana-dotnet-community.html,
+	<toc-element topic="dotnet.md" accepts-web-file-names="qodana-dotnet.html,qodana-cdnet.html,qodana-dotnet-community.html,
 	qodana-dotnet-docker-readme.html,qodana-cdnet-docker-readme.html"/>
     <toc-element topic="jvm.md" accepts-web-file-names="qodana-jvm.html,qodana-jvm-community.html,qodana-jvm-android.html,
-    qodana-jvm-docker-readme.html,qodana-jvm-community-docker-readme.html,qodana-jvm-android-docker-readme.html"/>
+    qodana-jvm-docker-readme.html,qodana-jvm-community-docker-readme.html,qodana-jvm-android-docker-readme.html,qodana-intellij-docker-readme.html,about-qodana-intellij.html"/>
 		<toc-element accepts-web-file-names="qodana-php.html,qodana-php-docker-readme.html"
 					 topic="php.md"/>
 		<toc-element topic="js.md" accepts-web-file-names="qodana-js.html,qodana-js-docker-readme.html"/>
@@ -50,7 +50,7 @@
 	<!-- Deployment section -->
 	<toc-element toc-title="Deployment" topic="deploy-qodana.topic">
 		<toc-element topic="native-mode.md"/>
-		<toc-element topic="docker-images.md">
+		<toc-element topic="docker-images.md" accepts-web-file-names="docker-readme.html,qodana-docker-readme.html">
 		</toc-element>
 		<toc-element topic="qodana_gradle_plugin.md"/>
 <!--		<toc-element topic="service.md"/> -->
@@ -60,8 +60,8 @@
 		<toc-element topic="vscode.md"/>
 	</toc-element>
 	<!-- Configuration section -->
-	<toc-element toc-title="Configuration" topic="configure-qodana.topic">
-		<toc-element topic="qodana-yaml.md"/>
+	<toc-element toc-title="Configuration" topic="configure-qodana.topic" accepts-web-file-names="qodana-configuration.html">
+		<toc-element topic="qodana-yaml.md" accepts-web-file-names="qodana-yaml.htm"/>
 		<toc-element accepts-web-file-names="qodana-jvm-docker-techs.html,qodana-jvm-community-docker-techs.html,qodana-jvm-android-docker-techs.html,qodana-php-docker-techs.html,qodana-python-docker-techs.html,qodana-python-community-docker-techs.html,qodana-js-docker-techs.html,qodana-go-docker-techs.html,qodana-dotnet-docker-techs.html" topic="docker-image-configuration.topic"/>
 		<toc-element topic="inspection-profiles.md">
 			<toc-element topic="custom-profiles.md"/>
@@ -70,7 +70,7 @@
 		<toc-element topic="configure-jdk.md"/>
 	</toc-element>
 	<!-- Inspect your code section -->
-	<toc-element toc-title="Code inspection" topic="inspect-your-code.topic">
+	<toc-element toc-title="Code inspection" topic="inspect-your-code.topic" accepts-web-file-names="qodana-inspections.html">
 		<toc-element topic="before-running-qodana.md"/>
 		<toc-element topic="results.md">
 			<toc-element topic="ui-overview.md"/>
@@ -82,11 +82,11 @@
 		<toc-element topic="inspectopedia.md"/>
 	</toc-element>
 	<!-- Features section -->
-	<toc-element topic="features.topic">
+	<toc-element topic="features.topic" accepts-web-file-names="about-clone-finder.html">
 		<toc-element accepts-web-file-names="qodana-baseline.html" topic="baseline.topic"/>
 		<toc-element topic="code-coverage.md"/>
 		<toc-element topic="flexinspect.md" id="qodana-flexinspect"/>
-		<toc-element accepts-web-file-names="about-license-audit.html" topic="license-audit.topic"/>
+		<toc-element accepts-web-file-names="about-license-audit.html,license-audit-github-action.html,license-audit-docker-readme.html" topic="license-audit.topic"/>
 		<toc-element accepts-web-file-names="qodana-php-language-upgrade.html" topic="php-language-upgrade.topic"/>
 		<toc-element topic="quality-gate.topic"/>
 		<toc-element topic="quick-fix.md"/>
@@ -102,7 +102,7 @@
 		<toc-element topic="gitlab.md"/>
 		<toc-element topic="jenkins.md"/>
 		<toc-element topic="space-automation.md"/>
-		<toc-element accepts-web-file-names="teamcity-plugins.html,teamcity-plugin-configuration.html,teamcity-plugin-quick-start.html" topic="teamcity.md"/>
+		<toc-element accepts-web-file-names="teamcity-plugins.html,teamcity-plugin-configuration.html,teamcity-plugin-quick-start.html,qodana-teamcity-plugin.html" topic="teamcity.md"/>
 	</toc-element>
 	<!--Qodana Cloud section -->
 	<toc-element toc-title="Qodana Cloud">
