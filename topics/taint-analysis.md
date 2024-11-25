@@ -154,7 +154,7 @@ You can click any step to see the source trace to the sink.
   <tab title="%jvm%" id="jvm">
   <p>In the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file,
   <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">include</a> the 
-  <code>PhpVulnerablePathsInspection</code> inspection into the analysis scope:</p>
+  <code>JvmTaintAnalysis</code> inspection into the analysis scope:</p>
 
   <code-block lang="yaml">
   include:
