@@ -8,8 +8,8 @@ arithmetic overflow, cross-site scripting, path traversal.</link-summary>
 
 Taint analysis is a method used in security testing to trace the flow of potentially harmful or tainted data through a
 program. It identifies paths where untrusted input or sources might reach sensitive operations or sinks without proper
-validation or sanitization, which helps prevent security vulnerabilities like SQL injections, cross-site scripting (
-XSS), command injections, and path traversal.
+validation or sanitization, which helps prevent security vulnerabilities like SQL injections, cross-site scripting (XSS), 
+command injections, and path traversal.
 
 The core goal of taint analysis is to determine if unanticipated input can affect program execution in malicious ways.
 
@@ -32,7 +32,7 @@ $taint = $_GET['some_key'];
 $taint = strip_tags($taint);
 ```
 
-Data validation, i.e. checking the data conforms with a required pattern. In this sample, validation for the `$email` 
+Data validation or checking the data conforms with a required pattern. In this sample, validation for the `$email` 
 variable is enabled:
     
 ```PHP
@@ -43,34 +43,46 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 ```
 
-## Deployment
+## Before you start
 
 ### IntelliJ IDEA
 {id="ta-deploy-idea"}
 
-In IntelliJ IDEA, you should install the 
-[**Security Analysis by Qodana**](https://plugins.jetbrains.com/plugin/25724-security-analysis-by-qodana/edit) plugin.
-To do it, navigate to the **Problems** tool window and then click the **Security Analysis** tab. On this tab, 
-click the **Download security analysis plugin** link.
+Before running taint analysis in IntelliJ IDEA, install the [**Security Analysis by Qodana**](https://plugins.jetbrains.com/plugin/25724-security-analysis-by-qodana/edit) plugin.
+You can navigate to the **Problems** tool window and then click the **Security Analysis** tab. On this tab, 
+click the **Install plugin** button.  
 
-<img src="taint-analysis-install.gif" width="793" alt="Taint analysis installation" border-effect="line" />
+<img src="taint-analysis-install.png" width="706" alt="Taint analysis installation" border-effect="line" />
 
-To configure taint analysis, follow the steps below.
-<procedure>
-<step>In IntelliJ IDEA, navigate to 
-<a href="https://www.jetbrains.com/help/idea/inspections-settings.html"><ui-path>Inspections</ui-path></a>.</step>
-<step>In <ui-path>Inspections</ui-path>, navigate to the <ui-path>Security</ui-path> list, and then expand it.</step>
-<step>In the <ui-path>Security</ui-path> list, click <ui-path>Taint analysis</ui-path>.</step>
-</procedure>
+Alternatively, you can navigate to **Files | Settings | Plugins** and then install the **Security Analysis by Qodana** 
+plugin. 
 
-The lower-right part of the window contains options divided into several tabs described below.
+### Other solutions
+{id="ta-deploy-other"}
 
-<img src="taint-analysis-configuration.png" alt="Taint analysis configuration" width="706" border-effect="line"/>
+If you run %product% outside JetBrains IDEs, taint analysis is available by default once you enable the
+`qodana.recommended` [inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles).
+
+## Run taint analysis
+
+<link-summary>Explore how you can run the taint analysis using JetBrains IDE and Qodana.</link-summary>
+
+### IntelliJ IDEA
+{id="ta-analysis-idea"}
+
+To run taint analysis in IntelliJ IDEA, navigate to the **Problems** tool window and then click the **Security Analysis** 
+tab. On this tab, click the **Run Taint Analysis** button. Alternatively, you can navigate to **Tools | Security Analysis | Run Taint Analysis**. 
+This will open the dialog where you can configure the feature. 
+
+<img src="taint-analysis-configuration.png" width="610" alt="Configuring taint analysis" border-effect="line"/>
+
+Here, you can configure the scope of files that you would like to analyze using taint analysis, as well as file masks
+for the analyzed files. The **Inspection options** group contains several tabs:  
 
 <tabs>
     <tab title="Settings for in-Editor Analysis" id="ta-in-editor-analysis">
-        <p>This configures the in-Editor analysis that occurs over a specific file in real time.</p>
-        <p>The <ui-path>Max depth of referenced file from current for in-editor analysis</ui-path> field configures 
+        <p>Configuration of analysis over a specific file in real time.</p>
+        <p>The <ui-path>Max depth of a referenced file from current for in-editor analysis</ui-path> field configures 
 analysis depth using the <code>file 1 -> file 2 (level 1) -> file 3 (level 2) -> -> file 4 (level 3) -> ...</code> pattern 
 where a specified value configures how deep your code will be analyzed. From the pattern, you can see that, for example, 
 <code>2</code> will cover two references. The default value is <code>1</code> (one) meaning that only one reference to 
@@ -79,8 +91,8 @@ another file will be analyzed.</p>
 that can be allocated for a specific file. The default value is 5000 ms.</p>
     </tab>
     <tab title="Settings for Batch Analysis" id="ta-batch-analysis">
-        <p>This configures the batch analysis that occurs over an entire project.</p>
-        <p>The <ui-path>Max depth of referenced file from current for batch analysis</ui-path> field configures analysis 
+        <p>Configuration of batch analysis over an entire project.</p>
+        <p>The <ui-path>Max depth of a referenced file from current for batch analysis</ui-path> field configures analysis 
 depth using the <code>file 1 -> file 2 (level 1) -> file 3 (level 2) -> -> file 4 (level 3) -> ...</code> pattern where 
 a specified value configures how deep your code will be analyzed. From the pattern, you can see that, for example, 
 <code>2</code> will cover two references. The default value is <code>1</code> (one) meaning that only one reference to 
@@ -91,42 +103,28 @@ in batch analyses.</p>
 performance problems. By enabling this, you can send us the <code>qodana.sarif.json</code> file once analysis is complete.</p>
     </tab>
     <tab title="Common Settings" id="ta-common-settings">
-        <p>The <ui-path>Maximum number of declarations to analyze at once</ui-path> configures the maximal number of 
+        <p>The <ui-path>Maximum number of declarations to analyze at once</ui-path> field configures the maximal number of 
     declarations that will be analyzed within a single file. Once this limit is reached, the maximal analysis depth will be 
     set to 1.</p>
-        <p>The <ui-path>Use caches during analysis</ui-path> lets you use caching. Using caches can consume disk space, but
+        <p>The <ui-path>Use caches during analysis</ui-path> field lets you use caching. While consuming disk space, it
 can improve analysis performance.</p>
     </tab>
 </tabs>
 
-### Other
-{id="ta-deploy-other"}
+After configuring taint analysis, click **OK**.
 
-If you run %product% outside JetBrains IDEs, taint analysis is available by default once you enable the
-`qodana.recommended` [inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles).
-
-## Analysis
-
-<link-summary>Explore how you can run the taint analysis using JetBrains IDE and Qodana.</link-summary>
-
-<!-- The Open DFA 1 section needs to be mentioned here -->
-
-### IntelliJ IDEA
-{id="ta-analysis-idea"}
-
-Once analysis is complete, in your IDE point to a suspicious code fragment, and then click the 
-<ui-path>Show DFA trace 1</ui-path> link.
+To explore analysis results, in your IDE point to a suspicious code fragment and then click the 
+<ui-path>Show DFA trace 1</ui-path> link to open the **Security Analysis** tab.
 
 <img src="ta-analysis-idea.gif" alt="Taint analysis in IntelliJ IDEA" width="793" border-effect="line"/>
 
-The left part of the <ui-path>Security Analysis</ui-path> contains a track of a source to a sink including all steps.
-The right part shows the code fragments related to steps.
+The left part of the <ui-path>Security Analysis</ui-path> tab contains all steps of a source-to-sink track.
+The right part shows the code fragments corresponding to a specific step. You can click any step to see the source trace 
+to the sink.
 
-<img src="ta-analysis-idea_2.png" alt="The Security Analysis tab" width="706" border-effect="line"/>
+<img src="taint-analysis-step-navigation.gif" alt="Navigating steps between a source and a sink" width="793" border-effect="line"/>
 
-You can click any step to see the source trace to the sink.
-
-### Other
+### Other solutions
 {id="ta-analysis-other"}
 
 <snippet id="running-taint-analysis">
