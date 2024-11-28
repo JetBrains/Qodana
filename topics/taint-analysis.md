@@ -2,11 +2,13 @@
 
 <show-structure for="chapter" depth="3"/>
 
+<var name="plugin-url" value="https://plugins.jetbrains.com/plugin/25724-security-analysis-by-qodana/edit"/>
+
 <link-summary>Taint analysis is a process of assessing a flow of untrusted user input throughout the body of a 
 function or method. If you have a taint in your code, hackers can execute these code fragments to cause SQL injection, 
 arithmetic overflow, cross-site scripting, path traversal.</link-summary>
 
-Taint analysis is a method used in security testing to trace the flow of potentially harmful or tainted data through a
+Taint analysis lets you trace the flow of potentially harmful or tainted data through a
 program. It identifies paths where untrusted input or sources might reach sensitive operations or sinks without proper
 validation or sanitization, which helps prevent security vulnerabilities like SQL injections, cross-site scripting (XSS), 
 command injections, and path traversal.
@@ -18,12 +20,14 @@ Taint analysis is supported by the [%php%](php.md) and [%jvm%](jvm.md) linters u
 
 ## How it works
 
+<link-summary>Learn how taint analysis works.</link-summary>
+
 Tainted data is called a **source**, while a vulnerable function that may contain a source is called a **sink**.
 In this case, tainted data travels to sinks via propagators, such as function calls or assignments.
 
 <img src="taint-analysis.png" dark-src="taint-analysis_dark.png" width="706" alt="Taint analysis diagram" border-effect="line"/>
 
-To prevent such propagation, the taint analysis feature applies several approaches. For example, data sanitization or data
+To prevent such propagation, the taint analysis applies several approaches like data sanitization or data
 transformation to a safe state. Here, tags are removed to resolve the taint:
 
 ```PHP
@@ -32,7 +36,7 @@ $taint = $_GET['some_key'];
 $taint = strip_tags($taint);
 ```
 
-Data validation or checking the data conforms with a required pattern. In this sample, validation for the `$email` 
+Data validation conforms to a required pattern. In this sample, validation for the `$email` 
 variable is enabled:
     
 ```PHP
@@ -45,76 +49,84 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 ## Before you start
 
+<link-summary>Prerequisites for running the taint analysis feature.</link-summary>
+
+This section explains how you can run taint analysis in IntelliJ IDEA and CI/CD pipelines.
+
 ### IntelliJ IDEA
 {id="ta-deploy-idea"}
 
-Before running taint analysis in IntelliJ IDEA, install the [**Security Analysis by Qodana**](https://plugins.jetbrains.com/plugin/25724-security-analysis-by-qodana/edit) plugin.
-You can navigate to the **Problems** tool window and then click the **Security Analysis** tab. On this tab, 
+Before you run taint analysis in IntelliJ IDEA, install the [**Security Analysis by Qodana**](%plugin-url%) plugin.
+To do it, navigate to the **Problems** tool window and click the **Security Analysis** tab. On this tab, 
 click the **Install plugin** button.  
 
 <img src="taint-analysis-install.png" width="706" alt="Taint analysis installation" border-effect="line" />
 
-Alternatively, you can navigate to **Files | Settings | Plugins** and then install the **Security Analysis by Qodana** 
+Alternatively, navigate to **File | Settings | Plugins** and install the [**Security Analysis by Qodana**](%plugin-url%) 
 plugin. 
 
-### Other solutions
+### CI/CD
 {id="ta-deploy-other"}
 
-If you run %product% outside JetBrains IDEs, taint analysis is available by default once you enable the
+Taint analysis is available by default once you enable the
 `qodana.recommended` [inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles).
 
 ## Run taint analysis
 
-<link-summary>Explore how you can run the taint analysis using JetBrains IDE and Qodana.</link-summary>
+<link-summary>Explore how you can run taint analysis.</link-summary>
 
 ### IntelliJ IDEA
 {id="ta-analysis-idea"}
 
-To run taint analysis in IntelliJ IDEA, navigate to the **Problems** tool window and then click the **Security Analysis** 
-tab. On this tab, click the **Run Taint Analysis** button. Alternatively, you can navigate to **Tools | Security Analysis | Run Taint Analysis**. 
-This will open the dialog where you can configure the feature. 
+<procedure>
+<step>
+<p>Navigate to the <control>Problems</control> tool window and then click the <control>Security Analysis</control>
+tab. On this tab, click the <control>Run Taint Analysis</control> button.</p>
 
+<img src="taint-analysis-run-first-step.png" width="706" alt="Running taint analysis from the Problems tool window" border-effect="line"/>
+
+<p>Alternatively, you can navigate to <control>Tools | Security Analysis | Run Taint Analysis</control>.</p>
+</step>
+<step>
+<p>On the dialog that opens configure taint analysis.</p>
 <img src="taint-analysis-configuration.png" width="610" alt="Configuring taint analysis" border-effect="line"/>
-
-Here, you can configure the scope of files that you would like to analyze using taint analysis, as well as file masks
-for the analyzed files. The **Inspection options** group contains several tabs:  
-
+<p>Here you can configure the scope of files that you would like to analyze using taint analysis, as well as file masks
+for the analyzed files.</p> 
+<p>The <control>Inspection options</control> group contains several tabs:</p>
 <tabs>
     <tab title="Settings for in-Editor Analysis" id="ta-in-editor-analysis">
-        <p>Configuration of analysis over a specific file in real time.</p>
+        <p>Options applied to an opened file in real time.</p>
         <p>The <ui-path>Max depth of a referenced file from current for in-editor analysis</ui-path> field configures 
-analysis depth using the <code>file 1 -> file 2 (level 1) -> file 3 (level 2) -> -> file 4 (level 3) -> ...</code> pattern 
-where a specified value configures how deep your code will be analyzed. From the pattern, you can see that, for example, 
-<code>2</code> will cover two references. The default value is <code>1</code> (one) meaning that only one reference to 
-another file will be analyzed.</p>
+analysis depth using the <code>file 1 -> file 2 (level 1) -> file 3 (level 2) -> -> file 4 (level 3) -> ...</code> pattern. 
+For example, <code>2</code> will cover two references to other files. The default value is <code>1</code> (one) meaning 
+that only one reference to another file will be analyzed.</p>
         <p>The <ui-path>Analysis time limit for in-editor analysis (ms)</ui-path> field configures the amount of time 
 that can be allocated for a specific file. The default value is 5000 ms.</p>
     </tab>
     <tab title="Settings for Batch Analysis" id="ta-batch-analysis">
         <p>Configuration of batch analysis over an entire project.</p>
         <p>The <ui-path>Max depth of a referenced file from current for batch analysis</ui-path> field configures analysis 
-depth using the <code>file 1 -> file 2 (level 1) -> file 3 (level 2) -> -> file 4 (level 3) -> ...</code> pattern where 
-a specified value configures how deep your code will be analyzed. From the pattern, you can see that, for example, 
-<code>2</code> will cover two references. The default value is <code>1</code> (one) meaning that only one reference to 
-another file will be analyzed.</p>
+depth using the <code>file 1 -> file 2 (level 1) -> file 3 (level 2) -> -> file 4 (level 3) -> ...</code> pattern. 
+For example, <code>2</code> will cover two references to other files. The default value is <code>1</code> (one) meaning 
+that only one reference to another file will be analyzed.</p>
         <p>The <ui-path>Operation count limit for batch analysis (millions)</ui-path> field limits the number of steps
 in batch analyses.</p>
-        <p>The <ui-path>Record performance metrics in %product%</ui-path> checkbox is useful in case of 
-performance problems. By enabling this, you can send us the <code>qodana.sarif.json</code> file once analysis is complete.</p>
     </tab>
     <tab title="Common Settings" id="ta-common-settings">
         <p>The <ui-path>Maximum number of declarations to analyze at once</ui-path> field configures the maximal number of 
     declarations that will be analyzed within a single file. Once this limit is reached, the maximal analysis depth will be 
-    set to 1.</p>
+    set to <code>1</code> (one).</p>
         <p>The <ui-path>Use caches during analysis</ui-path> field lets you use caching. While consuming disk space, it
 can improve analysis performance.</p>
     </tab>
 </tabs>
+</step>
+</procedure>
 
-After configuring taint analysis, click **OK**.
+#### Explore results
 
-To explore analysis results, in your IDE point to a suspicious code fragment and then click the 
-<ui-path>Show DFA trace 1</ui-path> link to open the **Security Analysis** tab.
+In your IDE, point to a suspicious code fragment and then click the <ui-path>Show DFA trace 1</ui-path> link to open 
+the **Security Analysis** tab.
 
 <img src="ta-analysis-idea.gif" alt="Taint analysis in IntelliJ IDEA" width="793" border-effect="line"/>
 
@@ -124,7 +136,7 @@ to the sink.
 
 <img src="taint-analysis-step-navigation.gif" alt="Navigating steps between a source and a sink" width="793" border-effect="line"/>
 
-### Other solutions
+### CI/CD
 {id="ta-analysis-other"}
 
 <snippet id="running-taint-analysis">
