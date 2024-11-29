@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/ta-analysis-idea.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ta-analysis-idea_dark.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-configuration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-configuration_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-install.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-install_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-run-first-step.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-run-first-step_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-step-navigation.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-step-navigation_dark.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/taint-analysis-configure-tab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/taint-analysis-configure-tab_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/components.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/components.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/features.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/features.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/new-in-2024-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2024-3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ta-analysis-idea.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-explore-results.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ta-analysis-idea_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-explore-results_dark.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

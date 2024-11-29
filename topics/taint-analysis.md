@@ -128,13 +128,20 @@ can improve analysis performance.</p>
 In your IDE, point to a suspicious code fragment and then click the <ui-path>Show DFA trace 1</ui-path> link to open 
 the **Security Analysis** tab.
 
-<img src="ta-analysis-idea.gif" alt="Taint analysis in IntelliJ IDEA" width="793" border-effect="line"/>
+<img src="taint-analysis-explore-results.gif" alt="Taint analysis in IntelliJ IDEA" width="793" border-effect="line"/>
 
 The left part of the <ui-path>Security Analysis</ui-path> tab contains all steps of a source-to-sink track.
 The right part shows the code fragments corresponding to a specific step. You can click any step to see the source trace 
 to the sink.
 
 <img src="taint-analysis-step-navigation.gif" alt="Navigating steps between a source and a sink" width="793" border-effect="line"/>
+
+#### Configure the Security Analysis tab
+
+Configure the **Security Analysis** tab by navigating to **File | Settings | Advanced settings**.
+Here, find the **Security Analysis** section and then configure the **Show Problem Tab** checkbox.  
+
+<img src="taint-analysis-configure-tab.png" alt="Configuring the Security Analysis tab" width="706" border-effect="line"/>
 
 ### CI/CD
 {id="ta-analysis-other"}
