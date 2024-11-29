@@ -473,6 +473,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
         <p><a href="license-audit.topic">License audit</a></p>
         <p><a href="quick-fix.md">Quick-fix</a></p>
         <p><a href="vulnerability-checker.md">Vulnerability checker</a></p>
+        <p><a href="taint-analysis.md">Taint analysis</a></p>
       </td>
       <td>
             <p>&#x2714;</p>
@@ -481,6 +482,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>Only %jvm%</p>
       </td>
       <td>
          <p>&#x2714;</p>
@@ -489,10 +491,12 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
+         <p>&nbsp;</p>
       </td>
       <td>
          <p>&#x2714;</p>
          <p>&#x2714;</p>
+         <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>

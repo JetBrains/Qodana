@@ -114,10 +114,11 @@
             </tr>
             <tr>
                 <td><a href="taint-analysis.md"/></td>
-                <td>Secure your PHP code from malicious user data. Available only in the <a href="php.md">%php%</a> linter</td>
+                <td>Secure your PHP code from malicious user data</td>
                 <td>Ultimate Plus</td>
                 <td>
                     <p><a href="php.md">%php%</a></p>
+                    <p><a href="jvm.md">%jvm%</a></p>
                 </td>
             </tr>
             <tr>
