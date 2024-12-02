@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-configure-tab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/taint-analysis-configure-tab_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ta-analysis-idea.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-explore-results.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ta-analysis-idea_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-explore-results_dark.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,6 +94,18 @@
     &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/analyze-pr.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/code-coverage.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/dotnet.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/inspection-profiles.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/jvm.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/new-in-2024-3.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-yaml.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/taint-analysis.md&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">

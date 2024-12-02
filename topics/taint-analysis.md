@@ -118,6 +118,8 @@ in batch analyses.</p>
     set to <code>1</code> (one).</p>
         <p>The <ui-path>Use caches during analysis</ui-path> field lets you use caching. While consuming disk space, it
 can improve analysis performance.</p>
+        <p>If enabled, the <ui-path>Enable computation expensive configurations</ui-path> checkbox involves additional
+analysis techniques that can improve output but will significantly impact performance.</p>
     </tab>
 </tabs>
 </step>
