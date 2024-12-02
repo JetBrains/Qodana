@@ -38,7 +38,7 @@
                         <a href="quality-gate.topic" summary="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
                         <a href="quick-fix.md" summary="Use the quick-fix feature to improve the performance of the project development."/>
                         <a href="qodana-sarif-output.md" summary="Qodana linters can read and write reports in SARIF format, which is the industry standard for the output of static analysis tools."/>
-                        <a href="taint-analysis.md" summary="Secure your PHP code from malicious user data."/>
+                        <a href="taint-analysis.md" summary="Secure your code from malicious user data."/>
                         <a href="vulnerability-checker.md" summary="Check third-party packages for vulnerabilities."/>
                 </secondary>
                 
