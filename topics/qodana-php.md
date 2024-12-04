@@ -6,7 +6,7 @@
 
 <var name="linter" value="Qodana for PHP"/>
 <var name="ide" value="PhpStorm"/>
-<var name="docker-image" value="jetbrains/qodana-php:2024.2"/>
+<var name="docker-image" value="jetbrains/qodana-php:2024.3-eap"/>
 <var name="config-file" value="qodana-php-docker-readme.topic"/>
 
 <link-summary>%linter% is based on %ide% and provides inspections for PHP, JavaScript, and TypeScript.</link-summary>

@@ -131,7 +131,7 @@ Below are the examples showing how you can run %product% in native mode:
                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                   fetch-depth: 0  # a full history is required for pull request analysis
               - name: 'Qodana Scan'
-                uses: JetBrains/qodana-action@v2024.2
+                uses: JetBrains/qodana-action@v2024.3
                 with:
                   args: --ide,&lt;linter&gt;
                 env:

@@ -4,7 +4,7 @@
 
 <!-- Linter-related variables -->
 <var name="qp" value="Qodana for C/C++"/>
-<var name="qp-linter" value="jetbrains/qodana-clang:2024.2-eap"/>
+<var name="qp-linter" value="jetbrains/qodana-clang:2024.3-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="CLion"/>
 
@@ -27,14 +27,14 @@
 <var name="config-file" value="qodana-clang-docker-readme.topic"/>
 <var name="clang-tidy" value="https://clang.llvm.org/extra/clang-tidy"/>
 <var name="clang-config" value="https://gist.github.com/fbaeuerlein/2895f889e451a817d7b2b36fd60e2873"/>
-<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.2/base/cpp.Dockerfile"/>
-<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.2/cpp/internal.Dockerfile"/>
+<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.3/base/cpp.Dockerfile"/>
+<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.3/cpp/internal.Dockerfile"/>
 <var name="clang-website" value="https://clang.llvm.org/extra/clang-tidy/checks/list.html"/>
 <var name="clion-inspections-general" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="misra-inspections" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#stat-analysis-tools"/>
 <var name="compdb-generate" value="https://www.jetbrains.com/help/clion/compilation-database.html#compdb_generate"/>
 
-<var name="linter-shell" value="qodana-clang:2024.2-eap"/>
+<var name="linter-shell" value="qodana-clang:2024.3-eap"/>
 <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
@@ -215,7 +215,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                                     ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                     fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2024.2
+                                  uses: JetBrains/qodana-action@v2024.3
                                   with:
                                       args: --ide,&lt;QDJVM/QDAND/QDJVMC/QDANDC&gt;
                                   env:
@@ -271,7 +271,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
-                      uses: JetBrains/qodana-action@v2024.2
+                      uses: JetBrains/qodana-action@v2024.3
                       with:
                         args: --linter,%qp-linter%
                       env:
@@ -304,7 +304,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
-                      uses: JetBrains/qodana-action@v2024.2
+                      uses: JetBrains/qodana-action@v2024.3
                       with:
                         args: --linter,%qp-linter%,--compile-commands,&lt;path-to-compile_commands.json&gt;
                       env:
@@ -380,10 +380,10 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                   name: %qp-linter% 
                   entrypoint: [""]
                cache:
-                  - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                  - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                     fallback_keys:
-                       - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                       - qodana-2024.2-
+                       - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                       - qodana-2024.3-
                     paths:
                        - .qodana/cache
                variables:
@@ -410,10 +410,10 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                   name: %qp-linter% 
                   entrypoint: [""]
                cache:
-                  - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                  - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                     fallback_keys:
-                       - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                       - qodana-2024.2-
+                       - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                       - qodana-2024.3-
                     paths:
                        - .qodana/cache
                variables:
@@ -530,7 +530,7 @@ in a SARIF-formatted file.
                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
-                        uses: JetBrains/qodana-action@v2024.2
+                        uses: JetBrains/qodana-action@v2024.3
                         with: 
                           args: --ide,&lt;QDJVM/QDAND/QDJVMC/QDANDC&gt;,--baseline,&lt;path/to/qodana.sarif.json&gt;
                         env:
@@ -606,7 +606,7 @@ in a SARIF-formatted file.
                     ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                     fetch-depth: 0  # a full history is required for pull request analysis
                 - name: 'Qodana Scan'
-                  uses: JetBrains/qodana-action@v2024.2
+                  uses: JetBrains/qodana-action@v2024.3
                   with:
                     args: --linter,%qp-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                   env:
@@ -654,10 +654,10 @@ in a SARIF-formatted file.
               name: %qp-linter% 
               entrypoint: [""]
            cache:
-              - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+              - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                 fallback_keys:
-                   - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                   - qodana-2024.2-
+                   - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                   - qodana-2024.3-
                 paths:
                    - .qodana/cache
            variables:

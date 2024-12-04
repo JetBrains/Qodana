@@ -216,7 +216,7 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
-        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2024.2"
+        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2024.3"
         pr-mode: false
 ```
 <p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="qodana-yaml.md">%product% configuration</a> 
@@ -236,10 +236,10 @@ directory:</p>
               name: jetbrains/qodana-&lt;linter&gt;
               entrypoint: [""]
            cache:
-              - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+              - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                 fallback_keys:
-                   - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                   - qodana-2024.2-
+                   - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                   - qodana-2024.3-
                 paths:
                    - .qodana/cache
            variables:

@@ -4,9 +4,9 @@
 
 <var name="qp" value="Qodana for .NET"/>
 <var name="qp-co" value="Qodana Community for .NET"/>
-<var name="qp-linter" value="jetbrains/qodana-dotnet:2024.2"/>
-<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2024.2-eap"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;dotnet/cdnet&gt;:2024.2&lt;-eap&gt;"/>
+<var name="qp-linter" value="jetbrains/qodana-dotnet:2024.3-eap"/>
+<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2024.2"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;dotnet/cdnet&gt;:2024.3-eap/2024.2&lt;-eap&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="Rider"/>
 <var name="ide-co" value="ReSharper"/>
@@ -133,7 +133,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                 ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
-                             uses: JetBrains/qodana-action@v2024.2
+                             uses: JetBrains/qodana-action@v2024.3
                              with:
                                # args: --linter,%qp-linter%
                                # args: --linter,%qp-co-linter% 
@@ -388,7 +388,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2024.2
+                                        uses: JetBrains/qodana-action@v2024.3
                                         with:
                                             args: --ide,QDNET
                                         env:
@@ -433,10 +433,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               name: %qp-linter%
                               entrypoint: [""]
                            cache:
-                              - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                              - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                                 fallback_keys:
-                                   - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                                   - qodana-2024.2-
+                                   - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                                   - qodana-2024.3-
                                 paths:
                                    - .qodana/cache
                            variables:
@@ -518,7 +518,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2024.2
+                                        uses: JetBrains/qodana-action@v2024.3
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -559,10 +559,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               name: %qp-linter%
                               entrypoint: [""]
                            cache:
-                              - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                              - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                                 fallback_keys:
-                                   - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                                   - qodana-2024.2-
+                                   - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                                   - qodana-2024.3-
                                 paths:
                                    - .qodana/cache
                            variables:
@@ -1145,7 +1145,7 @@ in a SARIF-formatted file.
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2024.2
+                                      uses: JetBrains/qodana-action@v2024.3
                                       with: 
                                         args: --ide,QDNET,--baseline,&lt;path/to/qodana.sarif.json&gt;
                                       env:
@@ -1201,7 +1201,7 @@ in a SARIF-formatted file.
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2024.2
+                                      uses: JetBrains/qodana-action@v2024.3
                                       with:
                                         args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-linter%
                                       env:
@@ -1248,10 +1248,10 @@ in a SARIF-formatted file.
                                   name: %qp-linter% 
                                   entrypoint: [""]
                                cache:
-                                  - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                                  - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                                     fallback_keys:
-                                       - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                                       - qodana-2024.2-
+                                       - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                                       - qodana-2024.3-
                                     paths:
                                        - .qodana/cache
                                variables:
@@ -1403,7 +1403,7 @@ in a SARIF-formatted file.
                               qodana scan \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 -l %qp-linter% \
+                                 -l %qp-co-linter% \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1413,7 +1413,7 @@ in a SARIF-formatted file.
                                  -v &lt;source-directory&gt;/:/data/project/ \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 %qp-linter% \
+                                 %qp-co-linter% \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1498,7 +1498,7 @@ This feature is supported only by the %dotnet% linter.
                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
-                        uses: JetBrains/qodana-action@v2024.2
+                        uses: JetBrains/qodana-action@v2024.3
                         with:
                           args: --linter,%qp-linter%
                         env:
@@ -1516,10 +1516,10 @@ This feature is supported only by the %dotnet% linter.
                  name: %qp-linter% 
                  entrypoint: [""]
               cache:
-                 - key: qodana-2024.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                 - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
                    fallback_keys:
-                      - qodana-2024.2-$CI_DEFAULT_BRANCH-
-                      - qodana-2024.2-
+                      - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                      - qodana-2024.3-
                    paths:
                       - .qodana/cache
               variables:
