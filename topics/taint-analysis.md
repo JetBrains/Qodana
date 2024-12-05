@@ -96,26 +96,19 @@ for the analyzed files.</p>
 <tabs>
     <tab title="Settings for in-Editor Analysis" id="ta-in-editor-analysis">
         <p>Options applied to an opened file in real time.</p>
-        <p>The <ui-path>Max depth of a referenced file from current for in-editor analysis</ui-path> field configures 
-analysis depth using the <code>file 1 -> file 2 (level 1) -> file 3 (level 2) -> -> file 4 (level 3) -> ...</code> pattern. 
-For example, <code>2</code> will cover two references to other files. The default value is <code>1</code> (one) meaning 
-that only one reference to another file will be analyzed.</p>
+        <p>The <ui-path>Analysis depth (from current file)</ui-path> field configures 
+analysis depth using the <code>Current file -> File 1 (Low) -> File 2 (Medium) -> File 3 (High)</code> reference pattern. 
+For example, the <ui-path>Medium</ui-path> setting configures the reference to <code>File 2</code> from this pattern.</p>
         <p>The <ui-path>Analysis time limit for in-editor analysis (ms)</ui-path> field configures the amount of time 
 that can be allocated for a specific file. The default value is 5000 ms.</p>
     </tab>
     <tab title="Settings for Batch Analysis" id="ta-batch-analysis">
         <p>Configuration of batch analysis over an entire project.</p>
-        <p>The <ui-path>Max depth of a referenced file from current for batch analysis</ui-path> field configures analysis 
-depth using the <code>file 1 -> file 2 (level 1) -> file 3 (level 2) -> -> file 4 (level 3) -> ...</code> pattern. 
-For example, <code>2</code> will cover two references to other files. The default value is <code>1</code> (one) meaning 
-that only one reference to another file will be analyzed.</p>
-        <p>The <ui-path>Operation count limit for batch analysis (millions)</ui-path> field limits the number of steps
-in batch analyses.</p>
+        <p>The <ui-path>Analysis depth (from current file)</ui-path> field configures 
+analysis depth using the <code>Current file -> File 1 (Low) -> File 2 (Medium) -> File 3 (High)</code> reference pattern. 
+For example, the <ui-path>Medium</ui-path> setting configures the reference to <code>File 2</code> from this pattern.</p>
     </tab>
     <tab title="Common Settings" id="ta-common-settings">
-        <p>The <ui-path>Maximum number of declarations to analyze at once</ui-path> field configures the maximal number of 
-    declarations that will be analyzed within a single file. Once this limit is reached, the maximal analysis depth will be 
-    set to <code>1</code> (one).</p>
         <p>The <ui-path>Use caches during analysis</ui-path> field lets you use caching. While consuming disk space, it
 can improve analysis performance.</p>
         <p>If enabled, the <ui-path>Enable computation expensive configurations</ui-path> checkbox involves additional
