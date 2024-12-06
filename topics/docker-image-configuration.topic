@@ -1491,7 +1491,8 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cdnet:%linter-version%-eap</code>
+                                    <code>jetbrains/qodana-cdnet:2024.2</code>
+                                    <!--<code>jetbrains/qodana-cdnet:%linter-version%-eap</code>-->
                                 </td>
                                 <td>
                                     <a href="dotnet.md">%dotnet-co%</a>

@@ -35,7 +35,7 @@ Currently, several linters provide inspections for several programming languages
             <p><a href="jvm.md">%jvm%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-jvm:%image-version%</code></p>
             <p><a href="jvm.md">%jvm-co%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-jvm-community:%image-version%</code></p>
             <p><a href="jvm.md">%jvm-co-a%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-jvm-android:%image-version%</code></p>
-            <p><a href="jvm.md">%jvm-a%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-android:%image-version-old%</code></p>
+            <p><a href="jvm.md">%jvm-a%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-android:%image-version%</code></p>
         </td>
     </tr>
     <tr>

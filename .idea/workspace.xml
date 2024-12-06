@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/taint-analysis-configuration.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-configuration.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/taint-analysis-configuration_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-configuration_dark.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
