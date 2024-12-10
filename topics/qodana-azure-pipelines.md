@@ -59,6 +59,8 @@ Alternatively, you can configure your pipelines using the Classic interface as e
 
 To send the results to Qodana Cloud, all you need to do is to specify the `QODANA_TOKEN` environment variable in the build configuration.
 
+If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring `QODANA_ENDPOINT` as environment variable.
+
 <snippet id="azure-pipelines-qodana-cloud">
 
 1. In the Azure Pipelines UI, create the `QODANA_TOKEN` [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&tabs=yaml%2Cbash#secret-variable-in-the-ui) and
