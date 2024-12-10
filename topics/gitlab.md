@@ -61,8 +61,8 @@ configuration options described in the [](docker-image-configuration.topic) sect
 
 The `variables` keyword defines environment variables to be used. The `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
 refers to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %instance% 
-[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. If you are using 
-another Qodana Cloud instance than https://qodana.cloud/, override it by declaring `QODANA_ENDPOINT` as environment variable.
+[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. If you are using a Qodana Cloud instance other 
+than https://qodana.cloud/, use the `QODANA_ENDPOINT` variable instead.
 
 You can see these sections to learn how to generate the project token:
 
