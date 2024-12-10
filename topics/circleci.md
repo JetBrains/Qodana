@@ -80,6 +80,8 @@ To forward inspection results to Qodana Cloud, all you need to do is to create t
 
 After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
 
+If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring `QODANA_ENDPOINT` as environment variable.
+
 </snippet>
 
 ![Qodana Cloud](qodana-cloud.gif)
