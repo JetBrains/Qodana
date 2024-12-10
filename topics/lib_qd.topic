@@ -292,6 +292,7 @@
             <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
                 <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
                 and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+                If you are using a Qodana Cloud instance other than https://qodana.cloud/, use the <code>QODANA_ENDPOINT</code> variable instead.
             </step>
             <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
                 <code>.github/workflows/code_quality.yml</code> file.</step>

@@ -68,7 +68,8 @@ pipeline {
 
 In this configuration, the `environment` block defines any environment variables to be used in the pipeline.
 The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in Qodana Cloud and is contained in 
-the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by the paid %instance%
+the `qodana-token` [global credentials](%JenkinsCred%). If you are using a Qodana Cloud instance other
+than https://qodana.cloud/, use the `QODANA_ENDPOINT` variable instead. The project token is required by the paid %instance%
 [linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. You can see these sections 
 to learn how to generate the project token in Qodana Cloud:
 

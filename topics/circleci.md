@@ -75,12 +75,12 @@ workflows:
 
 <snippet id="circleci-qodana-cloud">
 
-To forward inspection results to Qodana Cloud, all you need to do is to create the `QODANA_TOKEN` [project variable](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project) and
-   save the [project token](cloud-projects.topic#cloud-manage-projects) as its value.
+To forward inspection results to Qodana Cloud, all you need to do is to create the `QODANA_TOKEN` [project variable](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project) 
+and save the [project token](cloud-projects.topic#cloud-manage-projects) as its value. If you are using a Qodana Cloud instance other than 
+https://qodana.cloud/, use the `QODANA_ENDPOINT` variable instead.
 
 After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
 
-If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring `QODANA_ENDPOINT` as environment variable.
 
 </snippet>
 
