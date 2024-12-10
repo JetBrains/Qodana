@@ -18,6 +18,8 @@ allows you to run Qodana on a GitHub repository.
 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
 (reports issues that appeared only in that pull request).</note> 
 
+If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring `QODANA_ENDPOINT` as environment variable.
+
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
 
