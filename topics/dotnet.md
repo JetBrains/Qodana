@@ -4,9 +4,9 @@
 
 <var name="qp" value="Qodana for .NET"/>
 <var name="qp-co" value="Qodana Community for .NET"/>
-<var name="qp-linter" value="jetbrains/qodana-dotnet:2024.3-eap"/>
-<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2024.2"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;dotnet/cdnet&gt;:2024.3-eap"/>
+<var name="qp-linter" value="jetbrains/qodana-dotnet:2024.3"/>
+<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2024.3-eap"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;dotnet|cdnet&gt;:2024.3"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="Rider"/>
 <var name="ide-co" value="ReSharper"/>

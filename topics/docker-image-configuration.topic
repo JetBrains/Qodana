@@ -7,7 +7,7 @@
 	title="Shell commands" id="docker-image-configuration">
 
     <show-structure for="chapter" depth="3"/>
-    <var name="linter-version" value="2024.3-eap"/>
+    <var name="linter-version" value="2024.3"/>
 
     <link-summary>This section explains how you can configure the Docker images of
         %instance% and the Qodana CLI tool.</link-summary>
@@ -1491,8 +1491,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cdnet:2024.2</code>
-                                    <!--<code>jetbrains/qodana-cdnet:%linter-version%-eap</code>-->
+                                    <code>jetbrains/qodana-cdnet:%linter-version%-eap</code>
                                 </td>
                                 <td>
                                     <a href="dotnet.md">%dotnet-co%</a>
