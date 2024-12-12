@@ -292,7 +292,7 @@
             <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
                 <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
                 and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
-                If you are using a Qodana Cloud instance other than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> variable.
+                If you are using a Qodana Cloud instance other than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.
             </step>
             <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
                 <code>.github/workflows/code_quality.yml</code> file.</step>
@@ -883,7 +883,7 @@
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
                             </code-block>
-                            <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring <code>QODANA_ENDPOINT</code> variable.</p>
+                            <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
                             <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
                                 reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </step>
@@ -896,7 +896,7 @@
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                             &nbsp;&nbsp;&nbsp;--ide %native-arg%
                         </code-block>
-                        <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> variable.</p>
+                        <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
                         <include from="lib_qd.topic" element-id="linters-linter-table"/>
                         <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
                             reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
@@ -1191,7 +1191,7 @@
                                 </code-block>
                             </tab>
                         </tabs>
-                        <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring `QODANA_ENDPOINT` as environment variable.</p>
+                        <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
                         <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
                             reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                     </tab>

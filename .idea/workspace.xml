@@ -7,20 +7,10 @@
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/circleci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/circleci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/gitlab.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/gitlab.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/golang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/golang.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspect-python-code.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspect-python-code.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/jenkins.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jenkins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/js.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/php.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/php.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
