@@ -130,6 +130,7 @@
 			<toc-element topic="cloud-configure-for-os-projects.md"/>
 		</toc-element>
 	</toc-element>
+	<toc-element topic="code-horizon.md"/>
 	<!-- Extending Qodana section -->
 	<toc-element topic="extending-qodana.topic">
 		<toc-element topic="extending-qodana-plugins.topic"/>
