@@ -41,7 +41,7 @@
         </tr>
         <tr>
             <td><a href="dotnet.md">%dotnet%</a></td>
-            <td/>
+            <td>nuget</td>
         </tr>
     </table>
 
