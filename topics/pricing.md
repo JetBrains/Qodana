@@ -228,15 +228,6 @@ Yes, you’ll be notified when the trial period expires.
 
 After its expiry, you’ll need to buy either the Ultimate or Ultimate Plus license. Expired trial licenses cannot be extended.
 
-### What are the EAP and trial licenses?
-
-An EAP license is a license that gives you full access to Qodana until July 31, 2023. On August 1, 2023, all EAP 
-licenses will expire, which means users will have to switch to a trial license.
-
-A trial license is a time-limited version of either the Ultimate or the Ultimate Plus license. Each trial license 
-duration is limited to 60 days, after which this type of license is no longer valid and cannot be used further. To 
-continue using %instance%, you’ll have to buy a full version of your license.
-
 ### What are %instance% linters and Qodana Cloud designed for?
 
 Both %instance% linters and Qodana Cloud are essential parts of the product named %instance%. You can inspect your codebase
