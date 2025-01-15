@@ -3,11 +3,11 @@
 <var name="repository" value="https://support.atlassian.com/bitbucket-cloud/docs/create-a-repository-in-bitbucket-cloud/"/>
 <var name="pipeline" value="https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/"/>
 
-<link-summary>Learn how to run %instance% Docker images within Bitbucket Cloud pipelines.</link-summary>
+<link-summary>Learn how to run %instance% Docker images in Bitbucket Cloud pipelines.</link-summary>
 
 [Bitbucket Cloud](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-cloud/) is a tool that
 gives teams one place to plan, collaborate, test, and deploy their code. This
-section explains how you can run %instance% [Docker images](docker-images.md) within Bitbucket Cloud 
+section explains how you can run %instance% [Docker images](docker-images.md) in Bitbucket Cloud 
 [pipelines](%pipeline%) and covers 
 application of the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 

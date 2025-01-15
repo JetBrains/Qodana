@@ -62,7 +62,7 @@
 
         <list>
             <li><ui-path>Subscription</ui-path> contains the %instance% license information</li>
-            <li><ui-path>Logs</ui-path> contains the list of log entries connected with your organization</li>
+            <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization</li>
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
         </list>

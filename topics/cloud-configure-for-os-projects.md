@@ -24,7 +24,7 @@ Depending on your needs, it may be useful to know how to:
 
 <link-summary>Learn how to prepare Qodana Cloud before inspecting your open-source project using %product%.</link-summary>
 
-If you plan to create a separate team and project in your Qodana Cloud account, follow the steps below.
+If you plan to create a separate team and project in your Qodana Cloud account, follow these steps.
 
 <procedure>
 <step>

@@ -441,7 +441,7 @@
                --save-report
         </code-block>
 
-            <p>The generated report is saved to the local filesystem as per the
+            <p>The generated report is saved to the local filesystem as configured by the
                 <code>-v &lt;html-report-directory&gt;:/data/results/newreportdir/</code> line in this command.</p>
 
         </chapter>
@@ -1284,7 +1284,7 @@
                         jetbrains/qodana-&lt;linter&gt;
                     </code-block>
 
-                    <p>In this case, the <code>results/</code> directory on host should already be created and owned by you.
+                    <p>In this case, the <code>results/</code> directory on the host should already be created and owned by you.
                         Otherwise, Docker will create it as the <code>root</code> user, and %instance% will not be able to write
                         to it.</p>
                 </tab>

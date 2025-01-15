@@ -69,7 +69,7 @@ To learn how to set up existing %product% profiles, see the [](#inspection-profi
 ## Custom profiles
 {id="inspection-profiles-custom-profiles"}
 
-<link-summary>You can create custom profiles in the YAML and XML formats, and then run %product% using them.</link-summary>
+<link-summary>You can create custom profiles in YAML and XML formats, and then run %product% using them.</link-summary>
 
 You can create custom profiles using the following formats:
 
@@ -77,7 +77,7 @@ You can create custom profiles using the following formats:
 * [XML](custom-xml-profiles.md) can be used as an alternative to YAML.
 
 Custom profiles can either override [existing profiles](#inspection-profiles-existing-profiles) or be created from 
-scratch. Since profile configurations should be contained in dedicated files, we recommend saving them in the `.qodana` 
+scratch. Since profile configurations should be contained in dedicated files, it is advised to save them in the `.qodana` 
 directory of your project.
 
 For example, to use the existing `qodana.recommended` profile and additionally enable the 
@@ -267,7 +267,7 @@ supported by %product%. The settings will remain consistent across all these pla
 
 <link-summary>You can configure profiles before running %product% locally.</link-summary>
 
-> Running %product% using a command line requires a [project token](project-token.md).
+> Running %product% using a command-line tool requires a [project token](project-token.md).
 {style="note"}
 
 <tabs group="profile-setup">

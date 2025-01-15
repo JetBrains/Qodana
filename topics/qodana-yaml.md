@@ -18,7 +18,7 @@ automatically.
 The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/json/)
 project, which allows for completion and basic validation in IDEs.
 
-To run subsequent checks with this customized configuration, save the file to the project's root directory.
+To run subsequent checks with this customized configuration, save the file in the root directory of your project.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
 This section will guide you through the necessary settings.
 
@@ -43,7 +43,7 @@ To install a specific package in the Qodana container using the `apt` tool, add 
 bootstrap: apt install <package_name>
 ```
 
-To run a script, save the `prepare-qodana.sh` script file to the project directory and specify execution in 
+To run a script, save the `prepare-qodana.sh` script file in the project directory and specify execution in 
 `qodana.yaml`:
 
 ```yaml
@@ -178,7 +178,7 @@ script:
       <parameter>: <value>
 ```
 
-You can override the standard %instance% behavior, which can be helpful in the case of the 
+You can override the standard %instance% behavior, which can be helpful in case of the 
 [PHP version migration](php-language-upgrade.topic). To inspect your code from this perspective, you can run the 
 `php-migration` scenario.     
 

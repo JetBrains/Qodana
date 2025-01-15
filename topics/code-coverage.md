@@ -1,10 +1,10 @@
 [//]: # (title: Code coverage)
 
 <link-summary>Code coverage uses generated reports to calculate the overall code coverage inside a method, class, and file. 
-It also reports on the issues connected with the missing coverage in these entities.</link-summary>
+It also reports on the issues associated with the missing coverage in these entities.</link-summary>
 
 **Code coverage** uses generated reports to calculate the overall code coverage inside a method, class, and file. 
-It also reports on the issues connected with the missing coverage in these entities.
+It also reports on the issues associated with the missing coverage in these entities.
 
 This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the
 following linters:
@@ -205,7 +205,7 @@ jobs:
       run: npm test
       working-directory: JS/jest
       
-    - name: Archive coverage data # Archive data for using by Qodana
+    - name: Archive coverage data # Archive data for use by Qodana
       uses: actions/upload-artifact@v2
       with:
         name: jest-coverage-data

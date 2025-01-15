@@ -31,8 +31,8 @@ groups: # List of configured groups
   - groupId: InspectionsToInclude
     groups:
       - "category:PHP/General" # Inspection category from the linter
-      - "JSCategories" # Include the JSCategories group from below
-      - "PHPInspections" # Include the PHPInspections group from below
+      - "JSCategories" # Include the JSCategories group below
+      - "PHPInspections" # Include the PHPInspections group below
   - groupId: JSCategories
     groups:
       - "category:JavaScript and TypeScript/ES2015 migration aids"

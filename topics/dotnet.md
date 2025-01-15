@@ -350,7 +350,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
       <tabs>
         <tab title="Native mode">
           <note>
-            If you plan to use private NuGet feeds, we recommend running native mode on the same machine where
+            If you plan to use private NuGet feeds, it is advised to run native mode on the same machine where
             you build a project because this can guarantee that %instance% has access to private NuGet feeds.
           </note>
           <snippet id="dotnet-run-qodana-native-mode-yaml">
@@ -490,7 +490,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             </tabs>
         </tab>
         <tab title="Container mode">
-            <p>Container mode is available for the %qp% linter; however, we recommend that you use native mode.</p>
+            <p>Container mode is available for the %qp% linter; however, it is advised that you use native mode.</p>
             <tabs>
                 <tab title="GitHub Actions" group-key="github">
                           <p>To analyze the <code>main</code> branch, release branches and the pull requests coming

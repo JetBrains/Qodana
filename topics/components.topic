@@ -6,7 +6,7 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Components" id="components">
 
-    <p>This section introduces the concepts that %instance% is based upon, such as:</p>
+    <p>This section introduces the concepts that %instance% are based upon, such as:</p>
 
     <list>
         <li><a href="static-analysis.topic">Static analysis</a>,</li>

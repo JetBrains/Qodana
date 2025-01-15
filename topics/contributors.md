@@ -40,7 +40,7 @@ Save the generated key in your VCS, see the examples for:
 * [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys) - start from step 2, i.e. skip the SSH key generation step,
 * [JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step.
 
-<warning>Do not store the key on the account level, so that it cannot be shared by other repositories within your account.</warning>
+<warning>Do not store the key on the account level, so that it cannot be shared by other repositories in your account.</warning>
 
 After you save the generated key in your VCS, %instance% will use the following command to clone the project metadata 
 of your repository: 

@@ -24,7 +24,7 @@ bootstrap: |+
 ```
 
 To be able to use syntax highlighting and validation in your IDE, you can create the `prepare-qodana.sh` shell script 
-and save it to the root directory of your project:
+and save it in the root directory of your project:
 
 ```shell
 #! /bin/sh
@@ -38,7 +38,7 @@ set -eu
 #npm install
 ```
 
-Run the script within a %instance% Docker container using the `bootstrap` key:
+Run the script in a %instance% Docker container using the `bootstrap` key:
 
 ```shell
 bootstrap: sh ./prepare-qodana.sh

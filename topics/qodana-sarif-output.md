@@ -32,7 +32,7 @@ Here is the structure of reports produced by %instance%:
 
 Each report is represented by a `runs` array containing a single %instance%
 [`run`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317484).
-This object contains several nested objects, such as:
+This object contains several nested objects:
 
 | Object                                                  | Description                                                           |
 |---------------------------------------------------------|-----------------------------------------------------------------------|
@@ -245,7 +245,7 @@ The possible values for `exitCode` are:
 
 Here is the description of the other fields from the `invocations` object:
 
-The `toolExecutionNotifications` field contains notifications generated during a %instance% run, such as a reached
+The `toolExecutionNotifications` field contains notifications generated during a %instance% run such as a reached
 [threshold](quality-gate.topic).
 
 <note>

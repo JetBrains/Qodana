@@ -23,7 +23,7 @@
         lines where %instance% detected imperfections. %instance% is equipped with a multitude of
         <a href="code-inspections.topic">inspections</a> responsible for detecting particular problems.</p>
 
-    <p>To sum up, static analysis mechanism of %instance% is an efficient way for keeping your software quality under
+    <p>To sum up, static analysis mechanism of %instance% is an efficient way to keep your software quality under
         control. You can observe the list of currently <a href="linters.md">supported technologies</a>,
         but keep in mind that this list will be growing over time.</p>
 

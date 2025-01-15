@@ -58,7 +58,7 @@
                 <img src="quickstart-run-in-ide-report.png" dark-src="quickstart-run-in-ide-report_dark.png" width="706" alt="Qodana report" border-effect="line"/>
             </tab>
             <tab title="Add Qodana to CI/CD pipeline" id="quickstart-add-qodana-to-cicd">
-                <p>Open the configuration wizard for using %instance% in CI/CD pipelines.</p>
+                <p>Open the configuration wizard to use %instance% in CI/CD pipelines.</p>
 
                 <img src="quickstart-run-in-ide-cicd.png" dark-src="quickstart-run-in-ide-cicd_dark.png" width="706" alt="Qodana report" border-effect="line"/>
 

@@ -27,7 +27,7 @@ Release date: 08 July 2024
 ### Fixes
 {id="500-fixes"}
 
-* Project setup card texts were updated for the case when no permissions are granted to obtain a project token
+* Project setup card texts were updated for cases when no permissions are granted to obtain a project token
 * Fix in Qodana Cloud report URLs while clicking the **Open in IDE** button
 * The **$** character copying was fixed while copying code snippets from the project setup wizard
 * Fixed console output args and unused variables from the `ChooseRepositoryPage` tests

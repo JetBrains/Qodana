@@ -432,7 +432,7 @@
     </snippet>
 
     <snippet id="teamcity-add-a-qodana-runner">
-        <p filter="intro">Assuming that you have already created your <a href="%TeamCityProject%">project</a> and <a href="%TeamCityBuildConfig%">build configuration</a>, follow the steps below.</p>
+        <p filter="intro">Assuming that you have already created your <a href="%TeamCityProject%">project</a> and <a href="%TeamCityBuildConfig%">build configuration</a>, follow these steps.</p>
         <procedure>
             <step>
                 In the TeamCity UI, navigate to the <a href="%TeamCityBuildConfig%">configuration page</a> of a build where you would
@@ -565,9 +565,9 @@
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
             these steps to obtain it:</p>
         <p filter="jvm">Depending on the specific linter you're using, you may need to obtain a project token that will be used by %product% for identifying and verifying a
-            <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>. To do this, follow the steps below:</p>
+            <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>. To do this, follow these steps:</p>
         <p filter="python">Depending on the specific linter you're using, you may need to obtain a project token that will be used by %product% for identifying and verifying a
-            <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>. To do this, follow the steps below:</p>
+            <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>. To do this, follow these steps:</p>
         <procedure>
             <step>
                 Navigate to <a href="https://qodana.cloud">Qodana Cloud</a> and create an <a href="cloud-quickstart.md">account</a> there.
@@ -904,7 +904,7 @@
                 </tabs>
             </tab>
             <tab title="Container mode" group-key="container-mode">
-                <p>Container mode is available for all linters; however, we recommend that you use native mode whenever possible.</p>
+                <p>Container mode is available for all linters; however, it is advised that you use native mode whenever possible.</p>
                 <tabs group="software">
                     <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming

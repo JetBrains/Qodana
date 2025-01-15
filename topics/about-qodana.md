@@ -15,7 +15,7 @@ To run %instance% locally, you can use [Docker images](docker-images.md), the
 
 You can inspect your code using the default [inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles), which requires
 no configuration steps and lets you run %instance% out of the box. You can also configure the default inspection profiles or
-create your own inspection profile in the [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
+create your own inspection profile in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
 
 Finally, you can go beyond the existing inspections and [extend %instance%](extending-qodana.topic).
 

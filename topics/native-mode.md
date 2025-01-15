@@ -42,7 +42,7 @@ dependencies installed on your machine.
 Build the project before inspecting it using %instance%. You can do it by using the [`bootstrap`](before-running-qodana.md) key of the 
 [`qodana.yaml`](qodana-yaml.md) file. The project building and artifact 
 packaging stages should occur before %instance% or simultaneously with it. Because running %instance% may affect the 
-project state and its files, we recommend that you avoid reusing the same directory in your build pipelines any further. 
+project state and its files, it is advised to avoid reusing the same directory in your build pipelines any further. 
 
 You can also provide %instance% with a pre-built project, or specify the build steps in your CI/CD pipeline. In this 
 case, in your repository create the empty `qodana.yaml` file to eliminate warnings related to project building.

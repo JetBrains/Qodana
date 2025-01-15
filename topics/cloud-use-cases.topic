@@ -17,8 +17,8 @@
             These entities let you assign several projects to a single team. Also, you can achieve transparency using
             real-time widgets.</p>
 
-        <p>Each project stores history of inspection results and compares results between commits. You can examine the
-            absolute number of problems detected, or compare the number of problems against a baseline taken during a
+        <p>Each project stores the history of inspection results and compares results between commits. You can examine the
+            absolute number of problems detected, or compare the number of problems to a baseline taken during a
             specific Qodana run.</p>
 
     </chapter>
@@ -36,7 +36,7 @@
 
     <chapter id="cloud-use-case-3" title="Plan your work better">
 
-        <p>In Qodana Cloud, you can build reports to evaluate all pieces of code that require modification, and select
+        <p>In Qodana Cloud, you can build reports to evaluate all code segments that require modification, and select
             the issues to add to a baseline. This way, the whole team can see the same list of issues and monitor progress
             using the interactive Qodana dashboard.</p>
     </chapter>

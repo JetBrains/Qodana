@@ -7,13 +7,13 @@
 	title="Baseline" id="baseline" help-id="qodana-baseline">
 
     <link-summary>Baseline is a snapshot of the codebase problems taken at a specific %instance% run and
-    contained in the qodana.sarif.json file. Using the baseline feature, you can compare your current code with its
+    contained in the qodana.sarif.json file. Using the baseline feature, you can compare your current code to its
         baseline state and see new, unchanged, and resolved problems.</link-summary>
 
     <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% run and
         contained in the <code>qodana.sarif.json</code> file.</p>
 
-    <p>Using the baseline feature, you can compare your current code with its baseline state and see new, unchanged, and
+    <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
         resolved problems.</p>
 
     <p>This feature is supported by all <a href="pricing.md">linters</a> available under Community, Ultimate, and
@@ -107,7 +107,7 @@
         <li>The first %instance% run detected two problems in the codebase.</li>
 
         <li>To create a baseline for your project, download the <code>qodana.sarif.json</code> file and
-            save it to your project directory as shown in the <a href="ui-overview.md" anchor="ui-overview-baseline"/> section.
+            save it in your project directory as shown in the <a href="ui-overview.md" anchor="ui-overview-baseline"/> section.
             Starting from this moment, these two problems are identified by %instance% as baseline problems.
         </li>
 
@@ -155,7 +155,7 @@
         <img src="baseline-updating-baseline.png" dark-src="baseline-updating-baseline_dark.png" width="706" alt="Updating the baseline"/>
 
         <list type="decimal">
-            <li>Save the updated version of the <code>qodana.sarif.json</code> file to your project directory.</li>
+            <li>Save the updated version of the <code>qodana.sarif.json</code> file in your project directory.</li>
             <li>Run %instance% again to see the change in the problem status.</li>
         </list>
     </chapter>

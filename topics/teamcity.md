@@ -118,7 +118,7 @@ EOM
 
 Now that you have configured and run the build, you can examine analysis results in [Qodana Cloud](cloud-overview-reports.topic).  
 
-Alternatively, you can view analysis results using the TeamCity UI, follow the steps below:
+Alternatively, you can view analysis results using the TeamCity UI, follow these steps:
 
 <!-- Images here should be updated as well -->
 
