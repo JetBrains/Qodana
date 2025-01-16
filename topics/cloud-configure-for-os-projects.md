@@ -91,9 +91,9 @@ profile:
 ### Configure license audit
 {id="configure-license-audit"}
 
-<link-summary>A license audit lets you track compatibility of dependency licenses with your open-source project license.</link-summary>
+<link-summary>A license audit lets you track the compatibility of dependency licenses with your open-source project license.</link-summary>
 
-[License audit](license-audit.topic) lets you track compatibility of dependency licenses with your project license.
+[License audit](license-audit.topic) lets you track the compatibility of dependency licenses with your project license.
 
 To enable the license audit, use the `include` option of the [`qodana.yaml`](qodana-yaml.md) file in your project root:
 
@@ -108,7 +108,7 @@ include:
 analysis.</link-summary>
 
 [Baseline](baseline.topic) lets you create a snapshot of your project that will be used as a basis for 
-subsequent analysis. To enable it, select inspections and download the `qodana.sarif.json` file. 
+later analyses. To enable it, select inspections and download the `qodana.sarif.json` file. 
 
 You can run %instance% with the baseline enabled using the `--baseline` option:
 

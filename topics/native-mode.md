@@ -30,7 +30,7 @@ In your operating system, save the `QODANA_TOKEN` environment variable containin
 
 If you wish to run %instance% using a command line, then install [Qodana CLI](Quick-start.topic#quickstart-run-using-cli) on the machine where you will run it.
 
-Starting from the version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file
+Starting from version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file
 containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the 
 `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
 
@@ -44,8 +44,8 @@ Build the project before inspecting it using %instance%. You can do it by using 
 packaging stages should occur before %instance% or simultaneously with it. Because running %instance% may affect the 
 project state and its files, it is advised to avoid reusing the same directory in your build pipelines any further. 
 
-You can also provide %instance% with a pre-built project, or specify the build steps in your CI/CD pipeline. In this 
-case, in your repository create the empty `qodana.yaml` file to eliminate warnings related to project building.
+You can also provide %instance% a pre-built project, or specify the build steps in your CI/CD pipeline. To remove 
+warnings related to project building, in your repository create the empty `qodana.yaml` file.
 
 ## How it works
 

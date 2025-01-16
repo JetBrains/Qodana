@@ -26,11 +26,10 @@
     <chapter id="cloud-use-case-2" title="Open problems detected by Qodana in your favorite IDE">
 
         <p>If you are already a Qodana user, you might know that you can open issues spotted by Qodana right in your IDE.
-            This feature is available in Qodana Cloud meaning that you can fix server-side errors in the editor like
-            you work with other suggestions given by the IDE.</p>
+            This feature is available in Qodana Cloud, so you can fix server-side errors in the editor like other suggestions given by the IDE.</p>
 
         <p>Using Qodana, you can run resource-intensive checks outside your development environment without affecting
-            performance of your IDE. In fact, we created Qodana to ensure that you no longer have to choose between code
+            the performance of your IDE. In fact, we created Qodana to ensure that you no longer have to choose between code
             quality and IDE performance.</p>
     </chapter>
 

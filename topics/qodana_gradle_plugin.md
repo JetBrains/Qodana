@@ -106,7 +106,7 @@ Add this to your Gradle configuration file:
 
 > **Note:** Docker requires at least 4GB of memory. Set it in the Docker `Preferences > Resources > Memory` section.
 
-Now you can run analyses with `qodanaScan` Gradle task:
+Now you can run analyzes with `qodanaScan` Gradle task:
 
 ```bash
 gradle qodanaScan 

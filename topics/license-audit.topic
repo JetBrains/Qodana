@@ -57,9 +57,9 @@
             management tools and files containing license texts. Based on the information collected, it builds the
             dependency tree containing information about:</p>
             <list>
-                <li>The project license</li>
-                <li>Licenses of project dependencies</li>
-                <li>Licenses of the dependencies invoked by project dependencies</li>
+                <li>The project license.</li>
+                <li>Licenses for project dependencies.</li>
+                <li>Licenses of the dependencies invoked by project dependencies.</li>
             </list>
         <p>This tree shows which dependency licenses are (in)compatible with your project license.</p>
 
@@ -104,7 +104,7 @@
 
 
         <p>Depending on the location of license information, the <a href="jvm.md">%jvm%</a> linter performs a
-            sequence of steps to find it. First of all, it searches for any license references in the
+            sequence of steps to find it. It searches for any license references in the
             <code>LICENSE.*</code> files. Next, it scans through the <code>pom.xml</code> file. If necessary,
             it then scans through dependency source files. Otherwise, the linter requests the
             <a href="https://package-search.jetbrains.com/"><code>PACKAGE-SEARCH</code></a> plugin.

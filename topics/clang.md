@@ -73,7 +73,7 @@ To see the list of supported features, navigate to the [](#clang-feature-matrix)
 ## How it works
 
 The Docker image of %qp% employs Clang 16.0.0 and LLVM 16. You can see the
-[`Dockerfile`](%dockerfile%) for the detailed description of all software employed by the linter.
+[`Dockerfile`](%dockerfile%) for the detailed description of all software used by the linter.
 
 The linter searches for the compilation database file contained in the `build/compile_commands.json` file of the
 project directory and reads this file, analyzes the project, generates analysis reports, and saves them locally or
@@ -101,7 +101,7 @@ uploads to Qodana Cloud.
         <code-block>./clang-tidy.exe -list-checks -checks="*"</code-block>
         </tab>
         </tabs>
-        <p>To obtain the list of all inspections enabled in Clang-Tidy by default, you can run the following command:</p>
+        <p>To get the list of all inspections enabled in Clang-Tidy by default, you can run the following command:</p>
         <tabs group="clang-tidy-commands">
         <tab id="qodana-clang-enabled-linux" title="Linux" group-key="clang-linux">
         <code-block>clang-tidy -list-checks</code-block>
@@ -369,7 +369,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                 }
             }
         </code-block>
-        <p>More configuration examples are available in the <a href="jenkins.md"/>section.</p>
+        <p>More configuration examples are available in the <a href="jenkins.md"/> section.</p>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
         <note>This feature is in experimental mode, which means that its operation can be unstable.</note>
@@ -394,9 +394,9 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
       <p>In this snippet:</p>
       <list>
       <li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
-        so subsequent runs will be faster,</li>
+        to make %product% run faster.</li>
       <li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
-        configuration options described in the <a href="docker-image-configuration.topic"/> section,</li>
+        configuration options described in the <a href="docker-image-configuration.topic"/> section.</li>
       <li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
       <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
       <a href="project-token.md">project token</a>.</li>
@@ -421,11 +421,11 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                script:
                   - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache --compile-commands &lt;path-to-compile_commands.json&gt;
         </code-block>
-    <p>More configuration examples are available in the <a href="gitlab.md"/>section.</p>
+    <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
     </tab>
     <tab title="TeamCity" group-key="teamcity" id="jvm-run-qodana-teamcity">
       <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,clang,clang-compilation-override"/>
-      <p>More configuration examples are available in the <a href="teamcity.md"/>section.</p>
+      <p>More configuration examples are available in the <a href="teamcity.md"/> section.</p>
     </tab>
     <tab title="Command line" group-key="command-line">
         <note> Running analysis is a resource-intensive operation. If you experience issues, consider increasing the Docker
@@ -473,8 +473,8 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
 
 ## Explore analysis results
 
-<p>Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in
-<a href="https://qodana.cloud">Qodana Cloud</a> navigate to your project and review the analysis results report.</p>
+<p>Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, you can navigate to your 
+project <a href="https://qodana.cloud">Qodana Cloud</a> and review the analysis results report.</p>
 <img src="qc-report-example-clang.png" alt="Analysis report example" width="720" border-effect="line"/>
 <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 

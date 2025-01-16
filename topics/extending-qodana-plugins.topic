@@ -38,7 +38,7 @@
                     <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example,
                 for the <a href="https://plugins.jetbrains.com/plugin/16136-grazie-professional">Grazie Professional</a>
                     Plugin ID will be <code>com.intellij.grazie.pro</code>. To find the ID of a specific plugin,
-                    on the plugin page of <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a> click the
+                    on the plugin page of <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>, click the
                     <ui-path>Overview</ui-path> tab, and then navigate to the
                     <ui-path>Additional Information</ui-path> section.</p>
 

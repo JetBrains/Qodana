@@ -44,7 +44,7 @@ Since all inspections are developed using the Kotlin language, you'll need to kn
 ## How it works
 
 You write your inspections in Kotlin and store them in the `inspections` directory of your project as
-`.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code that is used to check your code using the API provided 
+`.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code that analyzes your code using the API provided 
 by the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html)
 or PSI. IntelliJ IDEA reads `.inspection.kts` files, compiles the inspection code on the fly, and then 
 executes the compiled inspections. 
@@ -54,7 +54,7 @@ executes the compiled inspections.
 The PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a
 source file's structure. In the case of Java code, the PSI reflects the basic blocks of a Java file like package and import
 statements, class statements, method invocations, and other nodes. %feature% uses the PSI tree representation of your
-code to obtain the list of the code nodes that can be inspected using your inspections.
+code to get the list of the code nodes that can be inspected using your inspections.
 
 In IntelliJ IDEA, you can navigate through the PSI using the **PSI Viewer** tool window. To do this, open a file that 
 you would like to view with the **PSI Viewer**, and then navigate to **Tools | View PSI Structure of Current File**.
@@ -92,7 +92,7 @@ and then navigate to <ui-path>New | Custom Inspection</ui-path>.
 <step>
 <p>On the resultant dialog, you can choose from among various <a anchor="Inspection+types">local and global</a> inspection templates 
 that you can use as a basis for your inspection. Empty local and global templates are universal for any language supported by %feature%,
-while the local Java, Kotlin, JavaScript, and Typescript templates are language-specific.</p> 
+while the local Java, Kotlin, JavaScript, and TypeScript templates are language-specific.</p> 
 
 <p>Note that each file can contain multiple inspections, and CamelCase is the preferred naming method for <code>.inspection.kts</code> 
 files.</p>
@@ -189,7 +189,7 @@ You can also open files using the **PSI Viewer** and review inspection examples.
 
 <img src="flexinspect-test-your-inspection.png" width="706" alt="FlexInspect toolbar" border-effect="line"/>
 
-To see how the new inspection functions on your code, open a file containing a problem the inspection is 
+You can learn how the new inspection functions on your code by opening a file containing a problem the inspection is 
 supposed to highlight.
 
 <img src="flexinspect-test-inspection.gif" width="881" alt="Testing the inspection in IDE" border-effect="line"/>

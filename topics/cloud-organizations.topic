@@ -17,7 +17,7 @@
 
     <p>You can navigate between organizations using the list in the upper left part of the Qodana Cloud UI.</p>
 
-    <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true" preview-src="qc-settings-organization-navigate-between.png"/>
+    <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" preview-src="qc-settings-organization-navigate-between.png"/>
 
     <chapter id="cloud-organizations-create-organization" title="Create an organization">
 
@@ -49,7 +49,7 @@
 
             <step>
                 <p>In the sidebar, navigate to the organization that you wish to configure. </p>
-                <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true" preview-src="qc-settings-organization-navigate-between.png"/>
+                <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" preview-src="qc-settings-organization-navigate-between.png"/>
             </step>
             <step>
                 <p>On the organization page, click the <ui-path>Organization settings</ui-path> button in the upper-right corner.</p>
@@ -61,8 +61,8 @@
         <p>On the settings page, you can find the following tabs:</p>
 
         <list>
-            <li><ui-path>Subscription</ui-path> contains the %instance% license information</li>
-            <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization</li>
+            <li><ui-path>Subscription</ui-path> contains the %instance% license information.</li>
+            <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization.</li>
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
         </list>
@@ -80,9 +80,9 @@
             <p>Within your organization, you can:</p>
 
             <list>
-                <li>Invite new members using email addresses, and assign them <a href="cloud-user-roles.md">user roles</a></li>
-                <li>Change <a href="cloud-user-roles.md">roles</a> of the existing organization members</li>
-                <li>Exclude members from your organization</li>
+                <li>Invite new members using email addresses, and assign them <a href="cloud-user-roles.md">user roles</a>.</li>
+                <li>Change <a href="cloud-user-roles.md">the roles</a> of the existing organization members.</li>
+                <li>Exclude members from your organization.</li>
             </list>
 
             <procedure>

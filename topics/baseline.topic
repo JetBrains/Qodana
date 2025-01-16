@@ -25,7 +25,7 @@
 
         <p>If you run %instance% without a baseline, you will be able to see the problems detected at a current run.</p>
 
-        <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="706" alt="Running Qodana without baseline"/>
+        <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="706" alt="Running Qodana without a baseline"/>
 
     <p>In this case, you can only see the number of problems and their description, without classification to new and
         existing problems.</p>
@@ -33,7 +33,7 @@
         <p>To improve the situation, you can add problems to a baseline and save them to the
             <code>qodana.sarif.json</code> file in your project directory as explained in the
             <a href="ui-overview.md" anchor="ui-overview-baseline"/> section of the %instance% report description. Once done,
-            this file becomes a basis for comparing with subsequent code states. You can run %instance% with the baseline
+            this file becomes a basis for comparing with later code states. You can run %instance% with the baseline
             enabled using <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a>, Docker images of %instance%,
             or <a href="qodana-ide-plugin.md">JetBrains IDEs</a>:
         </p>
@@ -85,7 +85,7 @@
                     <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
                     <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
                     <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
-                    <step>On the dialog, expand the <ui-path>Advanced Configuration</ui-path> section, select the baseline file, and then click <ui-path>Run</ui-path>.</step>
+                    <step>On the dialog that opens, expand the <ui-path>Advanced Configuration</ui-path> section, select the baseline file, and then click <ui-path>Run</ui-path>.</step>
                 </procedure>
             </tab>
         </tabs>
@@ -111,7 +111,7 @@
             Starting from this moment, these two problems are identified by %instance% as baseline problems.
         </li>
 
-        <li>A subsequent %instance% run detected three problems. Fortunately, this time %instance%
+        <li>A later %instance% run detected three problems. Fortunately, this time %instance%
             identifies one of them as new and marks it respectively. The other two are the baseline problems; they are
             already reflected in the baseline report and marked as unchanged.
         </li>

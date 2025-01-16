@@ -5,9 +5,8 @@
 [Hard-coded passwords](%hc-passwords%) are a critical security issue. When exposed, the attacker can leak data and
 access sensitive information.
 
-Starting from version 2024.2,  %product% provides the `HardcodedPasswords` inspection that detects hard-coded passwords 
-and covers the following languages: [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#](dotnet.md),
-JSON, YAML, and XML.
+Starting from version 2024.2, %product% provides the `HardcodedPasswords` inspection that detects hard-coded passwords 
+and covers [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#](dotnet.md), JSON, YAML, and XML.
 
 > The `HardcodedPasswords` inspection analyzes files tracked in git with the “unchanged” status.
 {style="note"}

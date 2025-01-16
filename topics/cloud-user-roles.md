@@ -8,7 +8,7 @@ granted to them. A permission means an ability to perform a specific action.
 Currently, Qodana Cloud supports the Viewer, Editor, Admin and Owner roles, where each subsequent role in this list 
 starting from the Editor inherits existing permissions from the previous role and extends with new permissions. 
 
-The Viewer, Editor, and Admin roles can be assigned on the [organization](#organization-roles) and [team](#team-roles) levels. 
+You can assign the Viewer, Editor, and Admin roles on the [organization](#organization-roles) and [team](#team-roles) levels. 
 The Owner role is available only on the organization level.
 
 ## Team roles
@@ -17,11 +17,11 @@ The Owner role is available only on the organization level.
 <link-summary>Team roles are the sets of permissions that can be assigned to users on a team level.</link-summary>
 
 Team roles are the sets of permissions that can be assigned to users on a [team](cloud-teams.topic) level.
-To learn more about how to invite members to a team, see the [](cloud-teams.topic#cloud-teams-manage-teams).
+To learn more about how to invite members to a team, see [](cloud-teams.topic#cloud-teams-manage-teams).
 
 These roles are required for all organization members.
 
-Below you can find the detailed description of all team-level roles and their permissions.
+Here is a detailed description of all team-level roles and their permissions.
 
 <tabs group="cloud-roles">
     <tab title="Viewer" group-key="viewer">
@@ -55,7 +55,7 @@ Below you can find the detailed description of all team-level roles and their pe
         This role is suitable for developers, devops and QA specialists.</p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Viewer role,</li>
+            <li>&#x2713; are inherited from the Viewer role.</li>
             <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
@@ -129,7 +129,7 @@ Below you can find the detailed description of all team-level roles and their pe
         This role is suitable for team managers, team leads, and senior developers.</p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Editor role,</li>
+            <li>&#x2713; are inherited from the Editor role.</li>
             <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
@@ -255,7 +255,7 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Viewer role,</li>
+            <li>&#x2713; are inherited from the Viewer role.</li>
             <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
@@ -332,7 +332,7 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Editor role,</li>
+            <li>&#x2713; are inherited from the Editor role.</li>
             <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>
@@ -465,7 +465,7 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Admin role,</li>
+            <li>&#x2713; are inherited from the Admin role.</li>
             <li>&#x2714; are available starting from this role.</li>
         </list>
         <table>

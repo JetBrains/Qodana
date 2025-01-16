@@ -1,11 +1,12 @@
 [//]: # (title: Contributor counting)
 
-<link-summary>Qodana license costs are comprised of the number of active contributors to your project. An active 
+<link-summary>Qodana license costs consist of the number of active contributors to your project. An active 
 contributor is a person/bot who has committed to any number of Qodana Cloud projects within the past 90 days under a 
 single Qodana license.</link-summary>
 
-%instance% license costs are comprised of the number of active contributors to your project. An active contributor is a 
-person/bot who has committed to any number of Qodana Cloud projects within the past 90 days under a single 
+%instance% license costs consist of the number of active contributors to your project. 
+
+An active contributor is a person or bot who/that has committed to any number of Qodana Cloud projects within the past 90 days under a single 
 %instance% license. For example, on the 30th of June, %instance% will calculate and charge for the unique contributors 
 detected within 30 days of June, 31 days of May, and 29 days of March. 
 
@@ -28,17 +29,17 @@ ssh-keygen -t rsa -b 4096 -N "" -f id_rsa -C "qodana.cloud"
 
 Each key pair can be:
 
-* Generated while creating a new organization
-* Regenerated
-* Encrypted using some secret stored in our database 
+* Generated while creating a new organization,
+* Regenerated,
+* Encrypted using some secret stored in our database. 
 
 ## Contributor counting
 
 Save the generated key in your VCS, see the examples for: 
 
 * [GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key),
-* [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys) - start from step 2, i.e. skip the SSH key generation step,
-* [JetBrains Space](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key) - start from step 2, i.e. skip the SSH key generation step.
+* [GitHub—](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys), start from step 2, i.e., skip the SSH key generation step,
+* [JetBrains Space—](https://www.jetbrains.com/help/space/git-keys-and-passwords.html#ssh-key), start from step 2, i.e., skip the SSH key generation step.
 
 <warning>Do not store the key on the account level, so that it cannot be shared by other repositories in your account.</warning>
 

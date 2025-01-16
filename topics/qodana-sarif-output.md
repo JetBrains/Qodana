@@ -245,7 +245,7 @@ The possible values for `exitCode` are:
 
 Here is the description of the other fields from the `invocations` object:
 
-The `toolExecutionNotifications` field contains notifications generated during a %instance% run such as a reached
+The `toolExecutionNotifications` field contains notifications generated during %instance% analysis such as a reached
 [threshold](quality-gate.topic).
 
 <note>

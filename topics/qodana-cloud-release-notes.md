@@ -16,6 +16,6 @@ documentation.
 ## August 2024
 
 Using the Qodana Cloud API and your CI/CD pipelines, you can create new
-[teams](cloud-teams.topic) and [projects](cloud-projects.topic) in Qodana Cloud. To obtain access to the API, please
+[teams](cloud-teams.topic) and [projects](cloud-projects.topic) in Qodana Cloud. To get access to the API, please
 contact our support team at <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 

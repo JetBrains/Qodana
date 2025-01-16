@@ -35,7 +35,7 @@ If the verification step fails, the linter returns an error meaning that you can
 
 For example, you cannot run %instance% using an expired license. Nor can you run the 
 [%jvm%](jvm.md) linter using the [Community license](pricing.md#pricing-linters-licenses).
-To avoid this, you should obtain compatible and up-to-date licenses for each linter that you use.
+To avoid this, you should get compatible and valid licenses for each linter that you use.
 
 ## Report collection
 

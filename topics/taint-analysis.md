@@ -96,7 +96,7 @@ for the analyzed files.</p>
 <tabs>
     <tab title="Settings for in-Editor Analysis" id="ta-in-editor-analysis">
         <p>Options applied to an opened file in real time.</p>
-        <p>The <ui-path>Analysis depth (from current file)</ui-path> field configures 
+        <p>The <ui-path>Analysis depth (from a current file)</ui-path> field configures 
 analysis depth using the <code>Current file -> File 1 (Low) -> File 2 (Medium) -> File 3 (High)</code> reference pattern. 
 For example, the <ui-path>Medium</ui-path> setting configures the reference to <code>File 2</code> from this pattern.</p>
         <p>The <ui-path>Analysis time limit for in-editor analysis (ms)</ui-path> field configures the amount of time 
@@ -104,7 +104,7 @@ that can be allocated for a specific file. The default value is 5000 ms.</p>
     </tab>
     <tab title="Settings for Batch Analysis" id="ta-batch-analysis">
         <p>Configuration of batch analysis over an entire project.</p>
-        <p>The <ui-path>Analysis depth (from current file)</ui-path> field configures 
+        <p>The <ui-path>Analysis depth (from a current file)</ui-path> field configures 
 analysis depth using the <code>Current file -> File 1 (Low) -> File 2 (Medium) -> File 3 (High)</code> reference pattern. 
 For example, the <ui-path>Medium</ui-path> setting configures the reference to <code>File 2</code> from this pattern.</p>
     </tab>

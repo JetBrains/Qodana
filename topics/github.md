@@ -1,11 +1,11 @@
 [//]: # (title: GitHub Actions)
 
-<link-summary>The Qodana Scan GitHub action allows you to run Qodana on a GitHub repository.</link-summary>
+<link-summary>The Qodana Scan GitHub action allows you to run Qodana in a GitHub repository.</link-summary>
 
 ## Usage
 
 The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
-allows you to run Qodana on a GitHub repository.
+allows you to run Qodana in a GitHub repository.
 
 <anchor name="basic-configuration"/>
 
@@ -58,7 +58,7 @@ Example configuration:
 You can set
 up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
 for your project using Qodana. To do it, add these lines to the `code_quality.yml` workflow file right below
-[the basic configuration](#basic-configuration) of Qodana Scan:
+[the basic configuration](#Basic+configuration) of Qodana Scan:
 
 ```yaml
       - uses: github/codeql-action/upload-sarif@v2
@@ -69,8 +69,8 @@ for your project using Qodana. To do it, add these lines to the `code_quality.ym
 This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report
 file using the `sarif_file` key.
 
-> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up a baseline and quality gate processing on the Qodana side prior to submitting inspection results to GitHub code scanning, see the
-[Quality gate and baseline](#quality-gate-and-baseline) section for details.
+> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up a baseline and quality gate processing on the Qodana side before submitting inspection results to GitHub code scanning, see the
+[Quality gate and baseline](#Quality+gate+and+baseline) section for details.
 
 ### Pull request quality gate
 
@@ -136,7 +136,7 @@ qodana scan \
     args: --baseline,qodana.sarif.json
 ```
 
-If you want to update the baseline, you need to repeat these steps once again.
+If you want to update the baseline, you need to repeat these steps once more.
 
 Starting from this, GitHub will generate alters only for the problems that were not added to the baseline as new.
 

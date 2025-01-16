@@ -184,14 +184,14 @@
 
     <snippet id="faq-licensing-for-pricing">
     <chapter id="faq-licensing-minimum-contributors" title="I work solo on my project, can I still use Qodana?" default-state="collapsed" collapsible="true">
-        <p>Yes, but the minimum billing option is for 3 (three) contributors.</p>
+        <p>Yes, but the minimum billing option is for three contributors.</p>
     </chapter>
 
     <chapter id="faq-licensing-how-qodana-counts-contributors" title="How does %instance% count contributors?" default-state="collapsed" collapsible="true">
         <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section of this documentation.</p>
     </chapter>
 
-    <chapter id="faq-licensing-count-contributors" title="Is there a way to determine the number of contributors in my repositories prior to initiating Qodana?" default-state="collapsed" collapsible="true">
+    <chapter id="faq-licensing-count-contributors" title="Is there a way to determine the number of contributors in my repositories before initiating Qodana?" default-state="collapsed" collapsible="true">
         <p>Yes, you can use this command to check the number of contributors:</p>
         <code-block lang="shell" prompt="$">
             git log --format='%aN' | sort -u | wc -l
@@ -217,8 +217,8 @@
                     the Qodana Cloud <a href="set-up-your-project.md">project setup</a> page.</p>
             </li>
             <li>
-                <p>During the onboarding stage on the Qodana Cloud website, we’ll generate a public key for you to add
-                to your repository so that %instance% can connect to it, as well as a
+                <p>During the onboarding stage, Qodana Cloud generates a public key that you can save in your repository
+                        so that %instance% can connect to it, as well as a
                     <a href="project-token.md">project token</a> for uploading Qodana reports to your first project.
                 </p>
             </li>
@@ -231,7 +231,7 @@
 
     <chapter id="faq-licensing-try-before-buy" title="Can I try Qodana before buying a license?" default-state="collapsed" collapsible="true">
         <p>Yes, you can choose either the Ultimate or Ultimate Plus trial license and start using Qodana for free with
-            a 60-day trial period. During this period, you can switch between these licenses one time. After 60 days,
+            a 60-day trial period. During this period, you can switch between these licenses once. After 60 days,
             you’ll need to buy either the Ultimate or Ultimate Plus license to continue using Qodana in your projects.
         </p>
         <p>
@@ -254,7 +254,7 @@
             All licenses require that you create an account in Qodana Cloud and complete the
             <a href="set-up-your-project.md">project setup</a> stage (see
             <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, Qodana
-            Cloud lets you view Qodana reports in a single place and provides access to all of the
+            Cloud lets you view Qodana reports in a single place and provides access to all
             <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> offered by %instance%
             <a href="linters.md">linters</a>. Finally, for the purposes of opening %instance% reports from within your
             <a href="qodana-ide-plugin.md">IDE</a>, you need a Qodana Cloud account.
@@ -268,7 +268,7 @@
 
     <chapter id="faq-licensing-minimum-cloud-steps" title="What are the minimum steps I need to perform to get started with Qodana Cloud?" default-state="collapsed" collapsible="true">
         <p>
-            All of the required steps are described in the <a href="cloud-quickstart.md"/> section of the Qodana Cloud
+            All required steps are described in the <a href="cloud-quickstart.md"/> section of the Qodana Cloud
             documentation.
         </p>
     </chapter>
@@ -322,10 +322,10 @@
         <p>
             The total license cost is based on the number of active contributors. An active contributor is a person/bot
             who has committed to any number of Qodana Cloud projects at any point in the last 90 days, within the same
-            organization, and under a single license. During the  <a href="set-up-your-project.md">project setup</a> stage
+            organization, and under a single license. During the <a href="set-up-your-project.md">project setup</a> stage
             and while creating a new <a href="cloud-projects.topic">project</a>,
             Qodana Cloud requests your repository URL to calculate contributors. The minimal number of contributors
-            used for licensing is 3 (three).
+            used for licensing is three.
         </p>
         <p>
             The number of actual contributors is calculated based on the subscription plan. For example, using the
@@ -413,7 +413,7 @@
 
     <chapter id="faq-licensing-maximum-community-licenses" title="How many Community licenses can I have under a single JetBrains account?" default-state="collapsed" collapsible="true">
         <p>
-            You can have up to 5 (five) Community licenses under your JetBrains account.
+            You can have up to five Community licenses under your JetBrains account.
         </p>
     </chapter>
 

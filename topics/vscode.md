@@ -32,7 +32,7 @@ In the command palette, type `View: Show Qodana` and select the **%product%** vi
 
 <img src="vs-code-ui-navigate.png" alt="Navigating to Qodana" width="706" border-effect="line"/>
 
-This will open the **%product%** view in left part of your Visual Studio Code UI.
+This will open the **%product%** view in the left part of your Visual Studio Code UI.
 
 <img src="vs-code-qodana-view.png" alt="The Qodana view" width="304" border-effect="line"/>
 
@@ -109,7 +109,7 @@ your project opened in the IDE to a specific Qodana Cloud [project](cloud-projec
 
 <link-summary>You can explore Qodana reports in Visual Studio Code. </link-summary>
 
-You can explore analysis report of %product% using the **PROBLEMS** tab of Visual Studio Code. 
+You can explore the analysis report of %product% using the **PROBLEMS** tab of Visual Studio Code. 
 
 >If you still do not see the report on the **PROBLEMS** tab, configure the [**Path prefix**](#vs-code-configure-extension) setting.
 {style="note"}

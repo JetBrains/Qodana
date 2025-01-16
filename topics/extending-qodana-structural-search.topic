@@ -21,14 +21,14 @@
 
     <chapter title="How it works" id="extending-qodana-structural-search-example">
 
-        <link-summary>Learn how you can create and use structural search templates for inspecting your codebase using
+        <link-summary>Learn how you can create and use structural search templates to inspect your codebase using
             %product%.</link-summary>
 
         <p>As an example, consider this search template:</p>
         <code-block>$Instance$.$MethodCall$($Parameter$)</code-block>
 
-        <p>It lets you detect the <code lang="java">System.out.println()</code> Java statement. To make it detect the
-            statements with hardcoded text like <code lang="java">System.out.println("Hardcoded text!")</code>, the
+        <p>It lets you detect the <code>System.out.println()</code> Java statement. To make it detect the
+            statements with hardcoded text like <code>System.out.println("Hardcoded text!")</code>, the
             template should take the modifiers described below:</p>
         <table>
             <tr><td>Variable</td><td>Value</td><td>Explanation</td></tr>

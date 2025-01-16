@@ -10,12 +10,12 @@
 
     <p>Here is an overview of the <a href="https://qodana.cloud">Qodana Cloud</a> landing page.</p>
 
-    <img src="qc-get-access.png" alt="Qodana Cloud start page" width="706" border-effect="line" title="Qodana Cloud start page"/>
+    <img src="qc-get-access.png" alt="Qodana Cloud start page" width="706" border-effect="line"/>
 
     <list type="decimal">
         <li>You can click the <ui-path>Continue with JetBrains account</ui-path> button to create a
             <a href="https://account.jetbrains.com/login">JetBrains account</a> to log in to Qodana Cloud.</li>
-        <li>As a non-registered user, you can explore demo projects that were already analyzed by Qodana. To explore
+        <li>As a non-registered user, you can explore demo projects already analyzed by Qodana. To explore
             reports in details, see the <a href="cloud-overview-reports.topic"/> section.</li>
     </list>
 

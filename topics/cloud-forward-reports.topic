@@ -33,7 +33,7 @@
         shown in the <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section of this documentation. This
         token will be invoked using the <code>QODANA_TOKEN</code> variable.</p>
 
-    <note>To provide correct work of the contributor counting functionality, add the IP address range
+    <note>To provide the correct work of the contributor counting functionality, add the IP address range
         54.76.32.8/32 to a list of allowed inbound connections on your side.
     </note>
 

@@ -24,7 +24,7 @@ Using the default version of the JDK does not require any special configuration.
 Apart from the versions available [by default](#Default+versions), %instance% can automatically download and use these versions of JBR SDK 
 for all JVM linters: 8, 11, 13, 15, 16, 17, 18, 19.
 
-Otherwise, you can download the required JDK version, and [mount it](#Mount+JDK) to %instance%.
+Otherwise, you can download the required JDK version and [mount it](#Mount+JDK) to %instance%.
 
 ## Configure Qodana
 
@@ -41,8 +41,8 @@ downloaded by %instance%. If you would like to use the JDK beyond this list, you
 Gradle runs scripts based on the [Compatibility Matrix](https://docs.gradle.org/current/userguide/compatibility.html)
 meaning that the latest supported and downloadable version of the JDK will be set up as the Gradle JDK. Using the 
 Compatibility Matrix in combination with the list of [available JDK versions](#Available+versions), 
-you can find the JDK that will be used by %instance%. For example, in case of Gradle 6.6, %instance% will 
-download and employ JDK 13.
+you can find the JDK that will be used by %instance%. For example, %instance% will 
+download and employ JDK 13 with Gradle 6.6.
 
 ## Maven
 

@@ -19,7 +19,7 @@ version control system (VCS) as an SSH key, access key, or deploy key depending 
 A repository key provides Qodana Cloud with secure read-only access to your repository and lets Qodana count contributors, 
 which is required by our license agreement. 
 
-<warning>We do not recommend to store the key on the account level.</warning>
+<warning>It is not advised to store the key on the account level.</warning>
 
 This table provides links to the most popular VCS documentation pages explaining how you can save a repository 
 key:

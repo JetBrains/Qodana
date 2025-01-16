@@ -7,8 +7,7 @@
 name and be contained in the root directory of your project.</link-summary>
 
 By default, Qodana reads configurations from the `qodana.yaml` file contained in the root directory of your project.
-You can override this filename using the `--config` option, see the 
-[](docker-image-configuration.topic#docker-config-reference-custom-yaml-config) for details. For convenience, this 
+You can override this filename using the `--config` option, see the [](docker-image-configuration.topic#docker-config-reference-custom-yaml-config) section. For convenience, this 
 will be referred in this section using the default `qodana.yaml` name.
 
 Configuration applied in `qodana.yaml` override the default inspection profile settings and default configurations of 
@@ -136,7 +135,7 @@ include:
 
 You have several options to configure [quality gates](quality-gate.topic).
 
-First of all, you can add a fail threshold to control the total number of problems in a project, which is supported by
+You can add a fail threshold to control the total number of problems in a project, which is supported by
 all linters: 
 
 ```yaml

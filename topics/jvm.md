@@ -76,7 +76,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
 
 ### Enabling the baseline feature
 
-<include from="lib_qd.topic" element-id="enabling-baseline" filter="empty,jvm"/>
+<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,jvm"/>
 
 ### Enabling the quality gate
 
@@ -84,7 +84,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
 
 * The total number of project problems, available for all linters,
 * Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>, available for all linters,
-* <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qp% and %qp-an% linters.
+* <a href="code-coverage.md">code coverage</a> thresholds, available for the %qp% and %qp-an% linters.
 
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-ultimate" title="Qodana for JVM / Android">
@@ -467,13 +467,13 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
     <tr>
       <td>%product% features</td>
       <td>
-        <p><a href="baseline.topic">Baseline</a></p>
-        <p><a href="quality-gate.topic">Quality gate</a></p>
-        <p><a href="code-coverage.md">Code coverage</a></p>
-        <p><a href="license-audit.topic">License audit</a></p>
-        <p><a href="quick-fix.md">Quick-fix</a></p>
-        <p><a href="vulnerability-checker.md">Vulnerability checker</a></p>
-        <p><a href="taint-analysis.md">Taint analysis</a></p>
+        <p><a href="baseline.topic"/></p>
+        <p><a href="quality-gate.topic"/></p>
+        <p><a href="code-coverage.md"/></p>
+        <p><a href="license-audit.topic"/></p>
+        <p><a href="quick-fix.md"/></p>
+        <p><a href="vulnerability-checker.md"/></p>
+        <p><a href="taint-analysis.md"/></p>
       </td>
       <td>
             <p>&#x2714;</p>

@@ -288,7 +288,7 @@ inspections:
 ## Configuration examples
 
 Here you can find several examples of profile configuration. The [](inspection-profiles.md#inspection-profiles-setup-a-profile) section
-explains how to run your profile while inspecting code.
+explains how you can run your profile while inspecting code.
 
 ### Exclude an inspection
 
@@ -452,7 +452,7 @@ inspections:
 Several inspections provide configuration options. You can find the list of available options on
 [GitHub](https://github.com/JetBrains/qodana-profiles/blob/master/.idea/inspectionProfiles/).
 
-For example, in case of the `MissingOverrideAnnotation` inspection you can find the `ignoreObjectMethods` and
+For example, in case of the `MissingOverrideAnnotation` inspection, you can find the `ignoreObjectMethods` and
 `ignoreAnonymousClassMethods` options:
 
 ```xml

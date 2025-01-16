@@ -125,7 +125,7 @@
             </tr>
         </table>
 
-        <p>Below you can find several examples of how these paths can be applied.</p>
+        <p>You can find below several examples of how these paths can be applied.</p>
 
         <chapter id="docker-config-reference-override-inspection-profile" title="Override the default inspection profile">
 
@@ -154,7 +154,7 @@
             </tabs>
 
             <p>To learn more about profiles, see the
-                <a anchor="docker-config-reference-order-resolving-profile">Order of resolving a profile</a> and
+                <a anchor="docker-config-reference-order-resolving-profile">order of resolving a profile</a> and
                 <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"/> sections in this documentation.</p>
 
         </chapter>
@@ -163,7 +163,7 @@
 
             <link-summary>Learn how you can override the default Gradle settings.</link-summary>
 
-            <p>In case of JVM linters, you can override the default Gradle settings:</p>
+            <p>For JVM linters, you can override the default Gradle settings:</p>
 
             <tabs group="cli-settings">
                 <tab title="Docker image" group-key="docker-image">
@@ -289,7 +289,7 @@
 
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
-                    <p>After running Qodana, in the project root run the <code lang="shell">qodana show -d</code> command
+                    <p>After running Qodana, in the project root run the <code>$ qodana show -d</code> command
                         for opening the directory containing log files.</p>
                 </tab>
             </tabs>
@@ -530,7 +530,7 @@
             </tr>
             <tr>
                 <td><code>-n</code>, <code>--profile-name</code></td>
-                <td><p>The <a anchor="docker-config-reference-profile-profile-name">profile name</a> taken either from the list of predefined %instance% profiles, or a custom profile name
+                <td><p>The <a anchor="docker-config-reference-profile-profile-name">profile name</a> from the list of predefined %instance% profiles, or a profile name of a custom profile
                     stored in XML-formatted profile files as <code ignore-vars="true">&lt;option name="myName" value="%profileName%"/&gt;</code>.</p>
                     <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"><code>qodana.yaml</code></a> file</p>
 
@@ -708,7 +708,7 @@
             </tr>
         </table>
 
-        <p>This is the command that invoke all baseline options:</p>
+        <p>This command invokes all baseline options:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
@@ -985,7 +985,7 @@
 
         <chapter id="docker-config-reference-properties-user-statistics" title="Disable user statistics">
 
-            <link-summary>You can disable reporting of usage statistics, by adjusting the idea.headless.enable.statistics
+            <link-summary>You can disable reporting of usage statistics by adjusting the idea.headless.enable.statistics
                 value of the --property option.</link-summary>
 
             <p>To disable reporting of usage statistics, adjust the <code>idea.headless.enable.statistics</code>
@@ -1049,7 +1049,7 @@
 
     <chapter id="docker-config-reference-changes" title="Analysis of changes">
 
-        <link-summary>For all linter except Qodana Community for .NET, you can run incremental analysis on a change set like
+        <link-summary>For all linters except Qodana Community for .NET, you can run incremental analysis on a change set like
             merge or pull requests, as well as inspect changes between two commits.</link-summary>
 
         <note>This feature is not supported by the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
@@ -1062,7 +1062,7 @@
             <tr>
                 <td><code>--diff-start</code> and <code>--diff-end</code></td>
                 <td>
-                    Run incremental analysis on a change set, for example merge or pull requests
+                    Run incremental analysis on a change set like merge or pull requests
                 </td>
             </tr>
         </table>
@@ -1161,7 +1161,7 @@
             </tab>
         </tabs>
 
-        <p>To run the <a href="php-language-upgrade.topic">PHP version migration</a> scenario, you can run this command:</p>
+        <p>For the <a href="php-language-upgrade.topic">PHP version migration</a> scenario, use this command:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
@@ -1293,9 +1293,9 @@
                         using a current non-root user. This can be inconvenient if you wish to install dependencies
                         using the <code>apt</code> tool invoked in the
                         <a href="before-running-qodana.md"><code>bootstrap</code></a> section.</p>
-                    <p>To run %product% as a root user in TeamCity, in the
+                    <p>To run %product% as a root user in TeamCity, add the <code>-u root</code> option in the
                         <a href="teamcity.md" anchor="teamcity-qodana-runner"><ui-path>Additional Docker arguments</ui-path></a>
-                        field of the %product% runner configuration add the <code>-u root</code> option.</p>
+                        field of the %product% runner configuration.</p>
                     <p>To run Qodana CLI as a root user, you can append <code>-u root</code>
                         option to the <code>qodana scan</code> command:</p>
                     <code-block lang="shell" prompt="$">
@@ -1817,7 +1817,7 @@
                         </code>
                     </td>
                     <td>
-                        Set this option to <code>true</code> to employ the promo inspections; set to <code>false</code> otherwise.
+                        Set this option to <code>true</code> to use the promo inspections; set to <code>false</code> otherwise.
                         The default value is <code>true</code> if %product% is executed using the
                         <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profile</a>
                     </td>
@@ -2184,7 +2184,7 @@
                         <code>-d, --dir-only</code>
                     </td>
                     <td>
-                        Open the report directory only, without serving it
+                        Open the report directory only without serving it
                     </td>
                 </tr>
                 <tr>
@@ -2274,7 +2274,7 @@
 
         <chapter id="docker-config-reference-qodana-contributors" title="Count contributors">
 
-            <p>To obtain information about <a href="contributors.md">contributors</a> to your project, you can run the
+            <p>To collect information about <a href="contributors.md">contributors</a> to your project, you can run the
                 <code>qodana contributors &lt;options&gt;</code> command with the following options:</p>
 
             <table>
@@ -2321,7 +2321,7 @@
                         <code>-i, --project-dir &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        Project directory of the project, can be specified multiple times to check multiple projects
+                        The Directory of the project that can be specified multiple times to check multiple projects
                     </td>
                     <td>
                     <code>.</code>
@@ -2450,7 +2450,7 @@
                         <code>powershell</code>
                     </td>
                     <td>
-                        Generate the autocompletion script for powershell
+                        Generate the autocompletion script for PowerShell
                     </td>
                 </tr>
                 <tr>

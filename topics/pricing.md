@@ -20,7 +20,7 @@ Here are the links to essential %instance% documents:
 ## License comparison matrix
 {id="license-comparison-matrix"}
 
-This section enumerates the technologies and features that are available for each license.
+This section lists the technologies and features that are available for each license.
 
 All technologies and features mentioned in the Ultimate and Ultimate Plus columns are available for both the trial and 
 full versions of the respective %instance% license type.
@@ -184,7 +184,7 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 ## Qodana licensing: an overview
 
 The Community license is free to use, though its functionality is limited only to the Community versions of Qodana 
-linters. Furthermore, it lacks numerous helpful [features](features.topic) that are available in the paid versions and 
+linters. Furthermore, it lacks many helpful [features](features.topic) that are available in the paid versions and 
 only offers a limited period for [data storage](#pricing-data-storage) in Qodana Cloud.
 
 The trial versions of the Ultimate or Ultimate Plus licenses are limited to a 60-day trial period. After the trial 
@@ -209,7 +209,7 @@ If you plan to purchase either the Ultimate or Ultimate Plus license, you’ll b
 page for payment details. After the payment, you will be redirected to the [project setup](set-up-your-project.md) page of 
 Qodana Cloud.  
 
-2. During the onboarding stage on the Qodana Cloud website, you’ll generate a public key that will be 
+2. During the onboarding stage, Qodana Cloud will generate a public key that will be 
 identified by %instance%, as well as a project token for uploading %instance% reports to your first project.
 Although the Community license does not require a Qodana Cloud account, it will be more convenient to use Qodana Cloud
 in this case too.
@@ -238,7 +238,7 @@ documentation.
 ### Can I use %instance% linters without creating a Qodana Cloud account?
 {id="pricing-linters-without-creating-cloud-account"}
 
-If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account in Qodana Cloud and accomplish
+If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account in Qodana Cloud and complete
 the [project setup](set-up-your-project.md) stage. For more details, see [the first question](#faq-start-using-qodana) in
 this section.
 
@@ -259,7 +259,7 @@ You can also switch one time from the trial version of the Ultimate and Ultimate
 Once you convert your trial license to the Community license, the process is irreversible. Ensure you are making an 
 informed decision. Remember that the Community license does not support all the 
 [features](#Features+and+third-party+software+support) available in the Ultimate or Ultimate Plus subscriptions. 
-If you wish to revert back to the Ultimate or Ultimate Plus subscription after conversion, you will need to initiate a 
+If you wish to revert to the Ultimate or Ultimate Plus subscription after conversion, you will need to initiate a 
 paid subscription.
 
 After the trial period has ended, this one-time limitation is shifted, and you can switch between subscription plans 
@@ -270,10 +270,10 @@ the unlimited number of times. In this case, however, all purchased subscription
 The total license cost is based on the number of active contributors. An active contributor is a person who commits 
 to any number of Qodana Cloud projects during the latest 90 days, within the same organization, and under a single 
 license. During the [project setup](set-up-your-project.md) stage and while creating a new [project](cloud-projects.topic), Qodana 
-Cloud requests your repository URL to calculate contributors. The minimal number of contributors used for licensing is 3 (three). 
+Cloud requests your repository URL to calculate contributors. The minimal number of contributors used for licensing is three. 
 
 The number of actual contributors is calculated based on the subscription plan. For example, using the monthly 
-subscription, on the 1st day of the month you bought a license for 10 (ten) contributors. Within that same month, Qodana 
+subscription, on the first day of the month you bought a license for 10 (ten) contributors. Within that same month, Qodana 
 found that your project had 20 (twenty) active contributors. In this case, for the upcoming month the license costs would 
 be recalculated for 20 (twenty) contributors. At the end of the second month, the license costs would be recalculated 
 again based on the actual number of active contributors found within that month.
@@ -287,7 +287,7 @@ For more details, see the **Fees and Payments** section of the
 
 ### What is the minimum number of contributors I can buy the license for?
 
-You can buy a %instance% license for 3 (three) or more contributors.
+You can buy a %instance% license for three or more contributors.
 
 ### What do I need to know about subscription billing?
 

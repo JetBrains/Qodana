@@ -54,7 +54,7 @@ In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#im
 [Docker image](docker-images.md) of your choice.
 
 The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab caches to store the %instance% cache,
-so subsequent runs will be faster. 
+so later runs will be faster. 
 
 The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %instance% 
 configuration options described in the [](docker-image-configuration.topic) section. 
@@ -129,7 +129,7 @@ qodana:
       expose_as: 'Qodana report'
 ```
 
-Assuming that you have configured your pipeline in a similar manner, this is what it may look like:
+Assuming that you have configured your pipeline similarly, this is what it may look like:
 
 1. Qodana report affiliated with a pipeline in a merge request
 
@@ -176,7 +176,7 @@ qodana:
 <link-summary>By default, %product% lets you use the merge request UI of GitLab CI/CD to view specific lines of code 
 that contain problems along with their description and recommendations for improvement.</link-summary>
 
-Starting from version 2024.1 of %product%, using the merge request UI of GitLab CI/CD you can view specific lines of 
+Starting from version 2024.1 of %product%, you can use the merge request UI of GitLab CI/CD to view specific lines of 
 code that contain problems along with their description and recommendations for improvement. 
 
 To implement this feature, %product% generates JSON-formatted inspection reports supported by 

@@ -10,10 +10,10 @@ locally or in Qodana Cloud.</link-summary>
 
 Each report contains the following tabs:
 
-* **[Actual problems](#ui-overview-actual-problems)** exposes the problems that Qodana detected during the latest inspection 
-* **[Baseline](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.topic) and were not fixed since then
-* **[Configuration](#ui-overview-configuration)** lets you configure %instance% for future use
-* **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.topic) results and shows the dependency licenses that are incompatible with the project license 
+* **[Actual problems](#ui-overview-actual-problems)** exposes the problems that Qodana detected during the latest inspection. 
+* **[Baseline](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.topic) and were not fixed since then.
+* **[Configuration](#ui-overview-configuration)** lets you configure %instance% for future use.
+* **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.topic) results and shows the dependency licenses that are incompatible with the project license. 
 
 The upper-right corner of the report shows [code coverage](code-coverage.md) inspection results.
 

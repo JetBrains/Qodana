@@ -24,7 +24,7 @@
 
         <note>You can skip the prerequisites if you would like to run %instance% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a>.</note>
 
-        <p>Depending on your %instance% <a href="pricing.md">license</a>, you probably need to obtain a trial license and accomplish
+        <p>Depending on your %instance% <a href="pricing.md">license</a>, you probably need to obtain a trial license and complete
             the <a href="set-up-your-project.md">project setup</a> stage in Qodana Cloud.</p>
         <p>To run %instance% in the CLI and GitHub, you will be using a project token available after creating a Qodana Cloud
             <a href="cloud-projects.topic">project</a>. To learn more about it, see the <a href="project-token.md"/> section.</p>
@@ -179,7 +179,7 @@
                             </tr>
                             <tr>
                                 <td>jetbrains/qodana-jvm-android%version%</td>
-                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA with the Android support.</td>
+                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA with Android support.</td>
                             </tr>
                             <tr>
                                 <td>jetbrains/qodana-php%version%</td>
@@ -242,7 +242,7 @@
 
         <p>Here is the short video showing how you can configure and run %instance% in GitHub.</p>
 
-        <img src="quickstart-run-in-github.animated.gif" dark-src="quickstart-run-in-github_dark.png" width="706" alt="Running Qodana in GitHub" border-effect="line" animated="true" preview-src="quickstart-run-in-github.png"/>
+        <img src="quickstart-run-in-github.animated.gif" dark-src="quickstart-run-in-github_dark.png" width="706" alt="Running Qodana in GitHub" border-effect="line" preview-src="quickstart-run-in-github.png"/>
 
         <p>Assuming that you already generated a project token as described in the <a anchor="quickstart-prerequisites"/> chapter, follow these steps to configure %instance% in GitHub:</p>
 

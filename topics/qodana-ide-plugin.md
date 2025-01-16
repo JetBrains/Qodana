@@ -82,7 +82,7 @@ latest %instance% report and view it.
 ## Configure %instance% for CI
 {id="ide-plugin-cicd"}
 
-Once you logged in to [Qodana Cloud](https://qodana.cloud), you can configure %instance% in your CI pipelines.
+After logging in to [Qodana Cloud](https://qodana.cloud), you can configure %instance% in your CI pipelines.
 
 <note>Depending on the %instance% <a href="pricing.md">license</a>, you will need to generate and use the 
 <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>. To learn more about project tokens, see

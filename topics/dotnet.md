@@ -38,7 +38,7 @@
 
 | Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                             | [Supported languages](#dotnet-feature-matrix)            |
 |-------------|----------------------------------|--------------------------------------------|--------------------------------------------------------|----------------------------------------------------------|
-| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](native-mode.md) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript 
+| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](native-mode.md) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript |
 | %qp-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                         | C#, [C++](%cpp-links%), VB.NET                           |
 
 
@@ -50,7 +50,7 @@
 ### Qodana Cloud
 {id="dotnet-before-you-start-qodana-cloud"}
 
-To run linters, you need to obtain a [project token](project-token.md) that
+To run linters, you need to get a [project token](project-token.md) that
 will be used by %product% for identifying and verifying a license. 
 
 <procedure>
@@ -72,7 +72,7 @@ A project token is required for the %qp% linter and optional for the %qp-co% lin
 ### SDK version
 {id="dotnet-sdk-version"}
 
-If you project targets the .NET framework or [OS-specific TFMs](%tfms%), the only option in this case is to run the
+If you project targets the .NET Framework or [OS-specific TFMs](%tfms%), the only option in this case is to run the
 %qp% linter in [native mode](native-mode.md).
 
 If you run %qp% in native mode, you should install the SDK to the default location in your operating system so that 
@@ -86,7 +86,7 @@ The Dockerized version of %qp% provides versions 6.0, 7.0, and 8.0 of SDK.
 
 <!-- This needs to be moved to a Dockerized version of a linter -->
 
-<p>In case a project requires a different version of the SDK, you can set it  using the
+<p>In case a project requires a different version of the SDK, you can set it using the
 <a href="before-running-qodana.md"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file.
 For example, this command will install the required version of the SDK that is specified in the
 <code>global.json</code> file and located in the root of your project:</p>
@@ -101,7 +101,7 @@ For example, this command will install the required version of the SDK that is s
 {id="dotnet-software-prerequisites"}
 
 This shows how to configure software from this section to %product% analysis. All configuration samples
-use a [project token](project-token.md), see the [](#dotnet-before-you-start-qodana-cloud) for details.
+use a [project token](project-token.md), see the [](#dotnet-before-you-start-qodana-cloud) section for details.
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
@@ -177,7 +177,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
     </tab>
     <tab title="Command line" group-key="command-line">
-        <p>Install Docker on the machine were you are going to run %product%.</p>  
+        <p>Install Docker on the machine where you are going to run %product%.</p>  
         <p>If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>.</p>
       <tabs group="cli-settings">
           <tab group-key="qodana-cli" title="Qodana CLI">
@@ -302,7 +302,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                 </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
-                <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" filter="empty,dotnet-no-build"/>
+                <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,dotnet-no-build"/>
             </tab>
             <tab title="Command line" group-key="command-line">
                 <tabs>
@@ -912,7 +912,7 @@ Depending on the linter, you can run them using private NuGet repositories as sh
         <code-block>
             -Name "MySourceName” -username "User" -password "Password" -configFile "pathToNugetConfigInRepo"
         </code-block>
-        <p>Other configuration examples are available on our <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub repository</a>.</p>
+        <p>Other configuration examples are available in our <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub repository</a>.</p>
     </tab>
     <tab title="%qp-co%" group-key="linter-tabs-cdnet">
         <p>Add credentials to the <code>nuget.config</code> file before analyzing a project. You can do this by 
@@ -956,8 +956,8 @@ Depending on the linter, you can run them using private NuGet repositories as sh
       </procedure>
     </tab>
     <tab title="Qodana Cloud" group-key="cloud" id="jvm-explore-results-qodana-cloud">
-      <p>Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in
-      <a href="https://qodana.cloud">Qodana Cloud</a> navigate to your project and review the analysis results report.</p>
+      <p>Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, navigate to your project in
+      <a href="https://qodana.cloud">Qodana Cloud</a> and review the analysis results report.</p>
       <img src="dotnet-report-example.png" alt="Analysis report example" width="720" border-effect="line"/>
       <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
     </tab>
