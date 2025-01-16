@@ -312,7 +312,7 @@ licenseRules:
       - "MIT"
 ```
 
-where `keys` is the project license(s); the dependency licenses identifiers are specified in `allowed` or `prohibited`.
+In this configuration,  `keys` is the project license(s) and the dependency licenses identifiers are specified in `allowed` or `prohibited`.
 
 ### Override a dependency license
 
@@ -389,7 +389,7 @@ plugins:
   - id: <plugin.id>
 ```
 Here, `<plugin-id>` denotes the Plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
-for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional) the Plugin ID will be `com.intellij.grazie.pro`. To find the Plugin ID, on the plugin
+for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional), the Plugin ID will be `com.intellij.grazie.pro`. To find the Plugin ID, on the plugin
 page click the **Overview** tab and then navigate to the **Additional Information** section.
 
 Plugin cache is stored in the `/data/cache/plugins` directory.
