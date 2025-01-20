@@ -48,7 +48,7 @@ You can apply quick-fix strategies using the following available options:
 
 <tabs>
     <tab title="Docker and Qodana CLI" id="quick-fix-cli-docker">
-        <p>Run %instance% with the <code>--fixes-strategy</code> option invoked. The <code>QODANA_TOKEN</code> variable 
+        <p>Depending on the quick-fix strategy, run %instance% using either the <code>--apply-fixes</code> or the <code>--cleanup</code> option. The <code>QODANA_TOKEN</code> variable 
             refers to the <a href="project-token.md">project token</a> required by the 
             <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters. </p>
         <tabs>
@@ -58,7 +58,7 @@ You can apply quick-fix strategies using the following available options:
                        -v &lt;source-directory&gt;/:/data/project/  \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;linter&gt; \
-                       --fixes-strategy &lt;cleanup/apply&gt;
+                       &lt;--apply-fixes/--cleanup&gt;
                 </code-block>
             </tab>
             <tab title="Qodana CLI">

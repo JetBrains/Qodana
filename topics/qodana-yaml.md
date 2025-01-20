@@ -396,7 +396,7 @@ Plugin cache is stored in the `/data/cache/plugins` directory.
 
 To install third-party software required for your plugins, you can:
 
-* Use the [`bootstrap`](before-running-qodana.md) key
+* Use the [`bootstrap`](before-running-qodana.md) key.
 * Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %instance% `Dockerfile`
 examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
 
