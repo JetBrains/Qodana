@@ -748,11 +748,12 @@
 
         <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"/>
 
-        <p>You can run the linters in two modes:</p>
+        <p>You can run %product% linters using the following methods:</p>
         <list>
           <li><a href="native-mode.md">Native mode</a> is the recommended method for running
             linters without Docker.</li>
           <li>Container mode is an alternative that involves Docker containers.</li>
+            <li>You can run %product% using %ide%.</li>
         </list>
 
         <note>
@@ -1195,45 +1196,45 @@
                         <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
                             reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                     </tab>
-                    <tab title="JetBrains IDEs" group-key="ides">
-                        <procedure>
-                            <step>
-                                <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p>
-                            </step>
-                            <step>
-                                <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
-                                <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
-                                <p>This dialog contains the following components:</p>
-                                <table>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>Description</td>
-                                    </tr>
-                                    <tr>
-                                        <td>The <code>qodana.yaml</code> file</td>
-                                        <td>In the text field, you can set up code analysis used by Qodana in this file. You can learn more about available <a href="qodana-yaml.md">configuration options</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>The <ui-path>Send inspection results to Qodana Cloud</ui-path> option</td>
-                                        <td>If you want to <a href="cloud-forward-reports.topic">send reports to Qodana Cloud</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
-                                        <td>By checking this option, you can save the %product% configuration made on this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
-                                    </tr>
-                                    <tr>
-                                        <td>The <ui-path>Use Qodana analysis baseline</ui-path> option</td>
-                                        <td>Using the <a href="baseline.topic">baseline</a> feature, you can skip analysis for specific problems</td>
-                                    </tr>
-                                </table>
-                                <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
-                            </step>
-                            <step>
-                                <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
-                            </step>
-                        </procedure>
-                    </tab>
                 </tabs>
+            </tab>
+            <tab title="%ide%" group-key="ides">
+                <procedure>
+                    <step>
+                        <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p>
+                    </step>
+                    <step>
+                        <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure %product%.</p>
+                        <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
+                        <p>This dialog contains the following components:</p>
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>The <code>qodana.yaml</code> file</td>
+                                <td>In the text field, you can set up code analysis used by Qodana in this file. You can learn more about available <a href="qodana-yaml.md">configuration options</a></td>
+                            </tr>
+                            <tr>
+                                <td>The <ui-path>Send inspection results to Qodana Cloud</ui-path> option</td>
+                                <td>If you want to <a href="cloud-forward-reports.topic">send reports to Qodana Cloud</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud</a></td>
+                            </tr>
+                            <tr>
+                                <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
+                                <td>By checking this option, you can save the %product% configuration made on this dialog to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file in the project root of your project</td>
+                            </tr>
+                            <tr>
+                                <td>The <ui-path>Use Qodana analysis baseline</ui-path> option</td>
+                                <td>Using the <a href="baseline.topic">baseline</a> feature, you can skip analysis for specific problems</td>
+                            </tr>
+                        </table>
+                        <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
+                    </step>
+                    <step>
+                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+                    </step>
+                </procedure>
             </tab>
         </tabs>
     </snippet>
@@ -1241,7 +1242,7 @@
     <snippet id="explore-analysis-results">
 
         <tabs group="software">
-            <tab title="JetBrains IDEs" group-key="ides">
+            <tab title="%ide%" group-key="ides">
                 <p>You can load the latest %instance% report from Qodana Cloud to your IDE as explained below.</p>
                 <procedure>
                     <step>
@@ -1765,15 +1766,15 @@
                     </tab>
                 </tabs>
             </tab>
-            <tab title="JetBrains IDEs" group-key="ides">
-                <procedure>
-                    <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
-                    <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
-                    <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
-                    <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
-                </procedure>
-            </tab>
         </tabs>
+        </tab>
+        <tab title="%ide%" group-key="ides">
+            <procedure>
+                <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
+                <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
+                <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
+                <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
+            </procedure>
         </tab>
         </tabs>
     </snippet>
