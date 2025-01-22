@@ -1243,10 +1243,10 @@
 
         <tabs group="software">
             <tab title="%ide%" group-key="ides">
-                <p>You can load the latest %instance% report from Qodana Cloud to your IDE as explained below.</p>
+                <p>You can load the latest %instance% report from Qodana Cloud to %ide% as explained below.</p>
                 <procedure>
                     <step>
-                        <p>In your IDE, navigate to <ui-path>Tools | Qodana | Log in to Qodana</ui-path>.</p>
+                        <p>In %ide%, navigate to <ui-path>Tools | Qodana | Log in to Qodana</ui-path>.</p>
                     </step>
                     <step>
                         <p>
@@ -1770,7 +1770,7 @@
         </tab>
         <tab title="%ide%" group-key="ides">
             <procedure>
-                <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
+                <step>In %ide%, navigate to the <ui-path>Problems</ui-path> tool window. </step>
                 <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
                 <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
                 <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
