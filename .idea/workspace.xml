@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/insights-code-coverage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-license-audit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-number-of-projects.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-problems-by-severity.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-problems-over-period.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-problems-sorted.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-projects-sorted.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/global-configuration.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-horizon.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-horizon.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
