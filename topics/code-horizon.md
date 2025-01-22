@@ -1,5 +1,3 @@
-</no-index>
-
 # Code horizon
 
 Code horizon lets you examine problems on an organizational level using Qodana Cloud.
@@ -30,7 +28,8 @@ and lets you navigate to the projects that where license audit failed or was not
 
 ## Problems by severity
 
-Contains the diagram showing the problem numbers by their severities. 
+Contains the diagram showing the problem numbers by their severities, the [](faq.topic#faq-severities) section
+for details.
 
 ## Problems over a specific period
 
@@ -40,7 +39,8 @@ in code quality.
 ## Projects sorted
 
 In the lower-left part, you can filter your projects by the number of problems, number of critical problems, as well as 
-code coverage. The lower-right part lets you filter projects using available [severities](faq.topic#faq-severities).
+code coverage. The lower-right part lets you filter projects using available severities, see the [](faq.topic#faq-severities) section
+for details.
 
 
 
