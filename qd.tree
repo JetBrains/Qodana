@@ -92,7 +92,9 @@
 		<toc-element topic="quick-fix.md"/>
 		<toc-element topic="taint-analysis.md"/>
 		<toc-element topic="vulnerability-checker.md"/>
+		<toc-element topic="global-configuration.md"/>
 	</toc-element>
+
 	<!-- Integration section -->
 	<toc-element topic="ci.md">
 		<toc-element topic="qodana-azure-pipelines.md"/>

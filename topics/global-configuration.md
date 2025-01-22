@@ -1,0 +1,2 @@
+# Global configuration
+
