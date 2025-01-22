@@ -115,7 +115,7 @@
 		<toc-element toc-title="Running Qodana Cloud">
 			<toc-element topic="cloud-quickstart.md"/>
 			<toc-element topic="cloud-running-introduction.topic"/>
-			<toc-element topic="code-horizon.md" hidden="true"/>
+			<toc-element topic="code-horizon.md"/>
 			<toc-element topic="cloud-organizations.topic"/>
 			<toc-element topic="cloud-teams.topic"/>
 			<toc-element accepts-web-file-names="cloud-manage-projects.html" topic="cloud-projects.topic"/>
