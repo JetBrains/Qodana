@@ -119,7 +119,7 @@ qodana:
         paths:
            - .qodana/cache
    variables:
-      QODANA_TOKEN: $qodana_token           - 
+      QODANA_TOKEN: $qodana_token
    script:
       - qodana --save-report --results-dir=$CI_PROJECT_DIR/.qodana/results
          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
@@ -160,7 +160,7 @@ qodana:
         paths:
            - .qodana/cache
    variables:
-      QODANA_TOKEN: $qodana_token           - 
+      QODANA_TOKEN: $qodana_token
    script:
       - qodana --fail-threshold <number> --baseline <path/to/qodana.sarif.json> --results-dir=$CI_PROJECT_DIR/.qodana/results
          --cache-dir=$CI_PROJECT_DIR/.qodana/cache

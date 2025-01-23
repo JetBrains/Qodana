@@ -76,7 +76,7 @@ The Docker image of %qp% employs Clang 16.0.0 and LLVM 16. You can see the
 [`Dockerfile`](%dockerfile%) for the detailed description of all software used by the linter.
 
 The linter searches for the compilation database file contained in the `build/compile_commands.json` file of the
-project directory and reads this file, analyzes the project, generates analysis reports, and saves them locally or
+project directory and reads this file, analyzes the project, generates analysis reports and saves them locally or
 uploads to Qodana Cloud.
 
 ## Before you start
@@ -387,7 +387,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                     paths:
                        - .qodana/cache
                variables:
-                  QODANA_TOKEN: $qodana_token           - 
+                  QODANA_TOKEN: $qodana_token
                script:
                   - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
         </code-block>
@@ -417,7 +417,7 @@ Based on the [prerequisites](#Prepare+your+project), linter reads the `build/com
                     paths:
                        - .qodana/cache
                variables:
-                  QODANA_TOKEN: $qodana_token           - 
+                  QODANA_TOKEN: $qodana_token
                script:
                   - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache --compile-commands &lt;path-to-compile_commands.json&gt;
         </code-block>
@@ -661,7 +661,7 @@ in a SARIF-formatted file.
                 paths:
                    - .qodana/cache
            variables:
-              QODANA_TOKEN: $qodana_token           - 
+              QODANA_TOKEN: $qodana_token
            script:
               - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
                  --cache-dir=$CI_PROJECT_DIR/.qodana/cache

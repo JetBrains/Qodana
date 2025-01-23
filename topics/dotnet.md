@@ -292,7 +292,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             paths:
                                - .qodana/cache
                        variables:
-                          QODANA_TOKEN: $qodana_token           - 
+                          QODANA_TOKEN: $qodana_token
                        script:
                           - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache --no-build
                        artifacts:
@@ -440,7 +440,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                 paths:
                                    - .qodana/cache
                            variables:
-                              QODANA_TOKEN: $qodana_token           - 
+                              QODANA_TOKEN: $qodana_token
                            script:
                               - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
                            artifacts:
@@ -566,7 +566,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                 paths:
                                    - .qodana/cache
                            variables:
-                              QODANA_TOKEN: $qodana_token           - 
+                              QODANA_TOKEN: $qodana_token
                            script:
                               - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
                            artifacts:
@@ -690,7 +690,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                 paths:
                                    - .qodana/cache
                            variables:
-                              QODANA_TOKEN: $qodana_token           - 
+                              QODANA_TOKEN: $qodana_token
                            script:
                               - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
                            artifacts:
@@ -1255,7 +1255,7 @@ in a SARIF-formatted file.
                                     paths:
                                        - .qodana/cache
                                variables:
-                                  QODANA_TOKEN: $qodana_token           - 
+                                  QODANA_TOKEN: $qodana_token
                                script:
                                   - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
                                      --cache-dir=$CI_PROJECT_DIR/.qodana/cache
@@ -1384,7 +1384,7 @@ in a SARIF-formatted file.
                             paths:
                                - .qodana/cache
                        variables:
-                          QODANA_TOKEN: $qodana_token           - 
+                          QODANA_TOKEN: $qodana_token
                        script:
                           - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
                              --cache-dir=$CI_PROJECT_DIR/.qodana/cache
