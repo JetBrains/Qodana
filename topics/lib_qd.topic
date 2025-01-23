@@ -1092,7 +1092,7 @@
                                       paths:
                                           - .qodana/cache
                                 variables:
-                                    QODANA_TOKEN: $qodana_token           -
+                                    QODANA_TOKEN: $qodana_token
                                 script:
                                     - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
                         </code-block>
@@ -1109,7 +1109,7 @@
                                       paths:
                                           - .qodana/cache
                                 variables:
-                                    QODANA_TOKEN: $qodana_token           -
+                                    QODANA_TOKEN: $qodana_token
                                 script:
                                     - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
                         </code-block>
@@ -1130,7 +1130,7 @@
                                       paths:
                                           - .qodana/cache
                                 variables:
-                                    QODANA_TOKEN: $qodana_token           -
+                                    QODANA_TOKEN: $qodana_token
                                 script:
                                     - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
                         </code-block>
@@ -1661,7 +1661,7 @@
                               paths:
                                   - .qodana/cache
                         variables:
-                            QODANA_TOKEN: $qodana_token           -
+                            QODANA_TOKEN: $qodana_token
                         script:
                             - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
                                 --cache-dir=$CI_PROJECT_DIR/.qodana/cache
@@ -1680,7 +1680,7 @@
                               paths:
                                   - .qodana/cache
                         variables:
-                            QODANA_TOKEN: $qodana_token           -
+                            QODANA_TOKEN: $qodana_token
                         script:
                             - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
                                 --cache-dir=$CI_PROJECT_DIR/.qodana/cache
@@ -1699,7 +1699,7 @@
                               paths:
                                   - .qodana/cache
                         variables:
-                            QODANA_TOKEN: $qodana_token           -
+                            QODANA_TOKEN: $qodana_token
                         script:
                             - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
                                 --cache-dir=$CI_PROJECT_DIR/.qodana/cache
