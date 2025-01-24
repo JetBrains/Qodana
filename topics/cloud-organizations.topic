@@ -65,6 +65,7 @@
             <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization.</li>
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
+            <li><ui-path>Global configurations</ui-path> let you manage configurations used across many projects of your organization.</li>
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
@@ -101,6 +102,44 @@
                 </step>
             </procedure>
 
+        </chapter>
+
+        <chapter id="cloud-organizations-global-configurations" title="Manage global configurations">
+            <p>Using this tab, you can manage <a href="global-configuration.md">global configurations</a>. On this tab,
+                you can find the list of configurations that can be used across multiple projects of your organization.
+            Here is the complete list of actions that you can perform:</p>
+            <list>
+                <li>See the list of global configurations.</li>
+                <li>See the number of projects connected to the global configuration.</li>
+                <li>See configuration description.</li>
+                <li>See when the configuration was last time updated (most right column).</li>
+                <li>See and navigate to the VCS repository, which provides configurations.</li>
+                <li>View feature documentation.</li>
+                <li>Copy token (only for admins).</li>
+                <li>Revoke the token (only for admins).</li>
+                <li>Search for global configuration.</li>
+            </list>
+            <p>Using the list of projects, you can:</p>
+            <list>
+                <li>See which projects are connected to this configuration</li>
+                <li>See if analysis in these projects is executed with this configuration (or not yet)</li>
+                <li>Search for specific projects</li>
+                <li>See if there are projects with
+                    <a href="global-configuration.md" anchor="Global+and+local+configurations">global and local configurations</a>.</li>
+                <li>See only projects that have local and global configuration conflicts, dive into conflicts.</li>
+                <li>View and assign global configurations to specific projects.</li>
+            </list>
+            <p>Here, you can also modify the list of projects that use the specific global configuration.</p>
+
+            <chapter title="Revoking and regenerating the token">
+                <p>In case the token is compromised, regenerate the token and clear all configurations
+                    (because an attacker could’ve used the token and uploaded their malicious configuration).
+                    The user story here is token was available not to malicious actor, but we need to regenerate it.
+                    (for example an admin left the company?).</p>
+            </chapter>
+            <chapter title="Update the configuration">
+                <p>On this page, you can find the tabs containing files related to the global configuration. </p>
+            </chapter>
         </chapter>
 
     </chapter>
