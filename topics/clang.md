@@ -489,13 +489,128 @@ project <a href="https://qodana.cloud">Qodana Cloud</a> and review the analysis 
     so that you don't need to pass any additional parameters. For %qp%, you can configure:</p>
 <list>
     <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
-        option.</li>
+        option. Using this, you can <a anchor="Modifying+paths+for+analysis">modify the list of paths</a> in the <code>compile_commands.json</code> file inside the linter.</li>
     <li><a anchor="Enabling+the+baseline+feature">Baseline</a> and <a anchor="Enabling+the+quality+gate">quality gate</a> features.</li>
 </list>
 
 <note>The %clang% linter does not support 
 <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">including</a> and 
 <a href="qodana-yaml.md" anchor="exclude-paths">excluding</a> paths for specific inspections through the <code>qodana.yaml</code> file.</note>
+
+### Modifying paths for analysis
+
+To modify analysis paths in the `compile_commands.json` file contained in the Docker image of the linter, 
+you can use Python scripts before %product% analysis starts.  
+
+Here are the examples of Python scripts that use the list of globs, a regular expression and glob inversion that you can 
+use for modifying paths in the `compile_commands.json` file and saving results in the Docker image of the linter: 
+
+<tabs>
+    <tab title="List of globs">
+        <code-block lang="Python">
+            #!/usr/bin/env python3
+            import json
+            from pathlib import Path
+            &nbsp;            
+            # Read existing compile_commands.json ------------------------------------------
+            REPO_ROOT = Path.cwd()
+            COMPILE_COMMANDS_PATH = REPO_ROOT / "build/compile_commands.json"
+            &nbsp;
+            with open(COMPILE_COMMANDS_PATH, "r", encoding="utf-8") as fd:
+            &nbsp;&nbsp;&nbsp;&nbsp;compile_commands = json.load(fd)
+            &nbsp;
+            # Filter source files ----------------------------------------------------------
+            from itertools import chain
+            &nbsp;
+            INCLUDE_GLOBS = [
+            &nbsp;&nbsp;&nbsp;&nbsp;"src/**/*",
+            &nbsp;&nbsp;&nbsp;&nbsp;"include/**/*",
+            ]
+            allowed_paths = (REPO_ROOT.glob(pattern) for pattern in INCLUDE_GLOBS)
+            allowed_paths = set(chain.from_iterable(allowed_paths))
+            &nbsp;
+            def keep_condition(cc_entry: dict):
+            &nbsp;&nbsp;&nbsp;&nbsp;path = Path(cc_entry["file"])
+            &nbsp;&nbsp;&nbsp;&nbsp;return path in allowed_paths
+            &nbsp;
+            compile_commands = list(filter(keep_condition, compile_commands))
+            &nbsp;
+            # Save the updated list of source files ----------------------------------------
+            COMPILE_COMMANDS_PATH.rename(COMPILE_COMMANDS_PATH.with_suffix(".old.json"))
+            with open(COMPILE_COMMANDS_PATH, "w", encoding="utf-8") as fd:
+            &nbsp;&nbsp;&nbsp;&nbsp;json.dump(compile_commands, fd, ensure_ascii=False, indent="\t")
+        </code-block>
+    </tab>
+    <tab title="Regular expression">
+        <code-block lang="Python">
+            #!/usr/bin/env python3
+            import json
+            from pathlib import Path
+            &nbsp;
+            # Read existing compile_commands.json ------------------------------------------
+            REPO_ROOT = Path.cwd()
+            COMPILE_COMMANDS_PATH = REPO_ROOT / "build/compile_commands.json"
+            &nbsp;
+            with open(COMPILE_COMMANDS_PATH, "r", encoding="utf-8") as fd:
+            &nbsp;&nbsp;&nbsp;&nbsp;compile_commands = json.load(fd)
+            &nbsp;
+            # Filter source files using the regex ------------------------------------------
+            import re
+            &nbsp;
+            INCLUDE_REGEX = re.compile(r"src\/(core|engine)\/.*$")
+            &nbsp;
+            def keep_condition(cc_entry: dict):
+            &nbsp;&nbsp;&nbsp;&nbsp;path = cc_entry["file"]
+            &nbsp;&nbsp;&nbsp;&nbsp;return re.fullmatch(INCLUDE_REGEX, path)
+            &nbsp;
+            compile_commands = list(filter(keep_condition, compile_commands))
+            &nbsp;
+            # Save the updated list of source files ----------------------------------------
+            COMPILE_COMMANDS_PATH.rename(COMPILE_COMMANDS_PATH.with_suffix(".old.json"))
+            with open(COMPILE_COMMANDS_PATH, "w", encoding="utf-8") as fd:
+            &nbsp;&nbsp;&nbsp;&nbsp;json.dump(compile_commands, fd, ensure_ascii=False, indent="\t")
+        </code-block>    
+    </tab>
+    <tab title="Invert globs">
+        <code-block lang="Python">
+            #!/usr/bin/env python3
+            import json
+            from pathlib import Path
+            &nbsp;
+            # Read existing compile_commands.json ------------------------------------------
+            REPO_ROOT = Path.cwd()
+            COMPILE_COMMANDS_PATH = REPO_ROOT / "build/compile_commands.json"
+            &nbsp;
+            with open(COMPILE_COMMANDS_PATH, "r", encoding="utf-8") as fd:
+            &nbsp;&nbsp;&nbsp;&nbsp;compile_commands = json.load(fd)
+            &nbsp;
+            # Filter source files ----------------------------------------------------------
+            from itertools import chain
+            &nbsp;
+            EXCLUDE_GLOBS = [
+            &nbsp;&nbsp;&nbsp;&nbsp;"src/**/*",
+            &nbsp;&nbsp;&nbsp;&nbsp;"include/**/*",
+            ]
+            allowed_paths = (REPO_ROOT.glob(pattern) for pattern in EXCLUDE_GLOBS)
+            allowed_paths = set(chain.from_iterable(allowed_paths))
+            &nbsp;
+            # Invert the list of paths -----------------------------------------------------
+            allowed_paths = set(REPO_ROOT.rglob("*")) - allowed_paths
+            &nbsp;
+            def keep_condition(cc_entry: dict):
+            &nbsp;&nbsp;&nbsp;&nbsp;path = Path(cc_entry["file"])
+            &nbsp;&nbsp;&nbsp;&nbsp;return path in allowed_paths
+            &nbsp;
+            compile_commands = list(filter(keep_condition, compile_commands))
+            &nbsp;
+            # Save the updated list of source files ----------------------------------------
+            COMPILE_COMMANDS_PATH.rename(COMPILE_COMMANDS_PATH.with_suffix(".old.json"))
+            with open(COMPILE_COMMANDS_PATH, "w", encoding="utf-8") as fd:
+            &nbsp;&nbsp;&nbsp;&nbsp;json.dump(compile_commands, fd, ensure_ascii=False, indent="\t")
+        </code-block>
+    </tab>
+</tabs>
+
 
 ### Enabling the baseline feature
 
