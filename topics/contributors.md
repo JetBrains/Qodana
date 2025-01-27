@@ -8,7 +8,7 @@ single Qodana license.</link-summary>
 
 An active contributor is a person or bot who/that has committed to any number of Qodana Cloud projects within the past 90 days under a single 
 %instance% license. For example, on the 30th of June, %instance% will calculate and charge for the unique contributors 
-detected within 30 days of June, 31 days of May, and 29 days of March. 
+detected within 30 days of June, 31 days of May, and 29 days of April. 
 
 Active contributors are counted using SSH keys. The mechanism of key generation and contributor counting
 is explained below.
