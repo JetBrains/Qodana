@@ -619,6 +619,14 @@ paths in the `compile_commands.json` file and save this result within the linter
     </tab>
 </tabs>
 
+To run a script, use the `bootstrap` section of the [`qodana.yaml`](qodana-yaml.md) file, for example:
+
+```yaml
+bootstrap: >-
+  cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON;
+  python3 filter-script.py
+```
+
 
 ### Enabling the baseline feature
 
