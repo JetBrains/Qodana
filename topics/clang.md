@@ -509,12 +509,14 @@ project <a href="https://qodana.cloud">Qodana Cloud</a> and review the analysis 
 
 ### Modifying paths for analysis
 
-To modify analysis paths in the `compile_commands.json` file contained in the Docker image of the linter, 
+To modify analysis paths in the `compile_commands.json` file contained in the Docker container of the linter, 
 you can use Python scripts. For example, the scripts below use glob patterns and regular expressions that modify 
-paths in the `compile_commands.json` file and save this result within the linter's Docker image. 
+paths in the `compile_commands.json` file inside the Docker container of %product%. 
+
+that modify compile_commands.json file in-place from inside the docker container
 
 <tabs>
-    <tab title="Glob patterns in paths">
+    <tab title="Including glob patterns">
         <code-block lang="Python">
             #!/usr/bin/env python3
             import json
@@ -549,37 +551,7 @@ paths in the `compile_commands.json` file and save this result within the linter
             &nbsp;&nbsp;&nbsp;&nbsp;json.dump(compile_commands, fd, ensure_ascii=False, indent="\t")
         </code-block>
     </tab>
-    <tab title="Regular expression in the path">
-        <code-block lang="Python">
-            #!/usr/bin/env python3
-            import json
-            from pathlib import Path
-            &nbsp;
-            # Read existing compile_commands.json ------------------------------------------
-            REPO_ROOT = Path.cwd()
-            COMPILE_COMMANDS_PATH = REPO_ROOT / "build/compile_commands.json"
-            &nbsp;
-            with open(COMPILE_COMMANDS_PATH, "r", encoding="utf-8") as fd:
-            &nbsp;&nbsp;&nbsp;&nbsp;compile_commands = json.load(fd)
-            &nbsp;
-            # Filter source files using the regex ------------------------------------------
-            import re
-            &nbsp;
-            INCLUDE_REGEX = re.compile(r"src\/(core|engine)\/.*$")
-            &nbsp;
-            def keep_condition(cc_entry: dict):
-            &nbsp;&nbsp;&nbsp;&nbsp;path = cc_entry["file"]
-            &nbsp;&nbsp;&nbsp;&nbsp;return re.fullmatch(INCLUDE_REGEX, path)
-            &nbsp;
-            compile_commands = list(filter(keep_condition, compile_commands))
-            &nbsp;
-            # Save the updated list of source files ----------------------------------------
-            COMPILE_COMMANDS_PATH.rename(COMPILE_COMMANDS_PATH.with_suffix(".old.json"))
-            with open(COMPILE_COMMANDS_PATH, "w", encoding="utf-8") as fd:
-            &nbsp;&nbsp;&nbsp;&nbsp;json.dump(compile_commands, fd, ensure_ascii=False, indent="\t")
-        </code-block>    
-    </tab>
-    <tab title="Invert the list of paths">
+    <tab title="Excluding glob patterns">
         <code-block lang="Python">
             #!/usr/bin/env python3
             import json
@@ -617,12 +589,43 @@ paths in the `compile_commands.json` file and save this result within the linter
             &nbsp;&nbsp;&nbsp;&nbsp;json.dump(compile_commands, fd, ensure_ascii=False, indent="\t")
         </code-block>
     </tab>
+    <tab title="Including regex pattern">
+        <code-block lang="Python">
+            #!/usr/bin/env python3
+            import json
+            from pathlib import Path
+            &nbsp;
+            # Read existing compile_commands.json ------------------------------------------
+            REPO_ROOT = Path.cwd()
+            COMPILE_COMMANDS_PATH = REPO_ROOT / "build/compile_commands.json"
+            &nbsp;
+            with open(COMPILE_COMMANDS_PATH, "r", encoding="utf-8") as fd:
+            &nbsp;&nbsp;&nbsp;&nbsp;compile_commands = json.load(fd)
+            &nbsp;
+            # Filter source files using the regex ------------------------------------------
+            import re
+            &nbsp;
+            INCLUDE_REGEX = re.compile(r"src\/(core|engine)\/.*$")
+            &nbsp;
+            def keep_condition(cc_entry: dict):
+            &nbsp;&nbsp;&nbsp;&nbsp;path = cc_entry["file"]
+            &nbsp;&nbsp;&nbsp;&nbsp;return re.fullmatch(INCLUDE_REGEX, path)
+            &nbsp;
+            compile_commands = list(filter(keep_condition, compile_commands))
+            &nbsp;
+            # Save the updated list of source files ----------------------------------------
+            COMPILE_COMMANDS_PATH.rename(COMPILE_COMMANDS_PATH.with_suffix(".old.json"))
+            with open(COMPILE_COMMANDS_PATH, "w", encoding="utf-8") as fd:
+            &nbsp;&nbsp;&nbsp;&nbsp;json.dump(compile_commands, fd, ensure_ascii=False, indent="\t")
+        </code-block>    
+    </tab>
 </tabs>
 
 To run a script, use the `bootstrap` section of the [`qodana.yaml`](qodana-yaml.md) file, for example:
 
 ```yaml
-bootstrap: >-
+bootstrap: |
+  set -eux
   cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON;
   python3 filter-script.py
 ```
