@@ -16,7 +16,7 @@
         <li>You can click the <ui-path>Continue with JetBrains account</ui-path> button to create a
             <a href="https://account.jetbrains.com/login">JetBrains account</a> to log in to Qodana Cloud.</li>
         <li>As a non-registered user, you can explore demo projects already analyzed by Qodana. To explore
-            reports in details, see the <a href="cloud-overview-reports.topic"/> section.</li>
+            reports in detail, see the <a href="cloud-overview-reports.topic"/> section.</li>
     </list>
 
     <!--<p>If you choose a commercial type of account, you will be able to create a business account or join the existing account
