@@ -482,7 +482,7 @@
                     <li>
                         <p><ui-path>Inspection profile</ui-path> defines an <a href="inspection-profiles.md">inspection profile</a>:</p>
                         <list>
-                            <li><code>Recommended (default)</code> is one of the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profiles</a>.</li>
+                            <li><code>qodana.starter (default)</code> is one of the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profiles</a>.</li>
                             <li><code>Embedded profile</code> lets you select a default profile, see the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"/> section for details.</li>
                             <li><code>Path to the IntelliJ profile</code> lets you specify the path to your <a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">custom profile</a>. To use this option,
                                 make sure that you also configure the custom profile in the <a href="inspection-profiles.md" anchor="inspection-profiles-yaml-file"><code>qodana.yaml</code></a> file.</li>
