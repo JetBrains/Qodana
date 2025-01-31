@@ -10,8 +10,8 @@
 You can develop your own inspections specific to your project using the IntelliJ API and Kotlin.
 </link-summary>
 
-Starting from version 2024.1 of IntelliJ IDEA, you can develop your own inspections specific to your project using the 
-[IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin under the [Ultimate Plus](pricing.md) license. You can:
+You can develop your own inspections specific to your project using the 
+[IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin under the Ultimate and Ultimate Plus [licenses](pricing.md). You can:
 
 - Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code.
 - Debug new inspections on the fly.
