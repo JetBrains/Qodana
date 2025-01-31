@@ -626,7 +626,7 @@ To run a script, use the `bootstrap` section of the [`qodana.yaml`](qodana-yaml.
 ```yaml
 bootstrap: |
   set -eux
-  cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON;
+  cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
   python3 filter-script.py
 ```
 
