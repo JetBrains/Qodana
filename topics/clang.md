@@ -513,8 +513,6 @@ To modify analysis paths in the `compile_commands.json` file contained in the Do
 you can use Python scripts. For example, the scripts below use glob patterns and regular expressions that modify 
 paths in the `compile_commands.json` file inside the Docker container of %product%. 
 
-that modify compile_commands.json file in-place from inside the docker container
-
 <tabs>
     <tab title="Including glob patterns">
         <code-block lang="Python">
