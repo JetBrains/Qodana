@@ -15,9 +15,15 @@ application of the [quality gate](quality-gate.topic) and [baseline](baseline.to
 
 <link-summary>Create a repository and a pipeline in the Bitbucket Cloud UI.</link-summary>
 
-1. Using the Bitbucket Cloud UI, create a [repository](%repository%).
-2. In the Bitbucket Cloud repository, create a [pipeline](%pipeline%). This will generate the `bitbucket-pipelines.yml` file 
-for storing a pipeline configuration.
+Using the Bitbucket Cloud UI, create a <a href="%repository%">repository</a>.
+
+In the Bitbucket Cloud repository, create a <a href="%pipeline%">pipeline</a>. This will generate the 
+<code>bitbucket-pipelines.yml</code>  file for storing a pipeline configuration.
+
+### Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
 
 ## Basic configuration
 

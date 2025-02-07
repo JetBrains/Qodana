@@ -2,35 +2,54 @@
 
 <link-summary>You can build Qodana into your CircleCI pipelines using the CircleCI Qodana orb.</link-summary>
 
-CircleCI is a cloud-based CI/CD system. You can build %instance% into your CircleCI 
-[pipelines](https://circleci.com/docs/concepts#pipelines) using the CircleCI Qodana 
-[orb](https://circleci.com/docs/orb-concepts) as described in this procedure:
+<var name="orb-concept" value="https://circleci.com/docs/orb-concepts#using-orbs-within-your-orb-and-register-time-resolution"/>
+<var name="uncertified-orbs" value="https://circleci.com/docs/orbs-faq#using-uncertified-orbs"/>
+<var name="orb-site" value="https://circleci.com/developer/orbs/orb/jetbrains/qodana"/>
+<var name="pipelines" value="https://circleci.com/docs/concepts#pipelines"/>
+<var name="orb" value="https://circleci.com/docs/orb-concepts"/>
 
-1. Create the `.circleci/config.yml` file and specify the CircleCI version:
+CircleCI is a cloud-based CI/CD system. You can build %instance% into your CircleCI [pipelines](%pipelines%) using the 
+CircleCI Qodana [orb](%orb%). 
 
-```yaml
-version: 2.1
-```
+## Prepare your project
 
-2. Below the CircleCI version, add the <code>orbs</code> 
-<a href="https://circleci.com/docs/orb-concepts#using-orbs-within-your-orb-and-register-time-resolution">stanza</a>, and 
-then specify the <code>qodana</code> element along with the %instance% version:
+<!-- Where exactly should it be created? -->
+<!-- This should be tested and properly documented -->
 
-```yaml
-orbs: 
-    qodana: jetbrains/qodana@2024.3
-```
+<procedure>
+    <step>
+        <p>Create the <code>.circleci/config.yml</code> file and specify the CircleCI version, for example:</p>
+        <code-block lang="yaml">
+            version: 2.1
+        </code-block>
+    </step>
+    <step>
+        <p>Below the CircleCI version, add the <code>orbs</code> <a href="%orb-concept%">stanza</a>, and 
+        then specify the <code>qodana</code> element along with the %instance% version:</p>
+        <code-block lang="yaml">
+        orbs: 
+            qodana: jetbrains/qodana@2024.3
+        </code-block>
+        <p>If necessary, repeat this step for all required workflows and jobs.</p>
+    </step>
+    <step>
+        <p>In the CircleCI UI, opt in to use <a href="%uncertified-orbs%">uncertified orbs</a>.</p>
+        <tip>
+            To learn more, visit the <a href="%orb-site%">CircleCI Qodana orb</a> page on the CircleCI developer portal.
+        </tip>
+    </step>
+</procedure>
 
-If necessary, repeat this step for all required workflows and jobs.
 
-3. In the CircleCI UI, opt in to use [uncertified orbs](https://circleci.com/docs/orbs-faq#using-uncertified-orbs). 
+### Qodana Cloud
 
-> To learn more, visit the [CircleCI Qodana orb](https://circleci.com/developer/orbs/orb/jetbrains/qodana) page on
-> the CircleCI developer portal.
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
-## Examples
+## Basic configuration 
 
-Using this configuration sample, you can scan your project with %instance% with the default configuration parameters:
+This configuration sample contains the default configuration that you can analyze your project with %instance%:
+
+<!-- This should contain QODANA_CLOUD token -->
 
 ```yaml
 version: '2.1'
@@ -49,6 +68,8 @@ workflows:
       - code-quality:
           context: qodana
 ```
+
+## Specify the linter
 
 This configuration sample invokes the `args` parameter to run the specific linter like `jetbrains/qodana-jvm`:
 
@@ -71,22 +92,7 @@ workflows:
           context: qodana
 ```
 
-### Qodana Cloud
-
-<snippet id="circleci-qodana-cloud">
-
-To forward inspection results to Qodana Cloud, all you need to do is to create the `QODANA_TOKEN` [project variable](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project) 
-and save the [project token](cloud-projects.topic#cloud-manage-projects) as its value. If you are using a Qodana Cloud instance other than 
-https://qodana.cloud/, override it by declaring the `QODANA_ENDPOINT` environment variable.
-
-After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
-
-
-</snippet>
-
-![Qodana Cloud](qodana-cloud.gif)
-
-## Commands and parameters
+## Configuration
 
 The CircleCI Qodana orb provides the `scan` command to let you inspect your project and report the results.
 

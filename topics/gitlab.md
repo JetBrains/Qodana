@@ -26,6 +26,10 @@ Make sure that your project repository is accessible to GitLab CI/CD.
 In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain the pipeline configuration 
 that will be used by GitLab CI/CD. 
 
+### Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
 ## Basic configuration
 
 <link-summary>This section shows the basic pipeline configuration.</link-summary>

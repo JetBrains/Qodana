@@ -22,14 +22,18 @@ need to be met:
 
 <note>Currently, running Qodana on Windows-based build agents of TeamCity is not supported.</note>
 
-### Add the Qodana runner
+## Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
+## Add the Qodana runner
 {id="teamcity-qodana-runner"}
 
 <link-summary>You can configure the %product% runner in a TeamCity build.</link-summary>
 
 <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty"/>
 
-### Quality gate and baseline
+## Quality gate and baseline
 
 <snippet id="teamcity-code-quality-baseline">
 
@@ -47,14 +51,14 @@ To configure both options, in the **Additional Qodana arguments** field separate
 
 </snippet>
 
-### Analyze pull requests and specific branches
+## Analyze pull requests and specific branches
 
 Information about configuring TeamCity for analyzing pull and merge requests is available on the 
 [TeamCity](%TeamCityPullRequests%) documentation portal.
 
 To learn how to analyze specific branches, see the [Trigger Settings](%TeamCityBranches%) section of the TeamCity documentation.
 
-### Add a configuration script
+## Add a configuration script
 {id="add-script"}
 
 <link-summary>Custom profile configuration for Qodana linters is stored in the qodana.yaml file. When using a CI system, 
@@ -112,7 +116,7 @@ EOM
 <!-- Add the analysis of specific branches use case here as well -->
 <!-- Case about analyzing pull requests needs to be added here -->
 
-### Verify inspection results
+## Verify inspection results
 
 <link-summary>Now that you have configured and run the build, you can see analysis results.</link-summary>
 
@@ -123,13 +127,13 @@ Alternatively, you can view analysis results using the TeamCity UI, follow these
 <!-- Images here should be updated as well -->
 
 <procedure>
-<step>
-<p>Navigate to a project build page. On the <ui-path>Overview</ui-path> tab, click the build entry.</p>
-<img src="teamcity-plugin-verification-1.png" alt="Navigating to the build entry" width="706" border-effect="line"/>
-</step>
-<step>
-<p>On the build page, navigate to the <ui-path>Qodana</ui-path> tab to find the inspection report. To learn more about Qodana 
-reports, see the <a href="ui-overview.md"/> section of this documentation.</p>
-<img src="teamcity-plugin-verification-2.png" alt="Navigating to the Qodana tab" width="706" border-effect="line"/>
-</step>
+  <step>
+    <p>Navigate to a project build page. On the <ui-path>Overview</ui-path> tab, click the build entry.</p>
+    <img src="teamcity-plugin-verification-1.png" alt="Navigating to the build entry" width="706" border-effect="line"/>
+  </step>
+  <step>
+    <p>On the build page, navigate to the <ui-path>Qodana</ui-path> tab to find the inspection report. To learn more about Qodana 
+    reports, see the <a href="ui-overview.md"/> section of this documentation.</p>
+    <img src="teamcity-plugin-verification-2.png" alt="Navigating to the Qodana tab" width="706" border-effect="line"/>
+  </step>
 </procedure>

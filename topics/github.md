@@ -2,14 +2,11 @@
 
 <link-summary>The Qodana Scan GitHub action allows you to run Qodana in a GitHub repository.</link-summary>
 
-## Usage
+The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) allows you to run Qodana in a GitHub repository.
 
-The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
-allows you to run Qodana in a GitHub repository.
+## Prepare your project
 
 <anchor name="basic-configuration"/>
-
-### Basic configuration
 
 <link-summary>In the GitHub UI, create an encrypted secret for a project token, and configure a workflow file.</link-summary>
 
@@ -21,9 +18,11 @@ allows you to run Qodana in a GitHub repository.
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
 
-![Qodana Cloud](qodana-cloud.gif)
+### Qodana Cloud
 
-### Apply quick-fixes
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
+## Apply quick-fixes
 
 To make Qodana automatically fix found issues and push the changes to your repository,
 you need
@@ -53,7 +52,7 @@ Example configuration:
 > **Note**
 > Qodana could automatically modify not only the code, but also the configuration in `.idea`: if you do not wish to push these changes, add `.idea` to your `.gitignore` file.
 
-### GitHub code scanning
+## GitHub code scanning
 
 You can set
 up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
@@ -72,7 +71,7 @@ file using the `sarif_file` key.
 > GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up a baseline and quality gate processing on the Qodana side before submitting inspection results to GitHub code scanning, see the
 [Quality gate and baseline](#Quality+gate+and+baseline) section for details.
 
-### Pull request quality gate
+## Pull request quality gate
 
 <link-summary>You can enforce GitHub to block the merge of pull requests if a quality gate has failed.</link-summary>
 
@@ -103,7 +102,7 @@ Instead of `main`, you can specify your branch here.
 
 <anchor name="quality-gate-and-baseline"/>
 
-### Quality gate and baseline
+## Quality gate and baseline
 
 <link-summary>You can combine the quality gate and baseline features to manage your technical debt, report only new 
 problems, and block pull requests that contain too many problems.</link-summary>

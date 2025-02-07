@@ -23,6 +23,10 @@ Assuming that your JetBrains Space account already has [a project](%Space-cr-pro
 [a repository](%Space-repo%), in the project root create the [`.space.kts`](%Space-config%) file. This 
 file will contain configuration scripts written in [Kotlin](https://kotlinlang.org/) and mentioned in this section.
 
+### Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
 ## Basic configuration
 
 <link-summary>This section shows the basic configuration script for running %instance% in JetBrains Automation jobs.</link-summary>

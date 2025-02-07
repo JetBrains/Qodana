@@ -36,6 +36,10 @@ Create a Multibranch Pipeline project as described on the [Jenkins documentation
 In the root directory of your project repository, create the `Jenkinsfile`. This file will contain Jenkins 
 configuration scripts described in this section. 
 
+### Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
 ## Basic configuration
 
 <link-summary>This section shows the basic configuration of the Jenkins Pipeline.</link-summary>

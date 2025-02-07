@@ -105,8 +105,6 @@
 
     <chapter id="cloud-forward-reports-circleci" title="CircleCI">
 
-        <include from="circleci.md" element-id="circleci-qodana-cloud"/>
-
         <p>To learn more about %instance% integration with CircleCI, see the
             <a href="circleci.md"/> section of this documentation.</p>
 
