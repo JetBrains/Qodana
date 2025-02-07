@@ -36,10 +36,10 @@ edit your azure-pipelines.yml file as shown in this section.</link-summary>
 You can run the Qodana Scan task on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed. 
 Additionally, since most Qodana Docker images are Linux-based, the Docker daemon must support running Linux containers.
 
-You can configure this task using either the `azure-pipelines.yml` file or the [Classic interface](%classic-ui-ref%).
+You can configure this task using either a YAML-formatted file or the [Classic interface](%classic-ui-ref%).
 
 <tabs group="azure-config-tabs">
-   <tab title="azure-pipelines.yml" group-key="azure-config-tabs-azure-pipelines-yaml">
+   <tab title="YAML file" group-key="azure-config-tabs-azure-pipelines-yaml">
       <code-block lang="yaml">
          # Start with a minimal pipeline that you can customize to build and deploy your code.
          # Add steps that build, run tests, deploy, and more:
@@ -66,7 +66,7 @@ You can configure this task using either the `azure-pipelines.yml` file or the [
            <p>Here, <code>QODANA_TOKEN</code> refers to the <a anchor="Before+you+start">project token</a> generated 
                by Qodana Cloud.</p>
         </tab>
-        <tab title="Classic editor" group-key="azure-config-tabs-classic-editor">
+        <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
             <p>Add the <code>Qodana Scan</code> task to the pipeline configuration and then 
                configure it as shown below.</p>
             <img src="azure-pipelines-task-config.png" width="706" alt="The Qodana Scan task UI config" border-effect="line"/>
@@ -80,7 +80,7 @@ You can configure this task using either the `azure-pipelines.yml` file or the [
 This is how you can enable %product% analysis for pull requests:
 
 <tabs group="azure-config-tabs">
-   <tab title="azure-pipelines.yml" group-key="azure-config-tabs-azure-pipelines-yaml">
+   <tab title="YAML file" group-key="azure-config-tabs-azure-pipelines-yaml">
       <code-block lang="yaml">
          pr:
            branches:
@@ -102,7 +102,7 @@ This is how you can enable %product% analysis for pull requests:
            <p>Here, <code>QODANA_TOKEN</code> refers to the <a anchor="Before+you+start">project token</a> generated 
                by Qodana Cloud.</p>
         </tab>
-        <tab title="Classic editor" group-key="azure-config-tabs-classic-editor">
+        <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
             <p>Check the <ui-path>PR Mode</ui-path> option in the pipeline configuration as shown below.</p>
             <img src="azure-pipelines-task-config-pr.png" width="706" alt="The Qodana Scan task UI config for pull requests" border-effect="line"/>
         </tab>
@@ -113,7 +113,7 @@ This is how you can enable %product% analysis for pull requests:
 You can also configure the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features as shown below.
 
 <tabs group="azure-config-tabs">
-   <tab title="azure-pipelines.yml" group-key="azure-config-tabs-azure-pipelines-yaml">
+   <tab title="YAML file" group-key="azure-config-tabs-azure-pipelines-yaml">
       <p>In this configuration, the <code>args:</code> block configures the quality gate and baseline features using comma-separated options.</p>
       <code-block lang="yaml">
          # Start with a minimal pipeline that you can customize to build and deploy your code.
@@ -129,7 +129,7 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
          steps:
            - task: Cache@2  # Not required, but Qodana will open projects with cache faster.
              inputs:
-               args: '--baseline,qodana.sarif.json,-fail-threshold,5'
+               args: '--baseline,qodana.sarif.json,--fail-threshold,5'
                key: '"$(Build.Repository.Name)" | "$(Build.SourceBranchName)" | "$(Build.SourceVersion)"'
                path: '$(Agent.TempDirectory)/qodana/cache'
                restoreKeys: |
@@ -140,16 +140,56 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
                QODANA_TOKEN: $(QODANA_TOKEN)
            </code-block>
         </tab>
-        <tab title="Classic editor" group-key="azure-config-tabs-classic-editor">
+        <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
             <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to configure the baseline and quality gate features using comma-separated options.</p>
             <img src="azure-pipelines-task-config-baseline.png" width="706" alt="The Qodana Scan task UI config for baseline and quality gate" border-effect="line"/>
         </tab>
 </tabs>
 
+## Code coverage
+
+Follow recommendations from the [Code coverage](code-coverage.md#code-coverage-before-you-start) section to prepare your project.
+Use these examples to instruct %product% to map the directory containing code coverage results. 
+
+<tabs group="azure-config-tabs">
+   <tab title="YAML file" group-key="azure-config-tabs-azure-pipelines-yaml">
+      <p>In this configuration, the <code>args:</code> block maps the results of code coverage analysis to the <code>/data/coverage</code> directory.</p>
+      <code-block lang="yaml">
+         # Start with a minimal pipeline that you can customize to build and deploy your code.
+         # Add steps that build, run tests, deploy, and more:
+         # https://aka.ms/yaml
+         &nbsp;
+         trigger:
+           - main
+         &nbsp;
+         pool:
+           vmImage: ubuntu-latest
+         &nbsp;
+         steps:
+           - task: Cache@2  # Not required, but Qodana will open projects with cache faster.
+             inputs:
+               args: '-v,  $(System.DefaultWorkingDirectory)/BadRules.Tests/.qodana/:/data/coverage'
+               key: '"$(Build.Repository.Name)" | "$(Build.SourceBranchName)" | "$(Build.SourceVersion)"'
+               path: '$(Agent.TempDirectory)/qodana/cache'
+               restoreKeys: |
+                 "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
+                 "$(Build.Repository.Name)"
+           - task: QodanaScan@2024
+             env:
+               QODANA_TOKEN: $(QODANA_TOKEN)
+           </code-block>
+        </tab>
+        <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
+            <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to map the results of code coverage analysis to the <code>/data/coverage</code> directory.</p>
+            <img src="azure-pipelines-task-config-code-coverage.png" width="706" alt="The Qodana Scan task UI config for baseline and quality gate" border-effect="line"/>
+        </tab>
+</tabs>
+
+Code coverage results will be available on the [**Scans**](#SARIF+SAST+Scans+Tab) tab of the Azure Pipelines UI.
 
 ## SARIF SAST Scans Tab
 
-To display Qodana report summary in Azure DevOps UI in 'Scans' tab, install Microsoft DevLabs’ [SARIF SAST Scans Tab](https://marketplace.visualstudio.com/items?itemName=sariftools.scans) extension.
+To display Qodana report summary in Azure DevOps UI on the **Scans** tab, install Microsoft DevLabs’ [SARIF SAST Scans Tab](https://marketplace.visualstudio.com/items?itemName=sariftools.scans) extension.
 
 ![Azure Scans Tab](https://user-images.githubusercontent.com/13538286/160094802-df9b86b6-be53-45c1-a70c-8edfcde9412a.png)
 
