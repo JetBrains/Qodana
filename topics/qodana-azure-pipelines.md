@@ -200,14 +200,52 @@ To display Qodana report summary in Azure DevOps UI on the **Scans** tab, instal
 
 You won't probably need other options than `args`: all other options can be helpful if you are configuring multiple `Qodana Scan` jobs in one workflow.
 
-| YAML option    | UI element of the classic editor | Description                                                                                                                                                                                                                                                                           | Default Value                           |
-|----------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| `args`         | **Qodana CLI arguments**        | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend`. <br>If an argument has a value, you can pass it with the `=` character, for example `-e,param=value`. <br>Optional. | None                                    |
-| `resultsDir`   | **Results Directory**           | Directory to store the analysis results. Optional.                                                                                                                                                                                                                                    | `$(Agent.TempDirectory)/qodana/results` |
-| `uploadResult` | **Upload Result**               | Upload Qodana results as an artifact to the job. Optional.                                                                                                                                                                                                                            | `false`                                 |
-| `uploadSarif`  | **Upload SARIF**                | Upload qodana.sarif.json as an qodana.sarif artifact to the job. Optional.                                                                                                                                                                                                            | `true`                                  |
-| `artifactName` | **Artifact Name**               | Specify Qodana results artifact name, used for results uploading. Optional.                                                                                                                                                                                                           | `qodana-report`                         |
-| `cacheDir`     | **Cache Directory**             | Directory to store Qodana caches. Optional.                                                                                                                                                                                                                                           | `$(Agent.TempDirectory)/qodana/cache`   |
+<table>
+   <tr>
+      <td>YAML option</td><td>UI element of the classic editor</td>
+      <td>Description</td>
+      <td>Default Value</td>
+   </tr>
+   <tr>
+      <td><code>args</code></td>
+      <td><control>Qodana CLI arguments</control></td>
+      <td><p>Additional <a href="https://github.com/jetbrains/qodana-cli#scan">Qodana CLI <code>scan</code> command</a> arguments, 
+            split the arguments with commas (<code>,</code>), for example <code>-i,frontend</code>.</p> 
+            <p>If an argument has a value, you can pass it using <code>=</code>, for example <code>-e,param=value</code>.</p> 
+            <p>Optional.</p></td>
+      <td>None</td>
+   </tr>
+   <tr>
+      <td><code>resultsDir</code></td>
+      <td><control>Results Directory</control></td>
+      <td>Directory to store the analysis results. Optional.</td>
+      <td><code>$(Agent.TempDirectory)/qodana/results</code></td>
+   </tr>
+   <tr>
+      <td><code>uploadResult</code></td>
+      <td><control>Upload Result</control></td>
+      <td>Upload Qodana results as an artifact to the job. Optional.</td>
+      <td><code>false</code></td>
+   </tr>
+   <tr>
+      <td><code>uploadSarif</code></td>
+      <td><control>Upload SARIF</control></td>
+      <td>Upload qodana.sarif.json as an qodana.sarif artifact to the job. Optional.</td>
+      <td><code>true</code></td>
+   </tr>
+   <tr>
+      <td><code>artifactName</code></td>
+      <td><control>Artifact Name</control></td>
+      <td>Specify Qodana results artifact name, used for results uploading. Optional.</td>
+      <td><code>qodana-report</code></td>
+   </tr>
+   <tr>
+      <td><code>cacheDir</code></td>
+      <td><control>Cache Directory</control></td>
+      <td>Directory to store Qodana caches. Optional.</td>
+      <td><code>$(Agent.TempDirectory)/qodana/cache</code></td>
+   </tr>
+</table>
 
 [gh:qodana]: https://github.com/JetBrains/qodana-action/actions/workflows/code_scanning.yml
 [youtrack]: https://youtrack.jetbrains.com/issues/QD
