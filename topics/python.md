@@ -23,7 +23,7 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="native-arg" value="&lt;linter-code&gt;"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/pycharm/customizing-profiles.html"/>
-<var name="teamcity-linter-list" value="Here, select either the %qp% or %qp-co% linter."/>
+<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
 
 <link-summary>You can analyze your Python code using the %qp% and %qp-co% linters.</link-summary>
 

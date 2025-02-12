@@ -34,7 +34,7 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/idea/customizing-profiles.html"/>
 <var name="native-arg" value="&lt;linter-code&gt;"/>
-<var name="teamcity-linter-list" value="Here, select either the %qp%, %qp-co%, %qp-a% or the %qp-an% linter."/>
+<var name="teamcity-linter-list" value="Here, select either the %qp%, %qp-co% or %qp-a% linter."/>
 
 <link-summary>You can analyze your Java code using the %qp%, %qp-co%, %qp-a% and %qp-an% linters.</link-summary>
 

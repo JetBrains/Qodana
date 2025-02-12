@@ -27,8 +27,7 @@
 <var name="rs-link" value="https://www.jetbrains.com/help/resharper/Introduction__Index.html"/>
 <var name="tfms" value="https://learn.microsoft.com/en-us/dotnet/standard/frameworks#net-5-os-specific-tfms"/>
 <var name="cpp-links" value="https://jetbrains.com/help/resharper/Introduction__Index.html#supported_langs"/>
-<var name="teamcity-linter-list" value="Here, specify the <code>%qp%</code> linter."/>
-<var name="teamcity-linter-list" value="Here, specify either the %qp% or %qp-co% linter."/>
+<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
 
 
 <link-summary>You can analyze your .NET code using the %qp% and %qp-co% linters.</link-summary>
@@ -172,7 +171,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         </procedure>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
-        <p>In TeamCity, Create a 
+        <p>If you wish to run the %qp% linter, then in TeamCity create a 
         <a href="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project">project</a> 
         and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
     </tab>
@@ -300,9 +299,6 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                              - qodana/report/
                           expose_as: 'Qodana report'
                 </code-block>
-            </tab>
-            <tab title="TeamCity" group-key="teamcity">
-                <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,dotnet-no-build"/>
             </tab>
             <tab title="Command line" group-key="command-line">
                 <tabs>
@@ -698,9 +694,6 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                  - qodana/report/
                               expose_as: 'Qodana report'
                     </code-block>
-                </tab>
-                <tab title="TeamCity" group-key="teamcity">
-                  <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,dotnet-co"/>
                 </tab>
                 <tab title="Command line" group-key="command-line">
                     <p>Start local analysis with <code>source-directory</code>
@@ -1392,9 +1385,6 @@ in a SARIF-formatted file.
                     <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block 
                         invokes the baseline feature.</p>
                 </tab>
-                <tab title="TeamCity" group-key="teamcity">
-                    <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,dotnet-co,baseline"/>
-                </tab>
                 <tab title="Command line" group-key="command-line">
                   <p>Choose how you would like to run the baseline feature from the command line:</p>
                   <tabs group="cli-settings">
@@ -1467,7 +1457,7 @@ in a SARIF-formatted file.
 
 ### Analyzing pull requests
 
-This feature is supported only by the %dotnet% linter.
+You can analyze pull requests using the %dotnet% linter.
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">

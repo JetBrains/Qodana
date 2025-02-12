@@ -483,8 +483,8 @@
                         <p><ui-path>Inspection profile</ui-path> defines an <a href="inspection-profiles.md">inspection profile</a>:</p>
                         <list>
                             <li><code>qodana.starter (default)</code> is one of the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profiles</a>.</li>
-                            <li><code>Embedded profile</code> lets you select a default profile, see the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"/> section for details.</li>
-                            <li><code>Path to the IntelliJ profile</code> lets you specify the path to your <a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">custom profile</a>. To use this option,
+                            <li><code>Profile name</code> lets you specify a profile, see the <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"/> section for details.</li>
+                            <li><code>Profile path</code> lets you specify the path to your <a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">custom profile</a>. To use this option,
                                 make sure that you also configure the custom profile in the <a href="inspection-profiles.md" anchor="inspection-profiles-yaml-file"><code>qodana.yaml</code></a> file.</li>
                         </list>
                     </li>
@@ -503,8 +503,16 @@
                             the project root using the <code>--compile-commands &lt;path-to-compile_commands.json&gt;</code> command.
                         </p>
                     </li>
+                    <li>
+                        <p><ui-path>Qodana CLI version</ui-path> lets you specify the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> version that you would like to use.</p>
+                    </li>
                 </list>
-                <img src="teamcity-runner.png" alt="Configuring the Qodana runner" width="680" border-effect="line"/>
+                <img src="teamcity-runner-jvm.png" alt="Configuring the Qodana runner" filter="jvm" width="680" border-effect="line"/>
+                <img src="teamcity-runner-php.png" alt="Configuring the Qodana runner" filter="php" width="680" border-effect="line"/>
+                <img src="teamcity-runner-python.png" alt="Configuring the Qodana runner" filter="python" width="680" border-effect="line"/>
+                <img src="teamcity-runner-js.png" alt="Configuring the Qodana runner" filter="js" width="680" border-effect="line"/>
+                <img src="teamcity-runner-go.png" alt="Configuring the Qodana runner" filter="golang" width="680" border-effect="line"/>
+                <img src="teamcity-runner-dotnet.png" alt="Configuring the Qodana runner" filter="dotnet" width="680" border-effect="line"/>
             </step>
             <step>
                 Click the <ui-path>Save</ui-path> button.

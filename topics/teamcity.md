@@ -27,7 +27,7 @@ need to be met:
 
 <link-summary>You can configure the %product% runner in a TeamCity build.</link-summary>
 
-<include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty"/>
+<include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,jvm"/>
 
 ### Quality gate and baseline
 
