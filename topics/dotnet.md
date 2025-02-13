@@ -96,6 +96,15 @@ For example, this command will install the required version of the SDK that is s
 </code-block>
 
 
+### Dependency restore
+
+Before building a project and running %qp% or %qp-co%, you should restore dependencies using the 
+<a href="before-running-qodana.md"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file: 
+
+```yaml
+bootstrap: dotnet restore
+```
+
 ### Prepare your software
 {id="dotnet-software-prerequisites"}
 
