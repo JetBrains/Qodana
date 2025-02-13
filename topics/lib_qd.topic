@@ -1245,6 +1245,202 @@
                 </procedure>
             </tab>
         </tabs>
+
+        <chapter title="Run behind a proxy server">
+
+            <p>To learn how to configure Docker images of %product% for running behind a proxy server, see the
+                <a href="troubleshooting.topic" anchor="troubleshooting-run-behind-a-proxy"/> section.
+            </p>
+            <p>To run a Docker image of %product% behind a proxy server by specifying HTTP(S) hosts and ports using the <code>JAVA_TOOL_OPTIONS</code> variable:</p>
+
+            <tabs group="cli-settings">
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code-block lang="shell" prompt="$" filter="jvm">
+                        qodana scan \
+                        &nbsp;&nbsp;&nbsp;-e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;" \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;-l &lt;linter&gt;
+                    </code-block>
+                    <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
+                    <code-block lang="shell" prompt="$" filter="python">
+                        qodana scan \
+                        &nbsp;&nbsp;&nbsp;-e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;" \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;-l %qd-image%
+                    </code-block>
+                    <code-block lang="shell" prompt="$" filter="generic">
+                        qodana scan \
+                        &nbsp;&nbsp;&nbsp;-e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;" \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;-l %qp-linter%
+                    </code-block>
+                </tab>
+                <tab title="Docker image" group-key="docker-image">
+                    <code-block lang="shell" prompt="$" filter="jvm">
+                        docker run \
+                        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                        &nbsp;&nbsp;&nbsp;-e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;" \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;&lt;linter&gt;
+                    </code-block>
+                    <include filter="jvm" use-filter="jvm" from="lib_qd.topic" element-id="linters-docker-image-table"/>
+                    <code-block lang="shell" prompt="$" filter="python">
+                        docker run \
+                        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                        &nbsp;&nbsp;&nbsp;-e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;" \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;%qd-image%
+                    </code-block>
+                    <code-block lang="shell" prompt="$" filter="generic">
+                        docker run \
+                        &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
+                        &nbsp;&nbsp;&nbsp;-e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;" \
+                        &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                        &nbsp;&nbsp;&nbsp;%qp-linter%
+                    </code-block>
+                </tab>
+                <tab title="Jenkins" group-key="jenkins">
+                    <p>Save this configuration to the <code>Jenkinsfile</code>:</p>
+                    <code-block lang="groovy" filter="generic">
+                            pipeline {
+                            &nbsp;&nbsp;environment {
+                            &nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN=credentials('qodana-token')
+                            &nbsp;&nbsp;&nbsp;&nbsp;JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;"
+                            &nbsp;&nbsp;}
+                            &nbsp;&nbsp;agent {
+                            &nbsp;&nbsp;&nbsp;&nbsp;docker {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args '''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v "${WORKSPACE}":/data/project
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--entrypoint=""
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image '%qp-linter%'
+                            &nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;}
+                            &nbsp;&nbsp;stages {
+                            &nbsp;&nbsp;&nbsp;&nbsp;stage('Qodana') {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;steps {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sh '''qodana'''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;}
+                            }
+                        </code-block>
+                    <code-block lang="groovy" filter="python">
+                            pipeline {
+                            &nbsp;&nbsp;environment {
+                            &nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN=credentials('qodana-token')
+                            &nbsp;&nbsp;&nbsp;&nbsp;JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;"
+                            &nbsp;&nbsp;}
+                            &nbsp;&nbsp;agent {
+                            &nbsp;&nbsp;&nbsp;&nbsp;docker {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args '''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v "${WORKSPACE}":/data/project
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--entrypoint=""
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image '%qd-image%'
+                            &nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;}
+                            &nbsp;&nbsp;stages {
+                            &nbsp;&nbsp;&nbsp;&nbsp;stage('Qodana') {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;steps {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sh '''qodana'''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;}
+                            }
+                        </code-block>
+                    <code-block lang="groovy" filter="jvm">
+                            pipeline {
+                            &nbsp;&nbsp;environment {
+                            &nbsp;&nbsp;&nbsp;&nbsp;QODANA_TOKEN=credentials('qodana-token')
+                            &nbsp;&nbsp;&nbsp;&nbsp;JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;"
+                            &nbsp;&nbsp;}
+                            &nbsp;&nbsp;agent {
+                            &nbsp;&nbsp;&nbsp;&nbsp;docker {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args '''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v "${WORKSPACE}":/data/project
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--entrypoint=""
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Uncomment the linter you would like to employ
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// image '%qp-linter%' // Qodana for JVM
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// image '%qp-co-linter%' // Qodana Community for JVM
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// image '%qp-a-linter%' // Qodana Community for Android
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// image '%qp-an-linter%' // Qodana for Android
+                            &nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;}
+                            &nbsp;&nbsp;stages {
+                            &nbsp;&nbsp;&nbsp;&nbsp;stage('Qodana') {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;steps {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sh '''qodana'''
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;}
+                            }
+                        </code-block>
+                </tab>
+                <tab title="GitLab CI/CD" group-key="gitlab">
+                    <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
+                    <code-block lang="yaml" filter="generic">
+                            qodana:
+                                image:
+                                    name: %qp-linter%
+                                    entrypoint: [""]
+                                cache:
+                                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                                      fallback_keys:
+                                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                                          - qodana-2024.3-
+                                      paths:
+                                          - .qodana/cache
+                                variables:
+                                    QODANA_TOKEN: $qodana_token
+                                    JAVA_TOOL_OPTIONS: "-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;"
+                                script:
+                                    - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                        </code-block>
+                    <code-block lang="yaml" filter="python">
+                            qodana:
+                                image:
+                                    name: %qd-image%
+                                    entrypoint: [""]
+                                cache:
+                                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                                      fallback_keys:
+                                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                                          - qodana-2024.3-
+                                      paths:
+                                          - .qodana/cache
+                                variables:
+                                    QODANA_TOKEN: $qodana_token
+                                    JAVA_TOOL_OPTIONS: "-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;"
+                                script:
+                                    - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                        </code-block>
+                    <code-block lang="yaml" filter="jvm">
+                            qodana:
+                                image:
+                                    # Uncomment the linter you would like to employ
+                                    # name: %qp-linter% # Qodana for JVM
+                                    # name: %qp-co-linter% # Qodana Community for JVM
+                                    # name: %qp-a-linter% # Qodana Community for Android
+                                    # name: %qp-an-linter% # Qodana for Android
+                                    entrypoint: [""]
+                                cache:
+                                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                                      fallback_keys:
+                                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                                          - qodana-2024.3-
+                                      paths:
+                                          - .qodana/cache
+                                variables:
+                                    QODANA_TOKEN: $qodana_token
+                                    JAVA_TOOL_OPTIONS: "-Dhttps.proxyHost=&lt;host&gt; -Dhttps.proxyPort=&lt;port&gt; -Dhttp.proxyHost=&lt;host&gt; -Dhttp.proxyPort=&lt;port&gt;"
+                                script:
+                                    - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                        </code-block>
+                </tab>
+            </tabs>
+        </chapter>
     </snippet>
 
     <snippet id="explore-analysis-results">
