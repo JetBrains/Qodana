@@ -131,8 +131,6 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
          &nbsp;
          steps:
            - task: Cache@2  # Not required, but Qodana will open projects with cache faster.
-             inputs:
-               args: '--baseline,qodana.sarif.json,--fail-threshold,5'
                key: '"$(Build.Repository.Name)" | "$(Build.SourceBranchName)" | "$(Build.SourceVersion)"'
                path: '$(Agent.TempDirectory)/qodana/cache'
                restoreKeys: |
@@ -141,6 +139,8 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
            - task: QodanaScan@2024
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
+             inputs:
+               args: '--baseline,qodana.sarif.json,--fail-threshold,5'
            </code-block>
         </tab>
         <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
@@ -170,8 +170,6 @@ Use these examples to instruct %product% to map the directory containing code co
          &nbsp;
          steps:
            - task: Cache@2  # Not required, but Qodana will open projects with cache faster.
-             inputs:
-               args: '-v,  $(System.DefaultWorkingDirectory)/BadRules.Tests/.qodana/:/data/coverage'
                key: '"$(Build.Repository.Name)" | "$(Build.SourceBranchName)" | "$(Build.SourceVersion)"'
                path: '$(Agent.TempDirectory)/qodana/cache'
                restoreKeys: |
@@ -180,6 +178,8 @@ Use these examples to instruct %product% to map the directory containing code co
            - task: QodanaScan@2024
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
+             inputs:
+               args: '-v,  $(System.DefaultWorkingDirectory)/&lt;ProjectPath&gt;/.qodana/:/data/coverage'
            </code-block>
         </tab>
         <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
@@ -188,11 +188,10 @@ Use these examples to instruct %product% to map the directory containing code co
         </tab>
 </tabs>
 
-Code coverage results will be available on the [**Scans**](#SARIF+SAST+Scans+Tab) tab of the Azure Pipelines UI.
-
 ## SARIF SAST Scans Tab
 
-To display Qodana report summary in Azure DevOps UI on the **Scans** tab, install Microsoft DevLabs’ [SARIF SAST Scans Tab](https://marketplace.visualstudio.com/items?itemName=sariftools.scans) extension.
+To display Qodana report summary in Azure DevOps UI on the **Scans** tab, install Microsoft DevLabs’ [SARIF SAST Scans Tab](https://marketplace.visualstudio.com/items?itemName=sariftools.scans) extension
+and set the `uploadSarif` [option](#Configuration) in your pipeline configuration to `true`.
 
 ![Azure Scans Tab](https://user-images.githubusercontent.com/13538286/160094802-df9b86b6-be53-45c1-a70c-8edfcde9412a.png)
 
