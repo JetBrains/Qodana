@@ -1,13 +1,16 @@
 # Global configuration
 
-Global configuration lets you re-use %product% configurations across multiple projects. Each global configuration covers
-[`qodana.yaml`](qodana-yaml.md) files and inspection profile configurations in [YAML](custom-profiles.md) and 
+Global configuration lets you share %product% configurations across multiple projects. Each global configuration is a set of files
+containing the [`qodana.yaml`](qodana-yaml.md) configuration file and inspection profile configurations in [YAML](custom-profiles.md) and 
 [XML](custom-xml-profiles.md) formats.
 
 ## How it works
 
-Configuration files are saved in VCS repositories. Using [CI/CD pipelines](ci.md), these files are then pushed to 
-Qodana Cloud. You can update these files in the Qodana Cloud UI. 
+Configuration YAML-formatted files saved in project directories of VCS repositories. Using [CI/CD pipelines](ci.md) and our uploader tool, 
+you can send these files to Qodana Cloud. This lets global configurations become connected to Qodana cloud projects; 
+during the project analysis, %product% linters obtain global configuration and use it as a base configuration during analysis. 
+
+You can update these files in the Qodana Cloud UI. 
 
 You can use and configure each global configuration for several projects within a single Qodana Cloud 
 [organization](cloud-organizations.topic). 

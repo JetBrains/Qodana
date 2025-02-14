@@ -27,5 +27,8 @@ configuration snippets that will help you start %product% in your project.
 
 The project setup uses information from your JetBrains account, which includes licenses and companies.
 
+## Global configurations
 
-
+During the project setup stage, you can choose a [global configuration](global-configuration.md) that will be used while 
+analyzing your code.
+<!-- What does this mean ? Does this have to be saved on a repository ? -->
