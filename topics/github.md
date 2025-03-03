@@ -1,5 +1,7 @@
 [//]: # (title: GitHub Actions)
 
+<show-structure depth="3"/>
+
 <link-summary>The Qodana Scan GitHub action allows you to run Qodana in a GitHub repository.</link-summary>
 
 ## Usage
