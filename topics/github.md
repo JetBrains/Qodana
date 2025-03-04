@@ -1,15 +1,22 @@
 [//]: # (title: GitHub Actions)
 
 <link-summary>The Qodana Scan GitHub action allows you to run Qodana in a GitHub repository.</link-summary>
+<var name="pull-requests" value="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests"/>
+<var name="branch-protection-rule" value="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
-## Usage
+<show-structure depth="3"/>
 
-The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan)
-allows you to run Qodana in a GitHub repository.
+The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-scan) allows you to run Qodana in a GitHub repository.
 
-<anchor name="basic-configuration"/>
+## Prepare your project
+
+### Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
 ### Basic configuration
+
+<anchor name="basic-configuration"/>
 
 <link-summary>In the GitHub UI, create an encrypted secret for a project token, and configure a workflow file.</link-summary>
 
@@ -21,43 +28,83 @@ allows you to run Qodana in a GitHub repository.
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
 
-![Qodana Cloud](qodana-cloud.gif)
+## Quick-fixes
 
-### Apply quick-fixes
+To automatically fix issues found by %product% and push the changes to your repository, follow the procedure below.
 
-To make Qodana automatically fix found issues and push the changes to your repository,
-you need
-to
-1. Choose what kind of fixes to apply
-   - [Specify `fixesStrategy` in the `qodana.yaml` file in your repository root](qodana-yaml.md#Configure+quick-fixes)
-   - Or set the action `args` property with the quick-fix strategy to use: `--apply-fixes` or `--cleanup`
-2. Set `push-fixes` property to
-   - `pull-request`: create a new branch with fixes and create a pull request to the original branch
-   - or `branch`: push fixes to the original branch. Also, set `pr-mode` to `false`: currently, this mode is not supported for applying fixes.
-3. Set the correct permissions for the job (`contents: write`, `pull-requests: write`, `checks: write`)
-   - If you use `pull-request` value for `push-fixes` property: [**allow GitHub Actions to create and approve pull requests**](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
+<procedure>
+   <step>
+      <p>Choose the <a href="quick-fix.md">quick-fix strategy</a> using either of two configuration methods:</p> 
+         <tabs>
+            <tab title="qodana.yaml">
+               <code-block lang="yaml">
+                  # Possible values: apply | cleanup
+                  fixesStrategy: apply               
+               </code-block>
+            </tab>
+            <tab title="Workflow configuration">
+               <code-block lang="yaml">
+                  # Possible values: --apply-fixes | --cleanup
+                  args: --apply-fixes
+               </code-block>   
+            </tab>
+         </tabs>
+   </step>
+   <step>
+      <p>Depending on your needs, configure the <code>push-fixes</code> option of your workflow configuration:</p>
+      <tabs>
+         <tab title="Pull request">
+            <p>Save this configuration to create a new branch with fixes and a pull request to the original branch:</p>
+            <code-block lang="yaml">
+               push-fixes: pull-request
+            </code-block>
+            <p>Also, enable GitHub Actions to <a href="%pull-requests%">create and approve</a> pull requests.</p>
+         </tab>
+         <tab title="Original branch">
+            <p>Save this configuration to push fixes to the original branch:</p>
+            <code-block lang="yaml">
+               push-fixes: branch
+               pr-mode: false
+            </code-block> 
+         </tab>
+      </tabs>
+   </step>
+   <step>
+      <p>Set the correct permissions for the job, for example:</p>
+      <code-block lang="yaml">
+      permissions:
+      &nbsp;&nbsp;contents: write
+      &nbsp;&nbsp;pull-requests: write
+      &nbsp;&nbsp;checks: write
+      </code-block>
+   </step>
+</procedure>
 
-Example configuration:
+This is an example configuration snippet containing all options:
 
-```yaml
-- name: Qodana Scan
-  uses: JetBrains/qodana-action@v2024.3
-  with:
-    pr-mode: false
-    args: --apply-fixes
-    push-fixes: pull-request
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
+<code-block lang="yaml">
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: write
+    steps:
+      - name: 'Qodana Scan'
+        uses: JetBrains/qodana-action@v2024.3
+        with:
+          args: --apply-fixes
+          push-fixes: pull-request
+        env:
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+</code-block>
 
 > **Note**
 > Qodana could automatically modify not only the code, but also the configuration in `.idea`: if you do not wish to push these changes, add `.idea` to your `.gitignore` file.
 
-### GitHub code scanning
+## GitHub code scanning
 
 You can set
 up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
-for your project using Qodana. To do it, add these lines to the `code_quality.yml` workflow file right below
+for your project using Qodana. To do this, add these lines to the `code_quality.yml` workflow file right below
 [the basic configuration](#Basic+configuration) of Qodana Scan:
 
 ```yaml
@@ -66,89 +113,137 @@ for your project using Qodana. To do it, add these lines to the `code_quality.ym
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
 ```
 
-This sample invokes `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report
+This sample invokes the `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report
 file using the `sarif_file` key.
 
-> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this data for further processing by Qodana. In this case, you have to set up a baseline and quality gate processing on the Qodana side before submitting inspection results to GitHub code scanning, see the
-[Quality gate and baseline](#Quality+gate+and+baseline) section for details.
+> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this 
+> data for further processing by Qodana. In this case, you have to set up a baseline and quality gate processing on the 
+> Qodana side before submitting inspection results to GitHub code scanning, see the [](#Baseline+and+quality+gate) section for details.
 
-### Pull request quality gate
+## Pull request quality gate
 
-<link-summary>You can enforce GitHub to block the merge of pull requests if a quality gate has failed.</link-summary>
+<link-summary>You can enforce GitHub to block merge of pull requests if a quality gate has failed.</link-summary>
 
-You can enforce GitHub to block the merge of pull requests if a quality gate has failed. To do it, create a
-[branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)
-as described below:
+You can configure GitHub to block the merging of pull requests if a quality gate has failed. 
+To do this, create a [branch protection rule](%branch-protection-rule%) as described below:
 
-1. Create a new or open an existing GitHub workflow that invokes the Qodana Scan action.
-2. Set the workflow to run on `pull_request` events that target the `main` branch.
-
-```yaml
-on:
-  pull_request:
-    branches:
-      - main
-```
-
-Instead of `main`, you can specify your branch here.
-
-3. Set the number of problems (integer) for the Qodana action `fail-threshold` option.
-4. Under your repository name, click **Settings**.
-5. On the left menu, click **Branches**.
-6. In the branch protection rules section, click **Add rule**.
-7. Add `main` to **Branch name pattern**.
-8. Select **Require status checks to pass before merging**.
-9. Search for the `Qodana` status check, then check it.
-10. Click **Create**.
+<procedure>
+   <step>
+      <p>Create a new or open an existing GitHub workflow that invokes the Qodana Scan action.</p>
+   </step>
+   <step>
+      <p>Set the workflow to run on <code>pull_request</code> events that target the <code>main</code> branch:</p>
+      <code-block lang="yaml">
+         on:
+            pull_request:
+              branches:
+                - main
+      </code-block>
+      <p>Instead of <code>main</code>, you can specify your branch here.</p>
+   </step>
+   <step>
+      <p>Set the number of problems (integer) for the Qodana action <code>fail-threshold</code> option.</p>
+   </step>
+   <step>
+      <p>Under your repository name, click <ui-path>Settings</ui-path>.</p>
+   </step>
+   <step>
+      <p>On the left menu, click <ui-path>Branches</ui-path>.</p>
+   </step>
+   <step>
+      <p>In the branch protection rules section, click <ui-path>Add rule</ui-path>.</p>
+   </step>
+   <step>
+      <p>Add <code>main</code> to <ui-path>Branch name pattern</ui-path>.</p>
+   </step>
+   <step>
+      <p>Select <ui-path>Require status checks to pass before merging</ui-path>.</p>
+   </step>
+   <step>
+      <p>Search for the <code>Qodana</code> status check, then check it.</p>
+   </step>
+   <step>
+      <p>Click <ui-path>Create</ui-path>.</p>
+   </step>
+</procedure>
 
 <anchor name="quality-gate-and-baseline"/>
 
-### Quality gate and baseline
+## Baseline and quality gate
 
-<link-summary>You can combine the quality gate and baseline features to manage your technical debt, report only new 
-problems, and block pull requests that contain too many problems.</link-summary>
+### Baseline
 
-You can combine the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features to manage your
-technical debt, report only new problems, and block pull requests that contain too many problems.
+<link-summary>Learn how to configure the baseline feature on GitHub.</link-summary>
 
 Follow these steps to establish a baseline for your project:
 
-1. Run Qodana [locally](Quick-start.topic) over your project:
+<procedure>
+   <step>
+      <p>Run Qodana <a href="Quick-start.topic">locally</a> on your project:</p>
+      <code-block lang="shell">
+      cd project
+      qodana scan \
+        -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
+      </code-block>
+   </step>
+   <step>
+      <p>In Qodana Cloud, <a href="ui-overview.md" anchor="ui-overview-baseline">add detected problems</a> to the baseline 
+         and then download the <code>qodana.sarif.json</code> file.</p>
+   </step>
+   <step>
+      <p>Upload the <code>qodana.sarif.json</code> file to your project root on GitHub.</p>
+   </step>
+   <step>
+      <p>Append the <code>--baseline,qodana.sarif.json</code> argument to the Qodana Scan action configuration 
+         <code>args</code> parameter in the  <code>code_quality.yml</code> file:</p>
+      <code-block lang="yaml">
+         - name: Qodana Scan
+           uses: JetBrains/qodana-action@main
+           with:
+             args: --baseline,qodana.sarif.json
+      </code-block>
+   </step>
+</procedure>
 
-```shell
-cd project
-qodana scan \
-   -e QODANA_TOKEN="<cloud-project-token>" \
-   --show-report
-```
+To update your baseline, you need to repeat these steps once more.
 
-2. Open your report at `http://localhost:8080/`, [add detected problems](ui-overview.md#ui-overview-baseline) to the baseline,
-   and download the `qodana.sarif.json` file.
+From this point onward, GitHub will generate alerts only for problems that were not included in the baseline as new issues.
 
-3. Upload the `qodana.sarif.json` file to your project root folder on GitHub.
+### Quality gate
 
-4. Append the `--baseline,qodana.sarif.json` argument to the Qodana Scan action configuration `args` parameter in the `code_quality.yml` file:
+<link-summary>Learn how to configure the quality gate feature on GitHub.</link-summary>
+
+To establish a quality gate, in the workflow configuration specify the `--fail-threshold` option:
 
 ```yaml
 - name: Qodana Scan
-  uses: JetBrains/qodana-action@main
+  uses: JetBrains/qodana-action@v2024.3
   with:
-    args: --baseline,qodana.sarif.json
+    args: --fail-threshold,<number-of-accepted-problems>
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-If you want to update the baseline, you need to repeat these steps once more.
+### Combined configuration
 
-Starting from this, GitHub will generate alters only for the problems that were not added to the baseline as new.
+<link-summary>You can combine the baseline and quality gate features to manage your technical debt, report only new 
+problems, and block pull requests that contain too many problems.</link-summary>
 
-To establish a quality gate additionally to a baseline, add this line to `code_quality.yml` right after the
-`baseline-path` line:
+You can combine the [baseline](baseline.topic) and [quality gate](quality-gate.topic) features to manage your
+technical debt, report only new problems, and block pull requests that contain too many problems.
+Using this configuration, you will be able to detect only new problems in pull requests that fall beyond the baseline. 
 
 ```yaml
-fail-threshold: <number-of-accepted-problems>
+- name: Qodana Scan
+  uses: JetBrains/qodana-action@v2024.3
+  with:
+    args: --baseline,qodana.sarif.json,--fail-threshold,<number-of-accepted-problems>
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-Based on this, you will be able to detect only new problems in pull requests that fall beyond the baseline. At the same
-time, pull requests with **new** problems exceeding the `fail-threshold` limit will be blocked, and the workflow will fail.
+At the same time, pull requests with **new** problems exceeding the `--fail-threshold` limit will be blocked, and the 
+workflow will fail.
 
 ### Get a Qodana badge
 
@@ -156,11 +251,16 @@ time, pull requests with **new** problems exceeding the `fail-threshold` limit w
 
 You can set up a Qodana workflow badge in your repository, to do it, follow these steps:
 
-1. Navigate to the workflow run that you previously configured.
-2. On the workflow page, select **Create status badge**.
-3. Copy the Markdown text to your repository README file.
-
-<img src="https://user-images.githubusercontent.com/13538286/148529278-5d585f1d-adc4-4b22-9a20-769901566924.png" alt="Creating status badge" width="706"/>
+<procedure>
+    <step>Navigate to the workflow run that you previously configured.</step>
+    <step>
+        <p>On the workflow page, select <ui-path>Create status badge</ui-path>.</p>
+        <img src="https://user-images.githubusercontent.com/13538286/148529278-5d585f1d-adc4-4b22-9a20-769901566924.png" alt="Creating status badge" width="706"/>
+    </step>
+    <step>
+        <p>Copy the Markdown text to your repository README file.</p>
+    </step>
+</procedure>
 
 ## Configuration
 
