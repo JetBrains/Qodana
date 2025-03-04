@@ -2214,4 +2214,23 @@
 
     </snippet>
 
+    <snippet id="azure-pipelines-qodana-cloud">
+        <procedure>
+            <step>
+                In the Azure Pipelines UI, create the <code>QODANA_TOKEN</code>
+                <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables?view=azure-devops&amp;tabs=yaml%2Cbash#secret-variable-in-the-ui">secret variable</a> and
+                save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+            </step>
+            <step>
+                <p>In the Azure pipeline file, add the <code>QODANA_TOKEN</code> variable to the <code>env</code> section of the <code>QodanaScan</code> task:</p>
+                <code-block lang="yaml">
+                  - task: QodanaScan@2024
+                    env:
+                        QODANA_TOKEN: $(QODANA_TOKEN)
+                </code-block>
+            </step>
+        </procedure>
+    </snippet>
+
+
 </topic>
