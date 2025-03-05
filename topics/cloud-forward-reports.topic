@@ -29,13 +29,13 @@
         <li><a anchor="cloud-forward-reports-teamcity">TeamCity</a></li>
     </list>
 
-    <p>For all these cases, you need to generate a unique Qodana Cloud <a href="project-token.md">project token</a> as
-        shown in the <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section of this documentation. This
-        token will be invoked using the <code>QODANA_TOKEN</code> variable.</p>
-
     <note>To provide the correct work of the contributor counting functionality, add the IP address range
         54.76.32.8/32 to a list of allowed inbound connections on your side.
     </note>
+
+    <chapter id="cloud-forward-reports-before-you-start" title="Before you start">
+        <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+    </chapter>
 
     <chapter id="cloud-forward-reports-local-run" title="Docker and Qodana CLI">
 
@@ -105,8 +105,6 @@
 
     <chapter id="cloud-forward-reports-circleci" title="CircleCI">
 
-        <include from="circleci.md" element-id="circleci-qodana-cloud"/>
-
         <p>To learn more about %instance% integration with CircleCI, see the
             <a href="circleci.md"/> section of this documentation.</p>
 
@@ -123,28 +121,33 @@
     </chapter>
 
     <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI/CD">
-
-        <p>1. Create the <code>$qodana_token</code> <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a>, and save the
-            <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p>
-
-        <p>2. In the root folder of your GitLab-hosted project, create the <code>.gitlab-ci.yml</code> file and save this
-            configuration to that file:</p>
-
-        <code-block lang="yaml">
-            qodana:
-               image:
-                  name: jetbrains/qodana-&lt;linter&gt;
-                  entrypoint: [""]
-               variables:
-                  QODANA_TOKEN: $qodana_token
-               script:
-                  - qodana
-               artifacts:
-                  paths:
-                     - qodana
-        </code-block>
-
-        <p>3. In the <code>image:name</code> section of this configuration, specify the name of the %instance% <a href="docker-images.md">Docker image</a>.</p>
+        <procedure>
+            <step>
+                <p>Create the <code>$qodana_token</code>
+                    <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a>, and save the
+                    <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p>
+            </step>
+            <step>
+                <p>In the root folder of your GitLab-hosted project, create the <code>.gitlab-ci.yml</code> file and save this
+                    configuration to that file:</p>
+                <code-block lang="yaml">
+                    qodana:
+                        image:
+                            name: jetbrains/qodana-&lt;linter&gt;
+                            entrypoint: [""]
+                        variables:
+                            QODANA_TOKEN: $qodana_token
+                        script:
+                            - qodana
+                        artifacts:
+                            paths:
+                                - qodana
+                </code-block>
+            </step>
+            <step>
+                <p>In the <code>image:name</code> section of this configuration, specify the name of the %instance% <a href="docker-images.md">Docker image</a>.</p>
+            </step>
+        </procedure>
 
         <p>To learn more about %instance% integration with GitLab CI/CD, see the <a href="gitlab.md"/> section of this
         documentation.</p>
@@ -153,65 +156,74 @@
 
     <chapter id="cloud-forward-reports-jenkins" title="Jenkins">
 
-        <p>1. In the Jenkins UI, create the credentials with the <code>qodana-token</code> name as described in the
-            <a href="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials">Adding new global credentials</a>
-            section of the Jenkins documentation, and save the
-            <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as the value for these credentials.</p>
-
-        <p>2. In the root directory of your project, create the <code>Jenkinsfile</code> file and save this configuration to that file:</p>
-
-        <code-block lang="groovy">
-            pipeline {
-               environment {
-                  QODANA_TOKEN=credentials('qodana-token')
-               }
-               agent {
-                  docker {
-                     args '''
-                     -v "${WORKSPACE}":/data/project
-                     --entrypoint=""
-                     '''
-                     image 'jetbrains/qodana-&lt;linter&gt;'
-                  }
-               }
-               stages {
-                  stage('Qodana') {
-                     steps {
-                        sh '''qodana'''
-                     }
-                  }
-               }
-            }
-        </code-block>
-
-        <p>3. In the <code>image</code> section of this script, specify the %instance% <a href="docker-images.md">Docker image</a> name.</p>
+        <procedure>
+            <step>
+                <p>In the Jenkins UI, create the credentials with the <code>qodana-token</code> name as described in the
+                    <a href="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials">Adding new global credentials</a>
+                    section of the Jenkins documentation, and save the
+                    <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as the value for these credentials.</p>
+            </step>
+            <step>
+                <p>In the root directory of your project, create the <code>Jenkinsfile</code> file and save this configuration to that file:</p>
+                <code-block lang="groovy">
+                    pipeline {
+                       environment {
+                          QODANA_TOKEN=credentials('qodana-token')
+                       }
+                       agent {
+                          docker {
+                             args '''
+                             -v "${WORKSPACE}":/data/project
+                             --entrypoint=""
+                             '''
+                             image 'jetbrains/qodana-&lt;linter&gt;'
+                          }
+                       }
+                       stages {
+                          stage('Qodana') {
+                             steps {
+                                sh '''qodana'''
+                             }
+                          }
+                       }
+                    }
+                </code-block>
+            </step>
+            <step>
+                <p>In the <code>image</code> section of this script, specify the %instance% <a href="docker-images.md">Docker image</a> name.</p>
+            </step>
+        </procedure>
 
         <p>To learn more about %instance% integration with Jenkins, see the <a href="jenkins.md"/> section of this
             documentation.</p>
-
     </chapter>
 
     <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
 
-        <p>1. In the JetBrains Space UI, create a <a href="%SpaceAutomationLink%">secret</a> with the
-            <code>qodana-token</code> name, and save the generated
-        <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p>
-
-        <p>2. In the root directory of your Space-based project, create the <code>.space.kts</code> file and save this configuration
-            script to that file:</p>
-
-        <code-block lang="kotlin">
-            job("Qodana") {
-               container("jetbrains/qodana-&lt;linter&gt;") {
-                  env["QODANA_TOKEN"] = Secrets("qodana-token")
-                  shellScript {
-                     content = """qodana"""
-                  }
-               }
-            }
-        </code-block>
-
-        <p>3. In the <code>container</code> section of this script, specify the %instance% <a href="docker-images.md">Docker image</a> name.</p>
+    <procedure>
+        <step>
+            <p>In the JetBrains Space UI, create a <a href="%SpaceAutomationLink%">secret</a> with the
+                <code>qodana-token</code> name, and save the generated
+                <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p>
+        </step>
+        <step>
+            <p>In the root directory of your Space-based project, create the <code>.space.kts</code> file and save this configuration
+                script to that file:</p>
+            <code-block lang="kotlin">
+                job("Qodana") {
+                   container("jetbrains/qodana-&lt;linter&gt;") {
+                      env["QODANA_TOKEN"] = Secrets("qodana-token")
+                      shellScript {
+                         content = """qodana"""
+                      }
+                   }
+                }
+            </code-block>
+        </step>
+        <step>
+            <p>In the <code>container</code> section of this script, specify the %instance% <a href="docker-images.md">Docker image</a> name.</p>
+        </step>
+    </procedure>
 
         <p>To learn more details about %instance% integration with Space Automation, see the
             <a href="space-automation.md"/> section of this documentation.</p>
@@ -219,10 +231,15 @@
 
     <chapter id="cloud-forward-reports-teamcity" title="TeamCity">
 
-        <p>1. In the TeamCity UI, open the build step that will run %instance%.</p>
-        <p>2. In the <ui-path>Cloud Token</ui-path> field, insert the <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud token</a> value.</p>
-
-            <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
+        <procedure>
+            <step>
+                <p>In the TeamCity UI, open the build step that will run %instance%.</p>
+            </step>
+            <step>
+                <p>In the <ui-path>Cloud Token</ui-path> field, insert the <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud token</a> value.</p>
+                <img src="cloud-forward-reports-teamcity.png" width="706" alt="Configuring fields in TeamCity" border-effect="line"/>
+            </step>
+        </procedure>
 
         <p>To learn more about %instance% integration with TeamCity, see the <a href="teamcity.md"/> section of
             this documentation.</p>

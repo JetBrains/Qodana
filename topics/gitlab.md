@@ -10,13 +10,18 @@
 section explains how you can run %instance% [Docker images](docker-images.md) within GitLab CI/CD 
 [pipelines](https://docs.gitlab.com/ee/ci/pipelines/) and covers the following cases:
 
-* Inspecting specific branches and merge requests
-* Forwarding inspection reports to [Qodana Cloud](https://qodana.cloud)
-* Exposing %instance% reports in the GitLab CI/CD user interface
-* Using the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features
-* Generating Code Quality reports
+* Inspecting specific branches and merge requests,
+* Exposing %instance% reports in the GitLab CI/CD user interface,
+* Using the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features,
+* Generating Code Quality reports.
 
-## Prepare your project
+## Before you start
+
+### Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
+### Prepare your project
 
 <link-summary>Make sure that your project repository is accessible to GitLab CI/CD, and in the root directory of your 
 project save the pipeline configuration file.</link-summary>
@@ -50,24 +55,13 @@ qodana:
       - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
 ```
 
-In this configuration, the [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) keyword pulls the %instance% 
-[Docker image](docker-images.md) of your choice.
+This configuration contains the following keywords:
 
-The [`cache`](https://docs.gitlab.com/ee/ci/caching/) keyword configures GitLab caches to store the %instance% cache,
-so later runs will be faster. 
-
-The [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) keyword runs the `qodana` command and enumerates the %instance% 
-configuration options described in the [](docker-image-configuration.topic) section. 
-
-The `variables` keyword defines environment variables to be used. The `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
-refers to the [project token](project-token.md) generated in Qodana Cloud. This token is required by the paid %instance% 
-[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. If you are using a Qodana Cloud instance other 
-than https://qodana.cloud/, override it by declaring the `QODANA_ENDPOINT` environment variable.
-
-You can see these sections to learn how to generate the project token:
-
-* The [project setup](set-up-your-project.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+* [`image:name`](https://docs.gitlab.com/ee/ci/yaml/#image) pulls the %instance% [Docker image](docker-images.md) of your choice,
+* [`cache`](https://docs.gitlab.com/ee/ci/caching/) configures GitLab caches to store the %instance% cache, so later runs will be faster,
+* [`script`](https://docs.gitlab.com/ee/ci/yaml/#script) runs the `qodana` command and enumerates the %instance% configuration options described in the [](docker-image-configuration.topic) section,
+* `variables` defines environment variables to be used. The `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui)
+refers to the [project token](project-token.md) generated in Qodana Cloud. 
 
 ## Inspect specific branches
 

@@ -11,13 +11,24 @@ section explains how you can run %instance% [Docker images](docker-images.md) in
 [pipelines](%pipeline%) and covers 
 application of the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 
-## Prepare your project
+## Before you start
+
+### Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
+### Prepare your project
 
 <link-summary>Create a repository and a pipeline in the Bitbucket Cloud UI.</link-summary>
 
-1. Using the Bitbucket Cloud UI, create a [repository](%repository%).
-2. In the Bitbucket Cloud repository, create a [pipeline](%pipeline%). This will generate the `bitbucket-pipelines.yml` file 
-for storing a pipeline configuration.
+<procedure>
+    <step>
+        <p>Using the Bitbucket Cloud UI, create a <a href="%repository%">repository</a>.</p>
+    </step>
+    <step>
+        <p>In the Bitbucket Cloud repository, create a <a href="%pipeline%">pipeline</a>.</p>
+    </step>
+</procedure>
 
 ## Basic configuration
 
