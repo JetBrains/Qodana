@@ -1,29 +1,37 @@
 [//]: # (title: CircleCI)
 
 <link-summary>You can build Qodana into your CircleCI pipelines using the CircleCI Qodana orb.</link-summary>
+<var name="stanza" value="https://circleci.com/docs/orb-concepts#using-orbs-within-your-orb-and-register-time-resolution"/>
+<var name="uncertified-orbs" value="https://circleci.com/docs/orbs-faq#using-uncertified-orbs"/>
 
 CircleCI is a cloud-based CI/CD system. You can build %instance% into your CircleCI 
 [pipelines](https://circleci.com/docs/concepts#pipelines) using the CircleCI Qodana 
-[orb](https://circleci.com/docs/orb-concepts) as described in this procedure:
+[orb](https://circleci.com/docs/orb-concepts) as described in this section.
 
-1. Create the `.circleci/config.yml` file and specify the CircleCI version:
+## Before you start
 
-```yaml
-version: 2.1
-```
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
-2. Below the CircleCI version, add the <code>orbs</code> 
-<a href="https://circleci.com/docs/orb-concepts#using-orbs-within-your-orb-and-register-time-resolution">stanza</a>, and 
-then specify the <code>qodana</code> element along with the %instance% version:
+## Basic configuration
 
-```yaml
-orbs: 
-    qodana: jetbrains/qodana@2024.3
-```
-
-If necessary, repeat this step for all required workflows and jobs.
-
-3. In the CircleCI UI, opt in to use [uncertified orbs](https://circleci.com/docs/orbs-faq#using-uncertified-orbs). 
+<procedure>
+    <step>
+        <p>Create the <code>.circleci/config.yml</code> file and specify the CircleCI version:</p>
+        <code-block lang="yaml">version: 2.1</code-block>
+    </step>
+    <step>
+        <p>Below the CircleCI version, add the <code>orbs</code> 
+        <a href="%stanza%">stanza</a>, and then specify the <code>qodana</code> element along with the %instance% version:</p>
+        <code-block lang="yaml">
+            orbs: 
+                qodana: jetbrains/qodana@2024.3
+        </code-block>
+        <p>If necessary, repeat this step for all required workflows and jobs.</p>
+    </step>
+    <step>
+        <p>In the CircleCI UI, opt in to use <a href="%uncertified-orbs%">uncertified orbs</a>.</p>
+    </step>
+</procedure>
 
 > To learn more, visit the [CircleCI Qodana orb](https://circleci.com/developer/orbs/orb/jetbrains/qodana) page on
 > the CircleCI developer portal.
@@ -70,21 +78,6 @@ workflows:
       - code-quality:
           context: qodana
 ```
-
-### Qodana Cloud
-
-<snippet id="circleci-qodana-cloud">
-
-To forward inspection results to Qodana Cloud, all you need to do is to create the `QODANA_TOKEN` [project variable](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project) 
-and save the [project token](cloud-projects.topic#cloud-manage-projects) as its value. If you are using a Qodana Cloud instance other than 
-https://qodana.cloud/, override it by declaring the `QODANA_ENDPOINT` environment variable.
-
-After the token is set for analysis, all Qodana job results will be uploaded to your Qodana Cloud project.
-
-
-</snippet>
-
-![Qodana Cloud](qodana-cloud.gif)
 
 ## Commands and parameters
 

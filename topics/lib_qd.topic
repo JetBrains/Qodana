@@ -421,9 +421,7 @@
             <a href="https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Secured-variables">variable</a>.
             The <code>- qodana ...</code> line in this block tells Bitbucket which directories to use while running
             the pipeline, and it can also contain %instance% <a href="docker-image-configuration.topic">options</a>.
-            If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by similarly exporting
-            `QODANA_ENDPOINT` as environment variable before running Qodana.
-            </p>
+        </p>
     </snippet>
 
     <snippet id="root-and-non-root-users-info-bubble">
@@ -2207,7 +2205,7 @@
         <li>The <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section explains how to create a project token within an existing Qodana Cloud organization.</li>
     </list>
 
-        <p>Once you obtain the project token, you can use the <code>QODANA_TOKEN</code> variable for identifying in a pipeline.</p>
+        <p>Once you obtain the project token, you can use the <code>QODANA_TOKEN</code> variable for identifying in a pipeline or workflow.</p>
 
         <p>If you are using a Qodana Cloud instance other than <code>https://qodana.cloud/</code>, override it by setting
             the <code>QODANA_ENDPOINT</code> environment variable.</p>

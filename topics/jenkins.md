@@ -15,9 +15,15 @@ Docker images in Jenkins Multibranch Pipelines.</link-summary>
 
 [Jenkins](https://www.jenkins.io/doc/) is a self-contained, open-source server that automates software-related tasks 
 including building, testing, and deploying software. This section explains how you can configure %instance%
-[Docker images](docker-images.md) in Jenkins [Multibranch Pipelines](%Multipipe%)
+[Docker images](docker-images.md) in Jenkins [Multibranch Pipelines](%Multipipe%).
 
-## Prepare your project
+## Before you start
+
+### Qodana Cloud
+
+<include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
+
+### Prepare your project
 
 <link-summary>Preparation steps you need to perform before running %product% in a Jenkins Pipeline.</link-summary>
 
@@ -68,13 +74,7 @@ pipeline {
 
 In this configuration, the `environment` block defines any environment variables to be used in the pipeline.
 The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in Qodana Cloud and is contained in 
-the `qodana-token` [global credentials](%JenkinsCred%). If you are using a Qodana Cloud instance other
-than https://qodana.cloud/, override it by declaring the `QODANA_ENDPOINT` environment variable. The project token is required by the paid %instance%
-[linters](pricing.md#pricing-linters-licenses), and is optional for using with the Community linters. You can see these sections 
-to learn how to generate the project token in Qodana Cloud:
-
-* The [project setup](set-up-your-project.md) section explains how to get the project token generated while first working with Qodana Cloud
-* The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project in the existing Qodana Cloud organization
+the `qodana-token` [global credentials](%JenkinsCred%). 
 
 This configuration uses the `docker` agent to invoke %instance% [Docker images](docker-images.md). Using the 
 `WORKSPACE` variable, the `args` block mounts the local checkout directory to the project directory of a Docker image, 

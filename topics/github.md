@@ -221,7 +221,7 @@ To establish a quality gate, in the workflow configuration specify the `--fail-t
   with:
     args: --fail-threshold,<number-of-accepted-problems>
   env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 ```
 
 ### Combined configuration
@@ -239,7 +239,7 @@ Using this configuration, you will be able to detect only new problems in pull r
   with:
     args: --baseline,qodana.sarif.json,--fail-threshold,<number-of-accepted-problems>
   env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 ```
 
 At the same time, pull requests with **new** problems exceeding the `--fail-threshold` limit will be blocked, and the 
