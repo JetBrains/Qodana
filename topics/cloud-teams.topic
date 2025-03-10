@@ -43,7 +43,8 @@
 
     <chapter id="cloud-teams-manage-teams" title="Configure teams">
 
-        <p>To configure a team, click the upper-right corner of a team. </p>
+        <p>To configure a team, click the upper-right corner of a team. Here, you can manage team members, rename the team,
+            manage its visibility, leave and delete the team. </p>
 
         <img src="qc-configure-team.png" dark-src="qc-configure-team_dark.png" width="706" alt="Configure a team" border-effect="line"/>
 

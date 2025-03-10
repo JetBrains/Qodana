@@ -25,7 +25,8 @@
 
     <chapter id="cloud-manage-projects" title="Manage a project">
 
-    <p>After the project was created, you can update the VCS settings, regenerate the project token, rename the project, or delete it.</p>
+    <p>After the project was created, you can navigate to its VCS, update VCS settings, rename the project,
+        manage its <a href="project-token.md">project token</a>, rename and delete the project.</p>
 
         <img src="qc-project-options.png" dark-src="qc-project-options_dark.png" width="706" alt="Available project options" border-effect="line"/>
 
