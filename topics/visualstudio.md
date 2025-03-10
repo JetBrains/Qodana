@@ -1,46 +1,45 @@
-[//]: # (title: Visual Studio Code)
+# Visual Studio
 
-<link-summary>Using Visual Studio Code, you can run %product%, explore %product% reports and connect to Qodana Cloud. </link-summary>
+<link-summary>Using Visual Studio, you can run %product%, explore %product% reports and connect to Qodana Cloud. </link-summary>
 
-Visual Studio Code is a source code editor available for Windows, macOS and Linux. This section shows how you can use 
-%product% in Visual Studio Code:
+Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows. This section shows you can use
+%product% in Visual Studio:
 
-* [Run %product% locally](#vs-code-run-locally) in Visual Studio Code,
-* [Connect to Qodana Cloud](#vs-code-connect-to-qodana-cloud),
+* [Connect to Qodana Cloud](#vs-code-connect-to-qodana-cloud)
 * [Explore %product% reports](#vs-code-explore-reports) local or downloaded from Qodana Cloud,
-* [Configure %product% in Visual Studio Code](#vs-code-configure-extension).
 
 ## Before you start
 
-<link-summary>Make sure that you have a project in Qodana Cloud and Java 11 or later is installed on your machine. </link-summary>
+<link-summary>Make sure that you have a project in Qodana Cloud and you can install ReSharper. </link-summary>
 
-Make sure that you have a Qodana Cloud [project](cloud-projects.topic), and this project has at 
-least one analysis [report](cloud-overview-reports.topic) related to the project opened by Visual Studio Code. 
-Also, check whether Java 11 or later is installed on your machine by running the `java -version` command. If necessary, 
-install Java on your local machine.  
+Make sure that you have a Qodana Cloud [project](cloud-projects.topic), and this project has at
+least one analysis [report](cloud-overview-reports.topic) related to the project opened by Visual Studio.
 
-Download and install the **Qodana** extension from the 
-[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana-code) website, 
-or by navigating to the **Extensions** view in Visual Studio Code.  
+Download and install [JetBrains ReSharper](https://www.jetbrains.com/resharper/) and %product% extension as its part.
 
 ## UI overview
 {id="vs-code-ui-overview"}
 
-<link-summary>Type "View: Show Qodana" in the command palette of Visual Studio Code to navigate to the Qodana view. </link-summary>
+<link-summary>In Visual Studio, navigate to Extensions and run %product%.  </link-summary>
 
-In the command palette, type `View: Show Qodana` and select the **%product%** view.
+In Visual Studio, navigate to **Extensions | ReSharper | Qodana**, and then click **Show Qodana Panel**. 
 
-<img src="vs-code-ui-navigate.png" alt="Navigating to Qodana" width="706" border-effect="line"/>
+This will open the **%product% Analysis** panel in the lower part of your Visual Studio UI. 
 
-This will open the **%product%** view in the left part of your Visual Studio Code UI.
+Capture 1 and 2.
 
-<img src="vs-code-qodana-view.png" alt="The Qodana view" width="304" border-effect="line"/>
+On this window, click **Log In to Qodana**. This will open the **Options** window. 
 
-This view contains buttons leading to %product% functionalities in Visual Studio Code. 
+Capture 3. 
 
-Alternatively, in the command palette type `Qodana` to see the list of options present in the **%product%** view.
+Here, you can log in to %product% using the **Log In** button. This will redirect you to Qodana Cloud to accomplish the 
+login.  
 
-<img src="vs-code-ui-navigate-alt.png" alt="Navigating to Qodana through a command palette" width="706" border-effect="line"/>
+To log in to your Qodana Self-hosted instance, check **Enable Qodana Self-Hosted** and then in the 
+**Qodana server URL** enter the URL to it. 
+
+
+
 
 ## Run %product% locally
 {id="vs-code-run-locally"}
@@ -68,7 +67,7 @@ You can run %instance% locally and then forward inspection reports to [Qodana Cl
     </step>
 </procedure>
 
-After %product% runs, you can explore analysis results on the [**PROBLEMS**](#vs-code-explore-reports) tab of Visual Studio Code. 
+After %product% runs, you can explore analysis results on the [**PROBLEMS**](#vs-code-explore-reports) tab of Visual Studio Code.
 
 To see the history of local runs of %product% and load analysis reports, in the **%product%** view click the **View History**
 button and then choose the report you would like to explore.
@@ -80,7 +79,7 @@ To return the **PROBLEMS** tab to the default state, in the **%product%** view c
 
 <link-summary>Connect to Qodana Cloud to forward and get %product% reports in Visual Studio Code. </link-summary>
 
-To forward %product% reports to Qodana Cloud and get the latest %product% reports, log in to Qodana Cloud and connect 
+To forward %product% reports to Qodana Cloud and get the latest %product% reports, log in to Qodana Cloud and connect
 your project opened in the IDE to a specific Qodana Cloud [project](cloud-projects.topic) as shown below.
 
 <procedure>
@@ -109,7 +108,7 @@ your project opened in the IDE to a specific Qodana Cloud [project](cloud-projec
 
 <link-summary>You can explore Qodana reports in Visual Studio Code. </link-summary>
 
-You can explore the analysis report of %product% using the **PROBLEMS** tab of Visual Studio Code. 
+You can explore the analysis report of %product% using the **PROBLEMS** tab of Visual Studio Code.
 
 >If you still do not see the report on the **PROBLEMS** tab, configure the [**Path prefix**](#vs-code-configure-extension) setting.
 {style="note"}
@@ -118,7 +117,7 @@ On this tab, you can click problem items and navigate to code fragments where %i
 
 <img src="vscode-problems-tab.animated.gif" dark-src="vscode-problems-tab_dark.animated.gif" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
 
-You can also view analysis reports generated after local %product% runs using the **View History** button in the [%product% view](#vs-code-ui-overview). 
+You can also view analysis reports generated after local %product% runs using the **View History** button in the [%product% view](#vs-code-ui-overview).
 
 ## Configure Qodana
 {id="vs-code-configure-extension"}
@@ -202,12 +201,12 @@ to reset credentials and settings. </link-summary>
 
 ### I need to switch to another Qodana Cloud account
 
-You can use the **Qodana: Reset authentication** command to switch between Qodana Cloud accounts without clearing settings. 
+You can use the **Qodana: Reset authentication** command to switch between Qodana Cloud accounts without clearing settings.
 This can be useful in case you have several organizations under different Qodana Cloud accounts.
 
 ### I cannot get %instance% reports using current settings
 
-You can use the **Qodana: Reset all settings** command to reset all settings and credentials and try to configure 
+You can use the **Qodana: Reset all settings** command to reset all settings and credentials and try to configure
 the extension again, or use other settings.
 
  
