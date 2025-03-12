@@ -154,13 +154,13 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
     - name: PhpVulnerablePathsInspection
   </code-block>
 
-  <p>Alternatively, you can use the <code>inspections</code> section of <code>qodana.yaml</code>:</p>
+  <!--<p>Alternatively, you can use the <code>inspections</code> section of <code>qodana.yaml</code>:</p>
 
   <code-block lang="yaml">
   inspections:
     - inspection: PhpVulnerablePathsInspection
       enabled: true
-  </code-block>
+  </code-block>-->
 
   </tab>
   <tab title="%jvm%" id="jvm">
@@ -173,13 +173,13 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
     - name: JvmTaintAnalysis
   </code-block>
 
-  <p>Alternatively, you can use the <code>inspections</code> section of <code>qodana.yaml</code>:</p>
+  <!--<p>Alternatively, you can use the <code>inspections</code> section of <code>qodana.yaml</code>:</p>
 
   <code-block lang="yaml">
   inspections:
     - inspection: JvmTaintAnalysis
       enabled: true
-  </code-block>
+  </code-block>-->
   </tab>
 </tabs>
 </snippet>
