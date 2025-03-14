@@ -124,16 +124,21 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
         </p>
     </step>
     <step>
-        <p>If your project requires specific packages not previously mentioned in the 
-        <a href="%dockerfile%"><code>Dockerfile</code></a>, add the following <code>bootstrap</code> command to your 
-        <code>qodana.yaml</code> file to install the required packages:</p>
+        <p>
+          If your project requires specific packages not previously mentioned in the <a href="%dockerfile%"><code>Dockerfile</code></a>, add the following <code>bootstrap</code> command to your <code>qodana.yaml</code> file to install the required packages:
+        </p>
         <code-block lang="yaml">
-            bootstrap: |
-            &nbsp;&nbsp;set -eux
-            &nbsp;&nbsp;apt-get update
-            &nbsp;&nbsp;apt-get install -y &lt;required-packages&gt;
-            &nbsp;&nbsp;cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON        
-         </code-block>
+          bootstrap: |
+          &nbsp;&nbsp;set -eux
+          &nbsp;&nbsp;sudo apt-get update
+          &nbsp;&nbsp;sudo apt-get install -y &lt;required-packages&gt;
+          &nbsp;&nbsp;cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON        
+        </code-block>
+          <p>
+            <warning>
+              By default, docker images for the linters run commands as a non-root user, and <code>sudo</code> is not available for increased security. If you need root access, you can use alternative images with <code>-privileged</code> (e.g. <code>%qdcpp-image%-privileged</code>), or set a user with a <a href="https://docs.docker.com/reference/cli/docker/container/run/#options"><code>docker run --user</code> parameter</a>.
+            </warning>
+          </p>
     </step>
     <step>
         <p>
