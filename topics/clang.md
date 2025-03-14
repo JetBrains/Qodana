@@ -50,10 +50,13 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 </note>
 
-%qdcpp% lets you analyze C and C++ projects that provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONCompilationDatabase.html). There are two different linters which provide this functionality:
+The C/C++ family of linters lets you analyze C and C++ projects that support any common build system (e.g. CMake), or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONCompilationDatabase.html). There are two different linters which provide this functionality:
 
 - "%qdcppc%", which is available under the Community license, and supports only [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy)-based inspections;
-- "%qdcpp%", which is available under the Ultimate and Ultimate Plus licenses, and supports the full set of inspections provided by CLion (e.g. [MISRA](https://en.wikipedia.org/wiki/MISRA_C) inspections).
+- "%qdcpp%", which is available under the Ultimate and Ultimate Plus licenses, and supports the full set of inspections provided by CLion:
+  - Same Clang-Tidy inspections supported by "%qdcppc%";
+  - [MISRA](https://en.wikipedia.org/wiki/MISRA_C) inspections;
+  - Dataflow analysis-based inspections.
 
 Both linters support AMD64 and ARM64 architectures.
 
@@ -161,8 +164,6 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
 
-As mentioned in [prerequisites](#Prepare+your+project), %qdcppc% reads the `build/compile_commands.json` file and runs the Clang-Tidy tool, and non-community %qdcpp% picks up any build system that is supported by CLion and runs analysis on the default build target.
-
 <!--<p>You can run all linters described in this section in two modes:</p>
 <list>
   <li><a href="native-mode.md">Native mode</a> is the recommended method that lets you run
@@ -253,7 +254,7 @@ As mentioned in [prerequisites](#Prepare+your+project), %qdcppc% reads the `buil
       <p>Container mode is available for all linters; however, we recommend that you use native mode.</p>-->
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-      <note>This feature is experimental, which means that is actively in development and should not be used in a production environment.</note>
+      <note>This feature is experimental, which means that it is actively in development and should not be used in a production environment.</note>
       <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
       to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
           <code-block lang="yaml">
@@ -321,7 +322,7 @@ As mentioned in [prerequisites](#Prepare+your+project), %qdcppc% reads the `buil
   <p>More configuration examples are available in the <a href="github.md"/> section.</p>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <note>This feature is experimental, which means that is actively in development and should not be used in a production environment.</note>
+        <note>This feature is experimental, which means that it is actively in development and should not be used in a production environment.</note>
         <p>Save this snippet to the <code>Jenkinsfile</code>:</p>
         <code-block lang="groovy">
             pipeline {
@@ -378,7 +379,7 @@ As mentioned in [prerequisites](#Prepare+your+project), %qdcppc% reads the `buil
         <p>More configuration examples are available in the <a href="jenkins.md"/> section.</p>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
-        <note>This feature is experimental, which means that is actively in development and should not be used in a production environment.</note>
+        <note>This feature is experimental, which means that it is actively in development and should not be used in a production environment.</note>
         <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
         <code-block lang="yaml">
             qodana:
@@ -841,7 +842,7 @@ failureConditions:
 
 {id="clang-feature-matrix"}
 
-The %qdcpp% family of linters provide the following %product% features:
+Both linters provide the following %product% features:
 
 <table>
     <tr>
