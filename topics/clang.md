@@ -254,7 +254,7 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
       <p>Container mode is available for all linters; however, we recommend that you use native mode.</p>-->
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-      <note>This feature is experimental, which means that it is actively in development and should not be used in a production environment.</note>
+      <note>This feature is experimental and is being actively developed, which means that it should not be used in a production environment.</note>
       <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
       to your repository, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
           <code-block lang="yaml">
@@ -322,7 +322,7 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
   <p>More configuration examples are available in the <a href="github.md"/> section.</p>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <note>This feature is experimental, which means that it is actively in development and should not be used in a production environment.</note>
+        <note>This feature is experimental and is being actively developed, which means that it should not be used in a production environment.</note>
         <p>Save this snippet to the <code>Jenkinsfile</code>:</p>
         <code-block lang="groovy">
             pipeline {
@@ -379,7 +379,7 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
         <p>More configuration examples are available in the <a href="jenkins.md"/> section.</p>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
-        <note>This feature is experimental, which means that it is actively in development and should not be used in a production environment.</note>
+        <note>This feature is experimental and is being actively developed, which means that it should not be used in a production environment.</note>
         <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
         <code-block lang="yaml">
             qodana:
