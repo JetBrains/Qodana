@@ -567,7 +567,7 @@
         <p filter="generic">Because the %qp% linter requires a Qodana Cloud <a href="project-token.md">project token</a> for
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
         these steps to get it:</p>
-        <p filter="clang">Because the %qp% linter may require a Qodana Cloud <a href="project-token.md">project token</a> for
+        <p filter="clang">Because %product% may require a Qodana Cloud <a href="project-token.md">project token</a> for
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
             these steps to get it:</p>
         <p filter="jvm">Depending on the specific linter you're using, you may need to get a project token that will be used by %product% for identifying and verifying a
@@ -623,7 +623,7 @@
                                         - name: 'Qodana Scan'
                                           uses: JetBrains/qodana-action@v2024.3
                                           with:
-                                              args: --linter,%qp-linter%
+                                              args: --linter,&lt;linter&gt;
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -728,12 +728,12 @@
                             <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> page on GitHub.</p>
                     </tab>
                     <tab group-key="docker-image" title="Docker image">
-                        <p filter="generic">Run this command to pull the Docker image of the %qp% linter:</p>
+                        <p filter="generic">Run this command to pull the Docker image of %product%:</p>
                         <p filter="python">Run the command to pull the Docker image of the %qp% or %qp-co% linter:</p>
                         <p filter="jvm">Run this command to pull the Docker image of a required linter:</p>
 
                         <code-block lang="shell" prompt="$" filter="generic">
-                            docker pull %qp-linter%
+                            docker pull &lt;linter&gt;
                         </code-block>
                         <code-block lang="shell" prompt="$" filter="python">
                             docker pull %qd-image%
