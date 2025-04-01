@@ -36,10 +36,11 @@ edit your azure-pipelines.yml file as shown in this section.</link-summary>
 You can run the Qodana Scan task on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed. 
 Additionally, since most Qodana Docker images are Linux-based, the Docker daemon must support running Linux containers.
 
-You can configure this task using either a YAML-formatted file or the [Classic interface](%classic-ui-ref%).
+You can configure this task using either a YAML-formatted file or the [Classic interface](%classic-ui-ref%). The detailed description
+of all configuration options is available in the [](#Configuration) chapter.
 
 <tabs group="azure-config-tabs">
-   <tab title="YAML file" group-key="azure-config-tabs-azure-pipelines-yaml">
+   <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
       <code-block lang="yaml">
          # Start with a minimal pipeline that you can customize to build and deploy your code.
          # Add steps that build, run tests, deploy, and more:
@@ -72,18 +73,16 @@ You can configure this task using either a YAML-formatted file or the [Classic i
         <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
             <p>Add the <code>Qodana Scan</code> task to the pipeline configuration and then 
                configure it as shown below.</p>
-            <img src="azure-pipelines-task-config.png" width="706" alt="The Qodana Scan task UI config" border-effect="line"/>
+            <img src="azure-pipelines-basic-config.png" width="375" alt="The Qodana Scan task UI config" border-effect="line"/>
         </tab>
 </tabs>
-
-<p>The description of configuration options is available in the <a anchor="Configuration"/>  chapter of this section.</p>
 
 ## Pull requests
 
 This is how you can enable %product% analysis for pull requests:
 
 <tabs group="azure-config-tabs">
-   <tab title="YAML file" group-key="azure-config-tabs-azure-pipelines-yaml">
+   <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
       <code-block lang="yaml">
          pr:
            branches:
@@ -106,8 +105,7 @@ This is how you can enable %product% analysis for pull requests:
                by Qodana Cloud.</p>
         </tab>
         <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
-            <p>Check the <ui-path>PR Mode</ui-path> option in the pipeline configuration as shown below.</p>
-            <img src="azure-pipelines-task-config-pr.png" width="706" alt="The Qodana Scan task UI config for pull requests" border-effect="line"/>
+            <p>In the classic interface editor, check the <ui-path>PR Mode</ui-path> option.</p>
         </tab>
 </tabs>
 
@@ -116,7 +114,7 @@ This is how you can enable %product% analysis for pull requests:
 You can also configure the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features as shown below.
 
 <tabs group="azure-config-tabs">
-   <tab title="YAML file" group-key="azure-config-tabs-azure-pipelines-yaml">
+   <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
       <p>In this configuration, the <code>args:</code> block configures the quality gate and baseline features using comma-separated options.</p>
       <code-block lang="yaml">
          # Start with a minimal pipeline that you can customize to build and deploy your code.
@@ -144,10 +142,84 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
            </code-block>
         </tab>
         <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
-            <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to configure the baseline and quality gate features using comma-separated options.</p>
-            <img src="azure-pipelines-task-config-baseline.png" width="706" alt="The Qodana Scan task UI config for baseline and quality gate" border-effect="line"/>
+            <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to configure the baseline and quality gate features using comma-separated options, for example:</p>
+            <img src="azure-pipelines-baseline.png" width="375" alt="The Qodana Scan task UI config for baseline and quality gate" border-effect="line"/>
         </tab>
 </tabs>
+
+## Quick-fixes
+
+<!-- This needs to be checked once more -->
+<!-- The example configuration should be added here -->
+
+<procedure>
+   <step>
+      <p>Choose the <a href="quick-fix.md">quick-fix strategy</a> using either of two configuration methods:</p> 
+         <tabs group="azure-config-tabs">
+            <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
+               <code-block lang="yaml">
+                  # Possible values: --apply-fixes | --cleanup
+                  args: --apply-fixes
+               </code-block>   
+            </tab>
+            <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
+                <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to configure the quick-fix feature, for example:</p>
+               <img src="azure-pipelines-quick-fix.png" width="375" alt="The Qodana Scan task UI config for quick-fixes" border-effect="line"/>
+            </tab>
+            <tab title="qodana.yaml">
+               <code-block lang="yaml">
+                  # Possible values: apply | cleanup
+                  fixesStrategy: apply               
+               </code-block>
+            </tab>
+         </tabs>
+   </step>
+   <step>
+      <p>Depending on your needs, configure the <code>push-fixes</code> property:</p>
+      <tabs>
+         <tab title="Merge request">
+            <p>Use this configuration to create a new branch with fixes and a merge request to the original branch:</p>
+            <tabs group="azure-config-tabs">
+            <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
+               <code-block lang="yaml">
+                  push-fixes: merge-request
+               </code-block>   
+            </tab>
+            <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
+                <p>Use the <ui-path>Push quick-fixes</ui-path> field to configure the quick-fix feature.</p>
+               <img src="azure-pipelines-quick-fix-merge-request.png" width="375" alt="The Qodana Scan task UI config for quick-fixes" border-effect="line"/>
+            </tab>
+         </tabs>
+         </tab>
+         <tab title="Original branch">
+            <p>Use this configuration to push fixes to the original branch:</p>
+            <tabs group="azure-config-tabs">
+            <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
+               <code-block lang="yaml">
+                  push-fixes: branch
+                  pr-mode: false
+               </code-block>   
+            </tab>
+            <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
+                <p>Use the <ui-path>Push quick-fixes</ui-path> field to configure the quick-fix feature.</p>
+               <img src="azure-pipelines-quick-fix-branch.png" width="375" alt="The Qodana Scan task UI config for quick-fixes" border-effect="line"/>
+            </tab>
+         </tabs>
+         </tab>
+      </tabs>
+   </step>
+   <step>
+      <p>Set permissions to your personal access token, for example:</p>
+      <code-block lang="yaml">
+      permissions:
+      &nbsp;&nbsp;contents: write
+      &nbsp;&nbsp;pull-requests: write
+      &nbsp;&nbsp;checks: write
+      </code-block>
+   </step>
+</procedure>
+
+
 
 ## Code coverage
 
@@ -155,7 +227,7 @@ Follow recommendations from the [Code coverage](code-coverage.md#code-coverage-b
 Use these examples to instruct %product% to map the directory containing code coverage results. 
 
 <tabs group="azure-config-tabs">
-   <tab title="YAML file" group-key="azure-config-tabs-azure-pipelines-yaml">
+   <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
       <p>In this configuration, the <code>args:</code> block maps the results of code coverage analysis to the <code>/data/coverage</code> directory.</p>
       <code-block lang="yaml">
          # Start with a minimal pipeline that you can customize to build and deploy your code.
@@ -183,8 +255,8 @@ Use these examples to instruct %product% to map the directory containing code co
            </code-block>
         </tab>
         <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
-            <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to map the results of code coverage analysis to the <code>/data/coverage</code> directory.</p>
-            <img src="azure-pipelines-task-config-code-coverage.png" width="706" alt="The Qodana Scan task UI config for baseline and quality gate" border-effect="line"/>
+            <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to map the results of code coverage analysis to the <code>/data/coverage</code> directory, for example:</p>
+            <img src="azure-pipelines-code-coverage.png" width="375" alt="The Qodana Scan task UI config for baseline and quality gate" border-effect="line"/>
         </tab>
 </tabs>
 
@@ -197,11 +269,12 @@ and set the `uploadSarif` / **Upload SARIF** [option](#Configuration) in your pi
 
 ## Configuration
 
-You won't probably need other options than `args`: all other options can be helpful if you are configuring multiple `Qodana Scan` jobs in one workflow.
+This table contains the list of configuration options corresponding to the `inputs` block of a pipeline configuration
+and their analogs in the classic interface.
 
 <table>
    <tr>
-      <td>YAML option</td><td>UI element of the classic editor</td>
+      <td>YAML option</td><td>UI element of the classic interface</td>
       <td>Description</td>
       <td>Default Value</td>
    </tr>
@@ -235,7 +308,7 @@ You won't probably need other options than `args`: all other options can be help
    <tr>
       <td><code>artifactName</code></td>
       <td><control>Artifact Name</control></td>
-      <td>Specify Qodana results artifact name, used for results uploading. Optional.</td>
+      <td>Specify Qodana results artifact name used for result uploading. Optional.</td>
       <td><code>qodana-report</code></td>
    </tr>
    <tr>
@@ -245,10 +318,34 @@ You won't probably need other options than `args`: all other options can be help
       <td><code>$(Agent.TempDirectory)/qodana/cache</code></td>
    </tr>
    <tr>
+      <td><code>useNightly</code></td>
+      <td><control>Use unstable Qodana CLI nightly</control></td>
+      <td>Enable using an unstable version of Qodana CLI. Optional.</td>
+      <td><code>false</code></td>
+   </tr>
+   <tr>
       <td><code>prMode</code></td>
       <td><control>PR Mode</control></td>
       <td>Enable pull request analyses</td>
       <td><code>false</code></td>
+   </tr>
+   <tr>
+      <td><code>post-pr-comment</code></td>
+      <td><control>Post PR comment</control></td>
+      <td>Post a comment with the Qodana results summary to the merge request. Optional.</td>
+      <td><code>false</code></td>
+   </tr>
+   <tr>
+      <td><code>push-fixes</code></td>
+      <td><control>Push quick-fixes</control></td>
+      <td>Push Qodana fixes to the repository, can be <code>none</code>, <code>branch</code> to the current branch, or <code>merge-request</code>. Optional.</td>
+      <td><code>none</code></td>
+   </tr>
+   <tr>
+      <td><code>commit-message</code></td>
+      <td><control>Commit Message</control></td>
+      <td>Commit message used when quick-fixes are applied</td>
+      <td><code>none</code></td>
    </tr>
 </table>
 
