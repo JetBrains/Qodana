@@ -8,7 +8,7 @@
 
 <!-- Linter-related variables -->
 <var name="qp" value="Qodana for PHP"/>
-<var name="qp-linter" value="jetbrains/qodana-php:2024.3"/>
+<var name="qp-linter" value="jetbrains/qodana-php:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="PhpStorm"/>
 
@@ -50,7 +50,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,php"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,php,native"/>
 
 ## Explore analysis results
 
@@ -64,7 +64,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Enabling the baseline feature
 
-<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,php"/>
+<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,php,native"/>
 
 ### Enabling the quality gate
 
@@ -72,7 +72,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,php"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,php,native"/>
 
 ## Supported technologies and features
 {id="php-feature-matrix"}

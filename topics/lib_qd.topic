@@ -38,7 +38,9 @@
     <snippet id="qodana-deployment-options">
         <p>%instance% provides several deployment options to better fit your needs:</p>
         <list>
-            <li><a href="native-mode.md">Native mode</a> available in the <a href="dotnet.md">Qodana for .NET</a> linter</li>
+            <li><a href="native-mode.md">Native mode</a> available in the <a href="jvm.md">%jvm%</a>,
+                <a href="jvm.md">%jvm-co%</a>, <a href="php.md">%php%</a>, <a href="js.md">%js%</a>, and
+                <a href="dotnet.md">%dotnet%</a> linters.</li>
             <li><a href="docker-images.md">Docker images</a> let you inspect
                 <a href="Quick-start.topic">local projects</a> and build %instance% into your CI/CD pipelines.</li>
             <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %instance%, connect to Qodana Cloud, open and review inspection reports.</li>
@@ -567,7 +569,7 @@
         <p filter="generic">Because the %qp% linter requires a Qodana Cloud <a href="project-token.md">project token</a> for
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
         these steps to get it:</p>
-        <p filter="clang">Because %product% may require a Qodana Cloud <a href="project-token.md">project token</a> for
+        <p filter="clang">Because the %qdcpp% linter requires a Qodana Cloud <a href="project-token.md">project token</a> for
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
             these steps to get it:</p>
         <p filter="jvm">Depending on the specific linter you're using, you may need to get a project token that will be used by %product% for identifying and verifying a
@@ -756,18 +758,18 @@
 
         <p>You can run %product% linters using the following methods:</p>
         <list>
-          <li><a href="native-mode.md">Native mode</a> is the recommended method for running
-            linters without Docker.</li>
-          <li>Container mode is an alternative that involves Docker containers.</li>
-            <li>You can run %product% using %ide%.</li>
+          <li filter="native"><a href="native-mode.md">Native mode</a> as the recommended method for running
+            linters without Docker</li>
+          <li>Container mode using Docker containers of %product%</li>
+            <li><a href="qodana-ide-plugin.md">%ide%</a></li>
         </list>
 
-        <note>
+        <note filter="native">
             Native mode is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
         </note>
 
         <tabs group="native-container">
-            <tab title="Native mode" group-key="native-mode">
+            <tab title="Native mode" group-key="native-mode" filter="native">
                 <p>The <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file is a universal method of
                      native mode configuration. Alternatively, you can configure it without using the
                     <code>qodana.yaml</code> file.</p>
@@ -777,22 +779,22 @@
                             <step>
                                 <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                                 <list filter="jvm">
-                                    <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                    <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
+                                    <li><code>ide: QDJVM</code> for the %jvm% linter</li>
+                                    <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                                 </list>
-                                <list filter="python">
+                            <!--    <list filter="python">
                                     <li><code>ide: QDPY</code> for the %python% linter,</li>
                                     <li><code>ide: QDPYC</code> for the %python-co% linter.</li>
-                                </list>
+                                </list> -->
                                 <code-block lang="yaml" filter="php">
                                     &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
                                 </code-block>
                                 <code-block lang="yaml" filter="js">
                                     &nbsp;&nbsp;&nbsp;&nbsp;ide: QDJS
                                 </code-block>
-                                <code-block lang="yaml" filter="golang">
+                               <!-- <code-block lang="yaml" filter="golang">
                                     &nbsp;&nbsp;&nbsp;&nbsp;ide: QDGO
-                                </code-block>
+                                </code-block> -->
                             </step>
                             <step>
                                 <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
@@ -867,12 +869,12 @@
                         <step>
                             <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                             <list filter="jvm">
-                                <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
+                                <li><code>ide: QDJVM</code> for the %jvm% linter</li>
+                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                             </list>
                             <list filter="python">
-                                <li><code>ide: QDPY</code> for the %python% linter,</li>
-                                <li><code>ide: QDPYC</code> for the %python-co% linter.</li>
+                                <li><code>ide: QDPY</code> for the %python% linter</li>
+                                <li><code>ide: QDPYC</code> for the %python-co% linter</li>
                             </list>
                             <code-block lang="yaml" filter="php">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
@@ -911,7 +913,7 @@
                 </tabs>
             </tab>
             <tab title="Container mode" group-key="container-mode">
-                <p>Container mode is available for all linters; however, it is advised that you use native mode whenever possible.</p>
+                <p filter="native">Container mode is available for all linters; however, it is advised that you use native mode whenever possible.</p>
                 <tabs group="software">
                     <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
@@ -1319,19 +1321,19 @@
             about a baseline is contained in a SARIF-formatted file.</p>
 
         <tabs group="native-container">
-          <tab title="Native mode" group-key="native-mode">
+          <tab title="Native mode" group-key="native-mode" filter="native">
               <tabs group="software">
                   <tab title="GitHub Actions + qodana.yaml" group-key="github-with-yaml">
                       <procedure>
                           <step>
                               <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                               <list filter="jvm">
-                                  <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                  <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
+                                  <li><code>ide: QDJVM</code> for the %jvm% linter</li>
+                                  <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                               </list>
                               <list filter="python">
-                                  <li><code>ide: QDPY</code> for the %python% linter,</li>
-                                  <li><code>ide: QDPYC</code> for the %python-co% linter.</li>
+                                  <li><code>ide: QDPY</code> for the %python% linter</li>
+                                  <li><code>ide: QDPYC</code> for the %python-co% linter</li>
                               </list>
                               <code-block lang="yaml" filter="php">
                                   &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
@@ -1416,12 +1418,12 @@
                           <step>
                               <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                               <list filter="jvm">
-                                  <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                  <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
+                                  <li><code>ide: QDJVM</code> for the %jvm% linter</li>
+                                  <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                               </list>
                               <list filter="python">
-                                  <li><code>ide: QDPY</code> for the %python% linter,</li>
-                                  <li><code>ide: QDPYC</code> for the %python-co% linter.</li>
+                                  <li><code>ide: QDPY</code> for the %python% linter</li>
+                                  <li><code>ide: QDPYC</code> for the %python-co% linter</li>
                               </list>
                               <code-block lang="yaml" filter="php">
                                   &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
@@ -1789,9 +1791,9 @@
 
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for:</p>
         <list>
-            <li>The total number of project problems,</li>
-            <li>Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>,</li>
-            <li><a href="code-coverage.md">Code coverage</a> thresholds.</li>
+            <li>The total number of project problems</li>
+            <li>Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a></li>
+            <li><a href="code-coverage.md">Code coverage</a> thresholds</li>
         </list>
         <p>Save this snippet to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
         <code-block lang="yaml">
@@ -1811,19 +1813,19 @@
 
     <snippet id="analyzing-pull-requests">
         <tabs group="native-container">
-          <tab title="Native mode" group-key="native-mode">
+          <tab title="Native mode" group-key="native-mode" filter="native">
             <tabs group="software">
               <tab title="GitHub Actions + qodana.yaml" group-key="github-with-yaml">
                     <procedure>
                         <step>
                             <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                             <list filter="jvm">
-                                <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
+                                <li><code>ide: QDJVM</code> for the %jvm% linter</li>
+                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                             </list>
                             <list filter="python">
-                                <li><code>ide: QDPY</code> for the %python% linter,</li>
-                                <li><code>ide: QDPYC</code> for the %python-co% linter.</li>
+                                <li><code>ide: QDPY</code> for the %python% linter</li>
+                                <li><code>ide: QDPYC</code> for the %python-co% linter</li>
                             </list>
                             <code-block lang="yaml" filter="php">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
@@ -1912,12 +1914,12 @@
                         <step>
                             <p>Save the following configuration in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
                             <list filter="jvm">
-                                <li><code>ide: QDJVM</code> for the %jvm% linter,</li>
-                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter.</li>
+                                <li><code>ide: QDJVM</code> for the %jvm% linter</li>
+                                <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                             </list>
                             <list filter="python">
-                                <li><code>ide: QDPY</code> for the %python% linter,</li>
-                                <li><code>ide: QDPYC</code> for the %python-co% linter.</li>
+                                <li><code>ide: QDPY</code> for the %python% linter</li>
+                                <li><code>ide: QDPYC</code> for the %python-co% linter</li>
                             </list>
                             <code-block lang="yaml" filter="php">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
@@ -2228,6 +2230,241 @@
                 </code-block>
             </step>
         </procedure>
+    </snippet>
+
+    <snippet id="analyzing-pull-requests-for-temp-non-native-mode">
+        <tabs group="software">
+            <tab title="GitHub Actions" group-key="github">
+                <p>
+                    The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically
+                    analyzes all pull requests, so you do not have to provide any additional configuration. Save this configuration
+                    to the <code>.github/workflows/code_quality.yml</code> file:
+                </p>
+                <code-block lang="yaml" filter="generic">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: JetBrains/qodana-action@v2024.3
+                          with:
+                              args: --linter,%qp-linter%
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+                <code-block lang="yaml" filter="python">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: JetBrains/qodana-action@v2024.3
+                          with:
+                              args: --linter,%qd-image%
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+                <code-block lang="yaml" filter="jvm">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: JetBrains/qodana-action@v2024.3
+                          with: # Uncomment the linter you wish to use
+                            # args: --linter,%qp-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter,%qp-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter,%qp-a-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter,%qp-an-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+            </tab>
+            <tab title="GitLab CI/CD" group-key="gitlab">
+                <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
+                <code-block lang="yaml" filter="generic">
+            qodana:
+                image:
+                    name: %qp-linter%
+                    entrypoint: [""]
+                cache:
+                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                      fallback_keys:
+                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                          - qodana-2024.3-
+                      paths:
+                          - .qodana/cache
+                variables:
+                    QODANA_TOKEN: $qodana_token
+                    script:
+                        - >
+                            qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
+                              --results-dir=$CI_PROJECT_DIR/.qodana/results \
+                              --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                artifacts:
+                    paths:
+                        - .qodana/results
+                    expose_as: 'Qodana report'
+        </code-block>
+                <code-block lang="yaml" filter="jvm">
+            qodana:
+                image:
+                    # Uncomment the linter you would like to employ
+                    # name: %qp-linter% # Qodana for JVM
+                    # name: %qp-co-linter% # Qodana Community for JVM
+                    # name: %qp-a-linter% # Qodana Community for Android
+                    # name: %qp-an-linter% # Qodana for Android
+                    entrypoint: [""]
+                cache:
+                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                      fallback_keys:
+                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                          - qodana-2024.3-
+                      paths:
+                          - .qodana/cache
+                variables:
+                    QODANA_TOKEN: $qodana_token
+                    script:
+                        - >
+                            qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
+                              --results-dir=$CI_PROJECT_DIR/.qodana/results \
+                              --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                artifacts:
+                    paths:
+                        - .qodana/results
+                    expose_as: 'Qodana report'
+        </code-block>
+                <code-block lang="yaml" filter="python">
+            qodana:
+                image:
+                    name: %qd-image%
+                    entrypoint: [""]
+                cache:
+                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+                      fallback_keys:
+                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
+                          - qodana-2024.3-
+                      paths:
+                          - .qodana/cache
+                variables:
+                    QODANA_TOKEN: $qodana_token
+                    script:
+                        - >
+                            qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
+                              --results-dir=$CI_PROJECT_DIR/.qodana/results \
+                              --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                artifacts:
+                    paths:
+                        - .qodana/results
+                    expose_as: 'Qodana report'
+        </code-block>
+                <p>Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a base for comparison.</p>
+            </tab>
+            <tab title="TeamCity" group-key="teamcity">
+                <p>Information about configuring TeamCity for analyzing pull and merge requests is available on the
+                    <a href="%TeamCityPullRequests%">TeamCity</a> documentation portal.
+                </p>
+            </tab>
+            <tab title="Command line" group-key="command-line">
+                <p>To analyze changes in your code, employ the <code>--diff-start</code> option and specify a hash of the commit that will
+                    act as a base for comparison:</p>
+                <tabs group="cli-settings">
+                    <tab group-key="qodana-cli" title="Qodana CLI">
+                <code-block prompt="$" lang="shell" filter="generic">
+                    qodana scan \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;-l %qp-linter% \
+                    &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+                </code-block>
+                        <code-block prompt="$" lang="shell" filter="jvm">
+                    qodana scan \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;-l &lt;linter&gt; \
+                    &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+                </code-block>
+                        <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
+                        <code-block prompt="$" lang="shell" filter="python">
+                    qodana scan \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;-l %qd-image% \
+                    &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+                </code-block>
+                    </tab>
+                    <tab group-key="docker-image" title="Docker image">
+                <code-block lang="shell" prompt="$" filter="generic">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;%qp-linter% \
+                    &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+                </code-block>
+                        <code-block lang="shell" prompt="$" filter="jvm">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;&lt;linter&gt; \
+                    &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+                </code-block>
+                        <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
+                        <code-block lang="shell" prompt="$" filter="python">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;%qd-image% \
+                    &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+                </code-block>
+                    </tab>
+                </tabs>
+            </tab>
+        </tabs>
     </snippet>
 
 

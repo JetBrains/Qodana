@@ -9,11 +9,11 @@
 <var name="qp-co" value="Qodana Community for JVM"/>
 <var name="qp-a" value="Qodana Community for Android"/>
 <var name="qp-an" value="Qodana for Android"/>
-<var name="qp-linter" value="jetbrains/qodana-jvm:2024.3"/>
-<var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2024.3"/>
-<var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2024.3"/>
-<var name="qp-an-linter" value="jetbrains/qodana-android:2024.3"/>
-<var name="qd-image" value="jetbrains/qodana-<jvm|community|android>:2024.3"/>
+<var name="qp-linter" value="jetbrains/qodana-jvm:2025.1-eap"/>
+<var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2025.1-eap"/>
+<var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2025.1-eap"/>
+<var name="qp-an-linter" value="jetbrains/qodana-android:2025.1-eap"/>
+<var name="qd-image" value="jetbrains/qodana-<jvm|community|android>:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="ide-co" value="IntelliJ IDEA Community Edition"/>
@@ -60,9 +60,16 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,jvm"/>
 
+### K2 Mode
+
+The K2 mode is by default enabled for the %qp% and %qp-co% linters.
+
+To revert the K2 mode, in your linter configuration set the `idea.kotlin.plugin.use.k2`
+[property](docker-image-configuration.topic#docker-config-reference-properties) to `false`.
+
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm,native"/>
 
 ## Explore analysis results
 
@@ -76,15 +83,15 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
 
 ### Enabling the baseline feature
 
-<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,jvm"/>
+<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,jvm,native"/>
 
 ### Enabling the quality gate
 
 [Depending on the linter](quality-gate.topic), you can configure [quality gates](quality-gate.topic) for: 
 
-* The total number of project problems, available for all linters,
-* Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>, available for all linters,
-* <a href="code-coverage.md">code coverage</a> thresholds, available for the %qp% and %qp-an% linters.
+* The total number of project problems, available for all linters
+* Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>, available for all linters
+* <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qp% and %qp-an% linters
 
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-ultimate" title="Qodana for JVM / Android">
@@ -126,7 +133,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,jvm"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,jvm,native"/>
 
 ## Supported technologies and features
 {id="jvm-feature-matrix"}

@@ -6,7 +6,7 @@ By default, %instance% runs its linters using Docker based on Linux images.
 In specific cases, you have to deal with private packages or run %instance% on the operating systems that
 provide incomplete support for Docker. 
 
-To overcome this, %instance% supports native mode for all linters except %dotnet-co% and %clang%.
+To overcome this, %instance% supports native mode for the %jvm%, %jvm-co%, %php%, %js%, and %dotnet% linters.
 You can run native mode on Linux, macOS, and Microsoft Windows.
 
 In this case, %instance% reuses its execution environment, which lets you execute %instance% in exactly the same 
@@ -23,7 +23,7 @@ credentials, and resolve dependencies.
 > %product% either as a Docker container or in native mode.
 > {style="note"}
 
-### General steps for all linters
+### General steps for all supported linters
 
 In your operating system, save the `QODANA_TOKEN` environment variable containing the %instance% Cloud
 [project token](project-token.md).
@@ -70,11 +70,8 @@ This table contains the list of `<linter>` values:
 | [%jvm%](jvm.md)            | `QDJVM`     |
 | [%jvm-co%](jvm.md)         | `QDJVMC`    |
 | [%dotnet%](dotnet.md)      | `QDNET`     |
-| [%python%](python.md)      | `QDPY`      |
-| [%python-co%](python.md)   | `QDPYC`     |
 | [%php%](php.md)            | `QDPHP`     |
 | [%js%](js.md)              | `QDJS`      |
-| [%go%](golang.md)          | `QDGO`      |
 
 
 This configuration tells %product% to download and employ the required JetBrains IDE binary file while running the

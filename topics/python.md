@@ -4,9 +4,9 @@
 
 <var name="qp" value="Qodana for Python"/>
 <var name="qp-co" value="Qodana Community for Python"/>
-<var name="qp-linter" value="jetbrains/qodana-python:2024.3"/>
-<var name="qp-co-linter" value="jetbrains/qodana-python-community:2024.3"/>
-<var name="qd-image" value="jetbrains/qodana-<python|community>:2024.3"/>
+<var name="qp-linter" value="jetbrains/qodana-python:2025.1-eap"/>
+<var name="qp-co-linter" value="jetbrains/qodana-python-community:2025.1-eap"/>
+<var name="qd-image" value="jetbrains/qodana-<python|community>:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="PyCharm"/>
 <var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
@@ -116,7 +116,7 @@ bootstrap: pip install -r requirements.txt
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,python"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,python"/>
 
 ## Supported technologies and features
 {id="python-feature-matrix"}

@@ -8,7 +8,7 @@
 
 <!-- Linter-related variables -->
 <var name="qp" value="Qodana for Go"/>
-<var name="qp-linter" value="jetbrains/qodana-go:2024.3"/>
+<var name="qp-linter" value="jetbrains/qodana-go:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="GoLand"/>
 
@@ -72,7 +72,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,golang"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,generic,golang"/>
 
 ## Supported technologies and features
 {id="golang-feature-matrix"}

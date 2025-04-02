@@ -6,7 +6,7 @@
 <var name="qdcpp" value="Qodana for C/C++"/>
 <var name="qdcppc" value="Qodana Community for C/C++"/>
 <var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.1-eap"/>
-<var name="qdcppc-image" value="jetbrains/qodana-clang:2024.3-eap"/>
+<var name="qdcppc-image" value="jetbrains/qodana-clang:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="CLion"/>
 
@@ -28,44 +28,47 @@
 <var name="linter" value="Qodana for C/C++"/>
 <var name="config-file" value="qodana-clang-docker-readme.topic"/>
 <var name="clang-config" value="https://gist.github.com/fbaeuerlein/2895f889e451a817d7b2b36fd60e2873"/>
-<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.3/base/cpp.Dockerfile"/>
-<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2024.3/cpp/internal.Dockerfile"/>
+<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.1/base/cpp.Dockerfile"/>
+<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.1/cpp/internal.Dockerfile"/>
 <var name="clang-website" value="https://clang.llvm.org/extra/clang-tidy/checks/list.html"/>
 <var name="clion-inspections-general" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="misra-inspections" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#stat-analysis-tools"/>
 <var name="compdb-generate" value="https://www.jetbrains.com/help/clion/compilation-database.html#compdb_generate"/>
 
-<var name="linter-shell" value="qodana-clang:2024.3-eap"/>
+<var name="linter-shell" value="qodana-clang:2025.1-eap"/>
 <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 <var name="teamcity-linter-list" value="Here, select Custom and in the field below specify the %qdcpp% linter."/>
 
-<link-summary>%qdcpp% lets you analyze C and C++ projects that provide a `compile_commands.json` file.</link-summary>
+<var name="build-system" value="https://intellij-support.jetbrains.com/hc/en-us/articles/207252755-Which-build-systems-are-supported-Do-you-plan-to-support-any-other-build-systems"/>
+
+<link-summary>%qdcpp% and %qdcppc% linters let you analyze C and C++ projects that provide a `compile_commands.json` file.</link-summary>
 
 <note>
-%qdcpp% is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
+%qdcpp% and %qdcppc% are currently in Early Access, which means that they may not be reliable, may not work as intended, and may contain errors.
 Any use of the EAP product is at your own risk. Your feedback is very welcome in our 
 <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 </note>
 
-The C/C++ family of linters lets you analyze C and C++ projects that support any common build system (e.g. CMake), or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONCompilationDatabase.html). There are two different linters which provide this functionality:
+The C/C++ family of linters let you analyze C and C++ projects that support any common build system like CMake 
+or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONCompilationDatabase.html). There are two different linters that provide this functionality:
 
-- "%qdcppc%", which is available under the Community license, and supports only [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy)-based inspections;
-- "%qdcpp%", which is available under the Ultimate and Ultimate Plus licenses, and supports the full set of inspections provided by CLion:
-  - Same Clang-Tidy inspections supported by "%qdcppc%";
-  - [MISRA](https://en.wikipedia.org/wiki/MISRA_C) inspections;
-  - Dataflow analysis-based inspections.
+- The %qdcppc% linter available under the Community license and supporting only [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy)-based inspections
+- The %qdcpp% linter available under the Ultimate and Ultimate Plus licenses and supporting the full set of inspections provided by [CLion](https://www.jetbrains.com/help/clion/):
+  - Clang-Tidy inspections supported by the %qdcppc%
+  - [MISRA](https://en.wikipedia.org/wiki/MISRA_C) inspections
+  - Dataflow analysis-based inspections
 
 Both linters support AMD64 and ARM64 architectures.
 
 <tip>
 <p>You can learn more about inspections using these links:</p>
 <list>
-<li><a href="%clang-website%">Standard Clang-Tidy inspections</a>,</li>
-<li><a href="%clion-inspections-general%">CLion's Clang-Tidy inspections</a>,</li>
-<li><a href="%misra-inspections%">CLion's MISRA inspections</a>.</li>
+  <li><a href="%clang-website%">Standard Clang-Tidy inspections</a></li>
+  <li><a href="%clion-inspections-general%">CLion's Clang-Tidy inspections</a></li>
+  <li><a href="%misra-inspections%">CLion's MISRA inspections</a></li>
 </list>
 </tip>
 
@@ -75,7 +78,9 @@ To see the list of supported features, navigate to the [](#clang-feature-matrix)
 
 The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%dockerfile%) for the detailed description of all software used by the linter.
 
-%qdcppc% searches for compile commands in the `build/compile_commands.json` file of the project directory. This file is usually generated by your build system (see below). After reading the `compile_commands.json` file, %product% analyzes the project, generates analysis reports and saves them locally or uploads to Qodana Cloud.
+%qdcppc% searches for compile commands in the `build/compile_commands.json` file of the project directory. 
+This file is usually generated by your build system. After reading the `compile_commands.json` file, the linter analyzes 
+the project, generates analysis reports and saves them locally or uploads to Qodana Cloud.
 
 ## Before you start
 
@@ -123,7 +128,8 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
             &nbsp;&nbsp;cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
         </code-block>
         <p>
-          For non-community %qdcpp%, this is not necessary. Assuming you have a <a href="https://intellij-support.jetbrains.com/hc/en-us/articles/207252755-Which-build-systems-are-supported-Do-you-plan-to-support-any-other-build-systems">build system supported by CLion</a>, the project will be configured automatically. Note that this includes <code>compile_commands.json</code> files placed at the project root (NOT the <code>build/</code> folder).
+          You can skip this step for the %qdcpp% linter. Assuming that you have a <a href="%build-system%">build system supported by CLion</a>, 
+          the project will be configured automatically. This includes <code>compile_commands.json</code> files placed at the project root, not in the <code>build/</code> directory.
         </p>
     </step>
     <step>
@@ -137,13 +143,17 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
           &nbsp;&nbsp;sudo apt-get install -y &lt;required-packages&gt;
           &nbsp;&nbsp;cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON        
         </code-block>
-            <warning>
-              By default, docker images for the linters run commands as a non-root user, and <code>sudo</code> is not available for increased security. If you need root access, you can use alternative images with <code>-privileged</code> (e.g. <code>%qdcpp-image%-privileged</code>), or set a user with a <a href="https://docs.docker.com/reference/cli/docker/container/run/#options"><code>docker run --user</code> parameter</a>.
-            </warning>
+            <tip>
+              By default, Docker images run commands as a non-root user, and <code>sudo</code> is not available for security reasons. 
+              To overcome this, use alternative images with the <code>-privileged</code> tag like <code>%qdcpp-image%-privileged</code>, 
+              or set a user using the <a href="https://docs.docker.com/reference/cli/docker/container/run/#options"><code>docker run --user</code> parameter</a>.
+            </tip>
     </step>
     <step>
         <p>
-            If you are using <code>qodana-clang</code> or raw <code>compile_commands.json</code> in <code>qodana-cpp</code> and want to modify analysis paths in the <code>compile_commands.json</code> file, follow the instructions from the <a anchor="Modifying+paths+for+analysis"/> section.
+            To modify analysis paths in the <code>compile_commands.json</code> file while running the %qdcppc% linter or 
+            the %qdcpp% linter using the raw <code>compile_commands.json</code> file, follow the instructions from 
+            the <a anchor="Modifying+paths+for+analysis"/> section.
         </p>
     </step>
 </procedure>
@@ -407,7 +417,7 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
       <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
       <a href="project-token.md">project token</a>.</li>
       </list>
-        <p>To override the location of <code>compile_commands.json</code> (%qdcppc% only), you can specify the location relative to the project root, so the configuration would look like:
+        <p>To override the location of the <code>compile_commands.json</code> file for the  %qdcppc% linter, specify the location relative to the project root, so the configuration would look like:
         </p>
         <code-block lang="yaml">
             qodana:
@@ -457,7 +467,8 @@ The Docker image of %qdcppc% employs Clang 16. You can see the [`Dockerfile`](%d
             If you omit the <code>QODANA_TOKEN</code> variable, the inspection results will be available in the
             <code>qodana.sarif.json</code> file saved in the <code>output-directory</code> of your project root.
         </p>
-        <p>To override the location of <code>compile_commands.json</code> (%qdcppc% only), you can specify the location relative to the project root, so the configuration would look like:
+        <p>To override the location of the <code>compile_commands.json</code> file for the %qdcppc% linter, you can 
+          specify the location relative to the project root, so the configuration would look like:
         </p>
         <code-block lang="shell" prompt="$">
             docker run \
@@ -491,22 +502,25 @@ project <a href="https://qodana.cloud">Qodana Cloud</a> and review the analysis 
 
 <p>
     %product% recognizes the <code>qodana.yaml</code> file for the analysis configuration,
-    so that you don't need to pass any additional parameters. For %qdcpp%, you can configure:</p>
+    so that you don't need to pass any additional parameters. For the %qdcpp% linter, you can configure:</p>
 <list>
     <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
         option. Using this, you can <a anchor="Modifying+paths+for+analysis">modify the list of paths</a> in the <code>compile_commands.json</code> file.</li>
     <li><a anchor="Enabling+the+baseline+feature">Baseline</a> and <a anchor="Enabling+the+quality+gate">quality gate</a> features.</li>
 </list>
 
-<note>%qdcppc% does not support <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">including</a> and <a href="qodana-yaml.md" anchor="exclude-paths">excluding</a> paths for specific inspections through the <code>qodana.yaml</code> file.</note>
+<note>The %qdcppc% linter does not support <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">including</a> 
+and <a href="qodana-yaml.md" anchor="exclude-paths">excluding</a> paths for specific inspections using the <code>qodana.yaml</code> file.</note>
 
 ### Modifying paths for analysis
 
-<note>
-  This section is only applicable to %qdcppc% and to rare cases where %qdcpp% is analyzing a project configured via a raw `compile_commands.json` file.
-</note>
 
-To modify analysis paths in the `compile_commands.json` file contained in the Docker container of the linter, you can run a script during the "bootstrap" stage of analysis. For example, the python scripts below use glob patterns and regular expressions that modify paths in the `compile_commands.json` file inside the Docker container of %product%.
+Recommendations from this section are applicable only to the %qdcppc% linter and specific cases where the %qdcpp% linter 
+is analyzing a project configured with a raw `compile_commands.json` file.
+
+To modify analysis paths in the `compile_commands.json` file contained in the Docker container of the linter, 
+you can run a script during the bootstrap stage of analysis. For example, the Python scripts below use glob 
+patterns and regular expressions that modify paths in the `compile_commands.json` file inside the Docker container of %product%.
 
 <tabs>
     <tab title="Including glob patterns">

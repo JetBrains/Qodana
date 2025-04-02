@@ -292,6 +292,7 @@
     <var name="php" value="Qodana for PHP"/>
     <var name="js" value="Qodana for JS"/>
     <var name="go" value="Qodana for Go"/>
-    <var name="clang" value="Qodana for C/C++"/>
+    <var name="cpp" value="Qodana for C/C++"/>
+    <var name="clang" value="Qodana Community for C/C++"/>
 
 </vars>

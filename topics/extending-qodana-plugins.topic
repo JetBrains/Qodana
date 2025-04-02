@@ -44,7 +44,7 @@
 
                 <note>Several plugins may have dependencies that are not present in %product% images. You can check the
                     list of dependencies included in each %product% linter using our
-                    <a href="https://github.com/JetBrains/qodana-docker/blob/main/2024.3/jvm/included_plugins.txt">GitHub repository</a>.
+                    <a href="https://github.com/JetBrains/qodana-docker/blob/main/2025.1/jvm/included_plugins.txt">GitHub repository</a>.
                     You can navigate to the <ui-path>Versions</ui-path> tab and then click the latest version.</note>
             </chapter>
 
@@ -60,9 +60,9 @@
             <p>Before running a custom plugin using %product%, prepare the following components:</p>
 
             <list>
-                <li>Files containing the plugin code, for example <code>.jar</code> files,</li>
-                <li>Plugin configuration contained in a file,</li>
-                <li>The inspection name that enables the plugin.</li>
+                <li>Files containing the plugin code, for example <code>.jar</code> files</li>
+                <li>Plugin configuration contained in a file</li>
+                <li>The inspection name that enables the plugin</li>
             </list>
 
             <p>Follow this procedure to set up a plugin:</p>

@@ -3,7 +3,7 @@
 <link-summary>A use case explaining how you can Qodana to inspect your Python code.</link-summary>
 
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
-<var name="docker-image" value="jetbrains/qodana-&lt;python|community&gt;:2024.3"/>
+<var name="docker-image" value="jetbrains/qodana-&lt;python|community&gt;:2025.1-eap"/>
 
 To inspect your Python codebase, depending on your %product% [license](pricing.md), you can employ the following linters: 
 

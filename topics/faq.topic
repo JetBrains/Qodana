@@ -17,7 +17,8 @@
             <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a>, the
                 <a href="https://github.com/JetBrains/qodana-cli">%instance% CLI</a> tool, or available
                 <a href="docker-images.md">Docker images</a></li>
-            <li><a href="native-mode.md">Native mode</a> available for the <a href="dotnet.md">%dotnet%</a> linter</li>
+            <li><a href="native-mode.md">Native mode</a> available for the <a href="jvm.md">%jvm%</a>,
+                <a href="jvm.md">%jvm-co%</a>, <a href="php.md">%php%</a>, <a href="js.md">%js%</a>, and <a href="dotnet.md">%dotnet%</a> linters</li>
         </list>
     </chapter>
 

@@ -4,9 +4,9 @@
 
 <var name="qp" value="Qodana for .NET"/>
 <var name="qp-co" value="Qodana Community for .NET"/>
-<var name="qp-linter" value="jetbrains/qodana-dotnet:2024.3"/>
-<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2024.3-eap"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;dotnet|cdnet&gt;:2024.3"/>
+<var name="qp-linter" value="jetbrains/qodana-dotnet:2025.1-eap"/>
+<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2025.1-eap"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;dotnet|cdnet&gt;:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="Rider"/>
 <var name="ide-co" value="ReSharper"/>
@@ -78,7 +78,7 @@ If you run %qp% in native mode, you should install the SDK to the default locati
 %ide% can have access to it.
 
 <!-- This table should be made for both linters -->
-The Dockerized version of %qp% provides versions 6.0, 7.0, and 8.0 of SDK.
+The Dockerized version of %qp% provides versions 8.0 and 9.0 of SDK.
 
 <p>All SDK versions are stored in the <code>/usr/share/dotnet/sdk</code> directory of the 
     %product% container filesystem.</p>
@@ -157,8 +157,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <step>
               <p>In Jenkins, make sure that these plugins are up and running:</p>
               <list>
-              <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
-              <li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects.</li>
+              <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images</li>
+              <li><a href="%Gplugin%">git</a> is required for git operations in Jenkins projects</li>
               </list>
               <p>Make sure that Docker is installed and accessible to Jenkins.</p>
               <p>If applicable, make sure that Docker is accessible to the <code>jenkins</code> user as described in the
@@ -349,8 +349,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
       <p>You can run the %qp% linter in two modes:</p>
       <list>
         <li><a href="native-mode.md">Native mode</a> is the recommended method for running the %qp% linter that lets you run 
-        the linter without using Docker containers,</li>
-        <li>Container mode is an alternative that involves Docker containers of the %qp% linter.</li>
+        the linter without using Docker containers</li>
+        <li>Container mode is an alternative that involves Docker containers of the %qp% linter</li>
       </list>
       <tabs>
         <tab title="Native mode">

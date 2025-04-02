@@ -178,7 +178,7 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 * [%js%](js.md)                             
 * [%go%](golang.md)                             
 * [%dotnet%](dotnet.md)       
-* [%clang%](clang.md)
+* [%cpp%](clang.md)
 * [%jvm-a%](jvm.md)
 
 ## Qodana licensing: an overview

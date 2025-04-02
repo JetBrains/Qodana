@@ -1,6 +1,6 @@
 # Visual Studio
 
-<link-summary>Using Visual Studio, you can run %product%, explore %product% reports and connect to Qodana Cloud. </link-summary>
+<link-summary>Using Visual Studio, you can explore %product% reports and connect to Qodana Cloud. </link-summary>
 
 <show-structure for="chapter" depth="3"/>
 

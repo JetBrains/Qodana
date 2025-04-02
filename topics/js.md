@@ -8,7 +8,7 @@
 
 <!-- Linter-related variables -->
 <var name="qp" value="Qodana for JS"/>
-<var name="qp-linter" value="jetbrains/qodana-js:2024.3"/>
+<var name="qp-linter" value="jetbrains/qodana-js:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="WebStorm"/>
 
@@ -73,7 +73,7 @@ include:
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js,native"/>
 
 ## Explore analysis results
 
@@ -87,7 +87,7 @@ include:
 
 ### Enabling the baseline feature
 
-<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,js"/>
+<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,js,native"/>
 
 ### Enabling the quality gate
 
@@ -95,7 +95,7 @@ include:
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,js"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,js,native"/>
 
 ## Supported technologies and features
 {id="js-feature-matrix"}
