@@ -77,7 +77,6 @@
         <note>You cannot leave or delete an organization in case you are the only member of it, so you need to assign a new
             administrator beforehand.</note>
 
-
         <chapter id="cloud-organizations-invitation" title="Organization membership">
 
             <p>Within your organization, you can:</p>

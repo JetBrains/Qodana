@@ -26,6 +26,7 @@ from both configurations, see the table below.
 
 <!-- This can probably be modified -->
 
+
 <table>
     <tr>
         <td>Local configuration</td>
