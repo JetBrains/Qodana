@@ -1,8 +1,6 @@
-<no-index/>
+# Qodana Cloud release notes
 
 <show-structure depth="3"/>
-
-# Qodana Cloud release notes
 
 ## July 2024
 
@@ -13,9 +11,10 @@ CI/CD solutions.
 The detailed information is available in the [](set-up-your-project.md) section of this
 documentation.
 
-## August 2024
+## April 2025
 
-Using the Qodana Cloud API and your CI/CD pipelines, you can create new
-[teams](cloud-teams.topic) and [projects](cloud-projects.topic) in Qodana Cloud. To get access to the API, please
-contact our support team at <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
+Starting from version 2025.1 of %product%, the Qodana Cloud UI contains the **Insights** page available by clicking the 
+button in the upper-right part of the UI. The description of this page is available on the [](insights.md) page
+of this documentation.
+
 

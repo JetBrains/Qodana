@@ -67,7 +67,6 @@
             <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization.</li>
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
-            <li><ui-path>Global configurations</ui-path> let you manage <a href="global-configuration.md">configurations used across many projects</a> of your organization.</li>
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
@@ -104,63 +103,6 @@
                 </step>
             </procedure>
 
-        </chapter>
-
-        <chapter id="cloud-organizations-global-configurations" title="Global configurations">
-            <p>Using this tab, you can manage <a href="global-configuration.md">global configurations</a>. On this tab,
-                you can find the list of configurations that can be used across multiple projects of your organization.
-            Here, you can view the list of available configurations, number of projects connected to a global configuration,
-            configuration description and the time of the latest configuration update. You can also navigate to the VCS repository
-            containing the global configuration, as well as copy and revoke a token.</p>
-
-            <p>Using the list of projects, you can view the projects connected to the configuration, whether this configuration
-            was used for analysis, search for specific projects, see if there are projects with
-                <a href="global-configuration.md" anchor="Global+and+local+configurations">global and local configurations</a>,
-            see only projects that have local and global configuration conflicts, dive into conflicts, and view and assign
-                global configurations to specific projects.</p>
-            <p>Here, you can also modify the list of projects that use the specific global configuration.</p>
-
-            <chapter title="Connect a repository">
-                <procedure>
-                    <step>
-                        <p>On the <ui-path>Global configurations</ui-path> tab, click the <ui-path>Connect repository</ui-path> button.</p>
-                    </step>
-                    <step>On the dialog that opens, configure your CI/CD solution.</step>
-                    <!-- On the second step, the meaning of the token should be explained to the user, and that this is by default is hidden -->
-                </procedure>
-
-                <p>Once the first run of a CI/CD solution with the uploader is complete, the global configuration is uploaded
-                and becomes visible on the <ui-path>Global configurations</ui-path> tab.</p>
-
-                <!-- The image of the Global Configurations tab should be provided here -->
-
-                <chapter title="Modify a global configuration">
-                    <p>Сlick the configuration that you would like to modify. This will open the dialog containing all
-                        configuration parameters. On this dialog, you can view the files contained in the global configuration
-                        and obtain a link to the VCS to be able to edit its files. The lower part of the dialog contains a configuration. </p>
-                    <!-- The image is required here -->
-                </chapter>
-
-                <chapter title="View and modify the list of projects">
-                    <p>Click the number of projects sharing a specific configuration to open a dialog containing the list
-                        of projects. Besides that, you can also see information about the latest
-                    inspection analysis performed over a specific project. Here, you can view, assign and unassign a global
-                    configuration to a specific project or projects. Both local and global parts of the configuration
-                    are shown here with each configuration highlighted.</p>
-                    <!-- Image of projects is required here -->
-                </chapter>
-
-            </chapter>
-
-            <chapter title="Revoke and regenerate the token">
-                <p>In case a token is compromised, regenerate the token and clear all configurations
-                    (because an attacker could’ve used the token and uploaded their malicious configuration).
-                    The user story here is token was available not to malicious actor, but we need to regenerate it.
-                    (for example an admin left the company?).</p>
-            </chapter>
-            <chapter title="Update the configuration">
-                <p>On this page, you can find the tabs containing files related to the global configuration. </p>
-            </chapter>
         </chapter>
 
     </chapter>

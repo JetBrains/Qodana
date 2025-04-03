@@ -9,6 +9,7 @@
 <var name="ComponentInvocation" value="https://docs.gitlab.com/ci/components/#use-a-component"/>
 <var name="MirrorComponent" value="https://docs.gitlab.com/ci/components/#use-a-gitlabcom-component-on-gitlab-self-managed"/>
 <var name="Variables" value="https://docs.gitlab.com/ci/variables/#define-a-cicd-variable-in-the-ui"/>
+<var name="PersonalToken" value="https://docs.gitlab.com/user/profile/personal_access_tokens/"/>
 
 <link-summary>You can run the %instance% Scan GitLab Pipeline.</link-summary>
 
@@ -28,7 +29,39 @@ project save the pipeline configuration file.</link-summary>
 
 Make sure that your project repository is accessible to GitLab CI/CD.
 
-In GitLab UI, save the generated project token value under the `QODANA_TOKEN` environmental variable as described on the [GitLab CI/CD website](%Variables%).
+In GitLab CI/CD UI, create the following environment variables: 
+
+<table>
+   <tr>
+      <td>
+       Variable name
+      </td>
+      <td>
+       Description  
+      </td>
+   </tr>
+   <tr>
+      <td>
+       <code>QODANA_TOKEN</code>  
+      </td>
+      <td>
+       <p>Generated <a href="project-token.md">project token</a>. Save it in the GitLab CI/CD UI as described on the <a href="%Variables%">GitLab CI/CD website</a>.</p>  
+      </td>
+   </tr>
+   <tr>
+      <td>
+       <code>QODANA_GITLAB_TOKEN</code>  
+      </td>
+      <td>
+       <p><a href="%PersonalToken%">Personal access token</a> required for <a anchor="Quick-fixes">quick-fixes</a> and 
+         summary reports as a comment in merge requests. The holder of a personal access token will be shown as an author 
+         for all %product% actions.</p>
+       <p>For quick-fixes, configure the <code>api</code> and <code>write_repository</code> permissions.</p>
+      </td>
+   </tr>
+</table>
+
+<!-- The personal access token needs to be mentioned everywhere where it is required. And explained what settings should be configured for it -->
 
 In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain a pipeline configuration 
 that will be used by GitLab CI/CD. 
@@ -43,13 +76,7 @@ In the `.gitlab-ci.yml` file, save the following configuration to [include](%Com
 ```yaml
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
-
-qodana:
-   variables:
-      QODANA_TOKEN: $qodana_token
 ```
-
-Here, the `variables` block involves the `QODANA_TOKEN` [variable](https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui) referring to the [project token](project-token.md) generated in Qodana Cloud. 
 
 This configuration already enables [caches](#Configure+cache), 
 [Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analyses, 
@@ -77,8 +104,6 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
 
 qodana:
-   variables:
-      QODANA_TOKEN: $qodana_token
    cache:
       - key: qodana-2025.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
@@ -103,10 +128,6 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
         os: windows
-
-qodana:
-   variables:
-      QODANA_TOKEN: $qodana_token
 ```
 
 
@@ -114,19 +135,16 @@ qodana:
 
 <link-summary>This section explains how you can tell %instance% what branches of your project to inspect.</link-summary>
 
-Using the `rules` block, you can tell %instance% what 
-branches to inspect. Using this configuration, %product% will invoke predefined rules to analyze the main branch, 
-release branches and merge requests:
+By default, %product% is configured for analyzing the `master` and `main` branches, release branches and merge requests meaning
+that you do not have to provide any additional configurations and use the [basic configuration](#Basic+configuration).
 
-<!-- Can we provide more details about this block ? -->
+If you wish to override this behavior, you can modify the following configuration:
 
 ```yaml
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
 
 qodana:
-  variables:
-     QODANA_TOKEN: $qodana_token
   rules:
      # GIT_DEPTH: 0 is required for checkout in case Qodana works in merge request mode 
      # (reports issues that appeared only in that merge request)
@@ -143,11 +161,15 @@ qodana:
 
 ```
 
+The `rules` block of this configuration tells %product% what branches to inspect.
+
+
 ## Quick-fixes
 
-<!-- QODANA_GITLAB_TOKEN needs to be clarified here -->
-<!-- Personal access token needs to be mentioned here or above -->
 <!-- Should the third step be reflected in the configuration? Needs to be checked -->
+
+> Make sure that you have configured the [`QODANA_GITLAB_TOKEN`](#Prepare+your+project) variable  
+{style="note"}
 
 <procedure>
    <step>
@@ -168,7 +190,7 @@ qodana:
          </tabs>
    </step>
    <step>
-      <p>Depending on your needs, configure the <code>push-fixes</code> property of your pipeline configuration:</p>
+      <p>Depending on your needs, in the pipeline configuration define the <code>push-fixes</code> property:</p>
       <tabs>
          <tab title="Merge request">
             <p>Save this configuration to create a new branch with fixes and a merge request to the original branch:</p>
@@ -180,19 +202,9 @@ qodana:
             <p>Save this configuration to push fixes to the original branch:</p>
             <code-block lang="yaml">
                push-fixes: branch
-               pr-mode: false
             </code-block> 
          </tab>
       </tabs>
-   </step>
-   <step>
-      <p>Set permissions to your personal access token, for example:</p>
-      <code-block lang="yaml">
-      permissions:
-      &nbsp;&nbsp;contents: write
-      &nbsp;&nbsp;pull-requests: write
-      &nbsp;&nbsp;checks: write
-      </code-block>
    </step>
 </procedure>
 
@@ -204,10 +216,6 @@ include:
      inputs:
         push-fixes: merge-request
         args: --apply-fixes
-
-qodana:   
-   variables:
-      QODANA_TOKEN: $qodana_token
 ```
 
 > Qodana could automatically modify not only the code, but also the configuration in 
@@ -230,10 +238,6 @@ include:
      inputs:
         upload-result: true
         artifact-name: Qodana report
-
-qodana:
-   variables:
-      QODANA_TOKEN: $qodana_token
 ```
 
 Assuming that you have configured your pipeline similarly, this is what it may look like:
@@ -259,9 +263,6 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
         args: --baseline,qodana.sarif.json,--fail-threshold,<number-of-accepted-problems>
-qodana:
-   variables:
-      QODANA_TOKEN: $qodana_token
 ```
 
 ## Code Quality reports
@@ -284,8 +285,6 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
 
 qodana:
-   variables:
-      QODANA_TOKEN: $qodana_token
    artifacts:
       reports:
          codequality: $QODANA_RESULTS_DIR/gl-code-quality-report.json
