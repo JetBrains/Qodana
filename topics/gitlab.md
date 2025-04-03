@@ -130,7 +130,6 @@ include:
         os: windows
 ```
 
-
 ## Specific branches
 
 <link-summary>This section explains how you can tell %instance% what branches of your project to inspect.</link-summary>
@@ -294,7 +293,7 @@ qodana:
 
 ## Configuration
 
-> Description of all configuration options is available on the [GitLab CI/CD website](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
+> Description of all configuration options is available in our [repository](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
 {style="tip"}
 
 This table contains the list of options that can be configured using the `inputs` block:
