@@ -82,10 +82,10 @@ See the [Adjust your inspection profile](#Adjust+your+inspection+profile) sectio
 > To learn more about inspection profiles, see the [](qodana-yaml.md#Set+up+a+profile) section.
 > You can also edit profile settings in the [`qodana.yaml`](qodana-yaml.md) file.
 
-The lower part of this tab contains the **Effective configuration** pane that lets you view the actual
+<!--The lower part of this tab contains the **Effective configuration** pane that lets you view the actual
 [global configuration](global-configuration.md) that was used for analyzing this project and generating this analysis report.
 Once you apply another configuration for analyzing this project, the configuration will be updated accordingly. Also, 
-this can be updated based on the changes made to the **Applied inspections** pane.
+this can be updated based on the changes made to the **Applied inspections** pane. -->
 
 
 ## License audit

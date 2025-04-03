@@ -59,8 +59,10 @@
 
     <p>The upper part of the report page contains:</p>
 
+    <!-- To point 2.and the link to the <a href="global-configuration.md">global configuration</a> used by this project. -->
+
     <p>1. Branch selector. Using it, you can view reports for each branch in your project.</p>
-    <p>2. Commit hash, time passed since the latest analysis, and the link to the <a href="global-configuration.md">global configuration</a> used by this project.
+    <p>2. Commit hash and time passed since the latest analysis.
     If you click the <ui-path>Configuration name</ui-path> link, you can navigate to the
         <a href="ui-overview.md" anchor="ui-overview-configuration">Configuration</a> tab of your report.</p>
     <p>3. Timeline describing the date of inspection, number of problems detected.</p>
