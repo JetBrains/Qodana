@@ -8,7 +8,7 @@ Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows. Thi
 %product% in Visual Studio:
 
 * [Connect to Qodana Cloud](#vs-code-ui-overview)
-* [Explore %product% reports](#visual-studio-explore-reports) downloaded from Qodana Cloud.
+* [Explore %product% reports](#visual-studio-explore-reports) downloaded from Qodana Cloud
 
 ## Before you start
 
@@ -73,4 +73,5 @@ On this panel, you can extend problem categories and then click specific problem
 containing such problems. 
 
 The upper part of the **Qodana Analysis** panel contains buttons that let you refresh and close the report, as well
-as group problems ba various metrics.
+as group problems by various categories. Here, you can use the **Show Preview** button for viewing code fragments in the 
+**Qodana Analysis** panel.

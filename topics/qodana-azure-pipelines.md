@@ -5,6 +5,7 @@
 <var name="repo-type" value="https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops#classic-build-pipelines-and-yaml-pipelines"/>
 <var name="repo-permissions" value="https://learn.microsoft.com/en-us/azure/devops/repos/git/set-git-repository-permissions?view=azure-devops"/>
 
+<show-structure for="chapter" depth="3"/>
 
 <link-summary>You can use the Qodana Azure Pipelines extension to analyze your code using Qodana.</link-summary>
 
