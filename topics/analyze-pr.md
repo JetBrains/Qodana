@@ -75,32 +75,32 @@ You can use the --diff-start option to inspect changes between the current versi
     </procedure>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-cicd">
-<p>Make sure that your project repository is accessible to GitLab CI/CD and the 
-<a href="%mrp%"><code>Merged results pipeline</code></a> feature is enabled.</p>
-<p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
+        <p>Make sure that your project repository is accessible to GitLab CI/CD.</p>
+        <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
+                <code-block lang="yaml">
+                    include:
+                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1        
+                </code-block>
+        <p>This configuration by default enables merge request analysis. To override the default behavior, you
+        can use the following configuration:</p>
         <code-block lang="yaml">
+            include:
+               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+            &nbsp;
             qodana:
-   image:
-      name: jetbrains/qodana-&lt;linter&gt;
-      entrypoint: [""]
-   cache:
-      - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-        fallback_keys:
-           - qodana-2024.3-$CI_DEFAULT_BRANCH-
-           - qodana-2024.3-
-        paths:
-           - .qodana/cache
-   variables:
-      QODANA_TOKEN: $qodana_token
-    script:
-      - >
-        qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-          --results-dir=$CI_PROJECT_DIR/.qodana/results \
-          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-   artifacts:
-      paths:
-         - .qodana/results
-      expose_as: 'Qodana report'
+            &nbsp;&nbsp;rules:
+            &nbsp;&nbsp;&nbsp;&nbsp;# GIT_DEPTH: 0 is required for checkout in case Qodana works in merge request mode
+            &nbsp;&nbsp;&nbsp;&nbsp;# (reports issues that appeared only in that merge request)
+            &nbsp;&nbsp;&nbsp;&nbsp;- if: $CI_PIPELINE_SOURCE == "merge_request_event" && $QODANA_MR_MODE == "true"
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variables:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GIT_DEPTH: 0
+            &nbsp;&nbsp;&nbsp;&nbsp;# run analysis in case of merge request
+            &nbsp;&nbsp;&nbsp;&nbsp;- if: $CI_PIPELINE_SOURCE == "merge_request_event"
+            &nbsp;&nbsp;&nbsp;&nbsp;# restrict branch analysis only to main/master and release branches
+            &nbsp;&nbsp;&nbsp;&nbsp;- if: $CI_COMMIT_BRANCH =~ /^releases/ || $CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "main"
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# mr-mode does not make any sense for branch analysis
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variables:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QODANA_MR_MODE: false
         </code-block>
     </tab>
     <tab title="Docker image" group-key="docker-image">

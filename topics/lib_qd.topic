@@ -536,7 +536,7 @@
                 <td>Qodana Community for JVM</td>
             </tr>
         </table>
-        <p filter="python">Here, <code>&lt;linter-code&gt;</code> refers to one of the following linters:</p>
+        <!--<p filter="python">Here, <code>&lt;linter-code&gt;</code> refers to one of the following linters:</p>
         <table filter="python">
             <tr>
                 <td><code>&lt;linter-code&gt;</code> value</td>
@@ -550,7 +550,7 @@
                 <td><code>QDPYC</code></td>
                 <td>Qodana Community for Python</td>
             </tr>
-        </table>
+        </table>-->
     </snippet>
 
     <snippet id="linters-docker-image-table">
@@ -712,7 +712,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab">
                 <procedure>
                     <step><p>Make sure that your project repository is accessible to GitLab CI/CD.</p></step>
-                    <step>In GitLab CI/CD, create the <a href="https://docs.gitlab.com/ee/ci/variables/"><code>$qodana_token</code></a>
+                    <step>In GitLab CI/CD, create the <a href="https://docs.gitlab.com/ee/ci/variables/"><code>QODANA_TOKEN</code></a>
                         variable and save the <a href="project-token.md">project token</a> as its value.</step>
                 </procedure>
             </tab>
@@ -872,19 +872,19 @@
                                 <li><code>ide: QDJVM</code> for the %jvm% linter</li>
                                 <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                             </list>
-                            <list filter="python">
+                            <!--<list filter="python">
                                 <li><code>ide: QDPY</code> for the %python% linter</li>
                                 <li><code>ide: QDPYC</code> for the %python-co% linter</li>
-                            </list>
+                            </list>-->
                             <code-block lang="yaml" filter="php">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
                             </code-block>
                             <code-block lang="yaml" filter="js">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDJS
                             </code-block>
-                            <code-block lang="yaml" filter="golang">
+                            <!--<code-block lang="yaml" filter="golang">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDGO
-                            </code-block>
+                            </code-block>-->
                         </step>
                         <step>
                             <p>Run this command in the project root directory:</p>
@@ -1088,70 +1088,17 @@
                     <tab title="GitLab CI/CD" group-key="gitlab">
                         <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                         <code-block lang="yaml" filter="generic">
-                            qodana:
-                                image:
-                                    name: %qp-linter%
-                                    entrypoint: [""]
-                                cache:
-                                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                      fallback_keys:
-                                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                          - qodana-2024.3-
-                                      paths:
-                                          - .qodana/cache
-                                variables:
-                                    QODANA_TOKEN: $qodana_token
-                                script:
-                                    - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                          include:
+                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                         </code-block>
                         <code-block lang="yaml" filter="python">
-                            qodana:
-                                image:
-                                    name: %qd-image%
-                                    entrypoint: [""]
-                                cache:
-                                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                      fallback_keys:
-                                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                          - qodana-2024.3-
-                                      paths:
-                                          - .qodana/cache
-                                variables:
-                                    QODANA_TOKEN: $qodana_token
-                                script:
-                                    - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                          include:
+                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                         </code-block>
                         <code-block lang="yaml" filter="jvm">
-                            qodana:
-                                image:
-                                    # Uncomment the linter you would like to employ
-                                    # name: %qp-linter% # Qodana for JVM
-                                    # name: %qp-co-linter% # Qodana Community for JVM
-                                    # name: %qp-a-linter% # Qodana Community for Android
-                                    # name: %qp-an-linter% # Qodana for Android
-                                    entrypoint: [""]
-                                cache:
-                                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                      fallback_keys:
-                                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                          - qodana-2024.3-
-                                      paths:
-                                          - .qodana/cache
-                                variables:
-                                    QODANA_TOKEN: $qodana_token
-                                script:
-                                    - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                          include:
+                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                         </code-block>
-                        <p>In this snippet:</p>
-                        <list>
-                            <li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
-                                so subsequent runs will be faster.</li>
-                            <li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
-                                configuration options described in the <a href="docker-image-configuration.topic"/> section.</li>
-                            <li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
-                                <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the
-                                <a href="project-token.md">project token</a>.</li>
-                        </list>
                         <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
                     </tab>
                     <tab title="TeamCity" group-key="teamcity">
@@ -1331,19 +1278,19 @@
                                   <li><code>ide: QDJVM</code> for the %jvm% linter</li>
                                   <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                               </list>
-                              <list filter="python">
+                              <!--<list filter="python">
                                   <li><code>ide: QDPY</code> for the %python% linter</li>
                                   <li><code>ide: QDPYC</code> for the %python-co% linter</li>
-                              </list>
+                              </list>-->
                               <code-block lang="yaml" filter="php">
                                   &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
                               </code-block>
                               <code-block lang="yaml" filter="js">
                                   &nbsp;&nbsp;&nbsp;&nbsp;ide: QDJS
                               </code-block>
-                              <code-block lang="yaml" filter="golang">
+                              <!--<code-block lang="yaml" filter="golang">
                                   &nbsp;&nbsp;&nbsp;&nbsp;ide: QDGO
-                              </code-block>
+                              </code-block>-->
                           </step>
                           <step>
                               <p>Save the snippet to the <code>.github/workflows/code_quality.yml</code> file containing the
@@ -1421,19 +1368,19 @@
                                   <li><code>ide: QDJVM</code> for the %jvm% linter</li>
                                   <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                               </list>
-                              <list filter="python">
+                              <!--<list filter="python">
                                   <li><code>ide: QDPY</code> for the %python% linter</li>
                                   <li><code>ide: QDPYC</code> for the %python-co% linter</li>
-                              </list>
+                              </list>-->
                               <code-block lang="yaml" filter="php">
                                   &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
                               </code-block>
                               <code-block lang="yaml" filter="js">
                                   &nbsp;&nbsp;&nbsp;&nbsp;ide: QDJS
                               </code-block>
-                              <code-block lang="yaml" filter="golang">
+                              <!--<code-block lang="yaml" filter="golang">
                                   &nbsp;&nbsp;&nbsp;&nbsp;ide: QDGO
-                              </code-block>
+                              </code-block>-->
                           </step>
                           <step>
                               <p>Run this command in the project root directory using the
@@ -1653,64 +1600,18 @@
                 <p filter="jvm">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file and
                     uncomment the linter that you would like to employ:</p>
                 <code-block lang="yaml" filter="jvm">
-                    qodana:
-                        image:
-                            # Uncomment the linter you would like to employ
-                            # name: %qp-linter% # Qodana for JVM
-                            # name: %qp-co-linter% # Qodana Community for JVM
-                            # name: %qp-a-linter% # Qodana Community for Android
-                            # name: %qp-an-linter% # Qodana for Android
-                            entrypoint: [""]
-                        cache:
-                            - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                              fallback_keys:
-                                  - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                  - qodana-2024.3-
-                              paths:
-                                  - .qodana/cache
-                        variables:
-                            QODANA_TOKEN: $qodana_token
-                        script:
-                            - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
-                                --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                  include:
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                 </code-block>
                 <p filter="python">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml" filter="python">
-                    qodana:
-                        image:
-                            name: %qd-image%
-                            entrypoint: [""]
-                        cache:
-                            - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                              fallback_keys:
-                                  - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                  - qodana-2024.3-
-                              paths:
-                                  - .qodana/cache
-                        variables:
-                            QODANA_TOKEN: $qodana_token
-                        script:
-                            - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
-                                --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                  include:
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                 </code-block>
                 <p filter="generic">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml" filter="generic">
-                    qodana:
-                        image:
-                            name: %qp-linter%
-                            entrypoint: [""]
-                        cache:
-                            - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                              fallback_keys:
-                                  - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                  - qodana-2024.3-
-                              paths:
-                                  - .qodana/cache
-                        variables:
-                            QODANA_TOKEN: $qodana_token
-                        script:
-                            - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
-                                --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                  include:
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                 </code-block>
                 <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the
                     baseline feature.</p>
@@ -1823,19 +1724,19 @@
                                 <li><code>ide: QDJVM</code> for the %jvm% linter</li>
                                 <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                             </list>
-                            <list filter="python">
+                            <!--<list filter="python">
                                 <li><code>ide: QDPY</code> for the %python% linter</li>
                                 <li><code>ide: QDPYC</code> for the %python-co% linter</li>
-                            </list>
+                            </list>-->
                             <code-block lang="yaml" filter="php">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
                             </code-block>
                             <code-block lang="yaml" filter="js">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDJS
                             </code-block>
-                            <code-block lang="yaml" filter="golang">
+                            <!--<code-block lang="yaml" filter="golang">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDGO
-                            </code-block>
+                            </code-block>-->
                         </step>
                         <step>
                             <p>
@@ -1917,19 +1818,19 @@
                                 <li><code>ide: QDJVM</code> for the %jvm% linter</li>
                                 <li><code>ide: QDJVMC</code> for the %jvm-co% linter</li>
                             </list>
-                            <list filter="python">
+                            <!--<list filter="python">
                                 <li><code>ide: QDPY</code> for the %python% linter</li>
                                 <li><code>ide: QDPYC</code> for the %python-co% linter</li>
-                            </list>
+                            </list>-->
                             <code-block lang="yaml" filter="php">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDPHP
                             </code-block>
                             <code-block lang="yaml" filter="js">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDJS
                             </code-block>
-                            <code-block lang="yaml" filter="golang">
+                            <!--<code-block lang="yaml" filter="golang">
                                 &nbsp;&nbsp;&nbsp;&nbsp;ide: QDGO
-                            </code-block>
+                            </code-block>-->
                         </step>
                         <step>
                             <p>To analyze changes in your code, employ the <code>--diff-start</code> option and specify a hash of the commit that will
@@ -2058,83 +1959,19 @@
                 <tab title="GitLab CI/CD" group-key="gitlab">
                     <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                     <code-block lang="yaml" filter="generic">
-                        qodana:
-                            image:
-                                name: %qp-linter%
-                                entrypoint: [""]
-                            cache:
-                                - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                  fallback_keys:
-                                      - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                      - qodana-2024.3-
-                                  paths:
-                                      - .qodana/cache
-                            variables:
-                                QODANA_TOKEN: $qodana_token
-                                script:
-                                    - >
-                                        qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                                          --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                                          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                            artifacts:
-                                paths:
-                                    - .qodana/results
-                                expose_as: 'Qodana report'
+                      include:
+                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                     </code-block>
                     <code-block lang="yaml" filter="jvm">
-                        qodana:
-                            image:
-                                # Uncomment the linter you would like to employ
-                                # name: %qp-linter% # Qodana for JVM
-                                # name: %qp-co-linter% # Qodana Community for JVM
-                                # name: %qp-a-linter% # Qodana Community for Android
-                                # name: %qp-an-linter% # Qodana for Android
-                                entrypoint: [""]
-                            cache:
-                                - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                  fallback_keys:
-                                      - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                      - qodana-2024.3-
-                                  paths:
-                                      - .qodana/cache
-                            variables:
-                                QODANA_TOKEN: $qodana_token
-                                script:
-                                    - >
-                                        qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                                          --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                                          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                            artifacts:
-                                paths:
-                                    - .qodana/results
-                                expose_as: 'Qodana report'
+                      include:
+                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                     </code-block>
                     <code-block lang="yaml" filter="python">
-                        qodana:
-                            image:
-                                name: %qd-image%
-                                entrypoint: [""]
-                            cache:
-                                - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                  fallback_keys:
-                                      - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                      - qodana-2024.3-
-                                  paths:
-                                      - .qodana/cache
-                            variables:
-                                QODANA_TOKEN: $qodana_token
-                                script:
-                                    - >
-                                        qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                                          --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                                          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                            artifacts:
-                                paths:
-                                    - .qodana/results
-                                expose_as: 'Qodana report'
+                      include:
+                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                     </code-block>
 
-                    <p>Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a base for comparison.</p>
+                    <p>This configuration enables merge request analysis.</p>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
                     <p>Information about configuring TeamCity for analyzing pull and merge requests is available on the
@@ -2331,82 +2168,18 @@
             <tab title="GitLab CI/CD" group-key="gitlab">
                 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                 <code-block lang="yaml" filter="generic">
-            qodana:
-                image:
-                    name: %qp-linter%
-                    entrypoint: [""]
-                cache:
-                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                      fallback_keys:
-                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                          - qodana-2024.3-
-                      paths:
-                          - .qodana/cache
-                variables:
-                    QODANA_TOKEN: $qodana_token
-                    script:
-                        - >
-                            qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                              --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                              --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                artifacts:
-                    paths:
-                        - .qodana/results
-                    expose_as: 'Qodana report'
-        </code-block>
+                  include:
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                </code-block>
                 <code-block lang="yaml" filter="jvm">
-            qodana:
-                image:
-                    # Uncomment the linter you would like to employ
-                    # name: %qp-linter% # Qodana for JVM
-                    # name: %qp-co-linter% # Qodana Community for JVM
-                    # name: %qp-a-linter% # Qodana Community for Android
-                    # name: %qp-an-linter% # Qodana for Android
-                    entrypoint: [""]
-                cache:
-                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                      fallback_keys:
-                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                          - qodana-2024.3-
-                      paths:
-                          - .qodana/cache
-                variables:
-                    QODANA_TOKEN: $qodana_token
-                    script:
-                        - >
-                            qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                              --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                              --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                artifacts:
-                    paths:
-                        - .qodana/results
-                    expose_as: 'Qodana report'
-        </code-block>
+                  include:
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                </code-block>
                 <code-block lang="yaml" filter="python">
-            qodana:
-                image:
-                    name: %qd-image%
-                    entrypoint: [""]
-                cache:
-                    - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                      fallback_keys:
-                          - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                          - qodana-2024.3-
-                      paths:
-                          - .qodana/cache
-                variables:
-                    QODANA_TOKEN: $qodana_token
-                    script:
-                        - >
-                            qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                              --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                              --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                artifacts:
-                    paths:
-                        - .qodana/results
-                    expose_as: 'Qodana report'
-        </code-block>
-                <p>Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a base for comparison.</p>
+                  include:
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                </code-block>
+                <p>This snippet enables merge request analysis.</p>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
                 <p>Information about configuring TeamCity for analyzing pull and merge requests is available on the

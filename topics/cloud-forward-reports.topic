@@ -123,29 +123,15 @@
     <chapter id="cloud-forward-reports-gitlab-ci" title="GitLab CI/CD">
         <procedure>
             <step>
-                <p>Create the <code>$qodana_token</code>
-                    <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a>, and save the
-                    <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p>
+                <p>Prepare your project as described in the <a href="gitlab.md" anchor="Before+you+start"/> section.</p>
             </step>
             <step>
                 <p>In the root folder of your GitLab-hosted project, create the <code>.gitlab-ci.yml</code> file and save this
                     configuration to that file:</p>
                 <code-block lang="yaml">
-                    qodana:
-                        image:
-                            name: jetbrains/qodana-&lt;linter&gt;
-                            entrypoint: [""]
-                        variables:
-                            QODANA_TOKEN: $qodana_token
-                        script:
-                            - qodana
-                        artifacts:
-                            paths:
-                                - qodana
+                  include:
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                 </code-block>
-            </step>
-            <step>
-                <p>In the <code>image:name</code> section of this configuration, specify the name of the %instance% <a href="docker-images.md">Docker image</a>.</p>
             </step>
         </procedure>
 

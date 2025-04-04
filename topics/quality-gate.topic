@@ -206,24 +206,13 @@
                 <p>To run a quality gate in a <a href="gitlab.md">GitLab CI/CD</a> pipeline, save this
                     configuration to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml">
-                    qodana:
-                    &nbsp;image:
-                    &nbsp;&nbsp;&nbsp;name: jetbrains/qodana-&lt;linter&gt;
-                    &nbsp;&nbsp;&nbsp;entrypoint: ['']
-                    variables:
-                    &nbsp;&nbsp;&nbsp;QODANA_TOKEN: $qodana_token
-                    script:
-                    &nbsp;&nbsp;&nbsp;- qodana --fail-threshold &lt;number&gt;
-                    artifacts:
-                    &nbsp;&nbsp;paths:
-                    &nbsp;&nbsp;&nbsp;&nbsp;- qodana
+                    include:
+                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                         inputs:
+                            args: --fail-threshold,&lt;number-of-accepted-problems&gt;
                 </code-block>
-
-                <p>In this sample, the <code>script</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
-                    option. The <code>QODANA_TOKEN</code> variable in this snippet refers to the
-                    <a href="project-token.md">project token</a>, which is required by the
-                    <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
-                </p>
+                <p>In this sample, the <code>inputs</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
+                    option.</p>
             </tab>
         </tabs>
     </chapter>

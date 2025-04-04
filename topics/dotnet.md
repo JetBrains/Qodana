@@ -175,8 +175,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     <tab title="GitLab CI/CD" group-key="gitlab">
         <procedure>
             <step><p>Make sure that your project repository is accessible to GitLab CI/CD.</p></step>
-            <step>In GitLab CI/CD, create the <a href="https://docs.gitlab.com/ee/ci/variables/"><code>$qodana_token</code></a> 
-            variable and save the <a href="project-token.md">project token</a> as its value.</step>
+            <step>In GitLab CI/CD UI create the <code>QODANA_TOKEN</code> environment variable and save the 
+            <a href="project-token.md">project token</a> as its value.</step>
         </procedure>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
@@ -288,25 +288,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             </tab>
             <tab title="GitLab CI/CD" group-key="gitlab">
                 <code-block lang="yaml">
-                    qodana:
-                       image:
-                          name: %qp-co-linter%
-                          entrypoint: [""]
-                       cache:
-                          - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                            fallback_keys:
-                               - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                               - qodana-2024.3-
-                            paths:
-                               - .qodana/cache
-                       variables:
-                          QODANA_TOKEN: $qodana_token
-                       script:
-                          - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache --no-build
-                       artifacts:
-                          paths:
-                             - qodana/report/
-                          expose_as: 'Qodana report'
+                include:
+                   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                     inputs:
+                        args: --no-build
                 </code-block>
             </tab>
             <tab title="Command line" group-key="command-line">
@@ -559,25 +544,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     <p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the 
                     following configuration there:</p>
                     <code-block lang="yaml">
-                        qodana:
-                           image:
-                              name: %qp-linter%
-                              entrypoint: [""]
-                           cache:
-                              - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                fallback_keys:
-                                   - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                   - qodana-2024.3-
-                                paths:
-                                   - .qodana/cache
-                           variables:
-                              QODANA_TOKEN: $qodana_token
-                           script:
-                              - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                           artifacts:
-                              paths:
-                                 - qodana/report/
-                              expose_as: 'Qodana report'
+                        include:
+                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                             inputs:
+                                args: --linter,%qp-linter%
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -683,25 +653,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     <p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the 
                         following configuration there:</p>
                     <code-block lang="yaml">
-                        qodana:
-                           image:
-                              name: %qp-co-linter%
-                              entrypoint: [""]
-                           cache:
-                              - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                fallback_keys:
-                                   - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                   - qodana-2024.3-
-                                paths:
-                                   - .qodana/cache
-                           variables:
-                              QODANA_TOKEN: $qodana_token
-                           script:
-                              - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                           artifacts:
-                              paths:
-                                 - qodana/report/
-                              expose_as: 'Qodana report'
+                        include:
+                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                             inputs:
+                                args: --linter,%qp-co-linter%
                     </code-block>
                 </tab>
                 <tab title="Command line" group-key="command-line">
@@ -1245,22 +1200,10 @@ in a SARIF-formatted file.
                         <tab title="GitLab CI/CD" group-key="gitlab">
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                           <code-block lang="yaml">
-                            qodana:
-                               image:
-                                  name: %qp-linter% 
-                                  entrypoint: [""]
-                               cache:
-                                  - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                                    fallback_keys:
-                                       - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                                       - qodana-2024.3-
-                                    paths:
-                                       - .qodana/cache
-                               variables:
-                                  QODANA_TOKEN: $qodana_token
-                               script:
-                                  - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
-                                     --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+                            include:
+                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                                 inputs:
+                                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-linter%
                           </code-block>
                             <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> 
                                 block invokes the baseline feature.</p>
@@ -1373,24 +1316,12 @@ in a SARIF-formatted file.
                 </tab>
                 <tab title="GitLab CI/CD" group-key="gitlab">
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
-                  <code-block lang="yaml">
-                    qodana:
-                       image:
-                          name: %qp-co-linter% 
-                          entrypoint: [""]
-                       cache:
-                          - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                            fallback_keys:
-                               - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                               - qodana-2024.3-
-                            paths:
-                               - .qodana/cache
-                       variables:
-                          QODANA_TOKEN: $qodana_token
-                       script:
-                          - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
-                             --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-                  </code-block>
+                        <code-block lang="yaml">
+                            include:
+                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                                 inputs:
+                                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-co-linter%
+                        </code-block>
                     <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block 
                         invokes the baseline feature.</p>
                 </tab>
@@ -1510,32 +1441,13 @@ You can analyze pull requests using the %dotnet% linter.
             following snippet:
         </p>
         <code-block lang="yaml">
-            qodana:
-              image:
-                 name: %qp-linter% 
-                 entrypoint: [""]
-              cache:
-                 - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                   fallback_keys:
-                      - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                      - qodana-2024.3-
-                   paths:
-                      - .qodana/cache
-              variables:
-                 QODANA_TOKEN: $qodana_token
-               script:
-                 - >
-                   qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-                     --results-dir=$CI_PROJECT_DIR/.qodana/results \
-                     --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-              artifacts:
-                 paths:
-                    - .qodana/results
-                 expose_as: 'Qodana report'
+            include:
+               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                 inputs:
+                   args: --linter,%qd-image%
         </code-block>
         <p>
-            Here, the <code>--diff-start</code> option specifies a hash of the commit that will act as a 
-            base for comparison.
+            This configuration enables merge request analysis.
         </p>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
@@ -1573,8 +1485,7 @@ You can analyze pull requests using the %dotnet% linter.
 
 ## Usage statistics
 
-According to the [JetBrains EAP user
-agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the 
+According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the 
 usage of our features to further improve the user experience. All data will be collected 
 [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable statistics by using the 
 `--no-statistics=true` CLI option, for example:

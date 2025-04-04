@@ -79,7 +79,7 @@ include:
 ```
 
 This configuration already enables [caches](#Configure+cache), 
-[Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analyses, 
+[Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis, 
 and comments to merge requests. You can override these settings using descriptions from the sections below and the 
 [](#Configuration) chapter.
 

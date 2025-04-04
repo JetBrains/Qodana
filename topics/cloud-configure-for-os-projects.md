@@ -197,7 +197,7 @@ if a quality gate has failed, and forward inspection results to Qodana Cloud.</l
 
 Using this example, you can configure GitLab CI/CD for:
 
-* Inspecting the `main` branch and all merge requests
+* Inspecting the `main` and `master` branch and all merge requests
 * Blocking merge requests if a quality gate has failed
 * Forwarding inspection results to %cloud%
 
@@ -207,27 +207,13 @@ Follow these steps to add a %instance% runner to a GitLab CI/CD pipeline:
 2. Paste this sample to the `.gitlab-ci.yml` file: 
 
 ```yaml
-stages:
-  - qodana
-
-qodana:
-  stage: qodana
-  only:
-    - main
-    - merge_requests
-  image:
-    name: jetbrains/qodana-<linter>
-    entrypoint: [""]
-  script:
-    - qodana --save-report --results-dir=$CI_PROJECT_DIR/qodana 
-     --report-dir=$CI_PROJECT_DIR/qodana/report
-     --fail-threshold <number>
-  artifacts:
-    paths:
-      - qodana
+include:
+  - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+    inputs:
+      args: --fail-threshold,<number-of-accepted-problems>
 ```
-In this sample, specify the %instance% linter and the quality gate using `--fail-threshold` option. 
-Using this configuration, %instance% will inspect the main branch and all merge requests coming to your repository.
+In this sample, specify  the [quality gate](quality-gate.topic) using `--fail-threshold` option. 
+
 
 ## Inspection result overview
 
