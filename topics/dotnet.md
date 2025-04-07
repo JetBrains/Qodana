@@ -35,10 +35,10 @@
 <p>All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:</p>
 
-| Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                             | [Supported languages](#dotnet-feature-matrix)            |
-|-------------|----------------------------------|--------------------------------------------|--------------------------------------------------------|----------------------------------------------------------|
-| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](native-mode.md) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript |
-| %qp-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                         | C#, [C++](%cpp-links%), VB.NET                           |
+| Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                             | [Supported languages](#dotnet-feature-matrix)                |
+|-------------|----------------------------------|--------------------------------------------|--------------------------------------------------------|--------------------------------------------------------------|
+| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](native-mode.md) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript, F# |
+| %qp-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                         | C#, [C++](%cpp-links%), VB.NET                               |
 
 
 <p>You can compare these linters by programming languages and other supported technologies by navigating to the <a anchor="dotnet-feature-matrix">feature matrix</a>.</p>

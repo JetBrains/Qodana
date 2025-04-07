@@ -32,9 +32,12 @@
 
 <link-summary>%qp% is based on %ide% and provides inspections for PHP, JavaScript, and TypeScript.</link-summary>
 
-All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
-PHP, JavaScript and TypeScript projects, you can use the %qp% linters based on [%ide%](https://www.jetbrains.com/phpstorm/) and available under the Ultimate and
-Ultimate Plus [licenses](pricing.md).
+All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks.
+To analyze PHP projects, you can use the following linter:
+
+| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages            |
+|---------|---------------------------|----------|----------------------------------------------------------------|--------------------------------|
+| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | PHP, JavaScript and TypeScript |
 
 To see the list of supported technologies and features, you can navigate to the [](#php-feature-matrix) chapter of this section.
 

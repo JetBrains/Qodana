@@ -55,10 +55,11 @@ In GitLab CI/CD UI, create the following environment variables:
       </td>
       <td>
        <p>A <a href="%PersonalToken%">personal access token</a> or a <a href="%ProjectToken%">project access token</a> 
-         is required for <a anchor="Quick-fixes">quick-fixes</a> and 
+         required for <a anchor="Quick-fixes">quick-fixes</a> and 
          <a anchor="Configuration">summary reports</a> as comments in merge requests. The holder of a personal access 
          token will be shown as an author for all %product% actions, so it is advised to use a project access token.</p>
-       <p>For quick-fixes, configure the <code>api</code> and <code>write_repository</code> permissions.</p>
+       <p>For quick-fixes, enable the <code>api</code> and <code>write_repository</code> permissions while configuring
+         access tokens.</p>
       </td>
    </tr>
 </table>

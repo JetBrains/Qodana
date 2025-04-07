@@ -33,8 +33,11 @@
 <link-summary>%qp% is based on %ide% and provides static analysis for JavaScript or TypeScript projects.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
-JavaScript and TypeScript projects, you can use the %qp% linters based on [%ide%](https://www.jetbrains.com/webstorm/) and available under the Ultimate and
-Ultimate Plus [licenses](pricing.md).
+JavaScript and TypeScript projects, you can use the following linter:
+
+| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages       |
+|---------|---------------------------|----------|----------------------------------------------------------------|---------------------------|
+| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | JavaScript and TypeScript |
 
 To see the list of supported technologies and features, you can navigate to the [](#js-feature-matrix) chapter of this section.
 

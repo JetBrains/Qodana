@@ -33,8 +33,12 @@
 <link-summary>%qp% is based on %ide% and provides static analysis for Go projects.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
-Golang projects, you can use the %qp% linters based on [%ide%](https://www.jetbrains.com/go/) and available under the Ultimate and
-Ultimate Plus [licenses](pricing.md).
+Golang projects, you can use the following linter:
+
+| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages               |
+|---------|---------------------------|----------|----------------------------------------------------------------|-----------------------------------|
+| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Golang, JavaScript and Typescript |
+
 
 To see the list of supported technologies and features, you can navigate to the [](#golang-feature-matrix) chapter of this section.
 

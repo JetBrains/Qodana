@@ -30,9 +30,11 @@
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze 
 Python projects, you can use the following linters:
 
-* %qp% is based on PyCharm Professional and available under the Ultimate and 
-Ultimate Plus [licenses](pricing.md), 
-* %qp-co% is based on PyCharm Community Edition and available under the Community license.
+| Linter  | Linter name    | Based on                   | Available under licenses                          | Supported languages               |
+|---------|----------------|----------------------------|---------------------------------------------------|-----------------------------------|
+| %qp%    | `%qp-linter%`    | PyCharm Professional       | Ultimate and Ultimate Plus [licenses](pricing.md) | Python, JavaScript and Typescript |
+| %qp-co% | `%qp-co-linter%` | PyCharm Community Edition  | Community [license](pricing.md)                   | Python                            |
+
 
 To see the list of supported technologies and features, you can navigate to the [](#python-feature-matrix) chapter of this section.
 

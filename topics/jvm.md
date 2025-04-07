@@ -41,9 +41,13 @@
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Java projects, you can use the following linters:
 
-* The %qp% and %qp-an% linters based on %ide% and available under the Ultimate and
-  Ultimate Plus [licenses](pricing.md),
-* The %qp-co% and %qp-a% linters based on %ide-co% and available under the Community license.
+| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages                          |
+|---------|---------------------------|----------|----------------------------------------------------------------|----------------------------------------------|
+| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
+| %qp-an% | `%qp-an-linter%`            | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
+| %qp-co% | `%qp-co-linter%`            | %ide-co% | Community [license](pricing.md)                                | Java, Kotlin, Groovy                         |
+| %qp-a%  | `%qp-a-linter%`             | %ide-co% | Community [license](pricing.md)                                | Java, Kotlin, Groovy                                             |
+
 
 To see the list of supported technologies and features, you can navigate to the [](#jvm-feature-matrix) chapter of this section.
 
