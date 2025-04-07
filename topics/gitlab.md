@@ -10,6 +10,7 @@
 <var name="MirrorComponent" value="https://docs.gitlab.com/ci/components/#use-a-gitlabcom-component-on-gitlab-self-managed"/>
 <var name="Variables" value="https://docs.gitlab.com/ci/variables/#define-a-cicd-variable-in-the-ui"/>
 <var name="PersonalToken" value="https://docs.gitlab.com/user/profile/personal_access_tokens/"/>
+<var name="ProjectToken" value="https://docs.gitlab.com/user/project/settings/project_access_tokens/"/>
 
 <link-summary>You can run the %instance% Scan GitLab Pipeline.</link-summary>
 
@@ -53,15 +54,14 @@ In GitLab CI/CD UI, create the following environment variables:
        <code>QODANA_GITLAB_TOKEN</code>  
       </td>
       <td>
-       <p><a href="%PersonalToken%">Personal access token</a> required for <a anchor="Quick-fixes">quick-fixes</a> and 
-         summary reports as a comment in merge requests. The holder of a personal access token will be shown as an author 
-         for all %product% actions.</p>
+       <p>A <a href="%PersonalToken%">personal access token</a> or a <a href="%ProjectToken%">project access token</a> 
+         is required for <a anchor="Quick-fixes">quick-fixes</a> and 
+         <a anchor="Configuration">summary reports</a> as comments in merge requests. The holder of a personal access 
+         token will be shown as an author for all %product% actions, so it is advised to use a project access token.</p>
        <p>For quick-fixes, configure the <code>api</code> and <code>write_repository</code> permissions.</p>
       </td>
    </tr>
 </table>
-
-<!-- The personal access token needs to be mentioned everywhere where it is required. And explained what settings should be configured for it -->
 
 In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain a pipeline configuration 
 that will be used by GitLab CI/CD. 
@@ -76,12 +76,14 @@ In the `.gitlab-ci.yml` file, save the following configuration to [include](%Com
 ```yaml
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+     inputs:
+        args: --linter,<linter>
 ```
 
 This configuration already enables [caches](#Configure+cache), 
 [Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis, 
 and comments to merge requests. You can override these settings using descriptions from the sections below and the 
-[](#Configuration) chapter.
+[](#Configuration) chapter. The `--linter` argument specifies the [linter](linters.md) that you would like to employ.
 
 > Before running %product% on a self-hosted version of GitLab CI/CD, you need to [mirror the component](%MirrorComponent%).
 {style="note"}
@@ -102,6 +104,8 @@ If you wish to override the default cache settings, use this configuration:
 ```yaml
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+     inputs:
+        args: --linter,<linter>
 
 qodana:
    cache:
@@ -128,6 +132,7 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
         os: windows
+        args: --linter,<linter>
 ```
 
 ## Specific branches
@@ -142,6 +147,8 @@ If you wish to override this behavior, you can modify the following configuratio
 ```yaml
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+     inputs:
+        args: --linter,<linter>
 
 qodana:
   rules:
@@ -214,7 +221,7 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
         push-fixes: merge-request
-        args: --apply-fixes
+        args: --apply-fixes,--linter,<linter>
 ```
 
 > Qodana could automatically modify not only the code, but also the configuration in 
@@ -237,6 +244,7 @@ include:
      inputs:
         upload-result: true
         artifact-name: Qodana report
+        args: --linter,<linter>
 ```
 
 Assuming that you have configured your pipeline similarly, this is what it may look like:
@@ -261,7 +269,7 @@ block to run the [quality gate](quality-gate.topic) and [baseline](baseline.topi
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
-        args: --baseline,qodana.sarif.json,--fail-threshold,<number-of-accepted-problems>
+        args: --baseline,qodana.sarif.json,--fail-threshold,<number-of-accepted-problems>,--linter,<linter>
 ```
 
 ## Code Quality reports
@@ -282,6 +290,8 @@ you can override a path to reports using the `codequality` option:
 ```yaml
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+     inputs:
+        args: --linter,<linter>
 
 qodana:
    artifacts:
@@ -298,21 +308,21 @@ qodana:
 
 This table contains the list of options that can be configured using the `inputs` block:
 
-| Name                        | Description                                                                                                                                                                                  | Default Value                     |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
-| `stage`                     | CI stage for %product% execution                                                                                                                                                             | `test`                            |
-| `args`                      | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend,--print-problems`. Optional. | -                                 |
-| `results-dir`               | Directory to store the analysis results relative to the project root. Optional.                                                                                                              | `$CI_PROJECT_DIR/.qodana/results` |
-| `upload-result`             | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                    | `false`                           |
-| `artifact-name`             | Specify Qodana results artifact name, used for result uploading. Optional.                                                                                                                   | `Qodana report`                   |
-| `cache-dir`                 | Directory to store Qodana cache relative to the project root. Optional.                                                                                                                      | `$CI_PROJECT_DIR/.qodana/caches`  |
-| `use-caches`                | Utilize [GitHub caches](https://docs.gitlab.com/ci/caching/) for Qodana runs. Optional.                                                                                                      | `true`                            |
-| `code-quality-report`       | Use [Code Quality report](https://docs.gitlab.com/ci/testing/code_quality/) produced by Qodana                                                                                               | `true`                            |
-| `mr-mode` or `pr-mode`      | Analyze ONLY changed files in a merge request. Optional.                                                                                                                                     | `true`                            |
-| `post-pr-comment`           | Post a comment with a Qodana results summary to a merge request. Optional.                                                                                                                   | `true`                            |
-| `push-fixes`                | Push Qodana fixes to the repository, can be `none`, `branch` to the current branch, `merge-request` or `pull-request`. Optional.                                                              | `none`                            |
-| `commit-message`            | Commit message used when quick-fixes are applied                                                                                                                                             | `Apply quick-fixes by Qodana`     | 
-| `os`                         | Operating system used for running pipelines, required for pre-configuration. Could accept the `linux`, `windows` or `mac` values                                                             | `linux`                           |
+| Name                                           | Description                                                                                                                                                                                  | Default Value                     |
+|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| `stage`                                        | CI stage for %product% execution                                                                                                                                                             | `test`                            |
+| `args`                                         | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend,--print-problems`. Optional. | -                                 |
+| `results-dir`                                  | Directory to store the analysis results relative to the project root. Optional.                                                                                                              | `$CI_PROJECT_DIR/.qodana/results` |
+| `upload-result`                                | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                    | `false`                           |
+| `artifact-name`                                | Specify Qodana results artifact name, used for result uploading. Optional.                                                                                                                   | `Qodana report`                   |
+| `cache-dir`                                    | Directory to store Qodana cache relative to the project root. Optional.                                                                                                                      | `$CI_PROJECT_DIR/.qodana/caches`  |
+| `use-caches`                                   | Utilize [GitHub caches](https://docs.gitlab.com/ci/caching/) for Qodana runs. Optional.                                                                                                      | `true`                            |
+| `code-quality-report`                          | Use [Code Quality report](https://docs.gitlab.com/ci/testing/code_quality/) produced by Qodana                                                                                               | `true`                            |
+| `mr-mode` or `pr-mode`                         | Analyze ONLY changed files in a merge request. Optional.                                                                                                                                     | `true`                            |
+| `post-pr-comment` {id="gitlab-summary-report"} | Post a comment with a Qodana results summary to a merge request. Optional.                                                                                                                   | `true`                            |
+| `push-fixes`                                   | Push Qodana fixes to the repository, can be `none`, `branch` to the current branch, `merge-request` or `pull-request`. Optional.                                                              | `none`                            |
+| `commit-message`                               | Commit message used when quick-fixes are applied                                                                                                                                             | `Apply quick-fixes by Qodana`     | 
+| `os`                                           | Operating system used for running pipelines, required for pre-configuration. Could accept the `linux`, `windows` or `mac` values                                                             | `linux`                           |
 
 
 <seealso>

@@ -1,4 +1,4 @@
-# Qodana Cloud release notes
+# Release notes
 
 <show-structure depth="3"/>
 

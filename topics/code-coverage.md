@@ -236,7 +236,7 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
         include:
             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
               inputs:
-                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage
+                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--linter,&lt;linter&gt;
         </code-block>
         <p>
             If you have a <a href="monorepo-project.md">monorepo project</a> and saved 
@@ -248,7 +248,7 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
         include:
             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
               inputs:
-                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--config,&lt;path-relative-to-project-root&gt;
+                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--config,&lt;path-relative-to-project-root&gt;,--linter,&lt;linter&gt;
         </code-block>
 </tab>
 <tab title="Azure Pipelines" id="code-coverage-azure">

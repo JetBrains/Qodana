@@ -131,6 +131,8 @@
                 <code-block lang="yaml">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        inputs:
+                            args: --linter,&lt;linter&gt;
                 </code-block>
             </step>
         </procedure>

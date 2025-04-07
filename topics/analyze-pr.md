@@ -79,13 +79,17 @@ You can use the --diff-start option to inspect changes between the current versi
         <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                 <code-block lang="yaml">
                     include:
-                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1        
+                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1    
+                         inputs:
+                            args: --linter,&lt;linter&gt;
                 </code-block>
         <p>This configuration by default enables merge request analysis. To override the default behavior, you
         can use the following configuration:</p>
         <code-block lang="yaml">
             include:
                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                         inputs:
+                            args: --linter,&lt;linter&gt;
             &nbsp;
             qodana:
             &nbsp;&nbsp;rules:
@@ -175,29 +179,10 @@ and <code>--diff-end</code> options:</p>
 <p>Make sure that your project repository is accessible to GitLab CI/CD.</p>
 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
         <code-block lang="yaml">
-            qodana:
-   image:
-      name: jetbrains/qodana-&lt;linter&gt;
-      entrypoint: [""]
-   cache:
-      - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-        fallback_keys:
-           - qodana-2024.3-$CI_DEFAULT_BRANCH-
-           - qodana-2024.3-
-        paths:
-           - .qodana/cache
-   variables:
-      QODANA_TOKEN: $qodana_token
-    script:
-      - >
-        qodana --diff-start=$CI_MERGE_REQUEST_TARGET_BRANCH_SHA \
-          --diff-end=$CI_MERGE_REQUEST_SOURCE_BRANCH_SHA \
-          --results-dir=$CI_PROJECT_DIR/.qodana/results \
-          --cache-dir=$CI_PROJECT_DIR/.qodana/cache
-   artifacts:
-      paths:
-         - .qodana/results
-      expose_as: 'Qodana report'
+        include:
+           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+             inputs:
+                args: --diff-start,$CI_MERGE_REQUEST_TARGET_BRANCH_SHA,--diff-end,$CI_MERGE_REQUEST_SOURCE_BRANCH_SHA,--linter,&lt;linter&gt;
         </code-block>
     </tab>
     <tab title="Docker image" group-key="docker-image">

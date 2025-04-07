@@ -625,7 +625,7 @@
                                         - name: 'Qodana Scan'
                                           uses: JetBrains/qodana-action@v2024.3
                                           with:
-                                              args: --linter,&lt;linter&gt;
+                                              args: --linter,%qd-image%
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -735,13 +735,13 @@
                         <p filter="jvm">Run this command to pull the Docker image of a required linter:</p>
 
                         <code-block lang="shell" prompt="$" filter="generic">
-                            docker pull &lt;linter&gt;
+                            docker pull %qd-image%
                         </code-block>
                         <code-block lang="shell" prompt="$" filter="python">
                             docker pull %qd-image%
                         </code-block>
                         <code-block lang="shell" prompt="$" filter="jvm">
-                            docker pull &lt;linter&gt;
+                            docker pull %qd-image%
                         </code-block>
                         <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
                     </tab>
@@ -1090,14 +1090,20 @@
                         <code-block lang="yaml" filter="generic">
                           include:
                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                                inputs:
+                                    args: --linter,%qd-image%
                         </code-block>
                         <code-block lang="yaml" filter="python">
                           include:
                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                                inputs:
+                                    args: --linter,%qd-image%
                         </code-block>
                         <code-block lang="yaml" filter="jvm">
                           include:
                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                                inputs:
+                                    args: --linter,%qd-image%
                         </code-block>
                         <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
                     </tab>
@@ -1111,7 +1117,7 @@
                                 <code-block lang="shell" prompt="$" filter="jvm">
                                     qodana scan \
                                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                                    &nbsp;&nbsp;&nbsp;-l &lt;linter&gt;
+                                    &nbsp;&nbsp;&nbsp;-l %qd-image%
                                 </code-block>
                                 <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
                                 <code-block lang="shell" prompt="$" filter="python">
@@ -1122,7 +1128,7 @@
                                 <code-block lang="shell" prompt="$" filter="generic">
                                     qodana scan \
                                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                                    &nbsp;&nbsp;&nbsp;-l %qp-linter%
+                                    &nbsp;&nbsp;&nbsp;-l %qd-image%
                                 </code-block>
                             </tab>
                             <tab title="Docker image" group-key="docker-image">
@@ -1130,7 +1136,7 @@
                                     docker run \
                                     &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                    &nbsp;&nbsp;&nbsp;&lt;linter&gt;
+                                    &nbsp;&nbsp;&nbsp;%qd-image%
                                 </code-block>
                                 <include filter="jvm" use-filter="jvm" from="lib_qd.topic" element-id="linters-docker-image-table"/>
                                 <code-block lang="shell" prompt="$" filter="python">
@@ -1602,16 +1608,22 @@
                 <code-block lang="yaml" filter="jvm">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        inputs:
+                            args: --linter,%qd-image%
                 </code-block>
                 <p filter="python">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml" filter="python">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        inputs:
+                            args: --linter,%qd-image%
                 </code-block>
                 <p filter="generic">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml" filter="generic">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        inputs:
+                            args: --linter,%qd-image%
                 </code-block>
                 <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the
                     baseline feature.</p>
@@ -1627,7 +1639,7 @@
                             qodana scan \
                             &nbsp;&nbsp;&nbsp;&nbsp;-v &lt;path_to_baseline&gt;:/data/base/ \
                             &nbsp;&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;&nbsp;-l &lt;linter&gt; \
+                            &nbsp;&nbsp;&nbsp;&nbsp;-l %qd-image% \
                             &nbsp;&nbsp;&nbsp;&nbsp;--baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                         </code-block>
                         <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
@@ -1642,7 +1654,7 @@
                             qodana scan \
                             &nbsp;&nbsp;&nbsp;&nbsp;-v &lt;path_to_baseline&gt;:/data/base/ \
                             &nbsp;&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;&nbsp;-l %qp-linter% \
+                            &nbsp;&nbsp;&nbsp;&nbsp;-l %qd-image% \
                             &nbsp;&nbsp;&nbsp;&nbsp;--baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                         </code-block>
                     </tab>
@@ -1652,7 +1664,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;&nbsp;-v &lt;path_to_baseline&gt;:/data/base/ \
                             &nbsp;&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;linter&gt; \
+                            &nbsp;&nbsp;&nbsp;&nbsp;%qd-image% \
                             &nbsp;&nbsp;&nbsp;&nbsp;--baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                         </code-block>
                         <include filter="jvm" use-filter="jvm" from="lib_qd.topic" element-id="linters-docker-image-table"/>
@@ -1669,7 +1681,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;&nbsp;-v &lt;path_to_baseline&gt;:/data/base/ \
                             &nbsp;&nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;&nbsp;%qp-linter% \
+                            &nbsp;&nbsp;&nbsp;&nbsp;%qd-image% \
                             &nbsp;&nbsp;&nbsp;&nbsp;--baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                         </code-block>
                     </tab>
@@ -1961,14 +1973,20 @@
                     <code-block lang="yaml" filter="generic">
                       include:
                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                            inputs:
+                               args: --linter,%qd-image%
                     </code-block>
                     <code-block lang="yaml" filter="jvm">
                       include:
                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                            inputs:
+                               args: --linter,%qd-image%
                     </code-block>
                     <code-block lang="yaml" filter="python">
                       include:
                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                            inputs:
+                               args: --linter,%qd-image%
                     </code-block>
 
                     <p>This configuration enables merge request analysis.</p>
@@ -1986,13 +2004,13 @@
                             <code-block prompt="$" lang="shell" filter="generic">
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;-l %qp-linter% \
+                                &nbsp;&nbsp;&nbsp;-l %qd-image% \
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
                             <code-block prompt="$" lang="shell" filter="jvm">
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;-l &lt;linter&gt; \
+                                &nbsp;&nbsp;&nbsp;-l %qd-image% \
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
                             <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
@@ -2008,14 +2026,14 @@
                                 docker run \
                                 &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;%qp-linter% \
+                                &nbsp;&nbsp;&nbsp;%qd-image% \
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
                             <code-block lang="shell" prompt="$" filter="jvm">
                                 docker run \
                                 &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;&lt;linter&gt; \
+                                &nbsp;&nbsp;&nbsp;%qd-image% \
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
                             <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
@@ -2170,14 +2188,20 @@
                 <code-block lang="yaml" filter="generic">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        inputs:
+                            args: --linter,%qd-image%
                 </code-block>
                 <code-block lang="yaml" filter="jvm">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        inputs:
+                            args: --linter,%qd-image%
                 </code-block>
                 <code-block lang="yaml" filter="python">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        inputs:
+                            args: --linter,%qd-image%
                 </code-block>
                 <p>This snippet enables merge request analysis.</p>
             </tab>
@@ -2194,13 +2218,13 @@
                 <code-block prompt="$" lang="shell" filter="generic">
                     qodana scan \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;-l %qp-linter% \
+                    &nbsp;&nbsp;&nbsp;-l %qd-image% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                         <code-block prompt="$" lang="shell" filter="jvm">
                     qodana scan \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;-l &lt;linter&gt; \
+                    &nbsp;&nbsp;&nbsp;-l %qd-image% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                         <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
@@ -2216,14 +2240,14 @@
                     docker run \
                     &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;%qp-linter% \
+                    &nbsp;&nbsp;&nbsp;%qd-image% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                         <code-block lang="shell" prompt="$" filter="jvm">
                     docker run \
                     &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;&lt;linter&gt; \
+                    &nbsp;&nbsp;&nbsp;%qd-image% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                         <include from="lib_qd.topic" element-id="linters-docker-image-table"/>

@@ -105,6 +105,8 @@ Before building a project and running %qp% or %qp-co%, you should restore depend
 bootstrap: dotnet restore
 ```
 
+To learn more about using external NuGet feeds, see the [](#Private+NuGet+repositories) section.
+
 ### Prepare your software
 {id="dotnet-software-prerequisites"}
 
@@ -141,11 +143,11 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                 ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
-                             uses: JetBrains/qodana-action@v2024.3
-                             with:
-                               # args: --linter,%qp-linter%
-                               # args: --linter,%qp-co-linter% 
-                             env:
+                              uses: JetBrains/qodana-action@v2024.3
+                              with:
+                                # args: --linter,%qp-linter%
+                                # args: --linter,%qp-co-linter% 
+                              env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
                   <p>This configuration sample will be modified throughout the section.</p>
@@ -770,7 +772,7 @@ filename as shown below.
             </tab>
         </tabs>
     </tab>
-    <tab id="configure-solution" title="Configure a solution">
+    <tab id="configure-solution" title="Select custom configuration">
         <p>A solution configuration defines which projects in the solution to build, and which project configurations to 
             use for specific projects within the solution.
         </p>
@@ -1349,14 +1351,6 @@ in a SARIF-formatted file.
                       </tab>
                   </tabs>
                 </tab>
-                <tab title="JetBrains IDEs" group-key="ides">
-                <procedure>
-                    <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
-                    <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
-                    <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
-                    <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
-                </procedure>
-                </tab>
             </tabs>
         </tab>
 </tabs>
@@ -1521,6 +1515,7 @@ docker run \
             <p>C <b>*</b></p>
             <p>JavaScript</p>
             <p>TypeScript</p>
+            <p>F#</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -1529,11 +1524,13 @@ docker run \
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -1542,18 +1539,18 @@ docker run \
     <tr>
         <td>Frameworks and libraries</td>
         <td>
-            <p>.NET Framework</p>
-            <p>.NET Core</p>
-            <p>Handlebars/Mustache</p>
-            <p>Less</p>
-            <p>Node.js</p>
-            <p>NUnit</p>
-            <p>Pug/Jade</p>
-            <p>Sass/SCSS</p>
-            <p>Unity</p>
-            <p>Unreal Engine</p>
-            <p>Vue</p>
-            <p>Xunit</p>
+              <p>Angular</p>
+              <p>ASP.NET</p>
+              <p>ASPX</p>
+              <p>Blazor</p>  
+              <p>Handlebars/Mustache</p>
+              <p>Less</p>
+              <p>PostCSS</p>
+              <p>Pug/Jade</p>
+              <p>Roslyn</p>
+              <p>Sass/SCSS</p>
+              <p>Unreal Engine</p>
+              <p>Vue</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -1576,12 +1573,12 @@ docker run \
         <tr>
         <td>Databases and ORM</td>
         <td>
-            <p>MongoDB</p>
-            <p>MySQL</p>
-            <p>Oracle</p>
-            <p>PostgreSQL</p>
-            <p>SQL</p>
-            <p>SQL server</p>
+              <p>MongoDB</p>
+              <p>MySQL</p>
+              <p>Oracle</p>
+              <p>PostgreSQL</p>
+              <p>SQL</p>
+              <p>SQL server</p>
         </td>
        <td>
             <p>&#x2714;</p>
@@ -1596,17 +1593,23 @@ docker run \
         </td>
     </tr>
     <tr>
-        <td>Markup languages</td>
+        <td>Markup languages and file formats</td>
         <td>
-            <p>HTML</p>
-            <p>XML</p>
-            <p>CSS</p>
-            <p>JSON and JSON5</p>
-            <p>RELAX NG</p>
-            <p>T4</p>
-            <p>XPath</p>
-            <p>XSLT</p>
-            <p>YAML</p>
+              <p>CSS</p>
+              <p>HTML</p>
+              <p>JSON and JSON5</p>
+              <p>Kubernetes</p>
+              <p>Markdown</p>
+              <p>OpenAPI specifications</p>
+              <p>Razor</p>
+              <p>RELAX NG</p>
+              <p>ResX</p>
+              <p>T4</p>
+              <p>XML</p>
+              <p>XAML</p>
+              <p>XPath</p>
+              <p>XSLT</p>
+              <p>YAML</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -1618,10 +1621,19 @@ docker run \
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -1634,7 +1646,7 @@ docker run \
     <tr>
         <td>Scripting languages</td>
         <td>
-            <p>Shell script</p>
+              <p>Shell script</p>
         </td>
        <td>
             <p>&#x2714;</p>
@@ -1646,7 +1658,7 @@ docker run \
     <tr>
         <td>Build management</td>
         <td>
-            <p>MSBuild</p>
+              <p>MSBuild</p>
         </td>
        <td>
             <p>&#x2714;</p>

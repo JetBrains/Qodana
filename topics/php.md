@@ -9,6 +9,7 @@
 <!-- Linter-related variables -->
 <var name="qp" value="Qodana for PHP"/>
 <var name="qp-linter" value="jetbrains/qodana-php:2025.1-eap"/>
+<var name="qd-image" value="jetbrains/qodana-php:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="PhpStorm"/>
 

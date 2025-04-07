@@ -210,7 +210,7 @@ Follow these steps to add a %instance% runner to a GitLab CI/CD pipeline:
 include:
   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
     inputs:
-      args: --fail-threshold,<number-of-accepted-problems>
+      args: --fail-threshold,<number-of-accepted-problems>,--linter,&lt;linter&gt;
 ```
 In this sample, specify  the [quality gate](quality-gate.topic) using `--fail-threshold` option. 
 

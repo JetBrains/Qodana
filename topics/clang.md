@@ -7,6 +7,8 @@
 <var name="qdcppc" value="Qodana Community for C/C++"/>
 <var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.1-eap"/>
 <var name="qdcppc-image" value="jetbrains/qodana-clang:2025.1-eap"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1-eap"/>
+<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="CLion"/>
 
@@ -390,51 +392,17 @@ the project, generates analysis reports and saves them locally or uploads to Qod
         <note>This feature is experimental and is being actively developed, which means that it should not be used in a production environment.</note>
         <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
         <code-block lang="yaml">
-            qodana:
-               image:
-                  name: %qdcpp-image% 
-                  # name: %qdcppc-image%  # Community version 
-                  entrypoint: [""]
-               cache:
-                  - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                    fallback_keys:
-                       - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                       - qodana-2024.3-
-                    paths:
-                       - .qodana/cache
-               variables:
-                  QODANA_TOKEN: $qodana_token
-               script:
-                  - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+          include:
+            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                args: --linter,%common-image%
         </code-block>
-      <p>In this snippet:</p>
-      <list>
-      <li>The <a href="https://docs.gitlab.com/ee/ci/caching/"><code>cache</code></a> keyword configures GitLab CI/CD caches to store the %instance% cache,
-        to make %product% run faster.</li>
-      <li>The <a href="https://docs.gitlab.com/ee/ci/yaml/#script"><code>script</code></a> keyword runs the <code>qodana</code> command and enumerates the %instance%
-        configuration options described in the <a href="docker-image-configuration.topic"/> section.</li>
-      <li>The <code>variables</code> keyword defines the <code>QODANA_TOKEN</code>
-      <a href="https://docs.gitlab.com/ee/ci/variables/#define-a-cicd-variable-in-the-ui">variable</a> referring to the 
-      <a href="project-token.md">project token</a>.</li>
-      </list>
         <p>To override the location of the <code>compile_commands.json</code> file for the  %qdcppc% linter, specify the location relative to the project root, so the configuration would look like:
         </p>
         <code-block lang="yaml">
-            qodana:
-               image:
-                  name: %qdcppc-image% 
-                  entrypoint: [""]
-               cache:
-                  - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                    fallback_keys:
-                       - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                       - qodana-2024.3-
-                    paths:
-                       - .qodana/cache
-               variables:
-                  QODANA_TOKEN: $qodana_token
-               script:
-                  - qodana --cache-dir=$CI_PROJECT_DIR/.qodana/cache --compile-commands &lt;path-to-compile_commands.json&gt;
+          include:
+            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+              inputs:
+                 args: --compile-commands,&lt;path-to-compile_commands.json&gt;,--linter,%qdcppc-image%
         </code-block>
     <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
     </tab>
@@ -790,23 +758,10 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
       <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the 
         baseline feature.</p>
       <code-block lang="yaml">
-        qodana:
-           image:
-              name: %qdcpp-image% 
-              # name: %qdcppc-image%  # Community version
-              entrypoint: [""]
-           cache:
-              - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
-                fallback_keys:
-                   - qodana-2024.3-$CI_DEFAULT_BRANCH-
-                   - qodana-2024.3-
-                paths:
-                   - .qodana/cache
-           variables:
-              QODANA_TOKEN: $qodana_token
-           script:
-              - qodana --baseline &lt;path/to/qodana.sarif.json&gt; --results-dir=$CI_PROJECT_DIR/.qodana/results
-                 --cache-dir=$CI_PROJECT_DIR/.qodana/cache
+        include:
+           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+             inputs:
+                args: --baseline,qodana.sarif.json,--fail-threshold,&lt;number-of-accepted-problems&gt;,--linter,%common-image%
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
