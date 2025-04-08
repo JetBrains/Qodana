@@ -327,13 +327,13 @@ and their analogs in the classic interface.
       <td><code>prMode</code></td>
       <td><control>PR Mode</control></td>
       <td>Enable pull request analyses</td>
-      <td><code>false</code></td>
+      <td><code>true</code></td>
    </tr>
    <tr>
       <td><code>post-pr-comment</code></td>
       <td><control>Post PR comment</control></td>
       <td>Post a comment with the Qodana results summary to the pull request. Optional.</td>
-      <td><code>false</code></td>
+      <td><code>true</code></td>
    </tr>
    <tr>
       <td><code>push-fixes</code></td>
@@ -345,7 +345,7 @@ and their analogs in the classic interface.
       <td><code>commit-message</code></td>
       <td><control>Commit Message</control></td>
       <td>Commit message used when quick-fixes are applied</td>
-      <td><code>none</code></td>
+      <td><code>🤖 Apply quick-fixes by Qodana</code></td>
    </tr>
 </table>
 
