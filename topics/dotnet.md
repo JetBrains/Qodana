@@ -853,7 +853,93 @@ Depending on the linter, you can run them using private NuGet repositories as sh
 
 <tabs group="linter-tabs">
     <tab title="%qp%" group-key="linter-tabs-dotnet">
-        <p>If you run %qp% using private NuGet repositories, native mode of this linter is the recommended method of running. 
+        <tabs group="native-container">
+            <tab title="Native mode" group-key="native-mode">
+                <p>If you run %qp% using private NuGet repositories, native mode of this linter is the recommended method of running. 
+                    In this case, dependencies are basically restored in steps that precede %product% execution, for example:</p>
+                <code-block lang="yaml">
+                name: Qodana
+                on:
+                  workflow_dispatch:
+                  pull_request:
+                  push:
+                &nbsp;
+                jobs:
+                    qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                            contents: write
+                            pull-requests: write
+                            checks: write
+                        steps:
+                            - uses: actions/checkout@v3
+                              with:
+                                ref: ${{ github.event.pull_request.head.sha }}
+                                fetch-depth: 0
+                            - name: Setup .NET
+                              uses: actions/setup-dotnet@v4
+                              with:
+                                  dotnet-version: '8.x' # or your version
+                            &nbsp;
+                            - name: Add NuGet source
+                              run: |
+                                dotnet nuget add source ${{ secrets.QODANA_NUGET_URL }} \
+                                  --name MyPrivateFeed \
+                                  --username ${{ secrets.QODANA_NUGET_USER }} \
+                                  --password ${{ secrets.QODANA_NUGET_PASSWORD }} \
+                                  --store-password-in-clear-text
+                            &nbsp;
+                            - name: Restore dependencies
+                              run: dotnet restore
+                            &nbsp;
+                             - name: 'Qodana Scan'
+                              uses: JetBrains/qodana-action@main
+                              env:
+                                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                              with:
+                                upload-result: true
+                </code-block>
+            </tab>
+            <tab title="Container mode" group-key="container-mode">
+                <p>In the container mode, dependencies are restored using the following configuration saved in the 
+                    <code>qodana.yaml</code> file:</p>
+                <code-block lang="yaml">
+                    bootstrap: nuget update source
+                </code-block>
+                <p>Here is the example configuration showing how you can run %product% in the container mode:</p>
+                <code-block lang="yaml">
+                name: Qodana
+                    on:
+                      workflow_dispatch:
+                      pull_request:
+                      push:
+                    &nbsp;
+                    jobs:
+                      qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                          contents: write
+                          pull-requests: write
+                          checks: write
+                        steps:
+                          - uses: actions/checkout@v3
+                            with:
+                              ref: ${{ github.event.pull_request.head.sha }}
+                              fetch-depth: 0
+                          &nbsp;
+                          - name: 'Qodana Scan'
+                            uses: JetBrains/qodana-action@main
+                            env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                              QODANA_NUGET_URL: ${{ secrets.QODANA_NUGET_URL }}
+                              QODANA_NUGET_USER: ${{ secrets.QODANA_NUGET_USER }}
+                              QODANA_NUGET_PASSWORD: ${{ secrets.QODANA_NUGET_PASSWORD }}
+                            with:
+                              upload-result: true
+                </code-block>
+            </tab>
+        </tabs>
+<!--        <p>If you run %qp% using private NuGet repositories, native mode of this linter is the recommended method of running. 
         In this case, you do not have to additionally configure the linter, and if you run it on the same machine where you have 
         built the project, it will be able to have access to the same feeds. </p>
         <p>Alternatively, use this configuration to employ a Docker image of the %qp% linter:</p>
@@ -871,7 +957,7 @@ Depending on the linter, you can run them using private NuGet repositories as sh
         <code-block>
             -Name "MySourceName” -username "User" -password "Password" -configFile "pathToNugetConfigInRepo"
         </code-block>
-        <p>Other configuration examples are available in our <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub repository</a>.</p>
+        <p>Other configuration examples are available in our <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub repository</a>.</p> -->
     </tab>
     <tab title="%qp-co%" group-key="linter-tabs-cdnet">
         <p>Add credentials to the <code>nuget.config</code> file before analyzing a project. You can do this by 
