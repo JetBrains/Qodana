@@ -25,9 +25,9 @@ After you configure all the widgets, you can copy the link to the page that cont
 
 ## Available dashboards
 
-### Number of projects
+### Projects
 
-Shows the number of active and inactive projects in your organization. 
+Displays the number of active and inactive projects in your organization. 
 
 Active are the projects which reports were uploaded to Qodana Cloud within 90 days.
 A project is classified as inactive in case it contains 
@@ -38,12 +38,10 @@ describing inactive projects to navigate to a comprehensive list these projects.
 
 <img src="insights-number-of-projects.png" alt="The number of projects" width="358" border-effect="line"/>
 
-### Number of analyses
+### Scans
 
 This dashboard provides information about analyses performed on your projects excluding pull or merge requests and carried 
 out by %product% versions 2024.2 or later.
-
-You can navigate to analysis reports by clicking this dashboard and then clicking a specific report entry. 
 
 ### Average code coverage rate
 
