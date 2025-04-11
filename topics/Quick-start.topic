@@ -260,7 +260,7 @@
             <li><a href="custom-profiles.md">Configure %instance% profiles</a></li>
             <li><a href="qodana-ide-plugin.md">Use JetBrains IDEs to inspect your code</a></li>
             <li><a href="ci.md">Build %instance% into your CI pipelines</a></li>
-            <li><a href="docker-image-configuration.topic">Configure Docker images</a></li>
+            <li><a href="docker-image-configuration.topic">Configure %product%</a></li>
         </list>
     </chapter>
 

@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Shell commands" id="docker-image-configuration">
+	title="Configuration options" id="docker-image-configuration">
 
     <show-structure for="chapter" depth="3"/>
     <var name="linter-version" value="2025.1-eap"/>
@@ -1500,6 +1500,14 @@
                             <tr>
                                 <td>
                                     <code>jetbrains/qodana-clang:%linter-version%-eap</code>
+                                </td>
+                                <td>
+                                    <a href="clang.md">%cpp%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>jetbrains/qodana-cpp:%linter-version%-eap</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%clang%</a>
