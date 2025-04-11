@@ -23,7 +23,7 @@ After you configure all the widgets, you can copy the link to the page that cont
 
 <img src="insights-upper-filters.png" width="600" alt="The Insights page filters" border-effect="line"/> 
 
-## Available dashboards
+## Available widgets
 
 ### Projects
 
