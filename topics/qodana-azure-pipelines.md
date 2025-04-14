@@ -62,7 +62,6 @@ You can configure this task using either a YAML-formatted file or the [Classic i
            - task: QodanaScan@2024
              inputs:
                uploadResult: true
-               args: -e,AUSERNAME=$(AUSERNAME),-e,APASSWORD=$(APASSWORD)
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
            </code-block>
