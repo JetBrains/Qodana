@@ -95,18 +95,6 @@ For example, this command will install the required version of the SDK that is s
       bash -s -- --jsonfile /data/project/global.json -i /usr/share/dotnet
 </code-block>
 
-
-### Dependency restore
-
-Before building a project and running %qp% or %qp-co%, you should restore dependencies using the 
-<a href="before-running-qodana.md"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file: 
-
-```yaml
-bootstrap: dotnet restore
-```
-
-To learn more about using external NuGet feeds, see the [](#Private+NuGet+repositories) section.
-
 ### Prepare your software
 {id="dotnet-software-prerequisites"}
 
@@ -330,6 +318,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 
 > Before running %product%, make sure that you [prepared](#dotnet-before-you-start) and [built](#dotnet-build-project) your project.
 > {style="note"}
+
+### Basic use case
 
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-dotnet" title="%qp%">
@@ -901,10 +891,14 @@ Depending on the linter, you can run them using private NuGet repositories as sh
                 </code-block>
             </tab>
             <tab title="Container mode" group-key="container-mode">
-                <p>In the container mode, dependencies are restored using the following configuration saved in the 
+                <p>In the container mode, save the following configuration to the 
                     <code>qodana.yaml</code> file:</p>
                 <code-block lang="yaml">
-                    bootstrap: nuget update source
+                    bootstrap: |
+                      dotnet new nugetconfig --force
+                      dotnet nuget add source -u $QODANA_NUGET_USER -p $QODANA_NUGET_PASSWORD --store-password-in-clear-text -n PrivateFeed $QODANA_NUGET_URL --configfile nuget.config
+                    # If you already have nuget.config in your repository, you can use instead:
+                    # dotnet nuget update source &ltfeed-name&gt; -u $QODANA_NUGET_USER -p $QODANA_NUGET_PASSWORD --store-password-in-clear-text --configfile nuget.config
                 </code-block>
                 <p>Here is the example configuration showing how you can run %product% in the container mode:</p>
                 <code-block lang="yaml">
@@ -967,6 +961,15 @@ Depending on the linter, you can run them using private NuGet repositories as sh
         </code-block>
     </tab>
 </tabs>
+
+### Dependency restore
+
+After configuring [external NuGet feeds](#Private+NuGet+repositories), you should configure dependency restore using the
+<a href="before-running-qodana.md"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file: 
+
+```yaml
+bootstrap: dotnet restore
+```
 
 ## Explore analysis results
 
