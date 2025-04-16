@@ -24,7 +24,7 @@ These roles are required for all organization members.
 Here is a detailed description of all team-level roles and their permissions.
 
 <tabs group="cloud-roles">
-    <tab title="Viewer" group-key="viewer">
+    <tab title="Viewer" group-key="viewer" id="cloud-user-team-roles-viewer">
         <p>View teams, projects, reports and users associated with a team. This role is suitable for users outside 
         a team who would like to view reports.</p>
         <table>
@@ -50,7 +50,7 @@ Here is a detailed description of all team-level roles and their permissions.
             </tr>
         </table>
     </tab>
-    <tab title="Editor" group-key="editor">
+    <tab title="Editor" group-key="editor" id="cloud-user-team-roles-editor">
         <p>Manage team projects and project reports, members and tokens.
         This role is suitable for developers, devops and QA specialists.</p>
         <p>Here is the explanation to the permission marking:</p>
@@ -124,7 +124,7 @@ Here is a detailed description of all team-level roles and their permissions.
             </tr>
         </table>
     </tab>
-    <tab title="Admin" group-key="admin">
+    <tab title="Admin" group-key="admin" id="cloud-user-team-roles-admin">
         <p>Manage teams and team members.
         This role is suitable for team managers, team leads, and senior developers.</p>
         <p>Here is the explanation to the permission marking:</p>
@@ -210,7 +210,7 @@ Here is a detailed description of all team-level roles and their permissions.
 ## Organization roles
 {id="organization-roles"}
 
-<link-summary>Team roles are the sets of permissions that can be assigned to users on an organization level.</link-summary>
+<link-summary>Organization roles are the sets of permissions that can be assigned to users on an organization level.</link-summary>
 
 Organization roles are the sets of permissions that can be assigned to users on an
 [organization](cloud-organizations.topic) level. To learn more about how to invite members to a Qodana Cloud organization, see the 
@@ -221,7 +221,7 @@ These roles are required for all organization members.
 Below you can find the detailed description of all organization-level roles and their permissions.
 
 <tabs group="cloud-roles">
-    <tab title="Viewer" group-key="viewer">
+    <tab title="Viewer" group-key="viewer" id="cloud-user-org-roles-viewer">
         <p>
             View organizations, members, teams, and all everything contained in teams like projects, reports and members. 
             This role is suitable for developers, QA specialists, support team members, and product leads.
@@ -249,7 +249,7 @@ Below you can find the detailed description of all organization-level roles and 
             </tr>
         </table>
     </tab>
-    <tab title="Editor" group-key="editor">
+    <tab title="Editor" group-key="editor" id="cloud-user-org-roles-editor">
         <p>
             Manage teams and team members within an organization, and view everything related to an organization. This role is suitable for team-leads and managers.
         </p>
@@ -325,7 +325,7 @@ Below you can find the detailed description of all organization-level roles and 
             </tr>
         </table>
     </tab>
-    <tab title="Admin" group-key="admin">
+    <tab title="Admin" group-key="admin" id="cloud-user-org-roles-admin">
         <p>
             Manage organizations and their users, projects, project tokens and reports. This role is suitable for 
             members of IT departments.
@@ -458,7 +458,7 @@ Below you can find the detailed description of all organization-level roles and 
             </tr>
         </table>
     </tab>
-    <tab title="Owner" group-key="owner">
+    <tab title="Owner" group-key="owner" id="cloud-user-org-roles-owner">
         <p>
             Full control over an organization and its entities including users, teams, projects and project reports. 
             This role is suitable for IT department leads.

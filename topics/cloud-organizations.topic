@@ -45,6 +45,8 @@
 
     <chapter id="cloud-organizations-overview" title="Configure organizations">
 
+        <link-summary>You can configure membership and visibility of your organization, or leave the organization.</link-summary>
+
         <p>You can configure membership and visibility of your organization, or leave the organization.</p>
 
         <procedure>
@@ -67,6 +69,7 @@
             <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization.</li>
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
+            <li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for Qodana Cloud.</li>
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
@@ -79,6 +82,8 @@
 
         <chapter id="cloud-organizations-invitation" title="Organization membership">
 
+            <link-summary>Explore how you can manage membership in your Qodana Cloud organization.</link-summary>
+
             <p>Within your organization, you can:</p>
 
             <list>
@@ -86,6 +91,8 @@
                 <li>Change <a href="cloud-user-roles.md">the roles</a> of the existing organization members.</li>
                 <li>Exclude members from your organization.</li>
             </list>
+
+            <note>Members created and configured through <a href="cloud-sso.md">JetBrains Hub</a> cannot be modified or deleted in Qodana Cloud UI.</note>
 
             <procedure>
                 <step>
