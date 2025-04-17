@@ -104,12 +104,18 @@ module.exports = divide; // Analyzed by the code coverage
 For example, if your codebase files are contained in the `<project-root>/src/` directory, then reports should contain 
 `src/<file-name>` file paths. 
 
-    Use your code coverage tool to generate and save code coverage reports to the `<project-root>/.qodana/code-coverage` 
-    directory. To learn how to override this directory, see the recommendation from the [](#run-code-coverage) chapter.
-    For a [monorepo project](monorepo-project.md) 
-    containing multiple repositories, this directory should be created in each repository.
+1. Use your code coverage tool to generate coverage reports. These reports should be saved to the `<project-root>/.qodana/code-coverage` 
+directory. You can copy the coverage report file by using the [`boostrap`](before-running-qodana.md) key, for example:
 
-2. Prepare your project. If you have a monorepo project, save %product% configuration for each repository in a 
+    ```yaml
+   boostrap: copy path/to/coverage/file <project-root>/.qodana/code-coverage 
+    ```
+
+    To learn how to override the `<project-root>/.qodana/code-coverage` directory, see the recommendation from the [](#run-code-coverage) chapter.
+    
+    For a [monorepo project](monorepo-project.md) containing multiple repositories, this directory should be created in each repository.
+
+1. Prepare your project. If you have a monorepo project, save %product% configuration for each repository in a 
 separate `qodana.yaml` file. You can put these files in repository directories, or give them custom names and save them 
 in the root directory of a project.
 
