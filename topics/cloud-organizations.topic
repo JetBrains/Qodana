@@ -69,12 +69,12 @@
             <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization.</li>
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
-            <li><ui-path>SSO</ui-path> lets you configure the Single Sign-on functionality <!--<a href="cloud-sso.md">Single Sign-on functionality</a>--> for Qodana Cloud. This feature is temporarily disabled.</li>
+            <!--<li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for Qodana Cloud.</li>-->
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
 
-        <img src="qc-settings-organization-leave.png" dark-src="qc-settings-organization-leave_dark.png" width="706" alt="Leaving and switching organization status" border-effect="line"/>
+        <img src="qc-settings-organization-leave-temp.png" dark-src="qc-settings-organization-leave-temp_dark.png" width="706" alt="Leaving and switching organization status" border-effect="line"/>
 
         <note>You cannot leave or delete an organization in case you are the only member of it, so you need to assign a new
             administrator beforehand.</note>
