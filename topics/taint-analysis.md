@@ -25,6 +25,7 @@ Taint analysis is supported by the [%php%](php.md) and [%jvm%](jvm.md) linters u
 Tainted data is called a **source**, while a vulnerable function that may contain a source is called a **sink**.
 In this case, tainted data travels to sinks via propagators, such as function calls or assignments.
 
+<!-- This can probably be re-drawn -->
 <img src="taint-analysis.png" dark-src="taint-analysis_dark.png" width="706" alt="Taint analysis diagram" border-effect="line"/>
 
 To prevent such propagation, the taint analysis applies several approaches like data sanitization or data
