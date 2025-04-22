@@ -140,10 +140,11 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | [](quick-fix.md)                                        | &#x274c;  | &#x2714;  | &#x2714;      |
 | [](php-language-upgrade.topic)                          | &#x274c;  | &#x2714;  | &#x2714;      |
 | [](flexinspect.md)                                      | &#x274c;  | &#x2714;  | &#x2714;      |
-| [](cloud-sso.md)                                                | &#x274c;  | &#x2714;  | &#x2714;      |
 | [](license-audit.topic)                                 | &#x274c;  | &#x274c;  | &#x2714;      |
 | [](taint-analysis.md)                                   | &#x274c;  | &#x274c;  | &#x2714;      |
 | [](vulnerability-checker.md)                            | &#x274c;  | &#x274c;  | &#x2714;      |
+
+<!-- This should be added here | [](cloud-sso.md)                                                | &#x274c;  | &#x2714;  | &#x2714;      | -->
 
 ### Data storage and processing
 {id="pricing-data-storage"}
