@@ -1,5 +1,7 @@
 # Single Sign-on
 
+<no-index/>
+
 <show-structure for="chapter" depth="3"/>
 
 <link-summary>Single Sign-On (SSO) functionality of Qodana Cloud lets you use third-party authentication providers for 
@@ -48,19 +50,12 @@ User authentication is carried out using a subdomain of Qodana Cloud, which you 
 {id="sso-manage-users-auth-modules"}
 
 Based on the latest step of [the previous action](#sso-create-a-subdomain), you should be redirected to a 
-[JetBrains Hub](%hub-link%) instance. Using the Hub UI, configure users and authentication modules:
+[JetBrains Hub](%hub-link%) instance. 
 
-<procedure>
-    <step>Using the <a href="%hub-access-management%"><ui-path>Access Management</ui-path></a> section of the 
-        <ui-path>Administration</ui-path> menu, create <a href="%hub-user-acc%">user accounts</a> or 
-        <a href="%hub-user-invite%">invite users</a>.</step>
-    <step>For each user created in the previous step, <a href="%hub-user-roles%">grant user roles</a>. User accounts 
-            without granted user roles will not be able to use the SSO functionality.</step>
-    <step>Using the <a href="%hub-access-management%"><ui-path>Access Management</ui-path></a> section of the 
-        <ui-path>Administration</ui-path> menu, navigate to the <a href="%hub-auth-modules%"><ui-path>Auth Modules</ui-path></a> page. 
-                On this page, enable the <code>Hub</code> authentication module, and then select and configure the 
-                authentication modules that you would like to use.</step>
-</procedure>
+Using the [**Access Management**](%hub-access-management%) section of the **Administration** menu, navigate to the 
+[**Auth Modules**](%hub-auth-modules%) page. On this page, select and configure the authentication modules that you 
+would like to use. Here, you can also import users and users groups, as well as 
+assign them to [%product% user roles](cloud-user-roles.md).
 
 ## Authenticate in Qodana Cloud
 

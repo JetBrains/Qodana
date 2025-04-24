@@ -92,6 +92,7 @@
 		<toc-element topic="quality-gate.topic"/>
 		<toc-element topic="quick-fix.md"/>
 		<toc-element topic="taint-analysis.md"/>
+		<toc-element topic="taint-analysis-2025.md" hidden="true"/>
 		<toc-element topic="vulnerability-checker.md"/>
 	</toc-element>
 
@@ -126,7 +127,7 @@
 				<toc-element topic="cloud-forward-reports.topic"/>
 				<toc-element accepts-web-file-names="cloud-project-reports.html,cloud-reports.html" topic="cloud-overview-reports.topic"/>
 			</toc-element>
-            <!--<toc-element topic="cloud-sso.md"/>-->
+            <toc-element topic="cloud-sso.md" hidden="true"/>
         </toc-element>
         <toc-element toc-title="Configuration">
 			<toc-element accepts-web-file-names="cloud-manage-members.html" topic="cloud-profile-settings.topic"/>
