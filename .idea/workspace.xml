@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/visual-studio-custom-linking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/visual-studio-explore-reports.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/visual-studio-explore-reports_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/visual-studio-list-for-linking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/visual-studio-option-window.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/visual-studio-qodana-panel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/visual-studio-qodana-panel_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/visual-studio-self-hosted-login.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/visualstudio.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/visualstudio.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/taint-analysis-2025.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis-2025.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +76,9 @@
       </map>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Security Analysis" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -100,29 +94,18 @@
     &quot;Writerside.Web Archive (qd).executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;2025.1&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/bitbucket.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/circleci.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/clang.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/cloud-account-types.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/dotnet.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/flexinspect.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/github.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/gitlab.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/jenkins.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/pricing.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/python.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-azure-pipelines.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-yaml.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/space-automation.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/taint-analysis.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/teamcity.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/visualstudio.md&quot;,
-      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/vscode.md&quot;
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/taint-analysis-2025.md&quot;
     ]
   }
 }</component>
@@ -140,5 +123,29 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="" />
+      <created>1745506389218</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745506389218</updated>
+      <workItem from="1745506390396" duration="123000" />
+      <workItem from="1745506527884" duration="4371000" />
+      <workItem from="1745574533372" duration="1264000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>
