@@ -1052,7 +1052,7 @@
         <link-summary>For all linters except Qodana Community for .NET, you can run incremental analysis on a change set like
             merge or pull requests, as well as inspect changes between two commits.</link-summary>
 
-        <note>This feature is not supported by the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
+        <note>This feature is not supported by the <a href="dotnet.md">%dotnet-co%</a> and <a href="clang.md">%clang%</a> linters.</note>
 
         <table>
             <tr>
