@@ -4,7 +4,7 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<link-summary>Single Sign-On (SSO) functionality of Qodana Cloud lets you use third-party authentication providers for 
+<link-summary>Single Sign-On (SSO) functionality of Qodana Cloud lets you use third-party identity providers for 
 authentication in Qodana Cloud.</link-summary>
 
 <var name="hub-link" value="https://www.jetbrains.com/help/hub/introduction-to-hub.html"/>
@@ -14,8 +14,8 @@ authentication in Qodana Cloud.</link-summary>
 <var name="hub-user-roles" value="https://www.jetbrains.com/help/hub/configuring-access-for-a-user-account.html#GrantingAccessToAccount"/>
 <var name="hub-auth-modules" value="https://www.jetbrains.com/help/hub/managing-auth-modules.html"/>
 
-Single Sign-On (SSO) functionality of Qodana Cloud lets you use third-party authentication providers for authentication in Qodana Cloud.
-This functionality is available only %product% Ultimate or Ultimate Plus [licenses](pricing.md) purchased for at least ten users.
+Single Sign-On (SSO) functionality of Qodana Cloud lets you use third-party identity providers for authentication in Qodana Cloud.
+This functionality is available only for [licenses](pricing.md) purchased for at least ten users.
 
 This section explains how you can manage users and authentication modules for authentication in Qodana Cloud and guides 
 you through the SSO configuration process. 
