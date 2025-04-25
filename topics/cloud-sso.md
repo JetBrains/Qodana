@@ -1,7 +1,5 @@
 # Single Sign-on
 
-<no-index/>
-
 <show-structure for="chapter" depth="3"/>
 
 <link-summary>Single Sign-On (SSO) functionality of Qodana Cloud lets you use third-party identity providers for 
