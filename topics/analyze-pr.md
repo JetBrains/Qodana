@@ -13,7 +13,7 @@ requests, as well as inspect changes between two commits.
 Configuration samples on this page contain `<GIT_START_HASH>` and `<GIT_END_HASH>` to denote the 
 hashes of the earliest and latest commits that should be included in a change analysis. For example:
 
-```plain text
+```generic
  commit 7a3f9f8e6b3a487f7e8e7f8a7f8e (HEAD -> main) <--- GIT_END_HASH
 | Author: Your Name <your.email@example.com>
 | Date:   Mon Oct 3 12:34:56 2024 +0200
