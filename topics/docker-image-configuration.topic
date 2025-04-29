@@ -1071,7 +1071,7 @@
 
             <p>If you just finished work and would like to analyze the changes, you
                 can employ the <code>--diff-start</code> option and specify a hash of the commit that will act as a base
-                for comparison:</p>
+                for comparison, see the <a href="analyze-pr.md"/> section for details:</p>
 
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">

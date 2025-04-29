@@ -131,7 +131,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                 ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
-                              uses: JetBrains/qodana-action@v2024.3
+                              uses: JetBrains/qodana-action@v2025.1
                               with:
                                 # args: --linter,%qp-linter%
                                 # args: --linter,%qp-co-linter% 
@@ -240,7 +240,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                           - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2024.3
+                            uses: JetBrains/qodana-action@v2025.1
                             with:
                                 args: --no-build
                             env:
@@ -370,7 +370,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2024.3
+                                        uses: JetBrains/qodana-action@v2025.1
                                         with:
                                             args: --ide,QDNET
                                         env:
@@ -500,7 +500,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2024.3
+                                        uses: JetBrains/qodana-action@v2025.1
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -610,7 +610,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2024.3
+                                        uses: JetBrains/qodana-action@v2025.1
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -1193,7 +1193,7 @@ in a SARIF-formatted file.
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2024.3
+                                      uses: JetBrains/qodana-action@v2025.1
                                       with: 
                                         args: --ide,QDNET,--baseline,&lt;path/to/qodana.sarif.json&gt;
                                       env:
@@ -1249,7 +1249,7 @@ in a SARIF-formatted file.
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2024.3
+                                      uses: JetBrains/qodana-action@v2025.1
                                       with:
                                         args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-linter%
                                       env:
@@ -1366,7 +1366,7 @@ in a SARIF-formatted file.
                                 ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
-                              uses: JetBrains/qodana-action@v2024.3
+                              uses: JetBrains/qodana-action@v2025.1
                               with:
                                 args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-co-linter%
                               env:
@@ -1511,7 +1511,7 @@ You can analyze pull requests using the %dotnet% linter.
                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
-                        uses: JetBrains/qodana-action@v2024.3
+                        uses: JetBrains/qodana-action@v2025.1
                         with:
                           args: --linter,%qp-linter%
                         env:
@@ -1540,7 +1540,7 @@ You can analyze pull requests using the %dotnet% linter.
     </tab>
     <tab title="Command line" group-key="command-line">
         <p>
-            To analyze changes in your code, employ the <code>--diff-start</code> option and specify a hash of the commit 
+            To <a href="analyze-pr.md">analyze changes</a> in your code, employ the <code>--diff-start</code> option and specify a hash of the commit 
             that will act as a base for comparison:
         </p>
         <tabs group="cli-settings">

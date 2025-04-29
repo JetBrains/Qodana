@@ -1,6 +1,6 @@
 # Analyze changes
 
-<link-summary>For all linters except Qodana Community for .NET and Qodana for C/C++, you can run incremental analysis on a change set like 
+<link-summary>For all linters except Qodana Community for .NET and Qodana Community for C/C++, you can run incremental analysis on a change set like 
 merge or pull requests, as well as inspect changes between two commits.</link-summary> 
 
 <var name="mrp" value="https://docs.gitlab.com/ee/ci/pipelines/merged_results_pipelines.html"/>
@@ -10,8 +10,30 @@ merge or pull requests, as well as inspect changes between two commits.</link-su
 Using %product%, you can not only scan your entire codebase, but also run analysis on change sets like merge or pull 
 requests, as well as inspect changes between two commits.
 
-<note>All examples from this page use a <a href="project-token.md">project token</a> assigned to the <code>QODANA_TOKEN</code>
-variable.</note>
+Configuration samples on this page contain `<GIT_START_HASH>` and `<GIT_END_HASH>` to denote the 
+hashes of the earliest and latest commits that should be included in a change analysis. For example:
+
+```plain text
+ commit 7a3f9f8e6b3a487f7e8e7f8a7f8e (HEAD -> main) <--- GIT_END_HASH
+| Author: Your Name <your.email@example.com>
+| Date:   Mon Oct 3 12:34:56 2024 +0200
+|
+|     The latest commit
+|
+* commit 2b4c8d9e6a3b486f7e9e8f8b8f8
+| Author: Your Name <your.email@example.com>
+| Date:   Mon Oct 2 12:30:00 2024 +0200
+|
+|     The second commit
+|
+* commit 5d6e9f0e7b4c587f8e0e9f0a9f0               <--- GIT_START_HASH
+| Author: Your Name <your.email@example.com>
+| Date:   Mon Oct 1 12:25:00 2024 +0200
+|
+|     The earliest commit
+```
+
+The `QODANA_TOKEN` variable refers to a <a href="project-token.md">project token</a> value.   
 
 ## Analyze pull and merge requests
 
@@ -67,7 +89,7 @@ You can use the --diff-start option to inspect changes between the current versi
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2024.3
+            uses: JetBrains/qodana-action@v2025.1
             env:
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -166,7 +188,7 @@ and <code>--diff-end</code> options:</p>
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2024.3
+            uses: JetBrains/qodana-action@v2025.1
             with:
               args: --diff-start,&lt;GIT_START_HASH&gt;,--diff-end,&lt;GIT_END_HASH&gt; 
             env:

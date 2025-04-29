@@ -224,7 +224,7 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
-        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2024.3"
+        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2025.1"
         pr-mode: false
 ```
 <p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="qodana-yaml.md">%product% configuration</a> 

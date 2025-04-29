@@ -289,7 +289,7 @@ the project, generates analysis reports and saves them locally or uploads to Qod
                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
-                      uses: JetBrains/qodana-action@v2024.3
+                      uses: JetBrains/qodana-action@v2025.1
                       with:
                         args: --linter,%qdcpp-image%
                         # args: --linter,%qdcppc-image%  # Community version
@@ -322,7 +322,7 @@ the project, generates analysis reports and saves them locally or uploads to Qod
                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
-                      uses: JetBrains/qodana-action@v2024.3
+                      uses: JetBrains/qodana-action@v2025.1
                       with:
                         args: --linter,%qdcppc-image%,--compile-commands,&lt;path-to-compile_commands.json&gt;
                       env:
@@ -713,7 +713,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
                     ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                     fetch-depth: 0  # a full history is required for pull request analysis
                 - name: 'Qodana Scan'
-                  uses: JetBrains/qodana-action@v2024.3
+                  uses: JetBrains/qodana-action@v2025.1
                   with:
                     args: --linter,%qdcpp-image%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                     # args: --linter,%qdcppc-image%,--baseline,&lt;path/to/qodana.sarif.json&gt;  # Community version
@@ -804,6 +804,94 @@ failureConditions:
     low: 4
     info: 5
 ```
+
+### Analyzing pull requests
+
+You can analyze pull requests using the %cpp% linter.
+
+<tabs group="software">
+    <tab title="GitHub Actions" group-key="github">
+        <p>
+            The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically 
+            analyzes all pull requests, so you do not have to provide any additional configuration. Save this configuration
+            to the <code>.github/workflows/code_quality.yml</code> file:
+        </p>
+        <code-block lang="yaml">
+                name: Qodana
+                on:
+                  workflow_dispatch:
+                  pull_request:
+                  push:
+                    branches: # Specify your branches here
+                      - main # The 'main' branch
+                      - 'releases/*' # The release branches
+                jobs:
+                  qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                      contents: write
+                      pull-requests: write
+                      checks: write
+                    steps:
+                      - uses: actions/checkout@v3
+                        with:
+                          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                          fetch-depth: 0  # a full history is required for pull request analysis
+                      - name: 'Qodana Scan'
+                        uses: JetBrains/qodana-action@v2025.1
+                        with:
+                          args: --linter,%qdcpp-image%
+                        env:
+                          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+    </tab>
+    <tab title="GitLab CI/CD" group-key="gitlab">
+        <p>
+            In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the 
+            following snippet:
+        </p>
+        <code-block lang="yaml">
+            include:
+               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                 inputs:
+                   args: --linter,%qdcpp-image%
+        </code-block>
+        <p>
+            This configuration enables merge request analysis.
+        </p>
+    </tab>
+    <tab title="TeamCity" group-key="teamcity">
+        <p>Information about configuring TeamCity for analyzing pull and merge requests is available on the 
+            <a href="%TeamCityPullRequests%">TeamCity</a> documentation portal.
+        </p>
+    </tab>
+    <tab title="Command line" group-key="command-line">
+        <p>
+            To <a href="analyze-pr.md">analyze changes</a> in your code, employ the <code>--diff-start</code> option and specify a hash of the commit 
+            that will act as a base for comparison:
+        </p>
+        <tabs group="cli-settings">
+            <tab group-key="qodana-cli" title="Qodana CLI">
+                <code-block prompt="$">
+                    qodana scan \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       -l %qdcpp-image% \
+                       --diff-start=&lt;GIT_START_HASH&gt;
+                </code-block>
+            </tab>
+            <tab group-key="docker-image" title="Docker image">
+                <code-block lang="shell" prompt="$">
+                  docker run \
+                  &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+                  &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                  &nbsp;&nbsp;&nbsp;%qdcpp-image% \
+                  &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
+                </code-block>
+            </tab>
+        </tabs>
+    </tab>
+</tabs>
+
 
 ## Supported features
 
