@@ -52,9 +52,12 @@ Based on the latest step of [the previous action](#sso-create-a-subdomain), you 
 [JetBrains Hub](%hub-link%) instance. 
 
 Using the [**Access Management**](%hub-access-management%) section of the **Administration** menu, navigate to the 
-[**Auth Modules**](%hub-auth-modules%) page. On this page, select and configure the authentication modules that you 
-would like to use. Here, you can also import users and users groups, as well as 
-assign them to [%product% user roles](cloud-user-roles.md).
+[**Auth Modules**](%hub-auth-modules%) page. On this page, perform the following actions: 
+
+* Select and configure the authentication modules that you would like to use. 
+* Import users and groups, as well as assign them to [%product% user roles](cloud-user-roles.md). Each imported user should be granted a 
+  %product% role, which can be achieved by granting a role explicitly using the **Roles** tab or by creating user groups
+  with %product% roles and assigning users to those groups.
 
 ## Authenticate in Qodana Cloud
 
