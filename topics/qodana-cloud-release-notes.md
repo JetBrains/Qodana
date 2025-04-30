@@ -17,6 +17,6 @@ Starting from version 2025.1 of %product%, the Qodana Cloud UI contains the **In
 button in the upper-right part of the UI. The description of this page is available on the [](insights.md) page
 of this documentation.
 
-<!-- Now you can also configure a [Single Sign-on](cloud-sso.md) to let you authenticate using various third-party authentication providers. -->
+Now you can also configure [Single Sign-on](cloud-sso.md) to authenticate using various third-party authentication providers
 
 

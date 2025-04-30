@@ -46,6 +46,8 @@ configuration scripts described in this section.
 
 <link-summary>This section shows the basic configuration of the Jenkins Pipeline.</link-summary>
 
+<include from="lib_qd.topic" element-id="major-version-note"/>
+
 This is the basic configuration of the Jenkins Pipeline.
 
 ```groovy

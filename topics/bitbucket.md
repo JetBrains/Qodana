@@ -32,6 +32,8 @@ application of the [quality gate](quality-gate.topic) and [baseline](baseline.to
 
 ## Basic configuration
 
+<include from="lib_qd.topic" element-id="major-version-note"/>
+
 <include from="lib_qd.topic" element-id="bitbucket-basic-configuration"/>
 
 This configuration will be used as a basis for all examples in this section.

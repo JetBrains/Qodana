@@ -39,6 +39,8 @@ Community linters. You can see these sections to learn how to generate the proje
 
 <link-summary>You can configure the %product% runner in a TeamCity build.</link-summary>
 
+<include from="lib_qd.topic" element-id="major-version-note"/>
+
 <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,jvm"/>
 
 ## Quality gate and baseline

@@ -20,6 +20,8 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 
 <link-summary>In the GitHub UI, create an encrypted secret for a project token, and configure a workflow file.</link-summary>
 
+<include from="lib_qd.topic" element-id="major-version-note"/>
+
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode

@@ -33,6 +33,8 @@ CircleCI is a cloud-based CI/CD system. You can build %instance% into your Circl
 
 ## Basic configuration
 
+<include from="lib_qd.topic" element-id="major-version-note"/>
+
 In the `.circleci/config.yml` file, save the following configuration: 
 
 ```yaml

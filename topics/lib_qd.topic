@@ -914,6 +914,8 @@
             </tab>
             <tab title="Container mode" group-key="container-mode">
                 <p filter="native">Container mode is available for all linters; however, it is advised that you use native mode whenever possible.</p>
+                <note id="major-version-note">The configured major version of a %product% linter (<ui-path>20**.*</ui-path>) should match the version specified
+                        in the <a href="qodana-yaml.md">qodana.yaml</a> file.</note>
                 <tabs group="software">
                     <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming

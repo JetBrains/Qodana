@@ -171,8 +171,8 @@ the project, generates analysis reports and saves them locally or uploads to Qod
 ## Run %product%
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
-
-<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
+<include from="lib_qd.topic" element-id="major-version-note"/>
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"/>
 
 <!--<p>You can run all linters described in this section in two modes:</p>
 <list>

@@ -71,6 +71,8 @@ that will be used by GitLab CI/CD.
 
 <link-summary>This section shows the basic GitLab CI/CD configuration for running %product%.</link-summary>
 
+<include from="lib_qd.topic" element-id="major-version-note"/>
+
 In the `.gitlab-ci.yml` file, save the following configuration to [include](%ComponentInvocation%) the 
 %product% Scan GitLab Pipeline component:
 

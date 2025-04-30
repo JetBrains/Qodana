@@ -36,6 +36,8 @@ edit your azure-pipelines.yml file as shown in this section.</link-summary>
 > Triggering Qodana Scan depends on the [repository type](%repo-type%) that you are using in Azure Pipelines.
 {style="note"}
 
+<include from="lib_qd.topic" element-id="major-version-note"/>
+
 You can run the Qodana Scan task on any OS and x86_64/arm64 CPUs, but it requires the agent to have Docker installed. 
 Additionally, since most Qodana Docker images are Linux-based, the Docker daemon must support running Linux containers.
 

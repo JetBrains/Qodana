@@ -33,6 +33,8 @@ file will contain configuration scripts written in [Kotlin](https://kotlinlang.o
 
 <link-summary>This section shows the basic configuration script for running %instance% in JetBrains Automation jobs.</link-summary>
 
+<include from="lib_qd.topic" element-id="major-version-note"/>
+
 This is the basic configuration script for running %instance% in JetBrains Automation jobs. 
 
 ```kotlin
