@@ -31,29 +31,7 @@ Tainted data is called a **source**, while a vulnerable function that may contai
 
 Between a source and a sink, tainted data can travel through various **passthrough** functions which calls are also marked as
 tainted if the input data was initially marked as tainted. The **sanitizer** functions can be used to make data safe 
-for further processing through several approaches like data sanitization or data transformation to a safe state as 
-shown below.
-
-<!-- Projection needs to be added here -->
-
-Here, tags are removed to resolve the taint:
-
-```PHP
-<?php
-$taint = $_GET['some_key'];
-$taint = strip_tags($taint);
-```
-
-Data validation conforms to a required pattern. In this sample, validation for the `$email` 
-variable is enabled:
-    
-```PHP
-<?php
-$email = $_GET['email'];
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  echo $email;
-}
-```
+for further processing through several approaches like data sanitization or data transformation to a safe state.
 
 The projection approach lets you share the taint status across all agruments of a function call. This ensures that 
 the taint status of the arguments is transferred to the return value.
