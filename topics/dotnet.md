@@ -314,10 +314,14 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 
-<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
-
 > Before running %product%, make sure that you [prepared](#dotnet-before-you-start) and [built](#dotnet-build-project) your project.
 > {style="note"}
+
+> For the container mode, the configured major version of a %product% linter (20**.*) should match the version specified
+> in the [`qodana.yaml`](qodana-yaml.md) file.
+> {style="note"}
+
+<include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
 
 ### Basic use case
 
@@ -473,7 +477,6 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         </tab>
         <tab title="Container mode">
             <p>Container mode is available for the %qp% linter; however, it is advised that you use native mode.</p>
-            <include from="lib_qd.topic" element-id="major-version-note"/>
             <tabs>
                 <tab title="GitHub Actions" group-key="github">
                           <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
@@ -585,7 +588,6 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     </tab>
     <tab group-key="linter-tabs-cdnet" title="%qp-co%">
         <p>You can run the %qp-co% linter in a container mode as shown in the examples below.</p>
-            <include from="lib_qd.topic" element-id="major-version-note"/>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                         To analyze the <code>main</code> branch, release branches and the pull requests coming
