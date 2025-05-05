@@ -2,6 +2,7 @@
 
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
+<var name="incorrect-formatting" value="https://www.jetbrains.com/help/inspectopedia/IncorrectFormatting.html"/>
 
 <link-summary>You can configure Qodana via a YAML-formatted file. By default, this file should have the qodana.yaml 
 name and be contained in the root directory of your project.</link-summary>
