@@ -400,3 +400,19 @@ To install third-party software required for your plugins, you can:
 * Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %instance% `Dockerfile`
 examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
 
+## Incorrect Formatting inspection
+
+The  [`IncorrectFormatting`](%incorrect-formatting%) inspection consolidates multiple formatting errors contained in
+a file into a single problem instead of listing every issue separately. Now, a single problem per file is displayed with
+example snippets to help you fix issues faster.
+
+This feature is available for all [linters](linters.md) except %cpp%, %clang%, and %dotnet-co%.
+
+To start using it, enable the `IncorrectFormatting` inspection in your %product%
+[inspection profile](inspection-profiles.md) configuration, for example:
+
+```yaml
+include:
+  - name: IncorrectFormatting
+```
+
