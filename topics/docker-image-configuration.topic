@@ -7,7 +7,7 @@
 	title="Configuration options" id="docker-image-configuration">
 
     <show-structure for="chapter" depth="3"/>
-    <var name="linter-version" value="2025.1-eap"/>
+    <var name="linter-version" value="2025.1"/>
 
     <link-summary>This section explains how you can configure the Docker images of
         %instance% and the Qodana CLI tool.</link-summary>
@@ -1491,7 +1491,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cdnet:%linter-version%-eap</code>
+                                    <code>jetbrains/qodana-cdnet:%linter-version%</code>
                                 </td>
                                 <td>
                                     <a href="dotnet.md">%dotnet-co%</a>
@@ -1499,7 +1499,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-clang:%linter-version%-eap</code>
+                                    <code>jetbrains/qodana-clang:%linter-version%</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%cpp%</a>
@@ -1507,7 +1507,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cpp:%linter-version%-eap</code>
+                                    <code>jetbrains/qodana-cpp:%linter-version%</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%clang%</a>

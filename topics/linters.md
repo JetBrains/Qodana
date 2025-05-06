@@ -1,6 +1,6 @@
 [//]: # (title: Linters)
 
-<var name="image-version" value="2025.1-eap"/>
+<var name="image-version" value="2025.1"/>
 
 
 <link-summary>A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its 
@@ -60,9 +60,9 @@ Currently, several linters provide inspections for several programming languages
         </td>
         <td>
             <p><a href="dotnet.md">%dotnet%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-dotnet:%image-version%</code></p>
-            <p><a href="dotnet.md">%dotnet-co%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cdnet:%image-version%</code></p><!-- Add -eap after release -->
-            <p><a href="clang.md">%clang%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-clang:%image-version%</code></p><!-- Add -eap after release -->
-            <p><a href="clang.md">%cpp%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cpp:%image-version%</code></p><!-- Add -eap after release -->
+            <p><a href="dotnet.md">%dotnet-co%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cdnet:%image-version%-eap</code></p><!-- Add -eap after release -->
+            <p><a href="clang.md">%clang%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-clang:%image-version%-eap</code></p><!-- Add -eap after release -->
+            <p><a href="clang.md">%cpp%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cpp:%image-version%-eap</code></p><!-- Add -eap after release -->
         </td>
     </tr>
     <tr>
