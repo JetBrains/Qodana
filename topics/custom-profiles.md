@@ -449,8 +449,7 @@ inspections:
 ### Configure inspection options
 {id="custom-profiles-examples-inspection-options"}
 
-Several inspections provide configuration options. You can find the list of available options on
-[GitHub](https://github.com/JetBrains/qodana-profiles/blob/master/.idea/inspectionProfiles/).
+Several inspections provide configuration options. 
 
 For example, in case of the `MissingOverrideAnnotation` inspection, you can find the `ignoreObjectMethods` and
 `ignoreAnonymousClassMethods` options:
