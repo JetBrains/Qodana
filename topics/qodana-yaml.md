@@ -178,7 +178,7 @@ script:
       <parameter>: <value>
 ```
 
-You can override the standard %instance% behavior, which can be helpful in case of the 
+You can override the standard %instance% behavior, which can be helpful in the case of the 
 [PHP version migration](php-language-upgrade.topic). To inspect your code from this perspective, you can run the 
 `php-migration` scenario.     
 

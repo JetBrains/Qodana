@@ -1,5 +1,7 @@
 [//]: # (title: Custom YAML profiles)
 
+<show-structure for="chapter" depth="3"/>
+
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="ide" value="IDE"/>
 <var name="qodana.starter" value="https://github.com/JetBrains/qodana-profiles/blob/master/.idea/inspectionProfiles/qodana.starter.yaml"/>
@@ -7,7 +9,8 @@
 <var name="java-glob" value="https://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-"/>
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
-
+<var name="jvmcoverageinspection" value="https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html"/>
+<var name="export-profile" value="https://www.jetbrains.com/help/idea/customizing-profiles.html#export-and-import-a-profile"/>
 <link-summary>Starting from version 2023.2, you can create and configure Qodana profiles using YAML. </link-summary>
 
 Starting from version 2023.2, you can create and configure %instance% profiles using YAML. %instance% also provides 
@@ -449,19 +452,27 @@ inspections:
 ### Configure inspection options
 {id="custom-profiles-examples-inspection-options"}
 
-Several inspections provide configuration options. 
+Specific [inspections](https://jetbrains.com/help/inspectopedia) offer configurable options.
+For example, the [`JvmCoverageInspection`](%jvmcoverageinspection%) inspection offers the `classThreshold`,
+`methodThreshold`, and `warnMissingCoverage` options.
 
-For example, in case of the `MissingOverrideAnnotation` inspection, you can find the `ignoreObjectMethods` and
-`ignoreAnonymousClassMethods` options:
+To discover this, configure this inspection in IntelliJ IDEA and then [export the profile](%export-profile%). 
+Here is a profile example for the `JvmCoverageInspection` inspection:  
 
 ```xml
-<inspection_tool class="MissingOverrideAnnotation" enabled="true" level="INFORMATION" enabled_by_default="true">
-    <option name="ignoreObjectMethods" value="true" />
-    <option name="ignoreAnonymousClassMethods" value="false" />
-</inspection_tool>
+<component name="InspectionProjectProfileManager">
+    <profile version="1.0">
+        <option name="myName" value="Project Default" />
+        <inspection_tool class="JvmCoverageInspection" enabled="true" level="WARNING" enabled_by_default="true">
+            <option name="classThreshold" value="51" />
+            <option name="methodThreshold" value="51" />
+            <option name="warnMissingCoverage" value="true" />
+        </inspection_tool>
+    </profile>
+</component>
 ```
 
-This is how you can override these options in your profile:
+This sample shows how these options can be configured in your custom profile:
 
 ```yaml
 name: "My custom profile" # Profile name
@@ -469,10 +480,11 @@ name: "My custom profile" # Profile name
 baseProfile: qodana.recommended
 
 inspections:
-  - inspection: MissingOverrideAnnotation
+  - inspection: JvmCoverageInspection
     options:
-      ignoreObjectMethods: false
-      ignoreAnonymousClassMethods: true
+      classThreshold: 51
+      methodThreshold: 51
+      warnMissingCoverage: true
 ```
 
 ## Next steps

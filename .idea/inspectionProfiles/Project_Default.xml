@@ -1,0 +1,10 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="JvmCoverageInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="classThreshold" value="51" />
+      <option name="methodThreshold" value="51" />
+      <option name="warnMissingCoverage" value="true" />
+    </inspection_tool>
+  </profile>
+</component>

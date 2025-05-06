@@ -1491,7 +1491,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cdnet:%linter-version%</code>
+                                    <code>jetbrains/qodana-cdnet:%linter-version%-eap</code>
                                 </td>
                                 <td>
                                     <a href="dotnet.md">%dotnet-co%</a>
@@ -1499,7 +1499,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-clang:%linter-version%</code>
+                                    <code>jetbrains/qodana-clang:%linter-version%-eap</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%cpp%</a>
@@ -1507,7 +1507,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cpp:%linter-version%</code>
+                                    <code>jetbrains/qodana-cpp:%linter-version%-eap</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%clang%</a>
