@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/insights.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/insights.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,25 +107,6 @@
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/bitbucket.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/clang.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/cloud-sso.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/custom-profiles.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/dotnet.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/jenkins.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/js.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/linters.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/new-in-2025-1.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-azure-pipelines.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-cloud-release-notes.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-yaml.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/space-automation.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/taint-analysis.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/teamcity.md"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -166,6 +144,7 @@
       <workItem from="1745574533372" duration="1264000" />
       <workItem from="1746439073588" duration="6887000" />
       <workItem from="1746537863397" duration="6572000" />
+      <workItem from="1746589252968" duration="1815000" />
     </task>
     <servers />
   </component>

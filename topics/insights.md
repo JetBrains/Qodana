@@ -2,14 +2,15 @@
 
 <show-structure depth="3"/>
 
-Insights let you examine aggregated data on an organizational and team levels in Qodana Cloud.
+Insights let you examine aggregated data on organizational and team levels in Qodana Cloud. This feature is available 
+under the Ultimate Plus [license](pricing.md).
 
 To view insights on an organization level, in the upper part of your [organization](cloud-organizations.topic) 
 page click the **Insights** button. To do the same on a team level, click this button on your team page. 
 
 <img src="insights-insights-button.png" width="706" alt="Navigating to the Insights page" border-effect="line"/>
 
-> To navigate from team to organization-wide insights within a single click, in the upper part of the **Insights** 
+> To navigate from team to organization-wide insights with a single click, in the upper part of the **Insights** 
 > page click the **Reset filters** link. 
 {style="tip"}
 
