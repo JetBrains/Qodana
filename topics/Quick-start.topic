@@ -233,7 +233,7 @@
                 </procedure>
             </tab>
         </tabs>
-        <tip>Depending on your tasks, you can configure %instance% as explained on the <a href="configure-qodana.topic"/> page.</tip>
+        <tip>Depending on your tasks, you can configure %instance% as explained on the <a href="configure-qodana.md"/> page.</tip>
     </chapter>
 
     <chapter title="Run Qodana on GitHub" id="quickstart-run-in-github">
