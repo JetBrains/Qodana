@@ -14,8 +14,8 @@ validation or sanitization, which helps prevent security vulnerabilities like SQ
 command injections, and path traversal. The core goal is to determine if unanticipated input can affect program 
 execution in malicious ways.
 
-Taint analysis is supported by the [%php%](php.md) and [%jvm%](jvm.md) linters under the Ultimate Plus
-[license](pricing.md). This feature is also available in IntelliJ IDEA, where it provides predefined taint rules for the most common 
+Taint analysis is supported by IntelliJ IDEA Ultimate, as well as by the [%php%](php.md) and [%jvm%](jvm.md) linters
+under the Ultimate Plus [license](pricing.md). This feature provides built-in taint rules for the most common 
 categories of OWASP Top 10:2021 vulnerabilities (A01, A03, A07, A08, A10). In addition to the built-in rules, you can 
 configure custom taint rules for your own application or library code, designating specific functions or methods as sources or sinks.
 
@@ -59,11 +59,17 @@ click the **Install plugin** button.
 Alternatively, navigate to **File | Settings | Plugins** and install the [**Security Analysis by Qodana**](%plugin-url%) 
 plugin. 
 
-### CI/CD
+### %product% linters
 {id="ta-deploy-other"}
 
 Taint analysis is available by default once you enable the
-`qodana.recommended` [inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles).
+`qodana.recommended` [inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles) in the `qodana.yaml` file as shown below:
+
+```yaml
+version: 1.0
+profile:
+  name: qodana.recommended
+```
 
 ## Run taint analysis
 
@@ -136,7 +142,11 @@ The analysis of function calls is carried out using the default configuration in
 not match any existing configuration. In this case, the taint analysis builds a projection for this function. The default
 configuration already covers basic sources, sinks, and sanitizers. 
 
-You can configure function calls as your custom sources and sinks as explained below.
+You can configure function calls as your custom sources and sinks as explained below. This example uses the following
+unconfigured function calls:
+
+*  `java.net.URI.getQuery` can be configured as a source of tainted data to represent a point where potentially untrusted input enters the system.
+* `java.io.OutputStream.write` can be configured as a sink where potentially tainted data may be written to an output stream, such as a file or network socket.
 
 <procedure>
 <step><p>In the upper-right part of the <ui-path>Security Analysis</ui-path> tab, click the context menu and then click 
@@ -149,14 +159,15 @@ called within the currently opened file.</p>
 indicating how it will be treated during analysis. The configuration for function references will appear in the list in 
 the same order as references are located in the file.</p>
 </step>
-<step><p>In the list of projections, select the projection reference and apply the respective quick-fix option.</p>
+<step><p>In the list of projections, select the projection reference and apply a respective quick-fix option.</p>
 <img src="taint-analysis-step-navigation-4.png" alt="Applying quick-fixes" width="706" border-effect="line"/>
-<p>This will create the <code>inspections/config.inspection.kts</code> file for source, sink, and sanitizer configuration. 
+<p>This will create the <code>inspections/config.inspection.kts</code> file for a source, sink, and sanitizer configuration. 
 To ensure consistency of analysis results save this file in the root directory of your project.</p>
 </step>
-<step><p>In the <code>inspections/config.inspection.kts</code> file, you can assign specific taint rules to a newly added
+<step><p>In the <code>inspections/config.inspection.kts</code> file, assign specific taint rules to a newly added
 sources and sinks. The configuration from this file is applied to the <a anchor="ta-analysis-other">Taint Analysis inspection</a> when the project opens.</p> 
-<p>For example, you can configure the <code>java.net.URI.getQuery</code> function call as a source for tainted data as follows:</p>
+<p>For the <code>java.net.URI.getQuery</code> function call as a source, save this configuration to define a point where 
+potentially untrusted input enters a system:</p>
 <code-block lang="kotlin">
     source(
         "java.net.URI.getQuery",
@@ -164,9 +175,9 @@ sources and sinks. The configuration from this file is applied to the <a anchor=
         TaintRule.allRulesList()
     )
 </code-block>
-<p>This defines a point where potentially untrusted input like query strings enters the system.</p>
-<p>You can configure the <code>java.io.OutputStream.write</code> function call as a sink where the potentially 
-tainted data may be written to an output stream, such as a file or network socket:</p>
+<p>For the <code>java.io.OutputStream.write</code> function call as a sink, save the following configuration to ensure 
+that the data reaching the sink are verified for proper sanitization according to the chosen rule to prevent the 
+propagation of unsafe data:</p>
 <code-block lang="kotlin">
     sink(
         "java.io.OutputStream.write",
@@ -174,8 +185,6 @@ tainted data may be written to an output stream, such as a file or network socke
         TaintRule.XSS
     )
 </code-block>
-<p>This configuration ensures that the data reaching the sink are verified for proper sanitization according to the 
-chosen rule to prevent the propagation of unsafe data.</p>
 </step>
 <step>Once the configuration is written, recompile the <code>inspections/config.inspection.kts</code> file.</step>
 </procedure>
@@ -187,7 +196,7 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
 
 <img src="taint-analysis-configure-tab.png" alt="Configuring the Security Analysis tab" width="706" border-effect="line"/>
 
-### CI/CD
+### %product% linters
 {id="ta-analysis-other"}
 
 <snippet id="running-taint-analysis">
