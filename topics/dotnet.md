@@ -103,44 +103,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
-        <procedure>
-            <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+            <p>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
                 <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
                 and save the <a href="project-token.md">project token</a> as its value.
-            </step>
-            <step><p>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and save the
-                following workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
-                  <code-block lang="yaml">
-                      name: Qodana
-                      on:
-                        workflow_dispatch:
-                        pull_request:
-                        push:
-                          branches:
-                            - main
-                      jobs:
-                        qodana:
-                          runs-on: ubuntu-latest
-                          permissions:
-                            contents: write
-                            pull-requests: write
-                            checks: write
-                          steps:
-                            - uses: actions/checkout@v3
-                              with:
-                                ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                                fetch-depth: 0  # a full history is required for pull request analysis
-                            - name: 'Qodana Scan'
-                              uses: JetBrains/qodana-action@v2025.1
-                              with:
-                                # args: --linter,%qp-linter%
-                                # args: --linter,%qp-co-linter% 
-                              env:
-                                QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-                  </code-block>
-                  <p>This configuration sample will be modified throughout the section.</p>
-            </step>
-        </procedure>
+            </p>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
         <procedure>
@@ -351,7 +317,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                         <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
-                        to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+                        to your repository in native mode, on the <ui-path>Actions</ui-path> tab of the GitHub UI set up a new workflow and save the
+                following workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                             <code-block lang="yaml">
                                 name: Qodana
                                 on:
@@ -479,9 +446,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <p>Container mode is available for the %qp% linter; however, it is advised that you use native mode.</p>
             <tabs>
                 <tab title="GitHub Actions" group-key="github">
-                          <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
-                            to your repository in container mode, save this workflow configuration to the 
-                            <code>.github/workflows/code_quality.yml</code> file:</p>
+                        <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                        to your repository in native mode, on the <ui-path>Actions</ui-path> tab of the GitHub UI set up 
+                        a new workflow and save the following workflow configuration to the 
+                        <code>.github/workflows/code_quality.yml</code> file:</p>
                             <code-block lang="yaml">
                                 name: Qodana
                                 on:
@@ -590,8 +558,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         <p>You can run the %qp-co% linter in a container mode as shown in the examples below.</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
-                        To analyze the <code>main</code> branch, release branches and the pull requests coming
-                        to your repository in container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+                        <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                        to your repository in native mode, on the <ui-path>Actions</ui-path> tab of the GitHub UI set up 
+                        a new workflow and save the following workflow configuration to the 
+                        <code>.github/workflows/code_quality.yml</code> file:</p>
                             <code-block lang="yaml">
                                 name: Qodana
                                 on:
@@ -843,7 +813,7 @@ filename as shown below.
 
 ### Private NuGet repositories
 
-Depending on the linter, you can run them using private NuGet repositories as shown below.
+Depending on the linter, you can run %product% using private NuGet repositories as shown below.
 
 <tabs group="linter-tabs">
     <tab title="%qp%" group-key="linter-tabs-dotnet">
@@ -966,7 +936,7 @@ Depending on the linter, you can run them using private NuGet repositories as sh
     </tab>
 </tabs>
 
-### Dependency restore
+<!--### Dependency restore
 
 After configuring [external NuGet feeds](#Private+NuGet+repositories), you should configure dependency restore using the
 <a href="before-running-qodana.md"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file: 
@@ -974,6 +944,7 @@ After configuring [external NuGet feeds](#Private+NuGet+repositories), you shoul
 ```yaml
 bootstrap: dotnet restore
 ```
+-->
 
 ## Explore analysis results
 
