@@ -72,8 +72,6 @@ This configuration will be extended in the sections below.
 
 ## Baseline and quality gate
 
-<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quality-gate"/>
-
 This configuration uses the [`args` parameter](#Commands+and+parameters) to invoke the 
 [baseline](baseline.topic) and [quality gate](quality-gate.topic) features:
 

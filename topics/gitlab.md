@@ -269,8 +269,6 @@ Assuming that you have configured your pipeline similarly, this is what it may l
 <link-summary>You can use the --fail-threshold number and --baseline path/to/qodana.sarif.json lines in the script block 
 to invoke the quality gate and baseline features.</link-summary>
 
-<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quality-gate"/>
-
 You can employ the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `inputs:args` 
 block to run the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 

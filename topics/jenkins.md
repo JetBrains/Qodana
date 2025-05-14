@@ -127,8 +127,6 @@ of the Jenkins documentation.
 <link-summary>You can use the quality gate and baseline features by invoking the --fail-threshold and 
 --baseline path/to/qodana.sarif.json options specified in the `steps` block.</link-summary>
 
-<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quality-gate"/>
-
 This configuration invokes the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features using the 
 `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines specified in the `steps` block.
 

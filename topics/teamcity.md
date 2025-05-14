@@ -45,8 +45,6 @@ Community linters. You can see these sections to learn how to generate the proje
 
 ## Quality gate and baseline
 
-<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quality-gate"/>
-
 <snippet id="teamcity-code-quality-baseline">
 
 Using the **Additional Qodana arguments** field of the [`Qodana`](#teamcity-qodana-runner) runner configuration, you can configure the 

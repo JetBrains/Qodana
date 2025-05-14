@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/baseline.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/baseline.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/bitbucket.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/bitbucket.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/circleci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/circleci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/github.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/github.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gitlab.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/gitlab.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jenkins.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jenkins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quick-fix.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quick-fix.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/space-automation.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/space-automation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/teamcity.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/teamcity.md" afterDir="false" />
-    </list>
+    <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
