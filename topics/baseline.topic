@@ -15,7 +15,7 @@
 
     <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
         resolved problems. For example, you can configure and update a baseline for the <code>main</code> branch to
-        monitor changes after merging pull or merge requests. Whenever required, you can update your baseline
+        monitor changes after merging pull or merge requests. Whenever necessary, you can update your baseline
     by generating a new <code>qodana.sarif.json</code> file and using it while running %product%.</p>
 
     <p>This feature is supported by all <a href="pricing.md">linters</a> available under Community, Ultimate, and
