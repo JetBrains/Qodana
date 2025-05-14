@@ -32,6 +32,8 @@ because [different jobs run in parallel](https://help.github.com/en/actions/gett
 
 ## Quick-fixes
 
+<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quick-fix"/>
+
 To automatically fix issues found by %product% and push the changes to your repository, follow the procedure below.
 
 <procedure>

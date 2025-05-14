@@ -42,6 +42,8 @@ This configuration will be used as a basis for all examples in this section.
 
 <link-summary>Using the --fail-threshold option, you can configure the limit of problems accepted in your project.</link-summary>
 
+<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quality-gate"/>
+
 Using the [`--fail-threshold`](docker-image-configuration.topic#docker-config-reference-quality-gate) option, you can 
 configure the limit of problems accepted in your project:  
 

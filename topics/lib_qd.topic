@@ -2266,5 +2266,14 @@
         </tabs>
     </snippet>
 
+    <snippet id="ci-cd-feature-availability-quick-fix">
+        <note>The <a href="quick-fix.md">quick-fix</a> feature is available only under the Ultimate and Ultimate Plus <a href="pricing.md">licenses</a>.</note>
+    </snippet>
+
+    <snippet id="ci-cd-feature-availability-quality-gate">
+        <note><p><a href="quality-gate.topic" anchor="quality-gate-code-coverage">Code coverage thresholds</a> are available only under the Ultimate and Ultimate Plus <a href="pricing.md">licenses</a>.</p>
+            <p><a href="quality-gate.topic" anchor="quality-gate-severity-threshold">Severity-specific quality gates</a> are not supported by the <a href="dotnet.md">%dotnet-co%</a> linter.</p></note>
+    </snippet>
+
 
 </topic>

@@ -154,6 +154,8 @@ This is how you can enable %product% analysis for pull requests:
 
 ## Quality gate and baseline
 
+<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quality-gate"/>
+
 You can also configure the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features as shown below.
 
 <tabs group="azure-config-tabs">
@@ -194,6 +196,8 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
 
 <!-- This needs to be checked once more -->
 <!-- The example configuration should be added here -->
+
+<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quick-fix"/>
 
 <procedure>
    <step>

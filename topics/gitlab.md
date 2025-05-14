@@ -175,9 +175,11 @@ The `rules` block of this configuration tells %product% what branches to inspect
 
 ## Quick-fixes
 
+<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quick-fix"/>
+
 <!-- Should the third step be reflected in the configuration? Needs to be checked -->
 
-> Make sure that you have configured the [`QODANA_GITLAB_TOKEN`](#Prepare+your+project) variable  
+> Make sure that you have configured the [`QODANA_GITLAB_TOKEN`](#Prepare+your+project) variable.  
 {style="note"}
 
 <procedure>
@@ -224,7 +226,9 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
         push-fixes: merge-request
-        args: --apply-fixes,--linter,<linter>
+        args: |
+            --apply-fixes,
+            --linter,<linter>
 ```
 
 > Qodana could automatically modify not only the code, but also the configuration in 
@@ -265,6 +269,8 @@ Assuming that you have configured your pipeline similarly, this is what it may l
 <link-summary>You can use the --fail-threshold number and --baseline path/to/qodana.sarif.json lines in the script block 
 to invoke the quality gate and baseline features.</link-summary>
 
+<include from="lib_qd.topic" element-id="ci-cd-feature-availability-quality-gate"/>
+
 You can employ the `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines in the `inputs:args` 
 block to run the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features.
 
@@ -272,7 +278,10 @@ block to run the [quality gate](quality-gate.topic) and [baseline](baseline.topi
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
-        args: --baseline,qodana.sarif.json,--fail-threshold,<number-of-accepted-problems>,--linter,<linter>
+        args: |
+            --baseline,qodana.sarif.json,
+            --fail-threshold,<number-of-accepted-problems>,
+            --linter,<linter>
 ```
 
 ## Code Quality reports
