@@ -10,11 +10,13 @@
     contained in the qodana.sarif.json file. Using the baseline feature, you can compare your current code to its
         baseline state and see new, unchanged, and resolved problems.</link-summary>
 
-    <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% run and
-        contained in the <code>qodana.sarif.json</code> file.</p>
+    <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% run for a
+        specific Git branch and contained in the <code>qodana.sarif.json</code> file.</p>
 
     <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
-        resolved problems.</p>
+        resolved problems. For example, you can configure and update a baseline for the <code>main</code> branch to
+        monitor changes after merging pull or merge requests. Whenever required, you can update your baseline
+    by generating a new <code>qodana.sarif.json</code> file and using it while running %product%.</p>
 
     <p>This feature is supported by all <a href="pricing.md">linters</a> available under Community, Ultimate, and
         Ultimate Plus licenses and their trial versions.</p>
@@ -33,13 +35,12 @@
         <p>To improve the situation, you can add problems to a baseline and save them to the
             <code>qodana.sarif.json</code> file in your project directory as explained in the
             <a href="ui-overview.md" anchor="ui-overview-baseline"/> section of the %instance% report description. Once done,
-            this file becomes a basis for comparing with later code states. You can run %instance% with the baseline
-            enabled using <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a>, Docker images of %instance%,
-            or <a href="qodana-ide-plugin.md">JetBrains IDEs</a>:
+            this file becomes a basis for comparing with later code states. Below are the examples of how to run %product%
+            using various tools:
         </p>
 
-        <tabs group="cli-commands">
-            <tab title="Qodana CLI" group-key="baseline-qodana-cli">
+        <tabs group="cli-settings">
+            <tab title="Qodana CLI" group-key="qodana-cli">
                 <code-block lang="shell" prompt="$">
                     qodana scan \
                        -v &lt;path_to_baseline&gt;:/data/base/ \
@@ -53,7 +54,7 @@
                     <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
             </tab>
-            <tab title="Docker image" group-key="baseline-qodana-docker">
+            <tab title="Docker image" group-key="docker-image">
                 <code-block lang="shell" prompt="$">
                     docker run \
                        -v $(pwd):/data/project/ \
@@ -70,9 +71,89 @@
                     <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
             </tab>
-            <tab title="JetBrains IDEs" id="baseline-jetbrains-ides">
+            <tab title="GitHub Actions" group-key="github-actions">
+                <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                        workflow_dispatch:
+                        pull_request:
+                        push:
+                            branches: # Specify your branches here
+                                - main # The 'main' branch
+                                - master # The 'master' branch
+                                - 'releases/*' # The release branches
+                        &nbsp;
+                    jobs:
+                        qodana:
+                            runs-on: ubuntu-latest
+                            permissions:
+                                contents: write
+                                pull-requests: write
+                                checks: write
+                            steps:
+                                - uses: actions/checkout@v3
+                                  with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                - name: 'Qodana Scan'
+                                  uses: JetBrains/qodana-action@v2025.1
+                                  with:
+                                      args: --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                  env:
+                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code-block>
+                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing a baseline.</p>
+            </tab>
+            <tab title="Jenkins" group-key="jenkins">
+                    <code-block lang="groovy">
+                        pipeline {
+                            environment {
+                                QODANA_TOKEN=credentials('qodana-token')
+                            }
+                            agent {
+                                docker {
+                                    args '''
+                                      -v "${WORKSPACE}":/data/project
+                                      --entrypoint=""
+                                      '''
+                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                }
+                            }
+                            stages {
+                                stage('Qodana') {
+                                    steps {
+                                        sh '''
+                                        qodana \
+                                        --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                        '''
+                                    }
+                                }
+                            }
+                        }
+                    </code-block>
+                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing a baseline.</p>
+            </tab>
+            <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
+                    <code-block lang="yaml">
+                        include:
+                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                              inputs:
+                                  args: |
+                                      --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                      --linter,&lt;linter&gt;
+                    </code-block>
+                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing a baseline.</p>
+            </tab>
+            <tab title="TeamCity" group-key="teamcity">
+                <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
+                    specify the path to the <code>qodana.sarif.json</code> file containing a baseline:</p>
+                <code-block lang="shell">
+                        --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                    </code-block>
+            </tab>
+            <tab title="JetBrains IDEs" id="jetbrains-ides">
 
-                <p>The list of the JetBrains IDEs containing this feature is available in the
+                <p>The list of the IDEs supporting this feature is available in the
                     <a href="qodana-ide-plugin.md"/> section.</p>
 
                 <p>This animation shows how you can analyze your code using baseline.</p>
@@ -123,8 +204,8 @@
             <p>To include absent problems in the report, you need to run %instance% with the
                 <code>--baseline-include-absent</code> option:</p>
 
-            <tabs group="cli-commands">
-                <tab title="Qodana CLI" group-key="baseline-qodana-cli">
+            <tabs group="cli-settings">
+                <tab title="Qodana CLI" group-key="qodana-cli">
                         <code-block lang="shell" prompt="$">
                             qodana scan \
                                -v &lt;path_to_baseline&gt;:/data/base/ \
@@ -133,7 +214,7 @@
                                --baseline-include-absent
                         </code-block>
                 </tab>
-                <tab title="Docker image" group-key="baseline-qodana-docker">
+                <tab title="Docker image" group-key="docker-image">
                     <code-block lang="shell" prompt="$">
                         docker run \
                            -v $(pwd):/data/project/ \
@@ -142,6 +223,87 @@
                            jetbrains/qodana-&lt;linter&gt; \
                            --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json \
                            --baseline-include-absent
+                    </code-block>
+                </tab>
+                <tab title="GitHub Actions" group-key="github-actions">
+                <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                        workflow_dispatch:
+                        pull_request:
+                        push:
+                            branches: # Specify your branches here
+                                - main # The 'main' branch
+                                - master # The 'master' branch
+                                - 'releases/*' # The release branches
+                        &nbsp;
+                    jobs:
+                        qodana:
+                            runs-on: ubuntu-latest
+                            permissions:
+                                contents: write
+                                pull-requests: write
+                                checks: write
+                            steps:
+                                - uses: actions/checkout@v3
+                                  with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                - name: 'Qodana Scan'
+                                  uses: JetBrains/qodana-action@v2025.1
+                                  with:
+                                      args: |
+                                          --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                          --baseline-include-absent
+                                  env:
+                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code-block>
+                </tab>
+                <tab title="Jenkins" group-key="jenkins">
+                    <code-block lang="groovy">
+                        pipeline {
+                            environment {
+                                QODANA_TOKEN=credentials('qodana-token')
+                            }
+                            agent {
+                                docker {
+                                    args '''
+                                      -v "${WORKSPACE}":/data/project
+                                      --entrypoint=""
+                                      '''
+                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                }
+                            }
+                            stages {
+                                stage('Qodana') {
+                                    steps {
+                                        sh '''
+                                        qodana \
+                                        --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json \
+                                        --baseline-include-absent
+                                        '''
+                                    }
+                                }
+                            }
+                        }
+                    </code-block>
+                </tab>
+                <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
+                    <code-block lang="yaml">
+                        include:
+                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                              inputs:
+                                  args: |
+                                      --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                      --baseline-include-absent
+                                      --linter,&lt;linter&gt;
+                    </code-block>
+                </tab>
+                <tab title="TeamCity" group-key="teamcity">
+                    <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
+                        add the <code>--baseline-include-absent</code> option:</p>
+                    <code-block lang="shell">
+                        --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json --baseline-include-absent
                     </code-block>
                 </tab>
             </tabs>
@@ -155,7 +317,7 @@
         <img src="baseline-updating-baseline.png" dark-src="baseline-updating-baseline_dark.png" width="706" alt="Updating the baseline"/>
 
         <list type="decimal">
-            <li>Save the updated version of the <code>qodana.sarif.json</code> file in your project directory.</li>
+            <li>Add the new problem to your baseline and then save the updated version of the <code>qodana.sarif.json</code> file in your project directory.</li>
             <li>Run %instance% again to see the change in the problem status.</li>
         </list>
     </chapter>
