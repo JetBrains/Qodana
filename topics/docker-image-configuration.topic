@@ -98,8 +98,8 @@
                                   uses: JetBrains/qodana-action@v2025.1
                                   with:
                                       args: |
-                                          --property=idea.log.config.file=info.xml
-                                          --baseline,&lt;baseline-path&gt;
+                                          --property=idea.log.config.file=info.xml,
+                                          --baseline,&lt;baseline-path&gt;,
                                           --apply-fixes
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -141,9 +141,9 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --property=idea.log.config.file=info.xml
-                                      --baseline,&lt;baseline-path&gt;
-                                      --apply-fixes
+                                      --property=idea.log.config.file=info.xml,
+                                      --baseline,&lt;baseline-path&gt;,
+                                      --apply-fixes,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -151,7 +151,7 @@
                     <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
                         specify the path to the plugin file:</p>
                     <code-block lang="shell">
-                        --property=idea.log.config.file=info.xml, --baseline &lt;baseline-path&gt;, --apply-fixes
+                        --property=idea.log.config.file=info.xml --baseline &lt;baseline-path&gt; --apply-fixes
                     </code-block>
                 </tab>
             </tabs>
@@ -1384,7 +1384,7 @@
                         - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                           inputs:
                              args: |
-                                -v,&lt;profile-file&gt;:/data/profile.xml
+                                -v,&lt;profile-file&gt;:/data/profile.xml,
                                 --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -1487,7 +1487,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      -v,gradle.properties:/data/cache/gradle/gradle.properties
+                                      -v,gradle.properties:/data/cache/gradle/gradle.properties,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -1640,7 +1640,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      -v,&lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt;
+                                      -v,&lt;path-to-plugin&gt;/&lt;plugin-name&gt;:/opt/idea/plugins/&lt;plugin-name&gt;,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -1890,7 +1890,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --cache-dir,/data/newcachedir
+                                      --cache-dir,/data/newcachedir,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -2046,7 +2046,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --profile-name,qodana.recommended
+                                      --profile-name,qodana.recommended,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -2149,7 +2149,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --profile-name,&lt;profile-name-from-file&gt;
+                                      --profile-name,&lt;profile-name-from-file&gt;,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -2258,7 +2258,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --profile-path,/data/project/myprofiles/&lt;file-name&gt;
+                                      --profile-path,/data/project/myprofiles/&lt;file-name&gt;,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -2369,7 +2369,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --config,relative/path/to/config.yaml
+                                      --config,relative/path/to/config.yaml,
                                       --linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -2461,7 +2461,7 @@
                                   uses: JetBrains/qodana-action@v2025.1
                                   with:
                                       args: |
-                                          --baseline,&lt;path-to-the-SARIF-file&gt;
+                                          --baseline,&lt;path-to-the-SARIF-file&gt;,
                                           --baseline-include-absent
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -2502,7 +2502,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --baseline,&lt;path-to-the-SARIF-file&gt;
+                                      --baseline,&lt;path-to-the-SARIF-file&gt;,
                                       --baseline-include-absent,--linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -2510,7 +2510,7 @@
                 <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
                     configure a baseline:</p>
                 <code-block lang="shell">
-                      --baseline,&lt;path-to-the-SARIF-file&gt;,--baseline-include-absent,--linter,&lt;linter&gt;
+                      --baseline &lt;path-to-the-SARIF-file&gt; --baseline-include-absent --linter &lt;linter&gt;
                     </code-block>
             </tab>
         </tabs>
@@ -2619,7 +2619,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      -v,/my/dir/with/coverage:/data/coverage
+                                      -v,/my/dir/with/coverage:/data/coverage,
                                       --linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -2820,7 +2820,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --fail-threshold,10
+                                      --fail-threshold,10,
                                       --linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -2926,7 +2926,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      &lt;--apply-fixes/--cleanup&gt;
+                                      &lt;--apply-fixes/--cleanup&gt;,
                                       --linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -3059,7 +3059,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --property=idea.log.config.file=info.xml
+                                      --property=idea.log.config.file=info.xml,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -3165,7 +3165,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --property,idea.headless.enable.statistics=false
+                                      --property,idea.headless.enable.statistics=false,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -3236,7 +3236,7 @@
                                   uses: JetBrains/qodana-action@v2025.1
                                   with:
                                       args: |
-                                          --property=idea.required.plugins.id=JavaScript,org.intellij.grails
+                                          --property=idea.required.plugins.id=JavaScript,org.intellij.grails,
                                           --property=idea.suppressed.plugins.id=com.intellij.spring.security
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -3277,8 +3277,8 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --property=idea.required.plugins.id=JavaScript,org.intellij.grails
-                                      --property=idea.suppressed.plugins.id=com.intellij.spring.security
+                                      --property=idea.required.plugins.id=JavaScript,org.intellij.grails,
+                                      --property=idea.suppressed.plugins.id=com.intellij.spring.security,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -3403,7 +3403,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --diff-start=&lt;GIT_START_HASH&gt;
+                                      --diff-start=&lt;GIT_START_HASH&gt;,
                                       --linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -3466,7 +3466,7 @@
                                   uses: JetBrains/qodana-action@v2025.1
                                   with:
                                       args: |
-                                          --diff-start=&lt;GIT_START_HASH&gt;
+                                          --diff-start=&lt;GIT_START_HASH&gt;,
                                           --diff-end=&lt;GIT_END_HASH&gt;
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -3507,8 +3507,8 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --diff-start=&lt;GIT_START_HASH&gt;
-                                      --diff-end=&lt;GIT_END_HASH&gt;
+                                      --diff-start=&lt;GIT_START_HASH&gt;,
+                                      --diff-end=&lt;GIT_END_HASH&gt;,
                                       --linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -3516,8 +3516,7 @@
                 <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
                     specify the commit hashes:</p>
                 <code-block lang="shell">
-                        --diff-start=&lt;GIT_START_HASH&gt; \
-                        --diff-end=&lt;GIT_END_HASH&gt;
+                        --diff-start=&lt;GIT_START_HASH&gt; --diff-end=&lt;GIT_END_HASH&gt;
                     </code-block>
             </tab>
         </tabs>
@@ -3631,7 +3630,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --script,default
+                                      --script,default,
                                       --linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -3729,7 +3728,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      --script,php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
+                                      --script,php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;,
                                       --linter,&lt;linter&gt;
                     </code-block>
             </tab>
@@ -3846,7 +3845,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      -e,_JAVA_OPTIONS=-Xmx6g
+                                      -e,_JAVA_OPTIONS=-Xmx6g,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -3958,7 +3957,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      -e,IDEA_PROPERTIES=/data/project/idea.properties
+                                      -e,IDEA_PROPERTIES=/data/project/idea.properties,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
@@ -4082,7 +4081,7 @@
                             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                               inputs:
                                   args: |
-                                      -u,root
+                                      -u,root,
                                       --linter,&lt;linter&gt;
                     </code-block>
                 </tab>
