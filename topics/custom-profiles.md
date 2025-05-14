@@ -15,7 +15,7 @@
 
 Starting from version 2023.2, you can create and configure %instance% profiles using YAML. %instance% also provides 
 several improvements related to profile configuration, such as:
-
+F
 * Support for file paths and [scopes](%idea-scopes%)
 * Support for inspection parameters
 * Profile relationship, so profiles can be extended and included
@@ -472,7 +472,7 @@ Here is a profile example for the `JvmCoverageInspection` inspection:
 </component>
 ```
 
-This sample shows how these options can be configured in your custom profile:
+This sample demonstrates how to configure the inspection options in your custom profile:
 
 ```yaml
 name: "My custom profile" # Profile name
