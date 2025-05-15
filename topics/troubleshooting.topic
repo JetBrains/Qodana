@@ -222,11 +222,13 @@
 
         <p>Depending on your needs, you can run %product% behind a proxy server using an existing %product% Docker image,
             or create a Docker image from scratch.</p>
-        <p>Follow these steps to prepare an existing %product% Docker image to run behind a proxy server:</p>
-        <procedure id="troubleshooting-behind-a-proxy-existing">
-            <step>Create the <code>proxy.settings.xml</code> file and save it in the <code>.qodana</code> directory of your project root.</step>
-            <step><p>In the <code>proxy.settings.xml</code> file, save information about the proxy server:</p>
-                <code-block lang="xml">
+        <tabs>
+            <tab title="Existing Docker image" group-key="existing">
+                <p>Follow these steps to prepare an existing %product% Docker image to run behind a proxy server:</p>
+                <procedure id="troubleshooting-behind-a-proxy-existing">
+                    <step>Create the <code>proxy.settings.xml</code> file and save it in the <code>.qodana</code> directory of your project root.</step>
+                    <step><p>In the <code>proxy.settings.xml</code> file, save information about the proxy server:</p>
+                        <code-block lang="xml">
                     &lt;application&gt;
                         &lt;component name="HttpConfigurable"&gt;
                             &lt;option name="USE_HTTP_PROXY" value="true" /&gt;
@@ -236,19 +238,74 @@
                         &lt;/component&gt;
                     &lt;/application&gt;
                 </code-block>
-            </step>
-            <step><p>In the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>qodana.yaml</code></a> file,
-                save this <code>boostrap</code> command that will copy the <code>proxy.settings.xml</code> file
-                to a %product% Docker image:</p>
-                <code-block>
+                    </step>
+                    <step><p>In the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>qodana.yaml</code></a> file,
+                        save this <code>boostrap</code> command that will copy the <code>proxy.settings.xml</code> file
+                        to a %product% Docker image:</p>
+                        <code-block>
                     boostrap: cp .qodana/proxy.settings.xml /root/.config/idea/options/proxy.settings.xml
                 </code-block>
-            </step>
-        </procedure>
-    <p>To create your custom %product% image containing proxy server settings, follow this procedure:</p>
-        <procedure id="troubleshooting-behind-a-proxy-custom">
-            <step><p>Create the <code>proxy.settings.xml</code> file and include the proxy server information in it:</p>
-                <code-block lang="xml">
+                    </step>
+                    <step>
+                        <p>Run %product% using proxy server configurations contained in the <code>JAVA_TOOL_OPTIONS</code> environment variable:</p>
+                        <tabs group="cli-settings">
+                            <tab title="Docker image" group-key="docker-image">
+                    <code-block lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;" \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           jetbrains/qodana-&lt;linter&gt;
+                    </code-block>
+                            </tab>
+                            <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code-block lang="shell" prompt="$">
+                        qodana scan \
+                           -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;" \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
+                    </code-block>
+                            </tab>
+                            <tab title="Jenkins" group-key="jenkins">
+                    <code-block lang="groovy">
+                        pipeline {
+                            environment {
+                                QODANA_TOKEN=credentials('qodana-token')
+                            }
+                            agent {
+                                docker {
+                                    args '''
+                                      -v "${WORKSPACE}":/data/project
+                                      -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt;
+                                                            -Dhttps.proxyPort=&lt;ProxyPort&gt;
+                                                            -Dhttp.proxyHost=&lt;ProxyHost&gt;
+                                                            -Dhttp.proxyPort=&lt;ProxyPort&gt;
+                                                           "
+                                      --entrypoint=""
+                                      '''
+                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                }
+                            }
+                            stages {
+                                stage('Qodana') {
+                                    steps {
+                                        sh '''
+                                        qodana
+                                        '''
+                                    }
+                                }
+                            }
+                        }
+                    </code-block>
+                            </tab>
+                        </tabs>
+                    </step>
+                </procedure>
+            </tab>
+            <tab title="Custom Docker image" group-key="custom">
+                <p>To create your custom %product% image containing proxy server settings, follow this procedure:</p>
+                <procedure id="troubleshooting-behind-a-proxy-custom">
+                    <step><p>Create the <code>proxy.settings.xml</code> file and include the proxy server information in it:</p>
+                        <code-block lang="xml">
                     &lt;application&gt;
                         &lt;component name="HttpConfigurable"&gt;
                             &lt;option name="USE_HTTP_PROXY" value="true" /&gt;
@@ -258,11 +315,11 @@
                         &lt;/component&gt;
                     &lt;/application&gt;
                 </code-block>
-            </step>
-            <step>
-                <p>Use this sample to create <code>Dockerfile</code>:</p>
-                <code-block lang="docker">
-                    FROM docker.io/jetbrains/qodana-&lt;linter&gt;:2025.1
+                    </step>
+                    <step>
+                        <p>Use this sample to create <code>Dockerfile</code>:</p>
+                        <code-block lang="docker">
+                    FROM docker.io/jetbrains/qodana-&lt;linter&gt;:2025.1&lt;-eap&gt;
                     LABEL version="1.0.0"
 
                     ##Copy the proxy.settings.xml file
@@ -286,9 +343,64 @@
                     ENV dns_proxy $http_proxy
                     ENV rsync_proxy $http_proxy
                 </code-block>
-            </step>
-        </procedure>
-
+                    </step>
+                    <step>
+                        <p>Run %product% using proxy server configurations contained in the <code>JAVA_TOOL_OPTIONS</code> environment variable:</p>
+                        <tabs group="cli-settings">
+                            <tab title="Docker image" group-key="docker-image">
+                    <code-block lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;" \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           &lt;linter&gt;
+                    </code-block>
+                            </tab>
+                            <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code-block lang="shell" prompt="$">
+                        qodana scan \
+                           -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;" \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --linter &lt;linter&gt;
+                    </code-block>
+                            </tab>
+                            <tab title="Jenkins" group-key="jenkins">
+                    <code-block lang="groovy">
+                        pipeline {
+                            environment {
+                                QODANA_TOKEN=credentials('qodana-token')
+                            }
+                            agent {
+                                docker {
+                                    args '''
+                                      -v "${WORKSPACE}":/data/project
+                                      -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt;
+                                                            -Dhttps.proxyPort=&lt;ProxyPort&gt;
+                                                            -Dhttp.proxyHost=&lt;ProxyHost&gt;
+                                                            -Dhttp.proxyPort=&lt;ProxyPort&gt;
+                                                           "
+                                      --entrypoint=""
+                                      '''
+                                    image '&lt;linter&gt;'
+                                }
+                            }
+                            stages {
+                                stage('Qodana') {
+                                    steps {
+                                        sh '''
+                                        qodana
+                                        '''
+                                    }
+                                }
+                            }
+                        }
+                    </code-block>
+                            </tab>
+                        </tabs>
+                    </step>
+                </procedure>
+            </tab>
+        </tabs>
     </chapter>
 
     <chapter id="troubleshooting-list-of-exit-codes" title="List of exit codes">
