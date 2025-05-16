@@ -45,7 +45,7 @@ To override the default behavior, you can apply [custom configurations](#Configu
 
 <link-summary>Prerequisites for running the taint analysis feature.</link-summary>
 
-This section explains how you can run taint analysis in IntelliJ IDEA and CI/CD pipelines.
+This section explains how you can run taint analysis using IntelliJ IDEA %product% linters.
 
 ### IntelliJ IDEA
 {id="ta-deploy-idea"}
