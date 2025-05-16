@@ -75,7 +75,7 @@ This table contains the list of `<linter>` values:
 
 
 This configuration tells %product% to download and employ the required JetBrains IDE binary file while running the
-%dotnet% linter.
+%product% linter.
 
 Below are the examples showing how you can run %product% in native mode:
 
