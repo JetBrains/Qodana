@@ -6,8 +6,8 @@
 <var name="qdcpp" value="Qodana for C/C++"/>
 <var name="qdcppc" value="Qodana Community for C/C++"/>
 <var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.1-eap"/>
-<var name="qdcppc-image" value="jetbrains/qodana-clang:2025.1-eap"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1-eap"/>
+<var name="qdcppc-image" value="jetbrains/qodana-clang:2024.3-eap"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap"/>
 <var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="CLion"/>
@@ -57,11 +57,32 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 The C/C++ family of linters let you analyze C and C++ projects that support any common build system like CMake 
 or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONCompilationDatabase.html). There are two different linters that provide this functionality:
 
-- The %qdcppc% linter available under the Community license and supporting only [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy)-based inspections
-- The %qdcpp% linter available under the Ultimate and Ultimate Plus licenses and supporting the full set of inspections provided by [CLion](https://www.jetbrains.com/help/clion/):
-  - Clang-Tidy inspections supported by the %qdcppc%
-  - [MISRA](https://en.wikipedia.org/wiki/MISRA_C) inspections
-  - Dataflow analysis-based inspections
+<table>
+<tr>
+    <td>Linter</td>
+    <td>Linter name</td>
+    <td>Available under licenses</td>
+    <td>Supports</td>
+</tr>
+<tr>
+    <td>%qdcppc%</td>
+    <td><code>%qdcppc-image%</code></td>
+    <td>Community <a href="pricing.md">license</a></td>
+    <td><a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a>-based inspections</td>
+</tr>
+<tr>
+    <td>%qdcpp%</td>
+    <td><code>%qdcpp-image%</code></td>
+    <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
+    <td><p>The full set of inspections provided by <a href="https://www.jetbrains.com/help/clion/">CLion</a>:</p>
+      <list>
+        <li><a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a> inspections supported by the %qdcppc% linter</li>
+        <li><a href="https://en.wikipedia.org/wiki/MISRA_C">MISRA</a> inspections</li>
+        <li>Inspections based on dataflow analysis</li>
+      </list>
+    </td>
+</tr>
+</table>
 
 Both linters support AMD64 and ARM64 architectures.
 
