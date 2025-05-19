@@ -1,6 +1,7 @@
 [//]: # (title: Linters)
 
 <var name="image-version" value="2025.1"/>
+<var name="image-version-clang" value="2024.3"/>
 
 
 <link-summary>A linter is a software tool that analyzes codebase for bugs, errors, and other mistakes that impact its 
@@ -25,7 +26,7 @@ Currently, several linters provide inspections for several programming languages
 <table>
     <tr>
         <td>Project languages</td>
-        <td>Supported in linters / linter name</td>
+        <td>Supported by linters / linter name</td>
     </tr>
     <tr>
         <td>
@@ -59,9 +60,9 @@ Currently, several linters provide inspections for several programming languages
             <p><img src="dotnet.png" dark-src="dotnet_dark.png" alt="C, C++, C#, VB.NET" width="296"/></p>
         </td>
         <td>
-            <p><a href="dotnet.md">%dotnet%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-dotnet:%image-version%</code></p>
-            <p><a href="dotnet.md">%dotnet-co%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cdnet:%image-version%-eap</code></p><!-- Add -eap after release -->
-            <p><a href="clang.md">%clang%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-clang:%image-version%-eap</code></p><!-- Add -eap after release -->
+            <p><a href="dotnet.md">%dotnet%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-dotnet:%image-version%&lt;-privileged&gt;*</code></p>
+            <p><a href="dotnet.md">%dotnet-co%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cdnet:%image-version%-eap&lt;-privileged&gt;*</code></p><!-- Add -eap after release -->
+            <p><a href="clang.md">%clang%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-clang:%image-version-clang%-eap</code></p><!-- Add -eap after release -->
             <p><a href="clang.md">%cpp%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cpp:%image-version%-eap</code></p><!-- Add -eap after release -->
         </td>
     </tr>
@@ -77,3 +78,6 @@ Currently, several linters provide inspections for several programming languages
         <td><a href="golang.md">%go%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-go:%image-version%</code></td>
     </tr>
 </table>
+
+\* The privileged mode lets you execute commands that need root access because in this case %product% comes with a 
+default `qodana` user who possesses root privileges and does not require a password.

@@ -153,15 +153,18 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <tabs group="linter-tabs">
                 <tab group-key="linter-tabs-dotnet" title="%qp%">
                     <code-block lang="shell" prompt="$">
-                        docker pull %qp-linter%
+                        docker pull %qp-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab group-key="linter-tabs-cdnet" title="%qp-co%">
                     <code-block lang="shell" prompt="$">
-                        docker pull %qp-co-linter%
+                        docker pull %qp-co-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
             </tabs>
+            <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
+                %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
+                require a password.</p>
           </tab>
       </tabs>
     </tab>
@@ -226,7 +229,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                   -v "${WORKSPACE}":/data/project
                                   --entrypoint=""
                                   '''
-                                image '%qp-co-linter%'
+                                image '%qp-co-linter%&lt;-privileged&gt;'
                             }
                         }
                         stages {
@@ -241,6 +244,9 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         }
                     }
                 </code-block>
+                    <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
+                        %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
+                        require a password.</p>
             </tab>
             <tab title="GitLab CI/CD" group-key="gitlab">
                 <code-block lang="yaml">
@@ -256,7 +262,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         <code-block lang="shell" prompt="$">
                           qodana scan \
                           &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                          &nbsp;&nbsp;&nbsp;%qp-co-linter% \
+                          &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
                           &nbsp;&nbsp;&nbsp;--no-build
                         </code-block>
                     </tab>
@@ -265,7 +271,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                           docker run \
                           &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                           &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                          &nbsp;&nbsp;&nbsp;%qp-co-linter% \
+                          &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
                           &nbsp;&nbsp;&nbsp;--no-build
                         </code-block>
                     </tab>
@@ -491,7 +497,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image '%qp-linter%'
+                                    image '%qp-linter%&lt;-privileged&gt;'
                                 }
                             }
                             stages {
@@ -503,6 +509,9 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             }
                         }
                     </code-block>
+                    <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
+                        %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
+                        require a password.</p>
                 </tab>
                 <tab title="GitLab CI/CD" group-key="gitlab">
                     <p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the 
@@ -511,8 +520,11 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                              inputs:
-                                args: --linter,%qp-linter%
+                                args: --linter,%qp-linter%&lt;-privileged&gt;
                     </code-block>
+                    <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
+                        %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
+                        require a password.</p>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
                   <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,dotnet"/>
@@ -525,7 +537,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        &nbsp;&nbsp;&nbsp;%qp-linter%
+                        &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab title="JetBrains IDEs" group-key="ides">
@@ -602,7 +614,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image '%qp-co-linter%'
+                                    image '%qp-co-linter%&lt;-privileged&gt;'
                                 }
                             }
                             stages {
@@ -614,6 +626,9 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             }
                         }
                     </code-block>
+                    <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
+                        %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
+                        require a password.</p>
                 </tab>
                 <tab title="GitLab CI/CD" group-key="gitlab">
                     <p>In the root directory of your project, create the <code>.gitlab-ci.yml</code> and save the 
@@ -622,7 +637,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                              inputs:
-                                args: --linter,%qp-co-linter%
+                                args: --linter,%qp-co-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab title="Command line" group-key="command-line">
@@ -633,7 +648,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        &nbsp;&nbsp;&nbsp;%qp-co-linter%
+                        &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab title="JetBrains IDEs" group-key="ides">
@@ -696,7 +711,7 @@ filename as shown below.
                       docker run \
                       &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                       &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                      &nbsp;&nbsp;&nbsp;%qp-linter% \
+                      &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
                       &nbsp;&nbsp;&nbsp;--property=qodana.net.solution=&lt;relative-path-to-solution-file&gt;
                     </code-block>
                   </tab>
@@ -705,7 +720,7 @@ filename as shown below.
                       docker run \
                       &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                       &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                      &nbsp;&nbsp;&nbsp;%qp-co-linter% \
+                      &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
                       &nbsp;&nbsp;&nbsp;--solution=&lt;relative-path-to-solution-file&gt;
                     </code-block>
                     </tab>
@@ -719,7 +734,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-linter% \
+                            &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.project=&lt;relative-path-to-project-file&gt;
                         </code-block>
                     </tab>
@@ -728,7 +743,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-co-linter% \
+                            &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--project=&lt;relative-path-to-project-file&gt;
                         </code-block>
                     </tab>
@@ -769,7 +784,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-linter% \
+                            &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.configuration=Release
                         </code-block>
                     </tab>
@@ -778,7 +793,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-co-linter% \
+                            &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--configuration=Release
                         </code-block>
                     </tab>
@@ -792,7 +807,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-linter% \
+                            &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.platform=x86
                         </code-block>
                     </tab>
@@ -801,7 +816,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-co-linter% \
+                            &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--platform=x86
                         </code-block>
                     </tab>
@@ -1041,7 +1056,7 @@ bootstrap: dotnet restore
                 &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                 &nbsp;&nbsp;&nbsp;-v $(pwd)/.qodana/&lt;inspection-profile.xml&gt;:/data/project/myprofiles/&lt;inspection-profile.xml&gt; \
                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                &nbsp;&nbsp;&nbsp;%qp-linter% \
+                &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
                 &nbsp;&nbsp;&nbsp;--profile-path /data/project/myprofiles/&lt;inspection-profile.xml&gt;
             </code-block>
         </tab>
@@ -1201,7 +1216,8 @@ in a SARIF-formatted file.
                 container mode:</p>
                     <tabs group="software">
                         <tab title="GitHub Actions" group-key="github">
-                        <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>                          <code-block lang="yaml">
+                        <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>                          
+                        <code-block lang="yaml">
                               name: Qodana
                               on:
                                 workflow_dispatch:
@@ -1226,7 +1242,9 @@ in a SARIF-formatted file.
                                     - name: 'Qodana Scan'
                                       uses: JetBrains/qodana-action@v2025.1
                                       with:
-                                        args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-linter%
+                                        args: | 
+                                            --baseline,&lt;path/to/qodana.sarif.json&gt;,
+                                            --linter,%qp-linter%&lt;-privileged&gt;
                                       env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                           </code-block>
@@ -1247,7 +1265,7 @@ in a SARIF-formatted file.
                                           -v "${WORKSPACE}":/data/project
                                           --entrypoint=""
                                           '''
-                                        image '%qp-linter%'
+                                        image '%qp-linter%&lt;-privileged&gt;'
                                     }
                                 }
                                 stages {
@@ -1269,7 +1287,9 @@ in a SARIF-formatted file.
                             include:
                                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                                  inputs:
-                                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-linter%
+                                    args: | 
+                                        --baseline,&lt;path/to/qodana.sarif.json&gt;,
+                                        --linter,%qp-linter%&lt;-privileged&gt;
                           </code-block>
                             <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> 
                                 block invokes the baseline feature.</p>
@@ -1285,7 +1305,7 @@ in a SARIF-formatted file.
                                       qodana scan \
                                          -v &lt;path_to_baseline&gt;:/data/base/ \
                                          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                         -l %qp-linter% \
+                                         -l %qp-linter%&lt;-privileged&gt; \
                                          --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   </code-block>
                               </tab>
@@ -1295,7 +1315,7 @@ in a SARIF-formatted file.
                                          -v &lt;source-directory&gt;/:/data/project/ \
                                          -v &lt;path_to_baseline&gt;:/data/base/ \
                                          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                         %qp-linter% \
+                                         %qp-linter%&lt;-privileged&gt; \
                                          --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   </code-block>
                               </tab>
@@ -1364,7 +1384,7 @@ in a SARIF-formatted file.
                                   -v "${WORKSPACE}":/data/project
                                   --entrypoint=""
                                   '''
-                                image '%qp-co-linter%'
+                                image '%qp-co-linter%&lt;-privileged&gt;'
                             }
                         }
                         stages {
@@ -1399,7 +1419,7 @@ in a SARIF-formatted file.
                               qodana scan \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 -l %qp-co-linter% \
+                                 -l %qp-co-linter%&lt;-privileged&gt; \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1409,7 +1429,7 @@ in a SARIF-formatted file.
                                  -v &lt;source-directory&gt;/:/data/project/ \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 %qp-co-linter% \
+                                 %qp-co-linter%&lt;-privileged&gt; \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1488,7 +1508,7 @@ You can analyze pull requests using the %dotnet% linter.
                       - name: 'Qodana Scan'
                         uses: JetBrains/qodana-action@v2025.1
                         with:
-                          args: --linter,%qp-linter%
+                          args: --linter,%qp-linter%&lt;-privileged&gt;
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -1502,7 +1522,7 @@ You can analyze pull requests using the %dotnet% linter.
             include:
                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                  inputs:
-                   args: --linter,%qd-image%
+                   args: --linter,%qd-image%&lt;-privileged&gt;
         </code-block>
         <p>
             This configuration enables merge request analysis.
@@ -1523,7 +1543,7 @@ You can analyze pull requests using the %dotnet% linter.
                 <code-block prompt="$">
                     qodana scan \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       -l %qp-linter% \
+                       -l %qp-linter%&lt;-privileged&gt; \
                        --diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
@@ -1532,7 +1552,7 @@ You can analyze pull requests using the %dotnet% linter.
                   docker run \
                   &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                   &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                  &nbsp;&nbsp;&nbsp;%qp-linter% \
+                  &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
                   &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
@@ -1552,7 +1572,7 @@ usage of our features to further improve the user experience. All data will be c
 docker run \
    -v <source-directory>/:/data/project/ \
    -e QODANA_TOKEN="<cloud-project-token>" \
-   %qd-image% \
+   %qd-image%&lt;-privileged&gt; \
    --no-statistics=true
 ```
 
