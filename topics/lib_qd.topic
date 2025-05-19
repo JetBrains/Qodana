@@ -595,7 +595,10 @@
 
         <tabs group="software">
             <tab title="GitHub Actions" group-key="github">
-                <procedure>
+                On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+                <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+                and save the <a href="project-token.md">project token</a> as its value.
+                <!--<procedure>
                     <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
                         <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
                         and save the <a href="project-token.md">project token</a> as its value.
@@ -688,7 +691,7 @@
                         </code-block>
                         <p>This configuration sample will be modified throughout the section.</p>
                     </step>
-                </procedure>
+                </procedure>-->
             </tab>
             <tab title="Jenkins" group-key="jenkins">
                 <procedure>

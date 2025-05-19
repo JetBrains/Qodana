@@ -5,10 +5,10 @@
 <!-- Linter-related variables -->
 <var name="qdcpp" value="Qodana for C/C++"/>
 <var name="qdcppc" value="Qodana Community for C/C++"/>
-<var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.1-eap"/>
+<var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.1-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="qdcppc-image" value="jetbrains/qodana-clang:2024.3-eap"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap"/>
-<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1-eap"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="CLion"/>
 
@@ -54,7 +54,7 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 </note>
 
-The C/C++ family of linters let you analyze C and C++ projects that support any common build system like CMake 
+The C/C++ family of linters lets you analyze C and C++ projects that support any common build system like CMake 
 or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONCompilationDatabase.html). There are two different linters that provide this functionality:
 
 <table>
@@ -72,7 +72,7 @@ or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONComp
 </tr>
 <tr>
     <td>%qdcpp%</td>
-    <td><code>%qdcpp-image%</code></td>
+    <td><code>%qdcpp-image%</code>*</td>
     <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
     <td><p>The full set of inspections provided by <a href="https://www.jetbrains.com/help/clion/">CLion</a>:</p>
       <list>
@@ -83,6 +83,11 @@ or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONComp
     </td>
 </tr>
 </table>
+
+\* You can run the %qdcpp% linter in the privileged mode to execute commands that need root access because in this case 
+%product% comes with a default `qodana` user that possesses root privileges and does not require a password. To do it, 
+in the `-clangXX` tag specify the [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy) version from 15 to 18, and also 
+specify the `-privileged` tag. 
 
 Both linters support AMD64 and ARM64 architectures.
 
@@ -345,7 +350,9 @@ the project, generates analysis reports and saves them locally or uploads to Qod
                     - name: 'Qodana Scan'
                       uses: JetBrains/qodana-action@v2025.1
                       with:
-                        args: --linter,%qdcppc-image%,--compile-commands,&lt;path-to-compile_commands.json&gt;
+                        args: | 
+                            --linter,%qdcppc-image%,
+                            --compile-commands,&lt;path-to-compile_commands.json&gt;
                       env:
                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           </code-block>
@@ -423,7 +430,9 @@ the project, generates analysis reports and saves them locally or uploads to Qod
           include:
             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
               inputs:
-                 args: --compile-commands,&lt;path-to-compile_commands.json&gt;,--linter,%qdcppc-image%
+                 args: |
+                    --compile-commands,&lt;path-to-compile_commands.json&gt;,
+                    --linter,%qdcppc-image%
         </code-block>
     <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
     </tab>
@@ -736,7 +745,9 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
                 - name: 'Qodana Scan'
                   uses: JetBrains/qodana-action@v2025.1
                   with:
-                    args: --linter,%qdcpp-image%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                    args: | 
+                        --linter,%qdcpp-image%,
+                        --baseline,&lt;path/to/qodana.sarif.json&gt;
                     # args: --linter,%qdcppc-image%,--baseline,&lt;path/to/qodana.sarif.json&gt;  # Community version
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -782,7 +793,10 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
         include:
            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
              inputs:
-                args: --baseline,qodana.sarif.json,--fail-threshold,&lt;number-of-accepted-problems&gt;,--linter,%common-image%
+                args: | 
+                    --baseline,qodana.sarif.json,
+                    --fail-threshold,&lt;number-of-accepted-problems&gt;,
+                    --linter,%common-image%
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
@@ -810,7 +824,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
 
 You can configure [quality gates](quality-gate.topic) for:
 
-- The total number of project problems,
+- The total number of project problems
 - Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>.
 
 Save this snippet to the [`qodana.yaml`](qodana-yaml.md) file:

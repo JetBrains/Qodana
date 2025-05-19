@@ -60,10 +60,10 @@ Currently, several linters provide inspections for several programming languages
             <p><img src="dotnet.png" dark-src="dotnet_dark.png" alt="C, C++, C#, VB.NET" width="296"/></p>
         </td>
         <td>
-            <p><a href="dotnet.md">%dotnet%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-dotnet:%image-version%&lt;-privileged&gt;*</code></p>
-            <p><a href="dotnet.md">%dotnet-co%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cdnet:%image-version%-eap&lt;-privileged&gt;*</code></p><!-- Add -eap after release -->
+            <p><a href="dotnet.md">%dotnet%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-dotnet:%image-version%&lt;-privileged&gt;</code>*</p>
+            <p><a href="dotnet.md">%dotnet-co%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cdnet:%image-version%-eap&lt;-privileged&gt;</code>*</p><!-- Add -eap after release -->
             <p><a href="clang.md">%clang%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-clang:%image-version-clang%-eap</code></p><!-- Add -eap after release -->
-            <p><a href="clang.md">%cpp%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cpp:%image-version%-eap</code></p><!-- Add -eap after release -->
+            <p><a href="clang.md">%cpp%</a>&nbsp;/&nbsp;<code>jetbrains/qodana-cpp:%image-version%-eap&lt;-clangXX&gt;&lt;-privileged&gt;</code>**</p><!-- Add -eap after release -->
         </td>
     </tr>
     <tr>
@@ -80,4 +80,10 @@ Currently, several linters provide inspections for several programming languages
 </table>
 
 \* The privileged mode lets you execute commands that need root access because in this case %product% comes with a 
-default `qodana` user who possesses root privileges and does not require a password.
+default `qodana` user that possesses root privileges and does not require a password. To do it, in the linter name 
+specify the `-privileged` tag.
+
+\** You can run the %cpp% linter in the privileged mode to execute commands that need root access because in this case
+%product% comes with a default `qodana` user that possesses root privileges and does not require a password. To do it,
+in the `-clangXX` tag of the linter name specify the [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy) version from 
+15 to 18, and also specify the `-privileged` tag. 
