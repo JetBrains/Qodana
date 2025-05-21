@@ -1,12 +1,13 @@
-# Overview to IDE integration
+# Overview of IDE Integration
 
 <link-summary>%product% is available in JetBrains IDE products, as well as in Visual Studio Code and Visual Studio developed by Microsoft.</link-summary>
 
-%product% is available in the following integrated development environment (IDE) products:
+Using %product% in your IDE lets you study code problems without having to switch to other applications. %product% 
+functionalities are available in the following integrated development environment (IDE) products:
 
 <table>
     <tr>
-        <td>IDE product</td>    
+        <td>IDE</td>    
         <td>Functionalities</td>
         <td>Prerequisites</td>
     </tr>
