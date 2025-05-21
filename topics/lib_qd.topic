@@ -698,8 +698,8 @@
                     <step>
                         <p>In Jenkins, make sure that these plugins are up and running:</p>
                         <list>
-                            <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images,</li>
-                            <li><a href="%Gplugin%">Git</a> is required for Git operations in Jenkins projects.</li>
+                            <li><a href="%Dplugin%">Docker</a> and <a href="%DPplugin%">Docker Pipeline</a> are required for running Docker images</li>
+                            <li><a href="%Gplugin%">Git</a> is required for Git operations in Jenkins projects</li>
                         </list>
                         <p>Make sure that Docker is installed and accessible to Jenkins.</p>
                         <p>If applicable, make sure that Docker is accessible to the <code>jenkins</code> user as described in the

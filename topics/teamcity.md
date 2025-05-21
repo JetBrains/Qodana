@@ -50,8 +50,8 @@ Community linters. You can see these sections to learn how to generate the proje
 Using the **Additional Qodana arguments** field of the [`Qodana`](#teamcity-qodana-runner) runner configuration, you can configure the 
 [quality gate](quality-gate.topic) and [baseline](baseline.topic) features:
 
-* `--fail-threshold <number>` option for configuring a quality gate, 
-* `--baseline <path/to/qodana.sarif.json>` option for configuring a baseline. 
+* `--fail-threshold <number>` option for configuring a quality gate
+* `--baseline <path/to/qodana.sarif.json>` option for configuring a baseline
 
 To configure both options, in the **Additional Qodana arguments** field separate them using a space character: 
 

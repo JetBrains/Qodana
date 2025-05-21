@@ -10,7 +10,7 @@ trial versions:
 * [%php%](php.md)
 * [%js%](js.md)
 * [%go%](golang.md)
-* [%dotnet%](dotnet.md).
+* [%dotnet%](dotnet.md)
 
 ## How it works
 

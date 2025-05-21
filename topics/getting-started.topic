@@ -21,7 +21,7 @@
                 <primary>
                         <title>Deploy, configure, and launch Qodana</title>
                         <a href="docker-images.md" summary="Learn how to deploy Qodana locally using Docker images."/>
-                        <a href="qodana-ide-plugin.md" summary="You can view Qodana reports in JetBrains IDEs."/>
+                        <a href="qodana-ide-plugin.md" summary="You can view Qodana reports in JetBrains IDEs, Microsoft Visual Studio Code and Visual Studio."/>
                         <a href="ci.md" summary="Our documentation provides several how-tos for integration with the most popular CI/CD systems."/>
                         <a href="configure-qodana.topic" summary="Explore how to configure Qodana using various options."/>
                         <!-- I can add to this section all possibilities for inspection results. This is important -->

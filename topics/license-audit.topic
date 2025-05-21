@@ -57,9 +57,9 @@
             management tools and files containing license texts. Based on the information collected, it builds the
             dependency tree containing information about:</p>
             <list>
-                <li>The project license.</li>
-                <li>Licenses for project dependencies.</li>
-                <li>Licenses of the dependencies invoked by project dependencies.</li>
+                <li>The project license</li>
+                <li>Licenses for project dependencies</li>
+                <li>Licenses of the dependencies invoked by project dependencies</li>
             </list>
         <p>This tree shows which dependency licenses are (in)compatible with your project license.</p>
 

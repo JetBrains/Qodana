@@ -5,10 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/topics/ide-integration.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/clang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/clang.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-user-roles.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/components.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/components.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/getting-started.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/getting-started.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/inspect-your-code.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspect-your-code.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/license-audit.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/license-audit.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/quick-fix.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quick-fix.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/teamcity.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/teamcity.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/visualstudio.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/visualstudio.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/vscode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vscode.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

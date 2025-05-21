@@ -1,9 +1,9 @@
 [//]: # (title: JetBrains IDEs)
 
-You can run [%instance%](about-qodana.md) in JetBrains IDEs to inspect your codebase. %instance% supports several JetBrains IDEs 
-installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/), such as IntelliJ IDEA, PhpStorm, WebStorm, Rider, GoLand, PyCharm, and Rider.
+<link-summary>You can run %product% using IntelliJ IDEA, PhpStorm, WebStorm, GoLand, PyCharm, and Rider.</link-summary>
 
-Using the IDE, you can:
+You can run [%instance%](about-qodana.md) using JetBrains IDE products installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/), such as 
+IntelliJ IDEA, PhpStorm, WebStorm, GoLand, PyCharm, and Rider. The available functionalities let you:
 
 * [Run %instance% locally](#ide-plugin-run-qodana)
 * [Connect to Qodana Cloud](#ide-plugin-connect-cloud)

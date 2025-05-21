@@ -2,13 +2,13 @@
 
 <link-summary>Using Visual Studio Code, you can run %product%, explore %product% reports and connect to Qodana Cloud. </link-summary>
 
-Visual Studio Code is a source code editor available for Windows, macOS and Linux. This section shows how you can use 
-%product% in Visual Studio Code:
+Visual Studio Code is a source code editor developed by Microsoft and available for Windows, macOS and Linux. 
+This section shows how you can use %product% in Visual Studio Code:
 
-* [Run %product% locally](#vs-code-run-locally) in Visual Studio Code,
-* [Connect to Qodana Cloud](#vs-code-connect-to-qodana-cloud),
-* [Explore %product% reports](#vs-code-explore-reports) local or downloaded from Qodana Cloud,
-* [Configure %product% in Visual Studio Code](#vs-code-configure-extension).
+* [Run %product% locally](#vs-code-run-locally) in Visual Studio Code
+* [Connect to Qodana Cloud](#vs-code-connect-to-qodana-cloud)
+* [Explore %product% reports](#vs-code-explore-reports) local or downloaded from Qodana Cloud
+* [Configure %product% in Visual Studio Code](#vs-code-configure-extension)
 
 ## Before you start
 

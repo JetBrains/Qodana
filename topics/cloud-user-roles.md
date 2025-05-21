@@ -55,8 +55,8 @@ Here is a detailed description of all team-level roles and their permissions.
         This role is suitable for developers, devops and QA specialists.</p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Viewer role.</li>
-            <li>&#x2714; are available starting from this role.</li>
+            <li>&#x2713; are inherited from the Viewer role</li>
+            <li>&#x2714; are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -129,8 +129,8 @@ Here is a detailed description of all team-level roles and their permissions.
         This role is suitable for team managers, team leads, and senior developers.</p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Editor role.</li>
-            <li>&#x2714; are available starting from this role.</li>
+            <li>&#x2713; are inherited from the Editor role</li>
+            <li>&#x2714; are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -255,8 +255,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Viewer role.</li>
-            <li>&#x2714; are available starting from this role.</li>
+            <li>&#x2713; are inherited from the Viewer role</li>
+            <li>&#x2714; are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -332,8 +332,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Editor role.</li>
-            <li>&#x2714; are available starting from this role.</li>
+            <li>&#x2713; are inherited from the Editor role</li>
+            <li>&#x2714; are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -465,8 +465,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Admin role.</li>
-            <li>&#x2714; are available starting from this role.</li>
+            <li>&#x2713; are inherited from the Admin role</li>
+            <li>&#x2714; are available starting from this role</li>
         </list>
         <table>
             <tr>

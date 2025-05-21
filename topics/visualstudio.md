@@ -4,11 +4,11 @@
 
 <show-structure for="chapter" depth="3"/>
 
-Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows. This section shows you how can use
-%product% in Visual Studio:
+Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows developed by Microsoft. This section 
+explains how you can use %product% in Visual Studio for:
 
-* [Connect to Qodana Cloud](#vs-code-ui-overview)
-* [Explore %product% reports](#visual-studio-explore-reports) downloaded from Qodana Cloud
+* [Connecting to Qodana Cloud](#vs-code-ui-overview)
+* [Exploring %product% reports](#visual-studio-explore-reports) downloaded from Qodana Cloud
 
 ## Before you start
 

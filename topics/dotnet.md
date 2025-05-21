@@ -1779,4 +1779,4 @@ docker run \
 
 \* C and C++ inspections are applicable for projects containing `.sln` files.
 
-** Supports Visual Basic inspections  only.
+** Supports Visual Basic inspections only.

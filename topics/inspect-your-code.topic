@@ -21,8 +21,8 @@
 	<p>%instance% analysis reports are available in two forms:</p>
 
         <list>
-            <li><a href="qodana-sarif-output.md">JSON files</a>.</li>
-            <li><a href="ui-overview.md">HTML reports</a>.</li>
+            <li><a href="qodana-sarif-output.md">JSON files</a></li>
+            <li><a href="ui-overview.md">HTML reports</a></li>
         </list>
 
         <p>Both formats are described in detail in the <a href="results.md"/> section.</p>
