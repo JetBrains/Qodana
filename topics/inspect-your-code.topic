@@ -15,7 +15,7 @@
     <p>Analysis of your code will depend on the following things:
         </p>
 	<list>
-            <li>How you are planning to <a href="deploy-qodana.topic">deploy %instance%</a>.</li>
+            <li>How you are planning to <a href="deploy-qodana.md">deploy %instance%</a>.</li>
             <li>What <a href="linters.md">linter</a> you need to run.</li>
         </list>
 	<p>%instance% analysis reports are available in two forms:</p>

@@ -21,7 +21,7 @@ and the `.git/` folder contains VCS-related information.
 This section explains how to prepare and inspect a monorepo using:
 
 * [Qodana CLI](https://github.com/JetBrains/qodana-cli)
-* [Docker images](docker-images.md) of %product%
+* [Docker images](deploy-qodana.md#Docker+images) of %product%
 * The [Qodana Scan](github.md) GitHub action
 
 ## Prepare your project

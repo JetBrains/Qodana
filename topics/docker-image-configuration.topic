@@ -12,7 +12,7 @@
     <link-summary>This section explains how you can configure the Docker images of
         %instance% and the Qodana CLI tool.</link-summary>
 
-    <p>This section explains how you can configure the <a href="docker-images.md">Docker images</a> of
+    <p>This section explains how you can configure the <a href="deploy-qodana.md" anchor="Docker+images">Docker images</a> of
         %instance% and the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> tool. You can use both tools
         <a href="Quick-start.topic">locally</a> and in <a href="ci.md">CI/CD pipelines</a>. Several options are available
      in Qodana CLI only.</p>
@@ -1401,7 +1401,7 @@
                         <code>-l, --linter &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>This option is available only in the container mode and incompatible with <a href="native-mode.md">native mode</a> and
+                        <note>This option is available only in the container mode and incompatible with <a href="deploy-qodana.md" anchor="Native+mode">native mode</a> and
                             the <code>--ide</code> option.</note>
                         <p>In place of <code>&lt;string&gt;</code>, specify the linter that you would like to employ:</p>
                         <table>
@@ -1524,7 +1524,7 @@
                         </code>
                     </td>
                     <td>
-                        <p>Run %product% in <a href="native-mode.md">native mode</a>. Not compatible with the
+                        <p>Run %product% in <a href="deploy-qodana.md" anchor="Native+mode">native mode</a>. Not compatible with the
                         <code>--linter</code> option. In place of <code>&lt;string&gt;</code>, specify the linter code
                             from this table:</p>
                         <table>
@@ -2024,7 +2024,7 @@
                         <code>-e, --env &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="native-mode.md">native mode</a> and
+                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="Native+mode">native mode</a> and
                             the <code>--ide</code> option.</note>
                         <p>Define environment variables for the Qodana container, multiple variables can be specified.
                             For security reasons, %product% CLI does not read environment variables from the host
@@ -2036,7 +2036,7 @@
                         <code>-v, --volume &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="native-mode.md">native mode</a> and
+                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="Native+mode">native mode</a> and
                             the <code>--ide</code> option.</note>
                         <p>Define additional volumes for the Qodana container, multiple volumes can be specified. For example,
                                 <code>qodana scan --volume $(pwd)/.qodana/results:/data/results/</code></p>
@@ -2047,7 +2047,7 @@
                         <code>-u, --user &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="native-mode.md">native mode</a> and the
+                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="Native+mode">native mode</a> and the
                             <code>--ide</code> option.</note> <p>User to run Qodana container as. Please specify the user
                         ID – <code>$UID</code> or the user ID and group ID <code>$(id -u):$(id -g)</code>.
                         Use <code>root</code> to run as the root user. By default, it is set to the current user</p>
@@ -2060,7 +2060,7 @@
                         </code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="native-mode.md">native mode</a> and
+                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="Native+mode">native mode</a> and
                             the <code>--ide</code> option.</note> <p>Skip pulling the latest Qodana container</p>
                     </td>
                 </tr>

@@ -35,10 +35,10 @@
 <p>All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:</p>
 
-| Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                             | [Supported languages](#dotnet-feature-matrix)                |
-|-------------|----------------------------------|--------------------------------------------|--------------------------------------------------------|--------------------------------------------------------------|
-| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](native-mode.md) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript, F# |
-| %qp-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                         | C#, [C++](%cpp-links%), VB.NET                               |
+| Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                                           | [Supported languages](#dotnet-feature-matrix)                |
+|-------------|----------------------------------|--------------------------------------------|----------------------------------------------------------------------|--------------------------------------------------------------|
+| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](deploy-qodana.md#Native+mode) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript, F# |
+| %qp-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                                       | C#, [C++](%cpp-links%), VB.NET                               |
 
 
 <p>You can compare these linters by programming languages and other supported technologies by navigating to the <a anchor="dotnet-feature-matrix">feature matrix</a>.</p>
@@ -72,7 +72,7 @@ A project token is required for the %qp% linter and optional for the %qp-co% lin
 {id="dotnet-sdk-version"}
 
 If you project targets the .NET Framework or [OS-specific TFMs](%tfms%), the only option in this case is to run the
-%qp% linter in [native mode](native-mode.md).
+%qp% linter in [native mode](deploy-qodana.md#Native+mode).
 
 If you run %qp% in native mode, you should install the SDK to the default location in your operating system so that 
 %ide% can have access to it.
@@ -301,7 +301,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     <tab group-key="linter-tabs-dotnet" title="%qp%">
       <p>You can run the %qp% linter in two modes:</p>
       <list>
-        <li><a href="native-mode.md">Native mode</a> is the recommended method for running the %qp% linter that lets you run 
+        <li><a href="deploy-qodana.md#Native+mode">Native mode</a> is the recommended method for running the %qp% linter that lets you run 
         the linter without using Docker containers</li>
         <li>Container mode is an alternative that involves Docker containers of the %qp% linter</li>
       </list>
@@ -1156,7 +1156,7 @@ in a SARIF-formatted file.
             <tabs group="native-container">
                 <tab title="Native mode" group-key="native-mode">
             <p>You can run the %qp% linter in the 
-                <a href="native-mode.md">native mode</a>:</p>
+                <a href="deploy-qodana.md" anchor="Native+mode">native mode</a>:</p>
                     <tabs group="software">
                         <tab title="GitHub Actions" group-key="github">
                             <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>

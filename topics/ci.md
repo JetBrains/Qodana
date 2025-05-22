@@ -1,6 +1,6 @@
 [//]: # (title: Integration with CI systems)
 
-All Qodana [linters](linters.md) are available as [Docker images](docker-images.md), which means that you can integrate and run them 
+All Qodana [linters](linters.md) are available as [Docker images](deploy-qodana.md#Docker+images), which means that you can integrate and run them 
 in any CI/CD tool.
 
 For more information on how to run Docker containers, you can refer to your CI/CD system documentation.

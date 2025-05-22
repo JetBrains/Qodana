@@ -38,16 +38,16 @@
     <snippet id="qodana-deployment-options">
         <p>%instance% provides several deployment options to better fit your needs:</p>
         <list>
-            <li><a href="native-mode.md">Native mode</a> available in the <a href="jvm.md">%jvm%</a>,
+            <li><a href="deploy-qodana.md" anchor="Native+mode">Native mode</a> available in the <a href="jvm.md">%jvm%</a>,
                 <a href="jvm.md">%jvm-co%</a>, <a href="php.md">%php%</a>, <a href="js.md">%js%</a>, and
                 <a href="dotnet.md">%dotnet%</a> linters.</li>
-            <li><a href="docker-images.md">Docker images</a> let you inspect
+            <li><a href="deploy-qodana.md" anchor="Docker+images">Docker images</a> let you inspect
                 <a href="Quick-start.topic">local projects</a> and build %instance% into your CI/CD pipelines.</li>
             <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %instance%, connect to Qodana Cloud, open and review inspection reports.</li>
             <li><a href="vscode.md">Qodana extension</a> for Visual Studio Code lets you retrieve reports from Qodana Cloud and review inspection reports.</li>
             <li><a href="ci.md">Integration tools</a> include applications for seamless integration with CI/CD systems
                 like GitHub and TeamCity, and guides for configuring %instance% Docker images for CI/CD. </li>
-            <li><a href="qodana_gradle_plugin.md"/> provides the Gradle interface for running %instance% in IntelliJ IDEA.</li>
+            <li><a href="deploy-qodana.md" anchor="Gradle+plugin"/> provides the Gradle interface for running %instance% in IntelliJ IDEA.</li>
             <!--<li><a href="service.md">Cloud service</a> is a cloud-based version of %instance%. </li> -->
         </list>
     </snippet>
@@ -761,7 +761,7 @@
 
         <p>You can run %product% linters using the following methods:</p>
         <list>
-          <li filter="native"><a href="native-mode.md">Native mode</a> as the recommended method for running
+          <li filter="native"><a href="deploy-qodana.md" anchor="Native+mode">Native mode</a> as the recommended method for running
             linters without Docker</li>
           <li>Container mode using Docker containers of %product%</li>
             <li><a href="qodana-ide-plugin.md">%ide%</a></li>
