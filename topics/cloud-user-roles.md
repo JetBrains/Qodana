@@ -1,14 +1,14 @@
 [//]: # (title: User roles)
 
-<link-summary>This section contains the list of user roles available in Qodana Cloud.</link-summary>
+<link-summary>This section contains the list of user roles available in %cloud%.</link-summary>
 
-The role assigned to a [Qodana Cloud](https://qodana.cloud) user defines the set of the permissions that will be
+The role assigned to a [%cloud%](https://qodana.cloud) user defines the set of the permissions that will be
 granted to them. A permission means an ability to perform a specific action. 
 
-Currently, Qodana Cloud supports the Viewer, Editor, Admin and Owner roles, where each subsequent role in this list 
+Currently, %cloud% supports the Viewer, Editor, Admin and Owner roles, where each subsequent role in this list 
 starting from the Editor inherits existing permissions from the previous role and extends with new permissions. 
 
-You can assign the Viewer, Editor, and Admin roles on the [organization](#organization-roles) and [team](#team-roles) levels. 
+You can assign the Viewer, Editor and Admin roles on the [organization](#organization-roles) and [team](#team-roles) levels. 
 The Owner role is available only on the organization level.
 
 ## Team roles
@@ -213,7 +213,7 @@ Here is a detailed description of all team-level roles and their permissions.
 <link-summary>Organization roles are the sets of permissions that can be assigned to users on an organization level.</link-summary>
 
 Organization roles are the sets of permissions that can be assigned to users on an
-[organization](cloud-organizations.topic) level. To learn more about how to invite members to a Qodana Cloud organization, see the 
+[organization](cloud-organizations.topic) level. To learn more about how to invite members to a %cloud% organization, see the 
 [](cloud-organizations.topic#cloud-organizations-invitation) section.
 
 These roles are required for all organization members.

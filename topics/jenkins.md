@@ -19,7 +19,7 @@ including building, testing, and deploying software. This section explains how y
 
 ## Before you start
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -75,7 +75,7 @@ pipeline {
 ```
 
 In this configuration, the `environment` block defines any environment variables to be used in the pipeline.
-The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in Qodana Cloud and is contained in 
+The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in %cloud% and is contained in 
 the `qodana-token` [global credentials](%JenkinsCred%). 
 
 This configuration uses the `docker` agent to invoke %instance% [Docker images](deploy-qodana.md#Docker+images). Using the 

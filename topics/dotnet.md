@@ -46,7 +46,7 @@
 ## Before you start
 {id="dotnet-before-you-start"}
 
-### Qodana Cloud
+### %cloud%
 {id="dotnet-before-you-start-qodana-cloud"}
 
 To run linters, you need to get a [project token](project-token.md) that
@@ -54,10 +54,10 @@ will be used by %product% for identifying and verifying a license.
 
 <procedure>
     <step>
-        Navigate to <a href="https://qodana.cloud">Qodana Cloud</a> and create an <a href="cloud-quickstart.md">account</a> there.
+        Navigate to <a href="https://qodana.cloud">%cloud%</a> and create an <a href="cloud-quickstart.md">account</a> there.
     </step>
     <step>
-        In Qodana Cloud, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>, 
+        In %cloud%, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>, 
         and a <a href="cloud-projects.topic">project</a>.
     </step>
     <step>
@@ -322,7 +322,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <p>Alternatively, you can implement native mode configuration as shown in examples below.</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
-                        <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                        <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
                         to your repository in native mode, on the <ui-path>Actions</ui-path> tab of the GitHub UI set up a new workflow and save the
                 following workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                             <code-block lang="yaml">
@@ -434,7 +434,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               <list>
                                 <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
                                   You can see that native mode is already configured.</li>
-                                 <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
+                                 <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
                               </list>
@@ -442,7 +442,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
                         </step>
                         <step>
-                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
                         </step>
                     </procedure>
                 </tab>
@@ -452,7 +452,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <p>Container mode is available for the %qp% linter; however, it is advised that you use native mode.</p>
             <tabs>
                 <tab title="GitHub Actions" group-key="github">
-                        <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                        <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
                         to your repository in native mode, on the <ui-path>Actions</ui-path> tab of the GitHub UI set up 
                         a new workflow and save the following workflow configuration to the 
                         <code>.github/workflows/code_quality.yml</code> file:</p>
@@ -550,7 +550,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               <list>
                                 <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
                                     Here, comment out the line containing <code>ide: QDNET</code>.</li>
-                                 <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
+                                 <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
                               </list>
@@ -558,7 +558,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
                         </step>
                         <step>
-                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
                         </step>
                     </procedure>
                 </tab>
@@ -570,7 +570,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         <p>You can run the %qp-co% linter in a container mode as shown in the examples below.</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
-                        <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                        <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
                         to your repository in native mode, on the <ui-path>Actions</ui-path> tab of the GitHub UI set up 
                         a new workflow and save the following workflow configuration to the 
                         <code>.github/workflows/code_quality.yml</code> file:</p>
@@ -661,7 +661,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               <list>
                                 <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
                                   You can see that native mode is already configured.</li>
-                                 <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option 
+                                 <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
                               </list>
@@ -669,7 +669,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
                         </step>
                         <step>
-                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
                         </step>
                     </procedure>
                 </tab>
@@ -965,7 +965,7 @@ bootstrap: dotnet restore
 
 <tabs group="software">
     <tab title="JetBrains IDEs" group-key="ides" id="jvm-explore-results-ides">
-      <p>You can load the latest %instance% report from Qodana Cloud to your IDE as explained below.</p>
+      <p>You can load the latest %instance% report from %cloud% to your IDE as explained below.</p>
       <procedure>
          <step>
             <p>In your IDE, navigate to <ui-path>Tools | Qodana | Log in to Qodana</ui-path>.</p>
@@ -974,28 +974,28 @@ bootstrap: dotnet restore
             <p>
                On the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
             </p>
-            <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to Qodana Cloud" border-effect="line"/>
+            <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to %cloud%" border-effect="line"/>
          <p>This will redirect you to the authentication page.</p>
          </step>
          <step>
-            <p>Select the <a href="cloud-projects.topic">Qodana Cloud project</a> to link your local project with.</p>
-            <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
+            <p>Select the <a href="cloud-projects.topic">%cloud% project</a> to link your local project with.</p>
+            <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to %cloud%" border-effect="line"/>
          </step>
          <step>
-            <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will be able to receive the most actual and relevant reports from Qodana Cloud.</p>
+            <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will be able to receive the most actual and relevant reports from %cloud%.</p>
             <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-              <p>In this case, the IDE will search and fetch from Qodana Cloud the report with the revision ID corresponding to the 
+              <p>In this case, the IDE will search and fetch from %cloud% the report with the revision ID corresponding to the 
               current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
-              closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
+              closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from %cloud%.</p>
           </step> 
           <step>
              <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
           </step>
       </procedure>
     </tab>
-    <tab title="Qodana Cloud" group-key="cloud" id="jvm-explore-results-qodana-cloud">
-      <p>Once %product% analyzed your project and uploaded the analysis results to Qodana Cloud, navigate to your project in
-      <a href="https://qodana.cloud">Qodana Cloud</a> and review the analysis results report.</p>
+    <tab title="%cloud%" group-key="cloud" id="jvm-explore-results-qodana-cloud">
+      <p>Once %product% analyzed your project and uploaded the analysis results to %cloud%, navigate to your project in
+      <a href="https://qodana.cloud">%cloud%</a> and review the analysis results report.</p>
       <img src="dotnet-report-example.png" alt="Analysis report example" width="720" border-effect="line"/>
       <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
     </tab>
@@ -1016,7 +1016,7 @@ bootstrap: dotnet restore
                 implements the default %ide% profile.
             </p>
             <tip>You can customize %product% profiles using configurations in <a href="custom-profiles.md">YAML</a> and 
-                <a href="custom-xml-profiles.md">XML</a> formats. To learn more about configuration basics, visit the <a href="override-a-profile.md"/> section of the documentation.
+                <a href="custom-profiles.md" anchor="Custom+XML+profiles">XML</a> formats. To learn more about configuration basics, visit the <a href="override-a-profile.md"/> section of the documentation.
             </tip>
             <p>%qp% reads configuration from the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file located in the 
                 root directory of your project. For example, add this configuration to run the linter using the 
@@ -1206,7 +1206,7 @@ in a SARIF-formatted file.
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                             </code-block>
-                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                            <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                               reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </tab>
                     </tabs>

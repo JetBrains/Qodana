@@ -1,10 +1,14 @@
-[//]: # (title: Inspection report)
+[//]: # (title: Analysis reports)
 
-<link-summary>%instance% lets you review inspection reports in an interactive and user-friendly form either 
-locally or in Qodana Cloud.</link-summary>
+<show-structure for="chapter" depth="3"/>
 
-%instance% lets you review inspection reports in an interactive and user-friendly form either 
-[locally](html-report.md) or in [Qodana Cloud](cloud-overview-reports.topic).
+<link-summary>%instance% lets you review analysis reports in an interactive and user-friendly form either 
+locally or in %cloud%.</link-summary>
+
+%instance% lets you review analysis reports in an interactive and user-friendly form either 
+[locally](#Open+an+HTML+report) or in [%cloud%](cloud-overview-reports.topic).
+
+## Report UI overview
 
 <img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Qodana report UI overview" width="706" border-effect="line"/>
 
@@ -15,11 +19,11 @@ Each report contains the following tabs:
 * **[Configuration](#ui-overview-configuration)** lets you configure %instance% for future use.
 * **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.topic) results and shows the dependency licenses that are incompatible with the project license. 
 
-The upper-right corner of the report shows [code coverage](code-coverage.md) inspection results.
+The upper-right corner of the report shows [code coverage](code-coverage.md) analysis results.
 
 <img src="ui-overview-code-coverage.png" dark-src="ui-overview-code-coverage_dark.png" alt="Qodana report UI overview" width="296" border-effect="line"/>
 
-## Actual problems
+### Actual problems
 {id="ui-overview-actual-problems"}
 
 Using this tab, you can see the problems found as a result of the latest inspection.
@@ -48,9 +52,9 @@ the issue.
 
     The **More actions** list provides other options for handling problems, see the [Adjust the analysis scope](#Adjust+the+analysis+scope) section.
 
-7. You can copy the link to the problem and then navigate to it in Qodana Cloud.
+7. You can copy the link to the problem and then navigate to it in %cloud%.
 
-## Baseline
+### Baseline
 {id="ui-overview-baseline"}
 
 <link-summary>When you click the Move selected to baseline button on the Actual problems tab, the selected
@@ -63,7 +67,7 @@ This tab is similar to the **Actual problems** tab. To enable the baseline featu
 inspections, follow the instructions that appear in the report UI. For more information, explore the
 [](baseline.topic) section.
 
-## Configuration
+### Configuration
 {id="ui-overview-configuration"}
 
 <link-summary>The Configuration tab lists the inspections and lets you adjust your inspection profile by specifying a 
@@ -88,7 +92,7 @@ Once you apply another configuration for analyzing this project, the configurati
 this can be updated based on the changes made to the **Applied inspections** pane. -->
 
 
-## License audit
+### License audit
 {id="ui-overview-project-audit"}
 
 <link-summary>In the License audit tab, you can configure how %product% will run this feature.</link-summary>
@@ -112,9 +116,9 @@ In case the number of problems is above your expectations, we suggest using the 
 When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
 the [baseline](docker-image-configuration.topic#docker-config-reference-baseline) mode.
 
-## Adjust the analysis scope
+### Adjust the analysis scope
 
-### Reduce the scope of analyzed issues
+#### Reduce the scope of analyzed issues
 {id="reduce-analysis-scope"}
 
 When viewing a code fragment with a detected problem, you may decide that it is irrelevant. You can make sure that more 
@@ -150,11 +154,67 @@ On the File explorer, click the icon to the left of the filename, and then selec
 > If you exclude either type/category or file/directory, the UI will remind you to save the changes if you want to use 
 > them in future checks. Download the `qodana.yaml` file and store it under your project root directory.
 
-### Enable excluded or hidden problems
+#### Enable excluded or hidden problems
 
 To reverse the exclusions you made, download `qodana.yaml` in the **[Profile configuration](#ui-overview-configuration)** section, edit 
 it as necessary, put it in the project root directory, and then run Qodana again with this new configuration. 
 
 To learn how to configure Qodana using `qodana.yaml`, see the [Configure profile](qodana-yaml.md) section.
 
+## Open an HTML report
 
+You can open HTML-formatted %instance% reports using JetBrains IDEs and shell commands.
+
+<tabs>
+<tab title="JetBrains IDEs" id="open-report-ide">
+<p>Starting from version 2023.2 of %instance%, you can open HTML reports using IntelliJ IDEA, PhpStorm, WebStorm, Rider, 
+GoLand, PyCharm, and Rider as explained in the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports"/> section.</p> 
+<p>In this case, your IDE needs to be installed via <a href="https://www.jetbrains.com/toolbox-app/">JetBrains Toolbox App</a>.</p>
+
+</tab>
+<tab title="Visual Studio Code" id="open-report-vscode">
+<p>See the <a href="vscode.md" anchor="vs-code-explore-reports">Visual Studio Code</a> section for details.</p>
+</tab>
+<tab title="Shell commands" id="open-report-shell">
+<p>When you run %instance% with the <code>--save-report</code> option, it stores an HTML version of the report in 
+<code>/data/results/report</code>. This directory is typically mounted via Docker to let you view the HTML report later, 
+independently of running %instance%. Due to JavaScript security restrictions, you cannot browse the HTML report by 
+double-clicking the <code>index.html</code> file. Instead, the HTML report needs to be served via a web server, and you 
+can run the Dockerized version of nginx, or invoke the Python or PHP built-in web servers as shown below.</p>
+
+<procedure>
+<step>After running %instance%, navigate to the <code>report</code> folder and make sure that the 
+<code>index.html</code> file is present there.</step>
+<step>
+    <p>Serve the report using the web server of your choice:</p>
+    <tabs>
+        <tab title="Dockerized version of nginx">
+            <code-block prompt="$">
+                docker run -it --rm -p 8000:80 \
+                  -v $(pwd):/usr/share/nginx/html nginx
+            </code-block>
+            <p>In your browser, navigate to <a href="http://localhost:8000">http://localhost:8000</a> to see the generated report.</p>
+        </tab>
+        <tab title="Python 2">
+            <code-block prompt="$">
+                python2 -m SimpleHTTPServer
+            </code-block>
+            <p>In your browser, navigate to <a href="http://localhost:8000">http://localhost:8000</a> to see the generated report.</p>
+        </tab>
+        <tab title="Python 3">
+            <code-block prompt="$">
+                python3 -m http.server
+            </code-block>
+            <p>In your browser, navigate to <a href="http://localhost:8000">http://localhost:8000</a> to see the generated report.</p>
+        </tab>
+        <tab title="PHP">
+            <code-block prompt="$">
+                php -S localhost:8000
+            </code-block> 
+            <p>In your browser, navigate to <a href="http://localhost:8000">http://localhost:8000</a> to see the generated report.</p>
+        </tab>
+    </tabs>    
+</step>
+</procedure>
+</tab>
+</tabs>

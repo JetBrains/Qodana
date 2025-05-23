@@ -53,7 +53,7 @@
             <tip>To learn how to develop plugins, you can review the
                 <a href="https://plugins.jetbrains.com/docs/intellij/getting-started.html">Creating Your First Plugin</a>
                 page of the IntelliJ Platform Plugin SDK documentation portal. Besides that, each plugin should perform
-                inspections and produce inspection results as described in the
+                inspections and produce analysis results as described in the
                 <a href="%inspection-url%">Inspections</a> section of the documentation portal.
             </tip>
 

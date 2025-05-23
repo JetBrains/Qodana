@@ -11,8 +11,8 @@ By default, Qodana reads configurations from the `qodana.yaml` file contained in
 You can override this filename using the `--config` option, see the [](docker-image-configuration.topic#docker-config-reference-custom-yaml-config) section. For convenience, this 
 will be referred in this section using the default `qodana.yaml` name.
 
-Configuration applied in `qodana.yaml` override the default inspection profile settings and default configurations of 
-Qodana linters, you can configure it using the [HTML report](results.md) section, and all changes will be applied 
+Configurations applied in `qodana.yaml` override the default inspection profile settings and default configurations of 
+Qodana linters, you can configure it using the [HTML report](ui-overview.md) section, and all changes will be applied 
 automatically.
 
 The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/json/)
@@ -60,9 +60,9 @@ about custom profiles is also provided [here](inspection-profiles.md#inspection-
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}
 
-<link-summary>You can exclude files and paths from analyses.</link-summary>
+<link-summary>You can exclude files and paths from analysis.</link-summary>
 
-You can exclude files and paths from analyses on a per-inspection basis and for all inspections at once.
+You can exclude files and paths from analyses on a per-analysis basis and for all inspections at once.
 Information about inspection IDs is available on the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) website.
 
 To exclude all paths in a project from the analysis scope, omit the `paths` node.
@@ -109,10 +109,10 @@ You can find specific inspection IDs in the Profile settings in the HTML report 
 
 ## Include an inspection into the analysis scope
 
-<link-summary>You can tell %product% to analyze files of a certain directory by an inspection that is not contained in the selected profile.</link-summary>
+<link-summary>You can tell %product% to analyze files of a certain directory using an inspection that is not contained in the selected profile.</link-summary>
 
-You can tell %product% to analyze files of a certain directory by an inspection that is not contained in the selected profile. 
-This can be done on a per-inspection basis. To include all paths in a project into the inspection scope, omit the `paths` node.
+You can tell %product% to analyze files of a certain directory using an inspection that is not contained in the selected profile. 
+This can be done on a per-analysis basis. To include all paths in a project into the inspection scope, omit the `paths` node.
 Information about inspection IDs is available on the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) website.
 
 ### Example
@@ -179,7 +179,7 @@ script:
 ```
 
 You can override the standard %instance% behavior, which can be helpful in the case of the 
-[PHP version migration](php-language-upgrade.topic). To inspect your code from this perspective, you can run the 
+[PHP version migration](php-language-upgrade.topic). To analyze your code from this perspective, you can run the 
 `php-migration` scenario.     
 
 By default, %instance% employs the `default` scenario, which means the normal %instance% run equivalent to this setting:

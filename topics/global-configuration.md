@@ -2,18 +2,18 @@
 
 Global configuration lets you share %product% configurations across multiple projects. Each global configuration is a set of files
 consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and inspection profile configurations contained in [YAML](custom-profiles.md) and 
-[XML](custom-xml-profiles.md) files.
+[XML](custom-profiles.md#Custom+XML+profiles) files.
 
 ## How it works
 
 YAML-formatted configuration files are saved in project directories of VCS repositories. Using [CI/CD pipelines](ci.md) 
-and an uploader tool, you can send these files to Qodana Cloud. This lets global configurations become connected to 
-Qodana Cloud projects; during the project analysis, %product% linters obtain global configuration and use it as a base 
+and an uploader tool, you can send these files to %cloud%. This lets global configurations become connected to 
+%cloud% projects; during the project analysis, %product% linters obtain global configuration and use it as a base 
 configuration during analysis. 
 
-You can update these files in the Qodana Cloud UI. 
+You can update these files in the %cloud% UI. 
 
-You can use and configure each global configuration for several projects within a single Qodana Cloud 
+You can use and configure each global configuration for several projects within a single %cloud% 
 [organization](cloud-organizations.topic). 
 
 ### Global and local configurations
@@ -71,10 +71,10 @@ from both configurations, see the table below.
     </tr>
 </table>
 
-To be able to upload global configurations to Qodana Cloud, you should use a special token. 
+To be able to upload global configurations to %cloud%, you should use a special token. 
 
 > You can manipulate tokens only if your user has an admin role, see the [list of roles](cloud-user-roles.md) for details.
 
-To upload configurations to Qodana Cloud, run your CI/CD pipeline. Once uploaded, global configurations become available 
-in the [organization settings](cloud-organizations.topic) of Qodana Cloud UI.
+To upload configurations to %cloud%, run your CI/CD pipeline. Once uploaded, global configurations become available 
+in the [organization settings](cloud-organizations.topic) of %cloud% UI.
 

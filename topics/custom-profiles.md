@@ -1,4 +1,4 @@
-[//]: # (title: Custom YAML profiles)
+[//]: # (title: Custom inspection profiles)
 
 <show-structure for="chapter" depth="3"/>
 
@@ -13,19 +13,24 @@
 <var name="export-profile" value="https://www.jetbrains.com/help/idea/customizing-profiles.html#export-and-import-a-profile"/>
 <link-summary>Starting from version 2023.2, you can create and configure Qodana profiles using YAML. </link-summary>
 
-Starting from version 2023.2, you can create and configure %instance% profiles using YAML. %instance% also provides 
-several improvements related to profile configuration, such as:
-F
+You can create and configure %instance% inspection profiles using YAML and XML file formats. 
+%instance% also provides several improvements related to profile configuration, such as:
+
 * Support for file paths and [scopes](%idea-scopes%)
 * Support for inspection parameters
 * Profile relationship, so profiles can be extended and included
 
-This sample shows how you can fine-tune %instance% for your needs.
+This section primarily focuses on YAML configurations. Information about configuring profiles 
+in XML is available [at the end](#Custom+XML+profiles) of the section.
+
+## Profile example
+
+This snippet shows how you can fine-tune %instance% for your needs using the YAML format.
 
 ```yaml
 name: "My custom profile" # Profile name
 
-baseProfile: empty # Use the 'empty' profile as initial configuration of this profile
+baseProfile: empty # Use the 'empty' profile as an initial configuration of this profile
 
 include:
   - ".qodana/profiles/other-profile.yaml" # The included file becomes part of this profile
@@ -169,12 +174,12 @@ groups:
 
 Here, `groups` lists several values:
 
-| [`groupId`](#groups-groupid) value | Description                                                                                                                                                                                                                        |
-|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ALL`                              | Include all inspections. Besides that, you can also use `LOCAL` to inspect your code using inspections available locally, or `GLOBAL` to inspect your code using the **Inspect code** action of the JetBrains IDE                  |
-| `category:Java/Probable bugs`      | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of the JetBrains IDE                                                      |
-| `IncludedInspections`              | Name of the existing user-defined group, or a group from an included profile                                                                                                                                                       |
-| `!ExcludedInspections`             | Negate the existing `ExcludedInspections` inspection group, either user-defined or included from another profile                                                                                                                   |
+| [`groupId`](#groups-groupid) value | Description                                                                                                                                                                                                                         |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ALL`                              | Include all inspections. Besides that, you can also use `LOCAL` to analyze your code using inspections available locally, or `GLOBAL` to analyze your code using the **Inspect code** action of the JetBrains IDE                   |
+| `category:Java/Probable bugs`      | Name of the inspection category in the `category:categoryname` notation, matches the name from the **Editor &#124; Settings &#124; Inspections** section of the JetBrains IDE                                                       |
+| `IncludedInspections`              | Name of the existing user-defined group, or a group from an included profile                                                                                                                                                        |
+| `!ExcludedInspections`             | Negate the existing `ExcludedInspections` inspection group, either user-defined or included from another profile                                                                                                                    |
 | `severity:WEAK WARNING`            | Include or exclude inspections by a certain [severity](#profile-severity-levels) level. Because the severity value is taken from the `Default` [profile](#baseProfile), %instance% is not aware of the changes made in your profile |
 
 {id="profile-severity-levels"}
@@ -486,6 +491,17 @@ inspections:
       methodThreshold: 51
       warnMissingCoverage: true
 ```
+
+## Custom XML profiles
+
+You can create XML-formatted inspection profiles using your IDE. For example, for IntelliJ IDEA this is explained
+on the [Configure profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html) page.  After you create a
+profile, you can [export](https://www.jetbrains.com/help/idea/customizing-profiles.html#export-and-import-a-profile) it
+to a file.
+
+To run %instance% with the custom profile, you can follow the recommendations from the
+[](inspection-profiles.md#inspection-profiles-setup-a-profile) section. In this case, the profile name does not necessarily
+match the name of the containing file. The actual name is stored as the `%\profileName%` value in the profile file.
 
 ## Next steps
 

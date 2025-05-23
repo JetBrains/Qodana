@@ -1,4 +1,4 @@
-[//]: # (title: Inspection profiles)
+[//]: # (title: Inspection profile overview)
 
 <show-structure for="chapter" depth="3"/>
 
@@ -74,7 +74,7 @@ To learn how to set up existing %product% profiles, see the [](#inspection-profi
 You can create custom profiles using the following formats:
 
 * [YAML](custom-profiles.md) is the preferred format,
-* [XML](custom-xml-profiles.md) can be used as an alternative to YAML.
+* [XML](custom-profiles.md#Custom+XML+profiles) can be used as an alternative to YAML.
 
 Custom profiles can either override [existing profiles](#inspection-profiles-existing-profiles) or be created from 
 scratch. Since profile configurations should be contained in dedicated files, it is advised to save them in the `.qodana` 
@@ -193,7 +193,7 @@ supported by %product%. The settings will remain consistent across all these pla
     </step>
     <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
         <code>.github/workflows/code_quality.yml</code> file.</step>
-    <step>To inspect the <code>main</code> branch, release branches and the pull requests coming
+    <step>To analyze the <code>main</code> branch, release branches and the pull requests coming
     to your repository, save the workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
         <tabs group="profile-setup">
             <tab title="Qodana profile" group-key="qodana-profile">

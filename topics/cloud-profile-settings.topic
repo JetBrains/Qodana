@@ -12,7 +12,7 @@
 
     <img src="qc-profile-settings.png" dark-src="qc-profile-settings_dark.png" alt="Account settings" width="706" border-effect="line"/>
 
-    <p>Using this section, you can configure the appearance of your <a href="https://qodana.cloud">Qodana Cloud</a> account,
+    <p>Using this section, you can configure the appearance of your <a href="https://qodana.cloud">%cloud%</a> account,
         log out or completely delete your account.</p>
 
 </topic>

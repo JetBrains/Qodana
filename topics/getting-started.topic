@@ -20,25 +20,25 @@
 
                 <primary>
                         <title>Deploy, configure, and launch Qodana</title>
-                        <a href="deploy-qodana.md" anchor="IDE+integration" summary="Use Qodana functionalities in JetBrains IDEs, Microsoft Visual Studio Code and Visual Studio."/>
+                        <a href="ide-integration.md" summary="Use Qodana functionalities in JetBrains IDEs, Microsoft Visual Studio Code and Microsoft Visual Studio.">IDE integration</a>
                         <a href="deploy-qodana.md" anchor="Native+mode" summary="Learn how to run %product% without Docker."/>
-                        <a href="deploy-qodana.md" anchor="Docker+images" summary="Learn how to run Qodana using Docker."/>
-                        <a href="ci.md" summary="Our documentation provides several how-tos for integration with the most popular CI/CD systems."/>
-                        <a href="configure-qodana.topic" summary="Explore how to configure Qodana using various options."/>
-                        <!-- I can add to this section all possibilities for inspection results. This is important -->
-                        <a href="inspect-your-code.topic" summary="Learn how you can start inspecting your code and obtain code inspection results."/>
+                        <a href="deploy-qodana.md" anchor="Docker+images" summary="Learn how to run Qodana linters using Docker."/>
+                        <a href="ci.md" summary="We provide integration solutions with the most popular CI/CD systems.">CI integration</a>
+                        <a href="configure-qodana.md" summary="Explore configuration flexibility of Qodana.">Configure %product%</a>
+                        <!-- I can add to this section all possibilities for analysis results. This is important -->
+                        <a href="inspect-your-code.md" summary="Learn how you can obtain code analysis results and improve your code."/>
                 </primary>
 
                 <secondary>
                         <title>Qodana features</title>
                         <a href="baseline.topic" summary="Track your project changes through reviewing new, unchanged, and resolved problems."/>
-                        <a href="code-coverage.md" summary="Inspect the quality of code coverage."/>
+                        <a href="code-coverage.md" summary="Analyze the quality of code coverage."/>
                         <a href="flexinspect.md" summary="Develop your own inspections using IntelliJ IDEA."/>
                         <a href="license-audit.topic" summary="Check license compatibility between your software license and dependency licenses."/>
                         <a href="php-language-upgrade.topic" summary="See how updating PHP will affect your codebase quality."/>
                         <a href="quality-gate.topic" summary="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
                         <a href="quick-fix.md" summary="Use the quick-fix feature to improve the performance of the project development."/>
-                        <a href="qodana-sarif-output.md" summary="Qodana linters can read and write reports in SARIF format, which is the industry standard for the output of static analysis tools."/>
+                        <a href="qodana-inspection-output.md" anchor="SARIF+Output" summary="Qodana reads and writes reports in SARIF format, which is the industry standard for the output of static analysis tools."/>
                         <a href="taint-analysis.md" summary="Secure your code from malicious user data."/>
                         <a href="vulnerability-checker.md" summary="Check third-party packages for vulnerabilities."/>
                 </secondary>

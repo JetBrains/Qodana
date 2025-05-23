@@ -49,10 +49,10 @@
     <chapter id="faq-qodana-jba-entities" title="What is the relation between JetBrains Account and Qodana entities?" default-state="collapsed" collapsible="true">
         <p>In a JetBrains Account (JBA), you can create several Companies.</p>
         <p>Each created JBA Company can possess several %instance% licenses.</p>
-        <p>In Qodana Cloud, you need to create at least one <a href="cloud-organizations.topic">organization</a> that
+        <p>In %cloud%, you need to create at least one <a href="cloud-organizations.topic">organization</a> that
             will correspond to a specific license within a specific JBA Company.</p>
-        <p>In Qodana Cloud, you can also create a JBA Company during the <a href="set-up-your-project.md">project setup</a> stage.
-            In this case, the JBA Company and the Qodana Cloud organization will share the same name. </p>
+        <p>In %cloud%, you can also create a JBA Company during the <a href="set-up-your-project.md">project setup</a> stage.
+            In this case, the JBA Company and the %cloud% organization will share the same name. </p>
         <p>%instance% does not use JetBrains Account teams.</p>
     </chapter>
 </chapter>
@@ -104,7 +104,7 @@
     <chapter id="faq-profile-explained" title="What is a profile?" default-state="collapsed" collapsible="true">
         <p>A %instance% inspection profile is a set of pre-configured inspections, including their state, configuration
             options, and the path to which they are applied. %instance% inspection profiles are the same as IntelliJ IDEA
-            inspection profiles and can be <a href="custom-xml-profiles.md">reused</a>.
+            inspection profiles and can be <a href="custom-profiles.md" anchor="Custom+XML+profiles">reused</a>.
         </p>
     </chapter>
 
@@ -136,7 +136,7 @@
         <table>
             <tr>
                 <td>IDE severity</td>
-                <td><a href="qodana-sarif-output.md">SARIF</a> severity</td>
+                <td><a href="qodana-inspection-output.md" anchor="SARIF+severity">SARIF</a> severity</td>
                 <td><a href="ui-overview.md">Qodana report</a> severity</td>
             </tr>
             <tr>
@@ -212,13 +212,13 @@
                     <a href="https://www.jetbrains.com/qodana/buy/">Subscription Options and Pricing</a> page on the
                     JetBrains website and select the subscription option you would like to use.</p>
                 <p>If you choose the Community license or the trial version of the Ultimate or Ultimate Plus licenses,
-                    you’ll be redirected to the Qodana Cloud onboarding page.</p>
+                    you’ll be redirected to the %cloud% onboarding page.</p>
                 <p>If you would like to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to
                 the JetBrains account page to provide payment details. After payment is made, you’ll be redirected to
-                    the Qodana Cloud <a href="set-up-your-project.md">project setup</a> page.</p>
+                    the %cloud% <a href="set-up-your-project.md">project setup</a> page.</p>
             </li>
             <li>
-                <p>During the onboarding stage, Qodana Cloud generates a public key that you can save in your repository
+                <p>During the onboarding stage, %cloud% generates a public key that you can save in your repository
                         so that %instance% can connect to it, as well as a
                     <a href="project-token.md">project token</a> for uploading Qodana reports to your first project.
                 </p>
@@ -242,34 +242,34 @@
         </p>
     </chapter>
 
-    <chapter id="faq-licensing-linters-and-cloud" title="What are %instance% linters and Qodana Cloud designed for?" default-state="collapsed" collapsible="true">
-            <p>Both Qodana linters and Qodana Cloud are essential parts of the product named Qodana. You can inspect
-                your codebase using Qodana linters, and you can use Qodana Cloud for managing your projects and
-                licenses, as well as collecting Qodana reports in a single place. For more details, see the
-                <a href="cloud-use-cases.topic"/> page of the Qodana Cloud documentation.
+    <chapter id="faq-licensing-linters-and-cloud" title="What are %instance% linters and %cloud% designed for?" default-state="collapsed" collapsible="true">
+            <p>Both %product% linters and %cloud% are essential parts of the product named %product%. You can inspect
+                your codebase using %product% linters, and you can use %cloud% for managing your projects and
+                licenses, as well as collecting %product% reports in a single place. For more details, see the
+                <a href="cloud-use-cases.topic"/> page of the %cloud% documentation.
             </p>
     </chapter>
 
-    <chapter id="faq-licensing-using-without-cloud" title="Can I use %instance% linters without creating a Qodana Cloud account?" default-state="collapsed" collapsible="true">
+    <chapter id="faq-licensing-using-without-cloud" title="Can I use %instance% linters without creating a %cloud% account?" default-state="collapsed" collapsible="true">
         <p>
-            All licenses require that you create an account in Qodana Cloud and complete the
+            All licenses require that you create an account in %cloud% and complete the
             <a href="set-up-your-project.md">project setup</a> stage (see
             <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, Qodana
             Cloud lets you view Qodana reports in a single place and provides access to all
             <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> offered by %instance%
             <a href="linters.md">linters</a>. Finally, for the purposes of opening %instance% reports from within your
-            <a href="qodana-ide-plugin.md">IDE</a>, you need a Qodana Cloud account.
+            <a href="qodana-ide-plugin.md">IDE</a>, you need a %cloud% account.
         </p>
         <p>
-            To exclude Qodana Cloud, you can download and run the Community linters of %instance%, like
+            To exclude %cloud%, you can download and run the Community linters of %instance%, like
             <a href="jvm.md">%jvm-co%</a>, <a href="jvm.md">%jvm-co-a%</a>, and <a href="python.md">%python-co%</a>,
             locally without a license.
         </p>
     </chapter>
 
-    <chapter id="faq-licensing-minimum-cloud-steps" title="What are the minimum steps I need to perform to get started with Qodana Cloud?" default-state="collapsed" collapsible="true">
+    <chapter id="faq-licensing-minimum-cloud-steps" title="What are the minimum steps I need to perform to get started with %cloud%?" default-state="collapsed" collapsible="true">
         <p>
-            All required steps are described in the <a href="cloud-quickstart.md"/> section of the Qodana Cloud
+            All required steps are described in the <a href="cloud-quickstart.md"/> section of the %cloud%
             documentation.
         </p>
     </chapter>
@@ -322,10 +322,10 @@
     <chapter id="faq-licensing-license-costs" title="How is the cost of a license calculated?" default-state="collapsed" collapsible="true">
         <p>
             The total license cost is based on the number of active contributors. An active contributor is a person/bot
-            who has committed to any number of Qodana Cloud projects at any point in the last 90 days, within the same
+            who has committed to any number of %cloud% projects at any point in the last 90 days, within the same
             organization, and under a single license. During the <a href="set-up-your-project.md">project setup</a> stage
             and while creating a new <a href="cloud-projects.topic">project</a>,
-            Qodana Cloud requests your repository URL to calculate contributors. The minimal number of contributors
+            %cloud% requests your repository URL to calculate contributors. The minimal number of contributors
             used for licensing is three.
         </p>
         <p>
@@ -384,17 +384,17 @@
                 the prepaid limit.</p>
 	</chapter>
 
-    <chapter id="faq-licensing-cloud-license-storage" title="Where does Qodana store license information?" default-state="collapsed" collapsible="true">
+    <chapter id="faq-licensing-cloud-license-storage" title="Where does %product% store license information?" default-state="collapsed" collapsible="true">
         <p>
-            Qodana Cloud stores all information about your licenses. This explains why you must create a Qodana Cloud
-            account before running Qodana. Aside from this functionality, Qodana Cloud provides other
+            %cloud% stores all information about your licenses. This explains why you must create a %cloud%
+            account before running %product%. Aside from this functionality, %cloud% provides other
             <a href="cloud-use-cases.topic">features</a>.
         </p>
     </chapter>
 
     <chapter id="faq-licensing-how-license-affects-linter" title="How does the license affect the linter functionality?" default-state="collapsed" collapsible="true">
         <p>
-            We recommend running Qodana linters under
+            We recommend running %product% linters under
             <a href="pricing.md" anchor="pricing-linters-licenses">appropriate licenses</a>, based on your tasks.
         </p>
         <p>
@@ -449,15 +449,15 @@
         </p>
     </chapter>
 
-    <chapter id="faq-licensing-data-forwarding-to-qodana-cloud" title="What data does %instance% forward to the Qodana Cloud?" default-state="collapsed" collapsible="true">
+    <chapter id="faq-licensing-data-forwarding-to-qodana-cloud" title="What data does %instance% forward to the %cloud%?" default-state="collapsed" collapsible="true">
         <p>
-            First and foremost, Qodana Cloud collects information about active contributors of your repository, as well
+            First and foremost, %cloud% collects information about active contributors of your repository, as well
             as the <a href="project-token.md">project token</a>. This information is then used for calculating license
             costs and enabling <a href="pricing.md" anchor="Features+and+third-party+software+support">paid features</a>.
         </p>
         <p>
-            Besides that, Qodana forwards <a href="qodana-sarif-output.md">SARIF-formatted</a> inspection reports to
-            Qodana Cloud, which lets you view inspection results using the Qodana Cloud UI.
+            Besides that, Qodana forwards <a href="qodana-inspection-output.md">SARIF-formatted</a> analysis reports to
+            %cloud%, which lets you view analysis results using the %cloud% UI.
         </p>
     </chapter>
     </snippet>
@@ -501,10 +501,10 @@
         </p>
     </chapter>
 
-    <chapter id="faq-sensitive-data-uploading" title="I have accidentally uploaded sensitive data to Qodana Cloud, what should I do?" collapsible="true">
+    <chapter id="faq-sensitive-data-uploading" title="I have accidentally uploaded sensitive data to %cloud%, what should I do?" collapsible="true">
 
         <p>All your data is always encrypted at rest and in transit. If you remain concerned, you can delete the report containing sensitive
-            data using the Qodana Cloud UI.</p>
+            data using the %cloud% UI.</p>
 
     </chapter>
 

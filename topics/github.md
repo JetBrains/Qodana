@@ -10,7 +10,7 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 
 ## Prepare your project
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -120,9 +120,9 @@ for your project using Qodana. To do this, add these lines to the `code_quality.
 This sample invokes the `codeql-action` for uploading a SARIF-formatted Qodana report to GitHub, and specifies the report
 file using the `sarif_file` key.
 
-> GitHub code scanning does not export inspection results to third-party tools, which means that you cannot use this 
+> GitHub code scanning does not export analysis results to third-party tools, which means that you cannot use this 
 > data for further processing by Qodana. In this case, you have to set up a baseline and quality gate processing on the 
-> Qodana side before submitting inspection results to GitHub code scanning, see the [](#Baseline+and+quality+gate) section for details.
+> Qodana side before submitting analysis results to GitHub code scanning, see the [](#Baseline+and+quality+gate) section for details.
 
 ## Pull request quality gate
 
@@ -191,7 +191,7 @@ Follow these steps to establish a baseline for your project:
       </code-block>
    </step>
    <step>
-      <p>In Qodana Cloud, <a href="ui-overview.md" anchor="ui-overview-baseline">add detected problems</a> to the baseline 
+      <p>In %cloud%, <a href="ui-overview.md" anchor="ui-overview-baseline">add detected problems</a> to the baseline 
          and then download the <code>qodana.sarif.json</code> file.</p>
    </step>
    <step>

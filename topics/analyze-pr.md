@@ -1,14 +1,14 @@
 # Analyze changes
 
-<link-summary>For all linters except Qodana Community for .NET and Qodana Community for C/C++, you can run incremental analysis on a change set like 
-merge or pull requests, as well as inspect changes between two commits.</link-summary> 
+<link-summary>For all linters except %dotnet-co% and %clang%, you can run incremental analysis on a change set like 
+merge or pull requests, as well as analyze changes between two commits.</link-summary> 
 
 <var name="mrp" value="https://docs.gitlab.com/ee/ci/pipelines/merged_results_pipelines.html"/>
 
 <note>This feature is not supported by the <a href="dotnet.md">%dotnet-co%</a> and <a href="clang.md">%clang%</a> linters.</note>
 
 Using %product%, you can not only scan your entire codebase, but also run analysis on change sets like merge or pull 
-requests, as well as inspect changes between two commits.
+requests, as well as analyze changes between two commits.
 
 Configuration samples on this page contain `<GIT_START_HASH>` and `<GIT_END_HASH>` to denote the 
 hashes of the earliest and latest commits that should be included in a change analysis. For example:
@@ -38,7 +38,7 @@ The `QODANA_TOKEN` variable refers to a <a href="project-token.md">project token
 ## Analyze pull and merge requests
 
 <link-summary>
-You can use the --diff-start option to inspect changes between the current version of a codebase and a specific commit.
+You can use the --diff-start option to analyze changes between the current version of a codebase and a specific commit.
 </link-summary>
 
 <p>If you just finished work and would like to analyze the changes, you
@@ -46,8 +46,8 @@ You can use the --diff-start option to inspect changes between the current versi
     for comparison:</p>
 
 <tabs group="cli-settings">
-    <tab title="Qodana CLI" group-key="qodana-cli">
-    <p>To run <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> in the default mode, you must have Docker or Podman installed and running locally.
+    <tab title="%product% CLI" group-key="qodana-cli">
+    <p>To run <a href="https://github.com/JetBrains/qodana-cli">%product% CLI</a> in the default mode, you must have Docker or Podman installed and running locally.
      If you are using Linux, you should be able to run Docker under your current
      <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">non-root user</a>. Use this command to run Qodana CLI:</p>
         <code-block lang="shell" prompt="$">
@@ -142,7 +142,7 @@ You can use the --diff-start option to inspect changes between the current versi
 
 ## Analyze changes between two commits
 
-<p>To inspect a set of changes between two commits, employ both <code>--diff-start</code>
+<p>To analyze a set of changes between two commits, employ both <code>--diff-start</code>
 and <code>--diff-end</code> options:</p>
 
 <tabs group="cli-settings">

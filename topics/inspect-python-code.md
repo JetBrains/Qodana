@@ -1,11 +1,11 @@
-[//]: # (title: Inspect Python code)
+[//]: # (title: Analyze Python code)
 
-<link-summary>A use case explaining how you can Qodana to inspect your Python code.</link-summary>
+<link-summary>A use case explaining how you can use Qodana to analyze your Python code.</link-summary>
 
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="docker-image" value="jetbrains/qodana-&lt;python|community&gt;:2025.1"/>
 
-To inspect your Python codebase, depending on your %product% [license](pricing.md), you can employ the following linters: 
+To analyze your Python codebase, depending on your %product% [license](pricing.md), you can employ the following linters: 
 
 <tabs>
 <tab id="inspect-python-code-linters" title="Linters">
@@ -41,9 +41,9 @@ bootstrap: |
   pip install -r requirements.txt
 ```
 
-## Inspect your code
+## Analyze your code
 
-Here are several configuration snippets showing how you can inspect Python code.
+Here are several configuration snippets showing how you can analyze Python code.
 
 <tabs>
 <tab id="inspect-python-code-github" title="GitHub Actions">
@@ -79,7 +79,7 @@ pipeline {
 ```
 
 In this configuration, the `environment` block defines the `QODANA_TOKEN` variable to invoke the
-[project token](project-token.md) generated in Qodana Cloud and contained in
+[project token](project-token.md) generated in %cloud% and contained in
 the `qodana-token` [global credentials](%JenkinsCred%). The project token is required by paid %product%
 [linters](pricing.md#pricing-linters-licenses), and is optional for using the Community linters.
 

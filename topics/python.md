@@ -51,7 +51,7 @@ by the `requirements.txt` file in your project root, go into the configuration f
 bootstrap: pip install -r requirements.txt
 ```
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,python"/>
 

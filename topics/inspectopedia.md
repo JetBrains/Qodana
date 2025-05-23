@@ -1,6 +1,6 @@
 [//]: # (title: Inspectopedia)
 
-Sometimes you need more info about what a specific inspection reports, or why it is a problem in your codebase. 
+Sometimes you need more info about what a specific analysis reports or why it is a problem in your codebase. 
 [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) provides details about inspections: descriptions, severity levels, languages covered, etc. 
 
 You can use the table of contents to explore all available inspections:

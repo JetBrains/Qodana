@@ -24,7 +24,7 @@
         <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters require the
         <code>QODANA_TOKEN</code> variable to refer to the <a href="project-token.md">project token</a>. If you run the
         Community linters of %instance%, using <code>QODANA_TOKEN</code> is
-        necessary only if you wish to view %instance% reports in Qodana Cloud.</p>
+        necessary only if you wish to view %instance% reports in %cloud%.</p>
 
     <chapter id="docker-config-reference-qodana-cli" title="Qodana CLI">
 
@@ -391,7 +391,7 @@
             </tr>
             <tr>
                 <td><code>-o</code>, <code>--results-dir</code></td>
-                <td>Directory to save %instance% inspection results to</td>
+                <td>Directory to save %instance% analysis results to</td>
                 <td><code>/data/results</code></td>
             </tr>
             <tr>
@@ -420,9 +420,9 @@
 
         <chapter id="docker-config-reference-directories-save-report" title="Override the report directory">
 
-            <link-summary>Override the directory containing %product% inspection reports.</link-summary>
+            <link-summary>Override the directory containing %product% analysis reports.</link-summary>
 
-            <tip><p>During analysis, Qodana CLI automatically saves inspection reports in the
+            <tip><p>During analysis, Qodana CLI automatically saves analysis reports in the
                 <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
                 <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
             </tip>
@@ -689,7 +689,7 @@
             situations when you have no possibility to fix old problems and rather want to prevent the appearance of new ones.</p>
 
         <p>To use the baseline feature, first run %instance%, and in the report UI select the problems that will be considered as baseline.
-        Finally, save the <a href="qodana-sarif-output.md">SARIF-formatted file</a> containing the baseline problems. </p>
+        Finally, save the <a href="qodana-inspection-output.md">SARIF-formatted file</a> containing the baseline problems. </p>
 
         <p>This is the list of baseline-related options:</p>
 
@@ -733,10 +733,10 @@
 
         <p>Here, the <code>&lt;path-to-the-SARIF-file&gt;</code> is the path to a <code>qodana.sarif.json</code> file relative
             to the project root and taken from a previous %instance% run. If <code>--baseline-include-absent</code>
-            is invoked, the inspection results will include absent problems or the problems detected only in the
+            is invoked, the analysis results will include absent problems or the problems detected only in the
             baseline run but not in the current run. </p>
 
-        <p>Based on this run, the <a href="qodana-sarif-output.md">SARIF output report</a> will contain the per-problem information on the
+        <p>Based on this run, the <a href="qodana-inspection-output.md" anchor="SARIF+Output">SARIF output report</a> will contain the per-problem information on the
             baseline state.</p>
 
     </chapter>
@@ -798,7 +798,7 @@
             <link-summary>The --save-report option lets you save the generated HTML report to your
                 local filesystem.</link-summary>
 
-            <tip><p>During inspection, Qodana CLI automatically saves inspection reports in the
+            <tip><p>During inspection, Qodana CLI automatically saves analysis reports in the
                 <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
                 <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
                 <p>To view the generated report in your browser, in the project root run the <code>qodana show</code> command.</p>
@@ -820,7 +820,7 @@
 
         <chapter id="docker-config-reference-report-show-report" title="Show the report">
 
-            <link-summary>The --show-report option runs a local web server to show an inspection report.</link-summary>
+            <link-summary>The --show-report option runs a local web server to show an analysis report.</link-summary>
 
             <p>This command runs the web server on port 4040 of a host machine, so your report will be available on
                 <a href="http://localhost:4040">http://localhost:4040</a>:</p>
@@ -1050,7 +1050,7 @@
     <chapter id="docker-config-reference-changes" title="Analysis of changes">
 
         <link-summary>For all linters except Qodana Community for .NET, you can run incremental analysis on a change set like
-            merge or pull requests, as well as inspect changes between two commits.</link-summary>
+            merge or pull requests, as well as analyze changes between two commits.</link-summary>
 
         <note>This feature is not supported by the <a href="dotnet.md">%dotnet-co%</a> and <a href="clang.md">%clang%</a> linters.</note>
 
@@ -1186,9 +1186,9 @@
 
     <!-- What is this for?  And how can I run it? -->
 
-    <chapter id="docker-config-reference-qodana-cloud" title="Forward reports to Qodana Cloud">
+    <chapter id="docker-config-reference-qodana-cloud" title="Forward reports to %cloud%">
 
-        <p>To forward reports to Qodana Cloud, you can set the list of Docker environments as explained in the
+        <p>To forward reports to %cloud%, you can set the list of Docker environments as explained in the
             <a href="cloud-forward-reports.topic"/> section.</p>
 
         <p>Alternatively, see the <a anchor="docker-config-reference-qodana-send"/> chapter of this section.</p>
@@ -1270,7 +1270,7 @@
             <tabs>
                 <tab id="docker-config-reference-docker-environment-docker" title="Docker">
                     <p>By default, a Docker container runs under the <code>root</code> user, so %instance% can
-                        read project information and write inspection results. Therefore, all files in the <code>results/</code>
+                        read project information and write analysis results. Therefore, all files in the <code>results/</code>
                         directory are owned by the <code>root</code> user after the run.</p>
 
                     <p>To overcome this, you can run the container as a regular user:</p>
@@ -1701,7 +1701,7 @@
                         </code>
                     </td>
                     <td>
-                        Unique report identifier (GUID) to be used by Qodana Cloud. The default value is <code>2c72b6e8-f09d-472a-bb86-8a7d8e374ed1</code>
+                        Unique report identifier (GUID) to be used by %cloud%. The default value is <code>2c72b6e8-f09d-472a-bb86-8a7d8e374ed1</code>
                     </td>
                 </tr>
                 <tr>
@@ -2075,7 +2075,7 @@
             </table>
         </chapter>
 
-        <chapter id="docker-config-reference-qodana-send" title="Send analysis reports to Qodana Cloud">
+        <chapter id="docker-config-reference-qodana-send" title="Send analysis reports to %cloud%">
 
             <p>You can use these options with the <code>qodana send &lt;options&gt;</code> command:</p>
 
@@ -2089,7 +2089,7 @@
                         <code>-a, --analysis-id &lt;string&gt;</code>
                     </td>
                     <td>
-                        The unique report identifier (GUID) to be used by Qodana Cloud. The default value is
+                        The unique report identifier (GUID) to be used by %cloud%. The default value is
                         <code>f9d8a78f-f922-452b-8062-a64afc352537</code>
                     </td>
                 </tr>
@@ -2114,7 +2114,7 @@
                         <code>-l, --linter &lt;string&gt;</code>
                     </td>
                     <td>
-                        <p>Override the linter which report will be used for sending to Qodana Cloud</p>
+                        <p>Override the linter which report will be used for sending to %cloud%</p>
                     </td>
                 </tr>
                 <tr id="docker-image-configuration-project-dir">
@@ -2122,7 +2122,7 @@
                         <code>-i, --project-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Root directory of the project which report will be sent to Qodana Cloud. The default value is <code>.</code>
+                        Root directory of the project which report will be sent to %cloud%. The default value is <code>.</code>
                     </td>
                 </tr>
                 <tr>

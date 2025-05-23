@@ -6,15 +6,15 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Report overview" id="cloud-overview-reports">
 
-    <link-summary>Learn how Qodana Cloud aggregates and displays information from project reports.</link-summary>
+    <link-summary>Learn how %cloud% aggregates and displays information from project reports.</link-summary>
 
     <p>Information from project reports is aggregated and displayed in several sections marked on this image.</p>
 
-    <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="Qodana Cloud report overview" width="706" border-effect="line"/>
+    <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="%cloud% report overview" width="706" border-effect="line"/>
 
     <p>Here is the description of each section:</p>
 
-    <p>1. The project name, the branch name, time passed since the last inspection run, the number of detected problems and their severity.</p>
+    <p>1. The project name, the branch name, time passed since the last analysis run, the number of detected problems and their severity.</p>
     <p>2. Analysis results using the <a href="code-coverage.md">code coverage</a> and <a href="license-audit.topic">license audit</a> features.</p>
     <p>3. The context menu that lets you:</p>
     <list>
@@ -24,7 +24,7 @@
         <li>Delete the project</li>
     </list>
 
-    <p>This table shows how Qodana Cloud interprets and displays several reports depending on their metadata.</p>
+    <p>This table shows how %cloud% interprets and displays several reports depending on their metadata.</p>
 
     <table>
         <tr>
@@ -65,8 +65,8 @@
     <p>2. Commit hash and time passed since the latest analysis.
     If you click the <ui-path>Configuration name</ui-path> link, you can navigate to the
         <a href="ui-overview.md" anchor="ui-overview-configuration">Configuration</a> tab of your report.</p>
-    <p>3. Timeline describing the date of inspection, number of problems detected.</p>
-    <p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-sarif-output.md">SARIF format</a>, and opening the help guide.</p>
+    <p>3. Timeline describing the date of analysis, number of problems detected.</p>
+    <p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-inspection-output.md" anchor="SARIF+Output">SARIF format</a>, and opening the help guide.</p>
     <p>5. Selector for viewing either the absolute number of detected problems or the number of problems
     relatively to a <a href="baseline.topic">baseline</a> set for this project.</p>
 

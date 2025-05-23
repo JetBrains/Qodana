@@ -6,14 +6,14 @@ You can run [%instance%](about-qodana.md) using JetBrains IDE products installed
 IntelliJ IDEA, PhpStorm, WebStorm, GoLand, PyCharm, and Rider. The available functionalities let you:
 
 * [Run %instance% locally](#ide-plugin-run-qodana)
-* [Connect to Qodana Cloud](#ide-plugin-connect-cloud)
+* [Connect to %cloud%](#ide-plugin-connect-cloud)
 * [Configure %instance% for running in a CI pipeline](#ide-plugin-cicd)
 * [Open a report from local storage](#ide-plugin-local-report)
 * [Examine %instance% reports in your IDE](#ide-plugin-study-reports)
 
 ## UI overview
 
-In your IDE, navigate to <ui-path>Tools | Qodana</ui-path>.
+In your IDE, navigate to <ui-path>Tools | %product%</ui-path>.
 
 <img src="ide-plugin-intro-menu.png" dark-src="ide-plugin-intro-menu_dark.png" width="706" alt="The Qodana menu" border-effect="line"/>
 
@@ -24,7 +24,7 @@ You can also have access to %instance% using the **Problems | Server-Side Analys
 ## Run %instance% locally
 {id="ide-plugin-run-qodana"}
 
-You can run %instance% locally and then forward inspection reports to [Qodana Cloud](https://qodana.cloud) for storage and analysis purposes.
+You can run %instance% locally and then forward analysis reports to [%cloud%](https://qodana.cloud) for storage and analysis purposes.
 
 <procedure>
 <step>
@@ -34,7 +34,7 @@ You can run %instance% locally and then forward inspection reports to [Qodana Cl
    <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
       <list>
         <li>Options used by %product% in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
-         <li>The <a href="cloud-forward-reports.topic"><ui-path>Send inspection results to Qodana Cloud</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
+         <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
          <li>The <a href="qodana-yaml.md"><ui-path>Save qodana.yaml in project root</ui-path></a> option</li>
          <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline</li>
       </list>
@@ -42,14 +42,14 @@ You can run %instance% locally and then forward inspection reports to [Qodana Cl
     <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
 </step>
 <step>
-   <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+   <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>
 </step>
 </procedure>
 
-## Connect to Qodana Cloud
+## Connect to %cloud%
 {id="ide-plugin-connect-cloud"}
 
-You can log in to Qodana Cloud and connect your project opened in the IDE to a specific Qodana Cloud [project](cloud-projects.topic) to get the 
+You can log in to %cloud% and connect your project opened in the IDE to a specific %cloud% [project](cloud-projects.topic) to get the 
 latest %instance% report and view it.
 
 <procedure>
@@ -60,29 +60,29 @@ latest %instance% report and view it.
       <p>
          On the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
       </p>
-      <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to Qodana Cloud" border-effect="line"/>
+      <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to %cloud%" border-effect="line"/>
    <p>This will redirect you to the authentication page.</p>
    </step>
    <step>
-      <p>Select the <a href="cloud-projects.topic">Qodana Cloud project</a> to link your local project with.</p>
-      <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
+      <p>Select the <a href="cloud-projects.topic">%cloud% project</a> to link your local project with.</p>
+      <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to %cloud%" border-effect="line"/>
    </step>
    <step>
-        <p>By enabling the <ui-path>Always load most relevant Qodana report</ui-path> option, you can get actual reports automatically retrieved from Qodana Cloud.</p>
+        <p>By enabling the <ui-path>Always load most relevant Qodana report</ui-path> option, you can get actual reports automatically retrieved from %cloud%.</p>
       <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-        <p>In this case, the IDE will search and fetch from Qodana Cloud the report with the revision ID corresponding to the 
+        <p>In this case, the IDE will search and fetch from %cloud% the report with the revision ID corresponding to the 
         current revision ID (HEAD). If this report was not found, the IDE will select the previous report with the revision
-        closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
+        closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from %cloud%.</p>
     </step> 
     <step>
-       <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">inspection results</a>.</p>
+       <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>
     </step>
 </procedure>
 
 ## Configure %instance% for CI
 {id="ide-plugin-cicd"}
 
-After logging in to [Qodana Cloud](https://qodana.cloud), you can configure %instance% in your CI pipelines.
+After logging in to [%cloud%](https://qodana.cloud), you can configure %instance% in your CI pipelines.
 
 <note>Depending on the %instance% <a href="pricing.md">license</a>, you will need to generate and use the 
 <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>. To learn more about project tokens, see
@@ -101,7 +101,7 @@ the <a href="project-token.md"/> section.</note>
 ## Open a local report
 {id="ide-plugin-local-report"}
 
-You can open and review [SARIF-formatted %instance% reports](qodana-sarif-output.md) in your IDE. 
+You can open and review [SARIF-formatted %instance% reports](qodana-inspection-output.md#SARIF+Output) in your IDE. 
 
 <snippet id="ide-open-local-report">
 <procedure>
@@ -112,7 +112,7 @@ You can open and review [SARIF-formatted %instance% reports](qodana-sarif-output
         <p>Select the SARIF-formatted report file you would like to open.</p>
    </step>
    <step>
-      <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view inspection results.</p>
+      <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view analysis results.</p>
    </step>
 </procedure>
 </snippet>
@@ -143,16 +143,16 @@ This table describes each button from top to bottom:
    </tr>
    <tr>
       <td><ui-path>Refresh Report</ui-path></td>
-      <td>Download the updated version of the report from Qodana Cloud. This requires that you first link your project with Qodana Cloud</td>
+      <td>Download the updated version of the report from %cloud%. This requires that you first link your project with %cloud%</td>
    </tr>
     <tr>
       <td><ui-path>Log in to Qodana / Logged in to Qodana</ui-path></td>
-      <td>Log in Qodana Cloud, or log out. This action is a prerequisite for linking your project with Qodana Cloud-based reports
+      <td>Log in %cloud%, or log out. This action is a prerequisite for linking your project with %cloud%-based reports
     </td>
    </tr>
    <tr>
       <td><ui-path>Link project with Cloud / Linked with Cloud</ui-path></td>
-      <td>Link your project with a specific Qodana Cloud-based project, or unlink it. This requires that you first log in to Qodana Cloud </td>
+      <td>Link your project with a specific %cloud%-based project, or unlink it. This requires that you first log in to %cloud% </td>
    </tr>
    <tr>
       <td><ui-path>View Options</ui-path></td>
@@ -174,7 +174,7 @@ selected, the issues are listed in the order they appear in the file. You can al
    </tr>
    <tr>
       <td><ui-path>Show Qodana in Browser</ui-path></td>
-      <td>Open the inspection report using your default browser</td>
+      <td>Open the analysis report using your default browser</td>
    </tr>
    <tr>
       <td><ui-path>Other</ui-path></td>

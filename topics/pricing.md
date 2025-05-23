@@ -187,7 +187,7 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 
 The Community license is free to use, though its functionality is limited only to the Community versions of Qodana 
 linters. Furthermore, it lacks many helpful [features](features.topic) that are available in the paid versions and 
-only offers a limited period for [data storage](#pricing-data-storage) in Qodana Cloud.
+only offers a limited period for [data storage](#pricing-data-storage) in %cloud%.
 
 The trial versions of the Ultimate or Ultimate Plus licenses are limited to a 60-day trial period. After the trial 
 license expires, you'll have to purchase either the Ultimate or the Ultimate Plus license to continue using Qodana.
@@ -196,7 +196,7 @@ You can review the [%instance% Terms of Service](https://www.jetbrains.com/legal
 
  ## Frequently asked questions
 
-<!-- This needs to be grouped by licenses and Qodana Cloud -->
+<!-- This needs to be grouped by licenses and %cloud% -->
 
 ### What do I need to start using Qodana?
 {id="faq-start-using-qodana"}
@@ -205,15 +205,15 @@ You can review the [%instance% Terms of Service](https://www.jetbrains.com/legal
 website and select the subscription option you would like to use. 
 
 If you choose the Ultimate or Ultimate Plus trial license, you will be redirected to the 
-[project setup](set-up-your-project.md) page of Qodana Cloud. This is also applicable for the Community license.
+[project setup](set-up-your-project.md) page of %cloud%. This is also applicable for the Community license.
 
 If you plan to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to the JetBrains account 
 page for payment details. After the payment, you will be redirected to the [project setup](set-up-your-project.md) page of 
-Qodana Cloud.  
+%cloud%.  
 
-2. During the onboarding stage, Qodana Cloud will generate a public key that will be 
+2. During the onboarding stage, %cloud% will generate a public key that will be 
 identified by %instance%, as well as a project token for uploading %instance% reports to your first project.
-Although the Community license does not require a Qodana Cloud account, it will be more convenient to use Qodana Cloud
+Although the Community license does not require a %cloud% account, it will be more convenient to use %cloud%
 in this case too.
 
 <note>The Community license provides restricted functionalities compared to the Ultimate and Ultimate Plus licenses. See
@@ -230,27 +230,27 @@ Yes, you’ll be notified when the trial period expires.
 
 After its expiry, you’ll need to buy either the Ultimate or Ultimate Plus license. Expired trial licenses cannot be extended.
 
-### What are %instance% linters and Qodana Cloud designed for?
+### What are %instance% linters and %cloud% designed for?
 
-Both %instance% linters and Qodana Cloud are essential parts of the product named %instance%. You can inspect your codebase
-using %instance% linters, and you can use Qodana Cloud for managing your projects and licenses, as well as collecting
-%instance% reports in a single place. For more details, see the [](cloud-use-cases.topic) page of the Qodana Cloud
+Both %instance% linters and %cloud% are essential parts of the product named %instance%. You can analyze your codebase
+using %instance% linters, and you can use %cloud% for managing your projects and licenses, as well as collecting
+%instance% reports in a single place. For more details, see the [](cloud-use-cases.topic) page of the %cloud%
 documentation.
 
-### Can I use %instance% linters without creating a Qodana Cloud account?
+### Can I use %instance% linters without creating a %cloud% account?
 {id="pricing-linters-without-creating-cloud-account"}
 
-If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account in Qodana Cloud and complete
+If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account in %cloud% and complete
 the [project setup](set-up-your-project.md) stage. For more details, see [the first question](#faq-start-using-qodana) in
 this section.
 
-You can run %instance% linters available under the Community license without using Qodana Cloud, but there are no obstacles
-to using Qodana Cloud in this case. 
+You can run %instance% linters available under the Community license without using %cloud%, but there are no obstacles
+to using %cloud% in this case. 
 
 ### Do I need to provide payment details for a trial license?
 
 No, you don’t have to provide any payment details until you decide to buy a license for either the Ultimate or Ultimate 
-Plus version of Qodana, which you can do after the trial period ends.
+Plus version of %product%, which you can do after the trial period ends.
 
 ### Can I switch between licenses?
 
@@ -270,7 +270,7 @@ the unlimited number of times. In this case, however, all purchased subscription
 ### What are the license costs comprised of?
 
 The total license cost is based on the number of active contributors. An active contributor is a person who commits 
-to any number of Qodana Cloud projects during the latest 90 days, within the same organization, and under a single 
+to any number of %cloud% projects during the latest 90 days, within the same organization, and under a single 
 license. During the [project setup](set-up-your-project.md) stage and while creating a new [project](cloud-projects.topic), Qodana 
 Cloud requests your repository URL to calculate contributors. The minimal number of contributors used for licensing is three. 
 
@@ -324,19 +324,19 @@ subscription period (excess usage).
 No refunds or credits will be issued if the number of active contributors during a month is lower than
 the prepaid limit.
 
-### Where does Qodana store all license information?
+### Where does %product% store all license information?
 
-Qodana Cloud stores all information about your Ultimate and Ultimate Plus licenses. This explains why you need to 
-create a Qodana Cloud account before running Qodana. Apart from this functionality, Qodana Cloud provides several other 
+%cloud% stores all information about your Ultimate and Ultimate Plus licenses. This explains why you need to 
+create a %cloud% account before running %product%. Apart from this functionality, %cloud% provides several other 
 [helpful features](cloud-use-cases.topic).
 
-### Which minimum steps do I need to perform in Qodana Cloud?
+### Which minimum steps do I need to perform in %cloud%?
 
-All the required steps are described in the [Quick start](cloud-quickstart.md) section of the Qodana Cloud documentation.
+All the required steps are described in the [Quick start](cloud-quickstart.md) section of the %cloud% documentation.
 
 ### Are there any restrictions on using the Community license?
 
-No, you can use the Community version of Qodana in any open-source or proprietary projects.
+No, you can use the Community version of %product% in any open-source or proprietary projects.
 
 ### What is the difference between the Ultimate and Ultimate Plus licenses?
 

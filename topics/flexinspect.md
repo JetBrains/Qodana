@@ -22,7 +22,7 @@ IntelliJ IDEA and %product% inspections. This allows you to run these inspection
 to ensure that your entire team follows the standards defined by you.
 
 You can develop local inspections that run within a file scope and global inspections that run within a project scope
-as described in the [](qodana-ide-plugin.md#ide-plugin-run-qodana) section, and you can even inspect your code
+as described in the [](qodana-ide-plugin.md#ide-plugin-run-qodana) section, and you can even analyze your code
 in [CI pipelines](ci.md). Currently, %feature% supports any language covered by IntelliJ IDEA either natively or through 
 additional plugins. For example, Java, Kotlin, JavaScript, TypeScript, PHP, Go, Python, Ruby, SQL, XML, CSS, YAML, JSON, Shell, 
 and Dockerfile are supported. 
@@ -68,7 +68,7 @@ you would like to view with the **PSI Viewer**, and then navigate to **Tools | V
 
 With IntelliJ IDEA, you can create both local and global inspections.
 
-Local inspections operate on the file level and inspect each file of your project individually. 
+Local inspections operate on the file level and analyze each file of your project individually. 
 Once you create a local inspection, IntelliJ IDEA will run it on any file opened in the editor.
 
 Global inspections operate on the project level and use the project scope as a basis for inspection. For example, you can create 
@@ -77,7 +77,7 @@ section of the documentation for more information about how to run global inspec
 
 ## How to start
 
-This section shows how to create an example inspection that will inspect whether a Java class has a constructor method.
+This section shows how to create an example inspection that will analyze whether a Java class has a constructor method.
 
 ### Create an inspection file
 
@@ -208,7 +208,7 @@ If your custom inspection conflicts with a %product% inspection, and you would s
 
 %feature% is supported by the [default inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles).
 
-To inspect your entire project with the new inspection locally, run %product% as explained in the 
+To analyze your entire project with the new inspection locally, run %product% as explained in the 
 [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
 
 <img src="flexinspect-run-qodana-locally.gif" width="881" alt="Running Qodana locally with a new inspection" border-effect="line"/>

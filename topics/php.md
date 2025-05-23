@@ -44,7 +44,7 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="php-before-you-start"}
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>
 

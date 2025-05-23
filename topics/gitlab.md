@@ -19,7 +19,7 @@ section explains how you can run the %instance% Scan GitLab Pipeline [component]
 
 ## Before you start
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -238,10 +238,10 @@ include:
 
 ## Expose Qodana reports
 
-<link-summary>To make a report available in any given merge request without using Qodana Cloud, you can change the path 
+<link-summary>To make a report available in any given merge request without using %cloud%, you can change the path 
 to the artifacts.</link-summary>
 
-To make a report available in any given merge request without using Qodana Cloud,
+To make a report available in any given merge request without using %cloud%,
 you can use the `upload-result` keyword and specify the artifact name using the 
 `artifact-name` keyword, for example:
 
@@ -291,7 +291,7 @@ that contain problems along with their description and recommendations for impro
 Starting from version 2024.1 of %product%, you can use the merge request UI of GitLab CI/CD to view specific lines of 
 code that contain problems along with their description and recommendations for improvement. 
 
-To implement this feature, %product% generates JSON-formatted inspection reports supported by 
+To implement this feature, %product% generates JSON-formatted analysis reports supported by 
 [Code Quality](https://docs.gitlab.com/ee/ci/testing/code_quality.html) and contained in the `gl-code-quality-report.json` file. 
 
 By default, this feature is configured to `true`, so you do not need to make any additional settings. If necessary, 

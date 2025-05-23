@@ -25,8 +25,8 @@
         <note>You can skip the prerequisites if you would like to run %instance% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a>.</note>
 
         <p>Depending on your %instance% <a href="pricing.md">license</a>, you probably need to obtain a trial license and complete
-            the <a href="set-up-your-project.md">project setup</a> stage in Qodana Cloud.</p>
-        <p>To run %instance% in the CLI and GitHub, you will be using a project token available after creating a Qodana Cloud
+            the <a href="set-up-your-project.md">project setup</a> stage in %cloud%.</p>
+        <p>To run %instance% in the CLI and GitHub, you will be using a project token available after creating a %cloud%
             <a href="cloud-projects.topic">project</a>. To learn more about it, see the <a href="project-token.md"/> section.</p>
 
     </chapter>
@@ -49,12 +49,12 @@
                 <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
                 <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try locally</ui-path> button to start %product%.</step>
                 <step>
-                    On the <ui-path>Server-Side Analysis</ui-path> tab, you can view inspection results. It
+                    On the <ui-path>Server-Side Analysis</ui-path> tab, you can view analysis results. It
                         also contains two links in the upper part of the tab.
                     <img src="quickstart-run-in-ide-report-links.png" width="706" alt="Links on the Server-Side Analysis tab" border-effect="line"/>
         <tabs>
             <tab title="Open Qodana report in browser" id="quickstart-open-report-in-browser">
-                <p>Open the inspection report in your browser.</p>
+                <p>Open the analysis report in your browser.</p>
                 <img src="quickstart-run-in-ide-report.png" dark-src="quickstart-run-in-ide-report_dark.png" width="706" alt="Qodana report" border-effect="line"/>
             </tab>
             <tab title="Add Qodana to CI/CD pipeline" id="quickstart-add-qodana-to-cicd">
@@ -228,12 +228,12 @@
                             <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
                     </step>
                     <step>
-                        <p>Navigate to your <a href="https://qodana.cloud">Qodana Cloud</a> account to see inspection results.</p>
+                        <p>Navigate to your <a href="https://qodana.cloud">%cloud%</a> account to see analysis results.</p>
                     </step>
                 </procedure>
             </tab>
         </tabs>
-        <tip>Depending on your tasks, you can configure %instance% as explained on the <a href="configure-qodana.topic"/> page.</tip>
+        <tip>Depending on your tasks, you can configure %instance% as explained on the <a href="configure-qodana.md"/> page.</tip>
     </chapter>
 
     <chapter title="Run Qodana on GitHub" id="quickstart-run-in-github">
@@ -256,9 +256,9 @@
 
     <chapter title="Next steps" id="quick-start-next-steps">
         <list>
-            <li><a href="cloud-overview-reports.topic">Review inspection results using Qodana Cloud</a></li>
+            <li><a href="cloud-overview-reports.topic">Review analysis results using %cloud%</a></li>
             <li><a href="custom-profiles.md">Configure %instance% profiles</a></li>
-            <li><a href="qodana-ide-plugin.md">Use JetBrains IDEs to inspect your code</a></li>
+            <li><a href="qodana-ide-plugin.md">Use JetBrains IDEs to analyze your code</a></li>
             <li><a href="ci.md">Build %instance% into your CI pipelines</a></li>
             <li><a href="docker-image-configuration.topic">Configure %product%</a></li>
         </list>

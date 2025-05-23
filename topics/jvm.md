@@ -56,7 +56,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 Before running %instance%, you may need to [configure the JDK](configure-jdk.md) for your project.
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,jvm"/>
 

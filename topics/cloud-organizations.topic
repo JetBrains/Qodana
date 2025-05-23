@@ -8,16 +8,16 @@
 
     <show-structure for="chapter" depth="3"/>
 
-    <link-summary>Organizations provide top-level structuring of all entities in Qodana Cloud. Every organization is
+    <link-summary>Organizations provide top-level structuring of all entities in %cloud%. Every organization is
         created on the basis of a specific JetBrains account.</link-summary>
 
-    <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">Qodana Cloud</a>.
+    <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">%cloud%</a>.
     Every organization is created on the basis of a specific JetBrains account. Depending on your choice, it will be either
         private or public.
-        Every account in Qodana Cloud is based on the organization that becomes its default organization.
+        Every account in %cloud% is based on the organization that becomes its default organization.
     </p>
 
-    <p>You can navigate between organizations using the list in the upper left part of the Qodana Cloud UI.</p>
+    <p>You can navigate between organizations using the list in the upper left part of the %cloud% UI.</p>
 
     <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" preview-src="qc-settings-organization-navigate-between.png"/>
 
@@ -25,7 +25,7 @@
 
         <p>You can create private or public organizations. Reports stored in private organizations are accessible only
             by a user who created an organization and users who were invited to them.
-            Reports stored in public organizations are available for all Qodana Cloud users, including unauthorized users with the
+            Reports stored in public organizations are available for all %cloud% users, including unauthorized users with the
             <a href="cloud-user-roles.md">viewer role</a>. </p>
 
         <p>Each organization is created on the basis of a specific <a href="cloud-get-access.topic">JetBrains account</a>.</p>
@@ -69,7 +69,7 @@
             <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization.</li>
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
-            <!--<li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for Qodana Cloud.</li>-->
+            <!--<li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>-->
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
@@ -82,7 +82,7 @@
 
         <chapter id="cloud-organizations-invitation" title="Organization membership">
 
-            <link-summary>Explore how you can manage membership in your Qodana Cloud organization.</link-summary>
+            <link-summary>Explore how you can manage membership in your %cloud% organization.</link-summary>
 
             <p>Within your organization, you can:</p>
 
@@ -92,7 +92,7 @@
                 <li>Exclude members from your organization.</li>
             </list>
 
-            <!--<note>Members created and configured through <a href="cloud-sso.md">JetBrains Hub</a> cannot be modified or deleted in Qodana Cloud UI.</note>-->
+            <!--<note>Members created and configured through <a href="cloud-sso.md">JetBrains Hub</a> cannot be modified or deleted in %cloud% UI.</note>-->
 
             <procedure>
                 <step>

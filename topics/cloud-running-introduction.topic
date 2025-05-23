@@ -4,11 +4,11 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Qodana Cloud components" id="cloud-running-introduction">
+	title="%cloud% components" id="cloud-running-introduction">
 
-    <link-summary>Learn the components Qodana Cloud consists of.</link-summary>
+    <link-summary>Learn the components %cloud% consists of.</link-summary>
 
-    <p>The basic entity in <a href="https://qodana.cloud">Qodana Cloud</a> is an organization. Every Qodana Cloud user
+    <p>The basic entity in <a href="https://qodana.cloud">%cloud%</a> is an organization. Every %cloud% user
         creates and becomes an organization member and can later create additional organizations. </p>
     <p>Each organization can contain several teams, where each team provides unified access to projects for its team
         members. If you run the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
@@ -16,6 +16,6 @@
         only one team in your organization.</p>
     <p>Each project contains the results of inspection carried out by %instance% over a specific codebase.</p>
 
-    <img src="qc-running-introduction.png" dark-src="qc-running-introduction_dark.png" width="706" alt="Qodana Cloud entity hierarchy" border-effect="line"/>
+    <img src="qc-running-introduction.png" dark-src="qc-running-introduction_dark.png" width="706" alt="%cloud% entity hierarchy" border-effect="line"/>
 
 </topic>

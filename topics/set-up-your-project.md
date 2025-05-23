@@ -1,4 +1,4 @@
-# Set up your project in Qodana Cloud
+# Set up your project in %cloud%
 
 
 <link-summary>
@@ -6,7 +6,7 @@ Learn how you prepare your project for using %product%.
 </link-summary>
 
 Before running Qodana, you need to create a new [organization](cloud-organizations.topic) and
-[project](cloud-projects.topic) in [Qodana Cloud](https://qodana.cloud). This setup process will guide you through 
+[project](cloud-projects.topic) in [%cloud%](https://qodana.cloud). This setup process will guide you through 
 configuring your project for various [CI/CD pipelines](ci.md) and local execution using [Qodana CLI](https://github.com/JetBrains/qodana-cli) or 
 [JetBrains IDEs](qodana-ide-plugin.md), and will generate a [project token](project-token.md) required by Qodana linters. Additionally, 
 %product% requires a connection to your repositories to track [active contributors](contributors.md), as specified by our 
@@ -21,7 +21,7 @@ To provide correct work of the contributor counting functionality, add the IP ad
 {style="note"}
 
 If you plan to run the [Qodana Scan](github.md) GitHub action on a GitHub-hosted repository, you will need to authorize the 
-`Qodana Cloud` GitHub App during the project setup. If you do not have access to the repository you intend to analyze, 
+`%cloud%` GitHub App during the project setup. If you do not have access to the repository that you intend to analyze, 
 request the necessary access and wait for approval before proceeding. In other cases, you will receive instructions and 
 configuration snippets that will help you start %product% in your project. 
 

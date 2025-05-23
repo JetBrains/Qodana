@@ -16,14 +16,14 @@
 
     <snippet id="license-audit-tab">
 
-        <p filter="license-audit">To view license audit results, in the inspection report click the <ui-path>License audit</ui-path> tab.</p>
+        <p filter="license-audit">To view license audit results, in the analysis report click the <ui-path>License audit</ui-path> tab.</p>
 
         <p filter="ui-overview">The <ui-path>License audit</ui-path> tab provides results of inspection by the
             <a href="license-audit.topic">license audit</a> feature. </p>
 
         <img src="license-audit-overview-tree.png" dark-src="license-audit-overview-tree_dark.png" width="706" alt="The dependency tree" border-effect="line"/>
 
-        <p>License audit inspection results are grouped into a dependency tree.</p>
+        <p>License audit analysis results are grouped into a dependency tree.</p>
 
         <list type="decimal">
             <li>If applicable, you can expand a specific dependency to see its dependency tree.</li>
@@ -43,8 +43,8 @@
                 <a href="dotnet.md">%dotnet%</a> linters.</li>
             <li><a href="deploy-qodana.md" anchor="Docker+images">Docker images</a> let you inspect
                 <a href="Quick-start.topic">local projects</a> and build %instance% into your CI/CD pipelines.</li>
-            <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %instance%, connect to Qodana Cloud, open and review inspection reports.</li>
-            <li><a href="vscode.md">Qodana extension</a> for Visual Studio Code lets you retrieve reports from Qodana Cloud and review inspection reports.</li>
+            <li><a href="qodana-ide-plugin.md">JetBrains IDEs</a> let you run %instance%, connect to %cloud%, open and review analysis reports.</li>
+            <li><a href="vscode.md">Qodana extension</a> for Visual Studio Code lets you retrieve reports from %cloud% and review analysis reports.</li>
             <li><a href="ci.md">Integration tools</a> include applications for seamless integration with CI/CD systems
                 like GitHub and TeamCity, and guides for configuring %instance% Docker images for CI/CD. </li>
             <li><a href="deploy-qodana.md" anchor="Gradle+plugin"/> provides the Gradle interface for running %instance% in IntelliJ IDEA.</li>
@@ -294,11 +294,11 @@
             <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
                 <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
                 and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
-                If you are using a Qodana Cloud instance other than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.
+                If you are using a %cloud% instance other than <code>https://qodana.cloud/</code>, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.
             </step>
             <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
                 <code>.github/workflows/code_quality.yml</code> file.</step>
-            <step>To inspect the <code>main</code> and <code>master</code> branches, as well as release branches and the
+            <step>To analyze the <code>main</code> and <code>master</code> branches, as well as release branches and the
                 pull requests coming to your repository, save this workflow configuration to the
                 <code>.github/workflows/code_quality.yml</code> file:
                 <code-block lang="yaml">
@@ -338,7 +338,7 @@
             <tr>
                 <td>IDE severity</td>
                 <td filter="for-report">SARIF severity</td>
-                <td filter="for-profile"><a href="qodana-sarif-output.md">SARIF</a> severity</td>
+                <td filter="for-profile"><a href="qodana-inspection-output.md" anchor="SARIF+severity">SARIF</a> severity</td>
                 <td><a href="ui-overview.md">Qodana report</a> severity</td>
                 <td><a href="https://docs.codeclimate.com/docs/getting-started-with-code-climate">Code Climate</a> severity</td>
                 <td>Bitbucket severity</td>
@@ -419,7 +419,7 @@
         <p>The <code>image</code> block specifies the %instance% <a href="linters.md">linter</a> that will be invoked in the pipeline.</p>
 
         <p>The <code>script</code> block contains the <code>- export QODANA_TOKEN=$QODANA_TOKEN</code> line that specifies the
-            <a href="project-token.md">project token</a> required by Qodana Cloud and saved as the <code>$QODANA_TOKEN</code>
+            <a href="project-token.md">project token</a> required by %cloud% and saved as the <code>$QODANA_TOKEN</code>
             <a href="https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/#Secured-variables">variable</a>.
             The <code>- qodana ...</code> line in this block tells Bitbucket which directories to use while running
             the pipeline, and it can also contain %instance% <a href="docker-image-configuration.topic">options</a>.
@@ -464,7 +464,7 @@
                         You can leave this field empty if the <code>Checkout directory</code> parameter is specified on the <ui-path>Version Control Settings</ui-path> tab.
                     </li>
                     <li>
-                        <ui-path>Report ID</ui-path> uniquely identifies the report to let you distinguish between multiple reports when several inspection steps are configured within a single build.
+                        <ui-path>Report ID</ui-path> uniquely identifies the report to let you distinguish between multiple reports when several analysis steps are configured within a single build.
                     </li>
                     <li>
                         The <ui-path>Forward reports to TeamCity tests</ui-path> checkbox configures %instance% report availability in
@@ -488,7 +488,7 @@
                                 make sure that you also configure the custom profile in the <a href="inspection-profiles.md" anchor="inspection-profiles-yaml-file"><code>qodana.yaml</code></a> file.</li>
                         </list>
                     </li>
-                    <li><ui-path>Cloud Token</ui-path> configures a <a href="project-token.md">project token</a> generated in Qodana Cloud. </li>
+                    <li><ui-path>Cloud Token</ui-path> configures a <a href="project-token.md">project token</a> generated in %cloud%. </li>
                     <li>
                         <ui-path>Additional Docker arguments</ui-path> configure the arguments accepted by a Docker image, see the <a href="docker-image-configuration.topic"/> section for details.
                     </li>
@@ -564,12 +564,12 @@
     </snippet>
 
     <snippet id="before-start-qodana-cloud">
-        <note filter="python">The %qp% linter requires a Qodana Cloud <a href="project-token.md">project token</a>.</note>
-        <note filter="jvm">The %qp% and %qp-an% linters require a Qodana Cloud <a href="project-token.md">project token</a>.</note>
-        <p filter="generic">Because the %qp% linter requires a Qodana Cloud <a href="project-token.md">project token</a> for
+        <note filter="python">The %qp% linter requires a %cloud% <a href="project-token.md">project token</a>.</note>
+        <note filter="jvm">The %qp% and %qp-an% linters require a %cloud% <a href="project-token.md">project token</a>.</note>
+        <p filter="generic">Because the %qp% linter requires a %cloud% <a href="project-token.md">project token</a> for
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
         these steps to get it:</p>
-        <p filter="clang">Because the %qdcpp% linter requires a Qodana Cloud <a href="project-token.md">project token</a> for
+        <p filter="clang">Because the %qdcpp% linter requires a %cloud% <a href="project-token.md">project token</a> for
             identifying and verifying a <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>, follow
             these steps to get it:</p>
         <p filter="jvm">Depending on the specific linter you're using, you may need to get a project token that will be used by %product% for identifying and verifying a
@@ -578,10 +578,10 @@
             <a href="pricing.md" anchor="pricing-linters-without-creating-cloud-account">license</a>. To do this, follow these steps:</p>
         <procedure>
             <step>
-                Navigate to <a href="https://qodana.cloud">Qodana Cloud</a> and create an <a href="cloud-quickstart.md">account</a> there.
+                Navigate to <a href="https://qodana.cloud">%cloud%</a> and create an <a href="cloud-quickstart.md">account</a> there.
             </step>
             <step>
-                In Qodana Cloud, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>,
+                In %cloud%, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>,
                 and a <a href="cloud-projects.topic">project</a>.
             </step>
             <step>
@@ -801,7 +801,7 @@
                             </step>
                             <step>
                                 <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
-                                <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                                <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
                                     to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                                 <code-block lang="yaml">
                                     name: Qodana
@@ -834,7 +834,7 @@
                     </tab>
                     <tab title="GitHub Actions" group-key="github">
                         <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
-                        <p>To inspect the <code>main</code> branch, release branches and the pull requests coming
+                        <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
                             to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                         <code-block lang="yaml">
                             name: Qodana
@@ -895,8 +895,8 @@
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
                             </code-block>
-                            <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
-                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                            <p>If you are using another %cloud% instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
+                            <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                                 reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </step>
                     </procedure>
@@ -908,9 +908,9 @@
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                             &nbsp;&nbsp;&nbsp;--ide %native-arg%
                         </code-block>
-                        <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
+                        <p>If you are using another %cloud% instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
                         <include from="lib_qd.topic" element-id="linters-linter-table"/>
-                        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                             reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                     </tab>
                 </tabs>
@@ -1158,8 +1158,8 @@
                                 </code-block>
                             </tab>
                         </tabs>
-                        <p>If you are using another Qodana Cloud instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
-                        <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                        <p>If you are using another %cloud% instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
+                        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                             reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                     </tab>
                 </tabs>
@@ -1183,8 +1183,8 @@
                                 <td>In the text field, you can set up code analysis used by Qodana in this file. You can learn more about available <a href="qodana-yaml.md">configuration options</a></td>
                             </tr>
                             <tr>
-                                <td>The <ui-path>Send inspection results to Qodana Cloud</ui-path> option</td>
-                                <td>If you want to <a href="cloud-forward-reports.topic">send reports to Qodana Cloud</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">Qodana Cloud</a></td>
+                                <td>The <ui-path>Send analysis results to %cloud%</ui-path> option</td>
+                                <td>If you want to <a href="cloud-forward-reports.topic">send reports to %cloud%</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">%cloud%</a></td>
                             </tr>
                             <tr>
                                 <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
@@ -1198,7 +1198,7 @@
                         <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
                     </step>
                     <step>
-                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
                     </step>
                 </procedure>
             </tab>
@@ -1209,7 +1209,7 @@
 
         <tabs group="software">
             <tab title="%ide%" group-key="ides">
-                <p>You can load the latest %instance% report from Qodana Cloud to %ide% as explained below.</p>
+                <p>You can load the latest %instance% report from %cloud% to %ide% as explained below.</p>
                 <procedure>
                     <step>
                         <p>In %ide%, navigate to <ui-path>Tools | Qodana | Log in to Qodana</ui-path>.</p>
@@ -1218,30 +1218,30 @@
                         <p>
                             On the <ui-path>Settings</ui-path> dialog, click <ui-path>Log in</ui-path>.
                         </p>
-                        <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to Qodana Cloud" border-effect="line"/>
+                        <img src="ide-plugin-connect-1.png" dark-src="ide-plugin-connect-1_dark.png" width="706" alt="Connecting to %cloud%" border-effect="line"/>
                         <p>This will redirect you to the authentication page.</p>
                     </step>
                     <step>
-                        <p>Select the <a href="cloud-projects.topic">Qodana Cloud project</a> to link your local project with.</p>
-                        <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to Qodana Cloud" border-effect="line"/>
+                        <p>Select the <a href="cloud-projects.topic">%cloud% project</a> to link your local project with.</p>
+                        <img src="ide-plugin-connect-2.png" dark-src="ide-plugin-connect-2_dark.png" width="706" alt="Linking the project to %cloud%" border-effect="line"/>
                     </step>
                     <step>
                         <p>If you check the <ui-path>Always load most relevant Qodana report</ui-path> option, you will
-                            be able to receive the most actual and relevant reports from Qodana Cloud.</p>
+                            be able to receive the most actual and relevant reports from %cloud%.</p>
                         <img src="ide-plugin-connect-3.png" dark-src="ide-plugin-connect-3_dark.png" width="706" alt="Enabling to load the most relevant reports" border-effect="line"/>
-                        <p>In this case, the IDE will search Qodana Cloud and fetch the report with the revision ID
+                        <p>In this case, the IDE will search %cloud% and fetch the report with the revision ID
                             corresponding to the current revision ID (HEAD). If this report is not found, the IDE will
                             select the previous report with the revision ID closest to the current revision ID (HEAD).
-                            Otherwise, the IDE retrieves the latest available report from Qodana Cloud.</p>
+                            Otherwise, the IDE retrieves the latest available report from %cloud%.</p>
                     </step>
                     <step>
                         <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
                     </step>
                 </procedure>
             </tab>
-            <tab title="Qodana Cloud" group-key="cloud">
-                <p>After %product% analyzed your project and uploaded the analysis results to Qodana Cloud, in
-                    <a href="https://qodana.cloud">Qodana Cloud</a> navigate to your project and review the analysis results report.</p>
+            <tab title="%cloud%" group-key="cloud">
+                <p>After %product% analyzed your project and uploaded the analysis results to %cloud%, in
+                    <a href="https://qodana.cloud">%cloud%</a> navigate to your project and review the analysis results report.</p>
                 <img filter="php" src="qc-report-example-php.png" alt="Analysis report example" width="720" border-effect="line"/>
                 <img filter="js" src="qc-report-example-js.png" alt="Analysis report example" width="720" border-effect="line"/>
                 <img filter="golang" src="qc-report-example-golang.png" alt="Analysis report example" width="720" border-effect="line"/>
@@ -1267,7 +1267,7 @@
         </list>
 
         <p>You can customize %product% profiles using configurations in <a href="custom-profiles.md">YAML</a> and
-            <a href="custom-xml-profiles.md">XML</a> formats. To learn more about configuration basics, visit the
+            <a href="custom-profiles.md" anchor="Custom+XML+profiles">XML</a> formats. To learn more about configuration basics, visit the
             <a href="override-a-profile.md"/> section of the documentation.
         </p>
 
@@ -1402,7 +1402,7 @@
                                   &nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                                   &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                               </code-block>
-                              <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                              <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                                   reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                           </step>
                       </procedure>
@@ -1418,7 +1418,7 @@
                           &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                       </code-block>
                       <include from="lib_qd.topic" element-id="linters-linter-table"/>
-                <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                   reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                   </tab>
               </tabs>
@@ -1857,7 +1857,7 @@
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
-                            <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                            <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                                 reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </step>
                     </procedure>
@@ -1872,7 +1872,7 @@
                           &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                       </code-block>
                       <include from="lib_qd.topic" element-id="linters-linter-table"/>
-                <p>In your browser, open <a href="https://qodana.cloud">Qodana Cloud</a> to examine the analysis results and
+                <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                   reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
               </tab>
             </tabs>
@@ -2058,18 +2058,18 @@
 </snippet>
     <snippet id="cicd-cloud-intro">
         <p>All configuration examples in this section use a <a href="project-token.md">project token</a> generated by
-            Qodana Cloud. This token is required for the paid %instance% <a href="pricing.md" anchor="pricing-linters-licenses">linters</a>
+            %cloud%. This token is required for the paid %instance% <a href="pricing.md" anchor="pricing-linters-licenses">linters</a>
             and optional for use with the Community linters. You can see these sections to learn how to generate the
-            project token in the Qodana Cloud UI:</p>
+            project token in the %cloud% UI:</p>
 
     <list>
-        <li>The <a href="set-up-your-project.md">project setup</a> section explains how to generate a project token when first working with Qodana Cloud.</li>
-        <li>The <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section explains how to create a project token within an existing Qodana Cloud organization.</li>
+        <li>The <a href="set-up-your-project.md">project setup</a> section explains how to generate a project token when first working with %cloud%.</li>
+        <li>The <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section explains how to create a project token within an existing %cloud% organization.</li>
     </list>
 
         <p>Once you obtain the project token, you can use the <code>QODANA_TOKEN</code> variable for identifying in a pipeline or workflow.</p>
 
-        <p>If you are using a Qodana Cloud instance other than <code>https://qodana.cloud/</code>, override it by setting
+        <p>If you are using a %cloud% instance other than <code>https://qodana.cloud/</code>, override it by setting
             the <code>QODANA_ENDPOINT</code> environment variable.</p>
 
     </snippet>

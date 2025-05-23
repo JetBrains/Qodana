@@ -97,7 +97,7 @@
 
     </chapter>
 
-    <chapter id="troubleshooting-whitelist" title="IP addresses required by Qodana Cloud">
+    <chapter id="troubleshooting-whitelist" title="IP addresses required by %cloud%">
 
         <p>To provide the correct work of the contributor counting functionality, add the IP address range
             54.76.32.8/32 to a list of allowed inbound connections on your side.</p>
@@ -146,7 +146,7 @@
         </code-block>
 
     </chapter>
-    <chapter id="troubleshooting-inspect-specific-directory" title="Inspect a specific project directory within a repository">
+    <chapter id="troubleshooting-inspect-specific-directory" title="Analyze a specific project directory within a repository">
 
         <link-summary>A typical project structure can have a directory structure explained in this section.</link-summary>
 
@@ -163,7 +163,7 @@
             the <code>repo/project</code> directory contains the project that needs to be inspected by %instance%. All
             these samples mount the <code>repo/project</code> directory using the
             <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--project-dir</code></a>
-            option, while the <code>QODANA_TOKEN</code> variable refers to the Qodana Cloud
+            option, while the <code>QODANA_TOKEN</code> variable refers to the %cloud%
             <a href="project-token.md">project token</a>:</p>
 
         <tabs>

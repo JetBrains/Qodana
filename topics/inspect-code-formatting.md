@@ -1,4 +1,4 @@
-[//]: # (title: Inspect code formatting)
+[//]: # (title: Analyze code formatting)
 
 You can use %product% to analyze whether your code adheres to correct formatting. Currently, %product% can analyze the
 IntelliJ IDEA, Eclipse, and EditorConfig code style schemes. 

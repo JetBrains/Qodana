@@ -10,18 +10,18 @@
     <var name="struct-search-replace" value="https://www.jetbrains.com/help/idea/structural-search-and-replace.html#to_search_structurally"/>
 
     <link-summary>Structural search is a powerful and flexible mechanism built into JetBrains IDEs. It employs
-    search templates to let you inspect the codebase taking into account its semantics. You can create your own search
+    search templates to let you analyze the codebase taking into account its semantics. You can create your own search
         templates and use them as %instance% inspections.</link-summary>
 
     <p><a href="https://www.jetbrains.com/help/idea/structural-search-and-replace.html">Structural search</a> is a
         powerful and flexible mechanism built into JetBrains IDEs. It employs
-        <a href="https://www.jetbrains.com/help/idea/search-templates.html">search templates</a> to let you inspect the
+        <a href="https://www.jetbrains.com/help/idea/search-templates.html">search templates</a> to let you analyze the
         codebase taking into account its semantics. You can create your own search templates and use them as
         %instance% inspections.</p>
 
     <chapter title="How it works" id="extending-qodana-structural-search-example">
 
-        <link-summary>Learn how you can create and use structural search templates to inspect your codebase using
+        <link-summary>Learn how you can create and use structural search templates to analyze your codebase using
             %product%.</link-summary>
 
         <p>As an example, consider this search template:</p>
@@ -72,7 +72,7 @@
                 </code-block>
             </step>
             <step>
-                <p>Inspect your code using %instance%:</p>
+                <p>Analyze your code using %instance%:</p>
                 <code-block lang="shell" prompt="$">
                     docker run \
                     -v &lt;project-directory&gt;:/data/project/ \
@@ -83,7 +83,7 @@
             <step>
                 <p>You can observe the problems detected by the structural search inspection under the
                     <ui-path>Structural search</ui-path> category in the %instance% report.</p>
-                <img src="extending-qodana-ss-inspection-report.png" dark-src="extending-qodana-ss-inspection-report_dark.png" alt="Observing the Structural Search inspection results" width="706" border-effect="line"/>
+                <img src="extending-qodana-ss-inspection-report.png" dark-src="extending-qodana-ss-inspection-report_dark.png" alt="Observing the Structural Search analysis results" width="706" border-effect="line"/>
             </step>
         </procedure>
 

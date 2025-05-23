@@ -13,7 +13,7 @@ and covers [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#]
 
 #### How it works
 
-By default, the `HardcodedPasswords` inspection reports variables with values matching built-in regex rules for
+By default, the `HardcodedPasswords` analysis reports variables with values matching built-in regex rules for
 hard-coded passwords. To report any variable with a suspicious name like `token` or `password` and a constant string value,
 add the following configuration in the [`qodana.yaml`](qodana-yaml.md) file:
 

@@ -16,7 +16,7 @@ development workflows in the JetBrains Space environment. This section explains 
 
 ## Before you start
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -53,7 +53,7 @@ job("Qodana") {
 The [`container`](https://www.jetbrains.com/help/space/run-a-step-in-a-container.html) block specifies which 
 [Docker image](deploy-qodana.md#Docker+images) of %instance% to run.  
 
-The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in Qodana Cloud and contained in 
+The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in %cloud% and contained in 
 the `qodana-token` secret. Once the project token is generated, in the **Settings** section of your JetBrains Space 
 environment [create a secret](%Space-secret%) with the `qodana-token` name. Save the project token as the value for this secret.
 

@@ -13,7 +13,7 @@ application of the [quality gate](quality-gate.topic) and [baseline](baseline.to
 
 ## Before you start
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 

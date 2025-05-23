@@ -13,11 +13,12 @@ Qodana provides native solutions for [](qodana-azure-pipelines.md), [CircleCI](c
 To run %instance% locally, you can use [Docker images](deploy-qodana.md#Docker+images), the
 [%instance% CLI](https://github.com/jetbrains/qodana-cli) tool, and [JetBrains IDEs](qodana-ide-plugin.md).
 
-You can inspect your code using the default [inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles), which requires
+You can analyze your code using the default [inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles), which requires
 no configuration steps and lets you run %instance% out of the box. You can also configure the default inspection profiles or
-create your own inspection profile in [YAML](custom-profiles.md) and [XML](custom-xml-profiles.md) formats.
+create your own inspection profile in [YAML](custom-profiles.md) and [XML](custom-profiles.md#Custom+XML+profiles) formats.
 
-Finally, you can go beyond the existing inspections and [extend %instance%](extending-qodana.topic).
+Finally, you can go beyond the existing inspections and extend %product% using either 
+[plugins](extending-qodana-plugins.topic) or the [structural search](extending-qodana-structural-search.topic).
 
 ## Improve the quality of your software
 
@@ -32,10 +33,10 @@ your product by preventing bugs in production and learning from the process. For
 bugs, vulnerabilities, and conflicting licenses, and meet long-term goals like maintainable code that makes it easy to 
 ship new features and implement changes.
 
-The inspection report will be uploaded to Qodana Cloud, so that you can view it in detail. Besides that, you can 
+The analysis report will be uploaded to %cloud% so that you can view it in detail. Besides that, you can 
 review %instance% reports using [JetBrains IDEs](qodana-ide-plugin.md) and [Visual Studio Code](vscode.md).
 
-Besides that, in GitHub %instance% can inspect [pull requests](github.md#Pull+request+quality+gate).
+Besides that, in GitHub %instance% can analyze [pull requests](github.md#Pull+request+quality+gate).
 
 ## Enforce coding standards
 
@@ -45,13 +46,13 @@ suggested [quick-fixes](quick-fix.md) to let your team save time.
 
 ## Share reports with other team members
 
-[Qodana Cloud](https://qodana.cloud) helps you accumulate %instance% reports and track the progress in your project(s) 
+[%cloud%](https://qodana.cloud) helps you accumulate %instance% reports and track the progress in your project(s) 
 from a single point. Such reports are available for all members of your team(s). 
 
 ## Take advantage of our pricing model
 
 %instance% license costs under the Ultimate and Ultimate Plus licenses depend on the number of active contributors, and 
-this lets you inspect an unlimited number of code lines.  
+this lets you analyze an unlimited number of code lines.  
 
 You can also run %instance% under the free Community license; however, in this case %instance% functionality will be
 restricted. To compare %instance% licenses, you can visit the [](pricing.md) page.

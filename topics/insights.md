@@ -2,7 +2,7 @@
 
 <show-structure depth="3"/>
 
-Insights let you examine aggregated data on organizational and team levels in Qodana Cloud. This feature is available 
+Insights let you examine aggregated data on organizational and team levels in %cloud%. This feature is available 
 under the Ultimate Plus [license](pricing.md).
 
 To view insights on an organization level, in the upper part of your [organization](cloud-organizations.topic) 
@@ -30,7 +30,7 @@ After you configure all the widgets, you can copy the link to the page that cont
 
 Displays the number of active and inactive projects in your organization. 
 
-Active are the projects which reports were uploaded to Qodana Cloud within 90 days.
+Active are the projects which reports were uploaded to %cloud% within 90 days.
 A project is classified as inactive in case it contains 
 [sanity problems](inspection-profiles.md#inspection-profiles-existing-profiles) or its reports are older than 90 days.
 

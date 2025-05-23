@@ -1,4 +1,4 @@
-[//]: # (title: Configure the JDK)
+[//]: # (title: JDK configuration)
 
 <link-summary>Learn how you can configure the JDK for running Qodana.</link-summary>
 

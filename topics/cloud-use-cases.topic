@@ -4,39 +4,39 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Qodana Cloud use-cases" id="cloud-use-cases">
+	title="%cloud% use-cases" id="cloud-use-cases">
 
-    <link-summary>Learn more about use cases where Qodana Cloud can come in handy.</link-summary>
+    <link-summary>Learn more about use cases where %cloud% can come in handy.</link-summary>
 
     <chapter id="cloud-use-case-1" title="Get deeper insights into your project trends">
 
-        <p>Using <a href="https://qodana.cloud">Qodana Cloud</a>, you can aggregate Qodana reports from various
+        <p>Using <a href="https://qodana.cloud">%cloud%</a>, you can aggregate %product% reports from various
             projects, explore development trends, and analyze team and project performance.</p>
 
-        <p>To organize your work, Qodana Cloud provides a hierarchy consisting of organizations, teams, and projects.
+        <p>To organize your work, %cloud% provides a hierarchy consisting of organizations, teams, and projects.
             These entities let you assign several projects to a single team. Also, you can achieve transparency using
             real-time widgets.</p>
 
-        <p>Each project stores the history of inspection results and compares results between commits. You can examine the
-            absolute number of problems detected, or compare the number of problems to a baseline taken during a
+        <p>Each project stores the history of analysis results and compares results between commits. You can examine the
+            absolute number of detected problems, or compare the number of problems to a baseline taken during a
             specific Qodana run.</p>
 
     </chapter>
 
-    <chapter id="cloud-use-case-2" title="Open problems detected by Qodana in your favorite IDE">
+    <chapter id="cloud-use-case-2" title="Open problems detected by %product% in your favorite IDE">
 
-        <p>If you are already a Qodana user, you might know that you can open issues spotted by Qodana right in your IDE.
-            This feature is available in Qodana Cloud, so you can fix server-side errors in the editor like other suggestions given by the IDE.</p>
+        <p>If you are already a %product% user, you might know that you can open issues spotted by Qodana right in your IDE.
+            This feature is available in %cloud%, so you can fix server-side errors in the editor like other suggestions given by the IDE.</p>
 
-        <p>Using Qodana, you can run resource-intensive checks outside your development environment without affecting
-            the performance of your IDE. In fact, we created Qodana to ensure that you no longer have to choose between code
+        <p>Using %product%, you can run resource-intensive checks outside your development environment without affecting
+            the performance of your IDE. In fact, we created %product% to ensure that you no longer have to choose between code
             quality and IDE performance.</p>
     </chapter>
 
     <chapter id="cloud-use-case-3" title="Plan your work better">
 
-        <p>In Qodana Cloud, you can build reports to evaluate all code segments that require modification, and select
+        <p>In %cloud%, you can build reports to evaluate all code segments that require modification, and select
             the issues to add to a baseline. This way, the whole team can see the same list of issues and monitor progress
-            using the interactive Qodana dashboard.</p>
+            using the interactive %product% dashboard.</p>
     </chapter>
 </topic>

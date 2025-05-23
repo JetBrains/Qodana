@@ -24,13 +24,13 @@ for example:
 </tabs>
 
 The `QODANA_TOKEN` variable contains information that %instance% linters use for identification and verification.
-Based on this, %instance% establishes a connection with Qodana Cloud.
+Based on this, %instance% establishes a connection with %cloud%.
 
-Below is the description of interaction between %instance% and Qodana Cloud once the connection is established. 
+Below is the description of interaction between %instance% and %cloud% once the connection is established. 
 
 ## License verification
 
-The paid %instance% linters request and verify license information from a Qodana Cloud [organization](cloud-organizations.topic). 
+The paid %instance% linters request and verify license information from a %cloud% [organization](cloud-organizations.topic). 
 If the verification step fails, the linter returns an error meaning that you cannot run it using the current license.
 
 For example, you cannot run %instance% using an expired license. Nor can you run the 
@@ -39,9 +39,9 @@ To avoid this, you should get compatible and valid licenses for each linter that
 
 ## Report collection
 
-Additionally, your local %instance% report is bound with the project in [Qodana Cloud](cloud-projects.topic). After binding, 
+Additionally, your local %instance% report is bound with the project in [%cloud%](cloud-projects.topic). After binding, 
 you can view actual %instance% [reports](cloud-overview-reports.topic) in an aggregated and handy format, as well as 
-keep a historical overview of older Qodana reports. 
+keep a historical overview of older %product% reports. 
 
 Once the project token is generated, you can regenerate or delete it as shown in the 
-[](cloud-projects.topic#cloud-manage-projects) section of the Qodana Cloud documentation.
+[](cloud-projects.topic#cloud-manage-projects) section of the %cloud% documentation.

@@ -1,4 +1,4 @@
-[//]: # (title: Inspect a monorepo project)
+[//]: # (title: Analyze a monorepo project)
 
 <var name="github-secret" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 
@@ -18,7 +18,7 @@ the `backend/` folder contains a Java project,
 the `frontend/` folder contains a JavaScript project,
 and the `.git/` folder contains VCS-related information.
 
-This section explains how to prepare and inspect a monorepo using:
+This section explains how to prepare and analyze a monorepo using:
 
 * [Qodana CLI](https://github.com/JetBrains/qodana-cli)
 * [Docker images](deploy-qodana.md#Docker+images) of %product%
@@ -52,7 +52,7 @@ To configure %product% for inspecting two projects, you need to create two YAML-
 one for each linter. In this example, these will be the `qodana-backend.yaml` and `qodana-frontend.yaml` files.  
 
 When %product% runs, it uses the `.git/` folder for linking detected problems to the corresponding
-source code in a Git repository, and for exploring inspection reports [from within your IDE](qodana-ide-plugin.md).
+source code in a Git repository, and for exploring analysis reports [from within your IDE](qodana-ide-plugin.md).
 
 Here are the contents of the `root/` folder: 
 
@@ -65,16 +65,17 @@ root/
     qodana-frontend.yaml
 ```
 
-### Qodana Cloud
+### %cloud%
+{id="overview-code-coverage-qodana-cloud"}
 
-You can view inspection reports using [Qodana Cloud](https://qodana.cloud). On the Qodana Cloud website, create one 
-[project](cloud-projects.topic) for storing inspection reports for the `frontend` project, and another one for the `backend` project. 
+You can view analysis reports using [%cloud%](https://qodana.cloud). On the %cloud% website, create one 
+[project](cloud-projects.topic) for storing analysis reports for the `frontend` project, and another one for the `backend` project. 
 
 After you create the projects, you can use their [project tokens](project-token.md) for running %product%.
 
 ## Run Qodana
 
-Because each %product% [linter](linters.md) can inspect a specific set of programming languages, Qodana CLI and Docker 
+Because each %product% [linter](linters.md) can analyze a specific set of programming languages, Qodana CLI and Docker 
 images of %product% need to be run twice over the monorepo repository, once for each project contained in it.
 
 <tabs>
@@ -128,7 +129,7 @@ in this procedure.</p>
 <procedure>
 <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN_BACKEND</code> and
 <code>QODANA_TOKEN_FRONTEND</code> <a href="%github-secret%">encrypted secrets</a> and save the project tokens 
-<a anchor="Qodana+Cloud">generated</a> in Qodana Cloud as their values.
+<a anchor="overview-code-coverage-qodana-cloud">generated</a> in %cloud% as their values.
 </step>
 <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
 <code>.github/workflows/code_quality.yml</code> file.</step>
@@ -176,7 +177,7 @@ jobs:
 </tab>
 </tabs>
 
-## View inspection results
+## View analysis results
 
-Congratulations, now you can navigate to [Qodana Cloud](https://qodana.cloud) and review the inspection results for each project 
+Congratulations, now you can navigate to [%cloud%](https://qodana.cloud) and review the analysis results for each project 
 inside your monorepo project!

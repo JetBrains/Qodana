@@ -1,12 +1,12 @@
 [//]: # (title: Contributor counting)
 
-<link-summary>Qodana license costs consist of the number of active contributors to your project. An active 
-contributor is a person/bot who has committed to any number of Qodana Cloud projects within the past 90 days under a 
+<link-summary>%product% license costs consist of the number of active contributors to your project. An active 
+contributor is a person/bot who has committed to any number of %cloud% projects within the past 90 days under a 
 single Qodana license.</link-summary>
 
 %instance% license costs consist of the number of active contributors to your project. 
 
-An active contributor is a person or bot who/that has committed to any number of Qodana Cloud projects within the past 90 days under a single 
+An active contributor is a person or bot who/that has committed to any number of %cloud% projects within the past 90 days under a single 
 %instance% license. For example, on the 30th of June, %instance% will calculate and charge for the unique contributors 
 detected within 30 days of June, 31 days of May, and 29 days of April. 
 
@@ -19,7 +19,7 @@ is explained below.
 
 ## Key generation
 
-During the [project setup](set-up-your-project.md) stage, Qodana Cloud generates an SSH key pair for counting the number of 
+During the [project setup](set-up-your-project.md) stage, %cloud% generates an SSH key pair for counting the number of 
 active contributors to your project using this command:
 
 ```shell

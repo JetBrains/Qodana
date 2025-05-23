@@ -4,18 +4,18 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Get access to Qodana Cloud" id="cloud-get-access" help-id="Get_access_to_Qodana_Cloud">
+	title="Get access to %cloud%" id="cloud-get-access" help-id="Get_access_to_Qodana_Cloud">
 
-    <link-summary>Learn how you can start working with Qodana Cloud.</link-summary>
+    <link-summary>Learn how you can start working with %cloud%.</link-summary>
 
-    <p>Here is an overview of the <a href="https://qodana.cloud">Qodana Cloud</a> landing page.</p>
+    <p>Here is an overview of the <a href="https://qodana.cloud">%cloud%</a> landing page.</p>
 
-    <img src="qc-get-access.png" alt="Qodana Cloud start page" width="706" border-effect="line"/>
+    <img src="qc-get-access.png" alt="%cloud% start page" width="706" border-effect="line"/>
 
     <list type="decimal">
         <li>You can click the <ui-path>Continue with JetBrains account</ui-path> button to create a
-            <a href="https://account.jetbrains.com/login">JetBrains account</a> to log in to Qodana Cloud.</li>
-        <li>As a non-registered user, you can explore demo projects already analyzed by Qodana. To explore
+            <a href="https://account.jetbrains.com/login">JetBrains account</a> to log in to %cloud%.</li>
+        <li>As a non-registered user, you can explore demo projects already analyzed by %product%. To explore
             reports in detail, see the <a href="cloud-overview-reports.topic"/> section.</li>
     </list>
 

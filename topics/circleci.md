@@ -15,7 +15,7 @@ CircleCI is a cloud-based CI/CD system. You can build %instance% into your Circl
 
 ## Before you start
 
-### Qodana Cloud
+### %cloud%
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -161,7 +161,7 @@ workflows:
 
 ## Commands and parameters
 
-The CircleCI Qodana orb provides the `scan` command to let you inspect your project and report the results.
+The CircleCI Qodana orb provides the `scan` command to let you analyze your project and report the results.
 
 This table contains the list of optional string parameters that can be additionally used with the `scan` command.
 

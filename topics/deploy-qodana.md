@@ -234,7 +234,7 @@ You can run %product% in several JetBrains IDEs, Visual Studio Code, and Visual 
 names of the linters. Details and configuration examples are available in the [](linters.md) section and other sections 
 dedicated to specific linters referenced from that section.
 
-## CI/CD integration
+## CI integration
 
 You can run %product% using various CI/CD pipelines, as explained in the [](ci.md) section. 
 
