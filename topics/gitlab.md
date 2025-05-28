@@ -320,10 +320,10 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
         args: --linter,<linter>
+        upload-result: true
+        results-dir: $CI_PROJECT_DIR/.qodana/results
 
 qodana:
-   script:
-      - qodana --save-report --results-dir=$CI_PROJECT_DIR/.qodana/results
    artifacts:
       paths:
          - .qodana/results/
@@ -341,10 +341,10 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
      inputs:
         args: --linter,<linter>
+        upload-result: true
+        results-dir: $CI_PROJECT_DIR/.qodana/results
 
 qodana:
-   script:
-      - qodana --save-report --results-dir=$CI_PROJECT_DIR/.qodana/results
    variables:
       RUNNER_SCRIPT_TIMEOUT: &lt;timeout-value&gt;
    artifacts:
