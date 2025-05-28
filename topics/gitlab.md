@@ -345,8 +345,9 @@ include:
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
 qodana:
+   timeout: <specify timeout>
    variables:
-      RUNNER_SCRIPT_TIMEOUT: &lt;timeout-value&gt;
+      RUNNER_SCRIPT_TIMEOUT: <specified timeout value minus 5 minutes>
    artifacts:
       paths:
          - .qodana/results/
@@ -355,7 +356,7 @@ qodana:
 
 ```
 
-The details are available on the [GitLab CI/CD website](https://gitlab.com/gitlab-org/gitlab/-/issues/19818).
+The details are available on the [GitLab CI/CD website](https://gitlab.com/gitlab-org/gitlab/-/issues/284186).
 
 ## Configuration
 
