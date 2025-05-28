@@ -5,82 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/topics/configure-qodana.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/Quick-start.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/Quick-start.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/about-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/about-qodana.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/bitbucket.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/bitbucket.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/circleci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/circleci.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/clang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/clang.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-account-types.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-account-types.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-forward-reports.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-forward-reports.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-get-access.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-get-access.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-organizations.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-organizations.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-overview-reports.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-overview-reports.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-profile-settings.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-profile-settings.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-projects.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-projects.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-quickstart.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-quickstart.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-running-introduction.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-running-introduction.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-sso.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-sso.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-teams.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-teams.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-use-cases.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-use-cases.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-user-roles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-coverage.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-coverage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/configure-jdk.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/configure-jdk.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/contributors.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/contributors.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/custom-xml-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/custom-xml-profiles.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/deploy-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/deploy-qodana.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/detect-passwords.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/detect-passwords.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-structural-search.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-structural-search.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/faq.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/faq.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/getting-started.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/getting-started.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/github.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/github.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/gitlab.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/gitlab.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/global-configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/global-configuration.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/golang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/golang.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/insights.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/insights.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspect-code-formatting.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspect-code-formatting.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspect-python-code.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspect-python-code.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspect-your-code.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspect-your-code.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspection-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspection-profiles.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inspectopedia.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspectopedia.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jenkins.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jenkins.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/js.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/js.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/license-audit.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/license-audit.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/monorepo-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/monorepo-project.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/new-in-2025-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2025-1.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/php.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/php.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/pricing.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/pricing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/project-token.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/project-token.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-azure-pipelines.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-cloud-release-notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-cloud-release-notes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-ide-plugin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-inspection-output.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-inspection-output.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/repository-key.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/repository-key.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/results.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/results.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/set-up-your-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/set-up-your-project.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/space-automation.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/space-automation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/teamcity.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/teamcity.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/troubleshooting.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/troubleshooting.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ui-overview.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ui-overview.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/visualstudio.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/visualstudio.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/vscode.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vscode.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v.list" beforeDir="false" afterPath="$PROJECT_DIR$/v.list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/vulnerability-checker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vulnerability-checker.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +115,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "Errors",
+    "settings.editor.selected.configurable": "SQL Dialects",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

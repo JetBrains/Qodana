@@ -209,9 +209,10 @@ If you choose the Ultimate or Ultimate Plus trial license, you will be redirecte
 
 If you plan to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to the JetBrains account 
 page for payment details. After the payment, you will be redirected to the [project setup](set-up-your-project.md) page of 
-%cloud%.  
+%cloud%. Also, the Email mentioned during license purchase will receive an activation link that should be used
+so that your license becomes activated.
 
-2. During the onboarding stage, %cloud% will generate a public key that will be 
+2. During the project setup stage, %cloud% will generate a public key that will be 
 identified by %instance%, as well as a project token for uploading %instance% reports to your first project.
 Although the Community license does not require a %cloud% account, it will be more convenient to use %cloud%
 in this case too.
@@ -223,6 +224,7 @@ in this case too.
 
 Yes, you can choose either the Ultimate or Ultimate Plus trial license and start using Qodana for a 60-day trial period. 
 After 60 days, you’ll need to buy either the Ultimate or Ultimate Plus license to continue using Qodana in your projects.
+Only one trial license is allowed for an organization created in [%cloud%](cloud-organizations.topic).
 
 ### Will I be notified when the license trial period comes to an end?
 

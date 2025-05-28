@@ -311,9 +311,55 @@ qodana:
 
 ```
 
+## Obtain %product% logs
+
+Use the following configuration to get log data from %product% on GitLab CI/CD:
+
+```yaml
+include:
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+     inputs:
+        args: --linter,<linter>
+
+qodana:
+   script:
+      - qodana --save-report --results-dir=$CI_PROJECT_DIR/.qodana/results
+   artifacts:
+      paths:
+         - .qodana/results/
+      expose_as: 'Qodana report'
+
+
+```
+This configuration uses the `.qodana/results` directory for generating logs and then exposes this directory as an artifact.
+
+To upload logs from a Qodana job that fails with a timeout, add the `RUNNER_SCRIPT_TIMEOUT` variable with a value less 
+than a pipeline timeout:
+
+```yaml
+include:
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+     inputs:
+        args: --linter,<linter>
+
+qodana:
+   script:
+      - qodana --save-report --results-dir=$CI_PROJECT_DIR/.qodana/results
+   variables:
+      RUNNER_SCRIPT_TIMEOUT: &lt;timeout-value&gt;
+   artifacts:
+      paths:
+         - .qodana/results/
+      expose_as: 'Qodana report'
+
+
+```
+
+The details are available on the [GitLab CI/CD website](https://gitlab.com/gitlab-org/gitlab/-/issues/19818).
+
 ## Configuration
 
-> Description of all configuration options is available in our [repository](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
+> The description of all configuration options is available in our [repository](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
 {style="tip"}
 
 This table contains the list of options that can be configured using the `inputs` block:

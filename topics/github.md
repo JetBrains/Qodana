@@ -249,7 +249,7 @@ Using this configuration, you will be able to detect only new problems in pull r
 At the same time, pull requests with **new** problems exceeding the `--fail-threshold` limit will be blocked, and the 
 workflow will fail.
 
-### Get a Qodana badge
+## Get a Qodana badge
 
 <link-summary>You can set up a Qodana workflow badge in your repository.</link-summary>
 
@@ -265,6 +265,21 @@ You can set up a Qodana workflow badge in your repository, to do it, follow thes
         <p>Copy the Markdown text to your repository README file.</p>
     </step>
 </procedure>
+
+## Obtain %product% logs
+
+In the `.github/workflows/code_quality.yml` file, set `upload-result` to `true`:
+
+```yaml
+- name: 'Qodana Scan'
+  uses: JetBrains/qodana-action@v2025.1
+  env:
+    QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+  with:
+    upload-result: true
+```
+
+Run %product% using this configuration to produce a `qodana-report` artifact. Navigate to the `log` directory to see logs.
 
 ## Configuration
 

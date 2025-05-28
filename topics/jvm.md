@@ -71,6 +71,11 @@ The K2 mode is by default enabled for the %qp% and %qp-co% linters.
 To revert the K2 mode, in your linter configuration set the `idea.kotlin.plugin.use.k2`
 [property](docker-image-configuration.topic#docker-config-reference-properties) to `false`.
 
+### JDK configuration
+
+If your project uses Gradle, make sure that you have configured a JDK version for your project as explained in the 
+[](configure-jdk.md) section.
+
 ## Run %product%
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm,native"/>

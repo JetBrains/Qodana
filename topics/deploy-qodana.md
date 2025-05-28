@@ -330,12 +330,12 @@ Add this to your Gradle configuration file:
 
   ```kotlin
   plugins {
-      // applies Gradle Qodana plugin to use it in project
+      // applies Gradle Qodana plugin to use it in a project
       id("org.jetbrains.qodana") version "..."
   }
   
   qodana {
-      // by default result path is $projectPath/build/results
+      // by default, the result path is $projectPath/build/results
       resultsPath.set("some/output/path")
   }
   
@@ -347,7 +347,7 @@ Add this to your Gradle configuration file:
 
 > **Note:** Docker requires at least 4GB of memory. Set it in the Docker `Preferences > Resources > Memory` section.
 
-Now you can run analyzes with `qodanaScan` Gradle task:
+Now you can run analyses using the `qodanaScan` Gradle task:
 
 ```bash
 gradle qodanaScan 

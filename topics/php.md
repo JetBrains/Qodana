@@ -44,6 +44,20 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="php-before-you-start"}
 
+### Install project dependencies
+
+In case a project has external dependencies, you can set them up using the `bootstrap` key in the [`qodana.yaml`](qodana-yaml.md) file.
+For example, if your project dependencies are specified by the `composer.json` file in your project root, add the following
+line to `qodana.yaml`:
+
+```yaml
+bootstrap: composer install --ignore-platform-reqs
+```
+The command will be automatically executed before the analysis. 
+
+The `--ignore-platform-reqs` option bypasses PHP version incompatibility issues between %product% and your project. 
+
+
 ### %cloud%
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>

@@ -475,8 +475,25 @@
                 <td>The number of problems detected by Qodana exceeds a <a href="quality-gate.topic">threshold</a> configured by a quality gate.</td>
             </tr>
         </table>
+    </chapter>
 
-
+    <chapter id="troubleshooting-specify-sql-dialect" title="Specify SQL dialect">
+        <p>To analyze SQL code, enabling SQL-related
+            <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">inspections</a> is not enough.
+            In this case, you also have to specify an SQL dialect that you would like to analyze. To do this, in your
+            project root save the <code>.idea/sqldialects.xml</code> containing the following contents:</p>
+        <code-block>
+            &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            &lt;project version="4"&gt;
+                &lt;component name="SqlDialectMappings"&gt;
+                    &lt;file url="PROJECT" dialect="&lt;SQLDialectName&gt;" /&gt;
+                &lt;/component&gt;
+            &lt;/project&gt;
+        </code-block>
+        <p>To find a name of a concrete SQL dialect for this snippet, in your IDE navigate to
+            <ui-path>Settings | Languages & Frameworks | SQL Dialects | Project SQL Dialect</ui-path>. In the upper part
+        of the <ui-path>Settings</ui-path>, expand either the <ui-path>Global SQL Dialect</ui-path> or
+            <ui-path>Project SQL Dialect</ui-path> dropdown list.</p>
     </chapter>
 
 </topic>
