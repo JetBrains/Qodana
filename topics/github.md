@@ -266,7 +266,7 @@ You can set up a Qodana workflow badge in your repository, to do it, follow thes
     </step>
 </procedure>
 
-## Obtain %product% logs
+## %product% logs
 
 In the `.github/workflows/code_quality.yml` file, set `upload-result` to `true`:
 

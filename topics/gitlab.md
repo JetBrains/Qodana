@@ -311,7 +311,7 @@ qodana:
 
 ```
 
-## Obtain %product% logs
+## %product% logs
 
 Use the following configuration to get log data from %product% on GitLab CI/CD:
 
