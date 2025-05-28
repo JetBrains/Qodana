@@ -1,35 +1,30 @@
-<?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+name: Qodana
+on:
+    workflow_dispatch:
+    pull_request:
+    push:
+        branches: # Specify your branches here
+            - main # The 'main' branch
+            - master # The 'master' branch
+            - 'releases/*' # The release branches
 
-<topic 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Projects" id="cloud-projects">
-
-    <p>Projects accumulate Qodana <a href="cloud-overview-reports.topic">reports</a>. Each project is uniquely identified
-        by a <a href="project-token.md">project token</a>.</p>
-
-    <chapter id="cloud-create-project" title="Create a project">
-
-        <p>While creating a new <a href="cloud-organizations.topic" anchor="cloud-organizations-create-organization">organization</a>,
-            %cloud% assists you in setting up your first project, so these steps are only relevant when creating additional
-            projects.</p>
-
-        <p>On a <a href="cloud-teams.topic">team</a> page, click the <ui-path>Create project</ui-path> button.</p>
-
-        <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
-
-        <p>Complete the project setup stage. You can read more about this stage in the <a href="set-up-your-project.md"/> section.</p>
-
-    </chapter>
-
-    <chapter id="cloud-manage-projects" title="Manage a project">
-
-    <p>After the project was created, you can navigate to its VCS, update VCS settings, rename the project,
-        manage its <a href="project-token.md">project token</a>, rename and delete the project.</p>
-
-        <img src="qc-project-options.png" dark-src="qc-project-options_dark.png" width="706" alt="Available project options" border-effect="line"/>
-
-    </chapter>
-
-</topic>
+jobs:
+    qodana:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+            checks: write
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                  fetch-depth: 0  # a full history is required for pull request analysis
+            - name: 'Qodana Scan'
+              uses: JetBrains/qodana-action@v2025.1
+              with:
+                  args: |
+                      --baseline,<path-relative-to-project-dir>/qodana.sarif.json,
+                      --baseline-include-absent
+              env:
+                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
