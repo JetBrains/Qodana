@@ -41,6 +41,7 @@ full versions of the respective %instance% license type.
 | Golang               | &#x274c;           | &#x2714;                   | 
 | JavaScript           | &#x274c;           | &#x2714;                   | 
 | PHP                  | &#x274c;           | &#x2714;                   | 
+| Ruby                 | &#x274c;           | &#x2714;                   | 
 | TypeScript           | &#x274c;           | &#x2714;                   | 
 
 Here, C and C++ inspections are applicable for projects containing `.sln` files.
@@ -182,6 +183,7 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 * [%dotnet%](dotnet.md)       
 * [%cpp%](clang.md)
 * [%jvm-a%](jvm.md)
+* [%ruby%](ruby.md)
 
 ## Qodana licensing: an overview
 

@@ -68,7 +68,7 @@ The `--ignore-platform-reqs` option bypasses PHP version incompatibility issues 
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,php,native"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,php,native,non-ruby"/>
 
 ## Explore analysis results
 

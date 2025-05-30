@@ -77,7 +77,7 @@ include:
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js,native"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js,native,non-ruby"/>
 
 ## Explore analysis results
 

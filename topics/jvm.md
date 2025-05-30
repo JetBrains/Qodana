@@ -78,7 +78,7 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm,native"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm,native,non-ruby"/>
 
 ## Explore analysis results
 

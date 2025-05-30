@@ -61,7 +61,7 @@ bootstrap: pip install -r requirements.txt
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python,non-ruby"/>
 
 ## Explore analysis results
 

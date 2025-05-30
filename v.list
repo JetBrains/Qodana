@@ -295,5 +295,6 @@
     <var name="cpp" value="Qodana for C/C++"/>
     <var name="clang" value="Qodana Community for C/C++"/>
     <var name="cloud" value="Qodana Cloud"/>
+    <var name="ruby" value="Qodana for Ruby"/>
 
 </vars>

@@ -209,7 +209,9 @@
                     include:
                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
                          inputs:
-                            args: --fail-threshold,&lt;number-of-accepted-problems&gt;,--linter,&lt;linter&gt;
+                            args: |
+                              --fail-threshold,&lt;number-of-accepted-problems&gt;,
+                              --linter,&lt;linter&gt;
                 </code-block>
                 <p>In this sample, the <code>inputs</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
                     option, and the <code>--linter</code> option referring to a <a href="linters.md">%product% linter</a>.</p>

@@ -1,17 +1,13 @@
-# Golang
-
-[![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-
-<!--<img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/>-->
+# Ruby
 
 <show-structure for="chapter" depth="3"/>
 
 <!-- Linter-related variables -->
-<var name="qp" value="Qodana for Go"/>
-<var name="qp-linter" value="jetbrains/qodana-go:2025.1"/>
-<var name="qd-image" value="jetbrains/qodana-go:2025.1"/>
+<var name="qp" value="Qodana for Ruby"/>
+<var name="qp-linter" value="jetbrains/qodana-ruby:2025.1-eap"/>
+<var name="qd-image" value="jetbrains/qodana-ruby:2025.1-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
-<var name="ide" value="GoLand"/>
+<var name="ide" value="RubyMine"/>
 
 <!-- Content-related variables -->
 <var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
@@ -27,23 +23,43 @@
 <var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/go/customizing-profiles.html"/>
-<var name="native-arg" value="QDGO"/>
-<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
+<var name="teamcity-linter-list" value="Here, select Custom and in the field below specify the %qp% linter."/>
 
-<link-summary>%qp% is based on %ide% and provides static analysis for Go projects.</link-summary>
+<link-summary>%qp% is based on %ide% and provides static analysis for Ruby projects.</link-summary>
+
+<note>
+%qp% is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
+Any use of the EAP product is at your own risk. Your feedback is very welcome in our 
+<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
+<a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
+</note>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
-Golang projects, you can use the following linter:
+Ruby projects, you can use the following linter:
 
-| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages               |
-|---------|---------------------------|----------|----------------------------------------------------------------|-----------------------------------|
-| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Golang, JavaScript and Typescript |
+| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages             |
+|---------|---------------------------|----------|----------------------------------------------------------------|---------------------------------|
+| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Ruby, JavaScript and TypeScript |
 
 
-To see the list of supported technologies and features, you can navigate to the [](#golang-feature-matrix) chapter of this section.
+To see the list of supported technologies and features, you can navigate to the [](#ruby-feature-matrix) chapter of this section.
 
 ## Before you start
-{id="golang-before-you-start"}
+{id="ruby-before-you-start"}
+
+### Install project dependencies
+
+For a basic Ruby project that has no external dependencies, no preliminary steps are required.
+
+In case a project has external dependencies, you can set them up using the `bootstrap` key in the `qodana.yaml` file:
+
+```yaml
+bootstrap: | 
+  sudo apt-get update && 
+  sudo apt-get install -y <list of libraries> && 
+  bundle install
+```
+The command will be automatically executed before the analysis to install dependencies using the `bundle install` command.
 
 ### %cloud%
 
@@ -55,11 +71,12 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,golang,non-ruby"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,ruby"/>
+<include from="lib_qd.topic" element-id="run-qodana-container-mode-config-examples" use-filter="empty,generic"/>
 
 ## Explore analysis results
 
-<include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,golang"/>
+<include from="lib_qd.topic" element-id="explore-analysis-results-qodana-cloud" use-filter="empty,ruby"/>
 
 ## Extend %product% configuration
 
@@ -69,7 +86,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Enabling the baseline feature
 
-<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,golang"/>
+<include from="lib_qd.topic" element-id="enabling-baseline-config-examples" use-filter="empty,generic"/>
 
 ### Enabling the quality gate
 
@@ -80,7 +97,7 @@ To see the list of supported technologies and features, you can navigate to the 
 <include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,generic,golang"/>
 
 ## Supported technologies and features
-{id="golang-feature-matrix"}
+{id="ruby-feature-matrix"}
 
 %qp% provides inspections for the following technologies.
 
@@ -88,15 +105,33 @@ To see the list of supported technologies and features, you can navigate to the 
     <tr>
         <td>Programming languages</td>
         <td>
-            <p>Golang</p>
+            <p>Ruby</p>
             <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
         </td>
     </tr>
     <tr>
         <td>Frameworks and libraries</td>
         <td>
+            <p>Cucumber</p>
+            <p>Less</p>
             <p>Node.js</p>
+            <p>PostCSS</p>
+            <p>RBS</p>
             <p>React</p>
+            <p>Ruby on Rails</p>
+            <p>Sass</p>
+            <p>Vue</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Databases and ORM</td>
+        <td>
+            <p>MongoDB</p>
+            <p>MySQL</p>
+            <p>Oracle</p>
+            <p>PostgreSQL</p>
+            <p>SQL</p>
+            <p>SQL Server</p>
         </td>
     </tr>
     <tr>
@@ -108,6 +143,7 @@ To see the list of supported technologies and features, you can navigate to the 
             <p>RELAX NG</p>
             <p>XML</p>
             <p>YAML</p>
+            <p>YARD</p>  
         </td>
     </tr>
     <tr>
@@ -126,4 +162,4 @@ To see the list of supported technologies and features, you can navigate to the 
     </tr>
 </table>
 
-<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,non-jvm"/>
+<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,ruby"/>
