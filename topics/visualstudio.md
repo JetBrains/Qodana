@@ -4,20 +4,20 @@
 
 <show-structure for="chapter" depth="3"/>
 
-Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows developed by Microsoft. This section 
-explains how you can use %product% in Visual Studio for:
+Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows developed by Microsoft. Starting from version 
+2025.1 of %product%, you can run it in Visual Studio and perform the following actions:
 
-* [Connecting to %cloud%](#vs-code-ui-overview)
-* [Exploring %product% reports](#visual-studio-explore-reports) downloaded from %cloud%
+* [Connect to %cloud%](#vs-code-ui-overview)
+* [Explore %product% reports](#visual-studio-explore-reports) downloaded from %cloud%
 
 ## Before you start
 
-<link-summary>Make sure that you have a project in %cloud% and you can install ReSharper. </link-summary>
+<link-summary>Make sure that you have a project in %cloud%, and you can install ReSharper. </link-summary>
 
 Make sure that you have a %cloud% [project](cloud-projects.topic), and this project has at
 least one uploaded [analysis report](cloud-overview-reports.topic) related to the project opened locally in your Visual Studio.
 
-Download and install %product% as a component of [JetBrains ReSharper](https://www.jetbrains.com/resharper/).
+Download and install Qodana as a component of [JetBrains ReSharper](https://www.jetbrains.com/resharper/), version 2025.1.
 
 ## UI overview
 {id="vs-code-ui-overview"}
