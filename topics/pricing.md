@@ -71,6 +71,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | T4                           | &#x274c;  | &#x2714;                   |
 | XPath                        | &#x274c;  | &#x2714;                   |
 | XSLT                         | &#x274c;  | &#x2714;                   |
+| YARD                         | &#x274c;  | &#x2714;                   |
 
 ### Databases and ORM
 
@@ -116,7 +117,9 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | Psalm                | &#x274c;  | &#x2714;                   |
 | Pyramid              | &#x274c;  | &#x2714;                   |
 | Quarkus              | &#x274c;  | &#x2714;                   |
+| RBS                  | &#x274c;  | &#x2714;                   |
 | React                | &#x274c;  | &#x2714;                   |
+| Ruby on Rails        | &#x274c;  | &#x2714;                   |
 | Spring               | &#x274c;  | &#x2714;                   |
 | Symfony              | &#x274c;  | &#x2714;                   |
 | Thymeleaf            | &#x274c;  | &#x2714;                   |

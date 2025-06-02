@@ -113,9 +113,7 @@ The command will be automatically executed before the analysis to install depend
         <td>Frameworks and libraries</td>
         <td>
             <p>Cucumber</p>
-            <p>Less</p>
             <p>Node.js</p>
-            <p>PostCSS</p>
             <p>RBS</p>
             <p>React</p>
             <p>Ruby on Rails</p>
@@ -140,6 +138,8 @@ The command will be automatically executed before the analysis to install depend
             <p>CSS</p>
             <p>HTML</p>
             <p>JSON and JSON5</p>
+            <p>Less</p>
+            <p>PostCSS</p>
             <p>RELAX NG</p>
             <p>XML</p>
             <p>YAML</p>
