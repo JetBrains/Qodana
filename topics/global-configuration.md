@@ -18,11 +18,19 @@ You can use and configure each global configuration for several projects within 
 
 ### Global and local configurations
 
-Local configuration is a configuration created for a specific project and located within a repository of such a project.
+Local configuration is a configuration created for a specific project and located within a project repository.
+Global configuration is a configuration that can be shared across multiple projects. 
+Both configurations can be merged into a single configuration and contained in a single [YAML-formatted file](qodana-yaml.md), 
+as well as two global configurations. In this case, profile configurations are merged as well using the 
+[`profile`](qodana-yaml.md#Set+up+a+profile) option.
+
+<!-- An example of a profile configuration should be provided here -->
+<!-- An example of a profile.inspections configuration should be provided here -->
+<!-- How does the flexInspect section work? -->
 
 If a project has local and global configurations and the local settings collide with global, then 
 local settings take precedence over global settings. In this case, the final configuration will contain settings
-from both configurations, see the table below.
+from both configurations as you can see the `critical` configuration option of the `severityThresholds` option.
 
 <!-- This can probably be modified -->
 
@@ -71,6 +79,15 @@ from both configurations, see the table below.
         </td>
     </tr>
 </table>
+
+<!-- How do I specify a global configuration file? What is the syntax to it? -->
+
+To merge two global configurations, you have to explicitly include one global configuration in the second one:
+
+<!-- Need to have an example of merging two global configurations -->
+<!-- What happens if one global configuration collides with another? -->
+
+## Uploading to Qodana Cloud
 
 To be able to upload global configurations to Qodana Cloud, you should use a special token. 
 
