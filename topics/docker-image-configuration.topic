@@ -4,12 +4,12 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="External configuration" id="docker-image-configuration">
+	title="Configuration options" id="docker-image-configuration">
 
     <show-structure for="chapter" depth="3"/>
     <var name="linter-version" value="2025.1"/>
 
-    <link-summary>This section explains how you can configure %product% externally.</link-summary>
+    <link-summary>This section explains how you can configure %product% using various configuration options.</link-summary>
 
     <p>This section explains how you can configure %instance% linters using configuration of the tools that will be used
         for running like Docker, GitHub Actions, GitLab CI/CD, and other tools.</p>
@@ -1502,7 +1502,7 @@
 
         </chapter>
 
-        <chapter id="docker-config-reference-manage-plugins" title="Manage plugins">
+        <!--<chapter id="docker-config-reference-manage-plugins" title="Manage plugins">
 
             <link-summary>Learn how you can download plugins from JetBrains Marketplace and run them in your CI/CD pipelines.</link-summary>
 
@@ -1653,7 +1653,7 @@
                 </tab>
             </tabs>
 
-        </chapter>
+        </chapter>-->
 
         <chapter id="docker-config-reference-overview-logs" title="View Qodana logs">
 
