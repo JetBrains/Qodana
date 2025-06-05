@@ -316,3 +316,14 @@ supported by %product%. The settings will remain consistent across all these pla
 </tabs>
 </tab>
 </tabs>
+
+## Order of resolving a profile
+
+%instance% checks the configuration parameters for resolving the inspection profile in this order:
+
+* Profile with the name `%\name%` from the command-line option `--profile-name %\name%`
+* Profile by the path `%\path%` from the command-line option `--profile-path %\path%`
+* Profile with the name `%\name%` from `qodana.yaml`
+* Profile by the path `%\path%` from `qodana.yaml`
+* Profile mounted to `/data/profile.xml`
+* Fall back to using the default `qodana.recommended` profile.
