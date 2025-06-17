@@ -119,7 +119,7 @@
                 global configurations to specific projects.</p>
             <p>Here, you can also modify the list of projects that use the specific global configuration.</p>
 
-            <chapter title="Connect a repository">
+            <chapter id="cloud-organizations-global-configurations-connect-a-repository" title="Connect a repository">
                 <procedure>
                     <step>
                         <p>On the <ui-path>Global configurations</ui-path> tab, click the <ui-path>Connect repository</ui-path> button.</p>
@@ -133,14 +133,14 @@
 
                 <!-- The image of the Global Configurations tab should be provided here -->
 
-                <chapter title="Modify a global configuration">
-                    <p>Сlick the configuration that you would like to modify. This will open the dialog containing all
+                <chapter id="cloud-organizations-global-configurations-modify-global-configuration" title="Modify a global configuration">
+                    <p>Click the configuration that you would like to modify. This will open the dialog containing all
                         configuration parameters. On this dialog, you can view the files contained in the global configuration
                         and obtain a link to the VCS to be able to edit its files. The lower part of the dialog contains a configuration. </p>
                     <!-- The image is required here -->
                 </chapter>
 
-                <chapter title="View and modify the list of projects">
+                <chapter id="cloud-organizations-global-configurations-view-modify-list-of-projects" title="View and modify the list of projects">
                     <p>Click the number of projects sharing a specific configuration to open a dialog containing the list
                         of projects. Besides that, you can also see information about the latest
                     inspection analysis performed over a specific project. Here, you can view, assign and unassign a global
@@ -151,11 +151,11 @@
 
             </chapter>
 
-            <chapter title="Revoke and regenerate the token">
+            <chapter id="cloud-organizations-global-configurations-revoke-regenerate-token" title="Revoke and regenerate the token">
                 <p>In case a token is compromised, regenerate the token and clear all configurations
                     (because an attacker could’ve used the token and uploaded their malicious configuration).
                     The user story here is token was available not to malicious actor, but we need to regenerate it.
-                    (for example an admin left the company?).</p>
+                    For example, this can be useful if an administrator has left the company.</p>
             </chapter>
             <chapter title="Update the configuration">
                 <p>On this page, you can find the tabs containing files related to the global configuration. </p>
