@@ -11,7 +11,7 @@ page click the **Insights** button. To do the same on a team level, click this b
 <img src="insights-insights-button.png" width="706" alt="Navigating to the Insights page" border-effect="line"/>
 
 > To navigate from team to organization-wide insights with a single click, in the upper part of the **Insights** 
-> page click the **Reset filters** link. 
+> page, click the **Reset filters** link. 
 {style="tip"}
 
 ## Dashboard filters
@@ -72,7 +72,7 @@ for details.
 
 ### Problems over a specific period
 
-Shows the number of problems detected in your projects on a specific date within the latest 90 days. Using this diagram, 
+Shows the number of problems detected in your projects for a specific time period. Using this diagram, 
 you can see the progress in code quality.
 
 <img src="insights-problems-over-period.png" width="706" alt="Problems over a period diagram" border-effect="line"/>
