@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/insights-code-coverage_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-license-audit_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-number-of-projects_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-problems-by-severity_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-problems-over-period_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-problems-sorted_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/insights-projects-sorted_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/insights-code-coverage.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/insights-code-coverage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/insights-license-audit.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/insights-license-audit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/insights-number-of-projects.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/insights-number-of-projects.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/insights-problems-by-severity.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/insights-problems-by-severity.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/insights-problems-over-period.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/insights-problems-over-period.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/insights-problems-sorted.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/insights-problems-sorted.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/insights-projects-sorted.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/insights-projects-sorted.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/insights.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/insights.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +97,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Writerside.Web Archive (qd).executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;2025.1&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;QD-11924-ta-rules&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -119,8 +105,31 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;SQL Dialects&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/clang.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/custom-profiles.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/dotnet.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/github.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/gitlab.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/global-configuration.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/golang.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/insights.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/inspection-profiles.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/js.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/jvm.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/linters.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/php.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/pricing.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/python.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/set-up-your-project.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/taint-analysis.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/visualstudio.md&quot;,
+      &quot;/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/vulnerability-checker.md&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -163,6 +172,12 @@
       <workItem from="1747930336405" duration="15777000" />
       <workItem from="1748002313731" duration="4769000" />
       <workItem from="1748596942523" duration="26244000" />
+      <workItem from="1750252143578" duration="916000" />
+      <workItem from="1750253144467" duration="4562000" />
+      <workItem from="1750257778487" duration="277000" />
+      <workItem from="1750258350859" duration="171000" />
+      <workItem from="1750258554371" duration="217000" />
+      <workItem from="1750258800421" duration="113000" />
     </task>
     <servers />
   </component>
