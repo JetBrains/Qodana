@@ -86,7 +86,7 @@ Currently, several linters provide inspections for several programming languages
 
 \* Using tags, you can pull pre-configured %product% images:
   * For the %cpp% linter, in the `-clangXX` tag specify the [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy) version from 15 to 18.
-  * For the %ruby% linter, in the `-ruby3.X` tag specify the Ruby version from 3.1 to 3.4.
+  * For the %ruby% linter, in the `-ruby3.X` tag specify the Ruby version from 3.1 to 3.4. If not specified, version 3.4 will be used.
   
   Using the `-privileged` tag, you can run %product% in the privileged mode to execute commands that require root access. In this case,
   %product% comes with a default `qodana` user that possesses root privileges and does not require a password. 

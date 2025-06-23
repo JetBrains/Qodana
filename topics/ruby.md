@@ -39,8 +39,11 @@ Ruby projects, you can use the following linter:
 
 | Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages             |
 |---------|---------------------------|----------|----------------------------------------------------------------|---------------------------------|
-| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Ruby, JavaScript and TypeScript |
+| %qp%    | `%qp-linter%<-ruby3.X><-privileged>`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Ruby, JavaScript and TypeScript |
 
+Here, the optional `-ruby3.X` tag lets you specify the Ruby language version, ranging from 3.1 to 3.4. If not specified, the default Ruby version will be 3.4.
+The optional `-privileged` tag lets you run %product% in the privileged mode to execute commands that require root access. In this case,
+%product% comes with a default `qodana` user that possesses root privileges and does not require a password.
 
 To see the list of supported technologies and features, you can navigate to the [](#ruby-feature-matrix) chapter of this section.
 
