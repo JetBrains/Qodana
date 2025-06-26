@@ -2,6 +2,7 @@
 <!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 <instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="release">
 	<!-- Getting started section -->
+	<toc-element topic="taint-attacks.md"/>
 	<toc-element accepts-web-file-names="welcome.html,index.html" topic="getting-started.topic">
 		<toc-element topic="about-qodana.md" accepts-web-file-names="cloud-about.html,qodana.html"/>
 		<toc-element topic="pricing.md"/>
