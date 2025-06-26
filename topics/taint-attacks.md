@@ -225,7 +225,7 @@ public class VulnerableLogin {
 This snippet lets an attacker enter specially crafted strings into the username and password fields to manipulate the
 SQL query. For example, while leaving the password field empty, an attacker might enter the following as the username:
 
-```Plain Text
+```SQL
 admin' --
 ```
 
