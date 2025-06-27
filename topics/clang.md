@@ -7,6 +7,7 @@
 <var name="qdcppc" value="Qodana Community for C/C++"/>
 <var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.1-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="qdcppc-image" value="jetbrains/qodana-clang:2024.3-eap"/>
+<var name="qdcpp-privileged" value="jetbrains/qodana-cpp:2025.1-eap&lt;-clangXX&gt;-privileged"/>
 <var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
@@ -173,7 +174,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         </code-block>
             <tip>
               By default, Docker images run commands as a non-root user, and <code>sudo</code> is not available for security reasons. 
-              To overcome this, use alternative images with the <code>-privileged</code> tag like <code>%qdcpp-image%-privileged</code>, 
+              To overcome this, use alternative images with the <code>-privileged</code> tag like <code>%qdcpp-privileged%</code>, 
               or set a user using the <a href="https://docs.docker.com/reference/cli/docker/container/run/#options"><code>docker run --user</code> parameter</a>.
             </tip>
     </step>
