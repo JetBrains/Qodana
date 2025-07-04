@@ -11,6 +11,7 @@
 <var name="Variables" value="https://docs.gitlab.com/ci/variables/#define-a-cicd-variable-in-the-ui"/>
 <var name="PersonalToken" value="https://docs.gitlab.com/user/profile/personal_access_tokens/"/>
 <var name="ProjectToken" value="https://docs.gitlab.com/user/project/settings/project_access_tokens/"/>
+<var name="OnPrem" value="https://gitlab.com/qodana/qodana/-/blob/v2025.1/templates/qodana-gitlab-ci.yml?ref_type=heads"/>
 
 <link-summary>You can run the %instance% Scan GitLab Pipeline.</link-summary>
 
@@ -73,7 +74,7 @@ that will be used by GitLab CI/CD.
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 
-In the `.gitlab-ci.yml` file, save the following configuration to [include](%ComponentInvocation%) the 
+For the cloud-based version of GitLab CI/CD, in the `.gitlab-ci.yml` file save the following configuration to [include](%ComponentInvocation%) the 
 %product% Scan GitLab Pipeline component:
 
 ```yaml
@@ -83,12 +84,23 @@ include:
         args: --linter,<linter>
 ```
 
-This configuration already enables [caches](#Configure+cache), 
-[Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis, 
-and comments to merge requests. You can override these settings using descriptions from the sections below and the 
+This configuration already enables [caches](#Configure+cache),
+[Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis,
+and comments to merge requests. You can override these settings using descriptions from the sections below and the
 [](#Configuration) chapter. The `--linter` argument specifies the [linter](linters.md) that you would like to employ.
 
-> Before running %product% on a self-hosted version of GitLab CI/CD, you need to [mirror the component](%MirrorComponent%).
+For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save the following configuration:
+
+```yaml
+include:
+   - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v2025.1
+     inputs:
+        args: --linter,<linter>
+```
+
+In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on the [GitLab CI/CD website](%OnPrem%). 
+
+> Before running %product% using the on-premises version of GitLab CI/CD, you need to [mirror the component](%MirrorComponent%).
 {style="note"}
 
 ### Configure cache
