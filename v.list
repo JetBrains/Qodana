@@ -296,5 +296,6 @@
     <var name="clang" value="Qodana Community for C/C++"/>
     <var name="cloud" value="Qodana Cloud"/>
     <var name="ruby" value="Qodana for Ruby"/>
+    <var name="premlite" value="Qodana Self-Hosted lite"/>
 
 </vars>

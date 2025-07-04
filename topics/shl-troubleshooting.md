@@ -1,0 +1,20 @@
+# Troubleshooting
+
+Use the following steps while troubleshooting issues that may arise during deployment, configuration or operation
+of %premlite%:
+
+* Look for the message related to a specific issue
+* Review the possible causes of the issue
+* Follow the suggested steps to resolve the issue
+
+If a problem persists, navigate to the [JetBrains website](https://qodana-support.jetbrains.com/hc/en-us) and 
+create a request containing the following information:
+
+| Information item | Description                                                                                                                |
+|------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Summary          | Short and self-contained description of the issue                                                                          |
+| Description      | Additional information to outline the issue better                                                                         |
+| Attachments      | Any log files and screenshots, if available                                                                                |
+| Tags             | Specify the version                                                                                                        |
+| Type             | Try to categorize the title and the description of your case. This will be refined after the maintainers analyze the issue |
+| Priority         | Set the priority to the issue. Apply common sense for the definition of the urgency level                                  |
