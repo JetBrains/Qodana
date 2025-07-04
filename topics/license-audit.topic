@@ -47,6 +47,8 @@
 
     <p>This feature is available under the Ultimate Plus license and its trial version and enabled by default.</p>
 
+    <note>This feature is not available in JetBrains IDEs.</note>
+
     <chapter title="How it works" id="license-audit-how-it-works">
 
         <link-summary>%feature% collects information about project and dependency licenses using configuration files of dependency
