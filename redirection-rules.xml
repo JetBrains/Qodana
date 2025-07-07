@@ -12,4 +12,8 @@
     <rule id="4d0d5387">
         <accepts>teamcity-plugin.html</accepts>
     </rule>
+    <rule id="6f044dda">
+        <description>Created after removal of "Variables" from Qodana</description>
+        <accepts>shl-variables.html</accepts>
+    </rule>
 </rules>

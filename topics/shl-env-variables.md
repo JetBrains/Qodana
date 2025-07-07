@@ -1,4 +1,4 @@
-# List of environment variables
+# Environment variables
 
 This section describes environment variables available while using the `qodana-installer-cli` 
 utility.

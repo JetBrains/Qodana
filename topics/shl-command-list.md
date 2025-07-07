@@ -1,4 +1,4 @@
-# List of Docker commands
+# Docker commands
 
 This section lists %premlite% commands executed in the `quay.io/jetbrains/qodana-installer-cli:latest` Docker image.
 
