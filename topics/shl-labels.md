@@ -9,10 +9,12 @@ website.
 %premlite% uses several global labels to mark the resources it owns and manages. You can use these labels to operate 
 %premlite%:
 
-| Label and value                                                                  | Description                                                  |
-|----------------------------------------------------------------------------------|--------------------------------------------------------------|
-| `qodana.jetbrains.self-hosted.lite.select=true`                                  | Identify all resources that are part of the %premlite% installation |
-| `qodana.jetbrains.self-hosted.lite.version=${APP_QODANA_SELF_HOSTED_IMAGE_TAG}`  | Display at runtime a %premlite% version that a specific resouce is related to. Dependent on the `APP_QODANA_SELF_HOSTED_IMAGE_TAG` [variable](shl-variables.md) |
+<!-- The APP_QODANA_SELF_HOSTED_IMAGE_TAG variable is missing from the list of environment variables -->
+
+| Label and value                                                                  | Description                                                                                                                                 |
+|----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| `qodana.jetbrains.self-hosted.lite.select=true`                                  | Identify all resources that are part of the %premlite% installation                                                                         |
+| `qodana.jetbrains.self-hosted.lite.version=${APP_QODANA_SELF_HOSTED_IMAGE_TAG}`  | Display at runtime a %premlite% version that a specific resouce is related to. Dependent on the `APP_QODANA_SELF_HOSTED_IMAGE_TAG` variable |
 
 
 ## Component-specific labels

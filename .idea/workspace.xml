@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redirection-rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/redirection-rules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/shl-command-list.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/shl-command-list.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/shl-env-variables.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/shl-env-variables.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/shl-variables.md" beforeDir="false" />
-    </list>
+    <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
