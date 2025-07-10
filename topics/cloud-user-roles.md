@@ -65,11 +65,13 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>View</td>
                 <td>Update</td>
                 <td>Delete</td>
+                <td>Assign</td>
             </tr>
             <tr>
                 <td>Teams</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -79,6 +81,7 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2713;</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
@@ -86,6 +89,7 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Project members</td>
@@ -93,11 +97,13 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
                 <td>&#x2714;</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -107,6 +113,7 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2714;</td>
                 <td></td>
                 <td>&#x2714;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Public keys</td>
@@ -114,12 +121,22 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
                 <td>&#x2713;</td>
                 <td>&#x2714;</td>
+                <td>&#x2714;</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Global configurations</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>&#x2714;</td>
             </tr>
         </table>
@@ -139,6 +156,7 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>View</td>
                 <td>Update</td>
                 <td>Delete</td>
+                <td>Assign</td>
             </tr>
             <tr>
                 <td>Teams</td>
@@ -146,12 +164,14 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Team users</td>
                 <td></td>
                 <td>&#x2713;</td>
                 <td>&#x2714;</td>
+                <td></td>
                 <td></td>
             </tr>
             <tr>
@@ -160,6 +180,7 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
@@ -167,6 +188,7 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Project members</td>
@@ -174,11 +196,13 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -188,12 +212,14 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2713;</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Public keys</td>
                 <td></td>
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
             </tr>
             <tr>
@@ -202,6 +228,15 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Global configurations</td>
+                <td>&#x2714;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>&#x2714;</td>
             </tr>
         </table>
     </tab>
@@ -266,6 +301,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>Update</td>
                 <td>Delete</td>
                 <td>Leave</td>
+                <td>Assign</td>
             </tr>
             <tr>
                 <td>Organizations</td>
@@ -274,11 +310,13 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -290,11 +328,13 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Organization settings</td>
                 <td></td>
                 <td>&#x2714;</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -306,6 +346,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Teams</td>
@@ -313,6 +354,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
+                <td></td>
                 <td></td>
             </tr>
             <tr>
@@ -322,6 +364,16 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2714;</td>
                 <td></td>
                 <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Global configurations</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>&#x2714;</td>
             </tr>
         </table>
     </tab>
@@ -343,6 +395,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>Update</td>
                 <td>Delete</td>
                 <td>Leave</td>
+                <td>Assign</td>
             </tr>
             <tr>
                 <td>Organizations</td>
@@ -351,6 +404,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2714;</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Organization members</td>
@@ -359,11 +413,13 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2714;</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Contributors</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -375,11 +431,13 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Organization settings</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -391,12 +449,14 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Public keys</td>
                 <td></td>
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -407,12 +467,14 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -423,6 +485,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Project members</td>
@@ -431,11 +494,13 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2714;</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
                 <td>&#x2714;</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -447,6 +512,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
                 <td>&#x2714;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
@@ -455,6 +521,16 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2714;</td>
                 <td>&#x2714;</td>
                 <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Global configurations</td>
+                <td>&#x2714;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>&#x2714;</td>
             </tr>
         </table>
     </tab>
@@ -476,6 +552,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>Update</td>
                 <td>Delete</td>
                 <td>Leave</td>
+                <td>Assign</td>
             </tr>
             <tr>
                 <td>Organizations</td>
@@ -484,6 +561,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td>&#x2714;</td>
                 <td>&#x2713;</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Organization members</td>
@@ -492,11 +570,13 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Contributors</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -508,11 +588,13 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Organization settings</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -524,12 +606,14 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Organization status</td>
                 <td></td>
                 <td></td>
                 <td>&#x2714;</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -540,12 +624,14 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2714;</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Organization licenses</td>
                 <td></td>
                 <td></td>
                 <td>&#x2714;</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -556,6 +642,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Teams</td>
@@ -564,12 +651,14 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -580,6 +669,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Project members</td>
@@ -588,11 +678,13 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
                 <td>&#x2713;</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -604,6 +696,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
                 <td>&#x2713;</td>
                 <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
@@ -612,6 +705,16 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>&#x2713;</td>
                 <td>&#x2713;</td>
                 <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Global configurations</td>
+                <td>&#x2714;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>&#x2714;</td>
             </tr>
         </table>
     </tab>

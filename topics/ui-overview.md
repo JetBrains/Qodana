@@ -87,6 +87,7 @@ The lower part of this tab contains the **Effective configuration** pane that le
 Once you apply another configuration for analyzing this project, the configuration will be updated accordingly. Also, 
 this can be updated based on the changes made to the **Applied inspections** pane.
 
+<img src="configuration-global-configuration.png" width="1297" alt="The global configuration overview" border-effect="line"/>
 
 ## License audit
 {id="ui-overview-project-audit"}

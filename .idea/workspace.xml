@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/configuration-global-configuration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/connect-a-repository-step-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/connect-a-repository-step-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/global-configuration-list-of-projects.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/global-configuration-overview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/modify-global-configuration.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-organizations.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-organizations.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-user-roles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-user-roles.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/global-configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/global-configuration.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/ui-overview.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ui-overview.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,24 +107,6 @@
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/clang.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/dotnet.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/github.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/gitlab.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/global-configuration.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/golang.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/insights.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/js.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/jvm.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/php.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/pricing.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/python.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/set-up-your-project.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/visualstudio.md"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
