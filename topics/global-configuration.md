@@ -16,7 +16,7 @@ You can update these files in the Qodana Cloud UI.
 You can use and configure each global configuration for several projects within a single Qodana Cloud 
 [organization](cloud-organizations.topic). 
 
-### Global and local configurations
+### Global and project configurations
 
 Local configuration is a configuration created for a specific project and located within a project repository.
 Global configuration is a configuration that can be shared across multiple projects. 
@@ -28,8 +28,8 @@ as well as two global configurations. In this case, profile configurations are m
 <!-- An example of a profile.inspections configuration should be provided here -->
 <!-- How does the flexInspect section work? -->
 
-If a project has local and global configurations and the local settings collide with global, then 
-local settings take precedence over global settings. In this case, the final configuration will contain settings
+If a project has project and global configurations and the project settings collide with global, then 
+project settings take precedence over global settings. In this case, the final configuration will contain settings
 from both configurations as you can see the `critical` configuration option of the `severityThresholds` option.
 
 <!-- This can probably be modified -->
