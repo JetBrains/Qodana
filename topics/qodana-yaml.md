@@ -15,7 +15,7 @@ Configurations applied in `qodana.yaml` override the default inspection profile 
 Qodana linters, you can configure it using the [HTML report](ui-overview.md) section, and all changes will be applied 
 automatically.
 
-The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/json/)
+The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/qodana-1.0.json)
 project, which allows for completion and basic validation in IDEs.
 
 To run subsequent checks with this customized configuration, save the file in the root directory of your project.
