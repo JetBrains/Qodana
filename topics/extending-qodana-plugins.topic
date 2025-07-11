@@ -44,7 +44,7 @@
 
                 <note>Several plugins may have dependencies that are not present in %product% images. You can check the
                     list of dependencies included in each %product% linter using our
-                    <a href="https://github.com/JetBrains/qodana-docker/blob/main/2025.1/jvm/included_plugins.txt">GitHub repository</a>.
+                    <a href="https://github.com/JetBrains/qodana-docker/blob/main/2025.2/jvm/included_plugins.txt">GitHub repository</a>.
                     You can navigate to the <ui-path>Versions</ui-path> tab and then click the latest version.</note>
             </chapter>
 
@@ -125,7 +125,7 @@
                                                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                                   fetch-depth: 0  # a full history is required for pull request analysis
                                             - name: 'Qodana Scan'
-                                              uses: JetBrains/qodana-action@v2025.1
+                                              uses: JetBrains/qodana-action@v2025.2
                                               with:
                                                   args: >
                                                         --linter,&lt;linter&gt;,

@@ -1,6 +1,6 @@
 [//]: # (title: Overview of linters)
 
-<var name="image-version" value="2025.1"/>
+<var name="image-version" value="2025.2"/>
 <var name="image-version-clang" value="2024.3"/>
 
 

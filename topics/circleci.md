@@ -41,7 +41,7 @@ In the `.circleci/config.yml` file, save the following configuration:
 version: 2.1
 
 orbs:
-  qodana: jetbrains/qodana@2025.1
+  qodana: jetbrains/qodana@2025.2
 
 jobs:
   code-quality:
@@ -79,7 +79,7 @@ This configuration uses the [`args` parameter](#Commands+and+parameters) to invo
 version: 2.1
 
 orbs:
-  qodana: jetbrains/qodana@2025.1
+  qodana: jetbrains/qodana@2025.2
 
 jobs:
   code-quality:
@@ -109,7 +109,7 @@ This configuration sample uses the [`args` parameter](#Commands+and+parameters) 
 version: 2.1
 
 orbs:
-  qodana: jetbrains/qodana@2025.1
+  qodana: jetbrains/qodana@2025.2
 
 jobs:
   code-quality:
@@ -137,7 +137,7 @@ This configuration instructs %product% to analyze changes only on the `main` bra
 version: 2.1
 
 orbs:
-  qodana: jetbrains/qodana@2025.1
+  qodana: jetbrains/qodana@2025.2
 
 jobs:
   code-quality:
@@ -170,8 +170,8 @@ This table contains the list of optional string parameters that can be additiona
 
 | Parameter              | Description                                                                                           | Default value                                                         |
 |------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| `primary-cache-key`    | Customize the generated cache hash                                                                    | `qodana-2025.1-<< pipeline.git.branch >>-<< pipeline.git.revision >>` |
-| `additional-cache-key` | Customize the generated cache hash                                                                    | `qodana-2025.1-<< pipeline.git.branch >>`                             |
+| `primary-cache-key`    | Customize the generated cache hash                                                                    | `qodana-2025.2-<< pipeline.git.branch >>-<< pipeline.git.revision >>` |
+| `additional-cache-key` | Customize the generated cache hash                                                                    | `qodana-2025.2-<< pipeline.git.branch >>`                             |
 | `args`                 | Additional arguments of the [Qodana CLI](https://github.com/jetbrains/qodana-cli#scan) `scan` command | No default value                                                      |
 | `artifact-name`        | Name of the analysis artifact, used for uploading analysis results                                    | `qodana-report`                                                       |
 | `cache-dir`            | Directory for %instance% caches                                                                       | `/tmp/cache/qodana`                                                   |

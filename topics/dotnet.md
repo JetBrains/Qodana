@@ -4,9 +4,9 @@
 
 <var name="qp" value="Qodana for .NET"/>
 <var name="qp-co" value="Qodana Community for .NET"/>
-<var name="qp-linter" value="jetbrains/qodana-dotnet:2025.1"/>
-<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2025.1-eap"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;dotnet|cdnet&gt;:2025.1&lt;-eap&gt;"/>
+<var name="qp-linter" value="jetbrains/qodana-dotnet:2025.2"/>
+<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2025.2-eap"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;dotnet|cdnet&gt;:2025.2&lt;-eap&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="Rider"/>
 <var name="ide-co" value="ReSharper"/>
@@ -209,7 +209,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                           - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2025.1
+                            uses: JetBrains/qodana-action@v2025.2
                             with:
                                 args: --no-build
                             env:
@@ -251,7 +251,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <tab title="GitLab CI/CD" group-key="gitlab">
                 <code-block lang="yaml">
                 include:
-                   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                      inputs:
                         args: --no-build
                 </code-block>
@@ -347,7 +347,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2025.1
+                                        uses: JetBrains/qodana-action@v2025.2
                                         with:
                                             args: --ide,QDNET
                                         env:
@@ -478,7 +478,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2025.1
+                                        uses: JetBrains/qodana-action@v2025.2
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -518,7 +518,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     following configuration there:</p>
                     <code-block lang="yaml">
                         include:
-                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                              inputs:
                                 args: --linter,%qp-linter%&lt;-privileged&gt;
                     </code-block>
@@ -596,7 +596,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2025.1
+                                        uses: JetBrains/qodana-action@v2025.2
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -635,7 +635,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         following configuration there:</p>
                     <code-block lang="yaml">
                         include:
-                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                              inputs:
                                 args: --linter,%qp-co-linter%&lt;-privileged&gt;
                     </code-block>
@@ -1183,7 +1183,7 @@ in a SARIF-formatted file.
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.1
+                                      uses: JetBrains/qodana-action@v2025.2
                                       with: 
                                         args: --ide,QDNET,--baseline,&lt;path/to/qodana.sarif.json&gt;
                                       env:
@@ -1240,7 +1240,7 @@ in a SARIF-formatted file.
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.1
+                                      uses: JetBrains/qodana-action@v2025.2
                                       with:
                                         args: | 
                                             --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1285,7 +1285,7 @@ in a SARIF-formatted file.
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                           <code-block lang="yaml">
                             include:
-                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                  inputs:
                                     args: | 
                                         --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1361,7 +1361,7 @@ in a SARIF-formatted file.
                                 ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
-                              uses: JetBrains/qodana-action@v2025.1
+                              uses: JetBrains/qodana-action@v2025.2
                               with:
                                 args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-co-linter%
                               env:
@@ -1404,7 +1404,7 @@ in a SARIF-formatted file.
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                         <code-block lang="yaml">
                             include:
-                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                  inputs:
                                     args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-co-linter%
                         </code-block>
@@ -1506,7 +1506,7 @@ You can analyze pull requests using the %dotnet% linter.
                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
-                        uses: JetBrains/qodana-action@v2025.1
+                        uses: JetBrains/qodana-action@v2025.2
                         with:
                           args: --linter,%qp-linter%&lt;-privileged&gt;
                         env:
@@ -1520,7 +1520,7 @@ You can analyze pull requests using the %dotnet% linter.
         </p>
         <code-block lang="yaml">
             include:
-               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                  inputs:
                    args: --linter,%qd-image%&lt;-privileged&gt;
         </code-block>

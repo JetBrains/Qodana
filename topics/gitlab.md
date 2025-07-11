@@ -11,7 +11,7 @@
 <var name="Variables" value="https://docs.gitlab.com/ci/variables/#define-a-cicd-variable-in-the-ui"/>
 <var name="PersonalToken" value="https://docs.gitlab.com/user/profile/personal_access_tokens/"/>
 <var name="ProjectToken" value="https://docs.gitlab.com/user/project/settings/project_access_tokens/"/>
-<var name="OnPrem" value="https://gitlab.com/qodana/qodana/-/blob/v2025.1/templates/qodana-gitlab-ci.yml?ref_type=heads"/>
+<var name="OnPrem" value="https://gitlab.com/qodana/qodana/-/blob/v2025.2/templates/qodana-gitlab-ci.yml?ref_type=heads"/>
 
 <link-summary>You can run the %instance% Scan GitLab Pipeline.</link-summary>
 
@@ -79,7 +79,7 @@ For the cloud-based version of GitLab CI/CD, in the `.gitlab-ci.yml` file save t
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         args: --linter,<linter>
 ```
@@ -93,7 +93,7 @@ For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save th
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v2025.2
      inputs:
         args: --linter,<linter>
 ```
@@ -108,26 +108,26 @@ In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on t
 By default, caching is enabled in %product% with the following keys: 
 
 ```yaml
-      - key: qodana-2025.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2025.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2025.1-$CI_DEFAULT_BRANCH-
-           - qodana-2025.1-
+           - qodana-2025.2-$CI_DEFAULT_BRANCH-
+           - qodana-2025.2-
 ```
 
 If you wish to override the default cache settings, use this configuration: 
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         args: --linter,<linter>
 
 qodana:
    cache:
-      - key: qodana-2025.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2025.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2025.1-$CI_DEFAULT_BRANCH-
-           - qodana-2025.1-
+           - qodana-2025.2-$CI_DEFAULT_BRANCH-
+           - qodana-2025.2-
         paths:
            - $[[ inputs.cache-dir ]]
 
@@ -144,7 +144,7 @@ you can use the following configuration for Microsoft Windows:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         os: windows
         args: --linter,<linter>
@@ -161,7 +161,7 @@ If you wish to override this behavior, you can modify the following configuratio
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         args: --linter,<linter>
 
@@ -235,7 +235,7 @@ Here is an example configuration that uses the `inputs` block for configuring th
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         push-fixes: merge-request
         args: |
@@ -259,7 +259,7 @@ you can use the `upload-result` keyword and specify the artifact name using the
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         upload-result: true
         artifact-name: Qodana report
@@ -286,7 +286,7 @@ block to run the [quality gate](quality-gate.topic) and [baseline](baseline.topi
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         args: |
             --baseline,qodana.sarif.json,
@@ -311,7 +311,7 @@ you can override a path to reports using the `codequality` option:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         args: --linter,<linter>
 
@@ -329,7 +329,7 @@ Use the following configuration to get log data from %product% on GitLab CI/CD:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         args: --linter,<linter>
         upload-result: true
@@ -350,7 +350,7 @@ than a pipeline timeout:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         args: --linter,<linter>
         upload-result: true

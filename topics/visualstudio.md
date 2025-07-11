@@ -17,7 +17,7 @@ Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows deve
 Make sure that you have a %cloud% [project](cloud-projects.topic), and this project has at
 least one uploaded [analysis report](cloud-overview-reports.topic) related to the project opened locally in your Visual Studio.
 
-Download and install Qodana as a component of [JetBrains ReSharper](https://www.jetbrains.com/resharper/), version 2025.1.
+Download and install Qodana as a component of [JetBrains ReSharper](https://www.jetbrains.com/resharper/), version 2025.2.
 
 ## UI overview
 {id="vs-code-ui-overview"}

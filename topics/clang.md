@@ -5,11 +5,11 @@
 <!-- Linter-related variables -->
 <var name="qdcpp" value="Qodana for C/C++"/>
 <var name="qdcppc" value="Qodana Community for C/C++"/>
-<var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.1-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.2-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="qdcppc-image" value="jetbrains/qodana-clang:2024.3-eap"/>
-<var name="qdcpp-privileged" value="jetbrains/qodana-cpp:2025.1-eap&lt;-clangXX&gt;-privileged"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
-<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="qdcpp-privileged" value="jetbrains/qodana-cpp:2025.2-eap&lt;-clangXX&gt;-privileged"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.2|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.2|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="CLion"/>
 
@@ -31,14 +31,14 @@
 <var name="linter" value="Qodana for C/C++"/>
 <var name="config-file" value="qodana-clang-docker-readme.topic"/>
 <var name="clang-config" value="https://gist.github.com/fbaeuerlein/2895f889e451a817d7b2b36fd60e2873"/>
-<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.1/base/cpp.Dockerfile"/>
-<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.1/cpp/internal.Dockerfile"/>
+<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.2/base/cpp.Dockerfile"/>
+<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.2/cpp/internal.Dockerfile"/>
 <var name="clang-website" value="https://clang.llvm.org/extra/clang-tidy/checks/list.html"/>
 <var name="clion-inspections-general" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="misra-inspections" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#stat-analysis-tools"/>
 <var name="compdb-generate" value="https://www.jetbrains.com/help/clion/compilation-database.html#compdb_generate"/>
 
-<var name="linter-shell" value="qodana-clang:2025.1-eap"/>
+<var name="linter-shell" value="qodana-clang:2025.2-eap"/>
 <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
@@ -316,7 +316,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
-                      uses: JetBrains/qodana-action@v2025.1
+                      uses: JetBrains/qodana-action@v2025.2
                       with:
                         args: --linter,%qdcpp-image%
                         # args: --linter,%qdcppc-image%  # Community version
@@ -349,7 +349,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
-                      uses: JetBrains/qodana-action@v2025.1
+                      uses: JetBrains/qodana-action@v2025.2
                       with:
                         args: | 
                             --linter,%qdcppc-image%,
@@ -422,14 +422,14 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
         <code-block lang="yaml">
           include:
-            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                 args: --linter,%common-image%
         </code-block>
         <p>To override the location of the <code>compile_commands.json</code> file for the  %qdcppc% linter, specify the location relative to the project root, so the configuration would look like:
         </p>
         <code-block lang="yaml">
           include:
-            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
               inputs:
                  args: |
                     --compile-commands,&lt;path-to-compile_commands.json&gt;,
@@ -744,7 +744,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
                     ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                     fetch-depth: 0  # a full history is required for pull request analysis
                 - name: 'Qodana Scan'
-                  uses: JetBrains/qodana-action@v2025.1
+                  uses: JetBrains/qodana-action@v2025.2
                   with:
                     args: | 
                         --linter,%qdcpp-image%,
@@ -792,7 +792,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
         baseline feature.</p>
       <code-block lang="yaml">
         include:
-           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
              inputs:
                 args: | 
                     --baseline,qodana.sarif.json,
@@ -874,7 +874,7 @@ You can analyze pull requests using the %cpp% linter.
                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
-                        uses: JetBrains/qodana-action@v2025.1
+                        uses: JetBrains/qodana-action@v2025.2
                         with:
                           args: --linter,%qdcpp-image%
                         env:
@@ -888,7 +888,7 @@ You can analyze pull requests using the %cpp% linter.
         </p>
         <code-block lang="yaml">
             include:
-               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                  inputs:
                    args: --linter,%qdcpp-image%
         </code-block>

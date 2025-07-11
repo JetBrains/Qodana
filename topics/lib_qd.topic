@@ -339,7 +339,7 @@
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                           - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2025.1
+                            uses: JetBrains/qodana-action@v2025.2
                             env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -640,7 +640,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.1
+                                          uses: JetBrains/qodana-action@v2025.2
                                           with:
                                               args: --linter,%qd-image%
                                           env:
@@ -667,7 +667,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.1
+                                          uses: JetBrains/qodana-action@v2025.2
                                           with: # Specify the linter that you would like to run
                                               args: --linter,%qd-image%
                                           env:
@@ -694,7 +694,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.1
+                                          uses: JetBrains/qodana-action@v2025.2
                                           with: # Uncomment the linter you wish to use
                                             # args: --linter,%qp-linter%
                                             # args: --linter,%qp-co-linter%
@@ -841,7 +841,7 @@
                                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                                       fetch-depth: 0  # a full history is required for pull request analysis
                                                 - name: 'Qodana Scan'
-                                                  uses: JetBrains/qodana-action@v2025.1
+                                                  uses: JetBrains/qodana-action@v2025.2
                                                   env:
                                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                                 </code-block>
@@ -874,7 +874,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.1
+                                          uses: JetBrains/qodana-action@v2025.2
                                           with:
                                               args: --ide,%native-arg%
                                           env:
@@ -1005,7 +1005,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.1
+                                          uses: JetBrains/qodana-action@v2025.2
                                           with:
                                               args: --linter,%qp-linter%
                                           env:
@@ -1033,7 +1033,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.1
+                                          uses: JetBrains/qodana-action@v2025.2
                                           with:
                                               args: --linter,%qd-image%
                                           env:
@@ -1062,7 +1062,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.1
+                                          uses: JetBrains/qodana-action@v2025.2
                                           with: # Uncomment the linter that you wish to use
                                             # args: --linter,%qp-linter%
                                             # args: --linter,%qp-co-linter%
@@ -1154,19 +1154,19 @@
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml" filter="generic">
                           include:
-                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                 inputs:
                                     args: --linter,%qd-image%
                         </code-block>
                 <code-block lang="yaml" filter="python">
                           include:
-                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                 inputs:
                                     args: --linter,%qd-image%
                         </code-block>
                 <code-block lang="yaml" filter="jvm">
                           include:
-                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                 inputs:
                                     args: --linter,%qd-image%
                         </code-block>
@@ -1354,7 +1354,7 @@
                                                     ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                                     fetch-depth: 0  # a full history is required for pull request analysis
                                               - name: 'Qodana Scan'
-                                                uses: JetBrains/qodana-action@v2025.1
+                                                uses: JetBrains/qodana-action@v2025.2
                                                 env:
                                                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                               </code-block>
@@ -1388,7 +1388,7 @@
                                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                   fetch-depth: 0  # a full history is required for pull request analysis
                               - name: 'Qodana Scan'
-                                uses: JetBrains/qodana-action@v2025.1
+                                uses: JetBrains/qodana-action@v2025.2
                                 with:
                                   args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--ide,%native-arg%
                                 env:
@@ -1491,7 +1491,7 @@
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                   - name: 'Qodana Scan'
-                                    uses: JetBrains/qodana-action@v2025.1
+                                    uses: JetBrains/qodana-action@v2025.2
                                     with: # Uncomment the linter that you wish to use
                                       # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-linter%
                                       # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-co-linter%
@@ -1523,7 +1523,7 @@
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                   - name: 'Qodana Scan'
-                                    uses: JetBrains/qodana-action@v2025.1
+                                    uses: JetBrains/qodana-action@v2025.2
                                     with:
                                         args: |
                                             --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1554,7 +1554,7 @@
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                   - name: 'Qodana Scan'
-                                    uses: JetBrains/qodana-action@v2025.1
+                                    uses: JetBrains/qodana-action@v2025.2
                                     with:
                                         args: |
                                             --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1654,21 +1654,21 @@
                 uncomment the linter that you would like to employ:</p>
             <code-block lang="yaml" filter="jvm">
                     include:
-                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                           inputs:
                               args: --linter,%qd-image%
                   </code-block>
             <p filter="python">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="python">
                     include:
-                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                           inputs:
                               args: --linter,%qd-image%
                   </code-block>
             <p filter="generic">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="generic">
                     include:
-                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                           inputs:
                               args: --linter,%qd-image%
                   </code-block>
@@ -1815,7 +1815,7 @@
                                                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                                   fetch-depth: 0  # a full history is required for pull request analysis
                                             - name: 'Qodana Scan'
-                                              uses: JetBrains/qodana-action@v2025.1
+                                              uses: JetBrains/qodana-action@v2025.2
                                               env:
                                                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -1851,7 +1851,7 @@
                                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                   fetch-depth: 0  # a full history is required for pull request analysis
                               - name: 'Qodana Scan'
-                                uses: JetBrains/qodana-action@v2025.1
+                                uses: JetBrains/qodana-action@v2025.2
                                 with:
                                   args: --ide,%native-arg%
                                 env:
@@ -1939,7 +1939,7 @@
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.1
+                                      uses: JetBrains/qodana-action@v2025.2
                                       with:
                                           args: --linter,%qp-linter%
                                       env:
@@ -1967,7 +1967,7 @@
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.1
+                                      uses: JetBrains/qodana-action@v2025.2
                                       with:
                                           args: --linter,%qd-image%
                                       env:
@@ -1995,7 +1995,7 @@
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.1
+                                      uses: JetBrains/qodana-action@v2025.2
                                       with: # Uncomment the linter you wish to use
                                         # args: --linter,%qp-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                                         # args: --linter,%qp-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
@@ -2009,19 +2009,19 @@
                     <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                     <code-block lang="yaml" filter="generic">
                       include:
-                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                             inputs:
                                args: --linter,%qd-image%
                     </code-block>
                     <code-block lang="yaml" filter="jvm">
                       include:
-                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                             inputs:
                                args: --linter,%qd-image%
                     </code-block>
                     <code-block lang="yaml" filter="python">
                       include:
-                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                             inputs:
                                args: --linter,%qd-image%
                     </code-block>
@@ -2154,7 +2154,7 @@
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                         - name: 'Qodana Scan'
-                          uses: JetBrains/qodana-action@v2025.1
+                          uses: JetBrains/qodana-action@v2025.2
                           with:
                               args: --linter,%qp-linter%
                           env:
@@ -2182,7 +2182,7 @@
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                         - name: 'Qodana Scan'
-                          uses: JetBrains/qodana-action@v2025.1
+                          uses: JetBrains/qodana-action@v2025.2
                           with:
                               args: --linter,%qd-image%
                           env:
@@ -2210,7 +2210,7 @@
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                         - name: 'Qodana Scan'
-                          uses: JetBrains/qodana-action@v2025.1
+                          uses: JetBrains/qodana-action@v2025.2
                           with: # Uncomment the linter you wish to use
                             # args: --linter,%qp-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                             # args: --linter,%qp-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
@@ -2224,19 +2224,19 @@
                 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                 <code-block lang="yaml" filter="generic">
                   include:
-                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                         inputs:
                             args: --linter,%qd-image%
                 </code-block>
                 <code-block lang="yaml" filter="jvm">
                   include:
-                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                         inputs:
                             args: --linter,%qd-image%
                 </code-block>
                 <code-block lang="yaml" filter="python">
                   include:
-                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                         inputs:
                             args: --linter,%qd-image%
                 </code-block>
