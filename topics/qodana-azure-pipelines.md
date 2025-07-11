@@ -65,7 +65,7 @@ of all configuration options is available in the [](#Configuration) chapter.
                restoreKeys: |
                  "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
                  "$(Build.Repository.Name)"
-           - task: QodanaScan@2024
+           - task: QodanaScan@2025
              inputs:
                uploadResult: true
              env:
@@ -106,7 +106,7 @@ of all configuration options is available in the [](#Configuration) chapter.
                restoreKeys: |
                  "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
                  "$(Build.Repository.Name)"
-           - task: QodanaScan@2024
+           - task: QodanaScan@2025
              inputs:
                uploadResult: true
                args: -e,AUSERNAME=$(AUSERNAME),-e,APASSWORD=$(APASSWORD)
@@ -140,7 +140,7 @@ This is how you can enable %product% analysis for pull requests:
          steps:
            - checkout: self
              fetchDepth: 0
-           - task: QodanaScan@2024
+           - task: QodanaScan@2025
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
              inputs:
@@ -179,7 +179,7 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
                restoreKeys: |
                  "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
                  "$(Build.Repository.Name)"
-           - task: QodanaScan@2024
+           - task: QodanaScan@2025
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
              inputs:

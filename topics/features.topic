@@ -62,6 +62,24 @@
                 <td>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet%</a> and <a href="clang.md">%clang%</a></td>
             </tr>
             <tr>
+                <td><a href="insights.md"/></td>
+                <td>Examine aggregated data on organizational and team levels in %cloud%.</td>
+                <td>
+                    <p>Ultimate Plus</p>
+                </td>
+                <td>
+                    <p><a href="dotnet.md">%dotnet%</a></p>
+                    <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="jvm.md">%jvm-a%</a></p>
+                    <p><a href="js.md">%js%</a></p>
+                    <p><a href="php.md">%php%</a></p>
+                    <p><a href="python.md">%python%</a></p>
+                    <p><a href="golang.md">%go%</a></p>
+                    <p><a href="clang.md">%cpp%</a></p>
+                    <p><a href="ruby.md">%ruby%</a></p>
+                </td>
+            </tr>
+            <tr>
                 <td><a href="license-audit.topic"/></td>
                 <td>Verify your project license for compatibility with the licenses of its dependencies</td>
                 <td>Ultimate Plus</td>
@@ -110,6 +128,24 @@
                     <p><a href="php.md">%php%</a></p>
                     <p><a href="python.md">%python%</a></p>
                     <p><a href="golang.md">%go%</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="cloud-sso.md"/></td>
+                <td>Use third-party identity providers for authentication in %cloud%.</td>
+                <td>
+                    <p>Ultimate Plus</p>
+                </td>
+                <td>
+                    <p><a href="dotnet.md">%dotnet%</a></p>
+                    <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="jvm.md">%jvm-a%</a></p>
+                    <p><a href="js.md">%js%</a></p>
+                    <p><a href="php.md">%php%</a></p>
+                    <p><a href="python.md">%python%</a></p>
+                    <p><a href="golang.md">%go%</a></p>
+                    <p><a href="clang.md">%cpp%</a></p>
+                    <p><a href="ruby.md">%ruby%</a></p>
                 </td>
             </tr>
             <tr>
