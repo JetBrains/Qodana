@@ -16,7 +16,7 @@ Qodana linters, you can configure it using the [HTML report](ui-overview.md) sec
 automatically.
 
 The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/qodana-1.0.json)
-project, which allows for completion and basic validation in IDEs.
+project, which provides completion and basic validation in IDEs.
 
 To run subsequent checks with this customized configuration, save the file in the root directory of your project.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
@@ -35,21 +35,24 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 <link-summary>Using the bootstrap key of qodana.yaml, %instance% can perform actions before running analysis.</link-summary>
 
-Using the `bootstrap` key of `qodana.yaml`, %instance% can perform actions before running the analysis. 
+Using the `bootstrap` key of the `qodana.yaml` file, %instance% can perform actions before running an analysis. 
 
-To install a specific package in the Qodana container using the `apt` tool, add this line to `qodana.yaml`:
+To install a specific package in the %product% container using the `apt` tool, add this line to the `qodana.yaml` file:
 
 ```yaml
 bootstrap: apt install <package_name>
 ```
 
-To run a script, save the `prepare-qodana.sh` script file in the project directory and specify execution in 
-`qodana.yaml`:
+Save the `prepare-qodana.sh` script file in the project directory and specify execution in `qodana.yaml`:
 
 ```yaml
 bootstrap: sh ./prepare-qodana.sh
 ```
-To learn more about use-cases, see the [](before-running-qodana.md) section.
+
+To run %product% as the root user, you may need to invoke the ` --user=root` 
+[option](docker-image-configuration.topic#docker-config-reference-qodana-scan).
+
+More information about the `bootstrap` key is available in the [](before-running-qodana.md) section.
 
 
 ## Set up a profile
@@ -226,7 +229,7 @@ In the example above,
 Using the `linter` option, you can specify a linter that you are going to employ. For example:
 
 ```yaml
-linter: jetbrains/qodana-jvm-android:2025.2
+linter: jetbrains/qodana-jvm-android:2025.1
 ```
 
 ## Configure the JDK version

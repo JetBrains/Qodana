@@ -82,10 +82,13 @@
 
         <p>There are several options for examining %instance% behavior using the <code>/data/results</code> directory:</p>
         <list>
-            <li>The <code>/data/results/projectStructure/Modules.json</code> file lists all modules detected by %instance%.
-                It should be identical to the list that you expect to see while opening the project in IDEA. If this is no longer
-                the case, check <code>pom.xml</code> for Maven or the <code>build.gradle</code> file for Gradle configurations.</li>
-
+            <li><p>The <code>/data/results/projectStructure</code> directory.</p>
+                <p>The <code>Modules.json</code> file in this directory contains a list of all modules detected by
+                    %instance%. It should be identical to the list that you expect to see while opening your project in
+                    IntelliJ IDEA. If this is no longer the case, check <code>pom.xml</code> for Maven or the
+                    <code>build.gradle</code> file for Gradle configurations.</p>
+                <p>The <code>SDKs.json</code> file in this directory contains the interpreter paths in case of Python.</p>
+            </li>
             <li>In the <code>/data/results/</code> directory, each inspection that detected a possible problem creates
                 its own file named <code>ID.json</code>, where <code>ID</code> is the inspection name that can be used in
                 <code>qodana.yaml</code> for including or excluding inspections. You can find the complete list of
@@ -207,7 +210,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: JetBrains/qodana-action@v2025.1
                                   with:
                                       args: --project-dir,project
                                   env:
@@ -344,7 +347,7 @@
                     <step>
                         <p>Use this sample to create the <code>Dockerfile</code>:</p>
                         <code-block lang="docker">
-                    FROM docker.io/jetbrains/qodana-&lt;linter&gt;:2025.2&lt;-eap&gt;
+                    FROM docker.io/jetbrains/qodana-&lt;linter&gt;:2025.1&lt;-eap&gt;
                     LABEL version="1.0.0"
 
                     ##Copy the proxy.settings.xml file
