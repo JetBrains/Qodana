@@ -2,10 +2,16 @@
 
 <show-structure for="chapter" depth="3"/>
 
+<!-- Human-readable linter names -->
 <var name="qp" value="Qodana for .NET"/>
 <var name="qp-co" value="Qodana Community for .NET"/>
-<var name="qp-linter" value="jetbrains/qodana-dotnet:2025.2"/>
-<var name="qp-co-linter" value="jetbrains/qodana-cdnet:2025.2-eap"/>
+<!-- Docker images -->
+<var name="qp-image" value="jetbrains/qodana-dotnet:2025.2-eap"/>
+<var name="qp-co-image" value="jetbrains/qodana-cdnet:2025.2-eap"/>
+<!-- Linter names -->
+<var name="qp-linter" value="qodana-dotnet:2025.2-eap"/>
+<var name="qp-co-linter" value="qodana-cdnet:2025.2-eap"/>
+
 <var name="qd-image" value="jetbrains/qodana-&lt;dotnet|cdnet&gt;:2025.2&lt;-eap&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="Rider"/>

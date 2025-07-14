@@ -6,10 +6,14 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<!-- Linter-related variables -->
+<!-- Human-readable linter names -->
 <var name="qp" value="Qodana for Go"/>
-<var name="qp-linter" value="jetbrains/qodana-go:2025.2"/>
-<var name="qd-image" value="jetbrains/qodana-go:2025.2"/>
+<!-- Docker images -->
+<var name="qp-image" value="jetbrains/qodana-go:2025.2-eap"/>
+<!-- Linter names -->
+<var name="qp-linter" value="qodana-go:2025.2-eap"/>
+
+<var name="qd-image" value="jetbrains/qodana-go:2025.2-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="GoLand"/>
 

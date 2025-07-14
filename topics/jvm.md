@@ -4,16 +4,23 @@
 
 <!--<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM-based languages" width="296"/>-->
 
-<!-- Linter-related variables -->
+<!-- Human-readable linter names -->
 <var name="qp" value="Qodana for JVM"/>
 <var name="qp-co" value="Qodana Community for JVM"/>
 <var name="qp-a" value="Qodana Community for Android"/>
 <var name="qp-an" value="Qodana for Android"/>
-<var name="qp-linter" value="jetbrains/qodana-jvm:2025.2"/>
-<var name="qp-co-linter" value="jetbrains/qodana-jvm-community:2025.2"/>
-<var name="qp-a-linter" value="jetbrains/qodana-jvm-android:2025.2"/>
-<var name="qp-an-linter" value="jetbrains/qodana-android:2025.2"/>
-<var name="qd-image" value="jetbrains/qodana-<jvm|community|android>:2025.2"/>
+<!-- Docker images -->
+<var name="qp-image" value="jetbrains/qodana-jvm:2025.2-eap"/>
+<var name="qp-co-image" value="jetbrains/qodana-jvm-community:2025.2-eap"/>
+<var name="qp-a-image" value="jetbrains/qodana-jvm-android:2025.2-eap"/>
+<var name="qp-an-image" value="jetbrains/qodana-android:2025.2-eap"/>
+<!-- Linter names -->
+<var name="qp-linter" value="qodana-jvm:2025.2-eap"/>
+<var name="qp-co-linter" value="qodana-jvm-community:2025.2-eap"/>
+<var name="qp-a-linter" value="qodana-jvm-android:2025.2-eap"/>
+<var name="qp-an-linter" value="qodana-android:2025.2-eap"/>
+
+<var name="qd-image" value="jetbrains/qodana-<jvm|community|android>:2025.2-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
 <var name="ide-co" value="IntelliJ IDEA Community Edition"/>
@@ -41,12 +48,12 @@
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Java projects, you can use the following linters:
 
-| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages                          |
-|---------|---------------------------|----------|----------------------------------------------------------------|----------------------------------------------|
-| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
-| %qp-an% | `%qp-an-linter%`            | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
-| %qp-co% | `%qp-co-linter%`            | %ide-co% | Community [license](pricing.md)                                | Java, Kotlin, Groovy                         |
-| %qp-a%  | `%qp-a-linter%`             | %ide-co% | Community [license](pricing.md)                                | Java, Kotlin, Groovy                                             |
+| Linter  | Linter name      | Based on           | Available under licenses                                       | Supported languages                          |
+|---------|------------------|--------------------|----------------------------------------------------------------|----------------------------------------------|
+| %qp%    | `%qp-linter%`    | <!-- %ide% -->     | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
+| %qp-an% | `%qp-an-linter%` | <!-- %ide% -->     | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
+| %qp-co% | `%qp-co-linter%` | <!-- %ide-co% -->  | Community [license](pricing.md)                                | Java, Kotlin, Groovy                         |
+| %qp-a%  | `%qp-a-linter%`  | <!-- %ide-co% -->  | Community [license](pricing.md)                                | Java, Kotlin, Groovy                                             |
 
 
 To see the list of supported technologies and features, you can navigate to the [](#jvm-feature-matrix) chapter of this section.

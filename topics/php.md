@@ -6,9 +6,13 @@
 
 <!--<img src="php-linter.png" dark-src="php-linter_dark.png" alt="Qodana for PHP linter languages" width="296"/>-->
 
-<!-- Linter-related variables -->
+<!-- Human-readable linter names -->
 <var name="qp" value="Qodana for PHP"/>
-<var name="qp-linter" value="jetbrains/qodana-php:2025.2"/>
+<!-- Docker images -->
+<var name="qp-image" value="jetbrains/qodana-php:2025.2-eap"/>
+<!-- Linter names -->
+<var name="qp-linter" value="qodana-php:2025.2-eap"/>
+
 <var name="qd-image" value="jetbrains/qodana-php:2025.2"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="PhpStorm"/>

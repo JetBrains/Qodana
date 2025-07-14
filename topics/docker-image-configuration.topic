@@ -7,7 +7,8 @@
 	title="Configuration options" id="docker-image-configuration">
 
     <show-structure for="chapter" depth="3"/>
-    <var name="linter-version" value="2025.2"/>
+    <var name="linter-version" value="2025.2-eap"/>
+    <var name="linter-version-eap" value="2025.2-eap"/>
 
     <link-summary>This section explains how you can configure %product% using various configuration options.</link-summary>
 
@@ -215,15 +216,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>-l, --linter &lt;string&gt;</code>
+                        <code>--image &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>This option is available only in the container mode and incompatible with <a href="deploy-qodana.md" anchor="Native+mode">native mode</a> and
-                            the <code>--ide</code> option.</note>
-                        <p>In place of <code>&lt;string&gt;</code>, specify the linter that you would like to employ:</p>
+                        <note>This option is available only in the container mode and incompatible with <a href="deploy-qodana.md" anchor="Native+mode">native mode</a>.</note>
+                        <p>In place of <code>&lt;string&gt;</code>, specify the %product% Docker image that you would like to employ:</p>
                         <table>
                             <tr>
-                                <td>Linter name</td>
+                                <td>Image name</td>
                                 <td>Description</td>
                             </tr>
                             <tr>
@@ -308,7 +308,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cdnet:%linter-version%-eap</code>
+                                    <code>jetbrains/qodana-cdnet:%linter-version-eap%</code>
                                 </td>
                                 <td>
                                     <a href="dotnet.md">%dotnet-co%</a>
@@ -316,7 +316,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-clang:%linter-version%-eap</code>
+                                    <code>jetbrains/qodana-clang:%linter-version-eap%</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%cpp%</a>
@@ -324,10 +324,18 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cpp:%linter-version%-eap</code>
+                                    <code>jetbrains/qodana-cpp:%linter-version-eap%</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%clang%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>jetbrains/qodana-ruby:%linter-version-eap%</code>
+                                </td>
+                                <td>
+                                    <a href="ruby.md">%ruby%</a>
                                 </td>
                             </tr>
                         </table>
@@ -336,27 +344,18 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>
-                            --ide  &lt;string&gt;
-                        </code>
+                        <code>-l, --linter &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>This option has been deprecated and will be removed in a future release.</note>
-                        <p>Run %product% in <a href="deploy-qodana.md" anchor="Native+mode">native mode</a>. Not compatible with the
-                            <code>--linter</code> option. In place of <code>&lt;string&gt;</code>, specify the linter code
-                            from this table:</p>
+                        <p>In place of <code>&lt;string&gt;</code>, specify the linter that you would like to employ:</p>
                         <table>
                             <tr>
-                                <td>
-                                    Linter code
-                                </td>
-                                <td>
-                                    Description
-                                </td>
+                                <td>Linter name</td>
+                                <td>Description</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <code>QDJVMC</code>
+                                    <code>qodana-jvm-community:%linter-version%</code>
                                 </td>
                                 <td>
                                     <a href="jvm.md">%jvm-co%</a>
@@ -364,7 +363,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>QDJVM</code>
+                                    <code>qodana-jvm:%linter-version%</code>
                                 </td>
                                 <td>
                                     <a href="jvm.md">%jvm%</a>
@@ -372,7 +371,23 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>QDPHP</code>
+                                    <code>qodana-jvm-android:%linter-version%</code>
+                                </td>
+                                <td>
+                                    <a href="jvm.md">%jvm-co-a%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-android:%linter-version%</code>
+                                </td>
+                                <td>
+                                    <a href="jvm.md">%jvm-a%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-php:%linter-version%</code>
                                 </td>
                                 <td>
                                     <a href="php.md">%php%</a>
@@ -380,7 +395,23 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>QDJS</code>
+                                    <code>qodana-python:%linter-version%</code>
+                                </td>
+                                <td>
+                                    <a href="python.md">%python%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-python-community:%linter-version%</code>
+                                </td>
+                                <td>
+                                    <a href="python.md">%python-co%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-js:%linter-version%</code>
                                 </td>
                                 <td>
                                     <a href="js.md">%js%</a>
@@ -388,14 +419,153 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>QDNET</code>
+                                    <code>qodana-go:%linter-version%</code>
+                                </td>
+                                <td>
+                                    <a href="golang.md">%go%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-dotnet:%linter-version%</code>
                                 </td>
                                 <td>
                                     <a href="dotnet.md">%dotnet%</a>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-cdnet:%linter-version-eap%</code>
+                                </td>
+                                <td>
+                                    <a href="dotnet.md">%dotnet-co%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-clang:%linter-version-eap%</code>
+                                </td>
+                                <td>
+                                    <a href="clang.md">%cpp%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-cpp:%linter-version-eap%</code>
+                                </td>
+                                <td>
+                                    <a href="clang.md">%clang%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-ruby:%linter-version-eap%</code>
+                                </td>
+                                <td>
+                                    <a href="ruby.md">%ruby%</a>
+                                </td>
+                            </tr>
                         </table>
-                        <p>To employ EAP versions of %product%, append <code>-EAP</code> to the code, for example <code>QDNET-EAP</code>.</p>
+                        <note>The previous linter notation <code>jetbrains/&lt;linter-name&gt;</code> is deprecated
+                        and will be removed in future versions of %product%.</note>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --within-docker &lt;true|false&gt;
+                        </code>
+                    </td>
+                    <td>
+                        <p>Define whether analysis will be performed within a Docker container.</p>
+                        <p>If set to <code>true</code>, %product% will employ a respective Docker image. The image for
+                            container creation will be chosen in an automated way based on the <code>--linter</code> value.
+                            For example, the <code>jetbrains/qodana-jvm</code> image will be chosen in case of <code>--linter==qodana-jvm</code>.</p>
+                        <p>If set to <code>false</code>, %product% will analyze your project in native mode using the current environment.</p>
+                        <p>The default value is defined dynamically based on the analysis of the current environment and project.</p>
+                        <p>Native mode is currently available for the following %product% linters:</p>
+                        <table>
+                            <tr>
+                                <td>
+                                    Linter name
+                                </td>
+                                <td>
+                                    Description
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-jvm:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="jvm.md">%jvm%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-jvm-community:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="jvm.md">%jvm-co%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-php:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="php.md">%php%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-js:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="js.md">%js%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-dotnet:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="dotnet.md">%dotnet%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-go:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="golang.md">%go%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-python:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="python.md">%python%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-python-community:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="python.md">%python-co%</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>qodana-cpp:2025.2-eap</code>
+                                </td>
+                                <td>
+                                    <a href="clang.md">%clang%</a>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
                 <tr>

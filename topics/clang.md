@@ -2,11 +2,16 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<!-- Linter-related variables -->
+<!-- Human-readable linter names -->
 <var name="qdcpp" value="Qodana for C/C++"/>
 <var name="qdcppc" value="Qodana Community for C/C++"/>
+<!-- Docker images -->
 <var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.2-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="qdcppc-image" value="jetbrains/qodana-clang:2024.3-eap"/>
+<!-- Linter names -->
+<var name="qdcpp-linter" value="qodana-cpp:2025.2-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="qdcppc-linter" value="qodana-clang:2024.3-eap"/>
+
 <var name="qdcpp-privileged" value="jetbrains/qodana-cpp:2025.2-eap&lt;-clangXX&gt;-privileged"/>
 <var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.2|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.2|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
@@ -67,13 +72,13 @@ or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONComp
 </tr>
 <tr>
     <td>%qdcppc%</td>
-    <td><code>%qdcppc-image%</code></td>
+    <td><code>%qdcppc-linter%</code></td>
     <td>Community <a href="pricing.md">license</a></td>
     <td><a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a>-based inspections</td>
 </tr>
 <tr>
     <td>%qdcpp%</td>
-    <td><code>%qdcpp-image%</code>*</td>
+    <td><code>%qdcpp-linter%</code>*</td>
     <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
     <td><p>The full set of inspections provided by <a href="https://www.jetbrains.com/help/clion/">CLion</a>:</p>
       <list>
