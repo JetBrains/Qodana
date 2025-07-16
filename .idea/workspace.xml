@@ -6,31 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/baseline.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/baseline.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/clang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/clang.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-forward-reports.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-forward-reports.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-coverage.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-coverage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/deploy-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/deploy-qodana.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/features.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/features.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gitlab.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/gitlab.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/golang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/golang.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/js.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/jvm.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/faq.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/faq.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/getting-started.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/getting-started.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/license-audit.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/license-audit.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/linters.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/linters.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/new-in-2025-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2025-2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/php.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/php.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/python.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/python.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/quality-gate.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quality-gate.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ruby.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ruby.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v.list" beforeDir="false" afterPath="$PROJECT_DIR$/v.list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/new-in-2025-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2025-2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +158,7 @@
       <workItem from="1752518631003" duration="571000" />
       <workItem from="1752573687555" duration="6127000" />
       <workItem from="1752584368983" duration="6285000" />
-      <workItem from="1752644332713" duration="26584000" />
+      <workItem from="1752644332713" duration="27379000" />
     </task>
     <servers />
   </component>

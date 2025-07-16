@@ -43,7 +43,7 @@
 
 | Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                                           | [Supported languages](#dotnet-feature-matrix)                |
 |-------------|----------------------------------|--------------------------------------------|----------------------------------------------------------------------|--------------------------------------------------------------|
-| %qd%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](deploy-qodana.md#Native+mode) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript, F# |
+| %qd%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](deploy-qodana.md#deploy-qodana-native-mode) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript, F# |
 | %qd-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                                       | C#, [C++](%cpp-links%), VB.NET                               |
 
 
@@ -78,7 +78,7 @@ A project token is required for the %qd% linter and optional for the %qd-co% lin
 {id="dotnet-sdk-version"}
 
 If you project targets the .NET Framework or [OS-specific TFMs](%tfms%), the only option in this case is to run the
-%qd% linter in [native mode](deploy-qodana.md#Native+mode).
+%qd% linter in [native mode](deploy-qodana.md#deploy-qodana-native-mode).
 
 If you run %qd% in native mode, you should install the SDK to the default location in your operating system so that 
 %ide% can have access to it.
@@ -307,7 +307,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     <tab group-key="linter-tabs-dotnet" title="%qd%">
       <p>You can run the %qd% linter in two modes:</p>
       <list>
-        <li><a href="deploy-qodana.md#Native+mode">Native mode</a> is the recommended method for running the %qd% linter that lets you run 
+        <li><a href="deploy-qodana.md#deploy-qodana-native-mode">Native mode</a> is the recommended method for running the %qd% linter that lets you run 
         the linter without using Docker containers</li>
         <li>Container mode is an alternative that involves Docker containers of the %qd% linter</li>
       </list>
@@ -1162,7 +1162,7 @@ in a SARIF-formatted file.
             <tabs group="native-container">
                 <tab title="Native mode" group-key="native-mode">
             <p>You can run the %qd% linter in the 
-                <a href="deploy-qodana.md" anchor="Native+mode">native mode</a>:</p>
+                <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>:</p>
                     <tabs group="software">
                         <tab title="GitHub Actions" group-key="github">
                             <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>

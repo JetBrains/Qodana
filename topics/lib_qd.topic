@@ -776,7 +776,7 @@
 
         <p filter="non-ruby">You can run %product% linters using the following methods:</p>
         <list filter="non-ruby">
-          <li filter="native"><a href="deploy-qodana.md" anchor="Native+mode">Native mode</a> as the recommended method for running
+          <li filter="native"><a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">Native mode</a> as the recommended method for running
             linters without Docker</li>
           <li>Container mode using Docker containers of %product%</li>
             <li><a href="qodana-ide-plugin.md">%ide%</a></li>
