@@ -57,6 +57,7 @@
                 <td><a href="flexinspect.md"/></td>
                 <td>Develop your own inspections using <a href="https://www.jetbrains.com/help/idea">IntelliJ IDEA</a> and <a href="https://kotlinlang.org/">Kotlin</a></td>
                 <td>
+                    <p>Ultimate</p>
                     <p>Ultimate Plus</p>
                 </td>
                 <td>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet%</a> and <a href="clang.md">%clang%</a></td>

@@ -13,9 +13,9 @@ You can develop your own inspections specific to your project using the IntelliJ
 You can develop your own inspections specific to your project using the 
 [IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin under the Ultimate and Ultimate Plus [licenses](pricing.md). You can:
 
-- Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code.
-- Debug new inspections on the fly.
-- Observe your new custom inspections in action, including the highlighting of code fragments that don't behave as expected.
+- Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code
+- Debug new inspections on the fly
+- Observe your new custom inspections in action, including the highlighting of code fragments that don't behave as expected
 
 With %feature%, you get access to the same API that is used by all 
 IntelliJ IDEA and %product% inspections. This allows you to run these inspections on your entire project using %product% 

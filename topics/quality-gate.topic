@@ -211,10 +211,10 @@
                          inputs:
                             args: |
                               --fail-threshold,&lt;number-of-accepted-problems&gt;,
-                              --linter,&lt;linter&gt;
+                              --image,&lt;linter&gt;
                 </code-block>
                 <p>In this sample, the <code>inputs</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
-                    option, and the <code>--linter</code> option referring to a <a href="linters.md">%product% linter</a>.</p>
+                    option, and the <code>--image</code> option referring to a <a href="linters.md">%product% linter</a>.</p>
             </tab>
         </tabs>
     </chapter>

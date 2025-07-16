@@ -145,7 +145,7 @@
                                       --property=idea.log.config.file=info.xml,
                                       --baseline,&lt;baseline-path&gt;,
                                       --apply-fixes,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -344,7 +344,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>-l, --linter &lt;string&gt;</code>
+                        <code>-l, --image &lt;string&gt;</code>
                     </td>
                     <td>
                         <p>In place of <code>&lt;string&gt;</code>, specify the linter that you would like to employ:</p>
@@ -479,7 +479,7 @@
                     <td>
                         <p>Define whether analysis will be performed within a Docker container.</p>
                         <p>If set to <code>true</code>, %product% will employ a respective Docker image. The image for
-                            container creation will be chosen in an automated way based on the <code>--linter</code> value.
+                            container creation will be chosen in an automated way based on the <code>--image</code> value.
                             For example, the <code>jetbrains/qodana-jvm</code> image will be chosen in case of <code>--linter==qodana-jvm</code>.</p>
                         <p>If set to <code>false</code>, %product% will analyze your project in native mode using the current environment.</p>
                         <p>The default value is defined dynamically based on the analysis of the current environment and project.</p>
@@ -3188,7 +3188,7 @@
                               inputs:
                                   args: |
                                       --property,idea.headless.enable.statistics=false,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -3301,7 +3301,7 @@
                                   args: |
                                       --property=idea.required.plugins.id=JavaScript,org.intellij.grails,
                                       --property=idea.suppressed.plugins.id=com.intellij.spring.security,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -3426,7 +3426,7 @@
                               inputs:
                                   args: |
                                       --diff-start=&lt;GIT_START_HASH&gt;,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3531,7 +3531,7 @@
                                   args: |
                                       --diff-start=&lt;GIT_START_HASH&gt;,
                                       --diff-end=&lt;GIT_END_HASH&gt;,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3653,7 +3653,7 @@
                               inputs:
                                   args: |
                                       --script,default,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3751,7 +3751,7 @@
                               inputs:
                                   args: |
                                       --script,php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3868,7 +3868,7 @@
                               inputs:
                                   args: |
                                       -e,_JAVA_OPTIONS=-Xmx6g,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -3980,7 +3980,7 @@
                               inputs:
                                   args: |
                                       -e,IDEA_PROPERTIES=/data/project/idea.properties,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -4104,7 +4104,7 @@
                               inputs:
                                   args: |
                                       -u,root,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
                 </tab>
             </tabs>

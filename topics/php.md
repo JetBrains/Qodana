@@ -7,13 +7,12 @@
 <!--<img src="php-linter.png" dark-src="php-linter_dark.png" alt="Qodana for PHP linter languages" width="296"/>-->
 
 <!-- Human-readable linter names -->
-<var name="qp" value="Qodana for PHP"/>
+<var name="qd" value="%php%"/>
 <!-- Docker images -->
-<var name="qp-image" value="jetbrains/qodana-php:2025.2-eap"/>
+<var name="qd-image" value="jetbrains/%php-linter%"/>
 <!-- Linter names -->
-<var name="qp-linter" value="qodana-php:2025.2-eap"/>
+<var name="qd-linter" value="%php-linter%"/>
 
-<var name="qd-image" value="jetbrains/qodana-php:2025.2"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="PhpStorm"/>
 
@@ -32,16 +31,16 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/phpstorm/customizing-profiles.html"/>
 <var name="native-arg" value="QDPHP"/>
-<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
+<var name="teamcity-linter-list" value="Here, select the %qd% linter."/>
 
-<link-summary>%qp% is based on %ide% and provides inspections for PHP, JavaScript, and TypeScript.</link-summary>
+<link-summary>%qd% is based on %ide% and provides inspections for PHP, JavaScript, and TypeScript.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks.
 To analyze PHP projects, you can use the following linter:
 
 | Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages            |
 |---------|---------------------------|----------|----------------------------------------------------------------|--------------------------------|
-| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | PHP, JavaScript and TypeScript |
+| %qd%    | `%qd-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | PHP, JavaScript and TypeScript |
 
 To see the list of supported technologies and features, you can navigate to the [](#php-feature-matrix) chapter of this section.
 
@@ -99,7 +98,7 @@ The `--ignore-platform-reqs` option bypasses PHP version incompatibility issues 
 ## Supported technologies and features
 {id="php-feature-matrix"}
 
-The %qp% linter provides inspections for the following technologies.
+The %qd% linter provides inspections for the following technologies.
 
 <table style="none">
     <tr>
@@ -173,3 +172,4 @@ The %qp% linter provides inspections for the following technologies.
 </table>
 
 <include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,php"/>
+

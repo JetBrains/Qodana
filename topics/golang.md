@@ -7,13 +7,12 @@
 <show-structure for="chapter" depth="3"/>
 
 <!-- Human-readable linter names -->
-<var name="qp" value="Qodana for Go"/>
+<var name="qd" value="%go%"/>
 <!-- Docker images -->
-<var name="qp-image" value="jetbrains/qodana-go:2025.2-eap"/>
+<var name="qd-image" value="jetbrains/%go-linter%"/>
 <!-- Linter names -->
-<var name="qp-linter" value="qodana-go:2025.2-eap"/>
+<var name="qd-linter" value="%go-linter%"/>
 
-<var name="qd-image" value="jetbrains/qodana-go:2025.2-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="GoLand"/>
 
@@ -32,16 +31,16 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/go/customizing-profiles.html"/>
 <var name="native-arg" value="QDGO"/>
-<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
+<var name="teamcity-linter-list" value="Here, select the %qd% linter."/>
 
-<link-summary>%qp% is based on %ide% and provides static analysis for Go projects.</link-summary>
+<link-summary>%qd% is based on %ide% and provides static analysis for Go projects.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Golang projects, you can use the following linter:
 
-| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages               |
-|---------|---------------------------|----------|----------------------------------------------------------------|-----------------------------------|
-| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Golang, JavaScript and Typescript |
+| Linter | Linter name   | Based on | Available under licenses                                       | Supported languages               |
+|--------|---------------|----------|----------------------------------------------------------------|-----------------------------------|
+| %qd%   | `%qd-linter%` | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Golang, JavaScript and Typescript |
 
 
 To see the list of supported technologies and features, you can navigate to the [](#golang-feature-matrix) chapter of this section.
@@ -59,7 +58,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,golang,non-ruby"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,golang,non-ruby,native"/>
 
 ## Explore analysis results
 
@@ -81,12 +80,12 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,generic,golang"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,native"/>
 
 ## Supported technologies and features
 {id="golang-feature-matrix"}
 
-%qp% provides inspections for the following technologies.
+%qd% provides inspections for the following technologies.
 
 <table style="none">
     <tr>

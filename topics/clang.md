@@ -3,16 +3,18 @@
 <show-structure for="chapter" depth="3"/>
 
 <!-- Human-readable linter names -->
-<var name="qdcpp" value="Qodana for C/C++"/>
-<var name="qdcppc" value="Qodana Community for C/C++"/>
+<var name="qdcpp" value="%cpp%"/>
+<var name="qdcppc" value="%clang%"/>
 <!-- Docker images -->
-<var name="qdcpp-image" value="jetbrains/qodana-cpp:2025.2-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
-<var name="qdcppc-image" value="jetbrains/qodana-clang:2024.3-eap"/>
+<var name="qdcpp-image" value="jetbrains/%cpp-linter%&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="qdcppc-image" value="jetbrains/%clang-linter%"/>
 <!-- Linter names -->
-<var name="qdcpp-linter" value="qodana-cpp:2025.2-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
-<var name="qdcppc-linter" value="qodana-clang:2024.3-eap"/>
+<var name="qdcpp-linter" value="%cpp-linter%&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="qdcppc-linter" value="%clang-linter%"/>
 
-<var name="qdcpp-privileged" value="jetbrains/qodana-cpp:2025.2-eap&lt;-clangXX&gt;-privileged"/>
+<var name="qd-linter" value="%cpp-linter%"/>
+
+<var name="qdcpp-privileged" value="jetbrains/%cpp-linter%&lt;-clangXX&gt;-privileged"/>
 <var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.2|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.2|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
@@ -206,43 +208,20 @@ the project, generates analysis reports and saves them locally or uploads to %cl
 <include from="lib_qd.topic" element-id="major-version-note"/>
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"/>
 
-<!--<p>You can run all linters described in this section in two modes:</p>
+<p>You can run all linters described in this section in two modes:</p>
 <list>
-  <li><a href="native-mode.md">Native mode</a> is the recommended method that lets you run
+  <li><a href="deploy-qodana.md#deploy-qodana-native-mode">Native mode</a> is the recommended method that lets you run
     linters without using Docker containers,</li>
   <li>Container mode is an alternative that involves Docker containers the linters.</li>
 </list>
 <tabs group="native-container">
   <tab title="Native mode" group-key="native-mode">
     <snippet id="dotnet-run-qodana-native-mode-yaml">
-      <p>Using a YAML configuration is the preferred method of configuring linters because it lets you use such configurations
-          across all software that runs %product% without additional efforts.</p>
-      <p>Here is the list of values for configuring native mode:</p>
-      <list>
-        <li><code>QDJVM</code> for the %jvm% linter,</li>
-        <li><code>QDAND</code> for the %jvm-a% linter,</li>
-        <li><code>QDJVMC</code> for the %jvm-co% linter,</li>
-        <li><code>QDANDC</code> for the %jvm-co-a% linter.</li>
-      </list>
-          <p>You can configure the <a href="native-mode.md">native mode</a> by adding this line to the
-          <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file, for example:</p>
-      <code-block lang="yaml">
-          ide: QDJVM
-      </code-block>
-    </snippet>
-      <p>Alternatively, you can implement native mode configuration as shown in examples below.</p>
       <tabs group="software">
           <tab title="GitHub Actions" group-key="github">
-              <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
-              <procedure>
-                  <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
-                      <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
-                      and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
-                  </step>
-                  <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
-                      <code>.github/workflows/code_quality.yml</code> file.</step>
-                  <step>To analyze the <code>main</code> branch, release branches and the pull requests coming
-                  to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:
+      <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
+      <p>To analyze the <code>main</code> branch, release branches and the pull requests coming to your repository in 
+        native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                       <code-block lang="yaml">
                           name: Qodana
                           on:
@@ -265,35 +244,40 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                                     ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                     fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2024.3
+                                  uses: JetBrains/qodana-action@v2025.2
                                   with:
-                                      args: --ide,&lt;QDJVM/QDAND/QDJVMC/QDANDC&gt;
+                                      args: |
+                                          --linter,%qd-linter%,
+                                          --within-docker,false
                                   env:
                                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                       </code-block>
-                  </step>
-              </procedure>
+                        <p>This configuration uses the <code>--linter</code>
+                            <a href="docker-image-configuration.topic" anchor="docker-config-reference-qodana-scan">option</a>
+                            to specify a <a href="linters.md">linter</a>. The
+                            <code>--within-docker</code> option in the <code>false</code> state is used for enabling native mode.</p>
               <p>More configuration examples are available in the <a href="github.md"/> section.</p>
           </tab>
           <tab title="Command line" group-key="command-line">
               <p>Run this command in the project root directory:</p>
               <code-block lang="shell" prompt="$">
-                  qodana scan \
-                  &nbsp;&nbsp;&nbsp;--ide &lt;QDJVM/QDAND/QDJVMC/QDANDC&gt;
+                   qodana scan \
+                   &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+                   &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
+                   &nbsp;&nbsp;&nbsp;--within-docker false
               </code-block>
-              <p>Here, the <code>--ide</code> option downloads and employs the JetBrains IDE binary file.</p>
-              <p>Alternatively, in the <code>qodana.yaml</code> file save <code>ide: &lt;QDJVM/QDAND/QDJVMC/QDANDC&gt;</code>, and then run %instance%
-                  using the following command:</p>
-              <code-block lang="shell" prompt="$">
-                  qodana scan
-              </code-block>
+              <p>This configuration uses the <code>--linter</code>
+                  <a href="docker-image-configuration.topic" anchor="docker-config-reference-qodana-scan">option</a>
+                  to specify a <a href="linters.md">linter</a>. The
+                  <code>--within-docker</code> option in the <code>false</code> state is used for enabling native mode.</p>
+              <p>If you are using another %cloud% instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
               <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
-                reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
+                  reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
           </tab>
       </tabs>
   </tab>
   <tab title="Container mode" group-key="container-mode">
-      <p>Container mode is available for all linters; however, we recommend that you use native mode.</p>-->
+      <p>Container mode is available for all linters; however, we recommend that you use native mode.</p>
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
       <note>This feature is experimental and is being actively developed, which means that it should not be used in a production environment.</note>
@@ -323,8 +307,8 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                     - name: 'Qodana Scan'
                       uses: JetBrains/qodana-action@v2025.2
                       with:
-                        args: --linter,%qdcpp-image%
-                        # args: --linter,%qdcppc-image%  # Community version
+                        args: --image,%qdcpp-image%
+                        # args: --image,%qdcppc-image%  # Community version
                       env:
                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           </code-block>
@@ -357,7 +341,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                       uses: JetBrains/qodana-action@v2025.2
                       with:
                         args: | 
-                            --linter,%qdcppc-image%,
+                            --image,%qdcppc-image%,
                             --compile-commands,&lt;path-to-compile_commands.json&gt;
                       env:
                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -428,7 +412,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <code-block lang="yaml">
           include:
             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
-                args: --linter,%common-image%
+                args: --image,%common-image%
         </code-block>
         <p>To override the location of the <code>compile_commands.json</code> file for the  %qdcppc% linter, specify the location relative to the project root, so the configuration would look like:
         </p>
@@ -438,7 +422,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
               inputs:
                  args: |
                     --compile-commands,&lt;path-to-compile_commands.json&gt;,
-                    --linter,%qdcppc-image%
+                    --image,%qdcppc-image%
         </code-block>
     <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
     </tab>
@@ -488,8 +472,8 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <code>docker run</code> again.</p>
     </tab>
 </tabs>
-  <!--</tab>-->
-<!--</tabs>-->
+  </tab>
+</tabs>
 
 ## Explore analysis results
 
@@ -752,9 +736,9 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
                   uses: JetBrains/qodana-action@v2025.2
                   with:
                     args: | 
-                        --linter,%qdcpp-image%,
+                        --image,%qdcpp-image%,
                         --baseline,&lt;path/to/qodana.sarif.json&gt;
-                    # args: --linter,%qdcppc-image%,--baseline,&lt;path/to/qodana.sarif.json&gt;  # Community version
+                    # args: --image,%qdcppc-image%,--baseline,&lt;path/to/qodana.sarif.json&gt;  # Community version
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       </code-block>
@@ -802,7 +786,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
                 args: | 
                     --baseline,qodana.sarif.json,
                     --fail-threshold,&lt;number-of-accepted-problems&gt;,
-                    --linter,%common-image%
+                    --image,%common-image%
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
@@ -881,7 +865,7 @@ You can analyze pull requests using the %cpp% linter.
                       - name: 'Qodana Scan'
                         uses: JetBrains/qodana-action@v2025.2
                         with:
-                          args: --linter,%qdcpp-image%
+                          args: --image,%qdcpp-image%
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -895,7 +879,7 @@ You can analyze pull requests using the %cpp% linter.
             include:
                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                  inputs:
-                   args: --linter,%qdcpp-image%
+                   args: --image,%qdcpp-image%
         </code-block>
         <p>
             This configuration enables merge request analysis.
@@ -938,20 +922,31 @@ You can analyze pull requests using the %cpp% linter.
 
 {id="clang-feature-matrix"}
 
-Both linters provide the following %product% features:
-
 <table>
     <tr>
         <td>Feature</td>
+        <td>Supported by linter(s)</td>
         <td>Available under licenses</td>
     </tr>
     <tr>
         <td><a href="baseline.topic"/></td>
+        <td>%cpp% <br/> %clang%</td>
         <td>Community, Ultimate and Ultimate Plus</td>
     </tr>
     <tr>
         <td><a href="quality-gate.topic"/></td>
+        <td>%cpp% <br/> %clang%</td>
         <td>Community, Ultimate and Ultimate Plus</td>
+    </tr>
+    <tr>
+        <td><a href="insights.md"/></td>
+        <td>%cpp%</td>
+        <td>Ultimate Plus</td>
+    </tr>
+    <tr>
+        <td><a href="cloud-sso.md"/></td>
+        <td>%cpp%</td>
+        <td>Ultimate Plus</td>
     </tr>
 </table>
 

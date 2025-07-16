@@ -132,7 +132,7 @@
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                         inputs:
-                            args: --linter,&lt;linter&gt;
+                            args: --image,&lt;image&gt;
                 </code-block>
             </step>
         </procedure>

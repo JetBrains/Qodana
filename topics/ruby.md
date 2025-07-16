@@ -3,11 +3,11 @@
 <show-structure for="chapter" depth="3"/>
 
 <!-- Human-readable linter names -->
-<var name="qp" value="Qodana for Ruby"/>
+<var name="qd" value="%ruby%"/>
 <!-- Docker images -->
-<var name="qd-image" value="jetbrains/qodana-ruby:2025.2-eap"/>
+<var name="qd-image" value="jetbrains/%ruby-linter%"/>
 <!-- Linter names -->
-<var name="qp-linter" value="qodana-ruby:2025.2-eap"/>
+<var name="qd-linter" value="%ruby-linter%"/>
 
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="RubyMine"/>
@@ -26,12 +26,12 @@
 <var name="TeamCityBranches" value="https://www.jetbrains.com/help/teamcity/configuring-finish-build-trigger.html#Trigger+Settings"/>
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/go/customizing-profiles.html"/>
-<var name="teamcity-linter-list" value="Here, select Custom and in the field below specify the %qp% linter."/>
+<var name="teamcity-linter-list" value="Here, select Custom and in the field below specify the %qd% linter."/>
 
-<link-summary>%qp% is based on %ide% and provides static analysis for Ruby projects.</link-summary>
+<link-summary>%qd% is based on %ide% and provides static analysis for Ruby projects.</link-summary>
 
 <note>
-%qp% is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
+%qd% is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
 Any use of the EAP product is at your own risk. Your feedback is very welcome in our 
 <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
@@ -40,9 +40,9 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Ruby projects, you can use the following linter:
 
-| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages             |
-|---------|---------------------------|----------|----------------------------------------------------------------|---------------------------------|
-| %qp%    | `%qp-linter%<-ruby3.X><-privileged>`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Ruby, JavaScript and TypeScript |
+| Linter | Linter name                         | Based on | Available under licenses                                       | Supported languages             |
+|--------|-------------------------------------|----------|----------------------------------------------------------------|---------------------------------|
+| %qd%    | `%qd-linter%<-ruby3.X><-privileged>` | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Ruby, JavaScript and TypeScript |
 
 Here, the optional `-ruby3.X` tag lets you specify the Ruby language version, ranging from 3.1 to 3.4. If not specified, the default Ruby version will be 3.4.
 The optional `-privileged` tag lets you run %product% in the privileged mode to execute commands that require root access. In this case,
@@ -105,7 +105,7 @@ The command will be automatically executed before the analysis to install depend
 ## Supported technologies and features
 {id="ruby-feature-matrix"}
 
-%qp% provides inspections for the following technologies.
+%qd% provides inspections for the following technologies.
 
 <table style="none">
     <tr>

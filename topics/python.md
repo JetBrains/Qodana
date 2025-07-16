@@ -3,22 +3,21 @@
 <show-structure for="chapter" depth="3"/>
 
 <!-- Human-readable linter names -->
-<var name="qp" value="Qodana for Python"/>
-<var name="qp-co" value="Qodana Community for Python"/>
+<var name="qd" value="%python%"/>
+<var name="qd-co" value="%python-co%"/>
 <!-- Docker images -->
-<var name="qp-image" value="jetbrains/qodana-python:2025.2-eap"/>
-<var name="qp-co-image" value="jetbrains/qodana-python-community:2025.2-eap"/>
+<var name="qd-image" value="jetbrains/%python-linter%"/>
+<var name="qd-co-image" value="jetbrains/%python-co-linter%"/>
 <!-- Linter names -->
-<var name="qp-linter" value="qodana-python:2025.2-eap"/>
-<var name="qp-co-linter" value="qodana-python-community:2025.2-eap"/>
+<var name="qd-linter" value="%python-linter%"/>
+<var name="qd-co-linter" value="%python-co-linter%"/>
 
-<var name="qd-image" value="jetbrains/qodana-<python|community>:2025.2-eap"/>
+<!-- Combined names -->
+<var name="qd-image-combined" value="jetbrains/qodana-python&lt;-community&gt;:2025.2-eap"/>
+<var name="qd-linter-combined" value="qodana-python&lt;-community&gt;:2025.2-eap"/>
+
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
-<var name="ide" value="PyCharm"/>
-<var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
-<var name="DPplugin" value="https://plugins.jenkins.io/docker-workflow/"/>
-<var name="Gplugin" value="https://plugins.jenkins.io/git/"/>
-<var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
+
 <var name="MultipipeCreate" value="https://www.jenkins.io/doc/book/pipeline/multibranch/#creating-a-multibranch-pipeline"/>
 <var name="TeamCityProject" value="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project"/>
 <var name="TeamCityBuildConfig" value="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html"/>
@@ -29,17 +28,26 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="native-arg" value="&lt;linter-code&gt;"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/pycharm/customizing-profiles.html"/>
-<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
+<var name="teamcity-linter-list" value="Here, select the %qd% linter."/>
 
-<link-summary>You can analyze your Python code using the %qp% and %qp-co% linters.</link-summary>
+<!-- Jenkins and Docker variables -->
+<var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
+<var name="DPplugin" value="https://plugins.jenkins.io/docker-workflow/"/>
+<var name="Gplugin" value="https://plugins.jenkins.io/git/"/>
+<var name="Dockeraccess" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
+
+<!-- IDE-related variable -->
+<var name="ide" value="PyCharm"/>
+
+<link-summary>You can analyze your Python code using the %qd% and %qd-co% linters.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze 
 Python projects, you can use the following linters:
 
 | Linter  | Linter name    | Based on                   | Available under licenses                          | Supported languages               |
 |---------|----------------|----------------------------|---------------------------------------------------|-----------------------------------|
-| %qp%    | `%qp-linter%`    | PyCharm Professional       | Ultimate and Ultimate Plus [licenses](pricing.md) | Python, JavaScript and Typescript |
-| %qp-co% | `%qp-co-linter%` | PyCharm Community Edition  | Community [license](pricing.md)                   | Python                            |
+| %qd%    | `%qd-linter%`    | PyCharm Professional       | Ultimate and Ultimate Plus [licenses](pricing.md) | Python, JavaScript and Typescript |
+| %qd-co% | `%qd-co-linter%` | PyCharm Community Edition  | Community [license](pricing.md)                   | Python                            |
 
 
 To see the list of supported technologies and features, you can navigate to the [](#python-feature-matrix) chapter of this section.
@@ -67,7 +75,7 @@ bootstrap: pip install -r requirements.txt
 
 ## Run %product%
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python,non-ruby"/>
+<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python,non-ruby,native"/>
 
 ## Explore analysis results
 
@@ -86,7 +94,7 @@ bootstrap: pip install -r requirements.txt
 ### Enabling the quality gate
 
 <tabs group="linter-tabs">
-    <tab group-key="linter-tabs-dotnet" title="%qp%">
+    <tab group-key="linter-tabs-dotnet" title="%qd%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems, 
             specific problem severities, and code coverage by saving this snippet to the 
             <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
@@ -105,7 +113,7 @@ bootstrap: pip install -r requirements.txt
             &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
         </code-block>
     </tab>
-    <tab group-key="linter-tabs-cdnet" title="%qp-co%">
+    <tab group-key="linter-tabs-cdnet" title="%qd-co%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems 
             and specific problem severities by saving this snippet to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
         </p>
@@ -124,7 +132,7 @@ bootstrap: pip install -r requirements.txt
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,python"/>
+<include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,python,native"/>
 
 ## Supported technologies and features
 {id="python-feature-matrix"}
@@ -135,8 +143,8 @@ This table contains the list of technologies and %product% [features](features.t
     <tr>
       <td>Support for</td>
       <td>Name</td>
-      <td>%qp%</td>
-      <td>%qp-co%</td>
+      <td>%qd%</td>
+      <td>%qd-co%</td>
     </tr>
     <tr>
         <td>Programming languages</td>
@@ -276,11 +284,17 @@ This table contains the list of technologies and %product% [features](features.t
             <p><a href="baseline.topic"/></p>
             <p><a href="quality-gate.topic"/></p>
             <p><a href="code-coverage.md"/></p>
-            <p><a href="license-audit.topic"/></p>
+            <p><a href="flexinspect.md"/></p>
+            <p><a href="insights.md"/><b>*</b></p>
+            <p><a href="license-audit.topic"/><b>*</b></p>
             <p><a href="quick-fix.md"/></p>
-            <p><a href="vulnerability-checker.md"/></p>
+            <p><a href="cloud-sso.md"/><b>*</b></p>
+            <p><a href="vulnerability-checker.md"/><b>*</b></p>
         </td>
         <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
@@ -298,6 +312,8 @@ This table contains the list of technologies and %product% [features](features.t
         </td>
     </tr>
 </table>
+
+\* Available only under the Ultimate Plus [license](pricing.md).
 
 
 

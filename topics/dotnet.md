@@ -3,14 +3,14 @@
 <show-structure for="chapter" depth="3"/>
 
 <!-- Human-readable linter names -->
-<var name="qp" value="Qodana for .NET"/>
-<var name="qp-co" value="Qodana Community for .NET"/>
+<var name="qd" value="%dotnet%"/>
+<var name="qd-co" value="%dotnet-co%"/>
 <!-- Docker images -->
-<var name="qp-image" value="jetbrains/qodana-dotnet:2025.2-eap"/>
-<var name="qp-co-image" value="jetbrains/qodana-cdnet:2025.2-eap"/>
+<var name="qd-image" value="jetbrains/%dotnet-linter%"/>
+<var name="qd-co-image" value="jetbrains/%dotnet-co-linter%"/>
 <!-- Linter names -->
-<var name="qp-linter" value="qodana-dotnet:2025.2-eap"/>
-<var name="qp-co-linter" value="qodana-cdnet:2025.2-eap"/>
+<var name="qd-linter" value="%dotnet-linter%"/>
+<var name="qd-co-linter" value="%dotnet-co-linter%"/>
 
 <var name="qd-image" value="jetbrains/qodana-&lt;dotnet|cdnet&gt;:2025.2&lt;-eap&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
@@ -33,18 +33,18 @@
 <var name="rs-link" value="https://www.jetbrains.com/help/resharper/Introduction__Index.html"/>
 <var name="tfms" value="https://learn.microsoft.com/en-us/dotnet/standard/frameworks#net-5-os-specific-tfms"/>
 <var name="cpp-links" value="https://jetbrains.com/help/resharper/Introduction__Index.html#supported_langs"/>
-<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
+<var name="teamcity-linter-list" value="Here, select the %qd% linter."/>
 
 
-<link-summary>You can analyze your .NET code using the %qp% and %qp-co% linters.</link-summary>
+<link-summary>You can analyze your .NET code using the %qd% and %qd-co% linters.</link-summary>
 
 <p>All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:</p>
 
 | Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                                           | [Supported languages](#dotnet-feature-matrix)                |
 |-------------|----------------------------------|--------------------------------------------|----------------------------------------------------------------------|--------------------------------------------------------------|
-| %qp%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](deploy-qodana.md#Native+mode) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript, F# |
-| %qp-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                                       | C#, [C++](%cpp-links%), VB.NET                               |
+| %qd%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](deploy-qodana.md#Native+mode) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript, F# |
+| %qd-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                                       | C#, [C++](%cpp-links%), VB.NET                               |
 
 
 <p>You can compare these linters by programming languages and other supported technologies by navigating to the <a anchor="dotnet-feature-matrix">feature matrix</a>.</p>
@@ -72,19 +72,19 @@ will be used by %product% for identifying and verifying a license.
     </step>
 </procedure>
 
-A project token is required for the %qp% linter and optional for the %qp-co% linter.
+A project token is required for the %qd% linter and optional for the %qd-co% linter.
 
 ### SDK version
 {id="dotnet-sdk-version"}
 
 If you project targets the .NET Framework or [OS-specific TFMs](%tfms%), the only option in this case is to run the
-%qp% linter in [native mode](deploy-qodana.md#Native+mode).
+%qd% linter in [native mode](deploy-qodana.md#Native+mode).
 
-If you run %qp% in native mode, you should install the SDK to the default location in your operating system so that 
+If you run %qd% in native mode, you should install the SDK to the default location in your operating system so that 
 %ide% can have access to it.
 
 <!-- This table should be made for both linters -->
-The Dockerized version of %qp% provides versions 8.0 and 9.0 of SDK.
+The Dockerized version of %qd% provides versions 8.0 and 9.0 of SDK.
 
 <p>All SDK versions are stored in the <code>/usr/share/dotnet/sdk</code> directory of the 
     %product% container filesystem.</p>
@@ -142,7 +142,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         </procedure>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
-        <p>If you wish to run the %qp% linter, then in TeamCity create a 
+        <p>If you wish to run the %qd% linter, then in TeamCity create a 
         <a href="https://www.jetbrains.com/help/teamcity/configure-and-run-your-first-build.html#Create+your+first+project">project</a> 
         and a <a href="https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html">build configuration</a>.</p>
     </tab>
@@ -155,16 +155,16 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
               <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> page on GitHub.</p>
           </tab>
           <tab group-key="docker-image" title="Docker image">
-            <p>Run this command to pull the Docker image of the %qp% or %qp-co% linters:</p>
+            <p>Run this command to pull the Docker image of the %qd% or %qd-co% linters:</p>
             <tabs group="linter-tabs">
-                <tab group-key="linter-tabs-dotnet" title="%qp%">
+                <tab group-key="linter-tabs-dotnet" title="%qd%">
                     <code-block lang="shell" prompt="$">
-                        docker pull %qp-linter%&lt;-privileged&gt;
+                        docker pull %qd-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
-                <tab group-key="linter-tabs-cdnet" title="%qp-co%">
+                <tab group-key="linter-tabs-cdnet" title="%qd-co%">
                     <code-block lang="shell" prompt="$">
-                        docker pull %qp-co-linter%&lt;-privileged&gt;
+                        docker pull %qd-co-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
             </tabs>
@@ -180,15 +180,15 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 {id="dotnet-build-project"}
 
 <tabs group="linter-tabs">
-    <tab group-key="linter-tabs-dotnet" title="%qp%">
+    <tab group-key="linter-tabs-dotnet" title="%qd%">
         <p>We recommend that you build a project before %product% analyzes it. To build it, you can use the 
         <a href="before-running-qodana.md"><code>bootstrap</code></a> key 
         of the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file contained in your project directory. This is especially 
         recommended if you employ source generators.</p>
         <p>If the project build fails, code analysis cannot be performed.</p>
     </tab>
-    <tab group-key="linter-tabs-cdnet" title="%qp-co%">
-        <p>The %qp-co% linter builds your project by default before analysis. If you wish to run your custom build, use the 
+    <tab group-key="linter-tabs-cdnet" title="%qd-co%">
+        <p>The %qd-co% linter builds your project by default before analysis. If you wish to run your custom build, use the 
         <code>--no-build</code> %product% option:</p>
         <tabs group="software">
             <tab title="GitHub Actions" group-key="github">
@@ -235,7 +235,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                   -v "${WORKSPACE}":/data/project
                                   --entrypoint=""
                                   '''
-                                image '%qp-co-linter%&lt;-privileged&gt;'
+                                image '%qd-co-linter%&lt;-privileged&gt;'
                             }
                         }
                         stages {
@@ -268,7 +268,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         <code-block lang="shell" prompt="$">
                           qodana scan \
                           &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                          &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
+                          &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
                           &nbsp;&nbsp;&nbsp;--no-build
                         </code-block>
                     </tab>
@@ -277,7 +277,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                           docker run \
                           &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                           &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                          &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
+                          &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
                           &nbsp;&nbsp;&nbsp;--no-build
                         </code-block>
                     </tab>
@@ -304,12 +304,12 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 ### Basic use case
 
 <tabs group="linter-tabs">
-    <tab group-key="linter-tabs-dotnet" title="%qp%">
-      <p>You can run the %qp% linter in two modes:</p>
+    <tab group-key="linter-tabs-dotnet" title="%qd%">
+      <p>You can run the %qd% linter in two modes:</p>
       <list>
-        <li><a href="deploy-qodana.md#Native+mode">Native mode</a> is the recommended method for running the %qp% linter that lets you run 
+        <li><a href="deploy-qodana.md#Native+mode">Native mode</a> is the recommended method for running the %qd% linter that lets you run 
         the linter without using Docker containers</li>
-        <li>Container mode is an alternative that involves Docker containers of the %qp% linter</li>
+        <li>Container mode is an alternative that involves Docker containers of the %qd% linter</li>
       </list>
       <tabs>
         <tab title="Native mode">
@@ -378,7 +378,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image '%qp-linter%'
+                                    image '%qd-linter%'
                                 }
                             }
                             stages {
@@ -395,7 +395,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     <code-block lang="yaml">
                         qodana:
                            image:
-                              name: %qp-linter%
+                              name: %qd-linter%
                               entrypoint: [""]
                            cache:
                               - key: qodana-2024.3-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
@@ -455,7 +455,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             </tabs>
         </tab>
         <tab title="Container mode">
-            <p>Container mode is available for the %qp% linter; however, it is advised that you use native mode.</p>
+            <p>Container mode is available for the %qd% linter; however, it is advised that you use native mode.</p>
             <tabs>
                 <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
@@ -503,7 +503,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image '%qp-linter%&lt;-privileged&gt;'
+                                    image '%qd-linter%&lt;-privileged&gt;'
                                 }
                             }
                             stages {
@@ -526,7 +526,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                              inputs:
-                                args: --linter,%qp-linter%&lt;-privileged&gt;
+                                args: --image,%qd-linter%&lt;-privileged&gt;
                     </code-block>
                     <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
                         %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
@@ -543,7 +543,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt;
+                        &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab title="JetBrains IDEs" group-key="ides">
@@ -572,8 +572,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
         </tab>
       </tabs>
     </tab>
-    <tab group-key="linter-tabs-cdnet" title="%qp-co%">
-        <p>You can run the %qp-co% linter in a container mode as shown in the examples below.</p>
+    <tab group-key="linter-tabs-cdnet" title="%qd-co%">
+        <p>You can run the %qd-co% linter in a container mode as shown in the examples below.</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
@@ -620,7 +620,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image '%qp-co-linter%&lt;-privileged&gt;'
+                                    image '%qd-co-linter%&lt;-privileged&gt;'
                                 }
                             }
                             stages {
@@ -643,7 +643,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                              inputs:
-                                args: --linter,%qp-co-linter%&lt;-privileged&gt;
+                                args: --image,%qd-co-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab title="Command line" group-key="command-line">
@@ -654,7 +654,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt;
+                        &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab title="JetBrains IDEs" group-key="ides">
@@ -708,25 +708,25 @@ filename as shown below.
                 </code-block>
             </tab>
             <tab id="specify-solution-docker" title="Docker">
-                <p>The %qp% linter uses the <code>--property</code> option, while the %qp-co% linter uses the 
+                <p>The %qd% linter uses the <code>--property</code> option, while the %qd-co% linter uses the 
                     <code>--solution</code> and <code>--project</code> options to specify a path to a solution file:
                 </p>
                 <tabs group="linter-tabs">
-                  <tab title="%qp%" group-key="linter-tabs-dotnet">
+                  <tab title="%qd%" group-key="linter-tabs-dotnet">
                     <code-block lang="shell">
                       docker run \
                       &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                       &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                      &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
+                      &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
                       &nbsp;&nbsp;&nbsp;--property=qodana.net.solution=&lt;relative-path-to-solution-file&gt;
                     </code-block>
                   </tab>
-                  <tab title="%qp-co%" group-key="linter-tabs-cdnet">
+                  <tab title="%qd-co%" group-key="linter-tabs-cdnet">
                     <code-block lang="shell">
                       docker run \
                       &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                       &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                      &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
+                      &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
                       &nbsp;&nbsp;&nbsp;--solution=&lt;relative-path-to-solution-file&gt;
                     </code-block>
                     </tab>
@@ -735,21 +735,21 @@ filename as shown below.
                     using the <code>--property</code> and <code>--project</code> options:
                 </p>
                 <tabs group="linter-tabs">
-                    <tab title="%qp%" group-key="linter-tabs-dotnet">
+                    <tab title="%qd%" group-key="linter-tabs-dotnet">
                         <code-block lang="shell">
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.project=&lt;relative-path-to-project-file&gt;
                         </code-block>
                     </tab>
-                    <tab title="%qp-co%" group-key="linter-tabs-cdnet">
+                    <tab title="%qd-co%" group-key="linter-tabs-cdnet">
                         <code-block lang="shell">
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--project=&lt;relative-path-to-project-file&gt;
                         </code-block>
                     </tab>
@@ -785,21 +785,21 @@ filename as shown below.
                     You can apply a configuration using the <code>--property</code> and <code>--configuration</code> options:
                 </p>
                 <tabs group="linter-tabs">
-                    <tab title="%qp%" group-key="linter-tabs-dotnet">
+                    <tab title="%qd%" group-key="linter-tabs-dotnet">
                         <code-block lang="shell">
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.configuration=Release
                         </code-block>
                     </tab>
-                    <tab title="%qp-co%" group-key="linter-tabs-cdnet">
+                    <tab title="%qd-co%" group-key="linter-tabs-cdnet">
                         <code-block lang="shell">
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--configuration=Release
                         </code-block>
                     </tab>
@@ -808,21 +808,21 @@ filename as shown below.
                     By default, the solution platform is set to <code>Any CPU</code>, and you can override it as shown below:
                 </p>
                 <tabs group="linter-tabs">
-                    <tab title="%qp%" group-key="linter-tabs-dotnet">
+                    <tab title="%qd%" group-key="linter-tabs-dotnet">
                         <code-block lang="shell">
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.platform=x86
                         </code-block>
                     </tab>
-                    <tab title="%qp-co%" group-key="linter-tabs-cdnet">
+                    <tab title="%qd-co%" group-key="linter-tabs-cdnet">
                         <code-block lang="shell">
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qp-co-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--platform=x86
                         </code-block>
                     </tab>
@@ -837,10 +837,10 @@ filename as shown below.
 Depending on the linter, you can run %product% using private NuGet repositories as shown below.
 
 <tabs group="linter-tabs">
-    <tab title="%qp%" group-key="linter-tabs-dotnet">
+    <tab title="%qd%" group-key="linter-tabs-dotnet">
         <tabs group="native-container">
             <tab title="Native mode" group-key="native-mode">
-                <p>If you run %qp% using private NuGet repositories, native mode of this linter is the recommended method of running. 
+                <p>If you run %qd% using private NuGet repositories, native mode of this linter is the recommended method of running. 
                     In this case, dependencies are basically restored in steps that precede %product% execution, for example:</p>
                 <code-block lang="yaml">
                 name: Qodana
@@ -928,10 +928,10 @@ Depending on the linter, you can run %product% using private NuGet repositories 
                 </code-block>
             </tab>
         </tabs>
-<!--        <p>If you run %qp% using private NuGet repositories, native mode of this linter is the recommended method of running. 
+<!--        <p>If you run %qd% using private NuGet repositories, native mode of this linter is the recommended method of running. 
         In this case, you do not have to additionally configure the linter, and if you run it on the same machine where you have 
         built the project, it will be able to have access to the same feeds. </p>
-        <p>Alternatively, use this configuration to employ a Docker image of the %qp% linter:</p>
+        <p>Alternatively, use this configuration to employ a Docker image of the %qd% linter:</p>
         <code-block lang="shell" prompt="$">
             docker run \
             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
@@ -939,7 +939,7 @@ Depending on the linter, you can run %product% using private NuGet repositories 
             &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_URL=&lt;private-NuGet-feed-URL&gt; \
             &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_USER=&lt;login&gt; \
             &nbsp;&nbsp;&nbsp;-e QODANA_NUGET_PASSWORD=&lt;plaintext-password&gt; \
-            &nbsp;&nbsp;&nbsp;%qp-linter% \
+            &nbsp;&nbsp;&nbsp;%qd-linter% \
         </code-block>
         <p>Another method is to add credentials to the <code>nuget.config</code> file before analyzing a project. You can 
             do this by executing a NuGet source update using: </p>
@@ -948,7 +948,7 @@ Depending on the linter, you can run %product% using private NuGet repositories 
         </code-block>
         <p>Other configuration examples are available in our <a href="https://github.com/qodana/qodanaprivateFeed/">GitHub repository</a>.</p> -->
     </tab>
-    <tab title="%qp-co%" group-key="linter-tabs-cdnet">
+    <tab title="%qd-co%" group-key="linter-tabs-cdnet">
         <p>Add credentials to the <code>nuget.config</code> file before analyzing a project. You can do this by 
         executing a NuGet source update using: </p>
         <code-block>
@@ -1014,7 +1014,7 @@ bootstrap: dotnet restore
 ### Adjusting the scope of analysis
 
 <tabs group="linter-tabs">
-        <tab group-key="linter-tabs-dotnet" title="%qp%">
+        <tab group-key="linter-tabs-dotnet" title="%qd%">
             <p>Out of the box, Qodana provides two predefined profiles hosted on
                 <a href="https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles">GitHub</a>.
             The <code>qodana.starter</code> profile is the default profile and a subset of the more comprehensive 
@@ -1024,7 +1024,7 @@ bootstrap: dotnet restore
             <tip>You can customize %product% profiles using configurations in <a href="custom-profiles.md">YAML</a> and 
                 <a href="custom-profiles.md" anchor="Custom+XML+profiles">XML</a> formats. To learn more about configuration basics, visit the <a href="override-a-profile.md"/> section of the documentation.
             </tip>
-            <p>%qp% reads configuration from the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file located in the 
+            <p>%qd% reads configuration from the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file located in the 
                 root directory of your project. For example, add this configuration to run the linter using the 
                 <a href="inspection-profiles.md"><code>qodana.recommended</code></a> inspection profile:
             </p>
@@ -1062,11 +1062,11 @@ bootstrap: dotnet restore
                 &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                 &nbsp;&nbsp;&nbsp;-v $(pwd)/.qodana/&lt;inspection-profile.xml&gt;:/data/project/myprofiles/&lt;inspection-profile.xml&gt; \
                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
+                &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
                 &nbsp;&nbsp;&nbsp;--profile-path /data/project/myprofiles/&lt;inspection-profile.xml&gt;
             </code-block>
         </tab>
-        <tab group-key="linter-tabs-cdnet" title="%qp-co%">
+        <tab group-key="linter-tabs-cdnet" title="%qd-co%">
             <p>If you have previously worked on the target solution with ReSharper, you may have already
                 <a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html">configured code inspections settings</a>.
                 If so, InspectCode will find your <a href="https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html">custom settings</a>
@@ -1157,11 +1157,11 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
 in a SARIF-formatted file.
 
 <tabs group="linter-tabs">
-        <tab group-key="linter-tabs-dotnet" title="%qp%">
-            <p>Select how you would like to run the %qp% linter with the <a href="baseline.topic">baseline</a> feature:</p>
+        <tab group-key="linter-tabs-dotnet" title="%qd%">
+            <p>Select how you would like to run the %qd% linter with the <a href="baseline.topic">baseline</a> feature:</p>
             <tabs group="native-container">
                 <tab title="Native mode" group-key="native-mode">
-            <p>You can run the %qp% linter in the 
+            <p>You can run the %qd% linter in the 
                 <a href="deploy-qodana.md" anchor="Native+mode">native mode</a>:</p>
                     <tabs group="software">
                         <tab title="GitHub Actions" group-key="github">
@@ -1250,7 +1250,7 @@ in a SARIF-formatted file.
                                       with:
                                         args: | 
                                             --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                            --linter,%qp-linter%&lt;-privileged&gt;
+                                            --image,%qd-linter%&lt;-privileged&gt;
                                       env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                           </code-block>
@@ -1271,7 +1271,7 @@ in a SARIF-formatted file.
                                           -v "${WORKSPACE}":/data/project
                                           --entrypoint=""
                                           '''
-                                        image '%qp-linter%&lt;-privileged&gt;'
+                                        image '%qd-linter%&lt;-privileged&gt;'
                                     }
                                 }
                                 stages {
@@ -1295,7 +1295,7 @@ in a SARIF-formatted file.
                                  inputs:
                                     args: | 
                                         --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                        --linter,%qp-linter%&lt;-privileged&gt;
+                                        --image,%qd-linter%&lt;-privileged&gt;
                           </code-block>
                             <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> 
                                 block invokes the baseline feature.</p>
@@ -1311,7 +1311,7 @@ in a SARIF-formatted file.
                                       qodana scan \
                                          -v &lt;path_to_baseline&gt;:/data/base/ \
                                          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                         -l %qp-linter%&lt;-privileged&gt; \
+                                         -l %qd-linter%&lt;-privileged&gt; \
                                          --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   </code-block>
                               </tab>
@@ -1321,7 +1321,7 @@ in a SARIF-formatted file.
                                          -v &lt;source-directory&gt;/:/data/project/ \
                                          -v &lt;path_to_baseline&gt;:/data/base/ \
                                          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                         %qp-linter%&lt;-privileged&gt; \
+                                         %qd-linter%&lt;-privileged&gt; \
                                          --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   </code-block>
                               </tab>
@@ -1339,8 +1339,8 @@ in a SARIF-formatted file.
                 </tab>
             </tabs>
         </tab>
-        <tab group-key="linter-tabs-cdnet" title="%qp-co%">
-            <p>Select how you would like to run the %qp-co% linter with the <a href="baseline.topic">baseline</a> feature:</p>
+        <tab group-key="linter-tabs-cdnet" title="%qd-co%">
+            <p>Select how you would like to run the %qd-co% linter with the <a href="baseline.topic">baseline</a> feature:</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                 <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>
@@ -1369,7 +1369,7 @@ in a SARIF-formatted file.
                             - name: 'Qodana Scan'
                               uses: JetBrains/qodana-action@v2025.2
                               with:
-                                args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-co-linter%
+                                args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-co-linter%
                               env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1390,7 +1390,7 @@ in a SARIF-formatted file.
                                   -v "${WORKSPACE}":/data/project
                                   --entrypoint=""
                                   '''
-                                image '%qp-co-linter%&lt;-privileged&gt;'
+                                image '%qd-co-linter%&lt;-privileged&gt;'
                             }
                         }
                         stages {
@@ -1412,7 +1412,7 @@ in a SARIF-formatted file.
                             include:
                                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                  inputs:
-                                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qp-co-linter%
+                                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-co-linter%
                         </code-block>
                     <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block 
                         invokes the baseline feature.</p>
@@ -1425,7 +1425,7 @@ in a SARIF-formatted file.
                               qodana scan \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 -l %qp-co-linter%&lt;-privileged&gt; \
+                                 -l %qd-co-linter%&lt;-privileged&gt; \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1435,7 +1435,7 @@ in a SARIF-formatted file.
                                  -v &lt;source-directory&gt;/:/data/project/ \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 %qp-co-linter%&lt;-privileged&gt; \
+                                 %qd-co-linter%&lt;-privileged&gt; \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1448,7 +1448,7 @@ in a SARIF-formatted file.
 ### Enabling the quality gate
 
 <tabs group="linter-tabs">
-    <tab group-key="linter-tabs-dotnet" title="%qp%">
+    <tab group-key="linter-tabs-dotnet" title="%qd%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems, 
             specific problem severities, and code coverage by saving this snippet to the 
             <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
@@ -1467,7 +1467,7 @@ in a SARIF-formatted file.
             &nbsp;&nbsp;&nbsp;&nbsp;total: 7 # Total percentage
         </code-block>
     </tab>
-    <tab group-key="linter-tabs-cdnet" title="%qp-co%">
+    <tab group-key="linter-tabs-cdnet" title="%qd-co%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems by 
             saving this snippet to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
         </p>
@@ -1514,7 +1514,7 @@ You can analyze pull requests using the %dotnet% linter.
                       - name: 'Qodana Scan'
                         uses: JetBrains/qodana-action@v2025.2
                         with:
-                          args: --linter,%qp-linter%&lt;-privileged&gt;
+                          args: --image,%qd-linter%&lt;-privileged&gt;
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -1528,7 +1528,7 @@ You can analyze pull requests using the %dotnet% linter.
             include:
                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                  inputs:
-                   args: --linter,%qd-image%&lt;-privileged&gt;
+                   args: --image,%qd-image%&lt;-privileged&gt;
         </code-block>
         <p>
             This configuration enables merge request analysis.
@@ -1549,7 +1549,7 @@ You can analyze pull requests using the %dotnet% linter.
                 <code-block prompt="$">
                     qodana scan \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       -l %qp-linter%&lt;-privileged&gt; \
+                       -l %qd-linter%&lt;-privileged&gt; \
                        --diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
@@ -1558,7 +1558,7 @@ You can analyze pull requests using the %dotnet% linter.
                   docker run \
                   &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                   &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                  &nbsp;&nbsp;&nbsp;%qp-linter%&lt;-privileged&gt; \
+                  &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
                   &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
@@ -1593,8 +1593,8 @@ docker run \
     <tr>
       <td>Support for</td>
       <td>Name</td>
-      <td>%qp%</td>
-      <td>%qp-co%</td>
+      <td>%qd%</td>
+      <td>%qd-co%</td>
     </tr>
     <tr>
         <td>Programming languages</td>
@@ -1763,10 +1763,14 @@ docker run \
         <p><a href="baseline.topic">Baseline</a></p>
         <p><a href="quality-gate.topic">Quality gate</a></p>
         <p><a href="code-coverage.md">Code coverage</a></p>
-        <p><a href="license-audit.topic">License audit</a></p>
+        <p><a href="insights.md"/><b>***</b></p>
+        <p><a href="license-audit.topic">License audit</a><b>***</b></p>
         <p><a href="quick-fix.md">Quick-fix</a></p>
+        <p><a href="cloud-sso.md"/><b>***</b></p>
       </td>
       <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
@@ -1786,3 +1790,6 @@ docker run \
 \* C and C++ inspections are applicable for projects containing `.sln` files.
 
 ** Supports Visual Basic inspections only.
+
+*** Available only under the Ultimate Plus [license](pricing.md).
+

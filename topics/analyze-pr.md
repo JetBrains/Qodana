@@ -103,7 +103,7 @@ You can use the --diff-start option to analyze changes between the current versi
                     include:
                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2    
                          inputs:
-                            args: --linter,&lt;linter&gt;
+                            args: --image,&lt;image&gt;
                 </code-block>
         <p>This configuration by default enables merge request analysis. To override the default behavior, you
         can use the following configuration:</p>
@@ -111,7 +111,7 @@ You can use the --diff-start option to analyze changes between the current versi
             include:
                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                          inputs:
-                            args: --linter,&lt;linter&gt;
+                            args: --image,&lt;image&gt;
             &nbsp;
             qodana:
             &nbsp;&nbsp;rules:
@@ -204,7 +204,7 @@ and <code>--diff-end</code> options:</p>
         include:
            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
              inputs:
-                args: --diff-start,$CI_MERGE_REQUEST_TARGET_BRANCH_SHA,--diff-end,$CI_MERGE_REQUEST_SOURCE_BRANCH_SHA,--linter,&lt;linter&gt;
+                args: --diff-start,$CI_MERGE_REQUEST_TARGET_BRANCH_SHA,--diff-end,$CI_MERGE_REQUEST_SOURCE_BRANCH_SHA,--image,&lt;image&gt;
         </code-block>
     </tab>
     <tab title="Docker image" group-key="docker-image">

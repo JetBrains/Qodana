@@ -297,4 +297,20 @@
     <var name="cloud" value="Qodana Cloud"/>
     <var name="ruby" value="Qodana for Ruby"/>
 
+    <!-- Qodana linter names -->
+    <var name="jvm-linter" value="qodana-jvm:2025.2-eap"/>
+    <var name="jvm-a-linter" value="qodana-android:2025.2-eap"/>
+    <var name="jvm-co-linter" value="qodana-jvm-community:2025.2-eap"/>
+    <var name="jvm-co-a-linter" value="qodana-jvm-android:2025.2-eap"/>
+    <var name="dotnet-linter" value="qodana-dotnet:2025.2-eap"/>
+    <var name="dotnet-co-linter" value="qodana-cdnet:2025.2-eap"/>
+    <var name="python-linter" value="qodana-python:2025.2-eap"/>
+    <var name="python-co-linter" value="qodana-python-community:2025.2-eap"/>
+    <var name="php-linter" value="qodana-php:2025.2-eap"/>
+    <var name="js-linter" value="qodana-js:2025.2-eap"/>
+    <var name="go-linter" value="qodana-go:2025.2-eap"/>
+    <var name="cpp-linter" value="qodana-cpp:2025.2-eap"/>
+    <var name="clang-linter" value="qodana-clang:2024.3-eap"/>
+    <var name="ruby-linter" value="qodana-ruby:2025.2-eap"/>
+
 </vars>

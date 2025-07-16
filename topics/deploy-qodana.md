@@ -7,6 +7,7 @@
 This section describes all deployment options available for %product%.
 
 ## Native mode
+{id="deploy-qodana-native-mode"}
 
 <link-summary>Native mode lets you run this linter without Docker.</link-summary>
 
@@ -14,7 +15,20 @@ By default, %instance% runs its linters using Docker based on Linux images.
 In specific cases, you have to deal with private packages or run %instance% on the operating systems that
 provide incomplete support for Docker.
 
-To overcome this, %instance% supports native mode for the %jvm%, %jvm-co%, %php%, %js%, and %dotnet% linters.
+To overcome this, %instance% supports native mode for the following linters: 
+
+| Linter                   | Linter name          |
+|--------------------------|----------------------|
+| [%jvm%](jvm.md)          | `%jvm-linter%`       |  
+| [%jvm-co%](jvm.md)       | `%jvm-co-linter%`    |  
+| [%php%](php.md)          | `%php-linter%`       |  
+| [%js%](js.md)            | `%js-linter%`        |  
+| [%dotnet%](dotnet.md)    | `%dotnet-linter%`    |  
+| [%python%](python.md)    | `%python-linter%`    |  
+| [%python-co%](python.md) | `%python-co-linter%` |  
+| [%go%](golang.md)        | `%go-linter%`        |  
+| [%cpp%](clang.md)        | `%cpp-linter%`         | 
+
 You can run native mode on Linux, macOS, and Microsoft Windows.
 
 In this case, %instance% reuses its execution environment, which lets you execute %instance% in exactly the same
@@ -57,7 +71,7 @@ warnings related to project building, in your repository create the empty `qodan
 
 ### How it works
 
-> Native mode is incompatible with several Docker image-related options like `-l, --linter`,
+> Native mode is incompatible with several Docker image-related options like `--image`,
 `-e, --env`, and `-v, --volume`.
 {style="note"}
 
@@ -65,25 +79,9 @@ warnings related to project building, in your repository create the empty `qodan
 > because this can guarantee that %instance% has access to private NuGet feeds.
 {style="note"}
 
-You can enable native mode by using the `ide` option in the [`qodana.yaml`](qodana-yaml.md) file:
-
-```yaml
-ide: <linter>
-```
-
-This table contains the list of `<linter>` values:
-
-| Linter name                | Linter code |
-|----------------------------|-------------|
-| [%jvm%](jvm.md)            | `QDJVM`     |
-| [%jvm-co%](jvm.md)         | `QDJVMC`    |
-| [%dotnet%](dotnet.md)      | `QDNET`     |
-| [%php%](php.md)            | `QDPHP`     |
-| [%js%](js.md)              | `QDJS`      |
-
-
-This configuration tells %product% to download and employ the required JetBrains IDE binary file while running the
-%product% linter.
+You can enable native mode by using the `--within-docker false` [option](docker-image-configuration.topic#docker-config-reference-qodana-scan)
+in combination with the `--linter <linter-name>` option. These options tell %product% to download and employ the required JetBrains 
+IDE binary file while running a %product% linter.  
 
 Below are the examples showing how you can run %product% in native mode:
 
@@ -98,13 +96,11 @@ Below are the examples showing how you can run %product% in native mode:
                         </code-block>
                     </step>
                     <step>
-                        <p>If you have already enabled native mode using the <code>qodana.yaml</code> file, use this 
-                        command:</p>
-                        <code-block lang="shell" prompt="$">qodana scan</code-block>
-                        <p>You can also run %product% without configuring the <code>qodana.yaml</code> file:</p>
+                        <p>Run the <code>qodana scan</code> command:</p>
                         <code-block lang="shell" prompt="$">
                             qodana scan \
-                            &nbsp;&nbsp;&nbsp;--ide &lt;linter&gt;
+                            &nbsp;&nbsp;&nbsp;--linter &lt;linter-name&gt; \
+                            &nbsp;&nbsp;&nbsp;--within-docker false
                         </code-block>
                     </step>
                 </procedure>
@@ -138,7 +134,9 @@ Below are the examples showing how you can run %product% in native mode:
               - name: 'Qodana Scan'
                 uses: JetBrains/qodana-action@v2025.2
                 with:
-                  args: --ide,&lt;linter&gt;
+                  args: | 
+                    --linter,&lt;linter-name&gt;,
+                    --within-docker,false
                 env:
                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>

@@ -224,7 +224,7 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
-        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2025.2"
+        args: "-i,JS/jest,--image,jetbrains/qodana-js:2025.2"
         pr-mode: false
 ```
 <p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="qodana-yaml.md">%product% configuration</a> 
@@ -242,7 +242,7 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
         include:
             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
               inputs:
-                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--linter,&lt;linter&gt;
+                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--image,&lt;image&gt;
         </code-block>
         <p>
             If you have a <a href="monorepo-project.md">monorepo project</a> and saved 
@@ -254,7 +254,7 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
         include:
             - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
               inputs:
-                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--config,&lt;path-relative-to-project-root&gt;,--linter,&lt;linter&gt;
+                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--config,&lt;path-relative-to-project-root&gt;,--image,&lt;image&gt;
         </code-block>
 </tab>
 <tab title="Azure Pipelines" id="code-coverage-azure">

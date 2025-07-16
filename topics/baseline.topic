@@ -140,7 +140,7 @@
                               inputs:
                                   args: |
                                       --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;linter&gt;
                     </code-block>
                 <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing a baseline.</p>
             </tab>
@@ -296,7 +296,7 @@
                                   args: |
                                       --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json,
                                       --baseline-include-absent,
-                                      --linter,&lt;linter&gt;
+                                      --image,&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">

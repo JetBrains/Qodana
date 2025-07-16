@@ -81,13 +81,13 @@ For the cloud-based version of GitLab CI/CD, in the `.gitlab-ci.yml` file save t
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
-        args: --linter,<linter>
+        args: --image,<image>
 ```
 
 This configuration already enables [caches](#Configure+cache),
 [Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis,
 and comments to merge requests. You can override these settings using descriptions from the sections below and the
-[](#Configuration) chapter. The `--linter` argument specifies the [linter](linters.md) that you would like to employ.
+[](#Configuration) chapter. The `--image` argument specifies a Docker image of the [linter](linters.md) that you would like to employ.
 
 For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save the following configuration:
 
@@ -95,7 +95,7 @@ For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save th
 include:
    - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v2025.2
      inputs:
-        args: --linter,<linter>
+        args: --image,<image>
 ```
 
 In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on the [GitLab CI/CD website](%OnPrem%). 
@@ -120,7 +120,7 @@ If you wish to override the default cache settings, use this configuration:
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
-        args: --linter,<linter>
+        args: --image,<image>
 
 qodana:
    cache:
@@ -147,7 +147,7 @@ include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
         os: windows
-        args: --linter,<linter>
+        args: --image,<image>
 ```
 
 ## Specific branches
@@ -163,7 +163,7 @@ If you wish to override this behavior, you can modify the following configuratio
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
-        args: --linter,<linter>
+        args: --image,<image>
 
 qodana:
   rules:
@@ -240,7 +240,7 @@ include:
         push-fixes: merge-request
         args: |
             --apply-fixes,
-            --linter,<linter>
+            --image,<image>
 ```
 
 > Qodana could automatically modify not only the code, but also the configuration in 
@@ -291,7 +291,7 @@ include:
         args: |
             --baseline,qodana.sarif.json,
             --fail-threshold,<number-of-accepted-problems>,
-            --linter,<linter>
+            --image,<image>
 ```
 
 ## Code Quality reports
@@ -313,7 +313,7 @@ you can override a path to reports using the `codequality` option:
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
-        args: --linter,<linter>
+        args: --image,<image>
 
 qodana:
    artifacts:
@@ -331,7 +331,7 @@ Use the following configuration to get log data from %product% on GitLab CI/CD:
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
-        args: --linter,<linter>
+        args: --image,<image>
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
@@ -352,7 +352,7 @@ than a pipeline timeout:
 include:
    - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
      inputs:
-        args: --linter,<linter>
+        args: --image,<image>
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 

@@ -5,26 +5,24 @@
 <!--<img src="jvm.png" dark-src="jvm_dark.png" alt="JVM-based languages" width="296"/>-->
 
 <!-- Human-readable linter names -->
-<var name="qp" value="Qodana for JVM"/>
-<var name="qp-co" value="Qodana Community for JVM"/>
-<var name="qp-a" value="Qodana Community for Android"/>
-<var name="qp-an" value="Qodana for Android"/>
+<var name="qd" value="%jvm%"/>
+<var name="qd-co" value="%jvm-co%"/>
+<var name="qd-a" value="%jvm-co-a%"/>
+<var name="qd-an" value="%jvm-a%"/>
 <!-- Docker images -->
-<var name="qp-image" value="jetbrains/qodana-jvm:2025.2-eap"/>
-<var name="qp-co-image" value="jetbrains/qodana-jvm-community:2025.2-eap"/>
-<var name="qp-a-image" value="jetbrains/qodana-jvm-android:2025.2-eap"/>
-<var name="qp-an-image" value="jetbrains/qodana-android:2025.2-eap"/>
+<var name="qd-image" value="jetbrains/%jvm-linter%"/>
+<var name="qd-co-image" value="jetbrains/%jvm-co-linter%"/>
+<var name="qd-a-image" value="jetbrains/%jvm-co-a-linter%"/>
+<var name="qd-an-image" value="jetbrains/%jvm-a-linter%"/>
 <!-- Linter names -->
-<var name="qp-linter" value="qodana-jvm:2025.2-eap"/>
-<var name="qp-co-linter" value="qodana-jvm-community:2025.2-eap"/>
-<var name="qp-a-linter" value="qodana-jvm-android:2025.2-eap"/>
-<var name="qp-an-linter" value="qodana-android:2025.2-eap"/>
+<var name="qd-linter" value="%jvm-linter%"/>
+<var name="qd-co-linter" value="%jvm-co-linter%"/>
+<var name="qd-a-linter" value="%jvm-co-a-linter%"/>
+<var name="qd-an-linter" value="%jvm-a-linter%"/>
 
-<var name="qd-image" value="jetbrains/qodana-<jvm|community|android>:2025.2-eap"/>
+<var name="qd-image-combined" value="jetbrains/qodana-&lt;jvm|android&gt;&lt;-community|-android&gt;:2025.2-eap"/>
+<var name="qd-linter-combined" value="qodana-&lt;jvm|android&gt;&lt;-community|-android&gt;:2025.2-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
-<var name="ide" value="IntelliJ IDEA Ultimate"/>
-<var name="ide-co" value="IntelliJ IDEA Community Edition"/>
-<var name="ide-a" value="IntelliJ IDEA"/>
 
 <!-- Content-related variables -->
 <var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
@@ -41,19 +39,24 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/idea/customizing-profiles.html"/>
 <var name="native-arg" value="&lt;linter-code&gt;"/>
-<var name="teamcity-linter-list" value="Here, select either the %qp%, %qp-co% or %qp-a% linter."/>
+<var name="teamcity-linter-list" value="Here, select either the %qd%, %qd-co% or %qd-a% linter."/>
 
-<link-summary>You can analyze your Java code using the %qp%, %qp-co%, %qp-a% and %qp-an% linters.</link-summary>
+<!-- IDE-related variables -->
+<var name="ide" value="IntelliJ IDEA Ultimate"/>
+<var name="ide-co" value="IntelliJ IDEA Community Edition"/>
+<var name="ide-a" value="IntelliJ IDEA"/>
+
+<link-summary>You can analyze your Java code using the %qd%, %qd-co%, %qd-a% and %qd-an% linters.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Java projects, you can use the following linters:
 
-| Linter  | Linter name      | Based on           | Available under licenses                                       | Supported languages                          |
-|---------|------------------|--------------------|----------------------------------------------------------------|----------------------------------------------|
-| %qp%    | `%qp-linter%`    | <!-- %ide% -->     | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
-| %qp-an% | `%qp-an-linter%` | <!-- %ide% -->     | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
-| %qp-co% | `%qp-co-linter%` | <!-- %ide-co% -->  | Community [license](pricing.md)                                | Java, Kotlin, Groovy                         |
-| %qp-a%  | `%qp-a-linter%`  | <!-- %ide-co% -->  | Community [license](pricing.md)                                | Java, Kotlin, Groovy                                             |
+| Linter  | Linter name      | Based on   | Available under licenses                                       | Supported languages                          |
+|---------|------------------|------------|----------------------------------------------------------------|----------------------------------------------|
+| %qd%    | `%qd-linter%`    | %ide%      | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
+| %qd-an% | `%qd-an-linter%` | %ide%      | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
+| %qd-co% | `%qd-co-linter%` | %ide-co%   | Community [license](pricing.md)                                | Java, Kotlin, Groovy                         |
+| %qd-a%  | `%qd-a-linter%`  | %ide-co%   | Community [license](pricing.md)                                | Java, Kotlin, Groovy                                             |
 
 
 To see the list of supported technologies and features, you can navigate to the [](#jvm-feature-matrix) chapter of this section.
@@ -73,7 +76,7 @@ Before running %instance%, you may need to [configure the JDK](configure-jdk.md)
 
 ### K2 Mode
 
-The K2 mode is by default enabled for the %qp% and %qp-co% linters.
+The K2 mode is by default enabled for the %qd% and %qd-co% linters.
 
 To revert the K2 mode, in your linter configuration set the `idea.kotlin.plugin.use.k2`
 [property](docker-image-configuration.topic#docker-config-reference-properties) to `false`.
@@ -107,7 +110,7 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
 
 * The total number of project problems, available for all linters
 * Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>, available for all linters
-* <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qp% and %qp-an% linters
+* <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qd% and %qd-an% linters
 
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-ultimate" title="Qodana for JVM / Android">
@@ -158,9 +161,9 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
     <tr>
       <td>Support for</td>
       <td>Name</td>
-      <td>%qp% and %qp-an%</td>
-      <td>%qp-co%</td>
-      <td>%qp-a%</td>  
+      <td>%qd% and %qd-an%</td>
+      <td>%qd-co%</td>
+      <td>%qd-a%</td>  
     </tr>
     <tr>
         <td>Programming languages</td>
@@ -493,10 +496,13 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
         <p><a href="baseline.topic"/></p>
         <p><a href="quality-gate.topic"/></p>
         <p><a href="code-coverage.md"/></p>
-        <p><a href="license-audit.topic"/></p>
+        <p><a href="flexinspect.md"/></p>
+        <p><a href="insights.md"/><b>*</b></p>
+        <p><a href="license-audit.topic"/><b>*</b></p>
         <p><a href="quick-fix.md"/></p>
-        <p><a href="vulnerability-checker.md"/></p>
-        <p><a href="taint-analysis.md"/></p>
+        <p><a href="cloud-sso.md"/><b>*</b></p>
+        <p><a href="vulnerability-checker.md"/><b>*</b></p>
+        <p><a href="taint-analysis.md"/><b>**</b></p>
       </td>
       <td>
             <p>&#x2714;</p>
@@ -505,7 +511,10 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
-            <p>Only %jvm%</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
       </td>
       <td>
          <p>&#x2714;</p>
@@ -527,3 +536,9 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
       </td>
     </tr>
 </table>
+
+
+\* Available only under the Ultimate Plus [license](pricing.md).
+
+** Supported only by the %jvm% linter. Available only under the Ultimate Plus [license](pricing.md).
+

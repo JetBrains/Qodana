@@ -7,13 +7,12 @@
 <show-structure for="chapter" depth="3"/>
 
 <!-- Human-readable linter names -->
-<var name="qp" value="Qodana for JS"/>
+<var name="qd" value="%js%"/>
 <!-- Docker images -->
-<var name="qp-image" value="jetbrains/qodana-js:2025.2-eap"/>
+<var name="qd-image" value="jetbrains/%js-linter%"/>
 <!-- Linter names -->
-<var name="qp-linter" value="qodana-js:2025.2-eap"/>
+<var name="qd-linter" value="%js-linter%"/>
 
-<var name="qd-image" value="jetbrains/qodana-js:2025.2-eap"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="WebStorm"/>
 
@@ -32,16 +31,16 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/webstorm/customizing-profiles.html"/>
 <var name="native-arg" value="QDJS"/>
-<var name="teamcity-linter-list" value="Here, select the %qp% linter."/>
+<var name="teamcity-linter-list" value="Here, select the %qd% linter."/>
 
-<link-summary>%qp% is based on %ide% and provides static analysis for JavaScript or TypeScript projects.</link-summary>
+<link-summary>%qd% is based on %ide% and provides static analysis for JavaScript or TypeScript projects.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 JavaScript and TypeScript projects, you can use the following linter:
 
 | Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages       |
 |---------|---------------------------|----------|----------------------------------------------------------------|---------------------------|
-| %qp%    | `%qp-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | JavaScript and TypeScript |
+| %qd%    | `%qd-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | JavaScript and TypeScript |
 
 To see the list of supported technologies and features, you can navigate to the [](#js-feature-matrix) chapter of this section.
 
@@ -108,7 +107,7 @@ include:
 ## Supported technologies and features
 {id="js-feature-matrix"}
 
-%qp% provides inspections for the following technologies.
+%qd% provides inspections for the following technologies.
 
 <table style="none">
     <tr>
