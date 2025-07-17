@@ -124,12 +124,12 @@ defined all necessary sources, sinks, and sanitizers, as explained in the [](#Co
 
 #### Explore results
 
-In your IDE, point to a suspicious code fragment and then click the <ui-path>Show DFA trace 1</ui-path> link to open 
+In your IDE, point to a suspicious code fragment and then click the <ui-path>Show taint ... trace</ui-path> link to open 
 the **Security Analysis** tab.
 
 <img src="taint-analysis-explore-results.gif" alt="Taint analysis in IntelliJ IDEA" width="793" border-effect="line"/>
 
-The left part of the <ui-path>Security Analysis</ui-path> tab contains all steps of a source-to-sink track.
+The left part of the <ui-path>Security Analysis</ui-path> tab contains all steps of a taint trace.
 The right part shows the code fragments corresponding to a specific step. You can click any step to see the source trace 
 to the sink.
 

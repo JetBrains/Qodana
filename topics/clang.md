@@ -53,6 +53,9 @@
 
 <var name="build-system" value="https://intellij-support.jetbrains.com/hc/en-us/articles/207252755-Which-build-systems-are-supported-Do-you-plan-to-support-any-other-build-systems"/>
 
+<var name="cmake-presets" value="https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html"/>
+<var name="cmake-preset-docs" value="https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html#configure-preset"/>
+
 <link-summary>%qdcpp% and %qdcppc% linters let you analyze C and C++ projects that provide a `compile_commands.json` file.</link-summary>
 
 <note>
@@ -208,13 +211,13 @@ the project, generates analysis reports and saves them locally or uploads to %cl
 <include from="lib_qd.topic" element-id="major-version-note"/>
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"/>
 
-<p>You can run all linters described in this section in two modes:</p>
+<!--<p>You can run all linters described in this section in two modes:</p>
 <list>
   <li><a href="deploy-qodana.md#deploy-qodana-native-mode">Native mode</a> is the recommended method that lets you run
     linters without using Docker containers,</li>
   <li>Container mode is an alternative that involves Docker containers the linters.</li>
 </list>
-<tabs group="native-container">
+ <tabs group="native-container">
   <tab title="Native mode" group-key="native-mode">
     <snippet id="dotnet-run-qodana-native-mode-yaml">
       <tabs group="software">
@@ -277,7 +280,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
       </tabs>
   </tab>
   <tab title="Container mode" group-key="container-mode">
-      <p>Container mode is available for all linters; however, we recommend that you use native mode.</p>
+      <p>Container mode is available for all linters; however, we recommend that you use native mode.</p>-->
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
       <note>This feature is experimental and is being actively developed, which means that it should not be used in a production environment.</note>
@@ -472,8 +475,8 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <code>docker run</code> again.</p>
     </tab>
 </tabs>
-  </tab>
-</tabs>
+  <!--</tab>
+</tabs>-->
 
 ## Explore analysis results
 
@@ -917,6 +920,49 @@ You can analyze pull requests using the %cpp% linter.
     </tab>
 </tabs>
 
+
+## Configure compilers and environments
+
+[CMake presets](%cmake-presets%) let you customize the %cpp% linter for specific compilers and 
+environments. Each preset lets you store CLI options like a target build directory, cache variables, 
+preferred generator, compilers, and other `configurePresets` object options of the `CMakePresets.json` 
+file contained in your project root.
+
+> To learn more about CMake presets, visit the [CMake website](%cmake-preset-docs%).
+
+Below is an example of the `my-qodana-preset` preset configuration:
+
+```JSON
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "my-qodana-preset",
+      "generator": "Ninja", 
+      "binaryDir": "build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "clang-16",
+        "CMAKE_CXX_COMPILER": "clang++-16",
+        "USE_OPENGL": true,
+        "BUILD_EXTENSION": false
+      }
+    }
+  ]
+}
+```
+
+To run %product% invoking the `my-qodana-preset` preset, in the 
+[`qodana.yaml`](qodana-yaml.md) file save the following configuration that uses the `cpp` and `cmakePreset` sections:
+
+```yaml
+cpp:
+  cmakePreset: my-qodana-preset
+```
+
+> CLion scans CMake presets and creates an equivalent profile with the same name, and this profile overrides CMake presets.  
+> However, CLion profiles are not explicitly supported by %product%.
+{style="note"}
 
 ## Supported features
 

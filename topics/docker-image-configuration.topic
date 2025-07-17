@@ -344,7 +344,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <code>-l, --image &lt;string&gt;</code>
+                        <code>-l, --linter &lt;string&gt;</code>
                     </td>
                     <td>
                         <p>In place of <code>&lt;string&gt;</code>, specify the linter that you would like to employ:</p>

@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/taint-analysis-explore-results.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-explore-results.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/taint-analysis-explore-results_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-explore-results_dark.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/taint-analysis-step-navigation.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-step-navigation.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/taint-analysis-step-navigation_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-step-navigation_dark.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/clang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/clang.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/faq.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/faq.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/getting-started.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/getting-started.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/new-in-2025-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2025-2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +90,7 @@
     </layout>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="Security Analysis" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -103,6 +106,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Writerside.Web Archive (qd).executor": "Run",
     "git-widget-placeholder": "2025.2",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -110,8 +114,22 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "SQL Dialects",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/clang.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/deploy-qodana.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/dotnet.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/golang.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/jvm.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/linters.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/new-in-2025-2.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/php.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-yaml.md",
+      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/taint-analysis.md"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -131,8 +149,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
       </set>
     </attachedChunks>
   </component>
@@ -158,7 +176,22 @@
       <workItem from="1752518631003" duration="571000" />
       <workItem from="1752573687555" duration="6127000" />
       <workItem from="1752584368983" duration="6285000" />
-      <workItem from="1752644332713" duration="27379000" />
+      <workItem from="1752644332713" duration="32085000" />
+      <workItem from="1752737978554" duration="1486000" />
+      <workItem from="1752744456523" duration="3000" />
+      <workItem from="1752744491643" duration="245000" />
+      <workItem from="1752744751256" duration="149000" />
+      <workItem from="1752744914343" duration="38000" />
+      <workItem from="1752744961263" duration="20000" />
+      <workItem from="1752745168935" duration="12000" />
+      <workItem from="1752745195484" duration="50000" />
+      <workItem from="1752745270695" duration="7000" />
+      <workItem from="1752745333090" duration="666000" />
+      <workItem from="1752746871119" duration="114000" />
+      <workItem from="1752747009868" duration="396000" />
+      <workItem from="1752747427128" duration="44000" />
+      <workItem from="1752756249435" duration="556000" />
+      <workItem from="1752756820299" duration="11813000" />
     </task>
     <servers />
   </component>
