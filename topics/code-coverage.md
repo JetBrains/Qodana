@@ -56,7 +56,7 @@ following linters:
 <note>Code coverage for files is available only for <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, and
 <a href="python.md">%python%</a> linters.</note>
 
-## How it works
+## How code coverage works
 
 <link-summary>Learn how the code coverage feature works.</link-summary>
 
@@ -214,7 +214,7 @@ jobs:
       working-directory: JS/jest
       
     - name: Archive coverage data # Archive data for use by Qodana
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: jest-coverage-data
         path: JS/jest/.qodana/code-coverage
@@ -224,7 +224,7 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
-        args: "-i,JS/jest,--linter,jetbrains/qodana-js:2025.1"
+        args: "-i,JS/jest,--image,jetbrains/qodana-js:2025.2"
         pr-mode: false
 ```
 <p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="qodana-yaml.md">%product% configuration</a> 
@@ -240,9 +240,9 @@ To override the default code coverage report directory, use the
 directory using the <a href="docker-image-configuration.topic" anchor="docker-image-configuration-coverage-dir"><code>--coverage-dir</code></a> option:</p>
         <code-block lang="yaml">
         include:
-            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
               inputs:
-                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--linter,&lt;linter&gt;
+                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--image,&lt;image&gt;
         </code-block>
         <p>
             If you have a <a href="monorepo-project.md">monorepo project</a> and saved 
@@ -252,9 +252,9 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
         </p>
         <code-block lang="yaml">
         include:
-            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
               inputs:
-                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--config,&lt;path-relative-to-project-root&gt;,--linter,&lt;linter&gt;
+                args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--config,&lt;path-relative-to-project-root&gt;,--image,&lt;image&gt;
         </code-block>
 </tab>
 <tab title="Azure Pipelines" id="code-coverage-azure">
@@ -374,7 +374,7 @@ jobs:
         run: npm test
       
       - name: Archive coverage data
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: jest-coverage-data
           path: .qodana/code-coverage
