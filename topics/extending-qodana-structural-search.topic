@@ -19,7 +19,7 @@
         codebase taking into account its semantics. You can create your own search templates and use them as
         %instance% inspections.</p>
 
-    <chapter title="How it works" id="extending-qodana-structural-search-example">
+    <chapter title="How structural search works" id="extending-qodana-structural-search-example">
 
         <link-summary>Learn how you can create and use structural search templates to analyze your codebase using
             %product%.</link-summary>

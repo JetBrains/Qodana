@@ -247,7 +247,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                                     ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                     fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: |
                                           --linter,%qd-linter%,
@@ -308,7 +308,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
-                      uses: JetBrains/qodana-action@v2025.2
+                      uses: %action-version%
                       with:
                         args: --image,%qdcpp-image%
                         # args: --image,%qdcppc-image%  # Community version
@@ -341,7 +341,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                         fetch-depth: 0  # a full history is required for pull request analysis
                     - name: 'Qodana Scan'
-                      uses: JetBrains/qodana-action@v2025.2
+                      uses: %action-version%
                       with:
                         args: | 
                             --image,%qdcppc-image%,
@@ -736,7 +736,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
                     ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                     fetch-depth: 0  # a full history is required for pull request analysis
                 - name: 'Qodana Scan'
-                  uses: JetBrains/qodana-action@v2025.2
+                  uses: %action-version%
                   with:
                     args: | 
                         --image,%qdcpp-image%,
@@ -866,7 +866,7 @@ You can analyze pull requests using the %cpp% linter.
                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
-                        uses: JetBrains/qodana-action@v2025.2
+                        uses: %action-version%
                         with:
                           args: --image,%qdcpp-image%
                         env:

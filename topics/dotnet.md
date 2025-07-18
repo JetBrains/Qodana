@@ -215,7 +215,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                           - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2025.2
+                            uses: %action-version%
                             with:
                                 args: --no-build
                             env:
@@ -268,7 +268,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         <code-block lang="shell" prompt="$">
                           qodana scan \
                           &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                          &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
+                          &nbsp;&nbsp;&nbsp;%qd-co-image%&lt;-privileged&gt; \
                           &nbsp;&nbsp;&nbsp;--no-build
                         </code-block>
                     </tab>
@@ -277,7 +277,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                           docker run \
                           &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                           &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                          &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
+                          &nbsp;&nbsp;&nbsp;%qd-co-image%&lt;-privileged&gt; \
                           &nbsp;&nbsp;&nbsp;--no-build
                         </code-block>
                     </tab>
@@ -318,14 +318,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             you build a project because this can guarantee that %instance% has access to private NuGet feeds.
           </note>
           <snippet id="dotnet-run-qodana-native-mode-yaml">
-            <p>Using a YAML configuration is the preferred method of configuring the linter because it lets you use such configuration
-                across all software that runs %product% without additional configuration.</p>
-                <p>You can configure native mode by adding this line to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
-            <code-block lang="yaml">
-                ide: QDNET
-            </code-block>
-          </snippet>
-            <p>Alternatively, you can implement native mode configuration as shown in examples below.</p>
+                <p>You can configure native mode by using the <code>--linter</code> and <code>--within-docker</code> options:</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
@@ -353,17 +346,14 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2025.2
+                                        uses: %action-version%
                                         with:
-                                            args: --ide,QDNET
+                                            args: | 
+                                                --linter,%qd-linter%,
+                                                --within-docker,false
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
-                          <p>This configuration invokes native mode using:</p>
-                              <code-block lang="yaml">
-                                 with:
-                                 &nbsp;&nbsp;&nbsp;args: --ide,QDNET
-                              </code-block>
                 </tab>
 <!--                <tab title="Jenkins" group-key="jenkins">
                     <p>In the root directory of your project repository, save this snippet to the <code>Jenkinsfile</code>:</p>
@@ -421,16 +411,11 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     <p>Run this command in the project root directory:</p>
                     <code-block lang="shell" prompt="$">
                         qodana scan \
-                        &nbsp;&nbsp;&nbsp;--ide QDNET
-                    </code-block>
-                    <p>Here, the <code>--ide</code> option downloads and employs the JetBrains IDE binary file.</p>
-                    <p>Alternatively, in the <code>qodana.yaml</code> file save <code>ide: QDNET</code>, and then run %instance% 
-                        using the following command:</p>
-                    <code-block lang="shell" prompt="$">
-                        qodana scan
+                        &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
+                        &nbsp;&nbsp;&nbsp;--within-docker false
                     </code-block>
                 </tab>
-                <tab title="JetBrains IDEs" group-key="ides">
+                <!--<tab title="JetBrains IDEs" group-key="ides">
                     <procedure>
                         <step>
                            <p>In %ide%, navigate to <ui-path>Tools | Qodana | Try Code Analysis with Qodana</ui-path>.</p> 
@@ -451,7 +436,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                            <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
                         </step>
                     </procedure>
-                </tab>
+                </tab>-->
             </tabs>
         </tab>
         <tab title="Container mode">
@@ -484,7 +469,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2025.2
+                                        uses: %action-version%
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -543,7 +528,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt;
+                        &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab title="JetBrains IDEs" group-key="ides">
@@ -554,11 +539,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         <step>
                            <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
                               <list>
-                                <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
-                                    Here, comment out the line containing <code>ide: QDNET</code>.</li>
+                                <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
                                  <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option 
-                                  using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
-                                 <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
+                                  using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
+                                 <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline</li>
                               </list>
                            <img src="ide-plugin-dotnet-run-qodana.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
                             <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
@@ -602,7 +586,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                       - name: 'Qodana Scan'
-                                        uses: JetBrains/qodana-action@v2025.2
+                                        uses: %action-version%
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -654,7 +638,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt;
+                        &nbsp;&nbsp;&nbsp;%qd-co-image%&lt;-privileged&gt;
                     </code-block>
                 </tab>
                 <tab title="JetBrains IDEs" group-key="ides">
@@ -665,8 +649,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         <step>
                            <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
                               <list>
-                                <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. 
-                                  You can see that native mode is already configured.</li>
+                                <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</li>
                                  <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
@@ -717,7 +700,7 @@ filename as shown below.
                       docker run \
                       &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                       &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                      &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
+                      &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt; \
                       &nbsp;&nbsp;&nbsp;--property=qodana.net.solution=&lt;relative-path-to-solution-file&gt;
                     </code-block>
                   </tab>
@@ -726,7 +709,7 @@ filename as shown below.
                       docker run \
                       &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                       &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                      &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
+                      &nbsp;&nbsp;&nbsp;%qd-co-image%&lt;-privileged&gt; \
                       &nbsp;&nbsp;&nbsp;--solution=&lt;relative-path-to-solution-file&gt;
                     </code-block>
                     </tab>
@@ -740,7 +723,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.project=&lt;relative-path-to-project-file&gt;
                         </code-block>
                     </tab>
@@ -749,7 +732,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-co-image%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--project=&lt;relative-path-to-project-file&gt;
                         </code-block>
                     </tab>
@@ -790,7 +773,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.configuration=Release
                         </code-block>
                     </tab>
@@ -799,7 +782,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-co-image%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--configuration=Release
                         </code-block>
                     </tab>
@@ -813,7 +796,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--property=qodana.net.platform=x86
                         </code-block>
                     </tab>
@@ -822,7 +805,7 @@ filename as shown below.
                             docker run \
                             &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                            &nbsp;&nbsp;&nbsp;%qd-co-linter%&lt;-privileged&gt; \
+                            &nbsp;&nbsp;&nbsp;%qd-co-image%&lt;-privileged&gt; \
                             &nbsp;&nbsp;&nbsp;--platform=x86
                         </code-block>
                     </tab>
@@ -1062,7 +1045,7 @@ bootstrap: dotnet restore
                 &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                 &nbsp;&nbsp;&nbsp;-v $(pwd)/.qodana/&lt;inspection-profile.xml&gt;:/data/project/myprofiles/&lt;inspection-profile.xml&gt; \
                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
+                &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt; \
                 &nbsp;&nbsp;&nbsp;--profile-path /data/project/myprofiles/&lt;inspection-profile.xml&gt;
             </code-block>
         </tab>
@@ -1189,9 +1172,12 @@ in a SARIF-formatted file.
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.2
+                                      uses: %action-version%
                                       with: 
-                                        args: --ide,QDNET,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                                        args: |
+                                            --linter,%qd-linter%,
+                                            --within-docker,false,
+                                            --baseline,&lt;path/to/qodana.sarif.json&gt;
                                       env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                           </code-block>
@@ -1202,16 +1188,11 @@ in a SARIF-formatted file.
                             <p>Run this command in the project root directory:</p>
                             <code-block lang="shell" prompt="$">
                                 qodana scan \
-                                &nbsp;&nbsp;&nbsp;--ide QDNET \
+                                &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
+                                &nbsp;&nbsp;&nbsp;--within-docker false \
                                 &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                             </code-block>
-                            <p>Here, the <code>--baseline,&lt;path/to/qodana.sarif.json&gt;</code> option specifies the <a href="baseline.topic">baseline</a> feature.</p>
-                            <p>Alternatively, in the <code>qodana.yaml</code> file save <code>ide: &lt;QDNET&gt;</code>, and then run %instance% 
-                                using the following command:</p>
-                            <code-block lang="shell" prompt="$">
-                                qodana scan \
-                                &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
-                            </code-block>
+                            <p>Here, the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> option specifies the <a href="baseline.topic">baseline</a> feature.</p>
                             <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                               reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </tab>
@@ -1246,7 +1227,7 @@ in a SARIF-formatted file.
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.2
+                                      uses: %action-version%
                                       with:
                                         args: | 
                                             --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1311,7 +1292,7 @@ in a SARIF-formatted file.
                                       qodana scan \
                                          -v &lt;path_to_baseline&gt;:/data/base/ \
                                          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                         -l %qd-linter%&lt;-privileged&gt; \
+                                         --image %qd-linter%&lt;-privileged&gt; \
                                          --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   </code-block>
                               </tab>
@@ -1321,7 +1302,7 @@ in a SARIF-formatted file.
                                          -v &lt;source-directory&gt;/:/data/project/ \
                                          -v &lt;path_to_baseline&gt;:/data/base/ \
                                          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                         %qd-linter%&lt;-privileged&gt; \
+                                         %qd-image%&lt;-privileged&gt; \
                                          --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   </code-block>
                               </tab>
@@ -1367,9 +1348,11 @@ in a SARIF-formatted file.
                                 ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                 fetch-depth: 0  # a full history is required for pull request analysis
                             - name: 'Qodana Scan'
-                              uses: JetBrains/qodana-action@v2025.2
+                              uses: %action-version%
                               with:
-                                args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-co-linter%
+                                args: |
+                                    --image,%qd-co-linter%&lt;-privileged&gt;,
+                                    --baseline,&lt;path/to/qodana.sarif.json&gt;,
                               env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1412,7 +1395,9 @@ in a SARIF-formatted file.
                             include:
                                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                  inputs:
-                                    args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-co-linter%
+                                    args: |
+                                        --baseline,&lt;path/to/qodana.sarif.json&gt;,
+                                        --image,%qd-co-linter&lt;-privileged&gt;%
                         </code-block>
                     <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block 
                         invokes the baseline feature.</p>
@@ -1425,7 +1410,7 @@ in a SARIF-formatted file.
                               qodana scan \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 -l %qd-co-linter%&lt;-privileged&gt; \
+                                 --image %qd-co-linter%&lt;-privileged&gt; \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1435,7 +1420,7 @@ in a SARIF-formatted file.
                                  -v &lt;source-directory&gt;/:/data/project/ \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 %qd-co-linter%&lt;-privileged&gt; \
+                                 %qd-co-image%&lt;-privileged&gt; \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1512,7 +1497,7 @@ You can analyze pull requests using the %dotnet% linter.
                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                           fetch-depth: 0  # a full history is required for pull request analysis
                       - name: 'Qodana Scan'
-                        uses: JetBrains/qodana-action@v2025.2
+                        uses: %action-version%
                         with:
                           args: --image,%qd-linter%&lt;-privileged&gt;
                         env:
@@ -1549,7 +1534,7 @@ You can analyze pull requests using the %dotnet% linter.
                 <code-block prompt="$">
                     qodana scan \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       -l %qd-linter%&lt;-privileged&gt; \
+                       --image %qd-linter%&lt;-privileged&gt; \
                        --diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
@@ -1558,7 +1543,7 @@ You can analyze pull requests using the %dotnet% linter.
                   docker run \
                   &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                   &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                  &nbsp;&nbsp;&nbsp;%qd-linter%&lt;-privileged&gt; \
+                  &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt; \
                   &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>

@@ -150,7 +150,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Qodana Backend'
-        uses: JetBrains/qodana-action@v2025.2
+        uses: %action-version%
         with:
           args: |
             --source-directory,backend,--config,qodana-backend.yaml
@@ -164,7 +164,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Qodana Frontend'
-        uses: JetBrains/qodana-action@v2025.2
+        uses: %action-version%
         with:
           args: |
             --source-directory,frontend,--config,qodana-frontend.yaml

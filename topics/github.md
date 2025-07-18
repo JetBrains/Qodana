@@ -93,7 +93,7 @@ This is an example configuration snippet containing all options:
       checks: write
     steps:
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2025.2
+        uses: %action-version%
         with:
           args: --apply-fixes
           push-fixes: pull-request
@@ -221,7 +221,7 @@ To establish a quality gate, in the workflow configuration specify the `--fail-t
 
 ```yaml
 - name: Qodana Scan
-  uses: JetBrains/qodana-action@v2025.2
+  uses: %action-version%
   with:
     args: --fail-threshold,<number-of-accepted-problems>
   env:
@@ -239,7 +239,7 @@ Using this configuration, you will be able to detect only new problems in pull r
 
 ```yaml
 - name: Qodana Scan
-  uses: JetBrains/qodana-action@v2025.2
+  uses: %action-version%
   with:
     args: --baseline,qodana.sarif.json,--fail-threshold,<number-of-accepted-problems>
   env:
@@ -272,7 +272,7 @@ In the `.github/workflows/code_quality.yml` file, set `upload-result` to `true`:
 
 ```yaml
 - name: 'Qodana Scan'
-  uses: JetBrains/qodana-action@v2025.2
+  uses: %action-version%
   env:
     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
   with:

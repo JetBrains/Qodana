@@ -41,7 +41,7 @@ other languages like [PHP](https://plugins.jetbrains.com/plugin/6610-php), [Go](
 Since all inspections are developed using the Kotlin language, you'll need to know the 
 [basics of Kotlin](https://kotlinlang.org/docs/kotlin-tour-welcome.html) before you can begin developing your own inspections.
 
-## How it works
+## How FlexInspect works
 
 You write your inspections in Kotlin and store them in the `inspections` directory of your project as
 `.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code that analyzes your code using the API provided 

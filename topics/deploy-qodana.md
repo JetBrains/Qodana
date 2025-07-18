@@ -27,7 +27,6 @@ To overcome this, %instance% supports native mode for the following linters:
 | [%python%](python.md)    | `%python-linter%`    |  
 | [%python-co%](python.md) | `%python-co-linter%` |  
 | [%go%](golang.md)        | `%go-linter%`        |  
-| [%cpp%](clang.md)        | `%cpp-linter%`         | 
 
 You can run native mode on Linux, macOS, and Microsoft Windows.
 
@@ -69,7 +68,7 @@ project state and its files, it is advised to avoid reusing the same directory i
 You can also provide %instance% a pre-built project, or specify the build steps in your CI/CD pipeline. To remove
 warnings related to project building, in your repository create the empty `qodana.yaml` file.
 
-### How it works
+### How native mode works
 
 > Native mode is incompatible with several Docker image-related options like `--image`,
 `-e, --env`, and `-v, --volume`.
@@ -106,10 +105,6 @@ Below are the examples showing how you can run %product% in native mode:
                 </procedure>
     </tab>
     <tab title="GitHub Actions" group-key="native-mode-github">
-        <p>If you have already enabled native mode using the <code>qodana.yaml</code> file, you can use a 
-        <a href="github.md" anchor="Basic+configuration">basic configuration</a> sample from the GitHub Actions section.</p>
-        <p>To run %product% without configuring the <code>qodana.yaml</code> file, in your GitHub repository navigate to 
-        a <a href="github.md" anchor="Basic+configuration">workflow configuration</a> file and specify the <code>--ide,&lt;linter&gt;</code> option:</p>
         <code-block lan="yaml">
         name: Qodana
         on:
@@ -132,7 +127,7 @@ Below are the examples showing how you can run %product% in native mode:
                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                   fetch-depth: 0  # a full history is required for pull request analysis
               - name: 'Qodana Scan'
-                uses: JetBrains/qodana-action@v2025.2
+                uses: %action-version%
                 with:
                   args: | 
                     --linter,&lt;linter-name&gt;,

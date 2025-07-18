@@ -313,4 +313,7 @@
     <var name="clang-linter" value="qodana-clang:2024.3-eap"/>
     <var name="ruby-linter" value="qodana-ruby:2025.2-eap"/>
 
+    <!-- Various versions -->
+    <var name="action-version" value="JetBrains/qodana-action@v2025.2"/>
+
 </vars>

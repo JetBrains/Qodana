@@ -6,15 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/taint-analysis-explore-results.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-explore-results.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/taint-analysis-explore-results_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-explore-results_dark.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/taint-analysis-step-navigation.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-step-navigation.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/taint-analysis-step-navigation_dark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/images/taint-analysis-step-navigation_dark.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/analyze-pr.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/analyze-pr.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/baseline.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/baseline.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/clang.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/clang.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/code-coverage.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/code-coverage.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/deploy-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/deploy-qodana.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/docker-image-configuration.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/docker-image-configuration.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/new-in-2025-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/new-in-2025-2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/dotnet.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/dotnet.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-plugins.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/extending-qodana-structural-search.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/extending-qodana-structural-search.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/flexinspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/flexinspect.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/github.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/github.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/global-configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/global-configuration.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/inspection-profiles.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/inspection-profiles.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/lib_qd.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/lib_qd.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/license-audit.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/license-audit.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/monorepo-project.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/monorepo-project.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/native-mode.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/quality-gate.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quality-gate.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/quick-fix.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/quick-fix.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/taint-analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/taint-analysis.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/taint-analysis_old.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/troubleshooting.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/troubleshooting.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/vulnerability-checker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vulnerability-checker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v.list" beforeDir="false" afterPath="$PROJECT_DIR$/v.list" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,20 +132,6 @@
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/clang.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/deploy-qodana.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/dotnet.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/golang.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/jvm.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/linters.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/new-in-2025-2.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/php.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/qodana-yaml.md",
-      "/home/Anton.Samarin/Desktop/documentation/Qodana/Qodana/topics/taint-analysis.md"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -191,7 +193,8 @@
       <workItem from="1752747009868" duration="396000" />
       <workItem from="1752747427128" duration="44000" />
       <workItem from="1752756249435" duration="556000" />
-      <workItem from="1752756820299" duration="11813000" />
+      <workItem from="1752756820299" duration="18387000" />
+      <workItem from="1752826144879" duration="7839000" />
     </task>
     <servers />
   </component>

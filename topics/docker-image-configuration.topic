@@ -56,7 +56,7 @@
                     docker run \
                        -v $(pwd):/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt; \
+                       &lt;image-name&gt; \
                        --property=idea.log.config.file=info.xml \
                        --baseline &lt;baseline-path&gt; \
                        --apply-fixes
@@ -96,7 +96,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: |
                                           --property=idea.log.config.file=info.xml,
@@ -480,7 +480,7 @@
                         <p>Define whether analysis will be performed within a Docker container.</p>
                         <p>If set to <code>true</code>, %product% will employ a respective Docker image. The image for
                             container creation will be chosen in an automated way based on the <code>--image</code> value.
-                            For example, the <code>jetbrains/qodana-jvm</code> image will be chosen in case of <code>--linter==qodana-jvm</code>.</p>
+                            For example, the <code>jetbrains/qodana-jvm</code> image will be chosen in case of <code>--linter qodana-jvm</code>.</p>
                         <p>If set to <code>false</code>, %product% will analyze your project in native mode using the current environment.</p>
                         <p>The default value is defined dynamically based on the analysis of the current environment and project.</p>
                         <p>Native mode is currently available for the following %product% linters:</p>
@@ -557,14 +557,14 @@
                                     <a href="python.md">%python-co%</a>
                                 </td>
                             </tr>
-                            <tr>
+                            <!--<tr>
                                 <td>
                                     <code>qodana-cpp:2025.2-eap</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%clang%</a>
                                 </td>
-                            </tr>
+                            </tr>-->
                         </table>
                     </td>
                 </tr>
@@ -851,7 +851,7 @@
                     </td>
                     <td>
                         Run the <code>CLEANUP</code> quick-fix strategy, see the
-                        <a href="quick-fix.md" anchor="How+it+works">Quick-fix</a> for details
+                        <a href="quick-fix.md" anchor="How+quick-fix+works">Quick-fix</a> for details
                     </td>
                 </tr>
                 <tr>
@@ -1012,8 +1012,7 @@
                         <code>-e, --env &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a> and
-                            the <code>--ide</code> option.</note>
+                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
                         <p>Define environment variables for the Qodana container, multiple variables can be specified.
                             For security reasons, %product% CLI does not read environment variables from the host
                             operating system, so all variables required by %product% should be specified explicitly.</p>
@@ -1024,8 +1023,7 @@
                         <code>-v, --volume &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a> and
-                            the <code>--ide</code> option.</note>
+                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
                         <p>Define additional volumes for the Qodana container, multiple volumes can be specified. For example,
                             <code>qodana scan --volume $(pwd)/.qodana/results:/data/results/</code></p>
                     </td>
@@ -1035,8 +1033,7 @@
                         <code>-u, --user &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a> and the
-                            <code>--ide</code> option.</note> <p>User to run Qodana container as. Please specify the user
+                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note> <p>User to run Qodana container as. Please specify the user
                         ID – <code>$UID</code> or the user ID and group ID <code>$(id -u):$(id -g)</code>.
                         Use <code>root</code> to run as the root user. By default, it is set to the current user</p>
                     </td>
@@ -1048,8 +1045,7 @@
                         </code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a> and
-                            the <code>--ide</code> option.</note> <p>Skip pulling the latest Qodana container</p>
+                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note> <p>Skip pulling the latest Qodana container</p>
                     </td>
                 </tr>
             </table>
@@ -1520,7 +1516,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: -v,&lt;profile-file&gt;:/data/profile.xml
                                   env:
@@ -1623,7 +1619,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: -v,gradle.properties:/data/cache/gradle/gradle.properties
                                   env:
@@ -1871,7 +1867,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --cache-dir,/data/newcachedir
                                   env:
@@ -2027,7 +2023,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --profile-name,qodana.recommended
                                   env:
@@ -2130,7 +2126,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --profile-name,&lt;profile-name-from-file&gt;
                                   env:
@@ -2239,7 +2235,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --profile-path,/data/project/myprofiles/&lt;file-name&gt;
                                   env:
@@ -2350,7 +2346,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --config,relative/path/to/config.yaml
                                   env:
@@ -2480,7 +2476,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: |
                                           --baseline,&lt;path-to-the-SARIF-file&gt;,
@@ -2600,7 +2596,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: -v,/my/dir/with/coverage:/data/coverage
                                   env:
@@ -2801,7 +2797,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --fail-threshold,10
                                   env:
@@ -2907,7 +2903,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: &lt;--apply-fixes/--cleanup&gt;
                                   env:
@@ -3040,7 +3036,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --property=idea.log.config.file=info.xml
                                   env:
@@ -3146,7 +3142,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --property,idea.headless.enable.statistics=false
                                   env:
@@ -3255,7 +3251,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: |
                                           --property=idea.required.plugins.id=JavaScript,org.intellij.grails,
@@ -3384,7 +3380,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --diff-start=&lt;GIT_START_HASH&gt;
                                   env:
@@ -3485,7 +3481,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: |
                                           --diff-start=&lt;GIT_START_HASH&gt;,
@@ -3611,7 +3607,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --script,default
                                   env:
@@ -3709,7 +3705,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: --script,php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
                                   env:
@@ -3826,7 +3822,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: -e,_JAVA_OPTIONS=-Xmx6g
                                   env:
@@ -3938,7 +3934,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: -e,IDEA_PROPERTIES=/data/project/idea.properties
                                   env:
@@ -4062,7 +4058,7 @@
                                       ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                       fetch-depth: 0  # a full history is required for pull request analysis
                                 - name: 'Qodana Scan'
-                                  uses: JetBrains/qodana-action@v2025.2
+                                  uses: %action-version%
                                   with:
                                       args: -u,root
                                   env:

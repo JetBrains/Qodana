@@ -49,7 +49,7 @@
 
     <note>This feature is not available in JetBrains IDEs.</note>
 
-    <chapter title="How it works" id="license-audit-how-it-works">
+    <chapter title="How license audit works" id="license-audit-how-it-works">
 
         <link-summary>%feature% collects information about project and dependency licenses using configuration files of dependency
             management tools and files containing license texts. Based on the information collected, it builds the

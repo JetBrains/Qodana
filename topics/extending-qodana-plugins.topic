@@ -125,10 +125,10 @@
                                                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                                   fetch-depth: 0  # a full history is required for pull request analysis
                                             - name: 'Qodana Scan'
-                                              uses: JetBrains/qodana-action@v2025.2
+                                              uses: %action-version%
                                               with:
                                                   args: >
-                                                        --linter,&lt;linter&gt;,
+                                                        --linter,&lt;linter-name&gt;,
                                                         -v,&lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/custom-plugins/&lt;plugin-name&gt;.jar,
                                                         -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
                                               env:

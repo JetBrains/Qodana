@@ -381,7 +381,7 @@
                            -v $(pwd):/data/project/ \
                            -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;" \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           &lt;linter&gt;
+                           &lt;image&gt;
                     </code-block>
                             </tab>
                             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -389,7 +389,7 @@
                         qodana scan \
                            -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;" \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           --linter &lt;linter&gt;
+                           --image &lt;image&gt;
                     </code-block>
                             </tab>
                             <tab title="Jenkins" group-key="jenkins">

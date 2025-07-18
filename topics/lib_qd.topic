@@ -371,7 +371,7 @@
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                           - name: 'Qodana Scan'
-                            uses: JetBrains/qodana-action@v2025.2
+                            uses: %action-version%
                             env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -639,7 +639,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with:
                                               args: --image,%qd-image%
                                           env:
@@ -666,7 +666,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with: # Specify the linter that you would like to run
                                               args: --image,%qd-image%
                                           env:
@@ -693,7 +693,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with: # Uncomment the linter you wish to use
                                             # args: --image,%qd-image%
                                             # args: --image,%qd-co-image%
@@ -815,7 +815,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with:
                                               args: |
                                                   --linter,%qd-linter%,
@@ -845,7 +845,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with:
                                               args: |
                                                   --linter,%qd-linter-combined%,
@@ -875,7 +875,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with:
                                               args: |
                                                   --linter,%qd-linter-combined%,
@@ -993,7 +993,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with:
                                               args: --image,%qd-linter%
                                           env:
@@ -1021,7 +1021,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with: # Uncomment the linter that you wish to use
                                             # args: --image,%qd-linter%
                                             # args: --image,%qd-co-linter%
@@ -1051,7 +1051,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with: # Uncomment the linter that you wish to use
                                             # args: --image,%qd-linter%
                                             # args: --image,%qd-co-linter%
@@ -1342,7 +1342,7 @@
                                   ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                   fetch-depth: 0  # a full history is required for pull request analysis
                               - name: 'Qodana Scan'
-                                uses: JetBrains/qodana-action@v2025.2
+                                uses: %action-version%
                                 with:
                                   args: |
                                     --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1374,7 +1374,7 @@
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.2
+                                      uses: %action-version%
                                       with:
                                           args: |
                                               --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1406,7 +1406,7 @@
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.2
+                                      uses: %action-version%
                                       with:
                                           args: |
                                               --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1488,7 +1488,7 @@
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                   - name: 'Qodana Scan'
-                                    uses: JetBrains/qodana-action@v2025.2
+                                    uses: %action-version%
                                     with: # Uncomment the linter that you wish to use
                                       # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-linter%
                                       # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-co-linter%
@@ -1520,7 +1520,7 @@
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                   - name: 'Qodana Scan'
-                                    uses: JetBrains/qodana-action@v2025.2
+                                    uses: %action-version%
                                     with: # Uncomment the linter that you wish to use
                                       # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-linter%
                                       # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-co-linter%
@@ -1550,7 +1550,7 @@
                                         ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                         fetch-depth: 0  # a full history is required for pull request analysis
                                   - name: 'Qodana Scan'
-                                    uses: JetBrains/qodana-action@v2025.2
+                                    uses: %action-version%
                                     with:
                                         args: |
                                             --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1809,7 +1809,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with:
                                               args: |
                                                   --linter,%qd-linter%,
@@ -1839,7 +1839,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with:
                                               args: |
                                                   --linter,%qd-linter-combined%,
@@ -1869,7 +1869,7 @@
                                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                               fetch-depth: 0  # a full history is required for pull request analysis
                                         - name: 'Qodana Scan'
-                                          uses: JetBrains/qodana-action@v2025.2
+                                          uses: %action-version%
                                           with:
                                               args: |
                                                   --linter,%qd-linter-combined%,
@@ -1937,9 +1937,9 @@
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.2
+                                      uses: %action-version%
                                       with:
-                                          args: --image,%qd-linter%
+                                          args: --image,%qd-image%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -1965,7 +1965,7 @@
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.2
+                                      uses: %action-version%
                                       with: # Uncomment the Docker image that you wish to use
                                         # args: --image,%qd-linter% # %qd%
                                         # args: --image,%qd-co-linter% # %qd-co%
@@ -1994,7 +1994,7 @@
                                           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
-                                      uses: JetBrains/qodana-action@v2025.2
+                                      uses: %action-version%
                                       with: # Uncomment the Docker image that you wish to use
                                         # args: --image,%qd-linter% # %qd%
                                         # args: --image,%qd-co-linter% # %qd-co%
@@ -2169,7 +2169,7 @@
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                         - name: 'Qodana Scan'
-                          uses: JetBrains/qodana-action@v2025.2
+                          uses: %action-version%
                           with:
                               args: --image,%qd-image%
                           env:
@@ -2197,7 +2197,7 @@
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                         - name: 'Qodana Scan'
-                          uses: JetBrains/qodana-action@v2025.2
+                          uses: %action-version%
                           with:
                               args: --image,%qd-image%
                           env:
@@ -2225,7 +2225,7 @@
                               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
                               fetch-depth: 0  # a full history is required for pull request analysis
                         - name: 'Qodana Scan'
-                          uses: JetBrains/qodana-action@v2025.2
+                          uses: %action-version%
                           with: # Uncomment the linter you wish to use
                             # args: --image,%qd-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                             # args: --image,%qd-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;

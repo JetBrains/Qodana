@@ -56,7 +56,7 @@ following linters:
 <note>Code coverage for files is available only for <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, and
 <a href="python.md">%python%</a> linters.</note>
 
-## How it works
+## How code coverage works
 
 <link-summary>Learn how the code coverage feature works.</link-summary>
 
@@ -214,7 +214,7 @@ jobs:
       working-directory: JS/jest
       
     - name: Archive coverage data # Archive data for use by Qodana
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: jest-coverage-data
         path: JS/jest/.qodana/code-coverage
@@ -374,7 +374,7 @@ jobs:
         run: npm test
       
       - name: Archive coverage data
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: jest-coverage-data
           path: .qodana/code-coverage

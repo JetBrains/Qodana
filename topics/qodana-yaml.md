@@ -360,7 +360,7 @@ customDependencies:
 
 <link-summary>You can apply the cleanup or apply quick-fix strategies.</link-summary>
 
-Using the `fixesStrategy` option, you can choose among the available [quick-fix strategies](quick-fix.md#How+it+works):
+Using the `fixesStrategy` option, you can choose among the available [quick-fix strategies](quick-fix.md#How+quick-fix+works):
 
 ```yaml
 fixesStrategy: cleanup/apply

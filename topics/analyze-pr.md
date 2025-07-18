@@ -89,7 +89,7 @@ You can use the --diff-start option to analyze changes between the current versi
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2025.2
+            uses: %action-version%
             env:
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -188,7 +188,7 @@ and <code>--diff-end</code> options:</p>
               ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
               fetch-depth: 0  # a full history is required for pull request analysis
           - name: 'Qodana Scan'
-            uses: JetBrains/qodana-action@v2025.2
+            uses: %action-version%
             with:
               args: --diff-start,&lt;GIT_START_HASH&gt;,--diff-end,&lt;GIT_END_HASH&gt; 
             env:

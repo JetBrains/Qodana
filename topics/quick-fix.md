@@ -12,7 +12,7 @@ trial versions:
 * [%go%](golang.md)
 * [%dotnet%](dotnet.md)
 
-## How it works
+## How quick-fix works
 
 <link-summary>Learn how you can configure quick-fix strategies. </link-summary>
 
