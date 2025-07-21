@@ -298,20 +298,20 @@
     <var name="ruby" value="Qodana for Ruby"/>
 
     <!-- Qodana linter names -->
-    <var name="jvm-linter" value="qodana-jvm:2025.2-eap"/>
-    <var name="jvm-a-linter" value="qodana-android:2025.2-eap"/>
-    <var name="jvm-co-linter" value="qodana-jvm-community:2025.2-eap"/>
-    <var name="jvm-co-a-linter" value="qodana-jvm-android:2025.2-eap"/>
-    <var name="dotnet-linter" value="qodana-dotnet:2025.2-eap"/>
-    <var name="dotnet-co-linter" value="qodana-cdnet:2025.2-eap"/>
-    <var name="python-linter" value="qodana-python:2025.2-eap"/>
-    <var name="python-co-linter" value="qodana-python-community:2025.2-eap"/>
-    <var name="php-linter" value="qodana-php:2025.2-eap"/>
-    <var name="js-linter" value="qodana-js:2025.2-eap"/>
-    <var name="go-linter" value="qodana-go:2025.2-eap"/>
-    <var name="cpp-linter" value="qodana-cpp:2025.2-eap"/>
-    <var name="clang-linter" value="qodana-clang:2024.3-eap"/>
-    <var name="ruby-linter" value="qodana-ruby:2025.2-eap"/>
+    <var name="jvm-linter" value="qodana-jvm"/>
+    <var name="jvm-a-linter" value="qodana-android"/>
+    <var name="jvm-co-linter" value="qodana-jvm-community"/>
+    <var name="jvm-co-a-linter" value="qodana-jvm-android"/>
+    <var name="dotnet-linter" value="qodana-dotnet"/>
+    <var name="dotnet-co-linter" value="qodana-cdnet"/>
+    <var name="python-linter" value="qodana-python"/>
+    <var name="python-co-linter" value="qodana-python-community"/>
+    <var name="php-linter" value="qodana-php"/>
+    <var name="js-linter" value="qodana-js"/>
+    <var name="go-linter" value="qodana-go"/>
+    <var name="cpp-linter" value="qodana-cpp"/>
+    <var name="clang-linter" value="qodana-clang"/>
+    <var name="ruby-linter" value="qodana-ruby"/>
 
     <!-- Various versions -->
     <var name="action-version" value="JetBrains/qodana-action@v2025.2"/>

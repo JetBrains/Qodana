@@ -26,7 +26,9 @@ Currently, several linters provide inspections for several programming languages
 <table>
     <tr>
         <td>Project languages</td>
-        <td>Supported by linters / linter name and tags</td>
+        <td>Supported by linters</td>
+        <td>Supported by linters / linter name / image name</td>
+        <td>Docker image name</td>
     </tr>
     <tr>
         <td>
@@ -37,6 +39,12 @@ Currently, several linters provide inspections for several programming languages
             <p><a href="jvm.md">%jvm-co%</a>&nbsp;/&nbsp;<code>%jvm-co-linter%</code></p>
             <p><a href="jvm.md">%jvm-co-a%</a>&nbsp;/&nbsp;<code>%jvm-co-a-linter%</code></p>
             <p><a href="jvm.md">%jvm-a%</a>&nbsp;/&nbsp;<code>%jvm-a-linter%</code></p>
+        </td>
+        <td>
+            <p><a href="jvm.md">%jvm%</a>&nbsp;/&nbsp;<code>%jvm-linter%</code></p>
+            <p><a href="jvm.md">%jvm-co%</a>&nbsp;/&nbsp;<code>%jvm-co-linter%</code></p>
+            <p><a href="jvm.md">%jvm-co-a%</a>&nbsp;/&nbsp;<code>%jvm-co-a-linter%</code></p>
+            <p><a href="jvm.md">%jvm-a%</a>&nbsp;/&nbsp;<code>%jvm-a-linter%</code></p> 
         </td>
     </tr>
     <tr>
