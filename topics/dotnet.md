@@ -6,13 +6,13 @@
 <var name="qd" value="%dotnet%"/>
 <var name="qd-co" value="%dotnet-co%"/>
 <!-- Docker images -->
-<var name="qd-image" value="jetbrains/%dotnet-linter%"/>
-<var name="qd-co-image" value="jetbrains/%dotnet-co-linter%"/>
+<var name="qd-image" value="%dotnet-image%"/>
+<var name="qd-co-image" value="%dotnet-co-image%"/>
 <!-- Linter names -->
 <var name="qd-linter" value="%dotnet-linter%"/>
 <var name="qd-co-linter" value="%dotnet-co-linter%"/>
 
-<var name="qd-image" value="jetbrains/qodana-&lt;dotnet|cdnet&gt;:2025.2&lt;-eap&gt;"/>
+
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="Rider"/>
 <var name="ide-co" value="ReSharper"/>
@@ -41,11 +41,75 @@
 <p>All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 .NET projects, you can use the following %product% linters:</p>
 
-| Linter name | Based on                         | Licensed under the [licenses](pricing.md)  | Shipped as                                                           | [Supported languages](#dotnet-feature-matrix)                |
-|-------------|----------------------------------|--------------------------------------------|----------------------------------------------------------------------|--------------------------------------------------------------|
-| %qd%        | [JetBrains Rider](%rider-link%)  | Ultimate and Ultimate Plus                 | A [native solution](deploy-qodana.md#deploy-qodana-native-mode) and a Docker image | C#, [C/C++](%cpp-links%), VB.NET, JavaScript, TypeScript, F# |
-| %qd-co%     | [JetBrains ReSharper](%rs-link%) | Community                                  | A Docker image                                                       | C#, [C++](%cpp-links%), VB.NET                               |
+<tabs>
+    <tab title="%qd%">
+        <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qd-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%qd-image%&lt;-privileged&gt;</code>*</td>
+            </tr>
+            <tr>
+                <td>Based on</td>
+                <td><a href="%rider-link%">JetBrains Rider</a></td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native solution</a> and a Docker image</td>
+            </tr>
+            <tr>
+                <td>Supported languages</td>
+                <td>C#, <a href="%cpp-links%">C/C++</a>, VB.NET, JavaScript, TypeScript, F# </td>
+            </tr>
+        </table>
+    </tab>
+    <tab title="%qd-co%">
+        <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qd-co-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%qd-co-image%&lt;-privileged&gt;</code>*</td>
+            </tr>
+            <tr>
+                <td>Based on</td>
+                <td><a href="%rs-link%">JetBrains ReSharper</a></td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Community <a href="pricing.md">license</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A Docker image</td>
+            </tr>
+            <tr>
+                <td>Supported languages</td>
+                <td>C#, <a href="%cpp-links%">C/C++</a>, VB.NET</td>
+            </tr>
+        </table>
+    </tab>
+</tabs>
 
+\* Using the optional `-privileged` tag, you can run Qodana in the privileged mode to execute commands that require root access. 
+In this case, Qodana comes with a default `qodana` user that possesses root privileges and does not require a password.
 
 <p>You can compare these linters by programming languages and other supported technologies by navigating to the <a anchor="dotnet-feature-matrix">feature matrix</a>.</p>
 
@@ -488,7 +552,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image '%qd-linter%&lt;-privileged&gt;'
+                                    image '%qd-image%'
                                 }
                             }
                             stages {
@@ -511,7 +575,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                              inputs:
-                                args: --image,%qd-linter%&lt;-privileged&gt;
+                                args: --linter,%qd-linter%
                     </code-block>
                     <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
                         %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
@@ -528,7 +592,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt;
+                        &nbsp;&nbsp;&nbsp;%qd-image%
                     </code-block>
                 </tab>
                 <tab title="JetBrains IDEs" group-key="ides">
@@ -604,7 +668,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image '%qd-co-linter%&lt;-privileged&gt;'
+                                    image '%qd-co-image%'
                                 }
                             }
                             stages {
@@ -627,7 +691,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                              inputs:
-                                args: --image,%qd-co-linter%&lt;-privileged&gt;
+                                args: --linter,%qd-co-linter%
                     </code-block>
                 </tab>
                 <tab title="Command line" group-key="command-line">
@@ -638,7 +702,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         docker run \
                         &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
                         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        &nbsp;&nbsp;&nbsp;%qd-co-image%&lt;-privileged&gt;
+                        &nbsp;&nbsp;&nbsp;%qd-co-image%
                     </code-block>
                 </tab>
                 <tab title="JetBrains IDEs" group-key="ides">
@@ -1231,7 +1295,7 @@ in a SARIF-formatted file.
                                       with:
                                         args: | 
                                             --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                            --image,%qd-linter%&lt;-privileged&gt;
+                                            --linter,%qd-linter%
                                       env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                           </code-block>
@@ -1252,7 +1316,7 @@ in a SARIF-formatted file.
                                           -v "${WORKSPACE}":/data/project
                                           --entrypoint=""
                                           '''
-                                        image '%qd-linter%&lt;-privileged&gt;'
+                                        image '%qd-image%'
                                     }
                                 }
                                 stages {
@@ -1276,7 +1340,7 @@ in a SARIF-formatted file.
                                  inputs:
                                     args: | 
                                         --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                        --image,%qd-linter%&lt;-privileged&gt;
+                                        --linter,%qd-linter%
                           </code-block>
                             <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> 
                                 block invokes the baseline feature.</p>
@@ -1292,7 +1356,7 @@ in a SARIF-formatted file.
                                       qodana scan \
                                          -v &lt;path_to_baseline&gt;:/data/base/ \
                                          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                         --image %qd-linter%&lt;-privileged&gt; \
+                                         --linter %qd-linter% \
                                          --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   </code-block>
                               </tab>
@@ -1302,7 +1366,7 @@ in a SARIF-formatted file.
                                          -v &lt;source-directory&gt;/:/data/project/ \
                                          -v &lt;path_to_baseline&gt;:/data/base/ \
                                          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                         %qd-image%&lt;-privileged&gt; \
+                                         %qd-image% \
                                          --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   </code-block>
                               </tab>
@@ -1351,8 +1415,8 @@ in a SARIF-formatted file.
                               uses: %action-version%
                               with:
                                 args: |
-                                    --image,%qd-co-linter%&lt;-privileged&gt;,
-                                    --baseline,&lt;path/to/qodana.sarif.json&gt;,
+                                    --linter,%qd-co-linter%,
+                                    --baseline,&lt;path/to/qodana.sarif.json&gt;
                               env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1373,7 +1437,7 @@ in a SARIF-formatted file.
                                   -v "${WORKSPACE}":/data/project
                                   --entrypoint=""
                                   '''
-                                image '%qd-co-linter%&lt;-privileged&gt;'
+                                image '%qd-co-image%'
                             }
                         }
                         stages {
@@ -1397,7 +1461,7 @@ in a SARIF-formatted file.
                                  inputs:
                                     args: |
                                         --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                        --image,%qd-co-linter&lt;-privileged&gt;%
+                                        --linter,%qd-co-linter%
                         </code-block>
                     <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block 
                         invokes the baseline feature.</p>
@@ -1410,7 +1474,7 @@ in a SARIF-formatted file.
                               qodana scan \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 --image %qd-co-linter%&lt;-privileged&gt; \
+                                 --linter %qd-co-linter% \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1420,7 +1484,7 @@ in a SARIF-formatted file.
                                  -v &lt;source-directory&gt;/:/data/project/ \
                                  -v &lt;path_to_baseline&gt;:/data/base/ \
                                  -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                 %qd-co-image%&lt;-privileged&gt; \
+                                 %qd-co-image% \
                                  --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                           </code-block>
                       </tab>
@@ -1499,7 +1563,7 @@ You can analyze pull requests using the %dotnet% linter.
                       - name: 'Qodana Scan'
                         uses: %action-version%
                         with:
-                          args: --image,%qd-linter%&lt;-privileged&gt;
+                          args: --linter,%qd-linter%
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -1513,7 +1577,7 @@ You can analyze pull requests using the %dotnet% linter.
             include:
                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                  inputs:
-                   args: --image,%qd-image%&lt;-privileged&gt;
+                   args: --linter,%qd-linter%
         </code-block>
         <p>
             This configuration enables merge request analysis.
@@ -1534,7 +1598,7 @@ You can analyze pull requests using the %dotnet% linter.
                 <code-block prompt="$">
                     qodana scan \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       --image %qd-linter%&lt;-privileged&gt; \
+                       --linter %qd-linter% \
                        --diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
@@ -1543,7 +1607,7 @@ You can analyze pull requests using the %dotnet% linter.
                   docker run \
                   &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                   &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                  &nbsp;&nbsp;&nbsp;%qd-image%&lt;-privileged&gt; \
+                  &nbsp;&nbsp;&nbsp;%qd-image% \
                   &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>

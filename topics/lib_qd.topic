@@ -568,12 +568,28 @@
 
     <snippet id="linters-docker-image-table">
         <p filter="jvm">Here, <code>&lt;linter&gt;</code> refers to one of the following Docker images:</p>
-        <list filter="jvm">
-            <li><code>%qd-image%</code></li>
-            <li><code>%qd-co-image%</code></li>
-            <li><code>%qd-a-image%</code></li>
-            <li><code>%qd-an-image%</code></li>
-        </list>
+            <table filter="jvm">
+                <tr>
+                    <td>Docker image</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>%qd-image%</code></td>
+                    <td>%qd%</td>
+                </tr>
+                <tr>
+                    <td><code>%qd-co-image%</code></td>
+                    <td>%qd-co%</td>
+                </tr>
+                <tr>
+                    <td><code>%qd-a-image%</code></td>
+                    <td>%qd-a%</td>
+                </tr>
+                <tr>
+                    <td><code>%qd-an-image%</code></td>
+                    <td>%qd-an%</td>
+                </tr>
+            </table>
     </snippet>
 
     <snippet id="before-start-qodana-cloud">
@@ -749,7 +765,6 @@
                         <p filter="generic">Run this command to pull the Docker image of %product%:</p>
                         <p filter="python">Run the command to pull the Docker image of the %qd% or %qd-co% linter:</p>
                         <p filter="jvm">Run this command to pull the Docker image of a required linter:</p>
-
                         <code-block lang="shell" prompt="$" filter="generic">
                             docker pull %qd-image%
                         </code-block>
@@ -757,7 +772,7 @@
                             docker pull %qd-image-combined%
                         </code-block>
                         <code-block lang="shell" prompt="$" filter="jvm">
-                            docker pull %qd-image-combined%
+                            docker pull &lt;linter&gt;
                         </code-block>
                         <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
                     </tab>
@@ -995,7 +1010,7 @@
                                         - name: 'Qodana Scan'
                                           uses: %action-version%
                                           with:
-                                              args: --image,%qd-linter%
+                                              args: --linter,%qd-linter%
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1023,8 +1038,8 @@
                                         - name: 'Qodana Scan'
                                           uses: %action-version%
                                           with: # Uncomment the linter that you wish to use
-                                            # args: --image,%qd-linter%
-                                            # args: --image,%qd-co-linter%
+                                            # args: --linter,%qd-linter%
+                                            # args: --linter,%qd-co-linter%
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1053,10 +1068,10 @@
                                         - name: 'Qodana Scan'
                                           uses: %action-version%
                                           with: # Uncomment the linter that you wish to use
-                                            # args: --image,%qd-linter%
-                                            # args: --image,%qd-co-linter%
-                                            # args: --image,%qd-a-linter%
-                                            # args: --image,%qd-an-linter%
+                                            # args: --linter,%qd-linter%
+                                            # args: --linter,%qd-co-linter%
+                                            # args: --linter,%qd-a-linter%
+                                            # args: --linter,%qd-an-linter%
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1147,25 +1162,25 @@
                           include:
                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                 inputs:
-                                    args: --image,%qd-linter%
+                                    args: --linter,%qd-linter%
                         </code-block>
                 <code-block lang="yaml" filter="python">
                           include:
                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                 inputs:
                                     # Uncomment the image that you would like to employ
-                                    # args: --image,%qd-linter% # %qd%
-                                    # args: --image,%qd-co-linter% # %qd-co%
+                                    # args: --linter,%qd-linter% # %qd%
+                                    # args: --linter,%qd-co-linter% # %qd-co%
                         </code-block>
                 <code-block lang="yaml" filter="jvm">
                           include:
                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                                 inputs:
-                                    # Uncomment the image that you would like to employ
-                                    # args: --image,%qd-linter% # Qodana for JVM
-                                    # args: --image,%qd-co-linter% # Qodana Community for JVM
-                                    # args: --image,%qd-a-linter% # Qodana Community for Android
-                                    # args: --image,%qd-an-linter% # Qodana for Android
+                                    # Uncomment the linter that you would like to employ
+                                    # args: --linter,%qd-linter% # Qodana for JVM
+                                    # args: --linter,%qd-co-linter% # Qodana Community for JVM
+                                    # args: --linter,%qd-a-linter% # Qodana Community for Android
+                                    # args: --linter,%qd-an-linter% # Qodana for Android
                         </code-block>
                 <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
             </tab>
@@ -1180,24 +1195,22 @@
                                     qodana scan \
                                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                                         # Uncomment the image that you would like to employ
-                                        # --image %qd-linter% # Qodana for JVM
-                                        # --image %qd-co-linter% # Qodana Community for JVM
-                                        # --image %qd-a-linter% # Qodana Community for Android
-                                        # --image %qd-an-linter% # Qodana for Android
-
+                                        # --linter %qd-linter% # Qodana for JVM
+                                        # --linter %qd-co-linter% # Qodana Community for JVM
+                                        # --linter %qd-a-linter% # Qodana Community for Android
+                                        # --linter %qd-an-linter% # Qodana for Android
                                 </code-block>
-                        <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
                         <code-block lang="shell" prompt="$" filter="python">
                                     qodana scan \
                                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
                                         # Uncomment the image that you would like to employ
-                                        # --image %qd-linter% # %qd%
-                                        # --image %qd-co-linter% # %qd-co%
+                                        # --linter %qd-linter% # %qd%
+                                        # --linter %qd-co-linter% # %qd-co%
                                 </code-block>
                         <code-block lang="shell" prompt="$" filter="generic">
                                     qodana scan \
                                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                                    &nbsp;&nbsp;&nbsp;--image %qd-linter%
+                                    &nbsp;&nbsp;&nbsp;--linter %qd-linter%
                                 </code-block>
                     </tab>
                     <tab title="Docker image" group-key="docker-image">
@@ -1211,7 +1224,6 @@
                                         # %qd-a-image% # Qodana Community for Android
                                         # %qd-an-image% # Qodana for Android
                                 </code-block>
-                        <include filter="jvm" use-filter="jvm" from="lib_qd.topic" element-id="linters-docker-image-table"/>
                         <code-block lang="shell" prompt="$" filter="python">
                                     docker run \
                                     &nbsp;&nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/ \
@@ -1228,7 +1240,7 @@
                                 </code-block>
                     </tab>
                 </tabs>
-                <p>If you are using another %cloud% instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
+                <p>If you are using another %cloud% instance than <code>https://qodana.cloud/</code>, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
                 <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
                     reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
             </tab>
@@ -1490,10 +1502,10 @@
                                   - name: 'Qodana Scan'
                                     uses: %action-version%
                                     with: # Uncomment the linter that you wish to use
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-co-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-a-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-an-linter%
+                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-linter%
+                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-co-linter%
+                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-a-linter%
+                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-an-linter%
                                     env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1522,8 +1534,8 @@
                                   - name: 'Qodana Scan'
                                     uses: %action-version%
                                     with: # Uncomment the linter that you wish to use
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--image,%qd-co-linter%
+                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-linter%
+                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-co-linter%
                                     env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1554,7 +1566,7 @@
                                     with:
                                         args: |
                                             --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                            --image,%qd-linter%
+                                            --linter,%qd-linter%
                                     env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1655,10 +1667,10 @@
                         - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                           inputs:
                               # Uncomment the linter you would like to employ
-                              # args: --image,%qd-linter% # Qodana for JVM
-                              # args: --image,%qd-co-linter% # Qodana Community for JVM
-                              # args: --image,%qd-a-linter% # Qodana Community for Android
-                              # args: --image,%qd-an-linter% # Qodana for Android
+                              # args: --linter,%qd-linter% # Qodana for JVM
+                              # args: --linter,%qd-co-linter% # Qodana Community for JVM
+                              # args: --linter,%qd-a-linter% # Qodana Community for Android
+                              # args: --linter,%qd-an-linter% # Qodana for Android
                   </code-block>
             <p filter="python">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="python">
@@ -1666,15 +1678,15 @@
                         - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                           inputs:
                             # Uncomment the linter you would like to employ
-                            # args: --image,%qd-linter% # %qd%
-                            # args: --image,%qd-co-linter% # %qd-co%
+                            # args: --linter,%qd-linter% # %qd%
+                            # args: --linter,%qd-co-linter% # %qd-co%
                   </code-block>
             <p filter="generic">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="generic">
                     include:
                         - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                           inputs:
-                              args: --image,%qd-linter%
+                              args: --linter,%qd-linter%
                   </code-block>
             <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the
                 baseline feature.</p>
@@ -2171,7 +2183,7 @@
                         - name: 'Qodana Scan'
                           uses: %action-version%
                           with:
-                              args: --image,%qd-image%
+                              args: --linter,%qd-linter%
                           env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -2199,7 +2211,7 @@
                         - name: 'Qodana Scan'
                           uses: %action-version%
                           with:
-                              args: --image,%qd-image%
+                              args: --linter,%qd-linter%
                           env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -2227,10 +2239,10 @@
                         - name: 'Qodana Scan'
                           uses: %action-version%
                           with: # Uncomment the linter you wish to use
-                            # args: --image,%qd-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --image,%qd-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --image,%qd-a-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --image,%qd-an-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter,%qd-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter,%qd-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter,%qd-a-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter,%qd-an-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
                           env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -2241,19 +2253,19 @@
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                         inputs:
-                            args: --image,%qd-image%
+                            args: --linter,%qd-linter%
                 </code-block>
                 <code-block lang="yaml" filter="jvm">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                         inputs:
-                            args: --image,%qd-image%
+                            args: --linter,%qd-linter%
                 </code-block>
                 <code-block lang="yaml" filter="python">
                   include:
                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
                         inputs:
-                            args: --image,%qd-image%
+                            args: --linter,%qd-linter%
                 </code-block>
                 <p>This snippet enables merge request analysis.</p>
             </tab>
@@ -2270,20 +2282,20 @@
                 <code-block prompt="$" lang="shell" filter="generic">
                     qodana scan \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;--image %qd-image% \
+                    &nbsp;&nbsp;&nbsp;--image %qd-linter% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                         <code-block prompt="$" lang="shell" filter="jvm">
                     qodana scan \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;--image %qd-image% \
+                    &nbsp;&nbsp;&nbsp;--image %qd-linter% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                         <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
                         <code-block prompt="$" lang="shell" filter="python">
                     qodana scan \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;--image %qd-image% \
+                    &nbsp;&nbsp;&nbsp;--image %qd-linter% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                     </tab>

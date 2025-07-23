@@ -9,7 +9,7 @@
 <!-- Human-readable linter names -->
 <var name="qd" value="%js%"/>
 <!-- Docker images -->
-<var name="qd-image" value="jetbrains/%js-linter%"/>
+<var name="qd-image" value="%js-image%"/>
 <!-- Linter names -->
 <var name="qd-linter" value="%js-linter%"/>
 
@@ -36,11 +36,38 @@
 <link-summary>%qd% is based on %ide% and provides static analysis for JavaScript or TypeScript projects.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
-JavaScript and TypeScript projects, you can use the following linter:
+JavaScript and TypeScript projects, you can use the %qd% linter with the following characteristics:
 
-| Linter  | Linter name               | Based on | Available under licenses                                       | Supported languages       |
-|---------|---------------------------|----------|----------------------------------------------------------------|---------------------------|
-| %qd%    | `%qd-linter%`               | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | JavaScript and TypeScript |
+<table>
+    <tr>
+        <td>Characteristic</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>Linter name</td>
+        <td><code>%qd-linter%</code></td>
+    </tr>
+    <tr>
+        <td>Docker image</td>
+        <td><code>%qd-image%</code></td>
+    </tr>
+    <tr>
+        <td>Based on</td>
+        <td>%ide%</td>
+    </tr>
+    <tr>
+        <td>Available under licenses</td>
+        <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
+    </tr>
+    <tr>
+        <td>Shipped as</td>
+        <td>A <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native solution</a> and a Docker image</td>
+    </tr>
+    <tr>
+        <td>Supported languages</td>
+        <td>JavaScript and TypeScript</td>
+    </tr>
+</table>
 
 To see the list of supported technologies and features, you can navigate to the [](#js-feature-matrix) chapter of this section.
 

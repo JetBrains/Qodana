@@ -5,7 +5,7 @@
 <!-- Human-readable linter names -->
 <var name="qd" value="%ruby%"/>
 <!-- Docker images -->
-<var name="qd-image" value="jetbrains/%ruby-linter%"/>
+<var name="qd-image" value="%ruby-image%"/>
 <!-- Linter names -->
 <var name="qd-linter" value="%ruby-linter%"/>
 
@@ -40,11 +40,38 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Ruby projects, you can use the following linter:
 
-| Linter | Linter name                         | Based on | Available under licenses                                       | Supported languages             |
-|--------|-------------------------------------|----------|----------------------------------------------------------------|---------------------------------|
-| %qd%    | `%qd-linter%<-ruby3.X><-privileged>` | %ide%    | Ultimate and Ultimate Plus [licenses](pricing.md)              | Ruby, JavaScript and TypeScript |
+<table>
+    <tr>
+        <td>Characteristic</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>Linter name</td>
+        <td><code>%qd-linter%</code></td>
+    </tr>
+    <tr>
+        <td>Docker image</td>
+        <td><code>%qd-image%&lt;-ruby3.X&gt;&lt;-privileged&gt;</code>*</td>
+    </tr>
+    <tr>
+        <td>Based on</td>
+        <td>%ide%</td>
+    </tr>
+    <tr>
+        <td>Available under licenses</td>
+        <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
+    </tr>
+    <tr>
+        <td>Shipped as</td>
+        <td>A Docker image</td>
+    </tr>
+    <tr>
+        <td>Supported languages</td>
+        <td>Ruby, JavaScript and TypeScript</td>
+    </tr>
+</table>
 
-Here, the optional `-ruby3.X` tag lets you specify the Ruby language version, ranging from 3.1 to 3.4. If not specified, the default Ruby version will be 3.4.
+\* Here, the optional `-ruby3.X` tag lets you specify the Ruby language version, ranging from 3.1 to 3.4. If not specified, the default Ruby version will be 3.4.
 The optional `-privileged` tag lets you run %product% in the privileged mode to execute commands that require root access. In this case,
 %product% comes with a default `qodana` user that possesses root privileges and does not require a password.
 

@@ -28,6 +28,15 @@ within existing pipelines using Qodana.
 
 2. In your Azure DevOps organization, install the [Qodana Azure Pipelines extension](https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana). 
 
+If you are using any VCS other than Azure Repos Git, you may need an additional step in your pipeline with Git 
+credential configuration before the %product% step. For example, if you are using GitHub, the following step can be used:
+
+```yaml
+- script: |
+      git remote set-url origin https://$(GITHUB_TOKEN)@github.com/your-org/your-repo
+    displayName: 'Set git permissions'
+```
+
 ## Basic configuration
 
 <link-summary>After you've installed the Qodana Azure Pipelines extension to your organization, 

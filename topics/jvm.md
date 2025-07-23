@@ -10,10 +10,10 @@
 <var name="qd-a" value="%jvm-co-a%"/>
 <var name="qd-an" value="%jvm-a%"/>
 <!-- Docker images -->
-<var name="qd-image" value="jetbrains/%jvm-linter%"/>
-<var name="qd-co-image" value="jetbrains/%jvm-co-linter%"/>
-<var name="qd-a-image" value="jetbrains/%jvm-co-a-linter%"/>
-<var name="qd-an-image" value="jetbrains/%jvm-a-linter%"/>
+<var name="qd-image" value="%jvm-image%"/>
+<var name="qd-co-image" value="%jvm-co-image%"/>
+<var name="qd-a-image" value="%jvm-co-a-image%"/>
+<var name="qd-an-image" value="%jvm-a-image%"/>
 <!-- Linter names -->
 <var name="qd-linter" value="%jvm-linter%"/>
 <var name="qd-co-linter" value="%jvm-co-linter%"/>
@@ -21,7 +21,7 @@
 <var name="qd-an-linter" value="%jvm-a-linter%"/>
 
 <var name="qd-image-combined" value="jetbrains/qodana-&lt;jvm|android&gt;&lt;-community|-android&gt;:2025.2-eap"/>
-<var name="qd-linter-combined" value="qodana-&lt;jvm|android&gt;&lt;-community|-android&gt;:2025.2-eap"/>
+<var name="qd-linter-combined" value="qodana-&lt;jvm|android&gt;&lt;-community|-android&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
 <!-- Content-related variables -->
@@ -51,13 +51,136 @@
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Java projects, you can use the following linters:
 
-| Linter  | Linter name      | Based on   | Available under licenses                                       | Supported languages                          |
-|---------|------------------|------------|----------------------------------------------------------------|----------------------------------------------|
-| %qd%    | `%qd-linter%`    | %ide%      | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
-| %qd-an% | `%qd-an-linter%` | %ide%      | Ultimate and Ultimate Plus [licenses](pricing.md)              | Java, Kotlin, Groovy, JavaScript, Typescript |
-| %qd-co% | `%qd-co-linter%` | %ide-co%   | Community [license](pricing.md)                                | Java, Kotlin, Groovy                         |
-| %qd-a%  | `%qd-a-linter%`  | %ide-co%   | Community [license](pricing.md)                                | Java, Kotlin, Groovy                                             |
-
+<tabs>
+    <tab title="%qd%">
+        <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qd-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%jvm-image%</code></td>
+            </tr>
+            <tr>
+                <td>Based on</td>
+                <td>%ide%</td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native solution</a> and a Docker image</td>
+            </tr>
+            <tr>
+                <td>Supported languages</td>
+                <td>Java, Kotlin, Groovy, JavaScript, TypeScript</td>
+            </tr>
+        </table>
+    </tab>
+    <tab title="%qd-an%">
+                <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qd-an-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%jvm-a-image%</code></td>
+            </tr>
+            <tr>
+                <td>Based on</td>
+                <td>%ide%</td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A Docker image</td>
+            </tr>
+            <tr>
+                <td>Supported languages</td>
+                <td>Java, Kotlin, Groovy, JavaScript, TypeScript</td>
+            </tr>
+        </table>
+    </tab>
+    <tab title="%qd-co%">
+        <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qd-co-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%jvm-co-image%</code></td>
+            </tr>
+            <tr>
+                <td>Based on</td>
+                <td>%ide-co%</td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Community <a href="pricing.md">license</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native solution</a> and a Docker image</td>
+            </tr>
+            <tr>
+                <td>Supported languages</td>
+                <td>Java, Kotlin, Groovy</td>
+            </tr>
+        </table>
+    </tab>
+    <tab title="%qd-a%">
+        <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qd-a-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%jvm-co-a-image%</code></td>
+            </tr>
+            <tr>
+                <td>Based on</td>
+                <td>%ide-co%</td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Community <a href="pricing.md">license</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A Docker image</td>
+            </tr>
+            <tr>
+                <td>Supported languages</td>
+                <td>Java, Kotlin, Groovy</td>
+            </tr>
+        </table>
+    </tab>
+</tabs>
 
 To see the list of supported technologies and features, you can navigate to the [](#jvm-feature-matrix) chapter of this section.
 

@@ -6,15 +6,15 @@
 <var name="qd" value="%python%"/>
 <var name="qd-co" value="%python-co%"/>
 <!-- Docker images -->
-<var name="qd-image" value="jetbrains/%python-linter%"/>
-<var name="qd-co-image" value="jetbrains/%python-co-linter%"/>
+<var name="qd-image" value="%python-image%"/>
+<var name="qd-co-image" value="%python-co-image%"/>
 <!-- Linter names -->
 <var name="qd-linter" value="%python-linter%"/>
 <var name="qd-co-linter" value="%python-co-linter%"/>
 
 <!-- Combined names -->
 <var name="qd-image-combined" value="jetbrains/qodana-python&lt;-community&gt;:2025.2-eap"/>
-<var name="qd-linter-combined" value="qodana-python&lt;-community&gt;:2025.2-eap"/>
+<var name="qd-linter-combined" value="qodana-python&lt;-community&gt;"/>
 
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 
@@ -44,10 +44,72 @@
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze 
 Python projects, you can use the following linters:
 
-| Linter  | Linter name    | Based on                   | Available under licenses                          | Supported languages               |
-|---------|----------------|----------------------------|---------------------------------------------------|-----------------------------------|
-| %qd%    | `%qd-linter%`    | PyCharm Professional       | Ultimate and Ultimate Plus [licenses](pricing.md) | Python, JavaScript and Typescript |
-| %qd-co% | `%qd-co-linter%` | PyCharm Community Edition  | Community [license](pricing.md)                   | Python                            |
+<tabs>
+    <tab title="%qd%">
+        <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qd-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%qd-image%</code></td>
+            </tr>
+            <tr>
+                <td>Based on</td>
+                <td>PyCharm Professional</td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native solution</a> and a Docker image</td>
+            </tr>
+            <tr>
+                <td>Supported languages</td>
+                <td>Python, JavaScript and TypeScript</td>
+            </tr>
+        </table>
+    </tab>
+    <tab title="%qd-co%">
+                <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qd-co-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%qd-co-image%</code></td>
+            </tr>
+            <tr>
+                <td>Based on</td>
+                <td>PyCharm Community Edition</td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Community <a href="pricing.md">license</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A Docker image</td>
+            </tr>
+            <tr>
+                <td>Supported languages</td>
+                <td>Python</td>
+            </tr>
+        </table>
+    </tab>
+</tabs>
 
 
 To see the list of supported technologies and features, you can navigate to the [](#python-feature-matrix) chapter of this section.

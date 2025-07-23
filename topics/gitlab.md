@@ -89,6 +89,37 @@ This configuration already enables [caches](#Configure+cache),
 and comments to merge requests. You can override these settings using descriptions from the sections below and the
 [](#Configuration) chapter. The `--image` argument specifies a Docker image of the [linter](linters.md) that you would like to employ.
 
+The included component creates the `qodana` job that can be configured as any other job in GitLab CI/CD. 
+You can view the predefined configuration of this job using our [template](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
+
+For example, this code snippet lets you change the image used for running the `qodana` job, define `before_script`, 
+change job execution rules, and add an environmental variable.
+
+```yaml
+include:
+  - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+
+some-task:
+  stage: test
+  script:
+    - echo "I am complete!"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+qodana:
+  image: docker:28.3.2
+  services:
+    - docker:28.3.2-dind
+  before_script:
+    - echo "Qodana job starts..."
+  needs:
+    - some-task
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  variables:
+    MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+```
+
 For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save the following configuration:
 
 ```yaml

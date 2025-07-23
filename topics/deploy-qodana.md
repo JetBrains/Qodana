@@ -40,7 +40,7 @@ credentials, and resolve dependencies.
 
 ### Before you start
 
-> Native mode is incompatible with Docker containers of %product%, which means that you run
+> Native mode is incompatible with Docker containers of %product%, which means that you can run
 > %product% either as a Docker container or in native mode.
 > {style="note"}
 
@@ -223,9 +223,137 @@ You can run %product% in several JetBrains IDEs, Visual Studio Code, and Visual 
 
 ## Docker images
 
-%product% is distributed across multiple Docker images. Essentially, the names of these Docker images are similar to the 
-names of the linters. Details and configuration examples are available in the [](linters.md) section and other sections 
-dedicated to specific linters referenced from that section.
+%product% is also distributed across multiple Docker images listed in the table below:
+
+<table>
+    <tr>
+        <td>Linter</td>
+        <td>Docker image</td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="jvm.md">%jvm%</a></p>
+      </td>
+        <td>
+            <p><code>%jvm-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="jvm.md">%jvm-co%</a></p>
+      </td>
+        <td>
+            <p><code>%jvm-co-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="jvm.md">%jvm-co-a%</a></p>
+      </td>
+        <td>
+            <p><code>%jvm-co-a-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="jvm.md">%jvm-a%</a></p>
+      </td>
+        <td>
+            <p><code>%jvm-a-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="php.md">%php%</a></p>
+      </td>
+        <td>
+            <p><code>%php-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="js.md">%js%</a></p>
+      </td>
+        <td>
+            <p><code>%js-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="dotnet.md">%dotnet%</a></p>
+      </td>
+        <td>
+            <p><code>%dotnet-image%&lt;-privileged&gt;</code>*</p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="dotnet.md">%dotnet-co%</a></p>
+      </td>
+        <td>
+            <p><code>%dotnet-co-image%&lt;-privileged&gt;</code>*</p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="python.md">%python%</a></p>
+      </td>
+        <td>
+            <p><code>%python-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="python.md">%python-co%</a></p>
+      </td>
+        <td>
+            <p><code>%python-co-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="golang.md">%go%</a></p>
+      </td>
+        <td>
+            <p><code>%go-image%</code></p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="ruby.md">%ruby%</a></p>
+      </td>
+        <td>
+            <p><code>%ruby-image%&lt;-ruby3.X&gt;&lt;-privileged&gt;</code>*</p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="clang.md">%clang%</a></p>
+      </td>
+        <td>
+            <p><code>%clang-image%&lt;-clangXX&gt;</code>*</p>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <p><a href="clang.md">%cpp%</a></p>
+      </td>
+        <td>
+            <p><code>%cpp-image%&lt;-clangXX&gt;&lt;-privileged&gt;</code>*</p>
+        </td>
+    </tr>
+</table>
+
+\* Using optional tags, you can pull pre-configured %product% images:
+
+* For the %cpp% and %clang% linters, use the `-clangXX` tag to specify the [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy) version from 15 to 18.
+* For the %ruby% linter, use the `-ruby3.X` tag to specify the Ruby version from 3.1 to 3.4. If not specified, version 3.4 will be used.
+
+  Using the `-privileged` tag, you can run %product% in the privileged mode to execute commands that require root access. 
+  In this case, Qodana comes with a default `qodana` user that possesses root privileges and does not require a password.
+  To use this mode with the %cpp%, %clang%, and %ruby% linters, the `-clangXX` and `-ruby3.X` tags should be specified, respectively.
+
+To specify Docker images from the table, use the `--image` [option](docker-image-configuration.topic#docker-config-reference-qodana-scan). 
 
 ## CI integration
 

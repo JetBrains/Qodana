@@ -6,10 +6,10 @@
 <var name="qdcpp" value="%cpp%"/>
 <var name="qdcppc" value="%clang%"/>
 <!-- Docker images -->
-<var name="qdcpp-image" value="jetbrains/%cpp-linter%&lt;-clangXX&gt;&lt;-privileged&gt;"/>
-<var name="qdcppc-image" value="jetbrains/%clang-linter%"/>
+<var name="qdcpp-image" value="%cpp-image%"/>
+<var name="qdcppc-image" value="%clang-image%"/>
 <!-- Linter names -->
-<var name="qdcpp-linter" value="%cpp-linter%&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="qdcpp-linter" value="%cpp-linter%"/>
 <var name="qdcppc-linter" value="%clang-linter%"/>
 
 <var name="qd-linter" value="%cpp-linter%"/>
@@ -68,37 +68,75 @@ Any use of the EAP product is at your own risk. Your feedback is very welcome in
 The C/C++ family of linters lets you analyze C and C++ projects that support any common build system like CMake 
 or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONCompilationDatabase.html). There are two different linters that provide this functionality:
 
-<table>
-<tr>
-    <td>Linter</td>
-    <td>Linter name</td>
-    <td>Available under licenses</td>
-    <td>Supports</td>
-</tr>
-<tr>
-    <td>%qdcppc%</td>
-    <td><code>%qdcppc-linter%</code></td>
-    <td>Community <a href="pricing.md">license</a></td>
-    <td><a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a>-based inspections</td>
-</tr>
-<tr>
-    <td>%qdcpp%</td>
-    <td><code>%qdcpp-linter%</code>*</td>
-    <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
-    <td><p>The full set of inspections provided by <a href="https://www.jetbrains.com/help/clion/">CLion</a>:</p>
-      <list>
-        <li><a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a> inspections supported by the %qdcppc% linter</li>
-        <li><a href="https://en.wikipedia.org/wiki/MISRA_C">MISRA</a> inspections</li>
-        <li>Inspections based on dataflow analysis</li>
-      </list>
-    </td>
-</tr>
-</table>
-
-\* You can run the %qdcpp% linter in the privileged mode to execute commands that need root access because in this case 
-%product% comes with a default `qodana` user that possesses root privileges and does not require a password. To do it, 
-in the `-clangXX` tag specify the [Clang-Tidy](https://clang.llvm.org/extra/clang-tidy) version from 15 to 18, and also 
-specify the `-privileged` tag. 
+<tabs>
+    <tab title="%qdcpp%">
+        <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qdcpp-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%qdcpp-image%&lt;-clangXX&gt;&lt;-privileged&gt;</code>*</td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A Docker image</td>
+            </tr>
+            <tr>
+                <td>Supports</td>
+                <td><p>The full set of inspections provided by <a href="https://www.jetbrains.com/help/clion/">CLion</a>:</p>
+                    <list>
+                      <li><a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a> inspections supported by the %qdcppc% linter</li>
+                      <li><a href="https://en.wikipedia.org/wiki/MISRA_C">MISRA</a> inspections</li>
+                      <li>Inspections based on dataflow analysis</li>
+                    </list>
+                </td>
+            </tr>
+        </table>
+        <p>* Use the optional <code>-clangXX</code> tag to specify the <a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a> version from 15 to 18.
+        Using the <code>-privileged</code> tag, you can run %product% in the privileged mode to execute commands that require root access. 
+        In this case, Qodana comes with a default <code>qodana</code> user that possesses root privileges and does not require a password.
+        To use this mode, the <code>-clangXX</code> tag should be specified too.</p>
+    </tab>
+    <tab title="%qdcppc%">
+        <table>
+            <tr>
+                <td>Characteristic</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>Linter name</td>
+                <td><code>%qdcppc-linter%</code></td>
+            </tr>
+            <tr>
+                <td>Docker image</td>
+                <td><code>%qdcppc-image%&lt;-clangXX&gt;</code>*</td>
+            </tr>
+            <tr>
+                <td>Available under licenses</td>
+                <td>Community <a href="pricing.md">license</a></td>
+            </tr>
+            <tr>
+                <td>Shipped as</td>
+                <td>A Docker image</td>
+            </tr>
+            <tr>
+                <td>Supports</td>
+                <td><a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a>-based inspections</td>
+            </tr>
+        </table>
+        <p>* Using the optional <code>-clangXX</code> tag, specify the <a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a> version from 15 to 18.</p>
+    </tab>
+</tabs>
 
 Both linters support AMD64 and ARM64 architectures.
 
