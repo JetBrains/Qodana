@@ -10,7 +10,6 @@
     <var name="GitLabLink" value="https://docs.gitlab.com/ee/ci/variables/"/>
     <var name="JenkinsLink" value="https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables"/>
     <var name="TeamCityLink" value="https://www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
-    <var name="SpaceAutomationLink" value="https://www.jetbrains.com/help/space/secrets-and-parameters.html#creating-secrets-and-parameters"/>
 
     <link-summary>Learn how you can forward %product% reports to %cloud% using Docker images, Qodana CLI, and all CI/CD software
         we currently provide integration solutions for.</link-summary>
