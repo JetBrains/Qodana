@@ -25,7 +25,6 @@
         <li><a anchor="cloud-forward-reports-github-actions">GitHub Actions</a></li>
         <li><a anchor="cloud-forward-reports-gitlab-ci">GitLab CI/CD</a></li>
         <li><a anchor="cloud-forward-reports-jenkins">Jenkins</a></li>
-        <li><a anchor="cloud-forward-reports-space-automation">Space Automation</a></li>
         <li><a anchor="cloud-forward-reports-teamcity">TeamCity</a></li>
     </list>
 
@@ -184,37 +183,6 @@
 
         <p>To learn more about %instance% integration with Jenkins, see the <a href="jenkins.md"/> section of this
             documentation.</p>
-    </chapter>
-
-    <chapter id="cloud-forward-reports-space-automation" title="Space Automation">
-
-    <procedure>
-        <step>
-            <p>In the JetBrains Space UI, create a <a href="%SpaceAutomationLink%">secret</a> with the
-                <code>qodana-token</code> name, and save the generated
-                <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.</p>
-        </step>
-        <step>
-            <p>In the root directory of your Space-based project, create the <code>.space.kts</code> file and save this configuration
-                script to that file:</p>
-            <code-block lang="kotlin">
-                job("Qodana") {
-                   container("jetbrains/qodana-&lt;linter&gt;") {
-                      env["QODANA_TOKEN"] = Secrets("qodana-token")
-                      shellScript {
-                         content = """qodana"""
-                      }
-                   }
-                }
-            </code-block>
-        </step>
-        <step>
-            <p>In the <code>container</code> section of this script, specify the %instance% <a href="deploy-qodana.md" anchor="Docker+images">Docker image</a> name.</p>
-        </step>
-    </procedure>
-
-        <p>To learn more details about %instance% integration with Space Automation, see the
-            <a href="space-automation.md"/> section of this documentation.</p>
     </chapter>
 
     <chapter id="cloud-forward-reports-teamcity" title="TeamCity">

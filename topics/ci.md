@@ -11,7 +11,6 @@ integrated either as a native solution or a Docker image.
 | [GitHub Actions](github.md)                             | Native solution  |
 | [GitLab CI/CD](gitlab.md)                               | Native solution  |
 | [Jenkins](jenkins.md)                                   | Docker image     |
-| [Space Automation](space-automation.md)                 | Docker image     |
 | [TeamCity](teamcity.md)                                 | Native solution  |
 
 All integration guides require that you get a [project token](project-token.md) before running %product%. 

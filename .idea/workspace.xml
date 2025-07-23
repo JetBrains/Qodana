@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/topics/vulnerability-checker.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/vulnerability-checker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qd.tree" beforeDir="false" afterPath="$PROJECT_DIR$/qd.tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/ci.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/cloud-forward-reports.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-forward-reports.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/deploy-qodana.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/deploy-qodana.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/repository-key.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/repository-key.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/space-automation.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -360,7 +360,7 @@ To specify Docker images from the table, use the `--image` [option](docker-image
 You can run %product% using various CI/CD pipelines, as explained in the [](ci.md) section. 
 
 For Azure Pipelines, CircleCI, GitHub Actions, GitLab CI/CD, and TeamCity, %product% provides native solutions.
-To run %product% using Bitbucket Cloud, Jenkins, and Space Automation, you can use Docker images.
+To run %product% using Bitbucket Cloud, and Jenkins, you can use Docker images.
 
 ## Gradle plugin
 
