@@ -22,16 +22,31 @@ This section describes all deployment options available for %product%.
   <tr>
     <td>CPU</td>
     <td>Any modern CPU</td>
-    <td>Multicore CPU</td>
+    <td>Multicore CPU. %product% supports multithreading for different operations and processes
+        making it faster the more CPU cores it can use.</td>
   </tr>
   <tr>
     <td>Disk space</td>
-    <td>2.5 GB</td>
-    <td>At least 5 GB of free space</td>
+    <td>2.5 GB + space for all dependencies and cache</td>
+    <td>At least 5 GB of free space + space for all dependencies and cache</td>
   </tr>
   <tr>
     <td>Operating system</td>
-    <td colspan="2"><p>The latest versions of the following:</p>
+    <td><p>Officially released versions of the following:</p>
+      <list>
+        <li>Microsoft Windows 10 1809 64-bit or later</li>
+        <li>Windows Server 2019 64-bit or later</li>
+        <li>macOS 12.0 or later</li>
+        <li>Two latest versions of Ubuntu LTS or Fedora Linux distributions that meet the following requirements:
+          <list>
+            <li>Linux kernel version 6.x</li>
+            <li><a href="https://ftp.gnu.org/gnu/libc/">GLIBC</a> 2.28 or later</li>
+          </list>
+          <p>Pre-release versions are not supported.</p>
+        </li>
+      </list>
+    </td>
+    <td><p>The latest versions of the following:</p>
       <list>
         <li>Microsoft Windows 64-bit</li>
         <li>macOS</li>
