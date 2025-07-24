@@ -6,6 +6,41 @@
 
 This section describes all deployment options available for %product%.
 
+## System requirements
+
+<table>
+  <tr>
+    <td>Requirement</td>
+    <td>Minimum</td>
+    <td>Recommended</td>
+  </tr>
+  <tr>
+    <td>RAM</td>
+    <td>2 GB of free RAM</td>
+    <td>8 GB of total system RAM</td>
+  </tr>
+  <tr>
+    <td>CPU</td>
+    <td>Any modern CPU</td>
+    <td>Multicore CPU</td>
+  </tr>
+  <tr>
+    <td>Disk space</td>
+    <td>2.5 GB</td>
+    <td>At least 5 GB of free space</td>
+  </tr>
+  <tr>
+    <td>Operating system</td>
+    <td colspan="2"><p>The latest versions of the following:</p>
+      <list>
+        <li>Microsoft Windows 64-bit</li>
+        <li>macOS</li>
+        <li>Ubuntu LTS or Fedora Linux</li>
+      </list>
+    </td>
+  </tr>
+</table>
+
 ## Native mode
 {id="deploy-qodana-native-mode"}
 
