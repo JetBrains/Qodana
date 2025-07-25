@@ -26,6 +26,9 @@ for example:
 The `QODANA_TOKEN` variable contains information that %instance% linters use for identification and verification.
 Based on this, %instance% establishes a connection with %cloud%.
 
+To generate a project token, in %cloud% navigate to your [project](cloud-projects.topic) and follow recommendations 
+described in the [](cloud-projects.topic#cloud-manage-projects) section. 
+
 Below is the description of interaction between %instance% and %cloud% once the connection is established. 
 
 ## License verification

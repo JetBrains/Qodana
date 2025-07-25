@@ -231,14 +231,14 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
          </tabs>
    </step>
    <step>
-      <p>Depending on your needs, configure the <code>push-fixes</code> property:</p>
+      <p>Depending on your needs, configure the <code>pushFixes</code> property:</p>
       <tabs>
          <tab title="Pull request">
             <p>Use this configuration to create a new branch with fixes and a pull request to the original branch:</p>
             <tabs group="azure-config-tabs">
             <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
                <code-block lang="yaml">
-                  push-fixes: pull-request
+                  pushFixes: pull-request
                </code-block>   
             </tab>
             <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
@@ -252,7 +252,7 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
             <tabs group="azure-config-tabs">
             <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
                <code-block lang="yaml">
-                  push-fixes: branch
+                  pushFixes: branch
                </code-block>   
             </tab>
             <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
@@ -351,7 +351,7 @@ and their analogs in the classic interface.
       <td><code>true</code></td>
    </tr>
    <tr>
-      <td><code>push-fixes</code></td>
+      <td><code>pushFixes</code></td>
       <td><control>Push quick-fixes</control></td>
       <td>Push Qodana fixes to the repository, can be <code>none</code>, <code>branch</code> to the current branch, or <code>pull-request</code>. Optional.</td>
       <td><code>none</code></td>
