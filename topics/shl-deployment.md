@@ -29,7 +29,7 @@ Follow the steps below for installing %premlite% on your machine:
             docker run \
                 -v /var/run/docker.sock:/var/run/docker.sock \
                 -e API_ORGANIZATION_NAME="&lt;Specify the name of your organization&gt;" \
-                -e COMMON_LICENSE_KEY_SECRET="&lt;Specify a valid licence key&gt;" \ 
+                -e COMMON_LICENSE_KEY_SECRET="&lt;Specify a valid license key&gt;" \ 
                 quay.io/jetbrains/qodana-installer-cli:latest \
                 install-app
         </code-block>
@@ -56,7 +56,7 @@ Run the following Docker command to use a configuration contained in a file:
 docker run 
     -v /var/run/docker.sock:/var/run/docker.sock \ 
     -e API_ORGANIZATION_NAME="<Specify the name of your organization>" \
-    -e COMMON_LICENSE_KEY_SECRET="<Specify a valid licence key>" \ 
+    -e COMMON_LICENSE_KEY_SECRET="<Specify a valid license key>" \ 
     --env-file qodana-self-hosted.env \
     quay.io/jetbrains/qodana-installer-cli:latest 
     install-app
@@ -75,8 +75,10 @@ docker run \
     -v /var/run/docker.sock:/var/run/docker.sock \ 
     -v ${PWD}/secrets:/app/qodana-installer/secrets \
     -e API_ORGANIZATION_NAME="<Specify the name of your organization>" \
-    -e COMMON_LICENSE_KEY_SECRET="<Specify a valid licence key>" \ 
+    -e COMMON_LICENSE_KEY_SECRET="<Specify a valid license key>" \ 
     quay.io/jetbrains/qodana-installer-cli:latest \
     install-app
 ```
 {prompt="$"}
+
+To make the secret idempotent, this command mounts the `/app/qodana-installer/secrets` directory for storing secrets.

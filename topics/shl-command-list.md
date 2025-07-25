@@ -38,7 +38,7 @@ Deploy %premlite% on your machine:
 docker run \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -e API_ORGANIZATION_NAME="<Specify the name of your organization>" \
-  -e COMMON_LICENSE_KEY_SECRET="<Specify a valid licence key>" \ 
+  -e COMMON_LICENSE_KEY_SECRET="<Specify a valid license key>" \ 
   quay.io/jetbrains/qodana-installer-cli:latest \
   install-app
 ```

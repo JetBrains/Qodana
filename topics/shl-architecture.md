@@ -13,7 +13,7 @@ The diagram below the internal structure of the system, planning deployments, an
 <!-- Figure 1 needs to be provided here -->
 
 If deployed on a single Linux server, %premlite% contains several containerized services. Each service saves its state 
-in a remote component that can be either a PostgreSQL database or an S3-compliant Object Storage. %product% services 
+in a remote component that can be a PostgreSQL database. %product% services 
 communicate between each over through RabbitMQ queues.
 
 %premlite% does not have a user management module. It relies on an external identity provider 
@@ -41,7 +41,7 @@ between components.
 %premlite% services do not store any information about previous interactions or sessions. Instead, all necessary data is 
 stored externally, such as in a database or object storage. This design ensures that the services can restart or scale 
 without losing any important information. 
-The state is always stored in a PostgreSQL database or S3-compliant storage with pre-signed URLs. %product% clients 
+The state is always stored in a PostgreSQL database or storage with pre-signed URLs. %product% clients 
 require direct access to the object storage. Pre-signed URLs allow clients to access the object storage directly 
 without exposing credentials.
 

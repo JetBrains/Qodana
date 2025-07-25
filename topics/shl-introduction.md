@@ -3,11 +3,14 @@
 <!-- Exact name of the product -->
 <!-- If the utility name is not used anywhere, can it be omitted at all? -->
 
-%premlite% is an on-premises version of [%cloud%](cloud-use-cases.topic).
+%premlite% is a lightweight on-premises version of [%cloud%](cloud-use-cases.topic) designed for small development teams.
 
 Using %premlite%, you can run %product% within your infrastructure ensuring that sensitive code and data remain secure and 
 private, which is particularly useful for organizations that need powerful static analysis tools but must operate
 within strict security or compliance standards. 
+
+> %premlite% is still in the alpha development stage, which means that it may contain bugs or work not as intended.
+{style="warning"}
 
 This documentation guides you through the installation, product configuration, and initialization stages. 
 
@@ -29,7 +32,7 @@ automation and Infrastructure as a Code (IaC) frameworks.
 
 ### %product% license
 
-Reach out to our support team to request a licence that can be used by `qodana-installer-cli` and %premlite%.
+Reach out to our support team to request a license that can be used by `qodana-installer-cli` and %premlite%.
 
 ### System and network requirements
 
@@ -82,8 +85,8 @@ Below are the requirements grouped in categories.
                 <li><code>https://resources.jetbrains.com</code></li>
             </list>
     </tab>
-    <tab title="S3-compliant storage">
-        <p>%premlite% supports S3 directly in AWS, as well as Minio starting 
+    <tab title="Object storage">
+        <p>%premlite% supports MinIO starting 
             from version <code>RELEASE.2025-01-20T14-49-07Z</code> onwards.</p>
     </tab>
 </tabs>

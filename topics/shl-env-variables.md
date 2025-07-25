@@ -41,7 +41,7 @@ utility.
 
 | Environment variable               | Description                      | Default value                                 |
 |------------------------------------|----------------------------------|-----------------------------------------------|
-| `MINIO_HOSTNAME`                   | Hostname for Minio               |                                               |
+| `MINIO_HOSTNAME`                   | Hostname for MinIO               |                                               |
 | `MINIO_REGISTRY_IMAGE_NAME`        | MinIO registry image name        | `jetbrains/qodana-installer-cli-dependencies` |
 | `MINIO_REGISTRY_IMAGE_TAG`         | Tag for the MinIO registry image | `minio-RELEASE.2025-01-20T14-49-07Z`          |
 | `MINIO_CLIENT_REGISTRY_IMAGE_NAME` | MinIO client image name          | `jetbrains/qodana-installer-cli-dependencies` |

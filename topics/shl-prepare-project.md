@@ -92,7 +92,7 @@ handling highly sensitive data like audit logs or authentication.
 ### Security and compliance
 
 Use strong, randomly generated passwords for all database users. Store credentials securely, such as in an environment 
-variable manager or secret storage like HashiCorp Vault, AWS Secrets Manager and others.
+variable manager or secret storage like HashiCorp Vault and others.
 
 Restrict permissions to ensure users can only access their assigned databases. Avoid granting superuser or unnecessary privileges.
 
@@ -336,9 +336,9 @@ This is and example RabbitMQ configuration. For more details, see visit the
 ```
 {collapsible="true"}
 
-## MinIO and S3
+## MinIO
 
-%premlite% supports S3 from Amazon Web Services (AWS) or MinIO for object storage. %product% requires pre-signed URLs,
+%premlite% supports MinIO for object storage. %product% requires pre-signed URLs,
 which lets %product% clients connect directly to a storage and upload artifacts for asynchronous processing or storage purposes.
 
 %premlite% requires the `MINIO_RESULTS_BUCKET` and `MINIO_BASELINES_BUCKET` buckets, and they should be hosted on the 

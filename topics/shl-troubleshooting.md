@@ -1,13 +1,20 @@
 # Troubleshooting
 
-Use the following steps while troubleshooting issues that may arise during deployment, configuration or operation
-of %premlite%:
+To troubleshoot the issues that may arise during deployment, configuration or operation
+of %premlite%, use the following command to extract log entries:
+
+```bash
+docker run -v /var/run/docker.sock:/var/run/docker.sock \ quay.io/jetbrains/qodana-installer-cli:latest logs > all.troubleshooting.logs
+```
+{prompt="$"}
+
+Study log entries and also try to:
 
 * Look for the message related to a specific issue
 * Review the possible causes of the issue
-* Follow the suggested steps to resolve the issue
+* Find the trace and debug the issue
 
-If a problem persists, navigate to the [JetBrains website](https://qodana-support.jetbrains.com/hc/en-us) and 
+If you cannot debug the issue or if the issue persists, navigate to the [JetBrains website](https://qodana-support.jetbrains.com/hc/en-us) and 
 create a request containing the following information:
 
 | Information item | Description                                                                                                                |
