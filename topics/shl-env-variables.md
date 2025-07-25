@@ -9,22 +9,23 @@ utility.
 
 ## General
 
-| Environment variable                    | Description                                    | Default value                                 |
-|-----------------------------------------|------------------------------------------------|-----------------------------------------------|
-| `LOG_LEVEL`                             | Application logging level                      | `info`                                        |
-| `DOCKER_SWARM_INIT`                     | Whether to initialize Docker Swarm             | `TRUE`                                        |
-| `DOCKER_SWARM_ADDRESS_POOL`             | Address pool for Docker Swarm overlay network  | `10.20.0.0/16`                                |
-| `DOMAIN`                                | Main domain of the application                 | `qodana.local`                                |
-| `INGRESS_SUB_DOMAIN`                    | Subdomain for ingress traffic                  | `ingress`                                     |
-| `IDP_SUB_DOMAIN`                        | Subdomain for identity provider (Keycloak)     | `login`                                       |
-| `QODANA_DEPENDENCIES_MODE`              | Mode for Qodana dependencies (local or remote) | `local`                                       |
-| `CONTAINER_REGISTRY_URL`                | Container registry URL for pulling images      | `quay.io`                                     |
-| `DOCKER_SWARM_GC_IMAGE_NAME`            | Docker Swarm garbage collection image name     | `jetbrains/qodana-installer-cli-dependencies` |
-| `DOCKER_SWARM_GC_IMAGE_TAG`             | Tag for the Docker GC image                    | `docker-gc-latest`                            |
-| `UTILITY_SWISS_KNIFE_IMAGE_NAME`        | Utility Swiss Knife container image name       | `jetbrains/qodana-installer-cli-dependencies` |
-| `UTILITY_SWISS_KNIFE_IMAGE_TAG`         | Tag for the Swiss Knife container              | `busybox-1.36.2`                              |
+| Environment variable                | Description                                    | Default value                                 |
+|-------------------------------------|------------------------------------------------|-----------------------------------------------|
+| `LOG_LEVEL`                         | Application logging level                      | `info`                                        |
+| `DOCKER_SWARM_INIT`                 | Whether to initialize Docker Swarm             | `TRUE`                                        |
+| `DOCKER_SWARM_ADDRESS_POOL`         | Address pool for Docker Swarm overlay network  | `10.20.0.0/16`                                |
+| `DOMAIN`                            | Main domain of the application                 | `qodana.local`                                |
+| `INGRESS_SUB_DOMAIN`                | Subdomain for ingress traffic                  | `ingress`                                     |
+| `IDP_SUB_DOMAIN`                    | Subdomain for identity provider (Keycloak)     | `login`                                       |
+| `QODANA_DEPENDENCIES_MODE`          | Mode for Qodana dependencies (local or remote) | `local`                                       |
+| `CONTAINER_REGISTRY_URL`            | Container registry URL for pulling images      | `quay.io`                                     |
+| `DOCKER_SWARM_GC_IMAGE_NAME`        | Docker Swarm garbage collection image name     | `jetbrains/qodana-installer-cli-dependencies` |
+| `DOCKER_SWARM_GC_IMAGE_TAG`         | Tag for the Docker GC image                    | `docker-gc-latest`                            |
+| `UTILITY_SWISS_KNIFE_IMAGE_NAME`    | Utility Swiss Knife container image name       | `jetbrains/qodana-installer-cli-dependencies` |
+| `UTILITY_SWISS_KNIFE_IMAGE_TAG`     | Tag for the Swiss Knife container              | `busybox-1.36.2`                              |
+| `APP_QODANA_SELF_HOSTED_IMAGE_TAG`  | Current version of %premlite%                  | `1.22.0-alpha.14`, actual for July 2025       |
 
-## Databases
+## Dependency services
 
 | Environment variable            | Description                                     | Default value                                 |
 |---------------------------------|-------------------------------------------------|-----------------------------------------------|

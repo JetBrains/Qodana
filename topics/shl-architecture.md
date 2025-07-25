@@ -19,11 +19,10 @@ communicate between each over through RabbitMQ queues.
 %premlite% does not have a user management module. It relies on an external identity provider 
 like Keycloak. All major OIDC providers are supported out of the box.
 
-<!-- This sentence sounds unclear -->
-<!-- The paragraph can be re-written -->
-As an Ingress Controller Traefik allows label based management for publishing services outside the Linux server. 
-The Ingress Controller operates on top of the Server Name Indication (SNI) extension of the HTTPS protocol. 
-The SNI allows the Ingress Controller to serve multiple hostnames on its IP address.
+As an ingress controller, [Traefik](https://doc.traefik.io/traefik/) enables the management of services through labels 
+to expose them outside the Linux server environment.
+The ingress controller operates on top of the Server Name Indication (SNI) extension of the HTTPS protocol and serves 
+multiple hostnames on its IP address.
 
 ## System level
 
@@ -53,12 +52,10 @@ level and keeping protected the IP address of the server.
 
 <!-- Figure 3 needs to be provided here -->
 
-<!-- Is a project linked to AT MOST one repository? -->
-
-%premlite% is used by a single [organization](cloud-organizations.topic) to monitor and manage quality of their software 
-artifacts. An organization can contain one or more [teams](cloud-teams.topic). Each team is made up of at least one user. 
+%premlite% is used by a single [organization](cloud-organizations.topic) to monitor and manage the quality of their software 
+artifacts. An organization can contain one or multiple [teams](cloud-teams.topic). Each team is made up of at least one user. 
 A user is synced from a single Open Id Connect (OIDC) Provider. An OIDC provider is global at the organization level. A 
-team can own one or more [projects](cloud-projects.topic). A project is linked to at most one repository. A repository linked to a project 
+team can own one or more [projects](cloud-projects.topic). A project is linked to one repository. A repository linked to a project 
 can be changed after project initialization.
 
 %premlite% supports many OIDC Providers out of the box. It is necessary to configure the provider during installation.

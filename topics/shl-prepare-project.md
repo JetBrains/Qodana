@@ -349,10 +349,10 @@ same storage service.
 %premlite% does not provide a built-in user management module, so users should authenticate using an OIDC provider. 
 %premlite% authorizes their actions according to permissions given to a specific user by an administrator. 
 
-<!-- Assign rules here is not complete clear -->
+<!-- Assign rules here is not complete clear - ask Arman about it -->
 You can add users in bulk using the OIDC (OpenID Connect) role or group mappings. You can also define rules that 
 automatically assign %product% roles based on a user OIDC group or role. For example, users of the `developers` OIDC 
-group can be automatically assigned the `VIEWER` role in Qodana. Currently, the `VIEWER`, `EDITOR`, `ADMIN` and `OWNER`
+group can be automatically assigned the `VIEWER` role in %product%. Currently, the `VIEWER`, `EDITOR`, `ADMIN` and `OWNER`
 roles are supported, where the `OWNER` role is equivalent to the `ADMIN` role with additional permission to update a 
 license.
 

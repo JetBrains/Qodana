@@ -1,6 +1,6 @@
 # Labels
 
-This section describes labels that you can use to better explore %premlite% resources.
+This section describes labels that you can use to better explore and monitor %premlite% resources.
 Information about Docker labels is available on the [Docker](https://docs.docker.com/engine/manage-resources/labels/) 
 website. 
 
@@ -8,8 +8,6 @@ website.
 
 %premlite% uses several global labels to mark the resources it owns and manages. You can use these labels to operate 
 %premlite%:
-
-<!-- The APP_QODANA_SELF_HOSTED_IMAGE_TAG variable is missing from the list of environment variables -->
 
 | Label and value                                                                  | Description                                                                                                                                 |
 |----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -19,12 +17,15 @@ website.
 
 ## Component-specific labels
 
-<!-- What kind of services they are? -->
-%premlite% is operated by several services. To simplify administration, they are combined into the `local-dependencies`, 
-`application`, and `supporting-tools` groups with each group identifying a specific Docker Swarm stack.
+%premlite% is operated by several services. To simplify administration, they are combined into the following groups:
 
-<!-- What collections are mentioned here? -->
-<!--Each collection identifies a specific Docker Swarm Stack. -->
+| Group name           | Description                                                |
+|----------------------|------------------------------------------------------------|
+| `local-dependencies` | Stateful components                                        |
+| `application`        | %product% API, %product% Git API, linter API and others    |
+| `supporting-tools`   | Ingress and garbage collection of Docker images and others |
+
+Here, each group identifies a specific Docker Swarm stack.
 
 ### Labels related to local dependencies
 
