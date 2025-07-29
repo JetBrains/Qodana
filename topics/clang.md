@@ -15,8 +15,8 @@
 <var name="qd-linter" value="%cpp-linter%"/>
 
 <var name="qdcpp-privileged" value="jetbrains/%cpp-linter%&lt;-clangXX&gt;-privileged"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.2|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
-<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.2|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="CLion"/>
 
@@ -959,7 +959,7 @@ You can analyze pull requests using the %cpp% linter.
 </tabs>
 
 
-## Configure compilers and environments
+<!--## Configure compilers and environments
 
 [CMake presets](%cmake-presets%) let you customize the %cpp% linter for specific compilers and 
 environments. Each preset lets you store CLI options like a target build directory, cache variables, 
@@ -1000,7 +1000,7 @@ cpp:
 
 > CLion scans CMake presets and creates an equivalent profile with the same name, and this profile overrides CMake presets.  
 > However, CLion profiles are not explicitly supported by %product%.
-{style="note"}
+{style="note"}-->
 
 ## Supported features
 
