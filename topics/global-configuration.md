@@ -103,5 +103,5 @@ in the [organization settings](cloud-organizations.topic) of Qodana Cloud UI.
 
 A configuration token is a token that you can generate on the **Global configurations** tab of your 
 [organization settings](cloud-organizations.topic#cloud-organizations-global-configurations). Using this token, you can 
-send your global configuration to %cloud% as described in the [](#How+the+global+configuration+works) section on this page. 
+send your global configuration to Qodana Cloud as described in the [](#How+the+global+configuration+works) section on this page. 
 
