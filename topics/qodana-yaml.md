@@ -420,7 +420,7 @@ include:
   - name: IncorrectFormatting
 ```
 
-## Specify a CMake preset
+<!--## Specify a CMake preset
 
 Customize the %cpp% linter by using [CMake presets](clang.md#Configure+compilers+and+environments). Invoke presets using 
 the `cpp` and `cmakePreset` options:
@@ -429,3 +429,4 @@ the `cpp` and `cmakePreset` options:
 cpp:
   cmakePreset: my-qodana-preset
 ```
+-->

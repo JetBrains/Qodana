@@ -961,6 +961,8 @@ You can analyze pull requests using the %cpp% linter.
 
 <!--## Configure compilers and environments
 
+<link-summary>CMake presets let you customize the %cpp% linter for specific compilers and environments.</link-summary>
+
 [CMake presets](%cmake-presets%) let you customize the %cpp% linter for specific compilers and 
 environments. Each preset lets you store CLI options like a target build directory, cache variables, 
 preferred generator, compilers, and other `configurePresets` object options of the `CMakePresets.json` 
