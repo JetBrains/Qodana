@@ -39,7 +39,7 @@
     <category id="js" name="JavaScript Support" order="141"/>
     <category id="android" name="Android" order="51"/>
     <category id="inspections" name="Inspections" order="60"/>
-    <category id="intentions" name="Intention Actions and Quick Fixes" order="61"/>
+    <category id="intentions" name="Intention Actions and Quick-fixes" order="61"/>
     <category id="examples" name="Tutorials and Examples" order="101"/>
     <category id="toolw" name="Tool Windows" order="7"/>
     <category id="gwt" name="Google Web Toolkit (GWT) Support" order="110"/>
