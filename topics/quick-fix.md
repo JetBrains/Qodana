@@ -1,6 +1,6 @@
-[//]: # (title: Quick-fix)
+[//]: # (title: Quick-Fix)
 
-**Quick-fix** lets you improve development performance through fixing codebase problems automatically.
+**Quick-Fix** lets you improve development performance through fixing codebase problems automatically.
 
 This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md) and supported by the following linters and their 
 trial versions:
@@ -12,23 +12,22 @@ trial versions:
 * [%go%](golang.md)
 * [%dotnet%](dotnet.md)
 
-## How quick-fix works
+## How Quick-Fix works
 
-<link-summary>Learn how you can configure quick-fix strategies. </link-summary>
+<link-summary>Learn how you can configure Quick-Fix strategies. </link-summary>
 
+<link-summary>Learn more about available Quick-Fix strategies and running Qodana with the Quick-Fix feature enabled.</link-summary>
 
-<link-summary>Learn more about available quick-fix strategies and running Qodana with the quick-fix feature enabled.</link-summary>
-
-You can choose between several quick-fix strategies mentioned in this table. 
+You can choose between several Quick-Fix strategies mentioned in this table. 
 
 <table>
     <tr>
-        <td>Quick-fix strategy</td>
+        <td>Quick-Fix strategy</td>
         <td>Description</td>
     </tr>
     <tr>
         <td><code>NONE</code></td>
-        <td>The default strategy that requires no configuration and implies that no quick-fixes are applied to your project</td>
+        <td>The default strategy that requires no configuration and implies that no Quick-Fixes are applied to your project</td>
     </tr>
     <tr>
         <td><code>CLEANUP</code></td>
@@ -44,11 +43,11 @@ should be reviewed before submitting</p>
     </tr>
 </table>
 
-You can apply quick-fix strategies using the following available options:
+You can apply Quick-Fix strategies using the following available options:
 
 <tabs>
     <tab title="Docker and Qodana CLI" id="quick-fix-cli-docker">
-        <p>Depending on the quick-fix strategy, run %instance% using either the <code>--apply-fixes</code> or the <code>--cleanup</code> option. The <code>QODANA_TOKEN</code> variable 
+        <p>Depending on the Quick-Fix strategy, run %instance% using either the <code>--apply-fixes</code> or the <code>--cleanup</code> option. The <code>QODANA_TOKEN</code> variable 
             refers to the <a href="project-token.md">project token</a> required by the 
             <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters. </p>
         <tabs>

@@ -159,8 +159,8 @@ called within the currently opened file.</p>
 indicating how it will be treated during analysis. The configuration for function references will appear in the list in 
 the same order as references are located in the file.</p>
 </step>
-<step><p>In the list of projections, select the projection reference and apply a respective quick-fix option.</p>
-<img src="taint-analysis-step-navigation-4.png" alt="Applying quick-fixes" width="706" border-effect="line"/>
+<step><p>In the list of projections, select the projection reference and apply a respective Quick-Fix option.</p>
+<img src="taint-analysis-step-navigation-4.png" alt="Applying Quick-Fixes" width="706" border-effect="line"/>
 <p>This will create the <code>inspections/config.inspection.kts</code> file for a source, sink, and sanitizer configuration. 
 To ensure consistency of analysis results save this file in the root directory of your project.</p>
 </step>

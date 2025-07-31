@@ -30,7 +30,7 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
 
-## Quick-fixes
+## Quick-Fixes
 
 <include from="lib_qd.topic" element-id="ci-cd-feature-availability-quick-fix"/>
 
@@ -38,7 +38,7 @@ To automatically fix issues found by %product% and push the changes to your repo
 
 <procedure>
    <step>
-      <p>Choose the <a href="quick-fix.md">quick-fix strategy</a> using either of two configuration methods:</p> 
+      <p>Choose the <a href="quick-fix.md">Quick-Fix strategy</a> using either of two configuration methods:</p> 
          <tabs>
             <tab title="qodana.yaml">
                <code-block lang="yaml">

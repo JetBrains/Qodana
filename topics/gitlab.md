@@ -56,10 +56,10 @@ In GitLab CI/CD UI, create the following environment variables:
       </td>
       <td>
        <p>A <a href="%PersonalToken%">personal access token</a> or a <a href="%ProjectToken%">project access token</a> 
-         required for <a anchor="Quick-fixes">quick-fixes</a> and 
+         required for <a anchor="Quick-Fixes">Quick-Fixes</a> and 
          <a anchor="Configuration">summary reports</a> as comments in merge requests. The holder of a personal access 
          token will be shown as an author for all %product% actions, so it is advised to use a project access token.</p>
-       <p>For quick-fixes, enable the <code>api</code> and <code>write_repository</code> permissions while configuring
+       <p>For Quick-Fixes, enable the <code>api</code> and <code>write_repository</code> permissions while configuring
          access tokens.</p>
       </td>
    </tr>
@@ -216,7 +216,7 @@ qodana:
 The `rules` block of this configuration tells %product% what branches to inspect.
 
 
-## Quick-fixes
+## Quick-Fixes
 
 <include from="lib_qd.topic" element-id="ci-cd-feature-availability-quick-fix"/>
 
@@ -227,7 +227,7 @@ The `rules` block of this configuration tells %product% what branches to inspect
 
 <procedure>
    <step>
-      <p>Choose the <a href="quick-fix.md">quick-fix strategy</a> using either of two configuration methods:</p> 
+      <p>Choose the <a href="quick-fix.md">Quick-Fix strategy</a> using either of two configuration methods:</p> 
          <tabs>
             <tab title="qodana.yaml">
                <code-block lang="yaml">
@@ -408,22 +408,22 @@ The details are available on the [GitLab CI/CD website](https://gitlab.com/gitla
 
 This table contains the list of options that can be configured using the `inputs` block:
 
-| Name                                           | Description                                                                                                                                                                                 | Default Value                     |
-|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
-| `stage`                                        | CI stage for %product% execution                                                                                                                                                            | `test`                            |
-| `job-name`                                     | A %product% job name. Could be used to customize the order of running several %product% jobs within the same pipeline                                                                       | `qodana`                          |
+| Name                                           | Description                                                                                                                                                                                  | Default Value                     |
+|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| `stage`                                        | CI stage for %product% execution                                                                                                                                                             | `test`                            |
+| `job-name`                                     | A %product% job name. Could be used to customize the order of running several %product% jobs within the same pipeline                                                                        | `qodana`                          |
 | `args`                                         | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend,--print-problems`. Optional. | -                                 |
-| `results-dir`                                  | Directory to store the analysis results relative to the project root. Optional.                                                                                                             | `$CI_PROJECT_DIR/.qodana/results` |
-| `upload-result`                                | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                   | `false`                           |
-| `artifact-name`                                | Specify Qodana results artifact name, used for result uploading. Optional.                                                                                                                  | `Qodana report`                   |
-| `cache-dir`                                    | Directory to store Qodana cache relative to the project root. Optional.                                                                                                                     | `$CI_PROJECT_DIR/.qodana/caches`  |
-| `use-caches`                                   | Utilize [GitHub caches](https://docs.gitlab.com/ci/caching/) for Qodana runs. Optional.                                                                                                     | `true`                            |
-| `code-quality-report`                          | Use [Code Quality report](https://docs.gitlab.com/ci/testing/code_quality/) produced by Qodana                                                                                              | `true`                            |
-| `mr-mode` or `pr-mode`                         | Analyze ONLY changed files in a merge request. Optional.                                                                                                                                    | `true`                            |
-| `post-pr-comment` {id="gitlab-summary-report"} | Post a comment with a Qodana results summary to a merge request. Optional.                                                                                                                  | `true`                            |
-| `push-fixes`                                   | Push Qodana fixes to the repository, can be `none`, `branch` to the current branch, `merge-request` or `pull-request`. Optional.                                                            | `none`                            |
-| `commit-message`                               | Commit message used when quick-fixes are applied                                                                                                                                            | `Apply quick-fixes by Qodana`     | 
-| `os`                                           | Operating system used for running pipelines, required for pre-configuration. Could accept the `linux`, `windows` or `mac` values                                                            | `linux`                           |
+| `results-dir`                                  | Directory to store the analysis results relative to the project root. Optional.                                                                                                              | `$CI_PROJECT_DIR/.qodana/results` |
+| `upload-result`                                | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                    | `false`                           |
+| `artifact-name`                                | Specify Qodana results artifact name, used for result uploading. Optional.                                                                                                                   | `Qodana report`                   |
+| `cache-dir`                                    | Directory to store Qodana cache relative to the project root. Optional.                                                                                                                      | `$CI_PROJECT_DIR/.qodana/caches`  |
+| `use-caches`                                   | Utilize [GitHub caches](https://docs.gitlab.com/ci/caching/) for Qodana runs. Optional.                                                                                                      | `true`                            |
+| `code-quality-report`                          | Use [Code Quality report](https://docs.gitlab.com/ci/testing/code_quality/) produced by Qodana                                                                                               | `true`                            |
+| `mr-mode` or `pr-mode`                         | Analyze ONLY changed files in a merge request. Optional.                                                                                                                                     | `true`                            |
+| `post-pr-comment` {id="gitlab-summary-report"} | Post a comment with a Qodana results summary to a merge request. Optional.                                                                                                                   | `true`                            |
+| `push-fixes`                                   | Push Qodana fixes to the repository, can be `none`, `branch` to the current branch, `merge-request` or `pull-request`. Optional.                                                             | `none`                            |
+| `commit-message`                               | Commit message used when Quick-Fixes are applied                                                                                                                                             | `Apply quick-fixes by Qodana`     | 
+| `os`                                           | Operating system used for running pipelines, required for pre-configuration. Could accept the `linux`, `windows` or `mac` values                                                             | `linux`                           |
 
 
 <seealso>

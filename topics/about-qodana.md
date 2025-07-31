@@ -42,7 +42,7 @@ Besides that, in GitHub %instance% can analyze [pull requests](github.md#Pull+re
 
 Using %instance% as a [quality gate](quality-gate.topic), you can decide the number of problems to cause a build fail, plan 
 the problems to be solved right away and postponed by putting them to a [baseline](baseline.topic), or automatically apply 
-suggested [quick-fixes](quick-fix.md) to let your team save time.
+suggested [Quick-Fixes](quick-fix.md) to let your team save time.
 
 ## Share reports with other team members
 

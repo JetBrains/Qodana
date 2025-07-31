@@ -1814,7 +1814,7 @@ docker run \
         <p><a href="code-coverage.md">Code coverage</a></p>
         <p><a href="insights.md"/><b>***</b></p>
         <p><a href="license-audit.topic">License audit</a><b>***</b></p>
-        <p><a href="quick-fix.md">Quick-fix</a></p>
+        <p><a href="quick-fix.md">Quick-Fix</a></p>
         <p><a href="cloud-sso.md"/><b>***</b></p>
       </td>
       <td>

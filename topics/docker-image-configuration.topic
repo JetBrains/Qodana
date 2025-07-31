@@ -839,7 +839,7 @@
                         </code>
                     </td>
                     <td>
-                        Apply all available quick-fix strategies including cleanup, see the <a href="quick-fix.md"/>
+                        Apply all available Quick-Fix strategies including cleanup, see the <a href="quick-fix.md"/>
                         section for details
                     </td>
                 </tr>
@@ -850,8 +850,8 @@
                         </code>
                     </td>
                     <td>
-                        Run the <code>CLEANUP</code> quick-fix strategy, see the
-                        <a href="quick-fix.md" anchor="How+quick-fix+works">Quick-fix</a> for details
+                        Run the <code>CLEANUP</code> Quick-Fix strategy, see the
+                        <a href="quick-fix.md" anchor="How+Quick-Fix+works">Quick-Fix</a> for details
                     </td>
                 </tr>
                 <tr>
@@ -2856,11 +2856,11 @@
 
     </chapter>
 
-    <chapter title="Quick-fix" id="docker-config-reference-quick-fix">
+    <chapter title="Quick-Fix" id="docker-config-reference-quick-fix">
 
-        <link-summary>To apply quick-fix strategies to your codebase, you can invoke the --fixes-strategy option.</link-summary>
+        <link-summary>To apply Quick-Fix strategies to your codebase, you can invoke the --fixes-strategy option.</link-summary>
 
-        <p>To apply <a href="quick-fix.md">quick-fix</a> strategies to your codebase, you can invoke the <code>--fixes-strategy</code> option.</p>
+        <p>To apply <a href="quick-fix.md">Quick-Fix</a> strategies to your codebase, you can invoke the <code>--fixes-strategy</code> option.</p>
         <tabs group="cli-settings">
             <tab title="Docker image" group-key="docker-image">
                 <code-block lang="shell" prompt="$">
@@ -2950,7 +2950,7 @@
             </tab>
             <tab title="TeamCity" group-key="teamcity">
                 <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
-                    specify the preferred quick-fix strategy:</p>
+                    specify the preferred Quick-Fix strategy:</p>
                 <code-block lang="shell">
                         &lt;--apply-fixes/--cleanup&gt;
                     </code-block>
@@ -3083,7 +3083,7 @@
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
                     <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
-                        specify the preferred quick-fix strategy:</p>
+                        specify the preferred Quick-Fix strategy:</p>
                     <code-block lang="shell">
                         --property=idea.log.config.file=info.xml
                     </code-block>

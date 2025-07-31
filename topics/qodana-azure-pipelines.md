@@ -201,7 +201,7 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
         </tab>
 </tabs>
 
-## Quick-fixes
+## Quick-Fixes
 
 <!-- This needs to be checked once more -->
 <!-- The example configuration should be added here -->
@@ -210,7 +210,7 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
 
 <procedure>
    <step>
-      <p>Configure a <a href="quick-fix.md">quick-fix strategy</a> using either of the following configuration methods:</p> 
+      <p>Configure a <a href="quick-fix.md">Quick-Fix strategy</a> using either of the following configuration methods:</p> 
          <tabs group="azure-config-tabs">
             <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
                <code-block lang="yaml">
@@ -219,8 +219,8 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
                </code-block>   
             </tab>
             <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
-                <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to configure the quick-fix feature, for example:</p>
-               <img src="azure-pipelines-quick-fix.png" width="375" alt="The Qodana Scan task UI config for quick-fixes" border-effect="line"/>
+                <p>Use the <ui-path>Qodana CLI arguments</ui-path> field to configure the Quick-Fix feature, for example:</p>
+               <img src="azure-pipelines-quick-fix.png" width="375" alt="The Qodana Scan task UI config for Quick-Fixes" border-effect="line"/>
             </tab>
             <tab title="qodana.yaml">
                <code-block lang="yaml">
@@ -242,8 +242,8 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
                </code-block>   
             </tab>
             <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
-                <p>Use the <ui-path>Push quick-fixes</ui-path> field to configure the quick-fix feature.</p>
-               <img src="azure-pipelines-quick-fix-merge-request.png" width="375" alt="The Qodana Scan task UI config for quick-fixes" border-effect="line"/>
+                <p>Use the <ui-path>Push Quick-fixes</ui-path> field to configure the Quick-Fix feature.</p>
+               <img src="azure-pipelines-quick-fix-merge-request.png" width="375" alt="The Qodana Scan task UI config for Quick-Fixes" border-effect="line"/>
             </tab>
          </tabs>
          </tab>
@@ -256,8 +256,8 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
                </code-block>   
             </tab>
             <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
-                <p>Use the <ui-path>Push quick-fixes</ui-path> field to configure the quick-fix feature.</p>
-               <img src="azure-pipelines-quick-fix-branch.png" width="375" alt="The Qodana Scan task UI config for quick-fixes" border-effect="line"/>
+                <p>Use the <ui-path>Push Quick-Fixes</ui-path> field to configure the Quick-Fix feature.</p>
+               <img src="azure-pipelines-quick-fix-branch.png" width="375" alt="The Qodana Scan task UI config for Quick-Fixes" border-effect="line"/>
             </tab>
          </tabs>
          </tab>
@@ -268,7 +268,7 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
          <a href="%repo-permissions%">repository permissions</a>:</p>
          <list>
             <li><code>Contribute</code></li>
-            <li><code>Bypass policies when pushing</code> if they may fail the push of quick-fixes</li>
+            <li><code>Bypass policies when pushing</code> if they may fail the push of Quick-Fixes</li>
             <li><code>Create branch</code> if you use the <code>pull-request</code> setting</li>
          </list>
    </step>
@@ -352,15 +352,15 @@ and their analogs in the classic interface.
    </tr>
    <tr>
       <td><code>pushFixes</code></td>
-      <td><control>Push quick-fixes</control></td>
+      <td><control>Push Quick-Fixes</control></td>
       <td>Push Qodana fixes to the repository, can be <code>none</code>, <code>branch</code> to the current branch, or <code>pull-request</code>. Optional.</td>
       <td><code>none</code></td>
    </tr>
    <tr>
       <td><code>commit-message</code></td>
       <td><control>Commit Message</control></td>
-      <td>Commit message used when quick-fixes are applied</td>
-      <td><code>🤖 Apply quick-fixes by Qodana</code></td>
+      <td>Commit message used when Quick-Fixes are applied</td>
+      <td><code>🤖 Apply Quick-Fixes by %product%</code></td>
    </tr>
 </table>
 

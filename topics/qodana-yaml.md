@@ -356,11 +356,11 @@ customDependencies:
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
 
-## Configure quick-fixes
+## Configure Quick-Fixes
 
-<link-summary>You can apply the cleanup or apply quick-fix strategies.</link-summary>
+<link-summary>You can apply the cleanup or apply Quick-Fix strategies.</link-summary>
 
-Using the `fixesStrategy` option, you can choose among the available [quick-fix strategies](quick-fix.md#How+quick-fix+works):
+Using the `fixesStrategy` option, you can choose among the available [Quick-Fix strategies](quick-fix.md#How+Quick-Fix+works):
 
 ```yaml
 fixesStrategy: cleanup/apply
