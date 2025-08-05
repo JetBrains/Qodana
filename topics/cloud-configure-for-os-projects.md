@@ -29,7 +29,7 @@ If you plan to create a separate team and project in your %cloud% account, follo
 <step>
 In the %cloud% UI, navigate to your organization.
 
-<img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true"/>
+<img src="qc-settings-organization-navigate-between.gif" width="706" alt="Creating an organization" border-effect="line"/>
 </step>
 <step>
 In your organization, create a <a href="cloud-teams.topic">team</a>.

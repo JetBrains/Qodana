@@ -19,7 +19,7 @@
 
     <p>You can navigate between organizations using the list in the upper left part of the %cloud% UI.</p>
 
-    <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" preview-src="qc-settings-organization-navigate-between.png"/>
+    <img src="qc-settings-organization-navigate-between.gif" width="706" alt="Creating an organization" border-effect="line"/>
 
     <chapter id="cloud-organizations-create-organization" title="Create an organization">
 
@@ -53,7 +53,7 @@
 
             <step>
                 <p>In the sidebar, navigate to the organization that you wish to configure. </p>
-                <img src="qc-settings-organization-navigate-between.animated.gif" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" preview-src="qc-settings-organization-navigate-between.png"/>
+                <img src="qc-settings-organization-navigate-between.gif" width="706" alt="Creating an organization" border-effect="line"/>
             </step>
             <step>
                 <p>On the organization page, click the <ui-path>Organization settings</ui-path> button in the upper-right corner.</p>
@@ -69,7 +69,7 @@
             <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization.</li>
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
-            <!--<li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>-->
+            <li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
@@ -92,7 +92,7 @@
                 <li>Exclude members from your organization.</li>
             </list>
 
-            <!--<note>Members created and configured through <a href="cloud-sso.md">JetBrains Hub</a> cannot be modified or deleted in %cloud% UI.</note>-->
+            <note>Members created and configured through <a href="cloud-sso.md">JetBrains Hub</a> cannot be modified or deleted in %cloud% UI.</note>
 
             <procedure>
                 <step>
