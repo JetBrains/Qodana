@@ -18,4 +18,15 @@
 
     <img src="qc-running-introduction.png" dark-src="qc-running-introduction_dark.png" width="706" alt="%cloud% entity hierarchy" border-effect="line"/>
 
+    <chapter title="License costs">
+
+    <p>The total license cost is based on the number of active contributors. An active contributor is defined as a
+        person who
+        has made commits to any number of %cloud% <a href="cloud-projects.topic">projects</a> within the same
+        <a href="cloud-organizations.topic">organization</a> and under a single license during the past ninety (90)
+        days.
+        The minimal number of contributors used for licensing is three (3).</p>
+
+    </chapter>
+
 </topic>
