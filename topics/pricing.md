@@ -3,6 +3,8 @@
 <link-summary>Qodana provides the Community, Ultimate, and Ultimate Plus licenses. You can learn more about the differences 
 between them.</link-summary>
 
+<show-structure for="chapter" depth="3"/>
+
 Depending on your needs, you can choose a suitable license described in this table:
 
 | License       | Subscription conditions                                                                   | Description                                                                                                                                                                               |
@@ -16,6 +18,12 @@ Here are the links to essential %instance% documents:
 * [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/)
 * [Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) related to the linters licensed under the Ultimate and Ultimate Plus licenses
 * [Agreement](https://www.jetbrains.com/legal/docs/agreements/qodana/community-linters/) for the Community-licensed linters
+
+The total license cost is based on the number of active contributors. An active contributor is defined as a person who 
+has made commits to any number of %cloud% [projects](cloud-projects.topic) within the same 
+[organization](cloud-organizations.topic) and under a single license during the past ninety (90) days.
+The minimal number of contributors used for licensing is three (3).
+
 
 ## License comparison matrix
 {id="license-comparison-matrix"}
