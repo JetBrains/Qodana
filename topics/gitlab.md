@@ -139,10 +139,10 @@ In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on t
 By default, caching is enabled in %product% with the following keys: 
 
 ```yaml
-      - key: qodana-2025.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2025.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2025.2-$CI_DEFAULT_BRANCH-
-           - qodana-2025.2-
+           - qodana-2025.1-$CI_DEFAULT_BRANCH-
+           - qodana-2025.1-
 ```
 
 If you wish to override the default cache settings, use this configuration: 
@@ -155,10 +155,10 @@ include:
 
 qodana:
    cache:
-      - key: qodana-2025.2-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-2025.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2025.2-$CI_DEFAULT_BRANCH-
-           - qodana-2025.2-
+           - qodana-2025.1-$CI_DEFAULT_BRANCH-
+           - qodana-2025.1-
         paths:
            - $[[ inputs.cache-dir ]]
 
