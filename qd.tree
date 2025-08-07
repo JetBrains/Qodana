@@ -102,6 +102,7 @@
 		<toc-element topic="space-automation.md"/>
 		<toc-element accepts-web-file-names="teamcity-plugins.html,teamcity-plugin-configuration.html,teamcity-plugin-quick-start.html,qodana-teamcity-plugin.html" topic="teamcity.md"/>
 	</toc-element>
+
 	<!--%cloud% section -->
 	<toc-element toc-title="%cloud%">
 		<toc-element topic="qodana-cloud-release-notes.md"/>
