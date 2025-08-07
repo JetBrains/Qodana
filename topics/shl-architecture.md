@@ -60,5 +60,5 @@ can be changed after project initialization.
 
 %premlite% supports many OIDC Providers out of the box. It is necessary to configure the provider during installation.
 
-%premlite% supports out of the box GitHub. For any other VCS it is possible to 
+%premlite% supports GitHub out of the box. For any other VCS it is possible to 
 integrate backwards: use the project token to link it and the related continuous integration (CI) system with %product%.

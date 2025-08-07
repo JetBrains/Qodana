@@ -1,8 +1,5 @@
 # Introduction
 
-<!-- Exact name of the product -->
-<!-- If the utility name is not used anywhere, can it be omitted at all? -->
-
 %premlite% is a lightweight on-premises version of [%cloud%](cloud-use-cases.topic) designed for small development teams.
 
 Using %premlite%, you can run %product% within your infrastructure ensuring that sensitive code and data remain secure and 
