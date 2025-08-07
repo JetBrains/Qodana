@@ -79,7 +79,7 @@ For the cloud-based version of GitLab CI/CD, in the `.gitlab-ci.yml` file save t
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         args: --image,<image>
 ```
@@ -97,7 +97,7 @@ change job execution rules, and add an environmental variable.
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+  - component: %gitlab-version%
 
 some-task:
   stage: test
@@ -149,7 +149,7 @@ If you wish to override the default cache settings, use this configuration:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         args: --image,<image>
 
@@ -175,7 +175,7 @@ you can use the following configuration for Microsoft Windows:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         os: windows
         args: --image,<image>
@@ -192,7 +192,7 @@ If you wish to override this behavior, you can modify the following configuratio
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         args: --image,<image>
 
@@ -266,7 +266,7 @@ Here is an example configuration that uses the `inputs` block for configuring th
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         push-fixes: merge-request
         args: |
@@ -290,7 +290,7 @@ you can use the `upload-result` keyword and specify the artifact name using the
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         upload-result: true
         artifact-name: Qodana report
@@ -317,7 +317,7 @@ block to run the [quality gate](quality-gate.topic) and [baseline](baseline.topi
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         args: |
             --baseline,qodana.sarif.json,
@@ -342,7 +342,7 @@ you can override a path to reports using the `codequality` option:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         args: --image,<image>
 
@@ -360,7 +360,7 @@ Use the following configuration to get log data from %product% on GitLab CI/CD:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         args: --image,<image>
         upload-result: true
@@ -381,7 +381,7 @@ than a pipeline timeout:
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+   - component: %gitlab-version%
      inputs:
         args: --image,<image>
         upload-result: true

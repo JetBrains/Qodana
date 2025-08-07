@@ -330,7 +330,8 @@
     <var name="clang-image" value="jetbrains/qodana-clang:2024.3-eap"/>
     <var name="ruby-image" value="jetbrains/qodana-ruby:2025.2"/>
 
-    <!-- Various versions -->
-    <var name="action-version" value="JetBrains/qodana-action@v2025.2"/>
-
+    <!-- Extension versions -->
+    <var name="action-version" value="JetBrains/qodana-action@v2025.1"/>
+    <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1"/>
+    <var name="circleci-version" value="jetbrains/qodana@2025.1"/>
 </vars>

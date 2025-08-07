@@ -41,7 +41,7 @@ In the `.circleci/config.yml` file, save the following configuration:
 version: 2.1
 
 orbs:
-  qodana: jetbrains/qodana@2025.2
+  qodana: %circleci-version%
 
 jobs:
   code-quality:
@@ -79,7 +79,7 @@ This configuration uses the [`args` parameter](#Commands+and+parameters) to invo
 version: 2.1
 
 orbs:
-  qodana: jetbrains/qodana@2025.2
+  qodana: %circleci-version%
 
 jobs:
   code-quality:
@@ -109,7 +109,7 @@ This configuration sample uses the [`args` parameter](#Commands+and+parameters) 
 version: 2.1
 
 orbs:
-  qodana: jetbrains/qodana@2025.2
+  qodana: %circleci-version%
 
 jobs:
   code-quality:
@@ -137,7 +137,7 @@ This configuration instructs %product% to analyze changes only on the `main` bra
 version: 2.1
 
 orbs:
-  qodana: jetbrains/qodana@2025.2
+  qodana: %circleci-version%
 
 jobs:
   code-quality:
