@@ -57,7 +57,7 @@
                             docker run \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               jetbrains/qodana-&lt;linter&gt; \
+                               jetbrains/qodana-&lt;image&gt; \
                                --script php-migration:&lt;old-php-version&gt;-to-&lt;upgraded-php-version&gt;
                         </code-block>
                     </tab>
@@ -84,7 +84,7 @@
                             docker run \
                                -v &lt;source-directory&gt;/:/data/project/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               jetbrains/qodana-&lt;linter&gt; \
+                               jetbrains/qodana-&lt;image&gt; \
                                --script php-migration:7.1-to-8.0
                         </code-block>
                     </tab>

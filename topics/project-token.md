@@ -18,7 +18,7 @@ for example:
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                jetbrains/qodana-&lt;linter&gt;        
+                jetbrains/qodana-&lt;image&gt;        
         </code-block>
     </tab>
 </tabs>

@@ -46,6 +46,8 @@ configuration scripts described in this section.
 
 <link-summary>This section shows the basic configuration of the Jenkins Pipeline.</link-summary>
 
+<snippet id="jenkins-for-use-case">
+
 <include from="lib_qd.topic" element-id="major-version-note"/>
 
 This is the basic configuration of the Jenkins Pipeline.
@@ -81,6 +83,8 @@ the `qodana-token` [global credentials](%JenkinsCred%).
 This configuration uses the `docker` agent to invoke %instance% [Docker images](deploy-qodana.md#Docker+images). Using the 
 `WORKSPACE` variable, the `args` block mounts the local checkout directory to the project directory of a Docker image, 
 and `image` specifies the Docker image invoked.  
+
+</snippet>
 
 The `stage` block calls %instance%. Here, you can also specify the [options](docker-image-configuration.topic) 
 you would like to configure %instance% with like the [quality gate and baseline](#Quality+gate+and+baseline) features.

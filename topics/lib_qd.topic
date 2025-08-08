@@ -448,7 +448,7 @@
                       name: Qodana
                       caches:
                         - qodana
-                      image: jetbrains/qodana-&lt;linter&gt; # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
+                      image: jetbrains/qodana-&lt;image&gt; # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
                       script:
                         - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
                         - qodana --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=~/.qodana/cache
@@ -567,7 +567,7 @@
     </snippet>
 
     <snippet id="linters-docker-image-table">
-        <p filter="jvm">Here, <code>&lt;linter&gt;</code> refers to one of the following Docker images:</p>
+        <p filter="jvm">Here, <code>&lt;image&gt;</code> refers to one of the following Docker images:</p>
             <table filter="jvm">
                 <tr>
                     <td>Docker image</td>
@@ -772,7 +772,7 @@
                             docker pull %qd-image-combined%
                         </code-block>
                         <code-block lang="shell" prompt="$" filter="jvm">
-                            docker pull &lt;linter&gt;
+                            docker pull &lt;image&gt;
                         </code-block>
                         <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
                     </tab>

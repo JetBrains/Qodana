@@ -118,7 +118,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -1481,7 +1481,7 @@
                            -v $(pwd):/data/project/ \
                            -v $(pwd)/&lt;profile-file&gt;:/data/profile.xml \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt;
+                           jetbrains/qodana-&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
@@ -1536,7 +1536,7 @@
                                       -v "${WORKSPACE}"/&lt;profile-file&gt;:/data/profile.xml
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -1584,7 +1584,7 @@
                            -v $(pwd):/data/project/ \
                            -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt;
+                           jetbrains/qodana-&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
@@ -1639,7 +1639,7 @@
                                       -v "${WORKSPACE}"/gradle.properties:/data/cache/gradle/gradle.properties
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -1690,7 +1690,7 @@
                            -v $(pwd):/data/project/ \
                            -v $(pwd)/.qodana/results/:/data/results \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt;
+                           jetbrains/qodana-&lt;image&gt;
                     </code-block>
 
                     <p>Once the Qodana run is complete, you can view log files in the
@@ -1776,7 +1776,7 @@
                -v $(pwd):/data/project/ \
                -v &lt;html-report-directory&gt;:/data/results/newreportdir/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               jetbrains/qodana-&lt;linter&gt; \
+               jetbrains/qodana-&lt;image&gt; \
                --report-dir /data/results/newreportdir/ \
                --save-report
         </code-block>
@@ -1819,7 +1819,7 @@
                    -v $(pwd):/data/project/ \
                    -v &lt;local-cache-directory&gt;:/data/cache/ \
                    -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                   jetbrains/qodana-&lt;linter&gt;
+                   jetbrains/qodana-&lt;image&gt;
             </code-block>
 
             <p>Using the <code>--cache-dir</code> option, you can override the cache directory:</p>
@@ -1831,7 +1831,7 @@
                            -v $(pwd):/data/project/ \
                            -v &lt;local-cache-directory&gt;:/data/newcachedir/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt; \
+                           jetbrains/qodana-&lt;image&gt; \
                            --cache-dir /data/newcachedir
                     </code-block>
                 </tab>
@@ -1886,7 +1886,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -1987,7 +1987,7 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt; \
+                           jetbrains/qodana-&lt;image&gt; \
                            --profile-name qodana.recommended
                     </code-block>
                 </tab>
@@ -2042,7 +2042,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -2089,7 +2089,7 @@
                            -v $(pwd):/data/project/ \
                            -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/.idea/inspectionProfiles/&lt;file-name&gt; \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt; \
+                           jetbrains/qodana-&lt;image&gt; \
                            --profile-name &lt;profile-name-from-file&gt;
                     </code-block>
                 </tab>
@@ -2145,7 +2145,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -2198,7 +2198,7 @@
                            -v $(pwd):/data/project/ \
                            -v &lt;path-to-profile-file&gt;/&lt;file-name&gt;:/data/project/myprofiles/&lt;file-name&gt; \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt; \
+                           jetbrains/qodana-&lt;image&gt; \
                            --profile-path /data/project/myprofiles/&lt;file-name&gt;
                     </code-block>
                 </tab>
@@ -2254,7 +2254,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -2310,7 +2310,7 @@
                     docker run \
                     &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
+                    &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;image&gt; \
                     &nbsp;&nbsp;&nbsp;--config relative/path/to/config.yaml
                 </code-block>
             </tab>
@@ -2365,7 +2365,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -2438,7 +2438,7 @@
                     docker run \
                        -v $(pwd):/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt; \
+                       jetbrains/qodana-&lt;image&gt; \
                        --baseline &lt;path-to-the-SARIF-file&gt; \
                        --baseline-include-absent
                 </code-block>
@@ -2497,7 +2497,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -2561,7 +2561,7 @@
                     docker run \
                        -v /my/dir/with/coverage:/data/coverage \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt;
+                       jetbrains/qodana-&lt;image&gt;
                 </code-block>
             </tab>
             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -2615,7 +2615,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -2691,7 +2691,7 @@
                    -v $(pwd):/data/project/ \
                    -v &lt;directory-to-save-report-to&gt;:/data/results/report \
                    -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                   jetbrains/qodana-&lt;linter&gt; \
+                   jetbrains/qodana-&lt;image&gt; \
                    --save-report
             </code-block>
 
@@ -2711,7 +2711,7 @@
                            -p 4040:8080 \
                            -v $(pwd):/data/project/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt; \
+                           jetbrains/qodana-&lt;image&gt; \
                            --show-report
                     </code-block>
                 </tab>
@@ -2761,7 +2761,7 @@
                     docker run \
                        -v $(pwd):/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt; \
+                       jetbrains/qodana-&lt;image&gt; \
                        --fail-threshold 10
                 </code-block>
             </tab>
@@ -2816,7 +2816,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -2867,7 +2867,7 @@
                     docker run \
                        -v &lt;source-directory&gt;/:/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt; \
+                       jetbrains/qodana-&lt;image&gt; \
                        --fixes-strategy &lt;cleanup/apply&gt;
                 </code-block>
             </tab>
@@ -2922,7 +2922,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3000,7 +3000,7 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt; \
+                           jetbrains/qodana-&lt;image&gt; \
                            --property=idea.log.config.file=info.xml
                     </code-block>
                 </tab>
@@ -3055,7 +3055,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3106,7 +3106,7 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt; \
+                           jetbrains/qodana-&lt;image&gt; \
                            --property=idea.headless.enable.statistics=false
                     </code-block>
                 </tab>
@@ -3161,7 +3161,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3213,7 +3213,7 @@
                         docker run \
                            -v $(pwd):/data/project/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt; \
+                           jetbrains/qodana-&lt;image&gt; \
                            --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
                            --property=idea.suppressed.plugins.id=com.intellij.spring.security
                     </code-block>
@@ -3272,7 +3272,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3344,7 +3344,7 @@
                     docker run \
                     &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
+                    &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;image&gt; \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
             </tab>
@@ -3399,7 +3399,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3443,7 +3443,7 @@
                     docker run \
                     &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
+                    &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;image&gt; \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt; \
                     &nbsp;&nbsp;&nbsp;--diff-end=&lt;GIT_END_HASH&gt;
                 </code-block>
@@ -3502,7 +3502,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3571,7 +3571,7 @@
                     docker run \
                        -v $(pwd):/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt; \
+                       jetbrains/qodana-&lt;image&gt; \
                        --script default
                 </code-block>
             </tab>
@@ -3626,7 +3626,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3669,7 +3669,7 @@
                     docker run \
                        -v $(pwd):/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt; \
+                       jetbrains/qodana-&lt;image&gt; \
                        --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
                 </code-block>
             </tab>
@@ -3724,7 +3724,7 @@
                                       -v "${WORKSPACE}":/data/project
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3787,7 +3787,7 @@
                            -v $(pwd):/data/project/ \
                            -e _JAVA_OPTIONS=-Xmx6g \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt;
+                           jetbrains/qodana-&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
@@ -3842,7 +3842,7 @@
                                       -e _JAVA_OPTIONS=-Xmx6g
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -3899,7 +3899,7 @@
                            -v $(pwd):/data/project/ \
                            -e IDEA_PROPERTIES=/data/project/idea.properties \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt;
+                           jetbrains/qodana-&lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="Qodana CLI" group-key="qodana-cli">
@@ -3954,7 +3954,7 @@
                                       -e IDEA_PROPERTIES=/data/project/idea.properties
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -4012,7 +4012,7 @@
                         -v $(pwd):/data/project/ \
                         -v &lt;results-directory&gt;:/data/results/ \
                         -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                        jetbrains/qodana-&lt;linter&gt;
+                        jetbrains/qodana-&lt;image&gt;
                     </code-block>
 
                     <p>In this case, the <code>results/</code> directory on the host should already be created and owned by you.
@@ -4078,7 +4078,7 @@
                                       -u root
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {

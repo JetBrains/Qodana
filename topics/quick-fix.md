@@ -56,7 +56,7 @@ You can apply Quick-Fix strategies using the following available options:
                     docker run \
                        -v &lt;source-directory&gt;/:/data/project/  \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;linter&gt; \
+                       jetbrains/qodana-&lt;image&gt; \
                        &lt;--apply-fixes/--cleanup&gt;
                 </code-block>
             </tab>

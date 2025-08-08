@@ -62,7 +62,7 @@
                        -e QODANA_BRANCH="&lt;project-branch-name&gt;" \
                        -e QODANA_REVISION="&lt;commit-hash&gt;" \
                        -e QODANA_JOB_URL="&lt;job-url&gt;" \
-                       jetbrains/qodana-&lt;linter&gt;
+                       jetbrains/qodana-&lt;image&gt;
                 </code-block>
             </tab>
 
@@ -162,7 +162,7 @@
                              -v "${WORKSPACE}":/data/project
                              --entrypoint=""
                              '''
-                             image 'jetbrains/qodana-&lt;linter&gt;'
+                             image 'jetbrains/qodana-&lt;image&gt;'
                           }
                        }
                        stages {

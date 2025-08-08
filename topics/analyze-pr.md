@@ -134,7 +134,7 @@ You can use the --diff-start option to analyze changes between the current versi
             docker run \
             &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-            &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
+            &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;image&gt; \
             &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
         </code-block>
     </tab>
@@ -212,7 +212,7 @@ and <code>--diff-end</code> options:</p>
             docker run \
             &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-            &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
+            &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;image&gt; \
             &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt; \
             &nbsp;&nbsp;&nbsp;--diff-end=&lt;GIT_END_HASH&gt;
         </code-block>

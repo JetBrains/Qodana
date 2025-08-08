@@ -99,7 +99,7 @@
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                                 &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/custom-plugins/&lt;plugin-name&gt;.jar \
                                 &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
-                                &nbsp;&nbsp;&nbsp;&lt;linter&gt;
+                                &nbsp;&nbsp;&nbsp;&lt;image&gt;
                             </code-block>
                         </tab>
                         <tab title="GitHub Actions">

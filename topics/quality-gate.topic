@@ -108,7 +108,7 @@
                     docker run \
                     &nbsp;&nbsp;-v &lt;source-directory&gt;/:/data/project/  \
                     &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;jetbrains/qodana-&lt;linter&gt; \
+                    &nbsp;&nbsp;jetbrains/qodana-&lt;image&gt; \
                     &nbsp;&nbsp;--fail-threshold &lt;number&gt;
                 </code-block>
                 <p>In this command, <code>&lt;source-directory&gt;</code> is the full local path to the project source code, and
@@ -181,7 +181,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v &lt;path-to-project&gt;:/data/project
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--entrypoint=""
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image 'jetbrains/qodana-&lt;linter&gt;'
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image 'jetbrains/qodana-&lt;image&gt;'
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
                     &nbsp;&nbsp;&nbsp;}
                     &nbsp;&nbsp;&nbsp;stages {
@@ -211,7 +211,7 @@
                          inputs:
                             args: |
                               --fail-threshold,&lt;number-of-accepted-problems&gt;,
-                              --image,&lt;linter&gt;
+                              --image,&lt;image&gt;
                 </code-block>
                 <p>In this sample, the <code>inputs</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
                     option, and the <code>--image</code> option referring to a <a href="linters.md">%product% linter</a>.</p>

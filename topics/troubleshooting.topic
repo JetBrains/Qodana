@@ -175,7 +175,7 @@
                     docker run \
                     -v repo/:/data/project/ \
                     -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    jetbrains/qodana-&lt;linter&gt; \
+                    jetbrains/qodana-&lt;image&gt; \
                     --project-dir=/data/project/project/
                 </code-block>
             </tab>
@@ -258,7 +258,7 @@
                            -v $(pwd):/data/project/ \
                            -e JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;" \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;linter&gt;
+                           jetbrains/qodana-&lt;image&gt;
                     </code-block>
                             </tab>
                             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -285,7 +285,7 @@
                                                            "
                                       --entrypoint=""
                                       '''
-                                    image 'jetbrains/qodana-&lt;linter&gt;'
+                                    image 'jetbrains/qodana-&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -312,7 +312,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: Qodana
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;caches:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- qodana
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image: jetbrains/qodana-&lt;linter&gt; # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image: jetbrains/qodana-&lt;image&gt; # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- export JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;"
@@ -347,7 +347,7 @@
                     <step>
                         <p>Use this sample to create the <code>Dockerfile</code>:</p>
                         <code-block lang="docker">
-                    FROM docker.io/jetbrains/qodana-&lt;linter&gt;:2025.2&lt;-eap&gt;
+                    FROM docker.io/jetbrains/qodana-&lt;image&gt;:2025.2&lt;-eap&gt;
                     LABEL version="1.0.0"
 
                     ##Copy the proxy.settings.xml file
@@ -409,7 +409,7 @@
                                                            "
                                       --entrypoint=""
                                       '''
-                                    image '&lt;linter&gt;'
+                                    image '&lt;image&gt;'
                                 }
                             }
                             stages {
@@ -436,7 +436,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: Qodana
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;caches:
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- qodana
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image: jetbrains/qodana-&lt;linter&gt; # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image: jetbrains/qodana-&lt;image&gt; # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script:
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- export JAVA_TOOL_OPTIONS="-Dhttps.proxyHost=&lt;ProxyHost&gt; -Dhttps.proxyPort=&lt;ProxyPort&gt; -Dhttp.proxyHost=&lt;ProxyHost&gt; -Dhttp.proxyPort=&lt;ProxyPort&gt;"

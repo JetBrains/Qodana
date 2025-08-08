@@ -279,7 +279,7 @@ supported by %product%. The settings will remain consistent across all these pla
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               jetbrains/qodana-&lt;linter&gt; \
+               jetbrains/qodana-&lt;image&gt; \
                --profile-name qodana.recommended
         </code-block>
     </tab>
@@ -301,7 +301,7 @@ supported by %product%. The settings will remain consistent across all these pla
                -v $(pwd):/data/project/ \
                -v $(pwd)/.qodana/&lt;custom-profile.yaml&gt;:/data/project/myprofiles/&lt;custom-profile.yaml&gt; \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-               jetbrains/qodana-&lt;linter&gt; \
+               jetbrains/qodana-&lt;image&gt; \
                --profile-path /data/project/myprofiles/&lt;custom-profile.yaml&gt;
         </code-block>
     </tab>

@@ -150,7 +150,7 @@ To learn more about running code coverage using the [%dotnet%](dotnet.md) linter
                         -v $(pwd):/data/project/ \
                         -v .qodana/code-coverage/:/data/coverage \
                         -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
-                        jetbrains/qodana-&lt;linter&gt;
+                        jetbrains/qodana-&lt;image&gt;
                 </code-block>
             </tab>
             <tab title="Qodana CLI" id="code-coverage-cli">
