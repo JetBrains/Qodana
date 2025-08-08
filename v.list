@@ -334,4 +334,8 @@
     <var name="action-version" value="JetBrains/qodana-action@v2025.1"/>
     <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1"/>
     <var name="circleci-version" value="jetbrains/qodana@2025.1"/>
+
+    <var name="version-previous" value="2025.1"/>
+    <var name="version-current" value="2025.2"/>
+
 </vars>
