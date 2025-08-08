@@ -29,7 +29,7 @@ If you plan to create a separate team and project in your %cloud% account, follo
 <step>
 In the %cloud% UI, navigate to your organization.
 
-<img src="qc-settings-organization-navigate-between.png" dark-src="qc-settings-organization-navigate-between_dark.png" width="706" alt="Creating an organization" border-effect="line" animated="true"/>
+<img src="qc-settings-organization-navigate-between.gif" width="706" alt="Creating an organization" border-effect="line"/>
 </step>
 <step>
 In your organization, create a <a href="cloud-teams.topic">team</a>.
@@ -207,9 +207,9 @@ Follow these steps to add a %instance% runner to a GitLab CI/CD pipeline:
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
+  - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
     inputs:
-      args: --fail-threshold,<number-of-accepted-problems>,--linter,&lt;linter&gt;
+      args: --fail-threshold,<number-of-accepted-problems>,--image,&lt;image&gt;
 ```
 In this sample, specify  the [quality gate](quality-gate.topic) using `--fail-threshold` option. 
 

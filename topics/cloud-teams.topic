@@ -23,10 +23,10 @@
             <step>
                 <p>On the organization page, click <ui-path>Create team</ui-path>.</p>
                 <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create a team" width="706" border-effect="line"/>
-                <p>This will open the <ui-path>New team</ui-path> dialog.</p>
+                <p>This will open the <ui-path>Create team</ui-path> dialog.</p>
             </step>
             <step>
-                <p>On the <ui-path>New team</ui-path> dialog, specify the team name and click <ui-path>Create team</ui-path>.</p>
+                <p>On the <ui-path>New team</ui-path> dialog, specify the team name, its visibility and then click <ui-path>Create</ui-path>.</p>
                 <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="The New team dialog" width="706" border-effect="line"/>
             </step>
         </procedure>
@@ -35,7 +35,7 @@
 
     <chapter id="cloud-teams-navigate-to-team" title="Navigate teams">
 
-        <p>You can navigate to a team by clicking its name on an organization page, or its pictogram in the left sidebar.</p>
+        <p>You can navigate to a team by clicking its tile on an organization page, or its pictogram in the left sidebar.</p>
 
         <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing a team" width="706" border-effect="line"/>
 
