@@ -224,7 +224,7 @@ jobs:
       env:
         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_JS }}
       with:
-        args: "-i,JS/jest,--image,jetbrains/qodana-js:2025.2"
+        args: "-i,JS/jest,--image,jetbrains/qodana-js:2025.1"
         pr-mode: false
 ```
 <p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="qodana-yaml.md">%product% configuration</a> 
@@ -240,7 +240,7 @@ To override the default code coverage report directory, use the
 directory using the <a href="docker-image-configuration.topic" anchor="docker-image-configuration-coverage-dir"><code>--coverage-dir</code></a> option:</p>
         <code-block lang="yaml">
         include:
-            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
               inputs:
                 args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--image,&lt;image&gt;
         </code-block>
@@ -252,7 +252,7 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
         </p>
         <code-block lang="yaml">
         include:
-            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.1
               inputs:
                 args: --coverage-dir,$CI_PROJECT_DIR/.qodana/code-coverage,--config,&lt;path-relative-to-project-root&gt;,--image,&lt;image&gt;
         </code-block>
