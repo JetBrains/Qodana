@@ -149,7 +149,7 @@ failThreshold: <number>
 > When running in the baseline mode, a threshold is calculated as the sum of new and absent problems. Unchanged results are ignored.
 {style="note"}
 
-All linters except [%dotnet-co%](dotnet.md) let you use the following configuration: 
+All linters except [%dotnet-co%](dotnet.md) and [%clang%](clang.md) let you use the following configuration:
 
 ```yaml
 failureConditions:
