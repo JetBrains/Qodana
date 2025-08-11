@@ -6,41 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-accessing-team.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-accessing-team_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-configure-team.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-configure-team_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-create-project.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-create-project_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-create-team.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-create-team_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-creating-team.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-creating-team_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-overview-reports.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-overview-reports_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-project-options.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-project-options_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-create.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-create_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-invite-members.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-invite-members_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-leave-temp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-leave-temp_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-manage-access.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-manage-access_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-manage-members.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-manage-members_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-navigate-between.animated.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-navigate-between.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-navigate-between_dark.animated.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-settings-organization-navigate-between_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-teams-managing-members.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/qc-teams-managing-members_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-configure-for-os-projects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-organizations.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-organizations.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-overview-reports.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-overview-reports.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-projects.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-projects.topic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/cloud-teams.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-teams.topic" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topics/qodana-yaml.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/qodana-yaml.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
