@@ -348,6 +348,7 @@
                     </td>
                     <td>
                         <p>In place of <code>&lt;string&gt;</code>, specify the linter that you would like to employ:</p>
+                        <note>This option is not available for the <a href="gitlab.md">GitLab CI/CD</a> component.</note>
                         <table>
                             <tr>
                                 <td>Linter name</td>
@@ -477,6 +478,7 @@
                         </code>
                     </td>
                     <td>
+                        <note>This option is not available for the <a href="gitlab.md">GitLab CI/CD</a> component.</note>
                         <p>Define whether analysis will be performed within a Docker container.</p>
                         <p>If set to <code>true</code>, %product% will employ a respective Docker image. The image for
                             container creation will be chosen in an automated way based on the <code>--image</code> value.
