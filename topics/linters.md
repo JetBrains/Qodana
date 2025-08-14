@@ -22,7 +22,7 @@ Currently, several linters provide inspections for several programming languages
 <table>
     <tr>
         <td>Project languages</td>
-        <td>Supported by linters / linter name</td>
+        <td>Supported by linters / linter name *</td>
     </tr>
     <tr>
         <td>
@@ -80,3 +80,5 @@ Currently, several linters provide inspections for several programming languages
     </tr>
 </table>
 
+\* Each linter from this table can be invoked using the `--linter` option, see the 
+[](docker-image-configuration.topic#docker-config-reference-qodana-scan) for details.

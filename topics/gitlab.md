@@ -24,6 +24,11 @@ section explains how you can run the %instance% Scan GitLab Pipeline [component]
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
+### Native mode on Linux
+
+To run %product% in [native mode](deploy-qodana.md#deploy-qodana-native-mode) on Linux, prepare your own Docker image 
+containing Linux with pre-installed Node.js, Git, Bash, cURL and Java.
+
 ### Prepare your project
 
 <link-summary>Make sure that your project repository is accessible to GitLab CI/CD, and in the root directory of your 
@@ -81,13 +86,13 @@ For the cloud-based version of GitLab CI/CD, in the `.gitlab-ci.yml` file save t
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --linter,<linter-name>
 ```
 
 This configuration already enables [caches](#Configure+cache),
 [Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis,
 and comments to merge requests. You can override these settings using descriptions from the sections below and the
-[](#Configuration) chapter. The `--image` argument specifies a Docker image of the [linter](linters.md) that you would like to employ.
+[](#Configuration) chapter. The `--linter` argument specifies a %product% [linter](linters.md) that you would like to employ.
 
 The included component creates the `qodana` job that can be configured as any other job in GitLab CI/CD. 
 You can view the predefined configuration of this job using our [template](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
@@ -126,7 +131,7 @@ For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save th
 include:
    - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v2025.2
      inputs:
-        args: --image,<image>
+        args: --linter,<linter-name>
 ```
 
 In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on the [GitLab CI/CD website](%OnPrem%). 
@@ -151,7 +156,7 @@ If you wish to override the default cache settings, use this configuration:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --linter,<linter-name>
 
 qodana:
    cache:
@@ -178,8 +183,28 @@ include:
    - component: %gitlab-version%
      inputs:
         os: windows
-        args: --image,<image>
+        args: --linter,<linter-name>
 ```
+
+### Run %product% on Linux in native mode
+
+To run %product% in [native mode on Linux](#Native+mode+on+Linux), use the following configuration that uses your custom
+Docker image containing Linux:
+
+```yaml
+include:
+  - component: %gitlab-version%
+    inputs:
+      args: --linter,<linter-name>,--within-docker,false
+
+qodana:
+  image: <your-custom-docker-image-with-linux>
+```
+
+Here, the [`--linter`](docker-image-configuration.topic#docker-config-reference-qodana-scan-linter) option specifies 
+the %product% linter that you would like to employ. 
+The [`--within-docker`](docker-image-configuration.topic#docker-config-reference-qodana-scan-within-docker) enables native mode.
+
 
 ## Specific branches
 
@@ -194,7 +219,7 @@ If you wish to override this behavior, you can modify the following configuratio
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --linter,<linter-name>
 
 qodana:
   rules:
@@ -271,7 +296,7 @@ include:
         push-fixes: merge-request
         args: |
             --apply-fixes,
-            --image,<image>
+          --linter,<linter-name>
 ```
 
 > Qodana could automatically modify not only the code, but also the configuration in 
@@ -294,7 +319,7 @@ include:
      inputs:
         upload-result: true
         artifact-name: Qodana report
-        args: --linter,<linter>
+        args: --linter,<linter-name>
 ```
 
 Assuming that you have configured your pipeline similarly, this is what it may look like:
@@ -322,7 +347,7 @@ include:
         args: |
             --baseline,qodana.sarif.json,
             --fail-threshold,<number-of-accepted-problems>,
-            --image,<image>
+            --linter,<linter-name>
 ```
 
 ## Code Quality reports
@@ -344,7 +369,7 @@ you can override a path to reports using the `codequality` option:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --linter,<linter-name>
 
 qodana:
    artifacts:
@@ -362,7 +387,7 @@ Use the following configuration to get log data from %product% on GitLab CI/CD:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --linter,<linter-name>
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
@@ -383,7 +408,7 @@ than a pipeline timeout:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --linter,<linter-name>
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
