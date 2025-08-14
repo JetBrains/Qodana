@@ -214,7 +214,7 @@
                     <td>Option</td>
                     <td>Description</td>
                 </tr>
-                <tr>
+                <tr id="docker-config-reference-qodana-scan-image">
                     <td>
                         <code>--image &lt;string&gt;</code>
                     </td>
