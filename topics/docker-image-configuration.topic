@@ -872,7 +872,9 @@
                         <code>-s, --save-report</code>
                     </td>
                     <td>
-                        Generate an HTML report. This option is enabled by default
+                        <note>This option is currently unavailable for analyses performed using
+                            <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
+                        <p>Generate an HTML report. This option is enabled by default</p>
                     </td>
                 </tr>
                 <tr>
