@@ -38,7 +38,7 @@
     <snippet id="qodana-deployment-options">
         <p>%instance% provides several deployment options to better fit your needs:</p>
         <list>
-            <li><a href="deploy-qodana.md" anchor="Native+mode">Native mode</a> available in the <a href="jvm.md">%jvm%</a>,
+            <li><a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">Native mode</a> available in the <a href="jvm.md">%jvm%</a>,
                 <a href="jvm.md">%jvm-co%</a>, <a href="php.md">%php%</a>, <a href="js.md">%js%</a>, and
                 <a href="dotnet.md">%dotnet%</a> linters.</li>
             <li><a href="deploy-qodana.md" anchor="Docker+images">Docker images</a> let you inspect

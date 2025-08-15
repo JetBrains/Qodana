@@ -432,13 +432,16 @@ cpp:
 
 ## Configure native mode
 
-You can configure [native mode](deploy-qodana.md#deploy-qodana-native-mode) by specifying a linter and setting the 
-`withinDocker` option to `false`, for example:
+You can configure [native mode](deploy-qodana.md#deploy-qodana-native-mode) by specifying a [linter](linters.md) and 
+setting the `withinDocker` option to `false`, for example:
 
 ```yaml
 linter: qodana-dotnet
 withinDocker: false
 ```
+
+> The `ide` notation available in previous versions of %product% is deprecated and will be removed in future versions of the product.
+{style="note"}
 
 Native mode is currently available for the following %product% linters:
 
