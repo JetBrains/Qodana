@@ -420,7 +420,7 @@ include:
   - name: IncorrectFormatting
 ```
 
-<!--## Specify a CMake preset
+## Specify a CMake preset
 
 Customize the %cpp% linter by using [CMake presets](clang.md#Configure+compilers+and+environments). Invoke presets using 
 the `cpp` and `cmakePreset` options:
@@ -429,4 +429,99 @@ the `cpp` and `cmakePreset` options:
 cpp:
   cmakePreset: my-qodana-preset
 ```
--->
+
+## Configure native mode
+
+You can configure [native mode](deploy-qodana.md#deploy-qodana-native-mode) by specifying a linter and setting the 
+`withinDocker` option to `false`, for example:
+
+```yaml
+linter: qodana-dotnet
+withinDocker: false
+```
+
+Native mode is currently available for the following %product% linters:
+
+<table>
+    <tr>
+        <td>
+            Linter name
+        </td>
+        <td>
+            Description
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>%jvm-linter%</code>
+        </td>
+        <td>
+            <a href="jvm.md">%jvm%</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>%jvm-co-linter%</code>
+        </td>
+        <td>
+            <a href="jvm.md">%jvm-co%</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>%php-linter%</code>
+        </td>
+        <td>
+            <a href="php.md">%php%</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>%js-linter%</code>
+        </td>
+        <td>
+            <a href="js.md">%js%</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>%dotnet-linter%</code>
+        </td>
+        <td>
+            <a href="dotnet.md">%dotnet%</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>%go-linter%</code>
+        </td>
+        <td>
+            <a href="golang.md">%go%</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>%python-linter%</code>
+        </td>
+        <td>
+            <a href="python.md">%python%</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>%python-co-linter%</code>
+        </td>
+        <td>
+            <a href="python.md">%python-co%</a>
+        </td>
+    </tr>
+    <!--<tr>
+        <td>
+            <code>qodana-cpp:2025.2-eap</code>
+        </td>
+        <td>
+            <a href="clang.md">%clang%</a>
+        </td>
+    </tr>-->
+</table>
+

@@ -959,7 +959,7 @@ You can analyze pull requests using the %cpp% linter.
 </tabs>
 
 
-<!--## Configure compilers and environments
+## Configure compilers and environments
 
 <link-summary>CMake presets let you customize the %cpp% linter for specific compilers and environments.</link-summary>
 
@@ -1002,7 +1002,7 @@ cpp:
 
 > CLion scans CMake presets and creates an equivalent profile with the same name, and this profile overrides CMake presets.  
 > However, CLion profiles are not explicitly supported by %product%.
-{style="note"}-->
+{style="note"}
 
 ## Supported features
 
