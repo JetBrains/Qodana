@@ -176,6 +176,8 @@ GoLand, PyCharm, and Rider as explained in the <a href="qodana-ide-plugin.md" an
 <p>See the <a href="vscode.md" anchor="vs-code-explore-reports">Visual Studio Code</a> section for details.</p>
 </tab>
 <tab title="Shell commands" id="open-report-shell">
+<note>This feature is currently unavailable for analyses performed using 
+<a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
 <p>When you run %instance% with the <code>--save-report</code> option, it stores an HTML version of the report in 
 <code>/data/results/report</code>. This directory is typically mounted via Docker to let you view the HTML report later, 
 independently of running %instance%. Due to JavaScript security restrictions, you cannot browse the HTML report by 
