@@ -329,7 +329,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             <tab title="GitLab CI/CD" group-key="gitlab">
                 <code-block lang="yaml">
                 include:
-                   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                   - component: %gitlab-version%
                      inputs:
                         args: --no-build
                 </code-block>
@@ -581,7 +581,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     following configuration there:</p>
                     <code-block lang="yaml">
                         include:
-                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                           - component: %gitlab-version%
                              inputs:
                                 args: --linter,%qd-linter%
                     </code-block>
@@ -697,7 +697,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         following configuration there:</p>
                     <code-block lang="yaml">
                         include:
-                           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                           - component: %gitlab-version%
                              inputs:
                                 args: --linter,%qd-co-linter%
                     </code-block>
@@ -1344,7 +1344,7 @@ in a SARIF-formatted file.
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                           <code-block lang="yaml">
                             include:
-                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                               - component: %gitlab-version%
                                  inputs:
                                     args: | 
                                         --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1465,7 +1465,7 @@ in a SARIF-formatted file.
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                         <code-block lang="yaml">
                             include:
-                               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                               - component: %gitlab-version%
                                  inputs:
                                     args: |
                                         --baseline,&lt;path/to/qodana.sarif.json&gt;,
@@ -1583,7 +1583,7 @@ You can analyze pull requests using the %dotnet% linter.
         </p>
         <code-block lang="yaml">
             include:
-               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+               - component: %gitlab-version%
                  inputs:
                    args: --linter,%qd-linter%
         </code-block>

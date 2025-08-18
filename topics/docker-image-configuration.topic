@@ -139,7 +139,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --property=idea.log.config.file=info.xml,
@@ -1556,7 +1556,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                        - component: %gitlab-version%
                           inputs:
                              args: |
                                 -v,&lt;profile-file&gt;:/data/profile.xml,
@@ -1659,7 +1659,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       -v,gradle.properties:/data/cache/gradle/gradle.properties,
@@ -1909,7 +1909,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --cache-dir,/data/newcachedir,
@@ -2065,7 +2065,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --profile-name,qodana.recommended,
@@ -2168,7 +2168,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --profile-name,&lt;profile-name-from-file&gt;,
@@ -2277,7 +2277,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --profile-path,/data/project/myprofiles/&lt;file-name&gt;,
@@ -2388,7 +2388,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --config,relative/path/to/config.yaml,
@@ -2521,7 +2521,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --baseline,&lt;path-to-the-SARIF-file&gt;,
@@ -2638,7 +2638,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       -v,/my/dir/with/coverage:/data/coverage,
@@ -2839,7 +2839,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --fail-threshold,10,
@@ -2945,7 +2945,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       &lt;--apply-fixes/--cleanup&gt;,
@@ -3078,7 +3078,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --property=idea.log.config.file=info.xml,
@@ -3184,7 +3184,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --property,idea.headless.enable.statistics=false,
@@ -3296,7 +3296,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --property=idea.required.plugins.id=JavaScript,org.intellij.grails,
@@ -3422,7 +3422,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --diff-start=&lt;GIT_START_HASH&gt;,
@@ -3526,7 +3526,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --diff-start=&lt;GIT_START_HASH&gt;,
@@ -3649,7 +3649,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --script,default,
@@ -3747,7 +3747,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --script,php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;,
@@ -3864,7 +3864,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       -e,_JAVA_OPTIONS=-Xmx6g,
@@ -3976,7 +3976,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       -e,IDEA_PROPERTIES=/data/project/idea.properties,
@@ -4100,7 +4100,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       -u,root,

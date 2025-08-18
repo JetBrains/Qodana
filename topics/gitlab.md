@@ -129,7 +129,7 @@ For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save th
 
 ```yaml
 include:
-   - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v2025.2
+   - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v%version-current%
      inputs:
         args: --image,<image>
 ```

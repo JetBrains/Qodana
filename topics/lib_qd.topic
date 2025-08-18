@@ -1160,13 +1160,13 @@
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml" filter="generic">
                           include:
-                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                              - component: %gitlab-version%
                                 inputs:
                                     args: --linter,%qd-linter%
                         </code-block>
                 <code-block lang="yaml" filter="python">
                           include:
-                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                              - component: %gitlab-version%
                                 inputs:
                                     # Uncomment the image that you would like to employ
                                     # args: --linter,%qd-linter% # %qd%
@@ -1174,7 +1174,7 @@
                         </code-block>
                 <code-block lang="yaml" filter="jvm">
                           include:
-                              - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                              - component: %gitlab-version%
                                 inputs:
                                     # Uncomment the linter that you would like to employ
                                     # args: --linter,%qd-linter% # Qodana for JVM
@@ -1664,7 +1664,7 @@
                 uncomment the linter that you would like to employ:</p>
             <code-block lang="yaml" filter="jvm">
                     include:
-                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                        - component: %gitlab-version%
                           inputs:
                               # Uncomment the linter you would like to employ
                               # args: --linter,%qd-linter% # Qodana for JVM
@@ -1675,7 +1675,7 @@
             <p filter="python">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="python">
                     include:
-                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                        - component: %gitlab-version%
                           inputs:
                             # Uncomment the linter you would like to employ
                             # args: --linter,%qd-linter% # %qd%
@@ -1684,7 +1684,7 @@
             <p filter="generic">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="generic">
                     include:
-                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                        - component: %gitlab-version%
                           inputs:
                               args: --linter,%qd-linter%
                   </code-block>
@@ -2020,13 +2020,13 @@
                     <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                     <code-block lang="yaml" filter="generic">
                       include:
-                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                          - component: %gitlab-version%
                             inputs:
                                args: --image,%qd-linter%
                     </code-block>
                     <code-block lang="yaml" filter="jvm">
                       include:
-                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                          - component: %gitlab-version%
                             inputs: # Uncomment the Docker image that you wish to use
                               # args: --image,%qd-linter% # %qd%
                               # args: --image,%qd-co-linter% # %qd-co%
@@ -2035,7 +2035,7 @@
                     </code-block>
                     <code-block lang="yaml" filter="python">
                       include:
-                          - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                          - component: %gitlab-version%
                             inputs: # Uncomment the Docker image that you wish to use
                               # args: --image,%qd-linter% # %qd%
                               # args: --image,%qd-co-linter% # %qd-co%
@@ -2251,19 +2251,19 @@
                 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                 <code-block lang="yaml" filter="generic">
                   include:
-                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                      - component: %gitlab-version%
                         inputs:
                             args: --linter,%qd-linter%
                 </code-block>
                 <code-block lang="yaml" filter="jvm">
                   include:
-                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                      - component: %gitlab-version%
                         inputs:
                             args: --linter,%qd-linter%
                 </code-block>
                 <code-block lang="yaml" filter="python">
                   include:
-                      - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                      - component: %gitlab-version%
                         inputs:
                             args: --linter,%qd-linter%
                 </code-block>

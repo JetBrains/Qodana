@@ -101,7 +101,7 @@ You can use the --diff-start option to analyze changes between the current versi
         <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                 <code-block lang="yaml">
                     include:
-                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2    
+                       - component: %gitlab-version%    
                          inputs:
                             args: --image,&lt;image&gt;
                 </code-block>
@@ -109,7 +109,7 @@ You can use the --diff-start option to analyze changes between the current versi
         can use the following configuration:</p>
         <code-block lang="yaml">
             include:
-               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+               - component: %gitlab-version%
                          inputs:
                             args: --image,&lt;image&gt;
             &nbsp;
@@ -202,7 +202,7 @@ and <code>--diff-end</code> options:</p>
 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
         <code-block lang="yaml">
         include:
-           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+           - component: %gitlab-version%
              inputs:
                 args: --diff-start,$CI_MERGE_REQUEST_TARGET_BRANCH_SHA,--diff-end,$CI_MERGE_REQUEST_SOURCE_BRANCH_SHA,--image,&lt;image&gt;
         </code-block>

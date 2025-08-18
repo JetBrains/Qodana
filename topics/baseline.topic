@@ -136,7 +136,7 @@
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json,
@@ -291,7 +291,7 @@
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
                         include:
-                            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                            - component: %gitlab-version%
                               inputs:
                                   args: |
                                       --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json,

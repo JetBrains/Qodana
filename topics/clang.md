@@ -452,14 +452,14 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
         <code-block lang="yaml">
           include:
-            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+            - component: %gitlab-version%
                 args: --image,%common-image%
         </code-block>
         <p>To override the location of the <code>compile_commands.json</code> file for the  %qdcppc% linter, specify the location relative to the project root, so the configuration would look like:
         </p>
         <code-block lang="yaml">
           include:
-            - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+            - component: %gitlab-version%
               inputs:
                  args: |
                     --compile-commands,&lt;path-to-compile_commands.json&gt;,
@@ -822,7 +822,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
         baseline feature.</p>
       <code-block lang="yaml">
         include:
-           - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+           - component: %gitlab-version%
              inputs:
                 args: | 
                     --baseline,qodana.sarif.json,
@@ -918,7 +918,7 @@ You can analyze pull requests using the %cpp% linter.
         </p>
         <code-block lang="yaml">
             include:
-               - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+               - component: %gitlab-version%
                  inputs:
                    args: --image,%qdcpp-image%
         </code-block>

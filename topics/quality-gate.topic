@@ -207,7 +207,7 @@
                     configuration to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml">
                     include:
-                       - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+                       - component: %gitlab-version%
                          inputs:
                             args: |
                               --fail-threshold,&lt;number-of-accepted-problems&gt;,

@@ -207,7 +207,7 @@ Follow these steps to add a %instance% runner to a GitLab CI/CD pipeline:
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2
+  - component: %gitlab-version%
     inputs:
       args: --fail-threshold,<number-of-accepted-problems>,--image,&lt;image&gt;
 ```
