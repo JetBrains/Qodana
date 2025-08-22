@@ -5,13 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1beb8bfe-c25b-4a0a-ada0-9e1fad92ccd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/global-configuration-tab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/global-project-actions.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gpc-onboarding-cicd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gpc-onboarding-job.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gpc-project-list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gpc-revoke-token-dialog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/onboarding-cicd.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/cloud-organizations.topic" beforeDir="false" afterPath="$PROJECT_DIR$/topics/cloud-organizations.topic" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topics/global-configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/global-configuration.md" afterDir="false" />

@@ -7,7 +7,7 @@ consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and inspect
 ## How the global configuration works
 
 YAML-formatted configuration files are saved in project directories of VCS repositories. Using [CI/CD pipelines](ci.md), 
-an uploader tool run using a [access token](#Access+token) you can send these files to Qodana Cloud. 
+an uploader tool run using a [configuration token](#Configuration+token) you can send these files to Qodana Cloud. 
 This lets global configurations become connected to Qodana Cloud projects; during project analyses, %product% linters 
 obtain global configuration for use. 
 
@@ -21,7 +21,7 @@ Files contained in a global configuration can be updated using access to your VC
 
 ### Global and project configurations
 
-Local configuration is a configuration created for a specific project and located within a project repository.
+Project configuration is a configuration created for a specific project and located within a project repository.
 Global configuration is a configuration that can be shared across multiple projects. 
 Both configurations can be merged into a single configuration and contained in a single [YAML-formatted file](qodana-yaml.md), 
 as well as two global configurations. In this case, profile configurations are merged as well using the 
@@ -99,9 +99,9 @@ To upload global configurations to Qodana Cloud, you should use a special config
 To upload configurations to Qodana Cloud, run your CI/CD pipeline. Once uploaded, global configurations become available 
 in the [organization settings](cloud-organizations.topic) of Qodana Cloud UI.
 
-### Access token
+### Configuration token
 
-An access token is a token that you can generate on the **Global configurations** tab of your 
+A configuration token is a token that you can generate on the **Global configurations** tab of your 
 [organization settings](cloud-organizations.topic#cloud-organizations-global-configurations). Using this token, you can 
 send your global configuration to Qodana Cloud as described in the [](#How+the+global+configuration+works) section on this page. 
 
