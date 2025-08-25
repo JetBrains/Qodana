@@ -9,8 +9,9 @@
 <var name="java-glob" value="https://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-"/>
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
-<var name="jvmcoverageinspection" value="https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html"/>
+<var name="jvmcoverageinspection" value="https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html#inspection-options"/>
 <var name="export-profile" value="https://www.jetbrains.com/help/idea/customizing-profiles.html#export-and-import-a-profile"/>
+<var name="ruby-inspection" value="https://www.jetbrains.com/help/inspectopedia/RubyParameterNamingConvention.html#inspection-options"/>
 <link-summary>Starting from version 2023.2, you can create and configure Qodana profiles using YAML. </link-summary>
 
 You can create and configure %instance% inspection profiles using YAML and XML file formats. 
@@ -476,6 +477,9 @@ Here is a profile example for the `JvmCoverageInspection` inspection:
     </profile>
 </component>
 ```
+
+> For several inspections, Inspectopedia provides the detailed description of available options. For example, see 
+> the [`RubyParameterNamingConvention`](%ruby-inspection%) inspection.  
 
 This sample demonstrates how to configure the inspection options in your custom profile:
 
