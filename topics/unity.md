@@ -1,6 +1,6 @@
 [//]: # (title: Unity)
 
-<var name="qp-linter" value="jetbrains/qodana-dotnet:2024.2"/>
+<var name="qp-linter" value="jetbrains/qodana-dotnet:2025.2"/>
 
 
 You can analyze Unity project using %product% as explained in this section. 
@@ -48,7 +48,8 @@ In the [`qodana.yaml`](qodana-yaml.md) file, save the following configuration to
 native mode and use the [`qodana.recommended`](inspection-profiles.md) inspection profile:
 
 ```yaml
-ide: QDNET # Enbaling the native mode
+linter: qodana-dotnet # Enabling native mode
+withinDocker: false
 
 baseProfile: qodana.recommended # Specifying the profile
 ```
@@ -141,7 +142,7 @@ a project directory.</p>
 Using recommendations from the [](ui-overview.md) and [](inspection-profiles.md) sections, you can adjust 
 %product% analysis of your project. For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of a %product% report, you can adjust
 the inspections that will be used during the analysis or exclude them from the analysis. Also, you can exclude directories 
-of your project that you do not want %product% to analyze. 
+of your project that you do not wish %product% to analyze. 
 
 For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of your report, you can adjust 
 the inspections that will be used during the analysis. To adjust the existing profile, you can use the recommendations 
