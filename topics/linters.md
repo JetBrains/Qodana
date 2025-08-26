@@ -23,6 +23,7 @@ Currently, several linters provide inspections for several programming languages
     <tr>
         <td>Project languages</td>
         <td>Supported by linters / linter name *</td>
+        <td>Available under <a href="pricing.md" anchor="license-comparison-matrix"> license(s)</a></td>
     </tr>
     <tr>
         <td>
@@ -34,10 +35,19 @@ Currently, several linters provide inspections for several programming languages
             <p><a href="jvm.md">%jvm-co-a%</a>&nbsp;/&nbsp;<code>%jvm-co-a-linter%</code></p>
             <p><a href="jvm.md">%jvm-a%</a>&nbsp;/&nbsp;<code>%jvm-a-linter%</code></p>
         </td>
+        <td>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Community</a>&nbsp;</p>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Community</a>&nbsp;</p>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
+        </td>
     </tr>
     <tr>
         <td><img src="php.png" dark-src="php_dark.png" alt="PHP" width="296"/></td>
         <td><a href="php.md">%php%</a>&nbsp;/&nbsp;<code>%php-linter%</code></td>
+        <td>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a></p>
+        </td>
     </tr>
     <tr>
         <td><img src="js.png" dark-src="js_dark.png" alt="JavaScript and TypeScript" width="296"/></td>
@@ -51,6 +61,9 @@ Currently, several linters provide inspections for several programming languages
             <p><a href="golang.md">%go%</a>&nbsp;/&nbsp;<code>%go-linter%</code></p>
             <p><a href="ruby.md">%ruby%</a>&nbsp;/&nbsp;<code>%ruby-linter%</code></p>
         </td>
+        <td>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a> for all linters</p>
+        </td>
     </tr>
     <tr>
         <td>
@@ -62,6 +75,12 @@ Currently, several linters provide inspections for several programming languages
             <p><a href="clang.md">%clang%</a>&nbsp;/&nbsp;<code>%clang-linter%</code></p>
             <p><a href="clang.md">%cpp%</a>&nbsp;/&nbsp;<code>%cpp-linter%</code></p>
         </td>
+        <td>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Community</a>&nbsp;</p>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Community</a>&nbsp;</p>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
+        </td>
     </tr>
     <tr>
         <td><img src="python.png" dark-src="python_dark.png" alt="Python" width="296"/></td>
@@ -69,14 +88,24 @@ Currently, several linters provide inspections for several programming languages
             <p><a href="python.md">%python%</a>&nbsp;/&nbsp;<code>%python-linter%</code></p>
             <p><a href="python.md">%python-co%</a>&nbsp;/&nbsp;<code>%python-co-linter%</code></p>
         </td>
+        <td>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Community</a>&nbsp;</p>
+        </td>
     </tr>
     <tr>
         <td><img src="golang.png" dark-src="golang_dark.png" alt="Golang" width="296"/></td>
         <td><a href="golang.md">%go%</a>&nbsp;/&nbsp;<code>%go-linter%</code></td>
+        <td>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
+        </td>
     </tr>
     <tr>
         <td><img src="ruby.png" dark-src="ruby_dark.png" alt="Ruby" width="296"/></td>
         <td><a href="ruby.md">%ruby%</a>&nbsp;/&nbsp;<code>%ruby-linter%</code></td>
+        <td>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
+        </td>
     </tr>
 </table>
 
