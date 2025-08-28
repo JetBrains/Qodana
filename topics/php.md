@@ -138,15 +138,15 @@ The %qd% linter provides inspections for the following technologies.
     <tr>
         <td>Frameworks and libraries</td>
         <td>
+            <p>Behat</p>
             <p>Cucumber</p>
             <p>Joomla!</p>
+            <p>Node.js</p>
             <p>PHPUnit</p>
             <p>Psalm</p>
-            <p>Behat</p>
+            <p>React</p>
             <p>Symfony</p>
             <p>Vue</p>
-            <p>React</p>
-            <p>Node.js</p>
         </td>
     </tr>
     <tr>
@@ -156,13 +156,15 @@ The %qd% linter provides inspections for the following technologies.
             <p>CSS</p>
             <p>HTML</p>
             <p>JSON and JSON5</p>
+            <p>JSONPath</p>
+            <p>Less</p>
+            <p>PostCSS</p>
             <p>RELAX NG</p>
+            <p>SASS/SCSS</p>
             <p>XML</p>
+            <p>XPath</p>
             <p>XSLT</p>
             <p>YAML</p>
-            <p>Less</p>
-            <p>SASS/SCSS</p>
-            <p>PostCSS</p>
         </td>
     </tr>
     <tr>
@@ -191,9 +193,9 @@ The %qd% linter provides inspections for the following technologies.
     <tr>
         <td>Other</td>
         <td>
+            <p>HTTP Client</p>
             <p>Regular expressions</p>
             <p>Structural search</p>
-            <p>HTTP Client</p>
         </td>
     </tr> 
 </table>

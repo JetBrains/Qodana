@@ -1687,17 +1687,24 @@ docker run \
         <td>Frameworks and libraries</td>
         <td>
               <p>Angular</p>
-              <p>ASP.NET</p>
               <p>ASPX</p>
               <p>Blazor</p>  
+              <p>ASP.NET</p>
+              <p>Godot</p>  
               <p>Handlebars/Mustache</p>
+              <p>HTTP client</p>
               <p>Less</p>
+              <p>Node.js</p>
+              <p>NUnit</p>
               <p>PostCSS</p>
               <p>Pug/Jade</p>
+              <p>React</p>
               <p>Roslyn</p>
               <p>Sass/SCSS</p>
+              <p>Unity</p>  
               <p>Unreal Engine</p>
               <p>Vue</p>
+              <p>xUnit</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -1712,12 +1719,37 @@ docker run \
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&nbsp;</p>
         </td>
     </tr>
-        <tr>
+    <tr>
         <td>Databases and ORM</td>
         <td>
               <p>MongoDB</p>
@@ -1742,18 +1774,23 @@ docker run \
     <tr>
         <td>Markup languages and file formats</td>
         <td>
-              <p>CSS</p>
               <p>HTML</p>
-              <p>JSON and JSON5</p>
-              <p>Kubernetes</p>
-              <p>Markdown</p>
-              <p>OpenAPI specifications</p>
               <p>Razor</p>
-              <p>RELAX NG</p>
+              <p>RegExp</p>
               <p>ResX</p>
-              <p>T4</p>
               <p>XML</p>
               <p>XAML</p>
+              <p>CSS</p>
+              <p>Docker</p>
+              <p>GitHub Actions</p>
+              <p>JSON and JSON5</p>
+              <p>JSONPath</p>
+              <p>Kubernetes</p>
+              <p>Markdown</p>
+              <p>OpenAPI</p>
+              <p>RELAX NG</p>
+              <p>ShaderLab</p>
+              <p>T4</p>
               <p>XPath</p>
               <p>XSLT</p>
               <p>YAML</p>
@@ -1775,10 +1812,23 @@ docker run \
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&#x2714;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -1843,6 +1893,9 @@ docker run \
       </td>
     </tr>
 </table>
+
+
+
 
 \* C and C++ inspections are applicable for projects containing `.sln` files.
 

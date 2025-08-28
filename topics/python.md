@@ -226,6 +226,7 @@ This table contains the list of technologies and %product% [features](features.t
     <tr>
         <td>Frameworks and libraries</td>
         <td>
+            <p>Pandas</p>
             <p>Pyramid</p>
             <p>Node.js</p>
             <p>React</p>
@@ -236,8 +237,10 @@ This table contains the list of technologies and %product% [features](features.t
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
+            <p>&#x2714;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -284,6 +287,7 @@ This table contains the list of technologies and %product% [features](features.t
             <p>PostCSS</p>
             <p>Less</p>
             <p>CSS</p>
+            <p>JSONPath</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -296,6 +300,7 @@ This table contains the list of technologies and %product% [features](features.t
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -304,6 +309,7 @@ This table contains the list of technologies and %product% [features](features.t
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>

@@ -222,8 +222,8 @@ If you choose the Ultimate or Ultimate Plus trial license, you will be redirecte
 
 If you plan to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to the JetBrains account 
 page for payment details. After the payment, you will be redirected to the [project setup](set-up-your-project.md) page of 
-%cloud%. Also, the Email mentioned during license purchase will receive an activation link that should be used
-so that your license becomes activated.
+%cloud%. Also, the email address mentioned during license purchase will receive an activation link that should be used
+so that your license becomes activated. This activation link is valid within seven days.
 
 2. During the project setup stage, %cloud% will generate a public key that will be 
 identified by %instance%, as well as a project token for uploading %instance% reports to your first project.

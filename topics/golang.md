@@ -135,9 +135,21 @@ To see the list of supported technologies and features, you can navigate to the 
             <p>CSS</p>
             <p>HTML</p>
             <p>JSON and JSON5</p>
+            <p>JSONPath</p>
             <p>RELAX NG</p>
             <p>XML</p>
             <p>YAML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Databases and ORM</td>
+        <td>
+              <p>MongoDB</p>
+              <p>MySQL</p>
+              <p>Oracle</p>
+              <p>PostgreSQL</p>
+              <p>SQL</p>
+              <p>SQL server</p>
         </td>
     </tr>
     <tr>

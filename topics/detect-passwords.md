@@ -11,7 +11,7 @@ and covers [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#]
 > The `HardcodedPasswords` inspection analyzes files tracked in git with the “unchanged” status.
 {style="note"}
 
-#### How it works
+#### How password detection works
 
 By default, the `HardcodedPasswords` analysis reports variables with values matching built-in regex rules for
 hard-coded passwords. To report any variable with a suspicious name like `token` or `password` and a constant string value,

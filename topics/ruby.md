@@ -150,8 +150,9 @@ The command will be automatically executed before the analysis to install depend
             <p>RBS</p>
             <p>React</p>
             <p>Ruby on Rails</p>
-            <p>Sass</p>
+            <p>Sass/SCSS</p>
             <p>Vue</p>
+            <p>YARD</p>
         </td>
     </tr>
     <tr>
@@ -171,6 +172,7 @@ The command will be automatically executed before the analysis to install depend
             <p>CSS</p>
             <p>HTML</p>
             <p>JSON and JSON5</p>
+            <p>JSONPath</p>
             <p>Less</p>
             <p>PostCSS</p>
             <p>RELAX NG</p>

@@ -157,18 +157,30 @@ include:
     <tr>
         <td>Markup languages</td>
         <td>
-            <p>PostCSS</p>
-            <p>Sass/SCSS</p>
-            <p>Less</p>
-            <p>Handlebars/Mustache</p>
-            <p>EJS</p>
-            <p>Pug/Jade</p>
             <p>CSS</p>
+            <p>EJS</p>
+            <p>Handlebars/Mustache</p>
             <p>HTML</p>
             <p>JSON and JSON5</p>
+            <p>JSONPath</p>
+            <p>Less</p>
+            <p>PostCSS</p>
+            <p>Pug/Jade</p>
             <p>RELAX NG</p>
+            <p>Sass/SCSS</p>
             <p>XML</p>
             <p>YAML</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Databases and ORM</td>
+        <td>
+              <p>MongoDB</p>
+              <p>MySQL</p>
+              <p>Oracle</p>
+              <p>PostgreSQL</p>
+              <p>SQL</p>
+              <p>SQL server</p>
         </td>
     </tr>
     <tr>

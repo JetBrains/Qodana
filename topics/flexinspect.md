@@ -6,6 +6,8 @@
 <var name="ts" value="https://www.jetbrains.com/help/idea/typescript-support.html"/>
 <var name="idea-doc" value="https://www.jetbrains.com/help/idea/getting-started.html"/>
 
+<show-structure for="chapter" depth="3"/>
+
 <link-summary>
 You can develop your own inspections specific to your project using the IntelliJ API and Kotlin.
 </link-summary>
