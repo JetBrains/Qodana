@@ -86,7 +86,6 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | Technology    | Community | Ultimate and Ultimate Plus |
 |---------------|-----------|----------------------------|
 | Hibernate ORM | &#x274c;  | &#x2714;                   |
-| Liquibase     | &#x274c;  | &#x2714;                   |
 | MongoDB       | &#x274c;  | &#x2714;                   |
 | MySQL         | &#x274c;  | &#x2714;                   |
 | Oracle        | &#x274c;  | &#x2714;                   |
@@ -100,15 +99,14 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | Framework or library | Community | Ultimate and Ultimate Plus |
 |----------------------|-----------|----------------------------|
 | JavaBeans            | &#x2714;  | &#x2714;                   |
-| JavaFX               | &#x2714;  | &#x2714;                   |
-| JPA                  | &#x2714;  | &#x2714;                   |
+| JPA                  | &#x274c;  | &#x2714;                   |
 | JUnit                | &#x2714;  | &#x2714;                   |
 | Lombok               | &#x2714;  | &#x2714;                   |
-| Reactive Streams     | &#x2714;  | &#x2714;                   |
+| Reactive Streams     | &#x274c;  | &#x2714;                   |
 | TestNG               | &#x2714;  | &#x2714;                   |
 | .NET Core            | &#x274c;  | &#x2714;                   |
 | .NET Framework       | &#x274c;  | &#x2714;                   |
-| Angular              | &#x274c;  | &#x2714;                   | 
+| Angular              | &#x2714;  | &#x2714;                   | 
 | Apache Velocity      | &#x274c;  | &#x2714;                   |
 | Behat                | &#x274c;  | &#x2714;                   |
 | Cucumber             | &#x274c;  | &#x2714;                   |
@@ -117,20 +115,15 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | Joomla!              | &#x274c;  | &#x2714;                   |
 | JSP                  | &#x274c;  | &#x2714;                   |
 | Ktor                 | &#x274c;  | &#x2714;                   |
-| Micronaut            | &#x274c;  | &#x2714;                   |
 | Node.js              | &#x274c;  | &#x2714;                   |
 | NUnit                | &#x274c;  | &#x2714;                   |
-| OpenRewrite          | &#x274c;  | &#x2714;                   |
 | PHPUnit              | &#x274c;  | &#x2714;                   |
 | Psalm                | &#x274c;  | &#x2714;                   |
 | Pyramid              | &#x274c;  | &#x2714;                   |
-| Quarkus              | &#x274c;  | &#x2714;                   |
-| RBS                  | &#x274c;  | &#x2714;                   |
 | React                | &#x274c;  | &#x2714;                   |
 | Ruby on Rails        | &#x274c;  | &#x2714;                   |
 | Spring               | &#x274c;  | &#x2714;                   |
 | Symfony              | &#x274c;  | &#x2714;                   |
-| Thymeleaf            | &#x274c;  | &#x2714;                   |
 | Unity                | &#x274c;  | &#x2714;                   |
 | Unreal Engine        | &#x274c;  | &#x2714;                   |
 | Vue                  | &#x274c;  | &#x2714;                   |

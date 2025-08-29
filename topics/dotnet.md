@@ -1705,6 +1705,7 @@ docker run \
               <p>Unreal Engine</p>
               <p>Vue</p>
               <p>xUnit</p>
+              <p>.NET Core</p>
         </td>
         <td>
             <p>&#x2714;</p>
@@ -1726,11 +1727,13 @@ docker run \
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&#x2714;</p>
         </td>
         <td>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
             <p>&#x2714;</p>
+            <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>

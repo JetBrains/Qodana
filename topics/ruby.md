@@ -178,7 +178,6 @@ The command will be automatically executed before the analysis to install depend
             <p>RELAX NG</p>
             <p>XML</p>
             <p>YAML</p>
-            <p>YARD</p>  
         </td>
     </tr>
     <tr>

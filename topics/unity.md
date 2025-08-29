@@ -31,12 +31,11 @@ To run %product%, you need to obtain a [project token](project-token.md) that  w
 
 ### Solution and packages
 
-<!-- Probably add references to the .NET section from here -->
+Make sure that you have already built your Unity project, see the [](dotnet.md#dotnet-build-project)
+chapter of the .NET section for details. 
 
-Make sure that your Unity project has been built.
-
-Unity projects typically don’t include a C# solution and project files, and these need to be generated in order for 
-Qodana to process them. You can install the corresponding .NET SDK in the build environment by executing the following 
+Unity projects typically don’t include a C# solution and project files, and these should be generated. 
+Install the corresponding .NET SDK in the build environment by executing the following 
 script on each build:
 
 ```Bash
@@ -52,15 +51,17 @@ In the [`qodana.yaml`](qodana-yaml.md) file, save the following configuration to
 native mode and use the [`qodana.recommended`](inspection-profiles.md) inspection profile:
 
 ```yaml
-linter: qodana-dotnet # Enabling native mode
-withinDocker: false
+linter: qodana-dotnet # Specifying the linter
+withinDocker: false # Enabling native mode
 
 baseProfile: qodana.recommended # Specifying the profile
 ```
 
+Native mode is the recommended mode for running the [%dotnet%](dotnet.md) linter.
+
 ### Prepare your software
 
-Choose the software which you would like to use for running %product%:
+Choose the software that you would like to use for running %product%, for example:
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
@@ -74,7 +75,7 @@ Choose the software which you would like to use for running %product%:
             pipeline configuration that will be used by GitLab CI/CD in this use case.
         </p>
     </tab>
-    <tab title="Command line" group-key="command-line">
+    <tab title="Qodana CLI" group-key="command-line">
         <p>Follow the instructions from the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> page on GitHub.</p>
     </tab>
 </tabs>
@@ -118,7 +119,7 @@ Choose the software which you would like to use for running %product%:
                 - component: $CI_SERVER_FQDN/&lt;org&gt;/&lt;repo&gt;/qodana-gitlab-ci@v%version-current%
         </code-block>
     </tab>
-    <tab title="Command line" group-key="command-line">
+    <tab title="Qodana CLI" group-key="command-line">
         <p>Run this command in the project root directory:</p>
         <code-block lang="shell" prompt="$">
             qodana scan 
@@ -147,10 +148,7 @@ a project directory.</p>
 ## Customize your analysis
 
 Using recommendations from the [](ui-overview.md) and [](inspection-profiles.md) sections, you can adjust 
-%product% analysis of your project. For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of a %product% report, you can adjust
+%product% analysis of your project. For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of a %product% report, you can select
 the inspections that will be used during the analysis or exclude them from the analysis. Also, you can exclude directories 
-of your project that you do not wish %product% to analyze. 
-
-For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of your report, you can adjust 
-the inspections that will be used during the analysis. To adjust the existing profile, you can use the recommendations 
+of your project that you do not wish %product% to analyze. To adjust the existing profile, you can use the recommendations 
 from the [](custom-profiles.md) section.
