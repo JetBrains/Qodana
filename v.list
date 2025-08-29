@@ -338,4 +338,7 @@
     <var name="version-previous" value="2025.1"/>
     <var name="version-current" value="2025.2"/>
 
+    <!-- Self-hosted variables -->
+    <var name="premlite" value="Qodana Self-Hosted"/>
+
 </vars>
