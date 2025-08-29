@@ -208,7 +208,8 @@ If your custom inspection conflicts with a %product% inspection, and you would s
 <a href="qodana-yaml.md" anchor="exclude-inspection">disable</a> the relevant %product% inspection.
 </note>
 
-%feature% is supported by the [default inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles).
+%feature% is supported by the [default inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles). In the [`qodana.yaml`](qodana-yaml.md) file, use the inspection 
+name from the `id` field of the [inspection file](#Create+an+inspection+file) to [disable or enable](qodana-yaml.md#Example+of+different+configuration+options) your custom inspection.
 
 To analyze your entire project with the new inspection locally, run %product% as explained in the 
 [](qodana-ide-plugin.md#ide-plugin-run-qodana) section.
@@ -219,6 +220,3 @@ To run your custom inspection in a CI pipeline, you can visit the [](ci.md) sect
 specific CI/CD solution. Because your inspection is already contained in the `inspections` directory of your project, it's 
 already available for inspecting your code.
 
-You can use the inspection name from the `id` field of the [inspection file](#Create+an+inspection+file)
-to [disable or enable](qodana-yaml.md#Example+of+different+configuration+options) your custom inspection in the 
-[`qodana.yaml`](qodana-yaml.md) file.
