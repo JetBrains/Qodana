@@ -116,7 +116,7 @@ Choose the software that you would like to use for running %product%, for exampl
     <tab title="GitLab CI/CD" group-key="gitlab">
         <code-block lang="yaml">
             include:
-                - component: $CI_SERVER_FQDN/&lt;org&gt;/&lt;repo&gt;/qodana-gitlab-ci@v%version-current%
+                - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v%version-current%
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="command-line">
