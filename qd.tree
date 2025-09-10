@@ -90,7 +90,8 @@
 		<toc-element topic="quick-fix.md"/>
 		<toc-element topic="taint-analysis.md"/>
 		<toc-element topic="vulnerability-checker.md"/>
-	</toc-element>
+        <toc-element topic="cloud-api.md"/>
+    </toc-element>
 
 	<!-- Integration section -->
 	<toc-element toc-title="Integration with CI systems">
