@@ -338,10 +338,10 @@ If a code coverage report file contains information about generated files, exclu
 
 Here is the description of this line: 
 
-| Command step                                                                         | Description                                                                     |
-|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| `/p:ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute"` | Exclude methods or classes marked with specific attributes from coverage reports |
-| `/p:ExcludeByFile="some-exclude-pattern`                                             | Excludes files matching a pattern (e.g., `**/Generated/*.cs`)  |
+| Command step                  | Description                                                                     |
+|-------------------------------|---------------------------------------------------------------------------------|
+| `/p:ExcludeByAttribute="..."` | Exclude methods or classes marked with specific attributes from coverage reports |
+| `/p:ExcludeByFile="...`       | Excludes files matching a pattern (e.g., `**/Generated/*.cs`)  |
 
 Code coverage analysis results for the [Qodana for .NET](dotnet.md) linter are available in [](#overview-code-coverage-qodana-cloud).
 
