@@ -120,7 +120,8 @@ separate `qodana.yaml` file. You can put these files in repository directories, 
 in the root directory of a project.
 
     For the [%dotnet%](dotnet.md) linter, add the <a href="https://www.nuget.org/packages/coverlet.msbuild"><code>coverlet.msbuild</code></a> 
-    and [`coverlet.collector`](https://www.nuget.org/packages/coverlet.collector) packages to the test project.
+    and [`coverlet.collector`](https://www.nuget.org/packages/coverlet.collector) packages to the test project. Also, for the [%dotnet%](dotnet.md) linter check 
+    whether a code coverage report contains information about generated files.
 
 ## Run code coverage
 {id="run-code-coverage"}
@@ -327,6 +328,20 @@ The [`bootstrap`](before-running-qodana.md) key performs several steps before ru
 | `/p:CollectCoverage=true`                                       | Enable code coverage                                                                          |
 | `/p:CoverletOutput=<your-project-folder>/.qodana/code-coverage` | Collect code coverage results to a specific directory                                         |
 | `/p:CoverletOutputFormat=lcov`                                  | Specify the code coverage output format                                                       |
+
+If a code coverage report file contains information about generated files, exclude this information by extending the 
+[`bootstrap`](before-running-qodana.md) key with the following line:
+
+```yaml
+/p:ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute" and/or /p:ExcludeByFile="some-exclude-pattern"
+```
+
+Here is the description of this line: 
+
+| Command step                                                                         | Description                                                                     |
+|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| `/p:ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute"` | Exclude methods or classes marked with specific attributes from coverage reports |
+| `/p:ExcludeByFile="some-exclude-pattern`                                             | Excludes files matching a pattern (e.g., `**/Generated/*.cs`)  |
 
 Code coverage analysis results for the [Qodana for .NET](dotnet.md) linter are available in [](#overview-code-coverage-qodana-cloud).
 
