@@ -329,19 +329,20 @@ The [`bootstrap`](before-running-qodana.md) key performs several steps before ru
 | `/p:CoverletOutput=<your-project-folder>/.qodana/code-coverage` | Collect code coverage results to a specific directory                                         |
 | `/p:CoverletOutputFormat=lcov`                                  | Specify the code coverage output format                                                       |
 
-If a code coverage report file contains information about generated files, exclude this information by extending the 
-[`bootstrap`](before-running-qodana.md) key with the following line:
+If a code coverage report file contains information about generated files, exclude this information by adding one or 
+both of the following lines to the `dotnet test ...` line:
 
 ```yaml
-/p:ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute" and/or /p:ExcludeByFile="some-exclude-pattern"
+/p:ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute" 
+/p:ExcludeByFile="some-exclude-pattern"
 ```
 
-Here is the description of this line: 
+Here is the description of these lines: 
 
-| Command step                  | Description                                                                     |
-|-------------------------------|---------------------------------------------------------------------------------|
-| `/p:ExcludeByAttribute="..."` | Exclude methods or classes marked with specific attributes from coverage reports |
-| `/p:ExcludeByFile="...`       | Excludes files matching a pattern (e.g., `**/Generated/*.cs`)  |
+| Command step                  | Description                                                   |
+|-------------------------------|---------------------------------------------------------------|
+| `/p:ExcludeByAttribute="..."` | Exclude methods or classes marked with specific attributes    |
+| `/p:ExcludeByFile="..."`      | Excludes files matching a pattern (e.g., `**/Generated/*.cs`) |
 
 Code coverage analysis results for the [Qodana for .NET](dotnet.md) linter are available in [](#overview-code-coverage-qodana-cloud).
 
