@@ -345,7 +345,7 @@ and their analogs in the classic interface.
       <td><code>true</code></td>
    </tr>
    <tr>
-      <td><code>post-pr-comment</code></td>
+      <td><code>postPrComment</code></td>
       <td><control>Post PR comment</control></td>
       <td>Post a comment with the Qodana results summary to the pull request. Optional.</td>
       <td><code>true</code></td>
@@ -357,7 +357,7 @@ and their analogs in the classic interface.
       <td><code>none</code></td>
    </tr>
    <tr>
-      <td><code>commit-message</code></td>
+      <td><code>commitMessage</code></td>
       <td><control>Commit Message</control></td>
       <td>Commit message used when Quick-Fixes are applied</td>
       <td><code>🤖 Apply Quick-Fixes by %product%</code></td>

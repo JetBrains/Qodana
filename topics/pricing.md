@@ -1,4 +1,4 @@
-[//]: # (title: Pricing Model)
+[//]: # (title: Pricing model)
 
 <link-summary>Qodana provides the Community, Ultimate, and Ultimate Plus licenses. You can learn more about the differences 
 between them.</link-summary>
