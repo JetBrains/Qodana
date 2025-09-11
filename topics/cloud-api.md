@@ -56,7 +56,7 @@ To create a new team and project and obtain its [project token](project-token.md
 `https://api.qodana.cloud/v1/public/organizations/teams/projects` endpoint, for example: 
 
 ```cURL
-QODANA_TOKEN=$(curl -X POST https://api.qodana.cloud/v1/public/organizations/teams/projects \
+QODANA_TOKEN=$(curl -X POST https://api.qodana.cloud/v1/public/organizations/projects \
   -H "Authorization: Bearer $PERMANENT_ORGANIZATION_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
