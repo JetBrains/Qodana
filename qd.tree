@@ -90,7 +90,6 @@
 		<toc-element topic="quick-fix.md"/>
 		<toc-element topic="taint-analysis.md"/>
 		<toc-element topic="vulnerability-checker.md"/>
-        <toc-element topic="cloud-api.md"/>
     </toc-element>
 
 	<!-- Integration section -->
@@ -132,6 +131,7 @@
 		<toc-element toc-title="Tutorials">
 			<toc-element topic="cloud-configure-for-os-projects.md"/>
 		</toc-element>
+        <toc-element topic="cloud-api.md"/>
 	</toc-element>
 
     <!--Self-hosted section -->
