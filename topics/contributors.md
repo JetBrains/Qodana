@@ -65,12 +65,8 @@ qodana contributors -d 90
 ```
 {prompt="$"}
 
-<!-- ### The .mailmap file support
+### The .mailmap file support
 
-Contributors may appear under different Email addresses in the Git history, causing them to be counted multiple times. 
-To prevent overcounting contributors, %product% reads the [`.mailmap`](https://git-scm.com/docs/gitmailmap) file for 
-mapping multiple Email addresses to a single contributor identity. This ensures that contributors with multiple Email 
-addresses are counted only once.
-
--->
-
+Contributors may appear under different email addresses in the Git history, which can lead to them being counted multiple 
+times. To avoid overcounting, %product% uses the [`.mailmap`](https://git-scm.com/docs/gitmailmap) file to map multiple 
+email addresses to a single contributor identity. This ensures that contributors with multiple email addresses are counted only once.

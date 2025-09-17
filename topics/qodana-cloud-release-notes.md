@@ -19,4 +19,7 @@ of this documentation.
 
 Now you can also configure [Single Sign-on](cloud-sso.md) to authenticate using various third-party authentication providers
 
+## September 2025
 
+The [`.mailmap`](https://git-scm.com/docs/gitmailmap) file support was implemented for better contributor counting, see 
+the [](contributors.md#The+.mailmap+file+support) for details.
