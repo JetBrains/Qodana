@@ -3,13 +3,16 @@
 <link-summary>You can run %product% using IntelliJ IDEA, PhpStorm, WebStorm, GoLand, PyCharm, and Rider.</link-summary>
 
 You can run [%instance%](about-qodana.md) using JetBrains IDE products installed via [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/), such as 
-IntelliJ IDEA, PhpStorm, WebStorm, GoLand, PyCharm, and Rider. The available functionalities let you:
+IntelliJ IDEA, PhpStorm, WebStorm, GoLand, PyCharm, Rider and CLion. Depending on the IDE, the available functionalities 
+let you:
 
-* [Run %instance% locally](#ide-plugin-run-qodana)
-* [Connect to %cloud%](#ide-plugin-connect-cloud)
-* [Configure %instance% for running in a CI pipeline](#ide-plugin-cicd)
-* [Open a report from local storage](#ide-plugin-local-report)
-* [Examine %instance% reports in your IDE](#ide-plugin-study-reports)
+<list>
+    <li><a anchor="ide-plugin-run-qodana">Run %instance% locally and upload reports to %cloud% (not available in CLion)</a></li>
+    <li><a anchor="ide-plugin-connect-cloud">Connect to %cloud% and download reports</a></li>
+    <li><a anchor="ide-plugin-cicd">Configure %instance% for running in a CI pipeline (not available in CLion)</a></li>
+    <li><a anchor="ide-plugin-local-report">Open a report from local storage</a></li>
+    <li><a anchor="ide-plugin-study-reports">Examine %instance% reports in your IDE</a></li>
+</list>
 
 ## UI overview
 
@@ -17,14 +20,16 @@ In your IDE, navigate to <ui-path>Tools | %product%</ui-path>.
 
 <img src="ide-plugin-intro-menu.png" dark-src="ide-plugin-intro-menu_dark.png" width="706" alt="The Qodana menu" border-effect="line"/>
 
-You can also have access to %instance% using the **Problems | Server-Side Analysis** tool window of your IDE.
+You can also have access to %instance% using the **Qodana** tab available in the **Problems** tool window of your IDE.
 
-<img src="ide-plugin-intro-tool-window.png" dark-src="ide-plugin-intro-tool-window_dark.png" width="706" alt="The Server-Side Analysis tool window" border-effect="line"/>
+<img src="ide-plugin-intro-tool-window.png" width="706" alt="The Qodana tab" border-effect="line"/>
 
 ## Run %instance% locally
 {id="ide-plugin-run-qodana"}
 
 You can run %instance% locally and then forward analysis reports to [%cloud%](https://qodana.cloud) for storage and analysis purposes.
+
+<note>This functionality is currently not available in CLion.</note>
 
 <procedure>
 <step>
@@ -42,7 +47,7 @@ You can run %instance% locally and then forward analysis reports to [%cloud%](ht
     <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
 </step>
 <step>
-   <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>
+   <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>
 </step>
 </procedure>
 
@@ -75,7 +80,7 @@ latest %instance% report and view it.
         closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from %cloud%.</p>
     </step> 
     <step>
-       <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>
+       <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>
     </step>
 </procedure>
 
@@ -83,6 +88,8 @@ latest %instance% report and view it.
 {id="ide-plugin-cicd"}
 
 After logging in to [%cloud%](https://qodana.cloud), you can configure %instance% in your CI pipelines.
+
+<note>This functionality is currently not available in CLion.</note>
 
 <note>Depending on the %instance% <a href="pricing.md">license</a>, you will need to generate and use the 
 <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>. To learn more about project tokens, see
@@ -112,7 +119,7 @@ You can open and review [SARIF-formatted %instance% reports](qodana-inspection-o
         <p>Select the SARIF-formatted report file you would like to open.</p>
    </step>
    <step>
-      <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view analysis results.</p>
+      <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view analysis results.</p>
    </step>
 </procedure>
 </snippet>
@@ -120,15 +127,15 @@ You can open and review [SARIF-formatted %instance% reports](qodana-inspection-o
 ## Qodana report overview
 {id="ide-plugin-study-reports"}
 
-Using the **Server-Side Analysis** tab of your IDE, you can view %instance% reports and navigate to the code fragments 
+Using the **Qodana** tab of the **Problems** tool window, you can view %instance% reports and navigate to the code fragments 
 containing such problems.
 
 <img src="ide-plugin-report-navigating.png" dark-src="ide-plugin-report-navigating_dark.png" width="706" alt="Navigating to problems in the IDE" animated="true" border-effect="line"/>
 
 The upper part contains information about the project and branch names, the inspection date, and the number of problems. 
-The left part of the **Server-Side Analysis** tab contains several buttons. 
+The left part of the **Qodana** tab contains several buttons. 
 
-<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Functionalities of the Server-Side Analysis tab" border-effect="line"/>
+<img src="ide-plugin-report-navigating-buttons.png" dark-src="ide-plugin-report-navigating-buttons_dark.png" width="460" alt="Functionalities of the Qodana tab" border-effect="line"/>
 
 This table describes each button from top to bottom:
 

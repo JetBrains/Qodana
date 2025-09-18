@@ -33,25 +33,28 @@
 
     <chapter title="Run Qodana in JetBrains IDEs" id="quickstart-run-in-ide">
 
-        <p>Starting from version 2023.2, %instance% is available in IntelliJ IDEA and PyCharm (both the Professional and
+        <link-summary>%instance% is available in IntelliJ IDEA, PyCharm (both the Professional and
+            Community editions), PhpStorm, WebStorm, GoLand, and Rider.</link-summary>
+
+        <p>%instance% is available in IntelliJ IDEA, PyCharm (both the Professional and
             Community editions), PhpStorm, WebStorm, GoLand, and Rider.</p>
 
         <tip>You do not need to buy a separate %instance% license to run it in the IDE.</tip>
 
-        <p>Here is the short video showing how you can run %instance% in your IDE.</p>
+        <p>Here is a short animation showing how you can run %instance% in your IDE.</p>
 
-        <img src="quickstart-run-in-ide.gif" width="792" alt="Running Qodana in an IDE" border-effect="line" preview-src="quickstart-run-in-ide.png"/>
+        <img src="quickstart-run-in-ide.gif" width="792" alt="Running Qodana in an IDE" border-effect="line"/>
 
-        <p>Here is the description of all steps shown in this video:</p>
+        <p>Here is the description of all steps shown in this animation:</p>
 
         <procedure>
                 <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
-                <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
-                <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try locally</ui-path> button to start %product%.</step>
+                <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Qodana</ui-path> tab.</step>
+                <step>On the <ui-path>Qodana</ui-path> tab, click the <ui-path>Try locally</ui-path> button to start %product%.</step>
                 <step>
-                    On the <ui-path>Server-Side Analysis</ui-path> tab, you can view analysis results. It
+                    On the <ui-path>Qodana</ui-path> tab, you can view analysis results. It
                         also contains two links in the upper part of the tab.
-                    <img src="quickstart-run-in-ide-report-links.png" width="706" alt="Links on the Server-Side Analysis tab" border-effect="line"/>
+                    <img src="quickstart-run-in-ide-report-links.png" width="706" alt="Links on the Qodana tab" border-effect="line"/>
         <tabs>
             <tab title="Open Qodana report in browser" id="quickstart-open-report-in-browser">
                 <p>Open the analysis report in your browser.</p>
@@ -60,7 +63,7 @@
             <tab title="Add Qodana to CI/CD pipeline" id="quickstart-add-qodana-to-cicd">
                 <p>Open the configuration wizard to use %instance% in CI/CD pipelines.</p>
 
-                <img src="quickstart-run-in-ide-cicd.png" dark-src="quickstart-run-in-ide-cicd_dark.png" width="706" alt="Qodana report" border-effect="line"/>
+                <img src="quickstart-run-in-ide-cicd.png" width="792" alt="Qodana in CI/CD pipelines" border-effect="line"/>
 
                 <p>To learn more about %instance% and CI/CD pipelines, see the <a href="ci.md"/> section.</p>
             </tab>

@@ -21,16 +21,19 @@ functionalities are available in the following integrated development environmen
                 <li>GoLand</li>
                 <li>PyCharm</li>
                 <li>Rider</li>
+                <li>CLion</li>
             </list>
         </td>    
         <td>
-            <p>Run %product% locally using your IDE.</p>
-            <p>Upload reports to %product% Cloud.</p>
-            <p>Download reports from %product% Cloud and explore them using your IDE.</p>
-            <p>Open local %product% reports contained in SARIF-formatted files.</p>
+            <list>
+                <li><p>Run %product% locally using your IDE (not available in CLion)</p></li>
+                <li><p>Upload reports to %product% Cloud (not available in CLion)</p></li>
+                <li><p>Download reports from %product% Cloud and explore them using your IDE</p></li>
+                <li><p>Open local %product% reports contained in SARIF-formatted files</p></li>
+            </list>
         </td>    
         <td>
-            <p>All functionalities related to %product% Cloud require a <a href="project-token.md">project token</a>.</p>
+            <p>All functionalities related to uploading data to %cloud% require a <a href="project-token.md">project token</a>.</p>
         </td>
     </tr>
     <tr>
