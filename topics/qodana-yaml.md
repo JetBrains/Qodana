@@ -18,7 +18,7 @@ automatically.
 The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/qodana-1.0.json)
 project, which provides completion and basic validation in IDEs.
 
-To run subsequent checks with this customized configuration, save the file in the root directory of your project.
+To run subsequent analyses with this customized configuration, save the file in the root directory of your project.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
 This section will guide you through the necessary settings.
 

@@ -28,7 +28,7 @@
         <p>If you are already a %product% user, you might know that you can open issues spotted by Qodana right in your IDE.
             This feature is available in %cloud%, so you can fix server-side errors in the editor like other suggestions given by the IDE.</p>
 
-        <p>Using %product%, you can run resource-intensive checks outside your development environment without affecting
+        <p>Using %product%, you can run resource-intensive analyses outside your development environment without affecting
             the performance of your IDE. In fact, we created %product% to ensure that you no longer have to choose between code
             quality and IDE performance.</p>
     </chapter>

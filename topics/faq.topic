@@ -69,7 +69,7 @@
     <chapter id="faq-linter-description" title="What does each %instance% linter represent?" default-state="collapsed" collapsible="true">
         <p>A linter is a Qodana component representing a specific technology. For example, the <a href="jvm.md">%jvm%</a>
             linter lets you analyze the codebase containing the Java, Kotlin, and Groovy code, while the
-            <a href="js.md">%js%</a> linter lets you check on the JavaScript and TypeScript code. On the
+            <a href="js.md">%js%</a> linter lets you analyze the JavaScript and TypeScript code. On the
             <a href="linters.md"/> page, you can find the list of all available linters and the links to the detailed
             description of each one.
         </p>
