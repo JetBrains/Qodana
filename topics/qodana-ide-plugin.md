@@ -6,13 +6,11 @@ You can run [%instance%](about-qodana.md) using JetBrains IDE products installed
 IntelliJ IDEA, PhpStorm, WebStorm, GoLand, PyCharm, Rider and CLion. Depending on the IDE, the available functionalities 
 let you:
 
-<list>
-    <li><a anchor="ide-plugin-run-qodana">Run %instance% locally and upload reports to %cloud% (not available in CLion)</a></li>
-    <li><a anchor="ide-plugin-connect-cloud">Connect to %cloud% and download reports</a></li>
-    <li><a anchor="ide-plugin-cicd">Configure %instance% for running in a CI pipeline (not available in CLion)</a></li>
-    <li><a anchor="ide-plugin-local-report">Open a report from local storage</a></li>
-    <li><a anchor="ide-plugin-study-reports">Examine %instance% reports in your IDE</a></li>
-</list>
+* [Run %instance% locally and upload reports to %cloud% (not available in CLion)](#ide-plugin-run-qodana)
+* [Connect to %cloud% and download reports](#ide-plugin-connect-cloud)
+* [Configure %instance% for running in a CI pipeline (not available in CLion)](#ide-plugin-cicd)
+* [Open a report from local storage](#ide-plugin-local-report)
+* [Examine %instance% reports in your IDE](#ide-plugin-study-reports)
 
 ## UI overview
 
