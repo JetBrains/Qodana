@@ -1,22 +1,24 @@
 # Public API
 
 <var name="api-yaml" value="https://github.com/jetbrains-qodana/public-api/blob/main/openapi.yaml"/>
+<var name="api-client" value="https://github.com/jetbrains-qodana/public-api/tree/main/samples/kotlin"/>
 
 <show-structure for="chapter" depth="3"/>
 
-<link-summary>The public API lets you create teams and projects in %cloud% and %premlite% using your build pipelines.</link-summary>
+<link-summary>The public API lets you create teams, projects, and obtain a list of users in %cloud% and %premlite% using 
+your build pipelines.</link-summary>
 
-The public API lets you create [teams](cloud-teams.topic) and [projects](cloud-projects.topic) in %cloud% and %premlite% 
-using your build pipelines. 
-The `openapi.yaml` file containing the description is available on the [GitHub](%api-yaml%) repository, and  
-the sample client based on this file is also available in the `samples/kotlin` directory of the repository.
+The public API lets you create [teams](cloud-teams.topic), [projects](cloud-projects.topic) and obtain a list of users in %cloud% and %premlite% 
+using your build pipelines. This feature is available only under the [Ultimate Plus license](pricing.md).
+
+> The [OpenAPI file](%api-yaml%) and a [sample client](%api-client%) are available on a GitHub repository.
 
 ## Prerequisites
 
 The public API requires a permanent organization API token for authentication purposes.
 
-To be able to create and revoke API tokens, you should have an organization ID. To learn how to create an organization, see the
-[](cloud-organizations.topic#cloud-organizations-create-organization) chapter.
+To be able to create and revoke API tokens, you should have a %cloud% organization, see the
+[](cloud-organizations.topic#cloud-organizations-create-organization) chapter for details.
 
 Once an organization is created, you can extract the organization ID from the %cloud% or %premlite% URL: 
 
@@ -24,39 +26,29 @@ Once an organization is created, you can extract the organization ID from the %c
 https://{qodana.cloud.url}/organizations/{organizationId}
 ```
 
-### Obtain and revoke API tokens
+Here and later in this section, `{qodana.cloud.url}` denotes a base URL and accepts:
 
-> To generate and revoke API tokens, a %cloud% or %premlite% user should have the `OWNER` role in your organization, see the 
+* `qodana.cloud` in case of %cloud%
+* Your custom base URL in case of %premlite%
+
+## Generate and manage API tokens
+
+> To be able to manage and API tokens, a %cloud% or %premlite% user should have the `OWNER` role in your organization, see the 
 > [role description](cloud-user-roles.md#cloud-user-org-roles-owner) in the %cloud% documentation.
 {style="note"}
 
-You can generate an organization API token by sending the following request: 
+You can generate, regenerate and delete an organization API token using the API token tab of your organization settings, see the 
+[](cloud-organizations.topic#cloud-organizations-overview) chapter for details.
 
-```cURL
-curl -X POST \
-   https://api.qodana.cloud/v1/organizations/{organizationId}/tokens \
-   -H "Authorization: Bearer YOUR_PERMANENT_ORGANIZATION_TOKEN" \
-   -H "Content-Type: application/json"
-```
-
-Here, `{organizationId}` represents the ID of your [organization](cloud-organizations.topic). 
-
-To revoke the API token, send the following request:
-
-```cURL
-curl -X DELETE \
-   https://api.qodana.cloud/v1/organizations/{organizationId}/tokens \
-   -H "Authorization: Bearer YOUR_PERMANENT_ORGANIZATION_TOKEN" \
-   -H "Content-Type: application/json"
-```
+In this section, an organization API token value is referred to as `$PERMANENT_ORGANIZATION_TOKEN`. 
 
 ## Create teams and projects
 
 To create a new team and project and obtain its [project token](project-token.md), send a `POST` request using the 
-`https://api.qodana.cloud/v1/public/organizations/teams/projects` endpoint, for example: 
+`https://{qodana.cloud.url}/v1/public/organizations/teams/projects` endpoint, for example: 
 
 ```cURL
-QODANA_TOKEN=$(curl -X POST https://api.qodana.cloud/v1/public/organizations/projects \
+QODANA_TOKEN=$(curl -X POST https://{qodana.cloud.url}/v1/public/organizations/projects \
   -H "Authorization: Bearer $PERMANENT_ORGANIZATION_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -88,14 +80,29 @@ This is the list of response codes:
 ## Get a list of users
 
 To get a list of users of a specific organization in a paginated form, send a `GET` request using the
-`https://api.qodana.cloud/v1/public/organizations/users` endpoint, for example: 
+`https://{qodana.cloud.url}/v1/public/organizations/users` endpoint, for example: 
 
 ```cURL
 curl -X GET \
-   "https://api.qodana.cloud/v1/public/organizations/users?limit=10" \
-   -H "Authorization: Bearer YOUR_PERMANENT_ORGANIZATION_TOKEN" \
+   "https://{qodana.cloud.url}/v1/public/organizations/users?limit=10" \
+   -H "Authorization: Bearer $PERMANENT_ORGANIZATION_TOKEN" \
    -H "Content-Type: application/json"
 ```
+
+Here is the list of accepted parameters:
+
+<!-- The description of parameters is required here -->
+
+| Parameter | Type    | Required | Description                |
+|-----------|---------|----------|----------------------------|
+| `offset`  | Number  | No       | List of organization users |
+| `limit`   | Integer | No       | Unauthorized               |
+| `order`   | String  | No       | Forbidden                  |
+| `search`  | String  | No       | Forbidden                  |
+
+
+
+<!-- Example response containing all parameters is required here -->
 
 This is the list of response codes:
 

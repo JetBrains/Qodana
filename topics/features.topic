@@ -105,6 +105,24 @@
                 </td>
             </tr>
             <tr>
+                <td><a href="cloud-api.md"/></td>
+                <td>Create teams and projects in %cloud% and %premlite% using the API</td>
+                <td>
+                    <p>Ultimate Plus</p>
+                </td>
+                <td>
+                    <p><a href="dotnet.md">%dotnet%</a></p>
+                    <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="jvm.md">%jvm-a%</a></p>
+                    <p><a href="js.md">%js%</a></p>
+                    <p><a href="php.md">%php%</a></p>
+                    <p><a href="python.md">%python%</a></p>
+                    <p><a href="golang.md">%go%</a></p>
+                    <p><a href="clang.md">%cpp%</a></p>
+                    <p><a href="ruby.md">%ruby%</a></p>
+                </td>
+            </tr>
+            <tr>
                 <td><a href="quality-gate.topic"/></td>
                 <td>Ensure that your code contains the minimum
                     number of problems or is completely free of them. If combined with the baseline, this feature will make

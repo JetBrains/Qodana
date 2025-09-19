@@ -70,6 +70,8 @@
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
             <li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>
+            <li><ui-path>API token</ui-path> lets you generate and manage a permanent organization token used by the <a href="cloud-api.md">public API</a> of %cloud%.
+                This feature is available only under the <a href="pricing.md">Ultimate Plus license</a>.</li>
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
