@@ -100,8 +100,8 @@ module.exports = divide; // Analyzed by the code coverage
 
 <tip>You can find configuration examples on <a href="https://github.com/qodana/qodana-coverage/tree/main">GitHub</a>.</tip>
 
-1. Configure your code coverage tool. [Jest](https://jestjs.io/) code coverage reports should contain paths relative to a project root. 
-For example, if your codebase files are contained in the `<project-root>/src/` directory, then reports should contain 
+1. Configure your code coverage tool. For example, [Jest](https://jestjs.io/) code coverage reports should contain paths relative to a project root. 
+If your codebase files are contained in the `<project-root>/src/` directory, then reports should contain 
 `src/<file-name>` file paths. 
 
 1. Use your code coverage tool to generate coverage reports. These reports should be saved to the `<project-root>/.qodana/code-coverage` 
