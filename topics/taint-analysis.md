@@ -19,6 +19,8 @@ under the Ultimate Plus [license](pricing.md). This feature provides built-in ta
 categories of OWASP Top 10:2021 vulnerabilities (A01, A03, A07, A08, A10). In addition to the built-in rules, you can 
 configure custom taint rules for your own application or library code, designating specific functions or methods as sources or sinks.
 
+The taint analysis feature runs locally and does not require any external dependencies or services.
+
 ## How taint analysis works
 
 <link-summary>Learn how taint analysis works.</link-summary>
