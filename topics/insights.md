@@ -34,14 +34,14 @@ Active are the projects which reports were uploaded to %cloud% within 90 days.
 A project is classified as inactive in case it contains 
 [sanity problems](inspection-profiles.md#inspection-profiles-existing-profiles) or its reports are older than 90 days.
 
-If you hover over this dashboard, you can see the number of active and inactive projects. Here, you can click the line
+If you hover over this widget, you can see the number of active and inactive projects. Here, you can click the line
 describing inactive projects to navigate to a comprehensive list these projects.
 
 <img src="insights-number-of-projects.png" alt="The number of projects" width="358" border-effect="line"/>
 
 ### Scans
 
-This dashboard provides information about analyses performed on your projects excluding pull or merge requests and carried 
+This widget provides information about analyses performed on your projects excluding pull or merge requests and carried 
 out by %product% versions 2024.2 or later.
 
 ### Average code coverage rate
