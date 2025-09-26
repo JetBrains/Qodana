@@ -8,8 +8,9 @@
 <link-summary>The Public API lets you create teams, projects, and obtain a list of users in %cloud% and %premlite% using 
 your build pipelines.</link-summary>
 
-The Public API lets you create [teams](cloud-teams.topic), [projects](cloud-projects.topic) and obtain a list of users in %cloud% and %premlite% 
-using your build pipelines. This feature is available only under the [Ultimate Plus license](pricing.md).
+The Public API lets you create <a href="cloud-teams.topic">teams</a>, <a href="cloud-projects.topic">projects</a>,
+and obtain a list of %cloud% and %premlite% organization users using your build pipelines. This feature is available only 
+under the [Ultimate Plus license](pricing.md).
 
 > The [OpenAPI file](%api-yaml%) and a [sample client](%api-client%) are available on a GitHub repository.
 
@@ -21,8 +22,8 @@ Before using the Public API, make sure that the following requirements were met:
 
 * You have access to an existing %cloud% organization under the `OWNER` [role](cloud-user-roles.md#cloud-user-org-roles-owner). To learn how to create organizations, see the [](cloud-organizations.topic#cloud-organizations-create-organization) chapter.
 * Your %cloud% organization is licensed under the Ultimate Plus [license](pricing.md) of %product%.
-* To generate a permanent organization API token, use the **API token** tab of your organization settings, see the [](cloud-organizations.topic#cloud-organizations-overview) chapter for details.
-* In API request examples provided in this section, replace the `{qodana.cloud.url}` placeholder with your base URL, i.e. with `qodana.cloud` for %cloud%, or using your custom base URL in case of %premlite%.
+* To generate a permanent organization API token, use the [**API token** tab](cloud-organizations.topic#cloud-organizations-api-token) of your organization settings.
+* For API request examples provided in this section, replace the `{qodana.cloud.url}` placeholder with your base URL, i.e. with `qodana.cloud` for %cloud%, or using your custom base URL in case of %premlite%.
 
 In this section, an organization API token value is referred to as `$PERMANENT_ORGANIZATION_TOKEN`.
 
@@ -38,7 +39,7 @@ https://{qodana.cloud.url}/organizations/{organizationId}
 ## Create teams and projects
 
 To create a new team (if applicable) along with a project and obtain a [project token](project-token.md), send a `POST` request to the 
-`https://{qodana.cloud.url}/api/v1/public/organizations/teams/projects` endpoint and provide the team and project names, for example: 
+`https://{qodana.cloud.url}/api/v1/public/organizations/projects` endpoint and provide the team and project names, for example: 
 
 ```cURL
 QODANA_TOKEN=$(curl -X POST https://{qodana.cloud.url}/api/v1/public/organizations/projects \
