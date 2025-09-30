@@ -2,13 +2,14 @@
 <buildprofiles>
 	<sitemap priority="0.35" change-frequency="monthly"/>
 	<variables>
-		<download-page/>
+        <download-page>https://www.jetbrains.com/qodana/buy/</download-page>
+        <download-title>Get Qodana</download-title>
+        <showDownloadButton>true</showDownloadButton>
 		<search-scope/>
 		<fallback-url>https://www.jetbrains.com/help/qodana/</fallback-url>
 		<help-app-version>3</help-app-version>
 		<feedbackRequireEmail>false</feedbackRequireEmail>
 		<hide-last-modified>true</hide-last-modified>
-		<showDownloadButton>false</showDownloadButton>
 		<disqus-id>jetbrains</disqus-id>
 		<disqus-show>false</disqus-show>
 		<feedback-url>https://data.services.jetbrains.com/feedback</feedback-url>
