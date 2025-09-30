@@ -124,7 +124,12 @@ file using the `sarif_file` key.
 > data for further processing by Qodana. In this case, you have to set up a baseline and quality gate processing on the 
 > Qodana side before submitting analysis results to GitHub code scanning, see the [](#Baseline+and+quality+gate) section for details.
 
-## Pull request quality gate
+## Pull requests
+
+By default, analysis of pull requests is enabled in %product%, see the [`pr-mode`](#Configuration) option description for details.
+To learn how to analyze code between two commits, see the [](analyze-pr.md#Analyze+changes+between+two+commits) chapter for details.
+
+### Pull request quality gate
 
 <link-summary>You can enforce GitHub to block merge of pull requests if a quality gate has failed.</link-summary>
 
