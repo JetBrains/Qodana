@@ -20,6 +20,8 @@
     <link-summary>You can extend %instance% using either existing plugins from repositories, or by developing
         your own plugins.</link-summary>
 
+    <show-structure for="chapter" depth="3"/>
+
     <p>You can extend %instance% using either existing plugins from repositories like
         <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>, or using custom plugins.</p>
 
@@ -65,10 +67,10 @@
                     You can navigate to the <ui-path>Versions</ui-path> tab and then click the latest version.</note>
 
                 <chapter id="extending-qodana-repository-plugins-manual-installation-configuration" title="Configure plugins">
-                    <p>To run a plugin using your custom configuration, you should modify configuration files of the plugin.
-                        For example, for the <a href="https://plugins.jetbrains.com/plugin/1065-checkstyle-idea">CheckStyle-IDEA</a>
-                        plugin you should modify the <code>sun_checks.xml</code> or <code>google_checks.xml</code> files. After saving
-                    the modified configurations, run %product% using the updated configuration:</p>
+                    <p>To run a plugin using your custom configuration, update the plugin configuration files. For example,
+                        for the <a href="https://plugins.jetbrains.com/plugin/1065-checkstyle-idea">CheckStyle-IDEA</a>
+                        plugin you should modify the <code>sun_checks.xml</code> or <code>google_checks.xml</code> files.
+                        After saving the modified configurations, run %product% using the updated configuration:</p>
                     <tabs>
                         <tab title="Qodana CLI">
                             <code-block lang="bash" prompt="$">
