@@ -5,10 +5,10 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<link-summary>The Public API lets you create teams, projects, and obtain a list of users in %cloud% and %premlite% using 
+<link-summary>The public API lets you create teams, projects, and obtain a list of users in %cloud% and %premlite% using 
 your build pipelines.</link-summary>
 
-The Public API lets you create <a href="cloud-teams.topic">teams</a>, <a href="cloud-projects.topic">projects</a>,
+The public API lets you create <a href="cloud-teams.topic">teams</a>, <a href="cloud-projects.topic">projects</a>,
 and obtain a list of %cloud% and %premlite% organization users using your build pipelines. This feature is available only 
 under the [Ultimate Plus license](pricing.md).
 
@@ -16,51 +16,49 @@ under the [Ultimate Plus license](pricing.md).
 
 ## Prerequisites
 
-The Public API requires a permanent organization API token for authentication purposes.
+The public API requires an organization API token for authentication purposes.
 
-Before using the Public API, make sure that the following requirements were met:
+Before using the public API, make sure that the following requirements were met:
 
 <list>
 <li>
-    <p>To create and manage a permanent organization API token, you should have access to an existing %cloud% organization 
-       under the <code>Owner</code> or <code>Admin</code> <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a>.
-       Once the organization API token is created, user of any %cloud% role can use it to make requests depending on their
-permissions, see the <a href="cloud-user-roles.md"></a></p> 
+    <p>To create and manage an organization API token, you should have access to an existing %cloud% organization 
+       under the <code>Owner</code> or <code>Admin</code> <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a>.</p> 
        <p>To learn how to create organizations, see the <a href="cloud-organizations.topic" anchor="cloud-organizations-create-organization"></a> chapter.</p>
 </li>
 <li>
     <p>Your %cloud% organization is licensed under the Ultimate Plus <a href="pricing.md">license</a> of %product%.</p>
 </li>
 <li>
-    <p>To generate a permanent organization API token, use the 
+    <p>To generate an organization API token, use the 
     <a href="cloud-organizations.topic" anchor="cloud-organizations-api-token"><control>API token</control> tab</a> of 
     your organization settings.</p>
 </li>
 <li>
-<p>For API request examples provided in this section, replace the <code>{qodana.cloud.url}</code> placeholder with your 
+<p>For API request examples provided in this section, replace the <code>{qodana_cloud_url}</code> placeholder with your 
 base URL, i.e. with <code>qodana.cloud</code> for %cloud%, or using your custom base URL in case of %premlite%.</p>
 </li>
 </list>
 
-In this section, an organization API token value is referred to as `$PERMANENT_ORGANIZATION_TOKEN`.
+In this section, an organization API token value is referred to as `$permanent_organization_token`.
 
 <!-- 
 
 Once an organization is created, you can extract the organization ID from the %cloud% or %premlite% URL: 
 
 ```curl
-https://{qodana.cloud.url}/organizations/{organizationId}
+https://{qodana_cloud_url}/organizations/{organizationId}
 ```
 -->
 
 ## Create teams and projects
 
 To create a new team (if applicable) along with a project and obtain a [project token](project-token.md), send a `POST` request to the 
-`https://{qodana.cloud.url}/api/v1/public/organizations/projects` endpoint and provide the team and project names, for example: 
+`https://{qodana_cloud_url}/api/v1/public/organizations/projects` endpoint and provide the team and project names, for example: 
 
 ```cURL
-QODANA_TOKEN=$(curl -X POST https://{qodana.cloud.url}/api/v1/public/organizations/projects \
-  -H "Authorization: Bearer $PERMANENT_ORGANIZATION_TOKEN" \
+qodana_token=$(curl -X POST https://{qodana_cloud_url}/api/v1/public/organizations/projects \
+  -H "Authorization: Bearer $permanent_organization_token" \
   -d '{
         "projectName": "My project name",
         "teamName": "My team name"
@@ -120,7 +118,7 @@ The endpoint provides the responses with the following HTTP codes:
     <tr>
         <td><code>400</code></td>
         <td>
-            <p>Bad request response returns if the Public API is disabled for a specific environment:</p>
+            <p>Bad request response returns if the public API is disabled for a specific environment:</p>
         <code-block lang="http">
             HTTP/2 400 Bad Request
             date: Wed, 24 Sep 2025 10:36:37 GMT
@@ -191,7 +189,7 @@ The endpoint provides the responses with the following HTTP codes:
                 "details": "Invalid organization API token"
             }
         </code-block>
-        <p>This returns in case the %cloud% organization cannot use the Public API feature:</p>
+        <p>This returns in case the %cloud% organization cannot use the public API feature:</p>
         <code-block lang="http">
             HTTP/2 403 Forbidden
             date: Wed, 24 Sep 2025 10:36:37 GMT
@@ -239,12 +237,12 @@ The endpoint provides the responses with the following HTTP codes:
 ## Get a list of organization users
 
 To get a list of users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send a `GET` request using the
-`https://{qodana.cloud.url}/api/v1/public/organizations/users` endpoint, for example: 
+`https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint, for example: 
 
 ```cURL
 curl -X GET \
-   "https://{qodana.cloud.url}/api/v1/public/organizations/users" \
-   -H "Authorization: Bearer $PERMANENT_ORGANIZATION_TOKEN"
+   "https://{qodana_cloud_url}/api/v1/public/organizations/users" \
+   -H "Authorization: Bearer $permanent_organization_token"
 ```
 
 ### Parameters
@@ -284,13 +282,13 @@ in the `email` or `displayName` fields and sorts the selected list in descending
 
 ```cURL
 curl -X GET \
-   "https://{qodana.cloud.url}/api/v1/public/organizations/users?limit=10&offset=1&order=DESC&search=abc" \
-   -H "Authorization: Bearer $PERMANENT_ORGANIZATION_TOKEN"
+   "https://{qodana_cloud_url}/api/v1/public/organizations/users?limit=10&offset=1&order=DESC&search=abc" \
+   -H "Authorization: Bearer $permanent_organization_token"
 ```
 
 ### Responses
 
-The `https://{qodana.cloud.url}/api/v1/public/organizations/users` endpoint responds as described in the table:
+The `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint responds as described in the table:
 
 <table>
     <tr>
@@ -349,7 +347,7 @@ The `https://{qodana.cloud.url}/api/v1/public/organizations/users` endpoint resp
     <tr>
         <td><code>400</code></td>
         <td>
-            <p>The Public API is disabled:</p>
+            <p>The public API is disabled:</p>
         <code-block lang="http">
             HTTP/2 400 Bad Request
             date: Wed, 24 Sep 2025 10:36:37 GMT
@@ -405,7 +403,7 @@ The `https://{qodana.cloud.url}/api/v1/public/organizations/users` endpoint resp
                 "details": "Invalid organization API token"
             }
         </code-block>
-        <p>This returns in case the %cloud% organization cannot use the Public API feature:</p>
+        <p>This returns in case the %cloud% organization cannot use the public API feature:</p>
         <code-block lang="http">
             HTTP/2 403 Forbidden
             date: Wed, 24 Sep 2025 10:36:37 GMT
