@@ -254,6 +254,22 @@ Using this configuration, you will be able to detect only new problems in pull r
 At the same time, pull requests with **new** problems exceeding the `--fail-threshold` limit will be blocked, and the 
 workflow will fail.
 
+## Analyze a specific solution
+
+<link-summary>Learn how to analyze your .NET projects using a specific solution.</link-summary>
+
+To analyze your [.NET project](dotnet.md) using a [specific solution](dotnet.md#Analyze+a+specific+solution), specify the 
+path to the solution file relative to the project root, for example:
+
+```yaml
+- name: Qodana Scan
+  uses: %action-version%
+  with:
+    args: --solution,"src/path_to_your.sln"
+  env:
+    QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+```
+
 ## Get a Qodana badge
 
 <link-summary>You can set up a Qodana workflow badge in your repository.</link-summary>
