@@ -69,7 +69,7 @@
                 <chapter id="extending-qodana-repository-plugins-manual-installation-configuration" title="Configure plugins">
                     <p>To run a plugin using your custom configuration, update the plugin configuration files. For example,
                         for the <a href="https://plugins.jetbrains.com/plugin/1065-checkstyle-idea">CheckStyle-IDEA</a>
-                        plugin you should modify the <code>sun_checks.xml</code> or <code>google_checks.xml</code> files.
+                        plugin you should modify the <code>.idea/checkstyle-idea.xml</code> file.
                         After saving the modified configurations, run %product% using the updated configuration:</p>
                     <tabs>
                         <tab title="Qodana CLI">
@@ -77,7 +77,7 @@
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-l &lt;linter&gt;
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                             </code-block>
                         </tab>
                         <tab title="Docker image">
@@ -85,7 +85,7 @@
                                 docker run \
                                 &nbsp;&nbsp;&nbsp;-v &lt;project-directory&gt;:/data/project/ \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                                 &nbsp;&nbsp;&nbsp;&lt;image&gt;
                             </code-block>
                         </tab>
@@ -116,7 +116,7 @@
                                               with:
                                                   args: >
                                                       --linter,&lt;linter-name&gt;,
-                                                      -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                                                      -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                                               env:
                                                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -167,8 +167,8 @@
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-l &lt;linter&gt;
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/custom-plugins/&lt;plugin-name&gt;.jar \
-                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/root/.config/idea/options/&lt;plugin-name&gt;.jar \
+                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                             </code-block>
                         </tab>
                         <tab title="Docker image">
@@ -176,8 +176,8 @@
                                 docker run \
                                 &nbsp;&nbsp;&nbsp;-v &lt;project-directory&gt;:/data/project/ \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/custom-plugins/&lt;plugin-name&gt;.jar \
-                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/root/.config/idea/options/&lt;plugin-name&gt;.jar \
+                                &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                                 &nbsp;&nbsp;&nbsp;&lt;image&gt;
                             </code-block>
                         </tab>
@@ -208,8 +208,8 @@
                                               with:
                                                   args: >
                                                         --linter,&lt;linter-name&gt;,
-                                                        -v,&lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/custom-plugins/&lt;plugin-name&gt;.jar,
-                                                        -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/opt/idea/custom-plugins/&lt;config-file&gt;
+                                                        -v,&lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/root/.config/idea/options/&lt;plugin-name&gt;.jar,
+                                                        -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                                               env:
                                                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
