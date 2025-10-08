@@ -53,11 +53,6 @@ Here is a detailed description of all team-level roles and their permissions.
     <tab title="Editor" group-key="editor" id="cloud-user-team-roles-editor">
         <p>Manage team projects and project reports, members and tokens.
         This role is suitable for developers, devops and QA specialists.</p>
-        <p>Here is the explanation to the permission marking:</p>
-        <list>
-            <li>✓ are inherited from the <code>Viewer</code> role</li>
-            <li>✔ are available starting from this role</li>
-        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -69,21 +64,21 @@ Here is a detailed description of all team-level roles and their permissions.
             <tr>
                 <td>Teams</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team users</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
                 <td>✔</td>
-                <td>✓</td>
+                <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
             </tr>
@@ -118,7 +113,7 @@ Here is a detailed description of all team-level roles and their permissions.
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
             </tr>
@@ -127,11 +122,6 @@ Here is a detailed description of all team-level roles and their permissions.
     <tab title="Admin" group-key="admin" id="cloud-user-team-roles-admin">
         <p>Manage teams and team members.
         This role is suitable for team managers, team leads, and senior developers.</p>
-        <p>Here is the explanation to the permission marking:</p>
-        <list>
-            <li>✓ are inherited from the <code>Editor</code> role</li>
-            <li>✔ are available starting from this role</li>
-        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -143,14 +133,14 @@ Here is a detailed description of all team-level roles and their permissions.
             <tr>
                 <td>Teams</td>
                 <td>✔</td>
-                <td>✓</td>
+                <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
             </tr>
             <tr>
                 <td>Team users</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td>✔</td>
                 <td></td>
             </tr>
@@ -163,45 +153,45 @@ Here is a detailed description of all team-level roles and their permissions.
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Project members</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project tokens</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Public keys</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
             </tr>
         </table>
     </tab>
@@ -253,11 +243,6 @@ Below you can find the detailed description of all organization-level roles and 
         <p>
             Manage teams and team members within an organization, and view everything related to an organization. This role is suitable for team-leads and managers.
         </p>
-        <p>Here is the explanation to the permission marking:</p>
-        <list>
-            <li>✓ are inherited from the <code>Viewer</code> role</li>
-            <li>✔ are available starting from this role</li>
-        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -270,15 +255,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organizations</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -310,7 +295,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Teams</td>
                 <td>✔</td>
-                <td>✓</td>
+                <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
                 <td></td>
@@ -330,11 +315,6 @@ Below you can find the detailed description of all organization-level roles and 
             Manage organizations and their users, projects, project tokens and reports. This role is suitable for 
             members of IT departments.
         </p>
-        <p>Here is the explanation to the permission marking:</p>
-        <list>
-            <li>✓ are inherited from the <code>Editor</code> role</li>
-            <li>✔ are available starting from this role</li>
-        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -347,15 +327,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organizations</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td>✔</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td>✔</td>
                 <td></td>
                 <td></td>
@@ -363,7 +343,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Contributors</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -379,7 +359,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization settings</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -387,7 +367,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization events</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -402,17 +382,17 @@ Below you can find the detailed description of all organization-level roles and 
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -463,11 +443,6 @@ Below you can find the detailed description of all organization-level roles and 
             Full control over an organization and its entities including users, teams, projects and project reports. 
             This role is suitable for IT department leads.
         </p>
-        <p>Here is the explanation to the permission marking:</p>
-        <list>
-            <li>✓ are inherited from the <code>Admin</code> role</li>
-            <li>✔ are available starting from this role</li>
-        </list>
         <table>
             <tr>
                 <td>Permission</td>
@@ -480,23 +455,23 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organizations</td>
                 <td>✔</td>
-                <td>✓</td>
-                <td>✓</td>
                 <td>✔</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Contributors</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -504,15 +479,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Membership requests</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Organization settings</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -520,7 +495,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization events</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -552,65 +527,65 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Public keys</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project members</td>
                 <td></td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project tokens</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
-                <td>✓</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>✓</td>
-                <td>✓</td>
-                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
         </table>
