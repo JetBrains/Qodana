@@ -34,19 +34,19 @@ Here is a detailed description of all team-level roles and their permissions.
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Team users</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Reports</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
             </tr>
         </table>
     </tab>
@@ -55,8 +55,8 @@ Here is a detailed description of all team-level roles and their permissions.
         This role is suitable for developers, devops and QA specialists.</p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Viewer role</li>
-            <li>&#x2714; are available starting from this role</li>
+            <li>✓ are inherited from the Viewer role</li>
+            <li>✔ are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -69,58 +69,58 @@ Here is a detailed description of all team-level roles and their permissions.
             <tr>
                 <td>Teams</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team users</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>&#x2714;</td>
-                <td>&#x2713;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Project members</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project tokens</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Public keys</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
             </tr>
         </table>
     </tab>
@@ -129,8 +129,8 @@ Here is a detailed description of all team-level roles and their permissions.
         This role is suitable for team managers, team leads, and senior developers.</p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Editor role</li>
-            <li>&#x2714; are available starting from this role</li>
+            <li>✓ are inherited from the Editor role</li>
+            <li>✔ are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -142,66 +142,66 @@ Here is a detailed description of all team-level roles and their permissions.
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>&#x2714;</td>
-                <td>&#x2713;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Team users</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2714;</td>
+                <td>✓</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Membership requests</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
             </tr>
             <tr>
                 <td>Project members</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project tokens</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
             </tr>
             <tr>
                 <td>Public keys</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
             </tr>
         </table>
     </tab>
@@ -234,17 +234,17 @@ Below you can find the detailed description of all organization-level roles and 
             </tr>
             <tr>
                 <td>Organizations</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
             </tr>
             <tr>
                 <td>Organization members</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
             </tr>
         </table>
@@ -255,8 +255,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Viewer role</li>
-            <li>&#x2714; are available starting from this role</li>
+            <li>✓ are inherited from the Viewer role</li>
+            <li>✔ are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -270,15 +270,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organizations</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -286,7 +286,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Contributors</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -294,7 +294,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization settings</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -302,24 +302,24 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization events</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>&#x2714;</td>
-                <td>&#x2713;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✓</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -332,8 +332,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Editor role</li>
-            <li>&#x2714; are available starting from this role</li>
+            <li>✓ are inherited from the Editor role</li>
+            <li>✔ are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -347,23 +347,23 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organizations</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2714;</td>
+                <td>✓</td>
+                <td>✔</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2714;</td>
+                <td>✓</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Contributors</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -371,15 +371,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Membership requests</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Organization settings</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -387,7 +387,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization events</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -395,65 +395,65 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Public keys</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project members</td>
                 <td></td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project tokens</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
-                <td>&#x2714;</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
                 <td></td>
             </tr>
         </table>
@@ -465,8 +465,8 @@ Below you can find the detailed description of all organization-level roles and 
         </p>
         <p>Here is the explanation to the permission marking:</p>
         <list>
-            <li>&#x2713; are inherited from the Admin role</li>
-            <li>&#x2714; are available starting from this role</li>
+            <li>✓ are inherited from the Admin role</li>
+            <li>✔ are available starting from this role</li>
         </list>
         <table>
             <tr>
@@ -479,24 +479,24 @@ Below you can find the detailed description of all organization-level roles and 
             </tr>
             <tr>
                 <td>Organizations</td>
-                <td>&#x2714;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2714;</td>
-                <td>&#x2713;</td>
+                <td>✔</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✔</td>
+                <td>✓</td>
             </tr>
             <tr>
                 <td>Organization members</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Contributors</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -504,15 +504,15 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Membership requests</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Organization settings</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -520,7 +520,7 @@ Below you can find the detailed description of all organization-level roles and 
             <tr>
                 <td>Organization events</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -529,7 +529,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>Organization status</td>
                 <td></td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -537,7 +537,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>Organization owners</td>
                 <td></td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -545,72 +545,72 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>Organization licenses</td>
                 <td></td>
                 <td></td>
-                <td>&#x2714;</td>
+                <td>✔</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Public keys</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Teams</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Team members</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Projects</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project members</td>
                 <td></td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project contributors</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Project tokens</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
-                <td>&#x2713;</td>
+                <td>✓</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Reports</td>
                 <td></td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
-                <td>&#x2713;</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
                 <td></td>
             </tr>
         </table>

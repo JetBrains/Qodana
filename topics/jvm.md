@@ -164,21 +164,21 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
         </td>
     </tr>
@@ -208,35 +208,35 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>Apache Velocity</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -254,13 +254,13 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>&nbsp;</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -290,14 +290,14 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>Liquibase</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
             <p>&nbsp;</p>
@@ -339,28 +339,28 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>PostCSS</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -373,14 +373,14 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
         <td>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -394,15 +394,15 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>Expression&nbsp;Language&nbsp;(EL)</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
         </td>
        <td>
-            <p>&#x2714;</p>
+            <p>✔</p>
             <p>&nbsp;</p>
         </td>
     </tr>
@@ -414,19 +414,19 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>Maven</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
     </tr>
     <tr>
@@ -444,20 +444,20 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>OpenAPI</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -468,8 +468,8 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>&nbsp;</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -492,17 +492,17 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
         <p><a href="taint-analysis.md"/></p>
       </td>
       <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>Only %jvm%</p>
       </td>
       <td>
-         <p>&#x2714;</p>
-         <p>&#x2714;</p>
+         <p>✔</p>
+         <p>✔</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
@@ -510,8 +510,8 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
          <p>&nbsp;</p>
       </td>
       <td>
-         <p>&#x2714;</p>
-         <p>&#x2714;</p>
+         <p>✔</p>
+         <p>✔</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
