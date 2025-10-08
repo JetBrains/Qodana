@@ -35,22 +35,22 @@ full versions of the respective %instance% license type.
 
 ### Programming languages
 
-| Programming language | Community          | Ultimate and Ultimate Plus | 
-|----------------------|--------------------|----------------------------|
-| Groovy               | ✔           | ✔                   | 
-| Java for Android     | ✔           | ✔                   | 
-| Java                 | ✔           | ✔                   | 
-| Kotlin               | ✔           | ✔                   | 
-| Python               | ✔           | ✔                   |  
-| C                    | ✔           | ✔                   | 
-| C#                   | ✔           | ✔                   | 
-| C++                  | ✔           | ✔                   | 
-| VB.NET               | ✔           | ✔                   | 
-| Golang               | 𐄂           | ✔                   | 
-| JavaScript           | 𐄂           | ✔                   | 
-| PHP                  | 𐄂           | ✔                   | 
-| Ruby                 | 𐄂           | ✔                   | 
-| TypeScript           | 𐄂           | ✔                   | 
+| Programming language | Community | Ultimate and Ultimate Plus | 
+|----------------------|-----------|----------------------------|
+| Groovy               | ✔         | ✔                          | 
+| Java for Android     | ✔         | ✔                          | 
+| Java                 | ✔         | ✔                          | 
+| Kotlin               | ✔         | ✔                          | 
+| Python               | ✔         | ✔                          |  
+| C                    | ✔         | ✔                          | 
+| C#                   | ✔         | ✔                          | 
+| C++                  | ✔         | ✔                          | 
+| VB.NET               | ✔         | ✔                          | 
+| Golang               | 𐄂        | ✔                          | 
+| JavaScript           | 𐄂        | ✔                          | 
+| PHP                  | 𐄂        | ✔                          | 
+| Ruby                 | 𐄂        | ✔                          | 
+| TypeScript           | 𐄂        | ✔                          | 
 
 Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
@@ -58,99 +58,99 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 | Technology                   | Community | Ultimate and Ultimate Plus |
 |------------------------------|-----------|----------------------------|
-| HTML                         | ✔  | ✔                   |
-| JSON and JSON5               | ✔  | ✔                   |
-| RELAX NG                     | ✔  | ✔                   |
-| Shell script                 | ✔  | ✔                   |
-| TOML                         | ✔  | ✔                   |
-| XML                          | ✔  | ✔                   |
-| YAML                         | ✔  | ✔                   |
-| Blade                        | 𐄂  | ✔                   |
-| CSS                          | 𐄂  | ✔                   |
-| Expression Language (EL)     | 𐄂  | ✔                   |
-| EJS                          | 𐄂  | ✔                   |
-| FreeMarker Template Language | 𐄂  | ✔                   |
-| Handlebars/Mustache          | 𐄂  | ✔                   |
-| Less                         | 𐄂  | ✔                   |
-| Markdown                     | 𐄂  | ✔                   |
-| PostCSS                      | 𐄂  | ✔                   |
-| Pug/Jade                     | 𐄂  | ✔                   |
-| Sass/SCSS                    | 𐄂  | ✔                   |
-| T4                           | 𐄂  | ✔                   |
-| XPath                        | 𐄂  | ✔                   |
-| XSLT                         | 𐄂  | ✔                   |
-| YARD                         | 𐄂  | ✔                   |
+| HTML                         | ✔         | ✔                          |
+| JSON and JSON5               | ✔         | ✔                          |
+| RELAX NG                     | ✔         | ✔                          |
+| Shell script                 | ✔         | ✔                          |
+| TOML                         | ✔         | ✔                          |
+| XML                          | ✔         | ✔                          |
+| YAML                         | ✔         | ✔                          |
+| Blade                        | 𐄂        | ✔                          |
+| CSS                          | 𐄂        | ✔                          |
+| Expression Language (EL)     | 𐄂        | ✔                          |
+| EJS                          | 𐄂        | ✔                          |
+| FreeMarker Template Language | 𐄂        | ✔                          |
+| Handlebars/Mustache          | 𐄂        | ✔                          |
+| Less                         | 𐄂        | ✔                          |
+| Markdown                     | 𐄂        | ✔                          |
+| PostCSS                      | 𐄂        | ✔                          |
+| Pug/Jade                     | 𐄂        | ✔                          |
+| Sass/SCSS                    | 𐄂        | ✔                          |
+| T4                           | 𐄂        | ✔                          |
+| XPath                        | 𐄂        | ✔                          |
+| XSLT                         | 𐄂        | ✔                          |
+| YARD                         | 𐄂        | ✔                          |
 
 ### Databases and ORM
 
 | Technology    | Community | Ultimate and Ultimate Plus |
 |---------------|-----------|----------------------------|
-| Hibernate ORM | 𐄂  | ✔                   |
-| MongoDB       | 𐄂  | ✔                   |
-| MySQL         | 𐄂  | ✔                   |
-| Oracle        | 𐄂  | ✔                   |
-| PostgreSQL    | 𐄂  | ✔                   |
-| SQL           | 𐄂  | ✔                   |
-| SQL Server    | 𐄂  | ✔                   |
+| Hibernate ORM | 𐄂        | ✔                          |
+| MongoDB       | 𐄂        | ✔                          |
+| MySQL         | 𐄂        | ✔                          |
+| Oracle        | 𐄂        | ✔                          |
+| PostgreSQL    | 𐄂        | ✔                          |
+| SQL           | 𐄂        | ✔                          |
+| SQL Server    | 𐄂        | ✔                          |
 
 
 ### Frameworks and libraries
 
 | Framework or library | Community | Ultimate and Ultimate Plus |
 |----------------------|-----------|----------------------------|
-| JavaBeans            | ✔  | ✔                   |
-| JPA                  | 𐄂  | ✔                   |
-| JUnit                | ✔  | ✔                   |
-| Lombok               | ✔  | ✔                   |
-| Reactive Streams     | 𐄂  | ✔                   |
-| TestNG               | ✔  | ✔                   |
-| .NET Core            | 𐄂  | ✔                   |
-| .NET Framework       | 𐄂  | ✔                   |
-| Angular              | ✔  | ✔                   | 
-| Apache Velocity      | 𐄂  | ✔                   |
-| Behat                | 𐄂  | ✔                   |
-| Cucumber             | 𐄂  | ✔                   |
-| Java EE              | 𐄂  | ✔                   |
-| JAX-RS               | 𐄂  | ✔                   |
-| Joomla!              | 𐄂  | ✔                   |
-| JSP                  | 𐄂  | ✔                   |
-| Ktor                 | 𐄂  | ✔                   |
-| Node.js              | 𐄂  | ✔                   |
-| NUnit                | 𐄂  | ✔                   |
-| PHPUnit              | 𐄂  | ✔                   |
-| Psalm                | 𐄂  | ✔                   |
-| Pyramid              | 𐄂  | ✔                   |
-| React                | 𐄂  | ✔                   |
-| Ruby on Rails        | 𐄂  | ✔                   |
-| Spring               | 𐄂  | ✔                   |
-| Symfony              | 𐄂  | ✔                   |
-| Unity                | 𐄂  | ✔                   |
-| Unreal Engine        | 𐄂  | ✔                   |
-| Vue                  | 𐄂  | ✔                   |
-| Xunit                | 𐄂  | ✔                   |
+| Angular              | ✔         | ✔                          | 
+| JavaBeans            | ✔         | ✔                          |
+| JUnit                | ✔         | ✔                          |
+| Lombok               | ✔         | ✔                          |
+| TestNG               | ✔         | ✔                          |
+| .NET Core            | 𐄂        | ✔                          |
+| .NET Framework       | 𐄂        | ✔                          |
+| Apache Velocity      | 𐄂        | ✔                          |
+| Behat                | 𐄂        | ✔                          |
+| Cucumber             | 𐄂        | ✔                          |
+| Java EE              | 𐄂        | ✔                          |
+| JAX-RS               | 𐄂        | ✔                          |
+| Joomla!              | 𐄂        | ✔                          |
+| JPA                  | 𐄂        | ✔                          |
+| JSP                  | 𐄂        | ✔                          |
+| Ktor                 | 𐄂        | ✔                          |
+| Node.js              | 𐄂        | ✔                          |
+| NUnit                | 𐄂        | ✔                          |
+| PHPUnit              | 𐄂        | ✔                          |
+| Psalm                | 𐄂        | ✔                          |
+| Pyramid              | 𐄂        | ✔                          |
+| React                | 𐄂        | ✔                          |
+| Reactive Streams     | 𐄂        | ✔                          |
+| Ruby on Rails        | 𐄂        | ✔                          |
+| Spring               | 𐄂        | ✔                          |
+| Symfony              | 𐄂        | ✔                          |
+| Unity                | 𐄂        | ✔                          |
+| Unreal Engine        | 𐄂        | ✔                          |
+| Vue                  | 𐄂        | ✔                          |
+| Xunit                | 𐄂        | ✔                          |
 
 ### Features and third-party software support
 
 <link-summary>You can review the list of features available for each Qodana license.</link-summary>
 
-| Feature                                                 | Community | Ultimate  | Ultimate Plus | 
-|---------------------------------------------------------|-----------|-----------|---------------|
-| [Monorepo support](monorepo-project.md)                 | ✔  | ✔  | ✔      | 
-| [CI/CD integrations](ci.md)                             | ✔  | ✔  | ✔      |
-| [Custom plugin support](extending-qodana-plugins.topic) | ✔  | ✔  | ✔      |
-| [](baseline.topic)                                      | ✔  | ✔  | ✔      |
-| [](quality-gate.topic)                                  | ✔  | ✔  | ✔      |
-| Docker and Kubernetes support                           | 𐄂  | ✔  | ✔      |
-| [](code-coverage.md)                                    | 𐄂  | ✔  | ✔      |
-| [](quick-fix.md)                                        | 𐄂  | ✔  | ✔      |
-| [](php-language-upgrade.topic)                          | 𐄂  | ✔  | ✔      |
-| [](flexinspect.md)                                      | 𐄂  | ✔  | ✔      |
-| [](license-audit.topic)                                 | 𐄂  | 𐄂  | ✔      |
-| [](taint-analysis.md)                                   | 𐄂  | 𐄂  | ✔      |
-| [](vulnerability-checker.md)                            | 𐄂  | 𐄂  | ✔      |
-| [](cloud-sso.md)                                        | 𐄂  | 𐄂  | ✔      |
-| [](insights.md)                                         | 𐄂  | 𐄂  | ✔      |
-| [](cloud-api.md)                                             | 𐄂  | 𐄂  | ✔      |
+| Feature                                                 | Community | Ultimate | Ultimate Plus | 
+|---------------------------------------------------------|-----------|----------|---------------|
+| [](baseline.topic)                                      | ✔         | ✔        | ✔             |
+| [CI/CD integrations](ci.md)                             | ✔         | ✔        | ✔             |
+| [Custom plugin support](extending-qodana-plugins.topic) | ✔         | ✔        | ✔             |
+| [Monorepo support](monorepo-project.md)                 | ✔         | ✔        | ✔             | 
+| [](quality-gate.topic)                                  | ✔         | ✔        | ✔             |
+| [](code-coverage.md)                                    | 𐄂        | ✔        | ✔             |
+| Docker and Kubernetes support                           | 𐄂        | ✔        | ✔             |
+| [](flexinspect.md)                                      | 𐄂        | ✔        | ✔             |
+| [](php-language-upgrade.topic)                          | 𐄂        | ✔        | ✔             |
+| [](quick-fix.md)                                        | 𐄂        | ✔        | ✔             |
+| [](insights.md)                                         | 𐄂        | 𐄂       | ✔             |
+| [](license-audit.topic)                                 | 𐄂        | 𐄂       | ✔             |
+| [](cloud-api.md)                                        | 𐄂        | 𐄂       | ✔             |
+| [](cloud-sso.md)                                        | 𐄂        | 𐄂       | ✔             |
+| [](taint-analysis.md)                                   | 𐄂        | 𐄂       | ✔             |
+| [](vulnerability-checker.md)                            | 𐄂        | 𐄂       | ✔             |
 
 
 ### Data storage and processing
