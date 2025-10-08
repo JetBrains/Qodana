@@ -22,12 +22,12 @@ Here is the list of technologies and features supported by both linters.
 
 | Supported technologies and features                                                                                                                                     | [%python%](python.md) | [%python-co%](python.md) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|------------------|
-| Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, shell scripts, MongoDB, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid | &#x2714;         | &#x2714;         |
-| [](baseline.topic)                                                                                                                                                      | &#x2714;         | &#x2714;         |
-| [](quality-gate.topic)                                                                                                                                                  | &#x2714;         | &#x2714;         |
-| [](license-audit.topic)                                                                                                                                                 | &#x2714;         | &#x274c;         |
-| [](quick-fix.md)                                                                                                                                                        | &#x2714;         | &#x274c;         |
-| [](vulnerability-checker.md)                                                                                                                                            | &#x2714;         | &#x274c;         |
+| Python, CSS, HTML, JSON and JSON5, RELAX NG, XML, YAML, shell scripts, MongoDB, MySQL, Oracle, PostgreSQL, SQL, SQL Server, Django, Google App Engine, Jupyter, Pyramid | ✔         | ✔         |
+| [](baseline.topic)                                                                                                                                                      | ✔         | ✔         |
+| [](quality-gate.topic)                                                                                                                                                  | ✔         | ✔         |
+| [](license-audit.topic)                                                                                                                                                 | ✔         | 𐄂         |
+| [](quick-fix.md)                                                                                                                                                        | ✔         | 𐄂         |
+| [](vulnerability-checker.md)                                                                                                                                            | ✔         | 𐄂         |
 
 </tab>
 </tabs>

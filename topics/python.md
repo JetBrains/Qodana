@@ -215,11 +215,11 @@ This table contains the list of technologies and %product% [features](features.t
             <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
-            <p>&#x2714;</p>
+            <p>✔</p>
             <p>&nbsp;</p>
         </td>
     </tr>
@@ -233,14 +233,14 @@ This table contains the list of technologies and %product% [features](features.t
             <p>Vue</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
-            <p>&#x2714;</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -258,12 +258,12 @@ This table contains the list of technologies and %product% [features](features.t
             <p>PostgreSQL</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
             <p>&nbsp;</p>
@@ -290,25 +290,25 @@ This table contains the list of technologies and %product% [features](features.t
             <p>JSONPath</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -322,10 +322,10 @@ This table contains the list of technologies and %product% [features](features.t
             <p>Shell script</p>
         </td>
         <td>
-            <p>&#x2714;</p>
+            <p>✔</p>
         </td>
         <td>
-            <p>&#x2714;</p>
+            <p>✔</p>
         </td>
     </tr>
     <tr>
@@ -336,12 +336,12 @@ This table contains the list of technologies and %product% [features](features.t
             <p>HTTP Client</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
-            <p>&#x2714;</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
         </td>
@@ -360,19 +360,19 @@ This table contains the list of technologies and %product% [features](features.t
             <p><a href="vulnerability-checker.md"/><b>*</b></p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
         </td>
         <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>

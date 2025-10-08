@@ -297,21 +297,21 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
         </td>
         <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
         <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
         </td>
         <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
         </td>
     </tr>
@@ -337,29 +337,29 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>Android Room</p>
         </td>
         <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
         <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -374,13 +374,13 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>&nbsp;</p>
         </td>
         <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -404,13 +404,13 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>SQL server</p>
         </td>
        <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
         <td>
             <p>&nbsp;</p>
@@ -450,28 +450,28 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>JSONPath</p>
         </td>
         <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
         <td>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -483,14 +483,14 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
         <td>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -504,15 +504,15 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>Expression&nbsp;Language&nbsp;(EL)</p>
         </td>
        <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
         <td>
             <p>&nbsp;</p>
             <p>&nbsp;</p>
         </td>
        <td>
-            <p>&#x2714; </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
         </td>
     </tr>
@@ -523,16 +523,16 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>Maven</p>
         </td>
        <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
        <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
        <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
     </tr>
     <tr>
@@ -543,18 +543,18 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
             <p>HTTP Client</p>
         </td>
        <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
         </td>
        <td>
-            <p>&#x2714; </p>
-            <p>&#x2714; </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>&nbsp;</p>
         </td>
        <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
             <p>&nbsp;</p>
         </td>
     </tr>
@@ -573,20 +573,20 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
         <p><a href="taint-analysis.md"/><b>**</b></p>
       </td>
       <td>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
-            <p>&#x2714;</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
+            <p>✔</p>
       </td>
       <td>
-         <p>&#x2714;</p>
-         <p>&#x2714;</p>
+         <p>✔</p>
+         <p>✔</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
@@ -594,8 +594,8 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
          <p>&nbsp;</p>
       </td>
       <td>
-         <p>&#x2714;</p>
-         <p>&#x2714;</p>
+         <p>✔</p>
+         <p>✔</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
