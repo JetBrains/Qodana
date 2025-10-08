@@ -23,3 +23,7 @@ Now you can also configure [Single Sign-on](cloud-sso.md) to authenticate using 
 
 The [`.mailmap`](https://git-scm.com/docs/gitmailmap) file support was implemented for better contributor counting, see 
 the [](contributors.md#The+.mailmap+file+support) for details.
+
+%cloud% and %premlite% now provide the public API that lets you create [teams](cloud-teams.topic) and [projects](cloud-projects.topic)
+using your build pipelines. The details are available in the [](cloud-api.md) section.
+

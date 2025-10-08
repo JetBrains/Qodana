@@ -149,7 +149,9 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | [](taint-analysis.md)                                   | &#x274c;  | &#x274c;  | &#x2714;      |
 | [](vulnerability-checker.md)                            | &#x274c;  | &#x274c;  | &#x2714;      |
 | [](cloud-sso.md)                                        | &#x274c;  | &#x274c;  | &#x2714;      |
-| [](insights.md)                                                   | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](insights.md)                                         | &#x274c;  | &#x274c;  | &#x2714;      |
+| [](cloud-api.md)                                             | &#x274c;  | &#x274c;  | &#x2714;      |
+
 
 ### Data storage and processing
 {id="pricing-data-storage"}
@@ -350,7 +352,10 @@ No, you can use the Community version of %product% in any open-source or proprie
 
 Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:
 
+* [](insights.md)
 * [](license-audit.topic)
+* [](cloud-api.md)
+* [](cloud-sso.md)
 * [](taint-analysis.md)
 * [](vulnerability-checker.md)
 

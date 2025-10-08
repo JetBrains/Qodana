@@ -70,6 +70,8 @@
             <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
                 <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
             <li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>
+            <li><ui-path>API token</ui-path> lets you generate and manage a <a anchor="cloud-organizations-api-token">permanent organization token</a> used by the <a href="cloud-api.md">public API</a> of %cloud%.
+                This feature is available only under the <a href="pricing.md">Ultimate Plus license</a> and only for %cloud% users of the <code>Owner</code> and <code>Admin</code> <a href="cloud-user-roles.md">roles</a>.</li>
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
@@ -109,11 +111,22 @@
                     <img src="qc-settings-organization-manage-members.png" dark-src="qc-settings-organization-manage-members.png" width="706" alt="Managing organization membership" border-effect="line"/>
                 </step>
             </procedure>
-
         </chapter>
 
+        <chapter id="cloud-organizations-api-token" title="Organization API token">
+
+            <link-summary>Using the API token tab, you can have access to the Public API to create teams, projects, and
+                obtain a list of users in %cloud% and %premlite% using your build pipelines.</link-summary>
+
+            <note>This tab is visible only if your %cloud% user has either the <code>Owner</code> or <code>Admin</code>
+                <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a> in %cloud% or %premlite%.</note>
+
+            <p>Using the <ui-path>API token</ui-path> tab, you can generate and manage an organization API token. This token lets you
+            have access to the <a href="cloud-api.md">Public API</a> to create <a href="cloud-teams.topic">teams</a>,
+            <a href="cloud-projects.topic">projects</a>, and obtain a list of %cloud% and %premlite% organization users
+            using your <a href="ci.md">build pipelines</a>.</p>
+
+            <img src="qc-settings-organization-api-token.png" width="706" alt="The API token tab" border-effect="line"/>
+        </chapter>
     </chapter>
-
-
-
 </topic>
