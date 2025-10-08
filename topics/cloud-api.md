@@ -12,7 +12,7 @@ The public API lets you create <a href="cloud-teams.topic">teams</a>, <a href="c
 and obtain a list of %cloud% and %premlite% organization users using your build pipelines. This feature is available only 
 under the [Ultimate Plus license](pricing.md).
 
-> The [OpenAPI file](%api-yaml%) and a [sample client](%api-client%) are available on a GitHub repository.
+<!-- > The [OpenAPI file](%api-yaml%) and a [sample client](%api-client%) are available on a GitHub repository.-->
 
 ## Prerequisites
 
