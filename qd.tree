@@ -47,9 +47,11 @@
 		<toc-element topic="inspect-code-formatting.md"/>
 		<toc-element topic="add-qodana-to-ci.md"/>
         <toc-element topic="unity.md"/>
+        <!--<toc-element topic="use-roslyn-analyzer.md"/>-->
 	</toc-element>
 
-	<!-- Deployment section -->
+
+    <!-- Deployment section -->
 	<toc-element topic="deploy-qodana.md" accepts-web-file-names="native-mode.html,docker-images.html,qodana-gradle-plugin.html,docker-readme.html,qodana-docker-readme.html"/>
 	<toc-element toc-title="IDE integration">
 		<toc-element topic="ide-integration.md"/>
