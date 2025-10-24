@@ -18,7 +18,8 @@
                 <a href="https://github.com/JetBrains/qodana-cli">%instance% CLI</a> tool, or available
                 <a href="deploy-qodana.md" anchor="Docker+images">Docker images</a></li>
             <li><a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">Native mode</a> available for the <a href="jvm.md">%jvm%</a>,
-                <a href="jvm.md">%jvm-co%</a>, <a href="php.md">%php%</a>, <a href="js.md">%js%</a>, and <a href="dotnet.md">%dotnet%</a> linters</li>
+                <a href="jvm.md">%jvm-co%</a>, <a href="php.md">%php%</a>, <a href="js.md">%js%</a>, <a href="dotnet.md">%dotnet%</a>,
+                <a href="python.md">%python%</a>, <a href="python.md">%python-co%</a>, and <a href="golang.md">%go%</a> linters</li>
         </list>
     </chapter>
 
