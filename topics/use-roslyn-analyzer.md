@@ -34,7 +34,7 @@ Using the Explorer window of your %ide%, expand the logic implementation project
 * `SampleSemanticAnalyzer.cs` uses semantic information like symbol tables and type information to identify more complex issues
 * `SampleSyntaxAnalyzer.cs` focuses on the code syntax looking for patterns or structures that might indicate potential problems
 
-In the logic implementation project, open the `SampleSyntaxAnalyzer.cs` file and paste the following code into it: 
+In the logic implementation project, open the `SampleSyntaxAnalyzer.cs` file and paste the following code into the Roslyn analyzer class: 
 
 ```c#
 // 1. Define constants for identification
@@ -79,6 +79,7 @@ private void AnalyzeBreakStatement(SyntaxNodeAnalysisContext context)
     }
 }
 ```
+{collapsible="true"}
 
 ## Package and run your Roslyn analyzer
 
