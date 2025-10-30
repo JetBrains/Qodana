@@ -8,7 +8,7 @@
     <module name="qd-docs"/>
     <vars src="v.list"/>
     <topics dir="topics"/>
-    <images dir="images" version="2025.2" web-path="https://resources.jetbrains.com/help/img/qodana/2025.2/"/>
+    <images dir="images" version="2025.3" web-path="https://resources.jetbrains.com/help/img/qodana/2025.3/"/>
     <categories src="c.list"/>
 
     </ihp>

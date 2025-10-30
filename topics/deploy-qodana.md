@@ -405,6 +405,16 @@ You can run %product% in several JetBrains IDEs, Visual Studio Code, and Visual 
 
 To specify Docker images from the table, use the `--image` [option](docker-image-configuration.topic#docker-config-reference-qodana-scan). 
 
+### Different Docker contexts or Podman
+
+%product% uses Docker CLI to communicate with the container engine and employs a Docker context enabled at the time of execution. 
+For example, to use Podman as your container engine, you will need to either:
+
+* In Podman Desktop, enable Docker compatability mode and disable Docker so that Podman listens on `/var/run/docker.sock`, or
+* Use the Podman socket to create a Docker context. If you are using Podman Desktop, you can find the socket path under **Settings > Resources**
+
+You can confirm which engine is activated by running the `docker version` command.
+
 ## CI integration
 
 You can run %product% using various CI/CD pipelines, as explained in the [](ci.md) section. 
