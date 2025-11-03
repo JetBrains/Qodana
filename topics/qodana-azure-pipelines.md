@@ -271,6 +271,8 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
             <li><code>Bypass policies when pushing</code> if they may fail the push of Quick-Fixes</li>
             <li><code>Create branch</code> if you use the <code>pull-request</code> setting</li>
          </list>
+      <p>In the checkout step of the pipeline configuration, specify the following:</p> 
+        <code-block lang="yaml">persistCredentials: true</code-block>
    </step>
 </procedure>
 
