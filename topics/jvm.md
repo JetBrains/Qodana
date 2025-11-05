@@ -20,7 +20,7 @@
 <var name="qd-a-linter" value="%jvm-co-a-linter%"/>
 <var name="qd-an-linter" value="%jvm-a-linter%"/>
 
-<var name="qd-image-combined" value="jetbrains/qodana-&lt;jvm|android&gt;&lt;-community|-android&gt;:2025.2-eap"/>
+<var name="qd-image-combined" value="jetbrains/qodana-&lt;jvm|android&gt;&lt;-community|-android&gt;:2025.3-eap"/>
 <var name="qd-linter-combined" value="qodana-&lt;jvm|android&gt;&lt;-community|-android&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 

@@ -1,6 +1,6 @@
 [//]: # (title: Analyze Unity project)
 
-<var name="qp-linter" value="jetbrains/qodana-dotnet:2025.2"/>
+<var name="qp-linter" value="jetbrains/qodana-dotnet:2025.3"/>
 
 <show-structure for="chapter" depth="3"/>
 

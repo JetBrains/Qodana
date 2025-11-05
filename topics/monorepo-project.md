@@ -82,26 +82,26 @@ images of %product% need to be run twice over the monorepo repository, once for 
 <tab id="monorepo-cli-tab" title="Qodana CLI">
 <note>You can only use %product% CLI with Azure and CircleCI.</note>
 <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
-The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--source-directory</code></a> option specifies which project folder to inspect.
+The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--only-directory</code></a> option specifies which project folder to inspect.
 The <a href="docker-image-configuration.topic" anchor="docker-config-reference-custom-yaml-config"><code>--config</code></a>
 option specifies which %product% configuration file to employ. Here is the snippet for the <code>backend</code> project:</p>
 <code-block lang="shell" prompt="$">
 qodana scan \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
-&nbsp;&nbsp;--source-directory backend \
+&nbsp;&nbsp;--only-directory backend \
 &nbsp;&nbsp;--config qodana-backend.yaml
 </code-block>
 <p>Here is the snippet for the <code>frontend</code> project:</p>
 <code-block lang="shell" prompt="$">
 qodana scan \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
-&nbsp;&nbsp;--source-directory frontend \
+&nbsp;&nbsp;--only-directory frontend \
 &nbsp;&nbsp;--config qodana-frontend.yaml
 </code-block>
 </tab>
 <tab id="monorepo-docker-image-tab" title="Docker">
 <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
-The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--source-directory</code></a> 
+The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--only-directory</code></a> 
 option specifies which project directory to inspect. 
 The <a href="docker-image-configuration.topic" anchor="docker-config-reference-custom-yaml-config"><code>--config</code></a>
 option specifies which %product% configuration file to employ. Here is the snippet for the <code>backend</code> project:</p>
@@ -110,7 +110,7 @@ docker run \
 &nbsp;&nbsp;-v "$PWD":/data/project/ \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-backend-project&gt;" \
 &nbsp;&nbsp;jetbrains/qodana-jvm:latest \
-&nbsp;&nbsp;--source-directory backend \
+&nbsp;&nbsp;--only-directory backend \
 &nbsp;&nbsp;--config qodana-backend.yaml
 </code-block>
 <p>Here is the snippet for the <code>frontend</code> project:</p>
@@ -119,7 +119,7 @@ docker run \
 &nbsp;&nbsp;-v "$PWD":/data/project/ \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \
 &nbsp;&nbsp;jetbrains/qodana-js:latest \
-&nbsp;&nbsp;--source-directory frontend \
+&nbsp;&nbsp;--only-directory frontend \
 &nbsp;&nbsp;--config qodana-frontend.yaml
 </code-block>
 </tab>
@@ -153,7 +153,7 @@ jobs:
         uses: %action-version%
         with:
           args: |
-            --source-directory,backend,--config,qodana-backend.yaml
+            --only-directory,backend,--config,qodana-backend.yaml
           artifact-name: qodana-backend
         env:
             QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_BACKEND }}
@@ -167,7 +167,7 @@ jobs:
         uses: %action-version%
         with:
           args: |
-            --source-directory,frontend,--config,qodana-frontend.yaml
+            --only-directory,frontend,--config,qodana-frontend.yaml
           artifact-name: qodana-frontend
         env:
             QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_FRONTEND }}

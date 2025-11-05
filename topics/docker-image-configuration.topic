@@ -7,8 +7,8 @@
 	title="Configuration options" id="docker-image-configuration">
 
     <show-structure for="chapter" depth="3"/>
-    <var name="linter-version" value="2025.2-eap"/>
-    <var name="linter-version-eap" value="2025.2-eap"/>
+    <var name="linter-version" value="2025.3-eap"/>
+    <var name="linter-version-eap" value="2025.3-eap"/>
 
     <link-summary>This section explains how you can configure %product% using various configuration options.</link-summary>
 
@@ -763,9 +763,19 @@
                         <code>-d, --source-directory &lt;string&gt;</code>
                     </td>
                     <td>
-                        Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
-                        the whole project will be analyzed
+                        <note>This option is deprecated and will be removed in future versions of %product%. Use the <code>--only-directory</code> option instead.</note>
+                        <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
+                            the whole project will be analyzed</p>
                     </td>
+                </tr>
+                <tr>
+                    <td><code>--only-directory</code></td>
+                    <td>
+                        <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
+                        <p>Files and directories contained in the outside directory like <code>.git</code> and
+                            <code>build.gradle</code> are used by %instance% while inspecting code</p>
+                    </td>
+                    <td>None</td>
                 </tr>
                 <tr>
                     <td>
@@ -1753,6 +1763,16 @@
             </tr>
             <tr>
                 <td><code>-d</code>, <code>--source-directory</code></td>
+                <td>
+                    <note>This option is deprecated and will be removed in future versions of %product%. Use the <code>--only-directory</code> option instead.</note>
+                    <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
+                    <p>Files and directories contained in the outside directory like <code>.git</code> and
+                        <code>build.gradle</code> are used by %instance% while inspecting code</p>
+                </td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td><code>--only-directory</code></td>
                 <td>
                     <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
                     <p>Files and directories contained in the outside directory like <code>.git</code> and
@@ -3999,7 +4019,7 @@
             <link-summary>Learn how to set up %product% for running as root and non-root users.</link-summary>
 
             <tip>You can build your own Docker image with the required dependencies using our
-                <a href="https://github.com/JetBrains/qodana-docker/blob/main/2025.2/python-community/Dockerfile">Dockerfile</a>.
+                <a href="https://github.com/JetBrains/qodana-docker/blob/main/2025.3/python-community/Dockerfile">Dockerfile</a>.
             </tip>
 
             <tabs>

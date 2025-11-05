@@ -315,28 +315,28 @@
     <var name="ruby-linter" value="qodana-ruby"/>
 
     <!-- Qodana linter images -->
-    <var name="jvm-image" value="jetbrains/qodana-jvm:2025.2"/>
-    <var name="jvm-a-image" value="jetbrains/qodana-android:2025.2"/>
-    <var name="jvm-co-image" value="jetbrains/qodana-jvm-community:2025.2"/>
-    <var name="jvm-co-a-image" value="jetbrains/qodana-jvm-android:2025.2"/>
-    <var name="dotnet-image" value="jetbrains/qodana-dotnet:2025.2"/>
-    <var name="dotnet-co-image" value="jetbrains/qodana-cdnet:2025.2-eap"/>
-    <var name="python-image" value="jetbrains/qodana-python:2025.2"/>
-    <var name="python-co-image" value="jetbrains/qodana-python-community:2025.2"/>
-    <var name="php-image" value="jetbrains/qodana-php:2025.2"/>
-    <var name="js-image" value="jetbrains/qodana-js:2025.2"/>
-    <var name="go-image" value="jetbrains/qodana-go:2025.2"/>
-    <var name="cpp-image" value="jetbrains/qodana-cpp:2025.2-eap"/>
-    <var name="clang-image" value="jetbrains/qodana-clang:2025.2-eap"/>
-    <var name="ruby-image" value="jetbrains/qodana-ruby:2025.2"/>
+    <var name="jvm-image" value="jetbrains/qodana-jvm:2025.3"/>
+    <var name="jvm-a-image" value="jetbrains/qodana-android:2025.3"/>
+    <var name="jvm-co-image" value="jetbrains/qodana-jvm-community:2025.3"/>
+    <var name="jvm-co-a-image" value="jetbrains/qodana-jvm-android:2025.3"/>
+    <var name="dotnet-image" value="jetbrains/qodana-dotnet:2025.3"/>
+    <var name="dotnet-co-image" value="jetbrains/qodana-cdnet:2025.3-eap"/>
+    <var name="python-image" value="jetbrains/qodana-python:2025.3"/>
+    <var name="python-co-image" value="jetbrains/qodana-python-community:2025.3"/>
+    <var name="php-image" value="jetbrains/qodana-php:2025.3"/>
+    <var name="js-image" value="jetbrains/qodana-js:2025.3"/>
+    <var name="go-image" value="jetbrains/qodana-go:2025.3"/>
+    <var name="cpp-image" value="jetbrains/qodana-cpp:2025.3-eap"/>
+    <var name="clang-image" value="jetbrains/qodana-clang:2025.3-eap"/>
+    <var name="ruby-image" value="jetbrains/qodana-ruby:2025.3"/>
 
     <!-- Extension versions -->
     <var name="action-version" value="JetBrains/qodana-action@v2025.2"/>
     <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2"/>
     <var name="circleci-version" value="jetbrains/qodana@2025.2"/>
 
-    <var name="version-previous" value="2025.1"/>
-    <var name="version-current" value="2025.2"/>
+    <var name="version-previous" value="2025.2"/>
+    <var name="version-current" value="2025.3"/>
 
     <!-- Self-hosted variables -->
     <var name="premlite" value="Qodana Self-Hosted"/>

@@ -38,14 +38,14 @@
 <var name="linter" value="Qodana for C/C++"/>
 <var name="config-file" value="qodana-clang-docker-readme.topic"/>
 <var name="clang-config" value="https://gist.github.com/fbaeuerlein/2895f889e451a817d7b2b36fd60e2873"/>
-<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.2/base/cpp.Dockerfile"/>
-<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.2/cpp/internal.Dockerfile"/>
+<var name="dockerfile" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.3/base/cpp.Dockerfile"/>
+<var name="dockerfile-internal" value="https://github.com/JetBrains/qodana-docker/blob/main/2025.3/cpp/internal.Dockerfile"/>
 <var name="clang-website" value="https://clang.llvm.org/extra/clang-tidy/checks/list.html"/>
 <var name="clion-inspections-general" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="misra-inspections" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#stat-analysis-tools"/>
 <var name="compdb-generate" value="https://www.jetbrains.com/help/clion/compilation-database.html#compdb_generate"/>
 
-<var name="linter-shell" value="qodana-clang:2025.2-eap"/>
+<var name="linter-shell" value="qodana-clang:2025.3-eap"/>
 <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>

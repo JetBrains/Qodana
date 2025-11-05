@@ -347,7 +347,7 @@
                     <step>
                         <p>Use this sample to create the <code>Dockerfile</code>:</p>
                         <code-block lang="docker">
-                    FROM docker.io/jetbrains/qodana-&lt;image&gt;:2025.2&lt;-eap&gt;
+                    FROM docker.io/jetbrains/qodana-&lt;image&gt;:2025.3&lt;-eap&gt;
                     LABEL version="1.0.0"
 
                     ##Copy the proxy.settings.xml file

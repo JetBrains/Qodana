@@ -229,8 +229,20 @@ In the example above,
 Using the `linter` option, you can specify a linter that you are going to employ. For example:
 
 ```yaml
-linter: jetbrains/qodana-jvm-android:2025.2
+linter: %jvm-co-a-linter%
 ```
+
+## Specify directory in your project
+
+Use the `onlyDirectory` option to specify a directory inside your project that has to be analyzed.
+This has to be specified relatively to the project root, for example:
+
+```yaml
+onlyDirectory: project-a
+```
+
+This is useful while analyzing [monorepo projects](monorepo-project.md).
+
 
 ## Configure the JDK version
 
