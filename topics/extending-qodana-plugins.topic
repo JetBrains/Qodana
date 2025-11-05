@@ -73,9 +73,8 @@
                         configuration files can be located in the configuration directory of your IDE like
                         <code>/root/.config/idea/options</code>.</p>
                         <p>After saving the modified configurations, run %product% using the updated configuration file.
-                        In case of the CheckStyle-IDEA plugin, the configuration file can be
-                            committed with the <code>.idea</code> directory or mounted to the
-                            <code>/root/.idea/checkstyle-idea.xml</code> directory. In other cases, the configuration file should be mounted
+                        In case of the CheckStyle-IDEA plugin, the configuration file should be stored in the the
+                            <code>.idea</code> directory before Qodana analysis. In other cases, the configuration file should be mounted
                             to the <code>/root/.config/idea/options</code> directory:</p>
                     <tabs>
                         <tab title="Qodana CLI">
@@ -173,7 +172,7 @@
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-l &lt;linter&gt;
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/root/.config/idea/options/&lt;plugin-name&gt;.jar \
+                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/plugins/&lt;plugin-name&gt;.jar \
                                 &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                             </code-block>
                         </tab>
@@ -182,7 +181,7 @@
                                 docker run \
                                 &nbsp;&nbsp;&nbsp;-v &lt;project-directory&gt;:/data/project/ \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/root/.config/idea/options/&lt;plugin-name&gt;.jar \
+                                &nbsp;&nbsp;&nbsp;-v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/plugins/&lt;plugin-name&gt;.jar \
                                 &nbsp;&nbsp;&nbsp;-v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                                 &nbsp;&nbsp;&nbsp;&lt;image&gt;
                             </code-block>
@@ -214,7 +213,7 @@
                                               with:
                                                   args: >
                                                         --linter,&lt;linter-name&gt;,
-                                                        -v,&lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/root/.config/idea/options/&lt;plugin-name&gt;.jar,
+                                                        -v,&lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/plugins/&lt;plugin-name&gt;.jar,
                                                         -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                                               env:
                                                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
