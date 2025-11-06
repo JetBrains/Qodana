@@ -72,6 +72,7 @@
             <li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>
             <li><ui-path>API token</ui-path> lets you generate and manage a <a anchor="cloud-organizations-api-token">permanent organization token</a> used by the <a href="cloud-api.md">public API</a> of %cloud%.
                 This feature is available only under the <a href="pricing.md">Ultimate Plus license</a> and only for %cloud% users of the <code>Owner</code> and <code>Admin</code> <a href="cloud-user-roles.md">roles</a>.</li>
+            <li><ui-path>Global configurations</ui-path> let you manage <a href="global-configuration.md">configurations used across many projects</a> of your organization.</li>
         </list>
 
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
@@ -128,5 +129,75 @@
 
             <img src="qc-settings-organization-api-token.png" width="706" alt="The API token tab" border-effect="line"/>
         </chapter>
+    </chapter>
+
+    <chapter id="cloud-organizations-global-configurations" title="Global configurations">
+    <p>Using this tab, you can manage <a href="global-configuration.md">global configurations</a>. On this tab,
+        you can find the list of configurations that can be used across multiple projects of your organization.
+        For each configuration, you can view projects connected to it, the configuration description, and the
+        time of the latest update.</p>
+
+    <p>Using the list of projects, you can:</p>
+    <list>
+        <li>View linked projects</li>
+        <li>Check usage statistics</li>
+        <li>Search for projects analyzed using the configuration</li>
+        <li>Assign or view global configurations for specific projects</li>
+    </list>
+
+    <p>Here, you can also modify the list of projects that use the specific global configuration.</p>
+
+    <p>This procedure explains how you can create your global configuration:</p>
+    <chapter id="cloud-organizations-global-configurations-connect-a-repository" title="Connect a repository">
+        <procedure>
+            <step>
+                <p>On the <ui-path>Global configurations</ui-path> tab, click the <ui-path>Connect repository</ui-path> button.</p>
+                <img src="global-configuration-tab.png" alt="The Global configuration tab" width="1280" border-effect="line"/>
+            </step>
+            <step>On the page that opens, select your CI/CD solution.</step>
+            <img src="gpc-onboarding-cicd.png" alt="Configuring a CI/CD solution" width="1644" border-effect="line"/>
+            <step>Also on this page, follow the instructions to configure a job.</step>
+            <img src="gpc-onboarding-job.png" alt="Configuring a CI/CD solution" width="1644" border-effect="line"/>
+        </procedure>
+
+        <p>Once the first run of a CI/CD solution with the uploader is complete, the global configuration is uploaded
+            and becomes visible on the <ui-path>Global configurations</ui-path> tab.</p>
+
+        <img src="global-configuration-overview.png" width="1236" alt="Overview of global configurations" border-effect="line"/>
+
+        <chapter id="cloud-organizations-global-configurations-modify-global-configuration" title="Modify a global configuration">
+            <p>Click the configuration that you would like to modify. This will open the page containing all
+                configuration parameters. On this page, you can view the files that define the global configuration
+                and obtain a link to the VCS to be able to edit its files. </p>
+            <img src="modify-global-configuration.png" alt="Global configuration components" width="1051" border-effect="line"/>
+        </chapter>
+
+        <chapter id="cloud-organizations-global-configurations-view-modify-list-of-projects" title="View and modify the list of projects">
+            <p>Click the <ui-path>Edit projects list</ui-path> button to open a dialog containing the list
+                of projects.</p>
+            <img src="gpc-project-list.png" width="1280" alt="Projects connected with a global configuration" border-effect="line"/>
+
+            <p>On the <ui-path>Connected Projects</ui-path> dialog you can view, assign, and unassign configurations.
+                You can also see whether the project is already assigned to another global configuration, and
+                you’ll get a warning if you try to override it. Besides that, it shows information about the latest
+                analysis. To be redirected to the analysis report, click a specific project name.</p>
+
+            <!-- Image of projects is required here -->
+        </chapter>
+
+    </chapter>
+
+        <chapter id="cloud-organizations-global-configurations-revoke-regenerate-token" title="Revoke and regenerate configuration token">
+            <p>In case of <a href="global-configuration.md" anchor="Configuration+token">configuration token</a> compromise
+                or new Qodana Cloud administrator, click the <ui-path>Actions</ui-path> and then click <ui-path>Revoke configuration token</ui-path>
+                to revoke the token and clear all configurations.</p>
+            <img src="global-project-actions.png" alt="Actions for a global configuration" width="378" border-effect="line"/>
+            <p>On the <ui-path>Revoke configuration token</ui-path> dialog, specify whether you would like to remove all global configurations after revoking the token. </p>
+            <img src="gpc-revoke-token-dialog.png" alt="Actions for a global configuration" width="1280" border-effect="line"/>
+            <!-- How can a token be regenerated after it has been revoked? -->
+
+        </chapter>
+
+
     </chapter>
 </topic>
