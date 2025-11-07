@@ -6,8 +6,8 @@ XML files.
 
 ## How the global configuration works
 
-YAML-formatted configuration files are saved in project directories of VCS repositories. Using [CI/CD pipelines](ci.md), 
-an uploader tool run using a [configuration token](#Configuration+token) you can send these files to Qodana Cloud. 
+YAML-formatted configuration files are saved in project directories of VCS repositories. In [CI/CD pipelines](ci.md), 
+an uploader tool uses [configuration token](#Uploading+to+Qodana+Cloud) to send these files to Qodana Cloud. 
 This lets global configurations become connected to Qodana Cloud projects; during project analyses, %product% linters 
 obtain global configuration for use. 
 
@@ -31,7 +31,7 @@ as well as two global configurations. In this case, profile configurations are m
 <!-- An example of a profile.inspections configuration should be provided here -->
 <!-- How does the flexInspect section work? -->
 
-If a project has project and global configurations and the project settings collide with global, then 
+If a project has both configuration types with the project settings colliding with global ones, then 
 project settings take precedence over global settings. In this case, the final configuration will contain settings
 from both configurations as you can see the `critical` configuration option of the `severityThresholds` option.
 
@@ -84,24 +84,23 @@ from both configurations as you can see the `critical` configuration option of t
 </table>
 
 <!-- How do I specify a global configuration file? What is the syntax to it? -->
+<!-- How do I merge two global configurations in this case? -->
 
-To merge two global configurations, you have to explicitly include one global configuration in the second one:
+<!-- To merge two global configurations, you have to explicitly include one global configuration in the second one: -->
 
 <!-- Need to have an example of merging two global configurations -->
 <!-- What happens if one global configuration collides with another? -->
 
 ## Uploading to Qodana Cloud
 
-To upload global configurations to Qodana Cloud, you should use a special configuration token. 
+To be able to share global configurations via Qodana Cloud, you should upload a special configuration token while running your CI/CD pipeline.
+You can generate this token on the **Global configurations** tab of your [organization settings](cloud-organizations.topic#cloud-organizations-global-configurations). 
 
-> You can manipulate tokens only if your user has either the Owner or the Admin role, see the [list of roles](cloud-user-roles.md) for details.
+> You can manipulate tokens only if your user has either the `Owner` or the `Admin` role, see the [list of roles](cloud-user-roles.md) for details.
+{style="note"}
 
-To upload configurations to Qodana Cloud, run your CI/CD pipeline. Once uploaded, global configurations become available 
-in the [organization settings](cloud-organizations.topic) of Qodana Cloud UI.
+After that, send your global configuration to Qodana Cloud as described in the [](#How+the+global+configuration+works) section on this page.
+This will make your global configurations become available in the [organization settings](cloud-organizations.topic) of Qodana Cloud UI.
 
-### Configuration token
 
-A configuration token is a token that you can generate on the **Global configurations** tab of your 
-[organization settings](cloud-organizations.topic#cloud-organizations-global-configurations). Using this token, you can 
-send your global configuration to Qodana Cloud as described in the [](#How+the+global+configuration+works) section on this page. 
 

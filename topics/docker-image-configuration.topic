@@ -769,13 +769,19 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><code>--only-directory</code></td>
+                    <td><code>--only-directory &lt;string&gt;</code></td>
                     <td>
-                        <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
-                        <p>Files and directories contained in the outside directory like <code>.git</code> and
+                        <p>The only directory inside the <code>--project-dir</code> directory to be analyzed. In this case,
+                            %product% uses all project settings stored in the directory specified by the <code>--project-dir</code> option.
+                            Files and directories contained in the outside directory like <code>.git</code> and
                             <code>build.gradle</code> are used by %instance% while inspecting code</p>
                     </td>
-                    <td>None</td>
+                </tr>
+                <tr>
+                    <td><code>--repository-root &lt;string&gt;</code></td>
+                    <td>
+                        <p>Configure the VCS root for a project.</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -1765,18 +1771,26 @@
                 <td><code>-d</code>, <code>--source-directory</code></td>
                 <td>
                     <note>This option is deprecated and will be removed in future versions of %product%. Use the <code>--only-directory</code> option instead.</note>
-                    <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
-                    <p>Files and directories contained in the outside directory like <code>.git</code> and
-                        <code>build.gradle</code> are used by %instance% while inspecting code</p>
+                    <p>Directory inside <code>--project-dir</code>. If missing, the whole project is analyzed.
+                        Files and directories contained in the outside directory like <code>.git</code> and
+                        <code>build.gradle</code> are used by %instance% while analyzing code</p>
                 </td>
                 <td>None</td>
             </tr>
             <tr>
                 <td><code>--only-directory</code></td>
                 <td>
-                    <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
+                    <p>The only directory inside the <code>--project-dir</code> directory to be analyzed. In this case,
+                        %product% uses all project settings stored in the directory specified by the <code>--project-dir</code> option.</p>
                     <p>Files and directories contained in the outside directory like <code>.git</code> and
-                        <code>build.gradle</code> are used by %instance% while inspecting code</p>
+                        <code>build.gradle</code> are used by %instance% while analyzing code</p>
+                </td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td><code>--repository-root</code></td>
+                <td>
+                    <p>Configure the VCS root for a project.</p>
                 </td>
                 <td>None</td>
             </tr>
