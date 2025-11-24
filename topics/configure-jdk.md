@@ -2,14 +2,16 @@
 
 <link-summary>Learn how you can configure the JDK for running Qodana.</link-summary>
 
+<var name="jbr-sdk" value="https://github.com/JetBrains/JetBrainsRuntime/tree/jbr25"/>
+
 ## Default versions
 
 This table shows the JDK versions that are by default used by %instance%:
 
 |---------|-----------|
 |[Linter](linters.md) | JDK version |
-|[Qodana for JVM](jvm.md)|[JBR SDK 21](https://github.com/JetBrains/JetBrainsRuntime/tree/jbr21) |
-|[Qodana Community for JVM](jvm.md)|[JBR SDK 21](https://github.com/JetBrains/JetBrainsRuntime/tree/jbr21) |
+|[Qodana for JVM](jvm.md)|[JBR SDK 25](%jbr-sdk%) |
+|[Qodana Community for JVM](jvm.md)|[JBR SDK 25](%jbr-sdk%) |
 |[Qodana Community for Android](jvm.md)|[Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/what-is-corretto-11.html) |
 |[Qodana for Android](jvm.md)|[Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/what-is-corretto-11.html)|
 
@@ -22,7 +24,7 @@ Using the default version of the JDK does not require any special configuration.
 <anchor name="configure-jdk-available-versions"/>
 
 Apart from the versions available [by default](#Default+versions), %instance% can automatically download and use these versions of JBR SDK 
-for all JVM linters: 8, 11, 13, 15, 16, 17, 18, 19.
+for all JVM linters: 8, 11, 13, 15, 16, 17, 18, 19, 21.
 
 Otherwise, you can download the required JDK version and [mount it](#Mount+JDK) to %instance%.
 
