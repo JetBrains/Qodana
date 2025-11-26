@@ -54,6 +54,8 @@ Additionally, since most Qodana Docker images are Linux-based, the Docker daemon
 You can configure this task using either a YAML-formatted file or the [Classic interface](%classic-ui-ref%). The detailed description
 of all configuration options is available in the [](#Configuration) chapter.
 
+Below are basic configuration examples that will be expanded in the subsequent chapters of this section.
+
 <tabs group="azure-config-tabs">
    <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
       <code-block lang="yaml">
@@ -83,7 +85,8 @@ of all configuration options is available in the [](#Configuration) chapter.
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
            </code-block>
-           <p>Here, the <code>persistCredentials: true</code> line lets you re-use credentials during pull request analyses.</p>
+           <p>Here, the <code>persistCredentials: true</code> line lets you reuse credentials for Git-related 
+                actions like <a anchor="Pull+requests">pull request analyses</a> or running <a anchor="Quick-Fixes">Quick-Fixes</a>.</p>
            <p>The <code>Cache</code> task lets you open projects faster using cache.</p> 
            <p>The <code>uploadResult: true</code> line tells %product% to produce a <code>qodana-report</code> artifact. 
                After running %product%, navigate to the <code>log</code> directory to see logs.</p>
@@ -283,8 +286,6 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
             <li><code>Bypass policies when pushing</code> if they may fail the push of Quick-Fixes</li>
             <li><code>Create branch</code> if you use the <code>pull-request</code> setting</li>
          </list>
-      <p>In the checkout step of the pipeline configuration, specify the following:</p> 
-        <code-block lang="yaml">persistCredentials: true</code-block>
    </step>
 </procedure>
 
