@@ -62,35 +62,50 @@
 
         </procedure>
 
-        <p>On the settings page, you can find the following tabs:</p>
-
-        <list>
-            <li><ui-path>Subscription</ui-path> contains the %instance% license information.</li>
-            <li><ui-path>Logs</ui-path> contains the list of log entries associated with your organization.</li>
-            <li><ui-path>Members</ui-path> contains the list of organization members. Using this tab, you can
-                <a anchor="cloud-organizations-invitation">manage your organization membership</a>. </li>
-            <li><ui-path>SSO</ui-path> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>
-            <li><ui-path>API token</ui-path> lets you generate and manage a <a anchor="cloud-organizations-api-token">permanent organization token</a> used by the <a href="cloud-api.md">public API</a> of %cloud%.
-                This feature is available only under the <a href="pricing.md">Ultimate Plus license</a> and only for %cloud% users of the <code>Owner</code> and <code>Admin</code> <a href="cloud-user-roles.md">roles</a>.</li>
-            <li><ui-path>Global configurations</ui-path> let you manage <a href="global-configuration.md">configurations used across many projects</a> of your organization.</li>
-        </list>
-
         <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
 
-        <img src="qc-settings-organization-leave-temp.png" dark-src="qc-settings-organization-leave-temp_dark.png" width="706" alt="Leaving and switching organization status" border-effect="line"/>
+        <img src="qc-settings-organization-leave-temp.png" width="706" alt="Managing an organization" border-effect="line"/>
 
         <note>You cannot leave or delete an organization in case you are the only member of it, so you need to assign a new
             administrator beforehand.</note>
 
 
-        <chapter id="cloud-organizations-invitation" title="Organization membership">
+        <p>On the settings page, you can find the following tabs:</p>
+
+        <list>
+            <li><a anchor="cloud-organizations-subscription"><ui-path>Subscription</ui-path></a> contains the %instance% license information.</li>
+            <li><a anchor="cloud-organizations-logs"><ui-path>Logs</ui-path></a> provides a list of log entries for a specific time interval.</li>
+            <li><a anchor="cloud-organizations-invitation"><ui-path>Members</ui-path></a> lets you manage organization members.</li>
+            <li><a anchor="cloud-organization-sso"><ui-path>SSO</ui-path></a> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>
+            <li><a anchor="cloud-organizations-api-token"><ui-path>API token</ui-path></a> lets you generate and manage a permanent organization token used by the <a href="cloud-api.md">public API</a> of %cloud%.
+                This feature is available only under the <a href="pricing.md">Ultimate Plus license</a> and only for %cloud% users of the <code>Owner</code> and <code>Admin</code> <a href="cloud-user-roles.md">roles</a>.</li>
+            <li><a anchor="cloud-organizations-global-configurations"><ui-path>Global configurations</ui-path></a> let you manage <a href="global-configuration.md">configurations used across many projects</a> of your organization.</li>
+        </list>
+
+        <chapter id="cloud-organizations-subscription" title="Subscription">
+
+            <p>Using the <ui-path>Subscription</ui-path> tab, you can see information about your %product% license.</p>
+
+            <img src="qc-settings-subscription.png" width="706" alt="The Subscription tab of %cloud%" border-effect="line"/>
+
+        </chapter>
+
+        <chapter id="cloud-organizations-logs" title="Logs">
+
+            <p>Using the <ui-path>Logs</ui-path> tab, you can view %cloud% log entries for a specific time interval.</p>
+
+            <img src="qc-settings-logs.png" width="706" alt="The Logs tab of %cloud%" border-effect="line"/>
+
+        </chapter>
+
+        <chapter id="cloud-organizations-invitation" title="Members">
 
             <link-summary>Explore how you can manage membership in your %cloud% organization.</link-summary>
 
-            <p>Within your organization, you can:</p>
+            <p>Using the <ui-path>Members</ui-path> tab, you can:</p>
 
             <list>
-                <li>Invite new members using email addresses, and assign them <a href="cloud-user-roles.md">user roles</a>.</li>
+                <li>Invite new members to your organization using email addresses, and assign them <a href="cloud-user-roles.md">user roles</a>.</li>
                 <li>Change <a href="cloud-user-roles.md">the roles</a> of the existing organization members.</li>
                 <li>Exclude members from your organization.</li>
             </list>
@@ -104,7 +119,7 @@
                 </step>
                 <step>
                     <p>On the <ui-path>Members</ui-path> tab, click <ui-path>Invite members</ui-path>.</p>
-                    <img src="qc-settings-organization-invite-members.png" dark-src="qc-settings-organization-invite-members_dark.png" width="706" alt="Clicking the Invite members button" border-effect="line"/>
+                    <img src="qc-settings-organization-invite-members.png" width="706" alt="Clicking the Invite members button" border-effect="line"/>
 
                 </step>
                 <step>
@@ -114,13 +129,45 @@
             </procedure>
         </chapter>
 
-        <chapter id="cloud-organizations-api-token" title="Organization API token">
+        <chapter id="cloud-organization-sso" title="SSO">
+
+            <p>Using the <ui-path>SSO</ui-path> tab, you can set up subdomains employed by third-party identity providers for
+                authentication in %cloud% and %premlite%. The details are available in the <a href="cloud-sso.md"/> section.</p>
+
+            <note>
+                This functionality is visible only for users under Ultimate Plus <a href="pricing.md">licenses</a>
+                purchased for a minimum of ten users.
+            </note>
+
+            <note>This tab is visible only if your %cloud% user has either the <code>Owner</code> or <code>Admin</code>
+                <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a> in %cloud% or %premlite%.</note>
+
+            <procedure>
+                <step>
+                    <p>On the <ui-path>SSO</ui-path> tab, enter the name of the subdomain that you would like to use for authentication, and then
+                        click the <ui-path>Generate URL</ui-path> button.</p>
+                    <img src="qc-settings-sso.png" width="706" alt="The SSO tab of the organization settings" border-effect="line"/>
+                </step>
+                <step>
+                    <p>On this tab, copy the URL and follow the recommendations.</p>
+                    <img src="qc-settings-sso-2.png" width="706" alt="The second step of the SSO subdomain generation" border-effect="line"/>
+                </step>
+            </procedure>
+
+
+        </chapter>
+
+        <chapter id="cloud-organizations-api-token" title="API token">
 
             <link-summary>Using the API token tab, you can have access to the Public API to create teams, projects, and
                 obtain a list of users in %cloud% and %premlite% using your build pipelines.</link-summary>
 
             <note>This tab is visible only if your %cloud% user has either the <code>Owner</code> or <code>Admin</code>
                 <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a> in %cloud% or %premlite%.</note>
+
+            <note>
+                This tab is visible only for users under the Ultimate Plus <a href="pricing.md">license</a>.
+            </note>
 
             <p>Using the <ui-path>API token</ui-path> tab, you can generate and manage an organization API token. This token lets you
             have access to the <a href="cloud-api.md">Public API</a> to create <a href="cloud-teams.topic">teams</a>,
@@ -129,75 +176,84 @@
 
             <img src="qc-settings-organization-api-token.png" width="706" alt="The API token tab" border-effect="line"/>
         </chapter>
-    </chapter>
 
-    <chapter id="cloud-organizations-global-configurations" title="Global configurations">
-    <p>Using this tab, you can manage <a href="global-configuration.md">global configurations</a>. Here,
-        you can find the list of configurations that can be used across multiple projects of your organization.
-        For each configuration, you can view projects connected to it, the configuration description, and the
-        time of the latest update.</p>
+        <chapter id="cloud-organizations-global-configurations" title="Global configurations">
 
-    <p>Using the list of projects, you can:</p>
-    <list>
-        <li>View linked projects</li>
-        <li>Check usage statistics</li>
-        <li>Search for projects analyzed using the configuration</li>
-        <li>Assign or view global configurations for specific projects</li>
-    </list>
+            <note>
+                This tab is visible only for users under the Ultimate Plus <a href="pricing.md">license</a>.
+            </note>
 
-    <p>Here, you can also modify the list of projects that use the specific global configuration.</p>
+            <p>Using the <ui-path>Global configurations</ui-path> tab, you can manage <a href="global-configuration.md">global configurations</a>. Here,
+                you can find the list of configurations that can be used across multiple projects of your organization.
+                For each configuration, you can view projects connected to it, the configuration description, and the
+                time of the latest update.</p>
 
-    <p>This procedure explains how you can create your global configuration:</p>
-    <chapter id="cloud-organizations-global-configurations-connect-a-repository" title="Connect a repository">
-        <procedure>
-            <step>
-                <p>On the <ui-path>Global configurations</ui-path> tab, click the <ui-path>Connect repository</ui-path> button.</p>
-                <img src="global-configuration-tab.png" alt="The Global configuration tab" width="1280" border-effect="line"/>
-            </step>
-            <step>On the page that opens, select your CI/CD solution.</step>
-            <img src="gpc-onboarding-cicd.png" alt="Configuring a CI/CD solution" width="1644" border-effect="line"/>
-            <step>Also on this page, follow the instructions to configure a job.</step>
-            <img src="gpc-onboarding-job.png" alt="Configuring a CI/CD solution" width="1644" border-effect="line"/>
-        </procedure>
+            <p>Using the list of projects, you can:</p>
+            <list>
+                <li>View linked projects</li>
+                <li>Check usage statistics</li>
+                <li>Search for projects analyzed using the configuration</li>
+                <li>Assign or view global configurations for specific projects</li>
+            </list>
 
-        <p>Once the first run of a CI/CD solution with the uploader is complete, the global configuration is uploaded
-            and becomes visible on the <ui-path>Global configurations</ui-path> tab.</p>
+            <p>Here, you can also modify the list of projects that use the specific global configuration.</p>
 
-        <img src="global-configuration-overview.png" width="1236" alt="Overview of global configurations" border-effect="line"/>
+            <p>This procedure explains how you can create your global configuration:</p>
+            <chapter id="cloud-organizations-global-configurations-connect-a-repository" title="Connect a repository">
+                <procedure>
+                    <step>
+                        <p>On the <ui-path>Global configurations</ui-path> tab, click the <ui-path>Connect repository</ui-path> button.</p>
+                        <img src="gpc-global-configuration-tab.png" thumbnail="true" alt="The Global configuration tab" width="940" border-effect="line"/>
+                    </step>
+                    <step>On the page that opens, select your CI/CD tool and follow the instructions about a
+                        <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a>.</step>
+                    <img src="gpc-onboarding-cicd.png" alt="Configuring a CI/CD solution" width="710" border-effect="line"/>
+                    <step>Also on that page, follow the instructions to configure a job.</step>
+                    <img src="gpc-onboarding-cicd-2.png" alt="Configuring a CI/CD solution" width="710" border-effect="line"/>
+                </procedure>
 
-        <chapter id="cloud-organizations-global-configurations-modify-global-configuration" title="Modify a global configuration">
-            <p>Click the configuration that you would like to modify. This will open the page containing all
-                configuration parameters. On this page, you can view the files that define the global configuration
-                and obtain a link to the VCS to be able to edit its files. </p>
-            <img src="modify-global-configuration.png" alt="Global configuration components" width="1051" border-effect="line"/>
+                <p>Once the first run of a CI/CD solution with the uploader is complete, the global configuration is uploaded
+                    and becomes visible on the <ui-path>Global configurations</ui-path> tab.</p>
+
+                <img src="global-configuration-overview.png" width="1236" alt="Overview of global configurations" border-effect="line"/>
+
+                <chapter id="cloud-organizations-global-configurations-modify-global-configuration" title="Modify a global configuration">
+                    <p>Click the configuration that you would like to modify. This will open the page containing all
+                        configuration parameters. On this page, you can view the files that define the global configuration
+                        and obtain a link to the VCS to be able to edit its files. </p>
+                    <img src="modify-global-configuration.png" alt="Global configuration components" width="1051" border-effect="line"/>
+                </chapter>
+
+                <chapter id="cloud-organizations-global-configurations-view-modify-list-of-projects" title="View and modify the list of projects">
+                    <p>Click the <ui-path>Edit projects list</ui-path> button to open a dialog containing the list
+                        of projects.</p>
+                    <img src="gpc-project-list.png" width="1280" alt="Projects connected with a global configuration" border-effect="line"/>
+
+                    <p>On the <ui-path>Connected Projects</ui-path> dialog you can view, assign, and unassign configurations.
+                        You can also see whether the project is already assigned to another global configuration, and
+                        you’ll get a warning if you try to override it. Besides that, it shows information about the latest
+                        analysis. To be redirected to the analysis report, click a specific project name.</p>
+
+                    <!-- Image of projects is required here -->
+                </chapter>
+
+            </chapter>
+
+            <chapter id="cloud-organizations-global-configurations-revoke-regenerate-token" title="Manage configuration token">
+                <p>In case a <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a> is compromised,
+                    click the <ui-path>Actions</ui-path> and then click <ui-path>Revoke configuration token</ui-path>
+                    to revoke the token and clear all configurations.</p>
+                <img src="global-project-actions.png" alt="Actions for a global configuration" width="378" border-effect="line"/>
+                <p>On the <ui-path>Revoke configuration token</ui-path> dialog, specify whether you would like to remove all global configurations after revoking the token. </p>
+                <img src="gpc-revoke-token-dialog.png" alt="Actions for a global configuration" width="1280" border-effect="line"/>
+                <!-- How can a token be regenerated after it has been revoked? -->
+
+            </chapter>
+
+
         </chapter>
 
-        <chapter id="cloud-organizations-global-configurations-view-modify-list-of-projects" title="View and modify the list of projects">
-            <p>Click the <ui-path>Edit projects list</ui-path> button to open a dialog containing the list
-                of projects.</p>
-            <img src="gpc-project-list.png" width="1280" alt="Projects connected with a global configuration" border-effect="line"/>
-
-            <p>On the <ui-path>Connected Projects</ui-path> dialog you can view, assign, and unassign configurations.
-                You can also see whether the project is already assigned to another global configuration, and
-                you’ll get a warning if you try to override it. Besides that, it shows information about the latest
-                analysis. To be redirected to the analysis report, click a specific project name.</p>
-
-            <!-- Image of projects is required here -->
-        </chapter>
-
     </chapter>
 
-        <chapter id="cloud-organizations-global-configurations-revoke-regenerate-token" title="Revoke and regenerate configuration token">
-            <p>In case a <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a> is compromised,
-                click the <ui-path>Actions</ui-path> and then click <ui-path>Revoke configuration token</ui-path>
-                to revoke the token and clear all configurations.</p>
-            <img src="global-project-actions.png" alt="Actions for a global configuration" width="378" border-effect="line"/>
-            <p>On the <ui-path>Revoke configuration token</ui-path> dialog, specify whether you would like to remove all global configurations after revoking the token. </p>
-            <img src="gpc-revoke-token-dialog.png" alt="Actions for a global configuration" width="1280" border-effect="line"/>
-            <!-- How can a token be regenerated after it has been revoked? -->
 
-        </chapter>
-
-
-    </chapter>
 </topic>

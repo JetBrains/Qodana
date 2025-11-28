@@ -29,18 +29,18 @@ in %cloud%.
 
 User authentication is carried out using a subdomain of %cloud%, which you can create as explained below.
 
-<procedure>
+<procedure id="cloud-sso-create-subdomain">
     <step>In your %cloud% organization, navigate to the 
         <a href="cloud-organizations.topic" anchor="cloud-organizations-overview">settings page</a>.</step>
     <step>
         <p>On the settings page, click the <ui-path>SSO</ui-path> tab.</p>
     </step>
     <step><p>On the <ui-path>SSO</ui-path> tab, enter the name of the subdomain that you would like to use for authentication, and then
-            click the <ui-path>Set up SSO</ui-path> button.</p> 
-        <img src="qc-sso-sso-tab.png" width="706" alt="The SSO tab of the organization settings" border-effect="line"/>
+            click the <ui-path>Generate URL</ui-path> button.</p> 
+        <img src="qc-settings-sso.png" width="706" alt="The SSO tab of the organization settings" border-effect="line"/>
     </step>
-    <step><p>On the <ui-path>SSO</ui-path> tab, copy and save the generated URL that you will be using for authentication, and then click the <ui-path>Configure SSO</ui-path> link to proceed to the next configuration stage.</p>
-          <img src="qc-sso-configure-sso.png" width="706" alt="The generated URL and the Configure SSO link" border-effect="line"/>
+    <step><p>On the <ui-path>SSO</ui-path> tab, copy and save the generated URL that you will be using for authentication, and then follow instructions from this tab.</p>
+          <img src="qc-settings-sso-2.png" width="706" alt="The generated URL and the Configure SSO link" border-effect="line"/>
     </step>
 </procedure>
 

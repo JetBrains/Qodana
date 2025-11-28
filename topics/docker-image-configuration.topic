@@ -7,8 +7,6 @@
 	title="Configuration options" id="docker-image-configuration">
 
     <show-structure for="chapter" depth="3"/>
-    <var name="linter-version" value="2025.3-eap"/>
-    <var name="linter-version-eap" value="2025.3-eap"/>
 
     <link-summary>This section explains how you can configure %product% using various configuration options.</link-summary>
 
@@ -228,7 +226,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-jvm-community:%linter-version%</code>
+                                    <code>%jvm-co-image%</code>
                                 </td>
                                 <td>
                                     <a href="jvm.md">%jvm-co%</a>
@@ -236,7 +234,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-jvm:%linter-version%</code>
+                                    <code>%jvm-image%</code>
                                 </td>
                                 <td>
                                     <a href="jvm.md">%jvm%</a>
@@ -244,7 +242,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-jvm-android:%linter-version%</code>
+                                    <code>%jvm-co-a-image%</code>
                                 </td>
                                 <td>
                                     <a href="jvm.md">%jvm-co-a%</a>
@@ -252,7 +250,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-android:%linter-version%</code>
+                                    <code>%jvm-a-image%</code>
                                 </td>
                                 <td>
                                     <a href="jvm.md">%jvm-a%</a>
@@ -260,7 +258,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-php:%linter-version%</code>
+                                    <code>%php-image%</code>
                                 </td>
                                 <td>
                                     <a href="php.md">%php%</a>
@@ -268,7 +266,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-python:%linter-version%</code>
+                                    <code>%python-image%</code>
                                 </td>
                                 <td>
                                     <a href="python.md">%python%</a>
@@ -276,7 +274,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-python-community:%linter-version%</code>
+                                    <code>%python-co-image%</code>
                                 </td>
                                 <td>
                                     <a href="python.md">%python-co%</a>
@@ -284,7 +282,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-js:%linter-version%</code>
+                                    <code>%js-image%</code>
                                 </td>
                                 <td>
                                     <a href="js.md">%js%</a>
@@ -292,7 +290,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-go:%linter-version%</code>
+                                    <code>%go-image%</code>
                                 </td>
                                 <td>
                                     <a href="golang.md">%go%</a>
@@ -300,7 +298,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-dotnet:%linter-version%</code>
+                                    <code>%dotnet-image%</code>
                                 </td>
                                 <td>
                                     <a href="dotnet.md">%dotnet%</a>
@@ -308,7 +306,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cdnet:%linter-version-eap%</code>
+                                    <code>%dotnet-co-image%</code>
                                 </td>
                                 <td>
                                     <a href="dotnet.md">%dotnet-co%</a>
@@ -316,7 +314,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-clang:%linter-version-eap%</code>
+                                    <code>%cpp-image%</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%cpp%</a>
@@ -324,7 +322,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-cpp:%linter-version-eap%</code>
+                                    <code>%clang-image%</code>
                                 </td>
                                 <td>
                                     <a href="clang.md">%clang%</a>
@@ -332,7 +330,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <code>jetbrains/qodana-ruby:%linter-version-eap%</code>
+                                    <code>%ruby-image%</code>
                                 </td>
                                 <td>
                                     <a href="ruby.md">%ruby%</a>
@@ -763,24 +761,8 @@
                         <code>-d, --source-directory &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>This option is deprecated and will be removed in future versions of %product%. Use the <code>--only-directory</code> option instead.</note>
-                        <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
-                            the whole project will be analyzed</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td><code>--only-directory &lt;string&gt;</code></td>
-                    <td>
-                        <p>The only directory inside the <code>--project-dir</code> directory to be analyzed. In this case,
-                            %product% uses all project settings stored in the directory specified by the <code>--project-dir</code> option.
-                            Files and directories contained in the outside directory like <code>.git</code> and
-                            <code>build.gradle</code> are used by %instance% while inspecting code</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td><code>--repository-root &lt;string&gt;</code></td>
-                    <td>
-                        <p>Configure the VCS root for a project.</p>
+                        Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
+                        the whole project will be analyzed
                     </td>
                 </tr>
                 <tr>
@@ -1770,27 +1752,9 @@
             <tr>
                 <td><code>-d</code>, <code>--source-directory</code></td>
                 <td>
-                    <note>This option is deprecated and will be removed in future versions of %product%. Use the <code>--only-directory</code> option instead.</note>
-                    <p>Directory inside <code>--project-dir</code>. If missing, the whole project is analyzed.
-                        Files and directories contained in the outside directory like <code>.git</code> and
-                        <code>build.gradle</code> are used by %instance% while analyzing code</p>
-                </td>
-                <td>None</td>
-            </tr>
-            <tr>
-                <td><code>--only-directory</code></td>
-                <td>
-                    <p>The only directory inside the <code>--project-dir</code> directory to be analyzed. In this case,
-                        %product% uses all project settings stored in the directory specified by the <code>--project-dir</code> option.</p>
+                    <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
                     <p>Files and directories contained in the outside directory like <code>.git</code> and
-                        <code>build.gradle</code> are used by %instance% while analyzing code</p>
-                </td>
-                <td>None</td>
-            </tr>
-            <tr>
-                <td><code>--repository-root</code></td>
-                <td>
-                    <p>Configure the VCS root for a project.</p>
+                        <code>build.gradle</code> are used by %instance% while inspecting code</p>
                 </td>
                 <td>None</td>
             </tr>
@@ -4033,7 +3997,7 @@
             <link-summary>Learn how to set up %product% for running as root and non-root users.</link-summary>
 
             <tip>You can build your own Docker image with the required dependencies using our
-                <a href="https://github.com/JetBrains/qodana-docker/blob/main/2025.3/python-community/Dockerfile">Dockerfile</a>.
+                <a href="https://github.com/JetBrains/qodana-docker/blob/main/2025.2/python-community/Dockerfile">Dockerfile</a>.
             </tip>
 
             <tabs>
