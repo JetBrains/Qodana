@@ -4,6 +4,8 @@ Global configuration lets you share %product% configurations across multiple pro
 consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and [inspection profile configurations](custom-profiles.md) contained in YAML and 
 XML files.
 
+This feature is available under the Ultimate Plus [license](pricing.md).
+
 ## How the global configuration works
 
 YAML-formatted configuration files are saved in project directories of VCS repositories. In [CI/CD pipelines](ci.md), 
@@ -100,7 +102,7 @@ You can generate this token on the **Global configurations** tab of your [organi
 {style="note"}
 
 After that, send your global configuration to Qodana Cloud as described in the [](#How+the+global+configuration+works) section on this page.
-This will make your global configurations become available in the [organization settings](cloud-organizations.topic) of Qodana Cloud UI.
+This will make your global configurations become available in the [organization settings](cloud-organizations.topic) of the %cloud% UI.
 
 
 
