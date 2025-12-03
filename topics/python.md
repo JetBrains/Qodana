@@ -196,6 +196,32 @@ bootstrap: pip install -r requirements.txt
 
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,python,native"/>
 
+### Overriding the Python interpreter
+
+You can tell the `%python-linter%` and `%python-co-linter%` linters to use a different version of the Python interpreter.
+To do it, follow the instructions below.
+
+<procedure>
+<step>
+<p>In the <a href="before-running-qodana.md"><code>bootstrap</code></a> section of the <code>qodana.yaml</code> file, 
+save the following snippet:</p>
+<code-block lang="yaml">
+# Create `qodana-env` environment with specific Python version
+bootstrap: |
+  . ~/.bashrc
+  conda create -y -n qodana-env python=2.7 # Python version
+  conda activate qodana-env # Activate the created environment
+</code-block>
+</step>
+<step>
+<p>Use the <code>QODANA_PYTHON_PATH</code> variable to pass the path to the Python binary containing the environment, for example:</p>
+<code-block lang="shell">
+-e QODANA_PYTHON_PATH:/data/cache/conda/envs/qodana-env/bin/python
+</code-block>
+<p>Examples of using variables are provided in the <a anchor="Run+%25product%25"/> section.</p>
+</step>
+</procedure>
+
 ## Supported technologies and features
 {id="python-feature-matrix"}
 
