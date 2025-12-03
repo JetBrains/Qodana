@@ -5,12 +5,12 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<link-summary>The public API lets you create teams, projects, and obtain a list of users in %cloud% and %premlite% using 
+<link-summary>The public API lets you create teams, projects, obtain a list of users and Insights data in %cloud% and %premlite% using 
 your build pipelines.</link-summary>
 
 The public API lets you create <a href="cloud-teams.topic">teams</a>, <a href="cloud-projects.topic">projects</a>,
-and obtain a list of %cloud% and %premlite% organization users using your build pipelines. This feature is available only 
-under the [Ultimate Plus license](pricing.md).
+obtain a list of %cloud% and %premlite% organization users and [](insights.md) data using your build pipelines. 
+This feature is available only under the [Ultimate Plus license](pricing.md).
 
 > The [OpenAPI file](%api-yaml%) and a [sample client](%api-client%) are available in a GitHub repository.
 

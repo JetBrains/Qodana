@@ -91,7 +91,7 @@ qodana scan \
 &nbsp;&nbsp;--only-directory backend \
 &nbsp;&nbsp;--config qodana-backend.yaml
 </code-block>
-<p>Here is the snippet for the <code>frontend</code> project:</p>
+<p>Here is the snippet for the <code>frontend</code> project:</p>F
 <code-block lang="shell" prompt="$">
 qodana scan \
 &nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token-for-frontend-project&gt;" \

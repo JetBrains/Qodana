@@ -2,7 +2,7 @@
 <!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 <instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="eap">
 	<!-- Getting started section -->
-	<toc-element accepts-web-file-names="welcome.html,index.html" topic="getting-started.topic">
+    <toc-element accepts-web-file-names="welcome.html,index.html" topic="getting-started.topic">
 		<toc-element topic="about-qodana.md" accepts-web-file-names="cloud-about.html,qodana.html"/>
 		<toc-element topic="pricing.md"/>
 		<toc-element topic="Quick-start.topic" accepts-web-file-names="cli.html"/>
@@ -47,6 +47,7 @@
 		<toc-element topic="inspect-code-formatting.md"/>
 		<toc-element topic="add-qodana-to-ci.md"/>
         <toc-element topic="unity.md"/>
+        <toc-element topic="configure-inspection.md"/>
         <!--<toc-element topic="use-roslyn-analyzer.md"/>-->
 	</toc-element>
 

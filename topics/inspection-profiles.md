@@ -73,8 +73,8 @@ To learn how to set up existing %product% profiles, see the [](#inspection-profi
 
 You can create custom profiles using the following formats:
 
-* [YAML](custom-profiles.md) is the preferred format,
-* [XML](custom-profiles.md#Custom+XML+profiles) can be used as an alternative to YAML.
+* [YAML](custom-profiles.md) is the preferred format
+* [XML](custom-profiles.md#Custom+XML+profiles) can be used as an alternative to YAML
 
 Custom profiles can either override [existing profiles](#inspection-profiles-existing-profiles) or be created from 
 scratch. Since profile configurations should be contained in dedicated files, it is advised to save them in the `.qodana` 
