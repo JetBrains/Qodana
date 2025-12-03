@@ -199,7 +199,7 @@ bootstrap: pip install -r requirements.txt
 ### Overriding the Python interpreter
 
 You can tell the `%python-linter%` and `%python-co-linter%` linters to use a different version of the Python interpreter.
-To do it, follow the instructions below.
+To do this, follow the instructions below.
 
 <procedure>
 <step>
