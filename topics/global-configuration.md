@@ -43,8 +43,8 @@ The `qodana-global-configuraton.yaml` file describes the global configuration, f
 ```yaml
 configurations:
     - id: project_a
-      name: Project A 
-      description: Configuration used for project A
+      name: Project A # Displayed in %cloud% UI
+      description: Configuration used for project A # Displayed in %cloud% UI
       qodanaYaml: project-a/qodana.yaml # Path to the config file 
 
     - id: project_b
