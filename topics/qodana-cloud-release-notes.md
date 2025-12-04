@@ -2,6 +2,12 @@
 
 <show-structure depth="3"/>
 
+## December 2025
+
+[Global configuration](global-configuration.md) lets you share %product% configurations across multiple projects. Each
+global configuration is a set of files consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and
+[inspection profile configurations](custom-profiles.md) contained in YAML and XML files.
+
 ## September 2025
 
 The [`.mailmap`](https://git-scm.com/docs/gitmailmap) file support was implemented for better contributor counting, see
