@@ -69,7 +69,7 @@
 			<toc-element topic="inspection-profiles.md"/>
 			<toc-element topic="custom-profiles.md" accepts-web-file-names="custom-xml-profiles.md"/>
 		<toc-element topic="configure-jdk.md"/>
-		<!--<toc-element topic="global-configuration.md"/>-->
+		<toc-element topic="global-configuration.md"/>
 	</toc-element>
 
 	<!-- Inspect your code section -->

@@ -143,6 +143,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | [](code-coverage.md)                                    | 𐄂        | ✔        | ✔             |
 | Docker and Kubernetes support                           | 𐄂        | ✔        | ✔             |
 | [](flexinspect.md)                                      | 𐄂        | ✔        | ✔             |
+| [](global-configuration.md)                             | 𐄂        | 𐄂        | ✔             |
 | [](php-language-upgrade.topic)                          | 𐄂        | ✔        | ✔             |
 | [](quick-fix.md)                                        | 𐄂        | ✔        | ✔             |
 | [](insights.md)                                         | 𐄂        | 𐄂       | ✔             |

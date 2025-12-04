@@ -1,34 +1,48 @@
 # Global configuration
 
 Global configuration lets you share %product% configurations across multiple projects. Each global configuration is a set of files
-consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and inspection profile configurations contained in [YAML](custom-profiles.md) and 
-[XML](custom-profiles.md#Custom+XML+profiles) files.
+consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and [inspection profile configurations](custom-profiles.md) contained in YAML and 
+XML files.
 
-## How global configuration works
+This feature is available under the Ultimate Plus [license](pricing.md).
 
-YAML-formatted configuration files are saved in project directories of VCS repositories. Using [CI/CD pipelines](ci.md) 
-and an uploader tool, you can send these files to %cloud%. This lets global configurations become connected to 
-%cloud% projects; during the project analysis, %product% linters obtain global configuration and use it as a base 
-configuration during analysis. 
+## How the global configuration works
 
-You can update these files in the %cloud% UI. 
+YAML-formatted configuration files are saved in project directories of VCS repositories. In [CI/CD pipelines](ci.md), 
+an uploader tool uses [configuration token](#Uploading+to+Qodana+Cloud) to send these files to Qodana Cloud. 
+This lets global configurations become connected to Qodana Cloud projects; during project analyses, %product% linters 
+obtain global configuration for use. 
 
-You can use and configure each global configuration for several projects within a single %cloud% 
-[organization](cloud-organizations.topic). 
+You can use each global configuration for several projects within a single Qodana Cloud
+[organization](cloud-organizations.topic). Each organization can have one or multiple global configurations, whereas each project 
+can be configured using one global and/or project configuration.
 
-### Global and local configurations
+Files contained in a global configuration can be updated using access to your VCS repository.
 
-Local configuration is a configuration created for a specific project and located within a repository of such a project.
+> To learn more about setting global configurations, see the [](cloud-organizations.topic#cloud-organizations-global-configurations) section.
 
-If a project has local and global configurations and the local settings collide with global, then 
-local settings take precedence over global settings. In this case, the final configuration will contain settings
-from both configurations, see the table below.
+### Global and project configurations
+
+Project configuration is a configuration created for a specific project and located within a project repository.
+Global configuration is a configuration that can be shared across multiple projects. 
+Both configurations can be merged into a single configuration and contained in a single [YAML-formatted file](qodana-yaml.md), 
+as well as two global configurations. In this case, profile configurations are merged as well using the 
+[`profile`](qodana-yaml.md#Set+up+a+profile) option.
+
+<!-- An example of a profile configuration should be provided here -->
+<!-- An example of a profile.inspections configuration should be provided here -->
+<!-- How does the flexInspect section work? -->
+
+If a project has both configuration types with the project settings colliding with global ones, then 
+project settings take precedence over global settings. In this case, the final configuration will contain settings
+from both configurations as you can see the `critical` configuration option of the `severityThresholds` option.
 
 <!-- This can probably be modified -->
 
+
 <table>
     <tr>
-        <td>Local configuration</td>
+        <td>Project configuration</td>
         <td>Global configuration</td>
         <td>Final (resolved) configuration</td>
     </tr>
@@ -71,10 +85,24 @@ from both configurations, see the table below.
     </tr>
 </table>
 
-To be able to upload global configurations to %cloud%, you should use a special token. 
+<!-- How do I specify a global configuration file? What is the syntax to it? -->
+<!-- How do I merge two global configurations in this case? -->
 
-> You can manipulate tokens only if your user has an admin role, see the [list of roles](cloud-user-roles.md) for details.
+<!-- To merge two global configurations, you have to explicitly include one global configuration in the second one: -->
 
-To upload configurations to %cloud%, run your CI/CD pipeline. Once uploaded, global configurations become available 
-in the [organization settings](cloud-organizations.topic) of %cloud% UI.
+<!-- Need to have an example of merging two global configurations -->
+<!-- What happens if one global configuration collides with another? -->
+
+## Uploading to Qodana Cloud
+
+To be able to share global configurations via Qodana Cloud, you should upload a special configuration token while running your CI/CD pipeline.
+You can generate this token on the **Global configurations** tab of your [organization settings](cloud-organizations.topic#cloud-organizations-global-configurations). 
+
+> You can manipulate tokens only if your user has either the `Owner` or the `Admin` role, see the [list of roles](cloud-user-roles.md) for details.
+{style="note"}
+
+After that, send your global configuration to Qodana Cloud as described in the [](#How+the+global+configuration+works) section on this page.
+This will make your global configurations become available in the [organization settings](cloud-organizations.topic) of the %cloud% UI.
+
+
 
