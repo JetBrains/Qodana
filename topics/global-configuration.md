@@ -8,14 +8,60 @@ This feature is available under the Ultimate Plus [license](pricing.md).
 
 ## How the global configuration works
 
-YAML-formatted configuration files are saved in project directories of VCS repositories. In [CI/CD pipelines](ci.md), 
-an uploader tool uses [configuration token](#Uploading+to+Qodana+Cloud) to send these files to Qodana Cloud. 
+YAML-formatted configuration files are stored in project directories of VCS repositories. For example, your project 
+can have the following structure that will constitute a global configuration: 
+
+```text
+root/
+    project-a/
+        qodana.yaml
+    project-b/
+        qodana.yaml
+    qodana-global-configurations.yaml    
+```
+
+<!--```text
+root/
+    project-a/
+        qodana.yaml
+        project-a-profile.yaml
+    project-b/
+        qodana.yaml
+        project-b-profile.yaml
+    qodana-global-configurations.yaml    
+```
+-->
+
+<!--In this example, the `project-a` and `project-b` directories contain [%product% configuration files](qodana-yaml.md) along with [inspection
+profile configuration](custom-profiles.md) files. The `qodana-global-configuraton.yaml` file describes the global configuration, for example: -->
+
+In this structure, the `project-a` and `project-b` directories contain [%product% configuration files](qodana-yaml.md).
+
+
+The `qodana-global-configuraton.yaml` file describes the global configuration, for example:
+
+```yaml
+configurations:
+    - id: project_a
+      name: Project A 
+      description: Configuration used for project A
+      qodanaYaml: project-a/qodana.yaml # Path to the config file 
+
+    - id: project_b
+      name: Project B
+      description: Configuration used for project B
+      qodanaYaml: project-b/qodana.yaml
+        
+```
+
+
+[CI/CD pipelines](ci.md) use an uploader tool and [configuration token](#Uploading+to+Qodana+Cloud) to send these files to Qodana Cloud. 
 This lets global configurations become connected to Qodana Cloud projects; during project analyses, %product% linters 
 obtain global configuration for use. 
 
 You can use each global configuration for several projects within a single Qodana Cloud
-[organization](cloud-organizations.topic). Each organization can have one or multiple global configurations, whereas each project 
-can be configured using one global and/or project configuration.
+[organization](cloud-organizations.topic#cloud-organizations-global-configurations). 
+Each organization can have one or multiple global configurations, whereas each project can be configured using one global and/or project configuration.
 
 Files contained in a global configuration can be updated using access to your VCS repository.
 

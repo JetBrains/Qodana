@@ -205,14 +205,18 @@
                         <p>On the <ui-path>Global configurations</ui-path> tab, click the <ui-path>Connect repository</ui-path> button.</p>
                         <img src="gpc-global-configuration-tab.png" thumbnail="true" alt="The Global configuration tab" width="940" border-effect="line"/>
                     </step>
-                    <step>On the page that opens, select your CI/CD tool and follow the instructions about a
-                        <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a>.</step>
-                    <img src="gpc-onboarding-cicd.png" alt="Configuring a CI/CD solution" width="710" border-effect="line"/>
-                    <step>Also on that page, follow the instructions to configure a job.</step>
-                    <img src="gpc-onboarding-cicd-2.png" alt="Configuring a CI/CD solution" width="710" border-effect="line"/>
+                    <step><p>On the page that opens, select your CI/CD tool and follow the instructions about a
+                        <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a>.</p>
+                        <img src="gpc-onboarding-cicd.png" alt="Configuring a CI/CD solution" width="710" border-effect="line"/>
+                    </step>
+                    <step><p>Also on that page, follow the instructions to configure a job.</p>
+                        <img src="gpc-onboarding-cicd-2.png" alt="Configuring a CI/CD solution" width="710" border-effect="line"/>
+                        <p>In the configuration, the <code>--global-configs-file</code> argument specifies the path to the global configuration file, see the <a href="global-configuration.md" anchor="How+the+global+configuration+works"/> section for details.</p>
+                    </step>
+
                 </procedure>
 
-                <p>Once the first run of a CI/CD solution with the uploader is complete, the global configuration is uploaded
+                <p>Once the first CI/CD run using the uploader is complete, the global configuration is uploaded
                     and becomes visible on the <ui-path>Global configurations</ui-path> tab.</p>
 
                 <!--<img src="global-configuration-overview.png" width="1236" alt="Overview of global configurations" border-effect="line"/>-->
