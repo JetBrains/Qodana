@@ -219,39 +219,37 @@
                 <p>Once the first CI/CD run using the uploader is complete, the global configuration is uploaded
                     and becomes visible on the <ui-path>Global configurations</ui-path> tab.</p>
 
-                <!--<img src="global-configuration-overview.png" width="1236" alt="Overview of global configurations" border-effect="line"/>-->
+                <img src="gpc-uploaded-config.png" width="706" alt="The uploaded global configuration" border-effect="line"/>
 
             </chapter>
 
-            <chapter id="cloud-organizations-global-configurations-modify-global-configuration" title="Modify a global configuration">
-                <p>On the <ui-path>Global configurations</ui-path> tab, click the configuration that you would like to modify. This will open the page containing all
-                    configuration parameters. On this page, you can view the files that define the global configuration
-                    and obtain a link to the VCS to be able to edit its files. </p>
-                <!--<img src="modify-global-configuration.png" alt="Global configuration components" width="1051" border-effect="line"/>-->
+            <chapter id="cloud-organizations-global-configurations-modify-global-configuration" title="View and modify a global configuration">
+                <p>On the <ui-path>Global configurations</ui-path> tab, click the configuration that you would like to view.
+                    This will open a page displaying the files included in the configuration. Here, you can view the files that define the global configuration
+                    and obtain a link to the VCS to be able to edit them. To connect a configuration to your projects,
+                    click the <ui-path>Connect projects</ui-path> button.</p>
+                <img src="gpc-view-global-configuration.png" alt="Global configuration components" width="706" border-effect="line"/>
+                <p>On the <ui-path>Connected Projects</ui-path> dialog, select the projects that you would like to
+                    connect your configuration to and then click the <ui-path>Select ... project(s)</ui-path> button.</p>
+                <img src="gpc-connect-projects.png" alt="Select projects to connect" width="706" border-effect="line"/>
+                <p>Now you can see the list of connected projects in the lower part of the global configuration.</p>
+                <img src="gpc-connected-projects.png" alt="The list of connected projects" width="706" border-effect="line"/>
             </chapter>
 
-            <chapter id="cloud-organizations-global-configurations-view-modify-list-of-projects" title="View and modify the list of projects">
-                <p>Click the <ui-path>Edit projects list</ui-path> button to open a dialog containing the list
-                    of projects.</p>
-                <!--<img src="gpc-project-list.png" width="1280" alt="Projects connected with a global configuration" border-effect="line"/>-->
-
-                <p>On the <ui-path>Connected Projects</ui-path> dialog you can view, assign, and unassign configurations.
-                    You can also see whether the project is already assigned to another global configuration, and
-                    you’ll get a warning if you try to override it. Besides that, it shows information about the latest
-                    analysis. To be redirected to the analysis report, click a specific project name.</p>
-
-                <!-- Image of projects is required here -->
+            <chapter id="cloud-organizations-global-configurations-view-modify-list-of-projects" title="Modify the list of projects">
+                <p>On the project configuration page, click the <ui-path>Edit projects list</ui-path> button to open
+                    the <ui-path>Connected Projects</ui-path> dialog containing the list of projects.</p>
+                <img src="gpc-modify-list-of-projects.png" width="706" alt="Edit projects list button" border-effect="line"/>
+                <p>On the <ui-path>Connected Projects</ui-path> dialog you can view, assign, and unassign projects.</p>
             </chapter>
 
             <chapter id="cloud-organizations-global-configurations-revoke-regenerate-token" title="Manage configuration token">
                 <p>In case a <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a> is compromised,
                     click the <ui-path>Actions</ui-path> and then click <ui-path>Revoke configuration token</ui-path>
                     to revoke the token and clear all configurations.</p>
-                <!--<img src="global-project-actions.png" alt="Actions for a global configuration" width="378" border-effect="line"/>-->
+                <img src="gpc-revoke-token.png" alt="Revoking a configuration token" width="706" border-effect="line"/>
                 <p>On the <ui-path>Revoke configuration token</ui-path> dialog, specify whether you would like to remove all global configurations after revoking the token. </p>
-                <!--<img src="gpc-revoke-token-dialog.png" alt="Actions for a global configuration" width="1280" border-effect="line"/>-->
-                <!-- How can a token be regenerated after it has been revoked? -->
-
+                <img src="gpc-revoke-config-token-dialog.png" alt="Actions for a global configuration" width="706" border-effect="line"/>
             </chapter>
 
 
