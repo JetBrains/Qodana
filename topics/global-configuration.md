@@ -9,7 +9,7 @@ This feature is available under the Ultimate Plus [license](pricing.md).
 ## How the global configuration works
 
 YAML-formatted configuration files are stored in project directories of VCS repositories. For example, your project 
-can have the following structure that will constitute a global configuration: 
+can have the following structure that will create a global configuration: 
 
 ```text
 root/
@@ -17,35 +17,23 @@ root/
         qodana.yaml
     project-b/
         qodana.yaml
-    qodana-global-configurations.yaml    
-```
-
-<!--```text
-root/
-    project-a/
-        qodana.yaml
-        project-a-profile.yaml
-    project-b/
-        qodana.yaml
         project-b-profile.yaml
     qodana-global-configurations.yaml    
 ```
--->
 
-<!--In this example, the `project-a` and `project-b` directories contain [%product% configuration files](qodana-yaml.md) along with [inspection
-profile configuration](custom-profiles.md) files. The `qodana-global-configuraton.yaml` file describes the global configuration, for example: -->
+In this structure, the `project-a` and `project-b` directories contain [%product% configuration files](qodana-yaml.md). Besides that,
+the `project-b` directory contains the `project-b-profile.yaml` file containing a [custom profile](custom-profiles.md). To be 
+included in the global configuration, it should be [referred](inspection-profiles.md#inspection-profiles-setup-a-profile) 
+from the `qodana.yaml` file contained, for example, in the same directory. 
 
-In this structure, the `project-a` and `project-b` directories contain [%product% configuration files](qodana-yaml.md).
-
-
-The `qodana-global-configuraton.yaml` file describes the global configuration, for example:
+The `qodana-global-configuraton.yaml` file describes a global configuration using specific fields:
 
 ```yaml
 configurations:
     - id: project_a
       name: Project A # Displayed in %cloud% UI
       description: Description for configuration project A # Displayed in %cloud% UI
-      qodanaYaml: project-a/qodana.yaml # Path to the config file 
+      qodanaYaml: project-a/qodana.yaml # Path to the config file relatively to file
 
     - id: project_b
       name: Project B
@@ -53,7 +41,6 @@ configurations:
       qodanaYaml: project-b/qodana.yaml
         
 ```
-
 
 [CI/CD pipelines](ci.md) use an uploader tool and [configuration token](#Uploading+to+Qodana+Cloud) to send these files to Qodana Cloud. 
 This lets global configurations become connected to Qodana Cloud projects; during project analyses, %product% linters 
