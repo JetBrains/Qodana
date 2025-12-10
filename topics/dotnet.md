@@ -1076,8 +1076,8 @@ bootstrap: dotnet restore
                 <code>qodana.recommended</code> profile that in turn is suitable for running in CI/CD pipelines and mostly 
                 implements the default %ide% profile.
             </p>
-            <tip>You can customize %product% profiles using configurations in <a href="custom-profiles.md">YAML</a> and 
-                <a href="custom-profiles.md" anchor="Custom+XML+profiles">XML</a> formats. To learn more about configuration basics, visit the <a href="override-a-profile.md"/> section of the documentation.
+            <tip>You can customize %product% profiles using configurations in <a href="inspection-profiles.md">YAML</a> and 
+                <a href="inspection-profiles.md" anchor="Custom+XML+profiles">XML</a> formats. To learn more about configuration basics, visit the <a href="override-a-profile.md"/> section of the documentation.
             </tip>
             <p>%qd% reads configuration from the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file located in the 
                 root directory of your project. For example, add this configuration to run the linter using the 
@@ -1090,7 +1090,7 @@ bootstrap: dotnet restore
             </code-block>
             <p>You can analyze your code using Roslyn analyzers with each analyzer considered as a separate 
                 inspection. This is an experimental feature, so use them at your own risk.</p>
-            <p>To disable Roslyn analyzers, you can <a href="custom-profiles.md">configure the %instance% profile</a> using
+            <p>To disable Roslyn analyzers, you can <a href="inspection-profiles.md">configure the %instance% profile</a> using
                 the <code>qodana.yaml</code> file, for example:</p>
             <code-block lang="yaml">
                 name: "Custom profile"

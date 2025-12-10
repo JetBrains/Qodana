@@ -260,7 +260,7 @@
     <chapter title="Next steps" id="quick-start-next-steps">
         <list>
             <li><a href="cloud-overview-reports.topic">Review analysis results using %cloud%</a></li>
-            <li><a href="custom-profiles.md">Configure %instance% profiles</a></li>
+            <li><a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">Configure %instance% profiles</a></li>
             <li><a href="qodana-ide-plugin.md">Use JetBrains IDEs to analyze your code</a></li>
             <li><a href="ci.md">Build %instance% into your CI pipelines</a></li>
             <li><a href="docker-image-configuration.topic">Configure %product%</a></li>

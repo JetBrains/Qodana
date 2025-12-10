@@ -8,7 +8,7 @@
 		<toc-element topic="Quick-start.topic" accepts-web-file-names="cli.html"/>
 		<toc-element topic="set-up-your-project.md" accepts-web-file-names="cloud-onboarding.md"/>
 		<toc-element topic="faq.topic"/>
-		<toc-element accepts-web-file-names="new-in-2024-1.html,new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html,new-in-2024-2.html,new-in-2024-3.html,new-in-2025-1.html,new-in-2025-2.md" topic="new-in-2025-3.md"/>
+		<toc-element accepts-web-file-names="new-in-2024-1.html,new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html,new-in-2024-2.html,new-in-2024-3.html,new-in-2025-1.html,new-in-2025-2.html" topic="new-in-2025-3.md"/>
 		<toc-element toc-title="Components">
 			<toc-element topic="static-analysis.topic"/>
 			<!-- Here, add redirect to the Linters page -->
@@ -66,8 +66,7 @@
 		<toc-element topic="configure-qodana.md" accepts-web-file-names="qodana-configuration.html"/>
 		<toc-element topic="qodana-yaml.md" accepts-web-file-names="qodana-yaml.htm"/>
 		<toc-element accepts-web-file-names="qodana-jvm-docker-techs.html,qodana-jvm-community-docker-techs.html,qodana-jvm-android-docker-techs.html,qodana-php-docker-techs.html,qodana-python-docker-techs.html,qodana-python-community-docker-techs.html,qodana-js-docker-techs.html,qodana-go-docker-techs.html,qodana-dotnet-docker-techs.html" topic="docker-image-configuration.topic"/>
-			<toc-element topic="inspection-profiles.md"/>
-			<toc-element topic="custom-profiles.md" accepts-web-file-names="custom-xml-profiles.md"/>
+			<toc-element topic="inspection-profiles.md" accepts-web-file-names="custom-xml-profiles.html,custom-profiles.html"/>
 		<toc-element topic="configure-jdk.md"/>
 		<toc-element topic="global-configuration.md"/>
 	</toc-element>

@@ -83,7 +83,7 @@
     </chapter>
 
     <chapter id="faq-check-customization" title="How can I customize the checks performed by Qodana?" default-state="collapsed" collapsible="true">
-        <p>You can configure your inspection profile as described on the <a href="custom-profiles.md"/> page.</p>
+        <p>You can configure your inspection profile as described on the <a href="inspection-profiles.md"/> page.</p>
         <p>If the existing inspections do not fit your needs, you can develop your own
             <a href="extending-qodana-structural-search.topic">structural search inspections</a> and add them to the
             inspection profile or use <a href="extending-qodana-plugins.topic">plugins</a> that will extend the inspection
@@ -105,7 +105,7 @@
     <chapter id="faq-profile-explained" title="What is a profile?" default-state="collapsed" collapsible="true">
         <p>A %instance% inspection profile is a set of pre-configured inspections, including their state, configuration
             options, and the path to which they are applied. %instance% inspection profiles are the same as IntelliJ IDEA
-            inspection profiles and can be <a href="custom-profiles.md" anchor="Custom+XML+profiles">reused</a>.
+            inspection profiles and can be <a href="inspection-profiles.md" anchor="Custom+XML+profiles">reused</a>.
         </p>
     </chapter>
 
@@ -122,7 +122,7 @@
             because it already provides the most usable inspections invoked by the default JetBrains IDEs profiles, so
             no additional configuration is required.
         </p>
-        <p>Alternatively, you can <a href="custom-profiles.md">create</a> your own profile to best suit your needs.
+        <p>Alternatively, you can <a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">create</a> your own profile to best suit your needs.
         </p>
     </chapter>
 

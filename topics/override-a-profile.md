@@ -11,14 +11,14 @@ can negatively affect inspection performance and can result in using inspections
 
 %product% provides the default `qodana.starter` and `qodana.recommended` [profiles](inspection-profiles.md#inspection-profiles-existing-profiles) that come in handy in most 
 cases. You can override a default profile according to your needs, and this section provides basic recommendations 
-taken from the [](custom-profiles.md) section.
+taken from the [](inspection-profiles.md#inspection-profiles-custom-profiles) section.
 
 ## Initial configuration
 
 <procedure>
    <step>
       <p>In your project root, create the YAML-formatted file. Save the following configuration, which 
-    will contain the <a href="custom-profiles.md" anchor="name"/> and <a href="custom-profiles.md" anchor="baseProfile"/> 
+    will contain the <a href="inspection-profiles.md" anchor="name"/> and <a href="inspection-profiles.md" anchor="baseProfile"/> 
 blocks for naming your %product% profile and overriding the <code>qodana.recommended</code> profile:</p>
       <code-block lang="yaml">
       name: "Configuring Qodana" # Paste the name of your profile
@@ -38,7 +38,7 @@ blocks for naming your %product% profile and overriding the <code>qodana.recomme
 
 Starting from version 2023.2 of %product%, all linters provide JavaScript and TypeScript inspections, but they are 
 disabled by default. You can enable the `JavaScript and TypeScript` inspection category using the 
-[`inspections`](custom-profiles.md#inspections-group) block, so the configuration will look as follows:
+[`inspections`](inspection-profiles.md#inspections-group) block, so the configuration will look as follows:
 
 ```yaml
 name: "Configuring Qodana" 
@@ -68,7 +68,7 @@ inspections:
 ## Specify inspection path(s)
 
 You can tell %product% to ignore specific paths while inspecting your code. Suppose you would like to ignore the 
-`vendor` directory in your project root. You can do this by using the [`ignore`](custom-profiles.md#inspections-group) block. The final 
+`vendor` directory in your project root. You can do this by using the [`ignore`](inspection-profiles.md#inspections-group) block. The final 
 configuration would look like this:
 
 ```yaml
@@ -86,7 +86,7 @@ inspections:
 
 ## Learn more
 
-You can visit the [](custom-profiles.md) section to learn more about advanced configuration techniques, more configuration examples, 
+You can visit the [](inspection-profiles.md#inspection-profiles-custom-profiles) section to learn more about advanced configuration techniques, more configuration examples, 
 and creating configurations from scratch.
 
 Once you have configured %product%, you can run it using the recommendations from the [](Quick-start.topic) section.

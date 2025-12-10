@@ -203,7 +203,6 @@ To do this, follow the instructions below.
 
 <procedure>
 <step>
-
 <p>In the <a href="before-running-qodana.md"><code>bootstrap</code></a> section of the <code>qodana.yaml</code> file, 
 save the following snippet:</p>
 <code-block lang="yaml">
@@ -219,13 +218,9 @@ bootstrap: |
 <code-block lang="shell">
 -e QODANA_PYTHON_PATH:/data/cache/conda/envs/qodana-env/bin/python
 </code-block>
-<p>Usage examples are provided in the <a anchor="Run+%25product%25"/> section.</p>
+<p>Examples of using variables are provided in the <a anchor="Run+%25product%25"/> section.</p>
 </step>
 </procedure>
-
-
-
-
 
 ## Supported technologies and features
 {id="python-feature-matrix"}

@@ -15,7 +15,7 @@ To run %instance% locally, you can use [Docker images](deploy-qodana.md#Docker+i
 
 You can analyze your code using the default [inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles), which requires
 no configuration steps and lets you run %instance% out of the box. You can also configure the default inspection profiles or
-create your own inspection profile in [YAML](custom-profiles.md) and [XML](custom-profiles.md#Custom+XML+profiles) formats.
+create your own inspection profile in YAML and XML [formats](inspection-profiles.md#inspection-profiles-custom-profiles).
 
 Finally, you can go beyond the existing inspections and extend %product% using either 
 [plugins](extending-qodana-plugins.topic) or the [structural search](extending-qodana-structural-search.topic).
