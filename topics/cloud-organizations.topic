@@ -205,15 +205,100 @@
                         <p>On the <ui-path>Global configurations</ui-path> tab, click the <ui-path>Connect repository</ui-path> button.</p>
                         <img src="gpc-global-configuration-tab.png" thumbnail="true" alt="The Global configuration tab" width="940" border-effect="line"/>
                     </step>
-                    <step><p>On the page that opens, select your CI/CD tool and follow the instructions about a
-                        <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a>.</p>
+                    <step><p>On the page that opens, select your CI/CD tool and follow the instructions about how to set up a
+                        <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a> and CI/CD job.</p>
                         <img src="gpc-onboarding-cicd.png" alt="Configuring a CI/CD solution" width="710" border-effect="line"/>
                     </step>
-                    <step><p>Also on that page, follow the instructions to configure a job.</p>
-                        <img src="gpc-onboarding-cicd-2.png" alt="Configuring a CI/CD solution" width="710" border-effect="line"/>
-                        <p>In the configuration, the <code>--global-configs-file</code> argument specifies the path to the global configuration file, see the <a href="global-configuration.md" anchor="How+the+global+configuration+works"/> section for details.</p>
-                    </step>
+                    <step>
+                        <p>Also on that page, you can find the snippets to configure your CI/CD pipelines.</p>
+                        <tabs>
+                            <tab title="GitHub Actions">
+                                <code-block lang="yaml">
+                                    name: Qodana Configuration Upload
 
+                                    on:
+                                        push:
+                                            branches: [ main, dev ]
+                                        pull_request:
+                                            branches: [ main ]
+                                        workflow_dispatch:
+
+                                    jobs:
+                                        upload-qodana-config:
+                                            runs-on: ubuntu-latest
+
+                                            steps:
+                                                - name: Checkout repository
+                                                  uses: actions/checkout@v4
+
+                                                - name: Run Qodana Configuration Uploader
+                                                  env:
+                                                      QODANA_CONFIGURATIONS_TOKEN: ${{ secrets.QODANA_CONFIGURATIONS_TOKEN }}
+                                                      QODANA_ENDPOINT: 'https://qodana.cloud'
+                                                  run: |
+                                                      docker run --rm \
+                                                        -v $(pwd):/workspace \
+                                                        -w /workspace \
+                                                        -e QODANA_CONFIGURATIONS_TOKEN=$QODANA_CONFIGURATIONS_TOKEN \
+                                                        jetbrains/qodana-configuration-uploader:latest \
+                                                        --global-configs-file qodana-global-configurations.yaml
+                                </code-block>
+                            </tab>
+                            <tab title="GitLab CI/CD">
+                                <code-block lang="yaml">
+                                    variables:
+                                    DOCKER_DRIVER: overlay2
+
+                                    services:
+                                        - docker:dind
+
+                                    run_uploader:
+                                        image: docker:latest
+                                        variables:
+                                            QODANA_CONFIGURATIONS_TOKEN: $QODANA_CONFIGURATIONS_TOKEN
+                                            QODANA_ENDPOINT: "https://qodana.cloud"
+                                        script:
+                                            - |
+                                                docker run --rm \
+                                                -v $(pwd):/workspace \
+                                                -w /workspace \
+                                                -e QODANA_CONFIGURATIONS_TOKEN=$QODANA_CONFIGURATIONS_TOKEN \
+                                                jetbrains/qodana-configuration-uploader:latest \
+                                                --global-configs-file qodana-global-configurations.yaml
+                                </code-block>
+                            </tab>
+                            <tab title="CircleCI">
+                                <code-block lang="yaml">
+                                    version: 2.1
+
+                                    jobs:
+                                        run_uploader:
+                                            machine: true
+                                            steps:
+                                                - checkout
+                                                - run:
+                                                      name: Run Qodana Configuration Uploader
+                                                      command: |
+                                                          docker run --rm \
+                                                            -v "$(pwd)":/workspace \
+                                                            -w /workspace \
+                                                            -e QODANA_CONFIGURATIONS_TOKEN="$QODANA_CONFIGURATIONS_TOKEN" \
+                                                            -e QODANA_ENDPOINT="https://qodana.cloud" \
+                                                            jetbrains/qodana-configuration-uploader:latest \
+                                                            --global-configs-file qodana-global-configurations.yaml
+
+                                    workflows:
+                                        version: 2
+                                        main:
+                                            jobs:
+                                                - run_uploader
+                                </code-block>
+                            </tab>
+                        </tabs>
+                        <p>Here, the <code>--global-configs-file</code> argument specifies the path to the
+                            global configuration file, see the
+                            <a href="global-configuration.md" anchor="How+the+global+configuration+works"/> section for details.</p>
+                    </step>
                 </procedure>
 
                 <p>Once the first CI/CD run using the uploader is complete, the global configuration is uploaded

@@ -1,7 +1,11 @@
 # Global configuration
 
-Global configuration lets you share %product% configurations across multiple projects. Each global configuration is a set of files
-consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and [inspection profile configurations](custom-profiles.md) contained in YAML and 
+<link-summary>Global configurations let you share %product% configurations across multiple projects.</link-summary>
+
+<show-structure for="chapter" depth="3"/>
+
+Global configurations let you share %product% configurations across multiple projects. Each global configuration is a set of files
+consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and [inspection profile configurations](inspection-profiles.md#inspection-profiles-custom-profiles) contained in YAML and 
 XML files.
 
 This feature is available under the Ultimate Plus [license](pricing.md).
@@ -22,7 +26,7 @@ root/
 ```
 
 In this structure, the `project-a` and `project-b` directories contain [%product% configuration files](qodana-yaml.md). Besides that,
-the `project-b` directory contains the `project-b-profile.yaml` file containing a [custom profile](custom-profiles.md). To be 
+the `project-b` directory contains the `project-b-profile.yaml` file containing a [custom profile](inspection-profiles.md#inspection-profiles-custom-profiles). To be 
 included in the global configuration, it should be [referred](inspection-profiles.md#inspection-profiles-setup-a-profile) 
 from the `qodana.yaml` file contained, for example, in the same directory. 
 
@@ -62,16 +66,11 @@ Both configurations can be merged into a single configuration and contained in a
 as well as two global configurations. In this case, profile configurations are merged as well using the 
 [`profile`](qodana-yaml.md#Set+up+a+profile) option.
 
-<!-- An example of a profile configuration should be provided here -->
-<!-- An example of a profile.inspections configuration should be provided here -->
-<!-- How does the flexInspect section work? -->
-
 If a project has both configuration types with the project settings colliding with global ones, then 
 project settings take precedence over global settings. In this case, the final configuration will contain settings
 from both configurations as you can see the `critical` configuration option of the `severityThresholds` option.
 
 <!-- This can probably be modified -->
-
 
 <table>
     <tr>
@@ -118,13 +117,43 @@ from both configurations as you can see the `critical` configuration option of t
     </tr>
 </table>
 
-<!-- How do I specify a global configuration file? What is the syntax to it? -->
-<!-- How do I merge two global configurations in this case? -->
+### Merging configurations
 
-<!-- To merge two global configurations, you have to explicitly include one global configuration in the second one: -->
+Using the `imports` key, you can reference another configuration file from your global configuration.
 
-<!-- Need to have an example of merging two global configurations -->
-<!-- What happens if one global configuration collides with another? -->
+For example, the global configuration file contains the `imports` key to reference the `../base/qodana.yaml` file:
+
+```yaml
+version: "1.0"
+
+imports:
+  - ../base/qodana.yaml
+
+profile:
+    name: qodana.recommended
+```
+
+The referenced `../base/qodana.yaml` file contains the following %product% configuration:
+
+```yaml
+version: "1.0"
+
+linter: jetbrains/qodana-jvm:2025.2
+```
+
+In this case, the merged configuration will look as follows:
+
+```yaml
+version: "1.0"
+
+imports:
+  - ../base/qodana.yaml
+
+profile:
+    name: qodana.recommended
+
+linter: jetbrains/qodana-jvm:2025.2
+```
 
 ## Uploading to Qodana Cloud
 

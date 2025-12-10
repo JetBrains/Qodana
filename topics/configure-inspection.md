@@ -44,4 +44,4 @@ inspections:
       warnMissingCoverage: true
 ```
 
-> The detailed description of profile configuration is available in the [](custom-profiles.md) section.
+> The detailed description of profile configuration is available in the [](inspection-profiles.md#inspection-profiles-custom-profiles) section.

@@ -49,16 +49,27 @@ Save the `prepare-qodana.sh` script file in the project directory and specify ex
 bootstrap: sh ./prepare-qodana.sh
 ```
 
-To run %product% as the root user, you may need to invoke the ` --user=root` 
-[option](docker-image-configuration.topic#docker-config-reference-qodana-scan).
+To run %product% as the root user, you may need to invoke the ` --user=root` [option](docker-image-configuration.topic#docker-config-reference-qodana-scan).
 
 More information about the `bootstrap` key is available in the [](before-running-qodana.md) section.
 
-
 ## Set up a profile
 
-Profile invocation is explained in the [Inspection profiles](inspection-profiles.md#inspection-profiles-setup-a-profile) section. Information
-about custom profiles is also provided [here](inspection-profiles.md#inspection-profiles-custom-profiles).
+Information about existing %product% profiles is available in the [](inspection-profiles.md#inspection-profiles-existing-profiles) section. 
+
+You can configure %product% inspection profiles using the `profile` key, for example:
+
+```yaml
+profile:
+    inspections:
+        - group: "category:Java/Probable bugs"
+          enabled: true
+
+        - inspection: RedundantIf
+          enabled: true
+```
+
+Information about available configuration options is available in the [](inspection-profiles.md#inspection-profiles-custom-profiles) section.
 
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}

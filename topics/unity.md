@@ -151,4 +151,4 @@ Using recommendations from the [](ui-overview.md) and [](inspection-profiles.md)
 %product% analysis of your project. For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of a %product% report, you can select
 the inspections that will be used during the analysis or exclude them from the analysis. Also, you can exclude directories 
 of your project that you do not wish %product% to analyze. To adjust the existing profile, you can use the recommendations 
-from the [](custom-profiles.md) section.
+from the [](inspection-profiles.md#inspection-profiles-custom-profiles) section.

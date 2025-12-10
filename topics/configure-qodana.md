@@ -16,7 +16,7 @@ Once a YAML configuration is saved, you can reuse it across different instances 
     {style="note"}
 
 1. Configuring inspection profiles lets you specify inspections and paths in your codebase that should be used for analysis by %product%. 
-You can configure and use the [existing inspection profiles](inspection-profiles.md) or create [your custom profiles](custom-profiles.md) from scratch.
+You can configure and use the [existing inspection profiles](inspection-profiles.md) or create [your custom profiles](inspection-profiles.md#inspection-profiles-custom-profiles) from scratch.
 
 1. Finally, you can override the default JDK versions shipped with %product%, see the [](configure-jdk.md) for details.
 

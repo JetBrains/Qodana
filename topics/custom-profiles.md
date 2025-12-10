@@ -1,4 +1,4 @@
-[//]: # (title: Custom inspection profiles)
+[//]: # (title: Inspection profile reference manual)
 
 <show-structure for="chapter" depth="3"/>
 
@@ -33,7 +33,7 @@ name: "My custom profile" # Profile name
 
 baseProfile: empty # Use the 'empty' profile as an initial configuration of this profile
 
-include:
+imports:
   - ".qodana/profiles/other-profile.yaml" # The included file becomes part of this profile
 
 groups: # List of configured groups
@@ -66,7 +66,7 @@ This sample consists of several nodes:
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | [`baseProfile`](#baseProfile)       | The profile that will serve as a basis for your profile configuration                                     |
 | [`name`](#name)                     | Name of the inspection profile                                                                            |
-| [`include`](#include)               | Include an existing file-based profile into your profile                                                  |
+| [`imports`](#imports)                     | Include an existing file-based profile into your profile                                                  |
 | [`groups`](#groups)                 | Inspection groups that need to included or excluded in your profile                                       |
 | [`inspections`](#inspections-group) | List of changes applied for `baseProfile`. These changes could be applied to groups or single inspections |
 
@@ -229,17 +229,17 @@ This sample contains several properties:
 | `enabled`    | Specify whether the group or the inspection is enabled in the profile. Accepts either `true` or `false`                                          |
 | `options`    | List of options that you can [configure for a specific inspection](#custom-profiles-examples-inspection-options)                                                                            |
 
-## include
+## imports
 
-Contains the list of relative paths to included profiles.
+Contains the list of relative paths to imported profiles.
 
 ```yaml
-include:
+imports:
     - "firstprofile.yaml" 
     - "relative/path/to/anotherprofile.yaml"
 ```
 
-The `include` block is not related to [`baseProfile`](#baseProfile). If `baseProfile` contains no values, it is set to `Default`.
+The `imports` block is not related to [`baseProfile`](#baseProfile). If `baseProfile` contains no values, it is set to `Default`.
 
 To view the default profile, in the JetBrains IDE navigate to **Settings | Editor | Inspections** and select the 
 `Default` profile in the **Profile** drop-down selector.
