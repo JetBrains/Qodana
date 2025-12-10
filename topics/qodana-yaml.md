@@ -540,3 +540,16 @@ Native mode is currently available for the following %product% linters:
     </tr>-->
 </table>
 
+## Configure Java and Kotlin projects in monorepo
+
+Using the `rootJavaProjects` key, you can specify which projects should be included in the analysis, for example:
+
+```yaml
+rootJavaProjects:
+- "./gradleProject"
+- "./mavenModule/pom.xml"
+```
+
+By default, %product% recursively collects projects from subdirectories and imports them for analysis.
+This change enables incremental analysis and fixes for projects where analyzed project and VCS root are different.
+
