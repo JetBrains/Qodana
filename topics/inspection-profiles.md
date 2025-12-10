@@ -716,11 +716,11 @@ profile:
 # Direct profile configuration example
 &nbsp;&nbsp;&nbsp;&nbsp;name: "Configuring Qodana"
 &nbsp;&nbsp;&nbsp;&nbsp;baseProfile: qodana.recommended
-# Invoke the profile file
+# Using the configuration from file
 &nbsp;&nbsp;&nbsp;&nbsp;path: .qodana/profiles/&lt;custom-profile.yaml&gt;
 </code-block>
 
-Alternatively, you can use a profile configuration stored in files as shown below.
+The following examples show how you can use configurations stored in files:
 
 <tabs>
     <!--<tab title="JetBrains IDE">
