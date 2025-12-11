@@ -9,7 +9,8 @@ within strict security or compliance standards.
 > %premlite% is still in the alpha development stage, which means that it may contain bugs or work not as intended.
 {style="warning"}
 
-This documentation guides you through the installation, product configuration, and initialization stages. 
+This documentation guides you through the installation, product configuration, and initialization stages of the Docker
+and Kubernetes versions of %premlite%.
 
 ## %premlite% features
 
@@ -18,9 +19,19 @@ Scalability lets you scale %premlite% to meet the needs of larger teams or organ
 Customizability lets you configure %product% to match their specific code quality requirements.
 %premlite% lets you use local hosting on your infrastructure to ensure code and data privacy. 
 
-> %premlite% supports a single server installation meaning that a Docker Swarm cluster should have one node.
+> For the Docker version, %premlite% supports a single server installation meaning that a Docker Swarm cluster should have one node.
 {style="note"}
 
-`qodana-installer-cli` is a command-line utility that offers you a one-line installer for %premlite%. The utility requires a
-server running Linux with the Docker Engine and Docker Swarm as a container orchestrator. It is compatible with
-automation and Infrastructure as a Code (IaC) frameworks.
+## Deployment options
+
+You can deploy %premlite% using two options:
+
+* The Dockerized version uses the `qodana-installer-cli` command-line utility that offers you a one-line 
+installer. The utility requires a server running Linux with the Docker Engine and Docker Swarm as a container orchestrator. 
+It is compatible with automation and Infrastructure as a Code (IaC) frameworks.
+* The Kubernetes version of %premlite% is a Helm-based deployment for Kubernetes that sets up all the necessary Qodana 
+services and their dependencies as Kubernetes resources. It uses Helm to distribute the product as a Helm Chart. 
+You can customize it through an ad-hoc `values.yaml` file. By default, the package is configured to run in demo/PoC mode
+
+
+

@@ -1,4 +1,4 @@
-# Prepare your project
+# Prepare your project (Docker)
 
 <!-- The ingress description should be added here. What is it?-->
 

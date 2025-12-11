@@ -1,4 +1,4 @@
-# Labels
+# Labels (Docker)
 
 This section describes labels that you can use to better explore and monitor %premlite% resources.
 Information about Docker labels is available on the [Docker](https://docs.docker.com/engine/manage-resources/labels/) 
