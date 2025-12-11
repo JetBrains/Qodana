@@ -1,4 +1,4 @@
-# Troubleshooting
+# Troubleshooting (Docker)
 
 To troubleshoot the issues that may arise during deployment, configuration or operation
 of %premlite%, use the following command to extract log entries:
