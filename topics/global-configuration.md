@@ -70,52 +70,41 @@ If a project has both configuration types with the project settings colliding wi
 project settings take precedence over global settings. In this case, the final configuration will contain settings
 from both configurations as you can see the `critical` configuration option of the `severityThresholds` option.
 
-<!-- This can probably be modified -->
+For example, the project configuration file contains the following configuration:
 
-<table>
-    <tr>
-        <td>Project configuration</td>
-        <td>Global configuration</td>
-        <td>Final (resolved) configuration</td>
-    </tr>
-    <tr>
-        <td>
-            <code-block lang="yaml">
-                failureConditions:
-                    severityThresholds: 
-                        critical: 1
-                        any: 10
-            </code-block>
-        </td>
-        <td>
-            <code-block lang="yaml">
-                plugins:
-                    - org-plugin
-                &nbsp;
-                properties:
-                    orgPluginIntProperty: 10
-                &nbsp;
-                failureConditions:
-                    severityThresholds:
-                        critical: 0
-            </code-block>
-        </td>
-        <td>
-            <code-block lang="yaml">
-                plugins:
-                    - org-plugin
-                &nbsp;
-                properties:
-                    orgPluginIntProperty: 10
-                &nbsp;
-                failureConditions:
-                    severityThresholds:
-                        critical: 1
-                        any: 10
-            </code-block>
-        </td>
-    </tr>
-</table>
+```yaml
+linter: jetbrains/qodana-jvm:2025.2
+
+failureConditions:
+    severityThresholds:
+    critical: 1
+    any: 10
+```
+
+The global configuration file contains the following:
+
+```yaml
+failureConditions:
+    severityThresholds:
+        critical: 0
+
+profile:
+    name: qodana.recommended
+```
+
+In this case, the final or resolved configuration will look as follows:
+
+```yaml
+linter: jetbrains/qodana-jvm:2025.2
+
+failureConditions:
+    severityThresholds:
+    critical: 1
+    any: 10
+
+profile:
+    name: qodana.recommended
+```
 
 ### Merging configurations
 

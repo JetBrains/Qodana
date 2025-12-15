@@ -573,8 +573,7 @@
                         <code>-i, --project-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Root directory of the analyzed project, can be either a subdirectory of
-                        <a anchor="docker-options-repository-root"><code>--repository-root</code></a> or identical to it. The default value is <code>.</code>
+                        Root directory of the analyzed project. The default value is <code>.</code>
                     </td>
                 </tr>
                 <tr>
@@ -762,29 +761,8 @@
                         <code>-d, --source-directory &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>This option is deprecated and will be removed in future versions of the product.
-                            See the <a anchor="docker-options-only-directory"><code>--only-directory</code></a> option for details.</note>
-                        <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
-                            the whole project will be analyzed</p>
-                    </td>
-                </tr>
-                <tr id="docker-options-repository-root">
-                    <td>
-                        <code>--repository-root &lt;string&gt;</code>
-                    </td>
-                    <td>
-                        <p>Specify the VCS root directory for your project. This option is required for Git-related operations</p>
-                    </td>
-                </tr>
-                <tr id="docker-options-only-directory">
-                    <td>
-                        <code>--only-directory &lt;string&gt;</code>
-                    </td>
-                    <td>
-                        <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
-                            the whole project will be analyzed</p>
-                        <p>Files and directories contained in the outside directory like <code>.git</code> and
-                            <code>build.gradle</code> are used by %instance% while inspecting code</p>
+                        Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
+                        the whole project will be analyzed
                     </td>
                 </tr>
                 <tr>
@@ -795,7 +773,7 @@
                         Specify the <a href="inspection-profiles.md">profile name</a>
                     </td>
                 </tr>
-                <tr>
+                <tr id="docker-config-reference-qodana-scan-linter-profile-path">
                     <td>
                         <code>-p, --profile-path &lt;string&gt;</code>
                     </td>
@@ -1746,19 +1724,9 @@
                 <td/>
                 <td>Default setting</td>
             </tr>
-            <tr id="docker-config-reference-directories-repository-root">
-                <td>
-                    <code>--repository-root &lt;string&gt;</code>
-                </td>
-                <td>
-                    <p>Specify the VCS root directory for your project. This option is required for Git-related operations</p>
-                </td>
-                <td>None</td>
-            </tr>
             <tr>
                 <td><code>-i</code>, <code>--project-dir</code></td>
-                <td><p>Root directory of the inspected project, can be either a subdirectory of
-                    <a anchor="docker-config-reference-directories-repository-root"><code>--repository-root</code></a> or identical to it.</p>
+                <td><p>Root directory of the inspected project.</p>
                     <p>Files and directories contained in the outside directory are not used while running %instance%</p>
                 </td>
                 <td><code>/data/project</code></td>
@@ -1784,21 +1752,7 @@
             <tr>
                 <td><code>-d</code>, <code>--source-directory</code></td>
                 <td>
-                    <note>This option is deprecated and will be removed in future versions of the product.
-                        See the <code>--only-directory</code> option for details.</note>
                     <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
-                    <p>Files and directories contained in the outside directory like <code>.git</code> and
-                        <code>build.gradle</code> are used by %instance% while inspecting code</p>
-                </td>
-                <td>None</td>
-            </tr>
-            <tr>
-                <td>
-                    <code>--only-directory &lt;string&gt;</code>
-                </td>
-                <td>
-                    <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
-                        the whole project will be analyzed</p>
                     <p>Files and directories contained in the outside directory like <code>.git</code> and
                         <code>build.gradle</code> are used by %instance% while inspecting code</p>
                 </td>
