@@ -773,7 +773,7 @@
                         Specify the <a href="inspection-profiles.md">profile name</a>
                     </td>
                 </tr>
-                <tr>
+                <tr id="docker-config-reference-qodana-scan-linter-profile-path">
                     <td>
                         <code>-p, --profile-path &lt;string&gt;</code>
                     </td>
