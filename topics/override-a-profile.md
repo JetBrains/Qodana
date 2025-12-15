@@ -18,7 +18,7 @@ taken from the [](inspection-profiles.md#inspection-profiles-custom-profiles) se
 <procedure>
    <step>
       <p>In your project root, create the YAML-formatted file. Save the following configuration, which 
-    will contain the <a href="inspection-profiles.md" anchor="name"/> and <a href="inspection-profiles.md" anchor="baseProfile"/> 
+    will contain the <a href="inspection-profiles.md" anchor="name"/> and <a href="inspection-profiles.md" anchor="base"/> 
 blocks for naming your %product% profile and overriding the <code>qodana.recommended</code> profile:</p>
       <code-block lang="yaml">
       name: "Configuring Qodana" # Paste the name of your profile
