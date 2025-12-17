@@ -209,7 +209,7 @@ profile:
   base: 
     name: empty # Use the 'empty' profile as an initial configuration of this profile
 
-  name: "My custom profile" # Profile name
+  # name: "My custom profile" # Name of existing profile, overlaps with base.name
     
   groups: # List of configured groups
     - groupId: InspectionsToInclude
@@ -235,7 +235,7 @@ profile:
         m_requireAnnotationsFirst: false # Overriding the configuration option
 
 imports:
-  - ".qodana/profiles/other-profile.yaml" # The included file becomes part of this profile
+  - ".qodana/profiles/other-profile.yaml" # The imported file becomes part of this profile
 ```
 {id="custom-profiles-profile-example-general"}
 
@@ -254,8 +254,8 @@ profile:
   base: 
     name: empty
 
-  name: "My custom profile"
-    
+  # name: "My custom profile" # Name of existing profile, overlaps with base.name
+
   groups:
     - groupId: InspectionsToInclude
       groups:
@@ -268,11 +268,11 @@ profile:
 
 The `profile` key consists of the following elements:
 
-| Section                             | Description                                                                                               |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| [`base`](#base)       | The profile that will serve as a basis for your profile configuration                                     |
-| [`name`](#name)                     | Name of the inspection profile                                                                            |
-| [`groups`](#groups)                 | Inspection groups that need to included or excluded in your profile                                       |
+| Section                             | Description                                                                                        |
+|-------------------------------------|----------------------------------------------------------------------------------------------------|
+| [`base`](#base)       | The profile that will serve as a basis for your profile configuration                              |
+| [`name`](#name)                     | Name of the inspection profile, overlaps with `base.name`                                           |
+| [`groups`](#groups)                 | Inspection groups that need to included or excluded in your profile                                |
 | [`inspections`](#inspections-group) | List of changes applied for `base`. These changes could be applied to groups or single inspections |
 
 #### base
@@ -287,6 +287,9 @@ base: # Use either path or name
   # path: .qodana/profiles/base-profile.yaml
   # name: qodana.starter
 ```
+
+> The `base.name` key overlaps with the [`name`](#name) setting, so these keys cannot be used together.
+{style="note"}
 
 The `name` key supports the following values: 
 
@@ -308,11 +311,19 @@ profile will override such settings contained in `Project Default`.
 
 #### name
 
-Arbitrary name for your profile.
+<link-summary>Name of a profile which settings you would like to use as a base.</link-summary>
+
+> The `name` key overlaps with the [`base.name`](#base) setting, so these keys cannot be used together.
+{style="note"} 
+
+Name of a profile from the `.idea/inspectionProfiles` directory which settings you would like to use as a base.
 
 ```yaml
 name: "Name of your profile"
 ```
+
+This key overlaps with the [`base.name`](#base) setting and cannot be used together with it.  
+
 
 #### groups
 
@@ -444,7 +455,9 @@ This sample contains several elements:
 
 ### imports
 
-Configure the list of imported profiles relatively to the project root.
+Configure the list of imported profiles relative to the project root. This feature is useful when you need to merge 
+specific profile configurations and then adjust the result to meet your requirements, As an example, see 
+the [](global-configuration.md#Merging+configurations) section.
 
 ```yaml
 imports:
@@ -518,31 +531,30 @@ Here you can find several examples of profile configuration.
 This lets you exclude the `PhpDeprecationInspection` inspection available in the [%php%](php.md) linter:
 
 ```yaml
-name: "PHP/General without PhpDeprecationInspection"
-
-base: 
-  name: qodana.starter
-inspections:
-  - inspection: PhpDeprecationInspection
-    enabled: false 
+profile:
+  base: 
+    name: qodana.starter
+    
+  inspections:
+    - inspection: PhpDeprecationInspection
+      enabled: false 
 ```
 
 Alternatively, you can exclude the `PhpDeprecationInspection` inspection using `groups`:
 
 ```yaml
-name: "PHP/General without PhpDeprecationInspection"
-
-base: 
-  name: qodana.starter
-
-groups:
-  - groupId: Inspection
-    inspections:
-      -  PhpDeprecationInspection # Specify the PhpDeprecationInspection inspection   
-
-inspections:  
-  - group: Inspection 
-    enabled: false # Disable the PhpDeprecationInspection inspection
+profile:
+  base: 
+    name: qodana.starter
+  
+  groups:
+    - groupId: Inspection
+      inspections:
+        -  PhpDeprecationInspection # Specify the PhpDeprecationInspection inspection   
+  
+  inspections:  
+    - group: Inspection 
+      enabled: false # Disable the PhpDeprecationInspection inspection
 ```
 
 #### Exclude paths
@@ -556,15 +568,14 @@ The scope definition `scope#file:*.js:testData//*` ignores all files with the `.
 recursively contained in the `testData/` directory.
 
 ```yaml
-name: "Ignoring paths"
-
-inspections:
-  - inspection: NpmUsedModulesInstalled
-    ignore:
-      - "vendor/**" # Ignore a path
-  - group: "category:JavaScript and TypeScript/General"
-    ignore:
-      - "scope#file:*.js:testData//*" # Ignore a scope
+profile:
+  inspections:
+    - inspection: NpmUsedModulesInstalled
+      ignore:
+        - "vendor/**" # Ignore a path
+    - group: "category:JavaScript and TypeScript/General"
+      ignore:
+        - "scope#file:*.js:testData//*" # Ignore a scope
 ```
 
 #### Create profile
@@ -573,34 +584,32 @@ Using `base`, this configuration defines the empty profile, and then it includes
 inspection group from the [Qodana for JVM](jvm.md) linter.
 
 ```yaml
-name: "Java/Data flow only"
-
-base: 
-  name: empty
-               
-inspections:  
-  - group: "category:Java/Data flow"
-    enabled: true # Enable the 'Java/Data flow' category
+profile:
+  base: 
+    name: empty
+                 
+  inspections:  
+    - group: "category:Java/Data flow"
+      enabled: true # Enable the 'Java/Data flow' category
 ```
 
 As an alternative to [`base`](#base), you can use `ALL` in the [`groups`](#groups-groups) property:
 
 ```yaml
-name: "Java/Data flow only"
-
-groups:
-  - groupId: ExcludedInspections
-    groups:
-      - "ALL"
-  - groupId: IncludedInspections
-    groups:
-      - "category:Java/Data flow" # Specify the 'Java/Data flow' category
-               
-inspections:  
-  - group: ExcludedInspections
-    enabled: false # Disable all inspections    
-  - group: IncludedInspections
-    enabled: true # Enable the 'Java/Data flow' category
+profile:
+  groups:
+    - groupId: ExcludedInspections
+      groups:
+        - "ALL"
+    - groupId: IncludedInspections
+      groups:
+        - "category:Java/Data flow" # Specify the 'Java/Data flow' category
+                 
+  inspections:  
+    - group: ExcludedInspections
+      enabled: false # Disable all inspections    
+    - group: IncludedInspections
+      enabled: true # Enable the 'Java/Data flow' category
 ```
 
 #### Override profile
@@ -609,31 +618,30 @@ You can exclude inspection categories from the [`qodana.starter`](%qodana.starte
 that are not related to the [Qodana for .NET](dotnet.md) linter.
 
 ```yaml
-name: "My custom profile"
-
-base: 
-  name: qodana.starter # Use the 'qodana.starter' profile
-
-groups:
-  - groupId: ExcludedInspections
-    groups:
-      - "category:Java"
-      - "category:Kotlin"
-      - "category:JVM languages"
-      - "category:Spring"
-      - "category:CDI (Contexts and Dependency Injection)"
-      - "category:Bean Validation"
-      - "category:Reactive Streams"
-      - "category:RegExp"
-      - "category:PHP"
-      - "category:Go"
-      - "category:Python"
-      - "category:General"
-      - "category:TOML"
-      
-inspections:  
-  - group: ExcludedInspections
-    enabled: false
+profile:
+  base: 
+    name: qodana.starter # Use the 'qodana.starter' profile
+  
+  groups:
+    - groupId: ExcludedInspections
+      groups:
+        - "category:Java"
+        - "category:Kotlin"
+        - "category:JVM languages"
+        - "category:Spring"
+        - "category:CDI (Contexts and Dependency Injection)"
+        - "category:Bean Validation"
+        - "category:Reactive Streams"
+        - "category:RegExp"
+        - "category:PHP"
+        - "category:Go"
+        - "category:Python"
+        - "category:General"
+        - "category:TOML"
+    
+  inspections:  
+    - group: ExcludedInspections
+      enabled: false
 ```
 
 #### Filter by severity
@@ -642,17 +650,16 @@ inspections:
 This sample includes all inspections with the `WEAK WARNING` severity level while inspecting Java code:
 
 ```yaml
-name: "My custom profile"
-
-groups:
-  - groupId: IncludedInspections
-    groups:
-      - "category:Java"
-      - "severity:WEAK WARNING"
-            
-inspections:  
-  - group: IncludedInspections
-    enabled: true
+profile:
+  groups:
+    - groupId: IncludedInspections
+      groups:
+        - "category:Java"
+        - "severity:WEAK WARNING"
+              
+  inspections:  
+    - group: IncludedInspections
+      enabled: true
 ```
 
 #### Override severity
@@ -661,11 +668,10 @@ You can override the severity levels for existing inspections. Here’s how you 
 the `JavadocReference` inspection:
 
 ```yaml
-name: "My custom profile"
-            
-inspections:  
-  - inspection: JavadocReference
-    severity: WARNING
+profile:
+  inspections:  
+    - inspection: JavadocReference
+      severity: WARNING
 ```
 
 > If you override severity levels, it will affect all functionalities where severity is used, such as [filtering by
@@ -701,17 +707,16 @@ Here is a profile example for the `JvmCoverageInspection` inspection:
 This sample demonstrates how you can configure the inspection options in your custom profile:
 
 ```yaml
-name: "My custom profile" # Profile name
-
-base: 
-  name: qodana.recommended
-
-inspections:
-  - inspection: JvmCoverageInspection
-    options:
-      classThreshold: 51
-      methodThreshold: 51
-      warnMissingCoverage: true
+profile:
+  base: 
+    name: qodana.recommended
+  
+  inspections:
+    - inspection: JvmCoverageInspection
+      options:
+        classThreshold: 51
+        methodThreshold: 51
+        warnMissingCoverage: true
 ```
 
 ### Custom XML profiles
@@ -736,9 +741,8 @@ match the name of the containing file. The actual name is stored as the `%\profi
 version: "1.0"
 &nbsp;
 profile:
-&nbsp;&nbsp;&nbsp;&nbsp;name: "Configuring Qodana"
-&nbsp;&nbsp;&nbsp;&nbsp;base:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path: .qodana/profiles/&lt;custom-profile.yaml&gt;
+&nbsp;&nbsp;base:
+&nbsp;&nbsp;&nbsp;&nbsp;path: .qodana/profiles/&lt;custom-profile.yaml&gt;
 </code-block>
 
 The following examples show how you can invoke your custom profiles using the 

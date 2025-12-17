@@ -77,8 +77,8 @@ linter: jetbrains/qodana-jvm:2025.2
 
 failureConditions:
     severityThresholds:
-    critical: 1
-    any: 10
+        critical: 1
+        any: 10
 ```
 
 The global configuration file contains the following:
@@ -99,8 +99,8 @@ linter: jetbrains/qodana-jvm:2025.2
 
 failureConditions:
     severityThresholds:
-    critical: 1
-    any: 10
+        critical: 1
+        any: 10
 
 profile:
     name: qodana.recommended
@@ -134,9 +134,6 @@ In this case, the merged configuration will look as follows:
 
 ```yaml
 version: "1.0"
-
-imports:
-  - ../base/qodana.yaml
 
 profile:
     name: qodana.recommended
