@@ -156,7 +156,7 @@ If you run %qd% in native mode, you should install the SDK to the default locati
 %ide% can have access to it.
 
 <!-- This table should be made for both linters -->
-The Dockerized version of %qd% provides versions 8.0 and 9.0 of SDK.
+The Dockerized version of %qd% provides versions 8.0, 9.0 and 10.0 of SDK.
 
 <p>All SDK versions are stored in the <code>/usr/share/dotnet/sdk</code> directory of the 
     %product% container filesystem.</p>
