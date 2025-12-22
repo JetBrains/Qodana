@@ -20,3 +20,26 @@ You can configure and use the [existing inspection profiles](inspection-profiles
 
 1. Finally, you can override the default JDK versions shipped with %product%, see the [](configure-jdk.md) for details.
 
+## Performance optimization
+
+To make %product% work better during the project configuration stage, you can follow the recommendations below.
+
+First of all, specify the [`--cache-dir`](docker-image-configuration.topic#docker-config-reference-cache-dependencies) option,
+the `use-caches` input argument in case of [CI/CD integrations](ci.md), or the `/data/caches` directory in
+the Docker container of a linter after the first linter analysis. Cache contains data related to project structure, indexes,
+dependencies, which makes subsequent analyses faster. However, in case of significant and disruptive changes of your
+project or %product% version updates, it may be beneficial to reset cache.
+
+You can also store your IntelliJ IDEA setting files in the `.idea` folder, for example:
+* The `modules.xml` file improves project structure parsing
+* The language-specific files like `kotlinc.xml` or `php.xml` provide information about compiler versions and options
+* The `*.iml` files contain information about directories
+
+Make sure that your project is correctly configured by looking at the
+`<results-dir-artifact>/projectStructure` directory after the first analysis. Also, make sure that:
+
+* The project imports work correctly
+* The tooling that you use matches the configured versions
+* Project dependency pooling works correctly, as it should be done only once if you are using cache
+* Analyses do not show [sanity problems](inspection-profiles.md#inspection-profiles-existing-profiles) because they are a key indicator of configuration issues
+

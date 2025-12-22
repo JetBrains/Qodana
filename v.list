@@ -337,6 +337,8 @@
 
     <var name="version-previous" value="2025.2"/>
     <var name="version-current" value="2025.3"/>
+    <var name="version-for-combined" value="2025.3"/>
+    <var name="version-for-combined-cpp" value="2025.3-eap"/>
 
     <!-- Self-hosted variables -->
     <var name="premlite" value="Qodana Self-Hosted"/>

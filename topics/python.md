@@ -13,7 +13,7 @@
 <var name="qd-co-linter" value="%python-co-linter%"/>
 
 <!-- Combined names -->
-<var name="qd-image-combined" value="jetbrains/qodana-python&lt;-community&gt;:2025.3-eap"/>
+<var name="qd-image-combined" value="jetbrains/qodana-python&lt;-community&gt;:%version-for-combined%"/>
 <var name="qd-linter-combined" value="qodana-python&lt;-community&gt;"/>
 
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>

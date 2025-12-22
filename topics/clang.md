@@ -15,8 +15,8 @@
 <var name="qd-linter" value="%cpp-linter%"/>
 
 <var name="qdcpp-privileged" value="jetbrains/%cpp-linter%&lt;-clangXX&gt;-privileged"/>
-<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
-<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:2025.1|2024.3-eap&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="qd-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:%version-for-combined-cpp%&lt;-clangXX&gt;&lt;-privileged&gt;"/>
+<var name="common-image" value="jetbrains/qodana-&lt;cpp|clang&gt;:%version-for-combined-cpp%&lt;-clangXX&gt;&lt;-privileged&gt;"/>
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="CLion"/>
 
@@ -45,7 +45,7 @@
 <var name="misra-inspections" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#stat-analysis-tools"/>
 <var name="compdb-generate" value="https://www.jetbrains.com/help/clion/compilation-database.html#compdb_generate"/>
 
-<var name="linter-shell" value="qodana-clang:2025.3-eap"/>
+
 <var name="code-inspection-ide-help-url" value="https://www.jetbrains.com/help/clion/list-of-c-cpp-inspections.html#general"/>
 <var name="code-inspection-profiles-ide-help-url" value="https://www.jetbrains.com/help/idea/?Customizing_Profiles"/>
 <var name="GitHubLink" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
