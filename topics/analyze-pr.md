@@ -37,14 +37,12 @@ The `QODANA_TOKEN` variable refers to a <a href="project-token.md">project token
 
 ## Analysis performance
 
-During incremental analyses, %product% is executed two times with a limited analysis scope meaning that the [configuration 
-phase](inspect-your-code.md) is also executed twice. In case of small codebases reducing the analysis scope does not yield a 
-significant boost, it can only provide minor performance improvements compared to regular analysis. The complexity of a 
-project, frequent changes to project structure, and numerous other factors can affect the time required for pull 
-request analyses. 
+During incremental analyses, %product% is executed two times using a limited analysis scope, which means that the [configuration 
+stage](inspect-your-code.md) is also performed twice. 
 
-
-
+If you analyze a relatively small codebases, reducing the analysis scope does not yield a 
+significant performance boost, it can only provide minor performance improvements compared to regular analysis. The complexity of a 
+project, frequent changes to a project structure, and numerous other factors can affect the time required for incremental analyses. 
 
 ## Analyze pull and merge requests
 
