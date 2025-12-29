@@ -1,0 +1,163 @@
+name: Release Automation
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., v1.0.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  validate:
+    name: Validate Release
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            VERSION="${{ github.event.inputs.version }}"
+          else
+            VERSION="${GITHUB_REF#refs/tags/}"
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Releasing version: ${VERSION}"
+
+      - name: Validate version format
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if [[ ! $VERSION =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Error: Invalid version format. Expected format: v1.0.0"
+            exit 1
+          fi
+
+  build:
+    name: Build Release Assets
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+          fi
+
+      - name: Build
+        run: |
+          if [ -f package.json ] && grep -q '"build"' package.json; then
+            npm run build
+          else
+            echo "No build script found, skipping..."
+          fi
+
+      - name: Run tests
+        run: |
+          if [ -f package.json ] && grep -q '"test"' package.json; then
+            npm test
+          else
+            echo "No test script found, skipping..."
+          fi
+
+      - name: Create release archive
+        run: |
+          VERSION="${{ needs.validate.outputs.version }}"
+          mkdir -p release
+          if [ -d dist ]; then
+            tar -czf release/qodana-help-${VERSION}.tar.gz dist/
+          elif [ -d build ]; then
+            tar -czf release/qodana-help-${VERSION}.tar.gz build/
+          else
+            echo "No dist or build directory found"
+            tar -czf release/qodana-help-${VERSION}.tar.gz topics/ images/ cfg/
+          fi
+
+      - name: Upload release assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-assets
+          path: release/
+          retention-days: 7
+
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: [validate, build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download release assets
+        uses: actions/download-artifact@v4
+        with:
+          name: release-assets
+          path: release/
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          VERSION="${{ needs.validate.outputs.version }}"
+          echo "# Changelog for ${VERSION}" > CHANGELOG.md
+          echo "" >> CHANGELOG.md
+          
+          # Get commits since last tag
+          PREV_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1) 2>/dev/null || echo "")
+          if [ -n "$PREV_TAG" ]; then
+            echo "## Changes since ${PREV_TAG}" >> CHANGELOG.md
+            git log ${PREV_TAG}..HEAD --pretty=format:"* %s (%h)" >> CHANGELOG.md
+          else
+            echo "## Initial Release" >> CHANGELOG.md
+            git log --pretty=format:"* %s (%h)" >> CHANGELOG.md
+          fi
+          
+          echo "" >> CHANGELOG.md
+          echo "Full Changelog: https://github.com/${{ github.repository }}/compare/${PREV_TAG}...${VERSION}" >> CHANGELOG.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.validate.outputs.version }}
+          name: Release ${{ needs.validate.outputs.version }}
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: false
+          files: |
+            release/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    name: Notify Release
+    runs-on: ubuntu-latest
+    needs: [validate, release]
+    if: success()
+    steps:
+      - name: Notification
+        run: |
+          echo "✅ Release ${{ needs.validate.outputs.version }} completed successfully!"
+          echo "View the release at: https://github.com/${{ github.repository }}/releases/tag/${{ needs.validate.outputs.version }}"

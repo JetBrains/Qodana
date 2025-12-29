@@ -1,0 +1,33 @@
+# CODEOWNERS file for Qodana repository
+# This file defines individuals or teams responsible for code in this repository.
+# More information: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners for everything in the repo
+# These owners will be requested for review when someone opens a pull request
+* @JetBrains/qodana-team
+
+# Documentation files
+*.md @JetBrains/qodana-docs
+/topics/ @JetBrains/qodana-docs
+/images/ @JetBrains/qodana-docs
+
+# GitHub workflows and CI configuration
+/.github/ @JetBrains/qodana-devops
+/.github/workflows/ @JetBrains/qodana-devops
+
+# Configuration files
+*.yml @JetBrains/qodana-devops
+*.yaml @JetBrains/qodana-devops
+*.json @JetBrains/qodana-devops
+qd.tree @JetBrains/qodana-docs
+qd_tc.tree @JetBrains/qodana-docs
+
+# Project configuration
+/cfg/ @JetBrains/qodana-team
+/cfg-writerside/ @JetBrains/qodana-docs
+writerside.cfg @JetBrains/qodana-docs
+project.ihp @JetBrains/qodana-team
+
+# Security and legal
+SECURITY.md @JetBrains/security-team
+LICENSE @JetBrains/legal-team
