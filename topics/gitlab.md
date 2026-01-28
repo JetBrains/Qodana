@@ -52,7 +52,9 @@ In GitLab CI/CD UI, create the following environment variables:
        <code>QODANA_TOKEN</code>  
       </td>
       <td>
-       <p>Generated <a href="project-token.md">project token</a>. Save it in the GitLab CI/CD UI as described on the <a href="%Variables%">GitLab CI/CD website</a>.</p>  
+       <p>Generated <a href="project-token.md">project token</a>. Save it in the GitLab CI/CD UI as described on the <a href="%Variables%">GitLab CI/CD website</a>.
+          Also, make sure that the variable is not marked as protected and the <ui-path>Expand variable reference</ui-path> flag is enabled.
+       </p>  
       </td>
    </tr>
    <tr>
