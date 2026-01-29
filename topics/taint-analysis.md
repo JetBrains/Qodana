@@ -187,8 +187,23 @@ propagation of unsafe data:</p>
         TaintRule.XSS
     )
 </code-block>
+<p>Below is an example of a sanitizer configuration:</p>
+<code-block lang="kotlin">
+    sanitize(
+            "org.springframework.web.util.HtmlUtils.htmlEscape",
+            0, 
+            true, 
+            "java.lang.String"
+    )
+</code-block>
+<p>In this snippet, the first parameter is the method name. The second parameter is an index of a sanitized parameter;
+for non-static methods <code>0</code> (zero) refers to <code>this</code>, while for static this refers to the first parameter. 
+The third parameter configures whether the sanitizer should apply the projection approach meaning that the value of the 
+sanitized parameter should be returned from the configured function. Finally, the fourth parameter configures the class 
+of a sanitized method or <code>String</code> in this snippet. 
+</p>
 </step>
-<step>Once the configuration is written, recompile the <code>inspections/config.inspection.kts</code> file.</step>
+<step>Once the configuration is saved, recompile the <code>inspections/config.inspection.kts</code> file.</step>
 </procedure>
 
 #### Configure the Security Analysis tab
