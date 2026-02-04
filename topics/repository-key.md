@@ -29,7 +29,6 @@ key:
 | [Azure](%azure%)               |                                                                     |
 | [Bitbucket Cloud](%bitbucket%) | Start from section **Provide Bitbucket Cloud with your public key** |
 | [GitHub](%github%)             | Start from step 2, skip the SSH key generation step                 |
-| [GitLab CI/CD](%gitlab%)       |                                                                     |
 
 
 
