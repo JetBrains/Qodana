@@ -8,16 +8,10 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<!--
-%feature% is not supported by the [%dotnet%](dotnet.md) linter. In this case, you can develop your custom 
-[Roslyn analyzers](use-roslyn-analyzer.md) instead.
-{style="note"}
--->
 
-> %feature% is not supported by the [%dotnet%](dotnet.md) linter. In this case, you can develop your custom
-> Roslyn analyzers instead.
+> %feature% is not supported by the [%dotnet%](dotnet.md) linter. In this case, you can develop your custom 
+> [Roslyn analyzers](use-roslyn-analyzer.md) instead.
 {style="note"}
-
 
 <link-summary>
 You can develop your own inspections specific to your project using the IntelliJ API and Kotlin.
