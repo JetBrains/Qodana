@@ -48,7 +48,7 @@
 		<toc-element topic="add-qodana-to-ci.md"/>
         <toc-element topic="unity.md"/>
         <toc-element topic="configure-inspection.md"/>
-        <!--<toc-element topic="use-roslyn-analyzer.md"/>-->
+        <toc-element topic="use-roslyn-analyzer.md"/>
 	</toc-element>
 
 
