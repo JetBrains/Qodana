@@ -56,7 +56,7 @@ following linters:
     </tr>
 </table>
 
-\* The `.info` file extension is preferred for Cobertura reports when both file extensions are present.
+\* When both LCOV (`.info`) and Cobertura (`.cobertura`) reports are present, LCOV (`.info`) is preferred.
 
 <note>Code coverage for files is available only for <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, and
 <a href="python.md">%python%</a> linters.</note>
