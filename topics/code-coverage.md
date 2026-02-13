@@ -37,9 +37,12 @@ following linters:
         <td><code>xml</code></td>
     </tr>
     <tr>
-        <td><a href="dotnet.md">%dotnet%</a></td>
-        <td><a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a></td>
-        <td><code>lcov</code></td>
+        <td rowspan="2"><a href="dotnet.md">%dotnet%</a></td>
+        <td rowspan="2"><a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a></td>
+    </tr>
+    <tr>
+        <td><p><code>lcov</code></p>
+        <p>For Cobertura:<code>info</code> or <code>cobertura</code>*</p></td>
     </tr>
     <tr>
         <td><a href="python.md">%python%</a></td>
@@ -52,6 +55,8 @@ following linters:
         <td><code>out</code></td>
     </tr>
 </table>
+
+\* When both LCOV (`.info`) and Cobertura (`.cobertura`) reports are present, LCOV (`.info`) is preferred.
 
 <note>Code coverage for files is available only for <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, and
 <a href="python.md">%python%</a> linters.</note>
@@ -307,27 +312,35 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
 Here is an example of the [`qodana.yaml`](qodana-yaml.md) file configuration for the [%dotnet%](dotnet.md) linter:
 
 ```yaml
+version: 1.0
+
 dotnet:
   solution: <your-solution-file>
 
-bootstrap: dotnet build; cd <path-to-dir-with-test-project-file> && \\
-  dotnet add package coverlet.msbuild && dotnet add package coverlet.collector && \\
-  ((dotnet test /p:CollectCoverage=true /p:CoverletOutput=<your-project-folder>/.qodana/code-coverage/ /p:CoverletOutputFormat=lcov))
+bootstrap: |
+  dotnet build
+  cd <path-to-dir-with-test-project-file>
+  dotnet add package coverlet.msbuild 
+  dotnet add package coverlet.collector
+  dotnet test \
+    /p:CollectCoverage=true \
+    /p:CoverletOutput=$(pwd)/.qodana/code-coverage/ \
+    /p:CoverletOutputFormat=<format>
 ```
 
-Here, the `dotnet` option configures the solution file. 
+Here, the `dotnet` section configures the solution file. 
 
-The [`bootstrap`](before-running-qodana.md) key performs several steps before running %instance%:
+The [`bootstrap`](before-running-qodana.md) key configures steps that will be performed before running %instance%:
 
-| Command step                                                    | Description                                                                                   |
-|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| `dotnet build`                                                  | Build a project or a solution                                                                 |
-| `cd <path-to-dir-with-test-project-file>`                       | Navigate to the directory containing the project test file                                    |
-| `dotnet add package coverlet.msbuild`                           | Add the `coverlet.msbuild` package to the project. This command needs to be repeated for each |
-| `dotnet test ... `                                              | Execute tests in the project, and:                                                            |
-| `/p:CollectCoverage=true`                                       | Enable code coverage                                                                          |
-| `/p:CoverletOutput=<your-project-folder>/.qodana/code-coverage` | Collect code coverage results to a specific directory                                         |
-| `/p:CoverletOutputFormat=lcov`                                  | Specify the code coverage output format                                                       |
+| Command step                                      | Description                                                                                                                      |
+|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `dotnet build`                                    | Build a project or a solution                                                                                                    |
+| `cd <path-to-dir-with-test-project-file>`         | Navigate to the directory containing the project test file                                                                       |
+| `dotnet add package coverlet.msbuild`             | Add the `coverlet.msbuild` package to the project. This command needs to be repeated for each package                            |
+| `dotnet test ... `                                | Execute tests in the project, and:                                                                                               |
+| `/p:CollectCoverage=true`                         | Enable code coverage                                                                                                             |
+| `/p:CoverletOutput=$(pwd)/.qodana/code-coverage/` | Collect code coverage results to a specific directory. In case of Cobertura, also specify here a file and extension              |
+| `/p:CoverletOutputFormat=<format>`                | Specify the code coverage report format: `lcov` or `cobertura`. The `lcov` format is preferred in all cases including Cobertura  |
 
 If a code coverage report file contains information about generated files, exclude this information by adding one or 
 both of the following lines to the `dotnet test ...` line:
@@ -343,6 +356,10 @@ Here is the description of these lines:
 |-------------------------------|---------------------------------------------------------------|
 | `/p:ExcludeByAttribute="..."` | Exclude methods or classes marked with specific attributes    |
 | `/p:ExcludeByFile="..."`      | Excludes files matching a pattern (e.g., `**/Generated/*.cs`) |
+
+> If your project has a single source file, the generated Cobertura report will contain an empty path to that file. 
+> To work around this issue, either add a second source file to the project or use the LCOV format instead.
+{style="note"}
 
 Code coverage analysis results for the [Qodana for .NET](dotnet.md) linter are available in [](#overview-code-coverage-qodana-cloud).
 
