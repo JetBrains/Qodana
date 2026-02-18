@@ -24,8 +24,46 @@
 
         <note>You can skip the prerequisites if you would like to run %instance% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a>.</note>
 
-        <p>Depending on your %instance% <a href="pricing.md">license</a>, you probably need to obtain a trial license and complete
-            the <a href="set-up-your-project.md">project setup</a> stage in %cloud%.</p>
+        <title>
+            Set up your project in %cloud%
+        </title>
+        <link-summary>
+            Learn how you prepare your project for using %product%.
+        </link-summary>
+        <p>Before running Qodana, you need to create a new <a href="cloud-organizations.topic">organization</a> and
+            <a href="cloud-projects.topic">project</a> in <a href="https://qodana.cloud">%cloud%</a>. This setup process
+            will guide you through
+            configuring your project for various <a href="ci.md">CI/CD pipelines</a> and local execution using <a
+                    href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> or
+            <a href="qodana-ide-plugin.md">JetBrains IDEs</a>, and will generate a <a href="project-token.md">project
+                token</a> required by Qodana linters. Additionally,
+            %product% requires a connection to your repositories to track <a href="contributors.md">active
+                contributors</a>, as specified by our
+            <a href="https://www.jetbrains.com/legal/docs/agreements/qodana/license/">license agreement</a>.</p>
+        <note>
+            To provide correct work of the contributor counting functionality, add the IP address range
+            54.76.32.8/32 to a list of allowed inbound connections on your side.
+        </note>
+        <note>
+            <p style="note">The linters available under the Community, Ultimate, and Ultimate Plus licenses may vary.
+                More details can be found in the <a href="pricing.md" anchor="pricing-linters-licenses">Pricing
+                    Model</a> section.</p>
+        </note>
+        <p>If you plan to run the <a href="github.md">Qodana Scan</a> GitHub action on a GitHub-hosted repository, you
+            will need to authorize the
+            <code>%cloud%</code> GitHub App during the project setup. If you do not have access to the repository that
+            you intend to analyze,
+            request the necessary access and wait for approval before proceeding. In other cases, you will receive
+            instructions and
+            configuration snippets that will help you start %product% in your project.</p>
+        <p>The project setup uses information from your JetBrains account, which includes licenses and companies.</p>
+        <chapter title="Global configurations" id="global-configurations">
+            <p>During the project setup stage, you can choose a <a href="global-configuration.md">global
+                configuration</a> that will be used while
+                analyzing your code.</p>
+            <!-- What does this mean ? Does this have to be saved on a repository ? -->
+        </chapter>
+
         <p>To run %instance% in the CLI and GitHub, you will be using a project token available after creating a %cloud%
             <a href="cloud-projects.topic">project</a>. To learn more about it, see the <a href="project-token.md"/> section.</p>
 

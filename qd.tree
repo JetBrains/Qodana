@@ -3,12 +3,13 @@
 <instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="release">
 	<!-- Getting started section -->
     <toc-element accepts-web-file-names="welcome.html,index.html" topic="getting-started.topic">
+		<toc-element accepts-web-file-names="new-in-2024-1.html,new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html,new-in-2024-2.html,new-in-2024-3.html,new-in-2025-1.html,new-in-2025-2.html" topic="new-in-2025-3.md"/>
 		<toc-element topic="about-qodana.md" accepts-web-file-names="cloud-about.html,qodana.html"/>
 		<toc-element topic="pricing.md"/>
-		<toc-element topic="Quick-start.topic" accepts-web-file-names="cli.html"/>
-		<toc-element topic="set-up-your-project.md" accepts-web-file-names="cloud-onboarding.md"/>
+		<toc-element topic="Quick-start.topic" accepts-web-file-names="cli.html,cloud-onboarding.md"/>
+		<toc-element topic="deploy-qodana.md" accepts-web-file-names="native-mode.html,docker-images.html,qodana-gradle-plugin.html,docker-readme.html,qodana-docker-readme.html"/>
+		<!--<toc-element topic="set-up-your-project.md" accepts-web-file-names="cloud-onboarding.md"/>-->
 		<toc-element topic="faq.topic"/>
-		<toc-element accepts-web-file-names="new-in-2024-1.html,new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html,new-in-2024-2.html,new-in-2024-3.html,new-in-2025-1.html,new-in-2025-2.html" topic="new-in-2025-3.md"/>
 		<toc-element toc-title="Components">
 			<toc-element topic="static-analysis.topic"/>
 			<!-- Here, add redirect to the Linters page -->
@@ -53,7 +54,6 @@
 
 
     <!-- Deployment section -->
-	<toc-element topic="deploy-qodana.md" accepts-web-file-names="native-mode.html,docker-images.html,qodana-gradle-plugin.html,docker-readme.html,qodana-docker-readme.html"/>
 	<toc-element toc-title="IDE integration">
 		<toc-element topic="ide-integration.md"/>
 		<toc-element accepts-web-file-names="qodana_plugins.html" topic="qodana-ide-plugin.md"/>

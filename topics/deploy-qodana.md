@@ -1,4 +1,4 @@
-# Deployment
+# Deployment options
 
 <show-structure for="chapter" depth="3"/>
 

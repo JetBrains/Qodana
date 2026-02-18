@@ -1,4 +1,4 @@
-[//]: # (title: Pricing model)
+[//]: # (title: Qodana editions)
 
 <link-summary>Qodana provides the Community, Ultimate, and Ultimate Plus licenses. You can learn more about the differences 
 between them.</link-summary>
@@ -7,7 +7,7 @@ between them.</link-summary>
 
 Depending on your needs, you can choose a suitable license described in this table:
 
-| License       | Subscription conditions                                                                   | Description                                                                                                                                                                               |
+| Edition       | Subscription conditions                                                                   | Description                                                                                                                                                                               |
 |---------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Community     | Free                                                                                      | Best suited to solving isolated problems                                                                                                                                                  |
 | Ultimate      | See [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) for details | Designed for solving various business tasks. A trial version is available.                                                                                                                |
