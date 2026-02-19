@@ -1012,6 +1012,15 @@ Depending on the linter, you can run %product% using private NuGet repositories 
     </tab>
 </tabs>
 
+In case dependencies cannot be resolved, configure the following steps before running %product%:
+
+<procedure>
+    <step>Restore dependencies using the <code>dotnet restore</code> command</step>
+    <step>Copy all dependency files to a directory accessible by %product%. For example, this can be a subdirectory within 
+    the <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories">cache directory</a>
+    </step>
+</procedure>
+
 <!--### Dependency restore
 
 After configuring [external NuGet feeds](#Private+NuGet+repositories), you should configure dependency restore using the
