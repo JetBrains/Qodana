@@ -1017,7 +1017,7 @@ In case dependencies cannot be resolved, configure the following steps before ru
 <procedure>
     <step>Restore dependencies using the <code>dotnet restore</code> command</step>
     <step>Copy all dependency files to a directory accessible by %product%. For example, this can be a subdirectory within 
-    the <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories">cache directory</a>
+    the <a href="docker-image-configuration.topic" anchor="docker-config-reference-configuration-examples">cache directory</a>
     </step>
 </procedure>
 
