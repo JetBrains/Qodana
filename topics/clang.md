@@ -243,7 +243,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
-## Run %product%
+## Run Qodana
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 <include from="lib_qd.topic" element-id="major-version-note"/>
@@ -525,7 +525,7 @@ project <a href="https://qodana.cloud">%cloud%</a> and review the analysis resul
 
 <!-- Here add about observing locally generated files -->
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 

@@ -209,7 +209,7 @@ To revert the K2 mode, in your linter configuration set the `idea.kotlin.plugin.
 If your project uses Gradle, make sure that you have configured a JDK version for your project as explained in the 
 [](configure-jdk.md) section.
 
-## Run %product%
+## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm,native,non-ruby"/>
 
@@ -217,7 +217,7 @@ If your project uses Gradle, make sure that you have configured a JDK version fo
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,jvm"/>
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 

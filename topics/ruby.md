@@ -102,7 +102,7 @@ The command will be automatically executed before the analysis to install depend
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
-## Run %product%
+## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,ruby"/>
 <include from="lib_qd.topic" element-id="run-qodana-container-mode-config-examples" use-filter="empty,generic"/>
@@ -111,7 +111,7 @@ The command will be automatically executed before the analysis to install depend
 
 <include from="lib_qd.topic" element-id="explore-analysis-results-qodana-cloud" use-filter="empty,ruby"/>
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 

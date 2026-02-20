@@ -135,7 +135,7 @@ bootstrap: pip install -r requirements.txt
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,python"/>
 
-## Run %product%
+## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python,non-ruby,native"/>
 
@@ -143,7 +143,7 @@ bootstrap: pip install -r requirements.txt
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,python"/>
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 

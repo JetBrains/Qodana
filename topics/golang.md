@@ -83,7 +83,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
-## Run %product%
+## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,golang,non-ruby,native"/>
 
@@ -91,7 +91,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,golang"/>
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 

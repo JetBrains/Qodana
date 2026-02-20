@@ -359,7 +359,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     </tab>
 </tabs>
 
-## Run %product%
+## Run Qodana
 {id="dotnet-run-qodana"}
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>

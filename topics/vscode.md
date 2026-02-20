@@ -42,7 +42,7 @@ Alternatively, in the command palette type `%product%` to see the list of option
 
 <img src="vs-code-ui-navigate-alt.png" alt="Navigating to %product% through a command palette" width="706" border-effect="line"/>
 
-## Run %product% locally
+## Run Qodana locally
 {id="vs-code-run-locally"}
 
 <link-summary>You can run %product% in Visual Studio Code and then forward analysis reports to %cloud%. </link-summary>
