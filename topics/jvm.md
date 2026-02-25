@@ -40,6 +40,7 @@
 <var name="ide-documentation" value="https://www.jetbrains.com/help/idea/customizing-profiles.html"/>
 <var name="native-arg" value="&lt;linter-code&gt;"/>
 <var name="teamcity-linter-list" value="Here, select either the %qd%, %qd-co% or %qd-a% linter."/>
+<var name="jbr-sdk" value="https://github.com/JetBrains/JetBrainsRuntime/tree/jbr25"/>
 
 <!-- IDE-related variables -->
 <var name="ide" value="IntelliJ IDEA Ultimate"/>
@@ -187,13 +188,11 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="jvm-before-you-start"}
 
-Before running %instance%, you may need to [configure the JDK](configure-jdk.md) for your project.
-
 ### %cloud%
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,jvm"/>
 
-### Prepare your software
+### Preparing your software
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,jvm"/>
 
@@ -204,10 +203,68 @@ The K2 mode is by default enabled for the %qd% and %qd-co% linters.
 To revert the K2 mode, in your linter configuration set the `idea.kotlin.plugin.use.k2`
 [property](docker-image-configuration.topic#docker-config-reference-properties) to `false`.
 
-### JDK configuration
+### Configuring the JDK
 
-If your project uses Gradle, make sure that you have configured a JDK version for your project as explained in the 
-[](configure-jdk.md) section.
+If your project uses Gradle, make sure that you have configured a JDK version for your project. 
+
+#### Default versions
+
+This table shows the JDK versions that are by default used by %instance%:
+
+|---------|-----------|
+|Linter | JDK version |
+|%jvm%|[JBR SDK 25](%jbr-sdk%) |
+|%jvm-co%|[JBR SDK 25](%jbr-sdk%) |
+|%jvm-co-a%|[Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/what-is-corretto-11.html) |
+|%jvm-a%|[Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/what-is-corretto-11.html)|
+
+Using the default version of the JDK does not require any special configuration.
+
+#### Available versions
+
+<link-summary>List of available JDK versions.</link-summary>
+
+<anchor name="configure-jdk-available-versions"/>
+
+Apart from the versions available [by default](#Default+versions), %instance% can automatically download and use these versions of JBR SDK
+for all JVM linters: 8, 11, 13, 15, 16, 17, 18, 19, 21.
+
+Otherwise, you can download the required JDK version and [mount it](#Mount+JDK) to %instance%.
+
+#### Configuring Qodana
+
+<link-summary>List of available JDK versions.</link-summary>
+
+<include from="lib_qd.topic" element-id="configure-jdk-qodana-yaml" use-filter="configure-jdk,empty"/>
+
+If you specify here any JDK from the [list of available versions](#Available+versions), it will be automatically
+downloaded by %instance%. If you would like to use the JDK beyond this list, you will have to download it and then
+[mount it](#Mount+JDK) to %instance%.
+
+#### Gradle
+
+Gradle runs scripts based on the [Compatibility Matrix](https://docs.gradle.org/current/userguide/compatibility.html)
+meaning that the latest supported and downloadable version of the JDK will be set up as the Gradle JDK. Using the
+Compatibility Matrix in combination with the list of [available JDK versions](#Available+versions),
+you can find the JDK that will be used by %instance%. For example, %instance% will
+download and employ JDK 13 with Gradle 6.6.
+
+#### Maven
+
+In Maven, you can configure the [source and target](https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html) versions of the Java compiler. %instance% compares these values and selects the latest version. This version of the JDK is
+then searched in the [list of available versions](#Available+versions). If found, %instance% will download and use it.
+Otherwise, %instance% will download the subsequent version from this list.
+
+#### Mount JDK
+
+<link-summary>You can mount JDK from your local filesystem to the /root/.jdks folder of the %instance% Docker image.</link-summary>
+
+You can mount JDK from your local filesystem to the `/root/.jdks` folder of the %instance% Docker image:
+
+```shell
+$ docker run -v /path/to/jdk:/root/.jdks/jdk \
+jetbrains/qodana-<linter>
+```
 
 ## Run %product%
 

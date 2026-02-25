@@ -1,4 +1,4 @@
-[//]: # (title: Analyze a monorepo project)
+[//]: # (title: Monorepo projects)
 
 <var name="github-secret" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 

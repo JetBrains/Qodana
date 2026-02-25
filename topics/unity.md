@@ -1,4 +1,4 @@
-[//]: # (title: Analyze Unity project)
+[//]: # (title: .NET Unity)
 
 <var name="qp-linter" value="jetbrains/qodana-dotnet:2025.3"/>
 

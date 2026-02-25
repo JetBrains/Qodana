@@ -1,4 +1,4 @@
-[//]: # (title: Prepare your project)
+[//]: # (title: Preparing your project)
 
 <link-summary>You can use the bootstrap key to prepare your project for analyzing by Qodana.</link-summary>
 

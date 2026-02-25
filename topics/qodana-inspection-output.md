@@ -1,4 +1,4 @@
-[//]: # (title: Analysis output)
+[//]: # (title: Output files)
 
 <show-structure for="chapter" depth="3"/>
 

@@ -1,4 +1,4 @@
-# Analyze your code
+# Starting the analysis
 
 <show-structure for="chapter" depth="3"/>
 
@@ -86,4 +86,47 @@ To improve performance during the project analysis stage, follow these recommend
 * [Exclude files](qodana-yaml.md#exclude-paths) from analysis that are not required for the analysis
 * Save in the VCS information about the excluded directories stored in `.*iml` files
 * Use [incremental analysis](analyze-pr.md) to reduce the scope of files
+
+## Frequently asked questions
+
+<chapter id="faq-zero-errors-report" title="Qodana reports zero errors, but this doesn’t seem correct." default-state="collapsed" collapsible="true">
+<p>Use the <code>qodana.recommended</code> inspection <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">profile</a>.</p>
+    <p>If the <code>qodana.recommended</code> profile does not help, try to run another <a href="linters.md">linter</a>.</p>
+<p>If the problem persists, please create an issue in our tracker or contact us at <code>qodana-support@jetbrains.com</code> and
+attach logs from the <code>/data/results</code> directory that you can get access to by mounting your directory to the path.</p>
+</chapter>
+
+<chapter id="faq-reduce-analysis-time" title="Is there a way to reduce analysis time?" default-state="collapsed" collapsible="true">
+    <p>
+        Yes, you can use
+        <a href="docker-image-configuration.topic" anchor="docker-config-reference-cache-dependencies">caching</a>,
+        and this is available by default in the <a href="github.md">Qodana Scan</a> GitHub action. If this does
+        not help, create an issue in our tracker or contact us at <code>qodana-support@jetbrains.com</code> and
+        attach logs from the <code>/data/results</code> directory. To access logs, mount your directory. If you are
+        using GitHub actions, they are uploaded to the workflow artifacts.
+    </p>
+</chapter>
+
+<chapter id="faq-out-of-memory-error" title="Qodana fails with the Out of Memory error." default-state="collapsed" collapsible="true">
+    <p>
+        Try to set more memory in Docker Desktop preferences, as some projects and build tools inside them, like
+        Gradle, could require more memory than the default 2 GB.
+    </p>
+</chapter>
+
+<chapter id="faq-cannot-download-gradle" title="Qodana can't download Gradle because I use proxy." default-state="collapsed" collapsible="true">
+    <p>
+        Before starting %instance%, please run the <code>./gradlew</code> command in the root folder. This will let
+        %instance% use this downloaded version of Gradle.
+    </p>
+    <p>
+        If your project was created on Windows, make sure to run <code>git update-index --chmod=+x gradlew</code> to
+        make the file executable in your CI.
+    </p>
+</chapter>
+
+<chapter id="faq-sensitive-data-uploading" title="I have accidentally uploaded sensitive data to %cloud%, what should I do?" collapsible="true">
+    <p>All your data is always encrypted at rest and in transit. If you remain concerned, you can delete the report containing sensitive
+        data using the %cloud% UI.</p>
+</chapter>
 

@@ -1,4 +1,4 @@
-# Introduction
+# Overview of self-hosting
 
 %premlite% is a lightweight on-premises version of [%cloud%](cloud-use-cases.topic) designed for small development teams.
 

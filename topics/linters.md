@@ -14,10 +14,17 @@ can cause problems. Basically, each Qodana linter is associated with a specific 
 * Check third-party license compatibility. This feature is available in [several linters](license-audit.topic)
 * Upload analysis reports to [%cloud%](https://qodana.cloud)
 
-> You can find out which linters are available under the Community, Ultimate and Ultimate Plus licenses in the [Pricing Model](pricing.md#pricing-linters-licenses) section.
+> You can find out which linters are available under the Community, Ultimate, and Ultimate Plus licenses in the [](pricing.md#pricing-linters-licenses) section.
 {style="tip"}
 
-Currently, several linters provide inspections for several programming languages.
+Each linter represents a specific technology. For example, the [%jvm%](jvm.md) linter lets you analyze a codebase 
+containing the Java, Kotlin, and Groovy code, while the [%js%](js.md) linter provides a deeper 
+analysis of the JavaScript and TypeScript code.
+
+>You can run multiple linters in a single project as described in the  [](monorepo-project.md) section.
+{style="tip"}
+
+Below is the description of all linters provided by %product%.
 
 <table>
     <tr>

@@ -1,4 +1,4 @@
-# Detect hard-coded passwords
+# Detecting hard-coded passwords
 
 <var name="hc-passwords" value="https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password"/>
 

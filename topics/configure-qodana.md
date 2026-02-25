@@ -18,6 +18,12 @@ Once a YAML configuration is saved, you can reuse it across different instances 
 1. Configuring inspection profiles lets you specify inspections and paths in your codebase that should be used for analysis by %product%. 
 You can configure and use the [existing inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles) or create [your custom profiles](inspection-profiles.md#inspection-profiles-custom-profiles) from scratch.
 
+1. If the existing inspections do not fit your needs, you can develop your own inspections using the
+[](flexinspect.md) feature, [Roslyn analyzers](use-roslyn-analyzer.md), or [structural search patterns](extending-qodana-structural-search.topic),
+which you can apply in your inspection profile. Alternatively, you can use [plugins](extending-qodana-plugins.topic)
+that will extend the inspection capabilities of %instance% or develop
+[your own plugin](https://plugins.jetbrains.com/docs/intellij/github-template.html).
+
 1. Finally, you can override the default JDK versions shipped with %product%, see the [](configure-jdk.md) for details.
 
 ## Performance optimization

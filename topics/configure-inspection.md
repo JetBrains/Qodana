@@ -1,4 +1,4 @@
-# Customize inspections
+# Customizing inspections
 
 <var name="export-profile" value="https://www.jetbrains.com/help/idea/customizing-profiles.html#export-and-import-a-profile"/>
 <var name="ruby-inspection" value="https://www.jetbrains.com/help/inspectopedia/RubyParameterNamingConvention.html#inspection-options"/>

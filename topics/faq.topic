@@ -8,7 +8,7 @@
 
 <p>Here is a collection of answers to questions that will help you better understand basic Qodana concepts.</p>
 
-<chapter title="General questions" id="faq-supported-technologies">
+    <!--<chapter title="General questions" id="faq-supported-technologies"> This is not required in the documentation at all
 
     <chapter id="faq-how-can-i-run" title="How can I run %instance%?" default-state="collapsed" collapsible="true">
         <p>Depending on your needs, you can run %instance% using:</p>
@@ -57,65 +57,65 @@
             In this case, the JBA Company and the %cloud% organization will share the same name. </p>
         <p>%instance% does not use JetBrains Account teams.</p>
     </chapter>
-</chapter>
+</chapter>-->
 
-<chapter title="Deployment and configuration" id="faq-deployment-and-configuration">
+    <!--<chapter title="Deployment and configuration" id="faq-deployment-and-configuration">
 
-    <chapter id="faq-customization-required" title="Can I run %instance% right away? How hard is it to configure Qodana?" default-state="collapsed" collapsible="true">
-        <p>%instance% can be run in various ways, as described on the <a href="Quick-start.topic"/> page. We’ve tried to
-            make it as easy as possible to configure %instance%, so all of these methods require the minimum number of
-            preparation steps.
-        </p>
-    </chapter>
+        <chapter id="faq-customization-required" title="Can I run %instance% right away? How hard is it to configure Qodana?" default-state="collapsed" collapsible="true">
+            <p>%instance% can be run in various ways, as described on the <a href="Quick-start.topic"/> page. We’ve tried to
+                make it as easy as possible to configure %instance%, so all of these methods require the minimum number of
+                preparation steps.
+            </p>
+        </chapter> This does not have to be addressed because it's already present in the documentation -->
 
-    <chapter id="faq-linter-description" title="What does each %instance% linter represent?" default-state="collapsed" collapsible="true">
+    <!--<chapter id="faq-linter-description" title="What does each %instance% linter represent?" default-state="collapsed" collapsible="true">
         <p>A linter is a Qodana component representing a specific technology. For example, the <a href="jvm.md">%jvm%</a>
             linter lets you analyze the codebase containing the Java, Kotlin, Groovy, JavaScript and TypeScript code, while the
             <a href="js.md">%js%</a> linter lets you analyze the JavaScript and TypeScript code. On the
             <a href="linters.md"/> page, you can find the list of all available linters and the links to the detailed
             description of each one.
         </p>
-    </chapter>
+    </chapter> This has been addressed in the Linters section -->
 
-    <chapter id="faq-multiple-linters" title="Can I use multiple linters in one project?" default-state="collapsed" collapsible="true">
+    <!--<chapter id="faq-multiple-linters" title="Can I use multiple linters in one project?" default-state="collapsed" collapsible="true">
         <p>Yes, you can use multiple linters in a single project, as described in the <a href="monorepo-project.md"/>
             section.
         </p>
-    </chapter>
+    </chapter> This has been addressed in the Linters section -->
 
-    <chapter id="faq-check-customization" title="How can I customize the checks performed by Qodana?" default-state="collapsed" collapsible="true">
+    <!--<chapter id="faq-check-customization" title="How can I customize the checks performed by Qodana?" default-state="collapsed" collapsible="true">
         <p>You can configure your inspection profile as described on the <a href="inspection-profiles.md"/> page.</p>
         <p>If the existing inspections do not fit your needs, you can develop your own inspections using the
             <a href="flexinspect.md"/> feature or <a href="extending-qodana-structural-search.topic">structural search patterns</a>,
             which you can apply in the inspection profile. Alternatively, you can use
             <a href="extending-qodana-plugins.topic">plugins</a> that will extend the inspection capabilities of %instance% or develop
             <a href="https://plugins.jetbrains.com/docs/intellij/github-template.html">your own plugin</a>.</p>
-    </chapter>
+    </chapter> This has been addresssed in the Configuration overview section -->
 
-    <chapter id="faq-ssh-key-setup" title="Why is there a need to set up an SSH key in my repository?" default-state="collapsed" collapsible="true">
+    <!-- <chapter id="faq-ssh-key-setup" title="Why is there a need to set up an SSH key in my repository?" default-state="collapsed" collapsible="true">
         <p>The SSH key lets Qodana connect to the repository of the analyzed project and calculate the number of
             contributors, which is a requirement for all types of <a href="pricing.md">licenses</a>.
         </p>
-    </chapter>
+    </chapter> This is already explained in the Licenses section
 
-</chapter>
+</chapter>-->
 
-<chapter title="Inspecting code" id="faq-inspection-profiles">
+    <!-- <chapter title="Inspecting code" id="faq-inspection-profiles">
 
-    <chapter id="faq-profile-explained" title="What is a profile?" default-state="collapsed" collapsible="true">
-        <p>A %instance% inspection profile is a set of pre-configured inspections, including their state, configuration
-            options, and the path to which they are applied. %instance% inspection profiles are the same as IntelliJ IDEA
-            inspection profiles and can be <a href="inspection-profiles.md" anchor="Custom+XML+profiles">reused</a>.
-        </p>
-    </chapter>
+            <chapter id="faq-profile-explained" title="What is a profile?" default-state="collapsed" collapsible="true">
+            <p>A %instance% inspection profile is a set of pre-configured inspections, including their state, configuration
+                options, and the path to which they are applied. %instance% inspection profiles are the same as IntelliJ IDEA
+                inspection profiles and can be <a href="inspection-profiles.md" anchor="Custom+XML+profiles">reused</a>.
+            </p>
+        </chapter> This has been addressed in the Inspection Profiles section -->
 
-    <chapter id="faq-what-profiles-offered" title="What inspection profiles does Qodana offer?" default-state="collapsed" collapsible="true">
-        <p>You can find the list of the default Qodana inspection profiles and learn how to configure them using the
-            <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"/> section.
-        </p>
-    </chapter>
+    <!--    <chapter id="faq-what-profiles-offered" title="What inspection profiles does Qodana offer?" default-state="collapsed" collapsible="true">
+            <p>You can find the list of the default Qodana inspection profiles and learn how to configure them using the
+                <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"/> section.
+            </p>
+        </chapter> This is already available in the Inspection Profile section -->
 
-    <chapter id="faq-how-select-profile" title="How can I choose the best profile for my project?" default-state="collapsed" collapsible="true">
+    <!-- <chapter id="faq-how-select-profile" title="How can I choose the best profile for my project?" default-state="collapsed" collapsible="true">
         <p>We recommend using the
             <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles"><code>qodana.recommended</code></a> profile
             because it already provides the most usable inspections invoked by the default JetBrains IDEs profiles, so
@@ -123,13 +123,13 @@
         </p>
         <p>Alternatively, you can <a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">create</a> your own profile to best suit your needs.
         </p>
-    </chapter>
+    </chapter> This is already available in the Inspection Profile section -->
 
-    <chapter id="faq-sarif-import" title="Can I import SARIF of another analysis tool to Qodana?" default-state="collapsed" collapsible="true">
+    <!--<chapter id="faq-sarif-import" title="Can I import SARIF of another analysis tool to Qodana?" default-state="collapsed" collapsible="true">
         <p>Currently, it is not possible to display the results of external analysis tools in Qodana UI, though we are working on it.</p>
-    </chapter>
+    </chapter> This information is not required -->
 
-    <chapter id="faq-severities" title="Can I get more information about %product% report severities?" default-state="collapsed" collapsible="true">
+    <!-- <chapter id="faq-severities" title="Can I get more information about %product% report severities?" default-state="collapsed" collapsible="true">
 
         <p>This table shows the relation between the JetBrains IDE, SARIF, and %product% severities.</p>
 
@@ -172,16 +172,16 @@
         </table>
 
 
-    </chapter>
+    </chapter> This is already referenced in the Inspection Profile section -->
 
-    <chapter id="faq-inspectopedia-page-reference" title="Where can I learn more about %product% inspections?" default-state="collapsed" collapsible="true">
+    <!-- <chapter id="faq-inspectopedia-page-reference" title="Where can I learn more about %product% inspections?" default-state="collapsed" collapsible="true">
         <p>You can visit the <a href="https://www.jetbrains.com/help/inspectopedia/">Inspectopedia</a> website and read
             about inspections and their availability in %product%.</p>
-    </chapter>
+    </chapter> This is already referenced in the Inspections section
 
-</chapter>
+</chapter> -->
 
-<chapter title="Licensing" id="faq-licensing">
+    <!-- <chapter title="Licensing" id="faq-licensing">
 
     <snippet id="faq-licensing-for-pricing">
     <chapter id="faq-licensing-minimum-contributors" title="I work solo on my project, can I still use Qodana?" default-state="collapsed" collapsible="true">
@@ -461,9 +461,9 @@
         </p>
     </chapter>
     </snippet>
-</chapter>
+</chapter> The entire Licensing section has been moved to the Licenses section -->
 
-<chapter title="Troubleshooting" id="faq-troubleshooting">
+    <!-- <chapter title="Troubleshooting" id="faq-troubleshooting">
 
     <chapter id="faq-zero-errors-report" title="Qodana reports zero errors, but this doesn’t seem correct." default-state="collapsed" collapsible="true">
     <p>Use the <code>qodana.recommended</code> inspection <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">profile</a>.</p>
@@ -509,6 +509,6 @@
     </chapter>
 
 
-</chapter>
+</chapter> This has been moved to the Starting the analysis section -->
 
 </topic>

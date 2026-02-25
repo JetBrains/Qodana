@@ -1,9 +1,43 @@
-[//]: # (title: Configure Qodana your way)
+[//]: # (title: Inspections)
 
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
 
-<link-summary>A use case explaining how you can configure Qodana for various tasks.</link-summary>
+
+<link-summary>Each inspection is a set of conditions to analyze the code, detect and correct abnormal fragments in it. Qodana
+    inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
+    and thus facilitate improving the overall code structure.</link-summary>
+
+<p>Each inspection is a set of conditions to analyze the code, detect and correct abnormal fragments in it. Qodana
+    inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
+    and thus facilitate improving the overall code structure. Using inspections, Qodana implements its
+    <a href="static-analysis.topic">static analysis</a> mechanism. 
+</p>
+
+<p>All inspections are highly configurable, so you can configure:</p>
+
+<list>
+    <li>What inspections to run for your codebase. There are lots of various inspections, so you can enable or
+        disable them for some reason.</li>
+    <li>What directories and files to include in your code analysis. If you feel that you do not need to analyze
+        any file or group of files, you can exclude them from code analysis.</li>
+    <li>How you can configure and use <a anchor="Inspection+profiles">inspection profiles</a>. You can use the preset combinations
+        of inspections specified by inspection profiles aimed at solving specific tasks, or create your custom profile
+    that would meet your unique needs.</li>
+</list>
+
+You can explore available %product% inspections using the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) website.
+This website provides details about inspections: descriptions, severity levels, languages covered, etc.
+
+You can use the table of contents to explore all available inspections:
+
+<img src="inspectopedia-toc.png" alt="Table of contents on the Inspectopedia website" width="296" border-effect="line"/>
+
+Alternatively, you can search for the concrete inspections by their names, or identifiers:
+
+<img src="inspectopedia-search.png" alt="Searching for an inspection" width="706" border-effect="line"/>
+
+## Inspection profiles
 
 %product% inspection profiles configure the inspections that you are going to use. If you enable too few inspections, you may 
 miss critical problems, which will affect your project overall. On the other hand, enabling too many inspections 

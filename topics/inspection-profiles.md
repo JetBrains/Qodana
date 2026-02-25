@@ -20,9 +20,15 @@
 <link-summary>Inspection profiles configure inspections, file scopes that these inspections analyze, 
 and severities.</link-summary>
 
-Inspection profiles define [inspections](code-inspections.topic), file scopes that these inspections analyze, and 
-inspection [severities](troubleshooting.topic#troubleshooting-severities). This section explains how you can use 
+An inspection profile is a set of pre-configured [inspections](override-a-profile.md), including their state, configuration
+options, scopes of their analyses, and [severities](troubleshooting.topic#troubleshooting-severities).
+
+> %instance% inspection profiles are the same as IntelliJ IDEA inspection profiles.
+{style="tip"}
+
+This section explains how you can use 
 existing %product% profiles, create your own profiles, and set up profiles for analyzing your projects using %product%.
+
 
 ## Existing %product% profiles
 {id="inspection-profiles-existing-profiles"}
@@ -38,11 +44,11 @@ Out of the box, you can use the following %product% profiles:
     </tr>
     <tr>
         <td><code>qodana.starter</code></td>
-        <td>The subset of the <code>qodana.recommended</code> profile, enabled in %product% by default</td>
+        <td>The subset of the <code>qodana.recommended</code> profile, enabled by default</td>
     </tr>
     <tr>
         <td><code>qodana.recommended</code></td>
-        <td><p>Implements default profiles of JetBrains IDEs like 
+        <td><p>Provides the most usable inspections and implements default profiles of JetBrains IDEs like 
         <a href="https://www.jetbrains.com/help/idea/customizing-profiles.html">IntelliJ IDEA</a> with the following 
         exceptions:</p> 
         <list>
@@ -84,7 +90,7 @@ These profiles are hosted on
 <a href="docker-image-configuration.topic" anchor="docker-config-reference-profile"/> sections.</note>
 
 <p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file
-    once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs or any other <a href="ci.md">software</a> currently
+    once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, or any other <a href="ci.md">software</a> currently
     supported by %product%. The settings will remain consistent across all these platforms.</p>
 
 <tabs>
@@ -733,7 +739,7 @@ match the name of the containing file. The actual name is stored as the `%\profi
 ### Use your profile
 
 <p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file
-    once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs or any other <a href="ci.md">software</a> currently
+    once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, or any other <a href="ci.md">software</a> currently
     supported by %product%. In this case, no additional configuration is required, and all settings will remain consistent 
     across all these platforms, see the example below:</p>
 

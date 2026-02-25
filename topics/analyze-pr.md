@@ -1,4 +1,4 @@
-# Analyze changes
+# Incremental analysis
 
 <link-summary>For all linters except %dotnet-co% and %clang%, you can run incremental analysis on a change set like 
 merge or pull requests, as well as analyze changes between two commits.</link-summary> 
