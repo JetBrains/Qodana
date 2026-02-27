@@ -121,7 +121,7 @@
         </p>
 
         <p>For all linters except <a href="jvm.md">%jvm%</a>, you also need to have project
-            dependencies installed using the <a href="before-running-qodana.md"><code>bootstrap</code></a> key of
+            dependencies installed using the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key of
             the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
 
         <p>After %instance% has finished analyzing your project, the results become available in the

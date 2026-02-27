@@ -4098,7 +4098,7 @@
                     <p>TeamCity and <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> run %instance%
                         using a current non-root user. This can be inconvenient if you wish to install dependencies
                         using the <code>apt</code> tool invoked in the
-                        <a href="before-running-qodana.md"><code>bootstrap</code></a> section.</p>
+                        <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> section.</p>
                     <p>To run %product% as a root user in TeamCity, add the <code>-u root</code> option in the
                         <a href="teamcity.md" anchor="teamcity-qodana-runner"><ui-path>Additional Docker arguments</ui-path></a>
                         field of the %product% runner configuration.</p>

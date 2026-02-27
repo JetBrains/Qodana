@@ -197,7 +197,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <p>
           For %qdcppc%, you need to generate <code>compile_commands.json</code> as explained in the <a href="%compdb-generate%">CLion documentation portal</a>, and save it to the <code>build</code> directory under the project root.</p>
         <p>
-          If you use CMake, you can also generate a compilation database by specifying the following <a href="before-running-qodana.md"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:
+          If you use CMake, you can also generate a compilation database by specifying the following <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:
         </p>
         <code-block lang="yaml">
             bootstrap: |
@@ -533,12 +533,12 @@ project <a href="https://qodana.cloud">%cloud%</a> and review the analysis resul
     %product% recognizes the <code>qodana.yaml</code> file for the analysis configuration,
     so that you don't need to pass any additional parameters. For the %qdcpp% linter, you can configure:</p>
 <list>
-    <li>Commands that will run before the linter using the <a href="before-running-qodana.md"><code>boostrap</code></a>
+    <li>Commands that will run before the linter using the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>boostrap</code></a>
         option. Using this, you can <a anchor="Modifying+paths+for+analysis">modify the list of paths</a> in the <code>compile_commands.json</code> file.</li>
     <li><a anchor="Enabling+the+baseline+feature">Baseline</a> and <a anchor="Enabling+the+quality+gate">quality gate</a> features.</li>
 </list>
 
-<note>The %qdcppc% linter does not support <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">including</a> 
+<note>The %qdcppc% linter does not support <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">including</a> 
 and <a href="qodana-yaml.md" anchor="exclude-paths">excluding</a> paths for specific inspections using the <code>qodana.yaml</code> file.</note>
 
 ### Modifying paths for analysis
@@ -856,7 +856,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
 You can configure [quality gates](quality-gate.topic) for:
 
 - The total number of project problems
-- Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>.
+- Multiple quality gates for <a href="ui-overview.md" anchor="Severity+levels">problem severities</a>.
 
 Save this snippet to the [`qodana.yaml`](qodana-yaml.md) file:
 

@@ -162,7 +162,7 @@
                         <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>.</p>
                 </step>
                 <step>In the <code>qodana.yaml</code> file, enable the inspection as described in the
-                    <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">YAML file</a> section.
+                    <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">YAML file</a> section.
                 </step>
                 <step>
                     <p>Run %product% using examples below:</p>

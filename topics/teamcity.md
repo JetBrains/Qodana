@@ -27,7 +27,7 @@ paid %instance% <a href="pricing.md" anchor="pricing-linters-licenses">linters</
 Community linters. You can see these sections to learn how to generate the project token in the %cloud% UI:
 
 
-* The <a href="set-up-your-project.md">project setup</a> section explains how to generate a project token when first working with %cloud%.
+* The <a href="Quick-start.topic" anchor="quickstart-prerequisites">project setup</a> section explains how to generate a project token when first working with %cloud%.
 * The <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section explains how to create a project token within an existing %cloud% organization.
 
 

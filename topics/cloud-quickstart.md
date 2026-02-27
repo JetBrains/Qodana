@@ -5,7 +5,7 @@
 To start using %cloud%, navigate to the [%cloud% website](https://qodana.cloud) and 
 [create your account](cloud-get-access.topic).
 
-After logging in to %cloud% for the first time, you will be redirected to the [project setup](set-up-your-project.md) 
+After logging in to %cloud% for the first time, you will be redirected to the [project setup](Quick-start.topic#quickstart-prerequisites) 
 page for creating an [organization](cloud-organizations.topic), a [team](cloud-teams.topic), a [project](cloud-projects.topic), 
 and have a [project token](cloud-projects.topic#cloud-manage-projects) generated for your project. 
 

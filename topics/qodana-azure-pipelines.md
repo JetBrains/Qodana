@@ -19,7 +19,7 @@ within existing pipelines using Qodana.
    required for the paid %instance% [linters](pricing.md#pricing-linters-licenses) and optional for use with the Community linters. You can see these 
    sections to learn how to generate the project token in the %cloud% UI:
 
-   * The [project setup](set-up-your-project.md) section explains how to generate a project token when first working with %cloud%.
+   * The [project setup](Quick-start.topic#quickstart-prerequisites) section explains how to generate a project token when first working with %cloud%.
    * The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project token within an existing %cloud% Cloud organization.
 
    Once you obtain the project token, go to your pipeline UI, create the `QODANA_TOKEN` [secret variable](%secret-var%), and 

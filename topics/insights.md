@@ -17,7 +17,7 @@ page click the **Insights** button. To do the same on a team level, click this b
 ## Dashboard filters
 
 The upper part of the **Insights** page contains filters that let you filter widgets by
-[projects](cloud-projects.topic), [severities](troubleshooting.topic#troubleshooting-severities), [baseline](baseline.topic),
+[projects](cloud-projects.topic), [severities](ui-overview.md#Severity+levels), [baseline](baseline.topic),
 and inspections.
 
 After you configure all the widgets, you can copy the link to the page that contains this configuration state.
@@ -65,7 +65,7 @@ view related analysis reports.
 
 ### Problems by severity
 
-Contains the diagram showing the problem numbers by their severities, see the [description of severities](faq.topic#faq-severities) 
+Contains the diagram showing the problem numbers by their severities, see the [description of severities](ui-overview.md#Severity+levels) 
 for details.
 
 <img src="insights-problems-by-severity.png" width="706" alt="Problems by severity diagram" border-effect="line"/>

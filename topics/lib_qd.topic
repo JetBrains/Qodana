@@ -1770,7 +1770,7 @@
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for:</p>
         <list>
             <li>The total number of project problems</li>
-            <li>Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a></li>
+            <li>Multiple quality gates for <a href="ui-overview.md" anchor="Severity+levels">problem severities</a></li>
             <li><a href="code-coverage.md">Code coverage</a> thresholds</li>
         </list>
         <p>Save this snippet to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
@@ -2122,7 +2122,7 @@
             project token in the %cloud% UI:</p>
 
     <list>
-        <li>The <a href="set-up-your-project.md">project setup</a> section explains how to generate a project token when first working with %cloud%.</li>
+        <li>The <a href="Quick-start.topic" anchor="quickstart-prerequisites">project setup</a> section explains how to generate a project token when first working with %cloud%.</li>
         <li>The <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section explains how to create a project token within an existing %cloud% organization.</li>
     </list>
 

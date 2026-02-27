@@ -73,7 +73,7 @@ To analyze your project using %product%, follow the steps listed below.
 <step>Choose the %product% <a href="linters.md">linter</a> that you would like to use. </step>
 <step>Decide which <a href="deploy-qodana.md">deployment method</a> of %product% you would like to use.</step>   
 <step>Configure %product% as described in the <a href="configure-qodana.md"/> section.</step>
-<step>If necessary, set up the list of commands that will be executed before %product%, see the <a href="before-running-qodana.md"/> section for details.</step>
+<step>If necessary, set up the list of commands that will be executed before %product%, see the <a href="qodana-yaml.md" anchor="Run+custom+commands"/> section for details.</step>
 <step>In %cloud%, <a href="cloud-quickstart.md">set up an account</a> and obtain a <a href="project-token.md">project token</a>.</step> 
 <step>Follow recommendations from a linter page that you would like to use (see Step 1 here).</step>
 <step>If necessary, follow recommendations from the <a href="troubleshooting.topic"/> section.</step>

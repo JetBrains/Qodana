@@ -3,7 +3,7 @@
 You have the following configuration approaches:
 
 1. Configuring %product% via a [YAML-formatted](qodana-yaml.md) file, typically named `qodana.yaml`, is suitable for settings that require lengthy 
-commands, such as inspection configuration, [bootstrap](before-running-qodana.md), and other settings that are not convenient to configure otherwise. 
+commands, such as inspection configuration, [bootstrap](qodana-yaml.md#Run+custom+commands), and other settings that are not convenient to configure otherwise. 
 Once a YAML configuration is saved, you can reuse it across different instances of Qodana.
 
 1. Using [configuration capabilities](docker-image-configuration.topic) of the tools that are running %product% like Docker, 
@@ -24,7 +24,7 @@ which you can apply in your inspection profile. Alternatively, you can use [plug
 that will extend the inspection capabilities of %instance% or develop
 [your own plugin](https://plugins.jetbrains.com/docs/intellij/github-template.html).
 
-1. Finally, you can override the default JDK versions shipped with %product%, see the [](configure-jdk.md) for details.
+1. Finally, you can override the default JDK versions shipped with %product%, see the [](jvm.md#Configuring+the+JDK) section for details.
 
 ## Performance optimization
 

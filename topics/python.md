@@ -119,7 +119,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Install dependencies
 
-If your project has external `pip` dependencies, set them up using the [`bootstrap`](before-running-qodana.md) 
+If your project has external `pip` dependencies, set them up using the [`bootstrap`](qodana-yaml.md#Run+custom+commands) 
 key in the [`qodana.yaml`](qodana-yaml.md) file. For example, if your project dependencies are specified 
 by the `requirements.txt` file in your project root, go into the configuration file and add the following line:
 
@@ -203,7 +203,7 @@ To do this, follow the instructions below.
 
 <procedure>
 <step>
-<p>In the <a href="before-running-qodana.md"><code>bootstrap</code></a> section of the <code>qodana.yaml</code> file, 
+<p>In the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> section of the <code>qodana.yaml</code> file, 
 save the following snippet:</p>
 <code-block lang="yaml">
 # Create `qodana-env` environment with specific Python version

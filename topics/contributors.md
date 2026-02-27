@@ -21,7 +21,7 @@ is explained below.
 
 ## Key generation
 
-During the [project setup](set-up-your-project.md) stage, %cloud% generates an SSH key pair for counting the number of 
+During the [project setup](Quick-start.topic#quickstart-prerequisites) stage, %cloud% generates an SSH key pair for counting the number of 
 active contributors to your project using this command:
 
 ```shell
@@ -114,7 +114,7 @@ Here you can find answers to frequently asked questions about %instance% licensi
                 you’ll be redirected to the %cloud% onboarding page.</p>
             <p>If you would like to purchase either the Ultimate or Ultimate Plus license, you’ll be redirected to
             the JetBrains account page to provide payment details. After payment is made, you’ll be redirected to
-                the %cloud% <a href="set-up-your-project.md">project setup</a> page.</p>
+                the %cloud% <a href="Quick-start.topic" anchor="quickstart-prerequisites">project setup</a> page.</p>
         </li>
         <li>
             <p>During the onboarding stage, %cloud% generates a public key that you can save in your repository
@@ -152,7 +152,7 @@ Here you can find answers to frequently asked questions about %instance% licensi
 <chapter id="faq-licensing-using-without-cloud" title="Can I use %instance% linters without creating a %cloud% account?" default-state="collapsed" collapsible="true">
     <p>
         All licenses require that you create an account in %cloud% and complete the
-        <a href="set-up-your-project.md">project setup</a> stage (see
+        <a href="Quick-start.topic" anchor="quickstart-prerequisites">project setup</a> stage (see
         <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, Qodana
         Cloud lets you view Qodana reports in a single place and provides access to all
         <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> offered by %instance%
@@ -222,7 +222,7 @@ Here you can find answers to frequently asked questions about %instance% licensi
     <p>
         The total license cost is based on the number of active contributors. An active contributor is a person/bot
         who has committed to any number of %cloud% projects at any point in the last 90 days, within the same
-        organization, and under a single license. During the <a href="set-up-your-project.md">project setup</a> stage
+        organization, and under a single license. During the <a href="Quick-start.topic" anchor="quickstart-prerequisites">project setup</a> stage
         and while creating a new <a href="cloud-projects.topic">project</a>,
         %cloud% requests your repository URL to calculate contributors. The minimal number of contributors
         used for licensing is three.

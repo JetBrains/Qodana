@@ -21,7 +21,7 @@
         are used interchangeably.</p>
 
     <p>You can configure a single quality gate for the total number of project problems, multiple quality gates for
-        each separate <a href="faq.topic" anchor="faq-severities">problem severity</a>, and
+        each separate <a href="ui-overview.md" anchor="Severity+levels">problem severity</a>, and
         <a href="code-coverage.md">code coverage</a> thresholds as explained in the table below.</p>
 
     <table>
@@ -224,7 +224,7 @@
         <link-summary>You can configure quality gates for specific problem severities.</link-summary>
 
         <p>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet-co%</a> let you configure
-            separate quality gates for each <a href="faq.topic" anchor="faq-severities">problem severity</a>, and
+            separate quality gates for each <a href="ui-overview.md" anchor="Severity+levels">problem severity</a>, and
             exceeding just one setting limitation will make the build fail, including the
             <a anchor="quality-gate-project-threshold">total number of problems</a>.</p>
 

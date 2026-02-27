@@ -21,7 +21,7 @@
 and severities.</link-summary>
 
 An inspection profile is a set of pre-configured [inspections](override-a-profile.md), including their state, configuration
-options, scopes of their analyses, and [severities](troubleshooting.topic#troubleshooting-severities).
+options, scopes of their analyses, and [severities](ui-overview.md#Severity+levels).
 
 > %instance% inspection profiles are the same as IntelliJ IDEA inspection profiles.
 {style="tip"}
@@ -55,7 +55,7 @@ Out of the box, you can use the following %product% profiles:
             <li>
                 By default, Qodana provides analysis only for specific languages and frameworks. This means that, for 
                 example, Groovy or JavaScript inspections are available but disabled by default. Inspections
-                of the <code>INFORMATION</code> <a href="troubleshooting.topic" anchor="troubleshooting-severities">severity</a> 
+                of the <code>INFORMATION</code> <a href="ui-overview.md" anchor="Severity+levels">severity</a> 
                 in the IDE are also disabled.</li>
             <li>
                 Several inspections that affect code highlighting in IDEs and global inspections were removed from %product% linters.  

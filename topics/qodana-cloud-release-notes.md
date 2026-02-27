@@ -30,5 +30,5 @@ The new project setup is implemented in %cloud%. Now you can choose how you woul
 wizard will guide you through the configuration process. This covers running %product% locally as well as using various
 CI/CD solutions.
 
-The detailed information is available in the [](set-up-your-project.md) section of this documentation.
+The detailed information is available in the [](Quick-start.topic#quickstart-prerequisites) section of this documentation.
 

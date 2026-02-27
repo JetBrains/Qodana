@@ -58,14 +58,14 @@ bootstrap: |+
 ```
 
 > You can investigate %product% behavior using files contained in the
-> [`/data/results`](troubleshooting.topic#troubleshooting-qodana-log-files) directory.
+> [`/data/results`](docker-image-configuration.topic#docker-config-reference-overview-logs) directory.
 
 To be able to use syntax highlighting and validation in your IDE, you can create the `prepare-qodana.sh` shell script
 and save it in the root directory of your project:
 
 ```shell
 #! /bin/sh
-# Example bootstrap steps, see https://jetbrains.com/help/qodana/before-running-qodana.html
+
 set -eu
 
 # For PHP projects that use Laravel:
@@ -229,7 +229,7 @@ failureConditions:
 In this configuration, exceeding just one setting limitation will make the build fail.
 
 The `severityThresholds:any` option lets you configure the total number of problems. Options like 
-`severityThresholds:critical` let you configure quality gates for each [problem severity](faq.topic#faq-severities).
+`severityThresholds:critical` let you configure quality gates for each [problem severity](ui-overview.md#Severity+levels).
 The `testCoverageThresholds:fresh` and `testCoverageThresholds:total` options let you configure the total and fresh code 
 coverage supported by [several linters](quality-gate.topic#quality-gate-code-coverage). 
 
@@ -317,7 +317,7 @@ You can configure the JDK version for these linters:
 
 <include from="lib_qd.topic" element-id="configure-jdk-qodana-yaml" use-filter="configure-jdk-qodana-yaml,empty"/>
 
-To learn more about configuring JDK, see the [](configure-jdk.md) section. 
+To learn more about configuring JDK, see the [](jvm.md#Configuring+the+JDK) section. 
 
 ## Configure the PHP version
 
@@ -473,7 +473,7 @@ Plugin cache is stored in the `/data/cache/plugins` directory.
 
 To install third-party software required for your plugins, you can:
 
-* Use the [`bootstrap`](before-running-qodana.md) key.
+* Use the [`bootstrap`](qodana-yaml.md#Run+custom+commands) key.
 * Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %instance% `Dockerfile`
 examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
 

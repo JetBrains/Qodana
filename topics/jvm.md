@@ -289,7 +289,7 @@ jetbrains/qodana-<linter>
 [Depending on the linter](quality-gate.topic), you can configure [quality gates](quality-gate.topic) for: 
 
 * The total number of project problems, available for all linters
-* Multiple quality gates for <a href="faq.topic" anchor="faq-severities">problem severities</a>, available for all linters
+* Multiple quality gates for <a href="ui-overview.md" anchor="Severity+levels">problem severities</a>, available for all linters
 * <a href="code-coverage.md">Code coverage</a> thresholds, available for the %qd% and %qd-an% linters
 
 <tabs group="linter-tabs">

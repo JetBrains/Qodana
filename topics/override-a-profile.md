@@ -121,7 +121,7 @@ inspections:
 ## Specify SQL dialect
 
 <p>To analyze SQL code, enabling SQL-related
-    <a href="qodana-yaml.md" anchor="Include+an+inspection+into+the+analysis+scope">inspections</a> is not enough.
+    <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">inspections</a> is not enough.
     In this case, you also have to specify an SQL dialect that you would like to analyze. To do this, in your
     project root save the <code>.idea/sqldialects.xml</code> containing the following contents:</p>
 <code-block>

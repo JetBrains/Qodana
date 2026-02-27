@@ -164,7 +164,7 @@ The Dockerized version of %qd% provides versions 8.0, 9.0 and 10.0 of SDK.
 <!-- This needs to be moved to a Dockerized version of a linter -->
 
 <p>In case a project requires a different version of the SDK, you can set it using the
-<a href="before-running-qodana.md"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file.
+<a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file.
 For example, this command will install the required version of the SDK that is specified in the
 <code>global.json</code> file and located in the root of your project:</p>
 
@@ -254,7 +254,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-dotnet" title="%qd%">
         <p>We recommend that you build a project before %product% analyzes it. To build it, you can use the 
-        <a href="before-running-qodana.md"><code>bootstrap</code></a> key 
+        <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key 
         of the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file contained in your project directory. This is especially 
         recommended if you employ source generators.</p>
         <p>If the project build fails, code analysis cannot be performed.</p>

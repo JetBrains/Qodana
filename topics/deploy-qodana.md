@@ -110,7 +110,7 @@ containing the `bootstrap` key is missing in your project directory. You can dis
 In addition to general steps, make sure that you have a proper version of the .NET SDK and all required
 dependencies installed on your machine.
 
-Build the project before inspecting it using %instance%. You can do it by using the [`bootstrap`](before-running-qodana.md) key of the
+Build the project before inspecting it using %instance%. You can do it by using the [`bootstrap`](qodana-yaml.md#Run+custom+commands) key of the
 [`qodana.yaml`](qodana-yaml.md) file. The project building and artifact
 packaging stages should occur before %instance% or simultaneously with it. Because running %instance% may affect the
 project state and its files, it is advised to avoid reusing the same directory in your build pipelines any further.

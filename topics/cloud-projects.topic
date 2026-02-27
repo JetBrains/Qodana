@@ -19,7 +19,7 @@
 
         <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
 
-        <p>Complete the project setup stage. You can read more about this stage in the <a href="set-up-your-project.md"/> section.</p>
+        <p>Complete the project setup stage. You can read more about this stage in the <a href="Quick-start.topic" anchor="quickstart-prerequisites"/> section.</p>
 
     </chapter>
 

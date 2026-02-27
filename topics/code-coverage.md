@@ -110,7 +110,7 @@ If your codebase files are contained in the `<project-root>/src/` directory, the
 `src/<file-name>` file paths. 
 
 1. Use your code coverage tool to generate coverage reports. These reports should be saved to the `<project-root>/.qodana/code-coverage` 
-directory. You can copy the coverage report file by using the [`boostrap`](before-running-qodana.md) key, for example:
+directory. You can copy the coverage report file by using the [`boostrap`](qodana-yaml.md#Run+custom+commands) key, for example:
 
     ```yaml
    boostrap: copy path/to/coverage/file <project-root>/.qodana/code-coverage 
@@ -330,7 +330,7 @@ bootstrap: |
 
 Here, the `dotnet` section configures the solution file. 
 
-The [`bootstrap`](before-running-qodana.md) key configures steps that will be performed before running %instance%:
+The [`bootstrap`](qodana-yaml.md#Run+custom+commands) key configures steps that will be performed before running %instance%:
 
 | Command step                                      | Description                                                                                                                      |
 |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
