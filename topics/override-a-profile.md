@@ -8,23 +8,21 @@
     inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
     and thus facilitate improving the overall code structure.</link-summary>
 
-<p>Each inspection is a set of conditions to analyze the code, detect and correct abnormal fragments in it. Qodana
+Each inspection is a set of conditions to analyze the code, detect and correct abnormal fragments in it. Qodana
     inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
     and thus facilitate improving the overall code structure. Using inspections, Qodana implements its
-    <a href="static-analysis.topic">static analysis</a> mechanism. 
-</p>
+    [static analysis](static-analysis.topic) mechanism. 
 
-<p>All inspections are highly configurable, so you can configure:</p>
 
-<list>
-    <li>What inspections to run for your codebase. There are lots of various inspections, so you can enable or
-        disable them for some reason.</li>
-    <li>What directories and files to include in your code analysis. If you feel that you do not need to analyze
-        any file or group of files, you can exclude them from code analysis.</li>
-    <li>How you can configure and use <a anchor="Inspection+profiles">inspection profiles</a>. You can use the preset combinations
-        of inspections specified by inspection profiles aimed at solving specific tasks, or create your custom profile
-    that would meet your unique needs.</li>
-</list>
+All inspections are highly configurable, so you can configure:
+
+* What inspections to run for your codebase. There are lots of various inspections, so you can enable or
+  disable them for some reason.
+* What directories and files to include in your code analysis. If you feel that you do not need to analyze
+  any file or group of files, you can exclude them from code analysis.
+* How you can configure and use [inspection profiles](#Inspection+profiles). You can use the preset combinations
+  of inspections specified by inspection profiles aimed at solving specific tasks or create your custom profile
+  that would meet your unique needs.
 
 You can explore available %product% inspections using the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) website.
 This website provides details about inspections: descriptions, severity levels, languages covered, etc.
