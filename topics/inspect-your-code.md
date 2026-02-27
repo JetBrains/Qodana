@@ -87,6 +87,52 @@ To improve performance during the project analysis stage, follow these recommend
 * Save in the VCS information about the excluded directories stored in `.*iml` files
 * Use [incremental analysis](analyze-pr.md) to reduce the scope of files
 
+## List of exit codes
+
+<p>%product% provides the following exit codes:</p>
+
+<table>
+    <tr>
+        <td>Exit code</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td><code>7</code></td>
+        <td>The EAP license of a linter has expired. Please change the Docker tag either to the next EAP version like
+            <code>20xx.x-eap</code> or to a stable version like <code>20xx.x</code>.</td>
+    </tr>
+    <tr>
+        <td><code>137</code></td>
+        <td>Qodana or Docker has crashed due to excessive memory usage. Please increase the amount of RAM available for Docker.</td>
+    </tr>
+    <tr>
+        <td><code>255</code></td>
+        <td>The number of problems detected by Qodana exceeds a <a href="quality-gate.topic">threshold</a> configured by a quality gate.</td>
+    </tr>
+</table>
+
+## List of files for investigating Qodana behavior
+
+<link-summary>There are several options for examining %instance% behavior using the /data/results directory.</link-summary>
+
+<p>There are several options for examining %instance% behavior using the <code>/data/results</code> directory:</p>
+<list>
+    <li><p>The <code>/data/results/projectStructure</code> directory.</p>
+        <p>The <code>Modules.json</code> file in this directory contains a list of all modules detected by
+            %instance%. It should be identical to the list that you expect to see while opening your project in
+            IntelliJ IDEA. If this is no longer the case, check <code>pom.xml</code> for Maven or the
+            <code>build.gradle</code> file for Gradle configurations.</p>
+        <p>The <code>SDKs.json</code> file in this directory contains the interpreter paths in case of Python.</p>
+    </li>
+    <li>In the <code>/data/results/</code> directory, each inspection that detected a possible problem creates
+        its own file named <code>ID.json</code>, where <code>ID</code> is the inspection name that can be used in
+        <code>qodana.yaml</code> for including or excluding inspections. You can find the complete list of
+        inspection IDs in the <code>/data/results/.descriptions.json</code> file using the
+        <code>/groups/*/inspections/*/shortName</code> pattern.</li>
+    <li>In <code>/data/results/log/idea.log</code>, you can investigate suspicious warnings.</li>
+</list>
+
+
 ## Frequently asked questions
 
 <chapter id="faq-zero-errors-report" title="Qodana reports zero errors, but this doesn’t seem correct." default-state="collapsed" collapsible="true">

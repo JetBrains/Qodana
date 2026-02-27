@@ -18,7 +18,7 @@ automatically.
 The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/qodana-1.0.json)
 project, which provides completion and basic validation in IDEs.
 
-To run subsequent analyses with this customized configuration, save the file in the root directory of your project.
+To run later analyses with this customized configuration, save the file in the root directory of your project.
 Alternatively, you can edit the `qodana.yaml` configuration file manually.
 This section will guide you through the necessary settings.
 
@@ -42,8 +42,7 @@ build system and project structure automatically. In these cases, %instance% nee
 * Install third-party packages or libraries
 * Run a program that sets up the build environment
 
-These actions are carried out using the `bootstrap` [key](qodana-yaml.md#Run+custom+commands) of the `qodana.yaml` file
-contained in the root directory of your project:
+These actions are carried out using the `bootstrap` key:
 
 ```yaml
 bootstrap: |+
@@ -152,7 +151,7 @@ exclude:
 
 You can find specific inspection IDs in the Profile settings in the HTML report or in the `.xml` file with your inspection profile.
 
-## Include an inspection into the analysis scope
+## Include an inspection in the analysis scope
 
 <link-summary>You can tell %product% to analyze files of a certain directory using an inspection that is not contained in the selected profile.</link-summary>
 
@@ -174,6 +173,26 @@ include:
     - tools
 ```
 
+## Disable a specific inspection for a specific file
+
+<link-summary>Learn how you can disable inspections for a specific file.</link-summary>
+
+<p>To disable inspections for a specific file, in the project root save the
+    <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> file containing this configuration:</p>
+<code-block lang="yaml">
+    exclude:
+      - name: &lt;inspection-name&gt;
+    paths:
+      - &lt;path/to/the/file/from/project/root&gt;
+</code-block>
+<p>You can also suppress the inspection only for a class by adding the <code>noinspection</code> comment above the class:</p>
+<code-block lang="typescript">
+    // noinspection &lt;inspection-name&gt;
+    export class WorkflowJobSubject {
+        private static subject: Observable&lt;GithubEvent&lt;WorkflowJobEvent&gt;&gt; | null =
+            null;
+    private static GithubWebhookEventSubject: any;
+</code-block>
 
 ## Set a quality gate
 

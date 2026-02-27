@@ -19,6 +19,69 @@ is explained below.
 > <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a> for assistance with the contributor counting issue.
 > {style="warning"}
 
+## Key generation
+
+During the [project setup](set-up-your-project.md) stage, %cloud% generates an SSH key pair for counting the number of 
+active contributors to your project using this command:
+
+```shell
+ssh-keygen -t rsa -b 4096 -N "" -f id_rsa -C "qodana.cloud"
+```
+{prompt="$"}
+
+Each key pair can be:
+
+* Generated while creating a new organization
+* Regenerated
+* Encrypted using some secrets stored in our database 
+
+A repository key provides %cloud% with secure read-only access to your repository and lets Qodana count contributors,
+which is required by our license agreement.
+
+Store this key on a repository level of your version control system (VCS) as an SSH key, access key, or 
+deploy key depending on a VCS.
+
+<warning>It is not advised to store the key on the account level.</warning>
+
+## Contributor counting
+
+Save the generated key in your VCS, see the examples for: 
+
+* [GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key)
+* [GitHub—](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys), start from step 2, i.e., skip the SSH key generation step
+
+<warning>Do not store the key on the account level, so that it cannot be shared by other repositories in your account.</warning>
+
+After you save the generated key in your VCS, %instance% will use the following command to clone the project metadata 
+of your repository: 
+
+```shell
+git clone -n --filter=blob:none --shallow-since='90 days ago' <repo>
+```
+{prompt="$"}
+
+After cloning, %instance% will extract the contributors from all commits made for the last 90 days: 
+
+```shell
+git log --all --since '90 days ago' --pretty=format:%ae||%an||%H||%ai
+```
+{prompt="$"}
+
+To calculate the number of contributors in your repository, you can use 
+[Qodana CLI](https://github.com/JetBrains/qodana-cli#contributors) with the `contributors` option invoked, for example:
+
+```shell
+qodana contributors -d 90
+```
+{prompt="$"}
+
+### The .mailmap file support
+
+Contributors may appear under different email addresses in the Git history, which can lead to them being counted multiple 
+times. To avoid overcounting, %product% uses the [`.mailmap`](https://git-scm.com/docs/gitmailmap) file to map multiple 
+email addresses to a single contributor identity. This ensures that contributors with multiple email addresses are counted only once.
+
+
 ## Frequently asked questions
 
 Here you can find answers to frequently asked questions about %instance% licensing.
@@ -26,10 +89,6 @@ Here you can find answers to frequently asked questions about %instance% licensi
 <snippet id="faq-licensing-for-pricing">
 <chapter id="faq-licensing-minimum-contributors" title="I work solo on my project, can I still use Qodana?" default-state="collapsed" collapsible="true">
     <p>Yes, but the minimum billing option is for three contributors.</p>
-</chapter>
-
-<chapter id="faq-licensing-how-qodana-counts-contributors" title="How does %instance% count contributors?" default-state="collapsed" collapsible="true">
-    <p>The contributor counting mechanism is described in the <a href="contributors.md"/> section of this documentation.</p>
 </chapter>
 
 <chapter id="faq-licensing-count-contributors" title="Is there a way to determine the number of contributors in my repositories before initiating Qodana?" default-state="collapsed" collapsible="true">
@@ -299,68 +358,3 @@ Here you can find answers to frequently asked questions about %instance% licensi
     </p>
 </chapter>
 </snippet>
-
-## Key generation
-
-During the [project setup](set-up-your-project.md) stage, %cloud% generates an SSH key pair for counting the number of 
-active contributors to your project using this command:
-
-```shell
-ssh-keygen -t rsa -b 4096 -N "" -f id_rsa -C "qodana.cloud"
-```
-{prompt="$"}
-
-Each key pair can be:
-
-* Generated while creating a new organization
-* Regenerated
-* Encrypted using some secrets stored in our database 
-
-A repository key provides %cloud% with secure read-only access to your repository and lets Qodana count contributors,
-which is required by our license agreement.
-
-Store this key on a repository level of your version control system (VCS) as an SSH key, access key, or 
-deploy key depending on a VCS.
-
-<warning>It is not advised to store the key on the account level.</warning>
-
-
-
-
-## Contributor counting
-
-Save the generated key in your VCS, see the examples for: 
-
-* [GitLab](https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key)
-* [GitHub—](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys), start from step 2, i.e., skip the SSH key generation step
-
-<warning>Do not store the key on the account level, so that it cannot be shared by other repositories in your account.</warning>
-
-After you save the generated key in your VCS, %instance% will use the following command to clone the project metadata 
-of your repository: 
-
-```shell
-git clone -n --filter=blob:none --shallow-since='90 days ago' <repo>
-```
-{prompt="$"}
-
-After cloning, %instance% will extract the contributors from all commits made for the last 90 days: 
-
-```shell
-git log --all --since '90 days ago' --pretty=format:%ae||%an||%H||%ai
-```
-{prompt="$"}
-
-To calculate the number of contributors in your repository, you can use 
-[Qodana CLI](https://github.com/JetBrains/qodana-cli#contributors) with the `contributors` option invoked, for example:
-
-```shell
-qodana contributors -d 90
-```
-{prompt="$"}
-
-### The .mailmap file support
-
-Contributors may appear under different email addresses in the Git history, which can lead to them being counted multiple 
-times. To avoid overcounting, %product% uses the [`.mailmap`](https://git-scm.com/docs/gitmailmap) file to map multiple 
-email addresses to a single contributor identity. This ensures that contributors with multiple email addresses are counted only once.

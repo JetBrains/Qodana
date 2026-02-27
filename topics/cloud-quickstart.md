@@ -20,3 +20,8 @@ If necessary, you can create additional teams and projects without the onboardin
 
 1. On the organization page, you can create a [team](cloud-teams.topic#cloud-teams-create-team)
 2. On the team page, you can create and configure a [project](cloud-projects.topic#cloud-create-project)
+
+## IP addresses required by Qodana Cloud
+
+To provide the correct work of the contributor counting functionality, add the IP address range
+54.76.32.8/32 to a list of allowed inbound connections on your side.

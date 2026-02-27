@@ -99,6 +99,14 @@ this can be updated based on the changes made to the **Applied inspections** pan
 
 <include from="lib_qd.topic" element-id="license-audit-tab" use-filter="ui-overview,empty" />
 
+## Severity levels
+
+<link-summary>This table shows the relation between various severities.</link-summary>
+
+<p>This table shows the relation between severities in JetBrains IDEs, SARIF files, and %product% reports.</p>
+
+<include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
+
 ## Adjust your inspection profile 
 
 We believe that the ability to see what was checked is as important as the list of problems found. For example, if you

@@ -49,3 +49,69 @@ Make sure that your project is correctly configured by looking at the
 * Project dependency pooling works correctly, as it should be done only once if you are using cache
 * Analyses do not show [sanity problems](inspection-profiles.md#inspection-profiles-existing-profiles) because they are a key indicator of configuration issues
 
+## Docker image paths
+
+<link-summary>See the list of Docker image paths.</link-summary>
+
+<table>
+    <tr>
+        <td>Path</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>
+            <code>/data/project</code>
+        </td>
+        <td>Root directory of the project to be analyzed</td>
+    </tr>
+    <tr>
+        <td>
+            <code>/data/results</code>
+        </td>
+        <td>Directory to store the analysis results</td>
+    </tr>
+    <tr>
+        <td>
+            <code>/opt/idea</code>
+        </td>
+        <td>Directory containing the IDE distribution</td>
+    </tr>
+    <tr>
+        <td>
+            <code>/root/.config/idea</code>
+        </td>
+        <td>Directory where the IDE contains configuration</td>
+    </tr>
+    <tr>
+        <td>
+            <code>/data/profile.xml</code>
+        </td>
+        <td><p>Used if a profile was not previously configured either via the CLI or the <code>qodana.yaml</code>
+            file.</p>
+        </td>
+    </tr>
+</table>
+
+<p>For Maven and Gradle projects, %instance% uses the following directories to access third-party libraries:</p>
+
+<table>
+    <tr>
+        <td>Path</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td><code>/data/cache/.m2</code></td>
+        <td>Maven project dependencies</td>
+    </tr>
+    <tr>
+        <td><code>/data/cache/gradle</code></td>
+        <td>Gradle project dependencies</td>
+    </tr>
+</table>
+
+<p>Mounting these directories saves %instance% from downloading all dependencies again while using these linters:</p>
+    <list>
+        <li><a href="jvm.md">%jvm%</a></li>
+        <li><a href="jvm.md">%jvm-co%</a></li>
+        <li><a href="jvm.md">%jvm-a%</a></li>
+    </list>
