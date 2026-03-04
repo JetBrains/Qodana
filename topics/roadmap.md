@@ -4,7 +4,7 @@
 
 As of 2026, %product% continues to grow, and we would like to share our plans with you. 
 
-This year should bring several new plugins including an AI agent plugin, linter updates, and improvements to the existing functionalities of %product%. 
+This year should bring several new plugins, including an AI agent plugin, linter updates, and improvements to the existing functionalities of %product%. 
 
 ## AI agent plugin
 
@@ -37,7 +37,7 @@ plugin in [RustRover](https://www.jetbrains.com/help/rust/getting-started.html).
 
 ## Qodana for C/C++ release
 
-Starting from 2026.1, the [%qdcpp%](clang.md) linter will be released from the EAP, which means more stability and 
+Starting from 2026.1, the [%cpp%](clang.md) linter will be released from the EAP, which means more stability and 
 performance improvements. 
 
 ## Edict dogfooding
