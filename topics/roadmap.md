@@ -2,15 +2,15 @@
 
 <no-index/>
 
-As of 2026, %product% continues to grow, and we would like to share our plans with you. 
+As of 2026.1, %product% continues to grow, and we would like to share our plans with you. 
 
 ## Core Qodana
 
-- Extended security analysis capabilities for Qodana
+- Extending security analysis capabilities for Qodana
 - Qodana for RustRover (new linter, the EAP release)
 - Qodana for C/C++ stable release
 - Code Provenance: extended code survival metrics and authorship tracking
-- Internal analytics tooling improvements
+- Internal analytics improvements
 
 ## Qodana Cloud & Self-Hosted
 
