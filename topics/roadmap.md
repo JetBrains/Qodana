@@ -4,16 +4,34 @@
 
 As of 2026, %product% continues to grow, and we would like to share our plans with you. 
 
-This year should bring several new plugins, including an AI agent plugin, linter updates, and improvements to the existing functionalities of %product%. 
+## Core Qodana
+
+- Extended security analysis capabilities for Qodana
+- Qodana for RustRover (new linter, the EAP release)
+- Qodana for C/C++ stable release
+- Code Provenance: extended code survival metrics and authorship tracking
+- Internal analytics tooling improvements
+
+## Qodana Cloud & Self-Hosted
+
+- Ongoing Self-Hosted improvements
+- Onboarding experience improvements
+- Organisation Insights page updates
+- Other small fixes and improvements
+
+
+
+
+<!--This year will bring several new plugins, including an AI agent plugin, linter updates, and improvements to the existing functionalities of %product%. 
 
 ## AI agent plugin
 
-Shipped as a separate plugin, the AI agent will be a part of the %product% ecosystem. This means that %product% script
-will be used as an execution method, and it will support Grazie, BYOK, and LangFuse metrics.
+Shipped as a plugin, the AI agent will be part of the %product% ecosystem and provide the support of Grazie, BYOK, and LangFuse metrics
+for monitoring and tracking AI usage.
 
 ## OpenGrep plugin for Qodana
 
-This plugin is a fork of the original OpenGrep plugin that supports batch mode and local in-editor inspection.
+This plugin is a fork of the original OpenGrep plugin that supports batch or project-level mode along with local in-editor inspection.
 It also includes a custom rules set handcrafted for SAST benchmarks, as well as Qodana approved profiles.
 
 The plugin will be available on the [JetBrains Marketplace](https://plugins.jetbrains.com/).
@@ -44,7 +62,9 @@ performance improvements.
 
 This provides pipelines for ultimate commit and PR analysis, PR to ultimate branch, as well as a pipeline for 
 applying and promoting generated inspections on quality gates and automated pipeline for applying feedback.
+-->
 
+_This roadmap reflects current plans and is subject to change._
 
 
 
