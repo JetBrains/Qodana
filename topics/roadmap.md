@@ -17,10 +17,6 @@ As of 2026.1, %product% continues to grow, and we would like to share our plans 
 - Ongoing Self-Hosted improvements
 - Onboarding experience improvements
 - Organisation Insights page updates
-- Other small fixes and improvements
-
-
-
 
 <!--This year will bring several new plugins, including an AI agent plugin, linter updates, and improvements to the existing functionalities of %product%. 
 
