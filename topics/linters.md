@@ -107,6 +107,13 @@ Currently, several linters provide inspections for several programming languages
             <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
         </td>
     </tr>
+    <tr>
+        <td><img src="ruby.png" dark-src="ruby_dark.png" alt="Rust" width="296"/></td>
+        <td><a href="rust.md">%rust%</a>&nbsp;/&nbsp;<code>%rust-linter%</code></td>
+        <td>
+            <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
+        </td>
+    </tr>
 </table>
 
 \* Each linter from this table can be invoked using the `--linter` option, see the 
