@@ -130,6 +130,8 @@ workflows:
 
 ## Specific branch
 
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
+
 This configuration instructs %product% to analyze changes only on the `main` branch: 
 
 

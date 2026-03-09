@@ -126,6 +126,8 @@ file using the `sarif_file` key.
 
 ## Pull requests
 
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
+
 By default, analysis of pull requests is enabled in %product%, see the [`pr-mode`](#Configuration) option description for details.
 To learn how to analyze code between two commits, see the [](analyze-pr.md#Analyze+changes+between+two+commits) chapter for details.
 

@@ -93,6 +93,8 @@ you would like to configure %instance% with like the [quality gate and baseline]
 
 <link-summary>Using the `when` block, you can tell %instance% which branches of your project to analyze.</link-summary>
 
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
+
 Using the `when` block, you can tell %instance% which branches of your project to analyze. For example, this configuration 
 lets you analyze only the `feature` branch. 
 

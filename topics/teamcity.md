@@ -61,6 +61,8 @@ To configure both options, in the **Additional Qodana arguments** field separate
 
 ## Analyze pull requests and specific branches
 
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
+
 Information about configuring TeamCity for analyzing pull and merge requests is available on the 
 [TeamCity](%TeamCityPullRequests%) documentation portal.
 

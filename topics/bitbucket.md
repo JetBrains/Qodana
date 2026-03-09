@@ -34,6 +34,8 @@ application of the [quality gate](quality-gate.topic) and [baseline](baseline.to
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
+
 <include from="lib_qd.topic" element-id="bitbucket-basic-configuration"/>
 
 This configuration will be used as a basis for all examples in this section.

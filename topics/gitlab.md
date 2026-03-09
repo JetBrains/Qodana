@@ -210,7 +210,9 @@ The [`--within-docker`](docker-image-configuration.topic#docker-config-reference
 
 ## Specific branches
 
-<link-summary>This section explains how you can tell %instance% what branches of your project to inspect.</link-summary>
+<link-summary>This section explains how you can tell %instance% what branches of your project to analyze.</link-summary>
+
+> To learn more about merge request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
 
 By default, %product% is configured for analyzing the `master` and `main` branches, release branches and merge requests meaning
 that you do not have to provide any additional configurations and use the [basic configuration](#Basic+configuration).
