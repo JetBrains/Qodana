@@ -161,7 +161,7 @@ These profiles are hosted on
                   - name: 'Qodana Scan'
                     uses: %action-version%
                     with:
-                      args: --profile-name,qodana.recommended
+                      args: --profile-name qodana.recommended
                     env:
                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -806,7 +806,7 @@ The following examples show how you can invoke your custom profiles using the
                       - name: 'Qodana Scan'
                         uses: %action-version%
                         with:
-                          args: --profile-path,.qodana/profiles/&lt;custom-profile.yaml&gt;
+                          args: --profile-path .qodana/profiles/&lt;custom-profile.yaml&gt;
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
             </code-block>

@@ -98,7 +98,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                      args: --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -139,8 +139,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json,
-                                      --image,&lt;image&gt;
+                                      --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                      --image &lt;image&gt;
                     </code-block>
                 <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing a baseline.</p>
             </tab>
@@ -253,7 +253,7 @@
                                   uses: %action-version%
                                   with:
                                       args: |
-                                          --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json,
+                                          --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
                                           --baseline-include-absent
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -294,9 +294,9 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --baseline,&lt;path-relative-to-project-dir&gt;/qodana.sarif.json,
-                                      --baseline-include-absent,
-                                      --image,&lt;image&gt;
+                                      --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                      --baseline-include-absent
+                                      --image &lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">

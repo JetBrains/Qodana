@@ -38,6 +38,10 @@ credential configuration before the %product% step. For example, if you are usin
     displayName: 'Set git permissions'
 ```
 
+## Argument notation
+
+<include from="lib_qd.topic" element-id="ci-cd-argument-notation-update"/>
+
 ## Basic configuration
 
 <link-summary>After you've installed the Qodana Azure Pipelines extension to your organization, 
@@ -130,7 +134,7 @@ Below are basic configuration examples that will be expanded in the subsequent c
            - task: QodanaScan@2025
              inputs:
                uploadResult: true
-               args: -e,AUSERNAME=$(AUSERNAME),-e,APASSWORD=$(APASSWORD)
+               args: -e AUSERNAME=$(AUSERNAME) -e APASSWORD=$(APASSWORD)
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
            </code-block>
@@ -207,7 +211,7 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
              inputs:
-               args: '--baseline,qodana.sarif.json,--fail-threshold,5'
+               args: '--baseline qodana.sarif.json --fail-threshold 5'
            </code-block>
         </tab>
         <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">

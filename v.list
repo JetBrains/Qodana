@@ -331,9 +331,9 @@
     <var name="ruby-image" value="jetbrains/qodana-ruby:2025.3-eap"/>
 
     <!-- Extension versions -->
-    <var name="action-version" value="JetBrains/qodana-action@v2025.2"/>
-    <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.2"/>
-    <var name="circleci-version" value="jetbrains/qodana@2025.2"/>
+    <var name="action-version" value="JetBrains/qodana-action@v2025.3"/>
+    <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.3"/>
+    <var name="circleci-version" value="jetbrains/qodana@2025.3"/>
 
     <var name="version-previous" value="2025.2"/>
     <var name="version-current" value="2025.3"/>

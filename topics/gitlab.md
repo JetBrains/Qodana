@@ -75,6 +75,10 @@ In GitLab CI/CD UI, create the following environment variables:
 In the root directory of your project, save the `.gitlab-ci.yml` file. This file will contain a pipeline configuration 
 that will be used by GitLab CI/CD. 
 
+## Argument notation
+
+<include from="lib_qd.topic" element-id="ci-cd-argument-notation-update"/>
+
 ## Basic configuration
 
 <link-summary>This section shows the basic GitLab CI/CD configuration for running %product%.</link-summary>
@@ -88,7 +92,7 @@ For the cloud-based version of GitLab CI/CD, in the `.gitlab-ci.yml` file save t
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --image <image>
 ```
 
 This configuration already enables [caches](#Configure+cache),
@@ -133,7 +137,7 @@ For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save th
 include:
    - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v%version-current%
      inputs:
-        args: --image,<image>
+        args: --image <image>
 ```
 
 In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on the [GitLab CI/CD website](%OnPrem%). 
@@ -158,7 +162,7 @@ If you wish to override the default cache settings, use this configuration:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --image <image>
 
 qodana:
    cache:
@@ -185,7 +189,7 @@ include:
    - component: %gitlab-version%
      inputs:
         os: windows
-        args: --image,<image>
+        args: --image <image>
 ```
 
 <!-- ### Run %product% on Linux in native mode
@@ -197,7 +201,7 @@ Docker image containing Linux:
 include:
   - component: %gitlab-version%
     inputs:
-      args: --image,<image>,--within-docker,false
+      args: --image <image> --within-docker false
 
 qodana:
   image: <your-custom-docker-image-with-linux>
@@ -221,7 +225,7 @@ If you wish to override this behavior, you can modify the following configuratio
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --image <image>
 
 qodana:
   rules:
@@ -297,8 +301,8 @@ include:
      inputs:
         push-fixes: merge-request
         args: |
-            --apply-fixes,
-          --image,<image>
+            --apply-fixes
+          --image <image>
 ```
 
 > Qodana could automatically modify not only the code, but also the configuration in 
@@ -321,7 +325,7 @@ include:
      inputs:
         upload-result: true
         artifact-name: Qodana report
-        args: --image,<image>
+        args: --image <image>
 ```
 
 Assuming that you have configured your pipeline similarly, this is what it may look like:
@@ -347,9 +351,9 @@ include:
    - component: %gitlab-version%
      inputs:
         args: |
-            --baseline,qodana.sarif.json,
-            --fail-threshold,<number-of-accepted-problems>,
-            --image,<image>
+            --baseline qodana.sarif.json 
+            --fail-threshold <number-of-accepted-problems> 
+            --image <image>
 ```
 
 ## Code Quality reports
@@ -371,7 +375,7 @@ you can override a path to reports using the `codequality` option:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --image <image>
 
 qodana:
    artifacts:
@@ -389,7 +393,7 @@ Use the following configuration to get log data from %product% on GitLab CI/CD:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --image <image>
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
@@ -410,7 +414,7 @@ than a pipeline timeout:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image,<image>
+        args: --image <image>
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 

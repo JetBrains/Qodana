@@ -153,7 +153,7 @@ jobs:
         uses: %action-version%
         with:
           args: |
-            --only-directory,backend,--config,qodana-backend.yaml
+            --only-directory backend --config qodana-backend.yaml
           artifact-name: qodana-backend
         env:
             QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_BACKEND }}
@@ -167,7 +167,7 @@ jobs:
         uses: %action-version%
         with:
           args: |
-            --only-directory,frontend,--config,qodana-frontend.yaml
+            --only-directory frontend --config qodana-frontend.yaml
           artifact-name: qodana-frontend
         env:
             QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_FRONTEND }}

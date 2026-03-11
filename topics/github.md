@@ -14,6 +14,10 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
+### Argument notation
+
+<include from="lib_qd.topic" element-id="ci-cd-argument-notation-update"/>
+
 ### Basic configuration
 
 <anchor name="basic-configuration"/>
@@ -209,7 +213,7 @@ Follow these steps to establish a baseline for your project:
          - name: Qodana Scan
            uses: JetBrains/qodana-action@main
            with:
-             args: --baseline,qodana.sarif.json
+             args: --baseline qodana.sarif.json
       </code-block>
    </step>
 </procedure>
@@ -228,7 +232,7 @@ To establish a quality gate, in the workflow configuration specify the `--fail-t
 - name: Qodana Scan
   uses: %action-version%
   with:
-    args: --fail-threshold,<number-of-accepted-problems>
+    args: --fail-threshold <number-of-accepted-problems>
   env:
     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 ```
@@ -246,7 +250,7 @@ Using this configuration, you will be able to detect only new problems in pull r
 - name: Qodana Scan
   uses: %action-version%
   with:
-    args: --baseline,qodana.sarif.json,--fail-threshold,<number-of-accepted-problems>
+    args: --baseline qodana.sarif.json --fail-threshold <number-of-accepted-problems>
   env:
     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 ```
@@ -265,7 +269,7 @@ path to the solution file relative to the project root, for example:
 - name: Qodana Scan
   uses: %action-version%
   with:
-    args: --solution,"src/path_to_your.sln"
+    args: --solution "src/path_to_your.sln"
   env:
     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 ```
@@ -312,7 +316,7 @@ Use [`with`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-
 
 ```yaml
 with:
-  args: --baseline,qodana.sarif.json
+  args: --baseline qodana.sarif.json
   cache-default-branch-only: true
 ```
 

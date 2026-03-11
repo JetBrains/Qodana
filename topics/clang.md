@@ -288,8 +288,8 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                                   uses: %action-version%
                                   with:
                                       args: |
-                                          --linter,%qd-linter%,
-                                          --within-docker,false
+                                          --linter %qd-linter% 
+                                          --within-docker false
                                   env:
                                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                       </code-block>
@@ -348,8 +348,8 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                     - name: 'Qodana Scan'
                       uses: %action-version%
                       with:
-                        args: --image,%qdcpp-image%
-                        # args: --image,%qdcppc-image%  # Community version
+                        args: --image %qdcpp-image%
+                        # args: --image %qdcppc-image%  # Community version
                       env:
                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           </code-block>
@@ -453,7 +453,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <code-block lang="yaml">
           include:
             - component: %gitlab-version%
-                args: --image,%common-image%
+                args: --image %common-image%
         </code-block>
         <p>To override the location of the <code>compile_commands.json</code> file for the  %qdcppc% linter, specify the location relative to the project root, so the configuration would look like:
         </p>
@@ -777,9 +777,9 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
                   uses: %action-version%
                   with:
                     args: | 
-                        --image,%qdcpp-image%,
-                        --baseline,&lt;path/to/qodana.sarif.json&gt;
-                    # args: --image,%qdcppc-image%,--baseline,&lt;path/to/qodana.sarif.json&gt;  # Community version
+                        --image %qdcpp-image%
+                        --baseline &lt;path/to/qodana.sarif.json&gt;
+                    # args: --image %qdcppc-image% --baseline &lt;path/to/qodana.sarif.json&gt;  # Community version
                   env:
                     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       </code-block>
@@ -825,9 +825,9 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
            - component: %gitlab-version%
              inputs:
                 args: | 
-                    --baseline,qodana.sarif.json,
-                    --fail-threshold,&lt;number-of-accepted-problems&gt;,
-                    --image,%common-image%
+                    --baseline qodana.sarif.json 
+                    --fail-threshold &lt;number-of-accepted-problems&gt; 
+                    --image %common-image%
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
@@ -906,7 +906,7 @@ You can analyze pull requests using the %cpp% linter.
                       - name: 'Qodana Scan'
                         uses: %action-version%
                         with:
-                          args: --image,%qdcpp-image%
+                          args: --image %qdcpp-image%
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -920,7 +920,7 @@ You can analyze pull requests using the %cpp% linter.
             include:
                - component: %gitlab-version%
                  inputs:
-                   args: --image,%qdcpp-image%
+                   args: --image %qdcpp-image%
         </code-block>
         <p>
             This configuration enables merge request analysis.

@@ -120,8 +120,8 @@
                                               uses: %action-version%
                                               with:
                                                   args: >
-                                                      --linter,&lt;linter-name&gt;,
-                                                      -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
+                                                      --linter &lt;linter-name&gt;
+                                                      -v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                                               env:
                                                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -212,9 +212,9 @@
                                               uses: %action-version%
                                               with:
                                                   args: >
-                                                        --linter,&lt;linter-name&gt;,
-                                                        -v,&lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/plugins/&lt;plugin-name&gt;.jar,
-                                                        -v,&lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
+                                                        --linter &lt;linter-name&gt;
+                                                        -v &lt;plugin-directory&gt;/&lt;plugin-name&gt;.jar:/opt/idea/plugins/&lt;plugin-name&gt;.jar
+                                                        -v &lt;path-to-plugin-config&gt;/&lt;config-file&gt;:/root/.config/idea/options/&lt;config-file&gt;
                                               env:
                                                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>

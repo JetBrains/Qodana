@@ -97,8 +97,8 @@
                                   uses: %action-version%
                                   with:
                                       args: |
-                                          --property=idea.log.config.file=info.xml,
-                                          --baseline,&lt;baseline-path&gt;,
+                                          --property=idea.log.config.file=info.xml
+                                          --baseline &lt;baseline-path&gt;
                                           --apply-fixes
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -140,10 +140,10 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --property=idea.log.config.file=info.xml,
-                                      --baseline,&lt;baseline-path&gt;,
-                                      --apply-fixes,
-                                      --image,&lt;image&gt;
+                                      --property=idea.log.config.file=info.xml
+                                      --baseline &lt;baseline-path&gt;
+                                      --apply-fixes
+                                      --image &lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -1520,7 +1520,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: -v,&lt;profile-file&gt;:/data/profile.xml
+                                      args: -v &lt;profile-file&gt;:/data/profile.xml
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -1557,8 +1557,8 @@
                         - component: %gitlab-version%
                           inputs:
                              args: |
-                                -v,&lt;profile-file&gt;:/data/profile.xml,
-                                --linter,&lt;linter&gt;
+                                -v &lt;profile-file&gt;:/data/profile.xml
+                                --linter &lt;linter&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -1623,7 +1623,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: -v,gradle.properties:/data/cache/gradle/gradle.properties
+                                      args: -v gradle.properties:/data/cache/gradle/gradle.properties
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -1660,8 +1660,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      -v,gradle.properties:/data/cache/gradle/gradle.properties,
-                                      --linter,&lt;linter&gt;
+                                      -v gradle.properties:/data/cache/gradle/gradle.properties
+                                      --linter &lt;linter&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -1851,7 +1851,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --project-dir,project
+                                      args: --project-dir project
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -1944,7 +1944,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --cache-dir,/data/newcachedir
+                                      args: --cache-dir /data/newcachedir
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -1983,8 +1983,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --cache-dir,/data/newcachedir,
-                                      --linter,&lt;linter&gt;
+                                      --cache-dir /data/newcachedir
+                                      --linter &lt;linter&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -2100,7 +2100,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --profile-name,qodana.recommended
+                                      args: --profile-name qodana.recommended
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -2139,8 +2139,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --profile-name,qodana.recommended,
-                                      --linter,&lt;linter&gt;
+                                      --profile-name qodana.recommended
+                                      --linter &lt;linter&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -2203,7 +2203,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --profile-name,&lt;profile-name-from-file&gt;
+                                      args: --profile-name &lt;profile-name-from-file&gt;
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -2242,8 +2242,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --profile-name,&lt;profile-name-from-file&gt;,
-                                      --linter,&lt;linter&gt;
+                                      --profile-name &lt;profile-name-from-file&gt;
+                                      --linter &lt;linter&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -2312,7 +2312,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --profile-path,/data/project/myprofiles/&lt;file-name&gt;
+                                      args: --profile-path /data/project/myprofiles/&lt;file-name&gt;
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -2351,8 +2351,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --profile-path,/data/project/myprofiles/&lt;file-name&gt;,
-                                      --linter,&lt;linter&gt;
+                                      --profile-path /data/project/myprofiles/&lt;file-name&gt;
+                                      --linter &lt;linter&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -2423,7 +2423,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --config,relative/path/to/config.yaml
+                                      args: --config relative/path/to/config.yaml
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -2462,8 +2462,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --config,relative/path/to/config.yaml,
-                                      --linter,&lt;linter&gt;
+                                      --config relative/path/to/config.yaml
+                                      --linter &lt;linter&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -2554,7 +2554,7 @@
                                   uses: %action-version%
                                   with:
                                       args: |
-                                          --baseline,&lt;path-to-the-SARIF-file&gt;,
+                                          --baseline &lt;path-to-the-SARIF-file&gt;
                                           --baseline-include-absent
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -2595,8 +2595,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --baseline,&lt;path-to-the-SARIF-file&gt;,
-                                      --baseline-include-absent,--linter,&lt;linter&gt;
+                                      --baseline &lt;path-to-the-SARIF-file&gt;
+                                      --baseline-include-absent --linter &lt;linter&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -2673,7 +2673,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: -v,/my/dir/with/coverage:/data/coverage
+                                      args: -v /my/dir/with/coverage:/data/coverage
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -2712,8 +2712,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      -v,/my/dir/with/coverage:/data/coverage,
-                                      --linter,&lt;linter&gt;
+                                      -v /my/dir/with/coverage:/data/coverage
+                                      --linter &lt;linter&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -2874,7 +2874,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --fail-threshold,10
+                                      args: --fail-threshold 10
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -2913,8 +2913,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --fail-threshold,10,
-                                      --linter,&lt;linter&gt;
+                                      --fail-threshold 10
+                                      --linter &lt;linter&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3019,8 +3019,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      &lt;--apply-fixes/--cleanup&gt;,
-                                      --linter,&lt;linter&gt;
+                                      &lt;--apply-fixes/--cleanup&gt;
+                                      --linter &lt;linter&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3152,8 +3152,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --property=idea.log.config.file=info.xml,
-                                      --linter,&lt;linter&gt;
+                                      --property=idea.log.config.file=info.xml
+                                      --linter &lt;linter&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -3219,7 +3219,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --property,idea.headless.enable.statistics=false
+                                      args: --property idea.headless.enable.statistics=false
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -3258,8 +3258,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --property,idea.headless.enable.statistics=false,
-                                      --image,&lt;image&gt;
+                                      --property idea.headless.enable.statistics=false
+                                      --image &lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -3329,7 +3329,7 @@
                                   uses: %action-version%
                                   with:
                                       args: |
-                                          --property=idea.required.plugins.id=JavaScript,org.intellij.grails,
+                                          --property=idea.required.plugins.id=JavaScript,org.intellij.grails
                                           --property=idea.suppressed.plugins.id=com.intellij.spring.security
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -3370,9 +3370,9 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --property=idea.required.plugins.id=JavaScript,org.intellij.grails,
-                                      --property=idea.suppressed.plugins.id=com.intellij.spring.security,
-                                      --image,&lt;image&gt;
+                                      --property=idea.required.plugins.id=JavaScript,org.intellij.grails
+                                      --property=idea.suppressed.plugins.id=com.intellij.spring.security
+                                      --image &lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -3496,8 +3496,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --diff-start=&lt;GIT_START_HASH&gt;,
-                                      --image,&lt;image&gt;
+                                      --diff-start=&lt;GIT_START_HASH&gt;
+                                      --image &lt;image&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3559,7 +3559,7 @@
                                   uses: %action-version%
                                   with:
                                       args: |
-                                          --diff-start=&lt;GIT_START_HASH&gt;,
+                                          --diff-start=&lt;GIT_START_HASH&gt;
                                           --diff-end=&lt;GIT_END_HASH&gt;
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -3600,9 +3600,9 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --diff-start=&lt;GIT_START_HASH&gt;,
-                                      --diff-end=&lt;GIT_END_HASH&gt;,
-                                      --image,&lt;image&gt;
+                                      --diff-start=&lt;GIT_START_HASH&gt;
+                                      --diff-end=&lt;GIT_END_HASH&gt;
+                                      --image &lt;image&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3684,7 +3684,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --script,default
+                                      args: --script default
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -3723,8 +3723,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --script,default,
-                                      --image,&lt;image&gt;
+                                      --script default
+                                      --image &lt;image&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3782,7 +3782,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --script,php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
+                                      args: --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -3821,8 +3821,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --script,php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;,
-                                      --image,&lt;image&gt;
+                                      --script php-migration:&lt;old-php-version&gt;−to−&lt;upgraded-php-version&gt;
+                                      --image &lt;image&gt;
                     </code-block>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
@@ -3899,7 +3899,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: -e,_JAVA_OPTIONS=-Xmx6g
+                                      args: -e _JAVA_OPTIONS=-Xmx6g
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -3938,8 +3938,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      -e,_JAVA_OPTIONS=-Xmx6g,
-                                      --image,&lt;image&gt;
+                                      -e _JAVA_OPTIONS=-Xmx6g
+                                      --image &lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -4011,7 +4011,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: -e,IDEA_PROPERTIES=/data/project/idea.properties
+                                      args: -e IDEA_PROPERTIES=/data/project/idea.properties
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -4050,8 +4050,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      -e,IDEA_PROPERTIES=/data/project/idea.properties,
-                                      --image,&lt;image&gt;
+                                      -e IDEA_PROPERTIES=/data/project/idea.properties
+                                      --image &lt;image&gt;
                     </code-block>
                 </tab>
                 <tab title="TeamCity" group-key="teamcity">
@@ -4135,7 +4135,7 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: -u,root
+                                      args: -u root
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
@@ -4174,8 +4174,8 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      -u,root,
-                                      --image,&lt;image&gt;
+                                      -u root
+                                      --image &lt;image&gt;
                     </code-block>
                 </tab>
             </tabs>

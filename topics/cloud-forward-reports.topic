@@ -130,7 +130,7 @@
                   include:
                       - component: %gitlab-version%
                         inputs:
-                            args: --image,&lt;image&gt;
+                            args: --image &lt;image&gt;
                 </code-block>
             </step>
         </procedure>

@@ -210,8 +210,8 @@
                        - component: %gitlab-version%
                          inputs:
                             args: |
-                              --fail-threshold,&lt;number-of-accepted-problems&gt;,
-                              --image,&lt;image&gt;
+                              --fail-threshold &lt;number-of-accepted-problems&gt;
+                              --image &lt;image&gt;
                 </code-block>
                 <p>In this sample, the <code>inputs</code> section specifies the <code>--fail-threshold &lt;number&gt;</code>
                     option, and the <code>--image</code> option referring to a <a href="linters.md">%product% linter</a>.</p>

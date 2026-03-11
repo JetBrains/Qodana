@@ -421,8 +421,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                         uses: %action-version%
                                         with:
                                             args: | 
-                                                --linter,%qd-linter%,
-                                                --within-docker,false
+                                                --linter %qd-linter% 
+                                                --within-docker false
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                             </code-block>
@@ -583,7 +583,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: %gitlab-version%
                              inputs:
-                                args: --linter,%qd-linter%
+                                args: --linter %qd-linter%
                     </code-block>
                     <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
                         %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
@@ -699,7 +699,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: %gitlab-version%
                              inputs:
-                                args: --linter,%qd-co-linter%
+                                args: --linter %qd-co-linter%
                     </code-block>
                 </tab>
                 <tab title="Command line" group-key="command-line">
@@ -1247,9 +1247,9 @@ in a SARIF-formatted file.
                                       uses: %action-version%
                                       with: 
                                         args: |
-                                            --linter,%qd-linter%,
-                                            --within-docker,false,
-                                            --baseline,&lt;path/to/qodana.sarif.json&gt;
+                                            --linter %qd-linter%
+                                            --within-docker false
+                                            --baseline &lt;path/to/qodana.sarif.json&gt;
                                       env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                           </code-block>
@@ -1302,8 +1302,8 @@ in a SARIF-formatted file.
                                       uses: %action-version%
                                       with:
                                         args: | 
-                                            --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                            --linter,%qd-linter%
+                                            --baseline &lt;path/to/qodana.sarif.json&gt;
+                                            --linter %qd-linter%
                                       env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                           </code-block>
@@ -1347,8 +1347,8 @@ in a SARIF-formatted file.
                                - component: %gitlab-version%
                                  inputs:
                                     args: | 
-                                        --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                        --linter,%qd-linter%
+                                        --baseline &lt;path/to/qodana.sarif.json&gt;
+                                        --linter %qd-linter%
                           </code-block>
                             <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> 
                                 block invokes the baseline feature.</p>
@@ -1423,8 +1423,8 @@ in a SARIF-formatted file.
                               uses: %action-version%
                               with:
                                 args: |
-                                    --linter,%qd-co-linter%,
-                                    --baseline,&lt;path/to/qodana.sarif.json&gt;
+                                    --linter %qd-co-linter%
+                                    --baseline &lt;path/to/qodana.sarif.json&gt;
                               env:
                                 QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1468,8 +1468,8 @@ in a SARIF-formatted file.
                                - component: %gitlab-version%
                                  inputs:
                                     args: |
-                                        --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                        --linter,%qd-co-linter%
+                                        --baseline &lt;path/to/qodana.sarif.json&gt; 
+                                        --linter %qd-co-linter%
                         </code-block>
                     <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block 
                         invokes the baseline feature.</p>
@@ -1571,7 +1571,7 @@ You can analyze pull requests using the %dotnet% linter.
                       - name: 'Qodana Scan'
                         uses: %action-version%
                         with:
-                          args: --linter,%qd-linter%
+                          args: --linter %qd-linter%
                         env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -1585,7 +1585,7 @@ You can analyze pull requests using the %dotnet% linter.
             include:
                - component: %gitlab-version%
                  inputs:
-                   args: --linter,%qd-linter%
+                   args: --linter %qd-linter%
         </code-block>
         <p>
             This configuration enables merge request analysis.

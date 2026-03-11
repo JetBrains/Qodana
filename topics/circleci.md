@@ -30,6 +30,9 @@ CircleCI is a cloud-based CI/CD system. You can build %instance% into your Circl
     <step>If necessary, in your repository create the <code>.circleci/config.yml</code> file that will contain a CircleCI configuration.</step>
 </procedure>
 
+## Argument notation
+
+<include from="lib_qd.topic" element-id="ci-cd-argument-notation-update"/>
 
 ## Basic configuration
 

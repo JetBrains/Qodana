@@ -112,7 +112,7 @@ You can use the --diff-start option to analyze changes between the current versi
                     include:
                        - component: %gitlab-version%    
                          inputs:
-                            args: --image,&lt;image&gt;
+                            args: --image &lt;image&gt;
                 </code-block>
         <p>This configuration by default enables merge request analysis. To override the default behavior, you
         can use the following configuration:</p>
@@ -120,7 +120,7 @@ You can use the --diff-start option to analyze changes between the current versi
             include:
                - component: %gitlab-version%
                          inputs:
-                            args: --image,&lt;image&gt;
+                            args: --image &lt;image&gt;
             &nbsp;
             qodana:
             &nbsp;&nbsp;rules:
@@ -199,7 +199,7 @@ and <code>--diff-end</code> options:</p>
           - name: 'Qodana Scan'
             uses: %action-version%
             with:
-              args: --diff-start,&lt;GIT_START_HASH&gt;,--diff-end,&lt;GIT_END_HASH&gt; 
+              args: --diff-start &lt;GIT_START_HASH&gt; --diff-end &lt;GIT_END_HASH&gt; 
             env:
               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -213,7 +213,7 @@ and <code>--diff-end</code> options:</p>
         include:
            - component: %gitlab-version%
              inputs:
-                args: --diff-start,$CI_MERGE_REQUEST_TARGET_BRANCH_SHA,--diff-end,$CI_MERGE_REQUEST_SOURCE_BRANCH_SHA,--image,&lt;image&gt;
+                args: --diff-start $CI_MERGE_REQUEST_TARGET_BRANCH_SHA --diff-end $CI_MERGE_REQUEST_SOURCE_BRANCH_SHA --image &lt;image&gt;
         </code-block>
     </tab>
     <tab title="Docker image" group-key="docker-image">

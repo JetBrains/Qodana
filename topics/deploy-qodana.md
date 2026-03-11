@@ -180,8 +180,8 @@ Below are the examples showing how you can run %product% in native mode:
                 uses: %action-version%
                 with:
                   args: | 
-                    --linter,&lt;linter-name&gt;,
-                    --within-docker,false
+                    --linter &lt;linter-name&gt; 
+                    --within-docker false
                 env:
                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
