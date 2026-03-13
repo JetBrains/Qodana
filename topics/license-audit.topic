@@ -136,8 +136,8 @@
 
             <note>
                 This feature is currently not available in <a href="qodana-ide-plugin.md">JetBrains IDEs</a>. To run it, use
-                either <a href="deploy-qodana.md" anchor="Qodana+CLI">Qodana CLI</a> or
-                <a href="deploy-qodana.md" anchor="Docker+images">Docker images</a>.
+                either <a href="Quick-start.topic" anchor="quickstart-run-using-cli">Qodana CLI</a> or
+                <a href="deploy-qodana.md" anchor="deploy-qodana-container-mode">Docker images</a>.
             </note>
 
             <note>Make sure that all required dependencies have been installed; details are available in the

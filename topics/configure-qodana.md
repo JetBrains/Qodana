@@ -7,7 +7,7 @@ commands, such as inspection configuration, [bootstrap](qodana-yaml.md#Run+custo
 Once a YAML configuration is saved, you can reuse it across different instances of Qodana.
 
 1. Using [configuration capabilities](docker-image-configuration.topic) of the tools that are running %product% like Docker, 
-[Qodana CLI](deploy-qodana.md#Qodana+CLI), [IDEs](ide-integration.md), and [CI/CD tools](ci.md). 
+[Qodana CLI](Quick-start.topic#quickstart-run-using-cli), [IDEs](ide-integration.md), and [CI/CD tools](ci.md). 
 
     Settings like [linter](linters.md) or [quality gate](quality-gate.topic) can be set up using both methods.
     In this case, tool configurations override configurations saved in a YAML-formatted file.  

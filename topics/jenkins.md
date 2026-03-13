@@ -15,7 +15,7 @@ Docker images in Jenkins Multibranch Pipelines.</link-summary>
 
 [Jenkins](https://www.jenkins.io/doc/) is a self-contained, open-source server that automates software-related tasks 
 including building, testing, and deploying software. This section explains how you can configure %instance%
-[Docker images](deploy-qodana.md#Docker+images) in Jenkins [Multibranch Pipelines](%Multipipe%).
+[Docker images](deploy-qodana.md#deploy-qodana-container-mode) in Jenkins [Multibranch Pipelines](%Multipipe%).
 
 ## Before you start
 
@@ -80,7 +80,7 @@ In this configuration, the `environment` block defines any environment variables
 The `QODANA_TOKEN` variable refers to the [project token](project-token.md) generated in %cloud% and is contained in 
 the `qodana-token` [global credentials](%JenkinsCred%). 
 
-This configuration uses the `docker` agent to invoke %instance% [Docker images](deploy-qodana.md#Docker+images). Using the 
+This configuration uses the `docker` agent to invoke %instance% [Docker images](deploy-qodana.md#deploy-qodana-container-mode). Using the 
 `WORKSPACE` variable, the `args` block mounts the local checkout directory to the project directory of a Docker image, 
 and `image` specifies the Docker image invoked.  
 

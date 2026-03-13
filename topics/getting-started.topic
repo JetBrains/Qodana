@@ -22,7 +22,7 @@
                         <title>Deploy, configure, and launch Qodana</title>
                         <a href="ide-integration.md" summary="Use Qodana functionalities in JetBrains IDEs, Microsoft Visual Studio Code and Microsoft Visual Studio.">IDE integration</a>
                         <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode" summary="Learn how to run %product% without Docker."/>
-                        <a href="deploy-qodana.md" anchor="Docker+images" summary="Learn how to run Qodana linters using Docker."/>
+                        <a href="deploy-qodana.md" anchor="deploy-qodana-container-mode" summary="Learn how to run Qodana linters using Docker."/>
                         <a href="ci.md" summary="We provide integration solutions with the most popular CI/CD systems.">CI integration</a>
                         <a href="configure-qodana.md" summary="Explore configuration flexibility of Qodana.">Configure %product%</a>
                         <!-- I can add to this section all possibilities for analysis results. This is important -->

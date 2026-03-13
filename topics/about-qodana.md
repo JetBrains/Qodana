@@ -8,9 +8,9 @@ It can analyze code written in 60+ languages including Java, JavaScript, TypeScr
 ## Run %instance% in your CI/CD pipeline or locally
 
 Qodana provides native solutions for [](qodana-azure-pipelines.md), [CircleCI](circleci.md), [GitHub](github.md), and
-[TeamCity](teamcity.md). With other CI/CD systems, you can use [Docker images](deploy-qodana.md#Docker+images). 
+[TeamCity](teamcity.md). With other CI/CD systems, you can use [Docker images](deploy-qodana.md#deploy-qodana-container-mode). 
 
-To run %instance% locally, you can use [Docker images](deploy-qodana.md#Docker+images), the
+To run %instance% locally, you can use [Docker images](deploy-qodana.md#deploy-qodana-container-mode), the
 [%instance% CLI](https://github.com/jetbrains/qodana-cli) tool, and [JetBrains IDEs](qodana-ide-plugin.md).
 
 You can analyze your code using the default [inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles), which requires
