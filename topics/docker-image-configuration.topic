@@ -1705,6 +1705,22 @@
                 </tab>
             </tabs>
 
+            <p>There are several options for examining %instance% behavior using the <code>/data/results</code> directory:</p>
+            <list>
+                <li><p>The <code>/data/results/projectStructure</code> directory.</p>
+                    <p>The <code>Modules.json</code> file in this directory contains a list of all modules detected by
+                        %instance%. It should be identical to the list that you expect to see while opening your project in
+                        IntelliJ IDEA. If this is no longer the case, check <code>pom.xml</code> for Maven or the
+                        <code>build.gradle</code> file for Gradle configurations.</p>
+                    <p>The <code>SDKs.json</code> file in this directory contains the interpreter paths in case of Python.</p>
+                </li>
+                <li>In the <code>/data/results/</code> directory, each inspection that detected a possible problem creates
+                    its own file named <code>ID.json</code>, where <code>ID</code> is the inspection name that can be used in
+                    <code>qodana.yaml</code> for including or excluding inspections. You can find the complete list of
+                    inspection IDs in the <code>/data/results/.descriptions.json</code> file using the
+                    <code>/groups/*/inspections/*/shortName</code> pattern.</li>
+                <li>In <code>/data/results/log/idea.log</code>, you can investigate suspicious warnings.</li>
+            </list>
 
         </chapter>
 
@@ -3838,14 +3854,14 @@
 
     <!-- What is this for?  And how can I run it? -->
 
-    <chapter id="docker-config-reference-qodana-cloud" title="Forward reports to Qodana Cloud">
+    <!--<chapter id="docker-config-reference-qodana-cloud" title="Forward reports to Qodana Cloud">
 
         <p>To forward reports to Qodana Cloud, you can set the list of Docker environments as explained in the
             <a href="cloud-forward-reports.topic"/> section.</p>
 
         <p>Alternatively, see the <a anchor="docker-config-reference-qodana-send"/> chapter of this section.</p>
 
-    </chapter>
+    </chapter>-->
 
         <chapter id="docker-config-reference-docker-environment-heap-size" title="Change the Heap size">
 

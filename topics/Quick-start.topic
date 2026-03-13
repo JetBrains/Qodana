@@ -6,11 +6,12 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Quick start" id="Quick-start">
 
-    <var name="version" value="2025.3"/>
+    <show-structure for="chapter" depth="3"/>
 
-    <p>The current version of %instance% (%version%) provides the <a href="linters.md">linters</a> that let you analyze
-        Java, Kotlin, Groovy, PHP, JavaScript, TypeScript, C#, Visual Basic, C, C++, Python, and Golang projects. You can
-        also extend the default linter configuration using various <a href="features.topic">features</a>. </p>
+    <var name="version" value="2026.1"/>
+
+    <p>The current version of %instance% (%version%) lets you analyze software that uses <a href="linters.md">various programming languages and technologies</a>.
+        You can also extend the default %product% configuration using available <a href="features.topic">features</a>. </p>
 
     <p>As an example, this section explains how you can quickly start working with %instance% using:</p>
 
@@ -18,66 +19,176 @@
         <li><a anchor="quickstart-run-in-ide">JetBrains IDEs</a></li>
         <li><a anchor="quickstart-run-using-cli">Command-line interface</a></li>
         <li><a anchor="quickstart-run-in-github">GitHub Actions</a></li>
+        <li><a anchor="quickstart-gradle-plugin">As a Gradle plugin</a></li>
     </list>
 
     <chapter title="Prerequisites" id="quickstart-prerequisites">
 
-        <note>You can skip the prerequisites if you would like to run %instance% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a>.</note>
+        <tip>You can skip all prerequisite steps if you would like to run %instance% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a> and study analysis reports locally.</tip>
 
-        <title>
-            Set up your project in %cloud%
-        </title>
-        <link-summary>
-            Learn how you prepare your project for using %product%.
-        </link-summary>
-        <p>Before running Qodana, you need to create a new <a href="cloud-organizations.topic">organization</a> and
-            <a href="cloud-projects.topic">project</a> in <a href="https://qodana.cloud">%cloud%</a>. This setup process
-            will guide you through
-            configuring your project for various <a href="ci.md">CI/CD pipelines</a> and local execution using <a
-                    href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> or
-            <a href="qodana-ide-plugin.md">JetBrains IDEs</a>, and will generate a <a href="project-token.md">project
-                token</a> required by Qodana linters. Additionally,
-            %product% requires a connection to your repositories to track <a href="contributors.md">active
-                contributors</a>, as specified by our
-            <a href="https://www.jetbrains.com/legal/docs/agreements/qodana/license/">license agreement</a>.</p>
-        <note>
-            To provide correct work of the contributor counting functionality, add the IP address range
-            54.76.32.8/32 to a list of allowed inbound connections on your side.
-        </note>
-        <note>
-            <p style="note">The linters available under the Community, Ultimate, and Ultimate Plus licenses may vary.
-                More details can be found in the <a href="pricing.md" anchor="pricing-linters-licenses">Pricing
-                    Model</a> section.</p>
-        </note>
-        <p>If you plan to run the <a href="github.md">Qodana Scan</a> GitHub action on a GitHub-hosted repository, you
-            will need to authorize the
-            <code>%cloud%</code> GitHub App during the project setup. If you do not have access to the repository that
-            you intend to analyze,
-            request the necessary access and wait for approval before proceeding. In other cases, you will receive
-            instructions and
-            configuration snippets that will help you start %product% in your project.</p>
-        <p>The project setup uses information from your JetBrains account, which includes licenses and companies.</p>
-        <chapter title="Global configurations" id="global-configurations">
-            <p>During the project setup stage, you can choose a <a href="global-configuration.md">global
-                configuration</a> that will be used while
-                analyzing your code.</p>
-            <!-- What does this mean ? Does this have to be saved on a repository ? -->
+        <chapter title="Set up your project in Qodana Cloud" id="quickstart-prerequisites-set-up-project-in-qodana-cloud">
+            <link-summary>
+                Learn how you prepare your project for using %product%.
+            </link-summary>
+            <p>Before running Qodana, you need to create a new <a href="cloud-organizations.topic">organization</a> and
+                <a href="cloud-projects.topic">project</a> in <a href="https://qodana.cloud">%cloud%</a>. This setup process
+                will guide you through
+                configuring your project for various <a href="ci.md">CI/CD pipelines</a> and local execution using <a
+                        href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> or
+                <a href="qodana-ide-plugin.md">JetBrains IDEs</a>, and will generate a <a href="project-token.md">project
+                    token</a> required by Qodana linters. Additionally,
+                %product% requires a connection to your repositories to track <a href="contributors.md">active
+                    contributors</a>, as specified by our
+                <a href="https://www.jetbrains.com/legal/docs/agreements/qodana/license/">license agreement</a>.</p>
+            <note>
+                To provide correct work of the contributor counting functionality, add the IP address range
+                54.76.32.8/32 to a list of allowed inbound connections on your side.
+            </note>
+            <p>The project setup uses information from your JetBrains account, which includes licenses and companies.</p>
+            <chapter title="GitHub Actions" id="quickstart-prerequisites-set-up-project-in-qodana-cloud-github-actions">
+            <p>If you plan to run the <a href="github.md">Qodana Scan</a> GitHub action on a GitHub-hosted repository, you
+                will need to authorize and install the
+                <code>%product%</code> GitHub App during the project setup. If you do not have access to the repository that
+                you intend to analyze,
+                request the necessary access and wait for approval before proceeding. In other cases, you will receive
+                instructions and
+                configuration snippets that will help you start %product% in your project.</p>
+
+            </chapter>
+            <chapter title="Global configurations" id="global-configurations">
+                <p>During the project setup stage, you can choose a <a href="global-configuration.md">global
+                    configuration</a> that will be used while
+                    analyzing your code.</p>
+                <!-- What does this mean ? Does this have to be saved on a repository ? -->
+            </chapter>
+        </chapter>
+        <chapter title="Native mode" id="quickstart-prerequisites-native-mode">
+            <p><a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">Native mode</a> is incompatible with Docker containers of %product%, which means that you can run
+                %product% either as a Docker container or in native mode.</p>
+
+            <p>If you wish to run %instance% in native mode using a command line, then
+                <a anchor="quickstart-prerequisites-qodana-cli">install %product% CLI</a> on the machine where you will run it.</p>
+
+            <p>This is the list of technologies that you can use for configuring %product% for native mode:</p>
+
+            <include from="deploy-qodana.md" element-id="deploy-qodana-native-mode-table"/>
+
+
+            <chapter title=".NET in native mode" id="quickstart-prerequisites-native-mode-dotnet">
+
+                <p>Make sure that you have a proper version of the .NET SDK and all required
+                    dependencies installed on your machine.</p>
+
+                <p>Build the project before inspecting it using %instance%. You can do it by using the
+                    <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key of the
+                    <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file. The project building and artifact
+                    packaging stages should occur before %instance% or simultaneously with it. Because running %instance% may affect the
+                    project state and its files, it is advised to avoid reusing the same directory in your build pipelines any further.</p>
+
+                <p>You can also provide %instance% a pre-built project, or specify the build steps in your CI/CD pipeline. To remove
+                    warnings related to project building, in your repository create the empty <code>qodana.yaml</code> file.</p>
+                <p>It is also advised that you run the <code>qodana-dotnet</code> linter on the same machine where you build a project
+                    because this can guarantee that %instance% has access to private NuGet feeds.</p>
+            </chapter>
         </chapter>
 
-        <p>To run %instance% in the CLI and GitHub, you will be using a project token available after creating a %cloud%
-            <a href="cloud-projects.topic">project</a>. To learn more about it, see the <a href="project-token.md"/> section.</p>
+        <chapter title="Container mode" id="quickstart-prerequisites-container-mode">
+            <p>The <a href="deploy-qodana.md" anchor="deploy-qodana-container-mode">container mode</a> assumes that you
+                have the Docker application deployed on your machine.</p>
+                    <p>Pull the image from Docker Hub (only necessary to get the latest version):</p>
+                    <code-block lang="shell" prompt="$">
+                            docker pull &lt;image&gt;
+                        </code-block>
+                    <p>Here, <code>image</code> denotes the Docker image name from this table:</p>
+
+            <include from="deploy-qodana.md" element-id="deploy-qodana-container-mode-table"/>
+
+            <p>The table contains optional tags to let you pull pre-configured %product% images:</p>
+            <list>
+                <li><p>The <code>-clangXX</code> tag configures the <a href="https://clang.llvm.org/extra/clang-tidy">Clang-Tidy</a>
+                    version from 15 to 18.</p></li>
+                <li><p>The <code>-ruby3.X</code> tag configures the Ruby version from 3.1 to 3.4. If not specified,
+                    version 3.4 will be used.</p>
+                    <p>The <code>-privileged</code> tag lets you run %product% in the privileged mode to execute
+                        commands that require root access.
+                        In this case, Qodana comes with a default <code>qodana</code> user that possesses root
+                        privileges and does not require a password.
+                        Where applicable, this tag requires the <code>-clangXX</code> and <code>-ruby3.X</code> tags to
+                        be configured.</p></li>
+            </list>
+        </chapter>
+
+        <chapter title="Qodana CLI" id="quickstart-prerequisites-qodana-cli">
+            <p>%product% CLI is the easiest way for running %product% when using the <a anchor="quickstart-run-using-cli">command-line interface</a>
+            suitable for both <a anchor="quickstart-prerequisites-native-mode">native</a> and <a anchor="quickstart-prerequisites-container-mode">container</a> modes.</p>
+
+            <p>To run Qodana CLI in the default mode, you must have Docker or Podman installed and running locally.
+                If you are using Linux, you should be able to run Docker under your current
+                <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">non-root user</a>.</p>
+                <p>Install Qodana CLI on your machine using available options:</p>
+                    <tabs group="gs-cli">
+                        <tab title="macOS and Linux" group-key="gs-macos-linux">
+                            <p>Install with <a href="https://brew.sh/">Homebrew</a> (recommended):</p>
+                            <code-block lang="shell" prompt="$">
+                                    brew install jetbrains/utils/qodana
+                                </code-block>
+                            <p>Alternatively, you can install Qodana CLI using our installer:</p>
+                            <code-block lang="shell" prompt="$">
+                                    curl -fsSL https://jb.gg/qodana-cli/install | bash
+                                </code-block>
+                            <p>You can install a <code>nightly</code> or any other version the following way:</p>
+                            <code-block lang="shell" prompt="$">
+                                    curl -fsSL https://jb.gg/qodana-cli/install | bash -s -- nightly
+                                </code-block>
+                            <p>On Linux, you can also install %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
+                            <code-block lang="shell" prompt="$">
+                                    go install github.com/JetBrains/qodana-cli@latest
+                                </code-block>
+                        </tab>
+                        <tab title="Microsoft Windows" group-key="gs-windows">
+                            <p>Install with <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Windows Package Manager</a> (recommended):</p>
+                            <code-block lang="shell">
+                                    winget install -e --id JetBrains.QodanaCLI
+                                </code-block>
+                            <p>Install with <a href="https://chocolatey.org/">Chocolatey</a>:</p>
+                            <code-block>
+                                    choco install qodana
+                                </code-block>
+                            <p>Install with <a href="https://scoop.sh/">Scoop</a>:</p>
+                            <code-block lang="shell">
+                                    scoop bucket add jetbrains https://github.com/JetBrains/scoop-utils
+                                    scoop install qodana
+                                </code-block>
+                        </tab>
+                    </tabs>
+            <chapter title="Different Docker contexts or Podman" id="different-docker-contexts-or-podman">
+                <p>%product% uses Docker CLI to communicate with the container engine and employs a Docker context enabled
+                    at the time of execution.
+                    For example, to use Podman as your container engine, you will need to either:</p>
+                <list>
+                    <li><p>In Podman Desktop, enable Docker compatability mode and disable Docker so that Podman listens on
+                        <code>/var/run/docker.sock</code>, or</p></li>
+                    <li>
+                        <p>Use the Podman socket to create a Docker context. If you are using Podman Desktop, you can find
+                            the socket path under
+                            <control>Settings &gt; Resources</control>
+                        </p>
+                    </li>
+                </list>
+                <p>You can confirm which engine is activated by running the <code>docker version</code> command.</p>
+            </chapter>
+        </chapter>
+
 
     </chapter>
 
     <chapter title="Run Qodana in JetBrains IDEs" id="quickstart-run-in-ide">
 
-        <link-summary>%instance% is available in IntelliJ IDEA, PyCharm (both the Professional and
-            Community editions), PhpStorm, WebStorm, GoLand, and Rider.</link-summary>
+        <link-summary>%instance% is available in %list-of-ides-jb%.</link-summary>
 
-        <p>%instance% is available in IntelliJ IDEA, PyCharm (both the Professional and
-            Community editions), PhpStorm, WebStorm, GoLand, and Rider.</p>
+        <p>%instance% is available in several IDEs by JetBrains, such as %list-of-ides-jb%.</p>
 
-        <tip>You do not need to buy a separate %instance% license to run it in the IDE.</tip>
+        <tip>You do not need to obtain a separate %instance% license to run it in the IDE.</tip>
 
         <p>Here is a short animation showing how you can run %instance% in your IDE.</p>
 
@@ -108,7 +219,9 @@
         </tabs>
     </step>
 </procedure>
-
+        <p>You can also learn how to install %product% using the recommendations from the
+            <a href="visualstudio.md"/> and <a href="vscode.md"/> sections.
+        </p>
     </chapter>
 
     <chapter title="Run Qodana using CLI" id="quickstart-run-using-cli">
@@ -116,53 +229,10 @@
         <link-summary>Qodana provides two options for local analysis of your code. Qodana CLI is the easiest option to
             start. Alternatively, you can use a Docker command.</link-summary>
 
-        <p>Qodana provides two options for local analysis of your code.
-            <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> is the easiest option to start.
-            Alternatively, you can use the Docker command from the <ui-path>Docker image</ui-path> tab.</p>
-
         <tabs>
             <tab title="Qodana CLI" id="qodana-cli-tab">
-                <p>To run Qodana CLI in the default mode, you must have Docker or Podman installed and running locally.
-                    If you are using Linux, you should be able to run Docker under your current
-                    <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">non-root user</a>.</p>
+                <p>This section assumes that you have completed the steps from the <a anchor="quickstart-prerequisites-qodana-cli">Prerequisites</a> chapter.</p>
                 <procedure id="qodana-cli-tab-procedure">
-                    <step><p>Install Qodana CLI on your machine using available options:</p>
-                        <tabs group="gs-cli">
-                            <tab title="macOS and Linux" group-key="gs-macos-linux">
-                                <p>Install with <a href="https://brew.sh/">Homebrew</a> (recommended):</p>
-                                <code-block lang="shell" prompt="$">
-                                    brew install jetbrains/utils/qodana
-                                </code-block>
-                                <p>Alternatively, you can install Qodana CLI using our installer:</p>
-                                <code-block lang="shell" prompt="$">
-                                    curl -fsSL https://jb.gg/qodana-cli/install | bash
-                                </code-block>
-                                <p>You can install a <code>nightly</code> or any other version the following way:</p>
-                                <code-block lang="shell" prompt="$">
-                                    curl -fsSL https://jb.gg/qodana-cli/install | bash -s -- nightly
-                                </code-block>
-                                <p>On Linux, you can also install %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
-                                <code-block lang="shell" prompt="$">
-                                    go install github.com/JetBrains/qodana-cli@latest
-                                </code-block>
-                            </tab>
-                            <tab title="Microsoft Windows" group-key="gs-windows">
-                                <p>Install with <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Windows Package Manager</a> (recommended):</p>
-                                <code-block lang="shell">
-                                    winget install -e --id JetBrains.QodanaCLI
-                                </code-block>
-                                <p>Install with <a href="https://chocolatey.org/">Chocolatey</a>:</p>
-                                <code-block>
-                                    choco install qodana
-                                </code-block>
-                                <p>Install with <a href="https://scoop.sh/">Scoop</a>:</p>
-                                <code-block lang="shell">
-                                    scoop bucket add jetbrains https://github.com/JetBrains/scoop-utils
-                                    scoop install qodana
-                                </code-block>
-                            </tab>
-                        </tabs>
-                    </step>
                     <step>
                         <p>In the project root directory, declare the <code>QODANA_TOKEN</code> variable containing the project
                             token described in the <a anchor="quickstart-prerequisites">prerequisites</a>:</p>
@@ -180,7 +250,27 @@
                         </tabs>
                     </step>
                     <step>
-                        <p>Run %instance%:</p>
+                        <p>To run %instance% in <a anchor="quickstart-prerequisites-native-mode">native mode</a>, use this command:</p>
+                        <tabs group="gs-cli">
+                            <tab title="macOS and Linux" group-key="gs-macos-linux">
+                                <code-block lang="shell" prompt="$">
+                                    qodana scan \
+                                    &nbsp;&nbsp;&nbsp;--linter &lt;linter-name&gt; \
+                                    &nbsp;&nbsp;&nbsp;--within-docker false
+                                </code-block>
+                            </tab>
+                            <tab title="Microsoft Windows" group-key="gs-windows">
+                                <code-block lang="shell">
+                                    qodana scan ^
+                                    &nbsp;&nbsp;&nbsp;--linter &lt;linter-name&gt; ^
+                                    &nbsp;&nbsp;&nbsp;--within-docker false
+                                </code-block>
+                            </tab>
+                        </tabs>
+                        <p>In this command, the <code>--linter</code> option instructs %product% about a <a anchor="quickstart-prerequisites-native-mode">linter</a> that should be invoked.
+                        The <code>--within-docker false</code> option instructs %product% to enable native mode. These options tell %product% to download and employ the required JetBrains
+                            IDE binary file while running a %product% linter.</p>
+                        <p>To run %product% in container mode, use the following command:</p>
                         <tabs group="gs-cli">
                             <tab title="macOS and Linux" group-key="gs-macos-linux">
                                 <code-block lang="shell" prompt="$">
@@ -197,65 +287,8 @@
                 </procedure>
             </tab>
             <tab title="Docker image" id="docker-image-tab">
-                <p>This section assumes that you have the Docker application deployed on your machine.</p>
+                <p>This section assumes that you have used the recommendations from the <a anchor="quickstart-prerequisites-container-mode">Prerequisites</a> chapter.</p>
                 <procedure id="qodana-docker-image-procedure">
-                    <step>
-                        <p>Pull the image from Docker Hub (only necessary to get the latest version):</p>
-                        <code-block lang="shell" prompt="$">
-                            docker pull &lt;image&gt;
-                        </code-block>
-                        <p>Here, <code>image</code> denotes the Docker image name of a %instance% linter from this table:</p>
-                        <table>
-                            <tr>
-                                <td>Image name</td>
-                                <td>Application</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-jvm%version%</td>
-                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA Ultimate.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-jvm-community%version%</td>
-                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA Community.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-jvm-android%version%</td>
-                                <td>Java and Kotlin for Server Side projects, based on IntelliJ IDEA with Android support.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-php%version%</td>
-                                <td>PHP projects, based on PhpStorm.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-python%version%</td>
-                                <td>Python projects, based on PyCharm Professional.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-python-community%version%</td>
-                                <td>Python projects, based on PyCharm Community.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-js%version%</td>
-                                <td>JavaScript and TypeScript projects, based on WebStorm.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-go%version%</td>
-                                <td>Golang projects, based on Goland.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-dotnet%version%</td>
-                                <td>.NET projects, based on Rider.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-cdnet%version%-eap</td>
-                                <td>.NET projects, based on ReSharper.</td>
-                            </tr>
-                            <tr>
-                                <td>jetbrains/qodana-clang%version%-eap</td>
-                                <td>C and C++ projects containing compilation databases.</td>
-                            </tr>
-                        </table>
-                    </step>
                     <step>
                         <p>Run this command to analyze your codebase:</p>
                         <code-block lang="shell" prompt="$">
@@ -277,23 +310,252 @@
         <tip>Depending on your tasks, you can configure %instance% as explained on the <a href="configure-qodana.md"/> page.</tip>
     </chapter>
 
-    <chapter title="Run Qodana on GitHub" id="quickstart-run-in-github">
+    <chapter title="Run Qodana using CI/CD" id="quickstart-run-in-github">
 
         <link-summary>You can configure Qodana in a few simple steps.</link-summary>
 
-        <p>Here is the short video showing how you can configure and run %instance% in GitHub.</p>
+        <p>For Azure Pipelines, CircleCI, GitHub Actions, GitLab CI/CD, and TeamCity, %product% provides native
+            solutions.
+            To run %product% using Bitbucket Cloud, and Jenkins, you can use Docker images.</p>
+
+        <p>Here is a short animation showing how you can configure and run %instance% using GitHub Actions.</p>
 
         <img src="quickstart-run-in-github.animated.gif" dark-src="quickstart-run-in-github_dark.png" width="706" alt="Running Qodana in GitHub" border-effect="line" preview-src="quickstart-run-in-github.png"/>
 
-        <p>Assuming that you already generated a project token as described in the <a anchor="quickstart-prerequisites"/> chapter, follow these steps to configure %instance% in GitHub:</p>
+        <p>Assuming that you already generated a project token as described in the <a anchor="quickstart-prerequisites"/> chapter, follow these steps to configure %instance% for running in native mode:</p>
 
-        <include from="lib_qd.topic" element-id="github-basic-configuration"/>
+        <procedure>
+            <step>On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+                <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+                and save the <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a> as its value.
+                If you are using a %cloud% instance other than <code>https://qodana.cloud/</code>, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.
+            </step>
+            <step>On the <ui-path>Actions</ui-path> tab of the GitHub UI, set up a new workflow and create the
+                <code>.github/workflows/code_quality.yml</code> file.</step>
+            <step>To analyze the <code>main</code> and <code>master</code> branches, as well as release branches and the
+                pull requests coming to your repository, save this workflow configuration to the
+                <code>.github/workflows/code_quality.yml</code> file:
+                <tabs group="quickstart-gibhub-actions">
+                    <tab title="Native mode" group-key="native-mode">
+                    <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                        workflow_dispatch:
+                        pull_request:
+                        push:
+                            branches: # Specify your branches here
+                                - main # The 'main' branch
+                                - master # The 'master' branch
+                                - 'releases/*' # The release branches
+
+                    jobs:
+                        qodana:
+                            runs-on: ubuntu-latest
+                            permissions:
+                                contents: write
+                                pull-requests: write
+                                checks: write
+                            steps:
+                                - uses: actions/checkout@v3
+                                  with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                - name: 'Qodana Scan'
+                                  uses: %action-version%
+                                  with:
+                                      args:|
+                                          --linter &lt;linter-name&gt;
+                                          --within-docker false
+                                  env:
+                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code-block>
+                        <p>In the <code>args</code> block, the <code>--linter</code> option instructs %product% about a <a anchor="quickstart-prerequisites-native-mode">linter</a> that should be invoked.
+                            The <code>--within-docker false</code> option instructs %product% to enable native mode. These options tell %product% to download and employ the required JetBrains
+                            IDE binary file while running a %product% linter.</p>
+                    </tab>
+                    <tab title="Container mode" group-key="container-mode">
+                    <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                        workflow_dispatch:
+                        pull_request:
+                        push:
+                            branches: # Specify your branches here
+                                - main # The 'main' branch
+                                - master # The 'master' branch
+                                - 'releases/*' # The release branches
+
+                    jobs:
+                        qodana:
+                            runs-on: ubuntu-latest
+                            permissions:
+                                contents: write
+                                pull-requests: write
+                                checks: write
+                            steps:
+                                - uses: actions/checkout@v3
+                                  with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                - name: 'Qodana Scan'
+                                  uses: %action-version%
+                                  env:
+                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code-block>
+                    </tab>
+                </tabs>
+            </step>
+        </procedure>
+
+
+
+
 
         <tip>You can learn more about how to use %instance% in CI/CD pipelines in the <a href="ci.md"/> section.</tip>
 
         <!-- Here, I can create a small video showing how everything works -->
 
     </chapter>
+
+    <chapter title="Run Qodana as a Gradle plugin" id="quickstart-gradle-plugin">
+        <p>The <a href="https://plugins.gradle.org/plugin/org.jetbrains.qodana">Gradle Qodana plugin</a> provides the
+            Gradle interface for running
+            code inspections provided by %instance%. To start, apply the Gradle plugin <code>org.jetbrains.qodana</code>
+            in the Gradle
+            configuration file.</p>
+        <tabs group="languages">
+            <tab title="Groovy" group-key="groovy">
+                <p>Add the following to the <code>build.gradle</code> configuration file.</p>
+
+                <code-block lang="groovy">
+plugins {
+    id &quot;org.jetbrains.qodana&quot; version &quot;&lt;plugin-version&gt;&quot;
+}
+</code-block>
+            </tab>
+            <tab title="Kotlin DSL" group-key="kotlin-dsl">
+                <p>Add the following to the <code>build.gradle.kts</code> configuration file:</p>
+
+                <code-block lang="kotlin">
+plugins {
+    id(&quot;org.jetbrains.qodana&quot;) version &quot;&lt;plugin-version&gt;&quot;
+}
+</code-block>
+            </tab>
+        </tabs>
+        <var name="qodana-label">Gradle Plugin Portal</var>
+        <note>
+            <p>The latest version is: <a href="https://plugins.gradle.org/plugin/org.jetbrains.qodana"><img
+                    src="https://img.shields.io/gradle-plugin-portal/v/org.jetbrains.qodana?color=green&amp;label=%qodana-label%&amp;logo=gradle"
+                    alt=""/></a></p>
+        </note>
+        <tip>
+            <p>For details on working with Gradle in IntelliJ IDEA, see the <a
+                    href="https://www.jetbrains.com/help/idea/?Gradle">IntelliJ IDEA Gradle documentation</a>.</p>
+        </tip>
+        <chapter id="qodana-extension-configuration">
+            <title>
+                <code>qodana { }</code> extension configuration
+            </title>
+            <p>Properties available for configuration in the <code>qodana { }</code> top-level configuration closure:
+            </p>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Description</td>
+                    <td>Type</td>
+                    <td>Default Value</td>
+                </tr>
+                <tr>
+                    <td><code>projectPath</code></td>
+                    <td>Path to the project folder to analyze.</td>
+                    <td><code>String</code></td>
+                    <td><code>project.projectDir</code></td>
+                </tr>
+                <tr>
+                    <td><code>resultsPath</code></td>
+                    <td>Path to the directory to store task results.</td>
+                    <td><code>String</code></td>
+                    <td><code>&quot;${projectPath}/build/qodana/results&quot;</code></td>
+                </tr>
+                <tr>
+                    <td><code>cachePath</code></td>
+                    <td>Path to the directory to store the generated report.</td>
+                    <td><code>String</code></td>
+                    <td><code>&quot;${projectPath}/build/qodana/cache/&quot;</code></td>
+                </tr>
+            </table>
+        </chapter>
+        <chapter title="Gradle Qodana Tasks" id="gradle-qodana-tasks">
+            <chapter id="qodanascan">
+                <title>
+                    <code>qodanaScan</code>
+                </title>
+                <p>Start Qodana in the project directory.</p>
+                <p>The task relies on the <code>qodana { }</code> extension configuration. However, it is also
+                    controlled by provided <code>arguments</code>.</p>
+            </chapter>
+            <chapter title="Example" id="example">
+                <p>Add this to your Gradle configuration file:</p>
+                <list>
+                    <li><p>Groovy – <code>build.gradle</code></p>
+
+                        <code-block lang="groovy">
+plugins {
+    // applies Gradle Qodana plugin to use it in project
+    id &quot;org.jetbrains.qodana&quot; version &quot;...&quot;
+}
+
+qodana {
+    // by default result path is $projectPath/build/results
+    resultsPath = &quot;some/output/path&quot;
+}
+
+qodanaScan {
+    arguments = [&quot;--fail-threshold&quot;, &quot;0&quot;]
+}
+</code-block>
+                    </li>
+                    <li><p>Kotlin – <code>build.gradle.kts</code></p>
+
+                        <code-block lang="kotlin">
+plugins {
+    // applies Gradle Qodana plugin to use it in a project
+    id(&quot;org.jetbrains.qodana&quot;) version &quot;...&quot;
+}
+
+qodana {
+    // by default, the result path is $projectPath/build/results
+    resultsPath.set(&quot;some/output/path&quot;)
+}
+
+qodanaScan {
+    resultsPath.set(&quot;some/output/path&quot;)
+    arguments.set(listOf(&quot;--fail-threshold&quot;, &quot;0&quot;))
+}
+</code-block>
+                    </li>
+                </list>
+                <tip>
+                    <p>
+                        <control>Note:</control>
+                        Docker requires at least 4GB of memory. Set it in the Docker <code>Preferences &gt; Resources
+                        &gt; Memory</code> section.
+                    </p>
+                </tip>
+                <p>Now you can run analyses using the <code>qodanaScan</code> Gradle task:</p>
+
+                <code-block lang="bash">
+gradle qodanaScan
+// or
+./gradlew qodanaScan
+</code-block>
+                <p>A complete guide for options and configuration of <code>arguments</code> parameters can be found on
+                    <a href="https://github.com/JetBrains/qodana-cli#scan">Qodana CLI docs page</a>.</p>
+            </chapter>
+        </chapter>
+    </chapter>
+
 
     <chapter title="Next steps" id="quick-start-next-steps">
         <list>

@@ -25,8 +25,8 @@ bootstrap: |+
   #pip install -r requirements.txt 
 ```
 
-> You can investigate %product% behavior using files contained in the 
-> [`/data/results`](troubleshooting.topic#troubleshooting-qodana-log-files) directory.
+> You can investigate %product% behavior using files contained in the
+> [`/data/results`](docker-image-configuration.topic#docker-config-reference-overview-logs) directory.
 
 To be able to use syntax highlighting and validation in your IDE, you can create the `prepare-qodana.sh` shell script 
 and save it in the root directory of your project:

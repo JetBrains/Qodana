@@ -28,7 +28,7 @@
             Reports stored in public organizations are available for all %cloud% users, including unauthorized users with the
             <a href="cloud-user-roles.md">viewer role</a>. </p>
 
-        <p>Each organization is created on the basis of a specific <a href="cloud-get-access.topic">JetBrains account</a>.</p>
+        <p>Each organization is created on the basis of a specific <a href="cloud-quickstart.md">JetBrains account</a>.</p>
 
         <procedure>
             <step>

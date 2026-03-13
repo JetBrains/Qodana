@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="%cloud% use-cases" id="cloud-use-cases">
+	title="Overview of Qodana Cloud" id="cloud-use-cases">
 
     <link-summary>Learn more about use cases where %cloud% can come in handy.</link-summary>
 

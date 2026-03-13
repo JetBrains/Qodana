@@ -23,12 +23,15 @@ and severities.</link-summary>
 An inspection profile is a set of pre-configured [inspections](override-a-profile.md), including their state, configuration
 options, scopes of their analyses, and [severities](ui-overview.md#Severity+levels).
 
+%product% inspection profiles configure the inspections that you are going to use. If you enable too few inspections, you may
+miss critical problems, which will affect your project overall. On the other hand, enabling too many inspections
+can negatively affect inspection performance and can result in using inspections that are irrelevant to your project.
+
 > %instance% inspection profiles are the same as IntelliJ IDEA inspection profiles.
 {style="tip"}
 
 This section explains how you can use 
 existing %product% profiles, create your own profiles, and set up profiles for analyzing your projects using %product%.
-
 
 ## Existing %product% profiles
 {id="inspection-profiles-existing-profiles"}
@@ -735,6 +738,26 @@ to a file.
 To run %instance% with the custom profile, you can follow the recommendations from the
 [](inspection-profiles.md#inspection-profiles-setup-a-profile) section. In this case, the profile name does not necessarily
 match the name of the containing file. The actual name is stored as the `%\profileName%` value in the profile file.
+
+#### Specify SQL dialect
+
+<p>To analyze SQL code, enabling SQL-related
+    <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">inspections</a> is not enough.
+    In this case, you also have to specify an SQL dialect that you would like to analyze. To do this, in your
+    project root save the <code>.idea/sqldialects.xml</code> containing the following contents:</p>
+<code-block lang="xml">
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;project version="4"&gt;
+        &lt;component name="SqlDialectMappings"&gt;
+            &lt;file url="PROJECT" dialect="&lt;SQLDialectName&gt;" /&gt;
+        &lt;/component&gt;
+    &lt;/project&gt;
+</code-block>
+<p>To find a name of a concrete SQL dialect for this snippet, in your IDE navigate to
+    <ui-path>Settings | Languages & Frameworks | SQL Dialects | Project SQL Dialect</ui-path>. In the upper part
+of the <ui-path>Settings</ui-path>, expand either the <ui-path>Global SQL Dialect</ui-path> or
+    <ui-path>Project SQL Dialect</ui-path> dropdown list.</p>
+
 
 ### Use your profile
 

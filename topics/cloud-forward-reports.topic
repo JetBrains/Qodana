@@ -176,7 +176,7 @@
                 </code-block>
             </step>
             <step>
-                <p>In the <code>image</code> section of this script, specify the %instance% <a href="deploy-qodana.md" anchor="Docker+images">Docker image</a> name.</p>
+                <p>In the <code>image</code> section of this script, specify the %instance% Docker image name.</p>
             </step>
         </procedure>
 

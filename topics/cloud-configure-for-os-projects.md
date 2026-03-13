@@ -17,7 +17,7 @@ Depending on your needs, it may be useful to know how to:
 * [Analyze your code](inspect-your-code.md) using %instance%
 * Configure %instance% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.topic)
 * Run %instance% either [locally](Quick-start.topic) on in your [CI/CD pipelines](ci.md)
-* [Forward reports](cloud-forward-reports.topic) to %cloud%
+* Forward reports to %cloud%
 
 ## Prepare %cloud%
 
@@ -43,8 +43,6 @@ In the project, click <ui-path>Generate token</ui-path> to generate a project to
 <img src="qc-generate-token.png" dark-src="qc-generate-token_dark.png" alt="Generate the project token" width="706" border-effect="line"/>
 </step>
 </procedure>
-
-<tip>To learn more about using project tokens, see the <a href="cloud-forward-reports.topic"/> section.</tip>
 
 ## Analyze your projects
 

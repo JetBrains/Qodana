@@ -37,12 +37,12 @@ You can run %instance% locally and then forward analysis reports to [%cloud%](ht
    <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
       <list>
         <li>Options used by %product% in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
-         <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
+         <li>The <ui-path>Send analysis results to %cloud%</ui-path> option using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
          <li>The <a href="qodana-yaml.md"><ui-path>Save qodana.yaml in project root</ui-path></a> option</li>
          <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline</li>
       </list>
    <img src="ide-plugin-run-qodana-2.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
-    <p>Click <ui-path>Run</ui-path> for inspecting your code.</p>
+    <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
 </step>
 <step>
    <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>

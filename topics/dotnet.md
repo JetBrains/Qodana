@@ -612,7 +612,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                            <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
                               <list>
                                 <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
-                                 <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option 
+                                 <li>The <ui-path>Send analysis results to %cloud%</ui-path> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline</li>
                               </list>
@@ -629,7 +629,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
       </tabs>
     </tab>
     <tab group-key="linter-tabs-cdnet" title="%qd-co%">
-        <p>You can run the %qd-co% linter in a container mode as shown in the examples below.</p>
+        <p>You can run the %qd-co% linter in container mode as shown in the examples below.</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
@@ -722,7 +722,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                            <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
                               <list>
                                 <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</li>
-                                 <li>The <a href="cloud-forward-reports.topic"><ui-path>Send analysis results to %cloud%</ui-path></a> option 
+                                 <li>The <ui-path>Send analysis results to %cloud%</ui-path> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
                               </list>

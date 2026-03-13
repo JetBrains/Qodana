@@ -962,7 +962,7 @@
                             </tr>
                             <tr>
                                 <td>The <ui-path>Send analysis results to %cloud%</ui-path> option</td>
-                                <td>If you want to <a href="cloud-forward-reports.topic">send reports to %cloud%</a>, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">%cloud%</a></td>
+                                <td>If you want to send reports to %cloud%, you can check this option and paste the <a href="project-token.md">project token</a> generated in <a href="cloud-projects.topic" anchor="cloud-manage-projects">%cloud%</a></td>
                             </tr>
                             <tr>
                                 <td>The <ui-path>Save qodana.yaml in project root</ui-path> option</td>
