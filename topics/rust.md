@@ -79,7 +79,7 @@ In case a project has external dependencies, you can set them up using the `boot
 for example:
 
 ```yaml
-bootstrap: cargo install cargo-edit
+bootstrap: rustup toolchain install nightly
 ```
 The command will be automatically executed before the analysis.
 
