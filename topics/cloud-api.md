@@ -1,14 +1,14 @@
-# Public API
+# Qodana Cloud API
 
 <var name="api-yaml" value="https://github.com/jetbrains-qodana/public-api/blob/main/openapi.yaml"/>
 <var name="api-client" value="https://github.com/jetbrains-qodana/public-api/tree/main/samples/kotlin"/>
 
 <show-structure for="chapter" depth="3"/>
 
-<link-summary>The public API lets you create teams, projects, obtain a list of users and Insights data in %cloud% and %premlite% using 
+<link-summary>The Qodana Cloud API lets you create teams, projects, obtain a list of users and Insights data in %cloud% and %premlite% using 
 your build pipelines.</link-summary>
 
-The public API lets you create <a href="cloud-teams.topic">teams</a>, <a href="cloud-projects.topic">projects</a>,
+The Qodana Cloud API lets you create <a href="cloud-teams.topic">teams</a>, <a href="cloud-projects.topic">projects</a>,
 obtain a list of %cloud% and %premlite% organization users and [](insights.md) data using your build pipelines. 
 This feature is available only under the [Ultimate Plus license](pricing.md).
 
@@ -16,9 +16,9 @@ This feature is available only under the [Ultimate Plus license](pricing.md).
 
 ## Prerequisites
 
-The public API requires an organization API token for authentication purposes.
+The Qodana Cloud API requires an organization API token for authentication purposes.
 
-Before using the public API, make sure that the following requirements were met:
+Before using the Qodana Cloud API, make sure that the following requirements were met:
 
 <list>
 <li>
@@ -59,6 +59,7 @@ To create a new team (if applicable) along with a project and obtain a [project 
 ```cURL
 qodana_token=$(curl -X POST https://{qodana_cloud_url}/api/v1/public/organizations/projects \
   -H "Authorization: Bearer $permanent_organization_token" \
+  -H "Content-Type: application/json" \
   -d '{
         "projectName": "My project name",
         "teamName": "My team name"
@@ -118,7 +119,7 @@ The endpoint provides the responses with the following HTTP codes:
     <tr>
         <td><code>400</code></td>
         <td>
-            <p>Bad request response returns if the public API is disabled for a specific environment:</p>
+            <p>Bad request response returns if the Qodana Cloud API is disabled for a specific environment:</p>
         <code-block lang="http">
             HTTP/2 400 Bad Request
             date: Wed, 24 Sep 2025 10:36:37 GMT
@@ -189,7 +190,7 @@ The endpoint provides the responses with the following HTTP codes:
                 "details": "Invalid organization API token"
             }
         </code-block>
-        <p>This returns in case the %cloud% organization cannot use the public API feature:</p>
+        <p>This returns in case the %cloud% organization cannot use the Qodana Cloud API feature:</p>
         <code-block lang="http">
             HTTP/2 403 Forbidden
             date: Wed, 24 Sep 2025 10:36:37 GMT
@@ -347,7 +348,7 @@ The `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint resp
     <tr>
         <td><code>400</code></td>
         <td>
-            <p>The public API is disabled:</p>
+            <p>The Qodana Cloud API is disabled:</p>
         <code-block lang="http">
             HTTP/2 400 Bad Request
             date: Wed, 24 Sep 2025 10:36:37 GMT
@@ -403,7 +404,7 @@ The `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint resp
                 "details": "Invalid organization API token"
             }
         </code-block>
-        <p>This returns in case the %cloud% organization cannot use the public API feature:</p>
+        <p>This returns in case the %cloud% organization cannot use the Qodana Cloud API feature:</p>
         <code-block lang="http">
             HTTP/2 403 Forbidden
             date: Wed, 24 Sep 2025 10:36:37 GMT

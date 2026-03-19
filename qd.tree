@@ -2,7 +2,8 @@
 <!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 <instance-profile id="qd" name="Qodana" start-page="getting-started.topic" status="release">
 	<!-- Getting started section -->
-    <toc-element accepts-web-file-names="welcome.html,index.html" topic="getting-started.topic">
+    <toc-element accepts-web-file-names="welcome.html,index.html,static-analysis.html" topic="getting-started.topic">
+		<toc-element topic="about-qodana.md" accepts-web-file-names="cloud-about.html,qodana.html"/>
 		<toc-element accepts-web-file-names="new-in-2024-1.html,new-in-2023-3.html,new-in-2023-2.html,new-in-2022-2.html,new-in-2022-3.html,new-in-2023-1.html,new-in-2024-2.html,new-in-2024-3.html,new-in-2025-1.html,new-in-2025-2.html,qodana-cloud-release-notes.html" topic="new-in-2025-3.md"/>
 		<toc-element topic="pricing.md"/>
 		<toc-element topic="deploy-qodana.md" accepts-web-file-names="native-mode.html,docker-images.html,qodana-gradle-plugin.html,docker-readme.html,qodana-docker-readme.html"/>
@@ -37,6 +38,8 @@
 		<toc-element topic="global-configuration.md"/>
 		<toc-element topic="analyze-pr.md"/>
 		<toc-element topic="running-behind-proxy.md"/>
+		<toc-element topic="project-token.md"/>
+		<toc-element topic="repository-key.md"/>
 	</toc-element>
 
 	<!-- The linter section containing unified pages -->
@@ -122,15 +125,6 @@
 		<toc-element topic="extending-qodana-structural-search.topic"/>
 	</toc-element>
 
-	<toc-element toc-title="Unused">
-		<toc-element topic="about-qodana.md" accepts-web-file-names="cloud-about.html,qodana.html"/>
-		<toc-element toc-title="Components">
-			<toc-element topic="static-analysis.topic"/>
-			<toc-element topic="project-token.md"/>
-			<toc-element topic="repository-key.md"/>
-		</toc-element>
-
-	</toc-element>
 	<toc-element toc-title="API reference">
 		<toc-element topic="cloud-api.md"/>
 	</toc-element>

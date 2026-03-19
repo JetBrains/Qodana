@@ -1,4 +1,4 @@
-[//]: # (title: Connect Qodana to your repository)
+[//]: # (title: Connecting Qodana to your repository)
 
 <var name="github" value="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys"/>
 <var name="gitlab" value="https://docs.gitlab.com/ee/user/project/deploy_keys/#create-a-project-deploy-key"/>

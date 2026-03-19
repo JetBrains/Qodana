@@ -114,7 +114,7 @@ You can use the --diff-start option to analyze changes between the current versi
                          inputs:
                             args: --image &lt;image&gt;
                 </code-block>
-        <p>This configuration by default enables merge request analysis. To override the default behavior, you
+        <p>This configuration, by default, enables merge request analysis. To override the default behavior, you
         can use the following configuration:</p>
         <code-block lang="yaml">
             include:
