@@ -297,6 +297,7 @@
     <var name="clang" value="Qodana Community for C/C++"/>
     <var name="cloud" value="Qodana Cloud"/>
     <var name="ruby" value="Qodana for Ruby"/>
+    <var name="rust" value="Qodana for Rust"/>
 
     <!-- Qodana linter names -->
     <var name="jvm-linter" value="qodana-jvm"/>
@@ -313,6 +314,7 @@
     <var name="cpp-linter" value="qodana-cpp"/>
     <var name="clang-linter" value="qodana-clang"/>
     <var name="ruby-linter" value="qodana-ruby"/>
+    <var name="rust-linter" value="qodana-rust"/>
 
     <!-- Qodana linter images -->
     <var name="jvm-image" value="jetbrains/qodana-jvm:2026.1-eap"/>

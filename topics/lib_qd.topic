@@ -332,6 +332,29 @@
                 <td>Ultimate Plus</td>
             </tr>
         </table>
+
+        <table filter="rust">
+            <tr>
+                <td>Feature</td>
+                <td>Available under the license</td>
+            </tr>
+            <tr>
+                <td><a href="baseline.topic"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="quality-gate.topic"/></td>
+                <td>Ultimate and Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="insights.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+            <tr>
+                <td><a href="cloud-sso.md"/></td>
+                <td>Ultimate Plus</td>
+            </tr>
+        </table>
     </snippet>
 
     <snippet id="github-basic-configuration">
