@@ -64,7 +64,7 @@ In GitLab CI/CD UI, create the following environment variables:
       <td>
        <p>A <a href="%PersonalToken%">personal access token</a> or a <a href="%ProjectToken%">project access token</a> 
          required for <a anchor="Quick-Fixes">Quick-Fixes</a> and 
-         <a anchor="Configuration">summary reports</a> as comments in merge requests. The holder of a personal access 
+         <a anchor="gitlab-inputs-configuration">summary reports</a> as comments in merge requests. The holder of a personal access 
          token will be shown as an author for all %product% actions, so it is advised to use a project access token.</p>
        <p>For Quick-Fixes, enable the <code>api</code> and <code>write_repository</code> permissions while configuring
          access tokens.</p>
@@ -85,20 +85,65 @@ that will be used by GitLab CI/CD.
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 
-For the cloud-based version of GitLab CI/CD, in the `.gitlab-ci.yml` file save the following configuration to [include](%ComponentInvocation%) the 
-%product% Scan GitLab Pipeline component:
+To run %product% in [container mode](deploy-qodana.md#deploy-qodana-container-mode), in the cloud-based GitLab CI/CD 
+version, save the following snippet to the `.gitlab-ci.yml` file:
 
-```yaml
-include:
-   - component: %gitlab-version%
-     inputs:
-        args: --image <image>
-```
+<tabs group="gitlab-basic-configuration">
+   <tab title="Linux" group-key="linux">
+      <code-block lang="yaml">
+         include:
+            - component: %gitlab-version%
+              inputs:
+                 image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+      </code-block>
+      <p>Here, the <code>inputs:image</code> <a anchor="gitlab-inputs-configuration">argument</a> specifies the Docker 
+         image that you would like to employ.</p>
+   </tab>
+   <tab title="Windows or macOS" group-key="windows-macos">
+      <code-block lang="yaml">
+         include:
+            - component: %gitlab-version%
+              inputs:
+                 os: windows | mac
+                 args: --image jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+      </code-block>
+      <p>This configuration uses the <code>inputs:os</code> <a anchor="gitlab-inputs-configuration">argument</a> to 
+         specify the operating system.</p>
+   </tab>
+</tabs>
 
-This configuration already enables [caches](#Configure+cache),
+To run %product% in [native mode](deploy-qodana.md#deploy-qodana-native-mode), use the following configuration snippets:
+
+<tabs group="gitlab-basic-configuration">
+   <tab title="Linux" group-key="linux">
+      <code-block lang="yaml">
+         include:
+            - component: %gitlab-version%
+              inputs:
+                 image: &lt;my-custom-docker-image&gt;
+                 args: --linter &lt;linter&gt; 
+      </code-block>
+      <p>Here, the <code>inputs:image</code> specifies a custom Docker image to run %product% inside, while the <code>inputs:args</code> <a anchor="gitlab-inputs-configuration">argument</a> configures the %product%
+      <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">linter</a>.</p>
+   </tab>
+   <tab title="Windows or macOS" group-key="windows-macos">
+      <code-block lang="yaml">
+         include:
+            - component: %gitlab-version%
+              inputs:
+                 os: windows | mac
+                 args: --linter &lt;linter&gt; 
+      </code-block>
+      <p>Here, the <code>inputs:args</code> <a anchor="gitlab-inputs-configuration">argument</a> configures the %product%
+      <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">linter</a>.</p>
+   </tab>
+</tabs>
+
+
+All these configurations [include](%ComponentInvocation%) the %product% Scan GitLab Pipeline component and enables [caches](#Configure+cache),
 [Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis,
 and comments to merge requests. You can override these settings using descriptions from the sections below and the
-[](#Configuration) chapter. The `--image` argument specifies a %product% [image](docker-image-configuration.topic#docker-config-reference-qodana-scan-image) that you would like to employ.
+[](#gitlab-inputs-configuration) chapter. The `--image` argument specifies a %product% [image](docker-image-configuration.topic#docker-config-reference-qodana-scan-image) that you would like to employ.
 
 The included component creates the `qodana` job that can be configured as any other job in GitLab CI/CD. 
 You can view the predefined configuration of this job using our [template](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
@@ -118,9 +163,6 @@ some-task:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
 
 qodana:
-  image: docker:28.3.2
-  services:
-    - docker:28.3.2-dind
   before_script:
     - echo "Qodana job starts..."
   needs:
@@ -137,7 +179,7 @@ For the on-premise version of GitLab CI/CD, in the `.gitlab-ci.yml` file save th
 include:
    - component: $CI_SERVER_FQDN/<org>/<repo>/qodana-gitlab-ci@v%version-current%
      inputs:
-        args: --image <image>
+        image: jetbrains/qodana-<linter>:<version> | <any-custom-docker-image>
 ```
 
 In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on the [GitLab CI/CD website](%OnPrem%). 
@@ -162,7 +204,7 @@ If you wish to override the default cache settings, use this configuration:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image <image>
+        image: jetbrains/qodana-<linter>:<version> | <any-custom-docker-image>
 
 qodana:
    cache:
@@ -177,7 +219,7 @@ qodana:
 
 ### Override an operating system
 
-> Description of each script is available on the [GitLab CI/CD website](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
+> The description of each script is available on the [GitLab CI/CD website](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
 {style="tip"}
 
 
@@ -189,28 +231,8 @@ include:
    - component: %gitlab-version%
      inputs:
         os: windows
-        args: --image <image>
+        args: --image jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
 ```
-
-<!-- ### Run %product% on Linux in native mode
-
-To run %product% in [native mode on Linux](#Native+mode+on+Linux), use the following configuration that uses your custom
-Docker image containing Linux:
-
-```yaml
-include:
-  - component: %gitlab-version%
-    inputs:
-      args: --image <image> --within-docker false
-
-qodana:
-  image: <your-custom-docker-image-with-linux>
-```
-
-Here, the [`--linter`](docker-image-configuration.topic#docker-config-reference-qodana-scan-linter) option specifies 
-the %product% linter that you would like to employ. 
-The [`--within-docker`](docker-image-configuration.topic#docker-config-reference-qodana-scan-within-docker) enables native mode.
--->
 
 ## Specific branches
 
@@ -225,7 +247,7 @@ If you wish to override this behavior, you can modify the following configuratio
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image <image>
+        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
 
 qodana:
   rules:
@@ -299,10 +321,10 @@ Here is an example configuration that uses the `inputs` block for configuring th
 include:
    - component: %gitlab-version%
      inputs:
+        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
         push-fixes: merge-request
-        args: |
-            --apply-fixes
-          --image <image>
+        args: --apply-fixes
+
 ```
 
 > Qodana could automatically modify not only the code, but also the configuration in 
@@ -325,7 +347,7 @@ include:
      inputs:
         upload-result: true
         artifact-name: Qodana report
-        args: --image <image>
+        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
 ```
 
 Assuming that you have configured your pipeline similarly, this is what it may look like:
@@ -350,10 +372,10 @@ block to run the [quality gate](quality-gate.topic) and [baseline](baseline.topi
 include:
    - component: %gitlab-version%
      inputs:
+        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
         args: |
             --baseline qodana.sarif.json 
-            --fail-threshold <number-of-accepted-problems> 
-            --image <image>
+            --fail-threshold <number-of-accepted-problems>
 ```
 
 ## Code Quality reports
@@ -375,7 +397,7 @@ you can override a path to reports using the `codequality` option:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image <image>
+        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
 
 qodana:
    artifacts:
@@ -393,7 +415,7 @@ Use the following configuration to get log data from %product% on GitLab CI/CD:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image <image>
+        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
@@ -414,7 +436,7 @@ than a pipeline timeout:
 include:
    - component: %gitlab-version%
      inputs:
-        args: --image <image>
+        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
@@ -433,29 +455,32 @@ qodana:
 The details are available on the [GitLab CI/CD website](https://gitlab.com/gitlab-org/gitlab/-/issues/284186).
 
 ## Configuration
+{id="gitlab-inputs-configuration"}
 
 > The description of all configuration options is available in our [repository](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
 {style="tip"}
 
 This table contains the list of options that can be configured using the `inputs` block:
 
-| Name                                           | Description                                                                                                                                                                                 | Default Value                     |
-|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
-| `stage`                                        | CI stage for %product% execution                                                                                                                                                            | `test`                            |
-| `job-name`                                     | A %product% job name. Could be used to customize the order of running several %product% jobs within the same pipeline                                                                       | `qodana`                          |
+| Name                                           | Description                                                                                                                                                                                  | Default Value                     |
+|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| `stage`                                        | CI stage for %product% execution                                                                                                                                                             | `test`                            |
+| `job-name`                                     | A %product% job name. Could be used to customize the order of running several %product% jobs within the same pipeline                                                                        | `qodana`                          |
 | `args`                                         | Additional [Qodana CLI `scan` command](https://github.com/jetbrains/qodana-cli#scan) arguments, split the arguments with commas (`,`), for example `-i,frontend,--print-problems`. Optional. | -                                 |
-| `results-dir`                                  | Directory to store the analysis results relative to the project root. Optional.                                                                                                             | `$CI_PROJECT_DIR/.qodana/results` |
-| `upload-result`                                | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                   | `false`                           |
-| `artifact-name`                                | Specify Qodana results artifact name, used for result uploading. Optional.                                                                                                                  | `Qodana report`                   |
-| `cache-dir`                                    | Directory to store Qodana cache relative to the project root. Optional.                                                                                                                     | `$CI_PROJECT_DIR/.qodana/caches`  |
-| `use-caches`                                   | Utilize [GitHub caches](https://docs.gitlab.com/ci/caching/) for Qodana runs. Optional.                                                                                                     | `true`                            |
-| `code-quality-report`                          | Use [Code Quality report](https://docs.gitlab.com/ci/testing/code_quality/) produced by Qodana                                                                                              | `true`                            |
-| `mr-mode`                                      | Analyze ONLY changed files in a merge request. Optional.                                                                                                                                    | `true`                            |
-| `post-mr-comment` {id="gitlab-summary-report"} | Post a comment with a Qodana results summary to a merge request. Optional.                                                                                                                  | `true`                            |
-| `push-fixes`                                   | Push Qodana fixes to the repository, can be `none`, `branch` to the current branch, or `merge-request`. Optional.                                                          | `none`                            |
-| `commit-message`                               | Commit message used when Quick-Fixes are applied                                                                                                                                            | `Apply quick-fixes by Qodana`     | 
-| `os`                                           | Operating system used for running pipelines, required for pre-configuration. Could accept the `linux`, `windows` or `mac` values                                                            | `linux`                           |
-
+| `results-dir`                                  | Directory to store the analysis results relative to the project root. Optional.                                                                                                              | `$CI_PROJECT_DIR/.qodana/results` |
+| `upload-result`                                | Upload Qodana results (SARIF, other artifacts, logs) as an artifact to the job. Optional.                                                                                                    | `false`                           |
+| `artifact-name`                                | Specify Qodana results artifact name, used for result uploading. Optional.                                                                                                                   | `Qodana report`                   |
+| `cache-dir`                                    | Directory to store Qodana cache relative to the project root. Optional.                                                                                                                      | `$CI_PROJECT_DIR/.qodana/caches`  |
+| `use-caches`                                   | Utilize [GitHub caches](https://docs.gitlab.com/ci/caching/) for Qodana runs. Optional.                                                                                                      | `true`                            |
+| `code-quality-report`                          | Use [Code Quality report](https://docs.gitlab.com/ci/testing/code_quality/) produced by Qodana                                                                                               | `true`                            |
+| `mr-mode`                                      | Analyze ONLY changed files in a merge request. Optional.                                                                                                                                     | `true`                            |
+| `post-mr-comment` {id="gitlab-summary-report"} | Post a comment with a Qodana results summary to a merge request. Optional.                                                                                                                   | `true`                            |
+| `push-fixes`                                   | Push Qodana fixes to the repository, can be `none`, `branch` to the current branch, or `merge-request`. Optional.                                                                            | `none`                            |
+| `commit-message`                               | Commit message used when Quick-Fixes are applied                                                                                                                                             | `Apply quick-fixes by Qodana`     | 
+| `os`                                           | Operating system used for running pipelines, required for pre-configuration. Could accept the `linux`, `windows` or `mac` values                                                             | `linux`                           |
+| `image`                                        | Linux-only option. The image used for job execution. Required since version 2026.1                                                                                                           | `docker:27.5.1`                   |
+| `windows-tags`                                 | Windows-only option. Custom runner tags used for the job                                                                                                                                     | `- saas-windows-medium-amd64`     |
+| `mac-tags`                                     | macOS-only option. Custom runner tags used for the job                                                                                                                                       | `- saas-macos-medium-m1`          |
 
 <seealso>
     <category ref="external">

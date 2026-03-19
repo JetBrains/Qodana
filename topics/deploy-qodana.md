@@ -63,10 +63,6 @@ This section provides information about system requirements and available deploy
 
 <link-summary>Native mode lets you run this linter without Docker.</link-summary>
 
-<note>
-    Native mode is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
-</note>
-
 > Native mode is incompatible with Docker containers of %product%, which means that you can run
 > %product% either as a Docker container or in native mode.
 > {style="note"}

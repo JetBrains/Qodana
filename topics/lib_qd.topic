@@ -799,10 +799,6 @@
             <li><a href="qodana-ide-plugin.md">%ide%</a></li>
         </list>
 
-        <note filter="native">
-            Native mode is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
-        </note>
-
         <tabs group="native-container" filter="non-ruby">
             <tab title="Native mode" group-key="native-mode" filter="native">
                 <tabs group="software">
