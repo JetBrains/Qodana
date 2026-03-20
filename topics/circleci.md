@@ -15,7 +15,7 @@ CircleCI is a cloud-based CI/CD system. You can build %instance% into your Circl
 
 ## Before you start
 
-### %cloud%
+### Qodana Cloud
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -132,6 +132,8 @@ workflows:
 ```
 
 ## Specific branch
+
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
 
 This configuration instructs %product% to analyze changes only on the `main` branch: 
 

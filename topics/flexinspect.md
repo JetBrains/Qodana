@@ -201,7 +201,7 @@ supposed to highlight.
 
 <img src="flexinspect-test-inspection.gif" width="881" alt="Testing the inspection in IDE" border-effect="line"/>
 
-### Run your custom inspection using %product%
+### Run your custom inspection using Qodana
 
 <note>
 Before you can run your inspection, you'll first need to select a suitable %product% <a href="linters.md">linter</a>. 

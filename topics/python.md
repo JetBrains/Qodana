@@ -127,7 +127,7 @@ by the `requirements.txt` file in your project root, go into the configuration f
 bootstrap: pip install -r requirements.txt
 ```
 
-### %cloud%
+### Qodana Cloud
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,python"/>
 
@@ -135,7 +135,7 @@ bootstrap: pip install -r requirements.txt
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,python"/>
 
-## Run %product%
+## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python,non-ruby,native"/>
 
@@ -143,7 +143,7 @@ bootstrap: pip install -r requirements.txt
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,python"/>
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 
@@ -218,7 +218,7 @@ bootstrap: |
 <code-block lang="shell">
 -e QODANA_PYTHON_PATH:/data/cache/conda/envs/qodana-env/bin/python
 </code-block>
-<p>Examples of using variables are provided in the <a anchor="Run+%25product%25"/> section.</p>
+<p>Examples of using variables are provided in the <a anchor="Run+Qodana"/> section.</p>
 </step>
 </procedure>
 

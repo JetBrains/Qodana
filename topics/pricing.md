@@ -241,14 +241,14 @@ Yes, you’ll be notified when the trial period expires.
 
 After its expiry, you’ll need to buy either the Ultimate or Ultimate Plus license. Expired trial licenses cannot be extended.
 
-### What are %instance% linters and %cloud% designed for?
+### What are Qodana linters and %cloud% designed for?
 
 Both %instance% linters and %cloud% are essential parts of the product named %instance%. You can analyze your codebase
 using %instance% linters, and you can use %cloud% for managing your projects and licenses, as well as collecting
 %instance% reports in a single place. For more details, see the [](cloud-use-cases.topic) page of the %cloud%
 documentation.
 
-### Can I use %instance% linters without creating a %cloud% account?
+### Can I use Qodana linters without creating a %cloud% account?
 {id="pricing-linters-without-creating-cloud-account"}
 
 If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account in %cloud% and complete
@@ -335,7 +335,7 @@ subscription period (excess usage).
 No refunds or credits will be issued if the number of active contributors during a month is lower than
 the prepaid limit.
 
-### Where does %product% store all license information?
+### Where does Qodana store all license information?
 
 %cloud% stores all information about your Ultimate and Ultimate Plus licenses. This explains why you need to 
 create a %cloud% account before running %product%. Apart from this functionality, %cloud% provides several other 

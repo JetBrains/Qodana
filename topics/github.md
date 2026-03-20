@@ -10,7 +10,7 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 
 ## Prepare your project
 
-### %cloud%
+### Qodana Cloud
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -129,6 +129,8 @@ file using the `sarif_file` key.
 > Qodana side before submitting analysis results to GitHub code scanning, see the [](#Baseline+and+quality+gate) section for details.
 
 ## Pull requests
+
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
 
 By default, analysis of pull requests is enabled in %product%, see the [`pr-mode`](#Configuration) option description for details.
 To learn how to analyze code between two commits, see the [](analyze-pr.md#Analyze+changes+between+two+commits) chapter for details.
@@ -291,7 +293,7 @@ You can set up a Qodana workflow badge in your repository, to do it, follow thes
     </step>
 </procedure>
 
-## %product% logs
+## Qodana logs
 
 In the `.github/workflows/code_quality.yml` file, set `upload-result` to `true`:
 

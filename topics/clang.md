@@ -59,7 +59,7 @@
 <link-summary>%qdcpp% and %qdcppc% linters let you analyze C and C++ projects that provide a `compile_commands.json` file.</link-summary>
 
 <note>
-%qdcpp% and %qdcppc% are currently in Early Access, which means that they may not be reliable, may not work as intended, and may contain errors.
+ %qdcppc% is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
 Any use of the EAP product is at your own risk. Your feedback is very welcome in our 
 <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
@@ -235,7 +235,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
     </step>
 </procedure>
 
-### %cloud%
+### Qodana Cloud
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,clang"/>
 
@@ -243,7 +243,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
-## Run %product%
+## Run Qodana
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 <include from="lib_qd.topic" element-id="major-version-note"/>
@@ -525,7 +525,7 @@ project <a href="https://qodana.cloud">%cloud%</a> and review the analysis resul
 
 <!-- Here add about observing locally generated files -->
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 

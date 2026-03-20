@@ -80,7 +80,7 @@ Choose the software that you would like to use for running %product%, for exampl
     </tab>
 </tabs>
 
-## Run %product% 
+## Run Qodana 
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">

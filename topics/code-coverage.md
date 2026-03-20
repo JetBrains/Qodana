@@ -426,7 +426,7 @@ jobs:
 After you have [prepared the project](#code-coverage-before-you-start) and [ran the code coverage](#run-code-coverage), you can view 
 code coverage reports in [%cloud%](#overview-code-coverage-qodana-cloud) or using your [IDE](#IDE). 
 
-### %cloud%
+### Qodana Cloud
 {id="overview-code-coverage-qodana-cloud"}
 
 You can find code coverage statistics in the upper-right corner of the [%instance% report](ui-overview.md#Open+an+HTML+report) UI. It also 

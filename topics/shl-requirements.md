@@ -1,6 +1,6 @@
 # Requirements
 
-## %product% license
+## Qodana license
 
 Reach out to our support team to request a license that can be used by %premlite%.
 

@@ -923,6 +923,44 @@
                             <a href="docker-image-configuration.topic" anchor="docker-config-reference-qodana-scan">option</a>
                             to specify a <a href="linters.md">linter</a>. The
                             <code>--within-docker</code> option in the <code>false</code> state is used for enabling native mode.</p>
+                        <p filter="jvm">To manage access to private Maven repositories, do the following:</p>
+                        <procedure filter="jvm">
+                            <step>
+                                <p>Create the <code>settings.xml</code> file containing references to credentials of your private Maven repository, for example:</p>
+                                <code-block lang="xml" filter="jvm">
+                                    &lt;servers&gt;
+                                        &lt;server&gt;
+                                            &lt;id&gt;my-secret-repository&lt;/id&gt;
+                                            &lt;username&gt;${env.REPOSITORY_USERNAME}&lt;/username&gt;
+                                            &lt;password&gt;${env.REPOSITORY_PASSWORD}&lt;/password&gt;
+                                        &lt;/server&gt;
+                                    &lt;/servers&gt;
+                                </code-block>
+                            </step>
+                            <step>
+                                <p>In your GitHub Actions configuration, create the <code>~/.m2/</code> directory, and copy the <code>settings.xml</code> file there, for example:</p>
+                                <code-block lang="yaml" filter="jvm">
+                                      - uses: actions/setup-java@v4
+                                        with:
+                                            settings-path: ${{ github.workspace }}
+
+                                      - name: Place Maven settings.xml where %product% expects it
+                                        run: |
+                                            mkdir -p ~/.m2
+                                            cp "${{ github.workspace }}/settings.xml" ~/.m2/settings.xml
+                                </code-block>
+                            </step>
+                            <step><p>In your GitHub Actions configuration, export the credentials values to the environment variables, for example:</p>
+                                <code-block lang="yaml" filter="jvm">
+                                  - name: Qodana Scan
+                                    uses: %action-version%
+                                    env:
+                                        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                                        REPOSITORY_USERNAME: ${{ secrets.REPOSITORY_USERNAME }}
+                                        REPOSITORY_PASSWORD: ${{ secrets.REPOSITORY_PASSWORD }}
+                                </code-block>
+                            </step>
+                        </procedure>
                         <p>More configuration examples are available in the <a href="github.md"/> section.</p>
                     </tab>
                     <tab title="Command line" group-key="command-line">

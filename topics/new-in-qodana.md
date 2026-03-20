@@ -1,8 +1,25 @@
 [//]: # (title: New in Qodana)
 
-Version 2025.3 of %product% contains the updates described below.
+This page provides information about updates in %product% available in the latest version, as well as the 
+chronological list of all significant [%cloud%](cloud-quickstart.md) updates.
 
-<!--## Podman support 
+## Version 2026.1
+
+### Native mode release
+
+Native mode is released from the EAP version. The details are available in the [](deploy-qodana.md#deploy-qodana-native-mode).
+
+### %cpp% release
+
+The [%cpp%](clang.md) linter for C and C++ languages is released from the EAP version.
+
+### The new Rust linter
+
+Now you can analyze Rust projects using the new [%rust%](rust.md) linter.
+
+<!--Version 2025.3 of %product% contains the updates described below.
+
+## Podman support 
 
 Starting from this version, %product% supports Podman as a container engine, see the 
 [](deploy-qodana.md#Different+Docker+contexts+or+Podman) section for details.
@@ -34,11 +51,12 @@ rootJavaProjects:
 - "./gradleProject"
 - "./mavenModule/pom.xml"
 ```
--->
+
 
 ## SDK support in the %dotnet% linter
 
 The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions 8.0, 9.0 and 10.0 of SDK.
+-->
 
 ## Qodana Cloud
 

@@ -61,7 +61,7 @@ click the **Install plugin** button.
 Alternatively, navigate to **File | Settings | Plugins** and install the [**Security Analysis by Qodana**](%plugin-url%) 
 plugin. 
 
-### %product% linters
+### Qodana linters
 {id="ta-deploy-other"}
 
 Taint analysis is available by default once you enable the
@@ -198,7 +198,7 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
 
 <img src="taint-analysis-configure-tab.png" alt="Configuring the Security Analysis tab" width="706" border-effect="line"/>
 
-### %product% linters
+### Qodana linters
 {id="ta-analysis-other"}
 
 <snippet id="running-taint-analysis">

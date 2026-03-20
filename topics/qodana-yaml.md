@@ -60,6 +60,12 @@ bootstrap: |+
 > You can investigate %product% behavior using files contained in the
 > [`/data/results`](docker-image-configuration.topic#docker-config-reference-overview-logs) directory.
 
+> Starting from version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file
+> containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the
+> `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
+{style="note"}
+
+
 To be able to use syntax highlighting and validation in your IDE, you can create the `prepare-qodana.sh` shell script
 and save it in the root directory of your project:
 

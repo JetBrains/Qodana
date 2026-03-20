@@ -19,7 +19,7 @@ including building, testing, and deploying software. This section explains how y
 
 ## Before you start
 
-### %cloud%
+### Qodana Cloud
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -92,6 +92,8 @@ you would like to configure %instance% with like the [quality gate and baseline]
 ## Analyze specific branches
 
 <link-summary>Using the `when` block, you can tell %instance% which branches of your project to analyze.</link-summary>
+
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
 
 Using the `when` block, you can tell %instance% which branches of your project to analyze. For example, this configuration 
 lets you analyze only the `feature` branch. 

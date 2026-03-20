@@ -60,7 +60,7 @@ project. You can take this ID from the %cloud% URL according to the pattern
 
 <img src="visual-studio-custom-linking.png" widh="535" alt="Custom project linking" border-effect="line"/>
 
-## Explore %product% reports
+## Explore Qodana reports
 {id="visual-studio-explore-reports"}
 
 <link-summary>You can explore Qodana analysis reports in Visual Studio. </link-summary>

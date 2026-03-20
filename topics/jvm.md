@@ -188,7 +188,7 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="jvm-before-you-start"}
 
-### %cloud%
+### Qodana Cloud
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,jvm"/>
 
@@ -266,7 +266,7 @@ $ docker run -v /path/to/jdk:/root/.jdks/jdk \
 jetbrains/qodana-<linter>
 ```
 
-## Run %product%
+## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm,native,non-ruby"/>
 
@@ -274,7 +274,7 @@ jetbrains/qodana-<linter>
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,jvm"/>
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 

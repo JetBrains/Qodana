@@ -42,7 +42,7 @@ Alternatively, in the command palette type `%product%` to see the list of option
 
 <img src="vs-code-ui-navigate-alt.png" alt="Navigating to %product% through a command palette" width="706" border-effect="line"/>
 
-## Run %product% locally
+## Run Qodana locally
 {id="vs-code-run-locally"}
 
 <link-summary>You can run %product% in Visual Studio Code and then forward analysis reports to %cloud%. </link-summary>
@@ -75,7 +75,7 @@ button and then choose the report you would like to explore.
 
 To return the **PROBLEMS** tab to the default state, in the **%product%** view click the **Turn Analysis Off** button.
 
-## Connect to %cloud%
+## Connect to Qodana Cloud
 {id="vs-code-connect-to-qodana-cloud"}
 
 <link-summary>Connect to %cloud% to forward and get %product% reports in Visual Studio Code. </link-summary>
@@ -120,7 +120,7 @@ On this tab, you can click problem items and navigate to code fragments where %i
 
 You can also view analysis reports generated after local %product% runs using the **View History** button in the [%product% view](#vs-code-ui-overview). 
 
-## Configure %product%
+## Configure Qodana
 {id="vs-code-configure-extension"}
 
 <link-summary>Learn how you can configure the Path Prefix and Project ID settings in Visual Studio Code. </link-summary>
@@ -205,7 +205,7 @@ to reset credentials and settings. </link-summary>
 You can use the **Qodana: Reset authentication** command to switch between %cloud% accounts without clearing settings. 
 This can be useful in case you have several organizations under different %cloud% accounts.
 
-### I cannot get %instance% reports using current settings
+### I cannot get Qodana reports using current settings
 
 You can use the **Qodana: Reset all settings** command to reset all settings and credentials and try to configure 
 the extension again, or use other settings.

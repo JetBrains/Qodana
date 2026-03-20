@@ -65,7 +65,7 @@ root/
     qodana-frontend.yaml
 ```
 
-### %cloud%
+### Qodana Cloud
 {id="overview-code-coverage-qodana-cloud"}
 
 You can view analysis reports using [%cloud%](https://qodana.cloud). On the %cloud% website, create one 

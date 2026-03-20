@@ -64,7 +64,8 @@ This section provides information about system requirements and available deploy
 <link-summary>Native mode lets you run this linter without Docker.</link-summary>
 
 > Native mode is incompatible with Docker containers of %product%, which means that you can run
-> %product% either as a Docker container or in native mode.
+> %product% either as a Docker container or in native mode. Also, this mode is incompatible with several Docker image-related 
+> options like `--image`, `-e, --env`, and `-v, --volume`.
 > {style="note"}
 
 Native mode comes in handy if you have to deal with private packages or run %instance% on the operating 

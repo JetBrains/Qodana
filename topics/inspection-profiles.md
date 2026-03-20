@@ -33,7 +33,7 @@ can negatively affect inspection performance and can result in using inspections
 This section explains how you can use 
 existing %product% profiles, create your own profiles, and set up profiles for analyzing your projects using %product%.
 
-## Existing %product% profiles
+## Existing Qodana profiles
 {id="inspection-profiles-existing-profiles"}
 
 <link-summary>Out of the box, Qodana provides the qodana.starter, qodana.recommended, and qodana.sanity profiles.</link-summary>
@@ -82,6 +82,11 @@ Out of the box, you can use the following %product% profiles:
 
 These profiles are hosted on 
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), so you can learn them in detail.
+
+> Starting from version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file
+> containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the
+> `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
+{style="note"}
 
 ### Set up an existing profile
 {id="inspection-profiles-setup-a-profile"}

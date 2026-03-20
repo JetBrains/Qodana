@@ -22,7 +22,7 @@ You can also have access to %instance% using the **Qodana** tab available in the
 
 <img src="ide-plugin-intro-tool-window.png" width="706" alt="The Qodana tab" border-effect="line"/>
 
-## Run %instance% locally
+## Run Qodana locally
 {id="ide-plugin-run-qodana"}
 
 You can run %instance% locally and then forward analysis reports to [%cloud%](https://qodana.cloud) for storage and analysis purposes.
@@ -82,7 +82,7 @@ latest %instance% report and view it.
     </step>
 </procedure>
 
-## Configure %instance% for CI
+## Configure Qodana for CI
 {id="ide-plugin-cicd"}
 
 After logging in to [%cloud%](https://qodana.cloud), you can configure %instance% in your CI pipelines.

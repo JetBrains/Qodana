@@ -149,6 +149,8 @@ Below are basic configuration examples that will be expanded in the subsequent c
 
 ## Pull requests
 
+> To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
+
 This is how you can enable %product% analysis for pull requests:
 
 <tabs group="azure-config-tabs">

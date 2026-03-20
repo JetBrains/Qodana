@@ -124,7 +124,7 @@ Your feedback is very welcome in our
 ## Before you start
 {id="dotnet-before-you-start"}
 
-### %cloud%
+### Qodana Cloud
 {id="dotnet-before-you-start-qodana-cloud"}
 
 To run linters, you need to get a [project token](project-token.md) that
@@ -359,7 +359,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     </tab>
 </tabs>
 
-## Run %product%
+## Run Qodana
 {id="dotnet-run-qodana"}
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
@@ -421,7 +421,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                         uses: %action-version%
                                         with:
                                             args: | 
-                                                --linter %qd-linter% 
+                                                --linter %qd-linter%
                                                 --within-docker false
                                         env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -1011,6 +1011,15 @@ Depending on the linter, you can run %product% using private NuGet repositories 
         </code-block>
     </tab>
 </tabs>
+
+In case dependencies cannot be resolved, configure the following steps before running %product%:
+
+<procedure>
+    <step>Restore dependencies using the <code>dotnet restore</code> command</step>
+    <step>Copy all dependency files to a directory accessible by %product%. For example, this can be a subdirectory within 
+    the <a href="docker-image-configuration.topic" anchor="docker-config-reference-configuration-examples">cache directory</a>
+    </step>
+</procedure>
 
 <!--### Dependency restore
 

@@ -97,7 +97,7 @@ include:
     - name: Eslint
 ```
 
-### %cloud%
+### Qodana Cloud
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>
 
@@ -105,7 +105,7 @@ include:
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
-## Run %product%
+## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js,native,non-ruby"/>
 
@@ -113,7 +113,7 @@ include:
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,js"/>
 
-## Extend %product% configuration
+## Extend Qodana configuration
 
 ### Adjusting the scope of analysis
 

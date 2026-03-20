@@ -11,7 +11,8 @@ The project configuration stage consists of the following steps:
 * Project opening. During this step, %product% converts a project into an internal representation, identifies the project
   structure and configures various services like specific language support, file parsing, and VCS handling.
 * Project configuration. During this step, %product% enumerates project files, pulls dependencies, creates indexes and
-  performs language-specific configuration (e.g. identifies where to look for the Python SDK).
+  performs language-specific configuration (e.g. identifies where to look for the Python SDK). More information about 
+  performance is available in the [](configure-qodana.md#Performance+optimization) chapter.
 
 During the project analysis stage, %product% iterates through all enumerated files, filters them based on the scope,
 matches inspections with files and executes these inspections.
