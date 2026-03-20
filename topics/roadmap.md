@@ -7,7 +7,7 @@ As of 2026.1, %product% continues to grow, and we would like to share our plans 
 ## Core Qodana
 
 - Extending security analysis capabilities for Qodana
-- Qodana for RustRover (new linter, the EAP release)
+- Qodana for Rust (new linter, the EAP release)
 - Qodana for C/C++ stable release
 - Code Provenance: extended code survival metrics and authorship tracking
 - Internal analytics improvements

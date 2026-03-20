@@ -50,6 +50,7 @@ full versions of the respective %instance% license type.
 | JavaScript           | 𐄂        | ✔                          | 
 | PHP                  | 𐄂        | ✔                          | 
 | Ruby                 | 𐄂        | ✔                          | 
+| Rust                 | 𐄂        | ✔                          | 
 | TypeScript           | 𐄂        | ✔                          | 
 
 Here, C and C++ inspections are applicable for projects containing `.sln` files.
@@ -191,6 +192,7 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 * [%cpp%](clang.md)
 * [%jvm-a%](jvm.md)
 * [%ruby%](ruby.md)
+* [%rust%](rust.md)
 
 ## Qodana licensing: an overview
 

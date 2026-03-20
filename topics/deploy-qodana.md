@@ -195,7 +195,7 @@ credentials, and resolve dependencies.
     </tr>
     <tr>
       <td>
-            <p>%rust-langs%</p>
+            <p><a href="rust.md">%rust-langs%</a></p>
       </td>
         <td>
             <p><code>%rust-image%</code></p>

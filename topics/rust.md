@@ -32,7 +32,7 @@
 <var name="native-arg" value="QDPHP"/>
 <var name="teamcity-linter-list" value="Here, select the %qd% linter."/>
 
-<link-summary>%qd% is based on %ide% and provides inspections for PHP, JavaScript, and TypeScript.</link-summary>
+<link-summary>%qd% is based on %ide% and provides inspections for the Rust programming language.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks.
 To analyze Rust projects, you can use the %rust% linter with the following characteristics:
