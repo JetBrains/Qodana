@@ -338,10 +338,10 @@
     <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.3"/>
     <var name="circleci-version" value="jetbrains/qodana@2025.3"/>
 
-    <var name="version-previous" value="2025.2"/>
-    <var name="version-current" value="2025.3"/>
-    <var name="version-for-combined" value="2025.3"/>
-    <var name="version-for-combined-cpp" value="2025.3-eap"/>
+    <var name="version-previous" value="2025.3"/>
+    <var name="version-current" value="2026.1"/>
+    <var name="version-for-combined" value="2026.1"/>
+    <var name="version-for-combined-cpp" value="2026.1-eap"/>
 
     <!-- Self-hosted variables -->
     <var name="premlite" value="Qodana Self-Hosted"/>

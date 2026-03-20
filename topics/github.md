@@ -26,6 +26,8 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 
+> Information about native and container modes is available in the [](deploy-qodana.md) section.
+
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
 <note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode

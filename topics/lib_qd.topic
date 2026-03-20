@@ -370,34 +370,73 @@
             <step>To analyze the <code>main</code> and <code>master</code> branches, as well as release branches and the
                 pull requests coming to your repository, save this workflow configuration to the
                 <code>.github/workflows/code_quality.yml</code> file:
+                <tabs>
+                <tab title="Native mode">
                 <code-block lang="yaml">
                     name: Qodana
                     on:
-                      workflow_dispatch:
-                      pull_request:
-                      push:
-                        branches: # Specify your branches here
-                          - main # The 'main' branch
-                          - master # The 'master' branch
-                          - 'releases/*' # The release branches
+                        workflow_dispatch:
+                        pull_request:
+                        push:
+                            branches: # Specify your branches here
+                                - main # The 'main' branch
+                                - master # The 'master' branch
+                                - 'releases/*' # The release branches
 
                     jobs:
-                      qodana:
-                        runs-on: ubuntu-latest
-                        permissions:
-                          contents: write
-                          pull-requests: write
-                          checks: write
-                        steps:
-                          - uses: actions/checkout@v3
-                            with:
-                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                              fetch-depth: 0  # a full history is required for pull request analysis
-                          - name: 'Qodana Scan'
-                            uses: %action-version%
-                            env:
-                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                        qodana:
+                            runs-on: ubuntu-latest
+                            permissions:
+                                contents: write
+                                pull-requests: write
+                                checks: write
+                            steps:
+                                - uses: actions/checkout@v3
+                                  with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                - name: 'Qodana Scan'
+                                  uses: %action-version%
+                                  with:
+                                      args: |
+                                          --linter &lt;qodana-linter&gt;
+                                          --within-docker false
+                                  env:
+                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
+                    <p>Replace <code>&lt;qodana-linter&gt;</code> with the name of the <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">%instance% linter</a> that you would like to use.</p>
+                </tab>
+                <tab title="Container mode">
+                <code-block lang="yaml">
+                    name: Qodana
+                    on:
+                        workflow_dispatch:
+                        pull_request:
+                        push:
+                            branches: # Specify your branches here
+                                - main # The 'main' branch
+                                - master # The 'master' branch
+                                - 'releases/*' # The release branches
+
+                    jobs:
+                        qodana:
+                            runs-on: ubuntu-latest
+                            permissions:
+                                contents: write
+                                pull-requests: write
+                                checks: write
+                            steps:
+                                - uses: actions/checkout@v3
+                                  with:
+                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                      fetch-depth: 0  # a full history is required for pull request analysis
+                                - name: 'Qodana Scan'
+                                  uses: %action-version%
+                                  env:
+                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+                </code-block>
+                </tab>
+                </tabs>
             </step>
         </procedure>
     </snippet>
