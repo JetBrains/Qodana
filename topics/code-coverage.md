@@ -113,7 +113,7 @@ If your codebase files are contained in the `<project-root>/src/` directory, the
 directory. You can copy the coverage report file by using the [`boostrap`](before-running-qodana.md) key, for example:
 
     ```yaml
-   boostrap: copy path/to/coverage/file <project-root>/.qodana/code-coverage 
+   bootstrap: copy path/to/coverage/file <project-root>/.qodana/code-coverage 
     ```
 
     To learn how to override the `<project-root>/.qodana/code-coverage` directory, see the recommendation from the [](#run-code-coverage) chapter.
