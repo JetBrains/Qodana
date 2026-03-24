@@ -114,7 +114,7 @@ In this case, Qodana comes with a default `qodana` user that possesses root priv
 <p>You can compare these linters by programming languages and other supported technologies by navigating to the <a anchor="dotnet-feature-matrix">feature matrix</a>.</p>
 
 <note>
-%qd% and %qd-co% are currently in Early Access, which means that they may not be reliable, may not work as intended, and may contain errors.
+%qd-co% is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
 Your feedback is very welcome in our 
 <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
