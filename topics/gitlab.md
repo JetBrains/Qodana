@@ -231,7 +231,7 @@ include:
    - component: %gitlab-version%
      inputs:
         os: windows
-        args: --image jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+        args: --image jetbrains/qodana-<image>:<version>
 ```
 
 ## Specific branches
@@ -249,7 +249,7 @@ If you wish to override this behavior, you can modify the following configuratio
 include:
    - component: %gitlab-version%
      inputs:
-        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+        image: jetbrains/qodana-<image>:<version>
 
 qodana:
   rules:
@@ -323,7 +323,7 @@ Here is an example configuration that uses the `inputs` block for configuring th
 include:
    - component: %gitlab-version%
      inputs:
-        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+        image: jetbrains/qodana-<image>:<version>
         push-fixes: merge-request
         args: --apply-fixes
 
@@ -349,7 +349,7 @@ include:
      inputs:
         upload-result: true
         artifact-name: Qodana report
-        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+        image: jetbrains/qodana-<image>:<version>
 ```
 
 Assuming that you have configured your pipeline similarly, this is what it may look like:
@@ -374,7 +374,7 @@ block to run the [quality gate](quality-gate.topic) and [baseline](baseline.topi
 include:
    - component: %gitlab-version%
      inputs:
-        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+        image: jetbrains/qodana-<image>:<version>
         args: |
             --baseline qodana.sarif.json 
             --fail-threshold <number-of-accepted-problems>
@@ -399,7 +399,7 @@ you can override a path to reports using the `codequality` option:
 include:
    - component: %gitlab-version%
      inputs:
-        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+        image: jetbrains/qodana-<image>:<version>
 
 qodana:
    artifacts:
@@ -417,7 +417,7 @@ Use the following configuration to get log data from %product% on GitLab CI/CD:
 include:
    - component: %gitlab-version%
      inputs:
-        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+        image: jetbrains/qodana-<image>:<version>
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
@@ -438,7 +438,7 @@ than a pipeline timeout:
 include:
    - component: %gitlab-version%
      inputs:
-        image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+        image: jetbrains/qodana-<image>:<version>
         upload-result: true
         results-dir: $CI_PROJECT_DIR/.qodana/results
 
