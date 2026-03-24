@@ -132,7 +132,7 @@ To run %product% in [native mode](deploy-qodana.md#deploy-qodana-native-mode), u
             - component: %gitlab-version%
               inputs:
                  os: windows | mac
-                 args: --linter &lt;linter&gt; 
+                 args: --linter &lt;linter&gt; --within-docker false
       </code-block>
       <p>Here, the <code>inputs:args</code> <a anchor="gitlab-inputs-configuration">argument</a> configures the %product%
       <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">linter</a>.</p>
@@ -143,17 +143,18 @@ To run %product% in [native mode](deploy-qodana.md#deploy-qodana-native-mode), u
 All these configurations [include](%ComponentInvocation%) the %product% Scan GitLab Pipeline component and enables [caches](#Configure+cache),
 [Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis,
 and comments to merge requests. You can override these settings using descriptions from the sections below and the
-[](#gitlab-inputs-configuration) chapter. The `--image` argument specifies a %product% [image](docker-image-configuration.topic#docker-config-reference-qodana-scan-image) that you would like to employ.
+[](#gitlab-inputs-configuration) chapter. The `--image` argument specifies a %product% [image](docker-image-configuration.topic#docker-config-reference-qodana-scan-image) in case of Windows or macOS.
 
 The included component creates the `qodana` job that can be configured as any other job in GitLab CI/CD. 
 You can view the predefined configuration of this job using our [template](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
 
-For example, this code snippet lets you change the image used for running the `qodana` job, define `before_script`, 
-change job execution rules, and add an environmental variable.
+For example, this code snippet lets define `before_script`, change job execution rules, and add an environmental variable.
 
 ```yaml
 include:
   - component: %gitlab-version%
+    inputs:
+       image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
 
 some-task:
   stage: test
@@ -192,10 +193,10 @@ In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on t
 By default, caching is enabled in %product% with the following keys: 
 
 ```yaml
-      - key: qodana-2025.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-%version-current%-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2025.1-$CI_DEFAULT_BRANCH-
-           - qodana-2025.1-
+           - qodana-%version-current%-$CI_DEFAULT_BRANCH-
+           - qodana-%version-current%-
 ```
 
 If you wish to override the default cache settings, use this configuration: 
@@ -208,10 +209,10 @@ include:
 
 qodana:
    cache:
-      - key: qodana-2025.1-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
+      - key: qodana-%version-current%-$CI_DEFAULT_BRANCH-$CI_COMMIT_REF_SLUG
         fallback_keys:
-           - qodana-2025.1-$CI_DEFAULT_BRANCH-
-           - qodana-2025.1-
+           - qodana-%version-current%-$CI_DEFAULT_BRANCH-
+           - qodana-%version-current%-
         paths:
            - $[[ inputs.cache-dir ]]
 
@@ -426,8 +427,7 @@ qodana:
       paths:
          - .qodana/results/
       expose_as: 'Qodana report'
-
-
+      when: always
 ```
 This configuration uses the `.qodana/results` directory for generating logs and then exposes this directory as an artifact.
 
@@ -450,6 +450,7 @@ qodana:
       paths:
          - .qodana/results/
       expose_as: 'Qodana report'
+      when: always
 
 
 ```
