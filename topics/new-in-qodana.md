@@ -1,9 +1,9 @@
 [//]: # (title: New in Qodana)
 
-This page provides information about updates in %product% available in the latest version, as well as the 
+This page provides information about %product% updates available in the latest version, as well as the 
 chronological list of all significant [%cloud%](cloud-quickstart.md) updates.
 
-## Version 2026.1
+## Qodana version 2026.1
 
 ### Native mode release
 
@@ -13,9 +13,9 @@ Native mode is released from the EAP version. The details are available in the [
 
 The [%cpp%](clang.md) linter for C and C++ languages is released from the EAP version.
 
-### The new Rust linter
+<!--### The new Rust linter
 
-Now you can analyze Rust projects using the new [%rust%](rust.md) linter.
+Now you can analyze Rust projects using the new [%rust%](rust.md) linter. -->
 
 <!--Version 2025.3 of %product% contains the updates described below.
 

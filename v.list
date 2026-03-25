@@ -318,9 +318,9 @@
 
     <!-- Qodana linter images -->
     <var name="jvm-image" value="jetbrains/qodana-jvm:2026.1-eap"/>
-    <var name="jvm-a-image" value="jetbrains/qodana-android:2026.1-eap"/>
+    <var name="jvm-a-image" value="jetbrains/qodana-android:2025.3"/>
     <var name="jvm-co-image" value="jetbrains/qodana-jvm-community:2026.1-eap"/>
-    <var name="jvm-co-a-image" value="jetbrains/qodana-jvm-android:2026.1-eap"/>
+    <var name="jvm-co-a-image" value="jetbrains/qodana-jvm-android:2025.3"/>
     <var name="dotnet-image" value="jetbrains/qodana-dotnet:2026.1-eap"/>
     <var name="dotnet-co-image" value="jetbrains/qodana-cdnet:2026.1-eap"/>
     <var name="python-image" value="jetbrains/qodana-python:2026.1-eap"/>

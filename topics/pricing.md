@@ -192,7 +192,7 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 * [%cpp%](clang.md)
 * [%jvm-a%](jvm.md)
 * [%ruby%](ruby.md)
-* [%rust%](rust.md)
+<!--* [%rust%](rust.md) -->
 
 ## Qodana licensing: an overview
 
