@@ -154,7 +154,7 @@ For example, this code snippet lets define `before_script`, change job execution
 include:
   - component: %gitlab-version%
     inputs:
-       image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+       image: jetbrains/qodana-<image>:<version>
 
 some-task:
   stage: test
