@@ -108,8 +108,7 @@
         <p>Depending on the location of license information, the <a href="jvm.md">%jvm%</a> linter performs a
             sequence of steps to find it. It searches for any license references in the
             <code>LICENSE.*</code> files. Next, it scans through the <code>pom.xml</code> file. If necessary,
-            it then scans through dependency source files. Otherwise, the linter requests the
-            <a href="https://package-search.jetbrains.com/"><code>PACKAGE-SEARCH</code></a> plugin.
+            it also scans through dependency source files.
         </p>
 
         <p>The <a href="js.md">%js%</a> linter using npm reads information about project and dependency licenses using
