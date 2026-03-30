@@ -332,6 +332,7 @@
     <var name="clang-image" value="jetbrains/qodana-clang:2026.1-eap"/>
     <var name="ruby-image" value="jetbrains/qodana-ruby:2026.1-eap"/>
     <var name="rust-image" value="jetbrains/qodana-rust:2026.1-eap"/>
+    <var name="python-image-combined" value="jetbrains/qodana-python&lt;-community&gt;:2026.1-eap"/>
 
     <!-- Extension versions -->
     <var name="action-version" value="JetBrains/qodana-action@v2025.3"/>

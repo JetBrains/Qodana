@@ -10,6 +10,9 @@ Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows deve
 * [Connect to %cloud%](#vs-code-ui-overview)
 * [Explore %product% reports](#visual-studio-explore-reports) downloaded from %cloud%
 
+> Using %product% in Visual Studio does not require a ReSharper license.
+{style="note"}
+
 ## Before you start
 
 <link-summary>Make sure that you have a project in %cloud%, and you can install ReSharper. </link-summary>
