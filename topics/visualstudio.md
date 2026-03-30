@@ -10,6 +10,9 @@ Visual Studio is a comprehensive IDE for .NET and C++ developers on Windows deve
 * [Connect to %cloud%](#vs-code-ui-overview)
 * [Explore %product% reports](#visual-studio-explore-reports) downloaded from %cloud%
 
+> Using %product% in Visual Studio does not require a ReSharper license.
+{style="note"}
+
 ## Before you start
 
 <link-summary>Make sure that you have a project in %cloud%, and you can install ReSharper. </link-summary>
@@ -60,7 +63,7 @@ project. You can take this ID from the %cloud% URL according to the pattern
 
 <img src="visual-studio-custom-linking.png" widh="535" alt="Custom project linking" border-effect="line"/>
 
-## Explore %product% reports
+## Explore Qodana reports
 {id="visual-studio-explore-reports"}
 
 <link-summary>You can explore Qodana analysis reports in Visual Studio. </link-summary>
