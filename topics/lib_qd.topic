@@ -835,8 +835,8 @@
                                           uses: %action-version%
                                           with:
                                               args: |
-                                                  --linter,%qd-linter%,
-                                                  --within-docker,false
+                                                  --linter %qd-linter%
+                                                  --within-docker false
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -865,8 +865,8 @@
                                           uses: %action-version%
                                           with:
                                               args: |
-                                                  --linter,%qd-linter-combined%,
-                                                  --within-docker,false
+                                                  --linter %qd-linter-combined%
+                                                  --within-docker false
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -895,8 +895,8 @@
                                           uses: %action-version%
                                           with:
                                               args: |
-                                                  --linter,%qd-linter-combined%,
-                                                  --within-docker,false
+                                                  --linter %qd-linter-combined%
+                                                  --within-docker false
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1050,7 +1050,7 @@
                                         - name: 'Qodana Scan'
                                           uses: %action-version%
                                           with:
-                                              args: --linter,%qd-linter%
+                                              args: --linter %qd-linter%
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1078,8 +1078,8 @@
                                         - name: 'Qodana Scan'
                                           uses: %action-version%
                                           with: # Uncomment the linter that you wish to use
-                                            # args: --linter,%qd-linter%
-                                            # args: --linter,%qd-co-linter%
+                                            # args: --linter %qd-linter%
+                                            # args: --linter %qd-co-linter%
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1108,10 +1108,10 @@
                                         - name: 'Qodana Scan'
                                           uses: %action-version%
                                           with: # Uncomment the linter that you wish to use
-                                            # args: --linter,%qd-linter%
-                                            # args: --linter,%qd-co-linter%
-                                            # args: --linter,%qd-a-linter%
-                                            # args: --linter,%qd-an-linter%
+                                            # args: --linter %qd-linter%
+                                            # args: --linter %qd-co-linter%
+                                            # args: --linter %qd-a-linter%
+                                            # args: --linter %qd-an-linter%
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1395,9 +1395,9 @@
                                 uses: %action-version%
                                 with:
                                   args: |
-                                    --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                    --linter,%qd-linter%,
-                                    --within-docker,false
+                                    --baseline &lt;path/to/qodana.sarif.json&gt;
+                                    --linter %qd-linter%
+                                    --within-docker false
                                 env:
                                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -1427,9 +1427,9 @@
                                       uses: %action-version%
                                       with:
                                           args: |
-                                              --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                              --linter,%qd-linter-combined%,
-                                              --within-docker,false
+                                              --baseline &lt;path/to/qodana.sarif.json&gt;
+                                              --linter %qd-linter-combined%
+                                              --within-docker false
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -1459,9 +1459,9 @@
                                       uses: %action-version%
                                       with:
                                           args: |
-                                              --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                              --linter,%qd-linter-combined%,
-                                              --within-docker,false
+                                              --baseline &lt;path/to/qodana.sarif.json&gt;
+                                              --linter %qd-linter-combined%
+                                              --within-docker false
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -1540,10 +1540,10 @@
                                   - name: 'Qodana Scan'
                                     uses: %action-version%
                                     with: # Uncomment the linter that you wish to use
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-co-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-a-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-an-linter%
+                                      # args: --baseline &lt;path/to/qodana.sarif.json&gt; --linter %qd-linter%
+                                      # args: --baseline &lt;path/to/qodana.sarif.json&gt; --linter %qd-co-linter%
+                                      # args: --baseline &lt;path/to/qodana.sarif.json&gt; --linter %qd-a-linter%
+                                      # args: --baseline &lt;path/to/qodana.sarif.json&gt; --linter %qd-an-linter%
                                     env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1572,8 +1572,8 @@
                                   - name: 'Qodana Scan'
                                     uses: %action-version%
                                     with: # Uncomment the linter that you wish to use
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-co-linter%
+                                      # args: --baseline &lt;path/to/qodana.sarif.json&gt; --linter %qd-linter%
+                                      # args: --baseline &lt;path/to/qodana.sarif.json&gt; --linter %qd-co-linter%
                                     env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1603,8 +1603,8 @@
                                     uses: %action-version%
                                     with:
                                         args: |
-                                            --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                            --linter,%qd-linter%
+                                            --baseline &lt;path/to/qodana.sarif.json&gt;
+                                            --linter %qd-linter%
                                     env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1862,8 +1862,8 @@
                                           uses: %action-version%
                                           with:
                                               args: |
-                                                  --linter,%qd-linter%,
-                                                  --within-docker,false
+                                                  --linter %qd-linter%
+                                                  --within-docker false
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1892,8 +1892,8 @@
                                           uses: %action-version%
                                           with:
                                               args: |
-                                                  --linter,%qd-linter-combined%,
-                                                  --within-docker,false
+                                                  --linter %qd-linter-combined%
+                                                  --within-docker false
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1922,8 +1922,8 @@
                                           uses: %action-version%
                                           with:
                                               args: |
-                                                  --linter,%qd-linter-combined%,
-                                                  --within-docker,false
+                                                  --linter %qd-linter-combined%
+                                                  --within-docker false
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1989,7 +1989,7 @@
                                     - name: 'Qodana Scan'
                                       uses: %action-version%
                                       with:
-                                          args: --image,%qd-image%
+                                          args: --image %qd-image%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -2017,8 +2017,8 @@
                                     - name: 'Qodana Scan'
                                       uses: %action-version%
                                       with: # Uncomment the Docker image that you wish to use
-                                        # args: --image,%qd-linter% # %qd%
-                                        # args: --image,%qd-co-linter% # %qd-co%
+                                        # args: --image %qd-linter% # %qd%
+                                        # args: --image %qd-co-linter% # %qd-co%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -2046,10 +2046,10 @@
                                     - name: 'Qodana Scan'
                                       uses: %action-version%
                                       with: # Uncomment the Docker image that you wish to use
-                                        # args: --image,%qd-linter% # %qd%
-                                        # args: --image,%qd-co-linter% # %qd-co%
-                                        # args: --image,%qd-a-linter% # %qd-a%
-                                        # args: --image,%qd-an-linter% # %qd-an%
+                                        # args: --image %qd-linter% # %qd%
+                                        # args: --image %qd-co-linter% # %qd-co%
+                                        # args: --image %qd-a-linter% # %qd-a%
+                                        # args: --image %qd-an-linter% # %qd-an%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -2221,7 +2221,7 @@
                         - name: 'Qodana Scan'
                           uses: %action-version%
                           with:
-                              args: --linter,%qd-linter%
+                              args: --linter %qd-linter%
                           env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -2249,7 +2249,7 @@
                         - name: 'Qodana Scan'
                           uses: %action-version%
                           with:
-                              args: --linter,%qd-linter%
+                              args: --linter %qd-linter%
                           env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -2277,10 +2277,10 @@
                         - name: 'Qodana Scan'
                           uses: %action-version%
                           with: # Uncomment the linter you wish to use
-                            # args: --linter,%qd-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --linter,%qd-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --linter,%qd-a-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --linter,%qd-an-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter %qd-linter% --baseline &lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter %qd-co-linter% --baseline &lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter %qd-a-linter% --baseline &lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter %qd-an-linter% --baseline &lt;path/to/qodana.sarif.json&gt;
                           env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
