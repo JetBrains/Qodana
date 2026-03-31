@@ -447,7 +447,7 @@
                 <td>IDE severity</td>
                 <td filter="for-report">SARIF severity</td>
                 <td filter="for-profile"><a href="qodana-inspection-output.md" anchor="SARIF+severity">SARIF</a> severity</td>
-                <td><a href="ui-overview.md">Qodana report</a> severity</td>
+                <td>%product% report severity</td>
                 <td><a href="https://docs.codeclimate.com/docs/getting-started-with-code-climate">Code Climate</a> severity</td>
                 <td>Bitbucket severity</td>
             </tr>
@@ -1166,10 +1166,10 @@
                                         - name: 'Qodana Scan'
                                           uses: %action-version%
                                           with: # Uncomment the linter that you wish to use
-                                            # args: --linter,%qd-linter%
-                                            # args: --linter,%qd-co-linter%
-                                            # args: --linter,%qd-a-linter%
-                                            # args: --linter,%qd-an-linter%
+                                            # args: --linter %qd-linter%
+                                            # args: --linter %qd-co-linter%
+                                            # args: --linter %qd-a-linter%
+                                            # args: --linter %qd-an-linter%
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1571,7 +1571,7 @@
     <tabs group="software">
         <tab title="GitHub Actions" group-key="github">
             <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file containing the
-                <code>args: --baseline,qodana.sarif.json</code> option that specifies the path to the
+                <code>args: --baseline qodana.sarif.json</code> option that specifies the path to the
                 SARIF-formatted baseline file:</p>
             <code-block lang="yaml" filter="jvm">
                       name: Qodana
@@ -1630,8 +1630,8 @@
                                   - name: 'Qodana Scan'
                                     uses: %action-version%
                                     with: # Uncomment the linter that you wish to use
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-linter%
-                                      # args: --baseline,&lt;path/to/qodana.sarif.json&gt;,--linter,%qd-co-linter%
+                                      # args: --baseline &lt;path/to/qodana.sarif.json&gt; --linter %qd-linter%
+                                      # args: --baseline &lt;path/to/qodana.sarif.json&gt; --linter %qd-co-linter%
                                     env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1661,8 +1661,8 @@
                                     uses: %action-version%
                                     with:
                                         args: |
-                                            --baseline,&lt;path/to/qodana.sarif.json&gt;,
-                                            --linter,%qd-linter%
+                                            --baseline &lt;path/to/qodana.sarif.json&gt;
+                                            --linter %qd-linter%
                                     env:
                                         QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                   </code-block>
@@ -1774,15 +1774,15 @@
                         - component: %gitlab-version%
                           inputs:
                             # Uncomment the linter you would like to employ
-                            # args: --linter,%qd-linter% # %qd%
-                            # args: --linter,%qd-co-linter% # %qd-co%
+                            # args: --linter %qd-linter% # %qd%
+                            # args: --linter %qd-co-linter% # %qd-co%
                   </code-block>
             <p filter="generic">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="generic">
                     include:
                         - component: %gitlab-version%
                           inputs:
-                              args: --linter,%qd-linter%
+                              args: --linter %qd-linter%
                   </code-block>
             <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the
                 baseline feature.</p>
@@ -1951,8 +1951,8 @@
                                           uses: %action-version%
                                           with:
                                               args: |
-                                                  --linter,%qd-linter-combined%,
-                                                  --within-docker,false
+                                                  --linter %qd-linter-combined%
+                                                  --within-docker false
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -1981,8 +1981,8 @@
                                           uses: %action-version%
                                           with:
                                               args: |
-                                                  --linter,%qd-linter-combined%,
-                                                  --within-docker,false
+                                                  --linter %qd-linter-combined%
+                                                  --within-docker false
                                           env:
                                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                         </code-block>
@@ -2076,8 +2076,8 @@
                                     - name: 'Qodana Scan'
                                       uses: %action-version%
                                       with: # Uncomment the Docker image that you wish to use
-                                        # args: --image,%qd-linter% # %qd%
-                                        # args: --image,%qd-co-linter% # %qd-co%
+                                        # args: --image %qd-linter% # %qd%
+                                        # args: --image %qd-co-linter% # %qd-co%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -2105,10 +2105,10 @@
                                     - name: 'Qodana Scan'
                                       uses: %action-version%
                                       with: # Uncomment the Docker image that you wish to use
-                                        # args: --image,%qd-linter% # %qd%
-                                        # args: --image,%qd-co-linter% # %qd-co%
-                                        # args: --image,%qd-a-linter% # %qd-a%
-                                        # args: --image,%qd-an-linter% # %qd-an%
+                                        # args: --image %qd-linter% # %qd%
+                                        # args: --image %qd-co-linter% # %qd-co%
+                                        # args: --image %qd-a-linter% # %qd-a%
+                                        # args: --image %qd-an-linter% # %qd-an%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -2134,8 +2134,8 @@
                       include:
                           - component: %gitlab-version%
                             inputs: # Uncomment the Docker image that you wish to use
-                              # args: --image,%qd-linter% # %qd%
-                              # args: --image,%qd-co-linter% # %qd-co%
+                              # args: --image %qd-linter% # %qd%
+                              # args: --image %qd-co-linter% # %qd-co%
                     </code-block>
 
                     <p>This configuration enables merge request analysis.</p>
@@ -2306,7 +2306,7 @@
                         - name: 'Qodana Scan'
                           uses: %action-version%
                           with:
-                              args: --linter,%qd-linter%
+                              args: --linter %qd-linter%
                           env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
@@ -2334,10 +2334,10 @@
                         - name: 'Qodana Scan'
                           uses: %action-version%
                           with: # Uncomment the linter you wish to use
-                            # args: --linter,%qd-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --linter,%qd-co-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --linter,%qd-a-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
-                            # args: --linter,%qd-an-linter%,--baseline,&lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter %qd-linter% --baseline &lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter %qd-co-linter% --baseline &lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter %qd-a-linter% --baseline &lt;path/to/qodana.sarif.json&gt;
+                            # args: --linter %qd-an-linter% --baseline &lt;path/to/qodana.sarif.json&gt;
                           env:
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
