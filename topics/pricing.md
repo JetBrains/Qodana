@@ -134,25 +134,26 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 <link-summary>You can review the list of features available for each Qodana license.</link-summary>
 
-| Feature                                                 | Community | Ultimate | Ultimate Plus | 
-|---------------------------------------------------------|-----------|----------|---------------|
-| [](baseline.topic)                                      | ✔         | ✔        | ✔             |
-| [CI/CD integrations](ci.md)                             | ✔         | ✔        | ✔             |
-| [Custom plugin support](extending-qodana-plugins.topic) | ✔         | ✔        | ✔             |
-| [Monorepo support](monorepo-project.md)                 | ✔         | ✔        | ✔             | 
-| [](quality-gate.topic)                                  | ✔         | ✔        | ✔             |
-| [](code-coverage.md)                                    | 𐄂        | ✔        | ✔             |
-| Docker and Kubernetes support                           | 𐄂        | ✔        | ✔             |
-| [](flexinspect.md)                                      | 𐄂        | ✔        | ✔             |
-| [](global-configuration.md)                             | 𐄂        | 𐄂        | ✔             |
-| [](php-language-upgrade.topic)                          | 𐄂        | ✔        | ✔             |
-| [](quick-fix.md)                                        | 𐄂        | ✔        | ✔             |
-| [](insights.md)                                         | 𐄂        | 𐄂       | ✔             |
-| [](license-audit.topic)                                 | 𐄂        | 𐄂       | ✔             |
-| [](cloud-api.md)                                        | 𐄂        | 𐄂       | ✔             |
-| [](cloud-sso.md)                                        | 𐄂        | 𐄂       | ✔             |
-| [](taint-analysis.md)                                   | 𐄂        | 𐄂       | ✔             |
-| [](vulnerability-checker.md)                            | 𐄂        | 𐄂       | ✔             |
+| Feature                                                        | Community | Ultimate | Ultimate Plus | 
+|----------------------------------------------------------------|-----------|----------|---------------|
+| [Static analysis of code](inspect-your-code.md#Analysis+modes) | ✔         | ✔        | ✔             |
+| [](baseline.topic)                                             | ✔         | ✔        | ✔             |
+| [CI/CD integrations](ci.md)                                    | ✔         | ✔        | ✔             |
+| [Custom plugin support](extending-qodana-plugins.topic)        | ✔         | ✔        | ✔             |
+| [Monorepo support](monorepo-project.md)                        | ✔         | ✔        | ✔             | 
+| [](quality-gate.topic)                                         | ✔         | ✔        | ✔             |
+| [](code-coverage.md)                                           | 𐄂        | ✔        | ✔             |
+| Docker and Kubernetes support                                  | 𐄂        | ✔        | ✔             |
+| [](flexinspect.md)                                             | 𐄂        | ✔        | ✔             |
+| [](global-configuration.md)                                    | 𐄂        | 𐄂        | ✔             |
+| [](php-language-upgrade.topic)                                 | 𐄂        | ✔        | ✔             |
+| [](quick-fix.md)                                               | 𐄂        | ✔        | ✔             |
+| [](insights.md)                                                | 𐄂        | 𐄂       | ✔             |
+| [](license-audit.topic)                                        | 𐄂        | 𐄂       | ✔             |
+| [](cloud-api.md)                                               | 𐄂        | 𐄂       | ✔             |
+| [](cloud-sso.md)                                               | 𐄂        | 𐄂       | ✔             |
+| [](taint-analysis.md)                                          | 𐄂        | 𐄂       | ✔             |
+| [](vulnerability-checker.md)                                   | 𐄂        | 𐄂       | ✔             |
 
 
 ### Data storage and processing

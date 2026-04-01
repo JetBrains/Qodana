@@ -27,6 +27,16 @@
                 </td>
             </tr>
             <tr>
+                <td><a href="inspect-your-code.md" anchor="Analysis+modes">Static analysis of code</a></td>
+                <td>Let %product% analyze your codebase and get recommendations for improvement</td>
+                <td>
+                    <p>Community</p>
+                    <p>Ultimate</p>
+                    <p>Ultimate Plus</p>
+                </td>
+                <td>All <a href="linters.md">linters</a></td>
+            </tr>
+            <tr>
                 <td><a href="baseline.topic"/></td>
                 <td>Group the existing code problems
                     into several categories to efficiently monitor your code evolution</td>

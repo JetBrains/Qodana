@@ -235,9 +235,9 @@ The endpoint provides the responses with the following HTTP codes:
     </tr>
 </table>
 
-## Get a list of organization users
+## List organization users
 
-To get a list of users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send a `GET` request using the
+To list users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send a `GET` request using the
 `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint, for example: 
 
 ```cURL

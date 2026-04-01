@@ -2,6 +2,11 @@
 
 <show-structure for="chapter" depth="3"/>
 
+%product% implements the static analysis mechanism to automatically analyze your codebase.
+This means that you run %instance% to analyze your code and expect recommendations for improvements. No other actions
+like running additional scripts, downloading external libraries, or any
+additional configuring are required.
+
 ## Analysis stages
 
 To analyze projects, %product% performs the project configuration and project analysis stages.
