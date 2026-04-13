@@ -95,10 +95,10 @@ customize endpoints, resources, secrets, integrations, and security policies.
 
 Once installed, Helm Chart reads the contents of the `values.yaml` file.
 
-The actual version of the %product% Helm Chart is 1.0.0. Run the following command to pull the actual version of the product:
+The actual version of the %product% Helm Chart is 1.0.3. Run the following command to pull the actual version of the product:
 
 ```bash
-helm pull oci://registry.jetbrains.team/p/helm/alpha/qodana --version 1.0.0 
+helm pull oci://registry.jetbrains.team/p/helm/alpha/qodana --version 1.0.3 
 ```
 
 ### Set up a new domain
@@ -296,7 +296,7 @@ Generate a new configuration file:
 
 ```bash
 helm template --namespace kube-public oci://registry.jetbrains.team/p/helm/alpha/qodana \
-  --version 1.0.0 \
+  --version 1.0.3 \
   --set global.license='<YOUR_LICENSE_KEY>' > installation.bundle.yaml"
 ```
 
@@ -304,7 +304,7 @@ Override the existing settings, for example:
 
 ```Bash
 helm template --namespace kube-public oci://registry.jetbrains.team/p/helm/alpha/qodana \
-  --version 1.0.0 \
+  --version 1.0.3 \
   --set global.license='<YOUR_LICENSE_KEY>'
   –-set api.resources.limits.memory=2048Mi"
 ```
