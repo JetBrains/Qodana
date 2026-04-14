@@ -352,7 +352,7 @@ disableSanityInspections: true
 <link-summary>You can configure the license audit feature by configuring the CheckDependencyLicenses inspection.</link-summary>
 
 Starting from version 2024.1 of %product%, the [license audit](license-audit.topic) feature is enabled by default. You can disable it by 
-excluding the `CheckDependencyLicenses` inspection:
+excluding the [`CheckDependencyLicenses`](https://www.jetbrains.com/help/inspectopedia/CheckDependencyLicenses.html) inspection:
 
 ```yaml
 exclude:
@@ -457,7 +457,7 @@ fixesStrategy: cleanup/apply
 <link-summary>Learn how you can configure the vulnerability checker feature.</link-summary>
 
 To start using the [](vulnerability-checker.md) feature, enable
-the `VulnerableLibrariesGlobal` inspection:
+the [`VulnerableLibrariesGlobal`](https://www.jetbrains.com/help/inspectopedia/VulnerableLibrariesGlobal.html) inspection:
 
 <include from="vulnerability-checker.md" element-id="package-checking-enable"/>
 
@@ -491,7 +491,7 @@ example snippets to help you fix issues faster.
 
 This feature is available for all [linters](linters.md) except %cpp%, %clang%, and %dotnet-co%.
 
-To start using it, enable the `IncorrectFormatting` inspection in your %product%
+To start using it, enable the [`IncorrectFormatting`](https://www.jetbrains.com/help/inspectopedia/IncorrectFormatting.html) inspection in your %product%
 [inspection profile](inspection-profiles.md) configuration, for example:
 
 ```yaml

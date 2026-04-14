@@ -9,7 +9,7 @@ To start using %cloud%, navigate to the [%cloud% website](https://qodana.cloud).
 1. You can click the **Continue with JetBrains account** button to create a
    [JetBrains account](https://account.jetbrains.com/login) to log in to %cloud%.
 2. As a non-registered user, you can explore demo projects already analyzed by %product%. To explore
-   reports in detail, see the [cloud-overview-reports.topic](cloud-overview-reports.topic) section.
+   reports in detail, see the [](cloud-overview-reports.topic) section.
 
 After logging in to %cloud% for the first time, you will be redirected to the [project setup](Quick-start.topic#quickstart-prerequisites) 
 page for creating an [organization](cloud-organizations.topic), a [team](cloud-teams.topic), a [project](cloud-projects.topic), 

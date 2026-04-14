@@ -207,7 +207,8 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
   <tab title="%php%" id="php">
   <p>In the <code>qodana.yaml</code> file,
   <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">include</a> the 
-  <code>PhpVulnerablePathsInspection</code> inspection into the analysis scope:</p>
+  <a href="https://www.jetbrains.com/help/inspectopedia/PhpVulnerablePathsInspection.html"><code>PhpVulnerablePathsInspection</code></a> 
+    inspection into the analysis scope:</p>
 
   <code-block lang="yaml">
   include:

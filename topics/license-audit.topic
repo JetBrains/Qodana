@@ -152,7 +152,7 @@
             </code-block>
 
             <p>To disable license audit, in the <a href="qodana-yaml.md">configuration file</a>
-                exclude the <code>CheckDependencyLicenses</code> inspection, for example:</p>
+                exclude the <a href="https://www.jetbrains.com/help/inspectopedia/CheckDependencyLicenses.html"><code>CheckDependencyLicenses</code></a> inspection, for example:</p>
 
         <code-block lang="yaml">
             exclude:
