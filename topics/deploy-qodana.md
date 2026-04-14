@@ -84,10 +84,6 @@ In this case, %instance% reuses its execution environment, which lets you execut
 environment as you use for building the projects, use the correct operating system, have access to all repository
 credentials, and resolve dependencies.
 
-<note>
-    Native mode is currently in Early Access, which means it may not be reliable, may not work as intended, and may contain errors.
-</note>
-
 ### Before you start
 
 > Native mode is incompatible with Docker containers of %product%, which means that you can run
