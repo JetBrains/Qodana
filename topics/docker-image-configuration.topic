@@ -4196,6 +4196,108 @@
                 </tab>
             </tabs>
         </chapter>
+
+        <chapter id="docker-config-reference-git-submodules" title="Git submodules">
+            <p>To analyze repositories with Git submodules configured to be checked out via SSH, you should
+                authenticate Git operations inside a %product% Docker container. In this case, you need to configure an
+                SSH agent and pass an SSH key with access to the submodule into the container using the configuration
+                options from the table:
+            </p>
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock</code></td>
+                    <td>Mount the SSH agent socket into the container</td>
+                </tr>
+                <tr>
+                    <td><code>-e SSH_AUTH_SOCK=/tmp/ssh_agent.sock</code></td>
+                    <td>Set the SSH agent socket environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>-e GIT_SSH_COMMAND=ssh -o StrictHostKeyChecking=no</code></td>
+                    <td>Disable strict host key checking for SSH operations</td>
+                </tr>
+            </table>
+            <p>Here are the configuration samples containing these options:</p>
+            <tabs>
+                <tab title="GitHub Actions" group-key="github-actions">
+                <code-block lang="yaml">
+        jobs:
+            qodana-job:
+                runs-on: ubuntu-latest
+                steps:
+                    - name: Checkout Repository
+                      uses: actions/checkout@v4
+                      with:
+                          submodules: recursive  # clones submodules recursively
+
+                    - name: Setup SSH Agent
+                      uses: webfactory/ssh-agent@v0.9.0
+                      with:
+                          ssh-private-key: ${{ secrets.SUBMODULE_SSH_KEY }}
+
+                    - name: 'Qodana Scan'
+                      uses: %action-version%
+                      with:
+                          args: |
+                              -v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock
+                              -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock
+                              -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;
+                          upload-result: true
+                          pr-mode: 'true'
+                      env:
+                          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+                </tab>
+                <tab title="Jenkins" group-key="jenkins">
+                    <code-block lang="groovy">
+                        pipeline {
+                            environment {
+                                QODANA_TOKEN=credentials('qodana-token')
+                            }
+                            agent {
+                                docker {
+                                    args '''
+                                      -v "${WORKSPACE}":/data/project
+                                      -v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock
+                                      -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock
+                                      -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;
+                                      --entrypoint=""
+                                      '''
+                                    image 'jetbrains/qodana-&lt;image&gt;'
+                                }
+                            }
+                            stages {
+                                stage('Qodana') {
+                                    steps {
+                                        sh '''
+                                        qodana
+                                        '''
+                                    }
+                                }
+                            }
+                        }
+                    </code-block>
+                </tab>
+                <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
+                <code-block lang="yaml">
+                    include:
+                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.3
+                          inputs:
+                              image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+                              args: |
+                                  -v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock
+                                  -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock
+                                  -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;
+                </code-block>
+                </tab>
+            </tabs>
+        </chapter>
+
+
     </chapter>
 
     <chapter id="docker-config-reference-qodana-cli" title="Cache in Qodana CLI">
