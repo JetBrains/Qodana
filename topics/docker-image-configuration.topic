@@ -4089,8 +4089,8 @@
                 <a href="https://github.com/JetBrains/qodana-docker/blob/main/2025.2/python-community/Dockerfile">Dockerfile</a>.
             </tip>
 
-            <tabs>
-                <tab id="docker-config-reference-docker-environment-docker" title="Docker">
+            <tabs group="cli-settings">
+                <tab id="docker-config-reference-docker-environment-docker" group-key="docker-image" title="Docker">
                     <p>By default, a Docker container runs under the <code>root</code> user, so %instance% can
                         read project information and write inspection results. Therefore, all files in the <code>results/</code>
                         directory are owned by the <code>root</code> user after the run.</p>
@@ -4110,7 +4110,7 @@
                         Otherwise, Docker will create it as the <code>root</code> user, and %instance% will not be able to write
                         to it.</p>
                 </tab>
-                <tab id="docker-config-reference-docker-environment-teamcity-qodana-cli" title="TeamCity and Qodana CLI">
+                <tab id="docker-config-reference-docker-environment-teamcity-qodana-cli" group-key="qodana-cli" title="TeamCity and Qodana CLI">
                     <p>TeamCity and <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> run %instance%
                         using a current non-root user. This can be inconvenient if you wish to install dependencies
                         using the <code>apt</code> tool invoked in the
@@ -4198,31 +4198,78 @@
         </chapter>
 
         <chapter id="docker-config-reference-git-submodules" title="Git submodules">
-            <p>To analyze repositories with Git submodules configured to be checked out via SSH, you should
-                authenticate Git operations inside a %product% Docker container. In this case, you need to configure an
-                SSH agent and pass an SSH key with access to the submodule into the container using the configuration
-                options from the table:
+            <p>To analyze repositories that use Git submodules accessed via SSH, you must authenticate Git
+                operations within the Qodana Docker container. In this case, you need to configure an SSH agent and
+                pass an SSH key with access to the submodule into the container as shown in the snippets below:
             </p>
-            <table>
-                <tr>
-                    <td>Option</td>
-                    <td>Description</td>
-                </tr>
-                <tr>
-                    <td><code>-v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock</code></td>
-                    <td>Mount the SSH agent socket into the container</td>
-                </tr>
-                <tr>
-                    <td><code>-e SSH_AUTH_SOCK=/tmp/ssh_agent.sock</code></td>
-                    <td>Set the SSH agent socket environment variable</td>
-                </tr>
-                <tr>
-                    <td><code>-e GIT_SSH_COMMAND=ssh -o StrictHostKeyChecking=no</code></td>
-                    <td>Disable strict host key checking for SSH operations</td>
-                </tr>
-            </table>
-            <p>Here are the configuration samples containing these options:</p>
-            <tabs>
+            <tabs group="cli-settings">
+                <tab title="Docker image" group-key="docker-image">
+                    <code-block lang="shell" prompt="$">
+                        docker run \
+                           -v $(pwd):/data/project/ \
+                           -v "$SSH_AUTH_SOCK:/tmp/ssh_agent.sock" \
+                           -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock \
+                           -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot; \
+                           jetbrains/qodana-&lt;image&gt; \
+                           --diff-start=&lt;GIT_START_HASH&gt;
+                    </code-block>
+                    <p>This command contains the following options:</p>
+                    <table>
+                        <tr>
+                            <td>Option</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td><code>-v "$SSH_AUTH_SOCK:/tmp/ssh_agent.sock"</code></td>
+                            <td>Mount the SSH agent socket into the container</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e SSH_AUTH_SOCK=/tmp/ssh_agent.sock</code></td>
+                            <td>Set the SSH agent socket environment variable</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;</code></td>
+                            <td>Disable strict host key checking for SSH operations</td>
+                        </tr>
+                        <tr>
+                            <td><code>--diff-start=&lt;GIT_START_HASH&gt;</code></td>
+                            <td>Commit hash, see the <a href="analyze-pr.md" anchor="Analyze+pull+and+merge+requests"/> chapter for details</td>
+                        </tr>
+                    </table>
+            </tab>
+                <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code-block lang="shell" prompt="$">
+                        qodana scan \
+                           -v "$SSH_AUTH_SOCK:/tmp/ssh_agent.sock" \
+                           -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock \
+                           -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot; \
+                           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                           --diff-start=&lt;GIT_START_HASH&gt;
+                    </code-block>
+                    <p>This command contains the following options:</p>
+                    <table>
+                        <tr>
+                            <td>Option</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td><code>-v "$SSH_AUTH_SOCK:/tmp/ssh_agent.sock"</code></td>
+                            <td>Mount the SSH agent socket into the container</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e SSH_AUTH_SOCK=/tmp/ssh_agent.sock</code></td>
+                            <td>Set the SSH agent socket environment variable</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;</code></td>
+                            <td>Disable strict host key checking for SSH operations</td>
+                        </tr>
+                        <tr>
+                            <td><code>--diff-start=&lt;GIT_START_HASH&gt;</code></td>
+                            <td>Commit hash, see the <a href="analyze-pr.md" anchor="Analyze+pull+and+merge+requests"/> chapter for details</td>
+                        </tr>
+                    </table>
+                </tab>
                 <tab title="GitHub Actions" group-key="github-actions">
                 <code-block lang="yaml">
         jobs:
@@ -4251,48 +4298,56 @@
                       env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
-                </tab>
-                <tab title="Jenkins" group-key="jenkins">
-                    <code-block lang="groovy">
-                        pipeline {
-                            environment {
-                                QODANA_TOKEN=credentials('qodana-token')
-                            }
-                            agent {
-                                docker {
-                                    args '''
-                                      -v "${WORKSPACE}":/data/project
-                                      -v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock
-                                      -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock
-                                      -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;
-                                      --entrypoint=""
-                                      '''
-                                    image 'jetbrains/qodana-&lt;image&gt;'
-                                }
-                            }
-                            stages {
-                                stage('Qodana') {
-                                    steps {
-                                        sh '''
-                                        qodana
-                                        '''
-                                    }
-                                }
-                            }
-                        }
-                    </code-block>
+                    <p>Here, the <code>args</code> block contains the following options:</p>
+                    <table>
+                        <tr>
+                            <td>Option</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td><code>-v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock</code></td>
+                            <td>Mount the SSH agent socket into the container</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e SSH_AUTH_SOCK=/tmp/ssh_agent.sock</code></td>
+                            <td>Set the SSH agent socket environment variable</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e GIT_SSH_COMMAND=ssh -o StrictHostKeyChecking=no</code></td>
+                            <td>Disable strict host key checking for SSH operations</td>
+                        </tr>
+                    </table>
                 </tab>
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                 <code-block lang="yaml">
                     include:
-                        - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.3
+                        - component: %gitlab-version%
                           inputs:
-                              image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+                              image: &lt;image&gt;
                               args: |
                                   -v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock
                                   -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock
                                   -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;
                 </code-block>
+                    <p>Here, the <code>args</code> block contains the following options:</p>
+                    <table>
+                        <tr>
+                            <td>Option</td>
+                            <td>Description</td>
+                        </tr>
+                        <tr>
+                            <td><code>-v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock</code></td>
+                            <td>Mount the SSH agent socket into the container</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e SSH_AUTH_SOCK=/tmp/ssh_agent.sock</code></td>
+                            <td>Set the SSH agent socket environment variable</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e GIT_SSH_COMMAND=ssh -o StrictHostKeyChecking=no</code></td>
+                            <td>Disable strict host key checking for SSH operations</td>
+                        </tr>
+                    </table>
                 </tab>
             </tabs>
         </chapter>
