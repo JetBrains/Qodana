@@ -35,6 +35,10 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 <link-summary>Using the bootstrap key of qodana.yaml, %instance% can perform actions before running analysis.</link-summary>
 
+> Some commands may require root user privileges. For more details, see the
+> [](docker-image-configuration.topic#docker-config-reference-docker-environment-run-non-root) chapter.
+{style="tip"}
+
 Using the `bootstrap` key of the `qodana.yaml` file, %instance% can perform actions before running an analysis. 
 
 To install a specific package in the %product% container using the `apt` tool, add this line to the `qodana.yaml` file:
