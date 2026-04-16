@@ -35,7 +35,11 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 <link-summary>Using the bootstrap key of qodana.yaml, %instance% can perform actions before running analysis.</link-summary>
 
-During analyses, %product% linters may report that some inspections cannot find classes, packages, files or cannot resolve references
+> Some commands may require root user privileges. For more details, see the 
+> [](docker-image-configuration.topic#docker-config-reference-docker-environment-run-non-root) chapter.
+{style="tip"}
+
+During analyses, %product% linters may report that some inspections cannot find classes, packages, files or cannot resolve references, 
 although linters related to [JVM](jvm.md), [.NET](dotnet.md) and [Golang](golang.md) try to figure out the
 build system and project structure automatically. In these cases, %instance% needs a bit of help:
 
