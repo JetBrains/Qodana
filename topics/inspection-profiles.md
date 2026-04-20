@@ -573,7 +573,7 @@ profile:
 
 #### Ignore paths
 
-The `ignore` key lets you ignore specific [scopes](%idea-scopes%) and paths using glob patterns.
+The `ignore` key lets you ignore specific [scopes](%idea-scopes%) and paths that match globe patterns.
 
 ```yaml
 profile:
