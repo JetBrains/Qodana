@@ -557,26 +557,21 @@ profile:
       enabled: false # Disable the PhpDeprecationInspection inspection
 ```
 
-#### Exclude paths
+#### Ignore paths
 
-You can use the `ignore` key to ignore specific [scopes](%idea-scopes%) and paths while inspecting your code.
-
-In the sample below, the `vendor/**` value employs [glob patterns](%wiki-glob%) for ignoring the contents
-of the `vendor` directory contained in your project root.
-
-The scope definition `scope#file:*.js:testData//*` ignores all files with the `.js` extension
-recursively contained in the `testData/` directory.
+The `ignore` key lets you ignore specific [scopes](%idea-scopes%) and paths that match globe patterns.
 
 ```yaml
 profile:
   inspections:
-    - inspection: NpmUsedModulesInstalled
-      ignore:
-        - "vendor/**" # Ignore a path
-    - group: "category:JavaScript and TypeScript/General"
-      ignore:
-        - "scope#file:*.js:testData//*" # Ignore a scope
+    - inspection: IncorrectFormatting
+      ignore: # Select an option to ignore recursively:
+        - "vendor/**" # All files and directories inside a directory
+        - "scope#file[*test*]:src/*" # Specific filenames (test) of a directory (src/)
+        - "scope#!file[intellij.python.psi]:*/" # PSI-recognized Python files in a project
+        - "!my/path/to/**" # Negate a specific path
 ```
+
 
 #### Create profile
 
