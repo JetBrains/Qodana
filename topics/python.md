@@ -216,7 +216,7 @@ bootstrap: |
 <step>
 <p>Use the <code>QODANA_PYTHON_PATH</code> variable to pass the path to the Python binary containing the environment, for example:</p>
 <code-block lang="shell">
--e QODANA_PYTHON_PATH:/data/cache/conda/envs/qodana-env/bin/python
+-e QODANA_PYTHON_PATH=/data/cache/conda/envs/qodana-env/bin/python
 </code-block>
 <p>Examples of using variables are provided in the <a anchor="Run+Qodana"/> section.</p>
 </step>
