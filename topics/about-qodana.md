@@ -3,7 +3,8 @@
 [![official project](https://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
 **Qodana** is a smart code quality platform by JetBrains best suited for working in teams. 
-It can analyze code written in 60+ languages including Java, JavaScript, TypeScript, PHP, Kotlin, Python, Go, and C#. 
+It can analyze code written in 60+ languages including Java, JavaScript, TypeScript, PHP, Kotlin, Python, Go, C#, C/C++, 
+and Ruby. 
 
 ## Improve the quality of your software
 
