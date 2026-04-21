@@ -46,14 +46,22 @@
             </note>
             <p>The project setup uses information from your JetBrains account, which includes licenses and companies.</p>
             <chapter title="GitHub Actions" id="quickstart-prerequisites-set-up-project-in-qodana-cloud-github-actions">
-            <p>If you plan to run the <a href="github.md">Qodana Scan</a> GitHub action on a GitHub-hosted repository, you
-                will need to authorize and install the
-                <code>%product%</code> GitHub App during the project setup. If you do not have access to the repository that
-                you intend to analyze,
-                request the necessary access and wait for approval before proceeding. In other cases, you will receive
-                instructions and
-                configuration snippets that will help you start %product% in your project.</p>
 
+            <p>If you plan to run the <a href="github.md">Qodana Scan</a> GitHub action on a GitHub-hosted repository, you
+                will need to install <code>%product% App</code> during the project setup. </p>
+                <snippet id="for-github-page">
+                <img src="github-app-authorize.png" width="706" alt="Authorize Qodana GitHub App" border-effect="line"/>
+                <p>This GitHub application will make a single push of the following data to your repository:</p>
+                <list>
+                    <li><a href="github.md" anchor="Basic+configuration">GitHub Actions configuration</a> file</li>
+                    <li><a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
+                    <li><a href="contributors.md" anchor="Key+generation">Deploy key</a> for contributor counting</li>
+                    <li>%product% access token secret for providing access to the repository</li>
+                </list>
+                <p>If you do not have access to the repository that you intend to analyze, request the necessary access
+                    and wait for approval before proceeding. In other cases, you will receive instructions and
+                configuration snippets that will help you start %product% in your project.</p>
+                </snippet>
             </chapter>
             <chapter title="Global configurations" id="global-configurations">
                 <p>During the project setup stage, you can choose a <a href="global-configuration.md">global
