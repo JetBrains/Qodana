@@ -53,7 +53,7 @@
                 <img src="github-app-authorize.png" width="706" alt="Authorize Qodana GitHub App" border-effect="line"/>
                 <p>This GitHub application will make a single push of the following data to your repository:</p>
                 <list>
-                    <li><a href="github.md" anchor="Basic+configuration">GitHub Actions configuration</a> file</li>
+                    <li>GitHub Actions <a href="github.md" anchor="Basic+configuration">configuration file</a> </li>
                     <li><a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
                     <li><a href="contributors.md" anchor="Key+generation">Deploy key</a> for contributor counting</li>
                     <li>%product% access token secret for providing access to the repository</li>

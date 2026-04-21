@@ -50,8 +50,11 @@ full versions of the respective %instance% license type.
 | JavaScript           | 𐄂        | ✔                          | 
 | PHP                  | 𐄂        | ✔                          | 
 | Ruby                 | 𐄂        | ✔                          | 
-| Rust                 | 𐄂        | ✔                          | 
 | TypeScript           | 𐄂        | ✔                          | 
+
+<!--| Rust                 | 𐄂        | ✔                          | -->
+
+
 
 Here, C and C++ inspections are applicable for projects containing `.sln` files.
 

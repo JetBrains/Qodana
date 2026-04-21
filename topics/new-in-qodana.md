@@ -7,7 +7,7 @@ chronological list of all significant [%cloud%](cloud-quickstart.md) updates.
 
 ### Native mode release
 
-Native mode is released from the EAP version. The details are available in the [](deploy-qodana.md#deploy-qodana-native-mode).
+Native mode is released from the EAP version. The details are available in the [](deploy-qodana.md#deploy-qodana-native-mode) section.
 
 ### %cpp% release
 
