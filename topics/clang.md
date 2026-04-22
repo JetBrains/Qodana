@@ -58,13 +58,6 @@
 
 <link-summary>%qdcpp% and %qdcppc% linters let you analyze C and C++ projects that provide a `compile_commands.json` file.</link-summary>
 
-<note>
- %qdcppc% is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
-Any use of the EAP product is at your own risk. Your feedback is very welcome in our 
-<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
-<a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
-</note>
-
 The C/C++ family of linters lets you analyze C and C++ projects that support any common build system like CMake 
 or provide a [`compile_commands.json` file](https://clang.llvm.org/docs/JSONCompilationDatabase.html). There are two different linters that provide this functionality:
 

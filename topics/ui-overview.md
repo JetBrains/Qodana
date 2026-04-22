@@ -10,20 +10,20 @@ locally or in %cloud%.</link-summary>
 
 ## Report UI overview
 
-<img src="ui-overview.png" dark-src="ui-overview_dark.png" alt="Qodana report UI overview" width="706" border-effect="line"/>
+<img src="ui-overview.png" alt="Qodana report UI overview" thumbnail="true" scale="5" width="1059"/>
 
 Each report contains the following tabs:
 
-* **[Actual problems](#ui-overview-actual-problems)** exposes the problems that Qodana detected during the latest inspection. 
-* **[Baseline](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.topic) and were not fixed since then.
-* **[Configuration](#ui-overview-configuration)** lets you configure %instance% for future use.
+* **[Current problems](#ui-overview-actual-problems)** exposes the problems that %product% detected during the latest inspection. 
+* **[Baseline problems](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.topic) and were not fixed since then.
+* **[Inspections](#ui-overview-configuration)** lets you configure %instance% for future use.
 * **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.topic) results and shows the dependency licenses that are incompatible with the project license. 
 
 The upper-right corner of the report shows [code coverage](code-coverage.md) analysis results.
 
-<img src="ui-overview-code-coverage.png" dark-src="ui-overview-code-coverage_dark.png" alt="Qodana report UI overview" width="296" border-effect="line"/>
+<img src="ui-overview-code-coverage.png" alt="Code coverage analysis results" width="323" border-effect="line"/>
 
-### Actual problems
+### Current problems
 {id="ui-overview-actual-problems"}
 
 Using this tab, you can see the problems found as a result of the latest inspection.
@@ -39,7 +39,7 @@ the issue.
 
 3. You can navigate between the list of problems and files, as well as search and group problems. 
 
-4. The **Move selected to baseline** button saves the selected problems to the **[Baseline](#ui-overview-baseline)** list.  
+4. The **Move selected to baseline** button saves the selected problems to the **[Baseline problems](#ui-overview-baseline)** list.  
 
 5. Clicking a problem in the list expands the underlying code fragment containing the detailed description.
 
@@ -54,26 +54,26 @@ the issue.
 
 7. You can copy the link to the problem and then navigate to it in %cloud%.
 
-### Baseline
+### Baseline problems
 {id="ui-overview-baseline"}
 
 <link-summary>When you click the Move selected to baseline button on the Actual problems tab, the selected
 problems move to the Baseline tab.</link-summary>
 
-When you click the **Move selected to baseline** button on the **[Actual problems](#ui-overview-actual-problems)** tab, the selected
+When you click the **Move selected to baseline** button on the **[Current problems](#ui-overview-actual-problems)** tab, the selected
 problems move to this tab.
 
 This tab is similar to the **Actual problems** tab. To enable the baseline feature for future
 inspections, follow the instructions that appear in the report UI. For more information, explore the
 [](baseline.topic) section.
 
-### Configuration
+### Inspections
 {id="ui-overview-configuration"}
 
 <link-summary>The Configuration tab lists the inspections and lets you adjust your inspection profile by specifying a 
 set of inspections that Qodana will be using the next run.</link-summary>
 
-The **Configuration** tab lists the inspections and lets you adjust your inspection profile by specifying a set of 
+The **Inspections** tab lists the inspections and lets you adjust your inspection profile by specifying a set of 
 inspections that Qodana will be using the next run.
 
 <img src="ui-overview-configuration.png" dark-src="ui-overview-configuration_dark.png" alt="The Configuration tab" width="706" border-effect="line"/>
