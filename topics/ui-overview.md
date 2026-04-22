@@ -21,14 +21,14 @@ Each report contains the following tabs:
 
 The upper-right corner of the report shows [code coverage](code-coverage.md) analysis results.
 
-<img src="ui-overview-code-coverage.png" alt="Code coverage analysis results" width="323" border-effect="line"/>
+<img src="ui-overview-code-coverage.png" alt="Code coverage analysis results" thumbnail="true" width="323" border-effect="line"/>
 
 ### Current problems
 {id="ui-overview-actual-problems"}
 
 Using this tab, you can see the problems found as a result of the latest inspection.
 
-<img src="ui-overview-actual-problems.png" dark-src="ui-overview-actual-problems_dark.png" alt="The Actual problems tab" width="706" border-effect="line"/>
+<img src="ui-overview-actual-problems.png" alt="Current problems tab" thumbnail="true" width="706" border-effect="line"/>
 
 This tab consists of several elements:
 
@@ -44,15 +44,17 @@ the issue.
 5. Clicking a problem in the list expands the underlying code fragment containing the detailed description.
 
 6. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can edit the file containing the problem
-    using your IDE. To do it, select your IDE from the dropdown list, and click the **Open file in...** button. 
+    using your IDE. To do it, select your IDE from the dropdown list and then click the **Open file in...** button. 
 
    If you have several versions of the same IDE, you can select which version will be used to open the file.
    In the JetBrains Toolbox UI, drag or move the required version of the IDE to the top of the list using the
     <shortcut>Ctrl + Shift + ↑/↓</shortcut> shortcut on Windows or Linux, or <shortcut>⌘ + ⇧ + ↑/↓ </shortcut> on macOS.
 
-    The **More actions** list provides other options for handling problems, see the [Adjust the analysis scope](#Adjust+the+analysis+scope) section.
+    You can also exclude a path, file, inspection, or category from analysis, see the [](#Adjust+the+analysis+scope) section for details.
+    
+    Finally, you can use the **Copy** button to copy a link to a specific problem contained in the report.
 
-7. You can copy the link to the problem and then navigate to it in %cloud%.
+7.  The **Report as false positive** button lets you create a related issue in YouTrack.
 
 ### Baseline problems
 {id="ui-overview-baseline"}
@@ -63,39 +65,39 @@ problems move to the Baseline tab.</link-summary>
 When you click the **Move selected to baseline** button on the **[Current problems](#ui-overview-actual-problems)** tab, the selected
 problems move to this tab.
 
-This tab is similar to the **Actual problems** tab. To enable the baseline feature for future
-inspections, follow the instructions that appear in the report UI. For more information, explore the
+<img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
+
+This tab UI is similar to the **Current problems** tab. To enable the baseline feature for future
+inspections, follow the instructions that appear in the report UI. To learn more about the feature, explore the
 [](baseline.topic) section.
 
 ### Inspections
 {id="ui-overview-configuration"}
 
-<link-summary>The Configuration tab lists the inspections and lets you adjust your inspection profile by specifying a 
+<link-summary>The Inspections tab lists the inspections and lets you adjust your inspection profile by specifying a 
 set of inspections that Qodana will be using the next run.</link-summary>
 
 The **Inspections** tab lists the inspections and lets you adjust your inspection profile by specifying a set of 
 inspections that Qodana will be using the next run.
 
-<img src="ui-overview-configuration.png" dark-src="ui-overview-configuration_dark.png" alt="The Configuration tab" width="706" border-effect="line"/>
+<img src="ui-overview-configuration.png" alt="The Inspections tab" thumbnail="true" width="706" border-effect="line"/>
 
 Here, you can learn what each inspection does, as well as enable or disable it. To use this configuration for future use, 
 you can download the `qodana.yaml` file and save it into your project root directory. 
 
-See the [Adjust your inspection profile](#Adjust+your+inspection+profile) section to learn the best practices. 
+See the [](#Adjust+your+inspection+profile) section to learn the best practices. 
 
 > To learn more about inspection profiles, see the [](qodana-yaml.md#Set+up+a+profile) section.
 > You can also edit profile settings in the [`qodana.yaml`](qodana-yaml.md) file.
 
-The lower part of this tab contains the **Effective configuration** pane that lets you view the actual
-[global configuration](global-configuration.md) that was used for analyzing this project and generating this analysis report.
-Once you apply another configuration for analyzing this project, the configuration will be updated accordingly. Also, 
-this can be updated based on the changes made to the **Applied inspections** pane.
+The lower part of this tab contains the **Profile configuration** pane that lets you view the actual
+configuration of %product%. Once you modify the configuration, it will be updated in this pane accordingly. 
 
 
 ### License audit
 {id="ui-overview-project-audit"}
 
-<link-summary>In the License audit tab, you can configure how %product% will run this feature.</link-summary>
+<link-summary>On the License audit tab, you can configure how %product% will run this feature.</link-summary>
 
 <include from="lib_qd.topic" element-id="license-audit-tab" use-filter="ui-overview,empty" />
 
@@ -113,7 +115,7 @@ We believe that the ability to see what was checked is as important as the list 
 haven't checked for typos, you can be happy to see zero typos in your project. There may be many of them – you just
 don't check.
 
-> Inspection profile can be configured either using the **[Configuration](#ui-overview-configuration)** tab, or editing the 
+> Inspection profile can be configured either using the **[](#ui-overview-configuration)** tab or editing the 
 > [`qodana.yaml`](qodana-yaml.md) file. 
 
 If the number of problems is manageable, you can fix them and consider the 'problem-free code' goal achieved. We 
@@ -122,7 +124,7 @@ suggest that you follow that goal and fix new problems as soon as they appear.
 In case the number of problems is above your expectations, we suggest using the Qodana features to examine them.
 
 When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
-the [baseline](docker-image-configuration.topic#docker-config-reference-baseline) mode.
+ [baseline](docker-image-configuration.topic#docker-config-reference-baseline) mode.
 
 ### Adjust the analysis scope
 
@@ -133,31 +135,31 @@ When viewing a code fragment with a detected problem, you may decide that it is 
 problems of the same type are omitted in the future. For this purpose, you can edit [qodana.yaml](qodana-yaml.md) or use 
 the [](#ui-overview-actual-problems) tab as shown below.
 
-1. **Exclude a file or directory from the future analysis**
+1. **Exclude from the future analysis**
 
 *Reason*: The analysis of the file containing the error, or even the directory containing this file, doesn't make sense 
 in your project. For example, it's actually not the source code but some generated or downloaded content.
 
-*Howto*: Under the code fragment view, click **More actions** and select the necessary option.
+*Howto*: Under the code fragment view, expand the **Exclude** dropdown list and select the necessary option.
    
-<img src="ui-overview-analysis-1.png" dark-src="ui-overview-analysis-1_dark.png" alt="Selecting the options" width="706" border-effect="line"/>  
+<img src="ui-overview-analysis-1.png" alt="Options of excluding from analysis" thumbnail="true" width="706" border-effect="line"/>  
     
 *OR*:
 
 Above the code fragment view, click the file path to navigate to the File explorer. 
       
-<img src="ui-overview-analysis-2.png" dark-src="ui-overview-analysis-2_dark.png" alt="Adjusting the analysis scope, first step" width="706" border-effect="line"/>
+<img src="ui-overview-analysis-2.png" alt="Navigating the file path in the project" thumbnail="true" width="706" border-effect="line"/>
 
 On the File explorer, click the icon to the left of the filename, and then select **Mark as Excluded**.
 
-<img src="ui-overview-analysis-3.png" dark-src="ui-overview-analysis-3_dark.png" alt="Excluding from analysis" width="706" border-effect="line"/>
+<img src="ui-overview-analysis-3.png" alt="Excluding from analysis" thumbnail="true" width="706" border-effect="line"/>
 
 2. **Hide a problem type or category from the list of problems**
 
 *Reason*: You suppose that the error type or its category is not relevant or want to get back to it later.  
-*Howto*: Under the code fragment view, click **More actions** and select the necessary option.
+*Howto*: Under the code fragment view, expand the **Exclude** dropdown list and select the necessary option.
    
-<img src="ui-overview-analysis-1.png" dark-src="ui-overview-analysis-1_dark.png" alt="Selecting the options" width="706" border-effect="line"/>  
+<img src="ui-overview-analysis-1.png" alt="Options of excluding from analysis" thumbnail="true" width="706" border-effect="line"/>  
 
 > If you exclude either type/category or file/directory, the UI will remind you to save the changes if you want to use 
 > them in future checks. Download the `qodana.yaml` file and store it under your project root directory.

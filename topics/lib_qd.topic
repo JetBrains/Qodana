@@ -21,7 +21,7 @@
         <p filter="ui-overview">The <ui-path>License audit</ui-path> tab provides results of inspection by the
             <a href="license-audit.topic">license audit</a> feature. </p>
 
-        <img src="license-audit-overview-tree.png" dark-src="license-audit-overview-tree_dark.png" width="706" alt="The dependency tree" border-effect="line"/>
+        <img src="license-audit-overview-tree.png" width="706" thumbnail="true" alt="The dependency tree" border-effect="line"/>
 
         <p>License audit analysis results are grouped into a dependency tree.</p>
 
