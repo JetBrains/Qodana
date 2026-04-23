@@ -56,18 +56,18 @@
 
     <p>To see the project reports, click it. This will open the <a href="ui-overview.md">report page</a>.</p>
 
-    <img src="qc-report-overview.png" dark-src="qc-report-overview_dark.png" alt="Report overview" width="706" border-effect="line"/>
+    <img src="qc-report-overview.png" alt="Report overview" thumbnail="true" width="706" border-effect="line"/>
 
     <p>The upper part of the report page contains:</p>
 
     <!-- To point 2.and the link to the <a href="global-configuration.md">global configuration</a> used by this project. -->
 
     <p>1. Branch selector. Using it, you can view reports for each branch in your project.</p>
-    <p>2. Commit hash and time passed since the latest analysis.
-    If you click the <ui-path>Configuration name</ui-path> link, you can navigate to the
-        <a href="ui-overview.md" anchor="ui-overview-configuration">Configuration</a> tab of your report.</p>
+    <p>2. Commit hash and time of the latest analysis.</p>
     <p>3. Timeline describing the date of analysis, number of problems detected.</p>
-    <p>4. Buttons for navigating to the build page, downloading the report in <a href="qodana-inspection-output.md" anchor="SARIF+Output">SARIF format</a>, and opening the help guide.</p>
+    <p>4. Buttons for navigating to the build page, downloading the report in
+        <a href="qodana-inspection-output.md" anchor="SARIF+Output">SARIF format</a>, opening the help guide
+        and configuring the project.</p>
     <p>5. Selector for viewing either the absolute number of detected problems or the number of problems
     relatively to a <a href="baseline.topic">baseline</a> set for this project.</p>
 
