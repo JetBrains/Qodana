@@ -19,6 +19,7 @@ communicate between each over through RabbitMQ queues.
 %premlite% does not have a user management module. It relies on an external identity provider 
 like Keycloak. All major OIDC providers are supported out of the box.
 
+<!-- This can be moved to a respective section  -->
 As an ingress controller, [Traefik](https://doc.traefik.io/traefik/) enables the management of services through labels 
 to expose them outside the Linux server environment.
 The ingress controller operates on top of the Server Name Indication (SNI) extension of the HTTPS protocol and serves 
@@ -29,6 +30,7 @@ multiple hostnames on its IP address.
 This section provides a high-level overview of how %premlite% operates as a cohesive system and focuses on relationships 
 between various components, their roles, and interaction to ensure the system functions effectively.
 
+<!-- This needs to be deleted to the respective section  -->
 Understanding the system level is crucial for planning deployments, troubleshooting issues, and optimizing performance. 
 
 The diagram below shows the system architecture with all services deployed on a single server. It highlights the 
@@ -52,6 +54,7 @@ level and keeping protected the IP address of the server.
 
 <img src="shl-architecture-tenancy-model.png" alt="Tenancy model overview of %premlite%" width="706" border-effect="line"/>
 
+<!-- Artifact or artefact?  -->
 %premlite% is used by a single [organization](cloud-organizations.topic) to monitor and manage the quality of their software 
 artifacts. An organization can contain one or multiple [teams](cloud-teams.topic). Each team is made up of at least one user. 
 A user is synced from a single Open Id Connect (OIDC) Provider. An OIDC provider is global at the organization level. A 

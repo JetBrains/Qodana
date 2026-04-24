@@ -114,13 +114,13 @@ Below is the description of all linters provided by %product%.
             <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
         </td>
     </tr>
-<!--    <tr>
+    <tr>
         <td><img src="rust.png" dark-src="rust_dark.png" alt="Rust" width="296"/></td>
         <td><a href="rust.md">%rust%</a>&nbsp;/&nbsp;<code>%rust-linter%</code></td>
         <td>
             <p><a href="pricing.md" anchor="license-comparison-matrix">Ultimate and Ultimate Plus</a>&nbsp;</p>
         </td>
-    </tr> -->
+    </tr>
 </table>
 
 \* Each linter from this table can be invoked using the `--linter` option, see the 

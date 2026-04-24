@@ -1,8 +1,9 @@
 # Prepare your project (Docker)
 
-<!-- The ingress description should be added here. What is it?-->
-
 ## Domain name system (DNS)
+
+<!-- How can they be allocated in this case  -->
+<!-- Where are these variables applied?  -->
 
 <p>%premlite% exposes different HTTP endpoints as base URLs. Make sure to allocate a top-level domain like <code>qodana.local</code>.
     The majority of %premlite% components require dedicated base URLs, for example:</p>
@@ -36,11 +37,14 @@
         <td><code>ingress.qodana.local</code></td>
     </tr>
 </table>
+<!-- This is inconsistent here  -->
 <p>These hostnames enable interaction of %product% components and access to essential services.
 services. The IP can be of your server or a load balancer, depending on your deployment architecture. </p>
 
 In production environments, you should use a domain that aligns with your naming conventions like `qodana.mycompany.com`,
 `files.qodana.mycompany.com` and others.
+
+<!-- This needs to be described and detalized  -->
 
 If you intend to use %product% only internally, configure DNS records in your internal DNS server. For external access, 
 ensure that public DNS records point to appropriate IP addresses of your server or load balancer.
@@ -51,6 +55,8 @@ ensure that public DNS records point to appropriate IP addresses of your server 
 
 %premlite% operates multiple services with each service requiring their own database: 
 
+
+<!-- Where are they used  -->
 | Database           | Description                                                                 | Variable             |
 |--------------------|-----------------------------------------------------------------------------|----------------------|
 | API Database       | Stores data related to Qodana’s API                                         | `${API_DATABASE}`    |

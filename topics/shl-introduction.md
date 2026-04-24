@@ -9,8 +9,8 @@ within strict security or compliance standards.
 > %premlite% is still in the alpha development stage, which means that it may contain bugs or work not as intended.
 {style="warning"}
 
-This documentation guides you through the installation, product configuration, and initialization stages of the Docker
-and Kubernetes versions of %premlite%.
+This documentation guides you through the installation, product configuration, and initialization stages of the dockerized
+and cluster versions of %premlite%.
 
 ## %premlite% features
 
@@ -30,8 +30,10 @@ You can deploy %premlite% using two options:
 installer. The utility requires a server running Linux with the Docker Engine and Docker Swarm as a container orchestrator. 
 It is compatible with automation and Infrastructure as a Code (IaC) frameworks.
 * The Kubernetes version of %premlite% is a Helm-based deployment for Kubernetes that sets up all the necessary Qodana 
-services and their dependencies as Kubernetes resources. It uses Helm to distribute the product as a Helm Chart. 
+services and their dependencies as Kubernetes resources. It uses Helm to distribute the product as a Helm Chart.
 You can customize it through an ad-hoc `values.yaml` file. By default, the package is configured to run in demo/PoC mode
 
+<!-- The word deployment needs to be linked to the K8s documentation -->
 
+<!--The values.yaml file can be probably deleted from here because it's irrelevant here  -->
 

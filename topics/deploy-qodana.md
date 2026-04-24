@@ -193,14 +193,14 @@ credentials, and resolve dependencies.
             <p><code>%cpp-image%&lt;-clangXX&gt;&lt;-privileged&gt;</code></p>
         </td>
     </tr>
-<!--    <tr>
+    <tr>
       <td>
             <p><a href="rust.md">%rust-langs%</a></p>
       </td>
         <td>
             <p><code>%rust-image%</code></p>
         </td>
-    </tr> -->
+    </tr>
 </table>
 
 The table contains optional tags to let you pull pre-configured %product% images:

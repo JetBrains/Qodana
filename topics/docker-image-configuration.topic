@@ -3052,7 +3052,7 @@
 
     <chapter id="docker-config-reference-properties" title="Properties">
 
-        <link-summary>Learn how you can override logging messages to STDOUT, disabling user statistics, and configuring plugins.</link-summary>
+        <link-summary>Learn how you can override %product% settings using properties.</link-summary>
 
         <p>Using the <code>--property=</code> option, you can override various %instance% parameters:</p>
 
@@ -3060,6 +3060,7 @@
             <li><a anchor="docker-config-reference-properties-stdout">Logging messages to STDOUT</a></li>
             <li><a anchor="docker-config-reference-properties-user-statistics">Disabling user statistics</a></li>
             <li><a anchor="docker-config-reference-properties-config-plugins">Configuring plugins</a></li>
+            <li><a anchor="docker-config-reference-properties-config-timeout">Setting up configuration timeout</a></li>
         </list>
 
         <table>
@@ -3398,6 +3399,93 @@
                            --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
                            --property=idea.suppressed.plugins.id=com.intellij.spring.security
                     </code-block>
+                </tab>
+            </tabs>
+        </chapter>
+        <chapter id="docker-config-reference-properties-config-timeout" title="Setting up configuration timeout">
+            <note>These properties are available only for the <a href="rust.md">%rust%</a>, <a href="clang.md">%cpp% and %clang%</a> linters.</note>
+            <p>Using the following properties, you can configure the <a href="inspect-your-code.md" anchor="Analysis+stages">configuration stage timeout</a>:</p>
+                <table>
+                    <tr>
+                        <td>Property</td>
+                        <td>Available for the linters</td>
+                    </tr>
+                    <tr>
+                        <td><code>qd.cpp.startup.timeout.minutes</code></td>
+                        <td><a href="clang.md">%cpp% and %clang%</a></td>
+                    </tr>
+                    <tr>
+                        <td><code>qd.rust.configuration.timeout.minutes</code></td>
+                        <td><a href="rust.md">%rust%</a></td>
+                    </tr>
+                </table>
+            <p>Here are the examples of property usage:</p>
+            <tabs group="software">
+                <tab title="GitHub Actions" group-key="github">
+        <code-block lang="yaml">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: %action-version%
+                          with:
+                              args: --property qd.&lt;cpp|rust&gt;.startup.timeout.minutes=10
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+                </tab>
+                <!--<tab title="GitLab CI/CD" group-key="gitlab">
+                    <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
+                    <code-block lang="yaml" filter="cpp">
+                      include:
+                          - component: %gitlab-version%
+                            inputs:
+                                args: --linter %qd-linter%
+                    </code-block>
+                    <code-block lang="yaml" filter="rust">
+                      include:
+                          - component: %gitlab-version%
+                            inputs:
+                                args: --linter %qd-linter%
+                    </code-block>
+                </tab>-->
+                <tab title="Command line" group-key="command-line">
+                    <tabs group="cli-settings">
+                        <tab group-key="qodana-cli" title="Qodana CLI">
+                    <code-block prompt="$" lang="shell">
+                      qodana scan \
+                      &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                      &nbsp;&nbsp;&nbsp;--linter &lt;linter&gt; \
+                      &nbsp;&nbsp;&nbsp;--property qd.&lt;cpp|rust&gt;.configuration.timeout.minutes=10
+                    </code-block>
+                        </tab>
+                    <tab group-key="docker-image" title="Docker image">
+                    <code-block lang="shell" prompt="$">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;jetbrains/qodana-&lt;image&gt; \
+                    &nbsp;&nbsp;&nbsp;--property qd.&lt;cpp|rust&gt;.configuration.timeout.minutes=10
+                </code-block>
+                        </tab>
+                    </tabs>
                 </tab>
             </tabs>
         </chapter>

@@ -98,6 +98,9 @@ Below are the requirements grouped in categories.
                 <td>Scale per workload, more for large codebases</td>
             </tr>
         </table>
+<!--What are pods? This needs to be explained or simplified  -->
+<!--This is probably related to the configuration step, not description of requirements  -->
+<!--SH pods is nonsense, needs to be moved to the configuration stage as a note  -->
         <p>In case of a single-node configuration, limited resources are not sufficient for the Kubernetes Scheduler and 
            Kubelet for deployments that mutate the configuration state of Self-Hosted (SH) pods. In such a case, 
            proceed with two-step deployment: with the first step apply the configuration change and set the replicaCount 
@@ -106,6 +109,7 @@ Below are the requirements grouped in categories.
            Kubernetes cluster such that pods are distributed cross nodes and are not limited by the limitation of a one node cluster.
         </p>
 </tab>
+<!--Kubernetes requirements need to be referenced to the Kubernetes website  -->
     <tab title="Kubernetes software">
         <table>
             <tr>
@@ -117,19 +121,23 @@ Below are the requirements grouped in categories.
                 <td>Any Linux distribution that satisfies Kubernetes requirements</td>
             </tr>
             <tr>
+<!-- Add that in the examples Containerd will be used  -->
                 <td>Container runtime</td>
                 <td>Any container runtime that satisfies Kubernetes requirements</td>
             </tr>
             <tr>
+<!-- Add here that NGINX will be used  -->
                 <td>Ingress controller</td>
                 <td>Any Ingress Controller that is deployed in the Kubernetes cluster as a cluster service and can resolve service URLs</td>
             </tr>
             <tr>
+<!-- Needs to be referenced, but a bit later  -->
                 <td>Storage controller</td>
                 <td>Any Storage Controller that allows volumes to migrate cross nodes based on pod locations</td>
             </tr>
         </table>
         <p>
+<!-- This should be moved to the configuration stage, around Ingress  -->
             For any ingress controller, you must configure redirect behavior, client identity propagation, 
             and size/buffering limits.</p>
             <p>First, decide where TLS terminates and who performs HTTP to HTTPS redirects; if 
@@ -146,6 +154,7 @@ Below are the requirements grouped in categories.
             examples shown for NGINX, and validate under load tests to confirm no 400/413 responses, no misreported 
             client IPs, and consistent redirect behavior.</p>
         <p>Below is an example configuration for Kubernetes nginx ingress controller.</p>
+<!-- This needs to be moved out of here  -->
         <code-block block="yaml" collapsible="true">
             #  Disabling avoids double redirects, redirect loops, and unnecessary hops during health checks or internal service calls over HTTP. Services with external URLs expose the same URL internally for intra cluster communication.
             force-ssl-redirect: "false"

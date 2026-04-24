@@ -951,6 +951,9 @@ You can analyze pull requests using the %cpp% linter.
     </tab>
 </tabs>
 
+### Setting up configuration timeout
+
+<include from="lib_qd.topic" element-id="configuration-timeout-cpp-rust" use-filter="empty,cpp"/>
 
 ## Configure compilers and environments
 

@@ -2048,7 +2048,7 @@
                                     - name: 'Qodana Scan'
                                       uses: %action-version%
                                       with:
-                                          args: --image %qd-image%
+                                          args: --linter %qd-linter%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -2075,9 +2075,9 @@
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
                                       uses: %action-version%
-                                      with: # Uncomment the Docker image that you wish to use
-                                        # args: --image %qd-linter% # %qd%
-                                        # args: --image %qd-co-linter% # %qd-co%
+                                      with: # Uncomment the linter that you wish to use
+                                        # args: --linter %qd-linter% # %qd%
+                                        # args: --linter %qd-co-linter% # %qd-co%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -2104,11 +2104,11 @@
                                           fetch-depth: 0  # a full history is required for pull request analysis
                                     - name: 'Qodana Scan'
                                       uses: %action-version%
-                                      with: # Uncomment the Docker image that you wish to use
-                                        # args: --image %qd-linter% # %qd%
-                                        # args: --image %qd-co-linter% # %qd-co%
-                                        # args: --image %qd-a-linter% # %qd-a%
-                                        # args: --image %qd-an-linter% # %qd-an%
+                                      with: # Uncomment the linter that you wish to use
+                                        # args: --linter %qd-linter% # %qd%
+                                        # args: --linter %qd-co-linter% # %qd-co%
+                                        # args: --linter %qd-a-linter% # %qd-a%
+                                        # args: --linter %qd-an-linter% # %qd-an%
                                       env:
                                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                     </code-block>
@@ -2153,25 +2153,25 @@
                             <code-block prompt="$" lang="shell" filter="generic">
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp;--image %qd-image% \
+                                &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
                             <code-block prompt="$" lang="shell" filter="jvm">
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp; # Uncomment the Docker image that you wish to use
-                                &nbsp;&nbsp;&nbsp; # --image %qd-linter% \ # %qd%
-                                &nbsp;&nbsp;&nbsp; # --image %qd-co-linter% \ # %qd-co%
-                                &nbsp;&nbsp;&nbsp; # --image %qd-a-linter% \ # %qd-a%
-                                &nbsp;&nbsp;&nbsp; # --image %qd-an-linter% \ # %qd-an%
+                                &nbsp;&nbsp;&nbsp; # Uncomment the linter that you wish to use
+                                &nbsp;&nbsp;&nbsp; # --linter %qd-linter% \ # %qd%
+                                &nbsp;&nbsp;&nbsp; # --linter %qd-co-linter% \ # %qd-co%
+                                &nbsp;&nbsp;&nbsp; # --linter %qd-a-linter% \ # %qd-a%
+                                &nbsp;&nbsp;&nbsp; # --linter %qd-an-linter% \ # %qd-an%
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
                             <code-block prompt="$" lang="shell" filter="python">
                                 qodana scan \
                                 &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                                &nbsp;&nbsp;&nbsp; # Uncomment the Docker image that you wish to use
-                                &nbsp;&nbsp;&nbsp; # --image %qd-linter% \ # %qd%
-                                &nbsp;&nbsp;&nbsp; # --image %qd-co-linter% \ # %qd-co%
+                                &nbsp;&nbsp;&nbsp; # Uncomment the linter that you wish to use
+                                &nbsp;&nbsp;&nbsp; # --linter %qd-linter% \ # %qd%
+                                &nbsp;&nbsp;&nbsp; # --linter %qd-co-linter% \ # %qd-co%
                                 &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                             </code-block>
                         </tab>
@@ -2377,20 +2377,20 @@
                 <code-block prompt="$" lang="shell" filter="generic">
                     qodana scan \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;--image %qd-linter% \
+                    &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                         <code-block prompt="$" lang="shell" filter="jvm">
                     qodana scan \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;--image %qd-linter% \
+                    &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                         <include from="lib_qd.topic" element-id="linters-docker-image-table"/>
                         <code-block prompt="$" lang="shell" filter="python">
                     qodana scan \
                     &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                    &nbsp;&nbsp;&nbsp;--image %qd-linter% \
+                    &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
                     &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                 </code-block>
                     </tab>
@@ -2489,6 +2489,123 @@
             removed in the future version of %product%.</p>
 
 
+    </snippet>
+
+    <snippet id="configuration-timeout-cpp-rust">
+        <p>Using the <code filter="cpp">qd.cpp.startup.timeout.minutes</code> <code filter="rust">qd.rust.configuration.timeout.minutes</code> <a href="docker-image-configuration.topic" anchor="docker-config-reference-properties">property</a>, you can set up the <a href="inspect-your-code.md" anchor="Analysis+stages">configuration stage timeout</a>, for example:</p>
+        <tabs group="software">
+            <tab title="GitHub Actions" group-key="github">
+                <code-block lang="yaml" filter="cpp">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: %action-version%
+                          with:
+                              args: |
+                                --linter %qd-linter%
+                                --property qd.cpp.startup.timeout.minutes=10
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+        <code-block lang="yaml" filter="rust">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: %action-version%
+                          with:
+                              args: |
+                                  --linter %qd-linter%
+                                  --property qd.rust.configuration.timeout.minutes=10
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+    </tab>
+            <!--<tab title="GitLab CI/CD" group-key="gitlab">
+                <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
+                <code-block lang="yaml" filter="cpp">
+                  include:
+                      - component: %gitlab-version%
+                        inputs:
+                            args: --linter %qd-linter%
+                </code-block>
+                <code-block lang="yaml" filter="rust">
+                  include:
+                      - component: %gitlab-version%
+                        inputs:
+                            args: --linter %qd-linter%
+                </code-block>
+            </tab>-->
+            <tab title="Command line" group-key="command-line">
+                <tabs group="cli-settings">
+                    <tab group-key="qodana-cli" title="Qodana CLI">
+                    <code-block prompt="$" lang="shell" filter="cpp">
+                      qodana scan \
+                      &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                      &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
+                      &nbsp;&nbsp;&nbsp;--property qd.cpp.startup.timeout.minutes=10
+                    </code-block>
+                    <code-block prompt="$" lang="shell" filter="rust">
+                      qodana scan \
+                      &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                      &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
+                      &nbsp;&nbsp;&nbsp;--property qd.rust.configuration.timeout.minutes=10
+                    </code-block>
+                    </tab>
+                    <tab group-key="docker-image" title="Docker image">
+                <code-block lang="shell" prompt="$" filter="cpp">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;%qd-image% \
+                    &nbsp;&nbsp;&nbsp;--property qd.cpp.startup.timeout.minutes=10
+                </code-block>
+                <code-block lang="shell" prompt="$" filter="rust">
+                    docker run \
+                    &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
+                    &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                    &nbsp;&nbsp;&nbsp;%qd-image% \
+                    &nbsp;&nbsp;&nbsp;--property qd.rust.configuration.timeout.minutes=10
+                </code-block>
+            </tab>
+       </tabs>
+            </tab>
+        </tabs>
     </snippet>
 
 </topic>

@@ -68,7 +68,7 @@ To analyze Rust projects, you can use the %rust% linter with the following chara
     </tr>
 </table>
 
-To see the list of supported technologies and features, you can navigate to the [](#php-feature-matrix) chapter of this section.
+To see the list of supported technologies and features, you can navigate to the [](#rust-feature-matrix) chapter of this section.
 
 ## Before you start
 {id="php-before-you-start"}
@@ -118,8 +118,12 @@ The command will be automatically executed before the analysis.
 
 <include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,generic,golang"/>
 
+### Setting up configuration timeout
+
+<include from="lib_qd.topic" element-id="configuration-timeout-cpp-rust" use-filter="empty,rust"/>
+
 ## Supported technologies and features
-{id="php-feature-matrix"}
+{id="rust-feature-matrix"}
 
 The %qd% linter provides inspections for the following technologies.
 
