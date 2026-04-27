@@ -70,6 +70,13 @@ To analyze Rust projects, you can use the %rust% linter with the following chara
 
 To see the list of supported technologies and features, you can navigate to the [](#rust-feature-matrix) chapter of this section.
 
+<note>
+The %qd% linter is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
+Your feedback is very welcome in our 
+<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
+<a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
+</note>
+
 ## Before you start
 {id="php-before-you-start"}
 
