@@ -329,20 +329,20 @@
     <var name="js-image" value="jetbrains/qodana-js:2026.1"/>
     <var name="go-image" value="jetbrains/qodana-go:2026.1"/>
     <var name="cpp-image" value="jetbrains/qodana-cpp:2026.1"/>
-    <var name="clang-image" value="jetbrains/qodana-clang:2026.1"/>
+    <var name="clang-image" value="jetbrains/qodana-clang:2026.1-eap"/>
     <var name="ruby-image" value="jetbrains/qodana-ruby:2026.1-eap"/>
     <var name="rust-image" value="jetbrains/qodana-rust:2026.1-eap"/>
     <var name="python-image-combined" value="jetbrains/qodana-python&lt;-community&gt;:2026.1"/>
 
     <!-- Extension versions -->
-    <var name="action-version" value="JetBrains/qodana-action@v2025.3"/>
-    <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2025.3"/>
-    <var name="circleci-version" value="jetbrains/qodana@2025.3"/>
+    <var name="action-version" value="JetBrains/qodana-action@v2026.1"/>
+    <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2026.1"/>
+    <var name="circleci-version" value="jetbrains/qodana@2026.1"/>
 
     <var name="version-previous" value="2025.3"/>
     <var name="version-current" value="2026.1"/>
     <var name="version-for-combined" value="2026.1"/>
-    <var name="version-for-combined-cpp" value="2026.1-eap"/>
+    <var name="version-for-combined-cpp" value="2026.1&lt;-eap&gt;"/>
 
     <!-- Self-hosted variables -->
     <var name="premlite" value="Qodana Self-Hosted"/>

@@ -330,7 +330,9 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                 <code-block lang="yaml">
                 include:
                    - component: %gitlab-version%
-                     inputs:
+                     inputs: # Uncomment the Docker image that you would like to use
+                        # image: %qd-image%
+                        # image: %qd-co-image%
                         args: --no-build
                 </code-block>
             </tab>
@@ -582,8 +584,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                     <code-block lang="yaml">
                         include:
                            - component: %gitlab-version%
-                             inputs:
-                                args: --linter %qd-linter%
+                             inputs: 
+                                image: %qd-image%
                     </code-block>
                     <p>The <code>privileged</code> tag lets you execute commands that need root access because in this case 
                         %product% comes with a default <code>qodana</code> user who possesses root privileges and does not 
@@ -699,7 +701,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         include:
                            - component: %gitlab-version%
                              inputs:
-                                args: --linter %qd-co-linter%
+                                image: %qd-co-image%
                     </code-block>
                 </tab>
                 <tab title="Command line" group-key="command-line">
@@ -1355,9 +1357,8 @@ in a SARIF-formatted file.
                             include:
                                - component: %gitlab-version%
                                  inputs:
-                                    args: | 
-                                        --baseline &lt;path/to/qodana.sarif.json&gt;
-                                        --linter %qd-linter%
+                                    image: %qd-image%
+                                    args: --baseline &lt;path/to/qodana.sarif.json&gt;
                           </code-block>
                             <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> 
                                 block invokes the baseline feature.</p>
@@ -1476,9 +1477,8 @@ in a SARIF-formatted file.
                             include:
                                - component: %gitlab-version%
                                  inputs:
-                                    args: |
-                                        --baseline &lt;path/to/qodana.sarif.json&gt; 
-                                        --linter %qd-co-linter%
+                                    image: %qd-co-image%
+                                    args: --baseline &lt;path/to/qodana.sarif.json&gt; 
                         </code-block>
                     <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block 
                         invokes the baseline feature.</p>
@@ -1594,7 +1594,7 @@ You can analyze pull requests using the %dotnet% linter.
             include:
                - component: %gitlab-version%
                  inputs:
-                   args: --linter %qd-linter%
+                   image: %qd-image% 
         </code-block>
         <p>
             This configuration enables merge request analysis.

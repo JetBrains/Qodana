@@ -446,7 +446,8 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <code-block lang="yaml">
           include:
             - component: %gitlab-version%
-                args: --image %common-image%
+              inputs:
+                image: %common-image%
         </code-block>
         <p>To override the location of the <code>compile_commands.json</code> file for the  %qdcppc% linter, specify the location relative to the project root, so the configuration would look like:
         </p>
@@ -454,9 +455,8 @@ the project, generates analysis reports and saves them locally or uploads to %cl
           include:
             - component: %gitlab-version%
               inputs:
-                 args: |
-                    --compile-commands,&lt;path-to-compile_commands.json&gt;,
-                    --image,%qdcppc-image%
+                 image: %qdcppc-image%
+                 args: --compile-commands &lt;path-to-compile_commands.json&gt;
         </code-block>
     <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
     </tab>
@@ -535,7 +535,6 @@ project <a href="https://qodana.cloud">%cloud%</a> and review the analysis resul
 and <a href="qodana-yaml.md" anchor="exclude-paths">excluding</a> paths for specific inspections using the <code>qodana.yaml</code> file.</note>
 
 ### Modifying paths for analysis
-
 
 Recommendations from this section are applicable only to the %qdcppc% linter and specific cases where the %qdcpp% linter 
 is analyzing a project configured with a raw `compile_commands.json` file.
@@ -811,16 +810,16 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
       </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab">
-      <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the 
+      <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line invokes the 
         baseline feature.</p>
       <code-block lang="yaml">
         include:
            - component: %gitlab-version%
              inputs:
+                image: %common-image%
                 args: | 
                     --baseline qodana.sarif.json 
-                    --fail-threshold &lt;number-of-accepted-problems&gt; 
-                    --image %common-image%
+                    --fail-threshold &lt;number-of-accepted-problems&gt;
       </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
@@ -913,7 +912,7 @@ You can analyze pull requests using the %cpp% linter.
             include:
                - component: %gitlab-version%
                  inputs:
-                   args: --image %qdcpp-image%
+                   image: %common-image%
         </code-block>
         <p>
             This configuration enables merge request analysis.

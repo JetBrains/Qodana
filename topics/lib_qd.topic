@@ -1255,30 +1255,29 @@
                 <p>More configuration examples are available in the <a href="jenkins.md"/> section.</p>
             </tab>
             <tab title="GitLab CI/CD" group-key="gitlab">
+                <p>This is an example for running %product% on Linux. Other examples are available in the <a href="gitlab.md"/> section.</p>
                 <p>In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
                 <code-block lang="yaml" filter="generic">
                           include:
                               - component: %gitlab-version%
                                 inputs:
-                                    args: --linter %qd-linter%
+                                    image: %qd-image%
                         </code-block>
                 <code-block lang="yaml" filter="python">
                           include:
                               - component: %gitlab-version%
                                 inputs:
-                                    # Uncomment the image that you would like to employ
-                                    # args: --linter %qd-linter% # %qd%
-                                    # args: --linter %qd-co-linter% # %qd-co%
+                                    image: %python-image-combined%
                         </code-block>
                 <code-block lang="yaml" filter="jvm">
                           include:
                               - component: %gitlab-version%
                                 inputs:
                                     # Uncomment the linter that you would like to employ
-                                    # args: --linter %qd-linter% # Qodana for JVM
-                                    # args: --linter %qd-co-linter% # Qodana Community for JVM
-                                    # args: --linter %qd-a-linter% # Qodana Community for Android
-                                    # args: --linter %qd-an-linter% # Qodana for Android
+                                    # image: %qd-image% # Qodana for JVM
+                                    # image: %qd-co-image% # Qodana Community for JVM
+                                    # image: %qd-a-image% # Qodana Community for Android
+                                    # image: %qd-an-image% # Qodana for Android
                         </code-block>
                 <p>More configuration examples are available in the <a href="gitlab.md"/> section.</p>
             </tab>
@@ -1756,6 +1755,7 @@
                     </code-block>
         </tab>
         <tab title="GitLab CI/CD" group-key="gitlab">
+            <p>This is an example for running %product% on Linux. Other examples are available in the <a href="gitlab.md"/> section.</p>
             <p filter="jvm">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file and
                 uncomment the linter that you would like to employ:</p>
             <code-block lang="yaml" filter="jvm">
@@ -1763,29 +1763,25 @@
                         - component: %gitlab-version%
                           inputs:
                               # Uncomment the linter you would like to employ
-                              # args: --linter %qd-linter% # Qodana for JVM
-                              # args: --linter %qd-co-linter% # Qodana Community for JVM
-                              # args: --linter %qd-a-linter% # Qodana Community for Android
-                              # args: --linter %qd-an-linter% # Qodana for Android
+                              # image: %qd-image% # Qodana for JVM
+                              # image: %qd-co-image% # Qodana Community for JVM
+                              # image: %qd-a-image% # Qodana Community for Android
+                              # image: %qd-an-image% # Qodana for Android
                   </code-block>
             <p filter="python">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="python">
                     include:
                         - component: %gitlab-version%
                           inputs:
-                            # Uncomment the linter you would like to employ
-                            # args: --linter %qd-linter% # %qd%
-                            # args: --linter %qd-co-linter% # %qd-co%
+                              image: %python-image-combined%
                   </code-block>
             <p filter="generic">In the root directory of your project, save this snippet to the <code>.gitlab-ci.yml</code> file:</p>
             <code-block lang="yaml" filter="generic">
                     include:
                         - component: %gitlab-version%
                           inputs:
-                              args: --linter %qd-linter%
+                              image: %qd-image%
                   </code-block>
-            <p>The <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> line in the <code>script</code> block invokes the
-                baseline feature.</p>
         </tab>
         <tab title="TeamCity" group-key="teamcity">
             <include from="lib_qd.topic" element-id="teamcity-add-a-qodana-runner" use-filter="empty,baseline"/>
@@ -2114,28 +2110,28 @@
                     </code-block>
                 </tab>
                 <tab title="GitLab CI/CD" group-key="gitlab">
+                    <p>This is an example for running %product% on Linux. Other examples are available in the <a href="gitlab.md"/> section.</p>
                     <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                     <code-block lang="yaml" filter="generic">
                       include:
                           - component: %gitlab-version%
                             inputs:
-                               args: --image %qd-linter%
+                               image: %qd-image%
                     </code-block>
                     <code-block lang="yaml" filter="jvm">
                       include:
                           - component: %gitlab-version%
                             inputs: # Uncomment the Docker image that you wish to use
-                              # args: --image %qd-linter% # %qd%
-                              # args: --image %qd-co-linter% # %qd-co%
-                              # args: --image %qd-a-linter% # %qd-a%
-                              # args: --image %qd-an-linter% # %qd-an%
+                              # image: %qd-image% # %qd%
+                              # image: %qd-co-image% # %qd-co%
+                              # image: %qd-a-image% # %qd-a%
+                              # image: %qd-an-image% # %qd-an%
                     </code-block>
                     <code-block lang="yaml" filter="python">
                       include:
                           - component: %gitlab-version%
-                            inputs: # Uncomment the Docker image that you wish to use
-                              # args: --image %qd-linter% # %qd%
-                              # args: --image %qd-co-linter% # %qd-co%
+                            inputs:
+                              image: %python-image-combined%
                     </code-block>
 
                     <p>This configuration enables merge request analysis.</p>
@@ -2343,24 +2339,28 @@
         </code-block>
             </tab>
             <tab title="GitLab CI/CD" group-key="gitlab">
+                <p>This is an example for running %product% on Linux. Other examples are available in the <a href="gitlab.md"/> section.</p>
                 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                 <code-block lang="yaml" filter="generic">
                   include:
                       - component: %gitlab-version%
                         inputs:
-                            args: --linter %qd-linter%
+                            image: %qd-image%
                 </code-block>
                 <code-block lang="yaml" filter="jvm">
                   include:
                       - component: %gitlab-version%
-                        inputs:
-                            args: --linter %qd-linter%
+                        inputs: # Uncomment the Docker image that you wish to use
+                            # image: %qd-image% # %qd%
+                            # image: %qd-co-image% # %qd-co%
+                            # image: %qd-a-image% # %qd-a%
+                            # image: %qd-an-image% # %qd-an%
                 </code-block>
                 <code-block lang="yaml" filter="python">
                   include:
                       - component: %gitlab-version%
                         inputs:
-                            args: --linter %qd-linter%
+                          image: %python-image-combined%
                 </code-block>
                 <p>This snippet enables merge request analysis.</p>
             </tab>
@@ -2556,21 +2556,24 @@
                               QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         </code-block>
     </tab>
-            <!--<tab title="GitLab CI/CD" group-key="gitlab">
+            <tab title="GitLab CI/CD" group-key="gitlab">
+                <p>This is an example for running %product% on Linux. Other examples are available in the <a href="gitlab.md"/> section.</p>
                 <p>In the root directory of your project, save the <code>.gitlab-ci.yml</code> file containing the following snippet:</p>
                 <code-block lang="yaml" filter="cpp">
                   include:
                       - component: %gitlab-version%
                         inputs:
-                            args: --linter %qd-linter%
+                            image: %common-image%
+                            args: --property qd.cpp.startup.timeout.minutes=10
                 </code-block>
                 <code-block lang="yaml" filter="rust">
                   include:
                       - component: %gitlab-version%
                         inputs:
-                            args: --linter %qd-linter%
+                            image: %qd-image%
+                            args: --property qd.rust.configuration.timeout.minutes=10
                 </code-block>
-            </tab>-->
+            </tab>
             <tab title="Command line" group-key="command-line">
                 <tabs group="cli-settings">
                     <tab group-key="qodana-cli" title="Qodana CLI">
