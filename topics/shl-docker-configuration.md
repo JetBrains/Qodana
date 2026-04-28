@@ -510,8 +510,6 @@ docker run \
 
 ### install-app
 
-> Detailed deployment guide is available in the [](shl-deployment.md) section.
-
 Deploy %premlite% on your machine:
 
 ```Bash
