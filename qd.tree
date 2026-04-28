@@ -112,13 +112,15 @@
         <toc-element topic="shl-introduction.md"/>
         <toc-element topic="shl-requirements.md"/>
         <toc-element topic="shl-architecture.md"/>
-        <toc-element topic="shl-prepare-project.md"/>
+		<toc-element topic="shl-docker-configuration.md"/>
+        <!--<toc-element topic="shl-prepare-project.md"/>-->
         <toc-element topic="shl-deployment.md"/>
-        <toc-element topic="shl-command-list.md"/>
-        <toc-element topic="shl-labels.md"/>
-        <toc-element topic="shl-env-variables.md"/>
-        <toc-element topic="shl-troubleshooting.md"/>
+        <!--<toc-element topic="shl-command-list.md"/>-->
+        <!--<toc-element topic="shl-labels.md"/>-->
+        <!--<toc-element topic="shl-env-variables.md"/>-->
+        <!--<toc-element topic="shl-troubleshooting.md"/>-->
     </toc-element>
+
 
     <!-- Extending Qodana section -->
 	<toc-element toc-title="Extending %product%">

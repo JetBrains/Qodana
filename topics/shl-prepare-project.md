@@ -57,6 +57,7 @@ ensure that public DNS records point to appropriate IP addresses of your server 
 
 
 <!-- Where are they used  -->
+
 | Database           | Description                                                                 | Variable             |
 |--------------------|-----------------------------------------------------------------------------|----------------------|
 | API Database       | Stores data related to Qodana’s API                                         | `${API_DATABASE}`    |
@@ -69,14 +70,43 @@ ensure that public DNS records point to appropriate IP addresses of your server 
 Each service requires a dedicated PostgreSQL user for having access to its corresponding database. These users are 
 assigned specific permissions to ensure security and proper data isolation:
 
-| Database           | Description                                                            | Variable                        |
-|--------------------|------------------------------------------------------------------------|---------------------------------|
-| API User       | Read/write permissions for the API database                            | `${API_USER_NAME}`              |
-| Linters API User       | Read-only permissions for certain tables                               | `${LINTERS_API_USER_NAME}`      |
-| Report Processor User     | Read/write permissions for processing reports                          | `${REPORT_PROCESSOR_USER_NAME}` |
-| Git User  | Full permissions for Git-related data                                  | `${GIT_USER_NAME}`              |
-| Audit User  | Full permissions for audit logs                                        | `${AUDIT_USER_NAME}`            |
-| Keycloak User  | Optional. Full ownership and permissions for the Keycloak database     | `${APP_KC_DB_USER}`             |
+<table>
+    <tr>
+        <td>Database</td>
+        <td>Description</td>
+        <td>Variable</td>
+    </tr>
+    <tr>
+        <td>API User</td>
+        <td>Read/write permissions for the API database</td>
+        <td><code>${API_USER_NAME}</code></td>
+    </tr>
+    <tr>
+        <td>Linters API User</td>
+        <td>Read-only permissions for certain tables</td>
+        <td><code>${LINTERS_API_USER_NAME}</code></td>
+    </tr>
+    <tr>
+        <td>Report Processor User</td>
+        <td>Read/write permissions for processing reports</td>
+        <td><code>${REPORT_PROCESSOR_USER_NAME}</code></td>
+    </tr>
+    <tr>
+        <td>Git User</td>
+        <td>Full permissions for Git-related data</td>
+        <td><code>${GIT_USER_NAME}</code></td>
+    </tr>
+    <tr>
+        <td>Audit User</td>
+        <td>Full permissions for audit logs</td>
+        <td><code>${AUDIT_USER_NAME}</code></td>
+    </tr>
+    <tr>
+        <td>Keycloak User</td>
+        <td>Optional. Full ownership and permissions for the Keycloak database</td>
+        <td><code>${APP_KC_DB_USER}</code></td>
+    </tr>
+</table>
 
 ### Permissions
 

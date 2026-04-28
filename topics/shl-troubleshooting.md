@@ -1,5 +1,6 @@
-# Troubleshooting (Docker)
+# Troubleshooting
 
+This section describes techniques applicable to the Dockerized version of %premlite%. 
 To troubleshoot the issues that may arise during deployment, configuration or operation
 of %premlite%, use the following command to extract log entries:
 
