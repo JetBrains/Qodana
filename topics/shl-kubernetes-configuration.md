@@ -20,7 +20,7 @@ Below are the links to the Kubernetes documentation that you can use to deploy a
 * [Cluster concepts](https://kubernetes.io/docs/setup/production-environment/)
 * [Node components](https://kubernetes.io/docs/concepts/architecture/#node-components)
 
-This is the minimum list of tools that should be deployed and configured on a control plane of your cluster: 
+This is the minimum list of tools that should be deployed and configured on your cluster: 
 
 | Tool                                                                                                                     | Description                                                  | Control plane nodes | Worker nodes |
 |--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|---------------------|--------------|
@@ -38,14 +38,14 @@ After deployment, make sure that all these components are running and healthy.
 ### Helm Chart
 
 In the Kubernetes version of %premlite%, the deployment is configurable via a [Helm](https://helm.sh/) Chart deployed on 
-an up-and-running Kubernetes cluster. To install Helm on your machine, run the following command: 
+an up-and-running Kubernetes cluster. To install Helm on your control plane node, run the following command: 
 
 ```bash
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
 {prompt="$"}
 
-Once installed, Helm needs a chart contained in the `values.yaml` file.
+Once installed, Helm needs a Chart contained in the `values.yaml` file.
 This file lets you customize endpoints, resources, secrets, integrations, and security policies.
 
 The actual version of the %product% Helm Chart is 1.0.3. Run the following command to pull the actual version of the product:
