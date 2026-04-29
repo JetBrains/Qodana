@@ -64,6 +64,8 @@ Below are the requirements grouped in categories.
 
 ### Kubernetes version
 
+<link-summary>See the requirements for a Kubernetes cluster of %premlite%.</link-summary>
+
 Below are the requirements grouped in categories.
 
 <tabs>
