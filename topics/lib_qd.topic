@@ -31,7 +31,8 @@
                 which licenses are incompatible with the project license.</li>
             <li>In the <ui-path>Licenses</ui-path> section, you can find the list of project, module and dependency licenses.
                 Using <ui-path>Open license rules</ui-path>, you can view the rules of license compatibility.</li>
-            <li>You can download the list of licenses in various formats.</li>
+            <li>You can download the list of licenses in various formats. Select <code>.json</code> to download the
+                <a href="https://spdx.dev/">SPDX</a> 2.3 JSON format.</li>
         </list>
     </snippet>
 
