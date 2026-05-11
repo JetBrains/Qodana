@@ -578,6 +578,14 @@
                 </tr>
                 <tr>
                     <td>
+                        <code>--repository-root string &lt;string&gt;</code>
+                    </td>
+                    <td>
+                        Path to the root of the Git repository. This directory must be the same as <code>--project-dir</code> or contain the project directory inside it.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <code>-o, --results-dir &lt;string&gt;</code>
                     </td>
                     <td>
@@ -669,7 +677,17 @@
                         </code>
                     </td>
                     <td>
-                        Port to serve the report. The default value is <code>8080</code>
+                        Port to serve the report. The default value is <code>8080</code>. This option is deprecated, use the <code>--show-report-port</code> option instead
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --show-report-port &lt;int&gt;
+                        </code>
+                    </td>
+                    <td>
+                        Port to serve the report
                     </td>
                 </tr>
                 <tr>
@@ -794,7 +812,7 @@
                         <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profile</a>
                     </td>
                 </tr>
-                <tr>
+                <tr id="docker-config-reference-qodana-scan-script">
                     <td>
                         <code>
                             --script &lt;string&gt;
@@ -917,6 +935,18 @@
                         Set the hash of the commit that will act as an end in a <a href="analyze-pr.md">change analysis</a>.
                         This lets you analyze only files changed between the <code>--diff-start</code> and
                         <code>--diff-end</code> commits
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
+                            --reverse
+                        </code>
+                    </td>
+                    <td>
+                        Override the default <a anchor="docker-config-reference-qodana-scan-script">run scenario</a> by
+                        launching incremental analysis in reverse order. This lets you skip analyzing the main codebase
+                        if the incremental analysis finds no issues.
                     </td>
                 </tr>
                 <tr>
