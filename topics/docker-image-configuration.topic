@@ -945,7 +945,7 @@
                     </td>
                     <td>
                         Override the default <a anchor="docker-config-reference-qodana-scan-script">run scenario</a> by
-                        launching incremental analysis in reverse order. This lets you skip analyzing the main codebase
+                        launching incremental analysis in reverse order. This lets you skip analysis of the main codebase
                         if the incremental analysis finds no issues.
                     </td>
                 </tr>
