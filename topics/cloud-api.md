@@ -51,9 +51,11 @@ https://{qodana_cloud_url}/organizations/{organizationId}
 ```
 -->
 
-## Create teams and projects
+## Teams and projects
 
-To create a new team (if applicable) along with a project and obtain a [project token](project-token.md), send a `POST` request to the 
+### Create teams and projects
+
+To create a new team (if applicable) along with a project and get a [project token](project-token.md), send a `POST` request to the 
 `https://{qodana_cloud_url}/api/v1/public/organizations/projects` endpoint and provide the team and project names, for example: 
 
 ```cURL
@@ -235,7 +237,28 @@ The endpoint provides the responses with the following HTTP codes:
     </tr>
 </table>
 
-## List organization users
+### Get the list of project reports
+{id="cloud-api-project-reports"}
+
+> This endpoint is available starting from version 2024.2 of %product%.
+{style="note"}
+
+Get report metadata for the default branch of a project.
+
+
+GET /api/v1/public/organizations/projects
+
+#### Parameters
+{id="cloud-api-project-reports-parameters"}
+
+### Get project details
+
+GET /projects/{id} as per https://youtrack.jetbrains.com/issue/QD-14541/Document-GET-projects-id-API
+
+
+
+## Organization users
+{id="cloud-api-organization-users"}
 
 To list users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send a `GET` request using the
 `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint, for example: 
@@ -247,6 +270,7 @@ curl -X GET \
 ```
 
 ### Parameters
+{id="cloud-api-organization-users-parameters"}
 
 You can customize your requests using the following optional parameters.
 
@@ -428,3 +452,6 @@ The `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint resp
         </td>
     </tr>
 </table>
+
+
+## Inspections
