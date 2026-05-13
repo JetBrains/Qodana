@@ -248,12 +248,11 @@ Get report metadata for the default branch of a project by sending a `GET` reque
 
 ```cURL
 curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/projects" \
-   -H "Authorization: Bearer $permanent_organization_token" \
-   -d "projectName=My Awesome Project"
+   "https://{qodana_cloud_url}/api/v1/public/organizations/projects?projectName=My%20Awesome%20Project" \
+   -H "Authorization: Bearer $permanent_organization_token"
 ```
 
-Here is the description of parameters:
+Here is the description of accepted parameters:
 
 | Parameter | Type   | Required | Description | Example Value |
 | --- |--------| --- | --- | --- |
@@ -402,12 +401,11 @@ the project ID, for example:
 
 ```cURL
 curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/projects/{projectId}" \
-   -H "Authorization: Bearer $permanent_organization_token" \
-   -d "projectId=proj_123"
+   "https://{qodana_cloud_url}/api/v1/public/organizations/projects/proj_123" \
+   -H "Authorization: Bearer $permanent_organization_token"
 ```
 
-You can customize your requests using the following optional parameters.
+You can customize your requests using the following optional parameter:
 
 | Parameter | Type   | Required | Description        | Example Value |
 | --- |--------| --- |--------------------|---------------|
@@ -746,7 +744,7 @@ curl -X GET \
    -H "Authorization: Bearer $permanent_organization_token"
 ```
 
-This endpoint does not require any parameters.
+This endpoint does not provide any parameters.
 
 Here is the description of responses:
 
@@ -1030,7 +1028,7 @@ curl -X POST \
       }'
 ```
 
-Here is the description of parameters:
+Here is the description of the request body:
 
 | Parameter | Type | Required | Description                                                 | Example Value |
 | --- | --- | --- |-------------------------------------------------------------| --- |
