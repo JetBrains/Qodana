@@ -12,11 +12,9 @@ Each inspection is a set of conditions to analyze the code, detect and correct a
     inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
     and thus facilitate improving the overall code structure. 
 
-
 All inspections are highly configurable, so you can configure:
 
-* What inspections to run for your codebase. There are lots of various inspections, so you can enable or
-  disable them for some reason.
+* Which inspections to analyze your codebase with. There are many available inspections, which you can [enable in the YAML file](qodana-yaml.md#Include+an+inspection+in+the+analysis+scope). You can also enable and disable inspections in %cloud%, on the [**Inspections**](ui-overview.md#ui-overview-configuration) tab.
 * What directories and files to include in your code analysis. If you feel that you do not need to analyze
   any file or group of files, you can exclude them from code analysis.
 * How you can configure and use [inspection profiles](#Inspection+profiles). You can use the preset combinations
