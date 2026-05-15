@@ -21,14 +21,16 @@ All inspections are highly configurable, so you can configure:
   of inspections specified by inspection profiles aimed at solving specific tasks or create your custom profile
   that would meet your unique needs.
 
+## Available inspections
+
 You can explore available %product% inspections using the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) website.
 This website provides details about inspections: descriptions, severity levels, languages covered, etc.
 
-You can use the table of contents to explore all available inspections:
+Use the table of contents to explore all available inspections:
 
 <img src="inspectopedia-toc.png" alt="Table of contents on the Inspectopedia website" width="296" border-effect="line"/>
 
-Alternatively, you can search for the concrete inspections by their names, or identifiers:
+Alternatively, you can search for particular inspections by their names, or identifiers:
 
 <img src="inspectopedia-search.png" alt="Searching for an inspection" width="706" border-effect="line"/>
 
