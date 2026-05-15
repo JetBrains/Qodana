@@ -152,6 +152,10 @@
                     <p>On this tab, copy the URL and follow the recommendations.</p>
                     <img src="qc-settings-sso-2.png" width="706" alt="The second step of the SSO subdomain generation" border-effect="line"/>
                 </step>
+                <step>
+                    <p>In the linter configuration, assign the configured subdomain value to the <code>QODANA_ENDPOINT</code>
+                        variable. This subdomain will be reflected in comments and report links.</p>
+                </step>
             </procedure>
 
 
