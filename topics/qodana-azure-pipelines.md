@@ -83,7 +83,7 @@ Below are basic configuration examples that will be expanded in the subsequent c
                restoreKeys: |
                  "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
                  "$(Build.Repository.Name)"
-           - task: QodanaScan@2025
+           - task: %azure-version%
              inputs:
                uploadResult: true
              env:
@@ -131,7 +131,7 @@ Below are basic configuration examples that will be expanded in the subsequent c
                restoreKeys: |
                  "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
                  "$(Build.Repository.Name)"
-           - task: QodanaScan@2025
+           - task: %azure-version%
              inputs:
                uploadResult: true
                args: -e AUSERNAME=$(AUSERNAME) -e APASSWORD=$(APASSWORD)
@@ -168,7 +168,7 @@ This is how you can enable %product% analysis for pull requests:
            - checkout: self
              fetchDepth: 0
              persistCredentials: true
-           - task: QodanaScan@2025
+           - task: %azure-version%
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
              inputs:
@@ -209,7 +209,7 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
                restoreKeys: |
                  "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
                  "$(Build.Repository.Name)"
-           - task: QodanaScan@2025
+           - task: %azure-version%
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
              inputs:

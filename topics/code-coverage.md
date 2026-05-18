@@ -287,7 +287,7 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
                restoreKeys: |
                  "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
                  "$(Build.Repository.Name)"
-           - task: QodanaScan@2025
+           - task: %azure-version%
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
              inputs:

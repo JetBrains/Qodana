@@ -39,7 +39,7 @@ Below are the requirements grouped in categories.
             </tr>
             <tr>
                 <td>Docker version</td>
-                <td>20.10.23 or later</td>
+                <td>20.10.23 or later with the Swarm mode available</td>
             </tr>
         </table>
     </tab>

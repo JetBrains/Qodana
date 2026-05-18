@@ -338,6 +338,7 @@
     <var name="action-version" value="JetBrains/qodana-action@v2026.1"/>
     <var name="gitlab-version" value="$CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2026.1"/>
     <var name="circleci-version" value="jetbrains/qodana@2026.1"/>
+    <var name="azure-version" value="QodanaScan@2026"/>
 
     <var name="version-previous" value="2025.3"/>
     <var name="version-current" value="2026.1"/>

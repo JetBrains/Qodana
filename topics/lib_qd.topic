@@ -2235,7 +2235,7 @@
             <step>
                 <p>In the Azure pipeline file, add the <code>QODANA_TOKEN</code> variable to the <code>env</code> section of the <code>QodanaScan</code> task:</p>
                 <code-block lang="yaml">
-                  - task: QodanaScan@2024
+                  - task: %azure-version%
                     env:
                         QODANA_TOKEN: $(QODANA_TOKEN)
                 </code-block>

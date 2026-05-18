@@ -2,7 +2,37 @@
 
 <show-structure for="chapter" depth="3"/>
 
+The `qodana-installer-cli` command-line tool is a Docker container that manages the lifecycle of %premlite%. 
+
+This tool orchestrates Docker Swarm stacks for:
+
+* Infrastructure services: PostgreSQL, MinIO, RabbitMQ, Keycloak
+* Application services: API, Audit, Git, Linters API, Report Processor, FUS, Frontend
+* Supporting tools: Traefik ingress proxy, image garbage collector
+
 ## Prepare your project
+
+### Docker
+
+The container should be given access to the Docker socket:
+
+```text
+-v /var/run/docker.sock:/var/run/docker.sock
+```
+
+You should have permission to the `/var/run/docker.sock` resource, i.e. your user should be part  the `docker` group on the host.
+
+Port 80 on the host should be open for the Traefik ingress proxy to bind to it in host-network mode.
+
+### Networking
+
+<!-- WHAT DOES THIS MEAN?  -->
+All service hostnames should resolve the IP address of the Swarm manager node. You can achieve this via:
+
+- An internal DNS server that covers `*.<DOMAIN>`
+- Manual `/etc/hosts` entries on every machine that should have access to %product%
+
+See the [](#Domain+name+system+%28DNS%29) chapter for the full list of hostnames and their setup.
 
 ### Domain name system (DNS)
 
@@ -17,11 +47,11 @@
         <td>URL</td>
     </tr>
     <tr>
-        <td>Frontend</td>
+        <td>Frontend (web UI)</td>
         <td><code>qodana.local</code></td>
     </tr>
     <tr>
-        <td>Backend</td>
+        <td>Backend (API gateway)</td>
         <td><code>api.qodana.local</code></td>
     </tr>
     <tr>
@@ -29,18 +59,19 @@
         <td><code>lintersapi.qodana.local</code></td>
     </tr>
     <tr>
-        <td>Built-in file storage</td>
+        <td>Built-in file storage (MinIO)</td>
         <td><code>files.qodana.local</code></td>
     </tr>
     <tr>
-        <td>Built-in SSO provider</td>
+        <td>Built-in SSO provider (Keycloak)</td>
         <td><code>login.qodana.local</code></td>
     </tr>
     <tr>
-        <td>Built-in ingress controller (optional)</td>
+        <td>Built-in ingress controller (Traefik)</td>
         <td><code>ingress.qodana.local</code></td>
     </tr>
 </table>
+
 <!-- This is inconsistent here  -->
 <p>These hostnames enable interaction of %product% components and access to essential services.
 services. The IP can be of your server or a load balancer, depending on your deployment architecture. </p>
@@ -409,7 +440,7 @@ Follow the steps below for installing %premlite% on your machine:
     <step>
         <p>On your local Linux machine, configure the <code>/etc/hosts</code> file as shown below:</p>
         <code-block lang="text">
-            # Added for Qodana Self-Hosted Lite Version
+            # Added for Qodana Self-Hosted Version
             127.0.0.1 qodana.local
             127.0.0.1 files.qodana.local
             127.0.0.1 api.qodana.local
@@ -480,99 +511,130 @@ To make the secret idempotent, this command mounts the `/app/qodana-installer/se
 
 ## Docker commands
 
-This chapter provides %premlite% commands executed in the `quay.io/jetbrains/qodana-installer-cli:latest` Docker image.
+Here is an overview of commands available for the Dockerized version of %premlite%.
 
-<!-- Do we really need to mention qodana-installer-cli name here? -->
+<table>
+    <tr>
+        <td>Command</td>
+        <td>Description</td>
+        <td>Examples</td>
+    </tr>
+    <tr>
+        <td><code>backup</code></td>
+        <td>Create a compressed backup of all local data</td>
+        <td><!-- What is going on here after the command is run? -->
+            <code-block lang="bash" prompt="$">
+                docker run \
+                  -v /var/run/docker.sock:/var/run/docker.sock \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest \
+                  backup
+            </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>credentials</code></td>
+        <td>Retrieve credentials for any infrastructure component</td>
+        <td>
+            <code-block lang="bash" prompt="$">
+                docker run \
+                  -v /var/run/docker.sock:/var/run/docker.sock \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest \
+                  credentials
+            </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>environment</code></td>
+        <td>Display all active configurations passed or used by %premlite%</td>
+        <td>
+            <code-block lang="bash" prompt="$">
+                docker run \
+                  -v /var/run/docker.sock:/var/run/docker.sock \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest \
+                  environment
+            </code-block></td>
+    </tr>
+    <tr>
+        <td><code>help</code></td>
+        <td>Help for %premlite%</td>
+        <td>
+            <code-block lang="bash" prompt="$">
+                docker run \
+                  -v /var/run/docker.sock:/var/run/docker.sock \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest \
+                  help
+            </code-block></td>
+    </tr>
+    <tr>
+        <td><code>install-app</code></td>
+        <td>Deploy %premlite% on your machine</td>
+        <td>
+            <code-block lang="bash" prompt="$">
+                docker run \
+                  -v /var/run/docker.sock:/var/run/docker.sock \
+                  -e API_ORGANIZATION_NAME="&lt;Specify the name of your organization&gt;" \
+                  -e COMMON_LICENSE_KEY_SECRET="&lt;Specify a valid license key&gt;" \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest \
+                  install-app
+            </code-block></td>
+    </tr>
+    <tr>
+        <td><code>logs</code></td>
+        <td>Retrieve log entries from %premlite% services</td>
+        <td>
+            <code-block lang="bash" prompt="$">
+                docker run \
+                  -v /var/run/docker.sock:/var/run/docker.sock \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest 
+                  logs
+            </code-block>
+<p>You can filter log output using the <code>--filters</code> parameter and labels described in the <a anchor="Labels+and+environment+variables"/> chapter and
+separated by a space character, for example:</p>
+            <code-block lang="bash" prompt="$">
+                docker run \ 
+                  -v /var/run/docker.sock:/var/run/docker.sock \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest \ 
+                  logs \
+                  --filters "label=com.docker.stack.namespace=qodana_self_hosted_services label=qodana.jetbrains.self-hosted.lite.service-type=application"
+            </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>restore</code></td>
+        <td>Restore data from a backup file</td>
+        <td>
+            <code-block lang="bash" prompt="$">
+                docker run \
+                  -v /var/run/docker.sock:/var/run/docker.sock \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest 
+                  logs
+            </code-block></td>
+    </tr>
+    <tr>
+        <td><code>uninstall</code></td>
+        <td>Uninstall %premlite% from your machine</td>
+        <td>
+            <code-block lang="bash" prompt="$">
+                docker run \
+                  -v /var/run/docker.sock:/var/run/docker.sock \ 
+                  quay.io/jetbrains/qodana-installer-cli:latest \
+                  uninstall
+            </code-block>
+        <p>To remove Docker volumes of %premlite%, run the following command:</p>
+            <code-block lang="bash" prompt="$">
+                echo "[INFO] Cleaning the Docker volumes" && docker volume ls \
+                  --filter "label=qodana.jetbrains.self-hosted.lite.dependencies.local=true" \
+                  --quiet | xargs -r docker volume rm
+            </code-block>
+        <p>To delete persisting secrets from your machine located in the <code>${PWD}/secrets</code> directory, 
+        run this command:</p>
+            <code-block lang="bash" prompt="$">
+                echo "[INFO] Cleaning the local secrets directory" && rm -rf ${PWD}/secrets
+            </code-block>
+        </td>
+    </tr>
+</table>
 
-### help
-
-Help for the `qodana-installer-cli` tool:
-
-```Bash
-docker run \
-  -v /var/run/docker.sock:/var/run/docker.sock \ 
-  quay.io/jetbrains/qodana-installer-cli:latest \
-  help
-```
-{prompt="$"}
-
-### environment
-
-Display all active configurations passed or used by the `qodana-installer-cli` tool:
-
-```Bash
-docker run \
-  -v /var/run/docker.sock:/var/run/docker.sock \ 
-  quay.io/jetbrains/qodana-installer-cli:latest \
-  environment
-```
-{prompt="$"}
-
-### install-app
-
-Deploy %premlite% on your machine:
-
-```Bash
-docker run \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -e API_ORGANIZATION_NAME="<Specify the name of your organization>" \
-  -e COMMON_LICENSE_KEY_SECRET="<Specify a valid license key>" \ 
-  quay.io/jetbrains/qodana-installer-cli:latest \
-  install-app
-```
-{prompt="$"}
-
-### uninstall
-
-Uninstall %premlite% from your machine:
-
-```Bash
-docker run \
-  -v /var/run/docker.sock:/var/run/docker.sock \ 
-  quay.io/jetbrains/qodana-installer-cli:latest \
-  uninstall
-```
-{prompt="$"}
-
-To remove Docker volumes of %premlite%, run the following command:
-
-```Bash
-echo "[INFO] Cleaning the Docker volumes" && docker volume ls \
-  --filter "label=qodana.jetbrains.self-hosted.lite.dependencies.local=true" \
-  --quiet | xargs -r docker volume rm
-```
-{prompt="$"}
-
-To delete persisting secrets from your machine located in the `${PWD}/secrets` directory, run this command:
-
-```Bash
-echo "[INFO] Cleaning the local secrets directory" && rm -rf ${PWD}/secrets
-```
-{prompt="$"}
-
-### logs
-
-Print logs related to %premlite% to the standard output:
-
-```Bash
-docker run \
-  -v /var/run/docker.sock:/var/run/docker.sock \ 
-  quay.io/jetbrains/qodana-installer-cli:latest 
-  logs
-```
-{prompt="$"}
-
-You can filter log output using the `--filters ` parameter and labels described in the [](#Labels+and+environment+variables) chapter and
-separated by a space character, for example:
-
-```Bash
-docker run \ 
-  -v /var/run/docker.sock:/var/run/docker.sock \ 
-  quay.io/jetbrains/qodana-installer-cli:latest \ 
-  logs \
-  --filters "label=com.docker.stack.namespace=qodana_self_hosted_services label=qodana.jetbrains.self-hosted.lite.service-type=application"
-```
-{prompt="$"}
 
 ## Labels and environment variables
 
