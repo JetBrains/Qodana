@@ -12,7 +12,7 @@ This tool orchestrates Docker Swarm stacks for:
 
 ## Prepare your project
 
-### Docker
+### Access and permissions
 
 The container should be given access to the Docker socket:
 
@@ -20,15 +20,16 @@ The container should be given access to the Docker socket:
 -v /var/run/docker.sock:/var/run/docker.sock
 ```
 
-You should have permission to the `/var/run/docker.sock` resource, i.e. your user should be part  the `docker` group on the host.
+Your user should have permission to the `/var/run/docker.sock` resource, i.e. be part of the `docker` group on the host.
 
-Port 80 on the host should be open for the Traefik ingress proxy to bind to it in host-network mode.
+Port 80 on the host should be available so that the Traefik ingress proxy can bind to it in host-network mode.
 
 ### Networking
 
 <!-- WHAT DOES THIS MEAN?  -->
-All service hostnames should resolve the IP address of the Swarm manager node. You can achieve this via:
+All service hostnames should resolve the IP address of the Swarm manager node. You can achieve this using:
 
+<!-- What does this mean? -->
 - An internal DNS server that covers `*.<DOMAIN>`
 - Manual `/etc/hosts` entries on every machine that should have access to %product%
 
@@ -73,8 +74,8 @@ See the [](#Domain+name+system+%28DNS%29) chapter for the full list of hostnames
 </table>
 
 <!-- This is inconsistent here  -->
-<p>These hostnames enable interaction of %product% components and access to essential services.
-services. The IP can be of your server or a load balancer, depending on your deployment architecture. </p>
+<p>These hostnames enable interaction of %product% components and provide access to essential services.
+The IP address can be of your server or a load balancer, depending on your deployment architecture. </p>
 
 In production environments, you should use a domain that aligns with your naming conventions like `qodana.mycompany.com`,
 `files.qodana.mycompany.com` and others.
@@ -424,33 +425,39 @@ same storage service.
 
 To get assistance with configuring an OIDC provider, please contact our support at <code>qodana-support@jetbrains.com</code>.
 
-## Run Qodana Self-Hosted
+## Deploy Qodana Self-Hosted
 
 Assuming that requirements from the [](shl-introduction.md) and [](#Prepare+your+project) chapters are satisfied, pull the
 `quay.io/jetbrains/qodana-installer-cli:latest` Docker image. All commands running this image require the
 `/var/run/docker.sock` Docker socket file for communicating with the Docker engine and Docker Swarm.
 
-> The list of commands is available in the [](#Docker+commands) chapter.
+#### Prerequisites
 
-### Basic use case
+On your local machine, make the changes to the <code>/etc/hosts</code> file 
+depending on your needs, i.e. for the default or your custom domain configuration:
 
-Follow the steps below for installing %premlite% on your machine:
+```Apache
+# Default domain / custom domain (mycompany.com)
+127.0.0.1 qodana.local # / <server-ip>  qodana.mycompany.com
+127.0.0.1 files.qodana.local # /  <server-ip>  api.qodana.mycompany.com
+127.0.0.1 api.qodana.local # / <server-ip>  files.qodana.mycompany.com
+127.0.0.1 ingress.qodana.local # / <server-ip>  login.qodana.mycompany.com
+127.0.0.1 login.qodana.local # / <server-ip>  ingress.qodana.mycompany.com
+127.0.0.1 lintersapi.qodana.local # / <server-ip>  lintersapi.qodana.mycompany.com
+```
 
-<procedure>
-    <step>
-        <p>On your local Linux machine, configure the <code>/etc/hosts</code> file as shown below:</p>
-        <code-block lang="text">
-            # Added for Qodana Self-Hosted Version
-            127.0.0.1 qodana.local
-            127.0.0.1 files.qodana.local
-            127.0.0.1 api.qodana.local
-            127.0.0.1 ingress.qodana.local
-            127.0.0.1 login.qodana.local
-            127.0.0.1 lintersapi.qodana.local
-        </code-block>
-    </step>
-    <step>
-        <p>On your local machine, run the following Docker command:</p>
+### Deployment use cases
+
+> Deployment is idempotent: running it on an already deployed system skips existing Docker configurations and
+> redeploys the service stacks from scratch.
+{style="note"}
+
+By default, %premlite% comes configured with local dependencies for quick Proofs Of Concepts (PoCs) or Proofs of Value (PoV).
+
+Depending on your needs, run the command to deploy %premlite% on your machine:
+
+<tabs>
+    <tab title="Default domain and user">
         <code-block lang="Bash" prompt="$">
             docker run \
                 -v /var/run/docker.sock:/var/run/docker.sock \
@@ -459,55 +466,101 @@ Follow the steps below for installing %premlite% on your machine:
                 quay.io/jetbrains/qodana-installer-cli:latest \
                 install-app
         </code-block>
-    </step>
-</procedure>
+        <p>This configuration creates the default user with the following credentials:</p>
+        <ul>
+            <li>Username: <code>tser@qodana.local</code></li>
+            <li>Password: <code>@wesomeQodana</code></li>
+        </ul>
+         <p>These credentials are publicly known, so you should update them as soon as possible by navigating to 
+            the <code>http://login.qodana.local</code> page.</p>
+    </tab>
+    <tab title="Custom domain and user">
+        <code-block lang="Bash" prompt="$">
+            docker run \
+                -e DOMAIN=qodana.mycompany.com \
+                -e QODANA_DEFAULT_USER_USERNAME=admin@mycompany.com \
+                -e QODANA_DEFAULT_USER_PASSWORD=your-secure-password \
+                -e API_ORGANIZATION_NAME="&lt;Specify the name of your organization&gt;" \
+                -e COMMON_LICENSE_KEY_SECRET="&lt;Specify a valid license key&gt;" \
+                -v /var/run/docker.sock:/var/run/docker.sock \
+                quay.io/jetbrains/qodana-installer-cli:latest \ 
+                install-app
+        </code-block>
+        <p>This command configures the <code>qodana.mycompany.com</code> custom domain along with user credentials.</p>
+    </tab>
+    <tab title="Configuration from a file">
+        <code-block lang="Bash" prompt="$">
+            docker run 
+                -v /var/run/docker.sock:/var/run/docker.sock \ 
+                -e API_ORGANIZATION_NAME="&lt;Specify the name of your organization&gt;" \
+                -e COMMON_LICENSE_KEY_SECRET="&lt;Specify a valid license key&gt;" \ 
+                --env-file qodana-self-hosted.env \
+                quay.io/jetbrains/qodana-installer-cli:latest \ 
+                install-app
+        </code-block>
+        <p>This command uses the <code>--env-file</code> option to specify the path to the configuration file; in this 
+            case, the <code>qodana-self-hosted.env</code> file.</p>
+        <p>You can use the same <code>--env-file</code> flag for each subsequent <a anchor="Docker+commands">command</a> like 
+            <code>backup</code>, <code>credentials</code> or <code>environment</code> to ensure consistent behaviour.</p>
+    </tab>
+    <tab title="Persist secrets">
+        <p>You can export and persist secrets created during installation in the <code>${PWD}/secrets</code> directory:</p>
+        <code-block lang="Bash" prompt="$">
+            docker run \
+                -v /var/run/docker.sock:/var/run/docker.sock \ 
+                -v ${PWD}/secrets:/app/qodana-installer/secrets \
+                -e API_ORGANIZATION_NAME="&lt;Specify the name of your organization&gt;" \
+                -e COMMON_LICENSE_KEY_SECRET="&lt;Specify a valid license key&gt;" \ 
+                quay.io/jetbrains/qodana-installer-cli:latest \
+                install-app
+        </code-block>
+        <p>To make the secret idempotent, this command mounts the <code>/app/qodana-installer/secrets</code> directory for secret storage.</p>
+    </tab>
+</tabs>
 
-In your browser, navigate to `http://qodana.local` to receive access to %premlite%.
+The `install-app` Docker image command performs the following steps:
 
-By default, %premlite% comes configured with local dependencies for quick Proofs Of Concepts (PoCs) or Proofs of Value (PoV).
-The credentials for a built-in administrator test user are as follows:
+1. Initializes Docker Swarm (`docker swarm init`) if the host is not already a Swarm node and `DOCKER_SWARM_INIT=true`
+2. Creates the `qodana_self_hosted` overlay network
+3. Deploys supporting tools: Traefik ingress (binds port 80) and `docker-swarm-gc`
+4. Generates all service secrets using `openssl rand` and stores them as Docker configurations
+5. Renders configuration templates for each service like API, Audit, Git, Linters API
+6. Renders RabbitMQ definitions and Keycloak realm templates, then deploys infrastructure services like PostgreSQL, MinIO, RabbitMQ, Keycloak
+7. Waits 20 seconds for infrastructure to become available
+8. Deploys Qodana application services: API, Audit, Git, Linters API, Report Processor, FUS, Frontend
 
-|Credential | Value               |
-|-----------|---------------------|
-|Username | `tser@qodana.local` |
-|Password | `@wesomeQodana`     |
+The installer exits after submitting all stacks. Services continue starting up in the background.
 
-You can update these credentials by navigating to the `http://login.qodana.local` page.
+The entire installation process may take two or three minutes to complete.
 
-### Use configuration from file
+After the installation, in your browser, navigate to the configured domain to receive access to %premlite%.
 
-Run the following Docker command to use a configuration contained in a file:
+### Post-installation steps
 
-```Bash
-docker run 
-    -v /var/run/docker.sock:/var/run/docker.sock \ 
-    -e API_ORGANIZATION_NAME="<Specify the name of your organization>" \
-    -e COMMON_LICENSE_KEY_SECRET="<Specify a valid license key>" \ 
-    --env-file qodana-self-hosted.env \
-    quay.io/jetbrains/qodana-installer-cli:latest 
-    install-app
+Make sure that all services reached their desired replica count by running the following command:
+
+```bash
+docker service ls \
+    --filter label=qodana.jetbrains.self-hosted.lite.select=true
 ```
 {prompt="$"}
 
-This command uses the `--env-file` option to specify the path to the configuration file, in this case this is the
-`qodana-self-hosted.env` file.
+Every service should show `1/1` in the `REPLICAS` column. If any service shows `0/1`, inspect its logs:
 
-### Persist secrets
+```bash
+docker service logs <service-name>
+```
+{prompt="$"}
 
-This command lets you export and persist secrets created during installation in the `${PWD}/secrets` directory:
+Alternatively, use the installer log aggregation:
 
-```Bash
+```bash
 docker run \
-    -v /var/run/docker.sock:/var/run/docker.sock \ 
-    -v ${PWD}/secrets:/app/qodana-installer/secrets \
-    -e API_ORGANIZATION_NAME="<Specify the name of your organization>" \
-    -e COMMON_LICENSE_KEY_SECRET="<Specify a valid license key>" \ 
+    -v /var/run/docker.sock:/var/run/docker.sock \
     quay.io/jetbrains/qodana-installer-cli:latest \
-    install-app
+    logs
 ```
 {prompt="$"}
-
-To make the secret idempotent, this command mounts the `/app/qodana-installer/secrets` directory for storing secrets.
 
 ## Docker commands
 
