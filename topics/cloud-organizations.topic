@@ -187,6 +187,10 @@
                 This tab is visible only for users under the Ultimate Plus <a href="pricing.md">license</a>.
             </note>
 
+            <tip>
+                An example of a global configuration is available on the <a href="https://github.com/qodana/qodana-global-project-configuration">GitHub website</a>.
+            </tip>
+
             <p>Using the <ui-path>Global configurations</ui-path> tab, you can manage <a href="global-configuration.md">global configurations</a>. Here,
                 you can find the list of configurations that can be used across multiple projects of your organization.
                 For each configuration, you can view projects connected to it, the configuration description, and the

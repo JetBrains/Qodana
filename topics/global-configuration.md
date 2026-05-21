@@ -10,6 +10,10 @@ XML files.
 
 This feature is available under the Ultimate Plus [license](pricing.md).
 
+<tip>
+    An example of a global configuration is available on the <a href="https://github.com/qodana/qodana-global-project-configuration">GitHub website</a>.
+</tip>
+
 ## How the global configuration works
 
 YAML-formatted configuration files are stored in project directories of VCS repositories. For example, your project 

@@ -80,10 +80,23 @@ The IP address can be of your server or a load balancer, depending on your deplo
 In production environments, you should use a domain that aligns with your naming conventions like `qodana.mycompany.com`,
 `files.qodana.mycompany.com` and others.
 
-<!-- This needs to be described and detalized  -->
-
 If you intend to use %product% only internally, configure DNS records in your internal DNS server. For external access,
 ensure that public DNS records point to appropriate IP addresses of your server or load balancer.
+
+#### Configure domains
+
+On your local machine, make the changes to the <code>/etc/hosts</code> file
+depending on your needs, i.e. for the default or your custom domain configuration:
+
+```Apache
+# Default domain / custom domain (mycompany.com)
+127.0.0.1 qodana.local # / <server-ip>  qodana.mycompany.com
+127.0.0.1 files.qodana.local # /  <server-ip>  api.qodana.mycompany.com
+127.0.0.1 api.qodana.local # / <server-ip>  files.qodana.mycompany.com
+127.0.0.1 ingress.qodana.local # / <server-ip>  login.qodana.mycompany.com
+127.0.0.1 login.qodana.local # / <server-ip>  ingress.qodana.mycompany.com
+127.0.0.1 lintersapi.qodana.local # / <server-ip>  lintersapi.qodana.mycompany.com
+```
 
 ### PostgreSQL
 
@@ -425,31 +438,31 @@ same storage service.
 
 To get assistance with configuring an OIDC provider, please contact our support at <code>qodana-support@jetbrains.com</code>.
 
+## Command overview
+
+Here is the list of available Docker commands and links to their respective use cases:
+
+| Command       | Description                                                                                 |
+|---------------|---------------------------------------------------------------------------------------------|
+| `install-app` | [Deploy %premlite%](#Deploy+Qodana+Self-Hosted)                                             |
+| `uninstall`   | [Remove all deployed resources](#Uninstall+%25premlite%25)                                  |
+| `backup`      | [Create a compressed backup](#Backup+and+restore) of all local data                         |
+| `restore`     | [Restore data](#Restoring+from+a+backup) from a backup file                                 |
+| `credentials` | [Retrieve credentials](#Manage+credentials) for any infrastructure component                |
+| `environment` | [Print all configurable variables](#Get+a+list+of+used+variables) and their resolved values |
+| `logs`        | [Stream logs](#Retrieve+logs) from all %product% services                                   |
+| `help`        | [Print command usage and examples](#Get+help+page)                                                       |
+
+
+
 ## Deploy Qodana Self-Hosted
 
 Assuming that requirements from the [](shl-introduction.md) and [](#Prepare+your+project) chapters are satisfied, pull the
 `quay.io/jetbrains/qodana-installer-cli:latest` Docker image. All commands running this image require the
 `/var/run/docker.sock` Docker socket file for communicating with the Docker engine and Docker Swarm.
 
-#### Prerequisites
-
-On your local machine, make the changes to the <code>/etc/hosts</code> file 
-depending on your needs, i.e. for the default or your custom domain configuration:
-
-```Apache
-# Default domain / custom domain (mycompany.com)
-127.0.0.1 qodana.local # / <server-ip>  qodana.mycompany.com
-127.0.0.1 files.qodana.local # /  <server-ip>  api.qodana.mycompany.com
-127.0.0.1 api.qodana.local # / <server-ip>  files.qodana.mycompany.com
-127.0.0.1 ingress.qodana.local # / <server-ip>  login.qodana.mycompany.com
-127.0.0.1 login.qodana.local # / <server-ip>  ingress.qodana.mycompany.com
-127.0.0.1 lintersapi.qodana.local # / <server-ip>  lintersapi.qodana.mycompany.com
-```
-
-### Deployment use cases
-
-> Deployment is idempotent: running it on an already deployed system skips existing Docker configurations and
-> redeploys the service stacks from scratch.
+> Basically, the deployment process is idempotent: running it on an already deployed system skips existing Docker configurations and
+> redeploys the service stacks from scratch. However, it is recommended to run the `uninstall` Docker command prior to redeploying %premlite%.
 {style="note"}
 
 By default, %premlite% comes configured with local dependencies for quick Proofs Of Concepts (PoCs) or Proofs of Value (PoV).
@@ -500,7 +513,7 @@ Depending on your needs, run the command to deploy %premlite% on your machine:
         </code-block>
         <p>This command uses the <code>--env-file</code> option to specify the path to the configuration file; in this 
             case, the <code>qodana-self-hosted.env</code> file.</p>
-        <p>You can use the same <code>--env-file</code> flag for each subsequent <a anchor="Docker+commands">command</a> like 
+        <p>You can use the same <code>--env-file</code> flag for each subsequent <a anchor="Available+options">command</a> like 
             <code>backup</code>, <code>credentials</code> or <code>environment</code> to ensure consistent behaviour.</p>
     </tab>
     <tab title="Persist secrets">
@@ -518,7 +531,10 @@ Depending on your needs, run the command to deploy %premlite% on your machine:
     </tab>
 </tabs>
 
-The `install-app` Docker image command performs the following steps:
+Here, the `COMMON_LICENSE_KEY_SECRET` variable configures a license key for production use. Without a valid key, the 
+application runs with limited functionality.
+
+The `install-app` Docker image option performs the following steps:
 
 1. Initializes Docker Swarm (`docker swarm init`) if the host is not already a Swarm node and `DOCKER_SWARM_INIT=true`
 2. Creates the `qodana_self_hosted` overlay network
@@ -531,13 +547,11 @@ The `install-app` Docker image command performs the following steps:
 
 The installer exits after submitting all stacks. Services continue starting up in the background.
 
-The entire installation process may take two or three minutes to complete.
+The entire deployment process may take two or three minutes to complete.
 
-After the installation, in your browser, navigate to the configured domain to receive access to %premlite%.
+After the deployment, in your browser, navigate to the configured domain to receive access to %premlite%.
 
-### Post-installation steps
-
-Make sure that all services reached their desired replica count by running the following command:
+Also, make sure that all services reached their desired replica count by running the following command:
 
 ```bash
 docker service ls \
@@ -562,138 +576,247 @@ docker run \
 ```
 {prompt="$"}
 
-## Docker commands
+## Get a list of used variables
 
-Here is an overview of commands available for the Dockerized version of %premlite%.
+Run the `environment` command to display every configurable variable with its resolved value:
 
-<table>
-    <tr>
-        <td>Command</td>
-        <td>Description</td>
-        <td>Examples</td>
-    </tr>
-    <tr>
-        <td><code>backup</code></td>
-        <td>Create a compressed backup of all local data</td>
-        <td><!-- What is going on here after the command is run? -->
-            <code-block lang="bash" prompt="$">
-                docker run \
-                  -v /var/run/docker.sock:/var/run/docker.sock \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest \
-                  backup
-            </code-block>
-        </td>
-    </tr>
-    <tr>
-        <td><code>credentials</code></td>
-        <td>Retrieve credentials for any infrastructure component</td>
-        <td>
-            <code-block lang="bash" prompt="$">
-                docker run \
-                  -v /var/run/docker.sock:/var/run/docker.sock \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest \
-                  credentials
-            </code-block>
-        </td>
-    </tr>
-    <tr>
-        <td><code>environment</code></td>
-        <td>Display all active configurations passed or used by %premlite%</td>
-        <td>
-            <code-block lang="bash" prompt="$">
-                docker run \
-                  -v /var/run/docker.sock:/var/run/docker.sock \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest \
-                  environment
-            </code-block></td>
-    </tr>
-    <tr>
-        <td><code>help</code></td>
-        <td>Help for %premlite%</td>
-        <td>
-            <code-block lang="bash" prompt="$">
-                docker run \
-                  -v /var/run/docker.sock:/var/run/docker.sock \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest \
-                  help
-            </code-block></td>
-    </tr>
-    <tr>
-        <td><code>install-app</code></td>
-        <td>Deploy %premlite% on your machine</td>
-        <td>
-            <code-block lang="bash" prompt="$">
-                docker run \
-                  -v /var/run/docker.sock:/var/run/docker.sock \
-                  -e API_ORGANIZATION_NAME="&lt;Specify the name of your organization&gt;" \
-                  -e COMMON_LICENSE_KEY_SECRET="&lt;Specify a valid license key&gt;" \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest \
-                  install-app
-            </code-block></td>
-    </tr>
-    <tr>
-        <td><code>logs</code></td>
-        <td>Retrieve log entries from %premlite% services</td>
-        <td>
-            <code-block lang="bash" prompt="$">
-                docker run \
-                  -v /var/run/docker.sock:/var/run/docker.sock \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest 
-                  logs
-            </code-block>
-<p>You can filter log output using the <code>--filters</code> parameter and labels described in the <a anchor="Labels+and+environment+variables"/> chapter and
-separated by a space character, for example:</p>
-            <code-block lang="bash" prompt="$">
-                docker run \ 
-                  -v /var/run/docker.sock:/var/run/docker.sock \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest \ 
-                  logs \
-                  --filters "label=com.docker.stack.namespace=qodana_self_hosted_services label=qodana.jetbrains.self-hosted.lite.service-type=application"
-            </code-block>
-        </td>
-    </tr>
-    <tr>
-        <td><code>restore</code></td>
-        <td>Restore data from a backup file</td>
-        <td>
-            <code-block lang="bash" prompt="$">
-                docker run \
-                  -v /var/run/docker.sock:/var/run/docker.sock \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest 
-                  logs
-            </code-block></td>
-    </tr>
-    <tr>
-        <td><code>uninstall</code></td>
-        <td>Uninstall %premlite% from your machine</td>
-        <td>
-            <code-block lang="bash" prompt="$">
-                docker run \
-                  -v /var/run/docker.sock:/var/run/docker.sock \ 
-                  quay.io/jetbrains/qodana-installer-cli:latest \
-                  uninstall
-            </code-block>
-        <p>To remove Docker volumes of %premlite%, run the following command:</p>
-            <code-block lang="bash" prompt="$">
-                echo "[INFO] Cleaning the Docker volumes" && docker volume ls \
-                  --filter "label=qodana.jetbrains.self-hosted.lite.dependencies.local=true" \
-                  --quiet | xargs -r docker volume rm
-            </code-block>
-        <p>To delete persisting secrets from your machine located in the <code>${PWD}/secrets</code> directory, 
-        run this command:</p>
-            <code-block lang="bash" prompt="$">
-                echo "[INFO] Cleaning the local secrets directory" && rm -rf ${PWD}/secrets
-            </code-block>
-        </td>
-    </tr>
-</table>
+```bash
+docker run \
+    --env-file qodana.env \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    environment
+```
+{prompt="$"}
 
+If you run this command with the same flags that you used for the `install-app` command, you will be able to see what 
+values are in effect.
 
-## Labels and environment variables
+## Manage credentials
+
+All infrastructure credentials like database passwords, object storage keys, message queue passwords, or Keycloak admin accounts
+are generated randomly during deployment and stored as Docker configurations. They can be retrieved at any time without 
+having to deploy %premlite% again.
+
+Using the `credentials` command, you can retrieve credentials:
+
+```bash
+docker run \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  quay.io/jetbrains/qodana-installer-cli:latest \
+  credentials <target> [--format txt|json|yaml]
+```
+{prompt="$"}
+
+Here, under `<target>` you can use the following values:
+
+| Value              | Description                                                                                                                                |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `--keycloak`       | Keycloak super-admin credentials.  Used at the admin console available via `http://login.<DOMAIN>` to manage users, realms, OAuth2 clients |
+| `--default-user`   | Default Qodana UI user credentials, used as an out-of-the-box login capability at `http://<DOMAIN>`                                        |
+| `--keycloak-db`    | PostgreSQL credentials for the Keycloak database, provides direct access for diagnostic purposes                                           |
+| `--object-storage` | MinIO root user credentials. Used by MinIO console at `http://files.<DOMAIN>` to inspect buckets and analysis artifacts                    |
+| `--message-queue`  | RabbitMQ application user credentials, used by the RabbitMQ management interface via the management plugin API                             |
+
+The `--format` flag lets you use the following values:
+
+| The `--format` value | Description                                      |
+|----------------------|--------------------------------------------------|
+| `txt`                | `Username: …` / `Password: …`, the default value |
+| `json`               | `{"username":"…","password":"…"}`                |
+| `yaml`               | `username: …\npassword: …`                       |
+
+## Retrieve logs
+
+Retrieve aggregated log entries from all running services using the `logs` command:
+
+```bash
+docker run \
+    --env-file qodana.env \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    logs
+```
+{prompt="$"}
+
+You can filter logs using the <code>--filters</code> parameter and labels described in
+the [](#Configure+Qodana+Self-Hosted) chapter. For example, the `qodana.jetbrains.self-hosted.lite.service` [label](#Labels+related+to+local+dependencies) lets 
+you filter logs by a service type. This label accepts the following values: 
+
+| Value                | Services covered                                                              |
+|----------------------|-------------------------------------------------------------------------------|
+| `application`        | API, Audit, Git API, Git Worker, Linters API, Report Processor, FUS, Frontend |
+| `local-dependencies` | PostgreSQL, MinIO, RabbitMQ, Keycloak                                         |
+| `supporting-tools`   | Traefik, docker-swarm-gc                                                      |
+
+Below is an example command using this label and the `application` label value: 
+
+```bash
+docker run \
+    --env-file qodana.env \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    logs \
+    --filters "label=qodana.jetbrains.self-hosted.lite.service-type=application"
+```
+{prompt="$"}
+
+Using the Docker CLI, you can also query a single service directly:
+
+```bash
+docker service logs <service-name> --follow
+```
+{prompt="$"}
+
+## Backup and restore
+
+Using the `backup` and `restore` commands, you can create and restore compressed, timestamped backup data of all local data volumes.
+In this case, each backup is a full-volume snapshot, which requires sufficient free disk space on the host machine.
+
+The commands require that you use absolute paths on the Docker host. %premlite% spawns a utility container via the Docker socket and mounts the path directly using a `-v` bind-mount, for example:
+
+| Command               | Argument example                      | Mounted inside utility container as                                |
+|-----------------------|---------------------------------------|--------------------------------------------------------------------|
+| `backup <HOST_DIR>`   | `/srv/qodana-backups`                 | `-v /srv/qodana-backups:/app/qodana-installer/backup`              |
+| `restore <HOST_FILE>` | `/srv/qodana-backups/backup-….tar.gz` | `-v /srv/qodana-backups/backup-….tar.gz:/backup/restore.tar.gz:ro` |
+
+> The `backup` and `restore` commands work only when the `QODANA_DEPENDENCIES_MODE` [dependency mode variable](#Dependency+mode+variables) 
+> is set to `local`, i.e. the default setting. External dependencies must be backed up using their own tooling.
+{style=note"}
+
+If you mount an external filesystem into the %premlite% container like `-v /nas/backups:/backups`, you should still pass 
+the host-side path like `/nas/backups` to the command — not the container-internal path like `/backups`. 
+
+When using the `-v` flag to mount a volume in the utility container, the path is resolved by the Docker daemon on the 
+host machine, not relatively to the installer container’s filesystem.
+
+### Creating a backup
+
+The destination directory should already exist on the Docker host, for example:
+
+```bash
+mkdir -p /srv/qodana-backups
+```
+
+Run the `backup` command to create a backup archive:
+
+```bash
+docker run \
+    --env-file qodana.env \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    backup /srv/qodana-backups
+```
+{prompt="$"}
+
+Here is a list of components contained in the backup archive:
+
+| Component  | Data included                                                 |
+|------------|---------------------------------------------------------------|
+| PostgreSQL | All Qodana application databases (API, Audit, Git, Keycloak)  |
+| MinIO      | Analysis results, baselines, and global configuration buckets |
+| RabbitMQ   | Message queue state                                           |
+
+Docker configs (secrets) are stored in Docker's config store and survive as long as the Swarm node exists. 
+
+The backup process does the following:
+
+* Pauses all services by setting replicas to `0`
+* Makes snapshots of all data volumes into a single timestamped archive: `backup-YYYY-MM-DD-HH-MM-SS.tar.gz`
+* Verifies archive integrity before resuming services
+* Resumes all services independently of the backup completion status
+
+During the backup procedure, all services become unavailable. The archive step usually completes in seconds to a few minutes.
+
+If the backup operation fails at any point after services are paused, they are automatically resumed. In this case, the 
+archive is saved in the destination directory and should be deleted manually before the next backup attempt.
+
+### Restoring from a backup
+
+> This action completely and irreversibly erases all current volume data before extracting the backup. 
+> Verify the file path and make sure that the archive contains correct data before proceeding.
+{style=warning"}
+
+To restore from a backup, follow these steps:
+
+<procedure>
+    <step>
+        Before restoring, make sure that the backup archive file is available on the Docker host.
+    </step>
+    <step>
+        Run the <a anchor="Deploy+Qodana+Self-Hosted"><code>install-app</code></a> command to create volumes and services. 
+        This is the recommended method for migrating to a new host. Any external integrations relying on the old secret values must be updated after migration.
+    </step>
+    <step>
+        <p>Run the <code>restore</code> command with an absolute path to the backup archive file, for example:</p>
+        <code-block lang="bash" prompt="$">
+            docker run \
+                --env-file qodana.env \
+                -v /var/run/docker.sock:/var/run/docker.sock \
+                quay.io/jetbrains/qodana-installer-cli:latest \
+                restore /srv/qodana-backups/backup-2025-02-17-14-30-16.tar.gz
+        </code-block>
+    </step>
+</procedure>
+
+The restore process does the following:
+
+* Validates the backup archive. If the archive is missing or corrupt, the process stops
+* Pauses all services by setting replicas to `0`
+* Wipes all volume data, i.e deletes current contents of every managed volume
+* Extracts the archive into clean volumes
+* Resumes all services independently of the restore completion status
+
+## Get help page
+
+The `help` command lets you retrieve the help page for any available command:
+
+```Bash
+docker run \
+    -v /var/run/docker.sock:/var/run/docker.sock \ 
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    help
+```
+{prompt="$"}
+
+## Uninstall %premlite%
+
+> Because uninstalling deletes all application data stored in Docker volumes, we recommend creating a [backup](#Backup+and+restore) beforehand. 
+{style="warning"}
+
+Run the `uninstall` command to remove %premlite% from Docker:
+
+```bash
+docker run \
+    --env-file qodana.env \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \ 
+    uninstall
+```
+{prompt="$"}
+
+This action removes the following components:
+
+* Docker service stacks: application services, infrastructure services, supporting tools
+* All Docker configurations created by %premlite% like secrets and service configurations
+* All Docker volumes that are labeled as %product%-managed
+
+The `qodana_self_hosted` overlay network is not removed because removing and recreating it between deployments on the 
+same host causes Docker Swarm to lose network stability, i.e. containers can no longer resolve each other. 
+If you need to remove it, run the following command: 
+
+```bash
+docker network rm qodana_self_hosted
+```
+{prompt="$"}
+
+## Configure Qodana Self-Hosted
+
+Labels and environment variables let you configure %premlite% specifically to your needs. 
 
 ### Global labels
 
-%premlite% uses several global labels to mark the resources it owns and manages. You can use these labels to operate
+%premlite% uses several global labels to mark the managed resources. You can use these labels to operate
 %premlite%:
 
 | Label and value                                                                  | Description                                                                                                                                 |
@@ -701,6 +824,94 @@ separated by a space character, for example:</p>
 | `qodana.jetbrains.self-hosted.lite.select=true`                                  | Identify all resources that are part of the %premlite% installation                                                                         |
 | `qodana.jetbrains.self-hosted.lite.version=${APP_QODANA_SELF_HOSTED_IMAGE_TAG}`  | Display at runtime a %premlite% version that a specific resouce is related to. Dependent on the `APP_QODANA_SELF_HOSTED_IMAGE_TAG` variable |
 
+For example, you can use global variables to troubleshoot problems connected with service availability, for example:
+
+```Bash
+docker service ls \
+    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+```
+{prompt="$"}
+
+### Domain and hostname variables
+
+| Variable               | Default value         | Controls                                                                          | 
+|------------------------|-----------------------|-----------------------------------------------------------------------------------|
+| `DOMAIN`               | `qodana.local`        | Base domain; services without an explicit override default to `<prefix>.<DOMAIN>` |
+| `FRONTEND_HOSTNAME`    | `<DOMAIN>`            | Web UI                                                                            |
+| `API_HOSTNAME`         | `api.<DOMAIN>`        | API gateway                                                                       |
+| `MINIO_HOSTNAME`       | `files.<DOMAIN>`      | Object storage                                                                    |
+| `KEYCLOAK_HOSTNAME`    | `login.<DOMAIN>`      | Authentication                                                                    |
+| `LINTERS_API_HOSTNAME` | `lintersapi.<DOMAIN>` | Linters API                                                                       |
+| `INGRESS_SUB_DOMAIN`   | `ingress`             | Traefik subdomain *prefix* — full hostname is `<value>.<DOMAIN>`                  |
+| `IDP_SUB_DOMAIN`       | `login`               | Keycloak subdomain prefix                                                         |
+
+This Docker command shows how you can override domain and host names while deploying %premlite%:  
+
+```Bash
+docker run \
+    -e DOMAIN=mycompany.com \
+    -e FRONTEND_HOSTNAME=code-quality.mycompany.com \
+    -e API_HOSTNAME=code-quality-api.mycompany.com \
+    -e MINIO_HOSTNAME=code-quality-storage.mycompany.com \
+    -e KEYCLOAK_HOSTNAME=sso.mycompany.com \
+    -e LINTERS_API_HOSTNAME=linters.mycompany.com \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \ 
+    install-app
+```
+{prompt="$"}
+
+We recommend that you run the `uninstall` [Docker command](#Available+options) prior to this command. This will let you remove
+the existing Docker configurations that may contain hostname values.
+
+### UI user variables
+
+%premlite% creates one user in the `qodana` Keycloak realm that you can override using the following variables: 
+
+| Variable                       | Default         | Description                                                   |
+|--------------------------------|-----------------|---------------------------------------------------------------|
+| `QODANA_DEFAULT_USER_USERNAME` | `tser@<DOMAIN>` | Username and email address                                    |
+| `QODANA_DEFAULT_USER_PASSWORD` | `@wesomeQodana` | Plaintext password — hashed with Argon2id at deployment time  |
+
+> There is no recovery mechanism for users other than recreating the user via the Keycloak admin console.
+{style="note"}
+
+You can override the user credentials using the following command:
+
+```Bash
+docker run \
+    -e QODANA_DEFAULT_USER_USERNAME=admin@mycompany.com \
+    -e QODANA_DEFAULT_USER_PASSWORD=your-secure-password \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    install-app
+```
+{prompt="$"}
+
+### Dependency mode variables
+
+The `QODANA_DEPENDENCIES_MODE` variable controls whether infrastructure services are deployed as part of the Swarm or supplied externally.
+The variable accepts the following values:
+
+| Value    | Description                                                                                       |
+|----------|---------------------------------------------------------------------------------------------------|
+| `local`  | The default value. %premlite% deploys PostgreSQL, MinIO, RabbitMQ, and Keycloak as Swarm services |
+| `remote` | %premlite% skips dependency deployment; you supply connection details via environment variables   |
+
+> The `backup` and `restore` [Docker commands](#Available+options) are supported only in the `local` mode. For the `remote` 
+> mode, the external services should be backed up and restored by their own tooling.
+{style="note"}
+
+You can override the dependency mode using the following command:
+
+```bash
+docker run \
+    -e QODANA_DEPENDENCIES_MODE=remote \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    install-app
+```
+{prompt="$"}
 
 ### Component-specific labels
 
@@ -753,29 +964,28 @@ The `qodana.jetbrains.self-hosted.lite.service-type=supporting-tools` label iden
 ##### General
 {id="product-general"}
 
-| Environment variable                | Description                                    | Default value                                 |
-|-------------------------------------|------------------------------------------------|-----------------------------------------------|
-| `DOMAIN`                            | Main domain of the application                 | `qodana.local`                                |
-| `LOG_LEVEL`                         | Application logging level                      | `info`                                        |
-| `IDP_SUB_DOMAIN`                    | Subdomain for identity provider (Keycloak)     | `login`                                       |
-| `CONTAINER_REGISTRY_URL`            | Container registry URL for pulling images      | `quay.io`                                     |
-| `QODANA_DEPENDENCIES_MODE`          | Mode for Qodana dependencies (local or remote) | `local`                                       |
-| `APP_QODANA_SELF_HOSTED_IMAGE_TAG`  | Current version of %premlite%                  | `1.22.0-alpha.14`, actual for July 2025       |
-| `FRONTEND_MEMORY_LIMIT`                     | Memory limit for Frontend service                   | `500`                                                                     |
-| `OBJECT_STORAGE_PROVIDER`                   | Object storage provider type                        | `minio`                                                                   |
-| `MESSAGE_BROKER_PROVIDER`                   | Message broker provider (RabbitMQ)                  | `rabbitmq`                                                                |
+| Environment variable                | Description                                | Default value                           |
+|-------------------------------------|--------------------------------------------|-----------------------------------------|
+| `LOG_LEVEL`                         | Application logging level                  | `info`                                  |
+| `IDP_SUB_DOMAIN`                    | Subdomain for identity provider (Keycloak) | `login`                                 |
+| `CONTAINER_REGISTRY_URL`            | Container registry URL for pulling images  | `quay.io`                               |
+| `APP_QODANA_SELF_HOSTED_IMAGE_TAG`  | Current version of %premlite%              | `1.22.0-alpha.14`, actual for July 2025 |
+| `FRONTEND_MEMORY_LIMIT`             | Memory limit for the Frontend service      | `500`                                   |
+| `OBJECT_STORAGE_PROVIDER`           | Object storage provider type               | `minio`                                 |
+| `MESSAGE_BROKER_PROVIDER`           | Message broker provider (RabbitMQ)         | `rabbitmq`                              |
+
 
 ##### FUS
 {id="product-fus"}
 
 Variables used for statistics collection and processing.
 
-| Environment variable         | Description                                    | Default value                                 |
-|------------------------------|------------------------------------------------|-----------------------------------------------|
-| `FUS_MEMORY_LIMIT`           | Memory limit for FUS service                        | `500`                                                                     |
-| `FUS_JAVA_OPTS`              | Java options for FUS                                | `-Xmx${APP_FUS_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags`              |
-| `FUS_INTERNAL`               | Whether FUS is internal only                        | `FALSE`                                                                   |
-| `FUS_CONFIGURATION_ENDPOINT` | Endpoint URL for FUS configuration                  | `https://resources.jetbrains.com/storage/fus/config/v4/QD/QDCLD.json`     |
+| Environment variable         | Description                                   | Default value                                                         |
+|------------------------------|-----------------------------------------------|-----------------------------------------------------------------------|
+| `FUS_MEMORY_LIMIT`           | Memory limit for FUS service                  | `500`                                                                 |
+| `FUS_JAVA_OPTS`              | Java options for FUS                          | `-Xmx${APP_FUS_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags`          |
+| `FUS_INTERNAL`               | Whether FUS is internal only                  | `FALSE`                                                               |
+| `FUS_CONFIGURATION_ENDPOINT` | Endpoint URL for FUS configuration            | `https://resources.jetbrains.com/storage/fus/config/v4/QD/QDCLD.json` |
 
 #### Linter API
 
@@ -784,20 +994,20 @@ Linter API validates linters and checks for versions of supported linters and pl
 ##### General
 {id="linter-api-general"}
 
-| Environment variable                        | Description                                         | Default value                                                             |
-|---------------------------------------------|-----------------------------------------------------|---------------------------------------------------------------------------|
-| `LINTERS_API_MEMORY_LIMIT`                  | Memory limit for Linters API service                | `500`                                                                     |
-| `LINTERS_API_JAVA_OPTS`                     | Java options for Linters API                        | `-Xmx${APP_LINTERS_API_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags`      |
-| `LINTERS_API_POSTGRES_USER`                 | Username for Linters API Postgres database          | `linters_api_user`                                                        |
-| `LINTERS_API_POSTGRES_DB_NAME`              | Name of the Linters API Postgres database           | `qodanadb`                                                                |
-| `API_MEMORY_LIMIT`                        | Memory limit for API service             | `500`                                                        |
-| `API_JAVA_OPTS`                           | Java options for API (optional override) | `-Xmx${APP_API_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags` |
-| `API_POSTGRES_USER`                       | Username for API Postgres database       | `api_user`                                                   |
-| `API_POSTGRES_DB_NAME`                    | Name of the API Postgres database        | `qodanadb`                                                   |
-| `API_API_ZENDESK_FEEDBACK_EMAIL`          | Zendesk feedback email for API support   | `support@jbs1454063113.zendesk.com`                          |
-| `API_LINTERS_VERSION_CI_TEMPLATES`        | Default version for linters CI templates | `2024.2`                                                     |
-| `API_ORGANIZATION_NAME`                   | Organization name (optional)             |                                                              |
-| `API_LICENSE_ID`                          | License ID for API (optional)            | `NULL`                                                       |
+| Environment variable                        | Description                                  | Default value                                                             |
+|---------------------------------------------|----------------------------------------------|---------------------------------------------------------------------------|
+| `LINTERS_API_MEMORY_LIMIT`                  | Memory limit for the Linters API service     | `500`                                                                     |
+| `LINTERS_API_JAVA_OPTS`                     | Java options for the Linters API service     | `-Xmx${APP_LINTERS_API_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags`      |
+| `LINTERS_API_POSTGRES_USER`                 | Username for Linters API Postgres database   | `linters_api_user`                                                        |
+| `LINTERS_API_POSTGRES_DB_NAME`              | Name of the Linters API Postgres database    | `qodanadb`                                                                |
+| `API_MEMORY_LIMIT`                        | Memory limit for the API service             | `500`                                                        |
+| `API_JAVA_OPTS`                           | Java options for the API (optional override) | `-Xmx${APP_API_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags` |
+| `API_POSTGRES_USER`                       | Username for API Postgres database           | `api_user`                                                   |
+| `API_POSTGRES_DB_NAME`                    | Name of the API Postgres database            | `qodanadb`                                                   |
+| `API_API_ZENDESK_FEEDBACK_EMAIL`          | Zendesk feedback email for API support       | `support@jbs1454063113.zendesk.com`                          |
+| `API_LINTERS_VERSION_CI_TEMPLATES`        | Default version for linters CI templates     | `2024.2`                                                     |
+| `API_ORGANIZATION_NAME`                   | Organization name (optional)                 |                                                              |
+| `API_LICENSE_ID`                          | License ID for API (optional)                | `NULL`                                                       |
 
 ##### GitHub
 
@@ -843,12 +1053,36 @@ Linter API validates linters and checks for versions of supported linters and pl
 
 ##### Docker Swarm
 
-| Environment variable                | Description                                    | Default value                                 |
-|-------------------------------------|------------------------------------------------|-----------------------------------------------|
-| `DOCKER_SWARM_INIT`                 | Whether to initialize Docker Swarm             | `TRUE`                                        |
-| `DOCKER_SWARM_ADDRESS_POOL`         | Address pool for Docker Swarm overlay network  | `10.20.0.0/16`                                |
-| `DOCKER_SWARM_GC_IMAGE_NAME`        | Docker Swarm garbage collection image name     | `jetbrains/qodana-installer-cli-dependencies` |
-| `DOCKER_SWARM_GC_IMAGE_TAG`         | Tag for the Docker GC image                    | `docker-gc-latest`                            |
+| Environment variable                | Description                                                    | Default value                                 |
+|-------------------------------------|----------------------------------------------------------------|-----------------------------------------------|
+| `DOCKER_SWARM_INIT`                 | Run the `docker swarm init` command automatically if necessary | `true`                                        |
+| `DOCKER_SWARM_ADDRESS_POOL`         | Address pool for Docker Swarm overlay network                  | `10.20.0.0/16`                                |
+| `DOCKER_SWARM_GC_IMAGE_NAME`        | Docker Swarm garbage collection image name                     | `jetbrains/qodana-installer-cli-dependencies` |
+| `DOCKER_SWARM_GC_IMAGE_TAG`         | Tag for the Docker GC image                                    | `docker-gc-latest`                            |
+
+For example, you can set the `DOCKER_SWARM_INIT` variable to `false` if the host is already a Swarm manager, which lets you skip the init attempt:
+
+```bash
+docker run \
+    -e DOCKER_SWARM_INIT=false \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    install-app
+```
+{prompt="$"}
+
+If `10.20.0.0/16` conflicts with existing networks on your host, use the `DOCKER_SWARM_ADDRESS_POOL` variable to a non-overlapping 
+CIDR, for example:
+
+```bash
+docker run \
+    -e DOCKER_SWARM_ADDRESS_POOL=10.21.0.0/16 \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    quay.io/jetbrains/qodana-installer-cli:latest \
+    install-app
+```
+{prompt="$"}
+
 
 ##### Ingress traffic
 
@@ -909,40 +1143,40 @@ Linter API validates linters and checks for versions of supported linters and pl
 
 ##### Audit
 
-| Environment variable      | Description                           | Default value                                                   |
-|---------------------------|---------------------------------------|-----------------------------------------------------------------|
-| `AUDIT_MEMORY_LIMIT`      | Memory limit for Audit service        | `500`                                                           |
-| `AUDIT_JAVA_OPTS`         | Java options for Audit                | `-Xmx${APP_AUDIT_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags`  |
-| `AUDIT_POSTGRES_USER`     | Username for Audit Postgres database  | `audit_user`                                                    |
-| `AUDIT_POSTGRES_DB_NAME`  | Name of the Audit Postgres database   | `audit`                                                         |
+| Environment variable      | Description                          | Default value                                                   |
+|---------------------------|--------------------------------------|-----------------------------------------------------------------|
+| `AUDIT_MEMORY_LIMIT`      | Memory limit for the Audit service   | `500`                                                           |
+| `AUDIT_JAVA_OPTS`         | Java options for the Audit service   | `-Xmx${APP_AUDIT_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags`  |
+| `AUDIT_POSTGRES_USER`     | Username for Audit Postgres database | `audit_user`                                                    |
+| `AUDIT_POSTGRES_DB_NAME`  | Name of the Audit Postgres database  | `audit`                                                         |
 
 ##### Git
 
-| Environment variable                                        | Description                                         | Default value                        |
-|-------------------------------------------------------------|-----------------------------------------------------|--------------------------------------|
-| `GIT_RABBITMQ_CONTRIBUTORS_REQUEST_QUEUE_NAME`              | Queue name for Git contributors request             | `qodanaGetContributorsRequestQueue`  |
-| `GIT_RABBITMQ_CONTRIBUTORS_RESPONSE_QUEUE_NAME`             | Queue name for Git contributors response            | `qodanaGetContributorsResponseQueue` |
-| `GIT_RABBITMQ_CONTRIBUTORS_RESPONSE_WAIT_TIME`              | Wait time for contributors' responses               | `20`                                 |
-| `GIT_RABBITMQ_CONTRIBUTORS_RESPONSE_MAX_NUMBER_OF_MESSAGES` | Max number of messages for contributors' responses  | `10`                                 |
-| `GIT_RABBITMQ_CONTRIBUTORS_RESPONSE_WORKERS_NUM`            | Number of workers for contributors' responses       | `20`                                 |
-| `GIT_RABBITMQ_TRIGGERS_QUEUE_NAME`                          | Queue name for Git triggers                         | `qodanaGitTriggersQueue`             |
-| `GIT_RABBITMQ_TRIGGERS_WAIT_TIME`                           | Wait time for Git triggers                          | `20`                                 |
-| `GIT_RABBITMQ_TRIGGERS_MAX_NUMBER_OF_MESSAGES`              | Max number of messages for Git triggers             | `10`                                 |
-| `GIT_RABBITMQ_TRIGGERS_WORKERS_NUM`                         | Number of workers for Git triggers                  | `1`                                  |
-| `GIT_MEMORY_LIMIT`                                          | Memory limit for Git Service                        | `500`                                                                     |
-| `GIT_JAVA_OPTS`                                             | Java options for Git Service                        | `-Xmx${APP_GIT_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags`              |
-| `GIT_POSTGRES_USER`                                         | Username for Git Postgres database                  | `git_user`                                                                |
-| `GIT_POSTGRES_DB_NAME`                                      | Name of the Git Postgres database                   | `git`                                                                     |
-| `GIT_PROBE_TIMEOUT_SECONDS`                                 | Timeout for Git probe checks                        | `5`                                                                       |
+| Environment variable                                        | Description                                        | Default value                        |
+|-------------------------------------------------------------|----------------------------------------------------|--------------------------------------|
+| `GIT_RABBITMQ_CONTRIBUTORS_REQUEST_QUEUE_NAME`              | Queue name for Git contributors request            | `qodanaGetContributorsRequestQueue`  |
+| `GIT_RABBITMQ_CONTRIBUTORS_RESPONSE_QUEUE_NAME`             | Queue name for Git contributors response           | `qodanaGetContributorsResponseQueue` |
+| `GIT_RABBITMQ_CONTRIBUTORS_RESPONSE_WAIT_TIME`              | Wait time for contributors' responses              | `20`                                 |
+| `GIT_RABBITMQ_CONTRIBUTORS_RESPONSE_MAX_NUMBER_OF_MESSAGES` | Max number of messages for contributors' responses | `10`                                 |
+| `GIT_RABBITMQ_CONTRIBUTORS_RESPONSE_WORKERS_NUM`            | Number of workers for contributors' responses      | `20`                                 |
+| `GIT_RABBITMQ_TRIGGERS_QUEUE_NAME`                          | Queue name for Git triggers                        | `qodanaGitTriggersQueue`             |
+| `GIT_RABBITMQ_TRIGGERS_WAIT_TIME`                           | Wait time for Git triggers                         | `20`                                 |
+| `GIT_RABBITMQ_TRIGGERS_MAX_NUMBER_OF_MESSAGES`              | Max number of messages for Git triggers            | `10`                                 |
+| `GIT_RABBITMQ_TRIGGERS_WORKERS_NUM`                         | Number of workers for Git triggers                 | `1`                                  |
+| `GIT_MEMORY_LIMIT`                                          | Memory limit for the Git Service                   | `500`                                                                     |
+| `GIT_JAVA_OPTS`                                             | Java options for the Git Service                   | `-Xmx${APP_GIT_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags`              |
+| `GIT_POSTGRES_USER`                                         | Username for Git Postgres database                 | `git_user`                                                                |
+| `GIT_POSTGRES_DB_NAME`                                      | Name of the Git Postgres database                  | `git`                                                                     |
+| `GIT_PROBE_TIMEOUT_SECONDS`                                 | Timeout for Git probe checks                       | `5`                                                                       |
 
 ##### Report processor
 
-| Environment variable                | Description                                    | Default value                                 |
-|-------------------------------------|------------------------------------------------|-----------------------------------------------|
-| `REPORT_PROCESSOR_MEMORY_LIMIT`     | Memory limit for the Report Processor service       | `500`                                                                     |
-| `REPORT_PROCESSOR_JAVA_OPTS`        | Java options for the Report Processor               | `-Xmx${APP_REPORT_PROCESSOR_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags` |
-| `REPORT_PROCESSOR_POSTGRES_USER`    | Username for Report Processor Postgres database     | `report_processor_user`                                                   |
-| `REPORT_PROCESSOR_POSTGRES_DB_NAME` | Name of the Report Processor Postgres database      | `qodanadb`                                                                |
+| Environment variable                | Description                                     | Default value                                 |
+|-------------------------------------|-------------------------------------------------|-----------------------------------------------|
+| `REPORT_PROCESSOR_MEMORY_LIMIT`     | Memory limit for the Report Processor service   | `500`                                                                     |
+| `REPORT_PROCESSOR_JAVA_OPTS`        | Java options for the Report Processor service   | `-Xmx${APP_REPORT_PROCESSOR_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags` |
+| `REPORT_PROCESSOR_POSTGRES_USER`    | Username for Report Processor Postgres database | `report_processor_user`                                                   |
+| `REPORT_PROCESSOR_POSTGRES_DB_NAME` | Name of the Report Processor Postgres database  | `qodanadb`                                                                |
 
 
 ## Troubleshooting
@@ -951,7 +1185,10 @@ To troubleshoot the issues that may arise during deployment, configuration, or o
 of %premlite%, use the following command to extract log entries:
 
 ```bash
-docker run -v /var/run/docker.sock:/var/run/docker.sock \ quay.io/jetbrains/qodana-installer-cli:latest logs > all.troubleshooting.logs
+docker run \
+    -v /var/run/docker.sock:/var/run/docker.sock \ 
+    quay.io/jetbrains/qodana-installer-cli:latest 
+    logs > all.troubleshooting.logs
 ```
 {prompt="$"}
 
@@ -972,3 +1209,70 @@ create a request containing the following information:
 | Tags             | Specify the version                                                                                                        |
 | Type             | Try to categorize the title and the description of your case. This will be refined after the maintainers analyze the issue |
 | Priority         | Set the priority to the issue. Apply common sense for the definition of the urgency level                                  |
+
+
+### Services show `0/1` replicas after deployment
+
+Run the following commands to detect the services that are not running:
+
+```bash
+docker service ls \
+    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+```
+{prompt="$"}
+
+```bash
+docker service logs <service-name>
+```
+{prompt="$"}
+
+Common causes: insufficient memory, port 80 already in use, hostnames not resolving.
+
+### Cannot reach the UI after install completes
+
+Take the following actions to troubleshoot the issue:
+
+* Verify hostnames resolve: `curl -v http://qodana.local`
+* Confirm that Traefik is running: `docker service ls | grep traefik`
+* Confirm that port 80 is bound: `ss -tlnp | grep :80`
+
+### The install-app command fails partway through
+
+Consider rerunning the `install-app` command because it skips already created resources.
+Identify the cause from logs, fix the underlying cause (e.g., network conflict, missing Docker socket), then run the command again.
+
+### The credentials command returns nothing or errors
+
+The credentials command reads Docker configs. If you have just uninstalled or are running on a different host, 
+the configs do not exist. Consider running the `install-app` command first.
+
+
+### Backup fails with a permission error
+
+The backup destination path should exist on the Docker host and be writable by the Docker daemon. Ensure that the directory 
+exists:
+
+```bash
+mkdir -p /srv/qodana-backups
+```
+{prompt="$"}
+
+### Inspecting Docker configs
+
+To make sure that Docker configs exist, run the following command: 
+
+```bash
+docker config ls \
+    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+```
+{prompt="$"}
+
+### Inspecting %premlite% volumes
+
+Run the following command to inspect %premlite% volumes:
+
+```bash
+docker volume ls \
+    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+```
+{prompt="$"}
