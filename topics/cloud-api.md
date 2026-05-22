@@ -32,46 +32,31 @@ Before using the Qodana Cloud API, make sure that the following requirements wer
 <li>
     <p>To generate an organization API token, use the 
     <a href="cloud-organizations.topic" anchor="cloud-organizations-api-token"><control>API token</control> tab</a> of 
-    your organization settings.</p>
+    your organization settings. This token should be referred in requests as the <code>$permanent_organization_token</code> authorization header, i.e.:</p> 
+<code-block lang="cURL">-H "Authorization: Bearer $permanent_organization_token"</code-block>
 </li>
 <li>
-<p>For API request examples provided in this section, replace the <code>{qodana_cloud_url}</code> placeholder with your 
-base URL, i.e. with <code>qodana.cloud</code> for %cloud%, or using your custom base URL in case of %premlite%.</p>
+<p>All API request examples provided in this section require that you use either the <code>https://qodana.cloud</code> 
+URL for %cloud% or your custom base URL in case of %premlite%. For simplicity, the %cloud% URL is used.</p>
 </li>
 </list>
-
-In this section, an organization API token value is referred to as `$permanent_organization_token`.
-
-<!-- 
-
-Once an organization is created, you can extract the organization ID from the %cloud% or %premlite% URL: 
-
-```curl
-https://{qodana_cloud_url}/organizations/{organizationId}
-```
--->
 
 ## Teams and projects
 
 ### Create teams and projects
 
-To create a new team (if applicable) along with a project and get a [project token](project-token.md), send a `POST` request to the 
-`https://{qodana_cloud_url}/api/v1/public/organizations/projects` endpoint and provide the team and project names, for example: 
+To create a new team (if applicable) along with a project and get a [project token](project-token.md), send the request: 
 
 ```cURL
-qodana_token=$(curl -X POST https://{qodana_cloud_url}/api/v1/public/organizations/projects \
-  -H "Authorization: Bearer $permanent_organization_token" \
-  -H "Content-Type: application/json" \
-  -d '{
-        "projectName": "My project name",
-        "teamName": "My team name"
-      }')
+POST https://qodana.cloud/api/v1/public/organizations/projects
 ```
 
-The `teamName` parameter provides a string non-nullable name of the [team](cloud-teams.topic) that you would like to
-create. In case a team with such a name already exists, creation of a new team will be skipped.
-Under the `projectName` parameter, provide a string non-nullable name of the [project](cloud-projects.topic) that you would like to create. In
-case a project with such a name already exists, creation of a new project will be skipped.
+Here is the description of the request body:
+
+| Parameter     | Type      | Description                                                                                               | Example value     |
+|---------------|-----------|-----------------------------------------------------------------------------------------------------------|-------------------|
+| `teamName`    | String    | Non-nullable name of the [team](cloud-teams.topic) to create. If exists, creation will be skipped         | `My team name`    |
+| `projectName` | String    | Non-nullable name of the [project](cloud-projects.topic) to create. If exists, creation will be skipped   | `My project name` |
 
 The endpoint provides the responses with the following HTTP codes:
 
@@ -237,26 +222,26 @@ The endpoint provides the responses with the following HTTP codes:
     </tr>
 </table>
 
-### Get the list of report metadata
-{id="cloud-api-project-reports"}
+### Get report metadata
+{id="cloud-api-project-report-metadata"}
+
+#### Project name
+{id="cloud-api-project-report-metadata-project-name"}
 
 > This endpoint is available starting from version 2024.2 of %product%.
 {style="note"}
 
-Get report metadata for the default branch of a project by sending a `GET` request to the 
-`https://{qodana_cloud_url}/api/v1/public/organizations/projects` endpoint and providing a %cloud% project name, for example:
+To get report metadata for the default branch of a project, send the request with a %cloud% project name:
 
 ```cURL
-curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/projects?projectName=My%20Awesome%20Project" \
-   -H "Authorization: Bearer $permanent_organization_token"
+GET https://qodana.cloud/api/v1/public/organizations/projects?projectName={projectName}
 ```
 
 Here is the description of accepted parameters:
 
-| Parameter | Type   | Required | Description | Example Value |
-| --- |--------| --- | --- | --- |
-| `projectName` | String | No | Name of the project to retrieve | `My Awesome Project` |
+| Parameter     | Type   | Required  | Description                     | Example value        |
+|---------------|--------|-----------|---------------------------------|----------------------|
+| `projectName` | String | No        | Name of the project to retrieve | `My Awesome Project` |
 
 Here is the description of responses:
 
@@ -268,7 +253,7 @@ Here is the description of responses:
     <tr>
         <td><code>200</code></td>
         <td>
-            <p>Returns an array of project report metadata:</p>
+            <p>Returns a JSON object containing report metadata:</p>
         <code-block lang="http">
             HTTP/2 200 OK
             date: Wed, 24 Sep 2025 10:35:13 GMT
@@ -286,7 +271,7 @@ Here is the description of responses:
               "defaultBranchName": "main",
               "latestFullScanReport": {
                 "id": "report_789",
-                "timestamp": {"start": "2026-05-10T10:00:00Z", "end": "2026-05-10T10:30:00Z"},
+                "timeRange": {"start": "2026-05-10T10:00:00Z", "end": "2026-05-10T10:30:00Z"},
                 "licenseAudit": {
                   "isPassed": true,
                   "isEnabled": true
@@ -387,29 +372,23 @@ Here is the description of responses:
     </tr>
 </table>
 
-
-
-### Get project details
-{id="cloud-api-project-details"}
+#### Project ID
+{id="cloud-api-project-report-metadata-project-id"}
 
 > This endpoint is available starting from version 2024.2 of %product%.
 {style="note"}
 
-Get project details by sending a `GET` request to the 
-`https://{qodana_cloud_url}/api/v1/public/organizations/projects/{projectId}` endpoint and providing
-the project ID, for example:
+Get report metadata by sending a request containing a project ID:
 
 ```cURL
-curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/projects/proj_123" \
-   -H "Authorization: Bearer $permanent_organization_token"
+GET https://qodana.cloud/api/v1/public/organizations/projects/{projectID}
 ```
 
 You can customize your requests using the following optional parameter:
 
-| Parameter | Type   | Required | Description        | Example Value |
-| --- |--------| --- |--------------------|---------------|
-| `projectId` | String | Yes | ID of the project  | `proj_123`    |
+| Parameter   | Type   | Required  | Description       | Example value |
+|-------------|--------|-----------|-------------------|---------------|
+| `projectId` | String | Yes       | ID of the project | `proj_123`    |
 
 Here is the description of responses:
 
@@ -421,7 +400,7 @@ Here is the description of responses:
     <tr>
         <td><code>200</code></td>
         <td>
-            <p>Returns a project with metadata, including the latest report data for the default branch:</p>
+            <p>Returns an object containing project metadata, including the latest report data for the default branch:</p>
         <code-block lang="http">
             HTTP/2 200 OK
             date: Wed, 24 Sep 2025 10:35:13 GMT
@@ -439,7 +418,7 @@ Here is the description of responses:
               "defaultBranchName": "main",
               "latestFullScanReport": {
                 "id": "report_789",
-                "timestamp": {"start": "2026-05-10T10:00:00Z", "end": "2026-05-10T10:30:00Z"},
+                "timeRange": {"start": "2026-05-10T10:00:00Z", "end": "2026-05-10T10:30:00Z"},
                 "licenseAudit": {
                   "isPassed": true,
                   "isEnabled": true
@@ -543,13 +522,10 @@ Here is the description of responses:
 ## Users
 {id="cloud-api-users"}
 
-To get a list of users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send a `GET` request using the
-`https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint, for example: 
+To list users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send the request: 
 
 ```cURL
-curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/users" \
-   -H "Authorization: Bearer $permanent_organization_token"
+GET https://qodana.cloud/api/v1/public/organizations/users
 ```
 
 You can customize your requests using the following optional parameters.
@@ -573,7 +549,7 @@ You can customize your requests using the following optional parameters.
     <tr>
         <td><code>order</code></td>
         <td>String</td>
-        <td>Sort the order. Accepts <code>DESC</code> for descending order or <code>ASC</code> for ascending order. By default, lists are sorted in ascending order</td>
+        <td>Sets the sort order users' email addresses. Accepts <code>DESC</code> for descending order or <code>ASC</code> for ascending order. By default, lists are sorted in ascending order</td>
     </tr>
     <tr>
         <td><code>search</code></td>
@@ -587,11 +563,11 @@ in the `email` or `displayName` fields and sorts the selected list in descending
 
 ```cURL
 curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/users?limit=10&offset=1&order=DESC&search=abc" \
+   "https://qodana.cloud/api/v1/public/organizations/users?limit=10&offset=1&order=DESC&search=abc" \
    -H "Authorization: Bearer $permanent_organization_token"
 ```
 
-The `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint responds as described in the table:
+This endpoint responds as described in the table:
 
 <table>
     <tr>
@@ -735,13 +711,10 @@ The `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint resp
 ## Inspections
 {id="cloud-api-inspections"}
 
-You can get the list of inspections used by an organization by sending the `GET` request to the 
-`https://{qodana_cloud_url}/api/v1/public/organizations/inspections` endpoint, for example:
+List inspections used by an organization by sending the request:
 
 ```cURL
-curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/inspections" \
-   -H "Authorization: Bearer $permanent_organization_token"
+GET https://qodana.cloud/api/v1/public/organizations/inspections
 ```
 
 This endpoint does not provide any parameters.
@@ -852,33 +825,20 @@ Here is the description of responses:
 ### Project Insights
 {id="cloud-api-insights-project"}
 
-You can send a `POST` request to the `/api/v1/public/organizations/project-insights/query` endpoint to retrieve 
-project insights, for example:
+To retrieve project insights, send the request:
 
 ```cURL
-curl -X POST \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/project-insights/query" \
-   -H "Authorization: Bearer $permanent_organization_token" \
-   -H "Content-Type: application/json" \
-   -d '{
-        "includeProjectIds": ["proj_123", "proj_456"],
-        "includeInspectionIds": ["insp_123", "insp_456"],
-        "includeTeamIds": ["team_123", "team_456"],
-        "timeRange": {
-            "start": "2026-01-01T00:00:00Z", 
-            "end": "2026-05-12T00:00:00Z"
-        }
-      }'
+POST https://qodana.cloud/api/v1/public/organizations/project-insights/query
 ```
 
 Here is the description of the request body:
 
-| Parameter | Type | Required | Description                                                 | Example Value |
-| --- | --- | --- |-------------------------------------------------------------| --- |
-| `includeProjectIds` | array[string] | No | List of project IDs to include in the query                 | `[proj_123, proj_456]` |
-| `includeInspectionIds` | array[string] | No | List of inspection IDs to include in the query              | `[insp_123, insp_456]` |
-| `includeTeamIds` | array[string] | No | List of team IDs to include in the query                    | `[team_123, team_456]` |
-| `timeRange` | object | No | Time range for the query. Contains start and end timestamps | `{"start": "2026-01-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}` |
+| Parameter              | Type          | Required  | Description                                                 | Example value                                                      |
+|------------------------|---------------|-----------|-------------------------------------------------------------|--------------------------------------------------------------------|
+| `includeProjectIds`    | array[string] | No        | List of project IDs to include in the query                 | `["proj_123", "proj_456"]`                                         |
+| `includeInspectionIds` | array[string] | No        | List of inspection IDs to include in the query              | `["insp_123", "insp_456"]`                                         |
+| `includeTeamIds`       | array[string] | No        | List of team IDs to include in the query                    | `["team_123", "team_456"]`                                         |
+| `timeRange`            | object        | No        | Time range for the query. Contains start and end timestamps | `{"start": "2026-01-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}` |
 
 
 Here is the description of responses:
@@ -933,7 +893,7 @@ combination of project ID and timestamp. If no time range is specified, entries 
                     "critical": 0,
                     "total": 27
                   },
-                  "timestamp": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
                 }
               ]
             }
@@ -1009,33 +969,20 @@ combination of project ID and timestamp. If no time range is specified, entries 
 ### Inspection Insights
 {id="cloud-api-insights-inspection"}
 
-You can send a `POST` request to the `/api/v1/public/organizations/inspection-insights/query` endpoint to retrieve 
-inspection insights, for example:
+To retrieve inspection insights, send the request:
 
 ```cURL
-curl -X POST \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/inspection-insights/query" \
-   -H "Authorization: Bearer $permanent_organization_token" \
-   -H "Content-Type: application/json" \
-   -d '{
-        "includeProjectIds": ["proj_123", "proj_456"],
-        "includeInspectionIds": ["insp_123", "insp_456"],
-        "includeTeamIds": ["team_123", "team_456"],
-        "timeRange": {
-            "start": "2026-01-01T00:00:00Z", 
-            "end": "2026-05-12T00:00:00Z"
-        }
-      }'
+POST https://qodana.cloud/api/v1/public/organizations/inspection-insights/query
 ```
 
 Here is the description of the request body:
 
-| Parameter | Type | Required | Description                                                 | Example Value |
-| --- | --- | --- |-------------------------------------------------------------| --- |
-| `includeProjectIds` | array[string] | No | List of project IDs to include in the query                 | `[proj_123, proj_456]` |
-| `includeInspectionIds` | array[string] | No | List of inspection IDs to include in the query              | `[insp_123, insp_456]` |
-| `includeTeamIds` | array[string] | No | List of team IDs to include in the query                    | `[team_123, team_456]` |
-| `timeRange` | object | No | Time range for the query. Contains start and end timestamps | `{"start": "2026-01-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}` |
+| Parameter              | Type          | Required  | Description                                                 | Example value                                                      |
+|------------------------|---------------|-----------|-------------------------------------------------------------|--------------------------------------------------------------------|
+| `includeProjectIds`    | array[string] | No        | List of project IDs to include in the query                 | `["proj_123", "proj_456"]`                                         |
+| `includeInspectionIds` | array[string] | No        | List of inspection IDs to include in the query              | `["insp_123", "insp_456"]`                                         |
+| `includeTeamIds`       | array[string] | No        | List of team IDs to include in the query                    | `["team_123", "team_456"]`                                         |
+| `timeRange`            | object        | No        | Time range for the query. Contains start and end timestamps | `{"start": "2026-01-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}` |
 
 Here is the description of responses:
 
@@ -1067,7 +1014,7 @@ returned. If no time range is specified, entries at the latest timestamp are ret
                   "severity": "HIGH",
                   "baseline": 10,
                   "actual": 5,
-                  "timestamp": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
                 },
                 {
                   "id": "insp_67890",
@@ -1075,7 +1022,7 @@ returned. If no time range is specified, entries at the latest timestamp are ret
                   "severity": "MODERATE",
                   "baseline": 20,
                   "actual": 15,
-                  "timestamp": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
                 }
               ]
             }
