@@ -33,8 +33,6 @@ All service hostnames should resolve the IP address of the Swarm manager node. Y
 - An internal DNS server that covers `*.<DOMAIN>`
 - Manual `/etc/hosts` entries on every machine that should have access to %product%
 
-See the [](#Domain+name+system+%28DNS%29) chapter for the full list of hostnames and their setup.
-
 ### Domain name system (DNS)
 
 <!-- How can they be allocated in this case  -->
@@ -49,33 +47,36 @@ See the [](#Domain+name+system+%28DNS%29) chapter for the full list of hostnames
     </tr>
     <tr>
         <td>Frontend (web UI)</td>
-        <td><code>qodana.local</code></td>
+        <td><code>http://&lt;domain&gt;</code></td>
     </tr>
     <tr>
         <td>Backend (API gateway)</td>
-        <td><code>api.qodana.local</code></td>
+        <td><code>http://api.&lt;domain&gt;</code></td>
     </tr>
     <tr>
         <td>Linter API</td>
-        <td><code>lintersapi.qodana.local</code></td>
+        <td><code>http://lintersapi.&lt;domain&gt;</code></td>
     </tr>
     <tr>
         <td>Built-in file storage (MinIO)</td>
-        <td><code>files.qodana.local</code></td>
+        <td><code>http://files.&lt;domain&gt;</code></td>
     </tr>
     <tr>
         <td>Built-in SSO provider (Keycloak)</td>
-        <td><code>login.qodana.local</code></td>
+        <td><code>http://login.&lt;domain&gt;</code></td>
     </tr>
     <tr>
         <td>Built-in ingress controller (Traefik)</td>
-        <td><code>ingress.qodana.local</code></td>
+        <td><code>http://ingress.&lt;domain&gt;</code></td>
     </tr>
 </table>
 
 <!-- This is inconsistent here  -->
 <p>These hostnames enable interaction of %product% components and provide access to essential services.
 The IP address can be of your server or a load balancer, depending on your deployment architecture. </p>
+
+Traefik routes inbound HTTP traffic to services based on the `Host` header, using routing rules configured via Docker
+service labels. Each service registers its own Traefik route at deploy time.
 
 In production environments, you should use a domain that aligns with your naming conventions like `qodana.mycompany.com`,
 `files.qodana.mycompany.com` and others.
@@ -90,12 +91,12 @@ depending on your needs, i.e. for the default or your custom domain configuratio
 
 ```Apache
 # Default domain / custom domain (mycompany.com)
-127.0.0.1 qodana.local # / <server-ip>  qodana.mycompany.com
-127.0.0.1 files.qodana.local # /  <server-ip>  api.qodana.mycompany.com
-127.0.0.1 api.qodana.local # / <server-ip>  files.qodana.mycompany.com
-127.0.0.1 ingress.qodana.local # / <server-ip>  login.qodana.mycompany.com
-127.0.0.1 login.qodana.local # / <server-ip>  ingress.qodana.mycompany.com
-127.0.0.1 lintersapi.qodana.local # / <server-ip>  lintersapi.qodana.mycompany.com
+127.0.0.1 qodana.local # / qodana.mycompany.com
+127.0.0.1 files.qodana.local # / api.qodana.mycompany.com
+127.0.0.1 api.qodana.local # / files.qodana.mycompany.com
+127.0.0.1 ingress.qodana.local # / login.qodana.mycompany.com
+127.0.0.1 login.qodana.local # / ingress.qodana.mycompany.com
+127.0.0.1 lintersapi.qodana.local # / lintersapi.qodana.mycompany.com
 ```
 
 ### PostgreSQL
@@ -513,7 +514,7 @@ Depending on your needs, run the command to deploy %premlite% on your machine:
         </code-block>
         <p>This command uses the <code>--env-file</code> option to specify the path to the configuration file; in this 
             case, the <code>qodana-self-hosted.env</code> file.</p>
-        <p>You can use the same <code>--env-file</code> flag for each subsequent <a anchor="Available+options">command</a> like 
+        <p>You can use the same <code>--env-file</code> flag for each subsequent command like 
             <code>backup</code>, <code>credentials</code> or <code>environment</code> to ensure consistent behaviour.</p>
     </tab>
     <tab title="Persist secrets">
@@ -534,7 +535,7 @@ Depending on your needs, run the command to deploy %premlite% on your machine:
 Here, the `COMMON_LICENSE_KEY_SECRET` variable configures a license key for production use. Without a valid key, the 
 application runs with limited functionality.
 
-The `install-app` Docker image option performs the following steps:
+The `install-app` command performs the following steps:
 
 1. Initializes Docker Swarm (`docker swarm init`) if the host is not already a Swarm node and `DOCKER_SWARM_INIT=true`
 2. Creates the `qodana_self_hosted` overlay network
@@ -545,13 +546,11 @@ The `install-app` Docker image option performs the following steps:
 7. Waits 20 seconds for infrastructure to become available
 8. Deploys Qodana application services: API, Audit, Git, Linters API, Report Processor, FUS, Frontend
 
-The installer exits after submitting all stacks. Services continue starting up in the background.
+The `install-app` command exits after submitting all stacks. Services continue starting up in the background.
 
 The entire deployment process may take two or three minutes to complete.
 
-After the deployment, in your browser, navigate to the configured domain to receive access to %premlite%.
-
-Also, make sure that all services reached their desired replica count by running the following command:
+After the deployment, make sure that all services reached their desired replica count by running the following command:
 
 ```bash
 docker service ls \
@@ -576,6 +575,8 @@ docker run \
 ```
 {prompt="$"}
 
+In your browser, navigate to the configured domain to receive access to %premlite%.
+
 ## Get a list of used variables
 
 Run the `environment` command to display every configurable variable with its resolved value:
@@ -597,6 +598,20 @@ values are in effect.
 All infrastructure credentials like database passwords, object storage keys, message queue passwords, or Keycloak admin accounts
 are generated randomly during deployment and stored as Docker configurations. They can be retrieved at any time without 
 having to deploy %premlite% again.
+
+All credentials are:
+
+* Generated during deployment using cryptographically secure random bytes via `openssl rand`
+* Stored immediately as Docker configs and labeled as `qodana.jetbrains.self-hosted.lite.select=true`
+* Mounted read-only into each service container at the path that a service expects
+* Never written to the host filesystem or any log output
+
+Docker configs persist across container and service restarts. They are the single source of truth for all generated 
+credentials and are what the `credentials` command reads.
+
+> If you uninstall (the `uninstall` command) and then reinstall (the `install-app` command), new credentials are generated. 
+> Any external integrations using the old credentials like scripts using MinIO keys must be updated.
+{style="note"}
 
 Using the `credentials` command, you can retrieve credentials:
 
@@ -810,6 +825,30 @@ docker network rm qodana_self_hosted
 ```
 {prompt="$"}
 
+## Reset passwords
+
+User password management is handled through Keycloak. To reset passwords, perform the following steps:
+
+<procedure>
+    <step>
+        <p>Retrieve the Keycloak administrator credentials:</p>
+        <code-block lang="Bash" prompt="$">
+          docker run \
+              -v /var/run/docker.sock:/var/run/docker.sock \
+              quay.io/jetbrains/qodana-installer-cli:latest \
+              credentials --keycloak
+        </code-block>
+    </step>
+    <step>
+        <p>Sign in to the Keycloak Admin Console at <code>http://login.&lt;DOMAIN&gt;</code>.</p>
+    </step>
+    <step>
+        <p>At the Keycloak Admin Console, navigate to the <code>qodana</code>, and then navigate to <ui-path>Users</ui-path>. 
+            Here, select the user's <ui-path>Credentials</ui-path> and then click <ui-path>Reset Password</ui-path>.</p>
+    </step>
+</procedure>
+
+
 ## Configure Qodana Self-Hosted
 
 Labels and environment variables let you configure %premlite% specifically to your needs. 
@@ -861,7 +900,7 @@ docker run \
 ```
 {prompt="$"}
 
-We recommend that you run the `uninstall` [Docker command](#Available+options) prior to this command. This will let you remove
+We recommend that you run the `uninstall` command prior to this command. This will let you remove
 the existing Docker configurations that may contain hostname values.
 
 ### UI user variables
@@ -898,7 +937,7 @@ The variable accepts the following values:
 | `local`  | The default value. %premlite% deploys PostgreSQL, MinIO, RabbitMQ, and Keycloak as Swarm services |
 | `remote` | %premlite% skips dependency deployment; you supply connection details via environment variables   |
 
-> The `backup` and `restore` [Docker commands](#Available+options) are supported only in the `local` mode. For the `remote` 
+> The `backup` and `restore` commands are supported only in the `local` mode. For the `remote` 
 > mode, the external services should be backed up and restored by their own tooling.
 {style="note"}
 
@@ -1177,6 +1216,21 @@ docker run \
 | `REPORT_PROCESSOR_JAVA_OPTS`        | Java options for the Report Processor service   | `-Xmx${APP_REPORT_PROCESSOR_JAVA_HEAP_LIMIT}m -XX:+PrintCommandLineFlags` |
 | `REPORT_PROCESSOR_POSTGRES_USER`    | Username for Report Processor Postgres database | `report_processor_user`                                                   |
 | `REPORT_PROCESSOR_POSTGRES_DB_NAME` | Name of the Report Processor Postgres database  | `qodanadb`                                                                |
+
+
+## Known limitations
+
+This table describes known limitations regarding the current Dockerized implementation of %premlite%:
+
+| Limitation                       | Detail                                                                                                                                                       |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| No HTTPS                         | All communication is plain HTTP. An upstream TLS-terminating proxy is required for production                                                                |
+| No backup in remote mode         | When the `QODANA_DEPENDENCIES_MODE` is set to `remote`, backup and restore commands are not supported                                                        |
+| Single-node Swarm                | Designed for single-node Docker Swarm. Multi-node deployments require additional volume and network planning                                                 |
+| Domain changes require reinstall | Hostnames are encoded in Docker configs at install time. Changing them requires running the `uninstall` and `install-app` commands                           |
+| No incremental backup            | Each backup is a full volume snapshot                                                                                                                        |
+| Docker configs not in backup     | Generated secrets are stored in Docker's config store, not in the data volume backup. They must be regenerated using the `install-app` command on a new host |
+| Startup time                     | Services continue starting after the installer exits. You should wait for 2–3 minutes before accessing the UI                                                |
 
 
 ## Troubleshooting
