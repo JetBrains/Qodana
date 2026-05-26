@@ -41,7 +41,7 @@ following linters:
         <td rowspan="2"><a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a></td>
     </tr>
     <tr>
-        <td><p><code>lcov</code> (LCOV-formatted file)</p>
+        <td><p><code>info</code> (LCOV-formatted file)</p>
         <p>For Cobertura:<code>info</code> or <code>cobertura</code>*</p></td>
     </tr>
     <tr>
