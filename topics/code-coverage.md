@@ -29,7 +29,7 @@ following linters:
     <tr>
         <td><a href="js.md">%js%</a></td>
         <td><a href="https://jestjs.io/">Jest</a></td>
-        <td><code>lcov</code></td>
+        <td><code>info</code> (LCOV-formatted file)</td>
     </tr>
     <tr>
         <td><a href="php.md">%php%</a></td>
@@ -41,7 +41,7 @@ following linters:
         <td rowspan="2"><a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a></td>
     </tr>
     <tr>
-        <td><p><code>lcov</code></p>
+        <td><p><code>lcov</code> (LCOV-formatted file)</p>
         <p>For Cobertura:<code>info</code> or <code>cobertura</code>*</p></td>
     </tr>
     <tr>
