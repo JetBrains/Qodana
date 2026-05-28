@@ -222,16 +222,13 @@ The endpoint provides the responses with the following HTTP codes:
     </tr>
 </table>
 
-### Get report metadata
-{id="cloud-api-project-report-metadata"}
-
-#### Project name
+### Get project metadata by project name
 {id="cloud-api-project-report-metadata-project-name"}
 
 > This endpoint is available starting from version 2024.2 of %product%.
 {style="note"}
 
-To get report metadata for the default branch of a project, send the request with a %cloud% project name:
+To get project metadata for the default branch of a project, send the request with a %cloud% project name:
 
 ```cURL
 GET https://qodana.cloud/api/v1/public/organizations/projects?projectName={projectName}
@@ -253,7 +250,7 @@ Here is the description of responses:
     <tr>
         <td><code>200</code></td>
         <td>
-            <p>Returns a JSON object containing report metadata:</p>
+            <p>Returns a JSON object containing project metadata:</p>
         <code-block lang="http">
             HTTP/2 200 OK
             date: Wed, 24 Sep 2025 10:35:13 GMT
@@ -271,7 +268,7 @@ Here is the description of responses:
               "defaultBranchName": "main",
               "latestFullScanReport": {
                 "id": "report_789",
-                "timeRange": {"start": "2026-05-10T10:00:00Z", "end": "2026-05-10T10:30:00Z"},
+                "timestamp":"2026-05-28T14:34:52.935342Z",
                 "licenseAudit": {
                   "isPassed": true,
                   "isEnabled": true
@@ -372,13 +369,13 @@ Here is the description of responses:
     </tr>
 </table>
 
-#### Project ID
+### Get project metadata by project ID
 {id="cloud-api-project-report-metadata-project-id"}
 
 > This endpoint is available starting from version 2024.2 of %product%.
 {style="note"}
 
-Get report metadata by sending a request containing a project ID:
+Get project metadata by sending a request containing a project ID:
 
 ```cURL
 GET https://qodana.cloud/api/v1/public/organizations/projects/{projectID}
@@ -400,7 +397,7 @@ Here is the description of responses:
     <tr>
         <td><code>200</code></td>
         <td>
-            <p>Returns an object containing project metadata, including the latest report data for the default branch:</p>
+            <p>Returns a JSON object containing project metadata:</p>
         <code-block lang="http">
             HTTP/2 200 OK
             date: Wed, 24 Sep 2025 10:35:13 GMT
@@ -418,7 +415,7 @@ Here is the description of responses:
               "defaultBranchName": "main",
               "latestFullScanReport": {
                 "id": "report_789",
-                "timeRange": {"start": "2026-05-10T10:00:00Z", "end": "2026-05-10T10:30:00Z"},
+                "timestamp":"2026-05-28T14:34:52.935342Z",
                 "licenseAudit": {
                   "isPassed": true,
                   "isEnabled": true
