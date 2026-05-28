@@ -32,44 +32,31 @@ Before using the Qodana Cloud API, make sure that the following requirements wer
 <li>
     <p>To generate an organization API token, use the 
     <a href="cloud-organizations.topic" anchor="cloud-organizations-api-token"><control>API token</control> tab</a> of 
-    your organization settings.</p>
+    your organization settings. This token should be referred in requests as the <code>$permanent_organization_token</code> authorization header, i.e.:</p> 
+<code-block lang="cURL">-H "Authorization: Bearer $permanent_organization_token"</code-block>
 </li>
 <li>
-<p>For API request examples provided in this section, replace the <code>{qodana_cloud_url}</code> placeholder with your 
-base URL, i.e. with <code>qodana.cloud</code> for %cloud%, or using your custom base URL in case of %premlite%.</p>
+<p>All API request examples provided in this section require that you use either the <code>https://qodana.cloud</code> 
+URL for %cloud% or your custom base URL in case of %premlite%. For simplicity, the %cloud% URL is used.</p>
 </li>
 </list>
 
-In this section, an organization API token value is referred to as `$permanent_organization_token`.
+## Teams and projects
 
-<!-- 
+### Create teams and projects
 
-Once an organization is created, you can extract the organization ID from the %cloud% or %premlite% URL: 
-
-```curl
-https://{qodana_cloud_url}/organizations/{organizationId}
-```
--->
-
-## Create teams and projects
-
-To create a new team (if applicable) along with a project and obtain a [project token](project-token.md), send a `POST` request to the 
-`https://{qodana_cloud_url}/api/v1/public/organizations/projects` endpoint and provide the team and project names, for example: 
+To create a new team (if applicable) along with a project and get a [project token](project-token.md), send the request: 
 
 ```cURL
-qodana_token=$(curl -X POST https://{qodana_cloud_url}/api/v1/public/organizations/projects \
-  -H "Authorization: Bearer $permanent_organization_token" \
-  -H "Content-Type: application/json" \
-  -d '{
-        "projectName": "My project name",
-        "teamName": "My team name"
-      }')
+POST https://qodana.cloud/api/v1/public/organizations/projects
 ```
 
-The `teamName` parameter provides a string non-nullable name of the [team](cloud-teams.topic) that you would like to
-create. In case a team with such name already exists, creation of a new team will be skipped.
-Under the `projectName` parameter, provide a string non-nullable name of the [project](cloud-projects.topic) that you would like to create. In
-case a project with such name already exists, creation of a new project will be skipped.
+Here is the description of the request body:
+
+| Parameter     | Type      | Description                                                                                               | Example value     |
+|---------------|-----------|-----------------------------------------------------------------------------------------------------------|-------------------|
+| `teamName`    | String    | Non-nullable name of the [team](cloud-teams.topic) to create. If exists, creation will be skipped         | `My team name`    |
+| `projectName` | String    | Non-nullable name of the [project](cloud-projects.topic) to create. If exists, creation will be skipped   | `My project name` |
 
 The endpoint provides the responses with the following HTTP codes:
 
@@ -235,18 +222,308 @@ The endpoint provides the responses with the following HTTP codes:
     </tr>
 </table>
 
-## List organization users
+### Get project metadata by project name
+{id="cloud-api-project-report-metadata-project-name"}
 
-To list users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send a `GET` request using the
-`https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint, for example: 
+> This endpoint is available starting from version 2024.2 of %product%.
+{style="note"}
+
+To get project metadata for the default branch of a project, send the request with a %cloud% project name:
 
 ```cURL
-curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/users" \
-   -H "Authorization: Bearer $permanent_organization_token"
+GET https://qodana.cloud/api/v1/public/organizations/projects?projectName={projectName}
 ```
 
-### Parameters
+Here is the description of accepted parameters:
+
+| Parameter     | Type   | Required  | Description                     | Example value        |
+|---------------|--------|-----------|---------------------------------|----------------------|
+| `projectName` | String | No        | Name of the project to retrieve | `My Awesome Project` |
+
+Here is the description of responses:
+
+<table>
+    <tr>
+        <td>Response code</td>
+        <td>Description and examples</td>
+    </tr>
+    <tr>
+        <td><code>200</code></td>
+        <td>
+            <p>Returns a JSON object containing project metadata:</p>
+        <code-block lang="http">
+            HTTP/2 200 OK
+            date: Wed, 24 Sep 2025 10:35:13 GMT
+            content-type: application/json
+            x-request-id: vbf3up0ktfm6b25o
+            vary: Origin
+            content-length: 178
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "id": "proj_123",
+              "name": "My Awesome Project",
+              "teamId": "team_456",
+              "teamName": "Dev Team A",
+              "defaultBranchName": "main",
+              "latestFullScanReport": {
+                "id": "report_789",
+                "timestamp":"2026-05-28T14:34:52.935342Z",
+                "licenseAudit": {
+                  "isPassed": true,
+                  "isEnabled": true
+                },
+                "codeCoverage": {
+                  "percentage": 85,
+                  "isEnabled": true
+                },
+                "inspections": [
+                  {
+                    "id": "insp_12345",
+                    "name": "Security Scan",
+                    "severity": "HIGH",
+                    "baseline": 10,
+                    "actual": 5
+                  }
+                ]
+              }
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>400</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 400 Bad Request
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89ztzxra5ptt3vio
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "VALIDATION_FAILED",
+              "details": "Invalid projectName: must be a non-empty string."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>401</code></td>
+        <td>
+            <code-block lang="http">
+            HTTP/2 401 Unauthorized
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "NO_CREDENTIALS_PROVIDED",
+              "details": "API token is required."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>403</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 403 Forbidden
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "NO_PERMISSION",
+              "details": "User does not have permission to view projects."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>404</code></td>
+        <td>
+            <code-block lang="http">
+                HTTP/2 404 Not Found
+                date: Wed, 24 Sep 2025 10:36:37 GMT
+                content-type: application/json
+                x-request-id: 89zthxrm5pxt9phi
+                vary: Origin
+                content-length: 67
+                x-http2-stream-id: 3
+                &nbsp;
+                {
+                  "name": "NO_PROJECT",
+                  "details": "Project 'nonexistent-project' not found."
+                }
+            </code-block>
+        </td>
+    </tr>
+</table>
+
+### Get project metadata by project ID
+{id="cloud-api-project-report-metadata-project-id"}
+
+> This endpoint is available starting from version 2024.2 of %product%.
+{style="note"}
+
+Get project metadata by sending a request containing a project ID:
+
+```cURL
+GET https://qodana.cloud/api/v1/public/organizations/projects/{projectID}
+```
+
+You can customize your requests using the following optional parameter:
+
+| Parameter   | Type   | Required  | Description       | Example value |
+|-------------|--------|-----------|-------------------|---------------|
+| `projectId` | String | Yes       | ID of the project | `proj_123`    |
+
+Here is the description of responses:
+
+<table>
+    <tr>
+        <td>Response code</td>
+        <td>Description and examples</td>
+    </tr>
+    <tr>
+        <td><code>200</code></td>
+        <td>
+            <p>Returns a JSON object containing project metadata:</p>
+        <code-block lang="http">
+            HTTP/2 200 OK
+            date: Wed, 24 Sep 2025 10:35:13 GMT
+            content-type: application/json
+            x-request-id: vbf3up0ktfm6b25o
+            vary: Origin
+            content-length: 178
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "id": "proj_123",
+              "name": "My Awesome Project",
+              "teamId": "team_456",
+              "teamName": "Dev Team A",
+              "defaultBranchName": "main",
+              "latestFullScanReport": {
+                "id": "report_789",
+                "timestamp":"2026-05-28T14:34:52.935342Z",
+                "licenseAudit": {
+                  "isPassed": true,
+                  "isEnabled": true
+                },
+                "codeCoverage": {
+                  "percentage": 85,
+                  "isEnabled": true
+                },
+                "inspections": [
+                  {
+                    "id": "insp_12345",
+                    "name": "Security Scan",
+                    "severity": "HIGH",
+                    "baseline": 10,
+                    "actual": 5
+                  }
+                ]
+              }
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>400</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 400 Bad Request
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89ztzxra5ptt3vio
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "VALIDATION_FAILED",
+              "details": "Invalid projectId: must be a non-empty string."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>401</code></td>
+        <td>
+            <code-block lang="http">
+            HTTP/2 401 Unauthorized
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "NO_CREDENTIALS_PROVIDED",
+              "details": "API token is required."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>403</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 403 Forbidden
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "NO_PERMISSION",
+              "details": "User does not have permission to view this project."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>404</code></td>
+        <td>
+            <code-block lang="http">
+                HTTP/2 404 Not Found
+                date: Wed, 24 Sep 2025 10:36:37 GMT
+                content-type: application/json
+                x-request-id: 89zthxrm5pxt9phi
+                vary: Origin
+                content-length: 67
+                x-http2-stream-id: 3
+                &nbsp;
+                {
+                  "name": "NO_PROJECT",
+                  "details": "Project with ID 'proj_999' not found."
+                }
+            </code-block>
+        </td>
+    </tr>
+</table>
+
+## Users
+{id="cloud-api-users"}
+
+To list users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send the request: 
+
+```cURL
+GET https://qodana.cloud/api/v1/public/organizations/users
+```
 
 You can customize your requests using the following optional parameters.
 
@@ -269,12 +546,12 @@ You can customize your requests using the following optional parameters.
     <tr>
         <td><code>order</code></td>
         <td>String</td>
-        <td>Sort the order. Accepts <code>DESC</code> for descending order or <code>ASC</code> for ascending order. By default, lists are sorted in ascending order</td>
+        <td>Sets the sort order users' email addresses. Accepts <code>DESC</code> for descending order or <code>ASC</code> for ascending order. By default, lists are sorted in ascending order</td>
     </tr>
     <tr>
         <td><code>search</code></td>
         <td>String</td>
-        <td>Return a list of entries that contain a specified substring in the <code>email</code> or <code>displayName</code> fields, see the <a anchor="Responses"/> chapter for details</td>
+        <td>Return a list of entries that contain a specified substring in the <code>email</code> or <code>displayName</code> fields</td>
     </tr>
 </table>
 
@@ -283,13 +560,11 @@ in the `email` or `displayName` fields and sorts the selected list in descending
 
 ```cURL
 curl -X GET \
-   "https://{qodana_cloud_url}/api/v1/public/organizations/users?limit=10&offset=1&order=DESC&search=abc" \
+   "https://qodana.cloud/api/v1/public/organizations/users?limit=10&offset=1&order=DESC&search=abc" \
    -H "Authorization: Bearer $permanent_organization_token"
 ```
 
-### Responses
-
-The `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint responds as described in the table:
+This endpoint responds as described in the table:
 
 <table>
     <tr>
@@ -417,6 +692,393 @@ The `https://{qodana_cloud_url}/api/v1/public/organizations/users` endpoint resp
             {
                 "name": "no_permission",
                 "details": "User has no public_api_get_organization_users permission"
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>404</code></td>
+        <td>
+            <p>Endpoint not found</p>
+        </td>
+    </tr>
+</table>
+
+
+## Inspections
+{id="cloud-api-inspections"}
+
+List inspections used by an organization by sending the request:
+
+```cURL
+GET https://qodana.cloud/api/v1/public/organizations/inspections
+```
+
+This endpoint does not provide any parameters.
+
+Here is the description of responses:
+
+<table>
+    <tr>
+        <td>Response code</td>
+        <td>Description and examples</td>
+    </tr>
+    <tr>
+        <td><code>200</code></td>
+        <td>
+            <p>Returns a list of inspections:</p>
+        <code-block lang="http">
+            HTTP/2 200 OK
+            date: Wed, 24 Sep 2025 10:39:06 GMT
+            content-type: application/json
+            x-request-id: 7vrrlorq2ocrz957
+            vary: Origin
+            content-length: 514
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "inspections": [
+                {
+                  "id": "insp_12345",
+                  "name": "Security Scan"
+                },
+                {
+                  "id": "insp_67890",
+                  "name": "Code Quality"
+                }
+              ]
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>400</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 400 Bad Request
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89ztzxra5ptt3vio
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "VALIDATION_FAILED",
+              "details": "Invalid query parameter."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>401</code></td>
+        <td>
+            <code-block lang="http">
+            HTTP/2 401 Unauthorized
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "NO_AUTH",
+              "details": "Authentication required to access inspections."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>403</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 403 Forbidden
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+                "name": "no_permission",
+                "details": "Invalid organization API token"
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>404</code></td>
+        <td>
+            <p>Endpoint not found</p>
+        </td>
+    </tr>
+</table>
+
+## Insights
+{id="cloud-api-insights"}
+
+### Project Insights
+{id="cloud-api-insights-project"}
+
+To retrieve project insights, send the request:
+
+```cURL
+POST https://qodana.cloud/api/v1/public/organizations/project-insights/query
+```
+
+Here is the description of the request body:
+
+| Parameter              | Type          | Required  | Description                                                 | Example value                                                      |
+|------------------------|---------------|-----------|-------------------------------------------------------------|--------------------------------------------------------------------|
+| `includeProjectIds`    | array[string] | No        | List of project IDs to include in the query                 | `["proj_123", "proj_456"]`                                         |
+| `includeInspectionIds` | array[string] | No        | List of inspection IDs to include in the query              | `["insp_123", "insp_456"]`                                         |
+| `includeTeamIds`       | array[string] | No        | List of team IDs to include in the query                    | `["team_123", "team_456"]`                                         |
+| `timeRange`            | object        | No        | Time range for the query. Contains start and end timestamps | `{"start": "2026-01-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}` |
+
+
+Here is the description of responses:
+
+<table>
+    <tr>
+        <td>Response code</td>
+        <td>Description and examples</td>
+    </tr>
+    <tr>
+        <td><code>200</code></td>
+        <td>
+            <p>A list of projects with scan data for the given timestamp, where one entry exists for each unique
+combination of project ID and timestamp. If no time range is specified, entries at the latest timestamp are returned:</p>
+        <code-block lang="http">
+            HTTP/2 200 OK
+            date: Wed, 24 Sep 2025 10:39:06 GMT
+            content-type: application/json
+            x-request-id: 7vrrlorq2ocrz957
+            vary: Origin
+            content-length: 514
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "projects": [
+                {
+                  "id": "proj_123",
+                  "name": "My Awesome Project",
+                  "teamId": "team_456",
+                  "teamName": "Dev Team A",
+                  "codeCoverage": {
+                    "percentage": 85,
+                    "isEnabled": true
+                  },
+                  "licenseAudit": {
+                    "isPassed": true,
+                    "isEnabled": true
+                  },
+                  "severityToActualProblems": {
+                    "info": 5,
+                    "low": 10,
+                    "moderate": 3,
+                    "high": 1,
+                    "critical": 0,
+                    "total": 19
+                  },
+                  "severityToBaselineProblems": {
+                    "info": 8,
+                    "low": 12,
+                    "moderate": 5,
+                    "high": 2,
+                    "critical": 0,
+                    "total": 27
+                  },
+                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                }
+              ]
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>400</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 400 Bad Request
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89ztzxra5ptt3vio
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "NO_FILTER_SELECTION",
+              "details": "At least one filter (includeProjectIds, includeInspectionIds, or includeTeamIds) must be provided."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>401</code></td>
+        <td>
+            <code-block lang="http">
+            HTTP/2 401 Unauthorized
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "INVALID_TOKEN",
+              "details": "The provided API token is expired or invalid."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>403</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 403 Forbidden
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "FEATURE_NOT_SUPPORTED",
+              "details": "Project insights are not enabled for this organization."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>404</code></td>
+        <td>
+            <p>Endpoint not found</p>
+        </td>
+    </tr>
+</table>
+
+
+### Inspection Insights
+{id="cloud-api-insights-inspection"}
+
+To retrieve inspection insights, send the request:
+
+```cURL
+POST https://qodana.cloud/api/v1/public/organizations/inspection-insights/query
+```
+
+Here is the description of the request body:
+
+| Parameter              | Type          | Required  | Description                                                 | Example value                                                      |
+|------------------------|---------------|-----------|-------------------------------------------------------------|--------------------------------------------------------------------|
+| `includeProjectIds`    | array[string] | No        | List of project IDs to include in the query                 | `["proj_123", "proj_456"]`                                         |
+| `includeInspectionIds` | array[string] | No        | List of inspection IDs to include in the query              | `["insp_123", "insp_456"]`                                         |
+| `includeTeamIds`       | array[string] | No        | List of team IDs to include in the query                    | `["team_123", "team_456"]`                                         |
+| `timeRange`            | object        | No        | Time range for the query. Contains start and end timestamps | `{"start": "2026-01-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}` |
+
+Here is the description of responses:
+
+<table>
+    <tr>
+        <td>Response code</td>
+        <td>Description and examples</td>
+    </tr>
+    <tr>
+        <td><code>200</code></td>
+        <td>
+            <p>A list of inspections counts, where one entry exists for each unique combination of inspection ID, 
+name, severity and others. If a time range is specified, entries for 10 equally distant timestamps within the range are
+returned. If no time range is specified, entries at the latest timestamp are returned.</p>
+        <code-block lang="http">
+            HTTP/2 200 OK
+            date: Wed, 24 Sep 2025 10:39:06 GMT
+            content-type: application/json
+            x-request-id: 7vrrlorq2ocrz957
+            vary: Origin
+            content-length: 514
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "inspections": [
+                {
+                  "id": "insp_12345",
+                  "name": "Security Scan",
+                  "severity": "HIGH",
+                  "baseline": 10,
+                  "actual": 5,
+                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                },
+                {
+                  "id": "insp_67890",
+                  "name": "Code Quality",
+                  "severity": "MODERATE",
+                  "baseline": 20,
+                  "actual": 15,
+                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                }
+              ]
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>400</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 400 Bad Request
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89ztzxra5ptt3vio
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "VALIDATION_FAILED",
+              "details": "Invalid timeRange: 'end' must be after 'start'."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>401</code></td>
+        <td>
+            <code-block lang="http">
+            HTTP/2 401 Unauthorized
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "NO_CREDENTIALS_PROVIDED",
+              "details": "Authentication token is missing or invalid."
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>403</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 403 Forbidden
+            date: Wed, 24 Sep 2025 10:36:37 GMT
+            content-type: application/json
+            x-request-id: 89zthxrm5pxt9phi
+            vary: Origin
+            content-length: 67
+            x-http2-stream-id: 3
+            &nbsp;
+            {
+              "name": "NO_PERMISSION",
+              "details": "User does not have permission to query inspection insights."
             }
         </code-block>
         </td>
