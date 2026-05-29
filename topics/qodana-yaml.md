@@ -172,7 +172,9 @@ Information about inspection IDs is available on the [Inspectopedia](https://www
 ### Example
 {id="include-example"}
 
-In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection is explicitly included in the analysis scope for the `tools` directory. As a result, only the check performed by the `SomeInspectionId` inspection the `tools` directory contents will be included in the Qodana run.
+In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection 
+is explicitly included in the analysis scope for the `tools` directory. As a result, only the analysis performed by 
+the `SomeInspectionId` inspection the `tools` directory contents will be included in the %product% run.
 
 ```yaml
   profile:
@@ -182,6 +184,16 @@ include:
     paths:
     - tools
 ```
+
+Here, each `include` entry should reference an inspection registered in an active 
+[inspection profile](inspection-profiles.md), either enabled or disabled. If an inspection ID is not registered, the 
+`ìnclude` entry becomes silently ignored and no inspection is added. 
+
+For example, the `profile.name: empty` configuration implies that plugin-provided inspections like `CppClangTidy*` are 
+not registered. To enable specific plugin inspections, you can start from an 
+[existing inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles) like `qodana.starter`and use 
+`exclude` to suppress inspections that you do not need. Also, add inspections using plugin-specific config like 
+`.clang-tidy` in case of the [](clang.md) linter.
 
 ## Disable a specific inspection for a specific file
 

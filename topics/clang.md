@@ -162,6 +162,14 @@ the project, generates analysis reports and saves them locally or uploads to %cl
     <step>
         <p>You can configure Clang-Tidy-based inspections in the <code>.clang-tidy</code> file, see the configuration example on the
         <a href="%clang-config%">GitHub</a> website. After configuring, save this file under the project root.</p>
+        <note>
+            <p>The %cpp% linter reads the <code>.clang-tidy</code> file from the project root and augments the active %product% 
+            inspection profile using the inspections listed under the <code>Checks:</code> section. Unlike stand-alone Clang-Tidy, 
+            the <code>-*</code> directive does not disable inspections enabled by your %product% profile — it only affects 
+            Clang-Tidy own per-analysis defaults. To disable inspections that come from the 
+            %product% profile, edit the profile using the <code>exclude</code> field in the <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code> file </a>.</p>
+            <p>Inspection IDs in the <code>qodana.yaml</code> file for Clang-Tidy inspections use the <code>CppClangTidy</code> prefix followed by an inspection name.</p>
+        </note>
         <tip>
         <p>You can get the list of all available Clang-Tidy inspections using the following command:</p>
         <tabs group="clang-tidy-commands">

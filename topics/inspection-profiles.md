@@ -730,9 +730,12 @@ profile:
 ### Custom XML profiles
 
 You can create XML-formatted inspection profiles using your IDE. For example, for IntelliJ IDEA this is explained
-on the [Configure profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html) page.  After you create a
-profile, you can [export](https://www.jetbrains.com/help/idea/customizing-profiles.html#export-and-import-a-profile) it
-to a file.
+on the [Configure profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html) page.  After you create a profile, you can [export](https://www.jetbrains.com/help/idea/customizing-profiles.html#export-and-import-a-profile) it to a file.
+
+> Do not use an empty profile and then include specific inspections in case of plugin inspections, see the 
+> [](clang.md) section as an example. Plugin inspections require their corresponding plugins to be fully initialized, 
+> which may not occur when using an empty profile configuration.
+{style="note"}
 
 To run %instance% with the custom profile, you can follow the recommendations from the
 [](inspection-profiles.md#inspection-profiles-setup-a-profile) section. In this case, the profile name does not necessarily
