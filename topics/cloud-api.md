@@ -117,7 +117,7 @@ The endpoint provides the responses with the following HTTP codes:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "public_api_disabled",
+                "name": "PUBLIC_API_DISABLED",
                 "details": "Public API is disabled"
             }
         </code-block>
@@ -132,7 +132,7 @@ The endpoint provides the responses with the following HTTP codes:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "too_many_projects_for_organization",
+                "name": "TOO_MANY_PROJECTS_FOR_ORGANIZATION",
                 "details": "Creation of the project failed because of reaching the limit of projects per organization"
             }
         </code-block>
@@ -152,7 +152,7 @@ The endpoint provides the responses with the following HTTP codes:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "no_auth",
+                "name": "NO_AUTH",
                 "details": "User is not authorized"
             }
         </code-block>
@@ -173,7 +173,7 @@ The endpoint provides the responses with the following HTTP codes:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "no_permission",
+                "name": "NO_PERMISSION",
                 "details": "Invalid organization API token"
             }
         </code-block>
@@ -188,7 +188,7 @@ The endpoint provides the responses with the following HTTP codes:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "no_permission",
+                "name": "NO_PERMISSION",
                 "details": "User has no public_api_create_or_get_project_token permission"
             }
         </code-block>
@@ -214,7 +214,7 @@ The endpoint provides the responses with the following HTTP codes:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "project_token_creation_failed",
+                "name": "PROJECT_TOKEN_CREATION_FAILED",
                 "details": "Creation of the project token failed because of an internal error"
             }
         </code-block>
@@ -596,7 +596,8 @@ This endpoint responds as described in the table:
                         "role": "OWNER", // %cloud% role
                         "isActive": true,
                         "isSsoManaged": false, // SSO feature is disabled
-                        "invitationId": "G4O3Y" //
+                        "invitationId": "G4O3Y",
+                        "invitationUrl": "https://qodana.cloud/invite/G4O3Y"
                     },
                     {
                         "id": "bvWmV",
@@ -613,7 +614,8 @@ This endpoint responds as described in the table:
                         "role": "VIEWER",
                         "isActive": false,
                         "isSsoManaged": false,
-                        "invitationId": "bLmWV"
+                        "invitationId": "bLmWV",
+                        "invitationUrl": "https://qodana.cloud/invite/bLmWV"
                     }
                 ]
             }
@@ -634,7 +636,7 @@ This endpoint responds as described in the table:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "public_api_disabled",
+                "name": "PUBLIC_API_DISABLED",
                 "details": "Public API is disabled"
             }
         </code-block>
@@ -654,7 +656,7 @@ This endpoint responds as described in the table:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "no_auth",
+                "name": "NO_AUTH",
                 "details": "User is not authorized"
             }
         </code-block>
@@ -675,7 +677,7 @@ This endpoint responds as described in the table:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "no_permission",
+                "name": "NO_PERMISSION",
                 "details": "Invalid organization API token"
             }
         </code-block>
@@ -690,16 +692,10 @@ This endpoint responds as described in the table:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "no_permission",
+                "name": "NO_PERMISSION",
                 "details": "User has no public_api_get_organization_users permission"
             }
         </code-block>
-        </td>
-    </tr>
-    <tr>
-        <td><code>404</code></td>
-        <td>
-            <p>Endpoint not found</p>
         </td>
     </tr>
 </table>
@@ -708,7 +704,7 @@ This endpoint responds as described in the table:
 ## Inspections
 {id="cloud-api-inspections"}
 
-List inspections used by an organization by sending the request:
+List all inspections including FlexInspect inspections used by an organization by sending the request:
 
 ```cURL
 GET https://qodana.cloud/api/v1/public/organizations/inspections
@@ -802,16 +798,10 @@ Here is the description of responses:
             x-http2-stream-id: 3
             &nbsp;
             {
-                "name": "no_permission",
+                "name": "NO_PERMISSION",
                 "details": "Invalid organization API token"
             }
         </code-block>
-        </td>
-    </tr>
-    <tr>
-        <td><code>404</code></td>
-        <td>
-            <p>Endpoint not found</p>
         </td>
     </tr>
 </table>
@@ -890,7 +880,7 @@ combination of project ID and timestamp. If no time range is specified, entries 
                     "critical": 0,
                     "total": 27
                   },
-                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                  "timestamp": "2026-05-12T00:00:00Z"
                 }
               ]
             }
@@ -954,12 +944,6 @@ combination of project ID and timestamp. If no time range is specified, entries 
         </code-block>
         </td>
     </tr>
-    <tr>
-        <td><code>404</code></td>
-        <td>
-            <p>Endpoint not found</p>
-        </td>
-    </tr>
 </table>
 
 
@@ -991,9 +975,7 @@ Here is the description of responses:
     <tr>
         <td><code>200</code></td>
         <td>
-            <p>A list of inspections counts, where one entry exists for each unique combination of inspection ID, 
-name, severity and others. If a time range is specified, entries for 10 equally distant timestamps within the range are
-returned. If no time range is specified, entries at the latest timestamp are returned.</p>
+            <p>A list of inspections counts, where one entry exists for each unique combination of inspection ID, name, severity, baseline, actual and timestamp. If a time range is specified, entries for 10 equally distant timestamps within the range are returned. If no time range is specified, entries at the latest timestamp are returned.</p>
         <code-block lang="http">
             HTTP/2 200 OK
             date: Wed, 24 Sep 2025 10:39:06 GMT
@@ -1011,7 +993,7 @@ returned. If no time range is specified, entries at the latest timestamp are ret
                   "severity": "HIGH",
                   "baseline": 10,
                   "actual": 5,
-                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                  "timestamp": "2026-05-12T00:00:00Z"
                 },
                 {
                   "id": "insp_67890",
@@ -1019,7 +1001,7 @@ returned. If no time range is specified, entries at the latest timestamp are ret
                   "severity": "MODERATE",
                   "baseline": 20,
                   "actual": 15,
-                  "timeRange": {"start": "2026-05-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}
+                  "timestamp": "2026-05-12T00:00:00Z"
                 }
               ]
             }
@@ -1081,12 +1063,6 @@ returned. If no time range is specified, entries at the latest timestamp are ret
               "details": "User does not have permission to query inspection insights."
             }
         </code-block>
-        </td>
-    </tr>
-    <tr>
-        <td><code>404</code></td>
-        <td>
-            <p>Endpoint not found</p>
         </td>
     </tr>
 </table>
