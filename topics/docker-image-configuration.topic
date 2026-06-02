@@ -779,8 +779,29 @@
                         <code>-d, --source-directory &lt;string&gt;</code>
                     </td>
                     <td>
-                        Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
-                        the whole project will be analyzed
+                        <note>This option is deprecated and will be removed in future versions of the product.
+                            See the <a anchor="docker-options-only-directory"><code>--only-directory</code></a> option for details.</note>
+                        <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
+                            the whole project will be analyzed</p>
+                    </td>
+                </tr>
+                <tr id="docker-options-repository-root">
+                    <td>
+                        <code>--repository-root &lt;string&gt;</code>
+                    </td>
+                    <td>
+                        <p>Specify the VCS root directory for your project. This option is required for Git-related operations</p>
+                    </td>
+                </tr>
+                <tr id="docker-options-only-directory">
+                    <td>
+                        <code>--only-directory &lt;string&gt;</code>
+                    </td>
+                    <td>
+                        <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
+                            the whole project will be analyzed</p>
+                        <p>Files and directories contained in the outside directory like <code>.git</code> and
+                            <code>build.gradle</code> are used by %instance% while inspecting code</p>
                     </td>
                 </tr>
                 <tr>
@@ -1770,9 +1791,19 @@
                 <td/>
                 <td>Default setting</td>
             </tr>
+            <tr id="docker-config-reference-directories-repository-root">
+                <td>
+                    <code>--repository-root &lt;string&gt;</code>
+                </td>
+                <td>
+                    <p>Specify the VCS root directory for your project. This option is required for Git-related operations</p>
+                </td>
+                <td>None</td>
+            </tr>
             <tr>
                 <td><code>-i</code>, <code>--project-dir</code></td>
-                <td><p>Root directory of the inspected project.</p>
+                <td><p>Root directory of the inspected project can be either a subdirectory of
+                    <a anchor="docker-config-reference-directories-repository-root"><code>--repository-root</code></a> or identical to it.</p>
                     <p>Files and directories contained in the outside directory are not used while running %instance%</p>
                 </td>
                 <td><code>/data/project</code></td>
@@ -1798,7 +1829,21 @@
             <tr>
                 <td><code>-d</code>, <code>--source-directory</code></td>
                 <td>
+                    <note>This option is deprecated and will be removed in future versions of the product.
+                        See the <code>--only-directory</code> option for details.</note>
                     <p>Directory inside <code>--project-dir</code>. If missing, the whole project is inspected.</p>
+                    <p>Files and directories contained in the outside directory like <code>.git</code> and
+                        <code>build.gradle</code> are used by %instance% while inspecting code</p>
+                </td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>--only-directory &lt;string&gt;</code>
+                </td>
+                <td>
+                    <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
+                        the whole project will be analyzed</p>
                     <p>Files and directories contained in the outside directory like <code>.git</code> and
                         <code>build.gradle</code> are used by %instance% while inspecting code</p>
                 </td>
