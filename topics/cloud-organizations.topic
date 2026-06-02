@@ -305,7 +305,7 @@
                         </tabs>
                         <p>Here, the <code>--global-configs-file</code> argument specifies the path to the
                             global configuration file, see the
-                            <a href="global-configuration.md" anchor="How+the+global+configuration+works"/> section for details.</p>
+                            <a href="global-configuration.md" anchor="How+the+global+configuration+works">analysis report</a>.</p>
                     </step>
                 </procedure>
 

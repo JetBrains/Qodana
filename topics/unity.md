@@ -17,10 +17,10 @@ To run %product%, you need to obtain a [project token](project-token.md) that  w
 
 <procedure>
     <step>
-        Navigate to <a href="https://qodana.cloud">Qodana Cloud</a> and create an <a href="cloud-quickstart.md">account</a> there.
+        Navigate to <a href="https://qodana.cloud">%cloud%</a> and create an <a href="cloud-quickstart.md">account</a> there.
     </step>
     <step>
-        In Qodana Cloud, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>, 
+        In %cloud%, create an <a href="cloud-organizations.topic">organization</a>, a <a href="cloud-teams.topic">team</a>, 
         and a <a href="cloud-projects.topic">project</a>.
     </step>
     <step>

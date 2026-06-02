@@ -19,9 +19,9 @@ Each report contains the following tabs:
 * **[Inspections](#ui-overview-configuration)** lets you configure %instance% for future use.
 * **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.topic) results and shows the dependency licenses that are incompatible with the project license. 
 
-The upper-right corner of the report shows [code coverage](code-coverage.md) analysis results.
+The upper-right corner of the report shows a [code coverage](code-coverage.md) analysis report.
 
-<img src="ui-overview-code-coverage.png" alt="Code coverage analysis results" thumbnail="true" width="323" border-effect="line"/>
+<img src="ui-overview-code-coverage.png" alt="Code coverage analysis report" thumbnail="true" width="323" border-effect="line"/>
 
 ### Current problems
 {id="ui-overview-actual-problems"}

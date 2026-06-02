@@ -27,8 +27,8 @@ functionalities are available in the following integrated development environmen
         <td>
             <list>
                 <li><p>Run %product% locally using your IDE (not available in CLion)</p></li>
-                <li><p>Upload reports to %product% Cloud (not available in CLion)</p></li>
-                <li><p>Download reports from %product% Cloud and explore them using your IDE</p></li>
+                <li><p>Upload reports to %cloud% (not available in CLion)</p></li>
+                <li><p>Download reports from %cloud% and explore them using your IDE</p></li>
                 <li><p>Open local %product% reports contained in SARIF-formatted files</p></li>
             </list>
         </td>    
@@ -40,19 +40,19 @@ functionalities are available in the following integrated development environmen
         <td><a href="vscode.md">Visual Studio Code</a></td>    
         <td>
             <p>Run %product% locally using your IDE.</p>
-            <p>Upload reports to %product% Cloud.</p>
-            <p>Download reports from %product% Cloud and explore them using your IDE.</p>
+            <p>Upload reports to %cloud%.</p>
+            <p>Download reports from %cloud% and explore them using your IDE.</p>
         </td>  
         <td>
-            <p>Requires the <a href="https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana-code">Qodana</a> extension and
-                a %product% Cloud <a href="project-token.md">project token</a>.</p>
+            <p>Requires the <a href="https://marketplace.visualstudio.com/items?itemName=JetBrains.qodana-code">%product%</a> extension and
+                a %cloud% <a href="project-token.md">project token</a>.</p>
             <p>The Docker daemon should be up and running.</p>
         </td>
     </tr>
     <tr>
         <td><a href="visualstudio.md">Visual Studio</a></td>    
         <td>
-            <p>Download reports from %product% Cloud and explore them using your IDE.</p>
+            <p>Download reports from %cloud% and explore them using your IDE.</p>
         </td>    
         <td>
             <p>Requires <a href="https://www.jetbrains.com/resharper/">JetBrains ReSharper</a> and

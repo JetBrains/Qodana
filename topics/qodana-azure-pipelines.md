@@ -20,7 +20,7 @@ within existing pipelines using Qodana.
    sections to learn how to generate the project token in the %cloud% UI:
 
    * The [project setup](Quick-start.topic#quickstart-prerequisites) section explains how to generate a project token when first working with %cloud%.
-   * The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project token within an existing %cloud% Cloud organization.
+   * The [](cloud-projects.topic#cloud-manage-projects) section explains how to create a project token within an existing %cloud% organization.
 
    Once you obtain the project token, go to your pipeline UI, create the `QODANA_TOKEN` [secret variable](%secret-var%), and 
    save the [project token](cloud-projects.topic#cloud-manage-projects) as its value.
@@ -326,7 +326,7 @@ and their analogs in the classic interface.
    <tr>
       <td><code>resultsDir</code></td>
       <td><control>Results Directory</control></td>
-      <td>Directory to store the analysis results. Optional.</td>
+      <td>Directory to store analysis reports. Optional.</td>
       <td><code>$(Agent.TempDirectory)/qodana/results</code></td>
    </tr>
    <tr>

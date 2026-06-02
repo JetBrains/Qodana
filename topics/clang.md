@@ -313,7 +313,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
                   to specify a <a href="linters.md">linter</a>. The
                   <code>--within-docker</code> option in the <code>false</code> state is used for enabling native mode.</p>
               <p>If you are using another %cloud% instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
-              <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
+              <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis report and
                   reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
           </tab>
       </tabs>
@@ -490,11 +490,11 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <p>
             In this command, <code>source-directory</code> and <code>output-directory</code> are full local paths
             to the project source code directory and the 
-            <a href="qodana-inspection-output.md" anchor="Output+structure">analysis result</a> directory, respectively. The
+            <a href="qodana-inspection-output.md" anchor="Output+structure">analysis report</a> directory, respectively. The
             <code>QODANA_TOKEN</code> variable refers to the <a href="project-token.md">project token</a>
             required by the
             <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
-            If you omit the <code>QODANA_TOKEN</code> variable, the analysis results will be available in the
+            If you omit the <code>QODANA_TOKEN</code> variable, the analysis report will be available in the
             <code>qodana.sarif.json</code> file saved in the <code>output-directory</code> of your project root.
         </p>
         <p>To override the location of the <code>compile_commands.json</code> file for the %qdcppc% linter, you can 
@@ -508,19 +508,19 @@ the project, generates analysis reports and saves them locally or uploads to %cl
             &nbsp;&nbsp;&nbsp;%qdcppc-image% \
             &nbsp;&nbsp;&nbsp;--compile-commands &lt;path-to-compile_commands.json&gt;
         </code-block>
-        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
+        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis report and
           reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
-        <p>If you run the analysis several times in a row, make sure you've cleaned the results directory before using it in 
+        <p>If you run the analysis several times in a row, make sure you've cleaned the report directory before using it in 
         <code>docker run</code> again.</p>
     </tab>
 </tabs>
   <!--</tab>
 </tabs>-->
 
-## Explore analysis results
+## Explore analysis report
 
-<p>Once %product% analyzed your project and uploaded the analysis results to %cloud%, you can navigate to your 
-project <a href="https://qodana.cloud">%cloud%</a> and review the analysis results report.</p>
+<p>Once %product% analyzed your project and uploaded the analysis report to %cloud%, you can navigate to your 
+project <a href="https://qodana.cloud">%cloud%</a> and review the analysis report.</p>
 <img src="qc-report-example-clang.png" alt="Analysis report example" width="720" border-effect="line"/>
 <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 
@@ -742,7 +742,7 @@ You can skip analysis for specific problems by using the [baseline](baseline.top
             <td>Qodana for Android</td>
           </tr>
         </table>
-        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
+        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis report and
           reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
           </tab>
       </tabs>

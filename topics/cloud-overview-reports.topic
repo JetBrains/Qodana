@@ -15,7 +15,7 @@
     <p>Here is the description of each section:</p>
 
     <p>1. The project name, the branch name, time passed since the last analysis, the number of detected problems and their severity.</p>
-    <p>2. Analysis results using the <a href="code-coverage.md">code coverage</a> and <a href="license-audit.topic">license audit</a> features.</p>
+    <p>2. Analysis report using the <a href="code-coverage.md">code coverage</a> and <a href="license-audit.topic">license audit</a> features.</p>
     <p>3. The context menu that lets you:</p>
     <list>
         <li>Configure HTTPS or SSH URL of the VCS</li>

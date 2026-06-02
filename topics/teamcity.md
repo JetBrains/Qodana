@@ -126,13 +126,13 @@ EOM
 <!-- Add the analysis of specific branches use case here as well -->
 <!-- Case about analyzing pull requests needs to be added here -->
 
-## Verify analysis results
+## Verify analysis reports
 
-<link-summary>Now that you have configured and run the build, you can see analysis results.</link-summary>
+<link-summary>Now that you have configured and run the build, you can see analysis reports.</link-summary>
 
-Now that you have configured and run the build, you can examine analysis results in [%cloud%](cloud-overview-reports.topic).  
+Now that you have configured and run the build, you can examine analysis reports in [%cloud%](cloud-overview-reports.topic).  
 
-Alternatively, you can view analysis results using the TeamCity UI, follow these steps:
+Alternatively, you can view analysis reports using the TeamCity UI, follow these steps:
 
 <!-- Images here should be updated as well -->
 

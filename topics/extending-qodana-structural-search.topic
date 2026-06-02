@@ -83,7 +83,7 @@
             <step>
                 <p>You can observe the problems detected by the structural search inspection under the
                     <ui-path>Structural search</ui-path> category in the %instance% report.</p>
-                <img src="extending-qodana-ss-inspection-report.png" dark-src="extending-qodana-ss-inspection-report_dark.png" alt="Observing the Structural Search analysis results" width="706" border-effect="line"/>
+                <img src="extending-qodana-ss-inspection-report.png" dark-src="extending-qodana-ss-inspection-report_dark.png" alt="Observing the Structural Search analysis reports" width="706" border-effect="line"/>
             </step>
         </procedure>
 

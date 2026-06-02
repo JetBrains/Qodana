@@ -7,8 +7,8 @@ merge or pull requests, as well as analyze changes between two commits.</link-su
 
 <note>This feature is not supported by the <a href="dotnet.md">%dotnet-co%</a> and <a href="clang.md">%clang%</a> linters.</note>
 
-Using %product%, you can not only scan your entire codebase, but also run analysis on change sets like merge or pull 
-requests, as well as analyze changes between two commits.
+With %product%, you can analyze not only your entire codebase but also change sets — such as merge or pull 
+requests — as well as changes between two commits.
 
 Configuration samples on this page contain `<GIT_START_HASH>` and `<GIT_END_HASH>` to denote the 
 hashes of the earliest and latest commits that should be included in a change analysis. For example:

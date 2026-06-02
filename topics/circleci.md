@@ -178,6 +178,6 @@ This table contains the list of optional string parameters that can be additiona
 | `primary-cache-key`    | Customize the generated cache hash                                                                    | `qodana-2025.2-<< pipeline.git.branch >>-<< pipeline.git.revision >>` |
 | `additional-cache-key` | Customize the generated cache hash                                                                    | `qodana-2025.2-<< pipeline.git.branch >>`                             |
 | `args`                 | Additional arguments of the [Qodana CLI](https://github.com/jetbrains/qodana-cli#scan) `scan` command | No default value                                                      |
-| `artifact-name`        | Name of the analysis artifact, used for uploading analysis results                                    | `qodana-report`                                                       |
+| `artifact-name`        | Name of the analysis artifact, used for uploading an analysis report                                  | `qodana-report`                                                       |
 | `cache-dir`            | Directory for %instance% caches                                                                       | `/tmp/cache/qodana`                                                   |
-| `results-dir`          | Directory for storing the results of scanning                                                         | `/tmp/qodana/results`                                                 |
+| `results-dir`          | Directory for storing the analysis report                                                             | `/tmp/qodana/results`                                                 |

@@ -107,7 +107,7 @@ The command will be automatically executed before the analysis to install depend
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,ruby"/>
 <include from="lib_qd.topic" element-id="run-qodana-container-mode-config-examples" use-filter="empty,generic"/>
 
-## Explore analysis results
+## Explore analysis reports
 
 <include from="lib_qd.topic" element-id="explore-analysis-results-qodana-cloud" use-filter="empty,ruby"/>
 

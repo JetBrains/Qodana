@@ -139,7 +139,7 @@ bootstrap: pip install -r requirements.txt
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python,non-ruby,native"/>
 
-## Explore analysis results
+## Explore analysis reports
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,python"/>
 

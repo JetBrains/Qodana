@@ -729,7 +729,7 @@ Here is a list of components contained in the backup archive:
 | Component  | Data included                                                 |
 |------------|---------------------------------------------------------------|
 | PostgreSQL | All Qodana application databases (API, Audit, Git, Keycloak)  |
-| MinIO      | Analysis results, baselines, and global configuration buckets |
+| MinIO      | Analysis reports, baselines, and global configuration buckets |
 | RabbitMQ   | Message queue state                                           |
 
 Docker configs (secrets) are stored in Docker's config store and survive as long as the Swarm node exists. 

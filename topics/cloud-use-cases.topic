@@ -17,7 +17,7 @@
             These entities let you assign several projects to a single team. Also, you can achieve transparency using
             real-time widgets.</p>
 
-        <p>Each project stores the history of analysis results and compares results between commits. You can examine the
+        <p>Each project stores analysis history and compares results between commits. You can examine the
             absolute number of detected problems, or compare the number of problems to a baseline taken during a
             specific Qodana run.</p>
 

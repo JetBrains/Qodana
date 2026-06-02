@@ -23,7 +23,7 @@
 
         <img src="license-audit-overview-tree.png" width="706" thumbnail="true" alt="The dependency tree" border-effect="line"/>
 
-        <p>License audit analysis results are grouped into a dependency tree.</p>
+        <p>License audit report is grouped into a dependency tree.</p>
 
         <list type="decimal">
             <li>If applicable, you can expand a specific dependency to see its dependency tree.</li>
@@ -1028,7 +1028,7 @@
                             to specify a <a href="linters.md">linter</a>. The
                             <code>--within-docker</code> option in the <code>false</code> state is used for enabling native mode.</p>
                         <p>If you are using another %cloud% instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
-                        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
+                        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine analysis reports and
                             reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                     </tab>
                 </tabs>
@@ -1073,7 +1073,7 @@
                         <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
                     </step>
                     <step>
-                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
                     </step>
                 </procedure>
             </tab>
@@ -1339,7 +1339,7 @@
                     </tab>
                 </tabs>
                 <p>If you are using another %cloud% instance than <code>https://qodana.cloud/</code>, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
-                <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
+                <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine analysis reports and
                     reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
             </tab>
         </tabs>
@@ -1375,7 +1375,8 @@
                             Otherwise, the IDE retrieves the latest available report from %cloud%.</p>
                     </step>
                     <step>
-                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+                        <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool
+                            window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
                     </step>
                 </procedure>
             </tab>
@@ -1387,8 +1388,8 @@
     </snippet>
 
     <snippet id="explore-analysis-results-qodana-cloud">
-        <p>After %product% analyzed your project and uploaded the analysis results to %cloud%, in
-            <a href="https://qodana.cloud">%cloud%</a> navigate to your project and review the analysis results report.</p>
+        <p>After %product% analyzed your project and uploaded the analysis reports to %cloud%, in
+            <a href="https://qodana.cloud">%cloud%</a> navigate to your project and review analysis reports.</p>
         <img filter="php" src="qc-report-example-php.png" alt="Analysis report example" width="720" border-effect="line"/>
         <img filter="js" src="qc-report-example-js.png" alt="Analysis report example" width="720" border-effect="line"/>
         <img filter="golang" src="qc-report-example-golang.png" alt="Analysis report example" width="720" border-effect="line"/>
@@ -1548,7 +1549,7 @@
                           &nbsp;&nbsp;&nbsp;--within-docker false \
                           &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                       </code-block>
-                      <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
+                      <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis reports and
                   reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                   </tab>
               </tabs>
@@ -2008,7 +2009,7 @@
                             &nbsp;&nbsp;&nbsp;--within-docker false \
                             &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
                         </code-block>
-                <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
+                <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis reports and
                   reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
               </tab>
             </tabs>

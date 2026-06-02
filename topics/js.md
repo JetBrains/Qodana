@@ -109,7 +109,7 @@ include:
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js,native,non-ruby"/>
 
-## Explore analysis results
+## Explore analysis reports
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,js"/>
 

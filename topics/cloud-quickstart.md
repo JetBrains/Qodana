@@ -18,7 +18,7 @@ and have a [project token](cloud-projects.topic#cloud-manage-projects) generated
 Use the generated project token for forwarding %product% reports to %cloud%.
 
 Finally, run %instance% [locally](Quick-start.topic#quickstart-run-using-cli) or in a [CI/CD pipeline](ci.md), 
-and [view](cloud-overview-reports.topic) analysis results in %cloud%.
+and [view](cloud-overview-reports.topic) analysis reports in %cloud%.
 
 If necessary, you can create additional teams and projects without the onboarding wizard:
 

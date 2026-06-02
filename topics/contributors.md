@@ -153,8 +153,7 @@ Here you can find answers to frequently asked questions about %instance% licensi
     <p>
         All licenses require that you create an account in %cloud% and complete the
         <a href="Quick-start.topic" anchor="quickstart-prerequisites">project setup</a> stage (see
-        <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, Qodana
-        Cloud lets you view Qodana reports in a single place and provides access to all
+        <a anchor="faq-licensing-start-using-qodana">this question</a> for further details). Besides that, %cloud% lets you view Qodana reports in a single place and provides access to all
         <a href="pricing.md" anchor="Features+and+third-party+software+support">features</a> offered by %instance%
         <a href="linters.md">linters</a>. Finally, for the purposes of opening %instance% reports from within your
         <a href="qodana-ide-plugin.md">IDE</a>, you need a %cloud% account.
@@ -354,7 +353,7 @@ Here you can find answers to frequently asked questions about %instance% licensi
     </p>
     <p>
         Besides that, Qodana forwards <a href="qodana-inspection-output.md">SARIF-formatted</a> analysis reports to
-        %cloud%, which lets you view analysis results using the %cloud% UI.
+        %cloud%, which lets you view them using the %cloud% UI.
     </p>
 </chapter>
 </snippet>

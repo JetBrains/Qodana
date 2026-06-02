@@ -100,7 +100,7 @@ The `--ignore-platform-reqs` option bypasses PHP version incompatibility issues 
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,php,native,non-ruby"/>
 
-## Explore analysis results
+## Explore analysis reports
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,php"/>
 

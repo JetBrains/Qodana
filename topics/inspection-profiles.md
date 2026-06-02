@@ -430,7 +430,7 @@ By default, %instance% uses severity levels inherited from the JetBrains IDEs sh
 #### inspections
 {id="inspections-group"}
 
-<link-summary>This block configures inspection runs, paths and scopes, severities, and others.</link-summary>
+<link-summary>This block configures how inspections will be used, as well as paths and scopes, severities, and others.</link-summary>
 
 Using `inspections`, you can:
 

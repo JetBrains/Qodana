@@ -19,7 +19,7 @@
     <note>The <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters require the
         <code>QODANA_TOKEN</code> variable to refer to a <a href="project-token.md">project token</a>. If you run the
         Community linters of %instance%, using <code>QODANA_TOKEN</code> is
-        necessary only if you wish to view %instance% reports in Qodana Cloud.</note>
+        necessary only if you wish to view %instance% reports in %cloud%.</note>
 
         <chapter id="docker-config-reference-option-overview" title="Types of options">
 
@@ -589,7 +589,7 @@
                         <code>-o, --results-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Override the directory for saving Qodana analysis results. The default value is
+                        Override the directory for saving %product% analysis reports. The default value is
                         <code>&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/results</code>
                     </td>
                 </tr>
@@ -707,7 +707,7 @@
                         </code>
                     </td>
                     <td>
-                        Unique report identifier (GUID) to be used by Qodana Cloud. The default value is <code>2c72b6e8-f09d-472a-bb86-8a7d8e374ed1</code>
+                        Unique report identifier (GUID) to be used by %cloud%. The default value is <code>2c72b6e8-f09d-472a-bb86-8a7d8e374ed1</code>
                     </td>
                 </tr>
                 <tr>
@@ -1211,7 +1211,7 @@
                         <code>-o, --results-dir &lt;string&gt;</code>
                     </td>
                     <td>
-                        Override the directory for saving analysis results. The default value is
+                        Override the directory for saving analysis reports. The default value is
                         <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results</code>
                     </td>
                 </tr>
@@ -1455,7 +1455,7 @@
             </tr>
             <tr>
                 <td><code>/data/results</code></td>
-                <td>Directory to store the analysis results. It should be empty before running %instance%</td>
+                <td>Directory to store analysis reports. It should be empty before running %instance%</td>
             </tr>
             <tr>
                 <td><code>/opt/idea</code></td>
@@ -1808,9 +1808,9 @@
 
         <chapter id="docker-config-reference-directories-save-report" title="Override the report directory">
 
-            <link-summary>Override the directory containing %product% inspection reports.</link-summary>
+            <link-summary>Override the directory containing %product% analysis reports.</link-summary>
 
-            <tip><p>During analysis, Qodana CLI automatically saves inspection reports in the
+            <tip><p>During analysis, Qodana CLI automatically saves analysis reports in the
                 <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
                 <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
             </tip>
@@ -1917,7 +1917,7 @@
             <p>After the first run, Qodana CLI stores cache in the <code>./&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/cache</code>
                 directory.</p></tip>
 
-            <p>You can improve %instance% performance by persisting cache between runs. For example, package and
+            <p>You can improve %instance% performance by persisting cache between analyses. For example, package and
                 dependency management tools such as Maven, Gradle, npm, Yarn, and NuGet keep a local cache of downloaded dependencies.</p>
 
             <p>By default, %instance% save caches to the <code>/data/cache</code> directory inside a container. You can override
@@ -2798,7 +2798,7 @@
             <link-summary>The --save-report option lets you save the generated HTML report to your
                 local filesystem.</link-summary>
 
-            <tip><p>During inspection, Qodana CLI automatically saves inspection reports in the
+            <tip><p>During inspection, Qodana CLI automatically saves analysis reports in the
                 <code>./&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/&lt;project-id&gt;/results/report</code> directory.</p>
                 <p>Here, the <code>linter</code> and <code>project-id</code> directories have the hash format.</p>
                 <p>To view the generated report in your browser, in the project root run the <code>qodana show</code> command.</p>
@@ -2820,7 +2820,7 @@
 
         <chapter id="docker-config-reference-report-show-report" title="Show the report">
 
-            <link-summary>The --show-report option runs a local web server to show an inspection report.</link-summary>
+            <link-summary>The --show-report option runs a local web server to show an analysis report.</link-summary>
 
             <p>This command runs the web server on port 4040 of a host machine, so your report will be available on
                 <a href="http://localhost:4040">http://localhost:4040</a>:</p>

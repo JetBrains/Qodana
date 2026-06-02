@@ -33,11 +33,11 @@ This will open the **%product% Analysis** panel in the lower part of your Visual
 
 <img src="visual-studio-qodana-panel.png" width="670" border-effect="line" alt="The Qodana Analysis panel"/>
 
-### Log in to %cloud%
+### Log in to Qodana Cloud
 
 On the **%product% Analysis** panel, click **Log In to %product%**. This will open the **Options** window.
 
-Log in to %product% Cloud using the **Log In** button. This will redirect you to %cloud% to complete the
+Log in to %cloud% using the **Log In** button. This will redirect you to %cloud% to complete the
 login process.
 
 <img src="visual-studio-option-window.png" alt="The Options window" width="535" border-effect="line"/>

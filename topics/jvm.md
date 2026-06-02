@@ -270,7 +270,7 @@ jetbrains/qodana-<linter>
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm,native,non-ruby"/>
 
-## Explore analysis results
+## Explore analysis reports
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,jvm"/>
 

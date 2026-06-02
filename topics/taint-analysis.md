@@ -164,7 +164,7 @@ the same order as references are located in the file.</p>
 <step><p>In the list of projections, select the projection reference and apply a respective Quick-Fix option.</p>
 <img src="taint-analysis-step-navigation-4.png" alt="Applying Quick-Fixes" width="706" border-effect="line"/>
 <p>This will create the <code>inspections/config.inspection.kts</code> file for a source, sink, and sanitizer configuration. 
-To ensure consistency of analysis results save this file in the root directory of your project.</p>
+To ensure consistency of analysis reports save this file in the root directory of your project.</p>
 </step>
 <step><p>In the <code>inspections/config.inspection.kts</code> file, assign specific taint rules to a newly added
 sources and sinks. The configuration from this file is applied to the <a anchor="ta-analysis-other">Taint Analysis inspection</a> when the project opens.</p> 

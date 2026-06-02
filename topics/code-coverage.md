@@ -34,7 +34,7 @@ following linters:
     <tr>
         <td><a href="php.md">%php%</a></td>
         <td><a href="https://phpunit.de/">PhpUnit</a></td>
-        <td><code>xml</code></td>
+        <td><code>xml</code> (Clover)</td>
     </tr>
     <tr>
         <td rowspan="2"><a href="dotnet.md">%dotnet%</a></td>
@@ -125,7 +125,7 @@ separate `qodana.yaml` file. You can put these files in repository directories, 
 in the root directory of a project.
 
     For the [%dotnet%](dotnet.md) linter, add the <a href="https://www.nuget.org/packages/coverlet.msbuild"><code>coverlet.msbuild</code></a> 
-    and [`coverlet.collector`](https://www.nuget.org/packages/coverlet.collector) packages to the test project. Also, for the [%dotnet%](dotnet.md) linter check 
+    and [`coverlet.collector`](https://www.nuget.org/packages/coverlet.collector) packages to the test project. Also, for the [%dotnet%](dotnet.md) linter make sure 
     whether a code coverage report contains information about generated files.
 
 ## Run code coverage
@@ -361,7 +361,7 @@ Here is the description of these lines:
 > To work around this issue, either add a second source file to the project or use the LCOV format instead.
 {style="note"}
 
-Code coverage analysis results for the [Qodana for .NET](dotnet.md) linter are available in [](#overview-code-coverage-qodana-cloud).
+Code coverage analysis reports for the [Qodana for .NET](dotnet.md) linter are available in [](#overview-code-coverage-qodana-cloud).
 
 ### Fresh code
 

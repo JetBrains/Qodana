@@ -6,11 +6,11 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Baseline" id="baseline" help-id="qodana-baseline">
 
-    <link-summary>Baseline is a snapshot of the codebase problems taken at a specific %instance% run and
+    <link-summary>Baseline is a snapshot of the codebase problems taken at a specific %instance% analysis and
     contained in the qodana.sarif.json file. Using the baseline feature, you can compare your current code to its
         baseline state and see new, unchanged, and resolved problems.</link-summary>
 
-    <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% run for a
+    <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% analysis for a
         specific Git branch and contained in the <code>qodana.sarif.json</code> file.</p>
 
     <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
@@ -25,7 +25,7 @@
 
         <link-summary>Learn how the baseline feature works.</link-summary>
 
-        <p>If you run %instance% without a baseline, you will be able to see the problems detected at a current run.</p>
+        <p>If you run %instance% without a baseline, you will be able to see the problems detected at a current analysis.</p>
 
         <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="706" alt="Running Qodana without a baseline"/>
 
@@ -311,7 +311,7 @@
 
     </list>
 
-        <p>As you can see, new problems do not change the status across %instance% runs. To transform them to unchanged,
+        <p>As you can see, new problems do not change the status across %instance% analyses. To transform them to unchanged,
             you need to update your baseline.</p>
 
         <img src="baseline-updating-baseline.png" dark-src="baseline-updating-baseline_dark.png" width="706" alt="Updating the baseline"/>

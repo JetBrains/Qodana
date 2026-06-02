@@ -287,8 +287,8 @@ the unlimited number of times. In this case, however, all purchased subscription
 
 The total license cost is based on the number of active contributors. An active contributor is a person who commits 
 to any number of %cloud% projects during the latest 90 days, within the same organization, and under a single 
-license. During the [project setup](Quick-start.topic#quickstart-prerequisites) stage and while creating a new [project](cloud-projects.topic), Qodana 
-Cloud requests your repository URL to calculate contributors. The minimal number of contributors used for licensing is three. 
+license. During the [project setup](Quick-start.topic#quickstart-prerequisites) stage and while creating a new [project](cloud-projects.topic), 
+%cloud% requests your repository URL to calculate contributors. The minimal number of contributors used for licensing is three. 
 
 The number of actual contributors is calculated based on the subscription plan. For example, using the monthly 
 subscription, on the first day of the month you bought a license for 10 (ten) contributors. Within that same month, Qodana 

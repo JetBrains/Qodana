@@ -174,7 +174,7 @@ Information about inspection IDs is available on the [Inspectopedia](https://www
 
 In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection 
 is explicitly included in the analysis scope for the `tools` directory. As a result, only the analysis performed by 
-the `SomeInspectionId` inspection the `tools` directory contents will be included in the %product% run.
+the `SomeInspectionId` inspection the `tools` directory contents will be included in the %product% analysis scope.
 
 ```yaml
   profile:

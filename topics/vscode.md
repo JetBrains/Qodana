@@ -68,9 +68,9 @@ You can run %instance% locally and then forward analysis reports to [%cloud%](ht
     </step>
 </procedure>
 
-After %product% runs, you can explore analysis results on the [**PROBLEMS**](#vs-code-explore-reports) tab of Visual Studio Code. 
+After %product% has analysed your project, you can explore analysis reports on the [**PROBLEMS**](#vs-code-explore-reports) tab of Visual Studio Code. 
 
-To see the history of local runs of %product% and load analysis reports, in the **%product%** view click the **View History**
+To see the history of local %product% analyses and load analysis reports, in the **%product%** view click the **View History**
 button and then choose the report you would like to explore.
 
 To return the **PROBLEMS** tab to the default state, in the **%product%** view click the **Turn Analysis Off** button.
@@ -100,11 +100,11 @@ your project opened in the IDE to a specific %cloud% [project](cloud-projects.to
    </step>
     <step>
        <p>Navigate to the <ui-path>PROBLEMS</ui-path> tab, or in the <ui-path>%product%</ui-path> view click the 
-        <ui-path>Open Report</ui-path> button to explore <a anchor="vs-code-explore-reports">analysis results</a>.</p>
+        <ui-path>Open Report</ui-path> button to explore <a anchor="vs-code-explore-reports">analysis reports</a>.</p>
     </step>
 </procedure>
 
-## Explore analysis results
+## Explore analysis reports
 {id="vs-code-explore-reports"}
 
 <link-summary>You can explore %product% reports in Visual Studio Code. </link-summary>
@@ -118,7 +118,7 @@ On this tab, you can click problem items and navigate to code fragments where %i
 
 <img src="vscode-problems-tab.animated.gif" dark-src="vscode-problems-tab_dark.animated.gif" width="706" alt="The PROBLEMS in VS Code" animated="true" border-effect="line"/>
 
-You can also view analysis reports generated after local %product% runs using the **View History** button in the [%product% view](#vs-code-ui-overview). 
+You can also view analysis reports generated after local %product% analyses using the **View History** button in the [%product% view](#vs-code-ui-overview). 
 
 ## Configure Qodana
 {id="vs-code-configure-extension"}

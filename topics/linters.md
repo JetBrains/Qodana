@@ -11,7 +11,7 @@ can cause problems. Basically, each Qodana linter is associated with a specific 
 * Highlight spelling problems
 * Improve overall code structure
 * Introduce coding best practices
-* Check third-party license compatibility. This feature is available in [several linters](license-audit.topic)
+* Analyze third-party license compatibility. This feature is available in [several linters](license-audit.topic)
 * Upload analysis reports to [%cloud%](https://qodana.cloud)
 
 > You can find out which linters are available under the Community, Ultimate, and Ultimate Plus licenses in the [](pricing.md#pricing-linters-licenses) section.

@@ -45,7 +45,7 @@ You can run %instance% locally and then forward analysis reports to [%cloud%](ht
     <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
 </step>
 <step>
-   <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>
+   <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a anchor="ide-plugin-study-reports">analysis report</a>.</p>
 </step>
 </procedure>
 
@@ -78,7 +78,7 @@ latest %instance% report and view it.
         closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from %cloud%.</p>
     </step> 
     <step>
-       <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see <a anchor="ide-plugin-study-reports">analysis results</a>.</p>
+       <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a anchor="ide-plugin-study-reports">analysis report</a>.</p>
     </step>
 </procedure>
 
@@ -117,7 +117,7 @@ You can open and review [SARIF-formatted %instance% reports](qodana-inspection-o
         <p>Select the SARIF-formatted report file you would like to open.</p>
    </step>
    <step>
-      <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view analysis results.</p>
+      <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view analysis reports.</p>
    </step>
 </procedure>
 </snippet>

@@ -177,7 +177,7 @@ jobs:
 </tab>
 </tabs>
 
-## View analysis results
+## View analysis reports
 
-Congratulations, now you can navigate to [%cloud%](https://qodana.cloud) and review the analysis results for each project 
+Congratulations, now you can navigate to [%cloud%](https://qodana.cloud) and review the analysis reports for each project 
 inside your monorepo project!

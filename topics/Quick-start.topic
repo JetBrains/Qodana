@@ -209,7 +209,7 @@
                 <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Qodana</ui-path> tab.</step>
                 <step>On the <ui-path>Qodana</ui-path> tab, click the <ui-path>Try locally</ui-path> button to start %product%.</step>
                 <step>
-                    On the <ui-path>Qodana</ui-path> tab, you can view analysis results. It
+                    On the <ui-path>Qodana</ui-path> tab, you can view an analysis report. It
                         also contains two links in the upper part of the tab.
                     <img src="quickstart-run-in-ide-report-links.png" width="706" alt="Links on the Qodana tab" border-effect="line"/>
         <tabs>
@@ -310,7 +310,7 @@
                             <a anchor="quickstart-prerequisites">prerequisites</a>.</p>
                     </step>
                     <step>
-                        <p>Navigate to your <a href="https://qodana.cloud">%cloud%</a> account to see analysis results.</p>
+                        <p>Navigate to your <a href="https://qodana.cloud">%cloud%</a> account to see an analysis report.</p>
                     </step>
                 </procedure>
             </tab>
@@ -567,7 +567,7 @@ gradle qodanaScan
 
     <chapter title="Next steps" id="quick-start-next-steps">
         <list>
-            <li><a href="cloud-overview-reports.topic">Review analysis results using %cloud%</a></li>
+            <li><a href="cloud-overview-reports.topic">Review an analysis report using %cloud%</a></li>
             <li><a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">Configure %instance% profiles</a></li>
             <li><a href="qodana-ide-plugin.md">Use JetBrains IDEs to analyze your code</a></li>
             <li><a href="ci.md">Build %instance% into your CI pipelines</a></li>

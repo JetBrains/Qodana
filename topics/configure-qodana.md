@@ -68,7 +68,7 @@ Make sure that your project is correctly configured by looking at the
         <td>
             <code>/data/results</code>
         </td>
-        <td>Directory to store the analysis results</td>
+        <td>Directory to store the analysis reports</td>
     </tr>
     <tr>
         <td>

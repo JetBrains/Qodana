@@ -622,7 +622,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
                         </step>
                         <step>
-                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports"/> section for detail.</p>
                         </step>
                     </procedure>
                 </tab>
@@ -732,7 +732,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
                         </step>
                         <step>
-                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
                         </step>
                     </procedure>
                 </tab>
@@ -1033,7 +1033,7 @@ bootstrap: dotnet restore
 ```
 -->
 
-## Explore analysis results
+## Explore analysis reports
 
 <tabs group="software">
     <tab title="JetBrains IDEs" group-key="ides" id="jvm-explore-results-ides">
@@ -1061,13 +1061,13 @@ bootstrap: dotnet restore
               closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from %cloud%.</p>
           </step> 
           <step>
-             <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, you can view the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis results</a>.</p>
+             <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
           </step>
       </procedure>
     </tab>
     <tab title="%cloud%" group-key="cloud" id="jvm-explore-results-qodana-cloud">
-      <p>Once %product% analyzed your project and uploaded the analysis results to %cloud%, navigate to your project in
-      <a href="https://qodana.cloud">%cloud%</a> and review the analysis results report.</p>
+      <p>Once %product% analyzed your project and uploaded the analysis report to %cloud%, navigate to your project in
+      <a href="https://qodana.cloud">%cloud%</a> and review it.</p>
       <img src="dotnet-report-example.png" alt="Analysis report example" width="720" border-effect="line"/>
       <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
     </tab>
@@ -1276,7 +1276,7 @@ in a SARIF-formatted file.
                                 &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
                             </code-block>
                             <p>Here, the <code>--baseline &lt;path/to/qodana.sarif.json&gt;</code> option specifies the <a href="baseline.topic">baseline</a> feature.</p>
-                            <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis results and
+                            <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine analysis reports and
                               reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
                         </tab>
                     </tabs>
