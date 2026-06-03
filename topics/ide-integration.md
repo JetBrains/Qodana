@@ -1,4 +1,4 @@
-# Overview of IDE Integration
+# Overview of IDE support
 
 <link-summary>%product% is available in JetBrains IDE products, as well as in Visual Studio Code and Visual Studio developed by Microsoft.</link-summary>
 

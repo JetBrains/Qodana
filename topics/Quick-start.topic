@@ -22,6 +22,15 @@
         <li><a anchor="quickstart-gradle-plugin">As a Gradle plugin</a></li>
     </list>
 
+    <tip>
+        <p>To learn more about available %product% licenses, visit the <a
+                href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
+        </p>
+        <p>You can also <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a> to
+            explore %product% capabilities.</p>
+    </tip>
+
+
     <chapter title="Prerequisites" id="quickstart-prerequisites">
 
         <tip>You can skip all prerequisite steps if you would like to run %instance% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a> and study analysis reports locally.</tip>
@@ -100,8 +109,8 @@
             </chapter>
         </chapter>
 
-        <chapter title="Container mode" id="quickstart-prerequisites-container-mode">
-            <p>The <a href="deploy-qodana.md" anchor="deploy-qodana-container-mode">container mode</a> assumes that you
+        <chapter title="Docker mode" id="quickstart-prerequisites-container-mode">
+            <p>The <a href="deploy-qodana.md" anchor="deploy-qodana-container-mode">Docker mode</a> assumes that you
                 have the Docker application deployed on your machine.</p>
                     <p>Pull the image from Docker Hub (only necessary to get the latest version):</p>
                     <code-block lang="shell" prompt="$">
@@ -278,7 +287,7 @@
                         <p>In this command, the <code>--linter</code> option instructs %product% about a <a anchor="quickstart-prerequisites-native-mode">linter</a> that should be invoked.
                         The <code>--within-docker false</code> option instructs %product% to enable native mode. These options tell %product% to download and employ the required JetBrains
                             IDE binary file while running a %product% linter.</p>
-                        <p>To run %product% in container mode, use the following command:</p>
+                        <p>To run %product% in Docker mode, use the following command:</p>
                         <tabs group="gs-cli">
                             <tab title="macOS and Linux" group-key="gs-macos-linux">
                                 <code-block lang="shell" prompt="$">
@@ -381,7 +390,7 @@
                             The <code>--within-docker false</code> option instructs %product% to enable native mode. These options tell %product% to download and employ the required JetBrains
                             IDE binary file while running a %product% linter.</p>
                     </tab>
-                    <tab title="Container mode" group-key="container-mode">
+                    <tab title="Docker mode" group-key="container-mode">
                     <code-block lang="yaml">
                     name: Qodana
                     on:

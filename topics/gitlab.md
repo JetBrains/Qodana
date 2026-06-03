@@ -85,7 +85,7 @@ that will be used by GitLab CI/CD.
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 
-To run %product% in [container mode](deploy-qodana.md#deploy-qodana-container-mode), in the cloud-based GitLab CI/CD 
+To run %product% in [Docker mode](deploy-qodana.md#deploy-qodana-container-mode), in the cloud-based GitLab CI/CD 
 version, save the following snippet to the `.gitlab-ci.yml` file:
 
 <tabs group="gitlab-basic-configuration">

@@ -11,7 +11,7 @@ website.
 
 | Label and value                                                                  | Description                                                                                                                                 |
 |----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| `qodana.jetbrains.self-hosted.lite.select=true`                                  | Identify all resources that are part of the %premlite% installation                                                                         |
+| `qodana.jetbrains.self-hosted.lite.select=true`                                  | Identify all resources that are part of the %premlite% deployment                                                                           |
 | `qodana.jetbrains.self-hosted.lite.version=${APP_QODANA_SELF_HOSTED_IMAGE_TAG}`  | Display at runtime a %premlite% version that a specific resouce is related to. Dependent on the `APP_QODANA_SELF_HOSTED_IMAGE_TAG` variable |
 
 

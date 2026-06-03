@@ -18,7 +18,12 @@ You can develop your own inspections specific to your project using the IntelliJ
 </link-summary>
 
 You can develop your own inspections specific to your project using the 
-[IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) and Kotlin under the Ultimate and Ultimate Plus [licenses](pricing.md). You can:
+[IntelliJ API](https://plugins.jetbrains.com/docs/intellij/code-inspections.html#inspection-implementation-java-class) 
+and Kotlin. To run such inspections using %product%, use the FlexInspect feature available on the Ultimate and Ultimate Plus [licenses](pricing.md). 
+To learn more about available %product% licenses, visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
+You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
+
+Using %feature%, You can:
 
 - Access the [PSI](https://plugins.jetbrains.com/docs/intellij/psi.html) representation of the source code
 - Debug new inspections on the fly

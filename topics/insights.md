@@ -2,8 +2,9 @@
 
 <show-structure depth="3"/>
 
-Insights let you examine aggregated data on organizational and team levels in %cloud%. This feature is available 
-under the Ultimate Plus [license](pricing.md).
+Insights let you examine aggregated data on organizational and team levels in %cloud%. The Insights dashboard is available 
+under the Ultimate Plus [license](pricing.md). To learn more about available %product% licenses, visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
+You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 
 To view insights on an organization level, in the upper part of your [organization](cloud-organizations.topic) 
 page click the **Insights** button. To do the same on a team level, click this button on your team page. 

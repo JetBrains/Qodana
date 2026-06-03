@@ -8,8 +8,11 @@ It also reports on the issues associated with the missing coverage in these enti
 **Code coverage** uses generated reports to calculate the overall code coverage inside a method, class, and file. 
 It also reports on the issues associated with the missing coverage in these entities.
 
-This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md#pricing-linters-licenses) in the
-following linters:
+Code coverage reporting is available on Qodana Ultimate and Qodana Ultimate Plus [licenses](pricing.md#pricing-linters-licenses).
+To learn more about available %product% licenses, visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
+You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
+
+This feature is available in the following linters:
 
 <table>
     <tr>

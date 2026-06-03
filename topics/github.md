@@ -32,7 +32,7 @@ During the project setup, you will receive a notification to install `%product% 
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 
-> Information about native and container modes is available in the [](deploy-qodana.md) section.
+> Information about native and Docker modes is available in the [](deploy-qodana.md) section.
 
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
 

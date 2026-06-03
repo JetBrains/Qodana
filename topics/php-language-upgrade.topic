@@ -11,7 +11,10 @@
             to see the codebase problems that will arise after you upgrade to a newer PHP version.</p>
 
     <p>This feature is supported by the <a href="php.md"/> linter and available under the Ultimate and Ultimate Plus
-        <a href="pricing.md">licenses</a> and their trial versions. </p>
+        <a href="pricing.md">licenses</a> and their trial versions. To learn more about the available licensing model,
+        visit the <a href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
+        You can also <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a>.
+    </p>
 
     <img src="language-migration.png" dark-src="language-migration_dark.png" width="706" alt="PHP language migration"/>
 

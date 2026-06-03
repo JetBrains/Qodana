@@ -45,7 +45,11 @@
         </tr>
     </table>
 
-    <p>This feature is available under the Ultimate Plus <a href="pricing.md">license</a> and its trial version and enabled by default.</p>
+    <p>Third-party license audit is available under the Ultimate Plus <a href="pricing.md">license</a> and its trial
+        version and enabled by default. To learn more about licenses, visit the
+        <a href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
+        You can also <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a>.
+    </p>
 
     <note>This feature is not available in JetBrains IDEs.</note>
 

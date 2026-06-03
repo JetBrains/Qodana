@@ -61,7 +61,7 @@ A user is synced from a single Open Id Connect (OIDC) Provider. An OIDC provider
 team can own one or more [projects](cloud-projects.topic). A project is linked to one repository. A repository linked to a project 
 can be changed after project initialization.
 
-%premlite% supports many OIDC Providers out of the box. It is necessary to configure the provider during installation.
+%premlite% supports many OIDC Providers out of the box. It is necessary to configure the provider during deployment.
 
 %premlite% supports GitHub out of the box. For any other VCS it is possible to 
 integrate backwards: use the project token to link it and the related continuous integration (CI) system with %product%.

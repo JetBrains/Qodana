@@ -8,6 +8,11 @@
 
     <link-summary>Use Qodana features to enhance your code inspection workflow.</link-summary>
 
+    <tip>To learn more about available %product% licenses, visit the
+        <a href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
+        Also, <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a> to explore %product% capabilities.
+    </tip>
+
         <p>Using %instance%, you can significantly enhance your code inspection workflow. To better achieve your
            goals, you may want to start using several features that are available out of the box: </p>
 
@@ -217,4 +222,5 @@
                 </td>
             </tr>
         </table>
+
 </topic>

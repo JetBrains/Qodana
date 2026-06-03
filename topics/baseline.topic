@@ -18,8 +18,12 @@
         monitor changes after merging pull or merge requests. Whenever necessary, you can update your baseline
     by generating a new <code>qodana.sarif.json</code> file and using it while running %product%.</p>
 
-    <p>This feature is supported by all <a href="pricing.md">linters</a> available under Community, Ultimate, and
-        Ultimate Plus licenses and their trial versions.</p>
+    <p>Baseline is supported by all <a href="pricing.md">linters</a> and available under Community, Ultimate, and
+        Ultimate Plus licenses and their trial versions. To learn more details about licenses, visit the
+        <a href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
+        You can also <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a>.
+    </p>
+
 
     <chapter title="How baseline works">
 

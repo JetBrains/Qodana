@@ -217,7 +217,7 @@
                         <code>--image &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>This option is available only in the container mode and incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
+                        <note>This option is available only in Docker mode and incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
                         <p>In place of <code>&lt;string&gt;</code>, specify the %product% Docker image that you would like to employ:</p>
                         <table>
                             <tr>
@@ -1065,7 +1065,7 @@
                         <code>-e, --env &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
+                        <note>Available only in Docker mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
                         <p>Define environment variables for the Qodana container, multiple variables can be specified.
                             For security reasons, %product% CLI does not read environment variables from the host
                             operating system, so all variables required by %product% should be specified explicitly.</p>
@@ -1076,7 +1076,7 @@
                         <code>-v, --volume &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
+                        <note>Available only in Docker mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
                         <p>Define additional volumes for the Qodana container, multiple volumes can be specified. For example,
                             <code>qodana scan --volume $(pwd)/.qodana/results:/data/results/</code></p>
                     </td>
@@ -1086,7 +1086,7 @@
                         <code>-u, --user &lt;string&gt;</code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note> <p>User to run Qodana container as. Please specify the user
+                        <note>Available only in Docker mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note> <p>User to run Qodana container as. Please specify the user
                         ID – <code>$UID</code> or the user ID and group ID <code>$(id -u):$(id -g)</code>.
                         Use <code>root</code> to run as the root user. By default, it is set to the current user</p>
                     </td>
@@ -1098,7 +1098,7 @@
                         </code>
                     </td>
                     <td>
-                        <note>Available only in container mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note> <p>Skip pulling the latest Qodana container</p>
+                        <note>Available only in Docker mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note> <p>Skip pulling the latest Qodana container</p>
                     </td>
                 </tr>
             </table>

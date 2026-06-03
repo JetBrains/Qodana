@@ -15,7 +15,11 @@ command injections, and path traversal. The core goal is to determine if unantic
 execution in malicious ways.
 
 Taint analysis is supported by IntelliJ IDEA Ultimate, as well as by the [%php%](php.md) and [%jvm%](jvm.md) linters
-under the Ultimate Plus [license](pricing.md). This feature provides built-in taint rules for the most common 
+under the Ultimate Plus [license](pricing.md). Information about available %product% licenses is available on the 
+[Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
+You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
+
+This feature provides built-in taint rules for the most common 
 categories of OWASP Top 10:2021 vulnerabilities (A01, A03, A07, A08, A10). In addition to the built-in rules, you can 
 configure custom taint rules for your own application or library code, designating specific functions or methods as sources or sinks.
 

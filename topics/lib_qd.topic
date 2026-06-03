@@ -407,7 +407,7 @@
                 </code-block>
                     <p>Replace <code>&lt;qodana-linter&gt;</code> with the name of the <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">%instance% linter</a> that you would like to use.</p>
                 </tab>
-                <tab title="Container mode">
+                <tab title="Docker mode">
                 <code-block lang="yaml">
                     name: Qodana
                     on:
@@ -858,7 +858,7 @@
         <list filter="non-ruby">
           <li filter="native"><a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">Native mode</a> as the recommended method for running
             linters without Docker</li>
-          <li>Container mode using Docker containers of %product%</li>
+          <li>Docker mode using Docker containers of %product%</li>
             <li><a href="qodana-ide-plugin.md">%ide%</a></li>
         </list>
 
@@ -1033,8 +1033,8 @@
                     </tab>
                 </tabs>
             </tab>
-            <tab title="Container mode" group-key="container-mode">
-                <p filter="native">Container mode is available for all linters; however, it is advised that you use native mode whenever possible.</p>
+            <tab title="Docker mode" group-key="container-mode">
+                <p filter="native">Docker mode is available for all linters; however, it is advised that you use native mode whenever possible.</p>
                 <note id="major-version-note">The configured major version of a %product% linter (<ui-path>20**.*</ui-path>) should match the version specified
                         in the <a href="qodana-yaml.md">qodana.yaml</a> file.</note>
                 <include from="lib_qd.topic" element-id="run-qodana-container-mode-config-examples"/>
@@ -1084,7 +1084,7 @@
         <tabs group="software">
             <tab title="GitHub Actions" group-key="github">
                 <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
-                    to your repository in container mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+                    to your repository in Docker mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
                 <code-block lang="yaml" filter="generic">
                             name: Qodana
                             on:
@@ -1554,7 +1554,7 @@
                   </tab>
               </tabs>
           </tab>
-          <tab title="Container mode" group-key="container-mode">
+          <tab title="Docker mode" group-key="container-mode">
               <include from="lib_qd.topic" element-id="enabling-baseline-config-examples"/>
             </tab>
         <tab title="%ide%" group-key="ides">
@@ -2014,7 +2014,7 @@
               </tab>
             </tabs>
         </tab>
-        <tab title="Container mode" group-key="container-mode">
+        <tab title="Docker mode" group-key="container-mode">
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                     <p>

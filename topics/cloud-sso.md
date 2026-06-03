@@ -13,7 +13,9 @@ authentication in %cloud%.</link-summary>
 <var name="hub-auth-modules" value="https://www.jetbrains.com/help/hub/managing-auth-modules.html"/>
 
 Single Sign-On (SSO) functionality of %cloud% lets you use third-party identity providers for authentication in %cloud%.
-This functionality is available only under Ultimate Plus [licenses](pricing.md) purchased for a minimum of ten users.
+SSO capabilities are available on the Ultimate Plus [license](pricing.md) purchased for a minimum of ten users.
+To explore %product% licenses, visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
+You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 
 This section explains how you can manage users and authentication modules for authentication in %cloud% and guides 
 you through the SSO configuration process. 

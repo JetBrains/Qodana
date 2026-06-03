@@ -10,7 +10,9 @@ your build pipelines.</link-summary>
 
 The Qodana Cloud API lets you create <a href="cloud-teams.topic">teams</a>, <a href="cloud-projects.topic">projects</a>,
 obtain a list of %cloud% and %premlite% organization users and [](insights.md) data using your build pipelines. 
-This feature is available only under the [Ultimate Plus license](pricing.md).
+This API is available on the Ultimate Plus [license](pricing.md). To learn more about available %product% licenses, 
+visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
+You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 
 > The [OpenAPI file](%api-yaml%) and a [sample client](%api-client%) are available in a GitHub repository.
 

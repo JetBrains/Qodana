@@ -14,7 +14,11 @@ can cause problems. Basically, each Qodana linter is associated with a specific 
 * Analyze third-party license compatibility. This feature is available in [several linters](license-audit.topic)
 * Upload analysis reports to [%cloud%](https://qodana.cloud)
 
-> You can find out which linters are available under the Community, Ultimate, and Ultimate Plus licenses in the [](pricing.md#pricing-linters-licenses) section.
+> To learn more about available %product% licenses, visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
+> 
+> The [](pricing.md#pricing-linters-licenses) chapter provides information about linters available per each license.
+> 
+> You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/) to explore %product% capabilities.
 {style="tip"}
 
 Each linter represents a specific technology. For example, the [%jvm%](jvm.md) linter lets you analyze a codebase 

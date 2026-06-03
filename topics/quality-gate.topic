@@ -48,6 +48,10 @@
         </tr>
     </table>
 
+    <tip>To learn more about %product% licenses, visit the <a href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
+        You can also <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a>.
+    </tip>
+
     <chapter id="quality-gate-how-it-works" title="How quality gate works">
 
         <link-summary>You can configure quality gates for the total number of project problems, specific problem

@@ -89,7 +89,7 @@ In this case, %instance% reuses its execution environment, which lets you execut
 environment as you use for building the projects, use the correct operating system, have access to all repository
 credentials, and resolve dependencies.
 
-### Container mode
+### Docker mode
 {id="deploy-qodana-container-mode"}
 
 %product% is also distributed across multiple Docker images listed in the table below:

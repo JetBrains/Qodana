@@ -369,7 +369,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 > Before running %product%, make sure that you [prepared](#dotnet-before-you-start) and [built](#dotnet-build-project) your project.
 > {style="note"}
 
-> For the container mode, the configured major version of a %product% linter (20**.*) should match the version specified
+> For Docker mode, the configured major version of a %product% linter (20**.*) should match the version specified
 > in the [`qodana.yaml`](qodana-yaml.md) file.
 > {style="note"}
 
@@ -383,7 +383,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
       <list>
         <li><a href="deploy-qodana.md#deploy-qodana-native-mode">Native mode</a> is the recommended method for running the %qd% linter that lets you run 
         the linter without using Docker containers</li>
-        <li>Container mode is an alternative that involves Docker containers of the %qd% linter</li>
+        <li>Docker mode is an alternative that involves Docker containers of the %qd% linter</li>
       </list>
       <tabs>
         <tab title="Native mode">
@@ -513,8 +513,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                 </tab>-->
             </tabs>
         </tab>
-        <tab title="Container mode">
-            <p>Container mode is available for the %qd% linter; however, it is advised that you use native mode.</p>
+        <tab title="Docker mode">
+            <p>Docker mode is available for the %qd% linter; however, it is advised that you use native mode.</p>
             <tabs>
                 <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
@@ -631,7 +631,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
       </tabs>
     </tab>
     <tab group-key="linter-tabs-cdnet" title="%qd-co%">
-        <p>You can run the %qd-co% linter in container mode as shown in the examples below.</p>
+        <p>You can run the %qd-co% linter in Docker mode as shown in the examples below.</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
                         <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
@@ -942,8 +942,8 @@ Depending on the linter, you can run %product% using private NuGet repositories 
                                 upload-result: true
                 </code-block>
             </tab>
-            <tab title="Container mode" group-key="container-mode">
-                <p>In the container mode, save the following configuration to the 
+            <tab title="Docker mode" group-key="container-mode">
+                <p>In Docker mode, save the following configuration to the 
                     <code>qodana.yaml</code> file:</p>
                 <code-block lang="yaml">
                     bootstrap: |
@@ -952,7 +952,7 @@ Depending on the linter, you can run %product% using private NuGet repositories 
                     # If you already have nuget.config in your repository, you can use instead:
                     # dotnet nuget update source &ltfeed-name&gt; -u $QODANA_NUGET_USER -p $QODANA_NUGET_PASSWORD --store-password-in-clear-text --configfile nuget.config
                 </code-block>
-                <p>Here is the example configuration showing how you can run %product% in the container mode:</p>
+                <p>Here is the example configuration showing how you can run %product% in Docker mode:</p>
                 <code-block lang="yaml">
                 name: Qodana
                     on:
@@ -1281,9 +1281,9 @@ in a SARIF-formatted file.
                         </tab>
                     </tabs>
                 </tab>
-                <tab title="Container mode" group-key="container-mode">
-            <p>Select how you would like to run the <a href="baseline.topic">baseline</a> feature in the 
-                container mode:</p>
+                <tab title="Docker mode" group-key="container-mode">
+            <p>Select how you would like to run the <a href="baseline.topic">baseline</a> feature in  
+                Docker mode:</p>
                     <tabs group="software">
                         <tab title="GitHub Actions" group-key="github">
                         <p>Save this snippet to the <code>.github/workflows/code_quality.yml</code> file:</p>                          

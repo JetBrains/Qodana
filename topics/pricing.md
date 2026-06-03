@@ -140,7 +140,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 |----------------------------------------------------------------|-----------|----------|---------------|
 | [Static analysis of code](inspect-your-code.md#Analysis+modes) | ✔         | ✔        | ✔             |
 | [](baseline.topic)                                             | ✔         | ✔        | ✔             |
-| [CI/CD integrations](ci.md)                                    | ✔         | ✔        | ✔             |
+| [CI/CD support](ci.md)                                         | ✔         | ✔        | ✔             |
 | [Custom plugin support](extending-qodana-plugins.topic)        | ✔         | ✔        | ✔             |
 | [Monorepo support](monorepo-project.md)                        | ✔         | ✔        | ✔             | 
 | [](quality-gate.topic)                                         | ✔         | ✔        | ✔             |

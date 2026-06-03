@@ -9,7 +9,10 @@ within strict security or compliance standards.
 > %premlite% is still in the alpha development stage, which means that it may contain bugs or work not as intended.
 {style="warning"}
 
-This documentation guides you through the installation, product configuration, and initialization stages of the dockerized
+Visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page to learn more about available
+subscription options for %premlite%. You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
+
+This documentation guides you through deployment, product configuration, and initialization stages of the dockerized
 and cluster versions of %premlite%.
 
 ## %premlite% features
@@ -19,7 +22,7 @@ Scalability lets you scale %premlite% to meet the needs of larger teams or organ
 Customizability lets you configure %product% to match their specific code quality requirements.
 %premlite% lets you use local hosting on your infrastructure to ensure code and data privacy. 
 
-> For the Docker version, %premlite% supports a single server installation meaning that a Docker Swarm cluster should have one node.
+> For the Docker version, %premlite% supports a single server deployment meaning that a Docker Swarm cluster should have one node.
 {style="note"}
 
 ## Deployment options

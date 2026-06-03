@@ -2,8 +2,11 @@
 
 **Quick-Fix** lets you improve development performance through fixing codebase problems automatically.
 
-This feature is available under the Ultimate and Ultimate Plus [licenses](pricing.md) and supported by the following linters and their 
-trial versions:
+Quick-Fix is available on the Ultimate and Ultimate Plus [licenses](pricing.md), visit 
+the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page to learn more about available %product% licenses.
+You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
+
+This feature is supported by the following linters and their trial versions:
 
 * [%jvm%](jvm.md)
 * [%python%](python.md)

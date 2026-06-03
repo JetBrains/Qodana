@@ -518,7 +518,7 @@ Depending on your needs, run the command to deploy %premlite% on your machine:
             <code>backup</code>, <code>credentials</code> or <code>environment</code> to ensure consistent behaviour.</p>
     </tab>
     <tab title="Persist secrets">
-        <p>You can export and persist secrets created during installation in the <code>${PWD}/secrets</code> directory:</p>
+        <p>You can export and persist secrets created during deployment in the <code>${PWD}/secrets</code> directory:</p>
         <code-block lang="Bash" prompt="$">
             docker run \
                 -v /var/run/docker.sock:/var/run/docker.sock \ 
@@ -860,7 +860,7 @@ Labels and environment variables let you configure %premlite% specifically to yo
 
 | Label and value                                                                  | Description                                                                                                                                 |
 |----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| `qodana.jetbrains.self-hosted.lite.select=true`                                  | Identify all resources that are part of the %premlite% installation                                                                         |
+| `qodana.jetbrains.self-hosted.lite.select=true`                                  | Identify all resources that are part of the %premlite% deployment                                                                           |
 | `qodana.jetbrains.self-hosted.lite.version=${APP_QODANA_SELF_HOSTED_IMAGE_TAG}`  | Display at runtime a %premlite% version that a specific resouce is related to. Dependent on the `APP_QODANA_SELF_HOSTED_IMAGE_TAG` variable |
 
 For example, you can use global variables to troubleshoot problems connected with service availability, for example:

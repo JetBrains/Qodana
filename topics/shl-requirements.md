@@ -45,7 +45,7 @@ Below are the requirements grouped in categories.
     </tab>
     <tab title="Network">
         <p><code>qodana-installer-cli</code> references container images from the <code>quay.io</code> Docker registry. Make sure that 
-            <code>quay.io</code> is a trusted address in the network. For offline installations, mirror 
+            <code>quay.io</code> is a trusted address in the network. For offline deployment, mirror 
             to an internal trusted Docker registry the tags available in the 
             <code>https://quay.io/repository/jetbrains/qodana-installer-cli-dependencies</code> Docker registry.
         </p>

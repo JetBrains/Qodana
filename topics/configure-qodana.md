@@ -31,7 +31,7 @@ that will extend the inspection capabilities of %instance% or develop
 To make %product% work better during the project configuration stage, you can follow the recommendations below.
 
 First of all, specify the [`--cache-dir`](docker-image-configuration.topic#docker-config-reference-cache-dependencies) option,
-the `use-caches` input argument in case of [CI/CD integrations](ci.md), or the `/data/caches` directory in
+the `use-caches` input argument in case of [CI/CD support](ci.md), or the `/data/caches` directory in
 the Docker container of a linter after the first linter analysis. Cache contains data related to project structure, indexes,
 dependencies, which makes subsequent analyses faster. However, in case of significant and disruptive changes of your
 project or %product% version updates, it may be beneficial to reset cache.
