@@ -21,9 +21,10 @@ The upper part of the **Insights** page contains filters that let you filter wid
 [projects](cloud-projects.topic), [severities](ui-overview.md#Severity+levels), [baseline](baseline.topic),
 and inspections.
 
-After you configure all the widgets, you can copy the link to the page that contains this configuration state.
+After you configure all widgets, you can save the configured dashboard using the **Saved filters** dropdown list.
+Alternatively, you can copy the link to the dashboard configuration and share it with others.
 
-<img src="insights-upper-filters.png" width="600" alt="The Insights page filters" border-effect="line"/> 
+<img src="insights-upper-filters.png" width="764" alt="The Insights page filters" border-effect="line"/> 
 
 ## Available widgets
 
