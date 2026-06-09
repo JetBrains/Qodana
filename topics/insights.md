@@ -37,7 +37,7 @@ A project is classified as inactive in case it contains
 [sanity problems](inspection-profiles.md#inspection-profiles-existing-profiles) or its reports are older than 90 days.
 
 If you hover over this widget, you can see the number of active and inactive projects. Here, you can click the line
-describing inactive projects to navigate to a comprehensive list these projects.
+describing inactive projects to navigate to a comprehensive list of these projects.
 
 <img src="insights-number-of-projects.png" alt="The number of projects" width="358" border-effect="line"/>
 
@@ -67,17 +67,17 @@ view related analysis reports.
 
 ### Problems by severity
 
-Contains the diagram showing the problem numbers by their severities, see the [description of severities](ui-overview.md#Severity+levels) 
+Contains a diagram showing the problem numbers by their severities, see the [description of severities](ui-overview.md#Severity+levels) 
 for details.
 
 <img src="insights-problems-by-severity.png" width="706" alt="Problems by severity diagram" border-effect="line"/>
 
-### Problems over a specific period
+### Trends over period
 
-Shows the number of problems detected in your projects for a specific time period. Using this diagram, 
+Shows the trends for a selected period of time based on the number of problems and code coverage rates. Using this widget, 
 you can see the progress in code quality.
 
-<img src="insights-problems-over-period.png" width="706" alt="Problems over a period diagram" border-effect="line"/>
+<img src="insights-trends-over-period.png" width="706" alt="Trends over a period widget" border-effect="line"/>
 
 ### Projects sorted
 
