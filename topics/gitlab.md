@@ -387,7 +387,7 @@ include:
 <link-summary>By default, %product% lets you use the merge request UI of GitLab CI/CD to view specific lines of code 
 that contain problems along with their description and recommendations for improvement.</link-summary>
 
-Starting from version 2024.1 of %product%, you can use the merge request UI of GitLab CI/CD to view specific lines of 
+Use the merge request UI of GitLab CI/CD to view specific lines of 
 code that contain problems along with their description and recommendations for improvement. 
 
 To implement this feature, %product% generates JSON-formatted analysis reports supported by 

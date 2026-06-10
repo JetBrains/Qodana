@@ -104,7 +104,7 @@ definitions:
 <link-summary>By default, %product% lets you use the pull request UI of Bitbucket Cloud to view specific lines of code 
 that contain problems along with their description and recommendations for improvement.</link-summary>
 
-Starting from version 2024.1 of %product%, using the pull request UI of Bitbucket Cloud, you can view specific lines of
+Use the pull request UI of Bitbucket Cloud to view specific lines of
 code that contain problems along with their description and recommendations for improvement. By default, %product% 
 generates [Code Insights](https://support.atlassian.com/bitbucket-cloud/docs/code-insights/) reports, 
 forwards them using the Bitbucket Code Insights API, and does not require any configuration.

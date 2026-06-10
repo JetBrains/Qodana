@@ -367,7 +367,7 @@ disableSanityInspections: true
 
 <link-summary>You can configure the license audit feature by configuring the CheckDependencyLicenses inspection.</link-summary>
 
-Starting from version 2024.1 of %product%, the [license audit](license-audit.topic) feature is enabled by default. You can disable it by 
+The [license audit](license-audit.topic) feature is enabled by default. You can disable it by 
 excluding the [`CheckDependencyLicenses`](https://www.jetbrains.com/help/inspectopedia/CheckDependencyLicenses.html) inspection:
 
 ```yaml

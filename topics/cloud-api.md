@@ -227,9 +227,6 @@ The endpoint provides the responses with the following HTTP codes:
 ### Get project metadata by project name
 {id="cloud-api-project-report-metadata-project-name"}
 
-> This endpoint is available starting from version 2024.2 of %product%.
-{style="note"}
-
 To get project metadata for the default branch of a project, send the request with a %cloud% project name:
 
 ```cURL
@@ -373,9 +370,6 @@ Here is the description of responses:
 
 ### Get project metadata by project ID
 {id="cloud-api-project-report-metadata-project-id"}
-
-> This endpoint is available starting from version 2024.2 of %product%.
-{style="note"}
 
 Get project metadata by sending a request containing a project ID:
 

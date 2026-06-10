@@ -92,10 +92,16 @@ Here you can find answers to frequently asked questions about %instance% licensi
 </chapter>
 
 <chapter id="faq-licensing-count-contributors" title="Is there a way to determine the number of contributors in my repositories before initiating Qodana?" default-state="collapsed" collapsible="true">
-    <p>Yes, you can use this command to check the number of contributors:</p>
+    <p>Yes, you can use this command to check the number of contributors in one repository:</p>
     <code-block lang="shell" prompt="$">
-        git log --format='%aN' | sort -u | wc -l
+        git log --all --since='90 days ago'  --format='%aE' | sort -u | wc -l
     </code-block>
+    <p>This command consists of the following parts:</p>
+    <list>
+        <li>The <code>--all</code> parameter counts all branches including remote ones</li>
+        <li>The <code>-since</code> parameter filters commits made within the last 90 days</li>
+        <li>The <code>%aE</code> placeholder filters user entries by their email addresses</li>
+    </list>
     <p>In the %instance% CLI application, you can use the
         <a href="https://github.com/JetBrains/qodana-cli/tree/main#contributors"><code>contributors</code></a> command
         for counting active contributors, for example:</p>
