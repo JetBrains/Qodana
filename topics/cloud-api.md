@@ -377,8 +377,6 @@ Get project metadata by sending a request containing a project ID:
 GET https://qodana.cloud/api/v1/public/organizations/projects/{projectID}
 ```
 
-You can customize your requests using the following optional parameter:
-
 | Parameter   | Type   | Required  | Description       | Example value |
 |-------------|--------|-----------|-------------------|---------------|
 | `projectId` | String | Yes       | ID of the project | `proj_123`    |

@@ -113,8 +113,8 @@
         <toc-element topic="shl-introduction.md"/>
         <toc-element topic="shl-requirements.md"/>
         <toc-element topic="shl-architecture.md"/>
-		<toc-element topic="shl-docker-configuration.md" accepts-web-file-names="shl-prepare-project.html,shl-command-list.html,shl-labels.html,shl-env-variables.html,shl-troubleshooting.html"/>
-        <toc-element topic="shl-kubernetes-configuration.md" accepts-web-file-names="shl-deployment.html"/>
+        <toc-element accepts-web-file-names="shl-deployment.html" topic="shl-kubernetes-configuration.md"/>
+        <toc-element topic="shl-docker-configuration.md" accepts-web-file-names="shl-prepare-project.html,shl-command-list.html,shl-labels.html,shl-env-variables.html,shl-troubleshooting.html"/>
     </toc-element>
 
 

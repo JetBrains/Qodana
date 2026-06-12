@@ -29,12 +29,12 @@ Customizability lets you configure %product% to match their specific code qualit
 
 You can deploy %premlite% using two options:
 
-* The Dockerized version uses the `qodana-installer-cli` command-line utility that offers you a one-line 
+* The Kubernetes version of %premlite% is a Helm-based deployment for Kubernetes that sets up all the necessary Qodana
+  services and their dependencies as Kubernetes resources. It uses Helm to distribute the product as a Helm Chart.
+  You can customize it through an ad-hoc `values.yaml` file. By default, the package is configured to run in demo/PoC mode.
+* The Dockerized version is the alternative that uses the `qodana-installer-cli` command-line utility to offer you a one-line 
 installer. The utility requires a server running Linux with the Docker Engine and Docker Swarm as a container orchestrator. 
 It is compatible with automation and Infrastructure as a Code (IaC) frameworks.
-* The Kubernetes version of %premlite% is a Helm-based deployment for Kubernetes that sets up all the necessary Qodana 
-services and their dependencies as Kubernetes resources. It uses Helm to distribute the product as a Helm Chart.
-You can customize it through an ad-hoc `values.yaml` file. By default, the package is configured to run in demo/PoC mode
 
 <!-- The word deployment needs to be linked to the K8s documentation -->
 
