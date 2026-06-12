@@ -619,10 +619,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline</li>
                               </list>
                            <img src="ide-plugin-dotnet-run-qodana.png" width="793" alt="Configuring Qodana in the Run Qodana dialog" border-effect="line"/>
-                            <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
+                            <p>Click <ui-path>Run</ui-path> to analyze your code.</p>
                         </step>
                         <step>
-                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports"/> section for detail.</p>
+                           <p>In the <ui-path>Qodana</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports"/> section for detail.</p>
                         </step>
                     </procedure>
                 </tab>
@@ -732,7 +732,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                             <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
                         </step>
                         <step>
-                           <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
+                           <p>In the <ui-path>Qodana</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
                         </step>
                     </procedure>
                 </tab>
@@ -1061,7 +1061,7 @@ bootstrap: dotnet restore
               closest to the current revision ID (HEAD). Otherwise, the IDE retrieves the latest available report from %cloud%.</p>
           </step> 
           <step>
-             <p>On the <ui-path>Server-Side Analysis</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
+             <p>On the <ui-path>Qodana</ui-path> tab of the <ui-path>Problems</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
           </step>
       </procedure>
     </tab>
@@ -1393,8 +1393,8 @@ in a SARIF-formatted file.
                         <tab title="JetBrains IDEs" group-key="ides">
                         <procedure>
                             <step>In your IDE, navigate to the <ui-path>Problems</ui-path> tool window. </step>
-                            <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Server-Side Analysis</ui-path> tab.</step>
-                            <step>On the <ui-path>Server-Side Analysis</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
+                            <step>In the <ui-path>Problems</ui-path> tool window, click the <ui-path>Qodana</ui-path> tab.</step>
+                            <step>On the <ui-path>Qodana</ui-path> tab, click the <ui-path>Try Locally</ui-path> button.</step>
                             <step>On the dialog that opens, expand the <ui-path>Advanced configuration</ui-path> section and specify the path to the baseline file, and then click <ui-path>Run</ui-path>.</step>
                         </procedure>
                         </tab>

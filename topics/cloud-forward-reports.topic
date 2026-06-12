@@ -12,7 +12,7 @@
     <var name="TeamCityLink" value="https://www.jetbrains.com/help/teamcity/typed-parameters.html#Password+Type"/>
 
     <link-summary>Learn how you can forward %product% reports to %cloud% using Docker images, Qodana CLI, and all CI/CD software
-        we currently provide integration solutions for.</link-summary>
+        we currently provide support for.</link-summary>
 
     <p>This section explains how you can forward %instance% reports to %cloud% using this software:</p>
 

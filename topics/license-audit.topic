@@ -127,8 +127,8 @@
             dependencies installed using the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key of
             the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
 
-        <p>After %instance% has finished analyzing your project, the results become available in the
-            <a anchor="license-audit-verifying-data">report</a>.</p>
+        <p>After %instance% has finished analyzing your project, a <a anchor="license-audit-verifying-data">report</a>
+            becomes available.</p>
 
     </chapter>
 

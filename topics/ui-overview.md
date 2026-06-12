@@ -17,7 +17,7 @@ Each report contains the following tabs:
 * **[Current problems](#ui-overview-actual-problems)** exposes the problems that %product% detected during the latest inspection. 
 * **[Baseline problems](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.topic) and were not fixed since then.
 * **[Inspections](#ui-overview-configuration)** lets you configure %instance% for future use.
-* **[License audit](#ui-overview-project-audit)** reveals the [license audit](license-audit.topic) results and shows the dependency licenses that are incompatible with the project license. 
+* **[License audit](#ui-overview-project-audit)** reveals [license audit](license-audit.topic) reports and shows the dependency licenses that are incompatible with the project license. 
 
 The upper-right corner of the report shows a [code coverage](code-coverage.md) analysis report.
 

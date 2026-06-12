@@ -32,7 +32,7 @@ The %product% team always prioritizes security updates. Here's what we addressed
 #### Insights
 
 * **Saved filter bookmarks in Insights**. You can now save your [Insights filter](insights.md#Dashboard+filters) combinations as named bookmarks and come back to them any time. No more reconfiguring the same filters after every visit.
-* **Scan frequency in Insights**. Insights now show how frequently each project is being scanned over a chosen look-back period, with the ability to view projects sorted by scan activity.
+* **Scan frequency in Insights**. Insights now show how frequently each project is being analyzed over a chosen look-back period, with the ability to view projects sorted by scan activity.
 
 #### Project tokens
 
@@ -60,7 +60,7 @@ The %product% team always prioritizes security updates. Here's what we addressed
 
 #### Report viewer
 
-* **‘Open in Cursor’ support**. In addition to existing IDE integrations, you can now open a problem directly in Cursor.
+* **‘Open in Cursor’ support**. In addition to existing IDE support options, you can now open a problem directly in Cursor.
 * **‘Open in VCS’ action** now adapts to the repository type (GitHub, GitLab, etc.) for each problem.
 * **SARIF download improvements**. SARIF file handling in the [report](ui-overview.md) viewer has been overhauled, with better download support.
 * **‘Expand/Collapse all’ button** added to the issue list in the report viewer for faster navigation of large reports.

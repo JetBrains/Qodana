@@ -1301,7 +1301,7 @@
                         <code>-i, --project-dir &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        The Directory of the project that can be specified multiple times to check multiple projects
+                        The Directory of the project that can be specified multiple times to analyze multiple projects
                     </td>
                     <td>
                         <code>.</code>
@@ -1337,7 +1337,7 @@
                         <code>-i, --project-dir &lt;stringArray&gt;</code>
                     </td>
                     <td>
-                        The project directory. This option can be specified multiple times to check multiple projects.  If not
+                        The project directory. This option can be specified multiple times to analyze multiple projects.  If not
                         specified, the current directory will be used
                     </td>
                 </tr>

@@ -332,7 +332,7 @@ and their analogs in the classic interface.
    <tr>
       <td><code>uploadResult</code></td>
       <td><control>Upload Result</control></td>
-      <td>Upload Qodana results as an artifact to the job. Optional.</td>
+      <td>Upload Qodana reports as an artifact to the job. Optional.</td>
       <td><code>false</code></td>
    </tr>
    <tr>

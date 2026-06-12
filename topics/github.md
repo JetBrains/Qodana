@@ -14,9 +14,9 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
-#### Qodana GitHub App
+#### Qodana Cloud GitHub App
 
-During the project setup, you will receive a notification to install `%product% App`.
+During the project setup, you will receive a notification to install `%cloud%` GitHub App.
 
 <include from="Quick-start.topic"  element-id="for-github-page" title use-filter="empty"/>
 

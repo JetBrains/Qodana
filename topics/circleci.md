@@ -166,7 +166,7 @@ workflows:
 
 ## Commands and parameters
 
-The CircleCI Qodana orb provides the `scan` command to let you analyze your project and report the results.
+The CircleCI Qodana orb provides the `scan` command to let you analyze your project and generate an analysis report.
 
 This table contains the list of optional string parameters that can be additionally used with the `scan` command.
 

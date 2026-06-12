@@ -214,7 +214,7 @@ In this sample, specify  the [quality gate](quality-gate.topic) using `--fail-th
 
 ## Analysis report overview
 
-<link-summary>After your project is analyzed and the report is uploaded to %cloud%, you can view results.</link-summary>
+<link-summary>After your project is analyzed and the report is uploaded to %cloud%, you can view it.</link-summary>
 
-After your project is analyzed and the report is uploaded to %cloud%, you can view results as shown 
+After your project is analyzed and the report is uploaded to %cloud%, you can view it as shown 
 [on this page](cloud-overview-reports.topic).

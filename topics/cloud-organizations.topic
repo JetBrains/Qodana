@@ -330,7 +330,7 @@
             </chapter>
 
             <chapter id="cloud-organizations-global-configurations-view-modify-list-of-projects" title="Modify the list of projects">
-                <p>On the project configuration page, click the <ui-path>Edit projects list</ui-path> button to open
+                <p>On the project setup page, click the <ui-path>Edit projects list</ui-path> button to open
                     the <ui-path>Connected Projects</ui-path> dialog containing the list of projects.</p>
                 <img src="gpc-modify-list-of-projects.png" width="706" alt="Edit projects list button" border-effect="line"/>
                 <p>On the <ui-path>Connected Projects</ui-path> dialog you can view, assign, and unassign projects.</p>

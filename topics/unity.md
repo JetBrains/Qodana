@@ -138,7 +138,7 @@ a project directory.</p>
                 <p>Click <ui-path>Run</ui-path> for analyzing your code.</p>
             </step>
             <step>
-               <p>In the <ui-path>Server-Side Analysis</ui-path> tool window, see the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">inspection results</a>.</p>
+               <p>In the <ui-path>Qodana</ui-path> tool window, see an <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports">analysis report</a>.</p>
             </step>
         </procedure>
     </tab>

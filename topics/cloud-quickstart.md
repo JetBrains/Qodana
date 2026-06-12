@@ -38,7 +38,7 @@ To provide the correct work of the contributor counting functionality, add the I
     members. If you run the <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a>
     linters, you can create an unlimited number of teams. If you use only the Community linters, you can create
     only one team in your organization.</p>
-<p>Each project contains the results of inspection carried out by %instance% over a specific codebase.</p>
+<p>Each project contains analysis reports carried out by %instance% over a specific codebase.</p>
 
 <img src="qc-running-introduction.png" dark-src="qc-running-introduction_dark.png" width="706" alt="%cloud% entity hierarchy" border-effect="line"/>
 
