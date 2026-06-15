@@ -64,7 +64,7 @@ bootstrap: |+
 > You can investigate %product% behavior using files contained in the
 > [`/data/results`](docker-image-configuration.topic#docker-config-reference-overview-logs) directory.
 
-> Starting from version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file
+> An unexpected problem inspection will report in case the `qodana.yaml` file
 > containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the
 > `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
 {style="note"}
@@ -121,7 +121,7 @@ Information about inspection IDs is available on the [Inspectopedia](https://www
 
 To exclude all paths in a project from the analysis scope, omit the `paths` node.
 
-<note>Starting from version 2022.3, if using the <code>qodana.recommended</code> and <code>qodana.starter</code> 
+<note>While using the <code>qodana.recommended</code> and <code>qodana.starter</code> 
 profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and folders to be ignored 
 during the analysis.</note>
 
@@ -352,11 +352,11 @@ php:
   version: "X.x"
 ```
 
-## Disable sanity checks
+## Disable unexpected problems
 
-<link-summary>By default, sanity checks are enabled in %instance%, but you can disable them.</link-summary>
+<link-summary>By default, unexpected problems are enabled in %instance%, but you can disable them.</link-summary>
 
-By default, sanity checks are enabled in %instance%. You can disable them using this snippet: 
+By default, unexpected problems are enabled in %instance%. You can disable them using this snippet: 
 
 ```yaml
 disableSanityInspections: true

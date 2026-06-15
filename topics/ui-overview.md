@@ -177,7 +177,7 @@ You can open HTML-formatted %instance% reports using JetBrains IDEs and shell co
 
 <tabs>
 <tab title="JetBrains IDEs" id="open-report-ide">
-<p>Starting from version 2023.2 of %instance%, you can open HTML reports using IntelliJ IDEA, PhpStorm, WebStorm, Rider, 
+<p>You can open HTML reports using IntelliJ IDEA, PhpStorm, WebStorm, Rider, 
 GoLand, PyCharm, and Rider as explained in the <a href="qodana-ide-plugin.md" anchor="ide-plugin-study-reports"/> section.</p> 
 <p>In this case, your IDE needs to be installed via <a href="https://www.jetbrains.com/toolbox-app/">JetBrains Toolbox App</a>.</p>
 

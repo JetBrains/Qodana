@@ -47,7 +47,7 @@ Make sure that your project is correctly configured by looking at the
 * The project imports work correctly
 * The tooling that you use matches the configured versions
 * Project dependency pooling works correctly, as it should be done only once if you are using cache
-* Analyses do not show [sanity problems](inspection-profiles.md#inspection-profiles-existing-profiles) because they are a key indicator of configuration issues
+* Analyses do not show [unexpected problems](inspection-profiles.md#inspection-profiles-existing-profiles) because they are a key indicator of configuration issues
 
 ## Docker image paths
 

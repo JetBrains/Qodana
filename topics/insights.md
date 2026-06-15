@@ -34,7 +34,7 @@ Displays the number of active and inactive projects in your organization.
 
 Active are the projects which reports were uploaded to %cloud% within 90 days.
 A project is classified as inactive in case it contains 
-[sanity problems](inspection-profiles.md#inspection-profiles-existing-profiles) or its reports are older than 90 days.
+[unexpected problems](inspection-profiles.md#inspection-profiles-existing-profiles) or its reports are older than 90 days.
 
 If you hover over this widget, you can see the number of active and inactive projects. Here, you can click the line
 describing inactive projects to navigate to a comprehensive list of these projects.

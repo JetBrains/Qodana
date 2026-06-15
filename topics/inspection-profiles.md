@@ -74,7 +74,7 @@ Out of the box, you can use the following %product% profiles:
         <td><p>This profile is enabled by default to analyze whether a project is configured properly. If 
         <code>qodana.sanity</code> inspections detect problems, this means that all other %product% inspections may work 
         improperly and the project should be reconfigured.</p> 
-        <p>To learn how disable inspections of this profile, see the <a href="qodana-yaml.md" anchor="Disable+sanity+checks"/> and 
+        <p>To learn how disable inspections of this profile, see the <a href="qodana-yaml.md" anchor="Disable+unexpected+problems"/> and 
             <a href="docker-image-configuration.topic" anchor="docker-config-reference-profile"/> sections.</p>
         </td>
     </tr>
@@ -83,7 +83,7 @@ Out of the box, you can use the following %product% profiles:
 These profiles are hosted on 
 [GitHub](https://github.com/JetBrains/qodana-profiles/tree/master/.idea/inspectionProfiles), so you can learn them in detail.
 
-> Starting from version 2023.3 of %instance%, the sanity inspection will report in case the `qodana.yaml` file
+> An unexpected problem inspection will report in case the `qodana.yaml` file
 > containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the
 > `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
 {style="note"}
@@ -94,7 +94,7 @@ These profiles are hosted on
 <link-summary>Learn how to set up existing %product% profiles.</link-summary>
 
 <note>You can disable the <code>qodana.sanity</code> profile using recommendations from the 
-<a href="qodana-yaml.md" anchor="Disable+sanity+checks"/> and 
+<a href="qodana-yaml.md" anchor="Disable+unexpected+problems"/> and 
 <a href="docker-image-configuration.topic" anchor="docker-config-reference-profile"/> sections.</note>
 
 <p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file

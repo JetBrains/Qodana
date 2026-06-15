@@ -248,8 +248,8 @@ telling whether %instance% ran successfully or not.
 ```
 
 In the above example, Qodana execution was successful (`exitCode`, `executionSuccessful`). Despite the (technically)
-successful execution, Qodana reported that its sanity inspections found some problems (`message`, `level=error`).
-When the 'sanity' inspections fail, this typically means that the project configuration was broken.
+successful execution, Qodana reported unexpected problems (`message`, `level=error`). If this happens, this typically 
+means that the project configuration was broken.
 
 The possible values for `exitCode` are:
 
@@ -540,7 +540,7 @@ contains unique strings, each of which specifies a character sequence that %inst
 #### properties
 
 In addition to the inspections configured in the inspection profile,
-%instance% runs a few extra inspections for sanity-checking the project configuration.
+%instance% runs a few extra inspections for unexpected problems related to a project configuration.
 If these extra inspections find any problems, the project configuration is probably wrong.
 The results of these extra inspections are recorded in the `qodana.sanity.results` property in the same format as the
 regular [`result`](#results) objects.

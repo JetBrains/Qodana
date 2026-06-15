@@ -51,7 +51,7 @@ restricted. To compare %instance% licenses, you can visit the [](pricing.md) pag
 
 ## Contact us
 
-If you would like to suggest a new feature or encounter unexpected behaviour, use the 
+If you would like to suggest a new feature or encounter unexpected behavior, use the 
 <a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or email the support team at
 <a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
 
