@@ -11,10 +11,9 @@ This section explains how you can analyze open-source projects using %instance% 
 
 * Configuring %instance% and its features
 * Analyzing code locally or using CI/CD pipelines
-* Forwarding and viewing analysis reports to %cloud%
+* Forwarding analysis reports to %cloud% and viewing them there
 
-The %product% products licensed by the Community [license](pricing.md) are free of charge, which is best 
-suited for open-source projects.
+The %product% products licensed under the Community [license](pricing.md) are free of charge and are well-suited for open-source projects.
 
 > To get started with %product%, refer to the [Quick-start](Quick-start.topic) section.
 
@@ -57,7 +56,7 @@ The following %product% linters and their features are available with the Commun
     <tr>
         <td>Quality gate</td>
         <td><p>Set thresholds to terminate %product% locally and in CI/CD pipelines.</p> 
-            <p>This can be set up for a number of problems and their severities</p>
+            <p>This can be set up for a number of problems and their severities.</p>
         </td>
     </tr>
 </table>
@@ -156,7 +155,7 @@ Alternatively, you can make the same configuration directly in the application c
                     - name: 'Qodana Scan'
                       uses: %action-version%
                       with:
-                        agrs: |
+                        args: |
                           --profile-name qodana.recommended
                           --linter <linter>
                       env:
@@ -229,7 +228,7 @@ Here are the configuration samples for analyzing changes between two commits:
                     - name: 'Qodana Scan'
                       uses: %action-version%
                       with:
-                        agrs: |
+                        args: |
                           --diff-start <GIT_START_HASH>
                           --diff-end <GIT_END_HASH>
                           --linter <linter>
@@ -324,7 +323,7 @@ Use these snippets to configure a baseline and a quality gate for a total number
                     - name: 'Qodana Scan'
                       uses: %action-version%
                       with:
-                        agrs: |
+                        args: |
                           --baseline <path-to-qodana.sarif.json>
                           --fail-threshold <number>
                           --linter <linter>
