@@ -1,29 +1,74 @@
 [//]: # (title: Analyze open-source projects)
 
+<show-structure for="chapter" depth="3"/>
+
 <var name="feature" value="License audit"/>
 <var name="github-secret" value="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"/>
 <var name="branch-protection-rule" value="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 <!-- I need to mention here more about OS projects -->
 
-This section explains how you can analyze your open-source projects using %instance%, and how you can use %cloud% to 
-view %instance% an analysis report in a convenient form and free for open-source projects. 
+This section explains how you can analyze open-source projects using %instance% and covers the following use cases: 
 
-## Before you start 
+* Configuring %instance% and its features
+* Analyzing code locally or using CI/CD pipelines
+* Forwarding and viewing analysis reports to %cloud%
 
-<link-summary>Learn more about the preparation steps before you analyze your open-source project by %product%.</link-summary>
+The %product% products licensed by the Community [license](pricing.md) are free of charge, which is best 
+suited for open-source projects.
 
-Depending on your needs, it may be useful to know how to:
+> To get started with %product%, refer to the [Quick-start](Quick-start.topic) section.
 
-* [Analyze your code](inspect-your-code.md) using %instance%
-* Configure %instance% using [`qodana.yaml`](qodana-yaml.md) and [](docker-image-configuration.topic)
-* Run %instance% either [locally](Quick-start.topic) on in your [CI/CD pipelines](ci.md)
-* Forward reports to %cloud%
+## Before you start
 
-## Prepare %cloud%
+### Available linters and features
+{id="available-linters-and-features"}
+
+The following %product% linters and their features are available with the Community license: 
+
+<table>
+    <tr>
+        <td>Programming languages and features</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>Java, Kotlin, Groovy</td>
+        <td>The <code>%jvm-co-linter%</code> and <code>%jvm-co-a-linter%</code> <a href="jvm.md">linters</a></td>
+    </tr>
+    <tr>
+        <td>C#, C/C++, VB.NET</td>
+        <td>The <code>%dotnet-co-linter%</code> <a href="dotnet.md">linter</a></td>
+    </tr>
+    <tr>
+        <td>C and C++</td>
+        <td>The <code>%clang-linter%</code> <a href="clang.md">linter</a></td>
+    </tr>
+    <tr>
+        <td>Python</td>
+        <td>The <code>%python-co-linter%</code> <a href="python.md">linter</a></td>
+    </tr>
+    <tr>
+        <td>Static analysis of code</td>
+        <td>Analyze an entire codebase or its incremental changes</td>
+    </tr>
+    <tr>
+        <td>Baseline</td>
+        <td>Compare code against its snapshot to track various problems</td>
+    </tr>
+    <tr>
+        <td>Quality gate</td>
+        <td><p>Set thresholds to terminate %product% locally and in CI/CD pipelines.</p> 
+            <p>This can be set up for a number of problems and their severities</p>
+        </td>
+    </tr>
+</table>
+
+To run %product% locally, make sure that you have already deployed %product% CLI on your machine.
+
+Use linter names from the table above to replace the `<linter>` placeholders in configuration snippets later provided in this section.
+
+### Prepare %cloud%
 
 <link-summary>Learn how to prepare %cloud% before inspecting your open-source project using %product%.</link-summary>
-
-If you plan to create a separate team and project in your %cloud% account, follow these steps.
 
 <procedure>
 <step>
@@ -32,10 +77,17 @@ In the %cloud% UI, navigate to your organization.
 <img src="qc-settings-organization-navigate-between.gif" width="706" alt="Creating an organization" border-effect="line"/>
 </step>
 <step>
-In your organization, create a <a href="cloud-teams.topic">team</a>.
+    <p>On the organization page, click <ui-path>Create team</ui-path>.</p>
+    <img src="qc-create-team.png" dark-src="qc-create-team_dark.png" alt="Create a team" width="706" border-effect="line"/>
+    <p>This will open the <ui-path>Create team</ui-path> dialog.</p>
 </step>
 <step>
-In your team, create a <a href="cloud-projects.topic">project</a>. 
+    <p>On the <ui-path>New team</ui-path> dialog, specify the team name, its visibility and then click <ui-path>Create</ui-path>.</p>
+    <img src="qc-creating-team.png" dark-src="qc-creating-team_dark.png" alt="The New team dialog" width="706" border-effect="line"/>
+</step>
+<step>
+        <p>On a <a href="cloud-teams.topic">team</a> page, click the <ui-path>Create project</ui-path> button.</p>
+        <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>
 </step>
 <step>
 In the project, click <ui-path>Generate token</ui-path> to generate a project token.
@@ -44,177 +96,269 @@ In the project, click <ui-path>Generate token</ui-path> to generate a project to
 </step>
 </procedure>
 
+The generated [project token](project-token.md) will be used in the configuration snippets as the value for the `QODANA_TOKEN` variable.
+
 ## Analyze your projects
 
-<link-summary>Depending on the %instance% license, you can configure various features.</link-summary>
+### Inspection profiles
+{id="inspection-profiles"}
 
-You can analyze your codebase using methods described in the [](inspect-your-code.md) section. 
-
-Depending on the %instance% [license](pricing.md#pricing-linters-licenses), you can configure various features, for example:
-
-* [Baseline](#Configure+baseline) for monitoring current and new problems
-* [Inspections](#Configure+inspections) that you would like to use
-* [License audit](#configure-license-audit) for checking license compatibility
-* [Quality gate](#configure-quality-gate) for restricting the number of problems
-
-Here are the links to the sections that describe other available features: 
-
-* [](code-coverage.md)
-* [](php-language-upgrade.topic)
-* [](quick-fix.md)
-* [](taint-analysis.md)
-* [](vulnerability-checker.md)
-
-### Configure inspections
-
-<link-summary>By default, %instance% inspects your code using the `qodana.starter` profile. You can use additional 
+<link-summary>By default, %instance% analyzes your code using the `qodana.starter` profile. You can use additional 
 inspections by specifying the `qodana.recommended` profile.</link-summary>
 
-By default, %instance% inspects your code using the `qodana.starter` profile. You can use additional inspections by 
-specifying the `qodana.recommended` profile in the [`qodana.yaml`](qodana-yaml.md) file contained in your project root: 
+> This setting is not supported by the `%clang-linter%` linter. The details are available in the 
+> [](clang.md#Adjusting+the+scope+of+analysis) chapter of the linter documentation.
+> {style="note"}
 
-```yaml
-profile:
-    name: qodana.recommended  
+By default, %instance% analyzes your code using the `qodana.starter` profile. You can use additional inspections by 
+specifying the `qodana.recommended` profile. To do it, save this configuration to the `qodana.yaml` file contained in 
+your project root:
+
+<code-block lang="yaml">
+    version: 1.0
+    &nbsp;
+    profile:
+      name: qodana.recommended
+    &nbsp;
+    linter: &lt;linter&gt;
+</code-block>
+
+Alternatively, you can make the same configuration directly in the application configuration:
+
+<tabs group="os-projects-snippets">
+    <tab title="Qodana CLI" group-key="cli">
+        <code-block lang="bash" prompt="$">
+            qodana scan \
+                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                --profile-name qodana.recommended \
+                --linter &lt;linter&gt;
+</code-block>
+    </tab>
+    <tab title="GitHub Actions" group-key="github-actions">
+        <code-block lang="yaml"><![CDATA[
+            name: Qodana
+            on:
+              workflow_dispatch:
+              pull_request:
+                branches:
+                  - main
+              push:
+                branches:
+                  - main
+                  - 'releases/*'
+              jobs:
+                qodana:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - uses: actions/checkout@v3
+                      with:
+                        fetch-depth: 0
+                    - name: 'Qodana Scan'
+                      uses: %action-version%
+                      with:
+                        agrs: |
+                          --profile-name qodana.recommended
+                          --linter <linter>
+                      env:
+                        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+]]>
+</code-block>
+    </tab>
+</tabs>
+
+> Configuration examples for other CI/CD tools are provided in the [](ci.md) section.
+
+> Information about inspection profiles is available in the [](inspection-profiles.md#inspection-profiles-existing-profiles) section.
+
+To analyze the overall configuration of your project, employ the `qodana.sanity` profile instead.
+
+### Incremental analysis
+{id="incremental-analysis"}
+
+Regular analyses are enabled by default and are performed on an entire project. Incremental analyses can be carried out as described below: 
+
+| Incremental analysis                                     | Description                 |
+|----------------------------------------------------------|-----------------------------|
+| The `--diff-start` option                    | Pull or merge requests      |
+| The `--diff-start` and `--diff-end` options | Changes between two commits |
+
+To analyze pull requests, use the `--diff-start` option, for example: 
+
+```bash
+qodana scan \
+   -e QODANA_TOKEN="<cloud-project-token>" \
+   --diff-start=<GIT_START_HASH> \
+   --linter <linter>
 ```
+{prompt="$"}
 
-To check the overall configuration of your project, you can employ the `qodana.sanity` profile:
+The pull request mode is enabled by default in GitHub Actions, so it does not require any additional configuration.
 
-```yaml
-profile:
-    name: qodana.sanity  
-```
+Here are the configuration samples for analyzing changes between two commits:
 
-### Configure license audit
-{id="configure-license-audit"}
+<tabs group="os-projects-snippets">
+    <tab title="Qodana CLI" group-key="cli">
+        <code-block lang="bash" prompt="$"><![CDATA[
+            qodana scan \
+                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                --diff-start=<GIT_START_HASH> \
+                --diff-end=<GIT_END_HASH> \
+                --linter &lt;linter&gt;
+]]>
+</code-block>
+    </tab>
+    <tab title="GitHub Actions" group-key="github-actions">
+        <code-block lang="yaml"><![CDATA[
+            name: Qodana
+            on:
+              workflow_dispatch:
+              pull_request:
+                branches:
+                  - main
+              push:
+                branches:
+                  - main
+                  - 'releases/*'
+              jobs:
+                qodana:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - uses: actions/checkout@v3
+                      with:
+                        fetch-depth: 0
+                    - name: 'Qodana Scan'
+                      uses: %action-version%
+                      with:
+                        agrs: |
+                          --diff-start <GIT_START_HASH>
+                          --diff-end <GIT_END_HASH>
+                          --linter <linter>
+                      env:
+                        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+]]>
+</code-block>
+    </tab>
+</tabs>
 
-<link-summary>A license audit lets you track the compatibility of dependency licenses with your open-source project license.</link-summary>
+Information about incremental analysis is available in the [](analyze-pr.md) section.
 
-[License audit](license-audit.topic) lets you track the compatibility of dependency licenses with your project license.
-
-To enable the license audit, use the `include` option of the [`qodana.yaml`](qodana-yaml.md) file in your project root:
-
-```yaml
-include:
-  - name: CheckDependencyLicenses
-```
-
-### Configure baseline
+### Baseline and quality gate
+{id="baseline-quality-gate"}
 
 <link-summary>A baseline lets you create a snapshot of your project that will be used as a basis for subsequent 
-analysis.</link-summary>
+analysis. A quality gate lets you configure the ultimate number of problems that will cause a CI/CD pipeline failure.</link-summary>
 
-[Baseline](baseline.topic) lets you create a snapshot of your project that will be used as a basis for 
-later analyses. To enable it, select inspections and download the `qodana.sarif.json` file. 
+[Baseline](baseline.topic) and [quality gates](quality-gate.topic) are configured using the following options:
 
-You can run %instance% with the baseline enabled using the `--baseline` option:
+<table>
+  <tr>
+    <td>Feature</td>
+    <td>Configured via</td>
+  </tr>
+  <tr>
+    <td>Baseline</td>
+    <td><code>--baseline &lt;path-to-qodana.sarif.json&gt;</code></td>
+  </tr>
+  <tr>
+    <td>Absolute number of problems</td>
+    <td><code>fail-threshold &lt;number&gt;</code></td>
+  </tr>
+  <tr>
+    <td>Severity thresholds</td>
+    <td>
+    <code-block lang="yaml"><![CDATA[
+    failureConditions:
+      severityThresholds:
+        any: <number> # Total problems
+        critical: <number> # Severities
+        high: <number>
+        moderate: <number>
+        low: <number>
+        info: <number>
+        ]]>
+</code-block>
+</td>
+  </tr>
+</table>
 
-```shell
---baseline <path-to-qodana.sarif.json>
-```
+<note><p>Severity thresholds are supported only by the following linters:</p>
+    <ul>
+        <li><code>qodana-jvm-community</code></li>
+        <li><code>qodana-jvm-android</code></li>
+        <li><code>qodana-python-community</code></li>
+    </ul>
+</note>
 
-### Configure the quality gate
-{id="configure-quality-gate"}
+Use these snippets to configure a baseline and a quality gate for a total number of problems:
 
-<link-summary>A quality gate lets you configure the ultimate number of problems that will cause a CI/CD pipeline failure.</link-summary>
+<tabs group="os-projects-snippets">
+    <tab title="Qodana CLI" group-key="cli">
+        <code-block lang="bash" prompt="$"><![CDATA[
+            qodana scan \
+                -e QODANA_TOKEN="<cloud-project-token>" \
+                --baseline <path-to-qodana.sarif.json> \
+                --fail-threshold <number> \
+                --linter <linter>
+]]>
+</code-block>
+    </tab>
+    <tab title="GitHub Actions" group-key="github-actions">
+        <code-block lang="yaml"><![CDATA[
+            name: Qodana
+            on:
+              workflow_dispatch:
+              pull_request:
+                branches:
+                  - main
+              push:
+                branches:
+                  - main
+                  - 'releases/*'
+              jobs:
+                qodana:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - uses: actions/checkout@v3
+                      with:
+                        fetch-depth: 0
+                    - name: 'Qodana Scan'
+                      uses: %action-version%
+                      with:
+                        agrs: |
+                          --baseline <path-to-qodana.sarif.json>
+                          --fail-threshold <number>
+                          --linter <linter>
+                      env:
+                        QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+]]>
+</code-block>
+    </tab>
+</tabs>
 
-[](quality-gate.topic) lets you configure the ultimate number of problems that will cause a CI/CD pipeline failure.
+> When running in the baseline mode, a threshold is calculated as the sum of new and absent problems. Unchanged results are ignored.
+{style="note"}
 
-Once configured, a quality gate will make your CI/CD system:
 
-* Build the project only if the number of problems contained in it is below the configured threshold
-* Accept only the pull requests containing problems below the configured threshold  
-
-To enable the quality gate, you can use the `fail-threshold <number>` option.
-
-### Types of Qodana reports
-
-<link-summary>%instance% can generate several types of analysis reports.</link-summary>
-
-%instance% can generate the following types of analysis reports: 
-
-* Analysis reports for a specific branch of your project
-* Pull or merge request analysis reports generated by [GitHub Actions](#GitHub+Actions) and [GitLab CI/CD](#GitLab+CI%2FCD)
-
-#### GitHub Actions
-
-<link-summary>You can configure GitHub for forwarding analysis reports to %cloud% and block the merge of pull
-requests if a quality gate has failed.</link-summary>
-
-Using this example, you can configure GitHub for:
-
-* Forwarding analysis reports to %cloud%
-* Blocking the merge of pull requests if a quality gate has failed
-
-Follow these steps:
-
-1. Create an [encrypted secret](%github-secret%) with the `QODANA_TOKEN` name.
-2. Create a new or open an existing GitHub workflow that invokes the Qodana Scan action.
-3. Set the workflow to run on `pull_request` events that target the `main` branch, and forward reports to %cloud% 
-based on the `QODANA_TOKEN` value. Instead of `main`, you can specify your branch here.
-
-```yaml
-name: Qodana
-on:
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
-      - 'releases/*'
-
-jobs:
-  qodana:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2022.2.3
-        env:
-          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-```
-
-4. Set the number of problems (integer) for the Qodana action [`fail-threshold`](#configure-quality-gate) option.
-5. Under your repository name, click **Settings**.
-6. On the left menu, click **Branches**.
-7. In the branch protection rules section, click **Add rule**.
-8. Add `main` to **Branch name pattern**.
-9. Select **Require status checks to pass before merging**.
-10. Search for the `Qodana` status check, then check it.
-11. Click **Create**.
-
-#### GitLab CI/CD
-
-<link-summary>You can configure GitLab CI/CD for inspecting a specific branch and all merge requests, block merge requests
-if a quality gate has failed, and forward analysis reports to %cloud%.</link-summary>
-
-Using this example, you can configure GitLab CI/CD for:
-
-* Inspecting the `main` and `master` branch and all merge requests
-* Blocking merge requests if a quality gate has failed
-* Forwarding analysis reports to %cloud%
-
-Follow these steps to add a %instance% runner to a GitLab CI/CD pipeline:
-
-1. Create the [`QODANA_TOKEN`](https://docs.gitlab.com/ee/ci/variables/) variable and save the %cloud% project token value in it 
-2. Paste this sample to the `.gitlab-ci.yml` file: 
+You can also configure the absolute number of problems using the `fail-threshold` option saved in the `qodana.yaml` file 
+contained in your project root:
 
 ```yaml
-include:
-  - component: %gitlab-version%
-    inputs:
-      args: --fail-threshold <number-of-accepted-problems> --image &lt;image&gt;
+    version: 1.0
+    
+    fail-threshold: <number>
+    linter: <linter>
 ```
-In this sample, specify  the [quality gate](quality-gate.topic) using `--fail-threshold` option. 
 
+Once configured in the `qodana.yaml` file, this does not have to be set up in the application configuration.
 
-## Analysis report overview
+Severity thresholds are configurable only via the `qodana.yaml` file. 
+
+## View analysis reports
 
 <link-summary>After your project is analyzed and the report is uploaded to %cloud%, you can view it.</link-summary>
 
-After your project is analyzed and the report is uploaded to %cloud%, you can view it as shown 
-[on this page](cloud-overview-reports.topic).
+<include from="cloud-overview-reports.topic" element-id="cloud-overview-reports-general"/>
+
+
+<!--After your project is analyzed and the report is uploaded to %cloud%, you can view it as described in the 
+[](cloud-overview-reports.topic) section. -->

@@ -1,12 +1,12 @@
-[//]: # (title: Overview of CI integration)
+[//]: # (title: Overview of CI/CD support)
 
 <tip>To learn more about available %product% licenses, visit the
     <a href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
     Also, <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a> to explore %product% capabilities.
 </tip>
 
-All Qodana [linters](linters.md) are available for integration in CI/CD pipelines. Depending on a tool, %product% can be
-integrated either as a native solution or a Docker image.
+All Qodana [linters](linters.md) are available for using in CI/CD pipelines. Depending on a tool, %product% can be
+used either as a native solution or a Docker image.
 
 | CI/CD tool                                              | Integration type |
 |---------------------------------------------------------|------------------|
@@ -18,4 +18,4 @@ integrated either as a native solution or a Docker image.
 | [Jenkins](jenkins.md)                                   | Docker image     |
 | [TeamCity](teamcity.md)                                 | Native solution  |
 
-All integration guides require that you get a [project token](project-token.md) before running %product%. 
+All tools require that you get a [project token](project-token.md) before running %product%. 

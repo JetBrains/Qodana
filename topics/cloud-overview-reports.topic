@@ -7,7 +7,7 @@
 	title="Reports" id="cloud-overview-reports">
 
     <link-summary>Learn how %cloud% aggregates and displays information from project reports.</link-summary>
-
+<snippet id="cloud-overview-reports-general">
     <p>Information from project reports is aggregated and displayed in several sections marked on this image.</p>
 
     <img src="qc-overview-reports.png" dark-src="qc-overview-reports_dark.png" alt="%cloud% report overview" width="706" border-effect="line"/>
@@ -72,5 +72,5 @@
     relatively to a <a href="baseline.topic">baseline</a> set for this project.</p>
 
     <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
-
+</snippet>
 </topic>
