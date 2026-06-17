@@ -40,7 +40,7 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 {style="tip"}
 
 During analyses, %product% linters may report that some inspections cannot find classes, packages, files or cannot resolve references, 
-although linters related to [JVM](jvm.md), [.NET](dotnet.md) and [Golang](golang.md) try to figure out the
+although linters related to [JVM](jvm.md), [.NET,](dotnet.md) and [Golang](golang.md) try to figure out the
 build system and project structure automatically. In these cases, %instance% needs a bit of help:
 
 * Install third-party packages or libraries
@@ -507,13 +507,13 @@ dependencyOverrides:
 
 where `name` is the dependency name, `version` is the dependency version, and `licenses` is the list of redefined dependency licenses.
 
-In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpath-exception and no other licenses for jaxb-runtime (only 2.3.1). This is useful when a dependency is dual-licensed, and you want to omit some license or when it's not possible to detect the license from the dependency sources correctly.
+In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpath-exception, and no other licenses for jaxb-runtime (only 2.3.1). This is useful when a dependency is dual-licensed, and you want to omit some license or when it's not possible to detect the license from the dependency sources correctly.
 
 ### Custom dependencies
 
 <link-summary>You can include a custom dependency in the license compatibility matrix.</link-summary>
 
-Currently, the license audit with %instance% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. To include the dependency that should be mentioned in the report but is impossible to detect from the project sources, use `customDependencies` to specify it:
+Currently, the license audit with %instance% is possible only for JPS, Maven, Gradle, npm, yarn, and composer projects. To include the dependency that should be mentioned in the report but is impossible to detect from the project sources, use `customDependencies` to specify it:
 
 ```yaml
 version: "1.0"
@@ -734,43 +734,82 @@ rootJavaProjects:
 ```
 
 By default, %product% recursively collects projects from subdirectories and imports them for analysis.
-This change enables incremental analysis and fixes for projects where analyzed project and VCS root are different.
+This change enables incremental analysis and fixes for projects where the analyzed project and VCS root are different.
 
-## Comprehensive configuration example
+## Comprehensive configuration examples
 
-This example demonstrates how to combine various settings in a single `qodana.yaml` file:
+This example combines multiple settings, including a quality gate, inspection profile customization, and path exclusions, 
+which are common in .NET project setups:
 
 ```yaml
 version: "1.0"
 
-linter: qodana-jvm
+# Run the %dotnet% linter in native mode
+linter: qodana-dotnet
+withinDocker: false
 
-failThreshold: 0
+# Set a quality gate: fail if the number of problems exceeds 10
+failThreshold: 10
 
+# Use the qodana.recommended profile
 profile:
   name: qodana.recommended
 
-include:
-  - name: SomeInspectionId
-    paths:
-      - tools
+# Exclude specific paths from the analysis
 exclude:
-  - name: Annotator
   - name: All
     paths:
-      - benchmarks
+      - tests/
+      - bin/
+      - obj/
 
+# Include an inspection not contained in the qodana.recommended profile
+include:
+  - name: SomeSpecificInspectionId
+    paths:
+      - src/
+
+# Restore .NET dependencies
 bootstrap: |+
-  npm install
+  dotnet restore
+```
 
+Use this example while configuring the [%jvm%](jvm.md) linter:
+
+```yaml
+version: "1.0"
+
+# Run the %jvm% linter
+linter: qodana-jvm
+
+# Set the JDK version
+jdk:
+  version: "17"
+
+# Include Java projects for analysis
+rootJavaProjects:
+  - "./gradle-project"
+  - "./maven-module/pom.xml"
+
+# Quality gate settings
 failureConditions:
   severityThresholds:
-    any: 10
+    any: 50       # Fail if total number of problems exceeds 50
+    critical: 1   # Fail if there is at least 1 critical problem
+    high: 2       # Fail if there are more than 2 high-severity problems
+  testCoverageThresholds:
+    fresh: 80     # Fail if fresh code coverage is below 80%
+    total: 90     # Fail if total code coverage is below 90%
 
-dependencyIgnores:
-  - name: "enry"
+# Disable specific inspections
+exclude:
+  - name: CheckDependencyLicenses # Disable license audit if not needed
 
+# Include custom plugins
 plugins:
   - id: com.intellij.grazie.pro
+
 ```
+
+
 
