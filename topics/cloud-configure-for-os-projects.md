@@ -63,7 +63,7 @@ The following %product% linters and their features are available with the Commun
 
 To run %product% locally, make sure that you have already deployed %product% CLI on your machine.
 
-Use linter names from the table above to replace the `<linter>` placeholders in configuration snippets later provided in this section.
+Use linter names from the table above to replace, e.g. `qodana-jvm-community`, to replace the `<linter>` placeholders in configuration snippets provided in this section. 
 
 ### Prepare %cloud%
 
@@ -105,21 +105,21 @@ The generated [project token](project-token.md) will be used in the configuratio
 <link-summary>By default, %instance% analyzes your code using the `qodana.starter` profile. You can use additional 
 inspections by specifying the `qodana.recommended` profile.</link-summary>
 
-> This setting is not supported by the `%clang-linter%` linter. The details are available in the 
+> The %clang-linter% linter does not support inspection profiles. The details are available in the 
 > [](clang.md#Adjusting+the+scope+of+analysis) chapter of the linter documentation.
 > {style="note"}
 
 By default, %instance% analyzes your code using the `qodana.starter` profile. You can use additional inspections by 
-specifying the `qodana.recommended` profile. To do it, save this configuration to the `qodana.yaml` file contained in 
+specifying the `qodana.recommended` profile. To do this, save this configuration to the `qodana.yaml` file contained in 
 your project root:
 
 <code-block lang="yaml">
-    version: 1.0
-    &nbsp;
-    profile:
-      name: qodana.recommended
-    &nbsp;
-    linter: &lt;linter&gt;
+version: "1.0"
+&nbsp;
+profile:
+  name: qodana.recommended
+&nbsp;
+linter: &lt;linter&gt;
 </code-block>
 
 Alternatively, you can make the same configuration directly in the application configuration:
@@ -280,13 +280,8 @@ analysis. A quality gate lets you configure the ultimate number of problems that
   </tr>
 </table>
 
-<note><p>Severity thresholds are supported only by the following linters:</p>
-    <ul>
-        <li><code>qodana-jvm-community</code></li>
-        <li><code>qodana-jvm-android</code></li>
-        <li><code>qodana-python-community</code></li>
-    </ul>
-</note>
+<note>The <code>qodana-jvm-community</code>, <code>qodana-jvm-android</code>, and <code>qodana-python-community</code> 
+linters do not support severity thresholds.</note>
 
 Use these snippets to configure a baseline and a quality gate for a total number of problems:
 
@@ -334,7 +329,7 @@ Use these snippets to configure a baseline and a quality gate for a total number
     </tab>
 </tabs>
 
-> When running in the baseline mode, a threshold is calculated as the sum of new and absent problems. Unchanged results are ignored.
+> When running in baseline mode, a threshold is calculated as the sum of new and absent problems. Unchanged results are ignored.
 {style="note"}
 
 
@@ -342,10 +337,10 @@ You can also configure the absolute number of problems using the `fail-threshold
 contained in your project root:
 
 ```yaml
-    version: 1.0
+version: "1.0"
     
-    fail-threshold: <number>
-    linter: <linter>
+fail-threshold: <number>
+linter: <linter>
 ```
 
 Once configured in the `qodana.yaml` file, this does not have to be set up in the application configuration.

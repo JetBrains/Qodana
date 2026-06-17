@@ -14,15 +14,19 @@
 
     <p>Here is the description of each section:</p>
 
-    <p>1. The project name, the branch name, time passed since the last analysis, the number of detected problems and their severity.</p>
-    <p>2. Analysis report using the <a href="code-coverage.md">code coverage</a> and <a href="license-audit.topic">license audit</a> features.</p>
-    <p>3. The context menu that lets you:</p>
-    <list>
-        <li>Configure HTTPS or SSH URL of the VCS</li>
-        <li>Move your project to another team</li>
-        <li>Rename the project</li>
-        <li>Copy or regenerate the <a href="project-token.md">project token</a></li>
-        <li>Delete the project</li>
+    <list type="decimal">
+        <li>The project name, the branch name, the time passed since the last analysis, the number of detected problems, and their severity.</li>
+        <li>The analysis report, which uses the <a href="code-coverage.md">code coverage</a> and <a href="license-audit.topic">license audit</a> features.</li>
+        <li>
+            <p>The context menu that lets you:</p>
+            <list>
+                <li>Configure the HTTPS or SSH URL of the VCS</li>
+                <li>Move your project to another team</li>
+                <li>Rename the project</li>
+                <li>Copy or regenerate the <a href="project-token.md">project token</a></li>
+                <li>Delete the project</li>
+            </list>
+        </li>
     </list>
 
     <p>This table shows how %cloud% interprets and displays several reports depending on their metadata.</p>
@@ -62,15 +66,17 @@
 
     <!-- To point 2.and the link to the <a href="global-configuration.md">global configuration</a> used by this project. -->
 
-    <p>1. Branch selector. Using it, you can view reports for each branch in your project.</p>
-    <p>2. Commit hash and time of the latest analysis.</p>
-    <p>3. Timeline describing the date of analysis, number of problems detected.</p>
-    <p>4. Buttons for navigating to the build page, downloading the report in
-        <a href="qodana-inspection-output.md" anchor="SARIF+Output">SARIF format</a>, opening the help guide
-        and configuring the project.</p>
-    <p>5. Selector for viewing either the absolute number of detected problems or the number of problems
-    relatively to a <a href="baseline.topic">baseline</a> set for this project.</p>
-
+    <list type="decimal">
+        <li>The branch selector, which lets you view reports for each branch in your project.</li>
+        <li>The commit hash and time of the latest analysis.</li>
+        <li>The timeline, which shows the date of the analysis and the number of detected problems.</li>
+        <li>Buttons for navigating to the build page, downloading the report in
+            <a href="qodana-inspection-output.md" anchor="SARIF+Output">SARIF format</a>, opening the help guide,
+            and configuring the project.</li>
+        <li>A selector for viewing either the absolute number of detected problems or the number of problems
+            relative to a <a href="baseline.topic">baseline</a> set for this project.</li>
+    </list>
+    
     <p>To learn more about %instance% report UI, see the <a href="ui-overview.md"/> section.</p>
 </snippet>
 </topic>

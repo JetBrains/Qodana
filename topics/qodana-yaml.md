@@ -49,6 +49,10 @@ build system and project structure automatically. In these cases, %instance% nee
 These actions are carried out using the `bootstrap` key:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 bootstrap: |+
   set -eu
   # For PHP projects that use Laravel:
@@ -100,6 +104,10 @@ Information about existing %product% profiles is available in the [](inspection-
 You can configure %product% inspection profiles using the `profile` key, for example:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 profile:
     inspections:
         - group: "category:Java/Probable bugs"
@@ -133,6 +141,10 @@ during the analysis.</note>
 Exclude all inspections for specified project paths:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 exclude:
   - name: All
     paths:
@@ -145,6 +157,10 @@ Exclude inspections specified by ID for specified project paths:
 {id="exclude-inspection"}
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 exclude:
   - name: Annotator
   - name: AnotherInspectionId
@@ -177,7 +193,11 @@ is explicitly included in the analysis scope for the `tools` directory. As a res
 the `SomeInspectionId` inspection the `tools` directory contents will be included in the %product% analysis scope.
 
 ```yaml
-  profile:
+version: "1.0"
+
+linter: <linter>
+
+profile:
   name: empty
 include:
   - name: SomeInspectionId
@@ -201,11 +221,16 @@ not registered. To enable specific plugin inspections, you can start from an
 
 <p>To disable inspections for a specific file, in the project root save the
     <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> file containing this configuration:</p>
-<code-block lang="yaml">
+<code-block lang="yaml"><![CDATA[
+    version "1.0"
+
+    linter: <linter>
+
     exclude:
-      - name: &lt;inspection-name&gt;
+      - name: <inspection-name>
     paths:
-      - &lt;path/to/the/file/from/project/root&gt;
+      - <path/to/the/file/from/project/root>
+]]>
 </code-block>
 <p>You can also suppress the inspection only for a class by adding the <code>noinspection</code> comment above the class:</p>
 <code-block lang="typescript">
@@ -226,6 +251,10 @@ You can add a fail threshold to control the total number of problems in a projec
 all linters: 
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 failThreshold: <number>
 ```
 
@@ -235,6 +264,10 @@ failThreshold: <number>
 All linters except [%dotnet-co%](dotnet.md) and [%clang%](clang.md) let you use the following configuration:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 failureConditions:
   severityThresholds:
     any: <number> # Total problems
@@ -258,6 +291,10 @@ coverage supported by [several linters](quality-gate.topic#quality-gate-code-cov
 ## Override the default run scenario
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 script:
   name: <script-name>
   parameters:
@@ -271,6 +308,10 @@ You can override the standard %instance% behavior, which can be helpful in the c
 By default, %instance% employs the `default` scenario, which means the normal %instance% run equivalent to this setting:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 script:
   name: default
 ```
@@ -280,7 +321,10 @@ script:
 <link-summary>Navigate to the section to see the combination of different configuration options.</link-summary>
 
 ```yaml
-version: 1.0
+version: "1.0"
+
+linter: <linter>
+
 failThreshold: 0
 profile:
   name: qodana.recommended
@@ -312,6 +356,8 @@ In the example above,
 Using the `linter` option, you can specify a linter that you are going to employ. For example:
 
 ```yaml
+version: "1.0"
+
 linter: %jvm-co-a-linter%
 ```
 
@@ -321,6 +367,10 @@ Use the `onlyDirectory` option to specify a directory inside your project that h
 This has to be specified relatively to the project root, for example:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 onlyDirectory: project-a
 ```
 
@@ -348,6 +398,10 @@ To learn more about configuring JDK, see the [](jvm.md#Configuring+the+JDK) sect
 You can configure the PHP version before running the [%php%](php.md) linter: 
 
 ```yaml
+version: "1.0"
+
+linter: %php-linter%
+
 php:
   version: "X.x"
 ```
@@ -359,6 +413,10 @@ php:
 By default, unexpected problems are enabled in %instance%. You can disable them using this snippet: 
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 disableSanityInspections: true
 ```
 
@@ -371,6 +429,10 @@ The [license audit](license-audit.topic) feature is enabled by default. You can 
 excluding the [`CheckDependencyLicenses`](https://www.jetbrains.com/help/inspectopedia/CheckDependencyLicenses.html) inspection:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 exclude:
   - name: CheckDependencyLicenses
 ```
@@ -382,6 +444,10 @@ exclude:
 Ignore a dependency to hide the related problems from the report:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 dependencyIgnores:
   - name: "enry"
 ```
@@ -397,6 +463,10 @@ In the example above, the `enry` dependency is completely excluded from the anal
 Override the predefined license compatibility matrix:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 licenseRules:
   - keys:
       - "PROPRIETARY-LICENSE"
@@ -420,6 +490,9 @@ In this configuration,  `keys` is the project license(s) and the dependency lice
 Override a dependency license identifier:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
 
 dependencyOverrides:
   - name: "jaxb-runtime"
@@ -443,6 +516,10 @@ In the example above, you 'tell' Qodana to detect CDDL-1.1, GPL-2.0-with-classpa
 Currently, the license audit with %instance% is possible only for JPS, Maven, Gradle, npm, yarn and composer projects. To include the dependency that should be mentioned in the report but is impossible to detect from the project sources, use `customDependencies` to specify it:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 customDependencies:
   - name: ".babelrc JSON Schema (.babelrc-schema.json)"
     version: "JSON schema for Babel 6+ configuration files"
@@ -458,6 +535,10 @@ customDependencies:
 Using the `fixesStrategy` option, you can choose among the available [Quick-Fix strategies](quick-fix.md#How+Quick-Fix+works):
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 fixesStrategy: cleanup/apply
 ```
 
@@ -484,6 +565,10 @@ the [`VulnerableLibrariesGlobal`](https://www.jetbrains.com/help/inspectopedia/V
 You can specify the plugins that will be downloaded and invoked during inspection. 
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 plugins:
   - id: <plugin.id>
 ```
@@ -511,6 +596,10 @@ To start using it, enable the [`IncorrectFormatting`](https://www.jetbrains.com/
 [inspection profile](inspection-profiles.md) configuration, for example:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 include:
   - name: IncorrectFormatting
 ```
@@ -521,6 +610,10 @@ Customize the %cpp% linter by using [CMake presets](clang.md#Configure+compilers
 the `cpp` and `cmakePreset` options:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 cpp:
   cmakePreset: my-qodana-preset
 ```
@@ -531,7 +624,10 @@ You can configure [native mode](deploy-qodana.md#deploy-qodana-native-mode) by s
 setting the `withinDocker` option to `false`, for example:
 
 ```yaml
+version: "1.0"
+
 linter: qodana-dotnet
+
 withinDocker: false
 ```
 
@@ -628,6 +724,10 @@ Native mode is currently available for the following %product% linters:
 Using the `rootJavaProjects` key, you can specify which projects should be included in the analysis, for example:
 
 ```yaml
+version: "1.0"
+
+linter: <linter>
+
 rootJavaProjects:
 - "./gradleProject"
 - "./mavenModule/pom.xml"
@@ -635,4 +735,42 @@ rootJavaProjects:
 
 By default, %product% recursively collects projects from subdirectories and imports them for analysis.
 This change enables incremental analysis and fixes for projects where analyzed project and VCS root are different.
+
+## Comprehensive configuration example
+
+This example demonstrates how to combine various settings in a single `qodana.yaml` file:
+
+```yaml
+version: "1.0"
+
+linter: qodana-jvm
+
+failThreshold: 0
+
+profile:
+  name: qodana.recommended
+
+include:
+  - name: SomeInspectionId
+    paths:
+      - tools
+exclude:
+  - name: Annotator
+  - name: All
+    paths:
+      - benchmarks
+
+bootstrap: |+
+  npm install
+
+failureConditions:
+  severityThresholds:
+    any: 10
+
+dependencyIgnores:
+  - name: "enry"
+
+plugins:
+  - id: com.intellij.grazie.pro
+```
 
