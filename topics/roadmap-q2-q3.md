@@ -17,7 +17,7 @@
 
 ## Security updates
 
-- **Opengrep plugin** available for %product%, in JetBrains Rider and JetBrains Marketplace and providing .NET and JavaScript security analysis capabilities.
+- **Security analysis** for %product%, in JetBrains Rider and JetBrains Marketplace and providing .NET and JavaScript security analysis inspections.
 - **Benchmarks** for security agent evaluation.
 
 ## Qodana Cloud
