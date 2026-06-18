@@ -97,6 +97,31 @@ bootstrap: sh ./prepare-qodana.sh
 
 To run %product% as the root user, you may need to invoke the ` --user=root` [option](docker-image-configuration.topic#docker-config-reference-qodana-scan).
 
+### Complex monorepo example
+
+In CI/CD environments like GitLab CI/CD, you may need to prepare a complex environment before the analysis starts.
+Here is an example of a monorepo setup with a `frontend` folder (Node.js) and a `backend` folder (C#):
+
+```yaml
+version: "1.0"
+
+linter: %dotnet-linter%
+
+bootstrap: |+
+  set -eu
+
+  # Install frontend dependencies
+  echo "Installing frontend dependencies..."
+  cd frontend && npm install && cd ..
+
+  # Build backend C# projects
+  echo "Building C# projects..."
+  dotnet restore backend/MySolution.sln
+  dotnet build backend/MySolution.sln --no-restore
+```
+
+You can also see the [](monorepo-project.md) section.
+
 ## Set up a profile
 
 Information about existing %product% profiles is available in the [](inspection-profiles.md#inspection-profiles-existing-profiles) section. 
