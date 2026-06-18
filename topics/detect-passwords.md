@@ -22,8 +22,7 @@ hardcodedPasswords:
   reportDefaultSuspiciousVariableNames: true
 ```
 
-You can specify your own regex rules to detect hard-coded passwords by saving them in the [`qodana.yaml`](qodana-yaml.md)
-file, for example:
+You can specify your own regex rules to detect hard-coded passwords in addition to the built-in rules by saving them in the [`qodana.yaml`](qodana-yaml.md) file, for example:
 
 ```yaml
 hardcodedPasswords:
