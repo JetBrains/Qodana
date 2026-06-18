@@ -148,6 +148,18 @@ To improve performance during the project analysis stage, follow these recommend
 attach logs from the <code>/data/results</code> directory that you can get access to by mounting your directory to the path.</p>
 </chapter>
 
+<chapter id="faq-analyze-single-folder" title="Is there a way to analyze a single folder?" default-state="collapsed" collapsible="true">
+    <p>Yes, you can use the <code>onlyDirectory</code> option in your <code>qodana.yaml</code> file to specify the directory you want to analyze. For example:</p>
+    <code-block lang="yaml"><![CDATA[
+        version: "1.0"
+        
+        linter: <linter>
+        
+        onlyDirectory: project-a
+    ]]>
+</code-block>
+</chapter>
+
 <chapter id="faq-reduce-analysis-time" title="Is there a way to reduce analysis time?" default-state="collapsed" collapsible="true">
     <p>
         Yes, you can use
