@@ -221,7 +221,9 @@ not registered. To enable specific plugin inspections, you can start from an
 
 <p>To disable inspections for a specific file, in the project root save the
     <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> file containing this configuration:</p>
-<code-block lang="yaml"><![CDATA[
+<code-block lang="yaml">
+<![CDATA[
+
     version "1.0"
 
     linter: <linter>
@@ -315,39 +317,6 @@ linter: <linter>
 script:
   name: default
 ```
-
-## Example of different configuration options
-
-<link-summary>Navigate to the section to see the combination of different configuration options.</link-summary>
-
-```yaml
-version: "1.0"
-
-linter: <linter>
-
-failThreshold: 0
-profile:
-  name: qodana.recommended
-include:
-  - name: SomeInspectionId
-exclude:
-  - name: Annotator
-  - name: AnotherInspectionId
-    paths:
-      - relative/path
-      - another/relative/path
-  - name: All
-    paths:
-      - asm-test/src/main/java/org
-      - benchmarks
-      - tools
-```
-
-In the example above,
-* `SomeInspectionId` inspection is explicitly enabled for all paths, although it is disabled in the profile
-* `Annotator` inspection is disabled for all paths
-* `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
-* no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
 ## Specify a linter
 
@@ -738,7 +707,39 @@ This change enables incremental analysis and fixes for projects where the analyz
 
 ## Comprehensive configuration examples
 
-This example combines multiple settings, including a quality gate, inspection profile customization, and path exclusions, 
+<link-summary>Navigate to the section to see the combination of different configuration options.</link-summary>
+
+```yaml
+version: "1.0"
+
+linter: <linter>
+
+failThreshold: 0
+profile:
+  name: qodana.recommended
+include:
+  - name: SomeInspectionId
+exclude:
+  - name: Annotator
+  - name: AnotherInspectionId
+    paths:
+      - relative/path
+      - another/relative/path
+  - name: All
+    paths:
+      - asm-test/src/main/java/org
+      - benchmarks
+      - tools
+```
+
+In the example above,
+* `SomeInspectionId` inspection is explicitly enabled for all paths, although it is disabled in the profile
+* `Annotator` inspection is disabled for all paths
+* `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
+* no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
+
+
+The following example combines multiple settings, including a quality gate, inspection profile customization, and path exclusions, 
 which are common in .NET project setups:
 
 ```yaml
