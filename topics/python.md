@@ -135,6 +135,14 @@ bootstrap: pip install -r requirements.txt
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,python"/>
 
+### Specify a linter
+
+<include from="lib_qd.topic" element-id="before-start-specify-a-linter"/>
+
+### Specify a directory in your project
+
+<include from="lib_qd.topic" element-id="before-start-specify-directory"/>
+
 ## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python,non-ruby,native"/>
@@ -221,6 +229,11 @@ bootstrap: |
 <p>Examples of using variables are provided in the <a anchor="Run+Qodana"/> section.</p>
 </step>
 </procedure>
+
+### Managing plugins
+
+<include from="lib_qd.topic" element-id="extending-configuration-manage-pllugins"/>
+
 
 ## Supported technologies and features
 {id="python-feature-matrix"}

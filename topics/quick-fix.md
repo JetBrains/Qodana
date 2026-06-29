@@ -74,9 +74,14 @@ You can apply Quick-Fix strategies using the following available options:
     </tab>
     <tab title="qodana.yaml" id="quick-fix-qodana-yaml">
         <p>You can use the <code>fixesStrategy</code> option in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
-        <code-block lang="yaml">
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+            
+            linter: <linter>
+            
             fixesStrategy: cleanup/apply
-        </code-block>
+        ]]>
+</code-block>
     </tab>
     <tab title="GitHub Actions" id="quick-fix-ci-pipeline">
         <p>Learn the <a href="github.md"/> section for details.</p>

@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td><a anchor="quality-gate-severity-threshold"/></td>
-            <td>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet-co%</a></td>
+            <td>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet-co%</a> and <a href="clang.md">%clang%</a></td>
             <td>Community, Ultimate, and Ultimate Plus licenses depending on a linter</td>
         </tr>
         <tr>
@@ -77,23 +77,30 @@
             <a href="linters.md">linters</a>.</p>
 
         <note>
-            If you run %product% with the quality gate and the <a href="baseline.topic">baseline</a> features enabled, a
-            threshold will be calculated as the sum of new problems.
+            If you use a quality gate together with the <a href="baseline.topic">baseline mode</a> enabled, a threshold is calculated as the sum of new and absent problems. Unchanged results are ignored.
         </note>
 
         <tabs>
             <tab title="qodana.yaml">
                 <p>This is the basic <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration supported by all linters:</p>
-                <code-block lang="yaml">
-                    failThreshold: &lt;number&gt;
-                </code-block>
+                <code-block lang="yaml"><![CDATA[
+                    version: "1.0"
+
+                    linter: <linter>
+
+                    failThreshold: <number>
+                ]]></code-block>
                 <p>Alternatively, all linters except <a href="dotnet.md">%dotnet-co%</a> support the
                     <code>severityThresholds.any</code> option:</p>
-                <code-block lang="yaml">
+                <code-block lang="yaml"><![CDATA[
+                    version: "1.0"
+
+                    linter: <linter>
+
                     failureConditions:
-                    &nbsp;&nbsp;severityThresholds:
-                    &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number-of-project-problems&gt;
-                </code-block>
+                      severityThresholds:
+                        any: <number-of-project-problems>
+                ]]></code-block>
             </tab>
             <tab title="Qodana CLI">
                 <code-block lang="shell" prompt="$">
@@ -234,16 +241,20 @@
 
         <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> severity configuration:</p>
 
-        <code-block lang="yaml">
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+
+            linter: <linter>
+
             failureConditions:
-            &nbsp;&nbsp;severityThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number&gt; # Total problems
-            &nbsp;&nbsp;&nbsp;&nbsp;critical: &lt;number&gt; # Critical and other severities
-            &nbsp;&nbsp;&nbsp;&nbsp;high: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;moderate: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;low: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;info: &lt;number&gt;
-        </code-block>
+              severityThresholds:
+                any: <number> # Total problems
+                critical: <number> # Critical and other severities
+                high: <number>
+                moderate: <number>
+                low: <number>
+                info: <number>
+        ]]></code-block>
 
     </chapter>
 
@@ -260,12 +271,16 @@
 
         <p>Here's a <a href="qodana-yaml.md"><code>qodana.yaml</code></a> configuration sample:</p>
 
-        <code-block lang="yaml">
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+
+            linter: <linter>
+
             failureConditions:
-            &nbsp;&nbsp;testCoverageThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;fresh: &lt;number&gt; # Fresh code coverage
-            &nbsp;&nbsp;&nbsp;&nbsp;total: &lt;number&gt; # Total code coverage
-        </code-block>
+              testCoverageThresholds:
+                fresh: <number> # Fresh code coverage
+                total: <number> # Total code coverage
+        ]]></code-block>
     </chapter>
 
 </topic>

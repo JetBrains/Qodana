@@ -248,6 +248,14 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
     </tab>
 </tabs>
 
+### Specify a linter
+
+<include from="lib_qd.topic" element-id="before-start-specify-a-linter"/>
+
+### Specify a directory in your project
+
+<include from="lib_qd.topic" element-id="before-start-specify-directory"/>
+
 ## Build the project
 {id="dotnet-build-project"}
 
@@ -1632,6 +1640,9 @@ You can analyze pull requests using the %dotnet% linter.
     </tab>
 </tabs>
 
+### Managing plugins
+
+<include from="lib_qd.topic" element-id="extending-configuration-manage-pllugins"/>
 
 ## Usage statistics
 

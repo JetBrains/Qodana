@@ -37,7 +37,7 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 
 > Some commands may require root user privileges. For more details, see the 
 > [](docker-image-configuration.topic#docker-config-reference-docker-environment-run-non-root) chapter.
-{style="tip"}
+> {style="tip"}
 
 During analyses, %product% linters may report that some inspections cannot find classes, packages, files or cannot resolve references, 
 although linters related to [JVM](jvm.md), [.NET,](dotnet.md) and [Golang](golang.md) try to figure out the
@@ -71,7 +71,7 @@ bootstrap: |+
 > An unexpected problem inspection will report in case the `qodana.yaml` file
 > containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the
 > `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
-{style="note"}
+> {style="note"}
 
 
 To be able to use syntax highlighting and validation in your IDE, you can create the `prepare-qodana.sh` shell script
@@ -122,7 +122,7 @@ bootstrap: |+
 
 You can also see the [](monorepo-project.md) section.
 
-## Set up a profile
+<!--## Set up a profile
 
 Information about existing %product% profiles is available in the [](inspection-profiles.md#inspection-profiles-existing-profiles) section. 
 
@@ -143,7 +143,8 @@ profile:
 ```
 
 Information about available configuration options is available in the [](inspection-profiles.md#inspection-profiles-custom-profiles) section.
-
+-->
+<!--
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}
 
@@ -249,7 +250,7 @@ not registered. To enable specific plugin inspections, you can start from an
 <code-block lang="yaml">
 <![CDATA[
 
-    version "1.0"
+    version: "1.0"
 
     linter: <linter>
 
@@ -267,8 +268,8 @@ not registered. To enable specific plugin inspections, you can start from an
             null;
     private static GithubWebhookEventSubject: any;
 </code-block>
-
-## Set a quality gate
+-->
+<!--## Set a quality gate
 
 <link-summary>You have several options for configuring a quality gate.</link-summary>
 
@@ -314,7 +315,7 @@ The `severityThresholds:any` option lets you configure the total number of probl
 `severityThresholds:critical` let you configure quality gates for each [problem severity](ui-overview.md#Severity+levels).
 The `testCoverageThresholds:fresh` and `testCoverageThresholds:total` options let you configure the total and fresh code 
 coverage supported by [several linters](quality-gate.topic#quality-gate-code-coverage). 
-
+-->
 ## Override the default run scenario
 
 ```yaml
@@ -342,7 +343,7 @@ linter: <linter>
 script:
   name: default
 ```
-
+<!--
 ## Specify a linter
 
 <link-summary>You can specify a linter that you are going to employ.</link-summary>
@@ -354,8 +355,9 @@ version: "1.0"
 
 linter: %jvm-co-a-linter%
 ```
-
-## Specify directory in your project
+-->
+<!--
+## Specify a directory in your project
 
 Use the `onlyDirectory` option to specify a directory inside your project that has to be analyzed.
 This has to be specified relatively to the project root, for example:
@@ -369,9 +371,9 @@ onlyDirectory: project-a
 ```
 
 This is useful while analyzing [monorepo projects](monorepo-project.md).
+-->
 
-
-## Configure the JDK version
+<!--## Configure the JDK version
 
 <link-summary>For JVM-based linters, you can configure the JDK version.</link-summary>
 
@@ -384,8 +386,8 @@ You can configure the JDK version for these linters:
 <include from="lib_qd.topic" element-id="configure-jdk-qodana-yaml" use-filter="configure-jdk-qodana-yaml,empty"/>
 
 To learn more about configuring JDK, see the [](jvm.md#Configuring+the+JDK) section. 
-
-## Configure the PHP version
+-->
+<!--## Configure the PHP version
 
 <link-summary>For JVM-based linters, you can configure the JDK version.</link-summary>
 
@@ -399,7 +401,8 @@ linter: %php-linter%
 php:
   version: "X.x"
 ```
-
+-->
+<!--
 ## Disable unexpected problems
 
 <link-summary>By default, unexpected problems are enabled in %instance%, but you can disable them.</link-summary>
@@ -413,7 +416,8 @@ linter: <linter>
 
 disableSanityInspections: true
 ```
-
+-->
+<!--
 ## Configure license audit
 {id="configure-license-audit"}
 
@@ -521,7 +525,8 @@ customDependencies:
       - key: "Apache-2.0"
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
-
+-->
+<!--
 ## Configure Quick-Fixes
 
 <link-summary>You can apply the cleanup or apply Quick-Fix strategies.</link-summary>
@@ -535,13 +540,16 @@ linter: <linter>
 
 fixesStrategy: cleanup/apply
 ```
-
+-->
+<!--
 ## Configure the taint analysis
 {id="configure-taint-analysis"}
 
 <link-summary>Learn how you can configure the taint analysis feature.</link-summary>
 
 <include from="taint-analysis.md" element-id="running-taint-analysis"/>
+-->
+<!--
 
 ## Configure the vulnerability checker
 
@@ -551,33 +559,40 @@ To start using the [](vulnerability-checker.md) feature, enable
 the [`VulnerableLibrariesGlobal`](https://www.jetbrains.com/help/inspectopedia/VulnerableLibrariesGlobal.html) inspection:
 
 <include from="vulnerability-checker.md" element-id="package-checking-enable"/>
+-->
 
+<!--
 ## Manage plugins
 
 <link-summary>You can specify the plugins that will be downloaded and invoked during inspection.</link-summary>
 
-You can specify the plugins that will be downloaded and invoked during inspection. 
+<p>You can specify the plugins that will be downloaded and invoked during inspection.</p>
 
-```yaml
+<code-block lang="yaml">
 version: "1.0"
 
-linter: <linter>
+linter: &lt;linter&gt;
 
 plugins:
-  - id: <plugin.id>
-```
-Here, `<plugin-id>` denotes the Plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example, 
-for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional), the Plugin ID will be `com.intellij.grazie.pro`. To find the Plugin ID, on the plugin
-page click the **Overview** tab and then navigate to the **Additional Information** section.
 
-Plugin cache is stored in the `/data/cache/plugins` directory.
+- id: &lt;plugin.id&gt;
 
-To install third-party software required for your plugins, you can:
+</code-block>
 
-* Use the [`bootstrap`](qodana-yaml.md#Run+custom+commands) key.
-* Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %instance% `Dockerfile`
-examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
+<p>Here, <code>&lt;plugin-id&gt;</code> denotes the Plugin ID from <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example, 
+for <a href="https://plugins.jetbrains.com/plugin/16136-grazie-professional">Grazie Professional</a>, the Plugin ID will be <code>com.intellij.grazie.pro</code>. To find the Plugin ID, on the plugin
+page click the <b>Overview</b> tab and then navigate to the <b>Additional Information</b> section.</p>
 
+<p>Plugin cache is stored in the <code>/data/cache/plugins</code> directory.</p>
+
+<p>To install third-party software required for your plugins, you can:</p>
+
+<list>
+<li>Use the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key.</li>
+<li>Develop your custom <code>Dockerfile</code> that starts with <code>FROM jetbrains/qodana...</code>. You can use %instance% <code>Dockerfile</code>
+examples available on <a href="https://github.com/jetbrains/qodana-docker">GitHub</a>.</li>
+</list>
+-->
 ## Incorrect Formatting inspection
 
 The  [`IncorrectFormatting`](%incorrect-formatting%) inspection consolidates multiple formatting errors contained in
@@ -597,7 +612,7 @@ linter: <linter>
 include:
   - name: IncorrectFormatting
 ```
-
+<!--
 ## Specify a CMake preset
 
 Customize the %cpp% linter by using [CMake presets](clang.md#Configure+compilers+and+environments). Invoke presets using 
@@ -611,7 +626,7 @@ linter: <linter>
 cpp:
   cmakePreset: my-qodana-preset
 ```
-
+-->
 ## Configure native mode
 
 You can configure [native mode](deploy-qodana.md#deploy-qodana-native-mode) by specifying a [linter](linters.md) and 
@@ -626,7 +641,7 @@ withinDocker: false
 ```
 
 > The `ide` notation available in previous versions of %product% is deprecated and will be removed in future versions of the product.
-{style="note"}
+> {style="note"}
 
 Native mode is currently available for the following %product% linters:
 
@@ -713,6 +728,7 @@ Native mode is currently available for the following %product% linters:
     </tr>-->
 </table>
 
+<!--
 ## Configure Java and Kotlin projects in monorepo
 
 Using the `rootJavaProjects` key, you can specify which projects should be included in the analysis, for example:
@@ -729,7 +745,9 @@ rootJavaProjects:
 
 By default, %product% recursively collects projects from subdirectories and imports them for analysis.
 This change enables incremental analysis and fixes for projects where the analyzed project and VCS root are different.
+-->
 
+<!--
 ## Comprehensive configuration examples
 
 <link-summary>Navigate to the section to see the combination of different configuration options.</link-summary>
@@ -836,6 +854,6 @@ plugins:
   - id: com.intellij.grazie.pro
 
 ```
-
+-->
 
 

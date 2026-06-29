@@ -61,21 +61,33 @@
         <p filter="configure-jdk-qodana-yaml">Use the <code>projectJDK</code> option to specify
             the JDK version, for example: </p>
 
-        <code-block lang="yaml">
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+
+            linter: <linter>
+
             projectJDK: 11
-        </code-block>
+        ]]></code-block>
 
         <p>or:</p>
 
-        <code-block lang="yaml">
-            projectJDK: 1.8
-        </code-block>
+        <code-block lang="yaml"><![CDATA[
+        version: "1.0"
+
+        linter: <linter>
+
+        projectJDK: 1.8
+        ]]></code-block>
 
         <p>You can also specify JDK using the name:</p>
 
-        <code-block lang="yaml">
-            projectJDK: corretto-19
-        </code-block>
+        <code-block lang="yaml"><![CDATA[
+        version: "1.0"
+
+        linter: <linter>
+
+        projectJDK: corretto-19
+        ]]></code-block>
     </snippet>
 
     <snippet id="linters-supported-features">
@@ -2611,6 +2623,69 @@
        </tabs>
             </tab>
         </tabs>
+    </snippet>
+
+    <snippet id="before-start-specify-a-linter">
+        <link-summary>You can specify a linter that you are going to employ.</link-summary>
+        <p>Using the <code>linter</code> option of the <a href="configure-qodana.md"><code>qodana.yaml</code></a> file, you can specify a linter that you
+            are going to employ. For example:</p>
+
+        <code-block lang="yaml">
+          version: "1.0"
+
+          linter: %qd-linter%
+        </code-block>
+
+        <p>After you configure a linter using this method, you do not need to configure it again for individual applications.</p>
+
+    </snippet>
+
+    <snippet id="before-start-specify-directory">
+
+        <p>Use the <code>onlyDirectory</code> option to specify a directory inside your project that has to be analyzed.
+            This has to be specified relatively to the project root, for example:</p>
+
+        <code-block lang="yaml"><![CDATA[
+        version: "1.0"
+
+        linter: <linter>
+
+        onlyDirectory: project-a
+        ]]></code-block>
+
+        <p>This is useful while analyzing <a href="monorepo-project.md">monorepo projects</a>.</p>
+
+    </snippet>
+
+    <snippet id="extending-configuration-manage-pllugins">
+
+        <p>You can specify the plugins that will be downloaded and invoked during inspection.</p>
+
+        <code-block lang="yaml">
+version: "1.0"
+
+linter: &lt;linter&gt;
+
+plugins:
+    - id: &lt;plugin.id&gt;
+
+</code-block>
+
+        <p>Here, <code>&lt;plugin-id&gt;</code> denotes the Plugin ID from <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>. For example,
+            for <a href="https://plugins.jetbrains.com/plugin/16136-grazie-professional">Grazie Professional</a>, the Plugin ID will be <code>com.intellij.grazie.pro</code>. To find the Plugin ID, on the plugin
+            page click the <b>Overview</b> tab and then navigate to the <b>Additional Information</b> section.</p>
+
+        <p>Plugin cache is stored in the <code>/data/cache/plugins</code> directory.</p>
+
+        <p>To install third-party software required for your plugins, you can:</p>
+
+        <list>
+            <li>Use the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key.</li>
+            <li>Develop your custom <code>Dockerfile</code> that starts with <code>FROM jetbrains/qodana...</code>. You can use %instance% <code>Dockerfile</code>
+                examples available on <a href="https://github.com/jetbrains/qodana-docker">GitHub</a>.</li>
+        </list>
+
+
     </snippet>
 
 </topic>

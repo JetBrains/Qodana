@@ -105,6 +105,14 @@ include:
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
+### Specify a linter
+
+<include from="lib_qd.topic" element-id="before-start-specify-a-linter"/>
+
+### Specify a directory in your project
+
+<include from="lib_qd.topic" element-id="before-start-specify-directory"/>
+
 ## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js,native,non-ruby"/>
@@ -130,6 +138,10 @@ include:
 ### Analyzing pull requests
 
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,js,native"/>
+
+### Managing plugins
+
+<include from="lib_qd.topic" element-id="extending-configuration-manage-pllugins"/>
 
 ## Supported technologies and features
 {id="js-feature-matrix"}

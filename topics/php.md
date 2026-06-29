@@ -74,6 +74,8 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="php-before-you-start"}
 
+You can configure %product% using the [`qodana.yaml`](qodana-yaml.md) file.
+
 ### Install project dependencies
 
 In case a project has external dependencies, you can set them up using the `bootstrap` key in the [`qodana.yaml`](qodana-yaml.md) file.
@@ -81,12 +83,30 @@ For example, if your project dependencies are specified by the `composer.json` f
 line to `qodana.yaml`:
 
 ```yaml
+version: "1.0"
+
+linter: %php-linter%
+
 bootstrap: composer install --ignore-platform-reqs
 ```
 The command will be automatically executed before the analysis. 
 
 The `--ignore-platform-reqs` option bypasses PHP version incompatibility issues between %product% and your project. 
 
+### Configure the PHP version
+
+<link-summary>For JVM-based linters, you can configure the JDK version.</link-summary>
+
+Using the `qodana.yaml` file, you can configure the PHP version before running the linter:
+
+```yaml
+version: "1.0"
+
+linter: %php-linter%
+
+php:
+  version: "X.x"
+```
 
 ### Qodana Cloud
 
@@ -95,6 +115,14 @@ The `--ignore-platform-reqs` option bypasses PHP version incompatibility issues 
 ### Prepare your software
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
+
+### Specify a linter
+
+<include from="lib_qd.topic" element-id="before-start-specify-a-linter"/>
+
+### Specify a directory in your project
+
+<include from="lib_qd.topic" element-id="before-start-specify-directory"/>
 
 ## Run Qodana
 
@@ -121,6 +149,10 @@ The `--ignore-platform-reqs` option bypasses PHP version incompatibility issues 
 ### Analyzing pull requests
 
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,php,native"/>
+
+### Managing plugins
+
+<include from="lib_qd.topic" element-id="extending-configuration-manage-pllugins"/>
 
 ## Supported technologies and features
 {id="php-feature-matrix"}

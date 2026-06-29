@@ -201,6 +201,20 @@ These profiles are hosted on
 </tab>
 </tabs>
 
+### Disable unexpected problems
+
+<link-summary>By default, unexpected problems are enabled in %instance%, but you can disable them.</link-summary>
+
+By default, unexpected problems are enabled in %instance% using the `qodana.sanity` profile. You can disable them using this snippet:
+
+```yaml
+version: "1.0"
+
+linter: <linter>
+
+disableSanityInspections: true
+```
+
 ## Custom profiles
 {id="inspection-profiles-custom-profiles"}
 

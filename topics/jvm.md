@@ -192,9 +192,34 @@ To see the list of supported technologies and features, you can navigate to the 
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,jvm"/>
 
-### Preparing your software
+### Prepare your software
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,jvm"/>
+
+### Specify a linter
+
+<include from="lib_qd.topic" element-id="before-start-specify-a-linter"/>
+
+### Configure Java and Kotlin projects in monorepo
+
+Using the `rootJavaProjects` key, you can specify which projects should be included in the analysis, for example:
+
+```yaml
+version: "1.0"
+
+linter: <linter>
+
+rootJavaProjects:
+- "./gradleProject"
+- "./mavenModule/pom.xml"
+```
+
+By default, %product% recursively collects projects from subdirectories and imports them for analysis.
+This change enables incremental analysis and fixes for projects where the analyzed project and VCS root are different.
+
+### Specify a directory in your project
+
+<include from="lib_qd.topic" element-id="before-start-specify-directory"/>
 
 ### K2 Mode
 
@@ -262,9 +287,11 @@ Otherwise, %instance% will download the subsequent version from this list.
 You can mount JDK from your local filesystem to the `/root/.jdks` folder of the %instance% Docker image:
 
 ```shell
-$ docker run -v /path/to/jdk:/root/.jdks/jdk \
-jetbrains/qodana-<linter>
+docker run \
+    -v /path/to/jdk:/root/.jdks/jdk \
+    <linter>
 ```
+{prompt="$"}
 
 ## Run Qodana
 
@@ -333,6 +360,11 @@ jetbrains/qodana-<linter>
 ### Analyzing pull requests
 
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,jvm,native"/>
+
+### Managing plugins
+
+<include from="lib_qd.topic" element-id="extending-configuration-manage-pllugins"/>
+
 
 ## Supported technologies and features
 {id="jvm-feature-matrix"}

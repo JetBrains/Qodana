@@ -244,6 +244,29 @@ the project, generates analysis reports and saves them locally or uploads to %cl
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
+### Specify a linter
+
+<include from="lib_qd.topic" element-id="before-start-specify-a-linter"/>
+
+### Specify a directory in your project
+
+<include from="lib_qd.topic" element-id="before-start-specify-directory"/>
+
+### Specify a CMake preset
+
+Customize the %cpp% linter by using [CMake presets](clang.md#Configure+compilers+and+environments). Invoke presets using
+the `cpp` and `cmakePreset` options of the `qodana.yaml` file:
+
+```yaml
+version: "1.0"
+
+linter: <linter>
+
+cpp:
+  cmakePreset: my-qodana-preset
+```
+
+
 ## Run Qodana
 
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>

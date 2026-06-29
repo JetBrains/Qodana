@@ -102,6 +102,14 @@ The command will be automatically executed before the analysis to install depend
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
+### Specify a linter
+
+<include from="lib_qd.topic" element-id="before-start-specify-a-linter"/>
+
+### Specify a directory in your project
+
+<include from="lib_qd.topic" element-id="before-start-specify-directory"/>
+
 ## Run Qodana
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,ruby"/>
@@ -128,6 +136,10 @@ The command will be automatically executed before the analysis to install depend
 ### Analyzing pull requests
 
 <include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,generic,golang"/>
+
+### Managing plugins
+
+<include from="lib_qd.topic" element-id="extending-configuration-manage-pllugins"/>
 
 ## Supported technologies and features
 {id="ruby-feature-matrix"}

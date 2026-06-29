@@ -4,7 +4,7 @@
 <topic 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-	title="Introduction" id="features">
+	title="Feature introduction" id="features">
 
     <link-summary>Use Qodana features to enhance your code inspection workflow.</link-summary>
 
@@ -16,211 +16,71 @@
         <p>Using %instance%, you can significantly enhance your code inspection workflow. To better achieve your
            goals, you may want to start using several features that are available out of the box: </p>
 
-        <table>
-            <tr>
-                <td>
-                    Feature
-                </td>
-                <td>
-                    Description
-                </td>
-                <td>
-                    Available under <a href="pricing.md">licenses</a>
-                </td>
-                <td>
-                    Supported by
-                </td>
-            </tr>
-            <tr>
-                <td><a href="inspect-your-code.md" anchor="Analysis+modes">Static analysis of code</a></td>
-                <td>Let %product% analyze your codebase and get recommendations for improvement</td>
-                <td>
-                    <p>Community</p>
-                    <p>Ultimate</p>
-                    <p>Ultimate Plus</p>
-                </td>
-                <td>All <a href="linters.md">linters</a></td>
-            </tr>
-            <tr>
-                <td><a href="baseline.topic"/></td>
-                <td>Group the existing code problems
-                    into several categories to efficiently monitor your code evolution</td>
-                <td>
-                        <p>Community</p>
-                        <p>Ultimate</p>
-                        <p>Ultimate Plus</p>
-                </td>
-                <td>All <a href="linters.md">linters</a></td>
-            </tr>
-            <tr>
-                <td><a href="code-coverage.md"/></td>
-                <td>Support for the test code coverage</td>
-                <td>
-                        <p>Ultimate</p>
-                        <p>Ultimate Plus</p>
-                </td>
-                <td>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                    <p><a href="js.md">%js%</a></p>
-                    <p><a href="php.md">%php%</a></p>
-                    <p><a href="dotnet.md">%dotnet%</a></p>
-                    <p><a href="python.md">%python%</a></p>
-                    <p><a href="golang.md">%go%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="flexinspect.md"/></td>
-                <td>Develop your own inspections using <a href="https://www.jetbrains.com/help/idea">IntelliJ IDEA</a> and <a href="https://kotlinlang.org/">Kotlin</a></td>
-                <td>
-                    <p>Ultimate</p>
-                    <p>Ultimate Plus</p>
-                </td>
-                <td>All <a href="linters.md">linters</a> except <a href="dotnet.md">%dotnet%</a> and <a href="clang.md">%clang%</a></td>
-            </tr>
-            <tr>
-                <td><a href="global-configuration.md"/></td>
-                <td>Share %product% configurations across multiple projects</td>
-                <td>
-                    <p>Ultimate Plus</p>
-                </td>
-                <td>
-                    <p><a href="dotnet.md">%dotnet%</a></p>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                    <p><a href="jvm.md">%jvm-a%</a></p>
-                    <p><a href="js.md">%js%</a></p>
-                    <p><a href="php.md">%php%</a></p>
-                    <p><a href="python.md">%python%</a></p>
-                    <p><a href="golang.md">%go%</a></p>
-                    <p><a href="clang.md">%cpp%</a></p>
-                    <p><a href="ruby.md">%ruby%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="insights.md"/></td>
-                <td>Examine aggregated data on organizational and team levels in %cloud%.</td>
-                <td>
-                    <p>Ultimate Plus</p>
-                </td>
-                <td>
-                    <p><a href="dotnet.md">%dotnet%</a></p>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                    <p><a href="jvm.md">%jvm-a%</a></p>
-                    <p><a href="js.md">%js%</a></p>
-                    <p><a href="php.md">%php%</a></p>
-                    <p><a href="python.md">%python%</a></p>
-                    <p><a href="golang.md">%go%</a></p>
-                    <p><a href="clang.md">%cpp%</a></p>
-                    <p><a href="ruby.md">%ruby%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="license-audit.topic"/></td>
-                <td>Verify your project license for compatibility with the licenses of its dependencies</td>
-                <td>Ultimate Plus</td>
-                <td>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                    <p><a href="js.md">%js%</a></p>
-                    <p><a href="php.md">%php%</a></p>
-                    <p><a href="dotnet.md">%dotnet%</a></p>
-                    <p><a href="python.md">%python%</a></p>
-                    <p><a href="golang.md">%go%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="php-language-upgrade.topic"/></td>
-                <td>Monitor problems specific to a specific PHP version that may arise when you decide to migrate between versions</td>
-                <td>
-                        <p>Ultimate</p>
-                        <p>Ultimate Plus</p>
-                </td>
-                <td>
-                    <p><a href="php.md">%php%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="cloud-api.md"/></td>
-                <td>Create teams and projects in %cloud% and %premlite% using the API</td>
-                <td>
-                    <p>Ultimate Plus</p>
-                </td>
-                <td>
-                    <p><a href="dotnet.md">%dotnet%</a></p>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                    <p><a href="jvm.md">%jvm-a%</a></p>
-                    <p><a href="js.md">%js%</a></p>
-                    <p><a href="php.md">%php%</a></p>
-                    <p><a href="python.md">%python%</a></p>
-                    <p><a href="golang.md">%go%</a></p>
-                    <p><a href="clang.md">%cpp%</a></p>
-                    <p><a href="ruby.md">%ruby%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="quality-gate.topic"/></td>
-                <td>Ensure that your code contains the minimum
-                    number of problems or is completely free of them. If combined with the baseline, this feature will make
-                    your code quality monitoring even more flexible</td>
-                <td>
-                        <p>Community</p>
-                        <p>Ultimate</p>
-                        <p>Ultimate Plus</p>
-                </td>
-                <td>All <a href="linters.md">linters</a></td>
-            </tr>
-            <tr>
-                <td><a href="quick-fix.md"/></td>
-                <td>Use the Quick-Fix feature to improve the performance of the project development</td>
-                <td>
-                        <p>Ultimate</p>
-                        <p>Ultimate Plus</p>
-                </td>
-                <td>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                    <p><a href="js.md">%js%</a></p>
-                    <p><a href="php.md">%php%</a></p>
-                    <p><a href="python.md">%python%</a></p>
-                    <p><a href="golang.md">%go%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="cloud-sso.md"/></td>
-                <td>Use third-party identity providers for authentication in %cloud%.</td>
-                <td>
-                    <p>Ultimate Plus</p>
-                </td>
-                <td>
-                    <p><a href="dotnet.md">%dotnet%</a></p>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                    <p><a href="jvm.md">%jvm-a%</a></p>
-                    <p><a href="js.md">%js%</a></p>
-                    <p><a href="php.md">%php%</a></p>
-                    <p><a href="python.md">%python%</a></p>
-                    <p><a href="golang.md">%go%</a></p>
-                    <p><a href="clang.md">%cpp%</a></p>
-                    <p><a href="ruby.md">%ruby%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="taint-analysis.md"/></td>
-                <td>Secure your code from malicious user data</td>
-                <td>Ultimate Plus</td>
-                <td>
-                    <p><a href="php.md">%php%</a></p>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="vulnerability-checker.md"/></td>
-                <td>Check third-party packages for vulnerabilities</td>
-                <td>Ultimate Plus</td>
-                <td>
-                    <p><a href="jvm.md">%jvm%</a></p>
-                    <p><a href="js.md">%js%</a></p>
-                    <p><a href="dotnet.md">%dotnet%</a></p>
-                    <p><a href="python.md">%python%</a></p>
-                    <p><a href="golang.md">%go%</a></p>
-                </td>
-            </tr>
-        </table>
-
+        <p><b>Static code analysis</b>: analyze your codebase and get recommendations for improvement.<br/>
+            Linters: <a href="linters.md">all</a>.<br/>
+            Licenses: Community, Ultimate, Ultimate Plus.</p>
+    <p><b><a href="baseline.topic">Baseline</a></b>: group existing code problems to monitor your code evolution.<br/>
+            Linters: <a href="linters.md">all</a><br/>
+            Licenses: Community, Ultimate, Ultimate Plus</p>
+    <p><b><a href="code-coverage.md">Code coverage</a></b>: calculate the overall code coverage inside a method, class, and file. <br/>
+            Linters: <a href="jvm.md">%jvm%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, <a href="dotnet.md">%dotnet%</a>, <a href="python.md">%python%</a>, <a href="golang.md">%go%</a><br/>
+            Licenses: Ultimate and Ultimate Plus
+        </p>
+        <p><b><a href="flexinspect.md"/></b>: develop your own inspections using <a href="https://www.jetbrains.com/help/idea">IntelliJ IDEA</a> and <a href="https://kotlinlang.org/">Kotlin</a>.<br/>
+            Linters: <a href="jvm.md">%jvm%</a>, <a href="jvm.md">%jvm-co%</a>, <a href="jvm.md">%jvm-co-a%</a>, <a href="jvm.md">%jvm-a%</a>, <a href="php.md">%php%</a>,
+            <a href="js.md">%js%</a>, <a href="dotnet.md">%dotnet-co%</a>, <a href="clang.md">%cpp%</a>, <a href="python.md">%python%</a>,
+            <a href="python.md">%python-co%</a>, <a href="golang.md">%go%</a>, <a href="ruby.md">%ruby%</a>, <a href="rust.md">%rust%</a><br/>
+            Licenses: Ultimate and Ultimate Plus
+        </p>
+        <p><b><a href="global-configuration.md"/></b>: share %product% configurations across multiple projects.<br/>
+            Linters: <a href="dotnet.md">%dotnet%</a>, <a href="jvm.md">%jvm%</a>, <a href="jvm.md">%jvm-a%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, <a href="python.md">%python%</a>,
+            <a href="golang.md">%go%</a>, <a href="clang.md">%cpp%</a>, <a href="ruby.md">%ruby%</a><br/>
+            License: Ultimate Plus
+        </p>
+        <p><b><a href="insights.md"/></b>: examine aggregated data on organizational and team levels in %cloud%.<br/>
+            Linters: <a href="dotnet.md">%dotnet%</a>, <a href="jvm.md">%jvm%</a>, <a href="jvm.md">%jvm-a%</a>,
+            <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, <a href="python.md">%python%</a>,
+            <a href="golang.md">%go%</a>, <a href="clang.md">%cpp%</a>, <a href="ruby.md">%ruby%</a><br/>
+            License: Ultimate Plus
+        </p>
+        <p><b><a href="license-audit.topic"/></b>: verify license compatibility between your project and its dependencies.<br/>
+            Linters: <a href="dotnet.md">%dotnet%</a>, <a href="jvm.md">%jvm%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, <a href="python.md">%python%</a>,
+            <a href="golang.md">%go%</a><br/>
+            License: Ultimate Plus
+        </p>
+        <p><b><a href="php-language-upgrade.topic"/></b>: monitor how changing PHP versions can affect project quality.<br/>
+            Linter: <a href="php.md">%php%</a><br/>
+            Licenses: Ultimate and Ultimate Plus
+        </p>
+        <p><b><a href="cloud-api.md"/></b>: manage %cloud% and %premlite% using the API.<br/>
+            Linters: <a href="dotnet.md">%dotnet%</a>, <a href="jvm.md">%jvm%</a>, <a href="jvm.md">%jvm-a%</a>,
+            <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, <a href="python.md">%python%</a>, <a href="golang.md">%go%</a>,
+            <a href="clang.md">%cpp%</a>, <a href="ruby.md">%ruby%</a><br/>
+            License: Ultimate Plus
+        </p>
+        <p><b><a href="quality-gate.topic"/></b>: set problem thresholds for your project. <br/>
+            Linters: <a href="linters.md">all</a><br/>
+            Licenses: Community, Ultimate, Ultimate Plus
+        </p>
+        <p><b><a href="quick-fix.md"/></b>: improve the performance of project development.<br/>
+            Linters: <a href="jvm.md">%jvm%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, <a href="python.md">%python%</a>,
+            <a href="golang.md">%go%</a><br/>
+            Licenses: Ultimate and Ultimate Plus
+        </p>
+        <p><b><a href="cloud-sso.md"/></b>: use third-party identity providers for authentication in %cloud%.<br/>
+            Linters: <a href="dotnet.md">%dotnet%</a>, <a href="jvm.md">%jvm%</a>, <a href="jvm.md">%jvm-a%</a>,
+            <a href="js.md">%js%</a>, <a href="php.md">%php%</a>, <a href="python.md">%python%</a>,
+            <a href="golang.md">%go%</a>, <a href="clang.md">%cpp%</a>, <a href="ruby.md">%ruby%</a><br/>
+            License: Ultimate Plus
+        </p>
+        <p><b><a href="taint-analysis.md"/></b>: secure your code from malicious user data.<br/>
+            Linters: <a href="jvm.md">%jvm%</a>, <a href="php.md">%php%</a><br/>
+            License: Ultimate Plus
+        </p>
+        <p><b><a href="vulnerability-checker.md"/></b>: сheck third-party packages for vulnerabilities.<br/>
+            Linters: <a href="dotnet.md">%dotnet%</a>, <a href="jvm.md">%jvm%</a>,
+            <a href="js.md">%js%</a>, <a href="python.md">%python%</a>,
+            <a href="golang.md">%go%</a><br/>
+            License: Ultimate Plus
+        </p>
 </topic>

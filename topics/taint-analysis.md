@@ -215,7 +215,7 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
     inspection into the analysis scope:</p>
 
   <code-block lang="yaml"><![CDATA[
-  version "1.0"
+  version: "1.0"
 
   linter: %php-linter%
 
@@ -239,7 +239,7 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
   <code>JvmTaintAnalysis</code> inspection into the analysis scope:</p>
 
   <code-block lang="yaml"><![CDATA[
-  version "1.0"
+  version: "1.0"
 
   linter: %jvm-linter%
 
