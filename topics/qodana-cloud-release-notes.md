@@ -4,7 +4,7 @@
 
 ## June 2026
 
-Here's everything that shipped in Qodana Cloud over the month. As always, this covers
+Here's a summary of everything that has been shipped in Qodana Cloud this month. As always, this covers
 user-facing features, UI improvements, bug fixes, and stability work that affects your experience.
 
 ### Security
@@ -58,8 +58,8 @@ evolved across your projects — not just the current snapshot.
 
 ## January-May 2026
 
-Starting today, the %product% team will publish a monthly summary of everything that is shipped in Qodana Cloud. 
-Whether it’s a new feature, a bug squashed, or a behind-the-scenes improvement that makes the platform faster or more reliable, you'll find it here.
+Starting today, the %product% team will publish a monthly summary of everything that has shipped in Qodana Cloud. 
+Whether it’s a new feature, a bug fix, or a behind-the-scenes improvement that makes the platform faster or more reliable, you'll find it here.
 
 We’ll publish each edition on a dedicated page in the Qodana documentation, so you'll always have a 
 single place to check what's new.
@@ -75,7 +75,7 @@ The %product% team always prioritizes security updates. Here's what we addressed
 * **Report sharing access controls hardened**. We tightened the access rules on report sharing endpoints to ensure only authorized users can access shared reports.
 * **Session cookie now correctly expires on logout**. Previously, Self-Hosted deployments could leave a valid session cookie behind after logout. This has been fixed — logging out now fully invalidates the session.
 * **OAuth PKCE parameters secured**. PKCE parameters are now passed inside the OAuth state parameter rather than as plain query parameters, closing a potential attack vector.
-* **Critical dependency vulnerabilities patched**. Multiple critical and high-severity vulnerabilities in underlying dependencies — including a Go standard library, Netty, and OpenSSL — were addressed in our Docker images.
+* **Critical dependency vulnerabilities patched**. Multiple critical and high-severity vulnerabilities in underlying dependencies — including the Go standard library, Netty, and OpenSSL — were addressed in our Docker images.
 
 ### New features
 
@@ -117,7 +117,7 @@ The %product% team always prioritizes security updates. Here's what we addressed
 * **‘Open in Cursor’ support**. In addition to existing IDE support options, you can now open a problem directly in Cursor.
 * **‘Open in VCS’ action** now adapts to the repository type (GitHub, GitLab, etc.) for each problem.
 * **SARIF download improvements**. SARIF file handling in the [report](ui-overview.md) viewer has been overhauled, with better download support.
-* **‘Expand/Collapse all’ button** added to the issue list in the report viewer for faster navigation of large reports.
+* **‘Expand/Collapse all’ button added** to the issue list in the report viewer for faster navigation of large reports.
 * **Filters from Insights now carry over to the report** — when you navigate from Insights into a specific report, your active filters follow you.
 * **Report tabs** have been refreshed with updated colors and more visually distinct styling.
 * **Redesigned report filters** with improved grouping and severity sorting for faster navigation.
@@ -139,7 +139,7 @@ The %product% team always prioritizes security updates. Here's what we addressed
 * **API-created projects** now correctly support VCS settings (SSH/HTTPS) updates, which previously failed due to a missing internal repository record.
 * **Switching repository URL type** from SSH to HTTPS no longer crashes the UI.
 * **Expanded problems in the report** now render at the correct height when clicking "show more."
-* **The "Choose a linter" dropdown** now shows explicit language support in brackets, e.g. JVM (Java, Kotlin, Groovy, JavaScript, TypeScript) and is full-width, so nothing gets cut off.
+* **The "Choose a linter" dropdown** now shows explicit language support in brackets, e.g., JVM (Java, Kotlin, Groovy, JavaScript, TypeScript) and is now full-width, preventing content from being cut off.
 
 
 That’s everything for this edition. If you have feedback or run into anything unexpected, please let us know through the in-app feedback button.
