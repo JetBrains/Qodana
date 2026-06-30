@@ -13,7 +13,6 @@
 		<toc-element topic="contributors.md" accepts-web-file-names="faq.html"/>
 		<toc-element topic="Quick-start.topic" accepts-web-file-names="cli.html,cloud-onboarding.html,set-up-your-project.html"/>
 	</toc-element>
-    <toc-element topic="roadmap-q2-q3.md"/>
 
     <!-- Features section -->
 	<toc-element toc-title="Feature overview">
