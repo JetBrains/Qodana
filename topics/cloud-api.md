@@ -816,9 +816,9 @@ Here is the description of the request body:
 
 | Parameter              | Type          | Required  | Description                                                 | Example value                                                      |
 |------------------------|---------------|-----------|-------------------------------------------------------------|--------------------------------------------------------------------|
-| `includeProjectIds`    | array[string] | No        | List of project IDs to include in the query                 | `["proj_123", "proj_456"]`                                         |
-| `includeInspectionIds` | array[string] | No        | List of inspection IDs to include in the query              | `["insp_123", "insp_456"]`                                         |
-| `includeTeamIds`       | array[string] | No        | List of team IDs to include in the query                    | `["team_123", "team_456"]`                                         |
+| `includeProjectIds`    | array[string] | No        | List of project IDs to include in the query                 | `["Dg9Ca", "Ec3Bb"]`                                               |
+| `includeInspectionIds` | array[string] | No        | List of inspection IDs to include in the query              | `["ReplaceMapGetOrDefault", "ObjectPrivatePropertyName"]`          |
+| `includeTeamIds`       | array[string] | No        | List of team IDs to include in the query                    | `["2rcq6", "3hen0"]`                                               |
 | `timeRange`            | object        | No        | Time range for the query. Contains start and end timestamps | `{"start": "2026-01-01T00:00:00Z", "end": "2026-05-12T00:00:00Z"}` |
 
 
