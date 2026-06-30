@@ -2,6 +2,60 @@
 
 <show-structure for="chapter" depth="3"/>
 
+## June 2026
+
+Here's everything that shipped in Qodana Cloud over the month. As always, this covers
+user-facing features, UI improvements, bug fixes, and stability work that affects your experience.
+
+### Security
+{id="june-2026-security"}
+
+**Rate limiting added to the organizations API**. The `/api/v1/organizations`
+endpoint now has proper rate limiting in place, closing a potential denial-of-service attack
+vector.
+
+### New features
+{id="june-2026-new-features"}
+
+#### Insights
+{id="june-2026-new-features-insights"}
+
+- **Code coverage trends over time**. The code coverage view in Insights now shows a
+historical trend chart for the selected time period, so you can see how coverage has
+evolved across your projects — not just the current snapshot.
+- **Checks filter in Insights**. You can now filter Insights data by specific checks, giving you
+  more precise control over the data you're analyzing.
+
+#### Settings & tokens
+{id="june-2026-new-features-settings-and-tokens"}
+
+- **Token list sortable in settings**. Organization project tokens can now be sorted by team
+  name, project name, last used date, and expiration date, making it easier to manage
+  tokens at scale.
+
+#### Global configuration
+{id="june-2026-new-features-global-configuration"}
+
+- **Alerts when global configuration changes affect projects**. When a global
+  configuration is modified in a way that disconnects or overrides connected projects, you
+  now see an explicit in-app alert, instead of the change happening silently.
+
+### UI improvements
+{id="june-2026-ui-improvements"}
+
+- **Redesigned report filters**. The filter panel has been overhauled with improved
+  grouping and severity-based sorting, making it faster to zero in on the problems that
+  matter.
+
+### Bug fixes
+{id="june-2026-bug-fixes"}
+
+- **Token refresh button clipped for long names in Settings**. In the Settings → Tokens
+  tab, the refresh action button was partially hidden when team or project names were
+  long. This is now fixed.
+- **"Open in GitHub" project button was unresponsive**. Fixed an issue where the button
+  did not respond to clicks in certain states.
+
 ## January-May 2026
 
 Starting today, the %product% team will publish a monthly summary of everything that is shipped in Qodana Cloud. 
