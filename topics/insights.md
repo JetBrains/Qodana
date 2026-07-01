@@ -18,13 +18,12 @@ page click the **Insights** button. To do the same on a team level, click this b
 ## Dashboard filters
 
 The upper part of the **Insights** page contains filters that let you filter widgets by
-[projects](cloud-projects.topic), [severities](ui-overview.md#Severity+levels), [baseline](baseline.topic),
-and inspections.
+[projects](cloud-projects.topic), [severities](ui-overview.md#Severity+levels), inspections (checks), and [baseline](baseline.topic).
 
 After you configure all widgets, you can save the configured dashboard using the **Saved filters** dropdown list.
 Alternatively, you can copy the link to the dashboard configuration and share it with others.
 
-<img src="insights-upper-filters.png" width="764" alt="The Insights page filters" border-effect="line"/> 
+<img src="insights-upper-filters.png" width="735" alt="The Insights page filters" border-effect="line" thumbnail="true"/> 
 
 ## Available widgets
 
@@ -90,7 +89,7 @@ By clicking a specific project entry, you can navigate to a project page.
 
 ### Problems sorted
 
-In the lower part of the **Insights** page, you can sort problems detected in your projects by severity and occurrence. 
+In the lower part of the **Insights** page, you can sort problems detected in your projects by severity, occurrence and inspections (checks). 
 
 <img src="insights-problems-sorted.png" width="706" alt="Problems sorted by severity and occurrence" border-effect="line"/>
 
