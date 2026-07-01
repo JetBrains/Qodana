@@ -23,7 +23,7 @@ vector.
 - **Code coverage trends over time**. The code coverage view in Insights now shows a
 historical trend chart for the selected time period, so you can see how coverage has
 evolved across your projects — not just the current snapshot.
-- **Checks filter in Insights**. You can now filter Insights data by specific checks, giving you
+- **Checks filter in Insights**. You can now filter Insights data by specific inspections, giving you
   more precise control over the data you're analyzing.
 
 #### Settings & tokens
@@ -50,7 +50,7 @@ evolved across your projects — not just the current snapshot.
 ### Bug fixes
 {id="june-2026-bug-fixes"}
 
-- **Token refresh button clipped for long names in Settings**. In the Settings → Tokens
+- **Token refresh button clipped for long names in Settings**. In the **Settings | Tokens**
   tab, the refresh action button was partially hidden when team or project names were
   long. This is now fixed.
 - **"Open in GitHub" project button was unresponsive**. Fixed an issue where the button
@@ -62,7 +62,7 @@ Starting today, the %product% team will publish a monthly summary of everything 
 Whether it’s a new feature, a bug fix, or a behind-the-scenes improvement that makes the platform faster or more reliable, you'll find it here.
 
 We’ll publish each edition on a dedicated page in the Qodana documentation, so you'll always have a 
-single place to check what's new.
+single place to check what's new. 
 
 This first edition covers several months of accumulated changes to bring you fully up to date. 
 Expect future posts to be considerably shorter.
