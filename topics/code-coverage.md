@@ -22,7 +22,7 @@ This feature is available in the following linters:
     </tr>
     <tr>
         <td rowspan="2"><a href="jvm.md">%jvm%</a></td>
-        <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a> is the recommended tool</td>
+        <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a><br/> is the recommended tool</td>
         <td><code>ic</code></td>
     </tr>
     <tr>
@@ -101,6 +101,25 @@ function divide(a, b) { // Not analyzed by the code coverage
 module.exports = divide; // Analyzed by the code coverage
 ```
 
+<!--Let's try to discover code coverage artifacts in an automated way if .qodana/code-coverage contains nothing.
+
+Impl:
+
+    Check folders used by default as destination by coverage agents, like coverage is configured but noone configured report path.
+    Make sure coverage data from automatic discovery opens in IDE
+    Add user-facing logging
+
+    Tell to disable coverage inspection via qodana.yaml if the customers don't want coverage reported
+    DONE- Tell to put coverage reports in an explicit directory (e.g. in the .qodana/code-coverage) if they want specific reports loaded
+    Tell to use the following paths as default:
+        Go: coverage.out in the root directory
+        JS/TS: lcov.info in the root directory
+        JVM: target/site/jacoco/jacoco.xml for maven and build/reports/jacoco/test/jacocoTestReport.xml for Gradle
+        Net: lcov.info in the root directory
+        PHP: coverage.xml in the root directory
+        PY: coverage.xml in the root directory
+-->
+
 ## Before you start
 {id="code-coverage-before-you-start"}
 
@@ -122,6 +141,8 @@ directory. You can copy the coverage report file by using the [`boostrap`](qodan
     To learn how to override the `<project-root>/.qodana/code-coverage` directory, see the recommendation from the [](#run-code-coverage) chapter.
     
     For a [monorepo project](monorepo-project.md) containing multiple repositories, this directory should be created in each repository.
+    
+    If the `<project-root>/.qodana/code-coverage` directory contains no artifacts, the feature will try to find them automatically by traversing project directories.
 
 1. Prepare your project. If you have a monorepo project, save %product% configuration for each repository in a 
 separate `qodana.yaml` file. You can put these files in repository directories, or give them custom names and save them 
