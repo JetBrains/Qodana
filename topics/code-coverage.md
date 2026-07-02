@@ -131,18 +131,26 @@ Impl:
 If your codebase files are contained in the `<project-root>/src/` directory, then reports should contain 
 `src/<file-name>` file paths. 
 
-1. Use your code coverage tool to generate coverage reports. These reports should be saved to the `<project-root>/.qodana/code-coverage` 
+1. Use your code coverage tool to generate coverage reports. By default, these reports should be saved to the `<project-root>/.qodana/code-coverage` 
 directory. You can copy the coverage report file by using the [`boostrap`](qodana-yaml.md#Run+custom+commands) key, for example:
 
     ```yaml
    boostrap: copy path/to/coverage/file <project-root>/.qodana/code-coverage 
     ```
 
-    To learn how to override the `<project-root>/.qodana/code-coverage` directory, see the recommendation from the [](#run-code-coverage) chapter.
+    You can override this directory using the `codeCoverageLocations` key in the [`qodana.yaml`](qodana-yaml.md) file:
+
+    ```yaml
+   coverage:
+     reportProblems: true
+     codeCoverageLocations:
+       - "custom-directory-1"
+       - "custom-directory-2"
+    ```
     
     For a [monorepo project](monorepo-project.md) containing multiple repositories, this directory should be created in each repository.
     
-    If the `<project-root>/.qodana/code-coverage` directory contains no artifacts, the feature will try to find them automatically by traversing project directories.
+    If the code coverage directory contains no artifacts, %product% will try to find them automatically by traversing project directories.
 
 1. Prepare your project. If you have a monorepo project, save %product% configuration for each repository in a 
 separate `qodana.yaml` file. You can put these files in repository directories, or give them custom names and save them 
@@ -197,8 +205,6 @@ To learn more about running code coverage using the [%dotnet%](dotnet.md) linter
         <a href="qodana-yaml.md">%product% configuration</a> files under 
         <a anchor="code-coverage-before-you-start">custom names</a>, use the 
         <a href="docker-image-configuration.topic" anchor="docker-image-configuration-config"><code>--config &lt;path-relative-to-project-root&gt;</code></a> option.
-        To override the default code coverage report directory, use the 
-        <a href="docker-image-configuration.topic" anchor="docker-config-reference-code-coverage"><code>--coverage-dir &lt;path-relative-to-project-root&gt;</code></a> option.
         </p>
     </tab>
 <tab title="GitHub Actions" id="code-coverage-pipeline">

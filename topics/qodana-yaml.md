@@ -552,6 +552,19 @@ the [`VulnerableLibrariesGlobal`](https://www.jetbrains.com/help/inspectopedia/V
 
 <include from="vulnerability-checker.md" element-id="package-checking-enable"/>
 
+## Override code coverage directories
+
+Use the `codeCoverageLocations` option to override the default code coverage directories, for example: 
+
+```yaml
+coverage:
+  reportProblems: true
+  codeCoverageLocations:
+    - "custom-directory-1"
+    - "custom-directory-2"
+```
+
+
 ## Manage plugins
 
 <link-summary>You can specify the plugins that will be downloaded and invoked during inspection.</link-summary>

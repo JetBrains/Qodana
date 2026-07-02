@@ -50,6 +50,9 @@
         <a href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
         You can also <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a>.
     </p>
+    <p>You can combine license audit with quality gates to create license audit thresholds including
+        <a href="analyze-pr.md">incremental analyses</a>, see the
+        <a href="quality-gate.topic" anchor="quality-gate-license-audit"/> chapter for details. </p>
 
     <note>This feature is not available in JetBrains IDEs.</note>
 
