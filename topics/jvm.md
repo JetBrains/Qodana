@@ -39,7 +39,7 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://www.jetbrains.com/help/idea/customizing-profiles.html"/>
 <var name="native-arg" value="&lt;linter-code&gt;"/>
-<var name="teamcity-linter-list" value="Here, select either the %qd%, %qd-co% or %qd-a% linter."/>
+<var name="teamcity-linter-list" value="Here, select either the %qd%, %qd-co%, or %qd-a% linter."/>
 <var name="jbr-sdk" value="https://github.com/JetBrains/JetBrainsRuntime/tree/jbr25"/>
 
 <!-- IDE-related variables -->
@@ -47,7 +47,7 @@
 <var name="ide-co" value="IntelliJ IDEA Community Edition"/>
 <var name="ide-a" value="IntelliJ IDEA"/>
 
-<link-summary>You can analyze your Java code using the %qd%, %qd-co%, %qd-a% and %qd-an% linters.</link-summary>
+<link-summary>You can analyze your Java code using the %qd%, %qd-co%, %qd-a%, and %qd-an% linters.</link-summary>
 
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Java projects, you can use the following linters:
@@ -255,6 +255,36 @@ In Maven, you can configure the [source and target](https://maven.apache.org/plu
 then searched in the [list of available versions](#Available+versions). If found, %instance% will download and use it.
 Otherwise, %instance% will download the subsequent version from this list.
 
+You can specify the path to a custom Maven settings file, which lets you use custom repositories, 
+mirrors, credentials, and local repository settings: 
+
+<tabs>
+<tab title="qodana.yaml" lang="yaml">
+<code-block lang="yaml"><![CDATA[
+    version: "1.0"
+
+    linter: <linter>
+
+    mavenSettingsPath: /path/to/settings.xml
+]]>
+</code-block>
+
+</tab>
+    <tab title="Qodana CLI" lang="shell" prompt="$">
+<code-block lang="shell" prompt="$"><![CDATA[
+    qodana scan \
+       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+       --maven-settings-path /path/to/settings.xml
+]]>
+</code-block>
+    </tab>
+</tabs>
+
+This setting lets %product% parse the path, resolve relative paths against the project root, expose it in the YAML schema, 
+and apply the configured `settings.xml` file prior to Maven project import or reimport.
+It also ensures the correct workflow order: Maven reimport (if requested) runs only after Maven settings are 
+configured, which then updates module dependencies.
+
 #### Mount JDK
 
 <link-summary>You can mount JDK from your local filesystem to the /root/.jdks folder of the %instance% Docker image.</link-summary>
@@ -262,8 +292,9 @@ Otherwise, %instance% will download the subsequent version from this list.
 You can mount JDK from your local filesystem to the `/root/.jdks` folder of the %instance% Docker image:
 
 ```shell
-$ docker run -v /path/to/jdk:/root/.jdks/jdk \
-jetbrains/qodana-<linter>
+$ docker run \
+  -v /path/to/jdk:/root/.jdks/jdk \
+  jetbrains/qodana-<linter>
 ```
 
 ## Run Qodana
