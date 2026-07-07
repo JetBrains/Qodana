@@ -298,7 +298,7 @@
         and <a href="dotnet.md">%dotnet%</a> linters.</p>
 
         <p>Using the <code>dependencyLicenses</code> key of the <code>qodana.yaml</code> file, you can configure
-            <a href="license-audit.topic">license audit</a> thresholds based on prohibited or unknown licenses:</p>
+            <a href="license-audit.topic">license audit</a> thresholds to exclude dependencies with prohibited or unknown licenses:</p>
 
         <code-block lang="yaml"><![CDATA[
             failureConditions:

@@ -3,19 +3,23 @@
 This page provides information about %product% updates available in the latest version, as well as the 
 chronological list of all significant [%cloud%](cloud-quickstart.md) updates.
 
-## Qodana version 2026.1
+## Qodana version 2026.2
 
-### Native mode release
+### Quality gates for license audit
 
-Native mode is released from the EAP version. The details are available in the [](deploy-qodana.md#deploy-qodana-native-mode) section.
+Now you can set quality gate thresholds to make sure that your project dependencies contain no prohibited or unknown licenses.
+More details are available in the [](quality-gate.topic#quality-gate-license-audit) chapter.
 
-### %cpp% release
+### Code coverage updates
 
-The [%cpp%](clang.md) linter for C and C++ languages is released from the EAP version.
+Starting from version 2026.2, %product% automatically detects code coverage reports contained in directories and files 
+described in the [](code-coverage.md#code-coverage-before-you-start) chapter. You can also use the `codeCoverageLocations` 
+option of the `qodana.yaml` file to override the default locations of code coverage reports. 
 
-### The new Rust linter
+Additionally, you can use JetBrains IDEs to track code coverage for incremental changes. For more details, see the 
+[](code-coverage.md#View+coverage+reports+in+IDE) chapter.
 
-Now you can analyze Rust projects using the new [%rust%](rust.md) linter.
+
 
 <!--Version 2025.3 of %product% contains the updates described below.
 
