@@ -141,6 +141,7 @@ The %qd% linter provides inspections for the following technologies.
             <p>Behat</p>
             <p>Cucumber</p>
             <p>Joomla!</p>
+            <p>Laravel</p>
             <p>Node.js</p>
             <p>PHPUnit</p>
             <p>Psalm</p>
@@ -158,6 +159,7 @@ The %qd% linter provides inspections for the following technologies.
             <p>JSON and JSON5</p>
             <p>JSONPath</p>
             <p>Less</p>
+            <p>Markdown</p>  
             <p>PostCSS</p>
             <p>RELAX NG</p>
             <p>SASS/SCSS</p>

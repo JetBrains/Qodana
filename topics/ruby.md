@@ -152,7 +152,7 @@ The command will be automatically executed before the analysis to install depend
             <p>Ruby on Rails</p>
             <p>Sass/SCSS</p>
             <p>Vue</p>
-            <p>YARD</p>
+            <p>YAML</p>
         </td>
     </tr>
     <tr>
@@ -174,10 +174,12 @@ The command will be automatically executed before the analysis to install depend
             <p>JSON and JSON5</p>
             <p>JSONPath</p>
             <p>Less</p>
+            <p>Markdown</p>
             <p>PostCSS</p>
             <p>RELAX NG</p>
             <p>XML</p>
             <p>YAML</p>
+            <p>YARD</p>
         </td>
     </tr>
     <tr>

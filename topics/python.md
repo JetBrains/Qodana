@@ -241,17 +241,18 @@ This table contains the list of technologies and %product% [features](features.t
             <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>&nbsp;</p>
+              <p>✔</p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
         <td>Frameworks and libraries</td>
         <td>
+            <p>Django</p>
             <p>Pandas</p>
             <p>Pyramid</p>
             <p>Node.js</p>
@@ -259,18 +260,20 @@ This table contains the list of technologies and %product% [features](features.t
             <p>Vue</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>  
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>✔</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -284,20 +287,20 @@ This table contains the list of technologies and %product% [features](features.t
             <p>PostgreSQL</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -305,6 +308,7 @@ This table contains the list of technologies and %product% [features](features.t
         <td>
             <p>HTML</p>
             <p>JSON and JSON5</p>
+            <p>Markdown</p>
             <p>RELAX NG</p>
             <p>XML</p>
             <p>YAML</p>
@@ -316,30 +320,32 @@ This table contains the list of technologies and %product% [features](features.t
             <p>JSONPath</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -348,7 +354,7 @@ This table contains the list of technologies and %product% [features](features.t
             <p>Shell script</p>
         </td>
         <td>
-            <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
             <p>✔</p>
@@ -362,9 +368,9 @@ This table contains the list of technologies and %product% [features](features.t
             <p>HTTP Client</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
             <p>✔</p>

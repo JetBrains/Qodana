@@ -144,9 +144,11 @@ The %qd% linter provides inspections for the following technologies.
     <tr>
         <td>Markup languages</td>
         <td>
-            <p>Dockerfile</p>
+            <p>CSS</p>
+            <p>HTML</p>
             <p>JSON</p>
-            <p>Markdown</p>
+            <p>JSONPath</p>
+            <p>RELAX NG</p>
             <p>TOML</p>
             <p>XML</p>
             <p>YAML</p>
@@ -161,7 +163,9 @@ The %qd% linter provides inspections for the following technologies.
     <tr>
         <td>Other</td>
         <td>
+            <p>HTTP Client</p>
             <p>Regular expressions</p>
+            <p>Structural search</p>
         </td>
     </tr> 
 </table>

@@ -1672,112 +1672,115 @@ docker run \
             <p>JavaScript</p>
             <p>TypeScript</p>
             <p>F#</p>
+            <p>GDScript</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
         <td>Frameworks and libraries</td>
         <td>
-              <p>Angular</p>
-              <p>ASPX</p>
-              <p>Blazor</p>  
-              <p>ASP.NET</p>
-              <p>Godot</p>  
-              <p>Handlebars/Mustache</p>
-              <p>HTTP client</p>
-              <p>Less</p>
-              <p>Node.js</p>
-              <p>NUnit</p>
-              <p>PostCSS</p>
-              <p>Pug/Jade</p>
-              <p>React</p>
-              <p>Roslyn</p>
-              <p>Sass/SCSS</p>
-              <p>Unity</p>  
-              <p>Unreal Engine</p>
-              <p>Vue</p>
-              <p>xUnit</p>
-              <p>.NET Core</p>
+            <p>Angular</p>
+            <p>ASPX</p>
+            <p>Blazor</p>  
+            <p>Unity</p>  
+            <p>ASP.NET</p>
+            <p>Godot</p>  
+            <p>Handlebars/Mustache</p>
+            <p>HTTP client</p>
+            <p>Less</p>
+            <p>Node.js</p>
+            <p>NUnit</p>
+            <p>PostCSS</p>
+            <p>Pug/Jade</p>
+            <p>React</p>
+            <p>Roslyn</p>
+            <p>Sass/SCSS</p>
+            <p>Unreal Engine</p>
+            <p>Vue</p>
+            <p>xUnit</p>
+            <p>.NET Core</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
         <td>Databases and ORM</td>
         <td>
-              <p>MongoDB</p>
-              <p>MySQL</p>
-              <p>Oracle</p>
-              <p>PostgreSQL</p>
-              <p>SQL</p>
-              <p>SQL server</p>
+            <p>MongoDB</p>
+            <p>MySQL</p>
+            <p>Oracle</p>
+            <p>PostgreSQL</p>
+            <p>SQL</p>
+            <p>SQL server</p>
         </td>
        <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
             <p>&nbsp;</p>
@@ -1786,79 +1789,81 @@ docker run \
     <tr>
         <td>Markup languages and file formats</td>
         <td>
-              <p>HTML</p>
-              <p>Razor</p>
-              <p>RegExp</p>
-              <p>ResX</p>
-              <p>XML</p>
-              <p>XAML</p>
-              <p>CSS</p>
-              <p>Docker</p>
-              <p>GitHub Actions</p>
-              <p>JSON and JSON5</p>
-              <p>JSONPath</p>
-              <p>Kubernetes</p>
-              <p>Markdown</p>
-              <p>OpenAPI</p>
-              <p>RELAX NG</p>
-              <p>ShaderLab</p>
-              <p>T4</p>
-              <p>XPath</p>
-              <p>XSLT</p>
-              <p>YAML</p>
+            <p>HTML</p>
+            <p>Razor</p>
+            <p>RegExp</p>
+            <p>ResX</p>
+            <p>XML</p>
+            <p>XAML</p>
+            <p>YAML</p>
+            <p>CSS</p>
+            <p>Docker</p>
+            <p>GitHub Actions</p>
+            <p>GitLab CI/CD</p>
+            <p>JSON and JSON5</p>
+            <p>JSONPath</p>
+            <p>Kubernetes</p>
+            <p>Markdown</p>
+            <p>OpenAPI</p>
+            <p>RELAX NG</p>
+            <p>ShaderLab</p>
+            <p>T4</p>
+            <p>XPath</p>
+            <p>XSLT</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>✔</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
         <td>Scripting languages</td>
         <td>
-              <p>Shell script</p>
+            <p>Shell script</p>
         </td>
        <td>
-            <p>✔</p>
+              <p>✔</p>
         </td>
         <td>
             <p>&nbsp;</p>
@@ -1867,10 +1872,10 @@ docker run \
     <tr>
         <td>Build management</td>
         <td>
-              <p>MSBuild</p>
+            <p>MSBuild</p>
         </td>
-       <td>
-            <p>✔</p>
+         <td>
+              <p>✔</p>
         </td>
         <td>
             <p>&nbsp;</p>

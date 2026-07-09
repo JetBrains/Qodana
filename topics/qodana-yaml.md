@@ -743,6 +743,24 @@ rootJavaProjects:
 By default, %product% recursively collects projects from subdirectories and imports them for analysis.
 This change enables incremental analysis and fixes for projects where the analyzed project and VCS root are different.
 
+## Configure code coverage
+
+By default, [code coverage](code-coverage.md) is enabled in %product%.
+
+Using the `coverage.reportProblems` key, you can configure it, for example:
+
+```yaml
+version: "1.0"
+
+linter: <linter>
+
+coverage:
+  reportProblems: true # Code coverage is enabled
+  codeCoverageLocations: # Directories containing coverage reports
+    - "custom-directory-1"
+    - "custom-directory-2"
+```
+
 ## Comprehensive configuration examples
 
 <link-summary>Navigate to the section to see the combination of different configuration options.</link-summary>

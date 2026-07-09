@@ -326,11 +326,11 @@
     <var name="python-image" value="jetbrains/qodana-python:2026.2-eap"/>
     <var name="python-co-image" value="jetbrains/qodana-python-community:2026.2-eap"/>
     <var name="php-image" value="jetbrains/qodana-php:2026.2-eap"/>
-    <var name="js-image" value="jetbrains/qodana-js:2026.1"/>
-    <var name="go-image" value="jetbrains/qodana-go:2026.1"/>
+    <var name="js-image" value="jetbrains/qodana-js:2026.2-eap"/>
+    <var name="go-image" value="jetbrains/qodana-go:2026.2-eap"/>
     <var name="cpp-image" value="jetbrains/qodana-cpp:2026.2-eap"/>
-    <var name="clang-image" value="jetbrains/qodana-clang:2026.1-eap"/>
-    <var name="ruby-image" value="jetbrains/qodana-ruby:2026.1"/>
+    <var name="clang-image" value="jetbrains/qodana-clang:2026.2-eap"/>
+    <var name="ruby-image" value="jetbrains/qodana-ruby:2026.2-eap"/>
     <var name="rust-image" value="jetbrains/qodana-rust:2026.2-eap"/>
     <var name="python-image-combined" value="jetbrains/qodana-python&lt;-community&gt;:2026.2-eap"/>
 

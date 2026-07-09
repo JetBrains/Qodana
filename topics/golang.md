@@ -118,7 +118,7 @@ To see the list of supported technologies and features, you can navigate to the 
     <tr>
         <td>Programming languages</td>
         <td>
-            <p>Golang</p>
+            <p>Go</p>
             <p>JavaScript&nbsp;and&nbsp;TypeScript</p>
         </td>
     </tr>
@@ -136,6 +136,7 @@ To see the list of supported technologies and features, you can navigate to the 
             <p>HTML</p>
             <p>JSON and JSON5</p>
             <p>JSONPath</p>
+            <p>Markdown</p>
             <p>RELAX NG</p>
             <p>XML</p>
             <p>YAML</p>
@@ -144,12 +145,12 @@ To see the list of supported technologies and features, you can navigate to the 
     <tr>
         <td>Databases and ORM</td>
         <td>
-              <p>MongoDB</p>
-              <p>MySQL</p>
-              <p>Oracle</p>
-              <p>PostgreSQL</p>
-              <p>SQL</p>
-              <p>SQL server</p>
+            <p>MongoDB</p>
+            <p>MySQL</p>
+            <p>Oracle</p>
+            <p>PostgreSQL</p>
+            <p>SQL</p>
+            <p>SQL server</p>
         </td>
     </tr>
     <tr>

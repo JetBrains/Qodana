@@ -146,7 +146,11 @@ Starting from version 2026.2, %product% detects code coverage reports in a proje
     You can override this directory using the `codeCoverageLocations` key in the [`qodana.yaml`](qodana-yaml.md) file:
 
     ```yaml
-    coverage:
+   version: "1.0"
+
+   linter: <linter>
+
+   coverage:
       reportProblems: true # Enable code coverage
       codeCoverageLocations:
         - "custom-directory-1"
