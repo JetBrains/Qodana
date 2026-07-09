@@ -71,7 +71,7 @@ To calculate the number of contributors in your repository, you can use
 [Qodana CLI](https://github.com/JetBrains/qodana-cli#contributors) with the `contributors` option invoked, for example:
 
 ```shell
-qodana contributors -d 90
+qodana contributors --project-dir path/to/repoA --project-dir path/to/repoB ...
 ```
 {prompt="$"}
 
@@ -106,7 +106,7 @@ Here you can find answers to frequently asked questions about %instance% licensi
         <a href="https://github.com/JetBrains/qodana-cli/tree/main#contributors"><code>contributors</code></a> command
         for counting active contributors, for example:</p>
     <code-block lang="shell" prompt="$">
-        qodana contributors -d 90
+        qodana contributors --project-dir path/to/repoA --project-dir path/to/repoB ...
     </code-block>
 </chapter>
 
