@@ -439,53 +439,35 @@ qodana:
       reports:
          codequality: $QODANA_RESULTS_DIR/gl-code-quality-report.json
 
-
 ```
 
 ## Qodana logs
 
-Use the following configuration to get log data from %product% on GitLab CI/CD:
+Invoke `upload-result` and configure `after_script` to copy the results 
+into the project `.qodana/results` directory, and specify the `RUNNER_SCRIPT_TIMEOUT` variable with a value less than a pipeline timeout:
 
 ```yaml
 include:
-   - component: %gitlab-version%
+   - component: $CI_SERVER_FQDN/qodana/qodana/qodana-gitlab-ci@v2026.1
      inputs:
-        image: jetbrains/qodana-<image>:<version>
         upload-result: true
-        results-dir: $CI_PROJECT_DIR/.qodana/results
 
 qodana:
-   artifacts:
-      paths:
-         - .qodana/results/
-      expose_as: 'Qodana report'
-      when: always
-```
-This configuration uses the `.qodana/results` directory for generating logs and then exposes this directory as an artifact.
-
-To upload logs from a Qodana job that fails with a timeout, add the `RUNNER_SCRIPT_TIMEOUT` variable with a value less 
-than a pipeline timeout:
-
-```yaml
-include:
-   - component: %gitlab-version%
-     inputs:
-        image: jetbrains/qodana-<image>:<version>
-        upload-result: true
-        results-dir: $CI_PROJECT_DIR/.qodana/results
-
-qodana:
-   timeout: <specify timeout>
    variables:
-      RUNNER_SCRIPT_TIMEOUT: <specified timeout value minus 5 minutes>
+      RUNNER_SCRIPT_TIMEOUT: 50m   # a few minutes below the job timeout
+   after_script:
+      - mkdir -p .qodana/results
+      - cp -a "${CI_BUILDS_DIR:-/builds}/.qodana/results/." .qodana/results/ 2/dev/null || true
    artifacts:
       paths:
          - .qodana/results/
       expose_as: 'Qodana report'
       when: always
-
-
 ```
+
+This will upload the log folder even when the analysis fails or hangs.
+
+After running the job, download a **Qodana report** artifact and open the `log` directory.
 
 The details are available on the [GitLab CI/CD website](https://gitlab.com/gitlab-org/gitlab/-/issues/284186).
 
