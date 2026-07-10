@@ -22,6 +22,7 @@
 		<toc-element topic="flexinspect.md" id="qodana-flexinspect"/>
 		<toc-element topic="insights.md"/>
 		<toc-element accepts-web-file-names="about-license-audit.html,license-audit-github-action.html,license-audit-docker-readme.html" topic="license-audit.topic"/>
+		<toc-element topic="multi-language-analysis.md"/>
 		<toc-element accepts-web-file-names="qodana-php-language-upgrade.html" topic="php-language-upgrade.topic"/>
 		<toc-element topic="quality-gate.topic"/>
 		<toc-element topic="quick-fix.md"/>
