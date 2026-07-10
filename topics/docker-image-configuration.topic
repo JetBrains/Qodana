@@ -4364,7 +4364,6 @@
             <p>To analyze repositories that use Git submodules accessed via SSH, you must authenticate Git
                 operations within the Qodana Docker container. In this case, you need to configure an SSH agent and
                 pass an SSH key with access to the submodule into the container as shown in the snippets below:</p>
-            <p>In case submodule checkout fails, you can skip it by setting the <code>QODANA_SKIP_SUBMODULE_UPDATE=true</code> environment variable.</p>
             <tabs group="cli-settings">
                 <tab title="Docker image" group-key="docker-image">
                     <code-block lang="shell" prompt="$">
@@ -4397,7 +4396,7 @@
                         </tr>
                         <tr>
                             <td><code>-e QODANA_SKIP_SUBMODULE_UPDATE=true</code></td>
-                            <td>Skip Git submodule checkout</td>
+                            <td>Skip Git submodule checkout, can be useful if the submodule checkout fails</td>
                         </tr>
                         <tr>
                             <td><code>--diff-start=&lt;GIT_START_HASH&gt;</code></td>
@@ -4435,7 +4434,7 @@
                         </tr>
                         <tr>
                             <td><code>-e QODANA_SKIP_SUBMODULE_UPDATE=true</code></td>
-                            <td>Skip Git submodule checkout</td>
+                            <td>Skip Git submodule checkout, can be useful if the submodule checkout fails</td>
                         </tr>
                         <tr>
                             <td><code>--diff-start=&lt;GIT_START_HASH&gt;</code></td>
@@ -4492,7 +4491,7 @@
                         </tr>
                         <tr>
                             <td><code>-e QODANA_SKIP_SUBMODULE_UPDATE=true</code></td>
-                            <td>Skip Git submodule checkout</td>
+                            <td>Skip Git submodule checkout, can be useful if the submodule checkout fails</td>
                         </tr>
                     </table>
                 </tab>
@@ -4528,7 +4527,7 @@
                         </tr>
                         <tr>
                             <td><code>-e QODANA_SKIP_SUBMODULE_UPDATE=true</code></td>
-                            <td>Skip Git submodule checkout</td>
+                            <td>Skip Git submodule checkout, can be useful if the submodule checkout fails</td>
                         </tr>
                     </table>
                 </tab>
