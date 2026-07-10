@@ -2,11 +2,12 @@
 
 <show-structure for="chapter" depth="3"/>
 
-<link-summary>%product% license costs consist of the number of active contributors to your project. An active 
+<link-summary>%product% license costs depend on the number of active contributors to your project. An active 
 contributor is a person/bot who has committed to any number of %cloud% projects within the past 90 days under a 
 single Qodana license.</link-summary>
 
-%instance% license costs consist of the number of active contributors to your project. 
+%instance% license costs depend on the number of active contributors to your project.
+The calculation is the same for both monthly and annual licenses.
 
 An active contributor is a person or bot who/that has committed to any number of %cloud% projects within the past 90 days under a single 
 %instance% license. For example, on the 30th of June, %instance% will calculate and charge for the unique contributors 
