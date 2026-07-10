@@ -98,6 +98,15 @@ version, save the following snippet to the `.gitlab-ci.yml` file:
       </code-block>
       <p>Here, the <code>inputs:image</code> <a anchor="gitlab-inputs-configuration">argument</a> specifies the Docker 
          image that you would like to employ.</p>
+      <p>By default, %product% automatically scans the repository root for the <code>qodana.yaml</code> file presence. 
+      If your <code>qodana.yaml</code> file is not in the repository root, add the <code>args</code> input:</p>
+      <code-block lang="yaml">
+         include:
+            - component: %gitlab-version%
+              inputs:
+                 image: jetbrains/qodana-&lt;image&gt;:&lt;version&gt;
+                 args: --config path/to/your/qodana.yaml
+      </code-block>
    </tab>
    <tab title="Windows or macOS" group-key="windows-macos">
       <code-block lang="yaml">
@@ -140,10 +149,11 @@ To run %product% in [native mode](deploy-qodana.md#deploy-qodana-native-mode), u
 </tabs>
 
 
-All these configurations [include](%ComponentInvocation%) the %product% Scan GitLab Pipeline component and enables [caches](#Configure+cache),
-[Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis,
-and comments to merge requests. You can override these settings using descriptions from the sections below and the
-[](#gitlab-inputs-configuration) chapter. The `--image` argument specifies a %product% [image](docker-image-configuration.topic#docker-config-reference-qodana-scan-image) in case of Windows or macOS.
+These configurations [include](%ComponentInvocation%) the %product% Scan GitLab Pipeline component, which provides the base for running analysis. 
+You can further configure specific features such as [caches](#Configure+cache), 
+[Code Quality report](#gitlab-generate-code-quality-reports) generation, [merge request](#Specific+branches) analysis, 
+and comments to merge requests. Detailed configuration instructions for these features are provided in the sections below 
+and in the [](#gitlab-inputs-configuration) chapter. The `--image` argument specifies a %product% [image](docker-image-configuration.topic#docker-config-reference-qodana-scan-image) in case of Windows or macOS.
 
 The included component creates the `qodana` job that can be configured as any other job in GitLab CI/CD. 
 You can view the predefined configuration of this job using our [template](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
@@ -234,6 +244,28 @@ include:
         os: windows
         args: --image jetbrains/qodana-<image>:<version>
 ```
+
+## Report artifacts
+
+To collect Qodana reports as GitLab artifacts, add the <code>artifacts</code> configuration to your pipeline job:
+
+```yaml
+qodana_scan:
+  # ... (include component configuration)
+  artifacts:
+    paths:
+      - qodana-report/ # Default output directory
+    expire_in: 1 week
+```
+
+## Troubleshooting MR comments
+
+If %product% is not posting comments to your merge requests or [quick fixes](quick-fix.md) are not working, check the following:
+
+*   **Permissions**: Ensure <code>QODANA_GITLAB_TOKEN</code> has <code>api</code> and <code>write_repository</code> scopes.
+*   **Role**: The token holder must have enough permissions to comment on merge requests (`Maintainer` or `Developer` role).
+*   **Token**: Ensure the variable is not marked as protected (unless you have a protected environment) and the <ui-path>Expand variable reference</ui-path> flag is enabled.
+
 
 ## Specific branches
 
