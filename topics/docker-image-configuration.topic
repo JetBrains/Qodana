@@ -4363,8 +4363,7 @@
         <chapter id="docker-config-reference-git-submodules" title="Git submodules">
             <p>To analyze repositories that use Git submodules accessed via SSH, you must authenticate Git
                 operations within the Qodana Docker container. In this case, you need to configure an SSH agent and
-                pass an SSH key with access to the submodule into the container as shown in the snippets below:
-            </p>
+                pass an SSH key with access to the submodule into the container as shown in the snippets below:</p>
             <tabs group="cli-settings">
                 <tab title="Docker image" group-key="docker-image">
                     <code-block lang="shell" prompt="$">
@@ -4373,6 +4372,7 @@
                            -v "$SSH_AUTH_SOCK:/tmp/ssh_agent.sock" \
                            -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock \
                            -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot; \
+                           -e QODANA_SKIP_SUBMODULE_UPDATE=true \
                            jetbrains/qodana-&lt;image&gt; \
                            --diff-start=&lt;GIT_START_HASH&gt;
                     </code-block>
@@ -4395,6 +4395,10 @@
                             <td>Disable strict host key checking for SSH operations</td>
                         </tr>
                         <tr>
+                            <td><code>-e QODANA_SKIP_SUBMODULE_UPDATE=true</code></td>
+                            <td>Skip Git submodule checkout, can be useful if the submodule checkout fails</td>
+                        </tr>
+                        <tr>
                             <td><code>--diff-start=&lt;GIT_START_HASH&gt;</code></td>
                             <td>Commit hash, see the <a href="analyze-pr.md" anchor="Analyze+pull+and+merge+requests"/> chapter for details</td>
                         </tr>
@@ -4406,6 +4410,7 @@
                            -v "$SSH_AUTH_SOCK:/tmp/ssh_agent.sock" \
                            -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock \
                            -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot; \
+                           -e QODANA_SKIP_SUBMODULE_UPDATE=true \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            --diff-start=&lt;GIT_START_HASH&gt;
                     </code-block>
@@ -4426,6 +4431,10 @@
                         <tr>
                             <td><code>-e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;</code></td>
                             <td>Disable strict host key checking for SSH operations</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e QODANA_SKIP_SUBMODULE_UPDATE=true</code></td>
+                            <td>Skip Git submodule checkout, can be useful if the submodule checkout fails</td>
                         </tr>
                         <tr>
                             <td><code>--diff-start=&lt;GIT_START_HASH&gt;</code></td>
@@ -4456,6 +4465,7 @@
                               -v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock
                               -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock
                               -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;
+                              -e QODANA_SKIP_SUBMODULE_UPDATE=true
                           upload-result: true
                           pr-mode: 'true'
                       env:
@@ -4479,6 +4489,10 @@
                             <td><code>-e GIT_SSH_COMMAND=ssh -o StrictHostKeyChecking=no</code></td>
                             <td>Disable strict host key checking for SSH operations</td>
                         </tr>
+                        <tr>
+                            <td><code>-e QODANA_SKIP_SUBMODULE_UPDATE=true</code></td>
+                            <td>Skip Git submodule checkout, can be useful if the submodule checkout fails</td>
+                        </tr>
                     </table>
                 </tab>
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
@@ -4491,6 +4505,7 @@
                                   -v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock
                                   -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock
                                   -e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;
+                                  -e QODANA_SKIP_SUBMODULE_UPDATE=true
                 </code-block>
                     <p>Here, the <code>args</code> block contains the following options:</p>
                     <table>
@@ -4509,6 +4524,10 @@
                         <tr>
                             <td><code>-e GIT_SSH_COMMAND=ssh -o StrictHostKeyChecking=no</code></td>
                             <td>Disable strict host key checking for SSH operations</td>
+                        </tr>
+                        <tr>
+                            <td><code>-e QODANA_SKIP_SUBMODULE_UPDATE=true</code></td>
+                            <td>Skip Git submodule checkout, can be useful if the submodule checkout fails</td>
                         </tr>
                     </table>
                 </tab>
