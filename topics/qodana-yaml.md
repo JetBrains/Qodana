@@ -124,25 +124,42 @@ You can also see the [](monorepo-project.md) section.
 
 ## Set up a profile
 
-Information about existing %product% profiles is available in the [](inspection-profiles.md#inspection-profiles-existing-profiles) section. 
+To set up a profile, use available configuration options described in the [](inspection-profiles.md#inspection-profiles-custom-profiles) section.
+Also refer to the [](inspection-profiles.md#inspection-profiles-existing-profiles) section to employ the existing profiles.
 
-You can configure %product% inspection profiles using the `profile` key, for example:
+You can set up your inspection profile either directly in the `qodana.yaml` file or by importing a configuration from a dedicated YAML-formatted file:
 
-```yaml
-version: "1.0"
-
-linter: <linter>
-
-profile:
-    inspections:
-        - group: "category:Java/Probable bugs"
-          enabled: true
-
-        - inspection: RedundantIf
-          enabled: true
-```
-
-Information about available configuration options is available in the [](inspection-profiles.md#inspection-profiles-custom-profiles) section.
+<tabs>
+    <tab title="qodana.yaml">
+        <p>In the <code>qodana.yaml</code> file, use the <code>profile</code> key, for example:</p>
+        <code-block lang="yaml" emphasize-lines="5"><![CDATA[
+            version: "1.0"
+            
+            linter: <linter>
+            
+            profile:
+                inspections:
+                    — group: "category:Java/Probable bugs"
+                      enabled: true
+                    — inspection: RedundantIf
+                      enabled: true
+        ]]>
+        </code-block>
+    </tab>
+<tab title="Dedicated YAML file">
+<p>After you set up a profile in a dedicated file as described in the <a href="inspection-profiles.md"/> section, you can
+assign it in the <code>qodana.yaml</code> file using the <code>profile.path</code> key, for example:</p>
+    <code-block lang="yaml" emphasize-lines="5-6"><![CDATA[
+        version: "1.0"
+    
+        linter: <linter>
+    
+        profile:
+            path: .qodana/profiles/<custom-profile.yaml>
+        ]]>
+    </code-block>
+</tab>
+</tabs>
 
 ## Exclude paths from the analysis scope
 {id="exclude-paths"}

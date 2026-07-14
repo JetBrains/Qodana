@@ -763,10 +763,10 @@ of the <ui-path>Settings</ui-path>, expand either the <ui-path>Global SQL Dialec
 
 ### Use your profile
 
-<p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file
-    once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, or any other <a href="ci.md">software</a> currently
-    supported by %product%. In this case, no additional configuration is required, and all settings will remain consistent 
-    across all these platforms, see the example below:</p>
+<p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% 
+using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, 
+or any other <a href="ci.md">software</a> currently supported by %product%. In this case, no additional configuration is required, 
+and all settings will remain consistent across all these platforms, see the example below:</p>
 
 <code-block lang="yaml">
 version: "1.0"
