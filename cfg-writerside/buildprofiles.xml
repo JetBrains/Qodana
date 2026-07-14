@@ -20,7 +20,7 @@
 		<sideblocks>true</sideblocks>
 		<search-scopes-provider>https://data.services.jetbrains.com/search/</search-scopes-provider>
 		<enable-browser-edits>true</enable-browser-edits>
-		<browser-edits-url>https://github.com/JetBrains/Qodana/edit/2025.3/</browser-edits-url>
+		<browser-edits-url>https://github.com/JetBrains/Qodana/edit/2026.2/</browser-edits-url>
 		<disable-prev-next-links>true</disable-prev-next-links>
 		<disable-variable-interpolation>true</disable-variable-interpolation>
 		<versions-switcher>https://data.services.jetbrains.com/help-versions</versions-switcher>
@@ -29,6 +29,7 @@
 		<og-image>https://resources.jetbrains.com/storage/products/qodana/img/meta/preview.png</og-image>
 		<include-in-head>thirdparty/dpk-gtm-analytics.html</include-in-head>
 		<website-title>%instance% Documentation</website-title>
+		<llms-txt single-file="true"/>
 	</variables>
 	<build-profile instance="qd">
 		<variables>
