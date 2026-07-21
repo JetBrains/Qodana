@@ -251,6 +251,8 @@ download and employ JDK 13 with Gradle 6.6.
 
 #### Maven
 
+<snippet id="jvm-maven">
+
 In Maven, you can configure the [source and target](https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html) versions of the Java compiler. %instance% compares these values and selects the latest version. This version of the JDK is
 then searched in the [list of available versions](#Available+versions). If found, %instance% will download and use it.
 Otherwise, %instance% will download the subsequent version from this list.
@@ -285,7 +287,11 @@ and apply the configured `settings.xml` file prior to Maven project import or re
 It also ensures the correct workflow order: Maven reimport (if requested) runs only after Maven settings are 
 configured, which then updates module dependencies.
 
+</snippet>
+
 #### Mount JDK
+
+<snippet id="jvm-mount-jdk">
 
 <link-summary>You can mount JDK from your local filesystem to the /root/.jdks folder of the %instance% Docker image.</link-summary>
 
@@ -296,6 +302,8 @@ $ docker run \
   -v /path/to/jdk:/root/.jdks/jdk \
   jetbrains/qodana-<linter>
 ```
+
+</snippet>
 
 ## Run Qodana
 
