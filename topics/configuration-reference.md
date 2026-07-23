@@ -1184,7 +1184,7 @@ not registered. To enable specific plugin inspections, you can start from an
     </tr>
     <tr>
         <td><code>/data/project/.idea/inspectionProfiles/</code></td>
-        <td>Directory for binding <a anchor="docker-config-reference-profile-profile-name">profile files</a></td>
+        <td>Directory for binding profile files</td>
     </tr>
     <tr>
         <td><code>/data/cache/.m2</code></td>
@@ -1196,7 +1196,7 @@ not registered. To enable specific plugin inspections, you can start from an
     </tr>
     <tr>
         <td><code>/data/cache/gradle</code></td>
-        <td><a anchor="docker-config-reference-gradle-settings">Gradle</a> project dependencies</td>
+        <td>Gradle project dependencies</td>
     </tr>
     <tr>
         <td><code>/data/cache/nuget</code></td>
@@ -1472,7 +1472,7 @@ not registered. To enable specific plugin inspections, you can start from an
 <link-summary>Learn available CLI options for overriding default paths. </link-summary>
 
 <p>Using these options, you can override the paths described in the
-    <a anchor="docker-config-reference-image-paths">Docker image paths</a> section.</p>
+    <a anchor="Linter+paths"/> section.</p>
 
 <table>
     <tr>
@@ -1968,15 +1968,19 @@ failureConditions:
   testCoverageThresholds:
     fresh: <number> # Fresh code coverage
     total: <number> # Total code coverage
+  dependencyLicenses:
+    failOnProhibited: <true|false> # Prohibited licenses
+    failOnUnknown: <true|false> # Unknown licenses
 ```
 {emphasize-lines="5"}
 
 In this configuration, exceeding just one setting limitation will make the build fail.
 
-The `severityThresholds:any` option lets you configure the total number of problems. Options like
-`severityThresholds:critical` let you configure quality gates for each [problem severity](ui-overview.md#Severity+levels).
-The `testCoverageThresholds:fresh` and `testCoverageThresholds:total` options let you configure the total and fresh code
-coverage supported by [several linters](quality-gate.topic#quality-gate-code-coverage).
+The `severityThresholds:any` key lets you configure the total number of problems. The
+`severityThresholds:critical` key lets you configure quality gates for each [problem severity](ui-overview.md#Severity+levels).
+The `testCoverageThresholds:fresh` and `testCoverageThresholds:total` keys let you configure the total and fresh code
+coverage supported by [several linters](quality-gate.topic#quality-gate-code-coverage). 
+The `dependencyLicenses` key lets you configure quality gates for prohibited or unknown licenses.
 
 Also, you can configure quality gates for the total number of problems using the `--fail-threshold` CLI option.
 Here is the command that tells %instance% to fail the build in case the number of problems exceeds 10:
@@ -2797,12 +2801,10 @@ php:
 
 <p>Using the <code>--property=</code> option, you can override various %instance% parameters:</p>
 
-<list>
-    <li><a anchor="docker-config-reference-properties-stdout">Logging messages to STDOUT</a></li>
-    <li><a anchor="docker-config-reference-properties-user-statistics">Disabling user statistics</a></li>
-    <li><a anchor="docker-config-reference-properties-config-plugins">Configuring plugins</a></li>
-    <li><a anchor="docker-config-reference-properties-config-timeout">Setting up configuration timeout</a></li>
-</list>
+* [Logging messages to STDOUT](#docker-config-reference-properties-stdout)
+* [Disabling user statistics](#docker-config-reference-properties-user-statistics)
+* [Configuring plugins](#docker-config-reference-properties-config-plugins)
+* [Setting up configuration timeout](#docker-config-reference-properties-config-timeout)
 
 <table>
     <tr>
