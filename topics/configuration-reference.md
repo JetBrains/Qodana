@@ -49,7 +49,7 @@ It is highly recommended not to store tokens, passwords, or any other secret inf
 By default, this configuration capability will be referred to as the `qodana.yaml` configuration.
 To start, in the root directory of your project save the `qodana.yaml` file. 
 
-To override the `qodana.yaml` filename and its location, follow the recommendations of the [](docker-image-configuration.topic#docker-config-reference-custom-yaml-config) chapter.
+To override the `qodana.yaml` filename and its location, follow the recommendations of the [](#docker-config-reference-custom-yaml-config) chapter.
 
 The JSON schema for `qodana.yaml` is published in the [SchemaStore](https://www.schemastore.org/qodana-1.0.json) project, which provides completion and basic validation in IDEs.
 
@@ -725,17 +725,17 @@ You can use the following profile-related CLI options:
     </tr>
     <tr>
         <td><code>-n</code>, <code>--profile-name</code></td>
-        <td><p>The <a anchor="docker-config-reference-profile-profile-name">profile name</a> from the list of predefined %instance% profiles, or a profile name of a custom profile
-            stored in XML-formatted profile files as <code ignore-vars="true">&lt;option name="myName" value="%profileName%"/&gt;</code>.</p>
-            <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"><code>qodana.yaml</code></a> file</p>
+        <td><p>The profile name from the list of 
+            <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">existing %instance% profiles</a>.</p> 
+            <p>Alternatively, you can use a profile name from a custom profile
+            file. To do it, you will need to mount a profile file to %product%.</p>
         </td>
         <td><code>qodana.starter</code></td>
     </tr>
     <tr>
         <td><code>-p</code>, <code>--profile-path</code></td>
         <td>
-            <p>The <a anchor="docker-config-reference-profile-profile-path">absolute path</a> to the profile file.</p>
-            <p>You can also configure this option using the <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"><code>qodana.yaml</code></a> file</p>
+            <p>The absolute path to the profile file.</p>
         </td>
         <td>None</td>
     </tr>
@@ -758,9 +758,9 @@ as well as the `--profile-path` CLI option for invoking a profile configuration 
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="<cloud-project-token>" \
                jetbrains/qodana-<image> \
-               --profile-name qodana.recommended \
-               --profile-name <profile-name-from-file> \
-               --profile-path /data/project/myprofiles/<file-name>
+               -v <path-to-profile-file> \ # Mount the file containing custom profile
+               --profile-name qodana.recommended | <profile-name-from-file> \ # Existing profile name | Name from mounted file 
+               --profile-path /data/project/myprofiles/<file-name> # Importing profile file
         ]]>
 </code-block>
     </tab>
@@ -768,9 +768,9 @@ as well as the `--profile-path` CLI option for invoking a profile configuration 
         <code-block lang="shell" prompt="$" emphasize-lines="3-5"><![CDATA[
             qodana scan \
                -e QODANA_TOKEN="<cloud-project-token>" \
-               --profile-name qodana.recommended \
-               --profile-name <profile-name-from-file> \
-               --profile-path /data/project/myprofiles/<file-name>
+               -v <path-to-profile-file> \ # Mount the file containing custom profile
+               --profile-name qodana.recommended | <profile-name-from-file> \ # Existing profile name | Name from mounted file
+               --profile-path /data/project/myprofiles/<file-name> # Importing profile file
         ]]>
 </code-block>
     </tab>
@@ -801,9 +801,9 @@ as well as the `--profile-path` CLI option for invoking a profile configuration 
                       uses: %action-version%
                       with:
                           args: |
-                              --profile-name qodana.recommended
-                              --profile-name <profile-name-from-file>
-                              --profile-path /data/project/myprofiles/<file-name>
+                            -v <path-to-profile-file> # Mount the file containing custom profile
+                            --profile-name qodana.recommended | <profile-name-from-file> # Existing profile name | Name from mounted file
+                            --profile-path /data/project/myprofiles/<file-name> # Importing profile file
                       env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
     ]]>
@@ -819,6 +819,7 @@ as well as the `--profile-path` CLI option for invoking a profile configuration 
                     docker {
                         args '''
                           -v "${WORKSPACE}":/data/project
+                          -v <path-to-profile-file> // Mount the file containing custom profile
                           --entrypoint=""
                           '''
                         image 'jetbrains/qodana-<image>
@@ -829,9 +830,8 @@ as well as the `--profile-path` CLI option for invoking a profile configuration 
                         steps {
                             sh '''
                             qodana \
-                                --profile-name qodana.recommended
-                                --profile-name <profile-name-from-file>
-                                --profile-path /data/project/myprofiles/<file-name>
+                                --profile-name qodana.recommended | <profile-name-from-file> // Existing profile name | Name from mounted file
+                                --profile-path /data/project/myprofiles/<file-name> // Importing profile file
                             '''
                         }
                     }
@@ -847,25 +847,18 @@ as well as the `--profile-path` CLI option for invoking a profile configuration 
                   inputs:
                       args: |
                           --linter <linter>
-                          --profile-name qodana.recommended
-                          --profile-name <profile-name-from-file>
-                          --profile-path /data/project/myprofiles/<file-name>
+                          -v <path-to-profile-file> \ # Mount the file containing custom profile
+                          --profile-name qodana.recommended | <profile-name-from-file> \ # Existing profile name | Name from mounted file
+                          --profile-path /data/project/myprofiles/<file-name> # Importing profile file
         ]]>
 </code-block>
     </tab>
     <tab title="TeamCity" group-key="teamcity">
-        <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
-            specify the profile name:</p>
-        <code-block lang="shell"><![CDATA[
-               --profile-name qodana.recommended
-               --profile-name <profile-name-from-file>
-               --profile-path /data/project/myprofiles/<file-name>
-        ]]>
-</code-block>
+        <p>Configure the runner as described in the <a href="teamcity.md" anchor="teamcity-qodana-runner"/> chapter.</p>
     </tab>
 </tabs>
 
-<p filter="for-inspection-profiles">To run %instance% with a custom profile, use its actual
+<!--<p filter="for-inspection-profiles">To run %instance% with a custom profile, use its actual
     profile name.</p>
 
 <p filter="for-inspection-profiles">The following lets you bind a custom profile:</p>
@@ -1074,7 +1067,7 @@ as well as the `--profile-path` CLI option for invoking a profile configuration 
             --profile-path /data/project/myprofiles/&lt;file-name&gt;
         </code-block>
     </tab>
-</tabs>
+</tabs>-->
 
 ### Disable unexpected problems
 
@@ -1102,7 +1095,7 @@ Information about inspection IDs is available on the [Inspectopedia](https://www
 
 {id="include-example"}
 
-In this example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection
+In this YAML configuration example, the `empty` profile, which contains no inspections, is specified, and the `SomeInspectionId` inspection
 is explicitly included in the analysis scope for the `tools` directory. As a result, only the analysis performed by
 the `SomeInspectionId` inspection the `tools` directory contents will be included in the %product% analysis scope.
 
@@ -1133,8 +1126,7 @@ not registered. To enable specific plugin inspections, you can start from an
 
 <link-summary>Learn how you can disable inspections for a specific file.</link-summary>
 
-<p>To disable inspections for a specific file, in the project root save the
-    <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code></a> file containing this configuration:</p>
+<p>To disable inspections for a specific file, use the following YAML configuration:</p>
 <code-block lang="yaml">
 <![CDATA[
 
@@ -1218,7 +1210,7 @@ not registered. To enable specific plugin inspections, you can start from an
 
 <p>You can find below several examples of how these paths can be applied.</p>
 
-### Override the default inspection profile
+<!--### Override the default inspection profile
 {id="docker-config-reference-override-inspection-profile"}
 
 <link-summary>Learn how you can override the default inspection profile.</link-summary>
@@ -1322,7 +1314,7 @@ not registered. To enable specific plugin inspections, you can start from an
 <p>To learn more about profiles, see the
     <a href="inspection-profiles.md" anchor="Order+of+resolving+a+profile">order of resolving a profile</a> and
     <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile"/> sections in this documentation.</p>
-
+-->
 ### Configure Maven
 
 <include from="jvm.md" element-id="jvm-maven" />
@@ -1335,7 +1327,7 @@ not registered. To enable specific plugin inspections, you can start from an
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             docker run \
                -v $(pwd):/data/project/ \
                -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties \
@@ -1344,14 +1336,14 @@ not registered. To enable specific plugin inspections, you can start from an
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="2">
             qodana scan \
                -v $(pwd)/gradle.properties:/data/cache/gradle/gradle.properties \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="25">
         name: Qodana
         on:
             workflow_dispatch:
@@ -1361,7 +1353,6 @@ not registered. To enable specific plugin inspections, you can start from an
                     - main # The 'main' branch
                     - master # The 'master' branch
                     - 'releases/*' # The release branches
-            &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -1383,7 +1374,7 @@ not registered. To enable specific plugin inspections, you can start from an
     </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <code-block lang="groovy">
+        <code-block lang="groovy" emphasize-lines="9">
             pipeline {
                 environment {
                     QODANA_TOKEN=credentials('qodana-token')
@@ -1409,7 +1400,7 @@ not registered. To enable specific plugin inspections, you can start from an
         </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="5">
             include:
                 - component: %gitlab-version%
                   inputs:
@@ -1442,7 +1433,7 @@ not registered. To enable specific plugin inspections, you can start from an
     <tab title="Docker image" group-key="docker-image">
         <p>You can mount the <code>$(pwd)/.qodana/results/</code> directory to the <code>/data/results</code>
         directory of the Docker image:</p>
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             docker run \
                -v $(pwd):/data/project/ \
                -v $(pwd)/.qodana/results/:/data/results \
@@ -1563,7 +1554,7 @@ not registered. To enable specific plugin inspections, you can start from an
     option, and saves the generated report to the local filesystem using the
     <a anchor="docker-config-reference-report"><code>--save-report</code></a> option:</p>
 
-<code-block lang="shell" prompt="$">
+<code-block lang="shell" prompt="$" emphasize-lines="6-7">
     docker run \
        -v $(pwd):/data/project/ \
        -v &lt;html-report-directory&gt;:/data/results/newreportdir/ \
@@ -1599,7 +1590,7 @@ not registered. To enable specific plugin inspections, you can start from an
 
 <tabs>
     <tab title="Docker image">
-    <code-block lang="bash" prompt="$">
+    <code-block lang="bash" prompt="$" emphasize-lines="5">
         docker run \
         -v repo/:/data/project/ \
         -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -1608,14 +1599,14 @@ not registered. To enable specific plugin inspections, you can start from an
     </code-block>
     </tab>
     <tab title="Qodana CLI">
-    <code-block lang="bash" prompt="$">
+    <code-block lang="bash" prompt="$" emphasize-lines="3">
         qodana scan \
         -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
         --project-dir=/data/project/project/
     </code-block>
     </tab>
     <tab title="GitHub Actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="24">
         name: Qodana
         on:
             workflow_dispatch:
@@ -1624,7 +1615,6 @@ not registered. To enable specific plugin inspections, you can start from an
                 branches:
                     - main
                     - 'releases/*'
-        &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -1666,7 +1656,7 @@ during the analysis.</note>
 
 <link-summary>You can exclude paths from analyses for all inspections, as well as for specific inspections. </link-summary>
 
-Exclude all inspections for specified project paths:
+Exclude all inspections for specified project paths using the following YAML configuration:
 
 ```yaml
 version: "1.0"
@@ -1717,6 +1707,7 @@ linter: <linter>
 
 onlyDirectory: project-a
 ```
+{emphasize-lines="5"}
 
 This is useful while analyzing [monorepo projects](monorepo-project.md).
 
@@ -1750,7 +1741,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
 <p>This command maps the local directory with the <code>/data/cache</code> directory of the
     Docker image, which saves cache to your local filesystem: </p>
 
-<code-block lang="shell" prompt="$">
+<code-block lang="shell" prompt="$" emphasize-lines="3">
     docker run \
        -v $(pwd):/data/project/ \
        -v &lt;local-cache-directory&gt;:/data/cache/ \
@@ -1762,7 +1753,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3,6">
             docker run \
                -v $(pwd):/data/project/ \
                -v &lt;local-cache-directory&gt;:/data/newcachedir/ \
@@ -1772,14 +1763,14 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --cache-dir /opt/newcachedir
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="25">
         name: Qodana
         on:
             workflow_dispatch:
@@ -1789,7 +1780,6 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
                     - main # The 'main' branch
                     - master # The 'master' branch
                     - 'releases/*' # The release branches
-            &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -1811,7 +1801,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
     </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <code-block lang="groovy">
+        <code-block lang="groovy" emphasize-lines="19">
             pipeline {
                 environment {
                     QODANA_TOKEN=credentials('qodana-token')
@@ -1839,7 +1829,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
         </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="5">
             include:
                 - component: %gitlab-version%
                   inputs:
@@ -1895,7 +1885,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
 <p>The <code>--save-report</code> option in the Docker command lets you save the generated HTML report to your
     local filesystem: </p>
 
-<code-block lang="shell" prompt="$">
+<code-block lang="shell" prompt="$" emphasize-lines="3,6">
     docker run \
        -v $(pwd):/data/project/ \
        -v &lt;directory-to-save-report-to&gt;:/data/results/report \
@@ -1914,7 +1904,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="2,6">
             docker run \
                -p 4040:8080 \
                -v $(pwd):/data/project/ \
@@ -1924,7 +1914,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3-4">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --port 4040 \
@@ -1945,7 +1935,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
 
 You have several options to configure [quality gates](quality-gate.topic).
 
-You can add a fail threshold to control the total number of problems in a project, which is supported by
+In your YAML configuration, you can add a fail threshold to control the total number of problems in a project, which is supported by
 all linters:
 
 ```yaml
@@ -1955,6 +1945,7 @@ linter: <linter>
 
 failThreshold: <number>
 ```
+{emphasize-lines="5"}
 
 > When running in the baseline mode, a threshold is calculated as the sum of new and absent problems. Unchanged results are ignored.
 > {style="note"}
@@ -1978,6 +1969,7 @@ failureConditions:
     fresh: <number> # Fresh code coverage
     total: <number> # Total code coverage
 ```
+{emphasize-lines="5"}
 
 In this configuration, exceeding just one setting limitation will make the build fail.
 
@@ -1986,33 +1978,12 @@ The `severityThresholds:any` option lets you configure the total number of probl
 The `testCoverageThresholds:fresh` and `testCoverageThresholds:total` options let you configure the total and fresh code
 coverage supported by [several linters](quality-gate.topic#quality-gate-code-coverage).
 
-Alternatively, you can configure quality gates using CLI options:
-
-<link-summary>You can configure a quality gate that will act as a threshold. Once the threshold is exceeded,
-    the inspection run is terminated.</link-summary>
-
-<p>%instance% lets you configure a <a href="quality-gate.topic">quality gate</a> or the number of problems that
-    will act as a threshold. Once the threshold is exceeded, the inspection run is terminated.</p>
-
-<tip>You can specify the threshold as explained in the <a href="qodana-yaml.md" anchor="Set+a+quality+gate"/>
-    section. However, the Docker command option overrides the settings in the <code>qodana.yaml</code> file. </tip>
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-    </tr>
-    <tr>
-        <td><code>--fail-threshold</code></td>
-        <td>Set the number of problems that will serve as a quality gate</td>
-    </tr>
-</table>
-
-<p>Here is the command that tells %instance% to fail the build in case the number of problems exceeds 10:</p>
+Also, you can configure quality gates for the total number of problems using the `--fail-threshold` CLI option.
+Here is the command that tells %instance% to fail the build in case the number of problems exceeds 10:
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="5">
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -2021,14 +1992,14 @@ Alternatively, you can configure quality gates using CLI options:
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --fail-threshold 10
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="25">
             name: Qodana
             on:
                 workflow_dispatch:
@@ -2038,7 +2009,6 @@ Alternatively, you can configure quality gates using CLI options:
                         - main # The 'main' branch
                         - master # The 'master' branch
                         - 'releases/*' # The release branches
-                &nbsp;
             jobs:
                 qodana:
                     runs-on: ubuntu-latest
@@ -2060,7 +2030,7 @@ Alternatively, you can configure quality gates using CLI options:
         </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-            <code-block lang="groovy">
+            <code-block lang="groovy" emphasize-lines="19">
                 pipeline {
                     environment {
                         QODANA_TOKEN=credentials('qodana-token')
@@ -2088,7 +2058,7 @@ Alternatively, you can configure quality gates using CLI options:
             </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-            <code-block lang="yaml">
+            <code-block lang="yaml" emphasize-lines="5">
                 include:
                     - component: %gitlab-version%
                       inputs:
@@ -2142,7 +2112,7 @@ Finally, save the <a href="qodana-inspection-output.md" anchor="SARIF+Output">SA
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="5-6">
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -2152,7 +2122,7 @@ Finally, save the <a href="qodana-inspection-output.md" anchor="SARIF+Output">SA
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3-4">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --baseline &lt;path-to-the-SARIF-file&gt; \
@@ -2160,7 +2130,7 @@ Finally, save the <a href="qodana-inspection-output.md" anchor="SARIF+Output">SA
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="26-27">
             name: Qodana
             on:
                 workflow_dispatch:
@@ -2170,7 +2140,6 @@ Finally, save the <a href="qodana-inspection-output.md" anchor="SARIF+Output">SA
                         - main # The 'main' branch
                         - master # The 'master' branch
                         - 'releases/*' # The release branches
-                &nbsp;
             jobs:
                 qodana:
                     runs-on: ubuntu-latest
@@ -2194,7 +2163,7 @@ Finally, save the <a href="qodana-inspection-output.md" anchor="SARIF+Output">SA
         </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-            <code-block lang="groovy">
+            <code-block lang="groovy" emphasize-lines="19-20">
                 pipeline {
                     environment {
                         QODANA_TOKEN=credentials('qodana-token')
@@ -2223,7 +2192,7 @@ Finally, save the <a href="qodana-inspection-output.md" anchor="SARIF+Output">SA
             </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-            <code-block lang="yaml">
+            <code-block lang="yaml" emphasize-lines="5-6">
                 include:
                     - component: %gitlab-version%
                       inputs:
@@ -2265,6 +2234,7 @@ linter: <linter>
 exclude:
   - name: CheckDependencyLicenses
 ```
+{emphasize-lines="5-6"}
 
 #### Ignore a dependency
 
@@ -2280,6 +2250,7 @@ linter: <linter>
 dependencyIgnores:
   - name: "enry"
 ```
+{emphasize-lines="5-6"}
 
 where `name` is the dependency name to ignore.
 
@@ -2356,23 +2327,24 @@ customDependencies:
       - key: "Apache-2.0"
         url: "https://github.com/SchemaStore/schemastore/blob/master/LICENSE"
 ```
+{emphasize-lines="5"}
 
 ### Quick-Fixes
 {id="docker-config-reference-quick-fix"}
 
 <link-summary>You can apply the cleanup or apply Quick-Fix strategies.</link-summary>
 
-This table describes the available Quick-Fix strategies:
+This table describes the available [Quick-Fix strategies](quick-fix.md#How+Quick-Fix+works):
 
 <table>
     <tr>
-        <td>Strategy</td>
+        <td>CLI option / YAML key</td>
         <td>Description</td>
     </tr>
     <tr>
         <td>
             <code>
-                --apply-fixes
+                --apply-fixes / apply
             </code>
         </td>
         <td>
@@ -2383,7 +2355,7 @@ This table describes the available Quick-Fix strategies:
     <tr>
         <td>
             <code>
-                --cleanup
+                --cleanup / cleanup
             </code>
         </td>
         <td>
@@ -2393,7 +2365,7 @@ This table describes the available Quick-Fix strategies:
     </tr>
 </table>
 
-Using the `fixesStrategy` key, you can choose among the available [Quick-Fix strategies](quick-fix.md#How+Quick-Fix+works):
+Using the `fixesStrategy` YAML key, you can choose among the available strategies:
 
 ```yaml
 version: "1.0"
@@ -2402,14 +2374,13 @@ linter: <linter>
 
 fixesStrategy: cleanup/apply
 ```
+{emphasize-lines="5"}
 
 Alternatively, you can employ the `--apply-fixes` or `--cleanup` command-line options:
 
-<p>Here is the command that tells %instance% to apply all available Quick-Fix strategies:</p>
-
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="5">
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -2418,14 +2389,14 @@ Alternatively, you can employ the `--apply-fixes` or `--cleanup` command-line op
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --apply-fixes/cleanup
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="25">
             name: Qodana
             on:
                 workflow_dispatch:
@@ -2435,7 +2406,6 @@ Alternatively, you can employ the `--apply-fixes` or `--cleanup` command-line op
                         - main # The 'main' branch
                         - master # The 'master' branch
                         - 'releases/*' # The release branches
-                &nbsp;
             jobs:
                 qodana:
                     runs-on: ubuntu-latest
@@ -2457,7 +2427,7 @@ Alternatively, you can employ the `--apply-fixes` or `--cleanup` command-line op
         </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-            <code-block lang="groovy">
+            <code-block lang="groovy" emphasize-lines="19">
                 pipeline {
                     environment {
                         QODANA_TOKEN=credentials('qodana-token')
@@ -2485,7 +2455,7 @@ Alternatively, you can employ the `--apply-fixes` or `--cleanup` command-line op
             </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-            <code-block lang="yaml">
+            <code-block lang="yaml" emphasize-lines="5">
                 include:
                     - component: %gitlab-version%
                       inputs:
@@ -2523,7 +2493,7 @@ the [`VulnerableLibrariesGlobal`](https://www.jetbrains.com/help/inspectopedia/V
 
 By default, [code coverage](code-coverage.md) is enabled in %product%.
 
-Using the `coverage.reportProblems` key, you can configure it.
+Using the `coverage.reportProblems` key, you can configure it in a YAML file.
 The `codeCoverageLocations` key lets you override the default code coverage directories, for example:
 
 ```yaml
@@ -2537,6 +2507,7 @@ coverage:
     - "custom-directory-1"
     - "custom-directory-2"
 ```
+{emphasize-lines="5-9"}
 
 {id="docker-config-reference-code-coverage"}
 <link-summary>You can run the code coverage by mapping the directory containing code coverage files to
@@ -2551,7 +2522,7 @@ coverage:
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="2">
             docker run \
                -v /my/dir/with/coverage:/data/coverage \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -2559,14 +2530,14 @@ coverage:
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="2">
             qodana scan \
                -v /my/dir/with/coverage:/data/coverage \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="25">
             name: Qodana
             on:
                 workflow_dispatch:
@@ -2576,7 +2547,6 @@ coverage:
                         - main # The 'main' branch
                         - master # The 'master' branch
                         - 'releases/*' # The release branches
-                &nbsp;
             jobs:
                 qodana:
                     runs-on: ubuntu-latest
@@ -2598,7 +2568,7 @@ coverage:
         </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-            <code-block lang="groovy">
+            <code-block lang="groovy" emphasize-lines="19">
                 pipeline {
                     environment {
                         QODANA_TOKEN=credentials('qodana-token')
@@ -2626,7 +2596,7 @@ coverage:
             </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-            <code-block lang="yaml">
+            <code-block lang="yaml" emphasize-lines="5">
                 include:
                     - component: %gitlab-version%
                       inputs:
@@ -2668,7 +2638,7 @@ You can use the following run scenarios:
     </tr>
 </table>
 
-Using the `script` key, you can specify a run scenario:
+Using the `script` of a YAML configuration, you can specify a run scenario:
 
 ```yaml
 version: "1.0"
@@ -2680,6 +2650,7 @@ script:
   parameters:
       <parameter>: <value>
 ```
+{emphasize-lines="5"}
 
 By default, %instance% employs the `default` scenario, which means the normal %instance% run equivalent to this setting:
 
@@ -2692,9 +2663,7 @@ script:
   name: default
 ```
 
-You can also employ the `--script` CLI option to configure a run scenario: 
-
-<p>Here is the command that tells %instance% to use the default run scenario:</p>
+You can also use the `--script` CLI option to configure a run scenario: 
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
@@ -2861,7 +2830,7 @@ php:
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="5">
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -2870,14 +2839,14 @@ php:
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --property=idea.log.config.file=info.xml
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="25">
         name: Qodana
         on:
             workflow_dispatch:
@@ -2887,7 +2856,6 @@ php:
                     - main # The 'main' branch
                     - master # The 'master' branch
                     - 'releases/*' # The release branches
-            &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -2909,7 +2877,7 @@ php:
     </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <code-block lang="groovy">
+        <code-block lang="groovy" emphasize-lines="19">
             pipeline {
                 environment {
                     QODANA_TOKEN=credentials('qodana-token')
@@ -2937,7 +2905,7 @@ php:
         </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="5">
             include:
                 - component: %gitlab-version%
                   inputs:
@@ -2967,7 +2935,7 @@ php:
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="5">
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -2976,14 +2944,14 @@ php:
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --property=idea.headless.enable.statistics=false
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="25">
         name: Qodana
         on:
             workflow_dispatch:
@@ -2993,7 +2961,6 @@ php:
                     - main # The 'main' branch
                     - master # The 'master' branch
                     - 'releases/*' # The release branches
-            &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -3015,7 +2982,7 @@ php:
     </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <code-block lang="groovy">
+        <code-block lang="groovy" emphasize-lines="19">
             pipeline {
                 environment {
                     QODANA_TOKEN=credentials('qodana-token')
@@ -3043,7 +3010,7 @@ php:
         </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="5">
             include:
                 - component: %gitlab-version%
                   inputs:
@@ -3074,7 +3041,7 @@ php:
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="5-6">
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -3084,7 +3051,7 @@ php:
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3-4">
             qodana scan \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                --property=idea.required.plugins.id=JavaScript,org.intellij.grails \
@@ -3092,7 +3059,7 @@ php:
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="26-27">
         name: Qodana
         on:
             workflow_dispatch:
@@ -3102,7 +3069,6 @@ php:
                     - main # The 'main' branch
                     - master # The 'master' branch
                     - 'releases/*' # The release branches
-            &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -3126,7 +3092,7 @@ php:
     </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <code-block lang="groovy">
+        <code-block lang="groovy" emphasize-lines="19-20">
             pipeline {
                 environment {
                     QODANA_TOKEN=credentials('qodana-token')
@@ -3155,7 +3121,7 @@ php:
         </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="5-6">
             include:
                 - component: %gitlab-version%
                   inputs:
@@ -3197,7 +3163,7 @@ php:
 <p>Here are the examples of property usage:</p>
 <tabs group="software">
   <tab title="GitHub Actions" group-key="github">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="24">
             name: Qodana
             on:
                 workflow_dispatch:
@@ -3244,7 +3210,7 @@ php:
   <tab title="Command line" group-key="command-line">
       <tabs group="cli-settings">
           <tab group-key="qodana-cli" title="Qodana CLI">
-      <code-block prompt="$" lang="shell">
+      <code-block prompt="$" lang="shell" emphasize-lines="4">
         qodana scan \
         &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
         &nbsp;&nbsp;&nbsp;--linter &lt;linter&gt; \
@@ -3252,7 +3218,7 @@ php:
       </code-block>
           </tab>
       <tab group-key="docker-image" title="Docker image">
-      <code-block lang="shell" prompt="$">
+      <code-block lang="shell" prompt="$" emphasize-lines="5">
       docker run \
       &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
       &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -3293,7 +3259,7 @@ php:
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="5">
             docker run \
             &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -3302,14 +3268,14 @@ php:
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             qodana scan \
             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
             &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt;
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="25">
             name: Qodana
             on:
                 workflow_dispatch:
@@ -3319,7 +3285,6 @@ php:
                         - main # The 'main' branch
                         - master # The 'master' branch
                         - 'releases/*' # The release branches
-                &nbsp;
             jobs:
                 qodana:
                     runs-on: ubuntu-latest
@@ -3341,7 +3306,7 @@ php:
         </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-            <code-block lang="groovy">
+            <code-block lang="groovy" emphasize-lines="19">
                 pipeline {
                     environment {
                         QODANA_TOKEN=credentials('qodana-token')
@@ -3369,7 +3334,7 @@ php:
             </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-            <code-block lang="yaml">
+            <code-block lang="yaml" emphasize-lines="5">
                 include:
                     - component: %gitlab-version%
                       inputs:
@@ -3392,7 +3357,7 @@ and <code>--diff-end</code> options:</p>
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="5-6">
             docker run \
             &nbsp;&nbsp;&nbsp;-v $(pwd):/data/project/ \
             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -3402,7 +3367,7 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3-4">
             qodana scan \
             &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
             &nbsp;&nbsp;&nbsp;--diff-start=&lt;GIT_START_HASH&gt; \
@@ -3410,7 +3375,7 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="26-27">
             name: Qodana
             on:
                 workflow_dispatch:
@@ -3420,7 +3385,6 @@ and <code>--diff-end</code> options:</p>
                         - main # The 'main' branch
                         - master # The 'master' branch
                         - 'releases/*' # The release branches
-                &nbsp;
             jobs:
                 qodana:
                     runs-on: ubuntu-latest
@@ -3444,7 +3408,7 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-            <code-block lang="groovy">
+            <code-block lang="groovy" emphasize-lines="19-20">
                 pipeline {
                     environment {
                         QODANA_TOKEN=credentials('qodana-token')
@@ -3473,7 +3437,7 @@ and <code>--diff-end</code> options:</p>
             </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-            <code-block lang="yaml">
+            <code-block lang="yaml" emphasize-lines="5-6">
                 include:
                     - component: %gitlab-version%
                       inputs:
@@ -3506,7 +3470,7 @@ and <code>--diff-end</code> options:</p>
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             docker run \
                -v $(pwd):/data/project/ \
                -e _JAVA_OPTIONS=-Xmx6g \
@@ -3515,14 +3479,14 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="2">
             qodana scan \
                -e _JAVA_OPTIONS=-Xmx6g \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="25">
         name: Qodana
         on:
             workflow_dispatch:
@@ -3532,7 +3496,6 @@ and <code>--diff-end</code> options:</p>
                     - main # The 'main' branch
                     - master # The 'master' branch
                     - 'releases/*' # The release branches
-            &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -3554,7 +3517,7 @@ and <code>--diff-end</code> options:</p>
     </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <code-block lang="groovy">
+        <code-block lang="groovy" emphasize-lines="9">
             pipeline {
                 environment {
                     QODANA_TOKEN=credentials('qodana-token')
@@ -3582,7 +3545,7 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="5">
             include:
                 - component: %gitlab-version%
                   inputs:
@@ -3618,7 +3581,7 @@ and <code>--diff-end</code> options:</p>
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
             docker run \
                -v $(pwd):/data/project/ \
                -e IDEA_PROPERTIES=/data/project/idea.properties \
@@ -3627,14 +3590,14 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="2">
             qodana scan \
                -e IDEA_PROPERTIES=/data/project/idea.properties \
                -e QODANA_TOKEN="&lt;cloud-project-token&gt;"
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="25">
         name: Qodana
         on:
             workflow_dispatch:
@@ -3644,7 +3607,6 @@ and <code>--diff-end</code> options:</p>
                     - main # The 'main' branch
                     - master # The 'master' branch
                     - 'releases/*' # The release branches
-            &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -3666,7 +3628,7 @@ and <code>--diff-end</code> options:</p>
     </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <code-block lang="groovy">
+        <code-block lang="groovy" emphasize-lines="9">
             pipeline {
                 environment {
                     QODANA_TOKEN=credentials('qodana-token')
@@ -3694,7 +3656,7 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="5">
             include:
                 - component: %gitlab-version%
                   inputs:
@@ -3727,7 +3689,7 @@ and <code>--diff-end</code> options:</p>
             read project information and write inspection results. Therefore, all files in the <code>results/</code>
             directory are owned by the <code>root</code> user after the run.</p>
         <p>To overcome this, you can run the container as a regular user:</p>
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="2">
             docker run \
             -u $(id -u):$(id -g) \
             -v $(pwd):/data/project/ \
@@ -3754,7 +3716,7 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml">
+    <code-block lang="yaml" emphasize-lines="25">
         name: Qodana
         on:
             workflow_dispatch:
@@ -3764,7 +3726,6 @@ and <code>--diff-end</code> options:</p>
                     - main # The 'main' branch
                     - master # The 'master' branch
                     - 'releases/*' # The release branches
-            &nbsp;
         jobs:
             qodana:
                 runs-on: ubuntu-latest
@@ -3786,7 +3747,7 @@ and <code>--diff-end</code> options:</p>
     </code-block>
     </tab>
     <tab title="Jenkins" group-key="jenkins">
-        <code-block lang="groovy">
+        <code-block lang="groovy" emphasize-lines="9">
             pipeline {
                 environment {
                     QODANA_TOKEN=credentials('qodana-token')
@@ -3814,7 +3775,7 @@ and <code>--diff-end</code> options:</p>
         </code-block>
     </tab>
     <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-        <code-block lang="yaml">
+        <code-block lang="yaml" emphasize-lines="5">
             include:
                 - component: %gitlab-version%
                   inputs:
@@ -3834,7 +3795,7 @@ and <code>--diff-end</code> options:</p>
     pass an SSH key with access to the submodule into the container as shown in the snippets below:</p>
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="3-6">
             docker run \
                -v $(pwd):/data/project/ \
                -v "$SSH_AUTH_SOCK:/tmp/ssh_agent.sock" \
@@ -3873,7 +3834,7 @@ and <code>--diff-end</code> options:</p>
         </table>
 </tab>
     <tab title="Qodana CLI" group-key="qodana-cli">
-        <code-block lang="shell" prompt="$">
+        <code-block lang="shell" prompt="$" emphasize-lines="2-5">
             qodana scan \
                -v "$SSH_AUTH_SOCK:/tmp/ssh_agent.sock" \
                -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock \
@@ -3911,7 +3872,7 @@ and <code>--diff-end</code> options:</p>
         </table>
     </tab>
     <tab title="GitHub Actions" group-key="github-actions">
-    <code-block lang="yaml"><![CDATA[
+    <code-block lang="yaml" emphasize-lines="19-21"><![CDATA[
         jobs:
             qodana-job:
                 runs-on: ubuntu-latest
@@ -3965,7 +3926,7 @@ and <code>--diff-end</code> options:</p>
 </table>
 </tab>
 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-<code-block lang="yaml">
+<code-block lang="yaml" emphasize-lines="6-9">
     include:
         - component: %gitlab-version%
           inputs:
@@ -4041,7 +4002,7 @@ and <code>--diff-end</code> options:</p>
 
 <link-summary>You can specify the plugins that will be downloaded and invoked during inspection.</link-summary>
 
-You can specify the plugins that will be downloaded and invoked during inspection.
+You can specify the plugins that will be downloaded and invoked during inspection using the following YAML configuration:
 
 ```yaml
 version: "1.0"
@@ -4051,6 +4012,8 @@ linter: <linter>
 plugins:
   - id: <plugin.id>
 ```
+{emphasize-lines="5-6"}
+
 Here, `<plugin-id>` denotes the Plugin ID from [JetBrains Marketplace](https://plugins.jetbrains.com/). For example,
 for [Grazie Professional](https://plugins.jetbrains.com/plugin/16136-grazie-professional), the Plugin ID will be `com.intellij.grazie.pro`. To find the Plugin ID, on the plugin
 page click the **Overview** tab and then navigate to the **Additional Information** section.
@@ -4082,6 +4045,7 @@ linter: <linter>
 include:
   - name: IncorrectFormatting
 ```
+{emphasize-lines="5-6"}
 
 ## Specify a CMake preset
 
@@ -4096,6 +4060,7 @@ linter: <linter>
 cpp:
   cmakePreset: my-qodana-preset
 ```
+{emphasize-lines="5-6"}
 
 ## Configure Java and Kotlin projects in monorepo
 
@@ -4110,6 +4075,7 @@ rootJavaProjects:
 - "./gradleProject"
 - "./mavenModule/pom.xml"
 ```
+{emphasize-lines="5-7"}
 
 By default, %product% recursively collects projects from subdirectories and imports them for analysis.
 This change enables incremental analysis and fixes for projects where the analyzed project and VCS root are different.

@@ -261,7 +261,7 @@ You can specify the path to a custom Maven settings file, which lets you use cus
 mirrors, credentials, and local repository settings: 
 
 <tabs>
-<tab title="qodana.yaml" lang="yaml">
+<tab title="YAML configuration" lang="yaml">
 <code-block lang="yaml"><![CDATA[
     version: "1.0"
 
@@ -302,6 +302,7 @@ $ docker run \
   -v /path/to/jdk:/root/.jdks/jdk \
   jetbrains/qodana-<linter>
 ```
+{emphasize-lines="2"}
 
 </snippet>
 

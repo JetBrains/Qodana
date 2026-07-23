@@ -214,7 +214,7 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
   <a href="https://www.jetbrains.com/help/inspectopedia/PhpVulnerablePathsInspection.html"><code>PhpVulnerablePathsInspection</code></a> 
     inspection into the analysis scope:</p>
 
-  <code-block lang="yaml"><![CDATA[
+  <code-block lang="yaml" emphasize-lines="5-6"><![CDATA[
   version "1.0"
 
   linter: %php-linter%
@@ -238,7 +238,7 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
   <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">include</a> the 
   <code>JvmTaintAnalysis</code> inspection into the analysis scope:</p>
 
-  <code-block lang="yaml"><![CDATA[
+  <code-block lang="yaml" emphasize-lines="5-6"><![CDATA[
   version "1.0"
 
   linter: %jvm-linter%

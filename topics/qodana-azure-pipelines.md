@@ -168,6 +168,12 @@ This is how you can enable %product% analysis for pull requests:
            - checkout: self
              fetchDepth: 0
              persistCredentials: true
+           # Azure Pipelines checks out an ephemeral merge commit for PR builds, but prMode needs the
+           # source-branch head. Check out the PR source commit so the scan reports only problems the PR
+           # introduces (otherwise target-branch changes fall into scope and unrelated files get reported).
+           - script: git checkout $(System.PullRequest.SourceCommitId)
+             condition: eq(variables['Build.Reason'], 'PullRequest')
+             displayName: Check out PR source commit (not the merge commit)
            - task: %azure-version%
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)

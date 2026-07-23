@@ -27,8 +27,8 @@
 
         <list type="decimal">
             <li>If applicable, you can expand a specific dependency to see its dependency tree.</li>
-            <li>Using <ui-path>Only alerted</ui-path>, you can switch between all project dependencies and dependencies
-                which licenses are incompatible with the project license.</li>
+            <li>Use <ui-path>Only alerted</ui-path> to toggle between all project dependencies and those with licenses
+                incompatible with the project license.</li>
             <li>In the <ui-path>Licenses</ui-path> section, you can find the list of project, module and dependency licenses.
                 Using <ui-path>Open license rules</ui-path>, you can view the rules of license compatibility.</li>
             <li>You can download the list of licenses in various formats. Select <code>.json</code> to download the
@@ -58,24 +58,36 @@
         <p filter="configure-jdk">In the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file, you
             can specify the JDK version using the <code>projectJDK</code> option, for example: </p>
 
-        <p filter="configure-jdk-qodana-yaml">Use the <code>projectJDK</code> option to specify
+        <p filter="configure-jdk-qodana-yaml">Use the <code>projectJDK</code> key to specify
             the JDK version, for example: </p>
 
-        <code-block lang="yaml">
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+
+            linter: <linter>
+
             projectJDK: 11
-        </code-block>
+        ]]></code-block>
 
         <p>or:</p>
 
-        <code-block lang="yaml">
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+
+            linter: <linter>
+
             projectJDK: 1.8
-        </code-block>
+        ]]></code-block>
 
         <p>You can also specify JDK using the name:</p>
 
-        <code-block lang="yaml">
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+
+            linter: <linter>
+
             projectJDK: corretto-19
-        </code-block>
+        ]]></code-block>
     </snippet>
 
     <snippet id="linters-supported-features">
