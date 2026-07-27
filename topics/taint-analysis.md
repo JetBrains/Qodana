@@ -55,6 +55,8 @@ of rules are available on the [GitHub website](https://github.com/qodana/opengre
 
 Information about developing custom rules is available on the [Semgrep website](https://docs.semgrep.dev/writing-rules/overview).
 
+Information about supported rules is available in the [](#ta-opengrep-rules-list) chapter.
+
 ## Before you start
 
 <link-summary>Prerequisites for running the taint analysis feature.</link-summary>
@@ -472,6 +474,94 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
 In addition to bundled rules, you can apply your own Opengrep rules by saving rule files to the `.qodana/opengrep` directory
 of your project root.
 
+## List of Opengrep rules in Qodana for .NET
+{id="ta-opengrep-rules-list"}
+
+The repository containing rules is available on the [GitHub website](https://github.com/qodana/opengrep-sast-rules).
+
+### OWASP Top 2017 Coverage Matrix
+
+| Category | C# | JavaScript | TypeScript |
+| :--- | :---: | :---: | :---: |
+| A1 Injection | ✓ | ✓ | ✓ |
+| A2 Broken Authentication | ✓ | ✓ | - |
+| A3 Sensitive Data Exposure | ✓ | ✓ | ✓ |
+| A4 XML External Entities (XXE) | - | ✓ | - |
+| A5 Broken Access Control | ✓ | ✓ | ✓ |
+| A6 Security Misconfiguration | ✓ | ✓ | - |
+| A7 Cross-Site Scripting (XSS) | ✓ | ✓ | ✓ |
+| A8 Insecure Deserialization | ✓ | ✓ | ✓ |
+| A9 Using Components with Known Vulnerabilities | - | ✓ | ✓ |
+| A10 Insufficient Logging & Monitoring | - | - | - |
+
+Information about these rules is available on the [OWASP website](https://owasp.org/www-project-top-ten/2017/).
+
+
+### OWASP Top 2021 Coverage Matrix
+
+| Category | csharp | javascript | typescript |
+| :--- | :---: | :---: | :---: |
+| A1 Broken Access Control | ✓ | ✓ | ✓ |
+| A2 Cryptographic Failures | ✓ | ✓ | ✓ |
+| A3 Injection | ✓ | ✓ | ✓ |
+| A4 Insecure Design | ✓ | - | - |
+| A5 Security Misconfiguration | ✓ | ✓ | - |
+| A6 Vulnerable and Outdated Components | - | ✓ | ✓ |
+| A7 Identification and Authentication Failures | ✓ | ✓ | - |
+| A8 Software and Data Integrity Failures | ✓ | ✓ | ✓ |
+| A9 Security Logging and Monitoring Failures | - | - | - |
+| A10 Server Side Request Forgery (SSRF) | - | ✓ | ✓ |
+
+Information about these rules is available on the [OWASP website](https://owasp.org/Top10/2021/).
+
+### OWASP Top 2025 Coverage Matrix
+
+| Category | csharp | javascript | typescript |
+| :--- | :---: | :---: | :---: |
+| A1 Broken Access Control | ✓ | ✓ | ✓ |
+| A2 Security Misconfiguration | - | - | - |
+| A3 Software Supply Chain Failures | - | - | - |
+| A4 Cryptographic Failures | - | - | - |
+| A5 Injection | ✓ | ✓ | ✓ |
+| A6 Insecure Design | ✓ | - | - |
+| A7 Authentication Failures | - | - | - |
+| A8 Software or Data Integrity Failures | - | - | - |
+| A9 Security Logging and Alerting Failures | - | - | - |
+| A10 Mishandling of Exceptional Conditions | - | - | - |
+
+Information about these rules is available on the [OWASP website](https://owasp.org/Top10/2025/).
+
+### CWE Top 25 (2025) Coverage Matrix
+
+| # | CWE | Description | csharp | javascript | typescript |
+| :--- | :--- | :--- | :---: | :---: | :---: |
+| 1 | CWE-79 | Cross-site Scripting | ✓ | ✓ | ✓ |
+| 2 | CWE-89 | SQL Injection | ✓ | ✓ | - |
+| 3 | CWE-352 | Cross-Site Request Forgery (CSRF) | - | - | - |
+| 4 | CWE-862 | Missing Authorization | - | - | - |
+| 5 | CWE-787 | Out-of-bounds Write | - | ✓ | - |
+| 6 | CWE-22 | Path Traversal | ✓ | ✓ | ✓ |
+| 7 | CWE-416 | Use After Free | - | - | - |
+| 8 | CWE-125 | Out-of-bounds Read | - | ✓ | - |
+| 9 | CWE-78 | OS Command Injection | ✓ | ✓ | ✓ |
+| 10 | CWE-94 | Code Injection | - | ✓ | ✓ |
+| 11 | CWE-120 | Classic Buffer Overflow | - | - | - |
+| 12 | CWE-434 | Unrestricted File Upload | - | - | - |
+| 13 | CWE-476 | NULL Pointer Dereference | - | - | - |
+| 14 | CWE-121 | Stack-based Buffer Overflow | - | - | - |
+| 15 | CWE-502 | Deserialization of Untrusted Data | ✓ | ✓ | ✓ |
+| 16 | CWE-122 | Heap-based Buffer Overflow | - | - | - |
+| 17 | CWE-863 | Incorrect Authorization | - | - | - |
+| 18 | CWE-20 | Improper Input Validation | - | - | - |
+| 19 | CWE-284 | Improper Access Control | - | - | - |
+| 20 | CWE-200 | Exposure of Sensitive Information | - | - | - |
+| 21 | CWE-306 | Missing Authentication for Critical Function | - | - | - |
+| 22 | CWE-918 | Server-Side Request Forgery (SSRF) | - | ✓ | ✓ |
+| 23 | CWE-77 | Command Injection | - | - | - |
+| 24 | CWE-639 | Authorization Bypass Through User-Controlled Key | - | - | - |
+| 25 | CWE-770 | Allocation of Resources Without Limits or Throttling | - | ✓ | ✓ |
+
+Information about these rules is available on the [CWE website](https://cwe.mitre.org/top25/archive/2025/2025_cwe_top25.html).
 
 
 
