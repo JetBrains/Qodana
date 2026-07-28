@@ -470,7 +470,7 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
 
 ##### Use your own rules
 
-In addition to bundled rules, you can apply your own Opengrep rules by saving rule files to the `.qodana/opengrep` directory
+In addition to the bundled rules, you can apply your own rules by saving rule files to the `.qodana/opengrep` directory
 of your project root.
 
 ## Qodana for .NET list of rules
