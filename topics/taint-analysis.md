@@ -49,13 +49,12 @@ To override the default behavior, you can apply [custom configurations](#Configu
 
 ### %dotnet%
 
-Starting from version 2026.2, the [%dotnet%](dotnet.md) linter supports [Opengrep](https://www.opengrep.dev/) rules 
+Starting from version 2026.2, the [%dotnet%](dotnet.md) linter supports rules compatible with [Opengrep](https://www.opengrep.dev/) 
 for configuring taint analysis. It already provides a bunch of C#, JavaScript, and TypeScript rules treated by %product% as inspections. Examples
-of rules are available on the [GitHub website](https://github.com/qodana/opengrep-sast-rules/tree/master/jetbrains).
+of such rules are available on the [GitHub website](https://github.com/qodana/opengrep-sast-rules/tree/master/jetbrains).
+The list of supported rules is provided in the [](#ta-dotnet-rules-list) chapter.
 
 Information about developing custom rules is available on the [Semgrep website](https://docs.semgrep.dev/writing-rules/overview).
-
-Information about supported rules is available in the [](#ta-opengrep-rules-list) chapter.
 
 ## Before you start
 
@@ -474,8 +473,8 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
 In addition to bundled rules, you can apply your own Opengrep rules by saving rule files to the `.qodana/opengrep` directory
 of your project root.
 
-## List of Opengrep rules in Qodana for .NET
-{id="ta-opengrep-rules-list"}
+## Qodana for .NET list of rules
+{id="ta-dotnet-rules-list"}
 
 The repository containing rules is available on the [GitHub website](https://github.com/qodana/opengrep-sast-rules).
 
@@ -514,7 +513,7 @@ Information about these rules is available on the [OWASP website](https://owasp.
 
 Information about these rules is available on the [OWASP website](https://owasp.org/Top10/2021/).
 
-### OWASP Top 2025 Coverage Matrix
+<!--### OWASP Top 2025 Coverage Matrix
 
 | Category | csharp | javascript | typescript |
 | :--- | :---: | :---: | :---: |
@@ -563,7 +562,7 @@ Information about these rules is available on the [OWASP website](https://owasp.
 
 Information about these rules is available on the [CWE website](https://cwe.mitre.org/top25/archive/2025/2025_cwe_top25.html).
 
-
+-->
 
 <!--Use the `dfa.analysis.rml.max.traces.count=<number>` property for configuring 
 
