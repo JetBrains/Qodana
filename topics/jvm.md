@@ -374,6 +374,21 @@ $ docker run \
 
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,jvm,native"/>
 
+### Enabling PQC inspections
+
+In your YAML configuration file (`qodana.yaml`), add the following configuration and specify the `PqcMinLevel` 
+[inspection level](post-quantum-cryptography.md) from 1 to 5:
+
+```yaml
+version: "1.0"
+
+profile:
+  name: qodana.recommended
+  inspections:
+    - group: PqcMinLevel<number>
+      enabled: true
+```
+
 ## Supported technologies and features
 {id="jvm-feature-matrix"}
 

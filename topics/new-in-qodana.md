@@ -19,7 +19,10 @@ option of the `qodana.yaml` file to override the default locations of code cover
 Additionally, you can use JetBrains IDEs to track code coverage for incremental changes. For more details, see the 
 [](code-coverage.md#View+coverage+reports+in+IDE) chapter.
 
+### Post-quantum cryptography (PQC) inspections
 
+The [%jvm%](jvm.md) linter supports five levels of post-quantum cryptography (PQC) inspections to let you mitigate the 
+risks of quantum attacks. The details are available in the [](post-quantum-cryptography.md) section.,
 
 <!--Version 2025.3 of %product% contains the updates described below.
 

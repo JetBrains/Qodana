@@ -13,7 +13,7 @@
         Also, <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a> to explore %product% capabilities.
     </tip>
 
-        <p>Using %instance%, you can significantly enhance your code inspection workflow. To better achieve your
+        <p>Using %product%, you can significantly enhance your code inspection workflow. To better achieve your
            goals, you may want to start using several features that are available out of the box: </p>
 
         <table>
@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <td><a href="baseline.topic"/></td>
-                <td>Group the existing code problems
+                <td>Group existing code problems
                     into several categories to efficiently monitor your code evolution</td>
                 <td>
                         <p>Community</p>
@@ -54,7 +54,7 @@
             </tr>
             <tr>
                 <td><a href="code-coverage.md"/></td>
-                <td>Support for the test code coverage</td>
+                <td>Support for test code coverage</td>
                 <td>
                         <p>Ultimate</p>
                         <p>Ultimate Plus</p>
@@ -128,13 +128,24 @@
             </tr>
             <tr>
                 <td><a href="php-language-upgrade.topic"/></td>
-                <td>Monitor problems specific to a specific PHP version that may arise when you decide to migrate between versions</td>
+                <td>Monitor problems specific to a particular PHP version that may arise when you decide to migrate between versions</td>
                 <td>
                         <p>Ultimate</p>
                         <p>Ultimate Plus</p>
                 </td>
                 <td>
                     <p><a href="php.md">%php%</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="post-quantum-cryptography.md"/></td>
+                <td>Prevent risks related to post-quantum cryptography in your projects</td>
+                <td>
+                    <p>Ultimate</p>
+                    <p>Ultimate Plus</p>
+                </td>
+                <td>
+                    <p><a href="jvm.md">%jvm%</a></p>
                 </td>
             </tr>
             <tr>
@@ -169,7 +180,7 @@
             </tr>
             <tr>
                 <td><a href="quick-fix.md"/></td>
-                <td>Use the Quick-Fix feature to improve the performance of the project development</td>
+                <td>Use the Quick-Fix feature to accelerate project development</td>
                 <td>
                         <p>Ultimate</p>
                         <p>Ultimate Plus</p>
