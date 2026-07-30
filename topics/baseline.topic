@@ -6,11 +6,11 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Baseline" id="baseline" help-id="qodana-baseline">
 
-    <link-summary>Baseline is a snapshot of the codebase problems taken at a specific %instance% analysis and
+    <link-summary>The baseline is a snapshot of the codebase problems taken at a specific %instance% analysis and
     contained in the qodana.sarif.json file. Using the baseline feature, you can compare your current code to its
         baseline state and see new, unchanged, and resolved problems.</link-summary>
 
-    <p><emphasis>Baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% analysis for a
+    <p><emphasis>The baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% analysis for a
         specific Git branch and contained in the <code>qodana.sarif.json</code> file.</p>
 
     <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
@@ -25,18 +25,18 @@
     </p>
 
 
-    <chapter title="How baseline works">
+    <chapter title="How the baseline works">
 
         <link-summary>Learn how the baseline feature works.</link-summary>
 
-        <p>If you run %instance% without a baseline, you will be able to see the problems detected at a current analysis.</p>
+        <p>If you run %instance% without the baseline, you will be able to see the problems detected at a current analysis.</p>
 
         <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="706" alt="Running Qodana without a baseline"/>
 
     <p>In this case, you can only see the number of problems and their description, without classification to new and
         existing problems.</p>
 
-        <p>To improve the situation, you can add problems to a baseline and save them to the
+        <p>To improve the situation, you can add problems to the baseline and save them to the
             <code>qodana.sarif.json</code> file in your project directory as explained in the
             <a href="ui-overview.md" anchor="ui-overview-baseline"/> section of the %instance% report description. Once done,
             this file becomes a basis for comparing with later code states. Below are the examples of how to run %product%
@@ -106,7 +106,7 @@
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
-                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing a baseline.</p>
+                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing the baseline.</p>
             </tab>
             <tab title="Jenkins" group-key="jenkins">
                     <code-block lang="groovy">
@@ -189,20 +189,20 @@
 
     <list type="decimal">
 
-        <li>The first %instance% run detected two problems in the codebase.</li>
+        <li>The first %instance% analysis detected two problems in the codebase.</li>
 
-        <li>To create a baseline for your project, download the <code>qodana.sarif.json</code> file and
+        <li>To create the baseline for your project, download the <code>qodana.sarif.json</code> file and
             save it in your project directory as shown in the <a href="ui-overview.md" anchor="ui-overview-baseline"/> section.
             Starting from this moment, these two problems are identified by %instance% as baseline problems.
         </li>
 
-        <li>A later %instance% run detected three problems. Fortunately, this time %instance%
+        <li>A later %instance% analysis detected three problems. Fortunately, this time %instance%
             identifies one of them as new and marks it respectively. The other two are the baseline problems; they are
             already reflected in the baseline report and marked as unchanged.
         </li>
 
         <li><p>After one baseline problem is resolved, you decided to run %instance% again. This time, the report will
-            contain three problems. The new problem is the problem that was detected in the previous run and still
+            contain three problems. The new problem is the problem that was detected in the previous analysis and still
             remains new. There is also one unchanged problem that has not changed its status. Finally, the first
             baseline problem was resolved and now is marked as absent. </p>
             <p>To include absent problems in the report, you need to run %instance% with the

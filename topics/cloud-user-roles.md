@@ -321,7 +321,7 @@ Below you can find the detailed description of all organization-level roles and 
                 <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
-                <td>✔</td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -424,11 +424,20 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
             </tr>
             <tr>
-                <td>Teams</td>
+                <td>Public teams</td>
                 <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Private teams</td>
+                <td></td>
+                <td>✔</td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -603,11 +612,20 @@ Below you can find the detailed description of all organization-level roles and 
                 <td></td>
             </tr>
             <tr>
-                <td>Teams</td>
+                <td> Public teams</td>
                 <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
                 <td>✔</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Private teams</td>
+                <td></td>
+                <td>✔</td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
