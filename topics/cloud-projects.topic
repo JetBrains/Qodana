@@ -11,10 +11,6 @@
 
     <chapter id="cloud-create-project" title="Create a project">
 
-        <p>While creating a new <a href="cloud-organizations.topic" anchor="cloud-organizations-create-organization">organization</a>,
-            %cloud% assists you in setting up your first project, so these steps are only relevant when creating additional
-            projects.</p>
-
         <p>On a <a href="cloud-teams.topic">team</a> page, click the <ui-path>Create project</ui-path> button.</p>
 
         <img src="qc-create-project.png" dark-src="qc-create-project_dark.png" width="706" alt="Creating a new project" border-effect="line"/>

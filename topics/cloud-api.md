@@ -25,8 +25,7 @@ Before using the Qodana Cloud API, make sure that the following requirements wer
 <list>
 <li>
     <p>To create and manage an organization API token, you should have access to an existing %cloud% organization 
-       under the <code>Owner</code> or <code>Admin</code> <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a>.</p> 
-       <p>To learn how to create organizations, see the <a href="cloud-organizations.topic" anchor="cloud-organizations-create-organization"></a> chapter.</p>
+       under the <code>Owner</code> or <code>Admin</code> <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a>.</p>
 </li>
 <li>
     <p>Your %cloud% organization is licensed under the Ultimate Plus <a href="pricing.md">license</a> of %product%.</p>
