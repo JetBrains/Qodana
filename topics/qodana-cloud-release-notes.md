@@ -2,6 +2,50 @@
 
 <show-structure for="chapter" depth="3"/>
 
+## July 2026
+
+Here are highlights of what shipped in Qodana Cloud since our last update. As always, this covers user-facing features, 
+UI improvements, bug fixes, and stability improvements that affect your experience.
+
+### Security
+{id="july-2026-security"}
+
+* **Critical AWS ECR vulnerabilities resolved**. Upgraded components to address critical container image vulnerabilities.
+* **VCS link domain allowlist bypass fixed**. The button that links out to your VCS host validated domains using a 
+  pattern that could be spoofed; it now checks properly.
+
+
+### New features
+{id="july-2026-new-features"}
+
+#### Cloud API
+{id="july-2026-new-features-cloud-api"}
+
+**Set team visibility on project creation**. The `/api/v1/public/organizations/projects` endpoint now accepts an 
+`isPublicTeam` parameter, so you can create a private team via the API instead of only public ones. Existing teams are unaffected.
+
+#### UI improvements
+{id="july-2026-new-features-ui-improvements"}
+
+* **Switch controls replace dropdowns**. The timeline graph filter and the problems/files switcher in the TeamCity plugin 
+now use direct toggle controls instead of dropdowns.
+* **Smaller visual clean-up**. Removed unnecessary drop shadows and made various small text and hover-state improvements across the app.
+* **Copy- and loading-state updates**. Refreshed the sanity inspection warning banner, the VCS set-up step, and 
+the "Qodana is getting ready" loading screen text. Replaced free-text filter inputs with selectable snippets and added a progress bar to the set-up flow.
+
+#### Bug fixes
+{id="july-2026-new-features-bug-fixes"}
+
+* **SSO page showed the wrong message for expired plans**. Fixed incorrect messaging and call-to-action shown on the SSO page for expired Ultimate Plus plans. 
+* **"Report not found" error appeared incorrectly**. This is now fixed.
+* **Report page loader got stuck after manual CI/CD set-up**. Fixed the loader persisting after a manually configured CI/CD scan finished.
+* **Reassigned projects stayed on their old page**. Fixed a Global Project Configuration bug where a project remained listed on its original page after reassignment until a manual refresh.
+* **Collapsing inspection groups was broken on the report inspections tab**. This is now fixed.
+* **"Copy link" button on problems was broken**. This is now fixed.
+* **Report processing failures from date/time formatting**. Fixed report processing failures caused by unexpected date/time formats in scan data.
+* **False "malicious dependency" flag for `ngx-bootstrap`**. This is now fixed.
+* **Uploads with invalid licenses now blocked**. Previously these proceeded silently; they're now stopped as expected.
+
 ## June 2026
 
 Here's a summary of everything that has been shipped in Qodana Cloud this month. As always, this covers

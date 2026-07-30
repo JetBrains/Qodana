@@ -76,7 +76,7 @@
             <li><a anchor="cloud-organizations-logs"><ui-path>Logs</ui-path></a> provides a list of log entries for a specific time interval.</li>
             <li><a anchor="cloud-organizations-invitation"><ui-path>Members</ui-path></a> lets you manage organization members.</li>
             <li><a anchor="cloud-organization-sso"><ui-path>SSO</ui-path></a> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>
-            <li><a anchor="cloud-organizations-api-token"><ui-path>API token</ui-path></a> lets you generate and manage a permanent organization token used by the <a href="cloud-api.md">public API</a> of %cloud%.
+            <li><a anchor="cloud-organizations-api-token"><ui-path>API token</ui-path></a> lets you generate and manage a permanent organization token used by the <a href="cloud-api.md">API</a> of %cloud%.
                 This feature is available only under the <a href="pricing.md">Ultimate Plus license</a> and only for %cloud% users of the <code>Owner</code> and <code>Admin</code> <a href="cloud-user-roles.md">roles</a>.</li>
             <li><a anchor="cloud-organizations-global-configurations"><ui-path>Global configurations</ui-path></a> let you manage <a href="global-configuration.md">configurations used across many projects</a> of your organization.</li>
         </list>
@@ -162,7 +162,7 @@
 
         <chapter id="cloud-organizations-api-token" title="API token">
 
-            <link-summary>Using the API token tab, you can have access to the Public API to create teams, projects, and
+            <link-summary>Using the API token tab, you can have access to the Cloud API to create teams, projects, and
                 obtain a list of users in %cloud% and %premlite% using your build pipelines.</link-summary>
 
             <note>This tab is visible only if your %cloud% user has either the <code>Owner</code> or <code>Admin</code>
@@ -173,7 +173,7 @@
             </note>
 
             <p>Using the <ui-path>API token</ui-path> tab, you can generate and manage an organization API token. This token lets you
-            have access to the <a href="cloud-api.md">Public API</a> to create <a href="cloud-teams.topic">teams</a>,
+            have access to the <a href="cloud-api.md"/> to create <a href="cloud-teams.topic">teams</a>,
             <a href="cloud-projects.topic">projects</a>, and obtain a list of %cloud% and %premlite% organization users
             using your <a href="ci.md">build pipelines</a>.</p>
 
