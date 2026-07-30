@@ -51,6 +51,8 @@ the issue.
     <shortcut>Ctrl + Shift + ↑/↓</shortcut> shortcut on Windows or Linux, or <shortcut>⌘ + ⇧ + ↑/↓ </shortcut> on macOS.
 
     You can also exclude a path, file, inspection, or category from analysis, see the [](#Adjust+the+analysis+scope) section for details.
+
+    The **Find similar problems** button lets you filter problems by type.
     
     Finally, you can use the **Copy** button to copy a link to a specific problem contained in the report.
 
