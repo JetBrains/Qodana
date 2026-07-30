@@ -12,16 +12,16 @@
         created on the basis of a specific JetBrains account.</link-summary>
 
     <p>Organizations provide top-level structuring of all entities in <a href="https://qodana.cloud">%cloud%</a>.
-    Every organization is created on the basis of a specific JetBrains account. Depending on your choice, it will be either
+    Every organization is created on the basis of a specific JetBrains account and can be either
         private or public.
         Every account in %cloud% is based on the organization that becomes its default organization.
     </p>
 
     <p>You can navigate between organizations using the list in the upper left part of the %cloud% UI.</p>
 
-    <img src="qc-settings-organization-navigate-between.gif" width="706" alt="Creating an organization" border-effect="line"/>
+    <img src="qc-settings-organization-navigate-between.png" width="706" alt="Creating an organization" border-effect="line"/>
 
-    <chapter id="cloud-organizations-create-organization" title="Create an organization">
+    <!--<chapter id="cloud-organizations-create-organization" title="Create an organization">
 
         <p>You can create private or public organizations. Reports stored in private organizations are accessible only
             by a user who created an organization and users who were invited to them.
@@ -41,7 +41,7 @@
                 <p>Complete the project setup stage. You can read more about this stage in the <a href="Quick-start.topic" anchor="quickstart-prerequisites"/> section.</p>
             </step>
         </procedure>
-    </chapter>
+    </chapter>-->
 
     <chapter id="cloud-organizations-overview" title="Configure organizations">
 
@@ -53,11 +53,10 @@
 
             <step>
                 <p>In the sidebar, navigate to the organization that you wish to configure. </p>
-                <img src="qc-settings-organization-navigate-between.gif" width="706" alt="Creating an organization" border-effect="line"/>
             </step>
             <step>
-                <p>On the organization page, click the <ui-path>Organization settings</ui-path> button in the upper-right corner.</p>
-                <img src="qc-settings-organization-manage-access.png" dark-src="qc-settings-organization-manage-access_dark.png" width="706" alt="Navigate to the organization settings" border-effect="line"/>
+                <p>On the organization page, click the <ui-path>Settings</ui-path> button.</p>
+                <img src="qc-settings-organization-manage-access.png" width="706" alt="Navigate to the organization settings" border-effect="line"/>
             </step>
 
         </procedure>

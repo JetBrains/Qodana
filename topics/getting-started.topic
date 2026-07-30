@@ -34,8 +34,10 @@
                         <a href="baseline.topic" summary="Track your project changes through reviewing new, unchanged, and resolved problems."/>
                         <a href="code-coverage.md" summary="Analyze the quality of code coverage."/>
                         <a href="flexinspect.md" summary="Develop your own inspections using IntelliJ IDEA."/>
+                        <a href="insights.md" summary="Examine aggregated data using %cloud%."/>
                         <a href="license-audit.topic" summary="Check license compatibility between your software license and dependency licenses."/>
                         <a href="php-language-upgrade.topic" summary="See how updating PHP will affect your codebase quality."/>
+                        <a href="post-quantum-cryptography.md" summary="Identify post-quantum cryptography vulnerabilities."/>
                         <a href="quality-gate.topic" summary="Restrict the quantity of problems that can be accepted by your favorite CI/CD system."/>
                         <a href="quick-fix.md" summary="Use the Quick-Fix feature to improve the performance of the project development."/>
                         <a href="qodana-inspection-output.md" anchor="SARIF+Output" summary="Qodana reads and writes reports in SARIF format, which is the industry standard for the output of static analysis tools."/>
