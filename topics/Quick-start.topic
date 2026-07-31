@@ -30,6 +30,8 @@
             explore %product% capabilities.</p>
     </tip>
 
+    <include from="lib_qd.topic" element-id="ide-linter-configuration-difference" use-filter="empty,not-for-linter-page"/>
+
 
     <chapter title="Prerequisites" id="quickstart-prerequisites">
 

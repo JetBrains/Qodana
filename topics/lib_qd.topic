@@ -2625,4 +2625,13 @@
         </tabs>
     </snippet>
 
+    <snippet id="ide-linter-configuration-difference">
+        <note>
+            <p>Because of the difference in plugin configuration, running %product% in IDEs and using %product% linters can also
+            produce the different output. Information about plugins configured for each linter is contained in
+            <code>included_plugins.txt</code> files hosted on the <a href="https://github.com/JetBrains/qodana-cli/blob/261/dockerfiles">GitHub website</a>.</p>
+            <p filter="not-for-linter-page">Also, see the <ui-path>Supported technologies and features</ui-path> chapters of respective <a href="linters.md">linter</a> sections.</p>
+        </note>
+    </snippet>
+
 </topic>

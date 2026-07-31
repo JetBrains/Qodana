@@ -28,6 +28,8 @@ analysis of the JavaScript and TypeScript code.
 >You can run multiple linters in a single project as described in the  [](monorepo-project.md) section.
 {style="tip"}
 
+<include from="lib_qd.topic" element-id="ide-linter-configuration-difference" use-filter="empty"/>
+
 Below is the description of all linters provided by %product%.
 
 <table>

@@ -12,6 +12,8 @@ let you:
 * [Open a report from local storage](#ide-plugin-local-report)
 * [Examine %instance% reports in your IDE](#ide-plugin-study-reports)
 
+<include from="lib_qd.topic" element-id="ide-linter-configuration-difference" use-filter="empty,not-for-linter-page"/>
+
 ## UI overview
 
 In your IDE, navigate to <ui-path>Tools | %product%</ui-path>.
