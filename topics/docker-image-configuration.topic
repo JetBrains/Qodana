@@ -4363,8 +4363,67 @@
         <chapter id="docker-config-reference-git-submodules" title="Git submodules">
             <p>To analyze repositories that use Git submodules accessed via SSH, you must authenticate Git
                 operations within the Qodana Docker container. In this case, you need to configure an SSH agent and
-                pass an SSH key with access to the submodule into the container as shown in the snippets below:</p>
-            <tabs group="cli-settings">
+                pass an SSH key with access to the submodule into the container. A configuration snippet for GitHub Actions is shown below:</p>
+            <code-block lang="yaml" emphasize-lines="32-34">
+                name: Qodana
+                on:
+                    workflow_dispatch:
+                    pull_request:
+                    push:
+                        branches: # Specify your branches here
+                            - main # The 'main' branch
+                            - master # The 'master' branch
+                            - 'releases/*' # The release branches
+                jobs:
+                    qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                            contents: write
+                            pull-requests: write
+                            checks: write
+                        steps:
+                            - uses: actions/checkout@v4
+                              with:
+                                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                  fetch-depth: 0  # a full history is required for pull request analysis
+
+                            - name: Setup SSH Agent
+                              uses: webfactory/ssh-agent@v0.9.0
+                              with:
+                                  ssh-private-key: ${{ secrets.SUBMODULE_SSH_KEY }}
+
+                            - name: 'Qodana Scan'
+                              uses: JetBrains/qodana-action@v2026.1
+                              with:
+                                  args: |
+                                      -v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock
+                                      -e SSH_AUTH_SOCK=/tmp/ssh_agent.sock
+                                      -e "GIT_SSH_COMMAND=ssh -o StrictHostKeyChecking=no"
+                                  upload-result: true
+                                  pr-mode: 'true'
+                              env:
+                                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+            </code-block>
+            <p>This command contains the following options:</p>
+            <table>
+                <tr>
+                    <td>Option</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>-v ${{ env.SSH_AUTH_SOCK }}:/tmp/ssh_agent.sock</code></td>
+                    <td>Mount the SSH agent socket into the container</td>
+                </tr>
+                <tr>
+                    <td><code>-e SSH_AUTH_SOCK=/tmp/ssh_agent.sock</code></td>
+                    <td>Set the SSH agent socket environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>-e GIT_SSH_COMMAND=&quot;ssh -o StrictHostKeyChecking=no&quot;</code></td>
+                    <td>Disable strict host key checking for SSH operations</td>
+                </tr>
+            </table>
+            <!--<tabs group="cli-settings">
                 <tab title="Docker image" group-key="docker-image">
                     <code-block lang="shell" prompt="$">
                         docker run \
@@ -4531,7 +4590,7 @@
                         </tr>
                     </table>
                 </tab>
-            </tabs>
+            </tabs>-->
         </chapter>
 
 
