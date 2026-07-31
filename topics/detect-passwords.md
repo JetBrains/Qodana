@@ -8,7 +8,8 @@ access sensitive information.
 %product% provides the `HardcodedPasswords` inspection that detects hard-coded passwords 
 and covers [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#](dotnet.md), JSON, YAML, and XML.
 
-> The `HardcodedPasswords` inspection analyzes files tracked in git with the “unchanged” status.
+> The `HardcodedPasswords` inspection analyzes files tracked in Git with the “unchanged” status.
+> For example, this means that analysis of a configuration file modified by the build to replace placeholders with environment-specific values will be skipped.
 {style="note"}
 
 #### How password detection works
