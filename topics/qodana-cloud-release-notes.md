@@ -22,7 +22,7 @@ UI improvements, bug fixes, and stability improvements that affect your experien
 {id="july-2026-new-features-cloud-api"}
 
 **Set team visibility on project creation**. The `/api/v1/public/organizations/projects` endpoint now accepts an 
-`isPublicTeam` parameter, so you can create a private team via the API instead of only public ones. Existing teams are unaffected.
+`isPublicTeam` [parameter](cloud-api.md#Create+teams+and+projects), so you can create a private team via the API instead of only public ones. Existing teams are unaffected.
 
 #### UI improvements
 {id="july-2026-new-features-ui-improvements"}

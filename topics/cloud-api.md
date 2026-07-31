@@ -54,10 +54,11 @@ POST https://qodana.cloud/api/v1/public/organizations/projects
 
 Here is the description of the request body:
 
-| Parameter     | Type      | Description                                                                                               | Example value     |
-|---------------|-----------|-----------------------------------------------------------------------------------------------------------|-------------------|
-| `teamName`    | String    | Non-nullable name of the [team](cloud-teams.topic) to create. If exists, creation will be skipped         | `My team name`    |
-| `projectName` | String    | Non-nullable name of the [project](cloud-projects.topic) to create. If exists, creation will be skipped   | `My project name` |
+| Parameter       | Type    | Description                                                                                             | Example value     |
+|-----------------|---------|---------------------------------------------------------------------------------------------------------|-------------------|
+| `teamName`      | String  | Non-nullable name of the [team](cloud-teams.topic) to create. If exists, creation will be skipped       | `My team name`    |
+| `projectName`   | String  | Non-nullable name of the [project](cloud-projects.topic) to create. If exists, creation will be skipped | `My project name` |
+| `isPublicTeam`  | Boolean | Specify whether a created team should be public or private                                              | `true`            |
 
 The endpoint provides the responses with the following HTTP codes:
 
