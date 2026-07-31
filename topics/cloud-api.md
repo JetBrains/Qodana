@@ -285,9 +285,12 @@ Here is the description of responses:
                     "actual": 5
                   }
                 ]
-              }
+              },
+              "publicKey": "ssh-rsa AAAAB3NBFye+4lsYw== qodana.cloud\n"
             }
         </code-block>
+        <p>In this response, the <code>publicKey</code> field is a project public SSH key linked to a VCS repository. 
+            For details, see the <a href="contributors.md"/> section. </p>
         </td>
     </tr>
     <tr>
@@ -427,9 +430,12 @@ Here is the description of responses:
                     "actual": 5
                   }
                 ]
-              }
+              },
+              "publicKey": "ssh-rsa AAAAB3NBFye+4lsYw== qodana.cloud\n"
             }
         </code-block>
+        <p>In this response, the <code>publicKey</code> field is a project public SSH key linked to a VCS repository. 
+            For details, see the <a href="contributors.md"/> section. </p>
         </td>
     </tr>
     <tr>
