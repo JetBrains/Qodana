@@ -322,15 +322,12 @@ Here you can find answers to frequently asked questions about %instance% licensi
 </chapter>
 
 <chapter id="faq-licensing-license-difference" title="What is the difference between the Ultimate and Ultimate Plus licenses?" default-state="collapsed" collapsible="true">
-    <p>
-        Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:
-    </p>
-
-    <list>
-        <li><a href="license-audit.topic"/></li>
-        <li><a href="taint-analysis.md"/></li>
-        <li><a href="vulnerability-checker.md"/></li>
-    </list>
+<p>Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:</p>
+<list>
+    <li><a href="license-audit.topic">License Audit</a></li>
+    <li><a href="taint-analysis.md">Taint Analysis</a></li>
+    <li><a href="vulnerability-checker.md">Vulnerability Checker</a></li>
+</list>
 
 </chapter>
 <chapter id="faq-licensing-community-restrictions" title="Are there any restrictions on using the Community license?" default-state="collapsed" collapsible="true">
