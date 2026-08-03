@@ -1143,7 +1143,7 @@ bootstrap: dotnet restore
             <list>
                 <li>Whether the solution-wide analysis is enabled.</li>
                 <li><a href="https://www.jetbrains.com/help/resharper/Coding_Assistance__Naming_Style.html">Naming rules</a> (this can only be configured using <code>.DotSettings</code> files).</li>
-                <li><a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html#exclude_items">Files, folders, and file masks excluded from code analysis</a>.</li>
+                <li><a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html#exclude_items">Files, directories, and file masks excluded from code analysis</a>.</li>
                 <li><a href="https://www.jetbrains.com/help/resharper/Code_Analysis__Configuring_Warnings.html#exclude_generated">Files, file masks, and regions with generated code, where the code analysis is partly disabled</a> (this can only be configured using <code>.DotSettings</code> files).</li>
                 <li>A place where the code analysis engine should store caches. You can specify it on the <ui-path>Environment | General</ui-path> page of ReSharper options.</li>
                 <li>Target languages (<ui-path>ReSharper | Options | Environment | Products — Features</ui-path>).</li>

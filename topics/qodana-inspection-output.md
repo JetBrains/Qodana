@@ -267,11 +267,11 @@ The `toolExecutionNotifications` field contains notifications generated during %
 
 <note>
 After the linter process has exited successfully,
-the <code>results</code> folder contains the report file
+the <code>results</code> directory contains the report file
 and the process exit code is equal to the <code>exitCode</code> value in the report.
 
 If the process was terminated abnormally,
-the <code>results</code> folder may or may not contain the report file.
+the <code>results</code> directory may or may not contain the report file.
 A typical exit code in such cases is <code>137</code> (SIGKILL, due to out of memory).
 </note>
 

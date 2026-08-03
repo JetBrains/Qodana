@@ -100,7 +100,7 @@ To run %product% as the root user, you may need to invoke the ` --user=root` [op
 ### Complex monorepo example
 
 In CI/CD environments like GitLab CI/CD, you may need to prepare a complex environment before the analysis starts.
-Here is an example of a monorepo setup with a `frontend` folder (Node.js) and a `backend` folder (C#):
+Here is an example of a monorepo setup with a `frontend` directory (Node.js) and a `backend` directory (C#):
 
 ```yaml
 version: "1.0"
@@ -172,7 +172,7 @@ Information about inspection IDs is available on the [Inspectopedia](https://www
 To exclude all paths in a project from the analysis scope, omit the `paths` node.
 
 <note>While using the <code>qodana.recommended</code> and <code>qodana.starter</code> 
-profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and folders to be ignored 
+profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and directories to be ignored 
 during the analysis.</note>
 
 ### Examples

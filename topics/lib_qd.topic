@@ -79,7 +79,7 @@
             projectJDK: 1.8
         ]]></code-block>
 
-        <p>You can also specify JDK using the name:</p>
+        <p>You can also specify the JDK by name:</p>
 
         <code-block lang="yaml"><![CDATA[
             version: "1.0"

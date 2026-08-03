@@ -465,7 +465,7 @@ qodana:
       when: always
 ```
 
-This will upload the log folder even when the analysis fails or hangs.
+This will upload the log directory even when the analysis fails or hangs.
 
 After running the job, download a **Qodana report** artifact and open the `log` directory.
 

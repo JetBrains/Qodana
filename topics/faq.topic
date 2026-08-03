@@ -492,7 +492,7 @@
 
     <chapter id="faq-cannot-download-gradle" title="Qodana can't download Gradle because I use proxy." default-state="collapsed" collapsible="true">
         <p>
-            Before starting %instance%, please run the <code>./gradlew</code> command in the root folder. This will let
+            Before starting %instance%, please run the <code>./gradlew</code> command in the root directory. This will let
             %instance% use this downloaded version of Gradle.
         </p>
         <p>

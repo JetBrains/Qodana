@@ -105,7 +105,7 @@ module.exports = divide; // Analyzed by the code coverage
 
 Impl:
 
-    Check folders used by default as destination by coverage agents, like coverage is configured but noone configured report path.
+    Check directory used by default as destination by coverage agents, like coverage is configured but noone configured report path.
     Make sure coverage data from automatic discovery opens in IDE
     Add user-facing logging
 

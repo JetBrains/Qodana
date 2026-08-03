@@ -14,9 +14,9 @@ root/
 ```
 
 In this example,
-the `backend/` folder contains a Java project,
-the `frontend/` folder contains a JavaScript project,
-and the `.git/` folder contains VCS-related information.
+the `backend/` directory contains a Java project,
+the `frontend/` directory contains a JavaScript project,
+and the `.git/` directory contains VCS-related information.
 
 This section explains how to prepare and analyze a monorepo using:
 
@@ -27,7 +27,7 @@ This section explains how to prepare and analyze a monorepo using:
 ## Prepare your project
 
 <!--
-Placing the project-specific `qodana.yaml` files in the root folder
+Placing the project-specific `qodana.yaml` files in the root directory
 has these advantages:
 
 * Any relative paths in the project-specific `qodana.yaml` files
@@ -37,7 +37,7 @@ has these advantages:
 And these disadvantages:
 
 * In a monorepo containing many projects,
-  the root folder gets cluttered with these files.
+  the root directory gets cluttered with these files.
 * https://github.com/SchemaStore/schemastore only recognizes a qodana.yaml
   file for completion and validation if it is named exactly `qodana.yaml`.
   Naming it `qodana-backend.yaml` disables all this editor support.
@@ -51,10 +51,10 @@ which reverses the above advantages and disadvantages.
 To configure %product% for inspecting two projects, you need to create two YAML-formatted [configuration files](qodana-yaml.md), 
 one for each linter. In this example, these will be the `qodana-backend.yaml` and `qodana-frontend.yaml` files.  
 
-When %product% runs, it uses the `.git/` folder for linking detected problems to the corresponding
+When %product% runs, it uses the `.git/` directory for linking detected problems to the corresponding
 source code in a Git repository, and for exploring analysis reports [from within your IDE](qodana-ide-plugin.md).
 
-Here are the contents of the `root/` folder: 
+Here are the contents of the `root/` directory: 
 
 ```text
 root/
@@ -82,7 +82,7 @@ images of %product% need to be run twice over the monorepo repository, once for 
 <tab id="monorepo-cli-tab" title="Qodana CLI">
 <note>You can only use %product% CLI with Azure and CircleCI.</note>
 <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
-The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--only-directory</code></a> option specifies which project folder to inspect.
+The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--only-directory</code></a> option specifies which project directory to inspect.
 The <a href="docker-image-configuration.topic" anchor="docker-config-reference-custom-yaml-config"><code>--config</code></a>
 option specifies which %product% configuration file to employ. Here is the snippet for the <code>backend</code> project:</p>
 <code-block lang="shell" prompt="$">

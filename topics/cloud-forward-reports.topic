@@ -124,7 +124,7 @@
                 <p>Prepare your project as described in the <a href="gitlab.md" anchor="Before+you+start"/> section.</p>
             </step>
             <step>
-                <p>In the root folder of your GitLab-hosted project, create the <code>.gitlab-ci.yml</code> file and save this
+                <p>In the root directory of your GitLab-hosted project, create the <code>.gitlab-ci.yml</code> file and save this
                     configuration to that file:</p>
                 <code-block lang="yaml">
                   include:

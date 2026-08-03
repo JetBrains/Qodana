@@ -36,7 +36,7 @@ the Docker container of a linter after the first linter analysis. Cache contains
 dependencies, which makes subsequent analyses faster. However, in case of significant and disruptive changes of your
 project or %product% version updates, it may be beneficial to reset cache.
 
-You can also store your IntelliJ IDEA setting files in the `.idea` folder, for example:
+You can also store your IntelliJ IDEA setting files in the `.idea` directory, for example:
 * The `modules.xml` file improves project structure parsing
 * The language-specific files like `kotlinc.xml` or `php.xml` provide information about compiler versions and options
 * The `*.iml` files contain information about directories

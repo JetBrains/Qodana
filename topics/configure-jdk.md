@@ -54,9 +54,9 @@ Otherwise, %instance% will download the subsequent version from this list.
 
 ## Mount JDK
 
-<link-summary>You can mount JDK from your local filesystem to the /root/.jdks folder of the %instance% Docker image.</link-summary>
+<link-summary>You can mount JDK from your local filesystem to the /root/.jdks directory of the %instance% Docker image.</link-summary>
 
-You can mount JDK from your local filesystem to the `/root/.jdks` folder of the %instance% Docker image:
+You can mount JDK from your local filesystem to the `/root/.jdks` directory of the %instance% Docker image:
 
 ```shell
 $ docker run -v /path/to/jdk:/root/.jdks/jdk \

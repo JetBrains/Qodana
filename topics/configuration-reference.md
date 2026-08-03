@@ -13,29 +13,25 @@
 <link-summary>You can configure Qodana via a YAML-formatted file. By default, this file should have the qodana.yaml 
 name and be contained in the root directory of your project.</link-summary>
 
-You can configure %product% using YAML or CLI options.
+You can configure %product% using YAML or command-line (CLI) options.
 
 Configuring %product% via a [YAML-formatted](qodana-yaml.md) file typically named `qodana.yaml` and contained in the
 root directory of your project is suitable for settings that require lengthy commands. For example, inspection configuration, 
-[bootstrap](qodana-yaml.md#Run+custom+commands), other settings that are not convenient to configure otherwise.
+[bootstrap](qodana-yaml.md#Run+custom+commands), and other settings that are not convenient to configure otherwise.
 Once a YAML configuration is saved, you can reuse it across different instances of Qodana.
 
 CLI options are suitable for immediate configuration of applications that run %product% like the Docker engine,
 [Qodana CLI](Quick-start.topic#quickstart-run-using-cli), [IDEs](ide-integration.md), and [CI/CD tools](ci.md). 
-Besides that, some CLI options do not have any YAML equivalents.
+Besides that, some CLI options do not have YAML equivalents.
 
-Settings like [linter](linters.md) or [quality gates](quality-gate.topic) can be set up using both YAML and CLI methods.
+You can configure [linter](linters.md) and [quality gates](quality-gate.topic) via both YAML and CLI.
 In such cases, CLI options take precedence over their YAML equivalents if both methods are used.
 
 <note>The <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters require the
-    <code>QODANA_TOKEN</code> variable to refer to a <a href="project-token.md">project token</a>. If you run the
-    Community linters of %instance%, using <code>QODANA_TOKEN</code> is
-    necessary only if you wish to view %instance% reports in %cloud%.</note>
+    <code>QODANA_TOKEN</code> variable to refer to a <a href="project-token.md">project token</a>. Community linters only require a 
+    <code>QODANA_TOKEN</code> to view analysis reports in %cloud%.</note>
 
 ### YAML configuration
-
-> The configured major version of a %product% linter (20**.*) should match the configured linter version specified in the `qodana.yaml` file.
-> {style="note"}
 
 <note>
 The configuration saved in the <code>qodana.yaml</code> file affects only %product% linters and does not impact other 
@@ -225,8 +221,8 @@ bootstrap: |+
 > You can investigate %product% behavior using files contained in the
 > [`/data/results`](docker-image-configuration.topic#docker-config-reference-overview-logs) directory.
 
-> An unexpected problem inspection will report in case the `qodana.yaml` file
-> containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the
+> The sanity inspection will report unexpected problems in case the `qodana.yaml` file
+> containing the `bootstrap` key is missing from your project directory. You can disable this inspection using the
 > `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
 > {style="note"}
 
@@ -255,7 +251,7 @@ bootstrap: sh ./prepare-qodana.sh
 To run %product% as the root user, you may need to invoke the ` --user=root` [option](docker-image-configuration.topic#docker-config-reference-qodana-scan).
 
 In CI/CD environments like GitLab CI/CD, you may need to prepare a complex environment before the analysis starts.
-Here is an example of a monorepo setup with a `frontend` folder (Node.js) and a `backend` folder (C#):
+Here is an example of a monorepo setup with a `frontend` directory (Node.js) and a `backend` directory (C#):
 
 ```yaml
 version: "1.0"
@@ -546,14 +542,14 @@ The `--linter` and `--within-docker false` CLI options also let you configure th
 {id="docker-config-reference-custom-yaml-config"}
 
 <link-summary>You can save %product% settings in your custom YAML-formatted file. You can then invoke this file
-    using the --config option and a path to a file relatively to the project root.</link-summary>
+    using the --config option and a path to a file relative to the project root.</link-summary>
 
 <p>Your project can have several %product% configurations contained in
     <a href="qodana-yaml.md">YAML-formatted files</a>. This comes in handy if you analyze monorepo projects or
     run a single CI job.</p>
 
 <p>You can use the <code>--config</code> CLI option and a path
-to a file relatively to the project root:</p>
+to a file relative to the project root:</p>
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
         <code-block lang="shell" prompt="$" emphasize-lines="5">
@@ -1083,6 +1079,102 @@ linter: <linter>
 disableSanityInspections: true
 ```
 
+Alternatively, you can use the `--disable-sanity` CLI option: 
+
+<tabs group="cli-settings">
+    <tab title="Docker image" group-key="docker-image">
+    <code-block lang="shell" prompt="$" emphasize-lines="5">
+        docker run \
+           -v $(pwd):/data/project/ \
+           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+           &lt;image-name&gt; \
+           --disable-sanity
+    </code-block>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+    <code-block lang="shell" prompt="$" emphasize-lines="3">
+        qodana scan \
+           -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+           --disable-sanity
+    </code-block>
+    </tab>
+    <tab title="GitHub Actions" group-key="github-actions">
+    <code-block lang="yaml" emphasize-lines="26">
+        name: Qodana
+        on:
+            workflow_dispatch:
+            pull_request:
+            push:
+                branches: # Specify your branches here
+                    - main # The 'main' branch
+                    - master # The 'master' branch
+                    - 'releases/*' # The release branches
+        jobs:
+            qodana:
+                runs-on: ubuntu-latest
+                permissions:
+                    contents: write
+                    pull-requests: write
+                    checks: write
+                steps:
+                    - uses: actions/checkout@v3
+                      with:
+                          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                          fetch-depth: 0  # a full history is required for pull request analysis
+                    - name: 'Qodana Scan'
+                      uses: %action-version%
+                      with:
+                          args: |
+                              --disable-sanity
+                      env:
+                          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+    </code-block>
+    </tab>
+    <tab title="Jenkins" group-key="jenkins">
+        <code-block lang="groovy" emphasize-lines="19">
+            pipeline {
+                environment {
+                    QODANA_TOKEN=credentials('qodana-token')
+                }
+                agent {
+                    docker {
+                        args '''
+                          -v "${WORKSPACE}":/data/project
+                          --entrypoint=""
+                          '''
+                        image 'jetbrains/qodana-&lt;image&gt;'
+                    }
+                }
+                stages {
+                    stage('Qodana') {
+                        steps {
+                            sh '''
+                            qodana \
+                            --disable-sanity
+                            '''
+                        }
+                    }
+                }
+            }
+        </code-block>
+    </tab>
+    <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
+        <code-block lang="yaml" emphasize-lines="5">
+            include:
+                - component: %gitlab-version%
+                  inputs:
+                      args: |
+                          --disable-sanity
+                          --image &lt;image&gt;
+        </code-block>
+    </tab>
+    <tab title="TeamCity" group-key="teamcity">
+        <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
+            specify the <code>--disable-sanity</code> option.</p>
+    </tab>
+</tabs>
+
+
 ## Inspections
 
 ### Including inspections
@@ -1307,7 +1399,7 @@ not registered. To enable specific plugin inspections, you can start from an
     </tab>
     <tab title="TeamCity" group-key="teamcity">
         <p>In the runner configuration, find the <ui-path>Inspection profile</ui-path> dropdown list and select the <ui-path>Profile path</ui-path> option.
-        In the field that appears below the dropdown list, specify the path to your profile file relatively to the project root.</p>
+        In the field that appears below the dropdown list, specify the path to your profile file relative to the project root.</p>
     </tab>
 </tabs>
 
@@ -1471,13 +1563,13 @@ not registered. To enable specific plugin inspections, you can start from an
 
 <link-summary>Learn available CLI options for overriding default paths. </link-summary>
 
-<p>Using these options, you can override the paths described in the
+<p>Using these CLI options, you can override the paths described in the
     <a anchor="Linter+paths"/> section.</p>
 
 <table>
     <tr>
         <td>Option</td>
-        <td/>
+        <td>Description</td>
         <td>Default setting</td>
     </tr>
     <tr id="docker-config-reference-directories-repository-root">
@@ -1648,7 +1740,7 @@ Information about inspection IDs is available on the [Inspectopedia](https://www
 To exclude all paths in a project from the analysis scope, omit the `paths` node.
 
 <note>While using the <code>qodana.recommended</code> and <code>qodana.starter</code> 
-profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and folders to be ignored 
+profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and directories to be ignored 
 during the analysis.</note>
 
 
@@ -1697,8 +1789,8 @@ You can find specific inspection IDs in the Profile settings in the HTML report 
 
 ### Specify directory in your project
 
-Use the `onlyDirectory` option to specify a directory inside your project that has to be analyzed.
-This has to be specified relatively to the project root, for example:
+Use the `onlyDirectory` option to specify a project directory to analyze.
+This should be relative to the project root, for example:
 
 ```yaml
 version: "1.0"
@@ -1866,7 +1958,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
     </tr>
     <tr>
         <td><code>-w</code>, <code>--show-report</code></td>
-        <td>Serve HTML-formatted reports. By default, port <code>8080</code> is used</td>
+        <td>Serve HTML-formatted reports. By default, %product% uses port <code>8080</code> on its side</td>
     </tr>
 </table>
 
@@ -1899,7 +1991,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
 
 <link-summary>The --show-report option runs a local web server to show an analysis report.</link-summary>
 
-<p>This command runs the web server on port 4040 of a host machine, so your report will be available on
+<p>The <code>--show-report</code> option runs a local web server on port 4040 of a host machine, so your report will be available on
     <a href="http://localhost:4040">http://localhost:4040</a>:</p>
 
 <tabs group="cli-settings">
@@ -2518,7 +2610,7 @@ coverage:
     the /data/coverage directory of a %instance% linter image.</link-summary>
 
 <note>
-    For the <a href="golang.md">%go%</a> linter, the code coverage requires that a project contains no <code>.idea</code> directory.
+    For the <a href="golang.md">%go%</a> linter, including code coverage requires that a project contains no <code>.idea</code> directory.
 </note>
 
 <p>You can run the <a href="code-coverage.md">code coverage</a> by mapping the directory containing code coverage files to
@@ -3232,7 +3324,7 @@ php:
   </tab>
 </tabs>
 
-## Analysis of changes
+## Analyze changed code
 {id="docker-config-reference-changes"}
 
 <link-summary>For all linters except Qodana Community for .NET, you can run incremental analysis on a change set like
@@ -5381,7 +5473,7 @@ You can use the following CLI options to configure Qodana projects:
 ### Pull a Qodana image
 {id="docker-config-reference-qodana-pull"}
 
-<p>Using these options, you can pull the %product% linter that you would like to employ. </p>
+<p>Using these CLI options, you can pull the %product% linter that you would like to employ. </p>
 <table>
     <tr>
         <td>Option</td>
@@ -5429,7 +5521,7 @@ You can use the following CLI options to configure Qodana projects:
 ### Generate an autocompletion script
 {id="docker-config-reference-qodana-completion"}
 
-<p>Using these options, you can generate an autocompletion script for a specific shell.</p>
+<p>Using these CLI options, you can generate an autocompletion script for a specific shell.</p>
 
 <table>
     <tr>

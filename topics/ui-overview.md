@@ -195,7 +195,7 @@ double-clicking the <code>index.html</code> file. Instead, the HTML report needs
 can run the Dockerized version of nginx, or invoke the Python or PHP built-in web servers as shown below.</p>
 
 <procedure>
-<step>After running %instance%, navigate to the <code>report</code> folder and make sure that the 
+<step>After running %instance%, navigate to the <code>report</code> directory and make sure that the 
 <code>index.html</code> file is present there.</step>
 <step>
     <p>Serve the report using the web server of your choice:</p>
