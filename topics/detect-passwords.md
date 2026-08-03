@@ -9,7 +9,7 @@ access sensitive information.
 and covers [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#](dotnet.md), JSON, YAML, and XML.
 
 > The `HardcodedPasswords` inspection analyzes files tracked in Git with the “unchanged” status.
-> For example, this means that analysis of a configuration file modified by the build to replace placeholders with environment-specific values will be skipped.
+> For example, this means that %product% will skip analyzing a configuration file modified by the build to replace placeholders with environment-specific values.
 {style="note"}
 
 #### How password detection works
