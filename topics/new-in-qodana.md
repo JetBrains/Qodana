@@ -24,6 +24,12 @@ Additionally, you can use JetBrains IDEs to track code coverage for incremental 
 The [%jvm%](jvm.md) linter supports five levels of post-quantum cryptography (PQC) inspections to let you mitigate the 
 risks of quantum attacks. The details are available in the [](post-quantum-cryptography.md) section.
 
+### Opengrep rule support
+
+The [%dotnet%](dotnet.md) linter now supports rules compatible with [Opengrep](https://www.opengrep.dev/). Details are available
+in the [](taint-analysis.md) section.
+
+
 <!--Version 2025.3 of %product% contains the updates described below.
 
 ## Podman support 
