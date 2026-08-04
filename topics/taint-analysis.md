@@ -33,7 +33,7 @@ Tainted data is called a **source**, while a vulnerable function that may contai
 
 <img src="taint-analysis.png" dark-src="taint-analysis_dark.png" width="706" alt="Taint analysis diagram" border-effect="line"/>
 
-Between a source and a sink, tainted data can travel through various **passthrough** functions which calls are also marked as
+Between a source and a sink, tainted data can travel through various **passthrough** functions whose calls are also marked as
 tainted if the input data was initially marked as tainted. The **sanitizer** functions can be used to make data safe 
 for further processing through several approaches like data sanitization or data transformation to a safe state.
 
@@ -50,8 +50,8 @@ To override the default behavior, you can apply [custom configurations](#Configu
 ### %dotnet%
 
 Starting from version 2026.2, the [%dotnet%](dotnet.md) linter supports rules compatible with [Opengrep](https://www.opengrep.dev/) 
-for configuring taint analysis. It already provides a bunch of C#, JavaScript, and TypeScript rules treated by %product% as inspections. Examples
-of such rules are available on the [GitHub website](https://github.com/qodana/opengrep-sast-rules/tree/master/jetbrains).
+for configuring taint analysis. It already includes a set of built-in C#, JavaScript, and TypeScript rules that you can 
+use as %product% inspections, so you don’t have to download or configure them manually. Examples of such rules are available in our [GitHub repository](https://github.com/qodana/opengrep-sast-rules/tree/master/jetbrains).
 The list of supported rules is provided in the [](#ta-dotnet-rules-list) chapter.
 
 Information about developing custom rules is available on the [Semgrep website](https://docs.semgrep.dev/writing-rules/overview).
@@ -114,7 +114,7 @@ for the analyzed files.</p>
     <tab title="Settings for in-Editor Analysis" id="ta-in-editor-analysis">
         <p>Options applied to an opened file in real time.</p>
         <p>The <ui-path>Analysis depth (from a current file)</ui-path> field configures 
-analysis depth using the <code>Current file -> File 1 (Low) -> File 2 (Medium) -> File 3 (High)</code> reference pattern. 
+analysis depth using the <code>Current file → File 1 (Low) → File 2 (Medium) → File 3 (High)</code> reference pattern. 
 For example, the <ui-path>Medium</ui-path> setting configures the reference to <code>File 2</code> from this pattern.</p>
         <p>The <ui-path>Analysis time limit for in-editor analysis (ms)</ui-path> field configures the amount of time 
 that can be allocated for a specific file. The default value is 5000 ms.</p>
@@ -122,7 +122,7 @@ that can be allocated for a specific file. The default value is 5000 ms.</p>
     <tab title="Settings for Batch Analysis" id="ta-batch-analysis">
         <p>Configuration of batch analysis over an entire project.</p>
         <p>The <ui-path>Analysis depth (from a current file)</ui-path> field configures 
-analysis depth using the <code>Current file -> File 1 (Low) -> File 2 (Medium) -> File 3 (High)</code> reference pattern. 
+analysis depth using the <code>Current file → File 1 (Low) → File 2 (Medium) → File 3 (High)</code> reference pattern. 
 For example, the <ui-path>Medium</ui-path> setting configures the reference to <code>File 2</code> from this pattern.</p>
     </tab>
     <tab title="Common Settings" id="ta-common-settings">
