@@ -526,7 +526,7 @@
                       image: jetbrains/qodana-&lt;image&gt; # Specify a Qodana linter here. For example, jetbrains/qodana-jvm:latest
                       script:
                         - export QODANA_TOKEN=$QODANA_TOKEN  # Export the environment variable
-                        - qodana --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=~/.qodana/cache
+                        - qodana --results-dir=$BITBUCKET_CLONE_DIR/.qodana --report-dir=$BITBUCKET_CLONE_DIR/.qodana/report --cache-dir=$HOME/.qodana/cache
                       artifacts:
                         - .qodana/report
 
