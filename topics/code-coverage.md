@@ -17,45 +17,43 @@ This feature is available in the following linters:
 <table>
     <tr>
         <td>Linter</td>
+        <td>Supported report file extensions / formats</td>
         <td>Code coverage tool</td>
-        <td>Supported report file extensions</td>
     </tr>
     <tr>
         <td rowspan="2"><a href="jvm.md">%jvm%</a></td>
-        <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a><br/> is the recommended tool</td>
         <td><code>ic</code></td>
+        <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a><br/> is the recommended tool</td>
     </tr>
     <tr>
-        <td><a href="https://www.jacoco.org/jacoco/">JaCoCo</a></td>
         <td><code>xml</code></td>
+        <td><a href="https://www.jacoco.org/jacoco/">JaCoCo</a></td>
     </tr>
     <tr>
         <td><a href="js.md">%js%</a></td>
-        <td><a href="https://jestjs.io/">Jest</a></td>
         <td><code>info</code> (LCOV-formatted file)</td>
+        <td><a href="https://jestjs.io/">Jest</a>, <a href="https://vitest.dev/guide/coverage">Vitest</a> or any tool supporting the file format</td>
     </tr>
     <tr>
         <td><a href="php.md">%php%</a></td>
-        <td><a href="https://phpunit.de/">PhpUnit</a></td>
         <td><code>xml</code> (Clover)</td>
+        <td><a href="https://phpunit.de/">PhpUnit</a></td>
     </tr>
     <tr>
-        <td rowspan="2"><a href="dotnet.md">%dotnet%</a></td>
-        <td rowspan="2"><a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a></td>
-    </tr>
-    <tr>
+        <td><a href="dotnet.md">%dotnet%</a></td>
         <td><p><code>info</code> (LCOV-formatted file)</p>
         <p>For Cobertura:<code>info</code> or <code>cobertura</code>*</p></td>
+        <td><a href="https://www.nuget.org/packages/coverlet.msbuild">coverlet.msbuild</a></td>
     </tr>
     <tr>
         <td><a href="python.md">%python%</a></td>
-        <td><a href="https://coverage.readthedocs.io/en/7.3.2/">Coverage.py</a></td>
         <td><code>xml</code></td>
+        <td><a href="https://coverage.readthedocs.io/en/7.3.2/">Coverage.py</a></td>
     </tr>
     <tr>
         <td><a href="golang.md">%go%</a></td>
-        <td><code>go test</code></td>
         <td><code>out</code></td>
+        <td><code>go test</code></td>
     </tr>
 </table>
 
@@ -67,6 +65,10 @@ This feature is available in the following linters:
 ## How code coverage works
 
 <link-summary>Learn how the code coverage feature works.</link-summary>
+
+%product% relies on the coverage report format rather than a specific 
+coverage tool, which lets you use any tool that produces a specific file format. %product% ingests a report file, analyzes 
+it and visualizes results.
 
 For the missing code coverage issues, the predefined threshold in %instance% is currently set to 50%.
 
