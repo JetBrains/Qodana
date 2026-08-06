@@ -391,7 +391,6 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
             If you plan to use private NuGet feeds, it is advised to run native mode on the same machine where
             you build a project because this can guarantee that %instance% has access to private NuGet feeds.
           </note>
-          <snippet id="dotnet-run-qodana-native-mode-yaml">
                 <p>You can configure native mode by using the <code>--linter</code> and <code>--within-docker</code> options:</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
@@ -1032,6 +1031,38 @@ After configuring [external NuGet feeds](#Private+NuGet+repositories), you shoul
 bootstrap: dotnet restore
 ```
 -->
+
+### Private NuGet feeds in Azure DevOps
+
+If your .NET project in Azure DevOps uses a private NuGet feed, the standard `NuGetAuthenticate` task may not be sufficient 
+for %product%, as %product% or Rider might attempt to access feeds during analyses. This is relevant for ADO
+pipelines and private Azure-hosted NuGet feeds.
+
+<!--Add a `bootstrap` step to your `qodana.yaml` to ensure the feed is configured, packages are restored, and the build is prepared:-->
+
+To override it, configure the feed and restore/build your project before %product% runs. In your YAML configuration,  
+add a `bootstrap` step to ensure the feed is configured, packages are restored, and the build is prepared:
+
+<code-block lang="yaml">
+version: "1.0"
+
+linter: %qd-linter%
+
+bootstrap: |+
+set -eu
+
+dotnet nuget add source "https://pkgs.dev.azure.com/YOUR_ORGANIZATION/_packaging/YOUR_FEED/nuget/v3/index.json" \
+--name "PrivateFeed" \
+--username "YOUR_USERNAME" \
+--password "$SYSTEM_ACCESSTOKEN" \
+--store-password-in-clear-text
+
+dotnet restore YourSolution.sln
+dotnet build YourSolution.sln --no-restore
+</code-block>
+
+If you continue to experience credential issues, ensure you are running %product% in native mode.
+
 
 ## Explore analysis reports
 
@@ -1919,4 +1950,3 @@ docker run \
 ** Supports Visual Basic inspections only.
 
 *** Available only under the Ultimate Plus [license](pricing.md).
-
