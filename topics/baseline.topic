@@ -36,12 +36,20 @@
     <p>In this case, you can only see the number of problems and their description, without classification to new and
         existing problems.</p>
 
+    <!--<p>During the first analysis, %product% creates a baseline saved to the <code>qodana.sarif.json</code> file, and adds all found problems to that. Once done,
+            this file becomes a basis for comparing with later code states. After then, all subsequent analyses do not contribute to the baseline unless configured.</p>-->
+    <!--<p>To update the baseline, you can add new problems to it or remove the existing ones as explained in the <a href="ui-overview.md/> section. This will update the <code>qodana.sarif.json</code> file accordingly.</p>-->
+    <!--<p>You can run %product% using the baseline as shown in examples below:</p>-->
+
+        <!-- This can be removed once the issue is updated -->
         <p>To improve the situation, you can add problems to the baseline and save them to the
             <code>qodana.sarif.json</code> file in your project directory as explained in the
             <a href="ui-overview.md" anchor="ui-overview-baseline"/> section of the %instance% report description. Once done,
             this file becomes a basis for comparing with later code states. Below are the examples of how to run %product%
             using various tools:
         </p>
+
+        <!-- This should be a continue to other comments -->
 
         <tabs group="cli-settings">
             <tab title="Qodana CLI" group-key="qodana-cli">
@@ -189,8 +197,11 @@
 
     <list type="decimal">
 
+
+        <!-- The first %product% analysis detected two problems in the codebase that were added to the baseline. -->
         <li>The first %instance% analysis detected two problems in the codebase.</li>
 
+        <!-- Download the <code>qodana.sarif.json</code> file and ...  -->
         <li>To create the baseline for your project, download the <code>qodana.sarif.json</code> file and
             save it in your project directory as shown in the <a href="ui-overview.md" anchor="ui-overview-baseline"/> section.
             Starting from this moment, these two problems are identified by %instance% as baseline problems.
