@@ -18,8 +18,8 @@ Starting from version 2026.2, %product% automatically detects code coverage repo
 described in the [](code-coverage.md#code-coverage-before-you-start) chapter. You can also use the `codeCoverageLocations` 
 option of the `qodana.yaml` file to override the default locations of code coverage reports. 
 
-Additionally, you can use JetBrains IDEs to track code coverage for incremental changes. For more details, see the 
-[](code-coverage.md#View+coverage+reports+in+IDE) chapter.
+Additionally, you can use JetBrains IDEs to track code coverage for pull or merge requests. For more details, see the 
+[](code-coverage.md#Incremental+analysis) chapter.
 
 ### Post-quantum cryptography (PQC) inspections
 
