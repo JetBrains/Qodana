@@ -6,8 +6,8 @@ Using %premlite%, you can run %product% within your infrastructure ensuring that
 private, which is particularly useful for organizations that need powerful static analysis tools but must operate
 within strict security or compliance standards. 
 
-> %premlite% is still in the alpha development stage, which means that it may contain bugs or work not as intended.
-{style="warning"}
+<!-- %premlite% is still in the alpha development stage, which means that it may contain bugs or work not as intended.
+{style="warning"}-->
 
 Visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page to learn more about available
 subscription options for %premlite%. You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
