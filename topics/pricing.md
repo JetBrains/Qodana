@@ -204,7 +204,7 @@ The Community license is free to use, though its functionality is limited only t
 linters. Furthermore, it lacks many helpful [features](features.topic) that are available in the paid versions and 
 only offers a limited period for [data storage](#pricing-data-storage) in %cloud%.
 
-The trial versions of the Ultimate or Ultimate Plus licenses are limited to a 60-day trial period. After the trial 
+The trial versions of the Ultimate or Ultimate Plus licenses are limited to a 30-day trial period. After the trial 
 license expires, you'll have to purchase either the Ultimate or the Ultimate Plus license to continue using Qodana.
 
 You can review the [%instance% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/) on the JetBrains website. 
@@ -237,8 +237,8 @@ in this case too.
 
 ### Can I try Qodana before buying a license?
 
-Yes, you can choose either the Ultimate or Ultimate Plus trial license and start using Qodana for a 60-day trial period. 
-After 60 days, you’ll need to buy either the Ultimate or Ultimate Plus license to continue using Qodana in your projects.
+Yes, you can choose either the Ultimate or Ultimate Plus trial license and start using Qodana for a 30-day trial period. 
+After 30 days, you’ll need to buy either the Ultimate or Ultimate Plus license to continue using Qodana in your projects.
 Only one trial license is allowed for an organization created in [%cloud%](cloud-organizations.topic).
 
 ### Will I be notified when the license trial period comes to an end?

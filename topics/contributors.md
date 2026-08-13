@@ -138,7 +138,7 @@ Here you can find answers to frequently asked questions about %instance% licensi
 
 <chapter id="faq-licensing-try-before-buy" title="Can I try Qodana before buying a license?" default-state="collapsed" collapsible="true">
     <p>Yes, you can choose either the Ultimate or Ultimate Plus trial license and start using Qodana for free with
-        a 60-day trial period. During this period, you can switch between these licenses once. After 60 days,
+        a 30-day trial period. During this period, you can switch between these licenses once. After 30 days,
         you’ll need to buy either the Ultimate or Ultimate Plus license to continue using Qodana in your projects.
     </p>
     <p>
@@ -182,7 +182,7 @@ Here you can find answers to frequently asked questions about %instance% licensi
 <chapter id="faq-licensing-eap-trial" title="What is a trial license?" default-state="collapsed" collapsible="true">
     <p>
         A trial license is a time-limited version of either the Ultimate or the Ultimate Plus license. Each trial
-        license duration is limited to 60 days, and you can change it from Ultimate to Ultimate Plus and vice versa
+        license duration is limited to 30 days, and you can change it from Ultimate to Ultimate Plus and vice versa
         just once. After the trial period ends, this type of license is no longer valid and can no longer be used.
         To continue using %instance%, you’ll have to purchase a full version of your license.
     </p>
