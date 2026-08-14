@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Baseline" id="baseline" help-id="qodana-baseline">
 
+    <show-structure for="chapter" depth="3"/>
+
     <link-summary>The baseline is a snapshot of the codebase problems taken at a specific %instance% analysis and
     contained in the baseline.sarif.json file. Using the baseline feature, you can compare your current code to its
         baseline state and see new, unchanged, and resolved problems.</link-summary>
@@ -53,9 +55,8 @@
 
         <tabs group="cli-settings">
             <tab title="Qodana CLI" group-key="qodana-cli">
-                <code-block lang="shell" prompt="$">
+                <code-block lang="shell" prompt="$" emphasize-lines="3">
                     qodana scan \
-                       -v &lt;path_to_baseline&gt;:/data/base/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        --baseline .qodana/baseline.sarif.json
                 </code-block>
@@ -67,7 +68,7 @@
                 </p>
             </tab>
             <tab title="Docker image" group-key="docker-image">
-                <code-block lang="shell" prompt="$">
+                <code-block lang="shell" prompt="$" emphasize-lines="5">
                     docker run \
                        -v $(pwd):/data/project/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
@@ -83,7 +84,7 @@
                 </p>
             </tab>
             <tab title="GitHub Actions" group-key="github-actions">
-                <code-block lang="yaml">
+                <code-block lang="yaml" emphasize-lines="25">
                     name: Qodana
                     on:
                         workflow_dispatch:
@@ -93,7 +94,6 @@
                                 - main # The 'main' branch
                                 - master # The 'master' branch
                                 - 'releases/*' # The release branches
-                        &nbsp;
                     jobs:
                         qodana:
                             runs-on: ubuntu-latest
@@ -116,7 +116,7 @@
                 <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>baseline.sarif.json</code> file containing the baseline.</p>
             </tab>
             <tab title="Jenkins" group-key="jenkins">
-                    <code-block lang="groovy">
+                    <code-block lang="groovy" emphasize-lines="19">
                         pipeline {
                             environment {
                                 QODANA_TOKEN=credentials('qodana-token')
@@ -145,7 +145,7 @@
                 <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>baseline.sarif.json</code> file containing a baseline.</p>
             </tab>
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-                    <code-block lang="yaml">
+                    <code-block lang="yaml" emphasize-lines="5">
                         include:
                             - component: %gitlab-version%
                               inputs:
@@ -220,19 +220,17 @@
 
             <tabs group="cli-settings">
                 <tab title="Qodana CLI" group-key="qodana-cli">
-                        <code-block lang="shell" prompt="$">
+                        <code-block lang="shell" prompt="$" emphasize-lines="4">
                             qodana scan \
-                               -v &lt;path_to_baseline&gt;:/data/base/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                                --baseline .qodana/baseline.sarif.json \
                                --baseline-include-absent
                         </code-block>
                 </tab>
                 <tab title="Docker image" group-key="docker-image">
-                    <code-block lang="shell" prompt="$">
+                    <code-block lang="shell" prompt="$" emphasize-lines="6">
                         docker run \
                            -v $(pwd):/data/project/ \
-                           -v &lt;path_to_baseline&gt;:/data/base/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;image&gt; \
                            --baseline .qodana/baseline.sarif.json \
@@ -240,7 +238,7 @@
                     </code-block>
                 </tab>
                 <tab title="GitHub Actions" group-key="github-actions">
-                <code-block lang="yaml">
+                <code-block lang="yaml" emphasize-lines="27">
                     name: Qodana
                     on:
                         workflow_dispatch:
@@ -250,7 +248,6 @@
                                 - main # The 'main' branch
                                 - master # The 'master' branch
                                 - 'releases/*' # The release branches
-                        &nbsp;
                     jobs:
                         qodana:
                             runs-on: ubuntu-latest
@@ -274,7 +271,7 @@
                 </code-block>
                 </tab>
                 <tab title="Jenkins" group-key="jenkins">
-                    <code-block lang="groovy">
+                    <code-block lang="groovy" emphasize-lines="20">
                         pipeline {
                             environment {
                                 QODANA_TOKEN=credentials('qodana-token')
@@ -303,7 +300,7 @@
                     </code-block>
                 </tab>
                 <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-                    <code-block lang="yaml">
+                    <code-block lang="yaml" emphasize-lines="6">
                         include:
                             - component: %gitlab-version%
                               inputs:
