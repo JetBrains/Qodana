@@ -7,16 +7,16 @@
 	title="Baseline" id="baseline" help-id="qodana-baseline">
 
     <link-summary>The baseline is a snapshot of the codebase problems taken at a specific %instance% analysis and
-    contained in the qodana.sarif.json file. Using the baseline feature, you can compare your current code to its
+    contained in the baseline.sarif.json file. Using the baseline feature, you can compare your current code to its
         baseline state and see new, unchanged, and resolved problems.</link-summary>
 
     <p><emphasis>The baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% analysis for a
-        specific Git branch and contained in the <code>qodana.sarif.json</code> file.</p>
+        specific Git branch and contained in the <code>baseline.sarif.json</code> file.</p>
 
     <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
         resolved problems. For example, you can configure and update a baseline for the <code>main</code> branch to
         monitor changes after merging pull or merge requests. Whenever necessary, you can update your baseline
-    by generating a new <code>qodana.sarif.json</code> file and using it while running %product%.</p>
+        by generating a new <code>baseline.sarif.json</code> file and using it while running %product%.</p>
 
     <p>Baseline is supported by all <a href="pricing.md">linters</a> and available under Community, Ultimate, and
         Ultimate Plus licenses and their trial versions. To learn more details about licenses, visit the
@@ -43,10 +43,10 @@
 
         <!-- This can be removed once the issue is updated -->
         <p>To improve the situation, you can add problems to the baseline and save them to the
-            <code>qodana.sarif.json</code> file in your project directory as explained in the
+            <code>.qodana/baseline.sarif.json</code> file in your project directory as explained in the
             <a href="ui-overview.md" anchor="ui-overview-baseline"/> section of the %instance% report description. Once done,
             this file becomes a basis for comparing with later code states. Below are the examples of how to run %product%
-            using various tools:
+            using various tools. The default path for the baseline file is <code>.qodana/baseline.sarif.json</code>.
         </p>
 
         <!-- This should be a continue to other comments -->
@@ -57,7 +57,7 @@
                     qodana scan \
                        -v &lt;path_to_baseline&gt;:/data/base/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                       --baseline .qodana/baseline.sarif.json
                 </code-block>
                 <p>Here, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
                     containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %instance%
@@ -70,10 +70,9 @@
                 <code-block lang="shell" prompt="$">
                     docker run \
                        -v $(pwd):/data/project/ \
-                       -v &lt;path_to_baseline&gt;:/data/base/ \
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        jetbrains/qodana-&lt;image&gt; \
-                       --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                       --baseline .qodana/baseline.sarif.json
                 </code-block>
                 <p>In this snippet, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
                     containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %instance%
@@ -110,11 +109,11 @@
                                 - name: 'Qodana Scan'
                                   uses: %action-version%
                                   with:
-                                      args: --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                      args: --baseline .qodana/baseline.sarif.json
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
-                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing the baseline.</p>
+                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>baseline.sarif.json</code> file containing the baseline.</p>
             </tab>
             <tab title="Jenkins" group-key="jenkins">
                     <code-block lang="groovy">
@@ -136,14 +135,14 @@
                                     steps {
                                         sh '''
                                         qodana \
-                                        --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                        --baseline .qodana/baseline.sarif.json
                                         '''
                                     }
                                 }
                             }
                         }
                     </code-block>
-                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing a baseline.</p>
+                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>baseline.sarif.json</code> file containing a baseline.</p>
             </tab>
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                     <code-block lang="yaml">
@@ -151,16 +150,16 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                      --baseline .qodana/baseline.sarif.json
                                       --image &lt;image&gt;
                     </code-block>
-                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>qodana.sarif.json</code> file containing a baseline.</p>
+                <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>baseline.sarif.json</code> file containing a baseline.</p>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
                 <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
-                    specify the path to the <code>qodana.sarif.json</code> file containing a baseline:</p>
+                    specify the path to the <code>baseline.sarif.json</code> file containing a baseline:</p>
                 <code-block lang="shell">
-                        --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                        --baseline .qodana/baseline.sarif.json
                     </code-block>
             </tab>
             <tab title="JetBrains IDEs" id="jetbrains-ides">
@@ -202,7 +201,7 @@
         <li>The first %instance% analysis detected two problems in the codebase.</li>
 
         <!-- Download the <code>qodana.sarif.json</code> file and ...  -->
-        <li>To create the baseline for your project, download the <code>qodana.sarif.json</code> file and
+        <li>To create the baseline for your project, download the <code>baseline.sarif.json</code> file and
             save it in your project directory as shown in the <a href="ui-overview.md" anchor="ui-overview-baseline"/> section.
             Starting from this moment, these two problems are identified by %instance% as baseline problems.
         </li>
@@ -225,7 +224,7 @@
                             qodana scan \
                                -v &lt;path_to_baseline&gt;:/data/base/ \
                                -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json \
+                               --baseline .qodana/baseline.sarif.json \
                                --baseline-include-absent
                         </code-block>
                 </tab>
@@ -236,7 +235,7 @@
                            -v &lt;path_to_baseline&gt;:/data/base/ \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            jetbrains/qodana-&lt;image&gt; \
-                           --baseline /data/base/&lt;path-relative-to-project-dir&gt;/qodana.sarif.json \
+                           --baseline .qodana/baseline.sarif.json \
                            --baseline-include-absent
                     </code-block>
                 </tab>
@@ -268,7 +267,7 @@
                                   uses: %action-version%
                                   with:
                                       args: |
-                                          --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                          --baseline .qodana/baseline.sarif.json
                                           --baseline-include-absent
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
@@ -294,7 +293,7 @@
                                     steps {
                                         sh '''
                                         qodana \
-                                        --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json \
+                                        --baseline .qodana/baseline.sarif.json \
                                         --baseline-include-absent
                                         '''
                                     }
@@ -309,7 +308,7 @@
                             - component: %gitlab-version%
                               inputs:
                                   args: |
-                                      --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json
+                                      --baseline .qodana/baseline.sarif.json
                                       --baseline-include-absent
                                       --image &lt;image&gt;
                     </code-block>
@@ -318,7 +317,7 @@
                     <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
                         add the <code>--baseline-include-absent</code> option:</p>
                     <code-block lang="shell">
-                        --baseline &lt;path-relative-to-project-dir&gt;/qodana.sarif.json --baseline-include-absent
+                        --baseline .qodana/baseline.sarif.json --baseline-include-absent
                     </code-block>
                 </tab>
             </tabs>
@@ -332,9 +331,19 @@
         <img src="baseline-updating-baseline.png" dark-src="baseline-updating-baseline_dark.png" width="706" alt="Updating the baseline"/>
 
         <list type="decimal">
-            <li>Add the new problem to your baseline and then save the updated version of the <code>qodana.sarif.json</code> file in your project directory.</li>
+            <li>Add the new problem to your baseline and then save the updated version of the <code>baseline.sarif.json</code> file in your project directory.</li>
             <li>Run %instance% again to see the change in the problem status.</li>
         </list>
+
+        <chapter title="Customizing the baseline path">
+            <p>By default, Qodana expects the baseline file to be located at <code>.qodana/baseline.sarif.json</code> in your project root.
+                You can override this as follows:</p>
+            <list>
+                <li>If you store the baseline file in a different path within the project directory, use the <code>--baseline</code> option to specify its location relative to the project root, e.g., <code>--baseline path/to/your/baseline.sarif.json</code>.</li>
+                <li>If your baseline file is located outside the project directory, you need to mount it into the container (for Docker-based runs) and then reference it using the mounted path with the <code>--baseline</code> option.</li>
+            </list>
+        </chapter>
+
     </chapter>
 
 </topic>
