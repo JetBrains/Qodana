@@ -415,16 +415,16 @@ profile:
             <p>✔ </p>
         </td>
         <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
         </td>
         <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
         </td>
     </tr>
     <tr>
@@ -435,11 +435,9 @@ profile:
             <p>Lombok</p>
             <p>TestNG</p>
             <p>JPA</p>
-            <p>Reactive&nbsp;Streams</p>
             <p>JavaFX</p>
             <p>Java EE</p>
             <p>JAX-RS</p>
-            <p>JSP</p>
             <p>Spring</p>
             <p>Node.js</p>
             <p>React</p>
@@ -449,59 +447,54 @@ profile:
             <p>Android Room</p>
         </td>
         <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>&nbsp;</p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
             <p>✔ </p>
         </td>
         <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
         <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>&nbsp; </p>
-            <p>✔ </p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>✔ </p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>✔ </p>
         </td>
     </tr>
         <tr>
@@ -516,31 +509,31 @@ profile:
             <p>SQL server</p>
         </td>
        <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
         </td>
         <td>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
         <td>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
         </td>
     </tr>
     <tr>
@@ -556,51 +549,55 @@ profile:
             <p>XSLT</p>
             <p>YAML</p>
             <p>TOML</p>
+            <p>Markdown</p>
             <p>Less</p>
             <p>SASS/SCSS</p>
             <p>PostCSS</p>
             <p>JSONPath</p>
         </td>
         <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
         </td>
         <td>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
         <td>
-            <p>&nbsp;</p>
+            <p>✔ </p>
             <p>&nbsp;</p>
             <p>✔ </p>
             <p>✔ </p>
             <p>✔ </p>
             <p>✔ </p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+            <p>✔ </p>
+            <p>✔ </p>
+            <p>✔ </p>
             <p>✔ </p>
             <p>✔ </p>
             <p>&nbsp;</p>
@@ -616,16 +613,16 @@ profile:
             <p>Expression&nbsp;Language&nbsp;(EL)</p>
         </td>
        <td>
-            <p>✔ </p>
-            <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
         </td>
         <td>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
         </td>
        <td>
-            <p>✔ </p>
-            <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
@@ -635,16 +632,16 @@ profile:
             <p>Maven</p>
         </td>
        <td>
-            <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+        </td>
+       <td>
+              <p>✔ </p>
             <p>✔ </p>
         </td>
        <td>
-            <p>✔ </p>
-            <p>✔ </p>
-        </td>
-       <td>
-            <p>✔ </p>
-            <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
         </td>
     </tr>
     <tr>
@@ -655,19 +652,19 @@ profile:
             <p>HTTP Client</p>
         </td>
        <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>✔ </p>
         </td>
        <td>
-            <p>✔ </p>
-            <p>✔ </p>
-            <p>&nbsp;</p>
+              <p>✔ </p>
+              <p>✔ </p>
+              <p>&nbsp;</p>
         </td>
        <td>
-            <p>✔</p>
-            <p>✔</p>
-            <p>&nbsp;</p>
+              <p>✔</p>
+              <p>✔</p>
+              <p>&nbsp;</p>
         </td>
     </tr>
     <tr>
