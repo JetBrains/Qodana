@@ -60,9 +60,7 @@
                        -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                        --baseline .qodana/baseline.sarif.json
                 </code-block>
-                <p>Here, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
-                    containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %instance%
-                    Docker image. The <code>QODANA_TOKEN</code> variable refers to the
+                <p>Here, the <code>QODANA_TOKEN</code> variable refers to the
                     <a href="project-token.md">project token</a> required by the
                     <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
@@ -75,9 +73,7 @@
                        jetbrains/qodana-&lt;image&gt; \
                        --baseline .qodana/baseline.sarif.json
                 </code-block>
-                <p>In this snippet, the <code>-v &lt;path_to_baseline&gt;:/data/base/</code> line mounts the directory
-                    containing the SARIF-formatted baseline file to the <code>/data/base</code> directory of the %instance%
-                    Docker image. The <code>--baseline</code> option specifies the path to the baseline file from the
+                <p>In this snippet, the <code>--baseline</code> option specifies the path to the baseline file from the
                     Docker filesystem. The <code>QODANA_TOKEN</code> variable refers to the
                     <a href="project-token.md">project token</a> required by the
                     <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
