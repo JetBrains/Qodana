@@ -283,8 +283,8 @@
 
         <code-block lang="yaml">
             failureConditions:
-            &nbsp;&nbsp;testCoverageThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;fresh: &lt;number&gt; # Fresh code coverage
+            &nbsp;&nbsp;testCoverageThresholds: # Minimum amount of code coverage (%) to be configured
+            &nbsp;&nbsp;&nbsp;&nbsp;fresh: &lt;number&gt; # Fresh code
             &nbsp;&nbsp;&nbsp;&nbsp;total: &lt;number&gt; # Total code coverage
         </code-block>
     </chapter>
