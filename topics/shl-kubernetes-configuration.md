@@ -346,3 +346,16 @@ kubectl apply -f installation.bundle.yaml
 ```
 {prompt="$"}
 
+## Post-configuration steps
+<snippet id="shl-kubernetes-configuration-post-config-steps">
+
+After configuring %premlite%, follow the steps below.
+
+<procedure>
+<step>Log in using the default user credentials as described in the <a href="cloud-quickstart.md"/> section.</step>
+<step>Configure your <a href="cloud-organizations.topic">organization</a>, create your first <a href="cloud-teams.topic">team</a>
+and <a href="cloud-projects.topic">project</a>.</step>
+<step>Configure %product% as described in the <a href="configure-qodana.md"/> and <a href="linters.md"/> sections.</step>
+<step><a href="inspect-your-code.md">Run %product%</a> and view <a href="cloud-overview-reports.topic">analysis reports</a>.</step>
+</procedure>
+</snippet>

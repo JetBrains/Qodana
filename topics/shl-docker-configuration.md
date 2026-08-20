@@ -1330,3 +1330,6 @@ docker volume ls \
     --filter label=qodana.jetbrains.self-hosted.lite.select=true
 ```
 {prompt="$"}
+
+## Post-configuration steps
+<include from="shl-kubernetes-configuration.md" element-id="shl-kubernetes-configuration-post-config-steps"/>
