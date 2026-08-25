@@ -73,7 +73,7 @@ You can apply Quick-Fix strategies using the following available options:
         </tabs>
     </tab>
     <tab title="qodana.yaml" id="quick-fix-qodana-yaml">
-        <p>You can use the <code>fixesStrategy</code> option in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:</p>
+        <p>You can use the <code>fixesStrategy</code> option in the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file:</p>
         <code-block lang="yaml">
             fixesStrategy: cleanup/apply
         </code-block>

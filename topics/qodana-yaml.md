@@ -266,7 +266,7 @@ not registered. To enable specific plugin inspections, you can start from an
 <code-block lang="yaml">
 <![CDATA[
 
-    version "1.0"
+    version: "1.0"
 
     linter: <linter>
 

@@ -119,8 +119,8 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Install dependencies
 
-If your project has external `pip` dependencies, set them up using the [`bootstrap`](qodana-yaml.md#Run+custom+commands) 
-key in the [`qodana.yaml`](qodana-yaml.md) file. For example, if your project dependencies are specified 
+If your project has external `pip` dependencies, set them up using the [`bootstrap`](configuration-reference.md#Run+custom+commands) 
+key in the [`qodana.yaml`](configuration-reference.md) file. For example, if your project dependencies are specified 
 by the `requirements.txt` file in your project root, go into the configuration file and add the following line:
 
 ```yaml
@@ -159,7 +159,7 @@ bootstrap: pip install -r requirements.txt
     <tab group-key="linter-tabs-dotnet" title="%qd%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems, 
             specific problem severities, and code coverage by saving this snippet to the 
-            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+            <a href="configuration-reference.md"><code>qodana.yaml</code></a> file:
         </p>
         <code-block lang="yaml">
             failureConditions:
@@ -177,7 +177,7 @@ bootstrap: pip install -r requirements.txt
     </tab>
     <tab group-key="linter-tabs-cdnet" title="%qd-co%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems 
-            and specific problem severities by saving this snippet to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+            and specific problem severities by saving this snippet to the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file:
         </p>
         <code-block lang="yaml">
             failureConditions:
@@ -203,7 +203,7 @@ To do this, follow the instructions below.
 
 <procedure>
 <step>
-<p>In the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> section of the <code>qodana.yaml</code> file, 
+<p>In the <a href="configuration-reference.md" anchor="Run+custom+commands"><code>bootstrap</code></a> section of the <code>qodana.yaml</code> file, 
 save the following snippet:</p>
 <code-block lang="yaml">
 # Create `qodana-env` environment with specific Python version

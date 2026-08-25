@@ -62,7 +62,7 @@ You can run %instance% locally and then forward analysis reports to [%cloud%](ht
         <img src="vs-code-local-run-2.png" alt="Specifying the %cloud% project token" width="706" border-effect="line"/>
     </step>
     <step>
-        <p>If you have not previously specified a linter in the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file, 
+        <p>If you have not previously specified a linter in the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file, 
         choose it in the <ui-path>Select a linter</ui-path> list that opens.</p>
         <img src="vs-code-local-run-3.png" alt="Specifying a linter" width="706" border-effect="line"/>
     </step>

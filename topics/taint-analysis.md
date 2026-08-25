@@ -221,32 +221,36 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
 <tabs>
   <tab title="%php%" id="php">
   <p>In the <code>qodana.yaml</code> file,
-  <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">include</a> the 
+  <a href="configuration-reference.md" anchor="Including+inspections">include</a> the 
   <a href="https://www.jetbrains.com/help/inspectopedia/PhpVulnerablePathsInspection.html"><code>PhpVulnerablePathsInspection</code></a> 
     inspection into the analysis scope:</p>
 
-  <code-block lang="yaml"><![CDATA[
-  version "1.0"
+  <code-block lang="yaml" emphasize-lines="7-8"><![CDATA[
+  version: "1.0"
 
   linter: %php-linter%
 
-  include:
-    - name: PhpVulnerablePathsInspection
+  profile:
+    inspections:
+      — inspection: PhpVulnerablePathsInspection
+        enabled: true
   ]]>
 </code-block>
   </tab>
   <tab title="%jvm%" id="jvm">
   <p>In the <code>qodana.yaml</code> file,
-  <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">include</a> the 
+  <a href="configuration-reference.md" anchor="Including+inspections">include</a> the 
   <code>JvmTaintAnalysis</code> inspection into the analysis scope:</p>
 
-  <code-block lang="yaml"><![CDATA[
-  version "1.0"
+  <code-block lang="yaml" emphasize-lines="7-8"><![CDATA[
+  version: "1.0"
 
   linter: %jvm-linter%
 
-  include:
-    - name: JvmTaintAnalysis
+  profile:
+    inspections:
+      — inspection: JvmTaintAnalysis
+        enabled: true
   ]]>
 </code-block>
   </tab>

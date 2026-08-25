@@ -31,7 +31,7 @@ described below.
 
 Regular analysis is the default mode that reports all problems found in a codebase and includes all project files in the 
 analysis scope except directories like `node_modules` or `build`. You can adjust the analysis scope by 
-[configuring inspections](qodana-yaml.md#exclude-paths) using the `qodana.yaml` file. 
+[configuring inspections](configuration-reference.md#Excluding+inspections) using the `qodana.yaml` file. 
 
 The advantages of the regular mode are as follows:
 
@@ -79,7 +79,7 @@ To analyze your project using %product%, follow the steps listed below.
 <step>Choose the %product% <a href="linters.md">linter</a> that you would like to use. </step>
 <step>Decide which <a href="deploy-qodana.md">deployment method</a> of %product% you would like to use.</step>   
 <step>Configure %product% as described in the <a href="configure-qodana.md"/> section.</step>
-<step>If necessary, set up the list of commands that will be executed before %product%, see the <a href="qodana-yaml.md" anchor="Run+custom+commands"/> section for details.</step>
+<step>If necessary, set up the list of commands that will be executed before %product%, see the <a href="configuration-reference.md" anchor="Run+custom+commands"/> section for details.</step>
 <step>In %cloud%, <a href="cloud-quickstart.md">set up an account</a> and obtain a <a href="project-token.md">project token</a>.</step> 
 <step>Follow recommendations from a linter page that you would like to use (see Step 1 here).</step>
 <!--<step>If necessary, follow recommendations from the <a href="troubleshooting.topic"/> section.</step>-->
@@ -89,7 +89,7 @@ To analyze your project using %product%, follow the steps listed below.
 
 To improve performance during the project analysis stage, follow these recommendations:
 
-* [Exclude files](qodana-yaml.md#exclude-paths) from analysis that are not required for the analysis
+* [Exclude files](configuration-reference.md#Excluding+inspections) from analysis that are not required for the analysis
 * Save in the VCS information about the excluded directories stored in `.*iml` files
 * Use [incremental analysis](analyze-pr.md) to reduce the scope of files
 
@@ -163,7 +163,7 @@ attach logs from the <code>/data/results</code> directory that you can get acces
 <chapter id="faq-reduce-analysis-time" title="Is there a way to reduce analysis time?" default-state="collapsed" collapsible="true">
     <p>
         Yes, you can use
-        <a href="docker-image-configuration.topic" anchor="docker-config-reference-cache-dependencies">caching</a>,
+        <a href="configuration-reference.md" anchor="docker-config-reference-cache-dependencies">caching</a>,
         and this is available by default in the <a href="github.md">Qodana Scan</a> GitHub action. If this does
         not help, create an issue in our tracker or contact us at <code>qodana-support@jetbrains.com</code> and
         attach logs from the <code>/data/results</code> directory. To access logs, mount your directory. If you are

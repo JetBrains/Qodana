@@ -5,7 +5,7 @@
 <show-structure for="chapter" depth="3"/>
 
 Global configurations let you share %product% configurations across multiple projects. Each global configuration is a set of files
-consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and [inspection profile configurations](inspection-profiles.md#inspection-profiles-custom-profiles) contained in YAML and 
+consisting of the [`qodana.yaml`](configuration-reference.md) configuration file and [inspection profile configurations](inspection-profiles.md#inspection-profiles-custom-profiles) contained in YAML and 
 XML files.
 
 This feature is available under the Ultimate Plus [license](pricing.md).
@@ -29,7 +29,7 @@ root/
     qodana-global-configurations.yaml    
 ```
 
-In this structure, the `project-a` and `project-b` directories contain [%product% configuration files](qodana-yaml.md). Besides that,
+In this structure, the `project-a` and `project-b` directories contain [%product% configuration files](configuration-reference.md). Besides that,
 the `project-b` directory contains the `project-b-profile.yaml` file containing a [custom profile](inspection-profiles.md#inspection-profiles-custom-profiles). To be 
 included in the global configuration, it should be [referred](inspection-profiles.md#inspection-profiles-setup-a-profile) 
 from the `qodana.yaml` file contained, for example, in the same directory. 
@@ -66,9 +66,9 @@ Files contained in a global configuration can be updated using access to your VC
 
 Project configuration is a configuration created for a specific project and located within a project repository.
 Global configuration is a configuration that can be shared across multiple projects. 
-Both configurations can be merged into a single configuration and contained in a single [YAML-formatted file](qodana-yaml.md), 
+Both configurations can be merged into a single configuration and contained in a single [YAML-formatted file](configuration-reference.md), 
 as well as two global configurations. In this case, profile configurations are merged as well using the 
-[`profile`](qodana-yaml.md#Set+up+a+profile) option.
+[`profile`](configuration-reference.md#configuration-reference-inspection-profile) option.
 
 If a project has both configuration types with the project settings colliding with global ones, then 
 project settings take precedence over global settings. In this case, the final configuration will contain settings

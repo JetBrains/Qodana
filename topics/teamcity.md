@@ -76,7 +76,7 @@ you need to put this file to the working directory manually. Alternatively, you 
 
 <!-- This should be rewritten the same way as before -->
 
-Custom profile configuration for Qodana linters is stored in the [`qodana.yaml`](qodana-yaml.md) file. When using a CI 
+Custom profile configuration for Qodana linters is stored in the [`qodana.yaml`](configuration-reference.md) file. When using a CI 
 system, you need to put this file to the working directory manually. Alternatively, you can write a script that will do it for you.
 
 <procedure>

@@ -89,8 +89,7 @@ you can download the `qodana.yaml` file and save it into your project root direc
 
 See the [](#Adjust+your+inspection+profile) section to learn the best practices. 
 
-> To learn more about inspection profiles, see the [](qodana-yaml.md#Set+up+a+profile) section.
-> You can also edit profile settings in the [`qodana.yaml`](qodana-yaml.md) file.
+> To learn more about inspection profiles, see the [](configuration-reference.md#configuration-reference-inspection-profile) section.
 
 The lower part of this tab contains the **Profile configuration** pane that lets you view the actual
 configuration of %product%. Once you modify the configuration, it will be updated in this pane accordingly. 
@@ -118,7 +117,7 @@ haven't checked for typos, you can be happy to see zero typos in your project. T
 don't check.
 
 > Inspection profile can be configured either using the **[](#ui-overview-configuration)** tab or editing the 
-> [`qodana.yaml`](qodana-yaml.md) file. 
+> [`qodana.yaml`](configuration-reference.md) file. 
 
 If the number of problems is manageable, you can fix them and consider the 'problem-free code' goal achieved. We 
 suggest that you follow that goal and fix new problems as soon as they appear.
@@ -126,7 +125,7 @@ suggest that you follow that goal and fix new problems as soon as they appear.
 In case the number of problems is above your expectations, we suggest using the Qodana features to examine them.
 
 When you have no possibility to fix old problems and want to prevent the appearance of new ones, you can run Qodana in
- [baseline](docker-image-configuration.topic#docker-config-reference-baseline) mode.
+ [baseline](configuration-reference.md#docker-config-reference-baseline) mode.
 
 ### Adjust the analysis scope
 
@@ -134,7 +133,7 @@ When you have no possibility to fix old problems and want to prevent the appeara
 {id="reduce-analysis-scope"}
 
 When viewing a code fragment with a detected problem, you may decide that it is irrelevant. You can make sure that more 
-problems of the same type are omitted in the future. For this purpose, you can edit [qodana.yaml](qodana-yaml.md) or use 
+problems of the same type are omitted in the future. For this purpose, you can edit [qodana.yaml](configuration-reference.md) or use 
 the [](#ui-overview-actual-problems) tab as shown below.
 
 1. **Exclude from the future analysis**
@@ -171,7 +170,7 @@ On the File explorer, click the icon to the left of the filename, and then selec
 To reverse the exclusions you made, download `qodana.yaml` in the **[Profile configuration](#ui-overview-configuration)** section, edit 
 it as necessary, put it in the project root directory, and then run Qodana again with this new configuration. 
 
-To learn how to configure Qodana using `qodana.yaml`, see the [Configure profile](qodana-yaml.md) section.
+To learn how to configure %product% using `qodana.yaml`, see the [](configuration-reference.md#configuration-reference-inspection-profile) section.
 
 ## Open an HTML report
 

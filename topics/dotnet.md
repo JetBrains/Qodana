@@ -164,7 +164,7 @@ The Dockerized version of %qd% provides versions 8.0, 9.0 and 10.0 of SDK.
 <!-- This needs to be moved to a Dockerized version of a linter -->
 
 <p>In case a project requires a different version of the SDK, you can set it using the
-<a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file.
+<a href="configuration-reference.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key in the <code>qodana.yaml</code> file.
 For example, this command will install the required version of the SDK that is specified in the
 <code>global.json</code> file and located in the root of your project:</p>
 
@@ -254,8 +254,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-dotnet" title="%qd%">
         <p>We recommend that you build a project before %product% analyzes it. To build it, you can use the 
-        <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key 
-        of the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file contained in your project directory. This is especially 
+        <a href="configuration-reference.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key 
+        of the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file contained in your project directory. This is especially 
         recommended if you employ source generators.</p>
         <p>If the project build fails, code analysis cannot be performed.</p>
     </tab>
@@ -370,7 +370,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 > {style="note"}
 
 > For Docker mode, the configured major version of a %product% linter (20**.*) should match the version specified
-> in the [`qodana.yaml`](qodana-yaml.md) file.
+> in the [`qodana.yaml`](configuration-reference.md) file.
 > {style="note"}
 
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
@@ -612,7 +612,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         <step>
                            <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
                               <list>
-                                <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file</li>
+                                <li>Options used by %product% and configured by the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file</li>
                                  <li>The <ui-path>Send analysis results to %cloud%</ui-path> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a></li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline</li>
@@ -722,7 +722,7 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
                         <step>
                            <p>On the <ui-path>Run Qodana</ui-path> dialog, you can configure:</p>
                               <list>
-                                <li>Options used by %product% and configured by the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</li>
+                                <li>Options used by %product% and configured by the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file.</li>
                                  <li>The <ui-path>Send analysis results to %cloud%</ui-path> option 
                                   using a <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>.</li>
                                  <li>The <a href="baseline.topic"><ui-path>Use Qodana analysis baseline</ui-path></a> option to run %product% with a baseline.</li>
@@ -747,7 +747,7 @@ filename as shown below.
 
 <tabs group="dotnet-solutions">
     <tab id="specify-solution" title="Specify a solution">
-        <p>You can specify a solution in various ways. Using a <a href="qodana-yaml.md">YAML</a> configuration is the most
+        <p>You can specify a solution in various ways. Using a <a href="configuration-reference.md">YAML</a> configuration is the most
         convenient method because you can configure it once and use the configuration across all software 
         that runs %product%. Alternatively, you can use Docker options.</p>
         <tabs group="specify-solution-options">
@@ -1018,7 +1018,7 @@ In case dependencies cannot be resolved, configure the following steps before ru
 <procedure>
     <step>Restore dependencies using the <code>dotnet restore</code> command</step>
     <step>Copy all dependency files to a directory accessible by %product%. For example, this can be a subdirectory within 
-    the <a href="docker-image-configuration.topic" anchor="docker-config-reference-configuration-examples">cache directory</a>
+    the <a href="configuration-reference.md" anchor="docker-config-reference-cache-dependencies">cache directory</a>
     </step>
 </procedure>
 
@@ -1121,7 +1121,7 @@ If you continue to experience credential issues, ensure you are running %product
             <tip>You can customize %product% profiles using configurations in <a href="inspection-profiles.md">YAML</a> and 
                 <a href="inspection-profiles.md" anchor="Custom+XML+profiles">XML</a> formats. To learn more about configuration basics, visit the <a href="override-a-profile.md"/> section of the documentation.
             </tip>
-            <p>%qd% reads configuration from the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file located in the 
+            <p>%qd% reads configuration from the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file located in the 
                 root directory of your project. For example, add this configuration to run the linter using the 
                 <a href="inspection-profiles.md"><code>qodana.recommended</code></a> inspection profile:
             </p>
@@ -1548,7 +1548,7 @@ in a SARIF-formatted file.
     <tab group-key="linter-tabs-dotnet" title="%qd%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems, 
             specific problem severities, and code coverage by saving this snippet to the 
-            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+            <a href="configuration-reference.md"><code>qodana.yaml</code></a> file:
         </p>
         <code-block lang="yaml">
             failureConditions:
@@ -1566,7 +1566,7 @@ in a SARIF-formatted file.
     </tab>
     <tab group-key="linter-tabs-cdnet" title="%qd-co%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems by 
-            saving this snippet to the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+            saving this snippet to the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file:
         </p>
         <code-block lang="yaml">
             failureConditions:

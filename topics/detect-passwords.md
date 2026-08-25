@@ -16,14 +16,14 @@ and covers [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#]
 
 By default, the `HardcodedPasswords` analysis reports variables with values matching built-in regex rules for
 hard-coded passwords. To report any variable with a suspicious name like `token` or `password` and a constant string value,
-add the following configuration in the [`qodana.yaml`](qodana-yaml.md) file:
+add the following configuration in the [`qodana.yaml`](configuration-reference.md) file:
 
 ```yaml
 hardcodedPasswords:
   reportDefaultSuspiciousVariableNames: true
 ```
 
-You can specify your own regex rules to detect hard-coded passwords in addition to the built-in rules by saving them in the [`qodana.yaml`](qodana-yaml.md) file, for example:
+You can specify your own regex rules to detect hard-coded passwords in addition to the built-in rules by saving them in the [`qodana.yaml`](configuration-reference.md) file, for example:
 
 ```yaml
 hardcodedPasswords:
@@ -42,13 +42,19 @@ hardcodedPasswords:
     
   # regex rules for variable names to ignore (not report) as hardcoded password
   ignoreVariableNames:
-	- "^(?=.*\bteamcity\b)(?=.*\bkey\b).*$"
+    - "^(?=.*\bteamcity\b)(?=.*\bkey\b).*$"
 ```
 
 To enable your custom hard-coded password setup, save the `HardcodedPasswords` configuration in the
-[`qodana.yaml`](qodana-yaml.md) file:
+[`qodana.yaml`](configuration-reference.md) file:
 
 ```yaml
-include:
-  - name: "HardcodedPasswords"
+version: "1.0"
+
+linter: <linter>
+
+profile:
+  inspections:
+    — inspection: HardcodedPasswords
+    enabled: true
 ```

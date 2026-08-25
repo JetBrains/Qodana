@@ -29,7 +29,7 @@ and `warnMissingCoverage` options, which you can see from the profile configurat
 </component>
 ```
 
-You can use the option names in the [YAML](qodana-yaml.md) configuration of %product%, for example:
+You can use the option names in the [YAML](configuration-reference.md) configuration of %product%, for example:
 
 ```yaml
 name: "Customizing the JvmCoverageInspection inspection" # Profile name

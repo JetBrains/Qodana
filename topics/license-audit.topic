@@ -105,7 +105,7 @@
         </table>
 
         <tip>You can specify dependency licenses manually using the
-            <a href="qodana-yaml.md" anchor="Override+a+dependency+license"><code>dependencyOverrides</code></a> option.</tip>
+            <a href="configuration-reference.md" anchor="Override+a+dependency+license"><code>dependencyOverrides</code></a> option.</tip>
 
         <note>In case a project root contains several license files, the file with the
             <code>LICENSE.*</code> name receives the highest priority, and %feature% uses its text as the project
@@ -127,8 +127,8 @@
         </p>
 
         <p>For all linters except <a href="jvm.md">%jvm%</a>, you also need to have project
-            dependencies installed using the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key of
-            the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file.</p>
+            dependencies installed using the <a href="configuration-reference.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key of
+            the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file.</p>
 
         <p>After %instance% has finished analyzing your project, a <a anchor="license-audit-verifying-data">report</a>
             becomes available.</p>
@@ -137,7 +137,7 @@
 
     <chapter title="Run license audit" id="license-audit-running-feature">
 
-            <note>While configuring <a href="qodana-yaml.md" anchor="exclude-paths">analysis scopes</a>, make sure that
+            <note>While configuring <a href="configuration-reference.md" anchor="exclude-inspection">analysis scopes</a>, make sure that
             the file containing the build configuration is included in the scope.</note>
 
             <note>
@@ -152,13 +152,13 @@
         <p>%feature% is enabled in %product% dy default. You can see analysis reports
             in the <a anchor="license-audit-verifying-data">License audit</a> tab of the %product% report. To see them
             in the <a href="ui-overview.md" anchor="ui-overview-actual-problems">Actual problems</a> tab too, in the
-                <a href="qodana-yaml.md">configuration file</a> enable the <code>raiseLicenseProblems</code> option:</p>
+                <a href="configuration-reference.md">configuration file</a> enable the <code>raiseLicenseProblems</code> option:</p>
 
             <code-block lang="yaml">
                 raiseLicenseProblems: true
             </code-block>
 
-            <p>To disable license audit, in the <a href="qodana-yaml.md">configuration file</a>
+            <p>To disable license audit, in the <a href="configuration-reference.md">configuration file</a>
                 exclude the <a href="https://www.jetbrains.com/help/inspectopedia/CheckDependencyLicenses.html"><code>CheckDependencyLicenses</code></a> inspection, for example:</p>
 
         <code-block lang="yaml">
@@ -169,7 +169,7 @@
         <chapter title="Enable package-search" id="license-audit-enable-package-search">
 
             <p>The <a href="https://www.jetbrains.com/help/idea/package-search.html"><code>package-search</code></a> is by default disabled because of
-                inaccurate results and performance issues. To enable <code>package-search</code>, in the <a href="qodana-yaml.md">configuration file</a>
+                inaccurate results and performance issues. To enable <code>package-search</code>, in the <a href="configuration-reference.md">configuration file</a>
             enable the <code>enablePackageSearch</code> option:</p>
 
             <code-block lang="yaml">
@@ -179,7 +179,7 @@
         </chapter>
 
         <chapter title="Ignore dependencies" id="license-audit-ignoring-dependencies">
-            <p>In the <a href="qodana-yaml.md">configuration file</a>, you can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
+            <p>In the <a href="configuration-reference.md">configuration file</a>, you can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
             <code-block lang="yaml">
                 dependencyIgnores:
                   - name: "aapt2-proto"
@@ -188,7 +188,7 @@
         </chapter>
 
         <chapter title="Allow or prohibit dependency licenses" id="license-allow-prohibit-licenses">
-            <p>In the <a href="qodana-yaml.md">configuration file</a>, you can override the license matrix and specify the list of
+            <p>In the <a href="configuration-reference.md">configuration file</a>, you can override the license matrix and specify the list of
                 dependency licenses that are allowed or prohibited for a specific project license.</p>
             <p>In this snippet, the <code>keys</code> key accepts application licenses, and the <code>allowed</code> and
                 <code>prohibited</code> keys accept the lists of allowed and prohibited dependency licenses respectively.
@@ -217,7 +217,7 @@
         </chapter>
 
         <chapter title="Override a dependency license" id="license-audit-override-license">
-            <p>In the <a href="qodana-yaml.md">configuration file</a>, you can override a dependency license identifier.
+            <p>In the <a href="configuration-reference.md">configuration file</a>, you can override a dependency license identifier.
                 This can be useful when a dependency is dual-licensed,
                 and you want to omit some license, or when the license name cannot be detected from the dependency
                 sources correctly.</p>
@@ -241,7 +241,7 @@
 
         <chapter title="Create custom dependencies" id="license-audit-custom-dependencies">
             <p>If you want to include the dependency that should be mentioned in the report but is impossible to detect
-                from the project sources, in the <a href="qodana-yaml.md">configuration file</a> you can use the
+                from the project sources, in the <a href="configuration-reference.md">configuration file</a> you can use the
                 <code>customDependencies</code> key to specify it:</p>
 
             <code-block lang="yaml">

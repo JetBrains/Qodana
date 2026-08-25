@@ -44,7 +44,7 @@ This configuration will be used as a basis for all examples in this section.
 
 <link-summary>Using the --fail-threshold option, you can configure the limit of problems accepted in your project.</link-summary>
 
-Using the [`--fail-threshold`](docker-image-configuration.topic#docker-config-reference-quality-gate) option, you can 
+Using the [`--fail-threshold`](docker-image-configuration.topic#docker-config-reference-qodana-scan-fail-threshold) option, you can 
 configure the limit of problems accepted in your project:  
 
 ```yaml
@@ -74,7 +74,7 @@ definitions:
 <link-summary>Use the --baseline path/to/qodana.sarif.json option to 
 specify the path to the SARIF-formatted file used as a baseline.</link-summary>
 
-Use the [`--baseline <path/to/qodana.sarif.json>`](docker-image-configuration.topic#docker-config-reference-baseline) option to 
+Use the [`--baseline <path/to/qodana.sarif.json>`](configuration-reference.md#docker-config-reference-baseline) option to 
 specify the path to the SARIF-formatted file used as a [baseline](baseline.topic):
 
 ```yaml

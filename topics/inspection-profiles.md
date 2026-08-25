@@ -74,8 +74,7 @@ Out of the box, you can use the following %product% profiles:
         <td><p>This profile is enabled by default to analyze whether a project is configured properly. If 
         <code>qodana.sanity</code> inspections detect problems, this means that all other %product% inspections may work 
         improperly and the project should be reconfigured.</p> 
-        <p>To learn how disable inspections of this profile, see the <a href="qodana-yaml.md" anchor="Disable+unexpected+problems"/> and 
-            <a href="docker-image-configuration.topic" anchor="docker-config-reference-profile"/> sections.</p>
+        <p>To learn how disable inspections of this profile, see the <a href="configuration-reference.md" anchor="Disable+unexpected+problems"/> section.</p>
         </td>
     </tr>
 </table>
@@ -94,10 +93,9 @@ These profiles are hosted on
 <link-summary>Learn how to set up existing %product% profiles.</link-summary>
 
 <note>You can disable the <code>qodana.sanity</code> profile using recommendations from the 
-<a href="qodana-yaml.md" anchor="Disable+unexpected+problems"/> and 
-<a href="docker-image-configuration.topic" anchor="docker-config-reference-profile"/> sections.</note>
+<a href="configuration-reference.md" anchor="Disable+unexpected+problems"/> section.</note>
 
-<p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file
+<p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% using the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file
     once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, or any other <a href="ci.md">software</a> currently
     supported by %product%. The settings will remain consistent across all these platforms.</p>
 
@@ -744,7 +742,7 @@ match the name of the containing file. The actual name is stored as the `%\profi
 #### Specify SQL dialect
 
 <p>To analyze SQL code, enabling SQL-related
-    <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">inspections</a> is not enough.
+    <a href="configuration-reference.md" anchor="Including+inspections">inspections</a> is not enough.
     In this case, you also have to specify an SQL dialect that you would like to analyze. To do this, in your
     project root save the <code>.idea/sqldialects.xml</code> containing the following contents:</p>
 <code-block lang="xml">
@@ -764,7 +762,7 @@ of the <ui-path>Settings</ui-path>, expand either the <ui-path>Global SQL Dialec
 ### Use your profile
 
 <p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% 
-using the <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, 
+using the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, 
 or any other <a href="ci.md">software</a> currently supported by %product%. In this case, no additional configuration is required, 
 and all settings will remain consistent across all these platforms, see the example below:</p>
 

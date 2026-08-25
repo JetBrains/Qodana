@@ -2,11 +2,11 @@
 
 You have the following configuration approaches:
 
-1. Configuring %product% via a [YAML-formatted](qodana-yaml.md) file, typically named `qodana.yaml`, is suitable for settings that require lengthy 
-commands, such as inspection configuration, [bootstrap](qodana-yaml.md#Run+custom+commands), and other settings that are not convenient to configure otherwise. 
+1. Configuring %product% via a [YAML-formatted](configuration-reference.md) file, typically named `qodana.yaml`, is suitable for settings that require lengthy 
+commands, such as inspection configuration, [bootstrap](configuration-reference.md#Run+custom+commands), and other settings that are not convenient to configure otherwise. 
 Once a YAML configuration is saved, you can reuse it across different instances of Qodana.
 
-1. Using [configuration capabilities](docker-image-configuration.topic) of the tools that are running %product% like Docker, 
+1. Using [configuration capabilities](configuration-reference.md) of the tools that are running %product% like Docker, 
 [Qodana CLI](Quick-start.topic#quickstart-run-using-cli), [IDEs](ide-integration.md), and [CI/CD tools](ci.md). 
 
     Settings like [linter](linters.md) or [quality gate](quality-gate.topic) can be set up using both methods.
@@ -30,7 +30,7 @@ that will extend the inspection capabilities of %instance% or develop
 
 To make %product% work better during the project setup stage, you can follow the recommendations below.
 
-First, specify the [`--cache-dir`](docker-image-configuration.topic#docker-config-reference-cache-dependencies) option,
+First, specify the [`--cache-dir`](configuration-reference.md#docker-config-reference-cache-dependencies) option,
 the `use-caches` input argument in case of [CI/CD support](ci.md), or the `/data/caches` directory in
 the Docker container of a linter after the first linter analysis. Cache contains data related to project structure, indexes,
 dependencies, which makes subsequent analyses faster. However, in case of significant and disruptive changes of your

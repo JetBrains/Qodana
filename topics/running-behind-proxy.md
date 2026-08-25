@@ -19,7 +19,7 @@
             &lt;/application&gt;
         </code-block>
             </step>
-            <step><p>In the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>qodana.yaml</code></a> file,
+            <step><p>In the <a href="configuration-reference.md" anchor="Run+custom+commands"><code>qodana.yaml</code></a> file,
                 save this <code>boostrap</code> command that will copy the <code>proxy.settings.xml</code> file
                 to a %product% Docker image:</p>
                 <code-block>

@@ -48,7 +48,7 @@ which reverses the above advantages and disadvantages.
 
 ### Configuration files
 
-To configure %product% for inspecting two projects, you need to create two YAML-formatted [configuration files](qodana-yaml.md), 
+To configure %product% for inspecting two projects, you need to create two YAML-formatted [configuration files](configuration-reference.md), 
 one for each linter. In this example, these will be the `qodana-backend.yaml` and `qodana-frontend.yaml` files.  
 
 When %product% runs, it uses the `.git/` directory for linking detected problems to the corresponding
@@ -82,8 +82,8 @@ images of %product% need to be run twice over the monorepo repository, once for 
 <tab id="monorepo-cli-tab" title="Qodana CLI">
 <note>You can only use %product% CLI with Azure and CircleCI.</note>
 <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
-The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--only-directory</code></a> option specifies which project directory to inspect.
-The <a href="docker-image-configuration.topic" anchor="docker-config-reference-custom-yaml-config"><code>--config</code></a>
+The <a href="configuration-reference.md" anchor="Specify+directory+in+your+project"><code>--only-directory</code></a> option specifies which project directory to inspect.
+The <a href="configuration-reference.md" anchor="docker-config-reference-custom-yaml-config"><code>--config</code></a>
 option specifies which %product% configuration file to employ. Here is the snippet for the <code>backend</code> project:</p>
 <code-block lang="shell" prompt="$">
 qodana scan \
@@ -101,9 +101,9 @@ qodana scan \
 </tab>
 <tab id="monorepo-docker-image-tab" title="Docker">
 <p>These snippets use the <code>QODANA_TOKEN</code> variables that refer to <a href="project-token.md">project tokens</a>.
-The <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--only-directory</code></a> 
-option specifies which project directory to inspect. 
-The <a href="docker-image-configuration.topic" anchor="docker-config-reference-custom-yaml-config"><code>--config</code></a>
+The <a href="configuration-reference.md" anchor="Specify+directory+in+your+project"><code>--only-directory</code></a> 
+option specifies which project directory to analyze. 
+The <a href="configuration-reference.md" anchor="docker-config-reference-custom-yaml-config"><code>--config</code></a>
 option specifies which %product% configuration file to employ. Here is the snippet for the <code>backend</code> project:</p>
 <code-block lang="shell" prompt="$">
 docker run \ 

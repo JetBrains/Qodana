@@ -167,7 +167,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
             inspection profile using the inspections listed under the <code>Checks:</code> section. Unlike stand-alone Clang-Tidy, 
             the <code>-*</code> directive does not disable inspections enabled by your %product% profile — it only affects 
             Clang-Tidy own per-analysis defaults. To disable inspections that come from the 
-            %product% profile, edit the profile using the <code>exclude</code> field in the <a href="qodana-yaml.md" anchor="exclude-paths"><code>qodana.yaml</code> file </a>.</p>
+            %product% profile, edit the profile using the <code>exclude</code> field in the <a href="configuration-reference.md" anchor="exclude-paths"><code>qodana.yaml</code> file </a>.</p>
             <p>Inspection IDs in the <code>qodana.yaml</code> file for Clang-Tidy inspections use the <code>CppClangTidy</code> prefix followed by an inspection name.</p>
         </note>
         <tip>
@@ -198,7 +198,7 @@ the project, generates analysis reports and saves them locally or uploads to %cl
         <p>
           For %qdcppc%, you need to generate <code>compile_commands.json</code> as explained in the <a href="%compdb-generate%">CLion documentation portal</a>, and save it to the <code>build</code> directory under the project root.</p>
         <p>
-          If you use CMake, you can also generate a compilation database by specifying the following <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:
+          If you use CMake, you can also generate a compilation database by specifying the following <a href="configuration-reference.md" anchor="Run+custom+commands"><code>bootstrap</code></a> option in the <code>qodana.yaml</code> file, for example:
         </p>
         <code-block lang="yaml">
             bootstrap: |
@@ -534,13 +534,13 @@ project <a href="https://qodana.cloud">%cloud%</a> and review the analysis repor
     %product% recognizes the <code>qodana.yaml</code> file for the analysis configuration,
     so that you don't need to pass any additional parameters. For the %qdcpp% linter, you can configure:</p>
 <list>
-    <li>Commands that will run before the linter using the <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>boostrap</code></a>
+    <li>Commands that will run before the linter using the <a href="configuration-reference.md" anchor="Run+custom+commands"><code>boostrap</code></a>
         option. Using this, you can <a anchor="Modifying+paths+for+analysis">modify the list of paths</a> in the <code>compile_commands.json</code> file.</li>
     <li><a anchor="Enabling+the+baseline+feature">Baseline</a> and <a anchor="Enabling+the+quality+gate">quality gate</a> features.</li>
 </list>
 
-<note>The %qdcppc% linter does not support <a href="qodana-yaml.md" anchor="Include+an+inspection+in+the+analysis+scope">including</a> 
-and <a href="qodana-yaml.md" anchor="exclude-paths">excluding</a> paths for specific inspections using the <code>qodana.yaml</code> file.</note>
+<note>The %qdcppc% linter does not support including 
+and <a href="configuration-reference.md" anchor="exclude-paths">excluding</a> paths for specific inspections using the <code>qodana.yaml</code> file.</note>
 
 ### Modifying paths for analysis
 
@@ -657,7 +657,7 @@ patterns and regular expressions that modify paths in the `compile_commands.json
     </tab>
 </tabs>
 
-To run a script, use the `bootstrap` section of the [`qodana.yaml`](qodana-yaml.md) file, for example:
+To run a script, use the `bootstrap` section of the [`qodana.yaml`](configuration-reference.md) file, for example:
 
 ```yaml
 bootstrap: |
@@ -858,7 +858,7 @@ You can configure [quality gates](quality-gate.topic) for:
 - The total number of project problems
 - Multiple quality gates for <a href="ui-overview.md" anchor="Severity+levels">problem severities</a>.
 
-Save this snippet to the [`qodana.yaml`](qodana-yaml.md) file:
+Save this snippet to the [`qodana.yaml`](configuration-reference.md) file:
 
 ```yaml
 failureConditions:
@@ -996,7 +996,7 @@ Below is an example of the `my-qodana-preset` preset configuration:
 ```
 
 To run %product% invoking the `my-qodana-preset` preset, in the 
-[`qodana.yaml`](qodana-yaml.md) file save the following configuration that uses the `cpp` and `cmakePreset` sections:
+[`qodana.yaml`](configuration-reference.md) file save the following configuration that uses the `cpp` and `cmakePreset` sections:
 
 ```yaml
 cpp:

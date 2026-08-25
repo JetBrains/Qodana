@@ -145,7 +145,7 @@ Starting from version 2026.2, %product% detects code coverage reports in a proje
     | [%go%](golang.md)             | Directories: `coverage`, `reports` <br/> Files: `coverage.out` and `cover.out`                  |
     | [%dotnet%](dotnet.md)         | Directories: `coverage` and `TestResults` <br/> Files: `coverage.cobertura` and `coverage.info` |
 
-    You can override this directory using the `codeCoverageLocations` key in the [`qodana.yaml`](qodana-yaml.md) file:
+    You can override this directory using the `codeCoverageLocations` key in the [`qodana.yaml`](configuration-reference.md) file:
 
     ```yaml
    version: "1.0"
@@ -215,7 +215,7 @@ To learn more about running code coverage using the [%dotnet%](dotnet.md) linter
         <p>If you have a <a href="monorepo-project.md">monorepo project</a>, use the 
         <a href="docker-image-configuration.topic" anchor="docker-image-configuration-project-dir"><code>-i &lt;path-relative-to-project-root&gt;</code></a> 
         option to point a repository directory. If you saved 
-        <a href="qodana-yaml.md">%product% configuration</a> files under 
+        <a href="configuration-reference.md">%product% configuration</a> files under 
         <a anchor="code-coverage-before-you-start">custom names</a>, use the 
         <a href="docker-image-configuration.topic" anchor="docker-image-configuration-config"><code>--config &lt;path-relative-to-project-root&gt;</code></a> option.
         </p>
@@ -276,11 +276,11 @@ jobs:
         args: "-i JS/jest --image %js-image%"
         pr-mode: false
 ```
-<p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="qodana-yaml.md">%product% configuration</a> 
+<p>If you have a <a href="monorepo-project.md">monorepo project</a> and saved <a href="configuration-reference.md">%product% configuration</a> 
 files under <a anchor="code-coverage-before-you-start">custom names</a>, then in the <code>args</code> block use the 
 <a href="docker-image-configuration.topic" anchor="docker-image-configuration-config"><code>--config,&lt;path-relative-to-project-root&gt;</code></a> option.
 To override the default code coverage report directory, use the 
-<a href="docker-image-configuration.topic" anchor="docker-config-reference-code-coverage"><code>--coverage-dir,&lt;path-relative-to-project-root&gt;</code></a> option.
+<a href="docker-image-configuration.topic" anchor="docker-image-configuration-coverage-dir"><code>--coverage-dir,&lt;path-relative-to-project-root&gt;</code></a> option.
 </p>
 </tab>
 
@@ -295,7 +295,7 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
         </code-block>
         <p>
             If you have a <a href="monorepo-project.md">monorepo project</a> and saved 
-            <a href="qodana-yaml.md">%product% configuration</a> files under 
+            <a href="configuration-reference.md">%product% configuration</a> files under 
             <a anchor="code-coverage-before-you-start">custom names</a>, then add the 
             <a href="docker-image-configuration.topic" anchor="docker-image-configuration-config"><code>--config,&lt;path-relative-to-project-root&gt;</code></a> option to <code>args</code>:
         </p>
@@ -352,7 +352,7 @@ directory using the <a href="docker-image-configuration.topic" anchor="docker-im
 > Configuration examples for code coverage are available on the [GitHub](https://github.com/qodana/qodana-coverage) website.
 > {style="tip"}
 
-Here is an example of the [`qodana.yaml`](qodana-yaml.md) file configuration for the [%dotnet%](dotnet.md) linter:
+Here is an example of the [`qodana.yaml`](configuration-reference.md) file configuration for the [%dotnet%](dotnet.md) linter:
 
 ```yaml
 version: 1.0
@@ -373,7 +373,7 @@ bootstrap: |
 
 Here, the `dotnet` section configures the solution file. 
 
-The [`bootstrap`](qodana-yaml.md#Run+custom+commands) key configures steps that will be performed before running %instance%:
+The [`bootstrap`](configuration-reference.md#Run+custom+commands) key configures steps that will be performed before running %instance%:
 
 | Command step                                      | Description                                                                                                                      |
 |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|

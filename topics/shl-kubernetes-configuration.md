@@ -352,7 +352,9 @@ kubectl apply -f installation.bundle.yaml
 After configuring %premlite%, follow the steps below.
 
 <procedure>
-<step>Log in using the default user credentials as described in the <a href="cloud-quickstart.md"/> section.</step>
+<step>Log in using the default user credentials as described in the <a href="cloud-quickstart.md"/> section.
+Note that a URL and authentication methods can be different. 
+</step>
 <step>Configure your <a href="cloud-organizations.topic">organization</a>, create your first <a href="cloud-teams.topic">team</a>
 and <a href="cloud-projects.topic">project</a>.</step>
 <step>Configure %product% as described in the <a href="configure-qodana.md"/> and <a href="linters.md"/> sections.</step>

@@ -76,7 +76,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ### Install project dependencies
 
-In case a project has external dependencies, you can set them up using the `bootstrap` key in the [`qodana.yaml`](qodana-yaml.md) file.
+In case a project has external dependencies, you can set them up using the `bootstrap` key in the [`qodana.yaml`](configuration-reference.md) file.
 For example, if your project dependencies are specified by the `composer.json` file in your project root, add the following
 line to `qodana.yaml`:
 

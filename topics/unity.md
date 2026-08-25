@@ -47,7 +47,7 @@ ${UNITY_EXECUTABLE:-xvfb-run --auto-servernum --server-args='-screen 0 640x480x2
 
 ### Qodana configuration
 
-In the [`qodana.yaml`](qodana-yaml.md) file, save the following configuration to employ the [%dotnet%](dotnet.md) linter in the 
+In the [`qodana.yaml`](configuration-reference.md) file, save the following configuration to employ the [%dotnet%](dotnet.md) linter in the 
 native mode and use the [`qodana.recommended`](inspection-profiles.md) inspection profile:
 
 ```yaml

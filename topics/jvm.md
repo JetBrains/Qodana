@@ -201,7 +201,7 @@ To see the list of supported technologies and features, you can navigate to the 
 The K2 mode is by default enabled for the %qd% and %qd-co% linters.
 
 To revert the K2 mode, in your linter configuration set the `idea.kotlin.plugin.use.k2`
-[property](docker-image-configuration.topic#docker-config-reference-properties) to `false`.
+[property](configuration-reference.md#docker-config-reference-properties) to `false`.
 
 ### Configuring the JDK
 
@@ -336,7 +336,7 @@ $ docker run \
     <tab group-key="linter-tabs-ultimate" title="Qodana for JVM / Android">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems, 
             specific problem severities and code coverage by saving this snippet to the 
-            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+            <a href="configuration-reference.md"><code>qodana.yaml</code></a> file:
         </p>
         <code-block lang="yaml">
             failureConditions:
@@ -355,7 +355,7 @@ $ docker run \
     <tab group-key="linter-tabs-community" title="Qodana Community for JVM / Android">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems 
             and specific problem severities by saving this snippet to the 
-            <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file:
+            <a href="configuration-reference.md"><code>qodana.yaml</code></a> file:
         </p>
         <code-block lang="yaml">
             failureConditions:

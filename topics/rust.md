@@ -82,7 +82,7 @@ Your feedback is very welcome in our
 
 ### Install project dependencies
 
-In case a project has external dependencies, you can set them up using the `bootstrap` key in the [`qodana.yaml`](qodana-yaml.md) file,
+In case a project has external dependencies, you can set them up using the `bootstrap` key in the [`qodana.yaml`](configuration-reference.md) file,
 for example:
 
 ```yaml

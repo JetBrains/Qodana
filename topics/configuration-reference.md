@@ -15,9 +15,9 @@ name and be contained in the root directory of your project.</link-summary>
 
 You can configure %product% using YAML or command-line (CLI) options.
 
-Configuring %product% via a [YAML-formatted](qodana-yaml.md) file typically named `qodana.yaml` and contained in the
+Configuring %product% via a YAML-formatted file typically named `qodana.yaml` and contained in the
 root directory of your project is suitable for settings that require lengthy commands. For example, inspection configuration, 
-[bootstrap](qodana-yaml.md#Run+custom+commands), and other settings that are not convenient to configure otherwise.
+[bootstrap](#Run+custom+commands), and other settings that are not convenient to configure otherwise.
 Once a YAML configuration is saved, you can reuse it across different instances of Qodana.
 
 CLI options are suitable for immediate configuration of applications that run %product% like the Docker engine,
@@ -54,6 +54,8 @@ Qodana linters, you can configure it using the [HTML report](ui-overview.md) sec
 automatically. -->
 
 ### CLI options
+
+> The comprehensive list of CLI options is available in the [](docker-image-configuration.topic) section.
 
 <p>You can configure %product% using three types of CLI options as shown below.</p>
 
@@ -189,7 +191,7 @@ automatically. -->
 <link-summary>Using the bootstrap key of qodana.yaml, %instance% can perform actions before running analysis.</link-summary>
 
 > Some commands may require root user privileges. For more details, see the
-> [](docker-image-configuration.topic#docker-config-reference-docker-environment-run-non-root) chapter.
+> [](#docker-config-reference-docker-environment-run-non-root) chapter.
 > {style="tip"}
 
 During analyses, %product% linters may report that some inspections cannot find classes, packages, files or cannot resolve references,
@@ -219,7 +221,7 @@ bootstrap: |+
 ```
 
 > You can investigate %product% behavior using files contained in the
-> [`/data/results`](docker-image-configuration.topic#docker-config-reference-overview-logs) directory.
+> [`/data/results`](#docker-config-reference-overview-logs) directory.
 
 > The sanity inspection will report unexpected problems in case the `qodana.yaml` file
 > containing the `bootstrap` key is missing from your project directory. You can disable this inspection using the
@@ -545,7 +547,7 @@ The `--linter` and `--within-docker false` CLI options also let you configure th
     using the --config option and a path to a file relative to the project root.</link-summary>
 
 <p>Your project can have several %product% configurations contained in
-    <a href="qodana-yaml.md">YAML-formatted files</a>. This comes in handy if you analyze monorepo projects or
+    YAML-formatted files. This comes in handy if you analyze monorepo projects or
     run a single CI job.</p>
 
 <p>You can use the <code>--config</code> CLI option and a path
@@ -661,7 +663,7 @@ Using the `profile` YAML key, you can set up an existing profile, configure your
 
 <tabs>
     <tab title="Configuring from scratch">
-<p>You can writer your profile configuration directly in the <code>qodana.yaml</code> file:</p>
+<p>You can write your profile configuration directly in the <code>qodana.yaml</code> file:</p>
         <code-block lang="yaml" emphasize-lines="5-10"><![CDATA[
             version: "1.0"
 
@@ -1065,11 +1067,11 @@ as well as the `--profile-path` CLI option for invoking a profile configuration 
     </tab>
 </tabs>-->
 
-### Disable unexpected problems
+### Disable sanity inspections
 
-<link-summary>By default, unexpected problems are enabled in %instance%, but you can disable them.</link-summary>
+<link-summary>By default, sanity inspections are enabled in %instance%, but you can disable them.</link-summary>
 
-By default, unexpected problems are enabled in %instance%. You can disable them using this snippet:
+Sanity problems refer to problems in the project configuration. By default, sanity inspections are enabled in %instance%. You can disable them using this snippet:
 
 ```yaml
 version: "1.0"
@@ -1198,40 +1200,42 @@ linter: <linter>
 
 profile:
   name: empty
-include:
-  - name: SomeInspectionId
-    paths:
-    - tools
+  
+  inspections:
+    - inspection: SomeInspectionId
+      ignore:
+        - "!tools"
+      enabled: true
 ```
 
-Here, each `include` entry should reference an inspection registered in an active
-[inspection profile](inspection-profiles.md), either enabled or disabled. If an inspection ID is not registered, the
-`ìnclude` entry becomes silently ignored and no inspection is added.
+Here, each `inspections` entry should reference an inspection registered in an active
+[inspection profile](inspection-profiles.md), either enabled or disabled. If an inspection ID is not registered, it becomes silently 
+ignored and no inspection is added.
 
 For example, the `profile.name: empty` configuration implies that plugin-provided inspections like `CppClangTidy*` are
 not registered. To enable specific plugin inspections, you can start from an
-[existing inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles) like `qodana.starter`and use
-`exclude` to suppress inspections that you do not need. Also, add inspections using plugin-specific config like
+[existing inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles) like `qodana.starter`and suppress the inspections that you do not need. Also, add inspections using plugin-specific config like
 `.clang-tidy` in case of the [](clang.md) linter.
 
 ### Excluding inspections
 
 <link-summary>Learn how you can disable inspections for a specific file.</link-summary>
 
-<p>To disable inspections for a specific file, use the following YAML configuration:</p>
-<code-block lang="yaml">
-<![CDATA[
+To disable inspections for a specific file, use the following YAML configuration:
 
-    version "1.0"
+````yaml
+version: "1.0"
 
-    linter: <linter>
+linter: <linter>
 
-    exclude:
-      - name: <inspection-name>
-    paths:
-      - <path/to/the/file/from/project/root>
-]]>
-</code-block>
+profile:
+  inspections:
+    - inspection: SomeInspectionId
+      ignore:
+        - "!<path/to/the/file/from/project/root>"
+      enabled: false
+````
+
 <p>You can also suppress the inspection only for a class by adding the <code>noinspection</code> comment above the class:</p>
 <code-block lang="typescript">
     // noinspection &lt;inspection-name&gt;
@@ -1676,7 +1680,7 @@ not registered. To enable specific plugin inspections, you can start from an
 <p>Here, the <code>repo/.git</code> directory contains information that should be accessible to %instance%, and
     the <code>repo/project</code> directory contains the project that needs to be inspected by %instance%. All
     these samples mount the <code>repo/project</code> directory using the
-    <a href="docker-image-configuration.topic" anchor="docker-config-reference-directories"><code>--project-dir</code></a>
+    <a anchor="docker-config-reference-directories"><code>--project-dir</code></a>
     option, while the <code>QODANA_TOKEN</code> variable refers to the %cloud%
     <a href="project-token.md">project token</a>:</p>
 
@@ -1755,12 +1759,15 @@ version: "1.0"
 
 linter: <linter>
 
-exclude:
-  - name: All
-    paths:
-      - asm-test/src/main/java/org
-      - asm/Visitor.java
-      - benchmarks
+profile:
+  inspections:
+    - group: ALL
+  ignore:
+    - "asm-test/src/main/java/org"
+    - "asm/Visitor.java"
+    - "benchmarks"
+    - "vendor/**"
+    - "scope#file[*test*]:src/*"
 ```
 
 Exclude inspections specified by ID for specified project paths:
@@ -1771,25 +1778,25 @@ version: "1.0"
 
 linter: <linter>
 
-exclude:
-  - name: Annotator
-  - name: AnotherInspectionId
-    paths:
-      - relative/path
-      - another/relative/path
-  - name: All
-    paths:
-      - asm-test/src/main/java/org
-      - asm
-      - benchmarks
-      - tools
+profile:      
+  inspections:
+  - inspection: InspectionId
+    ignore:
+      - "relative/path"
+      - "another/relative/path"
+  - group: ALL
+    ignore:
+      - "asm-test/src/main/java/org"
+      - "asm"
+      - "benchmarks"
+      - "tools"
 ```
 
 You can find specific inspection IDs in the Profile settings in the HTML report or in the `.xml` file with your inspection profile.
 
 ### Specify directory in your project
 
-Use the `onlyDirectory` option to specify a project directory to analyze.
+Use the `onlyDirectory` YAML option to specify a project directory to analyze.
 This should be relative to the project root, for example:
 
 ```yaml
@@ -1800,6 +1807,58 @@ linter: <linter>
 onlyDirectory: project-a
 ```
 {emphasize-lines="5"}
+
+Alternatively, you can use the `--only-directory` CLI option, for example:
+
+<tabs>
+    <tab title="Docker image">
+    <code-block lang="bash" prompt="$" emphasize-lines="5">
+        docker run \
+          -v repo/:/data/project/ \
+          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+          jetbrains/qodana-&lt;image&gt; \
+          --only-directory project-a
+    </code-block>
+    </tab>
+    <tab title="Qodana CLI">
+    <code-block lang="bash" prompt="$" emphasize-lines="3">
+        qodana scan \
+          -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+          --only-directory project-a
+    </code-block>
+    </tab>
+    <tab title="GitHub Actions">
+    <code-block lang="yaml" emphasize-lines="24">
+        name: Qodana
+        on:
+            workflow_dispatch:
+            pull_request:
+            push:
+                branches:
+                    - main
+                    - 'releases/*'
+        jobs:
+            qodana:
+                runs-on: ubuntu-latest
+                permissions:
+                    contents: write
+                    pull-requests: write
+                    checks: write
+                steps:
+                    - uses: actions/checkout@v3
+                      with:
+                          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                          fetch-depth: 0  # a full history is required for pull request analysis
+                    - name: 'Qodana Scan'
+                      uses: %action-version%
+                      with:
+                          args: --only-directory project-a
+                      env:
+                          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+    </code-block>
+    </tab>
+</tabs>
+
 
 This is useful while analyzing [monorepo projects](monorepo-project.md).
 
@@ -1828,7 +1887,7 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
     GitLab CI/CD also has the <a href="https://docs.gitlab.com/ee/ci/caching/">cache</a> that can be stored
     <a href="https://docs.gitlab.com/ee/ci/yaml/README.html#cachepaths">only inside</a> the project directory.
     In this case, you can exclude the cache directory from inspection via
-    <a href="qodana-yaml.md" anchor="include-example"><code>qodana.yaml</code></a>.</p>
+    <a href="configuration-reference.md" anchor="Excluding+inspections"><code>qodana.yaml</code></a>.</p>
 
 <p>This command maps the local directory with the <code>/data/cache</code> directory of the
     Docker image, which saves cache to your local filesystem: </p>
@@ -2327,10 +2386,12 @@ version: "1.0"
 
 linter: <linter>
 
-exclude:
-  - name: CheckDependencyLicenses
+profile:
+  inspections:
+    - inspection: CheckDependencyLicenses
+      enabled: false
 ```
-{emphasize-lines="5-6"}
+{emphasize-lines="7-8"}
 
 #### Ignore a dependency
 
@@ -3799,7 +3860,7 @@ and <code>--diff-end</code> options:</p>
         <p>TeamCity and <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> run %instance%
             using a current non-root user. This can be inconvenient if you wish to install dependencies
             using the <code>apt</code> tool invoked in the
-            <a href="qodana-yaml.md" anchor="Run+custom+commands"><code>bootstrap</code></a> section.</p>
+            <a href="configuration-reference.md" anchor="Run+custom+commands"><code>bootstrap</code></a> section.</p>
         <p>To run %product% as a root user in TeamCity, add the <code>-u root</code> option in the
             <a href="teamcity.md" anchor="teamcity-qodana-runner"><ui-path>Additional Docker arguments</ui-path></a>
             field of the %product% runner configuration.</p>
@@ -3975,12 +4036,12 @@ and <code>--diff-end</code> options:</p>
                       uses: actions/checkout@v4
                       with:
                           submodules: recursive  # clones submodules recursively
-                &nbsp;
+
                     - name: Setup SSH Agent
                       uses: webfactory/ssh-agent@v0.9.0
                       with:
                           ssh-private-key: ${{ secrets.SUBMODULE_SSH_KEY }}
-                &nbsp;
+                
                     - name: 'Qodana Scan'
                       uses: %action-version%
                       with:
@@ -4090,7 +4151,7 @@ and <code>--diff-end</code> options:</p>
     shown throughout this section.</p>
 
 <p>The detailed description of the <code>qodana init</code> command is available in the
-    <a anchor="docker-config-reference-qodana-init"/> section.</p>
+    <a href="docker-image-configuration.topic" anchor="docker-config-reference-qodana-init"/> section.</p>
 
 ## Manage plugins
 
@@ -4116,7 +4177,7 @@ Plugin cache is stored in the `/data/cache/plugins` directory.
 
 To install third-party software required for your plugins, you can:
 
-* Use the [`bootstrap`](qodana-yaml.md#Run+custom+commands) key.
+* Use the [`bootstrap`](configuration-reference.md#Run+custom+commands) key.
 * Develop your custom `Dockerfile` that starts with `FROM jetbrains/qodana...`. You can use %instance% `Dockerfile`
   examples available on [GitHub](https://github.com/jetbrains/qodana-docker).
 
@@ -4136,10 +4197,12 @@ version: "1.0"
 
 linter: <linter>
 
-include:
-  - name: IncorrectFormatting
+profile:
+  inspections:
+    - inspection: IncorrectFormatting
+      enabled: true
 ```
-{emphasize-lines="5-6"}
+{emphasize-lines="7-8"}
 
 ## Specify a CMake preset
 
@@ -4186,24 +4249,24 @@ linter: <linter>
 failThreshold: 0
 profile:
   name: qodana.recommended
-include:
-  - name: SomeInspectionId
-exclude:
-  - name: Annotator
-  - name: AnotherInspectionId
-    paths:
-      - relative/path
-      - another/relative/path
-  - name: All
-    paths:
-      - asm-test/src/main/java/org
-      - benchmarks
-      - tools
+  inspections:
+    - inspection: SomeInspectionId
+      enabled: true
+    - inspection: AnotherInspectionId
+      enabled: true
+      ignore:
+        - "relative/path"
+        - "another/relative/path"
+    - group: ALL
+      enabled: true
+      ignore: 
+        - "asm-test/src/main/java/org"
+        - "benchmarks"
+        - "tools"
 ```
 
 In the example above,
 * `SomeInspectionId` inspection is explicitly enabled for all paths, although it is disabled in the profile
-* `Annotator` inspection is disabled for all paths
 * `AnotherInspectionId` inspection is disabled for `relative/path` and `another/relative/path`
 * no inspections are conducted over these paths: `asm-test/src/main/java/org`, `benchmarks`, `tools`
 
@@ -4226,18 +4289,15 @@ profile:
   name: qodana.recommended
 
 # Exclude specific paths from the analysis
-exclude:
-  - name: All
-    paths:
-      - tests/
-      - bin/
-      - obj/
-
-# Include an inspection not contained in the qodana.recommended profile
-include:
-  - name: SomeSpecificInspectionId
-    paths:
-      - src/
+  inspections:
+    - group: ALL
+      ignore:
+        - "tests/"
+        - "bin/"
+        - "obj/"
+    # Include an inspection not contained in the qodana.recommended profile
+    - inspection: SomeSpecificInspectionId
+      enabled: true
 
 # Restore .NET dependencies
 bootstrap: |+
@@ -4272,8 +4332,10 @@ failureConditions:
     total: 90     # Fail if total code coverage is below 90%
 
 # Disable specific inspections
-exclude:
-  - name: CheckDependencyLicenses # Disable license audit if not needed
+profile:
+  inspections:
+    - inspection: CheckDependencyLicenses 
+      enabled: false # Disable license audit if not needed
 
 # Include custom plugins
 plugins:
@@ -4281,1305 +4343,5 @@ plugins:
 
 ```
 
-## Full list of CLI commands
-
-### Configure projects
-{id="docker-config-reference-qodana-init"}
-
-You can use the following CLI options to configure Qodana projects:
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-        <td>The default value</td>
-    </tr>
-    <tr>
-        <td>
-            <code>--config &lt;string&gt;</code>
-        </td>
-        <td>
-            Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to
-            the project directory
-        </td>
-        <td>
-            None
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-f, --force</code>
-        </td>
-        <td>
-            Force initialization, overwrite the existing valid <code>qodana.yaml</code> file
-        </td>
-        <td>
-            None
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-i, --project-dir&nbsp;&lt;string&gt;</code>
-        </td>
-        <td>
-            Specify the root directory of your project
-        </td>
-        <td>
-            <code>.</code>
-        </td>
-    </tr>
-</table>
-
-<p>You can invoke these options in Qodana CLI using the <code>qodana init &lt;options&gt;</code> command.</p>
-
-### Analyze projects
-{id="docker-config-reference-qodana-scan"}
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-    </tr>
-    <tr id="docker-config-reference-qodana-scan-image">
-        <td>
-            <code>--image &lt;string&gt;</code>
-        </td>
-        <td>
-            <note>This option is available only in Docker mode and incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
-            <p>In place of <code>&lt;string&gt;</code>, specify the %product% Docker image that you would like to employ:</p>
-            <table>
-                <tr>
-                    <td>Docker image</td>
-                    <td>Description</td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-co-image%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm-co%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-image%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-co-a-image%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm-co-a%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-a-image%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm-a%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%php-image%</code>
-                    </td>
-                    <td>
-                        <a href="php.md">%php%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%python-image%</code>
-                    </td>
-                    <td>
-                        <a href="python.md">%python%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%python-co-image%</code>
-                    </td>
-                    <td>
-                        <a href="python.md">%python-co%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%js-image%</code>
-                    </td>
-                    <td>
-                        <a href="js.md">%js%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%go-image%</code>
-                    </td>
-                    <td>
-                        <a href="golang.md">%go%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%dotnet-image%</code>
-                    </td>
-                    <td>
-                        <a href="dotnet.md">%dotnet%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%dotnet-co-image%</code>
-                    </td>
-                    <td>
-                        <a href="dotnet.md">%dotnet-co%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%cpp-image%</code>
-                    </td>
-                    <td>
-                        <a href="clang.md">%cpp%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%clang-image%</code>
-                    </td>
-                    <td>
-                        <a href="clang.md">%clang%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%ruby-image%</code>
-                    </td>
-                    <td>
-                        <a href="ruby.md">%ruby%</a>
-                    </td>
-                </tr>
-            </table>
-            <p>Also, you can use any Docker image that has %product%.</p>
-        </td>
-    </tr>
-    <tr id="docker-config-reference-qodana-scan-linter">
-        <td>
-            <code>-l, --linter &lt;string&gt;</code>
-        </td>
-        <td>
-            <p>In place of <code>&lt;string&gt;</code>, specify the linter that you would like to employ:</p>
-            <!-- <note>This option is not available for the <a href="gitlab.md">GitLab CI/CD</a> component.</note>-->
-            <table>
-                <tr>
-                    <td>Linter name</td>
-                    <td>Description</td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-co-linter%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm-co%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-linter%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-co-a-linter%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm-co-a%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-a-linter%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm-a%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%php-linter%</code>
-                    </td>
-                    <td>
-                        <a href="php.md">%php%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%python-linter%</code>
-                    </td>
-                    <td>
-                        <a href="python.md">%python%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%python-co-linter%</code>
-                    </td>
-                    <td>
-                        <a href="python.md">%python-co%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%js-linter%</code>
-                    </td>
-                    <td>
-                        <a href="js.md">%js%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%go-linter%</code>
-                    </td>
-                    <td>
-                        <a href="golang.md">%go%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%dotnet-linter%</code>
-                    </td>
-                    <td>
-                        <a href="dotnet.md">%dotnet%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%dotnet-co-linter%</code>
-                    </td>
-                    <td>
-                        <a href="dotnet.md">%dotnet-co%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%cpp-linter%</code>
-                    </td>
-                    <td>
-                        <a href="clang.md">%cpp%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%clang-linter%</code>
-                    </td>
-                    <td>
-                        <a href="clang.md">%clang%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%ruby-linter%</code>
-                    </td>
-                    <td>
-                        <a href="ruby.md">%ruby%</a>
-                    </td>
-                </tr>
-            </table>
-            <note>The previous linter notation <code>jetbrains/&lt;linter-name&gt;</code> is deprecated
-            and will be removed in future versions of %product%.</note>
-        </td>
-    </tr>
-    <tr id="docker-config-reference-qodana-scan-within-docker">
-        <td>
-            <code>
-                --within-docker &lt;true|false&gt;
-            </code>
-        </td>
-        <td>
-            <!-- <note>This option is not available for the <a href="gitlab.md">GitLab CI/CD</a> component.</note>-->
-            <p>Define whether analysis will be performed within a Docker container.</p>
-            <p>If set to <code>true</code>, %product% will employ a respective Docker image. The image for
-                container creation will be chosen in an automated way based on the <code>--image</code> value.
-                For example, the <code>jetbrains/qodana-jvm</code> image will be chosen in case of <code>--linter qodana-jvm</code>.</p>
-            <p>If set to <code>false</code>, %product% will analyze your project in native mode using the current environment.</p>
-            <p>The default value is defined dynamically based on the analysis of the current environment and project.</p>
-            <p>Native mode is currently available for the following %product% linters:</p>
-            <table>
-                <tr>
-                    <td>
-                        Linter name
-                    </td>
-                    <td>
-                        Description
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-linter%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%jvm-co-linter%</code>
-                    </td>
-                    <td>
-                        <a href="jvm.md">%jvm-co%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%php-linter%</code>
-                    </td>
-                    <td>
-                        <a href="php.md">%php%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%js-linter%</code>
-                    </td>
-                    <td>
-                        <a href="js.md">%js%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%dotnet-linter%</code>
-                    </td>
-                    <td>
-                        <a href="dotnet.md">%dotnet%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%go-linter%</code>
-                    </td>
-                    <td>
-                        <a href="golang.md">%go%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%python-linter%</code>
-                    </td>
-                    <td>
-                        <a href="python.md">%python%</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>%python-co-linter%</code>
-                    </td>
-                    <td>
-                        <a href="python.md">%python-co%</a>
-                    </td>
-                </tr>
-                <!--<tr>
-                    <td>
-                        <code>qodana-cpp:2025.2-eap</code>
-                    </td>
-                    <td>
-                        <a href="clang.md">%clang%</a>
-                    </td>
-                </tr>-->
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-i, --project-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            Root directory of the analyzed project. The default value is <code>.</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>--repository-root string &lt;string&gt;</code>
-        </td>
-        <td>
-            Path to the root of the Git repository. This directory must be the same as <code>--project-dir</code> or contain the project directory inside it.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-o, --results-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            Override the directory for saving %product% analysis reports. The default value is
-            <code>&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/results</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --cache-dir &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Override the cache directory. The default value is
-            <code>&lt;userCacheDir&gt;/JetBrains/Qodana/&lt;linter&gt;/cache</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                -r, --report-dir  &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Override the directory for saving Qodana HTML reports. The default value is
-            <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --print-problems
-            </code>
-        </td>
-        <td>
-            Print in the CLI output all problems found by Qodana
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --code-climate
-            </code>
-        </td>
-        <td>
-            Generate a SARIF-formatted <a href="https://docs.gitlab.com/ee/ci/testing/code_quality.html">Code Climate</a>
-            report supported by <a href="gitlab.md" anchor="gitlab-generate-code-quality-reports">GitLab CI/CD</a>. The
-            report will be saved in the directory specified by the <code>--results-dir</code> option. By default, this option
-            is enabled if GitLab CI/CD is running
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --bitbucket-insights
-            </code>
-        </td>
-        <td>
-            Generate a <a href="https://support.atlassian.com/bitbucket-cloud/docs/code-insights/">Code Insights</a>
-            report supported by <a href="bitbucket.md" anchor="Generate+Code+Insights+reports">Bitbucket Cloud</a>.
-            By default, this option is enabled if %product% is being run in the Bitbucket Pipelines
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --clear-cache
-            </code>
-        </td>
-        <td>
-            Clear the local Qodana cache before running analyses
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                -w, --show-report
-            </code>
-        </td>
-        <td>
-            Serve an HTML report on the port specified by the <code>--port</code> option
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --port &lt;int&gt;
-            </code>
-        </td>
-        <td>
-            Port to serve the report. The default value is <code>8080</code>. This option is deprecated, use the <code>--show-report-port</code> option instead
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --show-report-port &lt;int&gt;
-            </code>
-        </td>
-        <td>
-            Port to serve the report
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --config &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to the project root directory
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                -a, --analysis-id &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Unique report identifier (GUID) to be used by %cloud%. The default value is <code>2c72b6e8-f09d-472a-bb86-8a7d8e374ed1</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                -b, --baseline &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Provide the path to an existing SARIF report to be used in the baseline state calculation
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --baseline-include-absent
-            </code>
-        </td>
-        <td>
-            Include baseline problems that are marked absent in the output report
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --full-history [--commit &lt;commit-hash&gt;]
-            </code>
-        </td>
-        <td>
-            Go through the full commit history and run the analysis on each commit. If combined with
-            <code>--commit</code>, the analysis will be started from the given commit
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --commit &lt;commit-hash&gt; [--full-history]
-            </code>
-        </td>
-        <td>
-            Reset Git and run analysis only for the files modified since the given commit. If combined with the
-            <code>--full-history</code> option, full history analysis will be started from the given commit
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --fail-threshold &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Set the number of problems that will serve as a <a href="quality-gate.topic">quality gate</a>.
-            Once the quality gate threshold is reached, the analysis will be terminated with a non-zero exit code
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --disable-sanity
-            </code>
-        </td>
-        <td>
-            Skip the inspections configured by the <code>qodana.sanity</code>
-            <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">inspection profile</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-d, --source-directory &lt;string&gt;</code>
-        </td>
-        <td>
-            <note>This option is deprecated and will be removed in future versions of the product.
-                See the <a anchor="docker-options-only-directory"><code>--only-directory</code></a> option for details.</note>
-            <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
-                the whole project will be analyzed</p>
-        </td>
-    </tr>
-    <tr id="docker-options-repository-root">
-        <td>
-            <code>--repository-root &lt;string&gt;</code>
-        </td>
-        <td>
-            <p>Specify the VCS root directory for your project. This option is required for Git-related operations</p>
-        </td>
-    </tr>
-    <tr id="docker-options-only-directory">
-        <td>
-            <code>--only-directory &lt;string&gt;</code>
-        </td>
-        <td>
-            <p>Specify the directory inside the <code>project-dir</code> directory that must be analyzed. If not specified,
-                the whole project will be analyzed</p>
-            <p>Files and directories contained in the outside directory like <code>.git</code> and
-                <code>build.gradle</code> are used by %instance% while inspecting code</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-n, --profile-name &lt;string&gt;</code>
-        </td>
-        <td>
-            Specify the <a href="inspection-profiles.md">profile name</a>
-        </td>
-    </tr>
-    <tr id="docker-config-reference-qodana-scan-linter-profile-path">
-        <td>
-            <code>-p, --profile-path &lt;string&gt;</code>
-        </td>
-        <td>
-            Specify the path to the
-            <a href="inspection-profiles.md" anchor="inspection-profiles-setup-a-profile">profile file</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --run-promo &lt;true|false&gt;
-            </code>
-        </td>
-        <td>
-            Set this option to <code>true</code> to use the promo inspections; set to <code>false</code> otherwise.
-            The default value is <code>true</code> if %product% is executed using the
-            <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">default profile</a>
-        </td>
-    </tr>
-    <tr id="docker-config-reference-qodana-scan-script">
-        <td>
-            <code>
-                --script &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            <p>Override the run scenario of %product%. Currently, the following run scenarios are available:</p>
-            <table>
-                <tr>
-                    <td>Scenario name</td>
-                    <td>Description</td>
-                </tr>
-                <tr>
-                    <td><code>default</code></td>
-                    <td>The default %product% scenario, enabled by default</td>
-                </tr>
-                <tr>
-                    <td><code>php-migration</code></td>
-                    <td><a href="php-language-upgrade.topic">PHP version migration</a> scenario</td>
-                </tr>
-                <tr>
-                    <td><code>local-changes</code></td>
-                    <td>Analyze only uncommitted changes. You can see the <a href="analyze-pr.md"/> section to learn more about incremental analysis</td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr id="docker-image-configuration-coverage-dir">
-        <td>
-            <code>
-                --coverage-dir &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Specify the directory that contains <a href="code-coverage.md">code coverage</a> data for analysis
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --apply-fixes
-            </code>
-        </td>
-        <td>
-            Apply all available Quick-Fix strategies including cleanup, see the <a href="quick-fix.md"/>
-            section for details
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --cleanup
-            </code>
-        </td>
-        <td>
-            Run the <code>CLEANUP</code> Quick-Fix strategy, see the
-            <a href="quick-fix.md" anchor="How+Quick-Fix+works">Quick-Fix</a> for details
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --property &lt;stringArray&gt;
-            </code>
-        </td>
-        <td>
-            Set a JVM property to be used while running Qodana. Use the
-            <code>--property property.name=value1,value2,...,valueN</code> notation
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-s, --save-report</code>
-        </td>
-        <td>
-            <note>This option is currently unavailable for analyses performed using
-                <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
-            <p>Generate an HTML report. This option is enabled by default</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --timeout int
-            </code>
-        </td>
-        <td>
-            Set %product% analysis time limit in milliseconds. Once reached, the analysis will be terminated and the
-            process will exit with the <code>timeout-exit-code</code> code. The default setting is <code>1</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --timeout-exit-code &lt;int&gt;
-            </code>
-        </td>
-        <td>
-            Override the default <code>timeout</code> setting <code>--timeout</code> option. The default
-            value set by the <code>timeout</code> option is <code>1</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --diff-start &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Set the hash of the commit that will act as a base for comparison in a <a href="analyze-pr.md">change analysis</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --diff-end &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            Set the hash of the commit that will act as an end in a <a href="analyze-pr.md">change analysis</a>.
-            This lets you analyze only files changed between the <code>--diff-start</code> and
-            <code>--diff-end</code> commits
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --reverse
-            </code>
-        </td>
-        <td>
-            Override the default <a anchor="docker-config-reference-qodana-scan-script">run scenario</a> by
-            launching incremental analysis in reverse order. This lets you skip analysis of the main codebase
-            if the incremental analysis finds no issues.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --no-statistics
-            </code>
-        </td>
-        <td>
-            <note>This option is available only for the <a href="dotnet.md">%dotnet%</a> and
-                <a href="clang.md">%clang%</a> linters.</note>
-            <p>Disable sending anonymous statistics</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --compile-commands &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            <note>This option is available only for the <a href="clang.md">%clang%</a> linter.</note>
-            <p>Specify the path to the <code>compile_commands.json</code> file. The default value is
-                <code>./build/compile_commands.json"</code></p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --clang-args &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            <note>This option is available only for the <a href="clang.md">%clang%</a> linter.</note>
-            <p>Set additional arguments, see the <a href="clang.md"/> section for details</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --solution &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            <note>This option is available only for the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
-            <p>Set a relative path to a solution file, see the <a href="dotnet.md"/> section for details</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --project &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            <note>This option is available only for the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
-            <p>Set a relative path to a project file, see the <a href="dotnet.md"/> section for details</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --configuration &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            <note>This option is available only for the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
-            <p>Specify the build configuration, see the <a href="dotnet.md"/> section for details</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --platform &lt;string&gt;
-            </code>
-        </td>
-        <td>
-            <note>This option is available only for the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
-            <p>Specify the build platform, see the <a href="dotnet.md"/> section for details</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --no-build
-            </code>
-        </td>
-        <td>
-            <note>This option is available only for the <a href="dotnet.md">%dotnet-co%</a> linter.</note>
-            <p>Skip project building before analyses, see the <a href="dotnet.md"/> section for details</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-e, --env &lt;stringArray&gt;</code>
-        </td>
-        <td>
-            <note>Available only in Docker mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
-            <p>Define environment variables for the Qodana container, multiple variables can be specified.
-                For security reasons, %product% CLI does not read environment variables from the host
-                operating system, so all variables required by %product% should be specified explicitly.</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-v, --volume &lt;stringArray&gt;</code>
-        </td>
-        <td>
-            <note>Available only in Docker mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note>
-            <p>Define additional volumes for the Qodana container, multiple volumes can be specified. For example,
-                <code>qodana scan --volume $(pwd)/.qodana/results:/data/results/</code></p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-u, --user &lt;string&gt;</code>
-        </td>
-        <td>
-            <note>Available only in Docker mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note> <p>User to run Qodana container as. Please specify the user
-            ID – <code>$UID</code> or the user ID and group ID <code>$(id -u):$(id -g)</code>.
-            Use <code>root</code> to run as the root user. By default, it is set to the current user</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>
-                --skip-pull
-            </code>
-        </td>
-        <td>
-            <note>Available only in Docker mode, incompatible with <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native mode</a>.</note> <p>Skip pulling the latest Qodana container</p>
-        </td>
-    </tr>
-</table>
-
-<p>You can invoke these options in Qodana CLI using the <code>qodana scan &lt;options&gt;</code> command.</p>
-
-### Send analysis reports to Qodana Cloud
-{id="docker-config-reference-qodana-send"}
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-    </tr>
-    <tr>
-        <td>
-            <code>-a, --analysis-id &lt;string&gt;</code>
-        </td>
-        <td>
-            The unique report identifier (GUID) to be used by Qodana Cloud. The default value is
-            <code>f9d8a78f-f922-452b-8062-a64afc352537</code>
-        </td>
-    </tr>
-    <tr id="docker-image-configuration-config">
-        <td>
-            <code>--config &lt;string&gt;</code>
-        </td>
-        <td>
-            Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to the project root directory
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-l, --linter &lt;string&gt;</code>
-        </td>
-        <td>
-            <p>Override the linter which report will be used for sending to Qodana Cloud</p>
-        </td>
-    </tr>
-    <tr id="docker-image-configuration-project-dir">
-        <td>
-            <code>-i, --project-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            Root directory of the project which report will be sent to Qodana Cloud. The default value is <code>.</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-r, --report-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            Override the directory for saving Qodana HTML reports. The default value is
-            <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-o, --results-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            Override the directory that will be used for sending a %product% report from. The default value is
-            <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results</code>
-        </td>
-    </tr>
-</table>
-
-<p>You can invoke these options in Qodana CLI using the <code>qodana send &lt;options&gt;</code> command.</p>
-
-### View reports 
-{id="docker-config-reference-qodana-show"}
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-    </tr>
-    <tr>
-        <td>
-            <code>--config &lt;string&gt;</code>
-        </td>
-        <td>
-            Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to the project root directory
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-d, --dir-only</code>
-        </td>
-        <td>
-            Open the report directory only without serving it
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-l, --linter &lt;string&gt;</code>
-        </td>
-        <td>
-            Override the linter which report should be viewed
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-p, --port &lt;int&gt;</code>
-        </td>
-        <td>
-            Specify the port to serve a report. The default value is <code>8080</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-i, --project-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            Root directory of the project which report should be viewed. The default value is <code>.</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-r, --report-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            Override the directory to save a Qodana HTML report. This is the directory that contains the
-            <code>index.html</code> file.
-            The default value is <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results/report</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-o, --results-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            Override the directory for saving analysis reports. The default value is
-            <code>&lt;userCacheDir&gt;/JetBrains/&lt;linter&gt;/results</code>
-        </td>
-    </tr>
-</table>
-
-<p>You can invoke these options in Qodana CLI using the <code>qodana show &lt;options&gt;</code> command.</p>
-
-### View SARIF-formatted files
-{id="docker-config-reference-qodana-view"}
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-        <td>Default setting</td>
-    </tr>
-    <tr>
-        <td>
-            <code>-f, --sarif-file &lt;string&gt;</code>
-        </td>
-        <td>
-            Path to the SARIF-formatted file
-        </td>
-        <td><code>./qodana.sarif.json</code></td>
-    </tr>
-</table>
-<p>You can invoke these options in Qodana CLI using the <code>qodana view &lt;options&gt;</code> command.</p>
-
-### Count contributors
-{id="docker-config-reference-qodana-contributors"}
-
-<p>To collect information about <a href="contributors.md">contributors</a> to your project, you can run %product%
-    using the following options.</p>
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-        <td>Default setting</td>
-    </tr>
-    <tr>
-        <td>
-            <code>-d, --days &lt;int&gt;</code>
-        </td>
-        <td>
-            The number of days in the past that should be used for calculating the number of active contributors
-        </td>
-        <td>
-            90
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-o, --output string</code>
-        </td>
-        <td>
-            The output format. Available values are <code>tabular</code> and <code>json</code>
-        </td>
-        <td>
-            <code>tabular</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-i, --project-dir &lt;stringArray&gt;</code>
-        </td>
-        <td>
-            The Directory of the project that can be specified multiple times to analyze multiple projects
-        </td>
-        <td>
-            <code>.</code>
-        </td>
-    </tr>
-</table>
-<p>You can invoke these options in Qodana CLI using the <code>qodana contributors &lt;options&gt;</code> command.</p>
-
-### View project statistics
-{id="docker-config-reference-qodana-cloc"}
-
-<p>You can use these options to view information about your project, such
-    as languages and lines of code.</p>
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-    </tr>
-    <tr>
-        <td>
-            <code>-o, --output &lt;string&gt;</code>
-        </td>
-        <td>
-            The output format that accepts the <code>tabular</code>, <code>wide</code>, <code>json</code>,
-            <code>csv</code>, <code>csv-stream</code>, <code>cloc-yaml</code>, <code>html</code>,
-            <code>html-table</code>, <code>sql</code>, <code>sql-insert</code>, <code>openmetrics</code> values.
-            The default setting is <code>tabular</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-i, --project-dir &lt;stringArray&gt;</code>
-        </td>
-        <td>
-            The project directory. This option can be specified multiple times to analyze multiple projects.  If not
-            specified, the current directory will be used
-        </td>
-    </tr>
-</table>
-<p>You can invoke these options in Qodana CLI using the <code>qodana cloc &lt;options&gt;</code> command.</p>
-
-### Pull a Qodana image
-{id="docker-config-reference-qodana-pull"}
-
-<p>Using these CLI options, you can pull the %product% linter that you would like to employ. </p>
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-    </tr>
-    <tr>
-        <td>
-            <code>--config &lt;string&gt;</code>
-        </td>
-        <td>
-            Set a custom configuration file instead of <code>qodana.yaml</code>. Use a path relative to
-            the project root directory
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>--image &lt;string&gt;</code>
-        </td>
-        <td>
-            Specify the image that you would like to pull
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-l</code>, <code>--linter &lt;string&gt;</code>
-        </td>
-        <td>
-            Specify the linter that you would like to pull
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>-i</code>, <code>--project-dir &lt;string&gt;</code>
-        </td>
-        <td>
-            The root directory of the analyzed project. If not
-            specified, the current directory will be used
-        </td>
-    </tr>
-</table>
-<p>You can invoke these options in Qodana CLI using the <code>qodana pull &lt;options&gt;</code> command.
-    %product% CLI takes information about the linter using either the
-    <a href="qodana-yaml.md"><code>qodana.yaml</code></a> file configuration or the <code>--linter</code> option.</p>
-
-### Generate an autocompletion script
-{id="docker-config-reference-qodana-completion"}
-
-<p>Using these CLI options, you can generate an autocompletion script for a specific shell.</p>
-
-<table>
-    <tr>
-        <td>Command</td>
-        <td>Description</td>
-    </tr>
-    <tr>
-        <td>
-            <code>bash</code>
-        </td>
-        <td>
-            Generate the autocompletion script for bash
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>fish</code>
-        </td>
-        <td>
-            Generate the autocompletion script for fish
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>powershell</code>
-        </td>
-        <td>
-            Generate the autocompletion script for PowerShell
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <code>zsh</code>
-        </td>
-        <td>
-            Generate the autocompletion script for zsh
-        </td>
-    </tr>
-</table>
-<p>You can invoke these options in Qodana CLI using the <code>qodana completion &lt;options&gt;</code> command.</p>
-
-### Configure update checking and log levels
-{id="docker-config-reference-global-options"}
-
-<table>
-    <tr>
-        <td>Option</td>
-        <td>Description</td>
-    </tr>
-    <tr>
-        <td><code>--disable-update-checks</code></td>
-        <td>Disable checking and notification about new versions of %product% CLI</td>
-    </tr>
-    <tr>
-        <td><code>--log-level &lt;string&gt;</code></td>
-        <td>Change log level in the output of %product% CLI. For example, you can set <code>--log-level debug</code>
-            to receive the detailed log reports. The default setting is <code>error</code></td>
-    </tr>
-</table>
 
 

@@ -265,7 +265,7 @@ That’s everything for this edition. If you have feedback or run into anything 
 ### December 2025
 
 [Global configuration](global-configuration.md) lets you share %product% configurations across multiple projects. Each
-global configuration is a set of files consisting of the [`qodana.yaml`](qodana-yaml.md) configuration file and
+global configuration is a set of files consisting of the [`qodana.yaml`](configuration-reference.md) configuration file and
 [inspection profile configurations](inspection-profiles.md#inspection-profiles-custom-profiles) contained in YAML and XML files.
 
 ### September 2025
