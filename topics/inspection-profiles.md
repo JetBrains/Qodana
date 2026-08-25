@@ -74,7 +74,7 @@ Out of the box, you can use the following %product% profiles:
         <td><p>This profile is enabled by default to analyze whether a project is configured properly. If 
         <code>qodana.sanity</code> inspections detect problems, this means that all other %product% inspections may work 
         improperly and the project should be reconfigured.</p> 
-        <p>To learn how disable inspections of this profile, see the <a href="configuration-reference.md" anchor="Disable+unexpected+problems"/> section.</p>
+        <p>To learn how disable inspections of this profile, see the <a href="configuration-reference.md" anchor="Disable+sanity+inspections"/> section.</p>
         </td>
     </tr>
 </table>
@@ -93,7 +93,7 @@ These profiles are hosted on
 <link-summary>Learn how to set up existing %product% profiles.</link-summary>
 
 <note>You can disable the <code>qodana.sanity</code> profile using recommendations from the 
-<a href="configuration-reference.md" anchor="Disable+unexpected+problems"/> section.</note>
+<a href="configuration-reference.md" anchor="Disable+sanity+inspections"/> section.</note>
 
 <p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% using the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file
     once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, or any other <a href="ci.md">software</a> currently
