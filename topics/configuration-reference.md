@@ -659,25 +659,9 @@ To set up your own profile, use available configuration options described in the
 ### YAML configuration
 {id="configuration-reference-inspection-profile-yaml-configuration"}
 
-Using the `profile` YAML key, you can set up an existing profile, configure your own profile from scratch, or import an existing configuration from a dedicated YAML-formatted file:
+Using the `profile` YAML key, you can import an existing configuration from a dedicated file, as well as customize the configuration once it is imported:
 
 <tabs>
-    <tab title="Configuring from scratch">
-<p>You can write your profile configuration directly in the <code>qodana.yaml</code> file:</p>
-        <code-block lang="yaml" emphasize-lines="5-10"><![CDATA[
-            version: "1.0"
-
-            linter: <linter>
-            
-            profile:
-                inspections:
-                    — group: "category:Java/Probable bugs"
-                      enabled: true
-                    — inspection: RedundantIf
-                      enabled: true
-        ]]>
-        </code-block>
-    </tab>
 <tab title="Invoking by profile name">
 <p>Use the <code>profile.path</code> key to invoke an existing profile by its name, for example:</p>
     <code-block lang="yaml" emphasize-lines="5-6"><![CDATA[
@@ -687,10 +671,15 @@ Using the `profile` YAML key, you can set up an existing profile, configure your
     
         profile:
             name: qodana.recommended
+            inspections: # Configuring the invoked profile
+                — group: "category:Java/Probable bugs"
+                  enabled: true # Enabling the inspection category
+                — inspection: RedundantIf
+                  enabled: false # Disabling the inspection
         ]]>
     </code-block>
 </tab>
-<tab title="Importing from dedicated YAML file">
+<tab title="Importing from dedicated profiles">
 <p>After you set up a profile in a dedicated file as described in the <a href="inspection-profiles.md"/> section, you can
 invoke it in the <code>qodana.yaml</code> file using the <code>profile.path</code> key, for example:</p>
     <code-block lang="yaml" emphasize-lines="5-6"><![CDATA[
@@ -700,6 +689,11 @@ invoke it in the <code>qodana.yaml</code> file using the <code>profile.path</cod
     
         profile:
             path: .qodana/profiles/<custom-profile.yaml>
+            inspections: # Configuring the invoked profile
+                — group: "category:Java/Probable bugs"
+                  enabled: true # Enabling the inspection category
+                — inspection: RedundantIf
+                  enabled: false # Disabling the inspection
         ]]>
     </code-block>
 </tab>
@@ -1762,12 +1756,12 @@ linter: <linter>
 profile:
   inspections:
     - group: ALL
-  ignore:
-    - "asm-test/src/main/java/org"
-    - "asm/Visitor.java"
-    - "benchmarks"
-    - "vendor/**"
-    - "scope#file[*test*]:src/*"
+      ignore:
+        - "asm-test/src/main/java/org"
+        - "asm/Visitor.java"
+        - "benchmarks"
+        - "vendor/**"
+        - "scope#file[*test*]:src/*"
 ```
 
 Exclude inspections specified by ID for specified project paths:
