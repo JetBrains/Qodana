@@ -4252,7 +4252,6 @@ profile:
         - "relative/path"
         - "another/relative/path"
     - group: ALL
-      enabled: true
       ignore: 
         - "asm-test/src/main/java/org"
         - "benchmarks"
