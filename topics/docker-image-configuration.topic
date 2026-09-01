@@ -1436,7 +1436,7 @@
             <p>You can invoke these options in Qodana CLI using the <code>qodana completion &lt;options&gt;</code> command.</p>
         </chapter>
 
-    <chapter id="docker-config-reference-global-options" title="Configure update checking and log levels">
+    <chapter id="docker-config-reference-global-options" title="Configure log levels and checking for updates">
 
         <table>
             <tr>

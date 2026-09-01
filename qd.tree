@@ -31,11 +31,11 @@
 
 	<!-- Configuration section -->
 	<toc-element toc-title="Configuration"> <!-- Configuration of what is this? -->
-		<toc-element topic="configuration-reference.md" accepts-web-file-names="before-running-qodana.html"/>
 		<toc-element topic="configure-qodana.md" accepts-web-file-names="qodana-configuration.html,troubleshooting.html"/>
+		<toc-element topic="configuration-reference.md" accepts-web-file-names="before-running-qodana.html"/>
+		<toc-element accepts-web-file-names="qodana-jvm-docker-techs.html,qodana-jvm-community-docker-techs.html,qodana-jvm-android-docker-techs.html,qodana-php-docker-techs.html,qodana-python-docker-techs.html,qodana-python-community-docker-techs.html,qodana-js-docker-techs.html,qodana-go-docker-techs.html,qodana-dotnet-docker-techs.html" topic="docker-image-configuration.topic"/>
 		<toc-element topic="override-a-profile.md" accepts-web-file-names="inspectopedia.html,code-inspections.html"/>
 		<!--<toc-element topic="qodana-yaml.md" accepts-web-file-names="before-running-qodana.html"/>-->
-		<toc-element accepts-web-file-names="qodana-jvm-docker-techs.html,qodana-jvm-community-docker-techs.html,qodana-jvm-android-docker-techs.html,qodana-php-docker-techs.html,qodana-python-docker-techs.html,qodana-python-community-docker-techs.html,qodana-js-docker-techs.html,qodana-go-docker-techs.html,qodana-dotnet-docker-techs.html" topic="docker-image-configuration.topic"/>
 		<toc-element topic="inspection-profiles.md" accepts-web-file-names="custom-xml-profiles.html,custom-profiles.html"/>
 		<toc-element topic="inspect-code-formatting.md"/>
 		<toc-element topic="global-configuration.md"/>
