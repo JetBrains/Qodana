@@ -370,7 +370,7 @@ using the `dfa.analysis.rml.max.traces.count=<number>` property, for example:
 
 ##### Disable bundled rules
 
-You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
+You can disable the bundled rules by configuring the `intellij.opengrep.bundled.rules.enabled` property:
 
 <tabs group="cli-settings">
     <tab title="Docker image" group-key="docker-image">
