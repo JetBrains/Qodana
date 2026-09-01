@@ -378,7 +378,7 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
             docker run \
                -v $(pwd):/data/project/ \
                -e QODANA_TOKEN="<cloud-project-token>" \
-               -e IDEA_PROPERTIES=intellij.opengrep.rules.downloaded.source.enabled=false \
+               --property=intellij.opengrep.bundled.rules.enabled=false \
                %dotnet-image% \
         ]]>
 </code-block>
@@ -387,7 +387,7 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
         <code-block lang="shell" prompt="$" emphasize-lines="3"><![CDATA[
             qodana scan \
                -e QODANA_TOKEN="<cloud-project-token>" \
-               -e IDEA_PROPERTIES=intellij.opengrep.rules.downloaded.source.enabled=false
+               --property=intellij.opengrep.bundled.rules.enabled=false
         ]]>
 </code-block>
     </tab>
@@ -417,7 +417,7 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
                     - name: 'Qodana Scan'
                       uses: %action-version%
                       with:
-                          args: -e IDEA_PROPERTIES=intellij.opengrep.rules.downloaded.source.enabled=false
+                          args: --property=intellij.opengrep.bundled.rules.enabled=false
                       env:
                           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
     ]]>
@@ -433,7 +433,7 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
                     docker {
                         args '''
                           -v "${WORKSPACE}":/data/project
-                          -e IDEA_PROPERTIES=intellij.opengrep.rules.downloaded.source.enabled=false  
+                          --property=intellij.opengrep.bundled.rules.enabled=false  
                           --entrypoint=""
                           '''
                         image '%dotnet-image%'
@@ -456,7 +456,7 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
                 - component: %gitlab-version%
                   inputs:
                       args: |
-                          -e IDEA_PROPERTIES=intellij.opengrep.rules.downloaded.source.enabled=false
+                          --property=intellij.opengrep.bundled.rules.enabled=false
                           --linter %dotnet-linter%
         ]]>
 </code-block>
@@ -465,7 +465,7 @@ You can disable the bundled rules by configuring the `IDEA_PROPERTIES` variable:
         <p>In the runner configuration, find the <ui-path>Additional Docker arguments</ui-path> field and
             specify the property:</p>
         <code-block lang="shell"><![CDATA[
-            -e IDEA_PROPERTIES=intellij.opengrep.rules.downloaded.source.enabled=false
+            --property=intellij.opengrep.bundled.rules.enabled=false
         ]]>
 </code-block>
     </tab>

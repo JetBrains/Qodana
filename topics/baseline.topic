@@ -15,6 +15,8 @@
     <p><emphasis>The baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% analysis for a
         specific Git branch and contained in the <code>baseline.sarif.json</code> file.</p>
 
+    <!-- The last sentence from the paragraph can be deleted or extended -->
+
     <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
         resolved problems. For example, you can configure and update a baseline for the <code>main</code> branch to
         monitor changes after merging pull or merge requests. Whenever necessary, you can update your baseline
@@ -27,6 +29,8 @@
     </p>
 
 
+    <!-- Add a note about baseline permissions for team editor in the permission matrix -->
+
     <chapter title="How the baseline works">
 
         <link-summary>Learn how the baseline feature works.</link-summary>
@@ -38,8 +42,15 @@
     <p>In this case, you can only see the number of problems and their description, without classification to new and
         existing problems.</p>
 
-    <!--<p>During the first analysis, %product% creates a baseline saved to the <code>qodana.sarif.json</code> file, and adds all found problems to that. Once done,
-            this file becomes a basis for comparing with later code states. After then, all subsequent analyses do not contribute to the baseline unless configured.</p>-->
+        <!-- Cloud baseline -->
+    <!--<p>During the first analysis, %product% by default creates a baseline containing all found problems. The baseline is then
+        becomes available in the **Baseline problems** tab of the %cloud% UI, and %product% uses it during all subsequent analyses.
+        If necessary, you can download your baseline
+        as the <code>qodana.sarif.json</code> file, which can be helpful in specific cases.</p>-->
+
+        <!-- First iteration -->
+        <!--<p>During the first analysis, %product% creates a baseline saved to the <code>qodana.sarif.json</code> file, and adds all found problems to that. Once done,
+                this file becomes a basis for comparing with later code states. After then, all subsequent analyses do not contribute to the baseline unless configured.</p>-->
     <!--<p>To update the baseline, you can add new problems to it or remove the existing ones as explained in the <a href="ui-overview.md/> section. This will update the <code>qodana.sarif.json</code> file accordingly.</p>-->
     <!--<p>You can run %product% using the baseline as shown in examples below:</p>-->
 
