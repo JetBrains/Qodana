@@ -84,7 +84,7 @@ To see the list of supported technologies and features, you can navigate to the 
 
 For a basic Ruby project that has no external dependencies, no preliminary steps are required.
 
-In case a project has external dependencies, you can set them up using the `bootstrap` key in the `qodana.yaml` file:
+In case a project has external dependencies, you can set them up using the [`bootstrap` key](configuration-reference.md#Run+custom+commands) of your YAML configuration:
 
 ```yaml
 bootstrap: | 

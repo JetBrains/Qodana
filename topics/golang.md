@@ -16,6 +16,11 @@
 <var name="JenkinsCred" value="https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials"/>
 <var name="ide" value="GoLand"/>
 
+<!-- Dependency installation variables -->
+<var name="language" value="Go"/>
+<var name="dependency-file" value="go.mod"/>
+<var name="dependency-install-command" value="go mod download"/>
+
 <!-- Content-related variables -->
 <var name="Dplugin" value="https://plugins.jenkins.io/docker-plugin/"/>
 <var name="DPplugin" value="https://plugins.jenkins.io/docker-workflow/"/>
@@ -74,6 +79,19 @@ To see the list of supported technologies and features, you can navigate to the 
 
 ## Before you start
 {id="golang-before-you-start"}
+
+### Install project dependencies
+
+<p>For a basic %language% project that has no external dependencies, no preliminary steps are required.</p>
+
+<p>In case a project has external dependencies, you can set them up using the
+<a href="configuration-reference.md" anchor="Run+custom+commands"><code>bootstrap</code></a> key of your YAML configuration.
+For example, if your project dependencies are specified by the <code>%dependency-file%</code> file in your project root, add the following
+    line to your YAML configuration:</p>
+
+<code-block lang="yaml">
+    bootstrap: %dependency-install-command%
+</code-block>
 
 ### Qodana Cloud
 

@@ -196,7 +196,10 @@ automatically. -->
 
 During analyses, %product% linters may report that some inspections cannot find classes, packages, files or cannot resolve references,
 although linters related to [JVM](jvm.md), [.NET,](dotnet.md) and [Golang](golang.md) try to figure out the
-build system and project structure automatically. In these cases, %instance% needs a bit of help:
+build system and project structure automatically.
+
+When you run %product% on a CI/CD platform, project dependencies are usually not installed automatically, so you may need
+to install the dependencies yourself. In these cases, %instance% needs a bit of help:
 
 * Install third-party packages or libraries
 * Run a program that sets up the build environment

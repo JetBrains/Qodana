@@ -196,6 +196,13 @@ To see the list of supported technologies and features, you can navigate to the 
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,jvm"/>
 
+### Install project dependencies
+
+Linters resolve project dependencies automatically from your Gradle or Maven build system, so no preliminary
+steps are required, even when you run %product% on a CI/CD platform. If your project needs additional setup before
+analysis, you can run custom commands using the [`bootstrap`](configuration-reference.md#Run+custom+commands) key of your 
+YAML configuration.
+
 ### K2 Mode
 
 The K2 mode is by default enabled for the %qd% and %qd-co% linters.

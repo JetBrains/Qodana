@@ -2633,5 +2633,4 @@
             <p filter="not-for-linter-page">Also, see the <ui-path>Supported technologies and features</ui-path> chapters of respective <a href="linters.md">linter</a> sections.</p>
         </note>
     </snippet>
-
 </topic>
