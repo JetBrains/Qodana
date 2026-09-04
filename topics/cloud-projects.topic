@@ -28,4 +28,14 @@
 
     </chapter>
 
+    <chapter id="cloud-recent-projects" title="Recent projects">
+
+        <p>After logging into %cloud%, you will be redirected to the <ui-path>Recent projects</ui-path> page.</p>
+
+        <img src="qc-project-recent-projects.png" width="706" alt="The Recent projects page" border-effect="line"/>
+
+        <p>On this page, you can view up to twenty projects sorted by recency, as well as sort them by other criteria.</p>
+
+    </chapter>
+
 </topic>
