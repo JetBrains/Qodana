@@ -21,7 +21,7 @@ This feature is available in the following linters:
         <td>Code coverage tool</td>
     </tr>
     <tr>
-        <td rowspan="2"><a href="jvm.md">%jvm%</a></td>
+        <td rowspan="2"><a href="jvm.md">%jvm% and %jvm-a%</a></td>
         <td><code>ic</code></td>
         <td><a href="https://github.com/JetBrains/intellij-coverage">IntelliJ IDEA Code Coverage Agent</a><br/> is the recommended tool</td>
     </tr>

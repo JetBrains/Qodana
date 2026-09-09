@@ -8,7 +8,7 @@ You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 
 This feature is supported by the following linters and their trial versions:
 
-* [%jvm%](jvm.md)
+* [%jvm% and %jvm-a%](jvm.md)
 * [%python%](python.md)
 * [%php%](php.md)
 * [%js%](js.md)

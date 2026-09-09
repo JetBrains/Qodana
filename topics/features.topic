@@ -61,6 +61,7 @@
                 </td>
                 <td>
                     <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="jvm.md">%jvm-a%</a></p>
                     <p><a href="js.md">%js%</a></p>
                     <p><a href="php.md">%php%</a></p>
                     <p><a href="dotnet.md">%dotnet%</a></p>
@@ -119,6 +120,7 @@
                 <td>Ultimate Plus</td>
                 <td>
                     <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="jvm.md">%jvm-a%</a></p>
                     <p><a href="js.md">%js%</a></p>
                     <p><a href="php.md">%php%</a></p>
                     <p><a href="dotnet.md">%dotnet%</a></p>
@@ -187,6 +189,7 @@
                 </td>
                 <td>
                     <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="jvm.md">%jvm-a%</a></p>
                     <p><a href="js.md">%js%</a></p>
                     <p><a href="php.md">%php%</a></p>
                     <p><a href="python.md">%python%</a></p>
@@ -226,6 +229,7 @@
                 <td>Ultimate Plus</td>
                 <td>
                     <p><a href="jvm.md">%jvm%</a></p>
+                    <p><a href="jvm.md">%jvm-a%</a></p>
                     <p><a href="js.md">%js%</a></p>
                     <p><a href="dotnet.md">%dotnet%</a></p>
                     <p><a href="python.md">%python%</a></p>

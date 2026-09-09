@@ -20,7 +20,7 @@
             <td>Tools supported</td>
         </tr>
         <tr>
-            <td><a href="jvm.md">%jvm%</a></td>
+            <td><a href="jvm.md">%jvm% and %jvm-a%</a></td>
             <td>Maven and Gradle</td>
         </tr>
         <tr>
