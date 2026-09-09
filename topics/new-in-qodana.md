@@ -1,6 +1,6 @@
 [//]: # (title: New in Qodana)
 
-<show-structure depth="3"/>
+<show-structure depth="2"/>
 
 This page provides information about %product% updates available in the latest version, as well as the 
 chronological list of all significant [%cloud%](cloud-quickstart.md) updates.
@@ -291,5 +291,52 @@ wizard will guide you through the configuration process. This covers running %pr
 CI/CD solutions.
 
 The detailed information is available in the [](Quick-start.topic#quickstart-prerequisites) section of this documentation.
+
+
+## Qodana Self-hosted
+{id="new-in-qodana-sh"}
+
+### September 2026
+{id="new-in-qodana-sh-september26"}
+
+This release aggregates the main changes since 1.37.2, covering backend versions 1.38.0 → 1.45.0 and frontend versions 6.38.0 → 7.10.0.
+
+#### Infrastructure
+{id="new-in-qodana-sh-september26-infrastructure"}
+
+**Custom SMTP server support**. You can now connect any external SMTP server for outgoing email. Previously, only the 
+built-in options were available — this update removes that restriction, giving self-hosted admins full control over email delivery configuration.
+
+#### New features
+{id="new-in-qodana-sh-september26-new-features"}
+
+##### Report viewer
+{id="new-in-qodana-sh-september26-new-features-report-viewer"}
+
+**Per-user problem visibility controls**. Problems in the report can now be hidden or shown on a per-user basis, making 
+it easier to manage noise and focus on what's relevant for each team member. 
+
+**Viewed state for problems**. The report now tracks which problems have been viewed, helping teams keep 
+track of what's already been reviewed.
+
+##### Insights
+{id="new-in-qodana-sh-september26-new-features-insights"}
+
+**Checks filter**. You can now filter Insights by specific inspections, making it easier to drill into problem categories that matter most to your team.
+**Saved filters**. Filters applied in Insights can now be saved and reused, reducing repetitive setup.
+**Scan frequency tracking**. Insights now cover scan frequency data, giving teams visibility into how often projects are being analyzed.
+**Code coverage trends**. The **Code Coverage** view in Insights now shows a historical trend chart, so you can track how coverage has changed over time — not just the current snapshot.
+**Apply Insights filters to the report**. Filters set in Insights can now be carried over directly to the report view, bridging the two surfaces for a more seamless investigation flow. 
+
+##### Navigation and search
+{id="new-in-qodana-sh-september26-new-features-navigation-and-search"}
+
+**Recent Projects page**. A new dedicated **Recent projects** page makes it faster to get back to the projects you work with most.
+**Global search on the organization page**. You can now search across the organization directly from the org page.
+
+##### Tokens
+{id="new-in-qodana-sh-september26-new-features-tokens"}
+
+**Token validity management**. Token expiry can now be actively managed from **Settings | Tokens**.
 
 
