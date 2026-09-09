@@ -10,6 +10,8 @@ This tool orchestrates Docker Swarm stacks for:
 * Application services: API, Audit, Git, Linters API, Report Processor, FUS, Frontend
 * Supporting tools: Traefik ingress proxy, image garbage collector
 
+> Information about changes in %premlite% is available in the [New in Qodana](new-in-qodana.md#new-in-qodana-sh) section.
+
 ## Prepare your project
 
 ### Access and permissions
