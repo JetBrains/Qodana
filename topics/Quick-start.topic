@@ -180,6 +180,38 @@
                                 </code-block>
                         </tab>
                     </tabs>
+            <p id="quick-start-qodana-cli-updating-qodana-cli">To update Qodana CLI to a newer version, run the following commands on your machine:</p>
+            <tabs group="gs-cli">
+                <tab title="macOS and Linux" group-key="gs-macos-linux">
+                    <p>Update with <a href="https://brew.sh/">Homebrew</a>:</p>
+                    <code-block lang="shell" prompt="$">
+                                    brew upgrade qodana
+                                </code-block>
+                    <p>Update Qodana CLI to a specific version using our installer:</p>
+                    <code-block lang="shell" prompt="$">
+                                    curl -fsSL https://jb.gg/qodana-cli/install | bash -s -- v%version-current-upgrade%.1
+                               </code-block>
+                    <p>On Linux, you can also deploy %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
+                    <code-block lang="shell" prompt="$">
+                                    go install github.com/JetBrains/qodana-cli@latest
+                                </code-block>
+                </tab>
+                <tab title="Microsoft Windows" group-key="gs-windows">
+                    <p>Update with <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Windows Package Manager</a>:</p>
+                    <code-block lang="shell">
+                                    winget upgrade -e --id JetBrains.QodanaCLI
+                                </code-block>
+                    <p>Update with <a href="https://chocolatey.org/">Chocolatey</a>:</p>
+                    <code-block>
+                                    choco upgrade qodana
+                                </code-block>
+                    <p>Updatet with <a href="https://scoop.sh/">Scoop</a>:</p>
+                    <code-block lang="shell">
+                      scoop update qodana
+                    </code-block>
+                </tab>
+            </tabs>
+
             <chapter title="Different Docker contexts or Podman" id="different-docker-contexts-or-podman">
                 <p>%product% uses Docker CLI to communicate with the container engine and employs a Docker context enabled
                     at the time of execution.
