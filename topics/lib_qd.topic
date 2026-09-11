@@ -385,7 +385,7 @@
                 <code>.github/workflows/code_quality.yml</code> file:
                 <tabs>
                 <tab title="Native mode">
-                <code-block lang="yaml">
+                <code-block lang="yaml" emphasize-lines="24,27">
                     name: Qodana
                     on:
                         workflow_dispatch:
@@ -418,9 +418,10 @@
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
                     <p>Replace <code>&lt;qodana-linter&gt;</code> with the name of the <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">%instance% linter</a> that you would like to use.</p>
+                    <p>Configure the <code>uses: %action-version%</code> line to update %product% to a newer version.</p>
                 </tab>
                 <tab title="Docker mode">
-                <code-block lang="yaml">
+                <code-block lang="yaml" emphasize-lines="24">
                     name: Qodana
                     on:
                         workflow_dispatch:
@@ -448,6 +449,7 @@
                                   env:
                                       QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
                 </code-block>
+                    <p>Configure the <code>uses: %action-version%</code> line to update %product% to a newer version.</p>
                 </tab>
                 </tabs>
             </step>

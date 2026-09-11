@@ -75,6 +75,65 @@ The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions
 
 ## Qodana Cloud
 
+### August 2026
+
+August changes cover user-facing features, UI improvements, bug fixes, and stability improvements.
+
+#### Security
+{id="august-2026-security"}
+
+* **Team project move endpoint now verifies source team permissions**. The backend endpoint for moving multiple projects 
+between teams now checks that the caller has permission on the source team, in addition to the destination. This prevents 
+editors on a target team from moving projects they don't have access to.
+* **Public API now enforces license checks on team creation**. When a license expired, the UI correctly blocked team 
+creation, but the same guard was absent from the `POST /public/organizations/teams/projects` API path. The API now returns 
+a `403` response with a clear error message when the license is expired or missing.
+
+#### New features
+{id="august-2026-new-features"}
+
+##### Cloud API
+{id="august-2026-new-features-baseline"}
+
+* **Promote and demote problems between the 'Current problems' and 'Baseline problems' tabs**. Demoting moves a problem to a 
+baseline; promoting returns it to the list of actual problems. Both actions are available using a single problem view and 
+via bulk selection, with hover shortcuts in the problem list. 
+* **Promoted/demoted tags on problems**. Problems that you promoted or demoted during the current session are now visually 
+labeled in the list, so you can track what you've changed before the next download. 
+
+##### Report viewer
+{id="august-2026-new-features-report-viewer"}
+
+* **Find similar problems**. When viewing a problem in the report, a new **Find similar problems** button applies 
+matching filters (same category, type, and severity) to the sunburst diagram, so you can quickly surface related issues 
+without manually reconfiguring filters.
+* **Mark problems as viewed**. Problems that you've already opened in a report are now visually indicated as viewed. 
+The state persists per user and per project for 90 days, so when you return to the same report — or open a newer 
+analysis report of the same project — you can immediately see what's new.
+* **Filter problems by checks category in the report**. The report viewer now supports filtering findings by inspection 
+category, e.g., Security or Performance.
+
+##### Onboarding
+{id="august-2026-new-features-onboarding"}
+
+* **Revised project creation flow**. Creating a new project via the team page now walks you through a clearer step-by-step 
+flow: first name your team (defaulting to **My first team**), then create a project. The page title updates live as you 
+type the team name, and **Back** or **Cancel** buttons work correctly at every step.
+* **Updated GitHub repository selection UI**. Improved GitHub repository selection during the onboarding. Choosing an 
+organization and repository during the GitHub onboarding is now faster and easier to navigate, even when you have a large 
+number of repositories. 
+
+#### Bug fixes
+{id="august-2026-bug-fixes"}
+
+* **Insights page crashed when filtering by 'Severity' or 'Check'**. Selecting a **Severity** or **Check** filter that 
+filtered out all chart values caused the **Insights** page to break.
+* **Insights filters not preserved in copied links**. Copying the **Insights** page URL when a team-level project filter 
+was active produced a link that didn't restore the filter on reload. 
+* **'Open file in' button now shows the correct default editor**. The editor suggested via the **Open file in** button 
+click now correctly reflects the linter configuration, instead of showing the wrong default.
+
+
 ### July 2026
 
 Here are highlights of what shipped in Qodana Cloud since our last update. As always, this covers user-facing features,
@@ -86,7 +145,6 @@ UI improvements, bug fixes, and stability improvements that affect your experien
 * **Critical AWS ECR vulnerabilities resolved**. Upgraded components to address critical container image vulnerabilities.
 * **VCS link domain allowlist bypass fixed**. The button that links out to your VCS host validated domains using a
   pattern that could be spoofed; it now checks properly.
-
 
 #### New features
 {id="july-2026-new-features"}

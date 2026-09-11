@@ -64,11 +64,12 @@ workflows:
 
 This table describes configuration elements: 
 
-| Configuration block | Description                                                                            |
-|---------------------|----------------------------------------------------------------------------------------|
-| `orbs`              | Invokes the CircleCI Qodana orb and configures its version                             |
-| `jobs`              | Refers to the `QODANA_TOKEN` variable defined in the [](#Prepare+your+project) chapter |
-| `workflows`         | Invokes the `qodana` context that contains the `QODANA_TOKEN` variable                 |
+| Configuration block | Description                                                                                    |
+|---------------------|------------------------------------------------------------------------------------------------|
+| `orbs`              | Invokes the CircleCI Qodana orb and configures its version                                     |
+| `orbs.qodana`       | Downloads the configured version of %product%. Use this to update %product% to a newer version |
+| `jobs`              | Refers to the `QODANA_TOKEN` variable defined in the [](#Prepare+your+project) chapter         |
+| `workflows`         | Invokes the `qodana` context that contains the `QODANA_TOKEN` variable                         |
 
 
 This configuration will be extended in the sections below.

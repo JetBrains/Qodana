@@ -62,7 +62,7 @@ Below are basic configuration examples that will be expanded in the subsequent c
 
 <tabs group="azure-config-tabs">
    <tab title="Pipeline configuration" group-key="azure-config-tabs-azure-pipelines-yaml">
-      <code-block lang="yaml">
+      <code-block lang="yaml" emphasize-lines="13,14,21,23">
          # Start with a minimal pipeline that you can customize to build and deploy your code.
          # Add steps that build, run tests, deploy, and more:
          # https://aka.ms/yaml
@@ -91,7 +91,8 @@ Below are basic configuration examples that will be expanded in the subsequent c
            </code-block>
            <p>Here, the <code>persistCredentials: true</code> line lets you reuse credentials for Git-related 
                 actions like <a anchor="Pull+requests">pull request analyses</a> or running <a anchor="Quick-Fixes">Quick-Fixes</a>.</p>
-           <p>The <code>Cache</code> task lets you open projects faster using cache.</p> 
+           <p>The <code>Cache</code> task lets you open projects faster using cache.</p>
+           <p>The <code>task: %azure-version%</code> line specifies the version of the %product% task and automatically employs the newest minor version. Use this line to update %product% to a newer major version.</p>
            <p>The <code>uploadResult: true</code> line tells %product% to produce a <code>qodana-report</code> artifact. 
                After running %product%, navigate to the <code>log</code> directory to see logs.</p>
            <p>The <code>QODANA_TOKEN</code> variable refers to the 
