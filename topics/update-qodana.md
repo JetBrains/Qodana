@@ -1,42 +1,42 @@
-# Updating Qodana
+# Upgrading Qodana
 <link-summary>Learn how you can update %product% depending on the deployment option.</link-summary>
 
-Updating %product% to actual versions is a necessary step. For example, new features published in %cloud% can be 
-incompatible with older versions of %product%. The current %product% veersion is %version-current%. 
+Upgrading %product% to actual versions is a necessary step. For example, new features published in %cloud% can be 
+incompatible with older versions of %product%. The current %product% version is %version-current%. 
 
-This section explains how you can update %product% to the latest version depending on the available [deployment options](deploy-qodana.md). 
+This section explains how you can upgrade %product% to the latest version depending on the available [deployment options](deploy-qodana.md). 
 
 ## Qodana CLI
 
-<link-summary>Update %product% CLI depending on the deployment option.</link-summary>
+<link-summary>Upgrade %product% CLI depending on the deployment option.</link-summary>
 
 Depending on how you deployed %product% CLI on your machine, run one of the following commands:
 
 <tabs group="gs-cli">
     <tab title="macOS and Linux" group-key="gs-macos-linux">
-        <p>Update with <a href="https://brew.sh/">Homebrew</a>:</p>
+        <p>Upgrade with <a href="https://brew.sh/">Homebrew</a>:</p>
         <code-block lang="shell" prompt="$">
                         brew upgrade qodana
                     </code-block>
-        <p>Update Qodana CLI to a specific version using our installer:</p>
+        <p>Upgrade Qodana CLI to a specific version using our installer:</p>
         <code-block lang="shell" prompt="$">
                         curl -fsSL https://jb.gg/qodana-cli/install | bash -s -- v%version-current-upgrade%.1
                    </code-block>
-        <p>On Linux, you can also deploy %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
+        <p>On Linux, you can also upgrade %instance% using <a href="https://go.dev/doc/install">Go</a>:</p>
         <code-block lang="shell" prompt="$">
                         go install github.com/JetBrains/qodana-cli@latest
                     </code-block>
     </tab>
     <tab title="Microsoft Windows" group-key="gs-windows">
-        <p>Update with <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Windows Package Manager</a>:</p>
+        <p>Upgrade with <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Windows Package Manager</a>:</p>
         <code-block lang="shell">
                         winget upgrade -e --id JetBrains.QodanaCLI
                     </code-block>
-        <p>Update with <a href="https://chocolatey.org/">Chocolatey</a>:</p>
+        <p>Upgrade with <a href="https://chocolatey.org/">Chocolatey</a>:</p>
         <code-block>
                         choco upgrade qodana
                     </code-block>
-        <p>Updatet with <a href="https://scoop.sh/">Scoop</a>:</p>
+        <p>Upgrade with <a href="https://scoop.sh/">Scoop</a>:</p>
         <code-block lang="shell">
           scoop update qodana
         </code-block>
@@ -45,16 +45,16 @@ Depending on how you deployed %product% CLI on your machine, run one of the foll
 
 ## CI/CD platforms
 
-<link-summary>Keep the %product% version updated depending on a CI/CD platform.</link-summary>
+<link-summary>Keep the %product% version upgraded depending on a CI/CD platform.</link-summary>
 
 
-Depending on a CI/CD platform used, you should keep updated either the Docker image version or the %product% application 
+Depending on a CI/CD platform used, you should keep upgraded either the Docker image version or the %product% application 
 version while configuring, see the snippets below.
 
 <tabs>
 <tab title="Azure Pipelines">
          <p>The <code>task: %azure-version%</code> line configures the major version of the %product% task and automatically employs the newest minor version. 
-            Use this line to update %product% to the newest major version:</p>
+            Use this line to upgrade %product% to the newest major version:</p>
       <code-block lang="yaml" emphasize-lines="17">
          trigger:
            - main
