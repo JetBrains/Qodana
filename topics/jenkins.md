@@ -63,7 +63,7 @@ pipeline {
               -v "${WORKSPACE}":/data/project
               --entrypoint=""
               '''
-            image 'jetbrains/qodana-<linter>'
+            image 'jetbrains/qodana-<image>'
         }
     }
     stages {
@@ -109,7 +109,7 @@ pipeline {
               -v "${WORKSPACE}":/data/project
               --entrypoint=""
               '''
-         image 'jetbrains/qodana-<linter>'
+         image 'jetbrains/qodana-<image>'
       }
    }
    stages {
@@ -147,7 +147,7 @@ pipeline {
               -v "${WORKSPACE}":/data/project
               --entrypoint=""
               '''
-            image 'jetbrains/qodana-<linter>'
+            image 'jetbrains/qodana-<image>'
         }
     }
     stages {
