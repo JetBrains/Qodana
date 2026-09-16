@@ -14,7 +14,7 @@ locally or in %cloud%.</link-summary>
 
 Each report contains the following tabs:
 
-* **[Current problems](#ui-overview-actual-problems)** exposes the problems that %product% detected during the latest inspection. 
+* **[Current problems](#ui-overview-actual-problems)** exposes the problems that %product% detected during the latest analysis. 
 * **[Baseline problems](#ui-overview-baseline)** lists the problems that were marked as [baseline](baseline.topic) and were not fixed since then.
 * **[Inspections](#ui-overview-configuration)** lets you configure %instance% for future use.
 * **[License audit](#ui-overview-project-audit)** reveals [license audit](license-audit.topic) reports and shows the dependency licenses that are incompatible with the project license. 
@@ -26,31 +26,36 @@ The upper-right corner of the report shows a [code coverage](code-coverage.md) a
 ### Current problems
 {id="ui-overview-actual-problems"}
 
-Using this tab, you can see the problems found as a result of the latest inspection.
+Using this tab, you can see the problems found as a result of the latest analysis.
 
 <img src="ui-overview-actual-problems.png" alt="Current problems tab" thumbnail="true" width="706" border-effect="line"/>
 
-This tab consists of several elements:
+On this tab, you can find several elements:
 
 1. The sunburst diagram provides a graphical overview of the problems and allows you to drill down into the cause of 
 the issue. 
 
 2. The group of filters lets you filter the report data using various criteria. 
 
-3. You can navigate between the list of problems and files, as well as search and group problems. 
+3. You can navigate between the list of problems and files, as well as group them. 
 
-4. The **Move selected to baseline** button saves the selected problems to the **[Baseline problems](#ui-overview-baseline)** list.  
+4. Using the search field, you can filter the list of problems by their names.  
 
 5. Clicking a problem in the list expands the underlying code fragment containing the detailed description.
 
-6. If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can edit the file containing the problem
-    using your IDE. To do it, select your IDE from the dropdown list and then click the **Open file in...** button. 
-
+<!--If you have JetBrains Toolbox and [](qodana-ide-plugin.md) installed, you can edit the file containing the problem
+using your IDE. To do it, select your IDE from the dropdown list and then click the **Open file in...** button.
    If you have several versions of the same IDE, you can select which version will be used to open the file.
    In the JetBrains Toolbox UI, drag or move the required version of the IDE to the top of the list using the
     <shortcut>Ctrl + Shift + ↑/↓</shortcut> shortcut on Windows or Linux, or <shortcut>⌘ + ⇧ + ↑/↓ </shortcut> on macOS.
 
-    You can also exclude a path, file, inspection, or category from analysis, see the [](#Adjust+the+analysis+scope) section for details.
+-->
+
+6. The **Demote to baseline** button moves the selected problem to a [baseline](baseline.topic) and becomes visible on the **[](#ui-overview-baseline)** tab. 
+
+   The **Exclude** dropdown list lets you exclude a path, file, inspection, or category from the analysis, see the [](#Adjust+the+analysis+scope) section for details.
+
+   The **Hide** button lets you remove the problem from the report. This functionality is available only for the current user and the current analysis report. Other users will still see the problem in the list, and if the same problem is included in the next report, it will be visible to all users again.
 
     The **Find similar problems** button lets you filter problems by type.
     
@@ -61,16 +66,16 @@ the issue.
 ### Baseline problems
 {id="ui-overview-baseline"}
 
-<link-summary>When you click the Move selected to baseline button on the Actual problems tab, the selected
+<link-summary>When you click the Demote to baseline button on the Actual problems tab, the selected
 problems move to the Baseline tab.</link-summary>
 
-When you click the **Move selected to baseline** button on the **[Current problems](#ui-overview-actual-problems)** tab, the selected
+When you click the **Demote to baseline** button on the **[Current problems](#ui-overview-actual-problems)** tab, the selected
 problems move to this tab.
 
 <img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
 
 This tab UI is similar to the **Current problems** tab. To enable the baseline feature for future
-inspections, follow the instructions that appear in the report UI. To learn more about the feature, explore the
+analyses, follow the instructions that appear in the report UI. To learn more about the feature, explore the
 [](baseline.topic) section.
 
 ### Inspections
@@ -167,7 +172,7 @@ On the File explorer, click the icon to the left of the filename, and then selec
 
 #### Enable excluded or hidden problems
 
-To reverse the exclusions you made, download `qodana.yaml` in the **[Profile configuration](#ui-overview-configuration)** section, edit 
+To reverse the exclusions you made, download `qodana.yaml` on the **[Profile configuration](#ui-overview-configuration)** pane, edit 
 it as necessary, put it in the project root directory, and then run Qodana again with this new configuration. 
 
 To learn how to configure %product% using `qodana.yaml`, see the [](configuration-reference.md#configuration-reference-inspection-profile) section.
