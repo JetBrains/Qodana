@@ -79,12 +79,14 @@ Code coverage uses several inspections that are already included in the `qodana.
 
 | Linter                | Employed inspection                                                                                |
 |-----------------------|----------------------------------------------------------------------------------------------------|
-| [%jvm%](jvm.md)       | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html) |
+| [%jvm% and %jvm-a%](jvm.md)       | [`JvmCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JvmCoverageInspection.html) |
 | [%js%](js.md)         | [`JsCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/JsCoverageInspection.html)   |
 | [%php%](php.md)       | [`PhpCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PhpCoverageInspection.html) |
 | [%python%](python.md) | [`PyCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/PyCoverageInspection.html)   |
 | [%go%](golang.md)     | [`GoCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/GoCoverageInspection.html)   |
 | [%dotnet%](dotnet.md) | [`NetCoverageInspection`](https://www.jetbrains.com/help/inspectopedia/NetCoverageInspection.html) |
+{id="code-coverage-inspection-table"}
+
 
 Once analysis is complete, reports are available in [%instance% reports](ui-overview.md#Open+an+HTML+report) and JetBrains IDEs.
 
@@ -166,12 +168,27 @@ Starting from version 2026.2, %product% detects code coverage reports in a proje
     Alternatively, you can use the `.qodana/code-coverage` directory to copy code coverage reports to. 
 
 1. Prepare your project. If you have a monorepo project, save %product% configuration for each repository in a 
-separate `qodana.yaml` file. You can put these files in repository directories, or give them custom names and save them 
+separate YAML file. You can put these files in repository directories, or give them custom names and save them 
 in the root directory of a project.
 
     For the [%dotnet%](dotnet.md) linter, add the <a href="https://www.nuget.org/packages/coverlet.msbuild"><code>coverlet.msbuild</code></a> 
     and [`coverlet.collector`](https://www.nuget.org/packages/coverlet.collector) packages to the test project. Also, for the [%dotnet%](dotnet.md) linter make sure 
     whether a code coverage report contains information about generated files.
+
+1. In the YAML configuration, configure the options available per [each inspection](#code-coverage-inspection-table). For 
+example, for the `JvmCoverageInspection` inspection you can configure the `classThreshold`, `methodThreshold`, and `warnMissingCoverage` options:
+    ```yaml
+   version: "1.0"
+
+   linter: <linter>
+
+   inspections:
+     - inspection: JvmCoverageInspection
+       options:
+         classThreshold: 51
+         methodThreshold: 51
+         warnMissingCoverage: true
+   ```
 
 ## Run code coverage
 {id="run-code-coverage"}

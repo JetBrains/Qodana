@@ -107,16 +107,24 @@
         <tabs>
             <tab title="qodana.yaml">
                 <p>This is the basic <a href="configuration-reference.md"><code>qodana.yaml</code></a> configuration supported by all linters:</p>
-                <code-block lang="yaml">
-                    failThreshold: &lt;number&gt;
-                </code-block>
+                <code-block lang="yaml"><![CDATA[
+                    version: "1.0"
+
+                    linter: <linter>
+
+                    failThreshold: <number>
+                ]]></code-block>
                 <p>Alternatively, all linters except <a href="dotnet.md">%dotnet-co%</a> support the
                     <code>severityThresholds.any</code> option:</p>
-                <code-block lang="yaml">
+                <code-block lang="yaml"><![CDATA[
+                    version: "1.0"
+
+                    linter: <linter>
+
                     failureConditions:
-                    &nbsp;&nbsp;severityThresholds:
-                    &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number-of-project-problems&gt;
-                </code-block>
+                      severityThresholds:
+                        any: <number-of-project-problems>
+                ]]></code-block>
             </tab>
             <tab title="Qodana CLI">
                 <code-block lang="shell" prompt="$">
@@ -257,16 +265,20 @@
 
         <p>Here's a <a href="configuration-reference.md"><code>qodana.yaml</code></a> severity configuration:</p>
 
-        <code-block lang="yaml">
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+
+            linter: <linter>
+
             failureConditions:
-            &nbsp;&nbsp;severityThresholds:
-            &nbsp;&nbsp;&nbsp;&nbsp;any: &lt;number&gt; # Total problems
-            &nbsp;&nbsp;&nbsp;&nbsp;critical: &lt;number&gt; # Critical and other severities
-            &nbsp;&nbsp;&nbsp;&nbsp;high: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;moderate: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;low: &lt;number&gt;
-            &nbsp;&nbsp;&nbsp;&nbsp;info: &lt;number&gt;
-        </code-block>
+              severityThresholds:
+                any: <number> # Total problems
+                critical: <number> # Critical and other severities
+                high: <number>
+                moderate: <number>
+                low: <number>
+                info: <number>
+        ]]></code-block>
 
     </chapter>
 
@@ -276,16 +288,34 @@
             thresholds for the linters that support the code coverage feature.</link-summary>
 
         <p>You can configure the total and <a href="code-coverage.md" anchor="Fresh+code">fresh code</a> coverage
-            thresholds for the <a href="jvm.md">%jvm%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>,
+            thresholds for the <a href="jvm.md">%jvm%</a>, <a href="jvm.md">%jvm-a%</a>, <a href="js.md">%js%</a>, <a href="php.md">%php%</a>,
             <a href="dotnet.md">%dotnet%</a>, <a href="python.md">%python%</a>, and <a href="golang.md">%go%</a> linters. </p>
 
         <p>Here's a <a href="configuration-reference.md"><code>qodana.yaml</code></a> configuration sample:</p>
 
         <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+
+            linter: <linter>
+
             failureConditions:
               testCoverageThresholds: # Minimum amount of code coverage (%) to be configured
                 fresh: <number> # Require at least <number> % fresh code coverage
                 total: <number> # Require at least <number> % total code coverage
+        ]]></code-block>
+        <p>You can also configure related inspections, see the <a href="code-coverage.md" anchor="code-coverage-inspection-table">list of configurable inspections</a> for details.
+            For each of these inspection, you can configure several options. For example, for the <code>JvmCoverageInspection</code> inspection used by the %jvm% and %jvm-a% linters you can configure the following options:</p>
+        <code-block lang="yaml"><![CDATA[
+               version: "1.0"
+
+               linter: <linter>
+
+               inspections:
+                 - inspection: JvmCoverageInspection
+                   options:
+                     classThreshold: 51
+                     methodThreshold: 51
+                     warnMissingCoverage: true
         ]]></code-block>
     </chapter>
 
