@@ -166,7 +166,7 @@
             &nbsp;&nbsp;- name: CheckDependencyLicenses
         </code-block>
 
-        <chapter title="Enable package-search" id="license-audit-enable-package-search">
+        <!--<chapter title="Enable package-search" id="license-audit-enable-package-search">
 
             <p>The <a href="https://www.jetbrains.com/help/idea/package-search.html"><code>package-search</code></a> is by default disabled because of
                 inaccurate results and performance issues. To enable <code>package-search</code>, in the <a href="configuration-reference.md">configuration file</a>
@@ -176,7 +176,7 @@
                 enablePackageSearch: true
             </code-block>
 
-        </chapter>
+        </chapter>-->
 
         <chapter title="Ignore dependencies" id="license-audit-ignoring-dependencies">
             <p>In the <a href="configuration-reference.md">configuration file</a>, you can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
