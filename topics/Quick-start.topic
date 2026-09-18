@@ -8,7 +8,9 @@
 
     <show-structure for="chapter" depth="3"/>
 
-    <var name="version" value="2026.1"/>
+    <var name="version" value="%version-current%"/>
+
+    <link-summary>Learn how to get started quickly with the current version of %product%.</link-summary>
 
     <p>The current version of %instance% (%version%) lets you analyze software that uses <a href="linters.md">various programming languages and technologies</a>.
         You can also extend the default %product% configuration using available <a href="features.topic">features</a>. </p>
@@ -35,6 +37,8 @@
 
     <chapter title="Prerequisites" id="quickstart-prerequisites">
 
+        <link-summary>Learn the steps to complete before running %product%.</link-summary>
+
         <tip>You can skip all prerequisite steps if you would like to run %instance% in <a anchor="quickstart-run-in-ide">JetBrains IDEs</a> and study analysis reports locally.</tip>
 
         <chapter title="Set up your project in Qodana Cloud" id="quickstart-prerequisites-set-up-project-in-qodana-cloud">
@@ -57,7 +61,7 @@
             </note>
             <p>The project setup uses information from your JetBrains account, which includes licenses and companies.</p>
             <chapter title="GitHub Actions" id="quickstart-prerequisites-set-up-project-in-qodana-cloud-github-actions">
-
+                <link-summary>Learn how to start running the Qodana App.</link-summary>
             <p>If you plan to run the <a href="github.md">Qodana Scan</a> GitHub action on a GitHub-hosted repository, you
                 will need to install <code>%product% App</code> during the project setup. </p>
                 <snippet id="for-github-page">
@@ -75,6 +79,7 @@
                 </snippet>
             </chapter>
             <chapter title="Global configurations" id="global-configurations">
+                <link-summary>Learn how to choose a global configuration for your analyses.</link-summary>
                 <p>During the project setup stage, you can choose a <a href="global-configuration.md">global
                     configuration</a> that will be used while
                     analyzing your code.</p>
@@ -82,6 +87,7 @@
             </chapter>
         </chapter>
         <chapter title="Native mode" id="quickstart-prerequisites-native-mode">
+            <link-summary>You can run %product% in native mode without using Docker.</link-summary>
             <p><a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">Native mode</a> is incompatible with Docker containers of %product%, which means that you can run
                 %product% either as a Docker container or in native mode.</p>
 
@@ -94,7 +100,7 @@
 
 
             <chapter title=".NET in native mode" id="quickstart-prerequisites-native-mode-dotnet">
-
+                <link-summary>Run native mode of %product% for your .NET projects.</link-summary>
                 <p>Make sure that you have a proper version of the .NET SDK and all required
                     dependencies installed on your machine.</p>
 
@@ -112,6 +118,7 @@
         </chapter>
 
         <chapter title="Docker mode" id="quickstart-prerequisites-container-mode">
+            <link-summary>Run %product% using Docker images.</link-summary>
             <p>The <a href="deploy-qodana.md" anchor="deploy-qodana-container-mode">Docker mode</a> assumes that you
                 have the Docker application deployed on your machine.</p>
                     <p>Pull the image from Docker Hub (only necessary to get the latest version):</p>
@@ -138,6 +145,7 @@
         </chapter>
 
         <chapter title="Qodana CLI" id="quickstart-prerequisites-qodana-cli">
+            <link-summary>%product% CLI is the easiest way for running %product% when using a command-line interface.</link-summary>
             <p>%product% CLI is the easiest way for running %product% when using the <a anchor="quickstart-run-using-cli">command-line interface</a>
             suitable for both <a anchor="quickstart-prerequisites-native-mode">native</a> and <a anchor="quickstart-prerequisites-container-mode">container</a> modes.</p>
 
@@ -213,6 +221,7 @@
             </tabs>
 
             <chapter title="Different Docker contexts or Podman" id="different-docker-contexts-or-podman">
+                <link-summary>Learn how to run %product% using different Docker contexts or Podman.</link-summary>
                 <p>%product% uses Docker CLI to communicate with the container engine and employs a Docker context enabled
                     at the time of execution.
                     For example, to use Podman as your container engine, you will need to either:</p>
@@ -469,6 +478,7 @@
     </chapter>
 
     <chapter title="Run Qodana as a Gradle plugin" id="quickstart-gradle-plugin">
+        <link-summary>%product% provides the Gradle interface for analyses.</link-summary>
         <p>The <a href="https://plugins.gradle.org/plugin/org.jetbrains.qodana">Gradle Qodana plugin</a> provides the
             Gradle interface for running
             code inspections provided by %instance%. To start, apply the Gradle plugin <code>org.jetbrains.qodana</code>
@@ -538,6 +548,7 @@ plugins {
             </table>
         </chapter>
         <chapter title="Gradle Qodana Tasks" id="gradle-qodana-tasks">
+            <link-summary>Learn how to use Gradle Qodana Tasks for running %product%.</link-summary>
             <chapter id="qodanascan">
                 <title>
                     <code>qodanaScan</code>
@@ -547,6 +558,7 @@ plugins {
                     controlled by provided <code>arguments</code>.</p>
             </chapter>
             <chapter title="Example" id="example">
+                <link-summary>Gradle configuration example.</link-summary>
                 <p>Add this to your Gradle configuration file:</p>
                 <list>
                     <li><p>Groovy – <code>build.gradle</code></p>
@@ -609,6 +621,7 @@ gradle qodanaScan
 
 
     <chapter title="Next steps" id="quick-start-next-steps">
+        <link-summary>Learn more advanced ways to use %product%.</link-summary>
         <list>
             <li><a href="cloud-overview-reports.topic">Review an analysis report using %cloud%</a></li>
             <li><a href="inspection-profiles.md" anchor="inspection-profiles-custom-profiles">Configure %instance% profiles</a></li>
