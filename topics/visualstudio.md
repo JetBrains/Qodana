@@ -1,6 +1,6 @@
 # Visual Studio
 
-<link-summary>Using Visual Studio, you can explore %product% reports and connect to %cloud%. </link-summary>
+<link-summary>Using Visual Studio, you can explore %product% reports and connect to %cloud%.</link-summary>
 
 <show-structure for="chapter" depth="3"/>
 
@@ -25,7 +25,7 @@ Download and install Qodana as a component of [JetBrains ReSharper](https://www.
 ## UI overview
 {id="vs-code-ui-overview"}
 
-<link-summary>In Visual Studio, navigate to Extensions and run %product%.  </link-summary>
+<link-summary>In Visual Studio, navigate to Extensions and run %product%.</link-summary>
 
 In Visual Studio, navigate to **Extensions | ReSharper | Qodana**, and then click **Show Qodana Panel**.
 
@@ -34,6 +34,8 @@ This will open the **%product% Analysis** panel in the lower part of your Visual
 <img src="visual-studio-qodana-panel.png" width="670" border-effect="line" alt="The Qodana Analysis panel"/>
 
 ### Log in to Qodana Cloud
+
+<link-summary>Log in to %cloud% to be able to send your locally-generated analysis reports to %cloud%.</link-summary>
 
 On the **%product% Analysis** panel, click **Log In to %product%**. This will open the **Options** window.
 
@@ -48,6 +50,8 @@ To log in to your %product% Self-hosted instance, check **Enable %product% Self-
 <img src="visual-studio-self-hosted-login.png" alt="Logging in to %cloud% Self-hosted" width="535" border-effect="line"/>
 
 ### Link and download report
+
+<link-summary>After logging in to %cloud%, link your local project to a project in %cloud%.</link-summary>
 
 Once you logged in to %cloud%, you need to link your local project to a project in %cloud%. To do this, open the
 **%product% Analysis** panel and then click the **Link project** link. This will open the **Options** window containing

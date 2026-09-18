@@ -83,6 +83,8 @@
 
         <chapter id="cloud-organizations-subscription" title="Subscription">
 
+            <link-summary>The Subscription tab lets you see information about your %product% license.</link-summary>
+
             <p>Using the <ui-path>Subscription</ui-path> tab, you can see information about your %product% license.</p>
 
             <img src="qc-settings-subscription.png" width="706" alt="The Subscription tab of %cloud%" border-effect="line"/>
@@ -90,6 +92,8 @@
         </chapter>
 
         <chapter id="cloud-organizations-logs" title="Logs">
+
+            <link-summary>The Logs tab lets you see log entries for a specific time interval.</link-summary>
 
             <p>Using the <ui-path>Logs</ui-path> tab, you can view %cloud% log entries for a specific time interval.</p>
 
@@ -129,6 +133,8 @@
         </chapter>
 
         <chapter id="cloud-organization-sso" title="SSO">
+
+            <link-summary>The SSO tab lets you set up subdomains employed by third-party identity providers for authentication in %cloud% and %premlite%.</link-summary>
 
             <p>Using the <ui-path>SSO</ui-path> tab, you can set up subdomains employed by third-party identity providers for
                 authentication in %cloud% and %premlite%. The details are available in the <a href="cloud-sso.md"/> section.</p>
@@ -182,6 +188,8 @@
 
         <chapter id="cloud-organizations-global-configurations" title="Global configurations">
 
+            <link-summary>The Global configurations tab lets you manage global configurations.</link-summary>
+
             <note>
                 This tab is visible only for users under the Ultimate Plus <a href="pricing.md">license</a>.
             </note>
@@ -207,6 +215,7 @@
 
             <p>This procedure explains how you can create your global configuration:</p>
             <chapter id="cloud-organizations-global-configurations-connect-a-repository" title="Connect a repository">
+                <link-summary>Follow the recommendations to connect a repository to a global configuration.</link-summary>
                 <procedure>
                     <step>
                         <p>On the <ui-path>Global configurations</ui-path> tab, click the <ui-path>Connect repository</ui-path> button.</p>
@@ -316,6 +325,9 @@
             </chapter>
 
             <chapter id="cloud-organizations-global-configurations-modify-global-configuration" title="View and modify a global configuration">
+
+                <link-summary>The %cloud% UI lets you view and modify a global configuration.</link-summary>
+
                 <p>On the <ui-path>Global configurations</ui-path> tab, click the configuration that you would like to view.
                     This will open a page displaying the files included in the configuration. Here, you can view the files that define the global configuration
                     and obtain a link to the VCS to be able to edit them. To connect a configuration to your projects,
@@ -329,6 +341,7 @@
             </chapter>
 
             <chapter id="cloud-organizations-global-configurations-view-modify-list-of-projects" title="Modify the list of projects">
+                <link-summary>Learn how you can edit the list of projects connected to a global configuration.</link-summary>
                 <p>On the project setup page, click the <ui-path>Edit projects list</ui-path> button to open
                     the <ui-path>Connected Projects</ui-path> dialog containing the list of projects.</p>
                 <img src="gpc-modify-list-of-projects.png" width="706" alt="Edit projects list button" border-effect="line"/>
@@ -336,6 +349,7 @@
             </chapter>
 
             <chapter id="cloud-organizations-global-configurations-revoke-regenerate-token" title="Manage configuration token">
+                <link-summary>Learn how you can manage a configuration token.</link-summary>
                 <p>In case a <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a> is compromised,
                     click the <ui-path>Actions</ui-path> and then click <ui-path>Revoke configuration token</ui-path>
                     to revoke the token and clear all configurations.</p>

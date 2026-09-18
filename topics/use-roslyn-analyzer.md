@@ -16,9 +16,13 @@ as explained in this section.
 
 ## Prerequisites
 
+<link-summary>Explore how to use JetBrains Rider for creating an analyzer template.</link-summary>
+
 This section uses [JetBrains Rider](https://www.jetbrains.com/help/rider/Introduction.html) for creating an analyzer template.
 
 ## Create a template
+
+<link-summary>Explore how to create a Roslyn analyzer template.</link-summary>
 
 In the **New Project** [dialog](%roslyn-template%) of %ide%, create a new solution using the **Roslyn** template of the **Analyzers** type. The created solution
 will also contain three separate projects. For example, for the `MyCustomAnalyzer` solution, this will
@@ -105,6 +109,8 @@ namespace MyCustomAnalyzer
 
 ## Configure the analyzer project
 
+<link-summary>Explore how to configure an analyzer project.</link-summary>
+
 In the project configuration file, add the following configuration:
 
 ```xml
@@ -126,6 +132,8 @@ In the project configuration file, add the following configuration:
 ```
 
 ## Package and run your Roslyn analyzer
+
+<link-summary>Learn how to package and run your Roslyn analyzer.</link-summary>
 
 Package your analyzer by running the `dotnet pack` utility.
 

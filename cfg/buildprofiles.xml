@@ -25,6 +25,7 @@
 		<web-root>https://www.jetbrains.com/help</web-root>
 		<og-twitter>@qodanaevolves</og-twitter>
 		<og-image>https://resources.jetbrains.com/storage/products/qodana/img/meta/preview.png</og-image>
+		<llms-txt>true</llms-txt>
 	</variables>
 	<build-profile instance="qd">
 		<variables>

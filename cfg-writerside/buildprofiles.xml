@@ -29,7 +29,7 @@
 		<og-image>https://resources.jetbrains.com/storage/products/qodana/img/meta/preview.png</og-image>
 		<include-in-head>thirdparty/dpk-gtm-analytics.html</include-in-head>
 		<website-title>%instance% Documentation</website-title>
-		<llms-txt single-file="true"/>
+		<llms-txt>true</llms-txt>
 	</variables>
 	<build-profile instance="qd">
 		<variables>

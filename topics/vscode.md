@@ -202,10 +202,14 @@ to reset credentials and settings. </link-summary>
 
 ### I need to switch to another %cloud% account
 
+<link-summary>Learn how you can switch to another %cloud% account.</link-summary>
+
 You can use the **Qodana: Reset authentication** command to switch between %cloud% accounts without clearing settings. 
 This can be useful in case you have several organizations under different %cloud% accounts.
 
 ### I cannot get Qodana reports using current settings
+
+<link-summary>Learn how you can reset all settings and credentials and try to configure the extension again, or use other settings.</link-summary>
 
 You can use the **Qodana: Reset all settings** command to reset all settings and credentials and try to configure 
 the extension again, or use other settings.
