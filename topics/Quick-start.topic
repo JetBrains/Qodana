@@ -213,7 +213,7 @@
                     <code-block>
                                     choco upgrade qodana
                                 </code-block>
-                    <p>Updatet with <a href="https://scoop.sh/">Scoop</a>:</p>
+                    <p>Update with <a href="https://scoop.sh/">Scoop</a>:</p>
                     <code-block lang="shell">
                       scoop update qodana
                     </code-block>
