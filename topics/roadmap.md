@@ -1,11 +1,15 @@
 # Qodana 2026 roadmap
 
+<link-summary>The %product% roadmap for 2026.</link-summary>
+
 <show-structure for="chapter" depth="3"/>
 
 As of 2026, %product% continues to grow, and we’d like to share our plans with you.
 
 ## Core Qodana
 {id="roadmap-core-updates"}
+
+<link-summary>List of core %product% updates expected in 2026.</link-summary>
 
 - Extended security analysis capabilities for %product%, including support for JavaScript and TypeScript, and new security analysis benchmarks
 - Qodana for Rust (new linter, EAP release)
@@ -21,6 +25,8 @@ As of 2026, %product% continues to grow, and we’d like to share our plans with
 
 ## Qodana Cloud & Self-Hosted
 {id="roadmap-qodana-cloud"}
+
+<link-summary>List of %cloud% and %premlite% updates expected in 2026.</link-summary>
 
 - Ongoing self-hosted improvements, including deployment documentation
 - Onboarding experience improvements

@@ -1,5 +1,7 @@
 [//]: # (title: Configuration overview)
 
+<link-summary>Overview of available configuration approaches.</link-summary>
+
 You have the following configuration approaches:
 
 1. Configuring %product% via a [YAML-formatted](configuration-reference.md) file, typically named `qodana.yaml`, is suitable for settings that require lengthy 
@@ -28,6 +30,8 @@ that will extend the inspection capabilities of %instance% or develop
 
 ## Performance optimization
 
+<link-summary>Overview of recommendations for optimizing %product% during the project setup stage.</link-summary>
+
 To make %product% work better during the project setup stage, you can follow the recommendations below.
 
 First, specify the [`--cache-dir`](configuration-reference.md#docker-config-reference-cache-dependencies) option,
@@ -50,6 +54,8 @@ Make sure that your project is correctly configured by looking at the
 * Analyses do not show [unexpected problems](inspection-profiles.md#inspection-profiles-existing-profiles) because they are a key indicator of configuration issues
 
 ## Docker image paths
+
+<link-summary>List of Docker image paths.</link-summary>
 
 <link-summary>See the list of Docker image paths.</link-summary>
 

@@ -37,6 +37,8 @@ The `QODANA_TOKEN` variable refers to a <a href="project-token.md">project token
 
 ## Analysis performance
 
+<link-summary>The complexity of a project, frequent changes to a project structure, and numerous other factors can affect analysis performance. </link-summary>
+
 During incremental analyses, %product% is executed two times using a limited analysis scope, which means that the [configuration 
 stage](inspect-your-code.md) is also performed twice. 
 
@@ -150,6 +152,9 @@ You can use the --diff-start option to analyze changes between the current versi
 </tabs>
 
 ## Analyze changes between two commits
+
+<link-summary>To analyze a set of changes between two commits, employ both the --diff-start
+and --diff-end options. </link-summary>
 
 <p>To analyze a set of changes between two commits, employ both <code>--diff-start</code>
 and <code>--diff-end</code> options:</p>

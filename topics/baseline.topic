@@ -340,6 +340,7 @@
         </list>
 
         <chapter title="Customizing the baseline path">
+            <link-summary>Override the default directory for baseline file storage.</link-summary>
             <p>By default, Qodana expects the baseline file to be located at <code>.qodana/baseline.sarif.json</code> in your project root.
                 You can override this as follows:</p>
             <list>

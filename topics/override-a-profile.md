@@ -3,7 +3,6 @@
 <var name="wiki-glob" value="https://en.wikipedia.org/wiki/Glob_(programming)"/>
 <var name="idea-scopes" value="https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html"/>
 
-
 <link-summary>Each inspection is a set of conditions to analyze the code, detect and correct abnormal fragments in it. Qodana
     inspections can find and highlight various problems, locate dead code, find probable bugs, spelling problems,
     and thus facilitate improving the overall code structure.</link-summary>
@@ -23,6 +22,8 @@ All inspections are highly configurable, so you can configure:
 
 ## Available inspections
 
+<link-summary>You can explore available %product% inspections using the Inspectopedia website.</link-summary>
+
 You can explore available %product% inspections using the [Inspectopedia](https://www.jetbrains.com/help/inspectopedia/) website.
 This website provides details about inspections: descriptions, severity levels, languages covered, etc.
 
@@ -35,6 +36,8 @@ Alternatively, you can search for particular inspections by their names, or iden
 <img src="inspectopedia-search.png" alt="Searching for an inspection" width="706" border-effect="line"/>
 
 ## Inspection profiles
+
+<link-summary>Inspection profiles let you combine and configure inspections that you would like %product% to use.</link-summary>
 
 Inspection profiles let you combine and configure inspections that you would like %product% to use. The detailed description
 of inspection profiles is available in the [](inspection-profiles.md) section.

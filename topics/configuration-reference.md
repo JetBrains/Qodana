@@ -8,10 +8,11 @@
 <var name="ide" value="IDE"/>
 <var name="incorrect-formatting" value="https://www.jetbrains.com/help/inspectopedia/IncorrectFormatting.html"/>
 
+<link-summary>Learn how to configure Qodana via a YAML-formatted file or using command-line (CLI) options.</link-summary>
+
 ## Introduction
 
-<link-summary>You can configure Qodana via a YAML-formatted file. By default, this file should have the qodana.yaml 
-name and be contained in the root directory of your project.</link-summary>
+<link-summary>You can configure Qodana via a YAML-formatted file or using command-line (CLI) options.</link-summary>
 
 You can configure %product% using YAML or command-line (CLI) options.
 
@@ -32,6 +33,8 @@ In such cases, CLI options take precedence over their YAML equivalents if both m
     <code>QODANA_TOKEN</code> to view analysis reports in %cloud%.</note>
 
 ### YAML configuration
+
+<link-summary>Learn how to configure Qodana via a YAML-formatted file suitable for lengthy command and settings like inspection configuration or boostrap.</link-summary>
 
 <note>
 The configuration saved in the <code>qodana.yaml</code> file affects only %product% linters and does not impact other 
@@ -54,6 +57,8 @@ Qodana linters, you can configure it using the [HTML report](ui-overview.md) sec
 automatically. -->
 
 ### CLI options
+
+<link-summary>Learn how to configure Qodana using CLI options suitable for immediate configuration of applications that run %product%.</link-summary>
 
 > The comprehensive list of CLI options is available in the [](docker-image-configuration.topic) section.
 
@@ -394,6 +399,8 @@ Alternatively, you can use the `--linter` CLI option as shown below:
 
 ## Configure native mode
 
+<link-summary>Learn how to configure navite mode of Qodana for running it without the Docker engine.</link-summary>
+
 The native mode lets you run %product% without the Docker engine and is available for the following [linters](linters.md):
 
 <table>
@@ -662,6 +669,8 @@ To set up your own profile, use available configuration options described in the
 ### YAML configuration
 {id="configuration-reference-inspection-profile-yaml-configuration"}
 
+<link-summary>Use the profile YAML key, you can import an existing configuration from a dedicated file, and also customize it.</link-summary>
+
 Using the `profile` YAML key, you can import an existing configuration from a dedicated file, as well as customize the configuration once it is imported:
 
 <tabs>
@@ -704,6 +713,8 @@ invoke it in the <code>qodana.yaml</code> file using the <code>profile.path</cod
 
 ### CLI options
 {id="configuration-reference-inspection-profile-cli-options"}
+
+<link-summary>Use the profile-related CLI options for configuring %product%.</link-summary>
 
 You can use the following profile-related CLI options:
 
@@ -1176,6 +1187,8 @@ Alternatively, you can use the `--disable-sanity` CLI option:
 
 ## Inspections
 
+<link-summary>Learn how you can configure %product% inspections.</link-summary>
+
 ### Including inspections
 
 <link-summary>You can tell %product% to analyze files of a certain directory using an inspection that is not contained in the selected profile.</link-summary>
@@ -1410,6 +1423,8 @@ profile:
 -->
 ### Configure Maven
 
+<link-summary>Learn how to configure Maven for using with %product%.</link-summary>
+
 <include from="jvm.md" element-id="jvm-maven" />
 
 ### Override Gradle settings
@@ -1512,6 +1527,8 @@ profile:
 </tabs>
 
 ### Mount JDK
+
+<link-summary>Learn how to mount JDK for using with %product%.</link-summary>
 
 <include from="jvm.md" element-id="jvm-mount-jdk" />
 
@@ -1792,6 +1809,8 @@ profile:
 You can find specific inspection IDs in the Profile settings in the HTML report or in the `.xml` file with your inspection profile.
 
 ### Specify directory in your project
+
+<link-summary>Use the onlyDirectory option to specify a project directory for analysis.</link-summary>
 
 Use the `onlyDirectory` YAML option to specify a project directory to analyze.
 This should be relative to the project root, for example:
@@ -2075,6 +2094,8 @@ This is useful while analyzing [monorepo projects](monorepo-project.md).
 <p>To stop the web server, press <shortcut>Ctrl-C</shortcut> in the Docker console.</p>
 
 ## Qodana features
+
+<link-summary>Learn how you can extend the %product% configuration using various features.</link-summary>
 
 ### Quality gates
 {id="docker-config-reference-quality-gate"}
@@ -2771,6 +2792,8 @@ coverage:
 
 ## Override the run scenario
 
+<link-summary>Learn how to override the default run scenario.</link-summary>
+
 You can use the following run scenarios: 
 
 <table>
@@ -2972,6 +2995,8 @@ php:
 
 ### Log INFO messages to STDOUT
 {id="docker-config-reference-properties-stdout"}
+
+<link-summary>Use the idea.log.config.file property to override the default log level.</link-summary>
 
 <note>This feature is not available in the <a href="dotnet.md">%dotnet%</a> linter.</note>
 
@@ -3295,6 +3320,8 @@ php:
 
 ### Setting up configuration timeout
 {id="docker-config-reference-properties-config-timeout"}
+
+<link-summary>Use the properties for configuring the configuration stage timeout.</link-summary>
 
 <note>These properties are available only for the <a href="rust.md">%rust%</a>, <a href="clang.md">%cpp% and %clang%</a> linters.</note>
 <p>Using the following properties, you can configure the <a href="inspect-your-code.md" anchor="Analysis+stages">configuration stage timeout</a>:</p>
@@ -3942,6 +3969,8 @@ and <code>--diff-end</code> options:</p>
 ## Git submodules
 {id="docker-config-reference-git-submodules"}
 
+<link-summary>Learn how to configure an SSH agent to analyze repositories that use Git submodules.</link-summary>
+
 <p>To analyze repositories that use Git submodules accessed via SSH, you must authenticate Git
     operations within the Qodana Docker container. In this case, you need to configure an SSH agent and
     pass an SSH key with access to the submodule into the container as shown in the snippets below:</p>
@@ -4118,6 +4147,8 @@ and <code>--diff-end</code> options:</p>
 ## Cache in Qodana CLI
 {id="docker-config-reference-qodana-cli"}
 
+<link-summary>Learn how to configure cache in %product% CLI.</link-summary>
+
 <p><a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> stores files in the
     <code>&lt;userCacheDir&gt;</code> directory, which is mentioned several times throughout this section. Here
     is the list of <code>&lt;userCacheDir&gt;</code> directory locations depending on the operating system:
@@ -4180,6 +4211,8 @@ To install third-party software required for your plugins, you can:
 
 ## Incorrect Formatting inspection
 
+<link-summary>The Incorrect Formatting inspection consolidates multiple formatting errors contained in a file into a single problem.</link-summary>
+
 The  [`IncorrectFormatting`](%incorrect-formatting%) inspection consolidates multiple formatting errors contained in
 a file into a single problem instead of listing every issue separately. Now, a single problem per file is displayed with
 example snippets to help you fix issues faster.
@@ -4203,6 +4236,8 @@ profile:
 
 ## Specify a CMake preset
 
+<link-summary>Customize the %cpp% linter by using CMake presets.</link-summary>
+
 Customize the %cpp% linter by using [CMake presets](clang.md#Configure+compilers+and+environments). Invoke presets using
 the `cpp` and `cmakePreset` options:
 
@@ -4217,6 +4252,8 @@ cpp:
 {emphasize-lines="5-6"}
 
 ## Configure Java and Kotlin projects in monorepo
+
+<link-summary>Use the rootJavaProjects key to specify which projects should be included in the analysis.</link-summary>
 
 Using the `rootJavaProjects` key, you can specify which projects should be included in the analysis, for example:
 

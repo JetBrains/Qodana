@@ -13,7 +13,11 @@ application of the [quality gate](quality-gate.topic) and [baseline](baseline.to
 
 ## Before you start
 
+<link-summary>Steps to complete before running %product%.</link-summary>
+
 ### Qodana Cloud
+
+<link-summary>Learn how to generate a project token using %cloud%.</link-summary>
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -31,6 +35,8 @@ application of the [quality gate](quality-gate.topic) and [baseline](baseline.to
 </procedure>
 
 ## Basic configuration
+
+<link-summary>Basic configuration of Bitbucket Cloud that let you run %product%.</link-summary>
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 

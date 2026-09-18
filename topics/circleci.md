@@ -15,11 +15,17 @@ CircleCI is a cloud-based CI/CD system. You can build %instance% into your Circl
 
 ## Before you start
 
+<link-summary>Steps to complete before running %product%.</link-summary>
+
 ### Qodana Cloud
+
+<link-summary>Learn how to generate a project token using %cloud%.</link-summary>
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
 ### Prepare your project
+
+<link-summary>Prepare your project in CircleCI.</link-summary>
 
 <procedure>
     <step>In your CircleCI organization settings, navigate to the <ui-path>Contexts</ui-path> section and define the <code>qodana</code> <a href="%context%">context</a>.</step>
@@ -35,6 +41,8 @@ CircleCI is a cloud-based CI/CD system. You can build %instance% into your Circl
 <include from="lib_qd.topic" element-id="ci-cd-argument-notation-update"/>
 
 ## Basic configuration
+
+<link-summary>Basic configuration of CircleCI that let you run %product%.</link-summary>
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 
@@ -76,6 +84,8 @@ This configuration will be extended in the sections below.
 
 ## Baseline and quality gate
 
+<link-summary>Extended CircleCI configuration that employs the baseline and quality gate features of %product%.</link-summary>
+
 This configuration uses the [`args` parameter](#Commands+and+parameters) to invoke the 
 [baseline](baseline.topic) and [quality gate](quality-gate.topic) features:
 
@@ -107,6 +117,8 @@ workflows:
 
 ## Specific linter
 
+<link-summary>Extended CircleCI configuration that employs a specific linter of %product%.</link-summary>
+
 This configuration sample uses the [`args` parameter](#Commands+and+parameters) to run the specific linter like `jetbrains/qodana-jvm`:
 
 ```yaml
@@ -133,6 +145,8 @@ workflows:
 ```
 
 ## Specific branch
+
+<link-summary>Extended CircleCI configuration that lets you analyze changes on a specific branch.</link-summary>
 
 > To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
 
@@ -166,6 +180,8 @@ workflows:
 ```
 
 ## Commands and parameters
+
+<link-summary>List of commands and parameters provided for the qodana orb.</link-summary>
 
 The CircleCI Qodana orb provides the `scan` command to let you analyze your project and generate an analysis report.
 

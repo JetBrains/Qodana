@@ -22,6 +22,8 @@ is explained below.
 
 ## Key generation
 
+<link-summary>Overview of key generation for contributor counting purposes.</link-summary>
+
 During the [project setup](Quick-start.topic#quickstart-prerequisites) stage, %cloud% generates an SSH key pair for counting the number of 
 active contributors to your project using this command:
 
@@ -45,6 +47,8 @@ deploy key depending on a VCS.
 <warning>It is not advised to store the key on the account level.</warning>
 
 ## Contributor counting
+
+<link-summary>Examples of saving a generated key in a VCS.</link-summary>
 
 Save the generated key in your VCS, see the examples for: 
 
@@ -78,12 +82,16 @@ qodana contributors --project-dir path/to/repoA --project-dir path/to/repoB ...
 
 ### The .mailmap file support
 
+<link-summary>The .mailmap file support lets you map multiple addresses to a single contributor identity.</link-summary>
+
 Contributors may appear under different email addresses in the Git history, which can lead to them being counted multiple 
 times. To avoid overcounting, %product% uses the [`.mailmap`](https://git-scm.com/docs/gitmailmap) file to map multiple 
 email addresses to a single contributor identity. This ensures that contributors with multiple email addresses are counted only once.
 
 
 ## Frequently asked questions
+
+<link-summary>Frequently asked questions about contributor counting.</link-summary>
 
 Here you can find answers to frequently asked questions about %instance% licensing.
 

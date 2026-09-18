@@ -1,5 +1,8 @@
 [//]: # (title: Analyze open-source projects)
 
+
+<link-summary>Learn how to analyze open-source projects using %product%.</link-summary>
+
 <show-structure for="chapter" depth="3"/>
 
 <var name="feature" value="License audit"/>
@@ -19,8 +22,12 @@ The %product% products licensed under the Community [license](pricing.md) are fr
 
 ## Before you start
 
+<link-summary>Steps before running %product%.</link-summary>
+
 ### Available linters and features
 {id="available-linters-and-features"}
+
+<link-summary>List of features available with the Community license.</link-summary>
 
 The following %product% linters and their features are available with the Community license: 
 
@@ -99,6 +106,8 @@ The generated [project token](project-token.md) will be used in the configuratio
 
 ## Analyze your projects
 
+<link-summary>After configuring, you can analyze your open-source projects.</link-summary>
+
 ### Inspection profiles
 {id="inspection-profiles"}
 
@@ -173,6 +182,8 @@ To analyze the overall configuration of your project, employ the `qodana.sanity`
 
 ### Incremental analysis
 {id="incremental-analysis"}
+
+<link-summary>Learn how to perform incremental analysis for open-source projects.</link-summary>
 
 Regular analyses are enabled by default and are performed on an entire project. Incremental analyses can be carried out as described below: 
 
