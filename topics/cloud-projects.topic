@@ -6,10 +6,14 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Projects" id="cloud-projects">
 
+    <link-summary>Projects accumulate %product% reports. Each project is uniquely identified by a project token.</link-summary>
+
     <p>Projects accumulate Qodana <a href="cloud-overview-reports.topic">reports</a>. Each project is uniquely identified
         by a <a href="project-token.md">project token</a>.</p>
 
     <chapter id="cloud-create-project" title="Create a project">
+
+        <link-summary>Learn how you can create a project in %cloud%.</link-summary>
 
         <p>On a <a href="cloud-teams.topic">team</a> page, click the <ui-path>Create project</ui-path> button.</p>
 
@@ -21,6 +25,8 @@
 
     <chapter id="cloud-manage-projects" title="Manage a project">
 
+        <link-summary>Learn how you can manage a project in %cloud%.</link-summary>
+
     <p>After the project was created, you can navigate to its VCS, update VCS settings, move the project to another team, rename the project,
         view, copy or regenerate its <a href="project-token.md">project token</a> already available here, and delete the project.</p>
 
@@ -29,6 +35,8 @@
     </chapter>
 
     <chapter id="cloud-recent-projects" title="Recent projects">
+
+        <link-summary>You can view your organization projects sorted by recency or other criteria.</link-summary>
 
         <p>After logging into %cloud%, you will be redirected to the <ui-path>Recent projects</ui-path> page.</p>
 

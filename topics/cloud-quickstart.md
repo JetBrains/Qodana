@@ -27,10 +27,14 @@ If necessary, you can create additional teams and projects without the onboardin
 
 ## IP addresses required by Qodana Cloud
 
+<link-summary>The IP address range 54.76.32.8/32 should be allowed for inbound connections on your side for the contributor counting functionality.</link-summary>
+
 To provide the correct work of the contributor counting functionality, add the IP address range
 54.76.32.8/32 to a list of allowed inbound connections on your side.
 
 ## Qodana Cloud components
+
+<link-summary>Learn more about %cloud% components, such as organization, teams, and projects.</link-summary>
 
 <p>The basic entity in <a href="https://qodana.cloud">%cloud%</a> is an organization. Every %cloud% user
     creates and becomes an organization member and can later create additional organizations. </p>
@@ -44,6 +48,8 @@ To provide the correct work of the contributor counting functionality, add the I
 
 
 ## License costs
+
+<link-summary>The total license cost is based on the number of active contributors.</link-summary>
 
 <p>The total license cost is based on the number of active contributors. An active contributor is defined as a
     person who

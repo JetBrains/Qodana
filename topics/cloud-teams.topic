@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Teams" id="cloud-teams">
 
+    <link-summary>A team is a part of an organization accumulating specific projects in %cloud%.</link-summary>
+
     <p>A team is a part of an <a href="cloud-organizations.topic">organization</a> accumulating specific
         <a href="cloud-projects.topic">projects</a>. Using teams, you can group users around dedicated projects in
         <a href="https://qodana.cloud">%cloud%</a>.</p>
@@ -15,6 +17,8 @@
     </note>
 
     <chapter id="cloud-teams-create-team" title="Create a team">
+
+        <link-summary>Learn how to create teams in the %cloud% UI.</link-summary>
 
         <p>During the <a href="Quick-start.topic" anchor="quickstart-prerequisites">project setup</a> stage, %cloud% helps you create a team, so
             you need this step only for creating additional teams.</p>
@@ -35,6 +39,8 @@
 
     <chapter id="cloud-teams-navigate-to-team" title="Navigate teams">
 
+        <link-summary>Learn how to navigate teams in the %cloud% UI.</link-summary>
+
         <p>You can navigate to a team by clicking its tile on an organization page, or its pictogram in the left sidebar.</p>
 
         <img src="qc-accessing-team.png" dark-src="qc-accessing-team_dark.png" alt="Accessing a team" width="706" border-effect="line"/>
@@ -42,6 +48,8 @@
     </chapter>
 
     <chapter id="cloud-teams-manage-teams" title="Configure teams">
+
+        <link-summary>Learn how to configure %cloud% teams.</link-summary>
 
         <p>To configure a team, click the upper-right corner of a team. Here, you can manage team members, rename the team,
             manage its visibility, leave and delete the team. </p>

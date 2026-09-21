@@ -18,6 +18,10 @@ You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 
 ## Prerequisites
 
+<link-summary>
+The list of requirements that should be met before you start using the API.
+</link-summary>
+
 The Qodana Cloud API requires an organization API token for authentication purposes.
 
 Before using the Qodana Cloud API, make sure that the following requirements were met:
@@ -44,7 +48,11 @@ URL for %cloud% or your custom base URL in case of %premlite%. For simplicity, t
 
 ## Teams and projects
 
+<link-summary>Using the %cloud% API, you can manage %cloud% teams and projects.</link-summary>
+
 ### Create teams and projects
+
+<link-summary>Explore how to create teams and projects using the Qodana Cloud API.</link-summary>
 
 To create a new team (if applicable) along with a project and get a [project token](project-token.md), send the request: 
 
@@ -227,6 +235,8 @@ The endpoint provides the responses with the following HTTP codes:
 ### Get project metadata by project name
 {id="cloud-api-project-report-metadata-project-name"}
 
+<link-summary>Explore how to get project metadata for the default branch of a project using the Qodana Cloud API.</link-summary>
+
 To get project metadata for the default branch of a project, send the request with a %cloud% project name:
 
 ```cURL
@@ -374,6 +384,8 @@ Here is the description of responses:
 ### Get project metadata by project ID
 {id="cloud-api-project-report-metadata-project-id"}
 
+<link-summary>Explore how to get project metadata by sending a request containing a project ID using the Qodana Cloud API.</link-summary>
+
 Get project metadata by sending a request containing a project ID:
 
 ```cURL
@@ -518,6 +530,8 @@ Here is the description of responses:
 
 ## Users
 {id="cloud-api-users"}
+
+<link-summary>Explore how to get a list of users of a specific %cloud% organization in a paginated form using the Qodana Cloud API.</link-summary>
 
 To list users of a specific [%cloud% organization](cloud-organizations.topic) in a paginated form, send the request: 
 
@@ -704,6 +718,8 @@ This endpoint responds as described in the table:
 ## Inspections
 {id="cloud-api-inspections"}
 
+<link-summary>Explore how to get a list of inspections used by an organization using the Qodana Cloud API.</link-summary>
+
 List all inspections including FlexInspect inspections used by an organization by sending the request:
 
 ```cURL
@@ -811,6 +827,8 @@ Here is the description of responses:
 
 ### Project Insights
 {id="cloud-api-insights-project"}
+
+<link-summary>Explore how to get project insights of a specific %cloud% organization using the Qodana Cloud API.</link-summary>
 
 To retrieve project insights, send the request:
 
@@ -949,6 +967,8 @@ combination of project ID and timestamp. If no time range is specified, entries 
 
 ### Inspection Insights
 {id="cloud-api-insights-inspection"}
+
+<link-summary>Explore how to get inspection insights of a specific %cloud% organization using the Qodana Cloud API.</link-summary>
 
 To retrieve inspection insights, send the request:
 

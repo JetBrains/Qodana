@@ -10,6 +10,8 @@
 
     <chapter id="cloud-use-case-1" title="Get deeper insights into your project trends">
 
+        <link-summary>Using %cloud%, you can aggregate %product% reports from various projects, explore development trends, and analyze team and project performance.</link-summary>
+
         <p>Using <a href="https://qodana.cloud">%cloud%</a>, you can aggregate %product% reports from various
             projects, explore development trends, and analyze team and project performance.</p>
 
@@ -25,6 +27,8 @@
 
     <chapter id="cloud-use-case-2" title="Open problems detected by %product% in your favorite IDE">
 
+        <link-summary>Open issues spotted by Qodana right in your IDE to errors in the editor.</link-summary>
+
         <p>If you are already a %product% user, you might know that you can open issues spotted by Qodana right in your IDE.
             This feature is available in %cloud%, so you can fix server-side errors in the editor like other suggestions given by the IDE.</p>
 
@@ -34,6 +38,8 @@
     </chapter>
 
     <chapter id="cloud-use-case-3" title="Plan your work better">
+
+        <link-summary>%cloud% lets you build reports to evaluate all code fragments that require improvements, and select the issues to add to a baseline.</link-summary>
 
         <p>In %cloud%, you can build reports to evaluate all code segments that require modification, and select
             the issues to add to a baseline. This way, the whole team can see the same list of issues and monitor progress

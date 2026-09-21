@@ -22,8 +22,12 @@ you through the SSO configuration process.
 
 ## Configure SSO
 
+<link-summary>Learn how to configure SSO for authentication using third-party identity providers.</link-summary>
+
 ### Create a subdomain
 {id="sso-create-a-subdomain"}
+
+<link-summary>Learn how to create a subdomain for SSO.</link-summary>
 
 Only users with the [Admin](cloud-user-roles.md#cloud-user-org-roles-admin) and
 [Owner](cloud-user-roles.md#cloud-user-org-roles-owner) organization roles can configure the single sign-on functionality
@@ -49,6 +53,8 @@ User authentication is carried out using a subdomain of %cloud%, which you can c
 ### Manage users and authentication modules
 {id="sso-manage-users-auth-modules"}
 
+<link-summary>After configuring a subdomain, you can manage authentication modules and users.</link-summary>
+
 Based on the latest step of [the previous action](#sso-create-a-subdomain), you should be redirected to a 
 [JetBrains Hub](%hub-link%) instance. 
 
@@ -61,6 +67,8 @@ Using the [**Access Management**](%hub-access-management%) section of the **Admi
   with %product% roles and assigning users to those groups.
 
 ## Authenticate in %cloud%
+
+<link-summary>Learn how to authenticate in %cloud% using the SSO functionality.</link-summary>
 
 Once you configured users and authentication modules, you can navigate to %cloud% using the URL that was generated
 during the [subdomain creation](#sso-create-a-subdomain) stage. On the page that opens, click the **Login with SSO** button.
