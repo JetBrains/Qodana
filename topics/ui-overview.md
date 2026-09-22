@@ -10,6 +10,8 @@ locally or in %cloud%.</link-summary>
 
 ## Report UI overview
 
+<link-summary>Each %product% report contains several tabs that help you understand the state of your project.</link-summary>
+
 <img src="ui-overview.png" alt="Qodana report UI overview" thumbnail="true" scale="5" width="1059"/>
 
 Each report contains the following tabs:
@@ -25,6 +27,8 @@ The upper-right corner of the report shows a [code coverage](code-coverage.md) a
 
 ### Current problems
 {id="ui-overview-actual-problems"}
+
+<link-summary>The Current problems tab shows the problems found during the latest %product% analysis.</link-summary>
 
 Using this tab, you can see the problems found as a result of the latest analysis.
 
@@ -55,7 +59,7 @@ using your IDE. To do it, select your IDE from the dropdown list and then click 
 
    The **Exclude** dropdown list lets you exclude a path, file, inspection, or category from the analysis, see the [](#Adjust+the+analysis+scope) section for details.
 
-   The **Hide** button lets you remove the problem from the report. This functionality is available only for the current user and the current analysis report. Other users will still see the problem in the list, and if the same problem is included in the next report, it will be visible to all users again.
+   The **Hide** button lets you hide the selected problem from the report for your account.  Other people will still see it.
 
     The **Find similar problems** button lets you filter problems by type.
     
@@ -117,6 +121,8 @@ configuration of %product%. Once you modify the configuration, it will be update
 
 ## Adjust your inspection profile 
 
+<link-summary>Learn how to adjust your inspection profile using the %product% report UI.</link-summary>
+
 We believe that the ability to see what was checked is as important as the list of problems found. For example, if you
 haven't checked for typos, you can be happy to see zero typos in your project. There may be many of them – you just
 don't check.
@@ -134,8 +140,12 @@ When you have no possibility to fix old problems and want to prevent the appeara
 
 ### Adjust the analysis scope
 
+<link-summary>Learn how to adjust the analysis scope in the %product% report UI using various techniques.</link-summary>
+
 #### Reduce the scope of analyzed issues
 {id="reduce-analysis-scope"}
+
+<link-summary>Available options for reducing the scope of analyzed issues.</link-summary>
 
 When viewing a code fragment with a detected problem, you may decide that it is irrelevant. You can make sure that more 
 problems of the same type are omitted in the future. For this purpose, you can edit [qodana.yaml](configuration-reference.md) or use 
@@ -172,12 +182,16 @@ On the File explorer, click the icon to the left of the filename, and then selec
 
 #### Enable excluded or hidden problems
 
+<link-summary>To include previously excluded problems, you can edit your YAML configuration, put it in the project root directory, and then run %product% again.</link-summary>
+
 To reverse the exclusions you made, download `qodana.yaml` on the **[Profile configuration](#ui-overview-configuration)** pane, edit 
 it as necessary, put it in the project root directory, and then run Qodana again with this new configuration. 
 
 To learn how to configure %product% using `qodana.yaml`, see the [](configuration-reference.md#configuration-reference-inspection-profile) section.
 
 ## Open an HTML report
+
+<link-summary>You can open HTML-formatted %instance% reports using JetBrains IDEs and shell commands.</link-summary>
 
 You can open HTML-formatted %instance% reports using JetBrains IDEs and shell commands.
 

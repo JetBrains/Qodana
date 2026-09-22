@@ -4,14 +4,20 @@
 
 <show-structure for="chapter" depth="3"/>
 
+<link-summary>You can analyze Unity projects using the %dotnet% linter in the native mode.</link-summary>
+
 You can analyze Unity project using the [%dotnet%](dotnet.md) linter in the 
 [native mode](deploy-qodana.md#deploy-qodana-native-mode) as explained in this section. 
 
 ## Before your start
 
+<link-summary>Before analyzing Unity projects, you need to accomplish several steps.</link-summary>
+
 Before running %product%, you need to take several steps to prepare your project.
 
 ### Qodana Cloud
+
+<link-summary>Before running %product%, you need to obtain a project token that will be used for identifying and verifying a license.</link-summary>
 
 To run %product%, you need to obtain a [project token](project-token.md) that  will be used by %product% for identifying and verifying a license.
 
@@ -31,6 +37,9 @@ To run %product%, you need to obtain a [project token](project-token.md) that  w
 
 ### Solution and packages
 
+<link-summary>Unity projects typically don’t include a C# solution and project files, and these should be generated. 
+Install the corresponding .NET SDK in the build environment.</link-summary>
+
 Make sure that you have already built your Unity project, see the [](dotnet.md#dotnet-build-project)
 chapter of the .NET section for details. 
 
@@ -47,6 +56,8 @@ ${UNITY_EXECUTABLE:-xvfb-run --auto-servernum --server-args='-screen 0 640x480x2
 
 ### Qodana configuration
 
+<link-summary>Learn how to configure %product% to run the %dotnet% linter for analyzing Unity projects.</link-summary>
+
 In the [`qodana.yaml`](configuration-reference.md) file, save the following configuration to employ the [%dotnet%](dotnet.md) linter in the 
 native mode and use the [`qodana.recommended`](inspection-profiles.md) inspection profile:
 
@@ -60,6 +71,8 @@ baseProfile: qodana.recommended # Specifying the profile
 Native mode is the recommended mode for running the [%dotnet%](dotnet.md) linter.
 
 ### Prepare your software
+
+<link-summary>Learn how you can prepare your software before running %product%.</link-summary>
 
 Choose the software that you would like to use for running %product%, for example:
 
@@ -80,7 +93,9 @@ Choose the software that you would like to use for running %product%, for exampl
     </tab>
 </tabs>
 
-## Run Qodana 
+## Run Qodana
+
+<link-summary>Run %product% to analyze your Unity project.</link-summary>
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
@@ -146,6 +161,8 @@ a project directory.</p>
 
 
 ## Customize your analysis
+
+<link-summary>You can also adjust %product% analysis of your Unity project.</link-summary>
 
 Using recommendations from the [](ui-overview.md) and [](inspection-profiles.md) sections, you can adjust 
 %product% analysis of your project. For example, using the [**Configuration**](ui-overview.md#ui-overview-configuration) tab of a %product% report, you can select

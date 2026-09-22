@@ -1,5 +1,9 @@
 # Post-quantum cryptography (PQC)
 
+<link-summary>Quantum computing poses a significant threat to widely used public-key cryptographic algorithms, such as RSA and ECC.
+The %jvm% linter provides inspections to identify vulnerable code and guide developers toward post-quantum 
+cryptography (PQC) alternatives.</link-summary>
+
 Quantum computing poses a significant threat to widely used public-key cryptographic algorithms, such as RSA and ECC. 
 Even before large-scale quantum computers are realized, organizations must address potential risks by 
 using [post-quantum cryptography](https://en.wikipedia.org/wiki/Post-quantum_cryptography) techniques in projects.
@@ -11,6 +15,9 @@ versions. To learn more about the available licensing model, visit the
 You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 
 ## Inspection levels
+
+<link-summary>Post-quantum cryptography inspections are grouped into five levels with each level mapping to a respective
+NIST PQC security level where higher levels are stricter and report more problems.</link-summary>
 
 Post-quantum cryptography inspections are grouped into five levels with each level mapping to a respective
 [NIST PQC](https://www.nist.gov/pqc) security level where higher levels are stricter and report more problems.
@@ -27,6 +34,8 @@ In this table, each level above `PqcMinLevel1` incorporates the inspections of t
 For instance, `PqcMinLevel2` includes all the inspections of the `PqcMinLevel1` level and so on.
 
 ## Run post-quantum cryptography
+
+<link-summary>You can enable one PQC level from 1 to 5 at a time using the 'inspections.group' key in your YAML configuration.</link-summary>
 
 You can enable one PQC level from 1 to 5 at a time using the `inspections.group` key in your YAML configuration, for example: 
 

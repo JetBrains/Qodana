@@ -16,6 +16,8 @@ This feature is available under the Ultimate Plus [license](pricing.md).
 
 ## How the global configuration works
 
+<link-summary>YAML-formatted configuration files are stored in project directories of VCS repositories and can be used by %product% across projects.</link-summary>
+
 YAML-formatted configuration files are stored in project directories of VCS repositories. For example, your project 
 can have the following structure that will create a global configuration: 
 
@@ -63,6 +65,10 @@ Files contained in a global configuration can be updated using access to your VC
 > To learn more about setting global configurations, see the [](cloud-organizations.topic#cloud-organizations-global-configurations) section.
 
 ### Global and project configurations
+
+<link-summary>Project configuration is a configuration created for a specific project and located within a project repository.
+Global configuration is a configuration that can be shared across multiple projects. 
+Both configurations can be merged.</link-summary>
 
 Project configuration is a configuration created for a specific project and located within a project repository.
 Global configuration is a configuration that can be shared across multiple projects. 
@@ -112,6 +118,8 @@ profile:
 
 ### Merging configurations
 
+<link-summary>Using the 'imports' key, you can reference another configuration file from your global configuration.</link-summary>
+
 Using the `imports` key, you can reference another configuration file from your global configuration.
 
 For example, the global configuration file contains the `imports` key to reference the `../base/qodana.yaml` file:
@@ -146,6 +154,8 @@ linter: jetbrains/qodana-jvm:2025.2
 ```
 
 ## Uploading to Qodana Cloud
+
+<link-summary>Learn how to generate a configuration token for sharing global configurations via %cloud%.</link-summary>
 
 To be able to share global configurations via Qodana Cloud, you should upload a special configuration token while running your CI/CD pipeline.
 You can generate this token on the **Global configurations** tab of your [organization settings](cloud-organizations.topic#cloud-organizations-global-configurations). 

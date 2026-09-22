@@ -27,6 +27,8 @@
 
         <chapter id="extending-qodana-repository-plugins-configure-plugin" title="Plugins from JetBrains Marketplace">
 
+            <link-summary>Learn how to extend %product% using plugins from JetBrains Marketplace.</link-summary>
+
                 <p>To have a plugin installed from <a href="https://plugins.jetbrains.com/">JetBrains Marketplace</a>
                     and running, in the <code>qodana.yaml</code> file specify the
                     <a href="configuration-reference.md" anchor="Manage+plugins"><code>plugin</code></a> option:</p>
@@ -67,6 +69,9 @@
                     You can navigate to the <ui-path>Versions</ui-path> tab and then click the latest version.</note>
 
                 <chapter id="extending-qodana-repository-plugins-manual-installation-configuration" title="Configure and run plugins">
+
+                    <link-summary>Learn how to configure and run plugins.</link-summary>
+
                     <p>To run a plugin using your custom configuration, update the plugin configuration files. For example,
                         for the <a href="https://plugins.jetbrains.com/plugin/1065-checkstyle-idea">CheckStyle-IDEA</a>
                         plugin you should modify the <code>.idea/checkstyle-idea.xml</code> file. For other plugins, the
@@ -133,6 +138,8 @@
             </chapter>
 
         <chapter id="extending-qodana-repository-plugins-manual-installation" title="Custom plugins">
+
+            <link-summary>As an alternative to the plugins from JetBrains Marketplace, you can develop your custom plugins.</link-summary>
 
             <tip>To learn how to develop plugins, you can review the
                 <a href="https://plugins.jetbrains.com/docs/intellij/getting-started.html">Creating Your First Plugin</a>

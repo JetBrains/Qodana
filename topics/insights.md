@@ -2,6 +2,8 @@
 
 <show-structure depth="3"/>
 
+<link-summary>Insights let you examine aggregated data on organizational and team levels in %cloud%.</link-summary>
+
 Insights let you examine aggregated data on organizational and team levels in %cloud%. The Insights dashboard is available 
 under the Ultimate Plus [license](pricing.md). To learn more about available %product% licenses, visit the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
 You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
@@ -17,6 +19,8 @@ page click the **Insights** button. To do the same on a team level, click this b
 
 ## Dashboard filters
 
+<link-summary>Using filters, you can configure widgets and save the configured dashboard state.</link-summary>
+
 The upper part of the **Insights** page contains filters that let you filter widgets by
 [projects](cloud-projects.topic), [severities](ui-overview.md#Severity+levels), inspections (checks), and [baseline](baseline.topic).
 
@@ -26,6 +30,8 @@ Alternatively, you can copy the link to the dashboard configuration and share it
 <img src="insights-upper-filters.png" width="735" alt="The Insights page filters" border-effect="line" thumbnail="true"/> 
 
 ## Available widgets
+
+<link-summary>The 'Insights' page provides various widgets for monitoring the projects' state.</link-summary>
 
 ### Projects
 
@@ -42,10 +48,15 @@ describing inactive projects to navigate to a comprehensive list of these projec
 
 ### Scans
 
+<link-summary>This widget provides information about analyses performed on your projects excluding pull or merge requests.</link-summary>
+
 This widget provides information about analyses performed on your projects excluding pull or merge requests and carried 
 out by %product% versions 2024.2 or later.
 
 ### Average code coverage rate
+
+<link-summary>The widget indicates the extent to which your projects are covered with tests, calculated using the code coverage feature, 
+and lets you navigate to the projects with disabled code coverage</link-summary>
 
 Indicates the extent to which your projects are covered with tests, calculated using the [code coverage](code-coverage.md) feature, 
 and lets you navigate to the projects with disabled code coverage.
@@ -57,6 +68,8 @@ respective projects.
 
 ### Average license audit rate
 
+<link-summary>This widget indicates the percentage of projects that passed the codebase analysis using the license audit feature.</link-summary>
+
 Indicates the percentage of projects that passed the codebase analysis using the [license audit](license-audit.topic) feature. 
 
 If you hover over the widget, you can navigate to the projects where license audit failed or was not enabled, and
@@ -66,6 +79,8 @@ view related analysis reports.
 
 ### Problems by severity
 
+<link-summary>This widget contains a diagram showing the problem numbers by their severities.</link-summary>
+
 Contains a diagram showing the problem numbers by their severities, see the [description of severities](ui-overview.md#Severity+levels) 
 for details.
 
@@ -73,12 +88,17 @@ for details.
 
 ### Trends over period
 
+<link-summary>This widget shows the trends for a selected period of time based on the number of problems and code coverage rates.</link-summary>
+
 Shows the trends for a selected period of time based on the number of problems and code coverage rates. Using this widget, 
 you can see the progress in code quality.
 
 <img src="insights-trends-over-period.png" width="706" alt="Trends over a period widget" border-effect="line"/>
 
 ### Projects sorted
+
+<link-summary>This widget lets you filter your projects by the number of problems, number of 
+critical problems, as well as code coverage. </link-summary>
 
 In the lower-left part of the **Insights** page, you can filter your projects by the number of problems, number of 
 critical problems, as well as code coverage. 
@@ -88,6 +108,8 @@ critical problems, as well as code coverage.
 By clicking a specific project entry, you can navigate to a project page.
 
 ### Problems sorted
+
+<link-summary>This widget lets you sort problems detected in your projects by severity, occurrence and inspections (checks). </link-summary>
 
 In the lower part of the **Insights** page, you can sort problems detected in your projects by severity, occurrence and inspections (checks). 
 

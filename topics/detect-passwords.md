@@ -1,5 +1,8 @@
 # Detecting hard-coded passwords
 
+<link-summary>%product% provides the `HardcodedPasswords` inspection that detects hard-coded passwords 
+and covers multiple languages.</link-summary>
+
 <var name="hc-passwords" value="https://owasp.org/www-community/vulnerabilities/Use_of_hard-coded_password"/>
 
 [Hard-coded passwords](%hc-passwords%) are a critical security issue. When exposed, the attacker can leak data and
@@ -13,6 +16,9 @@ and covers [](js.md), [](jvm.md), [](php.md), [](golang.md), [](python.md), [C#]
 {style="note"}
 
 #### How password detection works
+
+<link-summary>The `HardcodedPasswords` analysis reports variables with values matching built-in regex rules for
+hard-coded passwords. Click the link to learn more detail about the feature.</link-summary>
 
 By default, the `HardcodedPasswords` analysis reports variables with values matching built-in regex rules for
 hard-coded passwords. To report any variable with a suspicious name like `token` or `password` and a constant string value,

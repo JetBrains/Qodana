@@ -124,8 +124,12 @@ Your feedback is very welcome in our
 ## Before you start
 {id="dotnet-before-you-start"}
 
+<link-summary>Learn what should be done before running %product%.</link-summary>
+
 ### Qodana Cloud
 {id="dotnet-before-you-start-qodana-cloud"}
+
+<link-summary>Before running %product%, you should generate a project token using %cloud%.</link-summary>
 
 To run linters, you need to get a [project token](project-token.md) that
 will be used by %product% for identifying and verifying a license. 
@@ -148,6 +152,8 @@ A project token is required for the %qd% linter and optional for the %qd-co% lin
 
 ### SDK version
 {id="dotnet-sdk-version"}
+
+<link-summary>Installing SDK should be a necessary step before running the %dotnet% linter in native mode.</link-summary>
 
 If you project targets the .NET Framework or [OS-specific TFMs](%tfms%), the only option in this case is to run the
 %qd% linter in [native mode](deploy-qodana.md#deploy-qodana-native-mode).
@@ -175,6 +181,8 @@ For example, this command will install the required version of the SDK that is s
 
 ### Prepare your software
 {id="dotnet-software-prerequisites"}
+
+<link-summary>Before running %product%, you should prepare the software environment.</link-summary>
 
 This shows how to configure software from this section to %product% analysis. All configuration samples
 use a [project token](project-token.md), see the [](#dotnet-before-you-start-qodana-cloud) section for details.
@@ -250,6 +258,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 
 ## Build the project
 {id="dotnet-build-project"}
+
+<link-summary>Learn how to build your project before running %product%.</link-summary>
 
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-dotnet" title="%qd%">
@@ -364,6 +374,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 ## Run Qodana
 {id="dotnet-run-qodana"}
 
+<link-summary>Learn how to run %product% on your .NET project.</link-summary>
+
 <note><include from="lib_qd.topic" element-id="docker-ram-note"/></note>
 
 > Before running %product%, make sure that you [prepared](#dotnet-before-you-start) and [built](#dotnet-build-project) your project.
@@ -376,6 +388,8 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 <include from="lib_qd.topic" element-id="root-and-non-root-users-info-bubble"></include>
 
 ### Basic use case
+
+<link-summary>This section provides basic configuration examples for running %product%.</link-summary>
 
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-dotnet" title="%qd%">
@@ -741,6 +755,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
 
 ### Analyze a specific solution
 
+<link-summary>By default, %product% tries to employ a single solution file, or, if no file is present,
+it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
+filename.</link-summary>
+
 By default, %product% tries to locate and employ a single solution file, or, if no solution file is present,
 it tries to find a project file. If your project contains multiple solution files, you need to specify the exact
 filename as shown below.
@@ -890,6 +908,8 @@ filename as shown below.
 
 ### Private NuGet repositories
 
+<link-summary>Learn how to configure %product% for using private NuGet repositories.</link-summary>
+
 Depending on the linter, you can run %product% using private NuGet repositories as shown below.
 
 <tabs group="linter-tabs">
@@ -1034,6 +1054,9 @@ bootstrap: dotnet restore
 
 ### Private NuGet feeds in Azure DevOps
 
+<link-summary>If your .NET project in Azure DevOps uses a private NuGet feed, the standard `NuGetAuthenticate` task may not be sufficient 
+for %product%. In this case, configure the feed and restore/build your project before running %product%.</link-summary>
+
 If your .NET project in Azure DevOps uses a private NuGet feed, the standard `NuGetAuthenticate` task may not be sufficient 
 for %product%, as %product% or Rider might attempt to access feeds during analyses. This is relevant for ADO
 pipelines and private Azure-hosted NuGet feeds.
@@ -1065,6 +1088,8 @@ If you continue to experience credential issues, ensure you are running %product
 
 
 ## Explore analysis reports
+
+<link-summary>After analyzing your project, you can explore analysis reports.</link-summary>
 
 <tabs group="software">
     <tab title="JetBrains IDEs" group-key="ides" id="jvm-explore-results-ides">
@@ -1108,7 +1133,11 @@ If you continue to experience credential issues, ensure you are running %product
 ## Extend the configuration
 {id="dotnet-extend-configuration"}
 
+<link-summary>Using various features and techniques provided by %product%, you can extend its basic configuration.</link-summary>
+
 ### Adjusting the scope of analysis
+
+<link-summary>Learn how to adjust the scope of analysis for your project.</link-summary>
 
 <tabs group="linter-tabs">
         <tab group-key="linter-tabs-dotnet" title="%qd%">
@@ -1208,6 +1237,8 @@ If you continue to experience credential issues, ensure you are running %product
 ### Using EditorConfig
 {id="dotnet-extend-configuration-editorconfig"}
 
+<link-summary>You can use EditorConfig to maintain code styles for your project, and also configure code inspections from the .editorconfig files.</link-summary>
+
 <p>If you use <a href="https://www.jetbrains.com/help/resharper/Using_EditorConfig.html">EditorConfig</a> to
     maintain code styles for your project, you can also configure code inspections from
     <code>.editorconfig</code> files.</p>
@@ -1249,6 +1280,8 @@ If you continue to experience credential issues, ensure you are running %product
     just use the browser search to find the property for the desired inspection.</p>
 
 ### Enabling the baseline feature
+
+<link-summary>Learn how to enable the baseline feature for your .NET project.</link-summary>
 
 You can skip analysis for specific problems by using the [baseline](baseline.topic) feature. Information about a baseline is contained
 in a SARIF-formatted file.
@@ -1544,6 +1577,8 @@ in a SARIF-formatted file.
 
 ### Enabling the quality gate
 
+<link-summary>Learn how to enable quality gates for your .NET project.</link-summary>
+
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-dotnet" title="%qd%">
         <p>You can configure <a href="quality-gate.topic">quality gates</a> for the total number of project problems, 
@@ -1577,6 +1612,8 @@ in a SARIF-formatted file.
 </tabs>
 
 ### Analyzing pull requests
+
+<link-summary>Learn how to configure %product% for analyzing pull requests of your .NET project.</link-summary>
 
 You can analyze pull requests using the %dotnet% linter.
 
@@ -1666,6 +1703,8 @@ You can analyze pull requests using the %dotnet% linter.
 
 ## Usage statistics
 
+<link-summary>JetBrains can use third-party services to anonymously analyze the usage of the %product% features. You can disable it using the '--no-statistics=true' option.</link-summary>
+
 According to the [JetBrains EAP user agreement](https://www.jetbrains.com/legal/agreements/user_eap.html), we can use third-party services to analyze the 
 usage of our features to further improve the user experience. All data will be collected 
 [anonymously](https://www.jetbrains.com/company/privacy.html). You can disable statistics by using the 
@@ -1681,6 +1720,8 @@ docker run \
 
 ## Supported technologies and features
 {id="dotnet-feature-matrix"}
+
+<link-summary>The list of technologies and features supported by the %dotnet% and %dotnet-co% linters.</link-summary>
 
 <!-- These need to be compared for both linters because now it's not clear what is what -->
 

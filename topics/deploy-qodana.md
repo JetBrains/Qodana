@@ -8,6 +8,8 @@ This section provides information about system requirements and available deploy
 
 ## System requirements
 
+<link-summary>List of system requirements for deploying %product%.</link-summary>
+
 <table>
   <tr>
     <td>Requirement</td>
@@ -58,6 +60,8 @@ This section provides information about system requirements and available deploy
 
 ## Deployment modes
 
+<link-summary>You can deploy %product% either in native or in Docker modes.</link-summary>
+
 ### Native mode
 {id="deploy-qodana-native-mode"}
 
@@ -92,7 +96,11 @@ credentials, and resolve dependencies.
 ### Docker mode
 {id="deploy-qodana-container-mode"}
 
-%product% is also distributed across multiple Docker images listed in the table below:
+<link-summary>%product% supports Docker version 25.0.5 or later, as well as the latest version of the Podman engine.</link-summary>
+
+%product% supports Docker version 25.0.5 or later, as well as the latest version of the Podman engine.
+
+%product% is distributed across multiple Docker images listed in the table below:
 
 <table id="deploy-qodana-container-mode-table">
     <tr>
@@ -213,6 +221,8 @@ The table contains optional tags to let you pull pre-configured %product% images
   Where applicable, this tag requires the `-clangXX` and `-ruby3.X` tags to be configured.
 
 ## Deployment environments
+
+<link-summary>You can run %product% in IDEs, using the command-line interface, CI/CD pipelines, or as a Gradle plugin.</link-summary>
 
 You can run %product% using the following capabilities:
 
