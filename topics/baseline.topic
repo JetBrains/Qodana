@@ -18,11 +18,11 @@
     <!-- The last sentence from the paragraph can be deleted or extended -->
 
     <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
-        resolved problems. For example, you can configure and update a baseline for the <code>main</code> branch to
+        resolved problems. For example, you can configure and update the baseline for the <code>main</code> branch to
         monitor changes after merging pull or merge requests. Whenever necessary, you can update your baseline
         by generating a new <code>baseline.sarif.json</code> file and using it while running %product%.</p>
 
-    <p>Baseline is supported by all <a href="pricing.md">linters</a> and available under Community, Ultimate, and
+    <p>The baseline is supported by all <a href="pricing.md">linters</a> and available under Community, Ultimate, and
         Ultimate Plus licenses and their trial versions. To learn more details about licenses, visit the
         <a href="https://www.jetbrains.com/qodana/buy/?billing=yearly">Subscription Options and Pricing</a> page.
         You can also <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a>.
@@ -34,6 +34,8 @@
     <chapter title="How the baseline works">
 
         <link-summary>Learn how the baseline feature works.</link-summary>
+
+        <!-- The paragraphs below should be commented out once the default baseline is updated -->
 
         <p>If you run %instance% without the baseline, you will be able to see the problems detected at a current analysis.</p>
 
@@ -49,8 +51,10 @@
         as the <code>qodana.sarif.json</code> file, which can be helpful in specific cases.</p>-->
 
         <!-- First iteration -->
-        <!--<p>During the first analysis, %product% creates a baseline saved to the <code>qodana.sarif.json</code> file, and adds all found problems to that. Once done,
-                this file becomes a basis for comparing with later code states. After then, all subsequent analyses do not contribute to the baseline unless configured.</p>-->
+        <!--<p>During the first analysis, %product% creates a baseline saved to the <code>qodana.sarif.json</code> file, and moves all found problems to that file.
+            You can see the list of problems on the <ui-path>Baseline problems</ui-path> tab. Once done,
+                this file becomes a basis for comparing with later code states. </p>
+                <p>By default, subsequent analyses do not add new new problems to the baseline until you configure them to do so.</p>-->
     <!--<p>To update the baseline, you can add new problems to it or remove the existing ones as explained in the <a href="ui-overview.md/> section. This will update the <code>qodana.sarif.json</code> file accordingly.</p>-->
     <!--<p>You can run %product% using the baseline as shown in examples below:</p>-->
 
