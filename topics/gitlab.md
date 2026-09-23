@@ -20,7 +20,11 @@ section explains how you can run the %instance% Scan GitLab Pipeline [component]
 
 ## Before you start
 
+<link-summary>List of steps that you should take before running %product%.</link-summary>
+
 ### Qodana Cloud
+
+<link-summary>Learn how to generate a project token in %cloud%.</link-summary>
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -76,6 +80,10 @@ In the root directory of your project, save the `.gitlab-ci.yml` file. This file
 that will be used by GitLab CI/CD. 
 
 ## Argument notation
+
+<link-summary>Qodana supports the Shell-like notation for specifying arguments, where a space separates keys and values 
+and single and double quotes are used to enclose the values. This is the recommended method of specifying arguments 
+while configuring Qodana.</link-summary>
 
 <include from="lib_qd.topic" element-id="ci-cd-argument-notation-update"/>
 
@@ -200,6 +208,8 @@ In this snippet, `qodana-gitlab-ci` is the GitLab CI/CD component described on t
 
 ### Configure cache
 
+<link-summary>Learn how to configure and override the default cache settings.</link-summary>
+
 By default, caching is enabled in %product% with the following keys: 
 
 ```yaml
@@ -230,6 +240,8 @@ qodana:
 
 ### Override an operating system
 
+<link-summary>By default, %product% is configured for Linux. You can override an operating system using the 'os' keyword.</link-summary>
+
 > The description of each script is available on the [GitLab CI/CD website](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
 {style="tip"}
 
@@ -247,6 +259,8 @@ include:
 
 ## Report artifacts
 
+<link-summary>To collect Qodana reports as GitLab CI/CD artifacts, add the 'artifacts' configuration to your pipeline job.</link-summary>
+
 To collect Qodana reports as GitLab artifacts, add the <code>artifacts</code> configuration to your pipeline job:
 
 ```yaml
@@ -260,7 +274,9 @@ qodana_scan:
 
 ## Troubleshooting MR comments
 
-If %product% is not posting comments to your merge requests or [quick fixes](quick-fix.md) are not working, check the following:
+<link-summary>Learn how to troubleshoot merge request comments.</link-summary>
+
+If %product% is not posting comments to your merge requests or [Quick-Fixes](quick-fix.md) are not working, check the following:
 
 *   **Permissions**: Ensure <code>QODANA_GITLAB_TOKEN</code> has <code>api</code> and <code>write_repository</code> scopes.
 *   **Role**: The token holder must have enough permissions to comment on merge requests (`Maintainer` or `Developer` role).
@@ -269,7 +285,7 @@ If %product% is not posting comments to your merge requests or [quick fixes](qui
 
 ## Specific branches
 
-<link-summary>This section explains how you can tell %instance% what branches of your project to inspect.</link-summary>
+<link-summary>This section explains how you can tell %instance% what branches of your project to analyze.</link-summary>
 
 > To learn more about merge request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
 
@@ -305,6 +321,8 @@ The `rules` block of this configuration tells %product% what branches to inspect
 
 
 ## Quick-Fixes
+
+<link-summary>You can extend your GitLab CI/CD configuration by using the Quick-Fix feature.</link-summary>
 
 <include from="lib_qd.topic" element-id="ci-cd-feature-availability-quick-fix"/>
 
@@ -443,6 +461,8 @@ qodana:
 
 ## Qodana logs
 
+<link-summary>Explore how to make %product% produce log artifacts.</link-summary>
+
 Invoke `upload-result` and configure `after_script` to copy the results 
 into the project `.qodana/results` directory, and specify the `RUNNER_SCRIPT_TIMEOUT` variable with a value less than a pipeline timeout:
 
@@ -473,6 +493,8 @@ The details are available on the [GitLab CI/CD website](https://gitlab.com/gitla
 
 ## Configuration
 {id="gitlab-inputs-configuration"}
+
+<link-summary>The list of configuration options available for GitLab CI/CD</link-summary>
 
 > The description of all configuration options is available in our [repository](https://gitlab.com/qodana/qodana/-/blob/main/templates/qodana-gitlab-ci.yml).
 {style="tip"}

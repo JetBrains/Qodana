@@ -41,6 +41,8 @@ and Dockerfile are supported.
 
 ## Prerequisites
 
+<link-summary>Make sure that IntelliJ IDEA is installed and supports Java and Kotlin. If necessary, install required plugins. </link-summary>
+
 Start by verifying that [IntelliJ IDEA](https://www.jetbrains.com/idea/) is installed on your machine.
 
 Then, ensure that your version of IntelliJ IDEA supports the language for which you want to develop an inspection. Out of the box, 
@@ -55,6 +57,8 @@ Since all inspections are developed using the Kotlin language, you'll need to kn
 
 ## How FlexInspect works
 
+<link-summary>Explore how FlexInspect works by using '.inspection.kts' files.</link-summary>
+
 You write your inspections in Kotlin and store them in the `inspections` directory of your project as
 `.inspection.kts` files. Each `.inspection.kts` file contains Kotlin code that analyzes your code using the API provided 
 by the [Program Structure Interface](https://plugins.jetbrains.com/docs/intellij/psi.html)
@@ -62,6 +66,10 @@ or PSI. IntelliJ IDEA reads `.inspection.kts` files, compiles the inspection cod
 executes the compiled inspections. 
 
 ### Program Structure Interface (PSI)
+
+<link-summary>The PSI is an AST representation of your code corresponding to a source file's structure. 
+In the case of Java code, the PSI reflects the basic blocks of a Java file like package and import
+statements, class statements, method invocations, and other nodes.</link-summary>
 
 The PSI is an [AST](https://plugins.jetbrains.com/docs/intellij/uast.html) representation of your code corresponding to a
 source file's structure. In the case of Java code, the PSI reflects the basic blocks of a Java file like package and import
@@ -89,9 +97,13 @@ section of the documentation for more information about how to run global inspec
 
 ## How to start
 
+<link-summary>Learn how to create an example inspection using FlexInspect.</link-summary>
+
 This section shows how to create an example inspection that will analyze whether a Java class has a constructor method.
 
 ### Create an inspection file
+
+<link-summary>Learn how you can create a new '.inspection.kts' template file that will contain the inspection code.</link-summary>
 
 To create a new `.inspection.kts` template file, follow the procedure below.
 
@@ -120,6 +132,8 @@ develop your own inspection.
 
 ### Review the PSI tree of your code
 
+<link-summary>Follow the procedure to review the PSI tree of your code.</link-summary>
+
 <procedure>
 <step>In IntelliJ IDEA, open the file that you would like to analyze using your inspection. </step>
 <step>Navigate to <ui-path>Tools | View PSI Structure of Current File</ui-path>. Here, you can explore the PSI tree of 
@@ -134,6 +148,8 @@ for each method of a class.
 <img src="flexinspect-psi-tree.gif" width="881" alt="Reviewing a PSI tree of a file" border-effect="line"/>
 
 ### Create your inspection
+
+<link-summary>Study the example snippet containing the inspection code written in Kotlin.</link-summary>
 
 You can develop your inspection using the template that you've [already created](#Create+an+inspection+file). In this example, you can iterate 
 over all methods and use the `isConstructor()` method to check whether a class has a constructor method. 
@@ -194,6 +210,9 @@ inspection code and view the resultant debug message in your IDE.
 
 ### Test your inspection in the IDE
 
+<link-summary>After creating the inspection, you can see the compilation status on the toolbar in the upper part of the inspection file. 
+When you change the inspection code, you need to explicitly recompile the inspection using the recompile button.</link-summary>
+
 After creating the inspection, you can see the compilation status on the toolbar in the upper part of the inspection file. 
 When you change the inspection code, you need to explicitly recompile the inspection using the recompile button in the 
 left part of the toolbar or use the <shortcut>Alt+Shift+Enter</shortcut> (Windows) or <shortcut>⌥⇧↩</shortcut> (macOS) shortcut.  
@@ -207,6 +226,8 @@ supposed to highlight.
 <img src="flexinspect-test-inspection.gif" width="881" alt="Testing the inspection in IDE" border-effect="line"/>
 
 ### Run your custom inspection using Qodana
+
+<link-summary>After you have developed an inspection, you can use it for %product% analyses.</link-summary>
 
 <note>
 Before you can run your inspection, you'll first need to select a suitable %product% <a href="linters.md">linter</a>. 

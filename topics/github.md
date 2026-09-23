@@ -1,6 +1,7 @@
 [//]: # (title: GitHub Actions)
 
 <link-summary>The Qodana Scan GitHub action allows you to run Qodana in a GitHub repository.</link-summary>
+
 <var name="pull-requests" value="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests"/>
 <var name="branch-protection-rule" value="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"/>
 
@@ -10,11 +11,17 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 
 ## Prepare your project
 
+<link-summary>List of steps that you should take before running %product%.</link-summary>
+
 ### Qodana Cloud
+
+<link-summary>Learn how to generate a project token in %cloud%.</link-summary>
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
 #### Qodana Cloud GitHub App
+
+<link-summary>%cloud% requires integration with your GitHub organization or account.</link-summary>
 
 During the project setup, you will receive a notification to install `%cloud%` GitHub App.
 
@@ -22,9 +29,15 @@ During the project setup, you will receive a notification to install `%cloud%` G
 
 ### Argument notation
 
+<link-summary>Qodana supports the Shell-like notation for specifying arguments, where a space separates keys and values 
+and single and double quotes are used to enclose the values. This is the recommended method of specifying arguments 
+while configuring Qodana.</link-summary>
+
 <include from="lib_qd.topic" element-id="ci-cd-argument-notation-update"/>
 
 ### Basic configuration
+
+<link-summary>Example of a basic configuration for the Qodana Scan GitHub action.</link-summary>
 
 <anchor name="basic-configuration"/>
 
@@ -43,6 +56,8 @@ We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)
 
 ## Quick-Fixes
+
+<link-summary>You can extend your GitHub Action configuration by using the Quick-Fix feature.</link-summary>
 
 <include from="lib_qd.topic" element-id="ci-cd-feature-availability-quick-fix"/>
 
@@ -118,6 +133,8 @@ This is an example configuration snippet containing all options:
 
 ## GitHub code scanning
 
+<link-summary>You can set up GitHub code scanning for your project using %product%.</link-summary>
+
 You can set
 up [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
 for your project using Qodana. To do this, add these lines to the `code_quality.yml` workflow file right below
@@ -137,6 +154,8 @@ file using the `sarif_file` key.
 > %product% side before submitting analysis reports to GitHub code analysis, see the [](#Baseline+and+quality+gate) section for details.
 
 ## Pull requests
+
+<link-summary>Explore how you can extend the GitHub configuration using pull requests.</link-summary>
 
 > To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
 
@@ -193,6 +212,8 @@ To do this, create a [branch protection rule](%branch-protection-rule%) as descr
 <anchor name="quality-gate-and-baseline"/>
 
 ## Baseline and quality gate
+
+<link-summary>Extend your GitHub configuration using the baseline and quality gate features.</link-summary>
 
 ### Baseline
 
@@ -302,6 +323,8 @@ You can set up a Qodana workflow badge in your repository, to do it, follow thes
 </procedure>
 
 ## Qodana logs
+
+<link-summary>Learn how you can tell %product% to produce a 'qodana-report' artifact containing log entries.</link-summary>
 
 In the `.github/workflows/code_quality.yml` file, set `upload-result` to `true`:
 
