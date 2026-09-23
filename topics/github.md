@@ -16,19 +16,19 @@ The [Qodana Scan GitHub action](https://github.com/marketplace/actions/qodana-sc
 
 #### Qodana Cloud GitHub App
 
-During the project setup, you will receive a notification to install the 
-[`%cloud%`](https://github.com/apps/qodana-cloud) GitHub App on your GitHub account or organization.  This App manages the authorization flow to GitHub repositories.
+While setting up your [project](cloud-projects.topic) in %cloud%, after you choose GitHub Actions you will be redirected
+to the GitHub sign in page.
 
-<img src="github-qodana-cloud-github-app-step-1.png" alt="Installing Qodana Cloud GitHub App" width="706" border-effect="line"/>
+<img src="github-qodana-cloud-github-app-step-1.png" alt="Signing in to GitHub" width="706" border-effect="line"/>
 
-If you need to connect more than one account or organization, click the **Add another organization from GitHub** link.
-After clicking the **Install Qodana App on your account** button, you will be redirected to GitHub and prompted to choose the account or
-organization where the App should be installed. 
+You should sign in to GitHub, which will then redirect you to the [`%cloud%`](https://github.com/apps/qodana-cloud) GitHub App installation page.
+This application integrates GitHub with %cloud%.
+Here, you should choose a GitHub account or organization that the %cloud% GitHub App should be integrated with. 
 
 <img src="github-qodana-cloud-github-app-step-2.png" alt="Installing Qodana Cloud GitHub App" width="706" border-effect="line"/>
 
-After installing the App, `%cloud%` fetches the repositories
-available for analysis, and you should configure the repositories that `Qodana Cloud` should have access to. 
+As a next step, the `%cloud%` GitHub App fetches the repositories
+available for analysis, and you should configure the repositories that %cloud% should have access to. 
 It then makes a single push of the following data to your repository:
 
 * GitHub Actions <a href="github.md" anchor="Basic+configuration">configuration file</a>
@@ -39,12 +39,12 @@ Once done, your GitHub user is authorized as part of the installation. Other mem
 the same organization who did not perform the installation are prompted to authorize access to GitHub the first time they
 use the integration.
 
-If you need to connect more than one account or organization, use the **Add another organization from GitHub** action and
-repeat the account selection and installation steps.
+<!--If you need to connect more than one account or organization, use the **Add another organization from GitHub** action and
+repeat the account selection and installation steps.-->
 
-<p>If you do not have access to the repository that you intend to analyze, request the necessary access
-    and wait for approval before proceeding. In other cases, you will receive instructions and
-configuration snippets that will help you start %product% in your project.</p>
+If you do not have access to the repository that you intend to analyze, request the necessary access
+and wait for approval before proceeding. In other cases, you will receive instructions and
+configuration snippets that will help you start %product% in your project.
 
 ### Argument notation
 
