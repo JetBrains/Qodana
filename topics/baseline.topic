@@ -45,10 +45,27 @@
         existing problems.</p>
 
         <!-- Cloud baseline -->
-    <!--<p>During the first analysis, %product% by default creates a baseline containing all found problems. The baseline is then
-        becomes available in the **Baseline problems** tab of the %cloud% UI, and %product% uses it during all subsequent analyses.
-        If necessary, you can download your baseline
-        as the <code>qodana.sarif.json</code> file, which can be helpful in specific cases.</p>-->
+        <!--<chapter title="Cloud and file baseline">
+    <!-- <p>During the first analysis of a new project, %product% puts all problems to the %cloud% baseline available for
+            overview on the <a href="ui-overview.md" anchor="ui-overview-baseline"><ui-path>Baseline problems</ui-path> tab of the %cloud% UI.
+            On this tab, you can view and configure the baseline for all subsequent analyses, as well as promote/demote problems between
+            the <a href="ui-overview.md" anchor="ui-overview-actual-problems">current problems</a>.
+         For all subsequent analyses, %product% uses the previous baseline configuration.
+         </p>
+         <p>If you are a user of the <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-editor"><code>Editor</code></a> or
+         <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-admin"><code>Admin</code></a> roles in %cloud%, you can enable or disable the %cloud% baseline using the <ui-path>Auto-update</ui-path> toggle of the
+         <ui-path>Baseline problems</ui-path> tab.</p>
+         <p> Here, the image of the toggle can be added </p>
+        <p>If you wish to save your baseline in your VCS, as well as track and approve the changes to the baseline manually, you can use the file baseline instead.
+        In this case, download the %cloud% baseline saved in the <code>qodana.sarif.json</code> file. Configure the file baseline usage by setting
+        the <a href="configuration-reference.md" anchor="docker-config-reference-baseline"><code>--baseline</code></a> option as shown below.
+        Using the file baseline overrides the <ui-path>Auto-update</ui-path> toggle configuration in all cases.</p>
+        <p>To switch %product% from the file to the %cloud% baseline, enable the
+        <ui-path>Auto-update</ui-path> toggle in the %cloud% UI, configure the <code>--baseline</code> option in your %product% configuration, and then run %product%. This will update the %cloud% baseline.
+        After then, disable the file baseline by omitting the <code>--baseline</code> option in your %product% configuration.
+        </p>
+        </chapter>
+        -->
 
         <!-- First iteration -->
         <!--<p>During the first analysis, %product% creates a baseline saved to the <code>qodana.sarif.json</code> file, and moves all found problems to that file.

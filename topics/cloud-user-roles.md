@@ -117,6 +117,13 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td>✔</td>
                 <td>✔</td>
             </tr>
+            <!--<tr>
+                <td>Baseline</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td></td>
+            </tr>-->
         </table>
     </tab>
     <tab title="Admin" group-key="admin" id="cloud-user-team-roles-admin">
@@ -211,6 +218,14 @@ Here is a detailed description of all team-level roles and their permissions.
                 <td></td>
                 <td>✔</td>
             </tr>
+            <!--<tr>
+                <td>Baseline</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td></td>
+                <td></td>
+            </tr>-->
         </table>
     </tab>
 </tabs>
