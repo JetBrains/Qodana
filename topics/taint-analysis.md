@@ -27,7 +27,7 @@ The taint analysis feature runs locally and does not require any external depend
 
 ## How taint analysis works
 
-<link-summary>Learn how taint analysis works.</link-summary>
+<link-summary>Learn how the taint analysis feature works.</link-summary>
 
 Tainted data is called a **source**, while a vulnerable function that may contain a source is called a **sink**.
 
@@ -42,12 +42,18 @@ the taint status of the arguments is transferred to the return value.
 
 ### Default behavior in IntelliJ IDEA
 
+<link-summary>If there is no specific configuration available for a library function call, a projection will be applied by default. 
+This means the taint status of the function arguments will be passed to the return value, maintaining the integrity of the taint analysis.
+</link-summary>
+
 If there is no specific configuration available for a library function call, a projection will be applied by default. 
 This means the taint status of the function arguments will be passed to the return value, maintaining the integrity of the taint analysis.
 
 To override the default behavior, you can apply [custom configurations](#Configure+function+calls) to specific function calls. 
 
 ### %dotnet%
+
+<link-summary>%product% supports rules compatible with Opengrep for configuring the taint analysis.</link-summary>
 
 Starting from version 2026.2, the [%dotnet%](dotnet.md) linter supports rules compatible with [Opengrep](https://www.opengrep.dev/) 
 for configuring taint analysis. It already includes a set of built-in C#, JavaScript, and TypeScript rules that you can 
@@ -65,6 +71,8 @@ This section explains how you can run taint analysis using IntelliJ IDEA and %pr
 ### IntelliJ IDEA
 {id="ta-deploy-idea"}
 
+<link-summary>Running the taint analysis in IntelliJ IDEA requires the 'Security Analysis by Qodana' plugin.</link-summary>
+
 Before you run taint analysis in your IDE, install the [**Security Analysis by Qodana**](%plugin-url%) plugin.
 To do it, in IntelliJ IDEA navigate to the **Problems** tool window and click the **Security Analysis** tab. On this tab, 
 click the **Install plugin** button.  
@@ -76,6 +84,8 @@ plugin.
 
 ### Qodana linters
 {id="ta-deploy-other"}
+
+<link-summary>Taint analysis is available for the %php% and %jvm% linters. The %dotnet% linter supports Opengrep rules.</link-summary>
 
 Taint analysis is available for the [%php%](php.md) and [%jvm%](jvm.md) linters once you invoke the
 `qodana.recommended` [inspection profile](inspection-profiles.md#inspection-profiles-existing-profiles):
@@ -94,6 +104,8 @@ For the [%dotnet%](dotnet.md) linter, taint analysis is enabled by default.
 
 ### IntelliJ IDEA
 {id="ta-analysis-idea"}
+
+<link-summary>Explore how you can run taint analysis in IntelliJ IDEA.</link-summary>
 
 <procedure>
 <step>
@@ -141,6 +153,8 @@ defined all necessary sources, sinks, and sanitizers, as explained in the [](#Co
 
 #### Explore results
 
+<link-summary>In your IDE, you can explore all steps of a taint trace.</link-summary>
+
 In your IDE, point to a suspicious code fragment and then click the <ui-path>Show taint ... trace</ui-path> link to open 
 the **Security Analysis** tab.
 
@@ -154,6 +168,12 @@ to the sink.
 
 
 #### Configure function calls
+
+<link-summary>
+The analysis of function calls is carried out using the default configuration in case a function call does 
+not match any existing configuration. In this case, the taint analysis builds a projection for this function. The default
+configuration already covers basic sources, sinks, and sanitizers.
+</link-summary>
 
 The analysis of function calls is carried out using the default configuration in case a function call does 
 not match any existing configuration. In this case, the taint analysis builds a projection for this function. The default
@@ -208,6 +228,8 @@ propagation of unsafe data:</p>
 
 #### Configure the Security Analysis tab
 
+<link-summary>Learn how to configure the 'Security Analysis' tab.</link-summary>
+
 Configure the **Security Analysis** tab by navigating to **File | Settings | Advanced settings**.
 Here, find the **Security Analysis** section and then configure the **Show Problem Tab** checkbox.  
 
@@ -259,10 +281,17 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
 
 #### Qodana for .NET
 
+<link-summary>Explore how to override the default configuration of the taint analysis feature for the %dotnet% linter.</link-summary>
+
 Taint analysis is by default enabled for the %dotnet% linter. You can override the default behavior using 
 capabilities explained below.
 
 ##### Set the number of traces
+
+<link-summary>
+By default, taint analysis is configured for monitoring one hundred (100) traces at a time. You can override this
+using the 'dfa.analysis.rml.max.traces.count=&lt;number&gt;' property.
+</link-summary>
 
 By default, taint analysis is configured for monitoring one hundred (100) traces at a time. You can override this
 using the `dfa.analysis.rml.max.traces.count=<number>` property, for example:
@@ -370,6 +399,8 @@ using the `dfa.analysis.rml.max.traces.count=<number>` property, for example:
 
 ##### Disable bundled rules
 
+<link-summary>You can disable the bundled rules for the %dotnet% linter by configuring the 'intellij.opengrep.bundled.rules.enabled' property.</link-summary>
+
 You can disable the bundled rules by configuring the `intellij.opengrep.bundled.rules.enabled` property:
 
 <tabs group="cli-settings">
@@ -474,15 +505,22 @@ You can disable the bundled rules by configuring the `intellij.opengrep.bundled.
 
 ##### Use your own rules
 
+<link-summary>For the %dotnet% linter, you can apply your own rules by saving rule files to the '.qodana/opengrep' directory
+of your project root. </link-summary>
+
 In addition to the bundled rules, you can apply your own rules by saving rule files to the `.qodana/opengrep` directory
 of your project root.
 
 ## Qodana for .NET list of rules
 {id="ta-dotnet-rules-list"}
 
+<link-summary>The list of Opengrep rules for the %dotnet% linter.</link-summary>
+
 The repository containing rules is available on the [GitHub website](https://github.com/qodana/opengrep-sast-rules).
 
 ### OWASP Top 2017 Coverage Matrix
+
+<link-summary>The list of OWASP Top 2017 Coverage Matrix rules for the %dotnet% linter.</link-summary>
 
 | Category | C# | JavaScript | TypeScript |
 | :--- | :---: | :---: | :---: |
@@ -501,6 +539,8 @@ Information about these rules is available on the [OWASP website](https://owasp.
 
 
 ### OWASP Top 2021 Coverage Matrix
+
+<link-summary>The list of OWASP Top 2021 Coverage Matrix rules for the %dotnet% linter.</link-summary>
 
 | Category | csharp | javascript | typescript |
 | :--- | :---: | :---: | :---: |

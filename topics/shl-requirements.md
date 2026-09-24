@@ -1,10 +1,16 @@
 # Requirements
 
+<link-summary>Requirements for the %premlite% version of %product%.</link-summary>
+
 ## Qodana license
+
+<link-summary>Reach out to our support team to request a license that can be used by %premlite%.</link-summary>
 
 Reach out to our support team to request a license that can be used by %premlite%.
 
 ## System and network requirements
+
+<link-summary>System and network requirements for the %premlite% version of %product%.</link-summary>
 
 ### Kubernetes version
 
@@ -209,6 +215,8 @@ Below are the requirements grouped in categories.
 </tabs>
 
 ### Docker version
+
+<link-summary>System and network requirements for the Docker version of %premlite%.</link-summary>
 
 Below are the requirements grouped in categories.
 
