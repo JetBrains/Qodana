@@ -137,6 +137,8 @@
 
     <chapter title="Run license audit" id="license-audit-running-feature">
 
+        <link-summary>Explore how you can run the license audit feature.</link-summary>
+
             <note>While configuring <a href="configuration-reference.md" anchor="exclude-inspection">analysis scopes</a>, make sure that
             the file containing the build configuration is included in the scope.</note>
 
@@ -179,6 +181,9 @@
         </chapter>-->
 
         <chapter title="Ignore dependencies" id="license-audit-ignoring-dependencies">
+
+            <link-summary>Learn how to ignore dependencies.</link-summary>
+
             <p>In the <a href="configuration-reference.md">configuration file</a>, you can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
             <code-block lang="yaml">
                 dependencyIgnores:
@@ -188,6 +193,9 @@
         </chapter>
 
         <chapter title="Allow or prohibit dependency licenses" id="license-allow-prohibit-licenses">
+
+            <link-summary>Learn how to allow or prohibit dependency licenses.</link-summary>
+
             <p>In the <a href="configuration-reference.md">configuration file</a>, you can override the license matrix and specify the list of
                 dependency licenses that are allowed or prohibited for a specific project license.</p>
             <p>In this snippet, the <code>keys</code> key accepts application licenses, and the <code>allowed</code> and
@@ -217,6 +225,9 @@
         </chapter>
 
         <chapter title="Override a dependency license" id="license-audit-override-license">
+
+            <link-summary>Learn how to override a dependency license.</link-summary>
+
             <p>In the <a href="configuration-reference.md">configuration file</a>, you can override a dependency license identifier.
                 This can be useful when a dependency is dual-licensed,
                 and you want to omit some license, or when the license name cannot be detected from the dependency
@@ -240,6 +251,9 @@
         </chapter>
 
         <chapter title="Create custom dependencies" id="license-audit-custom-dependencies">
+
+            <link-summary>Learn how to create custom dependencies.</link-summary>
+
             <p>If you want to include the dependency that should be mentioned in the report but is impossible to detect
                 from the project sources, in the <a href="configuration-reference.md">configuration file</a> you can use the
                 <code>customDependencies</code> key to specify it:</p>
@@ -257,6 +271,9 @@
     </chapter>
 
     <chapter title="Verify data" id="license-audit-verifying-data">
+
+        <link-summary>After running the license audit feature, you can view license audit results on the 'License audit' tab.</link-summary>
+
         <include from="lib_qd.topic" element-id="license-audit-tab" use-filter="license-audit,empty"/>
     </chapter>
 

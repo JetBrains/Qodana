@@ -1,5 +1,7 @@
 # Frequently-used terms
 
+<link-summary>This section lists common terms related to %product% in alphabetical order.</link-summary>
+
 This section lists common terms related to %product% in alphabetical order.
 
 **A**

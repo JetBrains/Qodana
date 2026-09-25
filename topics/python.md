@@ -117,7 +117,11 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="python-before-you-start"}
 
+<link-summary>Learn the steps that you should take before running %product%.</link-summary>
+
 ### Install dependencies
+
+<link-summary>Learn how you can install Python project dependencies before running %product%.</link-summary>
 
 If your project has external `pip` dependencies, set them up using the [`bootstrap`](configuration-reference.md#Run+custom+commands) 
 key in the [`qodana.yaml`](configuration-reference.md) file. For example, if your project dependencies are specified 
@@ -129,31 +133,47 @@ bootstrap: pip install -r requirements.txt
 
 ### Qodana Cloud
 
+<link-summary>Before running %product%, you should generate a project token using %cloud%.</link-summary>
+
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,python"/>
 
 ### Prepare your software
+
+<link-summary>Before running %product%, you should prepare the software environment.</link-summary>
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,python"/>
 
 ## Run Qodana
 
+<link-summary>Learn how to run %product% on your Python projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,python,non-ruby,native"/>
 
 ## Explore analysis reports
+
+<link-summary>After analyzing your project, you can explore analysis reports.</link-summary>
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,python"/>
 
 ## Extend Qodana configuration
 
+<link-summary>Using various features and approaches provided by %product%, you can extend its basic configuration.</link-summary>
+
 ### Adjusting the scope of analysis
+
+<link-summary>Learn how to adjust the scope of analysis for your project.</link-summary>
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
 ### Enabling the baseline feature
 
+<link-summary>Learn how to enable the baseline feature for your Python projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,python"></include>
 
 ### Enabling the quality gate
+
+<link-summary>Learn how to enable quality gates for your Python projects.</link-summary>
 
 <tabs group="linter-tabs">
     <tab group-key="linter-tabs-dotnet" title="%qd%">
@@ -194,9 +214,13 @@ bootstrap: pip install -r requirements.txt
 
 ### Analyzing pull requests
 
+<link-summary>Learn how to configure %product% for analyzing pull requests to your Python projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,python,native"/>
 
 ### Overriding the Python interpreter
+
+<link-summary>You can tell the `%python-linter%` and `%python-co-linter%` linters to use a different version of the Python interpreter.</link-summary>
 
 You can tell the `%python-linter%` and `%python-co-linter%` linters to use a different version of the Python interpreter.
 To do this, follow the instructions below.
@@ -224,6 +248,8 @@ bootstrap: |
 
 ## Supported technologies and features
 {id="python-feature-matrix"}
+
+<link-summary>The list of technologies and features supported by the %python% and %python-co% linters.</link-summary>
 
 This table contains the list of technologies and %product% [features](features.topic) supported by both linters.
 

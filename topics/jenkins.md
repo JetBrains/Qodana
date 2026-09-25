@@ -19,7 +19,11 @@ including building, testing, and deploying software. This section explains how y
 
 ## Before you start
 
+<link-summary>Learn the steps that you should take before running %product%.</link-summary>
+
 ### Qodana Cloud
+
+<link-summary>Before running %product%, you should generate a project token using %cloud%.</link-summary>
 
 <include from="lib_qd.topic" element-id="cicd-cloud-intro"/>
 
@@ -91,7 +95,7 @@ you would like to configure %instance% with like the [quality gate and baseline]
 
 ## Analyze specific branches
 
-<link-summary>Using the `when` block, you can tell %instance% which branches of your project to analyze.</link-summary>
+<link-summary>Using the 'when' block, you can tell %instance% which branches of your project to analyze.</link-summary>
 
 > To learn more about pull request analysis, see the [](inspect-your-code.md#Incremental+analysis) chapter.
 
@@ -130,8 +134,8 @@ of the Jenkins documentation.
 
 ## Quality gate and baseline
 
-<link-summary>You can use the quality gate and baseline features by invoking the --fail-threshold and 
---baseline path/to/qodana.sarif.json options specified in the `steps` block.</link-summary>
+<link-summary>You can use the quality gate and baseline features by invoking the '--fail-threshold' and 
+'--baseline path/to/qodana.sarif.json' options specified in the 'steps' block.</link-summary>
 
 This configuration invokes the [quality gate](quality-gate.topic) and [baseline](baseline.topic) features using the 
 `--fail-threshold <number>` and `--baseline <path/to/qodana.sarif.json>` lines specified in the `steps` block.

@@ -61,8 +61,9 @@
             </note>
             <p>The project setup uses information from your JetBrains account, which includes licenses and companies.</p>
             <chapter title="GitHub Actions" id="quickstart-prerequisites-set-up-project-in-qodana-cloud-github-actions">
-                <link-summary>Learn how to start running the Qodana App.</link-summary>
-            <p>If you plan to run the <a href="github.md">Qodana Scan</a> GitHub action on a GitHub-hosted repository, you
+                <link-summary>Learn how to install the %cloud% GitHub App.</link-summary>
+                <include from="github.md" element-id="github-qodana-cloud-github-app"/>
+            <!--<p>If you plan to run the <a href="github.md">Qodana Scan</a> GitHub action on a GitHub-hosted repository, you
                 will need to install <code>%product% App</code> during the project setup. </p>
                 <snippet id="for-github-page">
                 <img src="github-app-authorize.png" width="706" alt="Authorize Qodana GitHub App" border-effect="line"/>
@@ -76,7 +77,7 @@
                 <p>If you do not have access to the repository that you intend to analyze, request the necessary access
                     and wait for approval before proceeding. In other cases, you will receive instructions and
                 configuration snippets that will help you start %product% in your project.</p>
-                </snippet>
+                </snippet>-->
             </chapter>
             <chapter title="Global configurations" id="global-configurations">
                 <link-summary>Learn how to choose a global configuration for your analyses.</link-summary>

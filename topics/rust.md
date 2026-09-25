@@ -80,7 +80,11 @@ Your feedback is very welcome in our
 ## Before you start
 {id="php-before-you-start"}
 
+<link-summary>Learn the steps that you should take before running %product%.</link-summary>
+
 ### Install project dependencies
+
+<link-summary>Learn how you can install Rust project dependencies before running %product%.</link-summary>
 
 In case a project has external dependencies, you can set them up using the `bootstrap` key of your [YAML configuration](configuration-reference.md#Run+custom+commands),
 for example:
@@ -92,45 +96,67 @@ The command will be automatically executed before the analysis.
 
 ### %cloud%
 
+<link-summary>Before running %product%, you should generate a project token using %cloud%.</link-summary>
+
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>
 
 ### Prepare your software
 
+<link-summary>Before running %product%, you should prepare the software environment.</link-summary>
+
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
 ## Run Qodana
+
+<link-summary>Learn how to run %product% on your Rust projects.</link-summary>
 
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,ruby"/>
 <include from="lib_qd.topic" element-id="run-qodana-container-mode-config-examples" use-filter="empty,generic"/>
 
 ## Explore analysis reports
 
+<link-summary>After analyzing your project, you can explore analysis reports.</link-summary>
+
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,php"/>
 
 ## Extend Qodana configuration
 
+<link-summary>Using various features and approaches provided by %product%, you can extend its basic configuration.</link-summary>
+
 ### Adjusting the scope of analysis
+
+<link-summary>Learn how to adjust the scope of analysis for your project.</link-summary>
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
 ### Enabling the baseline feature
 
+<link-summary>Learn how to enable the baseline feature for your Rust projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,php"/>
 
 ### Enabling the quality gate
+
+<link-summary>Learn how to enable quality gates for your Rust projects.</link-summary>
 
 <include from="lib_qd.topic" element-id="enabling-quality-gate"/>
 
 ### Analyzing pull requests
 
+<link-summary>Learn how to configure %product% for analyzing pull requests to your Rust projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,generic,golang"/>
 
 ### Setting up configuration timeout
+
+<link-summary>Using the 'qd.rust.configuration.timeout.minutes' property, you can set up the configuration stage timeout.</link-summary>
 
 <include from="lib_qd.topic" element-id="configuration-timeout-cpp-rust" use-filter="empty,rust"/>
 
 ## Supported technologies and features
 {id="rust-feature-matrix"}
+
+<link-summary>The list of technologies and features supported by the %rust% linter.</link-summary>
 
 The %qd% linter provides inspections for the following technologies.
 

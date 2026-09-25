@@ -261,6 +261,8 @@ This snippet contains the following keys:
 
 ### profile
 
+<link-summary>Description of the 'profile' node.</link-summary>
+
 ```yaml
 profile:
   base: 
@@ -372,6 +374,8 @@ This sample contains the following elements:
 ##### groups.groupId
 {id="groups-groupid"}
 
+<link-summary>Unique group identifier.</link-summary>
+
 Unique group identifier.
 
 ```yaml
@@ -384,6 +388,8 @@ laid out in the current file.
 
 ##### groups.inspections
 {id="groups-inspections"}
+
+<link-summary>The list of inspections included in the group.</link-summary>
 
 The list of inspections included in the group.
 
@@ -467,6 +473,8 @@ This sample contains several elements:
 
 ### imports
 
+<link-summary>Configure the list of imported profiles relative to the project root.</link-summary>
+
 Configure the list of imported profiles relative to the project root. This feature is useful when you need to merge 
 specific profile configurations and then adjust the result to meet your requirements, As an example, see 
 the [](global-configuration.md#Merging+configurations) section.
@@ -486,6 +494,8 @@ File contents are included in the order of appearance, thus becoming part of you
 of the included files are used prior to the settings specified in your custom profile.
 
 #### Example of import
+
+<link-summary>Example of import for two profile files.</link-summary>
 
 Suppose, you have the `foo.yaml` and `bar.yaml` profiles.
 
@@ -536,9 +546,13 @@ inspections:
 
 ### Configuration examples
 
+<link-summary>Here you can find several examples of profile configuration.</link-summary>
+
 Here you can find several examples of profile configuration.
 
 #### Exclude inspection
+
+<link-summary>Example of inspection exclude for the %php% linter.</link-summary>
 
 This lets you exclude the `PhpDeprecationInspection` inspection available in the [%php%](php.md) linter:
 
@@ -571,6 +585,8 @@ profile:
 
 #### Ignore paths
 
+<link-summary>The 'ignore' key lets you ignore specific scopes and paths that match globe patterns.</link-summary>
+
 The `ignore` key lets you ignore specific [scopes](%idea-scopes%) and paths that match globe patterns.
 
 ```yaml
@@ -585,6 +601,8 @@ profile:
 ```
 
 #### Create profile
+
+<link-summary>Using 'base', you can define a profile that your custom profile should be based on.</link-summary>
 
 Using `base`, this configuration defines the empty profile, and then it includes only the `Java/Data flow`
 inspection group from the [Qodana for JVM](jvm.md) linter.
@@ -620,6 +638,8 @@ profile:
 
 #### Override profile
 
+<link-summary>Explore the example of how to override the existing %product% profile.</link-summary>
+
 You can exclude inspection categories from the [`qodana.starter`](%qodana.starter%) profile
 that are not related to the [Qodana for .NET](dotnet.md) linter.
 
@@ -653,6 +673,8 @@ profile:
 #### Filter by severity
 {id="custom-profiles-filter-by-severity"}
 
+<link-summary>Explore how to filter inspections by severities.</link-summary>
+
 This sample includes all inspections with the `WEAK WARNING` severity level while inspecting Java code:
 
 ```yaml
@@ -670,6 +692,8 @@ profile:
 
 #### Override severity
 
+<link-summary>You can override the severity levels for existing inspections.</link-summary>
+
 You can override the severity levels for existing inspections. Here’s how you can assign the `WARNING` severity level to
 the `JavadocReference` inspection:
 
@@ -686,6 +710,8 @@ profile:
 
 #### Override options
 {id="custom-profiles-examples-inspection-options"}
+
+<link-summary>Specific inspections offer configurable options that you can customize for your profile.</link-summary>
 
 Specific [inspections](https://jetbrains.com/help/inspectopedia) offer configurable options.
 For example, the [`JvmCoverageInspection`](%jvmcoverageinspection%) inspection offers the `classThreshold`,
@@ -727,6 +753,8 @@ profile:
 
 ### Custom XML profiles
 
+<link-summary>You can create XML-formatted inspection profiles using your IDE.</link-summary>
+
 You can create XML-formatted inspection profiles using your IDE. For example, for IntelliJ IDEA this is explained
 on the [Configure profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html) page.  After you create a profile, you can [export](https://www.jetbrains.com/help/idea/customizing-profiles.html#export-and-import-a-profile) it to a file.
 
@@ -740,6 +768,8 @@ To run %instance% with the custom profile, you can follow the recommendations fr
 match the name of the containing file. The actual name is stored as the `%\profileName%` value in the profile file.
 
 #### Specify SQL dialect
+
+<link-summary>To analyze SQL code, you should enable SQL-related inspections and specify an SQL dialect that you would like to analyze.</link-summary>
 
 <p>To analyze SQL code, enabling SQL-related
     <a href="configuration-reference.md" anchor="Including+inspections">inspections</a> is not enough.
@@ -760,6 +790,9 @@ of the <ui-path>Settings</ui-path>, expand either the <ui-path>Global SQL Dialec
 
 
 ### Use your profile
+
+<link-summary>A YAML configuration serves as a universal %product% configuration method. Here, you can configure once and
+then reuse it for running with Docker, GitHub, JetBrains IDEs, or any other software currently supported by %product%.</link-summary>
 
 <p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% 
 using the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, 
@@ -864,6 +897,8 @@ The following examples show how you can invoke your custom profiles using the
 </tabs>
 
 ## Order of resolving a profile
+
+<link-summary>The order of resolving profile files.</link-summary>
 
 %instance% checks the configuration parameters for resolving the inspection profile in this order:
 

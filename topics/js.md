@@ -71,11 +71,14 @@ JavaScript and TypeScript projects, you can use the %qd% linter with the followi
 
 To see the list of supported technologies and features, you can navigate to the [](#js-feature-matrix) chapter of this section.
 
-
 ## Before you start
 {id="js-before-you-start"}
 
+<link-summary>Learn the steps that you should take before running %product%.</link-summary>
+
 ### Install project dependencies
+
+<link-summary>Learn how you can install JavaScript and TypeScript project dependencies before running %product%.</link-summary>
 
 For a basic JavaScript project that has no external dependencies, no preliminary steps are required.
 
@@ -90,6 +93,8 @@ The command will be automatically executed before the analysis. You can use the 
 
 ### Enable ESLint
 
+<link-summary>ESLint is widely used in JavaScript projects. You can enable it in the YAML configuration of %product%.</link-summary>
+
 ESLint is widely used in JavaScript projects. You can enable it using the `qodana.yaml` file:
 
 ```yaml
@@ -99,40 +104,60 @@ include:
 
 ### Qodana Cloud
 
+<link-summary>Before running %product%, you should generate a project token using %cloud%.</link-summary>
+
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>
 
 ### Prepare your software
+
+<link-summary>Before running %product%, you should prepare the software environment.</link-summary>
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
 ## Run Qodana
 
+<link-summary>Learn how to run %product% on your JavaScript and TypeScript projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,js,native,non-ruby"/>
 
 ## Explore analysis reports
+
+<link-summary>After analyzing your project, you can explore analysis reports.</link-summary>
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,js"/>
 
 ## Extend Qodana configuration
 
+<link-summary>Using various features and approaches provided by %product%, you can extend its basic configuration.</link-summary>
+
 ### Adjusting the scope of analysis
+
+<link-summary>Learn how to adjust the scope of analysis for your project.</link-summary>
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
 ### Enabling the baseline feature
 
+<link-summary>Learn how to enable the baseline feature for your JavaScript and TypeScript projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,js,native"/>
 
 ### Enabling the quality gate
+
+<link-summary>Learn how to enable quality gates for your JavaScript and TypeScript projects.</link-summary>
 
 <include from="lib_qd.topic" element-id="enabling-quality-gate"/>
 
 ### Analyzing pull requests
 
+<link-summary>Learn how to configure %product% for analyzing pull requests to your JavaScript and TypeScript projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,js,native"/>
 
 ## Supported technologies and features
 {id="js-feature-matrix"}
+
+<link-summary>The list of technologies and features supported by the %js% linter.</link-summary>
 
 %qd% provides inspections for the following technologies.
 

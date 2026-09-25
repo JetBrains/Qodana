@@ -1,5 +1,8 @@
 # Running behind a proxy server
 
+<link-summary>Depending on your needs, you can run %product% behind a proxy server using an existing %product% Docker image,
+    or create a Docker image from scratch.</link-summary>
+
 <p>Depending on your needs, you can run %product% behind a proxy server using an existing %product% Docker image,
     or create a Docker image from scratch.</p>
 <tabs>

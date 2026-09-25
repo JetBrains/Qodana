@@ -188,15 +188,23 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="jvm-before-you-start"}
 
+<link-summary>Learn the steps that you should take before running %product%.</link-summary>
+
 ### Qodana Cloud
+
+<link-summary>Before running %product%, you should generate a project token using %cloud%.</link-summary>
 
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,jvm"/>
 
 ### Preparing your software
 
+<link-summary>Before running %product%, you should prepare the software environment.</link-summary>
+
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,jvm"/>
 
 ### Install project dependencies
+
+<link-summary>Learn how you can install JavaScript and TypeScript project dependencies before running %product%.</link-summary>
 
 Linters resolve project dependencies automatically from your Gradle or Maven build system, so no preliminary
 steps are required, even when you run %product% on a CI/CD platform. If your project needs additional setup before
@@ -205,6 +213,8 @@ YAML configuration.
 
 ### K2 Mode
 
+<link-summary>The K2 mode is by default enabled for the %qd% and %qd-co% linters.</link-summary>
+
 The K2 mode is by default enabled for the %qd% and %qd-co% linters.
 
 To revert the K2 mode, in your linter configuration set the `idea.kotlin.plugin.use.k2`
@@ -212,9 +222,13 @@ To revert the K2 mode, in your linter configuration set the `idea.kotlin.plugin.
 
 ### Configuring the JDK
 
+<link-summary>If your project uses Gradle, make sure that you have configured a JDK version for your project.</link-summary>
+
 If your project uses Gradle, make sure that you have configured a JDK version for your project. 
 
 #### Default versions
+
+<link-summary>The list of JDK versions that are by default used by %product% per each linter.</link-summary>
 
 This table shows the JDK versions that are by default used by %instance%:
 
@@ -250,6 +264,9 @@ downloaded by %instance%. If you would like to use the JDK beyond this list, you
 
 #### Gradle
 
+<link-summary>Gradle runs scripts based on the Compatibility Matrix meaning that the latest supported and 
+downloadable version of the JDK will be set up as the Gradle JDK.</link-summary>
+
 Gradle runs scripts based on the [Compatibility Matrix](https://docs.gradle.org/current/userguide/compatibility.html)
 meaning that the latest supported and downloadable version of the JDK will be set up as the Gradle JDK. Using the
 Compatibility Matrix in combination with the list of [available JDK versions](#Available+versions),
@@ -257,6 +274,10 @@ you can find the JDK that will be used by %instance%. For example, %instance% wi
 download and employ JDK 13 with Gradle 6.6.
 
 #### Maven
+
+<link-summary>In Maven, you can configure the source and target versions of the Java compiler. 
+%instance% compares these values and selects the latest version. This version of the JDK is
+then searched in the list of available versions.</link-summary>
 
 <snippet id="jvm-maven">
 
@@ -315,23 +336,35 @@ $ docker run \
 
 ## Run Qodana
 
+<link-summary>Learn how to run %product% on your JVM projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,jvm,native,non-ruby"/>
 
 ## Explore analysis reports
+
+<link-summary>After analyzing your project, you can explore analysis reports.</link-summary>
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,jvm"/>
 
 ## Extend Qodana configuration
 
+<link-summary>Using various features and approaches provided by %product%, you can extend its basic configuration.</link-summary>
+
 ### Adjusting the scope of analysis
+
+<link-summary>Learn how to adjust the scope of analysis for your project.</link-summary>
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
 ### Enabling the baseline feature
 
+<link-summary>Learn how to enable the baseline feature for your JVM projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,jvm,native"/>
 
 ### Enabling the quality gate
+
+<link-summary>Learn how to enable quality gates for your JVM projects.</link-summary>
 
 [Depending on the linter](quality-gate.topic), you can configure [quality gates](quality-gate.topic) for: 
 
@@ -379,9 +412,13 @@ $ docker run \
 
 ### Analyzing pull requests
 
+<link-summary>Learn how to configure %product% for analyzing pull requests to your JVM projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,jvm,native"/>
 
 ### Enabling PQC inspections
+
+<link-summary>Explore how to enable post-quantum cryptography (PQC) inspections.</link-summary>
 
 In your YAML configuration file (`qodana.yaml`), add the following configuration and specify the `PqcMinLevel` 
 [inspection level](post-quantum-cryptography.md) from 1 to 5:
@@ -398,6 +435,8 @@ profile:
 
 ## Supported technologies and features
 {id="jvm-feature-matrix"}
+
+<link-summary>The list of technologies and features supported by JVM linters.</link-summary>
 
 <table>
     <tr>

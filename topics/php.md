@@ -74,7 +74,11 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="php-before-you-start"}
 
+<link-summary>Learn the steps that you should take before running %product%.</link-summary>
+
 ### Install project dependencies
+
+<link-summary>Learn how you can install project dependencies before running %product%.</link-summary>
 
 In case a project has external dependencies, you can set them up using the `bootstrap` key in the [`qodana.yaml`](configuration-reference.md) file.
 For example, if your project dependencies are specified by the `composer.json` file in your project root, add the following
@@ -90,40 +94,60 @@ The `--ignore-platform-reqs` option bypasses PHP version incompatibility issues 
 
 ### Qodana Cloud
 
+<link-summary>Before running %product%, you should generate a project token using %cloud%.</link-summary>
+
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>
 
 ### Prepare your software
+
+<link-summary>Before running %product%, you should prepare the software environment.</link-summary>
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
 ## Run Qodana
 
+<link-summary>Learn how to run %product% on your projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,php,native,non-ruby"/>
 
 ## Explore analysis reports
+
+<link-summary>After analyzing your project, you can explore analysis reports.</link-summary>
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,php"/>
 
 ## Extend Qodana configuration
 
+<link-summary>Using various features and approaches provided by %product%, you can extend its basic configuration.</link-summary>
+
 ### Adjusting the scope of analysis
+
+<link-summary>Learn how to adjust the scope of analysis for your project.</link-summary>
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
 ### Enabling the baseline feature
 
+<link-summary>Learn how to enable the baseline feature for your projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,php,native"/>
 
 ### Enabling the quality gate
+
+<link-summary>Learn how to enable quality gates for your projects.</link-summary>
 
 <include from="lib_qd.topic" element-id="enabling-quality-gate"/>
 
 ### Analyzing pull requests
 
+<link-summary>Learn how to configure %product% for analyzing pull requests to your projects.</link-summary>
+
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,php,native"/>
 
 ## Supported technologies and features
 {id="php-feature-matrix"}
+
+<link-summary>The list of technologies and features supported by the %php% linter.</link-summary>
 
 The %qd% linter provides inspections for the following technologies.
 

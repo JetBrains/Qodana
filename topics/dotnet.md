@@ -124,7 +124,7 @@ Your feedback is very welcome in our
 ## Before you start
 {id="dotnet-before-you-start"}
 
-<link-summary>Learn what should be done before running %product%.</link-summary>
+<link-summary>Learn the steps that you should take before running %product%.</link-summary>
 
 ### Qodana Cloud
 {id="dotnet-before-you-start-qodana-cloud"}
@@ -1133,7 +1133,7 @@ If you continue to experience credential issues, ensure you are running %product
 ## Extend the configuration
 {id="dotnet-extend-configuration"}
 
-<link-summary>Using various features and techniques provided by %product%, you can extend its basic configuration.</link-summary>
+<link-summary>Using various features and approaches provided by %product%, you can extend its basic configuration.</link-summary>
 
 ### Adjusting the scope of analysis
 
@@ -1613,7 +1613,7 @@ in a SARIF-formatted file.
 
 ### Analyzing pull requests
 
-<link-summary>Learn how to configure %product% for analyzing pull requests of your .NET project.</link-summary>
+<link-summary>Learn how to configure %product% for analyzing pull requests to your .NET project.</link-summary>
 
 You can analyze pull requests using the %dotnet% linter.
 

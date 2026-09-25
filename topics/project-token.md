@@ -33,6 +33,11 @@ Below is the description of interaction between %instance% and %cloud% once the 
 
 ## License verification
 
+<link-summary>
+The paid %instance% linters request and verify license information from a %cloud% organization. 
+If the verification step fails, the linter returns an error meaning that you cannot run it using the current license.
+</link-summary>
+
 The paid %instance% linters request and verify license information from a %cloud% [organization](cloud-organizations.topic). 
 If the verification step fails, the linter returns an error meaning that you cannot run it using the current license.
 
@@ -41,6 +46,11 @@ For example, you cannot run %instance% using an expired license. Nor can you run
 To avoid this, you should get compatible and valid licenses for each linter that you use.
 
 ## Report collection
+
+<link-summary>
+You can view actual %instance% reports in an aggregated and handy format, as well as 
+keep a historical overview of older %product% reports. 
+</link-summary>
 
 Additionally, your local %instance% report is bound with the project in [%cloud%](cloud-projects.topic). After binding, 
 you can view actual %instance% [reports](cloud-overview-reports.topic) in an aggregated and handy format, as well as 

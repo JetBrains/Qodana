@@ -80,7 +80,11 @@ To see the list of supported technologies and features, you can navigate to the 
 ## Before you start
 {id="golang-before-you-start"}
 
+<link-summary>Learn the steps that you should take before running %product%.</link-summary>
+
 ### Install project dependencies
+
+<link-summary>Learn how you can install Go project dependencies before running %product%.</link-summary>
 
 <p>For a basic %language% project that has no external dependencies, no preliminary steps are required.</p>
 
@@ -95,40 +99,60 @@ For example, if your project dependencies are specified by the <code>%dependency
 
 ### Qodana Cloud
 
+<link-summary>Before running %product%, you should generate a project token using %cloud%.</link-summary>
+
 <include from="lib_qd.topic" element-id="before-start-qodana-cloud" use-filter="empty,generic"/>
 
 ### Prepare your software
+
+<link-summary>Before running %product%, you should prepare the software environment.</link-summary>
 
 <include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
 
 ## Run Qodana
 
+<link-summary>Learn how to run %product% on your Go project.</link-summary>
+
 <include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,generic,golang,non-ruby,native"/>
 
 ## Explore analysis reports
+
+<link-summary>After analyzing your project, you can explore analysis reports.</link-summary>
 
 <include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,golang"/>
 
 ## Extend Qodana configuration
 
+<link-summary>Using various features and approaches provided by %product%, you can extend its basic configuration.</link-summary>
+
 ### Adjusting the scope of analysis
+
+<link-summary>Learn how to adjust the scope of analysis for your project.</link-summary>
 
 <include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
 
 ### Enabling the baseline feature
 
+<link-summary>Learn how to enable the baseline feature for your Go project.</link-summary>
+
 <include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,golang"/>
 
 ### Enabling the quality gate
+
+<link-summary>Learn how to enable quality gates for your Go project.</link-summary>
 
 <include from="lib_qd.topic" element-id="enabling-quality-gate"/>
 
 ### Analyzing pull requests
 
+<link-summary>Learn how to configure %product% for analyzing pull requests to your Go project.</link-summary>
+
 <include from="lib_qd.topic" element-id="analyzing-pull-requests" use-filter="empty,generic,native"/>
 
 ## Supported technologies and features
 {id="golang-feature-matrix"}
+
+<link-summary>The list of technologies and features supported by the %go% linter.</link-summary>
 
 %qd% provides inspections for the following technologies.
 

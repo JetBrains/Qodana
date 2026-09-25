@@ -2,12 +2,20 @@
 
 <show-structure for="chapter" depth="3"/>
 
+<link-summary>
+%product% implements the static analysis mechanism to automatically analyze your codebase.
+This means that you run %instance% to analyze your code and expect recommendations for improvements. No other actions
+like running additional scripts, downloading external libraries, or any additional configuring are required.
+</link-summary>
+
 %product% implements the static analysis mechanism to automatically analyze your codebase.
 This means that you run %instance% to analyze your code and expect recommendations for improvements. No other actions
 like running additional scripts, downloading external libraries, or any
 additional configuring are required.
 
 ## Analysis stages
+
+<link-summary>To analyze projects, %product% performs the project configuration and project analysis stages.</link-summary>
 
 To analyze projects, %product% performs the project configuration and project analysis stages.
 
@@ -24,10 +32,17 @@ matches inspections with files, and executes these inspections.
 
 ## Analysis modes
 
+<link-summary>%product% can analyze codebases using the regular and incremental modes.</link-summary>
+
 %product% can analyze codebases using the [regular](#Regular+analysis) and [incremental](#Incremental+analysis) modes
 described below.
 
 ### Regular analysis
+
+<link-summary>
+Regular analysis is the default mode that reports all problems found in a codebase and includes all project files in the 
+analysis scope except directories like 'node_modules' or 'build'.
+</link-summary>
 
 Regular analysis is the default mode that reports all problems found in a codebase and includes all project files in the 
 analysis scope except directories like `node_modules` or `build`. You can adjust the analysis scope by 
@@ -46,6 +61,11 @@ The disadvantages of the regular mode are as follows:
 * It requires a configured [baseline](baseline.topic) to eliminate the effect of false positives
 
 ### Incremental analysis
+
+<link-summary>
+Incremental analysis limits a regular analysis scope to the files changed between two commits, which are 
+by default the merge-base and source branch head commit files.
+</link-summary>
 
 > You can learn how to run incremental analyses using the [](analyze-pr.md) section. 
 
@@ -73,6 +93,8 @@ The disadvantages of the incremental analyses are as follows:
 
 ## Start analysis
 
+<link-summary>Explore the steps that you have to complete to run %product%.</link-summary>
+
 To analyze your project using %product%, follow the steps listed below.
 
 <procedure>
@@ -87,6 +109,8 @@ To analyze your project using %product%, follow the steps listed below.
 
 ## Performance optimization
 
+<link-summary>To optimize performance of %product%, follow the recommendations from this chapter.</link-summary>
+
 To improve performance during the project analysis stage, follow these recommendations:
 
 * [Exclude files](configuration-reference.md#Excluding+inspections) from analysis that are not required for the analysis
@@ -94,6 +118,8 @@ To improve performance during the project analysis stage, follow these recommend
 * Use [incremental analysis](analyze-pr.md) to reduce the scope of files
 
 ## List of exit codes
+
+<link-summary>Explore the list of exit codes and their description.</link-summary>
 
 <p>%product% provides the following exit codes:</p>
 
@@ -140,6 +166,8 @@ To improve performance during the project analysis stage, follow these recommend
 
 
 ## Frequently asked questions
+
+<link-summary>The list of frequently asked questions about </link-summary>
 
 <chapter id="faq-zero-errors-report" title="Qodana reports zero errors, but this doesn’t seem correct." default-state="collapsed" collapsible="true">
 <p>Use the <code>qodana.recommended</code> inspection <a href="inspection-profiles.md" anchor="inspection-profiles-existing-profiles">profile</a>.</p>
