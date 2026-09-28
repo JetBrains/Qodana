@@ -1,14 +1,20 @@
 # Kubernetes configuration
 
+<link-summary>Here you can study how to configure the Kubernetes version of %premlite%.</link-summary>
+
 <show-structure for="chapter" depth="3"/>
 
 ## Prepare your project
+
+<link-summary>The Kubernetes version of %premlite% is deployed on a Kubernetes cluster as described in this chapter.</link-summary>
 
 The Kubernetes version of %premlite% is deployed on a [Kubernetes cluster](https://kubernetes.io/docs/concepts/overview/components/).
 
 <!-- The storage should be mentioned here as well -->
 
 ### Kubernetes cluster
+
+<link-summary>The Kubernetes cluster should follow the recommendations described in this chapter.</link-summary>
 
 All requirements to a cluster are described in the [](shl-requirements.md#Kubernetes+version) chapter. For resilience, 
 we recommend deploying your cluster on at least three nodes.
@@ -36,6 +42,9 @@ This is the minimum list of tools that should be deployed and configured on your
 After deployment, make sure that all these components are running and healthy.
 
 ### Helm Chart
+
+<link-summary>In the Kubernetes version of %premlite%, the deployment is configurable via a Helm Chart deployed on 
+an up-and-running Kubernetes cluster.</link-summary>
 
 In the Kubernetes version of %premlite%, the deployment is configurable via a [Helm](https://helm.sh/) Chart deployed on 
 an up-and-running Kubernetes cluster. To install Helm on your control plane node, run the following command: 
@@ -65,6 +74,9 @@ helm install --generate-name -f values.yaml ./qodana
 After deploying a cluster, run the `kubectl get svc` command to see the list of services deployed.
 
 ### Ingress controller
+
+<link-summary>You can use any ingress controller to expose %premlite% to the internet. Examples include: NGINX, Traefik, 
+Kong, AWS ALB, GKE, etc.</link-summary>
 
 You can use any ingress controller to expose %premlite% to the internet. Examples include: NGINX, Traefik, 
 Kong, AWS ALB, GKE, etc. For each type of ingress controller, you have to configure the following aspects: 
@@ -129,11 +141,15 @@ use-proxy-protocol: "false"
 
 ## Configure your project
 
+<link-summary>The ingress controller configuration is carried out using the 'values.yaml' file as described in this chapter.</link-summary>
+
 All configuration snippets here are provided for the `values.yaml` file.
 
 ### Prerequisites
 
-This guide explains how to configure %premlite% URLs when switching from `qodana.local` to a new domain.
+<link-summary>Explore how to configure %premlite% URLs when switching from 'qodana.local' to a different domain.</link-summary>
+
+This guide explains how to configure %premlite% URLs when switching from `qodana.local` to a different domain.
 
 Before you start, make sure that the following requirements are met:
 
@@ -146,11 +162,13 @@ Before you start, make sure that the following requirements are met:
     * `files.externalurls.local`
     * `login.externalurls.local`
 
-* The API, UI, Linters API, Object Storage, and Identity Provider Helm Chart services must be updated for a new domain.
+* The API, UI, Linters API, Object Storage, and Identity Provider Helm Chart services must be updated for a different domain.
 * Internal URL of your Ingress Controller Load Balancer. Example: `ingress-nginx-controller.kube-ingress.svc.cluster.local`.
 * Sufficient permissions are provided to modify the namespace where %product% is deployed.
 
 ### Update URLs
+
+<link-summary>The list of URLs that should be updated while configuring your Kubernetes cluster of %premlite%.</link-summary>
 
 Update URLs for the following services:
 
@@ -202,6 +220,9 @@ Update URLs for the following services:
 
 ### Update ingress hostnames
 
+<link-summary>Ensure that ingress hostnames match the updated URLs by using YAML pointers ('*') for consistency, and also
+modify several sections described in this chapter.</link-summary>
+
 Ensure that ingress hostnames match the updated URLs by using YAML pointers (`*`) for consistency.
 Modify the following sections:
 
@@ -250,6 +271,8 @@ Modify the following sections:
 
 ### Update organization name and memory settings
 
+<link-summary>Several updates that should be made to the organization name in the %premlite% Kubernetes cluster, as well as memory settings.</link-summary>
+
 Update the organization name as follows:
 
 ```yaml
@@ -269,6 +292,8 @@ api:
 ```
 
 ### Configuration example
+
+<link-summary>Example configuration of the 'values.yaml' file for the %premlite% Kubernetes cluster.</link-summary>
 
 Here is an example of the `values.yaml` file containing these modifications:
 
@@ -327,6 +352,8 @@ dependencies:
 
 ### Configure via CLI
 
+<link-summary>You can override the existing %premlite% Helm Chart settings as described in this chapter.</link-summary>
+
 <!-- Helm commands from a text file should be moved here as well -->
 
 You can override the existing %premlite% Helm Chart settings, here is an example of a memory limit override:
@@ -348,6 +375,8 @@ kubectl apply -f installation.bundle.yaml
 
 ## Post-configuration steps
 <snippet id="shl-kubernetes-configuration-post-config-steps">
+
+<link-summary>Follow the recommendations from this chapter to carry out post-configuration steps of your %premlite% Kubernetes cluster.</link-summary>
 
 After configuring %premlite%, follow the steps below.
 

@@ -28,12 +28,16 @@ The minimal number of contributors used for licensing is three (3).
 ## License comparison matrix
 {id="license-comparison-matrix"}
 
+<link-summary>Lists of technologies and features that are available for each license.</link-summary>
+
 This section lists the technologies and features that are available for each license.
 
 All technologies and features mentioned in the Ultimate and Ultimate Plus columns are available for both the trial and 
 full versions of the respective %instance% license type.
 
 ### Programming languages
+
+<link-summary>List of programming languages that are available for each linter.</link-summary>
 
 | Programming language | Community | Ultimate and Ultimate Plus | 
 |----------------------|-----------|----------------------------|
@@ -58,6 +62,8 @@ full versions of the respective %instance% license type.
 Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Markup and scripting languages
+
+<link-summary>List of markup and scripting languages that are available for each linter.</link-summary>
 
 | Technology                   | Community | Ultimate and Ultimate Plus |
 |------------------------------|-----------|----------------------------|
@@ -86,6 +92,8 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 ### Databases and ORM
 
+<link-summary>List of databases and ORM that are available for each linter.</link-summary>
+
 | Technology    | Community | Ultimate and Ultimate Plus |
 |---------------|-----------|----------------------------|
 | Hibernate ORM | 𐄂        | ✔                          |
@@ -98,6 +106,8 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 
 ### Frameworks and libraries
+
+<link-summary>List of frameworks and libraries that are available for each linter.</link-summary>
 
 | Framework or library | Community | Ultimate and Ultimate Plus |
 |----------------------|-----------|----------------------------|
@@ -200,6 +210,10 @@ This is the list of linters that require either the Ultimate or the Ultimate Plu
 
 ## Qodana licensing: an overview
 
+<link-summary>The Community license is free to use, though its functionality is limited only to the Community versions of Qodana 
+linters. Furthermore, it lacks many helpful features that are available in the paid versions of %product%. The trial 
+versions of the Ultimate or Ultimate Plus licenses are limited to a 30-day trial period.</link-summary>
+
 The Community license is free to use, though its functionality is limited only to the Community versions of Qodana 
 linters. Furthermore, it lacks many helpful [features](features.topic) that are available in the paid versions and 
 only offers a limited period for [data storage](#pricing-data-storage) in %cloud%.
@@ -211,10 +225,14 @@ You can review the [%instance% Terms of Service](https://www.jetbrains.com/legal
 
  ## Frequently asked questions
 
+<link-summary>The list of frequently asking questions about %product% licensing.</link-summary>
+
 <!-- This needs to be grouped by licenses and %cloud% -->
 
 ### What do I need to start using Qodana?
 {id="faq-start-using-qodana"}
+
+<link-summary>What do I need to start using %product%?</link-summary>
 
 1. You can navigate to the [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/) page on the JetBrains
 website and select the subscription option you would like to use. 
@@ -237,17 +255,23 @@ in this case too.
 
 ### Can I try Qodana before buying a license?
 
+<link-summary>Can I try %product% before buying a license?</link-summary>
+
 Yes, you can choose either the Ultimate or Ultimate Plus trial license and start using Qodana for a 30-day trial period. 
 After 30 days, you’ll need to buy either the Ultimate or Ultimate Plus license to continue using Qodana in your projects.
 Only one trial license is allowed for an organization created in [%cloud%](cloud-organizations.topic).
 
 ### Will I be notified when the license trial period comes to an end?
 
+<link-summary>Will I be notified when the license trial period comes to an end?</link-summary>
+
 Yes, you’ll be notified when the trial period expires.
 
 After its expiry, you’ll need to buy either the Ultimate or Ultimate Plus license. Expired trial licenses cannot be extended.
 
 ### What are Qodana linters and %cloud% designed for?
+
+<link-summary>What are Qodana linters and %cloud% designed for?</link-summary>
 
 Both %instance% linters and %cloud% are essential parts of the product named %instance%. You can analyze your codebase
 using %instance% linters, and you can use %cloud% for managing your projects and licenses, as well as collecting
@@ -256,6 +280,8 @@ documentation.
 
 ### Can I use Qodana linters without creating a %cloud% account?
 {id="pricing-linters-without-creating-cloud-account"}
+
+<link-summary>Can I use Qodana linters without creating a %cloud% account?</link-summary>
 
 If you plan to use the Ultimate or Ultimate Plus licenses, you have to create an account in %cloud% and complete
 the [project setup](Quick-start.topic#quickstart-prerequisites) stage. For more details, see [the first question](#faq-start-using-qodana) in
@@ -266,10 +292,14 @@ to using %cloud% in this case.
 
 ### Do I need to provide payment details for a trial license?
 
+<link-summary>Do I need to provide payment details for a trial license?</link-summary>
+
 No, you don’t have to provide any payment details until you decide to buy a license for either the Ultimate or Ultimate 
 Plus version of %product%, which you can do after the trial period ends.
 
 ### Can I switch between licenses?
+
+<link-summary>Can I switch between licenses?</link-summary>
 
 Yes, you can switch one time between trial versions of the Ultimate and Ultimate Plus licenses using your 
 JetBrains Account.
@@ -285,6 +315,8 @@ After the trial period has ended, this one-time limitation is shifted, and you c
 the unlimited number of times. In this case, however, all purchased subscriptions are not refunded.
 
 ### What are the license costs comprised of?
+
+<link-summary>What are the license costs comprised of?</link-summary>
 
 The total license cost is based on the number of active contributors. An active contributor is a person who commits 
 to any number of %cloud% projects during the latest 90 days, within the same organization, and under a single 
@@ -306,9 +338,13 @@ For more details, see the **Fees and Payments** section of the
 
 ### What is the minimum number of contributors I can buy the license for?
 
+<link-summary>What is the minimum number of contributors I can buy the license for?</link-summary>
+
 You can buy a %instance% license for three or more contributors.
 
 ### What do I need to know about subscription billing?
+
+<link-summary>What do I need to know about subscription billing?</link-summary>
 
 Here is the billing description taken from the 
 [%instance% Terms of Service](https://www.jetbrains.com/legal/docs/agreements/qodana/license/): 
@@ -343,19 +379,27 @@ the prepaid limit.
 
 ### Where does Qodana store all license information?
 
+<link-summary>Where does Qodana store all license information?</link-summary>
+
 %cloud% stores all information about your Ultimate and Ultimate Plus licenses. This explains why you need to 
 create a %cloud% account before running %product%. Apart from this functionality, %cloud% provides several other 
 [helpful features](cloud-use-cases.topic).
 
 ### Which minimum steps do I need to perform in %cloud%?
 
+<link-summary>Which minimum steps do I need to perform in %cloud%?</link-summary>
+
 All the required steps are described in the [Quick start](cloud-quickstart.md) section of the %cloud% documentation.
 
 ### Are there any restrictions on using the Community license?
 
+<link-summary>Are there any restrictions on using the Community license?</link-summary>
+
 No, you can use the Community version of %product% in any open-source or proprietary projects.
 
 ### What is the difference between the Ultimate and Ultimate Plus licenses?
+
+<link-summary>What is the difference between the Ultimate and Ultimate Plus licenses?</link-summary>
 
 Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:
 
@@ -367,6 +411,8 @@ Compared to the Ultimate license, the Ultimate Plus license provides the followi
 * [](vulnerability-checker.md)
 
 ### Which licenses are integrated into CI/CD pipelines?
+
+<link-summary>Which licenses are integrated into CI/CD pipelines?</link-summary>
 
 All %instance% licenses support integration with the CI/CD solutions described in the [](ci.md) section.
 

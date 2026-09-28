@@ -156,7 +156,7 @@ the [](#ui-overview-actual-problems) tab as shown below.
 *Reason*: The analysis of the file containing the error, or even the directory containing this file, doesn't make sense 
 in your project. For example, it's actually not the source code but some generated or downloaded content.
 
-*Howto*: Under the code fragment view, expand the **Exclude** dropdown list and select the necessary option.
+*How to*: Under the code fragment view, expand the **Exclude** dropdown list and select the necessary option.
    
 <img src="ui-overview-analysis-1.png" alt="Options of excluding from analysis" thumbnail="true" width="706" border-effect="line"/>  
     
@@ -173,7 +173,7 @@ On the File explorer, click the icon to the left of the filename, and then selec
 2. **Hide a problem type or category from the list of problems**
 
 *Reason*: You suppose that the error type or its category is not relevant or want to get back to it later.  
-*Howto*: Under the code fragment view, expand the **Exclude** dropdown list and select the necessary option.
+*How to*: Under the code fragment view, expand the **Exclude** dropdown list and select the necessary option.
    
 <img src="ui-overview-analysis-1.png" alt="Options of excluding from analysis" thumbnail="true" width="706" border-effect="line"/>  
 

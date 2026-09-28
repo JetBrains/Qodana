@@ -1,10 +1,15 @@
 # System architecture
 
-%premlite% contains a set of containerised processes executed on a Linux server that is optimized for containerisation.
+<link-summary>%premlite% contains a set of containerized processes executed on a Linux server that is optimized for containerization.</link-summary>
+
+%premlite% contains a set of containerized processes executed on a Linux server that is optimized for containerization.
 
 Each %product% service has exactly one task. 
 
 ## Component level
+
+<link-summary>A detailed breakdown of individual services and components that make up %premlite% with the focus on 
+their interaction, responsibilities and structure. </link-summary>
 
 This section provides a detailed breakdown of individual services and components that make up %premlite% and focuses on 
 their interaction, responsibilities and structure. 
@@ -26,6 +31,9 @@ The ingress controller operates on top of the Server Name Indication (SNI) exten
 multiple hostnames on its IP address.
 
 ## System level
+
+<link-summary>A high-level overview of how %premlite% operates as a cohesive system and focuses on relationships 
+between various components, their roles, and interaction to ensure the system functions effectively.</link-summary>
 
 This section provides a high-level overview of how %premlite% operates as a cohesive system and focuses on relationships 
 between various components, their roles, and interaction to ensure the system functions effectively.
@@ -52,12 +60,16 @@ level and keeping protected the IP address of the server.
 
 ## Tenancy model
 
+<link-summary>%premlite% is used by a single organization to monitor and manage the quality of their software 
+artifacts. An organization can contain one or multiple teams. Each team is made up of at least one user. 
+A user is synced from a single Open Id Connect (OIDC) provider.</link-summary>
+
 <img src="shl-architecture-tenancy-model.png" alt="Tenancy model overview of %premlite%" width="706" border-effect="line"/>
 
 <!-- Artifact or artefact?  -->
 %premlite% is used by a single [organization](cloud-organizations.topic) to monitor and manage the quality of their software 
 artifacts. An organization can contain one or multiple [teams](cloud-teams.topic). Each team is made up of at least one user. 
-A user is synced from a single Open Id Connect (OIDC) Provider. An OIDC provider is global at the organization level. A 
+A user is synced from a single Open Id Connect (OIDC) provider. An OIDC provider is global at the organization level. A 
 team can own one or more [projects](cloud-projects.topic). A project is linked to one repository. A repository linked to a project 
 can be changed after project initialization.
 

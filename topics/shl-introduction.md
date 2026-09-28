@@ -1,5 +1,7 @@
 # Overview of self-hosting
 
+<link-summary>%premlite% is a lightweight on-premises version of Qodana Cloud designed for small development teams.</link-summary>
+
 %premlite% is a lightweight on-premises version of [%cloud%](cloud-use-cases.topic) designed for small development teams.
 
 Using %premlite%, you can run %product% within your infrastructure ensuring that sensitive code and data remain secure and 
@@ -17,6 +19,8 @@ and cluster versions of %premlite%.
 
 ## %premlite% features
 
+<link-summary>%premlite% provides data privacy, scalability, and customizability. </link-summary>
+
 Data privacy lets you store sensitive code within your organization's infrastructure.
 Scalability lets you scale %premlite% to meet the needs of larger teams or organizations with extensive codebases.
 Customizability lets you configure %product% to match their specific code quality requirements.
@@ -26,6 +30,8 @@ Customizability lets you configure %product% to match their specific code qualit
 {style="note"}
 
 ## Deployment options
+
+<link-summary>You can deploy %premlite% using the Kubernetes or Docker versions of the product.</link-summary>
 
 You can deploy %premlite% using two options:
 
