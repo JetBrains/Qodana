@@ -6,6 +6,8 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 	title="Getting started" id="getting-started">
 
+        <link-summary>The getting started section to %product%.</link-summary>
+
         <section-starting-page>
                 <title>Discover Qodana</title>
                 <description>

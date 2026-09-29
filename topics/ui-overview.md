@@ -170,7 +170,7 @@ On the File explorer, click the icon to the left of the filename, and then selec
 
 <img src="ui-overview-analysis-3.png" alt="Excluding from analysis" thumbnail="true" width="706" border-effect="line"/>
 
-2. **Hide a problem type or category from the list of problems**
+2. **Exclude a problem type or category from the list of problems**
 
 *Reason*: You suppose that the error type or its category is not relevant or want to get back to it later.  
 *How to*: Under the code fragment view, expand the **Exclude** dropdown list and select the necessary option.
@@ -180,7 +180,7 @@ On the File explorer, click the icon to the left of the filename, and then selec
 > If you exclude either type/category or file/directory, the UI will remind you to save the changes if you want to use 
 > them in future checks. Download the `qodana.yaml` file and store it under your project root directory.
 
-#### Enable excluded or hidden problems
+#### Enable excluded problems
 
 <link-summary>To include previously excluded problems, you can edit your YAML configuration, put it in the project root directory, and then run %product% again.</link-summary>
 

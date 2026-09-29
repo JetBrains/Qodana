@@ -1,5 +1,8 @@
 # Docker configuration
 
+<link-summary>The 'qodana-installer-cli' command-line tool is a Docker container that manages the lifecycle of %premlite%. 
+This section explains how you can configure and run the Docker version of %premlite%.</link-summary>
+
 <show-structure for="chapter" depth="3"/>
 
 The `qodana-installer-cli` command-line tool is a Docker container that manages the lifecycle of %premlite%. 
@@ -14,7 +17,11 @@ This tool orchestrates Docker Swarm stacks for:
 
 ## Prepare your project
 
+<link-summary>Learn how to prepare your project before running %premlite%.</link-summary>
+
 ### Access and permissions
+
+<link-summary>Access and permissions that should be configured before running %premlite%.</link-summary>
 
 The container should be given access to the Docker socket:
 
@@ -28,6 +35,8 @@ Port 80 on the host should be available so that the Traefik ingress proxy can bi
 
 ### Networking
 
+<link-summary>Networking settings that should be configured before running %premlite%.</link-summary>
+
 <!-- WHAT DOES THIS MEAN?  -->
 All service hostnames should resolve the IP address of the Swarm manager node. You can achieve this using:
 
@@ -36,6 +45,8 @@ All service hostnames should resolve the IP address of the Swarm manager node. Y
 - Manual `/etc/hosts` entries on every machine that should have access to %product%
 
 ### Domain name system (DNS)
+
+<link-summary>DNS settings that should be configured before running %premlite%.</link-summary>
 
 <!-- How can they be allocated in this case  -->
 <!-- Where are these variables applied?  -->
@@ -88,6 +99,8 @@ ensure that public DNS records point to appropriate IP addresses of your server 
 
 #### Configure domains
 
+<link-summary>List of domains that should be prepared for your project.</link-summary>
+
 On your local machine, make the changes to the <code>/etc/hosts</code> file
 depending on your needs, i.e. for the default or your custom domain configuration:
 
@@ -103,7 +116,11 @@ depending on your needs, i.e. for the default or your custom domain configuratio
 
 ### PostgreSQL
 
+<link-summary>PostgreSQL configurations that should be made before running %premlite%.</link-summary>
+
 #### Databases
+
+<link-summary>%premlite% operates multiple services with each service requiring their own database described in this chapter.</link-summary>
 
 %premlite% operates multiple services with each service requiring their own database:
 
@@ -118,6 +135,8 @@ depending on your needs, i.e. for the default or your custom domain configuratio
 | Keycloak Database  | Optional. Used for authentication and authorization services like Keycloak  | `${APP_KC_DB_NAME}`  |
 
 #### Users and roles
+
+<link-summary>Each %premlite% service requires a dedicated PostgreSQL user for having access to its corresponding database and listed in this chapter.</link-summary>
 
 Each service requires a dedicated PostgreSQL user for having access to its corresponding database. These users are
 assigned specific permissions to ensure security and proper data isolation:
@@ -162,6 +181,8 @@ assigned specific permissions to ensure security and proper data isolation:
 
 #### Permissions
 
+<link-summary>%premlite% requires several rules to be applied to ensure proper access control.</link-summary>
+
 The following permission rules are applied to ensure proper access control:
 
 * Users are granted access only to their respective databases.
@@ -170,7 +191,10 @@ The following permission rules are applied to ensure proper access control:
 
 #### Database organization
 
-Each Qodana service (API, Git, Audit, Keycloak) should have its own database. This prevents data corruption, unauthorized access
+<link-summary>Each %product% service (API, Git, Audit, Keycloak) should have its own database. This prevents data corruption, unauthorized access
+between services, and lets you tune each database better to your needs.</link-summary>
+
+Each %product% service (API, Git, Audit, Keycloak) should have its own database. This prevents data corruption, unauthorized access
 between services, and lets you tune each database better to your needs.
 
 Databases can be hosted on a single server or on different servers. A shared server is suitable for small-scale deployments
@@ -178,6 +202,8 @@ with low traffic and minimal resource requirements. Separate servers are best su
 handling highly sensitive data like audit logs or authentication.
 
 #### Security and compliance
+
+<link-summary>The security-related recommendations that should be used while configuring your project.</link-summary>
 
 Use strong, randomly generated passwords for all database users. Store credentials securely, such as in an environment
 variable manager or secret storage like HashiCorp Vault and others.
@@ -188,6 +214,8 @@ Enable logging for database activity to monitor access and changes, especially f
 
 #### Backup and recovery
 
+<link-summary>A robust backup and recovery plan should be implemented as part of the project configuration.</link-summary>
+
 Implement a robust backup and recovery plan:
 * Schedule regular automated backups for all databases.
 * Test restoration processes regularly to ensure reliability.
@@ -195,11 +223,15 @@ Implement a robust backup and recovery plan:
 
 #### Monitoring and maintenance
 
+<link-summary>Use PostgreSQL monitoring tools like pgAdmin, Prometheus, or other to track database performance and health.</link-summary>
+
 Use PostgreSQL monitoring tools like pgAdmin, Prometheus, or other to track database performance and health.
 
 Periodically review database usage and clean up unused objects. Apply security updates and patches for PostgreSQL.
 
 #### Example SQL script for a single database server setup
+
+<link-summary>View the script that documents the instructions for configuring a single database server for %premlite%.</link-summary>
 
 This snippet contains an example script that documents the instructions for configuring a single database server for
 %premlite%. The script references environment variables instead of hard coded values. The Keycloak database and user
@@ -305,14 +337,20 @@ END
 ### RabbitMQ
 {id="docker-configuration-prepare-project-rabbitmq"}
 
+<link-summary>In %premlite%, RabbitMQ acts as a message broker for various %product% services facilitating communication and task processing. </link-summary>
+
 RabbitMQ acts as a message broker for various %product% services facilitating communication and task processing.
 
 #### Virtual hosts
+
+<link-summary>Each %product% instance requires a dedicated virtual host to isolate messaging operations from other applications.</link-summary>
 
 Each %product% instance requires a dedicated virtual host to isolate messaging operations from other applications.
 Define a virtual host using the environment variable: `${RABBITMQ_VHOST}`. Example: `/qodana`
 
 #### Users
+
+<link-summary>A dedicated RabbitMQ user is required by Qodana for authenticating and performing operations on a virtual host.</link-summary>
 
 A dedicated RabbitMQ user is required by Qodana for authenticating and performing operations on a virtual host. Create a
 user with the following parameters:
@@ -335,6 +373,8 @@ Example:
 
 #### Queues
 
+<link-summary>%premlite% requires several durable queues for handling messaging related to reports, Git operations, and triggers, which is described in this chapter.</link-summary>
+
 %product% requires several durable queues for handling messaging related to reports, Git operations, and triggers. Create
 the following queues within the `${RABBITMQ_VHOST}` variable:
 
@@ -349,6 +389,8 @@ All queues must be durable to ensure message persistence in case of RabbitMQ res
 
 #### Permissions
 {id="rabbitmq-permissions"}
+
+<link-summary>Define access permissions for the Qodana user to operate within the vhost.</link-summary>
 
 Define access permissions for the Qodana user to operate within the vhost. Grant the following permissions to
 the `${RABBITMQ_APPLICATION_USERNAME}` variable for the  `${RABBITMQ_VHOST}` variable:
@@ -372,6 +414,8 @@ This is an example configuration in JSON:
 ```
 
 #### Example definition in JSON
+
+<link-summary>Example RabbitMQ configuration.</link-summary>
 
 This is and example RabbitMQ configuration. For more details, see visit the
 [RabbitMQ website](https://www.rabbitmq.com/docs/definitions#import).
@@ -428,6 +472,9 @@ This is and example RabbitMQ configuration. For more details, see visit the
 ### MinIO
 {id="docker-configuration-prepare-project-minio"}
 
+<link-summary>%premlite% supports MinIO for object storage. %product% requires pre-signed URLs,
+which lets %product% clients connect directly to a storage and upload artifacts for asynchronous processing or storage purposes.</link-summary>
+
 %premlite% supports MinIO for object storage. %product% requires pre-signed URLs,
 which lets %product% clients connect directly to a storage and upload artifacts for asynchronous processing or storage purposes.
 
@@ -436,12 +483,16 @@ same storage service.
 
 ### OIDC provider
 
+<link-summary>%premlite% does not provide a built-in user management module, so users should authenticate using an OIDC provider.</link-summary>
+
 %premlite% does not provide a built-in user management module, so users should authenticate using an OIDC provider.
 %premlite% authorizes their actions according to permissions given to a specific user by an administrator.
 
 To get assistance with configuring an OIDC provider, please contact our support at <code>qodana-support@jetbrains.com</code>.
 
 ## Command overview
+
+<link-summary>This chapter contains the list of available Docker commands of %premlite% and refers to their respective use cases.</link-summary>
 
 Here is the list of available Docker commands and links to their respective use cases:
 
@@ -459,6 +510,8 @@ Here is the list of available Docker commands and links to their respective use 
 
 
 ## Deploy Qodana Self-Hosted
+
+<link-summary>Deploy %premlite% by pulling the Docker image and run it as described in this chapter.</link-summary>
 
 Assuming that requirements from the [](shl-introduction.md) and [](#Prepare+your+project) chapters are satisfied, pull the
 `quay.io/jetbrains/qodana-installer-cli:latest` Docker image. All commands running this image require the
@@ -581,6 +634,8 @@ In your browser, navigate to the configured domain to receive access to %premlit
 
 ## Get a list of used variables
 
+<link-summary>Learn how to display every configurable variable with its resolved value.</link-summary>
+
 Run the `environment` command to display every configurable variable with its resolved value:
 
 ```bash
@@ -596,6 +651,9 @@ If you run this command with the same flags that you used for the `install-app` 
 values are in effect.
 
 ## Manage credentials
+
+<link-summary>All infrastructure credentials like database passwords, object storage keys, message queue passwords, or Keycloak admin accounts
+are generated randomly during deployment and stored as Docker configurations. You can run the 'credentials' command to retrieve credentials.</link-summary>
 
 All infrastructure credentials like database passwords, object storage keys, message queue passwords, or Keycloak admin accounts
 are generated randomly during deployment and stored as Docker configurations. They can be retrieved at any time without 
@@ -645,6 +703,8 @@ The `--format` flag lets you use the following values:
 
 ## Retrieve logs
 
+<link-summary>To retrieve aggregated log entries from all running services, use the 'logs' command as described here.</link-summary>
+
 Retrieve aggregated log entries from all running services using the `logs` command:
 
 ```bash
@@ -687,6 +747,8 @@ docker service logs <service-name> --follow
 
 ## Backup and restore
 
+<link-summary>Using the 'backup' and 'restore' commands, you can create and restore compressed, timestamped backup data of all local data volumes.</link-summary>
+
 Using the `backup` and `restore` commands, you can create and restore compressed, timestamped backup data of all local data volumes.
 In this case, each backup is a full-volume snapshot, which requires sufficient free disk space on the host machine.
 
@@ -708,6 +770,8 @@ When using the `-v` flag to mount a volume in the utility container, the path is
 host machine, not relatively to the installer container’s filesystem.
 
 ### Creating a backup
+
+<link-summary>To create a backup, run the 'backup' command as described in this chapter.</link-summary>
 
 The destination directory should already exist on the Docker host, for example:
 
@@ -750,6 +814,8 @@ archive is saved in the destination directory and should be deleted manually bef
 
 ### Restoring from a backup
 
+<link-summary>Steps that should be taken to restore from a backup.</link-summary>
+
 > This action completely and irreversibly erases all current volume data before extracting the backup. 
 > Verify the file path and make sure that the archive contains correct data before proceeding.
 {style=warning"}
@@ -786,6 +852,8 @@ The restore process does the following:
 
 ## Get help page
 
+<link-summary>Use the 'help' command to retrieve the help page for any available command.</link-summary>
+
 The `help` command lets you retrieve the help page for any available command:
 
 ```Bash
@@ -797,6 +865,8 @@ docker run \
 {prompt="$"}
 
 ## Uninstall %premlite%
+
+<link-summary>Run the 'uninstall' command to remove %premlite% from Docker.</link-summary>
 
 > Because uninstalling deletes all application data stored in Docker volumes, we recommend creating a [backup](#Backup+and+restore) beforehand. 
 {style="warning"}
@@ -829,6 +899,8 @@ docker network rm qodana_self_hosted
 
 ## Reset passwords
 
+<link-summary>Password management is handled through Keycloak as described in this chapter.</link-summary>
+
 User password management is handled through Keycloak. To reset passwords, perform the following steps:
 
 <procedure>
@@ -853,9 +925,13 @@ User password management is handled through Keycloak. To reset passwords, perfor
 
 ## Configure Qodana Self-Hosted
 
+<link-summary>Use labels and environment variables to configure %premlite%.</link-summary>
+
 Labels and environment variables let you configure %premlite% specifically to your needs. 
 
 ### Global labels
+
+<link-summary>%premlite% uses several global labels to mark the managed resources described in this chapter.</link-summary>
 
 %premlite% uses several global labels to mark the managed resources. You can use these labels to operate
 %premlite%:
@@ -874,6 +950,8 @@ docker service ls \
 {prompt="$"}
 
 ### Domain and hostname variables
+
+<link-summary>The list of domain and hostname variables for %premlite%.</link-summary>
 
 | Variable               | Default value         | Controls                                                                          | 
 |------------------------|-----------------------|-----------------------------------------------------------------------------------|
@@ -907,6 +985,8 @@ the existing Docker configurations that may contain hostname values.
 
 ### UI user variables
 
+<link-summary>The list of UI user variables for %premlite%.</link-summary>
+
 %premlite% creates one user in the `qodana` Keycloak realm that you can override using the following variables: 
 
 | Variable                       | Default         | Description                                                   |
@@ -930,6 +1010,8 @@ docker run \
 {prompt="$"}
 
 ### Dependency mode variables
+
+<link-summary>The list of dependency mode variables for %premlite%.</link-summary>
 
 The `QODANA_DEPENDENCIES_MODE` variable controls whether infrastructure services are deployed as part of the Swarm or supplied externally.
 The variable accepts the following values:
@@ -956,6 +1038,8 @@ docker run \
 
 ### Component-specific labels
 
+<link-summary>The list of component-specific labels for %premlite%.</link-summary>
+
 %premlite% is operated by several services. To simplify administration, they are combined into the following groups:
 
 | Group name           | Description                                                |
@@ -967,6 +1051,8 @@ docker run \
 Here, each group identifies a specific Docker Swarm stack.
 
 #### Labels related to local dependencies
+
+<link-summary>The list of labels related to local dependencies in %premlite%.</link-summary>
 
 The `qodana.jetbrains.self-hosted.lite.dependencies.local=true` and `qodana.jetbrains.self-hosted.lite.service-type=local-dependencies`
 labels identify resources related to the `qodana_self_hosted_local_dependencies` stack or group.
@@ -987,6 +1073,8 @@ To understand the mount point of a specific Docker volume, you can use the
 
 #### Labels related to %premlite%
 
+<link-summary>The list of labels related to %premlite%.</link-summary>
+
 The `qodana.jetbrains.self-hosted.lite.service-type=application` label identifies the resources related to the
 `qodana_self_hosted_local_service_tools` stack.
 
@@ -994,16 +1082,24 @@ The `qodana.jetbrains.self-hosted.lite.service-type=application` label identifie
 
 #### Label related to supporting tools
 
+<link-summary>The list of labels related to supporting tools in %premlite%.</link-summary>
+
 The `qodana.jetbrains.self-hosted.lite.service-type=supporting-tools` label identifies the resources related to the
 `qodana_self_hosted_local_service_tools` stack.
 
 ### Environment variables
 
+<link-summary>The list of environment variables in %premlite%.</link-summary>
+
 #### Product
 {id="product"}
 
+<link-summary>The list of product environment variables in %premlite%.</link-summary>
+
 ##### General
 {id="product-general"}
+
+<link-summary>The list of general environment variables in %premlite%.</link-summary>
 
 | Environment variable                | Description                                | Default value                           |
 |-------------------------------------|--------------------------------------------|-----------------------------------------|
@@ -1019,6 +1115,8 @@ The `qodana.jetbrains.self-hosted.lite.service-type=supporting-tools` label iden
 ##### FUS
 {id="product-fus"}
 
+<link-summary>The list of variables used for statistics collection and processing in %premlite%.</link-summary>
+
 Variables used for statistics collection and processing.
 
 | Environment variable         | Description                                   | Default value                                                         |
@@ -1030,10 +1128,14 @@ Variables used for statistics collection and processing.
 
 #### Linter API
 
+<link-summary>The list of Linter API variables for validating linters and checking for versions of supported linters and plugins in %premlite%.</link-summary>
+
 Linter API validates linters and checks for versions of supported linters and plugins.
 
 ##### General
 {id="linter-api-general"}
+
+<link-summary>The list of general Linter API variables in %premlite%.</link-summary>
 
 | Environment variable                        | Description                                  | Default value                                                             |
 |---------------------------------------------|----------------------------------------------|---------------------------------------------------------------------------|
@@ -1052,6 +1154,8 @@ Linter API validates linters and checks for versions of supported linters and pl
 
 ##### GitHub
 
+<link-summary>The list of GitHub Linter API variables in %premlite%.</link-summary>
+
 | Environment variable                        | Description                                         | Default value                      |
 |---------------------------------------------|-----------------------------------------------------|------------------------------------|
 | `API_GITHUB_INTEGRATION_ENABLED` |Whether GitHub integration is enabled | `FALSE`                            | 
@@ -1062,6 +1166,8 @@ Linter API validates linters and checks for versions of supported linters and pl
 
 ##### OAuth
 {id="linter-api-oauth"}
+
+<link-summary>The list of OAuth Linter API variables in %premlite%.</link-summary>
 
 | Environment variable                        |  Description                                |Default value                                                                    |
 |---------------------------------------------|---------------------------------------------|---------------------------------------------------------------------------------|
@@ -1085,7 +1191,11 @@ Linter API validates linters and checks for versions of supported linters and pl
 
 #### Dependency services
 
+<link-summary>%premlite% employs several dependency services described in this chapter.</link-summary>
+
 ##### Utility Swiss Knife container
+
+<link-summary>The list of Utility Swiss Knife container dependency services in %premlite%.</link-summary>
 
 | Environment variable                | Description                                    | Default value                                 |
 |-------------------------------------|------------------------------------------------|-----------------------------------------------|
@@ -1093,6 +1203,8 @@ Linter API validates linters and checks for versions of supported linters and pl
 | `UTILITY_SWISS_KNIFE_IMAGE_TAG`     | Tag for the Swiss Knife container              | `busybox-1.36.2`                              |
 
 ##### Docker Swarm
+
+<link-summary>The list of Docker Swarm dependency services in %premlite%.</link-summary>
 
 | Environment variable                | Description                                                    | Default value                                 |
 |-------------------------------------|----------------------------------------------------------------|-----------------------------------------------|
@@ -1127,6 +1239,8 @@ docker run \
 
 ##### Ingress traffic
 
+<link-summary>The list of ingress traffic dependency services in %premlite%.</link-summary>
+
 | Environment variable            | Description                                     | Default value                                 |
 |---------------------------------|-------------------------------------------------|-----------------------------------------------|
 | `INGRESS_CONTAINER_NAME`        | Ingress container image name                    | `jetbrains/qodana-installer-cli-dependencies` |
@@ -1134,6 +1248,8 @@ docker run \
 | `INGRESS_SUB_DOMAIN`                | Subdomain for ingress traffic                  | `ingress`                                     |
 
 ##### Database
+
+<link-summary>The list of database dependency services in %premlite%.</link-summary>
 
 | Environment variable            | Description                                     | Default value                                 |
 |---------------------------------|-------------------------------------------------|-----------------------------------------------|
@@ -1146,6 +1262,8 @@ docker run \
 
 ##### MinIO
 {id="docker-configuration-environment-variables-minio"}
+
+<link-summary>The list of MinIO dependency services in %premlite%.</link-summary>
 
 | Environment variable                        | Description                                         | Default value                                 |
 |---------------------------------------------|-----------------------------------------------------|-----------------------------------------------|
@@ -1164,6 +1282,8 @@ docker run \
 ##### RabbitMQ
 {id="docker-configuration-environment-variables-rabbitmq"}
 
+<link-summary>The list of RabbitMQ dependency services in %premlite%.</link-summary>
+
 | Environment variable                     | Description                         | Default value                                 |
 |------------------------------------------|-------------------------------------|-----------------------------------------------|
 | `RABBITMQ_REGISTRY_IMAGE_NAME`           | RabbitMQ registry image name        | `jetbrains/qodana-installer-cli-dependencies` |
@@ -1175,6 +1295,8 @@ docker run \
 
 ##### Keycloak
 
+<link-summary>The list of Keycloak dependency services in %premlite%.</link-summary>
+
 | Environment variable                | Description                    | Default value                                 |
 |-------------------------------------|--------------------------------|-----------------------------------------------|
 | `KEYCLOAK_REGISTRY_IMAGE_NAME`      | Keycloak registry image name   | `jetbrains/qodana-installer-cli-dependencies` |
@@ -1184,6 +1306,8 @@ docker run \
 
 ##### Audit
 
+<link-summary>The list of audit dependency services in %premlite%.</link-summary>
+
 | Environment variable      | Description                          | Default value                                                   |
 |---------------------------|--------------------------------------|-----------------------------------------------------------------|
 | `AUDIT_MEMORY_LIMIT`      | Memory limit for the Audit service   | `500`                                                           |
@@ -1192,6 +1316,8 @@ docker run \
 | `AUDIT_POSTGRES_DB_NAME`  | Name of the Audit Postgres database  | `audit`                                                         |
 
 ##### Git
+
+<link-summary>The list of Git dependency services in %premlite%.</link-summary>
 
 | Environment variable                                        | Description                                        | Default value                        |
 |-------------------------------------------------------------|----------------------------------------------------|--------------------------------------|
@@ -1212,6 +1338,8 @@ docker run \
 
 ##### Report processor
 
+<link-summary>The list of report processor dependency services in %premlite%.</link-summary>
+
 | Environment variable                | Description                                     | Default value                                 |
 |-------------------------------------|-------------------------------------------------|-----------------------------------------------|
 | `REPORT_PROCESSOR_MEMORY_LIMIT`     | Memory limit for the Report Processor service   | `500`                                                                     |
@@ -1221,6 +1349,8 @@ docker run \
 
 
 ## Known limitations
+
+<link-summary>The list of limitations regarding the current Docker implementation of %premlite%.</link-summary>
 
 This table describes known limitations regarding the current Dockerized implementation of %premlite%:
 
@@ -1236,6 +1366,8 @@ This table describes known limitations regarding the current Dockerized implemen
 
 
 ## Troubleshooting
+
+<link-summary>The command used for troubleshooting %premlite%.</link-summary>
 
 To troubleshoot the issues that may arise during deployment, configuration, or operation
 of %premlite%, use the following command to extract log entries:
@@ -1269,6 +1401,8 @@ create a request containing the following information:
 
 ### Services show `0/1` replicas after deployment
 
+<link-summary>Troubleshooting of the 'Services show '0/1' replicas after deployment' problem.</link-summary>
+
 Run the following commands to detect the services that are not running:
 
 ```bash
@@ -1286,6 +1420,8 @@ Common causes: insufficient memory, port 80 already in use, hostnames not resolv
 
 ### Cannot reach the UI after install completes
 
+<link-summary>Troubleshooting of the 'Cannot reach the UI after install completes' problem.</link-summary>
+
 Take the following actions to troubleshoot the issue:
 
 * Verify hostnames resolve: `curl -v http://qodana.local`
@@ -1294,16 +1430,21 @@ Take the following actions to troubleshoot the issue:
 
 ### The install-app command fails partway through
 
+<link-summary>Troubleshooting of the 'install-app command fails partway through' problem.</link-summary>
+
 Consider rerunning the `install-app` command because it skips already created resources.
 Identify the cause from logs, fix the underlying cause (e.g., network conflict, missing Docker socket), then run the command again.
 
 ### The credentials command returns nothing or errors
 
+<link-summary>Troubleshooting of the 'credentials command returns nothing or errors' problem.</link-summary>
+
 The credentials command reads Docker configs. If you have just uninstalled or are running on a different host, 
 the configs do not exist. Consider running the `install-app` command first.
 
-
 ### Backup fails with a permission error
+
+<link-summary>Troubleshooting of the 'credentials command returns nothing or errors' problem.</link-summary>
 
 The backup destination path should exist on the Docker host and be writable by the Docker daemon. Ensure that the directory 
 exists:
@@ -1315,6 +1456,8 @@ mkdir -p /srv/qodana-backups
 
 ### Inspecting Docker configs
 
+<link-summary>Use the filtering by label to make sure that Docker configs exist.</link-summary>
+
 To make sure that Docker configs exist, run the following command: 
 
 ```bash
@@ -1325,6 +1468,8 @@ docker config ls \
 
 ### Inspecting %premlite% volumes
 
+<link-summary>Use the filtering by label to inspect %premlite% volumes.</link-summary>
+
 Run the following command to inspect %premlite% volumes:
 
 ```bash
@@ -1334,4 +1479,7 @@ docker volume ls \
 {prompt="$"}
 
 ## Post-configuration steps
+
+<link-summary>The list of post-configuration steps that should be taken for %premlite%.</link-summary>
+
 <include from="shl-kubernetes-configuration.md" element-id="shl-kubernetes-configuration-post-config-steps"/>

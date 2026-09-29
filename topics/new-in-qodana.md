@@ -7,12 +7,18 @@ chronological list of all significant [%cloud%](cloud-quickstart.md) updates.
 
 ## Qodana version 2026.2
 
+<link-summary>List of changes as per version 2026.2 of %product%.</link-summary>
+
 ### Quality gates for license audit
+
+<link-summary>Quality gates for license audit are available in version 2026.2 of %product%.</link-summary>
 
 Now you can set quality gate thresholds to make sure that your project dependencies contain no prohibited or unknown licenses.
 More details are available in the [](quality-gate.topic#quality-gate-license-audit) chapter.
 
 ### Code coverage updates
+
+<link-summary>Code coverage are available in version 2026.2 of %product%.</link-summary>
 
 Starting from version 2026.2, %product% automatically detects code coverage reports contained in directories and files 
 described in the [](code-coverage.md#code-coverage-before-you-start) chapter. You can also use the `codeCoverageLocations` 
@@ -23,10 +29,14 @@ Additionally, you can use JetBrains IDEs to track code coverage for pull or merg
 
 ### Post-quantum cryptography (PQC) inspections
 
+<link-summary>Post-quantum cryptography (PQC) inspections are available in version 2026.2 of %product%.</link-summary>
+
 The [%jvm%](jvm.md) linter supports five levels of post-quantum cryptography (PQC) inspections to let you mitigate the 
 risks of quantum attacks. The details are available in the [](post-quantum-cryptography.md) section.
 
 ### Opengrep rule support
+
+<link-summary>Opengrep rule support is available in version 2026.2 of %product%.</link-summary>
 
 The [%dotnet%](dotnet.md) linter now supports rules compatible with [Opengrep](https://www.opengrep.dev/). Details are available
 in the [](taint-analysis.md) section.
@@ -75,12 +85,18 @@ The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions
 
 ## Qodana Cloud
 
+<link-summary>The list of monthly %cloud% changes.</link-summary>
+
 ### August 2026
+
+<link-summary>The list of %cloud% changes as per August 2026.</link-summary>
 
 August changes cover user-facing features, UI improvements, bug fixes, and stability improvements.
 
 #### Security
 {id="august-2026-security"}
+
+<link-summary>The list of security-related %cloud% changes as per August 2026.</link-summary>
 
 * **Team project move endpoint now verifies source team permissions**. The backend endpoint for moving multiple projects 
 between teams now checks that the caller has permission on the source team, in addition to the destination. This prevents 
@@ -92,8 +108,12 @@ a `403` response with a clear error message when the license is expired or missi
 #### New features
 {id="august-2026-new-features"}
 
+<link-summary>The list of new %cloud% features as per August 2026.</link-summary>
+
 ##### Cloud API
 {id="august-2026-new-features-baseline"}
+
+<link-summary>The Cloud API-related changes as per August 2026.</link-summary>
 
 * **Promote and demote problems between the 'Current problems' and 'Baseline problems' tabs**. Demoting moves a problem to a 
 baseline; promoting returns it to the list of actual problems. Both actions are available using a single problem view and 
@@ -103,6 +123,8 @@ labeled in the list, so you can track what you've changed before the next downlo
 
 ##### Report viewer
 {id="august-2026-new-features-report-viewer"}
+
+<link-summary>The report viewer changes of %cloud% as per August 2026.</link-summary>
 
 * **Find similar problems**. When viewing a problem in the report, a new **Find similar problems** button applies 
 matching filters (same category, type, and severity) to the sunburst diagram, so you can quickly surface related issues 
@@ -116,6 +138,8 @@ category, e.g., Security or Performance.
 ##### Onboarding
 {id="august-2026-new-features-onboarding"}
 
+<link-summary>The onboarding changes of %cloud% as per August 2026.</link-summary>
+
 * **Revised project creation flow**. Creating a new project via the team page now walks you through a clearer step-by-step 
 flow: first name your team (defaulting to **My first team**), then create a project. The page title updates live as you 
 type the team name, and **Back** or **Cancel** buttons work correctly at every step.
@@ -125,6 +149,8 @@ number of repositories.
 
 #### Bug fixes
 {id="august-2026-bug-fixes"}
+
+<link-summary>The list of bug fixes for %cloud% as per August 2026.</link-summary>
 
 * **Insights page crashed when filtering by 'Severity' or 'Check'**. Selecting a **Severity** or **Check** filter that 
 filtered out all chart values caused the **Insights** page to break.
@@ -136,11 +162,15 @@ click now correctly reflects the linter configuration, instead of showing the wr
 
 ### July 2026
 
+<link-summary>The list of %cloud% changes as per July 2026.</link-summary>
+
 Here are highlights of what shipped in Qodana Cloud since our last update. As always, this covers user-facing features,
 UI improvements, bug fixes, and stability improvements that affect your experience.
 
 #### Security
 {id="july-2026-security"}
+
+<link-summary>The list of security-related %cloud% changes as per July 2026.</link-summary>
 
 * **Critical AWS ECR vulnerabilities resolved**. Upgraded components to address critical container image vulnerabilities.
 * **VCS link domain allowlist bypass fixed**. The button that links out to your VCS host validated domains using a
@@ -149,14 +179,20 @@ UI improvements, bug fixes, and stability improvements that affect your experien
 #### New features
 {id="july-2026-new-features"}
 
+<link-summary>The list of new %cloud% features as per July 2026.</link-summary>
+
 ##### Cloud API
 {id="july-2026-new-features-cloud-api"}
+
+<link-summary>The Cloud API-related changes as per July 2026.</link-summary>
 
 **Set team visibility on project creation**. The `/api/v1/public/organizations/projects` endpoint now accepts an
 `isPublicTeam` [parameter](cloud-api.md#Create+teams+and+projects), so you can create a private team via the API instead of only public ones. Existing teams are unaffected.
 
 ##### UI improvements
 {id="july-2026-new-features-ui-improvements"}
+
+<link-summary>The list of UI improvements of %cloud% as per July 2026.</link-summary>
 
 * **Switch controls replace dropdowns**. The timeline graph filter and the problems/files switcher in the TeamCity plugin
   now use direct toggle controls instead of dropdowns.
@@ -166,6 +202,8 @@ UI improvements, bug fixes, and stability improvements that affect your experien
 
 ##### Bug fixes
 {id="july-2026-new-features-bug-fixes"}
+
+<link-summary>The list of bug fixes applied to %cloud% as per July 2026.</link-summary>
 
 * **SSO page showed the wrong message for expired plans**. Fixed incorrect messaging and call-to-action shown on the SSO page for expired Ultimate Plus plans.
 * **"Report not found" error appeared incorrectly**. This is now fixed.
@@ -179,11 +217,15 @@ UI improvements, bug fixes, and stability improvements that affect your experien
 
 ### June 2026
 
+<link-summary>The list of %cloud% changes as per June 2026.</link-summary>
+
 Here's a summary of everything that has been shipped in Qodana Cloud this month. As always, this covers
 user-facing features, UI improvements, bug fixes, and stability work that affects your experience.
 
 #### Security
 {id="june-2026-security"}
+
+<link-summary>The list of security-related changes of %cloud% as per June 2026.</link-summary>
 
 **Rate limiting added to the organizations API**. The `/api/v1/organizations`
 endpoint now has proper rate limiting in place, closing a potential denial-of-service attack
@@ -192,8 +234,12 @@ vector.
 #### New features
 {id="june-2026-new-features"}
 
+<link-summary>The list of new %cloud% features as per June 2026.</link-summary>
+
 ##### Insights
 {id="june-2026-new-features-insights"}
+
+<link-summary>The list of Insights changes of %cloud% as per June 2026.</link-summary>
 
 - **Code coverage trends over time**. The code coverage view in Insights now shows a
   historical trend chart for the selected time period, so you can see how coverage has
@@ -204,12 +250,16 @@ vector.
 ##### Settings & tokens
 {id="june-2026-new-features-settings-and-tokens"}
 
+<link-summary>The token-related changes of %cloud% as per June 2026.</link-summary>
+
 - **Token list sortable in settings**. Organization project tokens can now be sorted by team
   name, project name, last used date, and expiration date, making it easier to manage
   tokens at scale.
 
 ##### Global configuration
 {id="june-2026-new-features-global-configuration"}
+
+<link-summary>The changes related to the global configuration of %cloud% as per June 2026.</link-summary>
 
 - **Alerts when global configuration changes affect projects**. When a global
   configuration is modified in a way that disconnects or overrides connected projects, you
@@ -218,12 +268,16 @@ vector.
 #### UI improvements
 {id="june-2026-ui-improvements"}
 
+<link-summary>The list of UI improvements applied to %cloud% as per June 2026.</link-summary>
+
 - **Redesigned report filters**. The filter panel has been overhauled with improved
   grouping and severity-based sorting, making it faster to zero in on the problems that
   matter.
 
 #### Bug fixes
 {id="june-2026-bug-fixes"}
+
+<link-summary>The list of bug fixes applied to %cloud% as per June 2026.</link-summary>
 
 - **Token refresh button clipped for long names in Settings**. In the **Settings | Tokens**
   tab, the refresh action button was partially hidden when team or project names were
@@ -232,6 +286,8 @@ vector.
   did not respond to clicks in certain states.
 
 ### January-May 2026
+
+<link-summary>The list of %cloud% changes as per January-May 2026.</link-summary>
 
 Starting today, the %product% team will publish a monthly summary of everything that has shipped in Qodana Cloud.
 Whether it’s a new feature, a bug fix, or a behind-the-scenes improvement that makes the platform faster or more reliable, you'll find it here.
@@ -244,6 +300,8 @@ Expect future posts to be considerably shorter.
 
 #### Security
 
+<link-summary>The list of security-related changes of %cloud% as per January-May 2026.</link-summary>
+
 The %product% team always prioritizes security updates. Here's what we addressed:
 
 * **Stored XSS vulnerability fixed**. We patched a vulnerability that could allow malicious scripts to execute in a user’s browser via crafted links in Qodana Cloud.
@@ -254,21 +312,31 @@ The %product% team always prioritizes security updates. Here's what we addressed
 
 #### New features
 
+<link-summary>The list of new features of %cloud% as per January-May 2026.</link-summary>
+
 ##### Language support
+
+<link-summary>The extended list of languages supported during the onboarding available as per January-May 2026 changes.</link-summary>
 
 * **Ruby, C, and C++ linters** are now available in the onboarding flow, so you can get started with these languages directly from the UI.
 
 ##### Insights
+
+<link-summary>The Insights-related changes of %cloud% as per January-May 2026.</link-summary>
 
 * **Saved filter bookmarks in Insights**. You can now save your [Insights filter](insights.md#Dashboard+filters) combinations as named bookmarks and come back to them any time. No more reconfiguring the same filters after every visit.
 * **Scan frequency in Insights**. Insights now show how frequently each project is being analyzed over a chosen look-back period, with the ability to view projects sorted by scan activity.
 
 ##### Project tokens
 
+<link-summary>The project token changes of %cloud% as per January-May 2026.</link-summary>
+
 * **Token expiration dates**. When creating a [project token](project-token.md), you can now set an optional expiration date. Expired tokens are automatically rejected, giving you tighter control over long-lived credentials.
 * **Organization token validity management**. In addition to per-project token expiration (already live), you’ll soon be able to configure validity timeframes for organization-level tokens as well, giving you consistent access control across the board.
 
 ##### Public API expansions
+
+<link-summary>The Public API-related changes of %cloud% as per January-May 2026.</link-summary>
 
 * **SSH public keys** for projects are now accessible via the Cloud API, enabling automated key management workflows.
 * **Organization settings** can now be read and updated through the Cloud API.
@@ -278,16 +346,22 @@ The %product% team always prioritizes security updates. Here's what we addressed
 
 ##### Organization & team management
 
+<link-summary>The organization and team management changes of %cloud% as per January-May 2026.</link-summary>
+
 * **Bulk team invitations**. You can now invite multiple team members at once instead of adding them one by one.
 * **Team invitations** now accept email arrays, consistent with the organization invitation API.
 * **Reworked organization creation flow** for a smoother set-up experience.
 
 ##### Onboarding
 
+<link-summary>The onboarding changes of %cloud% as per January-May 2026.</link-summary>
+
 * **SSO is now generally available**. The beta label has been removed, and the [feature](cloud-sso.md) is fully supported.
 * **A ‘Wait for results’ step** with a dedicated loading indicator has been added to the project setup flow, so you always know what’s happening while your first report processes.
 
 ##### Report viewer
+
+<link-summary>The report viewer changes of %cloud% as per January-May 2026.</link-summary>
 
 * **‘Open in Cursor’ support**. In addition to existing IDE support options, you can now open a problem directly in Cursor.
 * **‘Open in VCS’ action** now adapts to the repository type (GitHub, GitLab, etc.) for each problem.
@@ -299,9 +373,13 @@ The %product% team always prioritizes security updates. Here's what we addressed
 
 ##### UI improvements
 
+<link-summary>The UI improvements of %cloud% as per January-May 2026.</link-summary>
+
 * **Global search on the organization page**. Find teams and projects from a single search bar without navigating.
 
 #### Performance and stability
+
+<link-summary>The performance and stability changes of %cloud% as per January-May 2026.</link-summary>
 
 * **Large repository contributor counts no longer cause memory errors**. We’ve optimized the contributor counting logic to handle repositories with very high contributor numbers gracefully.
 * **License audit now streams large S3 objects** instead of loading them fully into memory, preventing out-of-memory failures on projects with large metadata files.
@@ -309,6 +387,8 @@ The %product% team always prioritizes security updates. Here's what we addressed
 * **The license agreement is now checked before rendering any page**, eliminating a brief flash of content for users with pending agreements.
 
 #### Notable bug fixes
+
+<link-summary>The list of notable bug fixes applied to %cloud% as per January-May 2026.</link-summary>
 
 * **License activation is now case-insensitive**. Users whose JetBrains Account email contains uppercase letters could previously not activate licenses. This is now fixed.
 * **API-created projects** now correctly support VCS settings (SSH/HTTPS) updates, which previously failed due to a missing internal repository record.
@@ -322,11 +402,15 @@ That’s everything for this edition. If you have feedback or run into anything 
 
 ### December 2025
 
+<link-summary>The list of %cloud% changes as per December 2025.</link-summary>
+
 [Global configuration](global-configuration.md) lets you share %product% configurations across multiple projects. Each
 global configuration is a set of files consisting of the [`qodana.yaml`](configuration-reference.md) configuration file and
 [inspection profile configurations](inspection-profiles.md#inspection-profiles-custom-profiles) contained in YAML and XML files.
 
 ### September 2025
+
+<link-summary>The list of %cloud% changes as per September 2025.</link-summary>
 
 The [`.mailmap`](https://git-scm.com/docs/gitmailmap) file support was implemented for better contributor counting, see
 the [](contributors.md#The+.mailmap+file+support) for details.
@@ -336,6 +420,8 @@ using your build pipelines. The details are available in the [](cloud-api.md) se
 
 ### April 2025
 
+<link-summary>The list of %cloud% changes as per April 2025.</link-summary>
+
 Starting from version 2025.1 of %product%, the %cloud% UI contains the **Insights** page available by clicking the
 button in the upper-right part of the UI. The description of this page is available on the [](insights.md) page
 of this documentation.
@@ -344,23 +430,30 @@ Now you can also configure [Single Sign-on](cloud-sso.md) to authenticate using 
 
 ### July 2024
 
+<link-summary>The list of %cloud% changes as per July 2024.</link-summary>
+
 The new project setup is implemented in %cloud%. Now you can choose how you would like to run %product%, and the
 wizard will guide you through the configuration process. This covers running %product% locally as well as using various
 CI/CD solutions.
 
 The detailed information is available in the [](Quick-start.topic#quickstart-prerequisites) section of this documentation.
 
-
 ## Qodana Self-hosted
 {id="new-in-qodana-sh"}
 
+<link-summary>The list of %premlite% changes.</link-summary>
+
 ### September 2026
 {id="new-in-qodana-sh-september26"}
+
+<link-summary>The list of %premlite% changes as per September 2026.</link-summary>
 
 This release aggregates the main changes since 1.37.2, covering backend versions 1.38.0 → 1.45.0 and frontend versions 6.38.0 → 7.10.0.
 
 #### Infrastructure
 {id="new-in-qodana-sh-september26-infrastructure"}
+
+<link-summary>The list of %premlite% infrastructure changes as per September 2026.</link-summary>
 
 **Custom SMTP server support**. You can now connect any external SMTP server for outgoing email. Previously, only the 
 built-in options were available — this update removes that restriction, giving self-hosted admins full control over email delivery configuration.
@@ -368,8 +461,12 @@ built-in options were available — this update removes that restriction, giving
 #### New features
 {id="new-in-qodana-sh-september26-new-features"}
 
+<link-summary>The list of new features of %premlite% as per September 2026.</link-summary>
+
 ##### Report viewer
 {id="new-in-qodana-sh-september26-new-features-report-viewer"}
+
+<link-summary>The list of report viewer changes of %premlite% as per September 2026.</link-summary>
 
 **Per-user problem visibility controls**. Problems in the report can now be hidden or shown on a per-user basis, making 
 it easier to manage noise and focus on what's relevant for each team member. 
@@ -380,6 +477,8 @@ track of what's already been reviewed.
 ##### Insights
 {id="new-in-qodana-sh-september26-new-features-insights"}
 
+<link-summary>The changes related to the Insights feature of %premlite% as per September 2026.</link-summary>
+
 **Checks filter**. You can now filter Insights by specific inspections, making it easier to drill into problem categories that matter most to your team.
 **Saved filters**. Filters applied in Insights can now be saved and reused, reducing repetitive setup.
 **Scan frequency tracking**. Insights now cover scan frequency data, giving teams visibility into how often projects are being analyzed.
@@ -389,11 +488,15 @@ track of what's already been reviewed.
 ##### Navigation and search
 {id="new-in-qodana-sh-september26-new-features-navigation-and-search"}
 
+<link-summary>The Insights navigation and search changes of %premlite% as per September 2026.</link-summary>
+
 **Recent Projects page**. A new dedicated **Recent projects** page makes it faster to get back to the projects you work with most.
 **Global search on the organization page**. You can now search across the organization directly from the org page.
 
 ##### Tokens
 {id="new-in-qodana-sh-september26-new-features-tokens"}
+
+<link-summary>The token-related changes of %premlite% as per September 2026.</link-summary>
 
 **Token validity management**. Token expiry can now be actively managed from **Settings | Tokens**.
 
