@@ -354,7 +354,7 @@ You can set up a Qodana workflow badge in your repository, to do it, follow thes
     </step>
 </procedure>
 
-## Qodana logs
+## View Qodana logs
 
 <link-summary>Learn how you can tell %product% to produce a 'qodana-report' artifact containing log entries.</link-summary>
 
