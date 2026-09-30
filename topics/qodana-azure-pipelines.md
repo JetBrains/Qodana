@@ -436,7 +436,7 @@ and their analogs in the classic interface.
    <tr>
       <td><code>envVarsToLinter</code></td>
       <td><control>Environment variables to linter</control></td>
-      <td>Comma-separated list of environment variable names to read from the agent environment and pass to the linter as <code>-e NAME=VALUE</code> flags. <a href="deploy-qodana.md">Docker mode</a> only. See <a anchor="Pass+environment+variables+to+the+linter">Pass environment variables to the linter</a>. Optional.</td>
+      <td>Comma-separated list of environment variable names to read from the agent environment and pass to the linter as <code>-e NAME=VALUE</code> flags. <a href="deploy-qodana.md">Docker mode</a> only. See <a anchor="Pass+additional+environment+variables">Pass environment variables to the linter</a>. Optional.</td>
       <td>None</td>
    </tr>
 </table>
