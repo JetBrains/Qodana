@@ -317,6 +317,30 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
 </procedure>
 
 
+## Pass additional environment variables
+
+<link-summary>Use the 'envVarsToLinter' parameter to pass additional environment variables to a linter.</link-summary>
+
+To pass additional variables to a %product% linter, use the `envVarsToLinter` parameter.
+This parameter accepts a comma-separated list of environment variable names. At runtime, the task reads
+the values of these variables from the agent environment and passes them to a %product% container, for example:
+
+<code-block lang="yaml">
+   - task: %azure-version%
+     inputs:
+       envVarsToLinter: "MY_VAR,ANOTHER_VAR"
+     env:
+       QODANA_TOKEN: $(QODANA_TOKEN)
+       MY_VAR: $(MY_VAR)
+       ANOTHER_VAR: "some_value"
+</code-block>
+
+Keep the following in mind when using this parameter:
+
+* It works in [Docker mode](deploy-qodana.md#deploy-qodana-container-mode) only. In native mode, the parameter is ignored.
+* If a listed variable is not defined in the agent environment, it is silently skipped.
+* Invalid variable names result in an error.
+
 ## SARIF SAST Scans Tab
 
 <link-summary>Learn how to display the %product% report summary in Azure DevOps UI on the 'Scans' tab.</link-summary>
@@ -408,6 +432,12 @@ and their analogs in the classic interface.
       <td><control>Commit Message</control></td>
       <td>Commit message used when Quick-Fixes are applied</td>
       <td><code>🤖 Apply Quick-Fixes by %product%</code></td>
+   </tr>
+   <tr>
+      <td><code>envVarsToLinter</code></td>
+      <td><control>Environment variables to linter</control></td>
+      <td>Comma-separated list of environment variable names to read from the agent environment and pass to the linter as <code>-e NAME=VALUE</code> flags. <a href="deploy-qodana.md">Docker mode</a> only. See <a anchor="Pass+environment+variables+to+the+linter">Pass environment variables to the linter</a>. Optional.</td>
+      <td>None</td>
    </tr>
 </table>
 

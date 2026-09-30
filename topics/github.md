@@ -371,6 +371,30 @@ In the `.github/workflows/code_quality.yml` file, set `upload-result` to `true`:
 
 Run %product% using this configuration to produce a `qodana-report` artifact. Navigate to the `log` directory to see logs.
 
+## Pass additional environment variables
+
+<link-summary>Use the 'env-vars-to-linter' parameter to pass additional environment variables to a linter.</link-summary>
+
+To pass additional variables to a %product% linter, use the `env-vars-to-linter` parameter.
+This parameter accepts a comma-separated list of environment variable names. At runtime, the %product% Scan action reads
+the values of these variables from the runner environment and passes them to the %product% container, for example:
+
+```yaml
+- name: 'Qodana Scan'
+  uses: %action-version%
+  env:
+    MY_VAR: ${{ secrets.MY_VAR }}
+    ANOTHER_VAR: "some_value"
+  with:
+    env-vars-to-linter: "MY_VAR,ANOTHER_VAR"
+```
+
+Keep the following in mind when using this parameter:
+
+* It works in [Docker mode](deploy-qodana.md#deploy-qodana-container-mode) only. In native mode, the parameter is ignored.
+* If a listed variable is not defined in the runner environment, it is silently skipped.
+* Invalid variable names result in an error.
+
 ## Configuration
 
 <link-summary>The full list of action parameters.</link-summary>
@@ -401,4 +425,5 @@ with:
 | `post-pr-comment`           | Post a comment with the %product% results summary to the pull request. Optional.                                                                                                                                                  | `true`                                              |
 | `github-token`              | GitHub token to access the repository: post annotations, comments. Optional.                                                                                                                                                      | `${{ github.token }}`                               |
 | `push-fixes`                | Push %product% fixes to the repository, can be `none`, `branch` to the current branch, or `pull-request`. Optional.                                                                                                               | `none`                                              |
+| `env-vars-to-linter`        | Comma-separated list of environment variable names to read from the runner environment and pass to a linter as `-e NAME=VALUE` flags. [Docker mode](deploy-qodana.md) only. See [](#Pass+environment+variables+to+the+linter). Optional. | -                                                   |
 
