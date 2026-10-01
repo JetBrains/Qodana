@@ -22,12 +22,30 @@ page click the **Insights** button. To do the same on a team level, click this b
 <link-summary>Using filters, you can configure widgets and save the configured dashboard state.</link-summary>
 
 The upper part of the **Insights** page contains filters that let you filter widgets by
-[projects](cloud-projects.topic), [severities](ui-overview.md#Severity+levels), inspections (checks), and [baseline](baseline.topic).
+[projects](cloud-projects.topic), [severities](ui-overview.md#Severity+levels), [checks](#Checks), and [baseline](baseline.topic).
 
 After you configure all widgets, you can save the configured dashboard using the **Saved filters** dropdown list.
 Alternatively, you can copy the link to the dashboard configuration and share it with others.
 
 <img src="insights-upper-filters.png" width="735" alt="The Insights page filters" border-effect="line" thumbnail="true"/> 
+
+### Checks
+
+<link-summary>%product% provides several checks that you can use to filter your data.</link-summary>
+
+%product% provides the following types of checks: 
+
+
+| Check         | Description                                                                                                                                           |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Security`    | Potential vulnerabilities and risks that could be exploited to gain unauthorized access or compromise the system                                      |
+| `Performance` | Ability to execute tasks quickly and use resources effectively by identifying bottlenecks, optimizing algorithms, and minimizing memory and CPU usage |
+| `Legal`       | Adherence to relevant legal and regulatory requirements                                                                                               |
+| `Code Style`  | Adherence to coding standards and conventions — consistent formatting, naming, and documentation — to improve readability and maintainability         |
+| `Reliability` | Ability to consistently perform its intended functions while detecting and handling errors effectively                                                |
+| `Sanity`      | Correctness and appropriateness of project configuration to ensure proper setup of dependencies and project structure                                 |
+| `Unspecified` | Checks that are unspecified or belong to several categories, for example ESLint or checks from third-party plugins                                    |
+
 
 ## Available widgets
 
