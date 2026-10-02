@@ -87,6 +87,21 @@ The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions
 
 <link-summary>The list of monthly %cloud% changes.</link-summary>
 
+
+### September 2026
+
+<link-summary>The list of %cloud% changes as per September 2026.</link-summary>
+
+September changes cover user-facing features, UI improvements, and bug fixes, and what each change means for your day-to-day work.
+
+#### Security
+{id="september-2026-security"}
+
+**Dependency and container image vulnerabilities patched**. We upgraded components, including Netty, to close critical 
+and high-severity vulnerabilities, so the infrastructure running your analysis stays protected against known exploits.
+
+
+
 ### August 2026
 
 <link-summary>The list of %cloud% changes as per August 2026.</link-summary>
