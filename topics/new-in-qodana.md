@@ -87,8 +87,9 @@ The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions
 
 <link-summary>The list of monthly %cloud% changes.</link-summary>
 
+<!-- Uncomment after the default baseline is released-->
 
-### September 2026
+<!--### September 2026
 
 <link-summary>The list of %cloud% changes as per September 2026.</link-summary>
 
@@ -97,11 +98,49 @@ September changes cover user-facing features, UI improvements, and bug fixes, an
 #### Security
 {id="september-2026-security"}
 
+<link-summary>The list of security-related %cloud% changes as per September 2026.</link-summary>
+
 **Dependency and container image vulnerabilities patched**. We upgraded components, including Netty, to close critical 
 and high-severity vulnerabilities, so the infrastructure running your analysis stays protected against known exploits.
 
+#### New features
+{id="september-2026-new-features"}
 
+<link-summary>The list of new %cloud% features as per September 2026.</link-summary>
 
+##### Default baseline
+{id="september-2026-new-features-baseline"}
+
+<link-summary>The baseline update in %cloud% as per September 2026.</link-summary>
+
+* All problems from the first analysis will be automatically placed in the [**Baseline problems**](ui-overview.md#ui-overview-baseline) tab, which becomes your %cloud% project’s starting point. When opening an analysis report for the first time, %cloud% will automatically show the **Baseline problems** tab.
+* **Promoted/demoted tags on problems**. Problems that you promoted or demoted during the current session stay persistent across reports now.
+
+##### Report viewer
+{id="september-2026-new-features-report-viewer"}
+
+<link-summary>Report viewer changes of %cloud% as per September 2026.</link-summary>
+
+**Hide and show problems per user**. You can hide problems you don’t want to deal with and bring them back later. 
+The choice is saved per report, and only affects your own view, so you can cut through the noise without changing what your teammates see.
+
+##### Navigation
+{id="september-2026-new-features-navigation"}
+
+<link-summary>%cloud% navigation changes of %cloud% as per September 2026.</link-summary>
+
+**Recent projects**. A new **Recent projects** page lists the projects you’ve opened recently, so you can return to your 
+current work without searching through your teams. The button stays hidden until you have a recent project, so there’s no empty page.
+
+#### Bug fixes
+{id="september-2026-bug-fixes"}
+
+* **Adding a project got stuck at the GitHub step.** Some users couldn’t get past the GitHub step when adding a project, which blocked set-up. You can now complete it and start your first analysis.
+* **Project showed ‘not configured’ after deleting all default-branch reports.** The project now shows its correct state, so you don’t think your set-up is broken after cleaning up old reports.
+* **Safari displayed `qodana.yaml` inline.** Safari now downloads the file instead of showing it in the browser tab, making it easier to update your configuration file.
+* **Incorrect permissions for users with a pending invite.** Invited users now get the access they should have, so teammates aren’t blocked, or shown information they shouldn’t see.
+* **The tokens tab was visible to viewers and editors.** These roles can’t manage tokens, so the tab no longer appears for them, removing a dead end.
+-->
 ### August 2026
 
 <link-summary>The list of %cloud% changes as per August 2026.</link-summary>
@@ -139,7 +178,7 @@ labeled in the list, so you can track what you've changed before the next downlo
 ##### Report viewer
 {id="august-2026-new-features-report-viewer"}
 
-<link-summary>The report viewer changes of %cloud% as per August 2026.</link-summary>
+<link-summary>Report viewer changes of %cloud% as per August 2026.</link-summary>
 
 * **Find similar problems**. When viewing a problem in the report, a new **Find similar problems** button applies 
 matching filters (same category, type, and severity) to the sunburst diagram, so you can quickly surface related issues 
