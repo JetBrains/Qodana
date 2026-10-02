@@ -37,21 +37,21 @@
         <p>The baseline feature divides problems into these groups:</p>
 
         <list>
-            <li><emphasis>Unchanged</emphasis> are the problems added to a baseline and remaining unchanged since then.</li>
-            <li><emphasis>New</emphasis> are the problems that arise in addition to the <emphasis>Unchanged</emphasis> problems.</li>
-            <li><emphasis>Absent</emphasis> are the baseline problems that were resolved since the baseline was created. </li>
+            <li><emphasis>Unchanged</emphasis> – problems added to a baseline and remaining unchanged since then.</li>
+            <li><emphasis>New</emphasis> – problems that arise in addition to the <emphasis>unchanged</emphasis> problems.</li>
+            <li><emphasis>Absent</emphasis> – problems that were resolved since the baseline was created. </li>
         </list>
 
-        <p>This image explains how these groups work.</p>
+        <p>This diagram explains how these groups work.</p>
 
         <img src="baseline-enabled.png" dark-src="baseline-enabled_dark.png" width="706" thumbnail="true" alt="Enabling the baseline"/>
 
         <list type="decimal">
             <li>For example, the first %product% analysis detected two problems that were added to the baseline.</li>
             <li>The second %instance% analysis detected three problems. Fortunately, this time %instance%
-                identifies one of them as <emphasis>new</emphasis> and marks it respectively. The other two are the <emphasis>unchanged</emphasis> problems; they are
+                marks one of them as <emphasis>new</emphasis>. The other two are the <emphasis>unchanged</emphasis> problems; they are
                 already reflected in the baseline report.</li>
-            <li><p>After one baseline problem has been resolved, the project was analyzed again. This time, the report will
+            <li><p>After one baseline problem had been resolved, the project was analyzed again. This time, the report will
                 contain three problems. The <emphasis>new</emphasis> problem is the problem that was detected in Step 2 and still
                 remains <emphasis>new</emphasis>. There is also one <emphasis>unchanged</emphasis> problem that has not changed since Step 1. Finally, one
                 baseline problem was resolved and now is marked as <emphasis>absent</emphasis>.</p>
