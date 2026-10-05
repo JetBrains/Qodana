@@ -83,13 +83,20 @@ rootJavaProjects:
 The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions 8.0, 9.0 and 10.0 of SDK.
 -->
 
+<!--##### Default baseline
+{id="september-2026-new-features-baseline"}
+
+<link-summary>The baseline update in %cloud% as per September 2026.</link-summary>
+
+* All problems from the first analysis will be automatically placed in the [**Baseline problems**](ui-overview.md#ui-overview-baseline) tab, which becomes your %cloud% project’s starting point. When opening an analysis report for the first time, %cloud% will automatically show the **Baseline problems** tab.
+* **Promoted/demoted tags on problems**. Problems that you promoted or demoted during the current session stay persistent across reports now.
+-->
+
 ## Qodana Cloud
 
 <link-summary>The list of monthly %cloud% changes.</link-summary>
 
-<!-- Uncomment after the default baseline is released-->
-
-<!--### September 2026
+### September 2026
 
 <link-summary>The list of %cloud% changes as per September 2026.</link-summary>
 
@@ -107,14 +114,6 @@ and high-severity vulnerabilities, so the infrastructure running your analysis s
 {id="september-2026-new-features"}
 
 <link-summary>The list of new %cloud% features as per September 2026.</link-summary>
-
-##### Default baseline
-{id="september-2026-new-features-baseline"}
-
-<link-summary>The baseline update in %cloud% as per September 2026.</link-summary>
-
-* All problems from the first analysis will be automatically placed in the [**Baseline problems**](ui-overview.md#ui-overview-baseline) tab, which becomes your %cloud% project’s starting point. When opening an analysis report for the first time, %cloud% will automatically show the **Baseline problems** tab.
-* **Promoted/demoted tags on problems**. Problems that you promoted or demoted during the current session stay persistent across reports now.
 
 ##### Report viewer
 {id="september-2026-new-features-report-viewer"}
@@ -140,7 +139,7 @@ current work without searching through your teams. The button stays hidden until
 * **Safari displayed `qodana.yaml` inline.** Safari now downloads the file instead of showing it in the browser tab, making it easier to update your configuration file.
 * **Incorrect permissions for users with a pending invite.** Invited users now get the access they should have, so teammates aren’t blocked, or shown information they shouldn’t see.
 * **The tokens tab was visible to viewers and editors.** These roles can’t manage tokens, so the tab no longer appears for them, removing a dead end.
--->
+
 ### August 2026
 
 <link-summary>The list of %cloud% changes as per August 2026.</link-summary>
