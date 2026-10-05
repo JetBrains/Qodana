@@ -18,7 +18,7 @@ More details are available in the [](quality-gate.topic#quality-gate-license-aud
 
 ### Code coverage updates
 
-<link-summary>Code coverage are available in version 2026.2 of %product%.</link-summary>
+<link-summary>Code coverage updates are available in version 2026.2 of %product%.</link-summary>
 
 Starting from version 2026.2, %product% automatically detects code coverage reports contained in directories and files 
 described in the [](code-coverage.md#code-coverage-before-you-start) chapter. You can also use the `codeCoverageLocations` 
