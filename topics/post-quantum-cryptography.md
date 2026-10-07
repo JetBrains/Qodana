@@ -16,28 +16,29 @@ You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 
 ## Inspection groups
 
-<link-summary>Post-quantum cryptography inspections are divided into five groups, with each group mapping to a corresponding
-NIST PQC security category, where higher groups are stricter and report more problems.</link-summary>
+<link-summary>Post-quantum cryptography inspections are categorized into several groups, with some groups corresponding to specific NIST PQC security categories. Each higher category imposes stricter requirements and identifies a broader range of vulnerabilities.</link-summary>
 
-Post-quantum cryptography inspections are divided into five groups, with each group mapping to a corresponding
-[NIST PQC](https://csrc.nist.gov/pubs/ir/8547/ipd) security category, where higher groups are stricter and report more problems.
+Post-quantum cryptography inspections are categorized into several groups, with some groups corresponding to specific
+[NIST PQC](https://csrc.nist.gov/pubs/ir/8547/ipd) security categories. Each higher category imposes stricter 
+requirements and identifies a broader range of vulnerabilities.
 
 | Inspection group / NIST PQC security category | Description                                                                 | Reference benchmark (defines the category)                   |
 |-----------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------|
-| `PqcMinLevel1` / 1                            | Pre-quantum and legacy cryptography vulnerabilities                         | Key search on a block cipher with a 128-bit key (AES-128)    |
-| `PqcMinLevel2` / 2                            | `PqcMinLevel1` + baseline post-quantum algorithms                           | Collision search on a 256-bit hash function (SHA-256)        |
-| `PqcMinLevel3` / 3                            | `PqcMinLevel2` + standard-strength post-quantum algorithms                  | Key search on a block cipher with a 192-bit key (AES-192)    |
-| `PqcMinLevel4` / 4                            | `PqcMinLevel3` + high-strength post-quantum algorithms                      | Collision search on a 384-bit hash function (SHA3-384)       |
-| `PqcMinLevel5` / 5                            | `PqcMinLevel4` + all algorithms except those providing maximum security     | Key search on a block cipher with a 256-bit key (AES-256)    |
+| `PqcMinLevel1` / non-compliant with NIST PQC                             | Pre-quantum and legacy cryptography vulnerabilities                         | Key search on a block cipher with a 128-bit key (AES-128)    |
+| `PqcMinLevel2` / 1                            | `PqcMinLevel1` + baseline post-quantum algorithms                           | Collision search on a 256-bit hash function (SHA-256)        |
+| `PqcMinLevel3` / 2                            | `PqcMinLevel2` + standard-strength post-quantum algorithms                  | Key search on a block cipher with a 192-bit key (AES-192)    |
+| `PqcMinLevel4` / 3                            | `PqcMinLevel3` + high-strength post-quantum algorithms                      | Collision search on a 384-bit hash function (SHA3-384)       |
+| `PqcMinLevel5` / 4                            | `PqcMinLevel4` + all algorithms except those providing maximum security     | Key search on a block cipher with a 256-bit key (AES-256)    |
+| `AllPqcInspections` / 5                              | Every PQC inspection at any level     | Every case at every level    |
 
 In this table, each group above `PqcMinLevel1` incorporates the inspections of the lower groups. 
 For instance, `PqcMinLevel2` includes all the inspections of the `PqcMinLevel1` level and so on.
 
 ## Run post-quantum cryptography
 
-<link-summary>You can enable one PQC level from 1 to 5 at a time using the 'inspections.group' key in your YAML configuration.</link-summary>
+<link-summary>You can enable any inspection group using the 'inspections.group' key in your YAML configuration.</link-summary>
 
-You can enable one PQC level from 1 to 5 at a time using the `inspections.group` key in your YAML configuration, for example: 
+You can enable any inspection group using the `inspections.group` key in your YAML configuration, for example: 
 
 ```yaml
 version: "1.0"
@@ -45,7 +46,7 @@ version: "1.0"
 profile:
   name: qodana.recommended
   inspections:
-    - group: PqcMinLevel<number>
+    - group: PqcMinLevel<number> / AllPqcInspections
       enabled: true
 ```
 
