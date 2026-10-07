@@ -19,8 +19,7 @@
 
     <p>Using the baseline feature, you can compare your current code to its baseline state and see new, unchanged, and
         resolved problems. For example, you can configure and update the baseline for the <code>main</code> branch to
-        monitor changes after merging pull or merge requests. Whenever necessary, you can update your baseline
-        by generating a new <code>baseline.sarif.json</code> file and using it while running %product%.</p>
+        monitor changes after merging pull or merge requests.</p>
 
     <p>The baseline is supported by all <a href="pricing.md">linters</a> and available under Community, Ultimate, and
         Ultimate Plus licenses and their trial versions. To learn more details about licenses, visit the
@@ -28,83 +27,71 @@
         You can also <a href="https://www.jetbrains.com/qodana/request-a-demo/">request a demo</a>.
     </p>
 
-
     <!-- Add a note about baseline permissions for team editor in the permission matrix -->
 
     <chapter title="How the baseline works">
 
         <link-summary>Learn how the baseline feature works.</link-summary>
 
-        <!-- The paragraphs below should be commented out once the default baseline is updated -->
+        <p>During the first analysis of your project, %product% collects all found problems, moves them to the baseline,
+            and makes the baseline available for review and later %product% analyses, see the <a anchor="baseline-explore-analysis-results"/> chapter for details.
+            All later analyses do not add any problems to the baseline automatically, so you should configure it.</p>
+            <p>Generally, the baseline feature divides problems into these groups:</p>
 
-        <p>If you run %instance% without the baseline, you will be able to see the problems detected at a current analysis.</p>
+        <list>
+            <li><emphasis>Unchanged</emphasis> – problems added to a baseline during the first analysis and remaining unchanged since then. </li>
+            <li><emphasis>New</emphasis> – problems that arise in addition to the <emphasis>unchanged</emphasis> problems during later analyses.</li>
+            <li><emphasis>Absent</emphasis> – problems that were resolved since the baseline was created. </li>
+        </list>
 
-        <img src="baseline-no-baseline.png" dark-src="baseline-no-baseline_dark.png" width="706" alt="Running Qodana without a baseline"/>
+        <p>This diagram explains how these groups work.</p>
 
-    <p>In this case, you can only see the number of problems and their description, without classification to new and
-        existing problems.</p>
+        <!-- The image should be updated here -->
+        <img src="baseline-enabled.png" dark-src="baseline-enabled_dark.png" width="706" thumbnail="true" alt="Enabling the baseline"/>
 
-        <!-- Cloud baseline -->
-        <!--<chapter title="Cloud and file baseline">
-    <!-- <p>During the first analysis of a new project, %product% puts all problems to the %cloud% baseline available for
-            overview on the <a href="ui-overview.md" anchor="ui-overview-baseline"><ui-path>Baseline problems</ui-path> tab of the %cloud% UI.
-            On this tab, you can view and configure the baseline for all subsequent analyses, as well as promote/demote problems between
-            the <a href="ui-overview.md" anchor="ui-overview-actual-problems">current problems</a>.
-         For all subsequent analyses, %product% uses the previous baseline configuration.
-         </p>
-         <p>If you are a user of the <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-editor"><code>Editor</code></a> or
-         <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-admin"><code>Admin</code></a> roles in %cloud%, you can enable or disable the %cloud% baseline using the <ui-path>Auto-update</ui-path> toggle of the
-         <ui-path>Baseline problems</ui-path> tab.</p>
-         <p> Here, the image of the toggle can be added </p>
-        <p>If you wish to save your baseline in your VCS, as well as track and approve the changes to the baseline manually, you can use the file baseline instead.
-        In this case, download the %cloud% baseline saved in the <code>qodana.sarif.json</code> file. Configure the file baseline usage by setting
-        the <a href="configuration-reference.md" anchor="docker-config-reference-baseline"><code>--baseline</code></a> option as shown below.
-        Using the file baseline overrides the <ui-path>Auto-update</ui-path> toggle configuration in all cases.</p>
-        <p>To switch %product% from the file to the %cloud% baseline, enable the
-        <ui-path>Auto-update</ui-path> toggle in the %cloud% UI, configure the <code>--baseline</code> option in your %product% configuration, and then run %product%. This will update the %cloud% baseline.
-        After then, disable the file baseline by omitting the <code>--baseline</code> option in your %product% configuration.
-        </p>
-        </chapter>
-        -->
+        <list type="decimal">
+            <li>For example, the first %product% analysis detected two problems that were added to the baseline.</li>
+            <li>The second %instance% analysis detected three problems. Fortunately, this time %instance%
+                marks one of them as <emphasis>new</emphasis>. The other two are the <emphasis>unchanged</emphasis> problems; they are
+                already reflected in the baseline report.</li>
+            <li><p>After one baseline problem had been resolved, the project was analyzed again. This time, the report will
+                contain three problems. The <emphasis>new</emphasis> problem is the problem that was detected in Step 2 and still
+                remains <emphasis>new</emphasis>. There is also one <emphasis>unchanged</emphasis> problem that has not changed since Step 1. Finally, one
+                baseline problem was resolved and now is marked as <emphasis>absent</emphasis>.</p>
+                <p>As you can see, <emphasis>new</emphasis> problems do not automatically change theis status across %instance% analyses. To transform them to <emphasis>unchanged</emphasis>,
+                    you need to add such problems to your baseline and then analyze your project again.</p></li>
+            <li>The <emphasis>new</emphasis> problem was moved to the <emphasis>unchanged</emphasis> group by adding that
+                problem to the baseline, downloading the updated <code>qodana.sarif.json</code> file and then running %product% with the updated baseline.</li>
+        </list>
 
-        <!-- First iteration -->
-        <!--<p>During the first analysis, %product% creates a baseline saved to the <code>qodana.sarif.json</code> file, and moves all found problems to that file.
-            You can see the list of problems on the <ui-path>Baseline problems</ui-path> tab. Once done,
-                this file becomes a basis for comparing with later code states. </p>
-                <p>By default, subsequent analyses do not add new new problems to the baseline until you configure them to do so.</p>-->
-    <!--<p>To update the baseline, you can add new problems to it or remove the existing ones as explained in the <a href="ui-overview.md/> section. This will update the <code>qodana.sarif.json</code> file accordingly.</p>-->
-    <!--<p>You can run %product% using the baseline as shown in examples below:</p>-->
+</chapter>
 
-        <!-- This can be removed once the issue is updated -->
-        <p>To improve the situation, you can add problems to the baseline and save them to the
-            <code>.qodana/baseline.sarif.json</code> file in your project directory as explained in the
-            <a href="ui-overview.md" anchor="ui-overview-baseline"/> section of the %instance% report description. Once done,
-            this file becomes a basis for comparing with later code states. Below are the examples of how to run %product%
-            using various tools. The default path for the baseline file is <code>.qodana/baseline.sarif.json</code>.
-        </p>
-
-        <!-- This should be a continue to other comments -->
+    <chapter title="Run the baseline" id="baseline-run-the-baseline">
+        <p>By default, using the baseline does not require additional configuration. You can configure it in %cloud% as explained in the <a anchor="baseline-explore-analysis-results"/> chapter.</p>
+        <p>If you wish to save your baseline in your VCS, as well as track and approve the changes to the baseline manually, you can download the baseline
+            saved in the <code>qodana.sarif.json</code> file and configure it by setting
+            the <a href="configuration-reference.md" anchor="docker-config-reference-baseline"><code>--baseline</code></a> option as shown below.</p>
 
         <tabs group="cli-settings">
             <tab title="Qodana CLI" group-key="qodana-cli">
-                <code-block lang="shell" prompt="$" emphasize-lines="3">
-                    qodana scan \
-                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       --baseline .qodana/baseline.sarif.json
-                </code-block>
+            <code-block lang="shell" prompt="$" emphasize-lines="3">
+                qodana scan \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                   --baseline .qodana/baseline.sarif.json
+            </code-block>
                 <p>Here, the <code>QODANA_TOKEN</code> variable refers to the
                     <a href="project-token.md">project token</a> required by the
                     <a href="pricing.md" anchor="pricing-linters-licenses">Ultimate and Ultimate Plus</a> linters.
                 </p>
             </tab>
             <tab title="Docker image" group-key="docker-image">
-                <code-block lang="shell" prompt="$" emphasize-lines="5">
-                    docker run \
-                       -v $(pwd):/data/project/ \
-                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                       jetbrains/qodana-&lt;image&gt; \
-                       --baseline .qodana/baseline.sarif.json
-                </code-block>
+            <code-block lang="shell" prompt="$" emphasize-lines="5">
+                docker run \
+                   -v $(pwd):/data/project/ \
+                   -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                   jetbrains/qodana-&lt;image&gt; \
+                   --baseline .qodana/baseline.sarif.json
+            </code-block>
                 <p>In this snippet, the <code>--baseline</code> option specifies the path to the baseline file from the
                     Docker filesystem. The <code>QODANA_TOKEN</code> variable refers to the
                     <a href="project-token.md">project token</a> required by the
@@ -112,83 +99,83 @@
                 </p>
             </tab>
             <tab title="GitHub Actions" group-key="github-actions">
-                <code-block lang="yaml" emphasize-lines="25">
-                    name: Qodana
-                    on:
-                        workflow_dispatch:
-                        pull_request:
-                        push:
-                            branches: # Specify your branches here
-                                - main # The 'main' branch
-                                - master # The 'master' branch
-                                - 'releases/*' # The release branches
-                    jobs:
-                        qodana:
-                            runs-on: ubuntu-latest
-                            permissions:
-                                contents: write
-                                pull-requests: write
-                                checks: write
-                            steps:
-                                - uses: actions/checkout@v3
-                                  with:
-                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                                      fetch-depth: 0  # a full history is required for pull request analysis
-                                - name: 'Qodana Scan'
-                                  uses: %action-version%
-                                  with:
-                                      args: --baseline .qodana/baseline.sarif.json
-                                  env:
-                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-                </code-block>
+            <code-block lang="yaml" emphasize-lines="25">
+                name: Qodana
+                on:
+                    workflow_dispatch:
+                    pull_request:
+                    push:
+                        branches: # Specify your branches here
+                            - main # The 'main' branch
+                            - master # The 'master' branch
+                            - 'releases/*' # The release branches
+                jobs:
+                    qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                            contents: write
+                            pull-requests: write
+                            checks: write
+                        steps:
+                            - uses: actions/checkout@v3
+                              with:
+                                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                  fetch-depth: 0  # a full history is required for pull request analysis
+                            - name: 'Qodana Scan'
+                              uses: %action-version%
+                              with:
+                                  args: --baseline .qodana/baseline.sarif.json
+                              env:
+                                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+            </code-block>
                 <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>baseline.sarif.json</code> file containing the baseline.</p>
             </tab>
             <tab title="Jenkins" group-key="jenkins">
-                    <code-block lang="groovy" emphasize-lines="19">
-                        pipeline {
-                            environment {
-                                QODANA_TOKEN=credentials('qodana-token')
+                <code-block lang="groovy" emphasize-lines="19">
+                    pipeline {
+                        environment {
+                            QODANA_TOKEN=credentials('qodana-token')
+                        }
+                        agent {
+                            docker {
+                                args '''
+                                  -v "${WORKSPACE}":/data/project
+                                  --entrypoint=""
+                                  '''
+                                image 'jetbrains/qodana-&lt;image&gt;'
                             }
-                            agent {
-                                docker {
-                                    args '''
-                                      -v "${WORKSPACE}":/data/project
-                                      --entrypoint=""
-                                      '''
-                                    image 'jetbrains/qodana-&lt;image&gt;'
-                                }
-                            }
-                            stages {
-                                stage('Qodana') {
-                                    steps {
-                                        sh '''
-                                        qodana \
-                                        --baseline .qodana/baseline.sarif.json
-                                        '''
-                                    }
+                        }
+                        stages {
+                            stage('Qodana') {
+                                steps {
+                                    sh '''
+                                    qodana \
+                                    --baseline .qodana/baseline.sarif.json
+                                    '''
                                 }
                             }
                         }
-                    </code-block>
+                    }
+                </code-block>
                 <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>baseline.sarif.json</code> file containing a baseline.</p>
             </tab>
             <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-                    <code-block lang="yaml" emphasize-lines="5">
-                        include:
-                            - component: %gitlab-version%
-                              inputs:
-                                  args: |
-                                      --baseline .qodana/baseline.sarif.json
-                                      --image &lt;image&gt;
-                    </code-block>
+                <code-block lang="yaml" emphasize-lines="5">
+                    include:
+                        - component: %gitlab-version%
+                          inputs:
+                              args: |
+                                  --baseline .qodana/baseline.sarif.json
+                                  --image &lt;image&gt;
+                </code-block>
                 <p>In this snippet, the <code>--baseline</code> option specifies the path to the <code>baseline.sarif.json</code> file containing a baseline.</p>
             </tab>
             <tab title="TeamCity" group-key="teamcity">
                 <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
                     specify the path to the <code>baseline.sarif.json</code> file containing a baseline:</p>
                 <code-block lang="shell">
-                        --baseline .qodana/baseline.sarif.json
-                    </code-block>
+                    --baseline .qodana/baseline.sarif.json
+                </code-block>
             </tab>
             <tab title="JetBrains IDEs" id="jetbrains-ides">
 
@@ -210,166 +197,145 @@
             </tab>
         </tabs>
 
-        <p>The baseline feature divides problems into these groups:</p>
+    <p>To include <emphasis>absent</emphasis> problems in the report, you need to run %instance% with the
+        <code>--baseline-include-absent</code> option:</p>
 
-        <list>
-            <li><emphasis>Unchanged</emphasis> are the problems added to a baseline and remaining unchanged since then.</li>
-            <li><emphasis>New</emphasis> are the problems that arise in addition to the baseline problems.</li>
-            <li><emphasis>Absent</emphasis> are the baseline problems that were resolved since the baseline was created. </li>
-        </list>
-
-        <p>This image explains how everything works.</p>
-
-        <img src="baseline-enabled.png" dark-src="baseline-enabled_dark.png" width="706" alt="Enabling the baseline"/>
-
-    <list type="decimal">
-
-
-        <!-- The first %product% analysis detected two problems in the codebase that were added to the baseline. -->
-        <li>The first %instance% analysis detected two problems in the codebase.</li>
-
-        <!-- Download the <code>qodana.sarif.json</code> file and ...  -->
-        <li>To create the baseline for your project, download the <code>baseline.sarif.json</code> file and
-            save it in your project directory as shown in the <a href="ui-overview.md" anchor="ui-overview-baseline"/> section.
-            Starting from this moment, these two problems are identified by %instance% as baseline problems.
-        </li>
-
-        <li>A later %instance% analysis detected three problems. Fortunately, this time %instance%
-            identifies one of them as new and marks it respectively. The other two are the baseline problems; they are
-            already reflected in the baseline report and marked as unchanged.
-        </li>
-
-        <li><p>After one baseline problem is resolved, you decided to run %instance% again. This time, the report will
-            contain three problems. The new problem is the problem that was detected in the previous analysis and still
-            remains new. There is also one unchanged problem that has not changed its status. Finally, the first
-            baseline problem was resolved and now is marked as absent. </p>
-            <p>To include absent problems in the report, you need to run %instance% with the
-                <code>--baseline-include-absent</code> option:</p>
-
-            <tabs group="cli-settings">
-                <tab title="Qodana CLI" group-key="qodana-cli">
-                        <code-block lang="shell" prompt="$" emphasize-lines="4">
-                            qodana scan \
-                               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                               --baseline .qodana/baseline.sarif.json \
-                               --baseline-include-absent
-                        </code-block>
-                </tab>
-                <tab title="Docker image" group-key="docker-image">
-                    <code-block lang="shell" prompt="$" emphasize-lines="6">
-                        docker run \
-                           -v $(pwd):/data/project/ \
+    <tabs group="cli-settings">
+        <tab title="Qodana CLI" group-key="qodana-cli">
+                    <code-block lang="shell" prompt="$" emphasize-lines="4">
+                        qodana scan \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
-                           jetbrains/qodana-&lt;image&gt; \
                            --baseline .qodana/baseline.sarif.json \
                            --baseline-include-absent
                     </code-block>
-                </tab>
-                <tab title="GitHub Actions" group-key="github-actions">
-                <code-block lang="yaml" emphasize-lines="27">
-                    name: Qodana
-                    on:
-                        workflow_dispatch:
-                        pull_request:
-                        push:
-                            branches: # Specify your branches here
-                                - main # The 'main' branch
-                                - master # The 'master' branch
-                                - 'releases/*' # The release branches
-                    jobs:
-                        qodana:
-                            runs-on: ubuntu-latest
-                            permissions:
-                                contents: write
-                                pull-requests: write
-                                checks: write
-                            steps:
-                                - uses: actions/checkout@v3
-                                  with:
-                                      ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-                                      fetch-depth: 0  # a full history is required for pull request analysis
-                                - name: 'Qodana Scan'
-                                  uses: %action-version%
-                                  with:
-                                      args: |
-                                          --baseline .qodana/baseline.sarif.json
-                                          --baseline-include-absent
-                                  env:
-                                      QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </tab>
+        <tab title="Docker image" group-key="docker-image">
+                <code-block lang="shell" prompt="$" emphasize-lines="6">
+                    docker run \
+                       -v $(pwd):/data/project/ \
+                       -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+                       jetbrains/qodana-&lt;image&gt; \
+                       --baseline .qodana/baseline.sarif.json \
+                       --baseline-include-absent
                 </code-block>
-                </tab>
-                <tab title="Jenkins" group-key="jenkins">
-                    <code-block lang="groovy" emphasize-lines="20">
-                        pipeline {
-                            environment {
-                                QODANA_TOKEN=credentials('qodana-token')
-                            }
-                            agent {
-                                docker {
-                                    args '''
-                                      -v "${WORKSPACE}":/data/project
-                                      --entrypoint=""
-                                      '''
-                                    image 'jetbrains/qodana-&lt;image&gt;'
-                                }
-                            }
-                            stages {
-                                stage('Qodana') {
-                                    steps {
-                                        sh '''
-                                        qodana \
-                                        --baseline .qodana/baseline.sarif.json \
-                                        --baseline-include-absent
-                                        '''
-                                    }
-                                }
-                            }
-                        }
-                    </code-block>
-                </tab>
-                <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
-                    <code-block lang="yaml" emphasize-lines="6">
-                        include:
-                            - component: %gitlab-version%
-                              inputs:
+        </tab>
+        <tab title="GitHub Actions" group-key="github-actions">
+            <code-block lang="yaml" emphasize-lines="27">
+                name: Qodana
+                on:
+                    workflow_dispatch:
+                    pull_request:
+                    push:
+                        branches: # Specify your branches here
+                            - main # The 'main' branch
+                            - master # The 'master' branch
+                            - 'releases/*' # The release branches
+                jobs:
+                    qodana:
+                        runs-on: ubuntu-latest
+                        permissions:
+                            contents: write
+                            pull-requests: write
+                            checks: write
+                        steps:
+                            - uses: actions/checkout@v3
+                              with:
+                                  ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                                  fetch-depth: 0  # a full history is required for pull request analysis
+                            - name: 'Qodana Scan'
+                              uses: %action-version%
+                              with:
                                   args: |
                                       --baseline .qodana/baseline.sarif.json
                                       --baseline-include-absent
-                                      --image &lt;image&gt;
-                    </code-block>
-                </tab>
-                <tab title="TeamCity" group-key="teamcity">
-                    <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
-                        add the <code>--baseline-include-absent</code> option:</p>
-                    <code-block lang="shell">
-                        --baseline .qodana/baseline.sarif.json --baseline-include-absent
-                    </code-block>
-                </tab>
-            </tabs>
-        </li>
+                              env:
+                                  QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+            </code-block>
+        </tab>
+        <tab title="Jenkins" group-key="jenkins">
+                <code-block lang="groovy" emphasize-lines="20">
+                    pipeline {
+                        environment {
+                            QODANA_TOKEN=credentials('qodana-token')
+                        }
+                        agent {
+                            docker {
+                                args '''
+                                  -v "${WORKSPACE}":/data/project
+                                  --entrypoint=""
+                                  '''
+                                image 'jetbrains/qodana-&lt;image&gt;'
+                            }
+                        }
+                        stages {
+                            stage('Qodana') {
+                                steps {
+                                    sh '''
+                                    qodana \
+                                    --baseline .qodana/baseline.sarif.json \
+                                    --baseline-include-absent
+                                    '''
+                                }
+                            }
+                        }
+                    }
+                </code-block>
+        </tab>
+        <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
+                <code-block lang="yaml" emphasize-lines="6">
+                    include:
+                        - component: %gitlab-version%
+                          inputs:
+                              args: |
+                                  --baseline .qodana/baseline.sarif.json
+                                  --baseline-include-absent
+                                  --image &lt;image&gt;
+                </code-block>
+        </tab>
+        <tab title="TeamCity" group-key="teamcity">
+            <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
+                add the <code>--baseline-include-absent</code> option:</p>
+            <code-block lang="shell">
+                    --baseline .qodana/baseline.sarif.json --baseline-include-absent
+                </code-block>
+        </tab>
+    </tabs>
+</chapter>
 
-    </list>
+    <chapter title="Explore analysis results" id="baseline-explore-analysis-results">
 
-        <p>As you can see, new problems do not change the status across %instance% analyses. To transform them to unchanged,
-            you need to update your baseline.</p>
+        <p>The baseline is available for review on the <a href="ui-overview.md" anchor="ui-overview-baseline"><ui-path>Baseline problems</ui-path></a> tab.</p>
 
-        <img src="baseline-updating-baseline.png" dark-src="baseline-updating-baseline_dark.png" width="706" alt="Updating the baseline"/>
+        <img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
 
-        <list type="decimal">
-            <li>Add the new problem to your baseline and then save the updated version of the <code>baseline.sarif.json</code> file in your project directory.</li>
-            <li>Run %instance% again to see the change in the problem status.</li>
+            <p>On the tab, you can view and configure the baseline for all later analyses, as well as promote/demote problems between
+            the <a href="ui-overview.md" anchor="ui-overview-actual-problems">current problems</a> and download it as a <code>qodana.sarif.json</code> file.</p>
+
+        <p>You can update the baseline by promoting or demoting problems as explained in the <a href="ui-overview.md"/> section.</p>
+
+        <p>If you are a user of the <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-editor"><code>Editor</code></a> or
+            <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-admin"><code>Admin</code></a> roles in %cloud%, you can enable or disable the %cloud% baseline using the <ui-path>Auto-update</ui-path> toggle of the
+            <ui-path>Baseline problems</ui-path> tab.</p>
+
+        <!-- Here, the image of the toggle can be added -->
+
+        <p>Using the file baseline overrides the <ui-path>Auto-update</ui-path> toggle configuration in all cases.</p>
+        <p>To switch %product% from the file to the %cloud% baseline, enable the
+            <ui-path>Auto-update</ui-path> toggle in the %cloud% UI, configure the <code>--baseline</code> option in your %product% configuration, and then run %product%. This will update the %cloud% baseline.
+            After then, disable the file baseline by omitting the <code>--baseline</code> option in your %product% configuration.
+        </p>
+
+    </chapter>
+
+
+    <chapter title="Customizing the baseline path">
+        <link-summary>Override the default directory for baseline file storage.</link-summary>
+        <p>By default, Qodana expects the baseline file to be located at <code>.qodana/baseline.sarif.json</code> in your project root.
+            You can override this as follows:</p>
+        <list>
+            <li>If you store the baseline file in a different path within the project directory, use the <code>--baseline</code> option to specify its location relative to the project root, e.g., <code>--baseline path/to/your/baseline.sarif.json</code>.</li>
+            <li>If your baseline file is located outside the project directory, you need to mount it into the container (for Docker-based runs) and then reference it using the mounted path with the <code>--baseline</code> option.</li>
         </list>
-
-        <chapter title="Customizing the baseline path">
-            <link-summary>Override the default directory for baseline file storage.</link-summary>
-            <p>By default, Qodana expects the baseline file to be located at <code>.qodana/baseline.sarif.json</code> in your project root.
-                You can override this as follows:</p>
-            <list>
-                <li>If you store the baseline file in a different path within the project directory, use the <code>--baseline</code> option to specify its location relative to the project root, e.g., <code>--baseline path/to/your/baseline.sarif.json</code>.</li>
-                <li>If your baseline file is located outside the project directory, you need to mount it into the container (for Docker-based runs) and then reference it using the mounted path with the <code>--baseline</code> option.</li>
-            </list>
-        </chapter>
-
     </chapter>
 
 </topic>
