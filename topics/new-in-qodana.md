@@ -90,7 +90,7 @@ The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions
 
 * All problems from the first analysis will be automatically placed in the [**Baseline problems**](ui-overview.md#ui-overview-baseline) tab, which becomes your %cloud% project’s starting point. When opening an analysis report for the first time, %cloud% will automatically show the **Baseline problems** tab.
 * **Promoted/demoted tags on problems**. Problems that you promoted or demoted during the current session stay persistent across reports now.
--->
+
 
 ## Qodana Cloud
 
@@ -139,6 +139,7 @@ current work without searching through your teams. The button stays hidden until
 * **Safari displayed `qodana.yaml` inline.** Safari now downloads the file instead of showing it in the browser tab, making it easier to update your configuration file.
 * **Incorrect permissions for users with a pending invite.** Invited users now get the access they should have, so teammates aren’t blocked, or shown information they shouldn’t see.
 * **The tokens tab was visible to viewers and editors.** These roles can’t manage tokens, so the tab no longer appears for them, removing a dead end.
+-->
 
 ### August 2026
 
