@@ -15,6 +15,7 @@ versions. To learn more about the available licensing model, visit the
 You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 
 ## Inspection groups
+{id="pqc-inspection-groups"}
 
 <link-summary>Post-quantum cryptography inspections are categorized into several groups, with some groups corresponding to specific NIST PQC security categories. Each higher category imposes stricter requirements and identifies a broader range of vulnerabilities.</link-summary>
 
