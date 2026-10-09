@@ -62,7 +62,7 @@ You can run the Qodana Scan task on any OS and x86_64/arm64 CPUs, but it require
 Additionally, since most Qodana Docker images are Linux-based, the Docker daemon must support running Linux containers.
 
 You can configure this task using either a YAML-formatted file or the [Classic interface](%classic-ui-ref%). The detailed description
-of all configuration options is available in the [](#Configuration) chapter.
+of all configuration inputs is available in the [](#Configuration) chapter.
 
 Below are basic configuration examples that will be expanded in the subsequent chapters of this section.
 
@@ -147,7 +147,7 @@ Below are basic configuration examples that will be expanded in the subsequent c
              env:
                QODANA_TOKEN: $(QODANA_TOKEN)
            </code-block>
-           <p>Here, the <code>-e</code> option adds input arguments. If an argument has a value, you can use the 
+           <p>Here, the <code>-e</code> argument adds input arguments. If an argument has a value, you can use the 
                notation like <code>-i,frontend,-e,param=value</code>.</p>
         </tab>
         <tab title="Classic interface" group-key="azure-config-tabs-classic-editor">
@@ -319,10 +319,10 @@ You can also configure the [quality gate](quality-gate.topic) and [baseline](bas
 
 ## Additional environment variables
 
-<link-summary>Use the 'envVarsToLinter' parameter to pass additional environment variables to a linter.</link-summary>
+<link-summary>Use the 'envVarsToLinter' input to pass additional environment variables to a linter.</link-summary>
 
-To pass additional variables to a %product% linter, use the `envVarsToLinter` parameter.
-This parameter accepts a comma-separated list of environment variable names. At runtime, the task reads
+To pass additional variables to a %product% linter, use the `envVarsToLinter` input.
+It accepts a comma-separated list of environment variable names. At runtime, the task reads
 the values of these variables from the agent environment and passes them to a %product% container, for example:
 
 <code-block lang="yaml">
@@ -335,7 +335,7 @@ the values of these variables from the agent environment and passes them to a %p
        ANOTHER_VAR: "some_value"
 </code-block>
 
-Keep the following in mind when using this parameter:
+Keep the following in mind when using this input:
 
 * It works in [Docker mode](deploy-qodana.md#deploy-qodana-container-mode) only. In native mode, the parameter is ignored.
 * If a listed variable is not defined in the agent environment, it is silently skipped.
@@ -346,21 +346,22 @@ Keep the following in mind when using this parameter:
 <link-summary>Learn how to display the %product% report summary in Azure DevOps UI on the 'Scans' tab.</link-summary>
 
 To display Qodana report summary in Azure DevOps UI on the **Scans** tab, install Microsoft DevLabs’ [SARIF SAST Scans Tab](https://marketplace.visualstudio.com/items?itemName=sariftools.scans) extension
-and set the `uploadSarif` / **Upload SARIF** [option](#Configuration) in your pipeline configuration to `true`.
+and set the `uploadSarif` / **Upload SARIF** [input](#Configuration) in your pipeline configuration to `true`.
+Use the `sarifArtifactLocation` / **SARIF Artifact Location** input to specify the location and name of the artifact. The value must be a path to a file relative to the root of the repository.
 
 ![Azure Scans Tab](https://user-images.githubusercontent.com/13538286/160094802-df9b86b6-be53-45c1-a70c-8edfcde9412a.png)
 
 ## Configuration
 
-<link-summary>Explore the list of configuration options corresponding to the 'inputs' block of a pipeline configuration
+<link-summary>Explore the list of configuration inputs corresponding to the 'inputs' block of a pipeline configuration
 and their analogs in the classic interface.</link-summary>
 
-This table contains the list of configuration options corresponding to the `inputs` block of a pipeline configuration
+This table contains the list of configuration inputs corresponding to the `inputs` block of a pipeline configuration
 and their analogs in the classic interface.
 
 <table>
    <tr>
-      <td>YAML option</td><td>UI element of the classic interface</td>
+      <td>YAML input</td><td>UI element of the classic interface</td>
       <td>Description</td>
       <td>Default Value</td>
    </tr>
@@ -389,6 +390,12 @@ and their analogs in the classic interface.
       <td><code>uploadSarif</code></td>
       <td><control>Upload SARIF</control></td>
       <td>Upload qodana.sarif.json as an qodana.sarif artifact to the job. Optional.</td>
+      <td><code>true</code></td>
+   </tr>
+   <tr>
+      <td><code>sarifArtifactLocation</code></td>
+      <td><control>SARIF Artifact Location</control></td>
+      <td>Name and path to the qodana.sarif artifact to upload. Optional.</td>
       <td><code>true</code></td>
    </tr>
    <tr>
