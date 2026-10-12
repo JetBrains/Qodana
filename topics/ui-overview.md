@@ -78,9 +78,8 @@ problems move to this tab.
 
 <img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
 
-This tab UI is similar to the **Current problems** tab. To enable the baseline feature for future
-analyses, follow the instructions that appear in the report UI. To learn more about the feature, explore the
-[](baseline.topic) section.
+Here, you can download the `qodana.sarif.json` file containing the [baseline](baseline.topic) state of your project.
+Apart from that, this tab UI is similar to the [**Current problems**](#ui-overview-actual-problems) tab. 
 
 ### Inspections
 {id="ui-overview-configuration"}
