@@ -722,6 +722,7 @@ profile:
         <p><a href="flexinspect.md"/></p>
         <p><a href="insights.md"/><b>*</b></p>
         <p><a href="license-audit.topic"/><b>*</b></p>
+        <p><a href="post-quantum-cryptography.md"/><b>***</b></p>
         <p><a href="quick-fix.md"/></p>
         <p><a href="cloud-sso.md"/><b>*</b></p>
         <p><a href="vulnerability-checker.md"/><b>*</b></p>
@@ -738,6 +739,7 @@ profile:
             <p>✔</p>
             <p>✔</p>
             <p>✔</p>
+            <p>✔</p>
       </td>
       <td>
          <p>✔</p>
@@ -747,10 +749,12 @@ profile:
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
+         <p>&nbsp;</p>
       </td>
       <td>
          <p>✔</p>
          <p>✔</p>
+         <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
@@ -764,4 +768,6 @@ profile:
 \* Available only under the Ultimate Plus [license](pricing.md).
 
 ** Supported only by the %jvm% linter. Available only under the Ultimate Plus [license](pricing.md).
+
+*** Supported only by the %jvm% linter. Available under the Ultimate and Ultimate Plus [licenses](pricing.md).
 
