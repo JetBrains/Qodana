@@ -118,6 +118,7 @@
         <toc-element accepts-web-file-names="shl-deployment.html" topic="shl-kubernetes-configuration.md"/>
         <toc-element topic="shl-docker-configuration.md" accepts-web-file-names="shl-prepare-project.html,shl-command-list.html,shl-labels.html,shl-env-variables.html,shl-troubleshooting.html"/>
     </toc-element>
+	<toc-element topic="self-hosted-azure-pipelines.md"/>
 
 
 	<!-- Extending Qodana section -->
