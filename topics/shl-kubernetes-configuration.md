@@ -57,10 +57,10 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 Once installed, Helm needs a Chart contained in the `values.yaml` file.
 This file lets you customize endpoints, resources, secrets, integrations, and security policies.
 
-The actual version of the %product% Helm Chart is 1.0.5. Run the following command to pull the actual version of the product:
+The actual version of the %product% Helm Chart is 2.0.0. Run the following command to pull the actual version of the product:
 
 ```bash
-helm pull oci://registry.jetbrains.team/p/helm/alpha/qodana --version 1.0.5 
+helm pull oci://registry.jetbrains.team/p/helm/alpha/qodana --version 2.0.0 
 ```
 {prompt="$"}
 
@@ -72,6 +72,8 @@ helm install --generate-name -f values.yaml ./qodana
 {prompt="$"}
 
 After deploying a cluster, run the `kubectl get svc` command to see the list of services deployed.
+
+To learn how to upgrade %premlite%, see the [Helm Chart documentation](https://github.com/jetbrains-qodana/helm-charts/blob/main/charts/qodana/README.md#to-200). 
 
 ### Ingress controller
 
@@ -360,7 +362,7 @@ You can override the existing %premlite% Helm Chart settings, here is an example
 
 ```Bash
 helm template --namespace kube-public oci://registry.jetbrains.team/p/helm/alpha/qodana \
-  --version 1.0.5 \
+  --version 2.0.0 \
   --set global.license='<YOUR_LICENSE_KEY>' \
   –-set api.resources.limits.memory=2048Mi" > installation.bundle.yaml
 ```
