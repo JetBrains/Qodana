@@ -99,9 +99,9 @@ After logging in to [%cloud%](https://qodana.cloud), you can configure %instance
 
 <note>This functionality is currently not available in CLion.</note>
 
-<note>Depending on the %instance% <a href="pricing.md">license</a>, you will need to generate and use the 
+<tip>Depending on the %instance% <a href="pricing.md">license</a>, you will need to generate and use the 
 <a href="cloud-projects.topic" anchor="cloud-manage-projects">project token</a>. To learn more about project tokens, see
-the <a href="project-token.md"/> section.</note>
+the <a href="project-token.md"/> section.</tip>
 
 <procedure>
 <step>

@@ -36,10 +36,10 @@ In such cases, CLI options take precedence over their YAML equivalents if both m
 
 <link-summary>Learn how to configure Qodana via a YAML-formatted file suitable for lengthy command and settings like inspection configuration or boostrap.</link-summary>
 
-<note>
+<tip>
 The configuration saved in the <code>qodana.yaml</code> file affects only %product% linters and does not impact other 
 products, such as IntelliJ IDEA or PhpStorm.
-</note>
+</tip>
 
 <warning>
 It is highly recommended not to store tokens, passwords, or any other secret information in the <code>qodana.yaml</code> file.
@@ -234,7 +234,7 @@ bootstrap: |+
 > The sanity inspection will report unexpected problems in case the `qodana.yaml` file
 > containing the `bootstrap` key is missing from your project directory. You can disable this inspection using the
 > `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
-> {style="note"}
+> {style="tip"}
 
 
 To be able to use syntax highlighting and validation in your IDE, you can create the `prepare-qodana.sh` shell script
@@ -1757,9 +1757,9 @@ Information about inspection IDs is available on the [Inspectopedia](https://www
 
 To exclude all paths in a project from the analysis scope, omit the `paths` node.
 
-<note>While using the <code>qodana.recommended</code> and <code>qodana.starter</code> 
+<tip>While using the <code>qodana.recommended</code> and <code>qodana.starter</code> 
 profiles, Qodana reads <code>.gitignore</code> files of your project and defines the files and directories to be ignored 
-during the analysis.</note>
+during the analysis.</tip>
 
 
 {id="exclude-example"}

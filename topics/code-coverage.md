@@ -421,7 +421,7 @@ Here is the description of these lines:
 
 > If your project has a single source file, the generated Cobertura report will contain an empty path to that file. 
 > To work around this issue, either add a second source file to the project or use the LCOV format instead.
-{style="note"}
+{style="tip"}
 
 Code coverage analysis reports for the [Qodana for .NET](dotnet.md) linter are available in [](#overview-code-coverage-qodana-cloud).
 
@@ -548,8 +548,8 @@ In your IDE, navigate to the <ui-path>Coverage</ui-path> tool window.
 The IDE highlights the codebase test coverage using color marking. By default, the green color means
 that a particular line was covered, and the red color means the uncovered line of code.
 
-<note>If you see that code coverage results look incomplete, you probably need to reconfigure your
-code coverage tool and generate a new code coverage report.</note>
+<tip>If you see that code coverage results look incomplete, you probably need to reconfigure your
+code coverage tool and generate a new code coverage report.</tip>
 
 <img src="code-coverage-report.png" dark-src="code-coverage-report_dark.png" width="706" alt="The coverage report overview" border-effect="line"/>
 

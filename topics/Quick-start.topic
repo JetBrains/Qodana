@@ -506,11 +506,11 @@ plugins {
             </tab>
         </tabs>
         <var name="qodana-label">Gradle Plugin Portal</var>
-        <note>
+        <tip>
             <p>The latest version is: <a href="https://plugins.gradle.org/plugin/org.jetbrains.qodana"><img
                     src="https://img.shields.io/gradle-plugin-portal/v/org.jetbrains.qodana?color=green&amp;label=%qodana-label%&amp;logo=gradle"
                     alt=""/></a></p>
-        </note>
+        </tip>
         <tip>
             <p>For details on working with Gradle in IntelliJ IDEA, see the <a
                     href="https://www.jetbrains.com/help/idea/?Gradle">IntelliJ IDEA Gradle documentation</a>.</p>

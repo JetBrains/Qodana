@@ -85,15 +85,15 @@ These profiles are hosted on
 > An unexpected problem inspection will report in case the `qodana.yaml` file
 > containing the `bootstrap` key is missing in your project directory. You can disable this inspection using the
 > `--disable-sanity` option, or add this inspection to a [baseline](baseline.topic).
-{style="note"}
+{style="tip"}
 
 ### Set up an existing profile
 {id="inspection-profiles-setup-a-profile"}
 
 <link-summary>Learn how to set up existing %product% profiles.</link-summary>
 
-<note>You can disable the <code>qodana.sanity</code> profile using recommendations from the 
-<a href="configuration-reference.md" anchor="Disable+sanity+inspections"/> section.</note>
+<tip>You can disable the <code>qodana.sanity</code> profile using recommendations from the 
+<a href="configuration-reference.md" anchor="Disable+sanity+inspections"/> section.</tip>
 
 <p>A YAML configuration serves as a universal %product% configuration method. This means that you can configure %product% using the <a href="configuration-reference.md"><code>qodana.yaml</code></a> file
     once and then reuse it for running %product% with Docker, GitHub, JetBrains IDEs, or any other <a href="ci.md">software</a> currently
@@ -303,7 +303,7 @@ base: # Use either path or name
 ```
 
 > The `base.name` key overlaps with the [`name`](#name) setting, so these keys cannot be used together.
-{style="note"}
+{style="tip"}
 
 The `name` key supports the following values: 
 
@@ -761,7 +761,7 @@ on the [Configure profiles](https://www.jetbrains.com/help/idea/customizing-prof
 > Do not use an empty profile and then include specific inspections in case of plugin inspections, see the 
 > [](clang.md) section as an example. Plugin inspections require their corresponding plugins to be fully initialized, 
 > which may not occur when using an empty profile configuration.
-{style="note"}
+{style="tip"}
 
 To run %instance% with the custom profile, you can follow the recommendations from the
 [](inspection-profiles.md#inspection-profiles-setup-a-profile) section. In this case, the profile name does not necessarily

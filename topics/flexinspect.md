@@ -234,10 +234,10 @@ Before you can run your inspection, you'll first need to select a suitable %prod
 For example, for PHP, this will be the <a href="php.md">%php%</a> linter.
 </note>
 
-<note>
+<tip>
 If your custom inspection conflicts with a %product% inspection, and you would still like to run it, you can 
 <a href="configuration-reference.md" anchor="Excluding+inspections">disable</a> the relevant %product% inspection.
-</note>
+</tip>
 
 %feature% is supported by the [default inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles). In the [`qodana.yaml`](configuration-reference.md) file, use the inspection 
 name from the `id` field of the [inspection file](#Create+an+inspection+file) to [disable or enable](configuration-reference.md#Comprehensive+configuration+examples) your custom inspection.

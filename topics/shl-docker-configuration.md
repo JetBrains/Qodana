@@ -519,7 +519,7 @@ Assuming that requirements from the [](shl-introduction.md) and [](#Prepare+your
 
 > Basically, the deployment process is idempotent: running it on an already deployed system skips existing Docker configurations and
 > redeploys the service stacks from scratch. However, it is recommended to run the `uninstall` Docker command prior to redeploying %premlite%.
-{style="note"}
+{style="tip"}
 
 By default, %premlite% comes configured with local dependencies for quick Proofs Of Concepts (PoCs) or Proofs of Value (PoV).
 
@@ -671,7 +671,7 @@ credentials and are what the `credentials` command reads.
 
 > If you uninstall (the `uninstall` command) and then reinstall (the `install-app` command), new credentials are generated. 
 > Any external integrations using the old credentials like scripts using MinIO keys must be updated.
-{style="note"}
+{style="tip"}
 
 Using the `credentials` command, you can retrieve credentials:
 

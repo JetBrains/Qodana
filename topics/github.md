@@ -81,8 +81,8 @@ while configuring Qodana.</link-summary>
 
 <include from="lib_qd.topic" element-id="github-basic-configuration"/>
 
-<note><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
-(reports issues that appeared only in that pull request).</note> 
+<tip><code>fetch-depth: 0</code> is required for checkout in case Qodana works in pull request mode
+(reports issues that appeared only in that pull request).</tip> 
 
 We recommend that you have a separate workflow file for Qodana
 because [different jobs run in parallel](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#job)

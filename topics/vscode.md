@@ -112,7 +112,7 @@ your project opened in the IDE to a specific %cloud% [project](cloud-projects.to
 You can explore the analysis report of %product% using the **PROBLEMS** tab of Visual Studio Code. 
 
 >If you still do not see the report on the **PROBLEMS** tab, configure the [**Path prefix**](#vs-code-configure-extension) setting.
-{style="note"}
+{style="tip"}
 
 On this tab, you can click problem items and navigate to code fragments where %instance% detected them.
 

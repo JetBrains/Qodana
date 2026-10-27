@@ -79,6 +79,7 @@ problems move to this tab.
 <img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
 
 Here, you can download the `qodana.sarif.json` file containing the [baseline](baseline.topic) state of your project.
+Also, the problems in this case are tagged as `Demoted`.
 Apart from that, this tab UI is similar to the [**Current problems**](#ui-overview-actual-problems) tab. 
 
 ### Inspections

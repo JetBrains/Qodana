@@ -382,7 +382,7 @@ include:
 
 > Qodana could automatically modify not only the code, but also the configuration in 
 > the `.idea` directory: if you do not wish to push these changes, add `.idea` to your `.gitignore` file.
-{style="note"}
+{style="tip"}
 
 
 ## Expose Qodana reports

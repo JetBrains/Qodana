@@ -54,7 +54,7 @@ while configuring Qodana.</link-summary>
 edit your azure-pipelines.yml file as shown in this section.</link-summary>
 
 > Triggering Qodana Scan depends on the [repository type](%repo-type%) that you are using in Azure Pipelines.
-{style="note"}
+{style="tip"}
 
 <include from="lib_qd.topic" element-id="major-version-note"/>
 

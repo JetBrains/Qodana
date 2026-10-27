@@ -401,10 +401,10 @@ use a [project token](project-token.md), see the [](#dotnet-before-you-start-qod
       </list>
       <tabs>
         <tab title="Native mode">
-          <note>
+          <tip>
             If you plan to use private NuGet feeds, it is advised to run native mode on the same machine where
             you build a project because this can guarantee that %instance% has access to private NuGet feeds.
-          </note>
+          </tip>
                 <p>You can configure native mode by using the <code>--linter</code> and <code>--within-docker</code> options:</p>
             <tabs group="software">
                 <tab title="GitHub Actions" group-key="github">
@@ -1963,8 +1963,12 @@ docker run \
         <p><a href="license-audit.topic">License audit</a><b>***</b></p>
         <p><a href="quick-fix.md">Quick-Fix</a></p>
         <p><a href="cloud-sso.md"/><b>***</b></p>
+        <p><a href="taint-analysis.md"/></p>
+        <p><a href="vulnerability-checker.md"/></p>
       </td>
       <td>
+            <p>✔</p>
+            <p>✔</p>
             <p>✔</p>
             <p>✔</p>
             <p>✔</p>
@@ -1976,6 +1980,8 @@ docker run \
       <td>
          <p>✔</p>
          <p>✔</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>

@@ -99,10 +99,10 @@
         <p>You can configure a quality gate for the total number of project problems in all %product%
             <a href="linters.md">linters</a>.</p>
 
-        <note>
+        <tip>
             If you run %product% with the quality gate and the <a href="baseline.topic">baseline</a> features enabled, a
             threshold will be calculated as the sum of new problems.
-        </note>
+        </tip>
 
         <tabs>
             <tab title="qodana.yaml">

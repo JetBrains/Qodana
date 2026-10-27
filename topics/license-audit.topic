@@ -139,8 +139,8 @@
 
         <link-summary>Explore how you can run the license audit feature.</link-summary>
 
-            <note>While configuring <a href="configuration-reference.md" anchor="exclude-inspection">analysis scopes</a>, make sure that
-            the file containing the build configuration is included in the scope.</note>
+            <tip>While configuring <a href="configuration-reference.md" anchor="exclude-inspection">analysis scopes</a>, make sure that
+            the file containing the build configuration is included in the scope.</tip>
 
             <note>
                 This feature is currently not available in <a href="qodana-ide-plugin.md">JetBrains IDEs</a>. To run it, use
