@@ -55,11 +55,16 @@ using your IDE. To do it, select your IDE from the dropdown list and then click 
 
 -->
 
-6. The **Demote to baseline** button moves the selected problem to a [baseline](baseline.topic) and becomes visible on the **[](#ui-overview-baseline)** tab. 
+6. The **Demote to baseline** button moves a selected problem to a [baseline](baseline.topic) and makes it visible on the **[](#ui-overview-baseline)** tab.<br>
+   To remove the demoted problem from the baseline, on the [](#ui-overview-baseline) tab find the problem and then click the **Promote to current** button.
 
-   The **Exclude** dropdown list lets you exclude a path, file, inspection, or category from the analysis, see the [](#Adjust+the+analysis+scope) section for details.
+   The **Exclude** dropdown list lets you exclude a path, file, inspection, or category from the analysis, see the [](#Adjust+the+analysis+scope) section for details.<br>
+   Options from this list generate updates to a [YAML](configuration-reference.md) configuration file of %product%. If the generated update is applied during later analyses, the exclusion will be reflected in later analysis reports.<br>
+   To reset the configured exclusion, on the current tab expand the **Folder categories** filter and then click the **Reset all excluded** link.
 
-   The **Hide** button lets you hide the selected problem from the report for your account.  Other people will still see it.
+   The **Hide** button lets you hide a selected problem from the report for your account across analyses. Other people will still see it.<br>
+   To make the hidden problem visible, on the current tab expand the **Hidden** filter and then click the **Show** link.<br>
+   To make the problem completely visible, on the current tab navigate to the problem and then click the **Show** button.
 
     The **Find similar problems** button lets you filter problems by type.
     
@@ -79,8 +84,10 @@ problems move to this tab.
 <img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
 
 Here, you can download the `qodana.sarif.json` file containing the [baseline](baseline.topic) state of your project.
-Also, the problems in this case are tagged as `Demoted`.
-Apart from that, this tab UI is similar to the [**Current problems**](#ui-overview-actual-problems) tab. 
+
+Also, problems on this tab are tagged as `Demoted`. To remove a specific problem from this tab, click the **Promote to current** button.
+
+Otherwise, this tab UI is similar to the [**Current problems**](#ui-overview-actual-problems) tab. 
 
 ### Inspections
 {id="ui-overview-configuration"}
