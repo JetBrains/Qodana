@@ -12,8 +12,9 @@
     contained in the baseline.sarif.json file. Using the baseline feature, you can compare your current code to its
         baseline state and see new, unchanged, and resolved problems.</link-summary>
 
-    <p><emphasis>The baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% analysis for a
-        specific Git branch and contained in the <code>baseline.sarif.json</code> file.</p>
+    <p><emphasis>The baseline</emphasis> is a snapshot of the codebase problems taken at a specific %instance% analysis.</p>
+
+    <!--and contained in the <code>baseline.sarif.json</code> file -->
 
     <!-- The last sentence from the paragraph can be deleted or extended -->
 
@@ -34,8 +35,8 @@
         <link-summary>Learn how the baseline feature works.</link-summary>
 
         <p>During the first analysis of your project, %product% collects all found problems, moves them to the baseline,
-            and makes the baseline available for review and later %product% analyses, see the <a anchor="baseline-explore-analysis-results"/> chapter for details.
-            All later analyses do not add any problems to the baseline automatically, so you should configure it.</p>
+            and makes the baseline available for review and later %product% analyses. For details, see the <a anchor="baseline-explore-analysis-results"/> chapter.
+            Later analyses do not add problems to the baseline automatically, but you can always add and remove problems manually.</p>
             <p>Generally, the baseline feature divides problems into these groups:</p>
 
         <list>
@@ -64,10 +65,36 @@
                 problem to the baseline, downloading the updated <code>qodana.sarif.json</code> file and then running %product% with the updated baseline.</li>
         </list>
 
+        <p>By default, using the baseline does not require additional configuration. You can configure it in %cloud% as explained in the <a anchor="baseline-explore-analysis-results"/> chapter.</p>
+
 </chapter>
 
-    <chapter title="Run the baseline" id="baseline-run-the-baseline">
-        <p>By default, using the baseline does not require additional configuration. You can configure it in %cloud% as explained in the <a anchor="baseline-explore-analysis-results"/> chapter.</p>
+    <chapter title="Explore analysis results" id="baseline-explore-analysis-results">
+
+        <p>The baseline is available for review on the <a href="ui-overview.md" anchor="ui-overview-baseline"><ui-path>Baseline problems</ui-path></a> tab.</p>
+
+        <img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
+
+            <p>On the <ui-path>Baseline problems</ui-path> tab, you can view the baseline used for later analyses.</p>
+
+        <!-- , as well as promote/demote problems between
+        the <a href="ui-overview.md" anchor="ui-overview-actual-problems">current problems</a> and download it as a <code>qodana.sarif.json</code> file. -->
+
+        <p>You can update the baseline by promoting or demoting problems as explained in the <a href="ui-overview.md"/> section.</p>
+
+        <p>If you are a user of the <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-editor"><code>Editor</code></a> or
+            <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-admin"><code>Admin</code></a> roles in %cloud%, you can enable or disable the %cloud% baseline using the <ui-path>Auto-update</ui-path> toggle of the
+            <ui-path>Baseline problems</ui-path> tab.</p>
+
+        <!-- Here, the image of the toggle can be added -->
+
+    </chapter>
+
+
+    <chapter title="Using a baseline file" id="baseline-run-the-baseline">
+
+
+
         <p>If you wish to save your baseline in your VCS, as well as track and approve the changes to the baseline manually, you can download the baseline
             saved in the <code>qodana.sarif.json</code> file and configure it by setting
             the <a href="configuration-reference.md" anchor="docker-config-reference-baseline"><code>--baseline</code></a> option as shown below.</p>
@@ -197,19 +224,27 @@
             </tab>
         </tabs>
 
-    <p>To include <emphasis>absent</emphasis> problems in the report, you need to run %instance% with the
-        <code>--baseline-include-absent</code> option:</p>
+        <p>Using the file baseline overrides the default configuration in all cases.</p>
+        <p>To switch %product% from the file to the %cloud% baseline, enable the
+            <ui-path>Auto-update</ui-path> toggle in the %cloud% UI, configure the <code>--baseline</code> option in your %product% configuration, and then run %product%. This will update the %cloud% baseline.
+            After then, disable the file baseline by omitting the <code>--baseline</code> option in your %product% configuration.
+        </p>
 
-    <tabs group="cli-settings">
-        <tab title="Qodana CLI" group-key="qodana-cli">
+        <chapter title="Including absent problems in reports">
+
+        <p>To include <emphasis>absent</emphasis> problems in reports, you need to run %instance% with the
+            <code>--baseline-include-absent</code> option:</p>
+
+        <tabs group="cli-settings">
+            <tab title="Qodana CLI" group-key="qodana-cli">
                     <code-block lang="shell" prompt="$" emphasize-lines="4">
                         qodana scan \
                            -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
                            --baseline .qodana/baseline.sarif.json \
                            --baseline-include-absent
                     </code-block>
-        </tab>
-        <tab title="Docker image" group-key="docker-image">
+            </tab>
+            <tab title="Docker image" group-key="docker-image">
                 <code-block lang="shell" prompt="$" emphasize-lines="6">
                     docker run \
                        -v $(pwd):/data/project/ \
@@ -218,8 +253,8 @@
                        --baseline .qodana/baseline.sarif.json \
                        --baseline-include-absent
                 </code-block>
-        </tab>
-        <tab title="GitHub Actions" group-key="github-actions">
+            </tab>
+            <tab title="GitHub Actions" group-key="github-actions">
             <code-block lang="yaml" emphasize-lines="27">
                 name: Qodana
                 on:
@@ -251,8 +286,8 @@
                               env:
                                   QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
             </code-block>
-        </tab>
-        <tab title="Jenkins" group-key="jenkins">
+            </tab>
+            <tab title="Jenkins" group-key="jenkins">
                 <code-block lang="groovy" emphasize-lines="20">
                     pipeline {
                         environment {
@@ -280,8 +315,8 @@
                         }
                     }
                 </code-block>
-        </tab>
-        <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
+            </tab>
+            <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
                 <code-block lang="yaml" emphasize-lines="6">
                     include:
                         - component: %gitlab-version%
@@ -291,51 +326,27 @@
                                   --baseline-include-absent
                                   --image &lt;image&gt;
                 </code-block>
-        </tab>
-        <tab title="TeamCity" group-key="teamcity">
-            <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
-                add the <code>--baseline-include-absent</code> option:</p>
-            <code-block lang="shell">
+            </tab>
+            <tab title="TeamCity" group-key="teamcity">
+                <p>In the runner configuration, find the <ui-path>Additional Qodana arguments</ui-path> field and
+                    add the <code>--baseline-include-absent</code> option:</p>
+                <code-block lang="shell">
                     --baseline .qodana/baseline.sarif.json --baseline-include-absent
                 </code-block>
-        </tab>
-    </tabs>
-</chapter>
-
-    <chapter title="Explore analysis results" id="baseline-explore-analysis-results">
-
-        <p>The baseline is available for review on the <a href="ui-overview.md" anchor="ui-overview-baseline"><ui-path>Baseline problems</ui-path></a> tab.</p>
-
-        <img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
-
-            <p>On the tab, you can view and configure the baseline for all later analyses, as well as promote/demote problems between
-            the <a href="ui-overview.md" anchor="ui-overview-actual-problems">current problems</a> and download it as a <code>qodana.sarif.json</code> file.</p>
-
-        <p>You can update the baseline by promoting or demoting problems as explained in the <a href="ui-overview.md"/> section.</p>
-
-        <p>If you are a user of the <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-editor"><code>Editor</code></a> or
-            <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-admin"><code>Admin</code></a> roles in %cloud%, you can enable or disable the %cloud% baseline using the <ui-path>Auto-update</ui-path> toggle of the
-            <ui-path>Baseline problems</ui-path> tab.</p>
-
-        <!-- Here, the image of the toggle can be added -->
-
-        <p>Using the file baseline overrides the <ui-path>Auto-update</ui-path> toggle configuration in all cases.</p>
-        <p>To switch %product% from the file to the %cloud% baseline, enable the
-            <ui-path>Auto-update</ui-path> toggle in the %cloud% UI, configure the <code>--baseline</code> option in your %product% configuration, and then run %product%. This will update the %cloud% baseline.
-            After then, disable the file baseline by omitting the <code>--baseline</code> option in your %product% configuration.
-        </p>
-
+            </tab>
+        </tabs>
+        </chapter>
+        <chapter title="Customizing the baseline path">
+            <link-summary>Override the default directory for baseline file storage.</link-summary>
+            <p>By default, Qodana expects the baseline file to be located at <code>.qodana/baseline.sarif.json</code> in your project root.
+                You can override this as follows:</p>
+            <list>
+                <li>If you store the baseline file in a different path within the project directory, use the <code>--baseline</code> option to specify its location relative to the project root, e.g., <code>--baseline path/to/your/baseline.sarif.json</code>.</li>
+                <li>If your baseline file is located outside the project directory, you need to mount it into the container (for Docker-based runs) and then reference it using the mounted path with the <code>--baseline</code> option.</li>
+            </list>
+        </chapter>
     </chapter>
 
 
-    <chapter title="Customizing the baseline path">
-        <link-summary>Override the default directory for baseline file storage.</link-summary>
-        <p>By default, Qodana expects the baseline file to be located at <code>.qodana/baseline.sarif.json</code> in your project root.
-            You can override this as follows:</p>
-        <list>
-            <li>If you store the baseline file in a different path within the project directory, use the <code>--baseline</code> option to specify its location relative to the project root, e.g., <code>--baseline path/to/your/baseline.sarif.json</code>.</li>
-            <li>If your baseline file is located outside the project directory, you need to mount it into the container (for Docker-based runs) and then reference it using the mounted path with the <code>--baseline</code> option.</li>
-        </list>
-    </chapter>
 
 </topic>
