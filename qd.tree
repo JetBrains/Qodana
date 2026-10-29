@@ -73,6 +73,7 @@
 		<toc-element topic="visualstudio.md"/>
 	</toc-element>
 
+
 	<!-- Integration section -->
 	<toc-element toc-title="CI/CD support">
 		<toc-element topic="ci.md" accepts-web-file-names="add-qodana-to-ci.html,cloud-forward-reports.html"/>
