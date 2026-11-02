@@ -96,6 +96,61 @@ The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions
 
 <link-summary>The list of monthly %cloud% changes.</link-summary>
 
+### October 2026
+
+<link-summary>The list of %cloud% changes as per October 2026.</link-summary>
+
+October %cloud% update brings a new endpoint for downloading SARIF reports, bulk branch deletion, a 
+redesigned inspection list on the **Configuration** tab, and a handful of fixes for the **Recent projects** page, 
+Safari, and GitHub project set-up.
+
+#### Security
+{id="october-2026-security"}
+
+<link-summary>The list of security-related %cloud% changes as per October 2026.</link-summary>
+
+Exposed library updated in the vulnerability checker. We upgraded the Exposed database library used by the vulnerability 
+checker service to address a reported SQL injection vulnerability in the older version, see the details on the 
+[JetBrains](https://www.jetbrains.com/privacy-security/issues-fixed/?product=Exposed) website.
+
+#### New features
+{id="october-2026-new-features"}
+
+<link-summary>The list of new %cloud% features as per October 2026.</link-summary>
+
+##### Public API
+{id="october-2026-new-features-public-api"}
+
+<link-summary>Public API changes of %cloud% as per October 2026.</link-summary>
+
+**Download the latest SARIF report via the API**. A new experimental endpoint, `GET /api/experimental/report/latest?branch={branch}`, 
+fetches the latest project processed report in SARIF format. If you don’t specify a branch, the default branch is used. 
+The API response does not include code snippets or full rule descriptions.
+
+##### Projects and branches
+{id="october-2026-new-features-projects-and-branches"}
+
+**Delete several branches at once**. You can now select multiple branches of a project and delete them in one action 
+instead of removing them one by one.
+
+#### Bug fixes
+{id="october-2026-bug-fixes"}
+
+**The 'Recent projects' page didn't refresh project cards.** A card for a project whose report was still processing kept 
+showing **Processing...** until you reloaded the page. Cards now update on their own once processing finishes.
+
+**The ‘Hidden’ filter didn't open in Safari when the page was zoomed out.** The report’s filter drop-down menu now 
+expands correctly in Safari at reduced zoom levels.
+
+**Unclear error for empty GitHub repositories.** Setting up a project for an empty GitHub repository now returns a 
+clear, actionable error message.
+
+**Never-used tokens appeared first when sorting by last used date.** Sorting project tokens by **last used** in 
+descending order no longer puts tokens that have never been used at the top.
+
+**Stale vulnerability data in dependency checks.** Vulnerabilities that were removed from the `Mend.io` database are 
+now removed from our data too, reducing false positives.
+
 ### September 2026
 
 <link-summary>The list of %cloud% changes as per September 2026.</link-summary>
@@ -106,7 +161,7 @@ September changes cover user-facing features, UI improvements, and bug fixes, an
 {id="september-2026-security"}
 
 <link-summary>The list of security-related %cloud% changes as per September 2026.</link-summary>
-
+ 
 **Dependency and container image vulnerabilities patched**. We upgraded components, including Netty, to close critical 
 and high-severity vulnerabilities, so the infrastructure running your analysis stays protected against known exploits.
 
