@@ -51,24 +51,29 @@ To analyze Dart and Flutter projects, you can use the %dart% linter that has the
     </tr>
     <tr>
         <td>Based on</td>
-        <td>The Dart SDK linter (via the <code>qodana-dart</code> plugin on the IntelliJ Void distribution)</td>
+        <td>The Flutter SDK</td>
     </tr>
     <tr>
         <td>Available under licenses</td>
-        <!-- TODO(QD-2785): confirm licensing tier for the Dart linter with the dev team. -->
-        <td>TODO: confirm licenses</td>
+        <td>Ultimate and Ultimate Plus <a href="pricing.md">licenses</a></td>
     </tr>
     <tr>
         <td>Shipped as</td>
-        <td>A Docker image</td>
+        <td>A <a href="deploy-qodana.md" anchor="deploy-qodana-native-mode">native solution</a> and a Docker image</td>
     </tr>
     <tr>
-        <td>Supported languages</td>
+        <td>Supported language</td>
         <td>%dart-langs%</td>
     </tr>
+    <tr>
+        <td>Supported framework</td>
+        <td>Flutter</td>
+    </tr>
+    <tr>
+        <td>Supported %product% features</td>
+        <td><a href="baseline.topic">Baseline</a>, <a href="quality-gate.topic">quality gate</a></td>
+    </tr>
 </table>
-
-To see the list of supported technologies and features, you can navigate to the [](#dart-feature-matrix) chapter of this section.
 
 <note>
 The %qd% linter is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
@@ -82,14 +87,13 @@ Your feedback is very welcome in our
 
 ### Install project dependencies
 
-<!-- TODO(QD-2785): confirm the recommended bootstrap command (dart pub get vs flutter pub get) with the dev team. -->
-In case a project has external dependencies, you can set them up using the `bootstrap` key of your [YAML configuration](configuration-reference.md#Run+custom+commands),
-for example:
+Before starting the linter, make sure that project dependencies are set up. You can do this using the `bootstrap` key of 
+your [YAML configuration](configuration-reference.md#Run+custom+commands), for example:
 
 ```yaml
-bootstrap: dart pub get
+bootstrap: flutter pub get
 ```
-The command will be automatically executed before the analysis. For Flutter projects, use `flutter pub get` instead.
+The command will be automatically executed before the analysis. For plain Dart projects, use the `dart pub get` command instead.
 
 ### %cloud%
 
@@ -97,87 +101,278 @@ The command will be automatically executed before the analysis. For Flutter proj
 
 ### Prepare your software
 
-<include from="lib_qd.topic" element-id="before-start-prepare-software" use-filter="empty,generic"/>
-
-## Configure the Dart SDK and ruleset
-
-The `qodana-dart` plugin downloads the appropriate Dart SDK dynamically, selecting the
-correct build for your operating system and architecture. You can configure the analysis
-through your [YAML configuration](configuration-reference.md) file, where the plugin supports:
-
-* Standard `include` and `exclude` patterns for adjusting the scope of analysis.
-* Selecting a [Dart linter rule set](https://dart.dev/tools/linter-rules#sets).
-
-<note>
-Enabling and disabling individual inspections through <code>qodana.yaml</code> is not
-supported for the Dart linter, because it relies on directory-specific
-<code>analysis_options.yaml</code> files. Configure Dart rules in those files instead.
-See the <a href="#dart-inspection-configuration">Inspection configuration</a> section below.
-</note>
+<tabs group="software">
+    <tab title="GitHub Actions" group-key="github">
+        On the <ui-path>Settings</ui-path> tab of the GitHub UI, create the <code>QODANA_TOKEN</code>
+        <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">encrypted secret</a>
+        and save the <a href="project-token.md">project token</a> as its value.</tab>
+    <tab title="Command line" group-key="command-line">
+        <p>If you are using Linux, you should be able to run Docker under your current <a href="%non-root-user%">non-root user</a>.</p>
+        <p>Follow the instructions from the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> page on GitHub.</p></tab>
+</tabs>
 
 ## Run Qodana
 
-<include from="lib_qd.topic" element-id="run-qodana" use-filter="empty,ruby"/>
-<include from="lib_qd.topic" element-id="run-qodana-container-mode-config-examples" use-filter="empty,generic"/>
+Native mode is the recommended method for running the %qd% linter. The Docker mode is also supported but
+not recommended.
+
+<tabs group="software">
+    <tab title="GitHub Actions" group-key="github">
+        <p>You can run %product% using the <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a>.</p>
+        <p>To analyze the <code>main</code> branch, release branches and the pull requests coming
+            to your repository in native mode, save this workflow configuration to the <code>.github/workflows/code_quality.yml</code> file:</p>
+        <code-block lang="yaml" filter="generic">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: %action-version%
+                          with:
+                              args: |
+                                  --linter %qd-linter%
+                                  --within-docker false
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+        <p>This configuration uses the <code>--linter</code>
+            <a href="docker-image-configuration.topic" anchor="docker-config-reference-qodana-scan">option</a>
+            to specify a <a href="linters.md">linter</a>. The
+            <code>--within-docker</code> option in the <code>false</code> state is used for enabling native mode.</p>
+        <p>More configuration examples are available in the <a href="github.md"/> section.</p>
+    </tab>
+    <tab title="Command line" group-key="command-line">
+        <p>Run this command in the project root directory:</p>
+        <code-block lang="shell" prompt="$" filter="generic">
+            qodana scan \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;qodana-cloud-token&gt;" \
+            &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
+            &nbsp;&nbsp;&nbsp;--within-docker false
+        </code-block>
+        <p>This configuration uses the <code>--linter</code>
+            <a href="docker-image-configuration.topic" anchor="docker-config-reference-qodana-scan">option</a>
+            to specify the %dart% linter. The
+            <code>--within-docker</code> option in the <code>false</code> state is used for enabling native mode.</p>
+        <p>If you are using another %cloud% instance than https://qodana.cloud/, override it by declaring the <code>QODANA_ENDPOINT</code> environment variable.</p>
+        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine analysis reports and
+            reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
+    </tab>
+</tabs>
 
 ## Explore analysis reports
 
-<include from="lib_qd.topic" element-id="explore-analysis-results" use-filter="empty,php"/>
+<p>After %product% analyzed your project and uploaded the analysis reports to %cloud%, in
+    <a href="https://qodana.cloud">%cloud%</a> navigate to your project and review analysis reports.</p>
 
 ## Extend Qodana configuration
 
-### Adjusting the scope of analysis
+### Configuring inspections and scope
+{id="dart-inspection-configuration"}
 
-<include from="lib_qd.topic" element-id="adjust-scope-of-analysis"/>
+The %qd% linter reads the analysis scope and rules from the [`analysis_options.yaml`](https://dart.dev/tools/analysis) files contained in the repository,
+so any changes to the analysis scope or [ruleset](https://dart.dev/tools/linter-rules#sets) should be made in those files. 
+
+The only inspection that you can configure via a [YAML file](configuration-reference.md) is the `DartAnalyze` inspection 
+acting as a single toggle for all Dart and Flutter analysis. This inspection is enabled by
+default. To disable the inspection, for example, when you only need other inspections
+from the linter, exclude it as follows:
+
+```yaml
+exclude:
+  - name: DartAnalyze
+```
+
+Also, file and directory exclusions work in a [YAML configuration](configuration-reference.md) as an additional filtering layer, but the `analysis_options.yaml` file 
+configuration takes precedence. For example, excluding a file in the `analysis_options.yaml` file and 
+including it in the YAML configuration does not take effect, while excluding a file in 
+the YAML configuration leads to skipping it when reporting the results.
+
+### Configuring the Flutter SDK
+
+The %qd% linter uses the Flutter SDK available via the `PATH`. To use a specific installation,
+set the `QODANA_FLUTTER_PATH` environment variable to the `bin` directory of your Flutter SDK.
 
 ### Enabling the baseline feature
 
-<include from="lib_qd.topic" element-id="enabling-baseline" use-filter="empty,generic,php"/>
+<tabs group="software">
+    <tab title="GitHub Actions" group-key="github">
+      <p>Save the snippet to the <code>.github/workflows/code_quality.yml</code> file containing the
+          <code>--baseline</code> option that specifies the path to a SARIF-formatted baseline file:</p>
+      <code-block lang="yaml" filter="generic">
+          name: Qodana
+          on:
+            workflow_dispatch:
+            pull_request:
+            push:
+              branches: # Specify your branches here
+                - main # The 'main' branch
+                - master # The 'master' branch
+                - 'releases/*' # The release branches
+          jobs:
+            qodana:
+              runs-on: ubuntu-latest
+              permissions:
+                contents: write
+                pull-requests: write
+                checks: write
+              steps:
+                - uses: actions/checkout@v3
+                  with:
+                    ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                    fetch-depth: 0  # a full history is required for pull request analysis
+                - name: 'Qodana Scan'
+                  uses: %action-version%
+                  with:
+                    args: |
+                      --baseline &lt;path/to/qodana.sarif.json&gt;
+                      --linter %qd-linter%
+                      --within-docker false
+                  env:
+                    QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+      </code-block>
+    </tab>
+    <tab title="Command line" group-key="command-line">
+        <p>Run this command in the project root directory using the
+            <code>--baseline</code> option to specify the path to a SARIF-formatted file containing a baseline:</p>
+        <code-block lang="shell" prompt="$" filter="generic">
+            qodana scan \
+            &nbsp;&nbsp;&nbsp;-e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+            &nbsp;&nbsp;&nbsp;--linter %qd-linter% \
+            &nbsp;&nbsp;&nbsp;--within-docker false \
+            &nbsp;&nbsp;&nbsp;--baseline &lt;path/to/qodana.sarif.json&gt;
+        </code-block>
+        <p>In your browser, open <a href="https://qodana.cloud">%cloud%</a> to examine the analysis reports and
+    reconfigure the analysis. See the <a href="ui-overview.md"/> section of the documentation for full details.</p>
+    </tab>
+</tabs>
 
 ### Enabling the quality gate
 
-<include from="lib_qd.topic" element-id="enabling-quality-gate"/>
+<p>You can configure the <a href="quality-gate.topic">quality gate</a> for a total number of problems:</p>
+
+<tabs group="software">
+    <tab title="GitHub Actions" group-key="github">
+      <p>Save the snippet to the <code>.github/workflows/code_quality.yml</code> file containing the
+          <code>--fail-threshold</code> option that specifies the number of problems:</p>
+      <code-block lang="yaml" filter="generic"><![CDATA[
+          name: Qodana
+          on:
+            workflow_dispatch:
+            pull_request:
+            push:
+              branches: # Specify your branches here
+                - main # The 'main' branch
+                - master # The 'master' branch
+                - 'releases/*' # The release branches
+          jobs:
+            qodana:
+              runs-on: ubuntu-latest
+              permissions:
+                contents: write
+                pull-requests: write
+                checks: write
+              steps:
+                - uses: actions/checkout@v3
+                  with:
+                    ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                    fetch-depth: 0  # a full history is required for pull request analysis
+                - name: 'Qodana Scan'
+                  uses: %action-version%
+                  with:
+                    args: |
+                      --fail-threshold <number>
+                      --linter %qd-linter%
+                      --within-docker false
+                  env:
+                    QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+      ]]>
+</code-block>
+    </tab>
+    <tab title="Command line" group-key="command-line">
+        <p>Run this command in the project root directory using the
+            <code>--fail-threshold</code> option to specify the number of problems accepted as a 
+            <a href="quality-gate.topic">quality gate</a>:</p>
+        <code-block lang="shell" prompt="$" filter="generic"><![CDATA[
+            qodana scan \
+               -e QODANA_TOKEN="<cloud-project-token>" \
+               --linter %qd-linter% \
+               --within-docker false \
+               --fail-threshold <number>
+        ]]>
+</code-block>
+    </tab>
+</tabs>
 
 ### Analyzing pull requests
 
-<include from="lib_qd.topic" element-id="analyzing-pull-requests-for-temp-non-native-mode" use-filter="empty,generic,golang"/>
+<tabs group="software">
+    <tab title="GitHub Actions" group-key="github">
+      <p>
+          The <a href="https://github.com/marketplace/actions/qodana-scan">Qodana Scan GitHub action</a> automatically
+          analyzes all pull requests, so you do not have to provide any additional configuration. Save this configuration
+          to the <code>.github/workflows/code_quality.yml</code> file:
+      </p>
+      <code-block lang="yaml" filter="generic"><![CDATA[
+          name: Qodana
+          on:
+            workflow_dispatch:
+            pull_request:
+            push:
+              branches: # Specify your branches here
+                - main # The 'main' branch
+                - master # The 'master' branch
+                - 'releases/*' # The release branches
+          jobs:
+            qodana:
+              runs-on: ubuntu-latest
+              permissions:
+                contents: write
+                pull-requests: write
+                checks: write
+              steps:
+                - uses: actions/checkout@v3
+                  with:
+                    ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                    fetch-depth: 0  # a full history is required for pull request analysis
+                - name: 'Qodana Scan'
+                  uses: %action-version%
+                  with:
+                    args: |
+                      --diff-start=<GIT_START_HASH>
+                      --linter %qd-linter%
+                      --within-docker false
+                  env:
+                    QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+      ]]>
+</code-block>
+    </tab>
+    <tab title="Command line" group-key="command-line">
+    <p>To <a href="analyze-pr.md">analyze changes</a> in your code, employ the <code>--diff-start</code>
+        option and specify a hash of the commit that will act as a base for comparison:</p>
+        <code-block lang="shell" prompt="$" filter="generic"><![CDATA[
+            qodana scan \
+               -e QODANA_TOKEN="<cloud-project-token>" \
+               --linter %qd-linter% \
+               --within-docker false \
+               --diff-start=<GIT_START_HASH>
+        ]]>
+</code-block>
+    </tab>
+</tabs>
 
-### Inspection configuration
-{id="dart-inspection-configuration"}
-
-The Dart linter manages its inspections through directory-specific
-[`analysis_options.yaml`](https://dart.dev/tools/analysis) files rather than through
-`qodana.yaml`. As a result:
-
-* Individual Dart inspections cannot be enabled or disabled through `qodana.yaml` or the
-  %cloud% *Inspections* tab, where they are shown but remain read-only.
-* The only inspection setting controllable from `qodana.yaml` is a single toggle that
-  enables or disables all Dart rules at once.
-* File and directory exclusions, and the quality gate, continue to work without
-  restrictions.
-
-## Supported technologies and features
-{id="dart-feature-matrix"}
-
-The %qd% linter provides inspections for the following technologies.
-
-<!-- TODO(QD-2785): confirm the full feature matrix with the dev team. Initial scope (QD-15779) is limited to the
-     Dart SDK linter rules. -->
-<table style="none">
-    <tr>
-        <td>Programming languages</td>
-        <td>
-            <p>Dart</p>
-        </td>
-    </tr>
-    <tr>
-        <td>Frameworks</td>
-        <td>
-            <p>Flutter</p>
-        </td>
-    </tr>
-</table>
-
-<!-- TODO(QD-2785): add the shared feature list once a "dart" filter exists in lib_qd.topic.
-<include from="lib_qd.topic" element-id="linters-supported-features" use-filter="empty,dart"/>
--->

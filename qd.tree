@@ -62,7 +62,7 @@
 		<toc-element topic="clang.md" accepts-web-file-names="qodana-clang.html,qodana-clang-docker-readme.html"/>
 		<toc-element topic="ruby.md"/>
 		<toc-element topic="rust.md"/>
-			<!--<toc-element topic="dart.md"/>-->
+		<toc-element topic="dart.md"/>
 	</toc-element>
 
     <!-- The IDE support section -->
@@ -131,7 +131,6 @@
 		<toc-element topic="cloud-api.md"/>
 	</toc-element>
 	<toc-element topic="glossary-of-terms.md"/>
-	<toc-element topic="dart.md"/>
 
 
 </instance-profile>
