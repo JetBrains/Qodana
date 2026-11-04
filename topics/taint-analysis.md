@@ -40,6 +40,42 @@ for further processing through several approaches like data sanitization or data
 The projection approach lets you share the taint status across all arguments of a function call. This ensures that 
 the taint status of the arguments is transferred to the return value.
 
+### Spring support
+
+Starting from version 2026.3 of %product%, the taint analysis feature can analyze Spring application entry points and 
+framework behavior. The feature is available in the qodana-jvm linter. Supported Spring flows include entry points, 
+request inputs, authentication sources, response sinks, persistence/repository flows, and dispatch behavior.
+
+The Spring benchmark includes repository-related flow paths. Spring-mapped handlers can trigger analysis, and 
+request-related inputs like `Authentication.getName()` and `Authentication.getPrincipal()` are treated as taint sources. 
+This also improves coverage of authentication and persistence traces.
+Response handling recognizes `@ResponseBody`, `@RestController`, and `ResponseEntity`, as well as selects HTML responses 
+from `produces` with method values overriding class values. Without `produces`, it treats String response bodies as 
+possible HTML output. View names are not response sinks. For `ResponseEntity`, it marks the body passed to `BodyBuilder.body`.
+
+This feature is based on the Relational Modeling Language (RML) taint model, which is used by our static analysis framework.
+The frontends mark taint sources, sinks, and sanitizers in the IR. Each frontend converts source code to a common 
+intermediate representation (IR). The RML solver tracks taint through method calls and fields as described below:
+
+<!-- The diagram below will be redrawn -->
+
+<img src="RML-taint-analysis.png" width="706" border-effect="line" thumbnail="true"/>
+
+Both frontends provide annotations, resolved types, methods, and fields through the common IR. `SpringRmlModel` runs the 
+Spring scripts. `FrameworkRmlModel` applies their sources, sinks, propagation rules, callbacks, and repository state to 
+the IR. The regular taint analysis then follows method bodies and library models.
+
+The scripts select request, message listener, and principal sources. They connect publishers to listeners and preserve 
+taint through Reactor payloads. Each frontend maps framework sources and sinks to its enabled rules. Existing sanitizers 
+therefore apply to the same vulnerability categories.
+
+The RML selects methods by their return or receiver type and propagates taint through Mono and Flux calls. It covers factories and terminal calls.
+
+The dispatcher creates shared component instances and separate instances for repository fields. It calls entry points 
+in a loop, which connects repository writes to reads in later requests. Handlers, secured methods, and message listeners 
+can start this flow. Callback support can run without a web handler. Generated dispatcher steps stay out of user traces. 
+The trace keeps the original source, repository call, entity field, and sink location.
+
 ### Default behavior in IntelliJ IDEA
 
 <link-summary>If there is no specific configuration available for a library function call, a projection will be applied by default. 
