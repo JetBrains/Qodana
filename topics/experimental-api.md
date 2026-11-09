@@ -2,43 +2,60 @@
 
 SBOM API (experimental) (fourth issue)
 
-The Qodana Cloud SBOM API lets you list an organization’s active projects and retrieve a project’s dependency/license 
-data in SPDX JSON format. It is intended for organizations that need to review dependencies across many projects without downloading each project’s license list from the UI.
-Authentication
-
 Send the organization’s public API token as a bearer token:
 
 authorization: Bearer $ORG_TOKEN
 
-List organization projects
+## List of organization projects
 
+The Qodana Cloud SBOM API lets you list an organization’s active projects and retrieve a project’s dependency/license 
+data in SPDX JSON format. It is intended for organizations that need to review dependencies across many projects without downloading each project’s license list from the UI.
+Authentication
+
+```cURL
 GET https://qodana.cloud/api/experimental/organizations/{organizationId}/projects?offset=0&limit=20
+```
+
+Here is the description of the request body:
+
+
+|Parameter|Description |
+|--------|----------|
+|`offset`| Integer, non-negative, optional. The default value is 0 |
+|`limit`| Integer, optional, between 1 and 100 |
+
 
 Returns a paginated list of active projects belonging to the token’s organization. Results are ordered by project ID.
 
+```json
 {
-"count": 42,
-"next": 20,
-"items": [
-{
-"id": "…",
-"name": "…",
-"teamId": "…",
-"teamName": "…",
-"defaultBranchName": "main"
+  "count": 42,
+  "next": 20,
+    "items": [
+      {
+        "id": "…",
+        "name": "…",
+        "teamId": "…",
+        "teamName": "…",
+        "defaultBranchName": "main"
+      }
+    ]
 }
-]
-}
+```
 
 Pagination uses offsets: offset is optional, defaults to 0, and must be non-negative. limit is optional, defaults to 20, 
 and must be between 1 and 100; out-of-range values return 400. The response follows the public API’s PaginatedList shape 
 (count, next, prev, items); next and prev are omitted when there is no corresponding page.
 Retrieve a project’s dependencies
 
+
+## 
+
 GET https://qodana.cloud/api/experimental/organizations/projects/{projectId}/dependencies
 
 The endpoint returns a redirect to a presigned URL for the project’s projectStructure/thirdPartySoftwareList.json object. 
-The data is the same SPDX/JSON data available through Download license list in the Qodana Cloud License tab. If the object is unavailable, the endpoint returns 204 No Content.
+The data is the same SPDX/JSON data available through Download license list in the Qodana Cloud License tab. 
+If the object is unavailable, the endpoint returns 204 No Content.
 
 Supported Accept values are absent, application/json, and application/spdx+json. When application/spdx+json is requested, 
 the response content type is set to application/spdx+json. The feature description says to assume the JSON data is SPDX format.
@@ -48,7 +65,7 @@ The parent feature describes the API as experimental. Before publishing, verify 
 especially the dependency endpoint’s redirect and content type, because those are implementation details specified in the 
 feature proposal rather than confirmed by the documentation issue. The documentation issue itself has no comments or description to add further requirements.
 
-## Documentation notes: team-scoped organization API tokens
+## Documentation notes: team-scoped organization API tokens (first issue)
 
 Purpose. An organization-wide API token can otherwise grant access across the organization, including the ability to mint project tokens for different teams. The proposed team-scoped token limits that exposure by restricting access to a selected set of teams.
 
@@ -100,8 +117,6 @@ The feature depends on vulnerability IDs being present in SARIF and persisted du
 Evidence and open documentation checks
 
 Commits on the parent issue mention persistence during report processing, database migration, endpoint/query tests, ID normalization and validation, combined-filter cases, and the move to experimental API. The parent issue’s acceptance criteria and scope specify the behaviors above. However, the available issue data does not show the final OpenAPI schema or an example request/response, authentication requirements, release availability, or measured performance results. Verify those before publishing user-facing reference documentation.
-
-
 
 THIRD ISSUE
 
