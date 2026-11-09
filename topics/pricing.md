@@ -164,6 +164,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 | [](insights.md)                                                | 𐄂        | 𐄂       | ✔             |
 | [](license-audit.topic)                                        | 𐄂        | 𐄂       | ✔             |
 | [](cloud-api.md)                                               | 𐄂        | 𐄂       | ✔             |
+| [](experimental-api.md)                                               | 𐄂        | 𐄂       | ✔             |
 | [](cloud-sso.md)                                               | 𐄂        | 𐄂       | ✔             |
 | [](taint-analysis.md)                                          | 𐄂        | 𐄂       | ✔             |
 | [](vulnerability-checker.md)                                   | 𐄂        | 𐄂       | ✔             |
@@ -406,6 +407,7 @@ Compared to the Ultimate license, the Ultimate Plus license provides the followi
 * [](insights.md)
 * [](license-audit.topic)
 * [](cloud-api.md)
+* [](experimental-api.md)
 * [](cloud-sso.md)
 * [](taint-analysis.md)
 * [](vulnerability-checker.md)

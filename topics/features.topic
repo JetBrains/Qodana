@@ -151,12 +151,14 @@
                 </td>
             </tr>
             <tr>
-                <td><a href="cloud-api.md"/></td>
-                <td>Create teams and projects in %cloud% and %premlite% using the API</td>
                 <td>
+                    <p><a href="cloud-api.md"/></p>
+                </td>
+                <td>Create teams and projects in %cloud% and %premlite% using the API</td>
+                <td rowspan="2">
                     <p>Ultimate Plus</p>
                 </td>
-                <td>
+                <td rowspan="2">
                     <p><a href="dotnet.md">%dotnet%</a></p>
                     <p><a href="jvm.md">%jvm%</a></p>
                     <p><a href="jvm.md">%jvm-a%</a></p>
@@ -167,6 +169,10 @@
                     <p><a href="clang.md">%cpp%</a></p>
                     <p><a href="ruby.md">%ruby%</a></p>
                 </td>
+            </tr>
+            <tr>
+                <td><a href="experimental-api.md">Experimental API</a></td>
+                <td>Identify dependencies across organization projects using the API</td>
             </tr>
             <tr>
                 <td><a href="quality-gate.topic"/></td>
