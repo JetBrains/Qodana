@@ -71,6 +71,8 @@ describing inactive projects to navigate to a comprehensive list of these projec
 This widget provides information about analyses performed on your projects excluding pull or merge requests and carried 
 out by %product% versions 2024.2 or later.
 
+<img src="insights-scans.png" alt="The number of analyses" width="358" border-effect="line"/>
+
 ### Average code coverage rate
 
 <link-summary>The widget indicates the extent to which your projects are covered with tests, calculated using the code coverage feature, 
