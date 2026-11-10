@@ -4,16 +4,13 @@
 
 The experimental API helps you solve the following tasks: 
 
-* Identify dependencies across organization projects. The dependency data matches an 
-SPDX/JSON file available using the [**Download license list**](ui-overview.md#ui-overview-project-audit) button in %cloud%.
-* Filter [project insights](insights.md) by specific [vulnerability IDs](https://nvd.nist.gov/vuln).
-* Retrieve the latest project report in SARIF format for a specific branch.
+* Identify dependencies across organization projects
+* Filter [project insights](insights.md) by specific [vulnerability IDs](https://nvd.nist.gov/vuln)
+* Retrieve the latest project report in SARIF format for a specific branch
 
 <note>
-The API is experimental: it may be unstable, change without notice, or behave unexpectedly.
-Your feedback is very welcome in our 
-<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
-<a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
+The API is experimental, which means no long-term support. Instead, we will deprecate APIs that become obsolete. 
+We will continue to support deprecated APIs for at least three months.
 </note>
 
 ## Prerequisites
@@ -24,25 +21,27 @@ Before using the experimental API, make sure that the following requirements wer
 
 <list>
 <li>
-    <p>To create and manage an organization API token, you should have access to an existing %cloud% organization 
-       under the <code>Owner</code> or <code>Admin</code> <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a>.</p>
-</li>
-<li>
     <p>Your %cloud% organization is licensed under the Ultimate Plus <a href="pricing.md">license</a> of %product%.</p>
 </li>
 <li>
-    <p>To generate an organization API token, use the 
-    <a href="cloud-organizations.topic" anchor="cloud-organizations-api-token"><control>API token</control> tab</a> of 
-    your organization settings. This token should be referred in requests as the <code>$permanent_organization_token</code> authorization header, i.e.:</p> 
-<code-block lang="cURL">-H "Authorization: Bearer $permanent_organization_token"</code-block>
+    <p>You have an organization API token. To generate a token, on the organization setting page of %cloud%, use the 
+<a href="cloud-organizations.topic" anchor="cloud-organizations-api-token"><control>API token</control></a> tab. 
+Generating a token requires the organization <code>Owner</code> or <code>Admin</code> <a href="cloud-user-roles.md" anchor="cloud-user-org-roles-owner">role</a> in %cloud%.</p>
 </li>
 <li>
-<p>All API request examples provided in this section require that you use either the <code>https://qodana.cloud</code> 
-URL for %cloud% or your custom base URL in case of %premlite%. For simplicity, the %cloud% URL is used.</p>
+    <p>To authorize API requests, use the organization API token as an <code>Authorization</code> header bearer token:</p> 
+    <code-block lang="HTTP">Authorization: Bearer $organization_API_token</code-block>
+</li>
+<li>
+<p>Use <code>https://qodana.cloud</code> as the base URL for %cloud% API requests.  
+If you use %premlite%, replace this with your custom base URL.</p>
 </li>
 </list>
 
 ## Get project dependencies
+
+The dependency data returned by the experimental API matches an
+SPDX/JSON file available using the [**Download license list**](ui-overview.md#ui-overview-project-audit) button in %cloud%.
 
 To return a SPDX/JSON dependency list to a specific %cloud% project, send the following `GET` request:
 
@@ -61,7 +60,7 @@ The accepted `Accept` values are absent or `application/json`.
 If the stored object exists, the API responds with a redirect to a presigned URL to 
 the `projectStructure/thirdPartySoftwareList.json` file; otherwise it returns `204 No Content`.
 
-### Get project insights by vulnerability IDs
+## Get project insights by vulnerability IDs
 {id="experimental-api-insights-project"}
 
 <link-summary>Explore how to get project insights of a specific %cloud% organization using the experimental API.</link-summary>
