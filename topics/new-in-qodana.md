@@ -123,7 +123,7 @@ checker service to address a reported SQL injection vulnerability in the older v
 
 <link-summary>Public API changes of %cloud% as per October 2026.</link-summary>
 
-**Download the latest SARIF report via the API**. A new experimental endpoint, `GET /api/experimental/report/latest?branch={branch}`, 
+**Download the latest SARIF report via the API**. A [new experimental endpoint](experimental-api.md#experimental-api-insights-project), `GET /api/experimental/report/latest?branch={branch}`, 
 fetches the latest project processed report in SARIF format. If you don’t specify a branch, the default branch is used. 
 The API response does not include code snippets or full rule descriptions.
 

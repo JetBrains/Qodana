@@ -7,6 +7,7 @@ The experimental API helps you solve the following tasks:
 * Identify dependencies across organization projects. The dependency data matches an 
 SPDX/JSON file available using the [**Download license list**](ui-overview.md#ui-overview-project-audit) button in %cloud%.
 * Filter [project insights](insights.md) by specific [vulnerability IDs](https://nvd.nist.gov/vuln).
+* Retrieve the latest project report in SARIF format for a specific branch.
 
 <note>
 The API is experimental: it may be unstable, change without notice, or behave unexpectedly.
@@ -60,12 +61,12 @@ The accepted `Accept` values are absent or `application/json`.
 If the stored object exists, the API responds with a redirect to a presigned URL to 
 the `projectStructure/thirdPartySoftwareList.json` file; otherwise it returns `204 No Content`.
 
-### Project Insights
+### Get project insights by vulnerability IDs
 {id="experimental-api-insights-project"}
 
 <link-summary>Explore how to get project insights of a specific %cloud% organization using the experimental API.</link-summary>
 
-To retrieve project insights , send the following `POST` request:
+To retrieve project insights by vulnerability IDs, send the following `POST` request:
 
 ```cURL
 POST /api/experimental/organizations/project-insights/query
@@ -200,6 +201,23 @@ combination of project ID and timestamp. If no time range is specified, entries 
     </tr>
 </table>
 
+
+## Retrieve latest SARIF report
+{id="experimental-api-retrieve-sarif"}
+
+To retrieve the latest project report in SARIF format, send the following `GET` request:
+
+```cURL
+GET /api/experimental/report/latest?branch={branch}
+```
+
+Here is the description of the accepted parameter:
+
+| Parameter   | Type   | Required  | Description       | Example value |
+|-------------|--------|-----------|-------------------|---------------|
+| `branch` | String | No       | Name of the branch to retrieve the report for. If not specified, the default branch is used | `feature`    |
+
+The API response does not include code snippets or full rule descriptions.
 
 
 
