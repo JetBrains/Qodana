@@ -61,7 +61,7 @@
 
         </procedure>
 
-        <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, leave it, or completely delete it.</p>
+        <p>Click the button in the upper-right corner of the UI to switch the status of your organization, rename it, or leave it.</p>
 
         <img src="qc-settings-organization-leave-temp.png" width="706" alt="Managing an organization" border-effect="line"/>
 
@@ -128,7 +128,7 @@
                 </step>
                 <step>
                     <p>On the <ui-path>Invite members to ...</ui-path> dialog that opens, you can manage members of your organization.</p>
-                    <img src="qc-settings-organization-manage-members.png" dark-src="qc-settings-organization-manage-members.png" width="706" alt="Managing organization membership" border-effect="line"/>
+                    <img src="qc-settings-organization-manage-members.png" width="706" alt="Managing organization membership" border-effect="line" thumbnail="true"/>
                 </step>
             </procedure>
         </chapter>
@@ -151,12 +151,12 @@
             <procedure>
                 <step>
                     <p>On the <ui-path>SSO</ui-path> tab, enter the name of the subdomain that you would like to use for authentication, and then
-                        click the <ui-path>Generate URL</ui-path> button.</p>
-                    <img src="qc-settings-sso.png" width="706" alt="The SSO tab of the organization settings" border-effect="line"/>
+                        click the <ui-path>Create subdomain</ui-path> button.</p>
+                    <img src="qc-settings-sso.png" width="706" alt="The SSO tab of the organization settings" border-effect="line" thumbnail="true"/>
                 </step>
                 <step>
                     <p>On this tab, copy the URL and follow the recommendations.</p>
-                    <img src="qc-settings-sso-2.png" width="706" alt="The second step of the SSO subdomain generation" border-effect="line"/>
+                    <img src="qc-settings-sso-2.png" width="706" alt="The second step of the SSO subdomain generation" border-effect="line" thumbnail="true"/>
                 </step>
                 <step>
                     <p>In the linter configuration, assign the configured subdomain value to the <code>QODANA_ENDPOINT</code>
@@ -194,7 +194,7 @@
             <a href="cloud-projects.topic">projects</a>, and obtain a list of %cloud% and %premlite% organization users
             using your <a href="ci.md">build pipelines</a>.</p>
 
-            <img src="qc-settings-organization-api-token.png" width="706" alt="The API token tab" border-effect="line"/>
+            <img src="qc-settings-organization-api-token.png" width="706" alt="The API token tab" border-effect="line" thumbnail="true"/>
         </chapter>
 
         <chapter id="cloud-organizations-global-configurations" title="Global configurations">
@@ -364,7 +364,7 @@
                 <p>In case a <a href="global-configuration.md" anchor="Uploading+to+Qodana+Cloud">configuration token</a> is compromised,
                     click the <ui-path>Actions</ui-path> and then click <ui-path>Revoke configuration token</ui-path>
                     to revoke the token and clear all configurations.</p>
-                <img src="gpc-revoke-token.png" alt="Revoking a configuration token" width="706" border-effect="line"/>
+                <img src="gpc-revoke-token.png" alt="Revoking a configuration token" width="706" border-effect="line" thumbnail="true"/>
                 <p>On the <ui-path>Revoke configuration token</ui-path> dialog, specify whether you would like to remove all global configurations after revoking the token. </p>
                 <img src="gpc-revoke-config-token-dialog.png" alt="Actions for a global configuration" width="706" border-effect="line"/>
             </chapter>
