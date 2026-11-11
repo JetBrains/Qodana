@@ -46,16 +46,17 @@ SPDX/JSON file available using the [**Download license list**](ui-overview.md#ui
 To return a SPDX/JSON dependency list to a specific %cloud% project, send the following `GET` request:
 
 ```http
-GET /api/experimental/organizations/projects/{projectID}/dependencies
+GET /api/experimental/organizations/projects/{projectID}/dependencies HTTP/1.1
+Accept: application/spdx+json
 ```
 
 Here is the description of the accepted parameter:
 
 | Parameter   | Type   | Required  | Description       | Example value |
 |-------------|--------|-----------|-------------------|---------------|
-| `projectId` | String | Yes       | ID of the project | `proj_123`    |
+| `projectId` | String | Yes       | ID of the project | `Abc12`    |
 
-The accepted `Accept` values are absent or `application/json`.
+The accepted `Accept` values are absent, `application/json` or `application/spdx+json`.
 
 If the stored object exists, the API responds with a redirect to a presigned URL to 
 the `projectStructure/thirdPartySoftwareList.json` file; otherwise it returns `204 No Content`.

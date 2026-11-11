@@ -76,6 +76,7 @@
             <li><a anchor="cloud-organizations-logs"><ui-path>Logs</ui-path></a> provides a list of log entries for a specific time interval.</li>
             <li><a anchor="cloud-organizations-invitation"><ui-path>Members</ui-path></a> lets you manage organization members.</li>
             <li><a anchor="cloud-organization-sso"><ui-path>SSO</ui-path></a> lets you configure the <a href="cloud-sso.md">Single Sign-on functionality</a> for %cloud%.</li>
+            <li><ui-path><a anchor="cloud-organizations-tokens"/></ui-path> lets you view and regenerate all tokens generated within a specific organization.</li>
             <li><a anchor="cloud-organizations-api-token"><ui-path>API token</ui-path></a> lets you generate and manage a permanent organization token used by the <a href="cloud-api.md">API</a> of %cloud%.
                 This feature is available only under the <a href="pricing.md">Ultimate Plus license</a> and only for %cloud% users of the <code>Owner</code> and <code>Admin</code> <a href="cloud-user-roles.md">roles</a>.</li>
             <li><a anchor="cloud-organizations-global-configurations"><ui-path>Global configurations</ui-path></a> let you manage <a href="global-configuration.md">configurations used across many projects</a> of your organization.</li>
@@ -87,7 +88,7 @@
 
             <p>Using the <ui-path>Subscription</ui-path> tab, you can see information about your %product% license.</p>
 
-            <img src="qc-settings-subscription.png" width="706" alt="The Subscription tab of %cloud%" border-effect="line"/>
+            <img src="qc-settings-subscription.png" width="706" alt="The Subscription tab of %cloud%" border-effect="line" thumbnail="true"/>
 
         </chapter>
 
@@ -97,7 +98,7 @@
 
             <p>Using the <ui-path>Logs</ui-path> tab, you can view %cloud% log entries for a specific time interval.</p>
 
-            <img src="qc-settings-logs.png" width="706" alt="The Logs tab of %cloud%" border-effect="line"/>
+            <img src="qc-settings-logs.png" width="706" alt="The Logs tab of %cloud%" border-effect="line" thumbnail="true"/>
 
         </chapter>
 
@@ -122,7 +123,7 @@
                 </step>
                 <step>
                     <p>On the <ui-path>Members</ui-path> tab, click <ui-path>Invite members</ui-path>.</p>
-                    <img src="qc-settings-organization-invite-members.png" width="706" alt="Clicking the Invite members button" border-effect="line"/>
+                    <img src="qc-settings-organization-invite-members.png" width="706" alt="Clicking the Invite members button" border-effect="line" thumbnail="true"/>
 
                 </step>
                 <step>
@@ -163,6 +164,16 @@
                 </step>
             </procedure>
 
+
+        </chapter>
+
+        <chapter id="cloud-organizations-tokens" title="Tokens">
+
+            <link-summary>Using the Tokens tab, you can view and regenerate all project tokens assigned within an organization.</link-summary>
+
+            <p>Using the <ui-path>Tokens</ui-path> tab, you can view and regenerate all project tokens within an organization.</p>
+
+            <img src="qc-settings-organization-tokens.png" width="706" alt="The Tokens tab" border-effect="line" thumbnail="true"/>
 
         </chapter>
 
