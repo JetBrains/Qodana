@@ -83,9 +83,13 @@ problems move to this tab.
 
 <img src="ui-overview-baseline-tab.png" alt="Baseline problems tab" thumbnail="true" width="706" border-effect="line"/>
 
-Here, you can download the `qodana.sarif.json` file containing the [baseline](baseline.topic) state of your project.
+Problems on this tab are tagged as `Demoted`. To remove a specific problem from this tab, click the **Promote to current** button.
 
-Also, problems on this tab are tagged as `Demoted`. To remove a specific problem from this tab, click the **Promote to current** button.
+<p>If you are a user of the <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-editor"><code>Editor</code></a> or
+    <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-admin"><code>Admin</code></a> roles in %cloud%, you can configure the baseline by using the <ui-path>Apply ...</ui-path> dropdown list of the
+    <ui-path>Baseline problems</ui-path> tab.</p>
+
+<img src="baseline-configuring-baseline.png" alt="The Apply ... dropdown list" thumbnail="true" width="706" border-effect="line"/>
 
 Otherwise, this tab UI is similar to the [**Current problems**](#ui-overview-actual-problems) tab. 
 

@@ -89,7 +89,11 @@
 
         <p>You can update the baseline by promoting or demoting problems as explained in the <a href="ui-overview.md"/> section.</p>
 
-        <!-- Here, the image of the toggle can be added -->
+        <p>If you are a user of the <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-editor"><code>Editor</code></a> or
+            <a href="cloud-user-roles.md" anchor="cloud-user-team-roles-admin"><code>Admin</code></a> roles in %cloud%, you can configure the baseline by using the <ui-path>Apply ...</ui-path> dropdown list of the
+            <ui-path>Baseline problems</ui-path> tab.</p>
+
+        <img src="baseline-configuring-baseline.png" alt="The Apply ... dropdown list" thumbnail="true" width="706" border-effect="line"/>
 
     </chapter>
 
