@@ -8,7 +8,7 @@ Quantum computing poses a significant threat to widely used public-key cryptogra
 Even before large-scale quantum computers are realized, organizations must address potential risks by 
 using [post-quantum cryptography](https://en.wikipedia.org/wiki/Post-quantum_cryptography) techniques in projects.
 
-The [%jvm%](jvm.md) linter provides inspections to identify vulnerable code and guide developers toward post-quantum 
+The [%jvm%](jvm.md) and [%dotnet%](dotnet.md) linters provide inspections to identify vulnerable code and guide developers toward post-quantum 
 cryptography (PQC) alternatives and available under the Ultimate and Ultimate Plus [licenses](pricing.md) and their trial 
 versions. To learn more about the available licensing model, visit the 
 [Subscription Options and Pricing](https://www.jetbrains.com/qodana/buy/?billing=yearly) page.
@@ -51,5 +51,5 @@ profile:
       enabled: true
 ```
 
-Once configured, run the %jvm% linter as explained in the [](jvm.md#Run+Qodana) chapter of the %jvm% documentation.
+Once configured, run the [%jvm%](jvm.md#Run+Qodana) and [%dotnet%](dotnet.md#dotnet-run-qodana) linters.
 

@@ -40,6 +40,53 @@ for further processing through several approaches like data sanitization or data
 The projection approach lets you share the taint status across all arguments of a function call. This ensures that 
 the taint status of the arguments is transferred to the return value.
 
+### Spring support
+
+Starting from version 2026.3 of %product%, the taint analysis feature can analyze Spring application entry points and 
+framework behavior. The feature is available in the qodana-jvm linter. Supported Spring flows include entry points, 
+request inputs, authentication sources, response sinks, persistence/repository flows, and dispatch behavior.
+
+The following table summarizes the Spring flows that taint analysis supports:
+
+| Flow category | Role in taint analysis | Elements / examples | Notes |
+|---------------|------------------------|---------------------|-------|
+| Entry points | Trigger / source | Spring-mapped handlers, secured methods, message listeners | Can start a taint flow; callback support can run without a web handler |
+| Request inputs | Taint source | Request-related inputs | Recognized as user-controlled input |
+| Authentication | Taint source | `Authentication.getName()`, `Authentication.getPrincipal()`, principal sources | Improves authentication trace coverage |
+| Messaging | Taint source | Message listener sources | Publishers connected to listeners; taint preserved through Reactor payloads |
+| Persistence / repository | Propagation (source–sink across requests) | Repository-related flow paths | Dispatcher connects repository writes to reads in later requests |
+| Response handling | Taint sink | `@ResponseBody`, `@RestController`, `ResponseEntity`, `BodyBuilder.body` | HTML responses selected from `produces` (method values override class values); without `produces`, String response bodies treated as possible HTML output |
+| Reactive types | Propagation | `Mono`, `Flux` calls (factories and terminal calls) | Methods selected by return or receiver type |
+
+#### Supported annotations
+
+The model resolves meta-annotations and composed annotations for all supported annotations.
+
+| Category | Annotations |
+| --- | --- |
+| Controllers | `@Controller`, `@RestController` |
+| Request mappings | `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@PatchMapping`, `@DeleteMapping` |
+| Request parameters and inputs | `@RequestParam`, `@PathVariable`, `@RequestHeader`, `@CookieValue`, `@RequestBody`, `@ModelAttribute`, `@MatrixVariable`, `@RequestAttribute`, `@RequestPart`, `@SessionAttribute`, `@Valid` (`jakarta.validation.Valid`, `javax.validation.Valid`) |
+| Components and configuration | `@ConfigurationProperties`, `@Bean`, `@Service` |
+| Message and event listeners | `@KafkaListener`, `@RabbitListener`, `@JmsListener`, `@EventListener` |
+| Security | `@AuthenticationPrincipal`, `@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed` (`jakarta.annotation.security.RolesAllowed`, `javax.annotation.security.RolesAllowed`) |
+| Persistence | `@Entity` (`jakarta.persistence.Entity`, `javax.persistence.Entity`) |
+
+
+#### Known limitations
+
+- **`@AliasFor` attribute values**: The model does not resolve attribute values mapped through `@AliasFor`.
+- **Transactions and rollback**: The model does not interpret `@Transactional`. It does not model transaction boundaries or rollback behavior.
+- **Lifecycle and validation callbacks**: The model does not schedule Spring bean lifecycle callbacks. It does not invoke model producers or Spring `Validator` implementations.
+- **Bean selection rules**: The model does not implement full Spring bean selection rules such as qualifiers, profiles, or conditional beans.
+- **Query predicates**: The model merges repository rows across requests without evaluating query filters or SQL conditions.
+- **Security authorization logic**: The model does not evaluate authorization decisions or `SecurityFilterChain` rules.
+- **Reactor schedulers**: The model tracks payload taint, but does not model schedulers, timing, or back pressure.
+- **Application JAR method bodies**: The model does not scan application JAR method bodies for sources or sinks.
+- **MVC view names**: The model does not treat returned view name strings as response sinks.
+- **Callback routing fallback**: When a message destination is unknown, the model can connect any listener of the same kind.
+
+
 ### Default behavior in IntelliJ IDEA
 
 <link-summary>If there is no specific configuration available for a library function call, a projection will be applied by default. 
@@ -289,11 +336,11 @@ capabilities explained below.
 ##### Set the number of traces
 
 <link-summary>
-By default, taint analysis is configured for monitoring one hundred (100) traces at a time. You can override this
+By default, taint analysis is configured for monitoring two thousand (2000) traces at a time. You can override this
 using the 'dfa.analysis.rml.max.traces.count=&lt;number&gt;' property.
 </link-summary>
 
-By default, taint analysis is configured for monitoring one hundred (100) traces at a time. You can override this
+By default, taint analysis is configured for monitoring two thousand (2000) traces at a time. You can override this
 using the `dfa.analysis.rml.max.traces.count=<number>` property, for example:
 
 <tabs group="cli-settings">

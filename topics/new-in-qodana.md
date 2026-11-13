@@ -5,92 +5,29 @@
 This page provides information about %product% updates available in the latest version, as well as the 
 chronological list of all significant [%cloud%](cloud-quickstart.md) updates.
 
-## Qodana version 2026.2
+## Qodana version 2026.3
 
-<link-summary>List of changes as per version 2026.2 of %product%.</link-summary>
+<link-summary>List of changes as per version 2026.3 of %product%.</link-summary>
 
-### Quality gates for license audit
+### Dart language analysis
 
-<link-summary>Quality gates for license audit are available in version 2026.2 of %product%.</link-summary>
+<link-summary>Dart language analysis is available in version 2026.3 of %product%.</link-summary>
 
-Now you can set quality gate thresholds to make sure that your project dependencies contain no prohibited or unknown licenses.
-More details are available in the [](quality-gate.topic#quality-gate-license-audit) chapter.
+Starting from version 2026.3, %product% supports Dart  and Flutter code analysis. The details are available in the [](dart.md) section.
 
-### Code coverage updates
+### Post-quantum cryptography inspections for .NET
 
-<link-summary>Code coverage updates are available in version 2026.2 of %product%.</link-summary>
+<link-summary>The %dotnet% linter supports post-quantum cryptography inspections starting from version 2026.3 of %product%.</link-summary>
 
-Starting from version 2026.2, %product% automatically detects code coverage reports contained in directories and files 
-described in the [](code-coverage.md#code-coverage-before-you-start) chapter. You can also use the `codeCoverageLocations` 
-option of the `qodana.yaml` file to override the default locations of code coverage reports. 
+The %dotnet% linter supports post-quantum cryptography inspections starting from version 2026.3 of %product%.
+The details are available in the [](post-quantum-cryptography.md) and [](dotnet.md) sections of the documentation.
 
-Additionally, you can use JetBrains IDEs to track code coverage for pull or merge requests. For more details, see the 
-[](code-coverage.md#Incremental+analysis) chapter.
+### Spring support for security analysis
 
-### Post-quantum cryptography (PQC) inspections
+<link-summary>Version 2026.3 of %product% supports Spring security analysis.</link-summary>
 
-<link-summary>Post-quantum cryptography (PQC) inspections are available in version 2026.2 of %product%.</link-summary>
-
-The [%jvm%](jvm.md) linter supports five levels of post-quantum cryptography (PQC) inspections to let you mitigate the 
-risks of quantum attacks. The details are available in the [](post-quantum-cryptography.md) section.
-
-### Opengrep rule support
-
-<link-summary>Opengrep rule support is available in version 2026.2 of %product%.</link-summary>
-
-The [%dotnet%](dotnet.md) linter now supports rules compatible with [Opengrep](https://www.opengrep.dev/). Details are available
-in the [](taint-analysis.md) section.
-
-
-<!--Version 2025.3 of %product% contains the updates described below.
-
-## Podman support 
-
-Starting from this version, %product% supports Podman as a container engine, see the 
-[](deploy-qodana.md#Different+Docker+contexts+or+Podman) section for details.
--->
-<!--
-## Improved monorepo support
-
-### New configuration options
-
-Version 2025.3 of %product% introduces the 
-[`--only-directory`](docker-image-configuration.topic#docker-config-reference-directories) or 
-[`onlyDirectory`](qodana-yaml.md#Specify+directory+in+your+project) option for specifying a directory inside
-your monorepo project. 
-
-Also, the `--repository-root` CLI option lets you configure VCS root for your project.
-
-### Java and Kotlin projects
-
-By default, %product% worked with a project file defined at the root level of the repository. 
-Starting from version 2025.3, %product% supports monorepo consisting of loosely coupled projects not aggregated in a 
-single project file. In this case, it will recursively collect projects from subdirectories and import them for analysis.
-This change enables incremental analysis and fixes for projects where analyzed project and VCS root are different.
-
-Using the `rootJavaProjects` option in the [`qodana.yaml`](qodana-yaml.md) file, you can specify which projects 
-should be included in the analysis, for example:
-
-```yaml
-rootJavaProjects:
-- "./gradleProject"
-- "./mavenModule/pom.xml"
-```
-
-
-## SDK support in the %dotnet% linter
-
-The Dockerized version of the [%dotnet%](dotnet.md) linter now supports versions 8.0, 9.0 and 10.0 of SDK.
--->
-
-<!--##### Default baseline
-{id="september-2026-new-features-baseline"}
-
-<link-summary>The baseline update in %cloud% as per September 2026.</link-summary>
-
-* All problems from the first analysis will be automatically placed in the [**Baseline problems**](ui-overview.md#ui-overview-baseline) tab, which becomes your %cloud% project’s starting point. When opening an analysis report for the first time, %cloud% will automatically show the **Baseline problems** tab.
-* **Promoted/demoted tags on problems**. Problems that you promoted or demoted during the current session stay persistent across reports now.
--->
+%product% supports Spring security analysis starting from version 2026.3. 
+The details are available in the [](taint-analysis.md#Spring+support) section of the documentation.
 
 ## Qodana Cloud
 

@@ -1700,6 +1700,22 @@ You can analyze pull requests using the %dotnet% linter.
     </tab>
 </tabs>
 
+### Enabling PQC inspections
+
+<link-summary>Explore how to enable post-quantum cryptography (PQC) inspections.</link-summary>
+
+In your YAML configuration file (`qodana.yaml`), add the following configuration and specify the `PqcMinLevel`
+[inspection level](post-quantum-cryptography.md) from 1 to 5:
+
+```yaml
+version: "1.0"
+
+profile:
+  name: qodana.recommended
+  inspections:
+    - group: PqcMinLevel<number>
+      enabled: true
+```
 
 ## Usage statistics
 
@@ -1961,6 +1977,7 @@ docker run \
         <p><a href="code-coverage.md">Code coverage</a></p>
         <p><a href="insights.md"/><b>***</b></p>
         <p><a href="license-audit.topic">License audit</a><b>***</b></p>
+        <p><a href="post-quantum-cryptography.md">Post-quantum cryptography</a></p>
         <p><a href="quick-fix.md">Quick-Fix</a></p>
         <p><a href="cloud-sso.md"/><b>***</b></p>
         <p><a href="taint-analysis.md"/></p>
@@ -1976,10 +1993,12 @@ docker run \
             <p>✔</p>
             <p>✔</p>
             <p>✔</p>
+            <p>✔</p>
       </td>
       <td>
          <p>✔</p>
          <p>✔</p>
+         <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
          <p>&nbsp;</p>
