@@ -298,7 +298,7 @@
     <var name="cloud" value="Qodana Cloud"/>
     <var name="ruby" value="Qodana for Ruby"/>
     <var name="rust" value="Qodana for Rust"/>
-    <var name="dart" value="Qodana for Dart"/>
+    <var name="dart" value="Qodana Polyglot"/>
 
     <!-- Qodana linter names -->
     <var name="jvm-linter" value="qodana-jvm"/>
@@ -316,7 +316,7 @@
     <var name="clang-linter" value="qodana-clang"/>
     <var name="ruby-linter" value="qodana-ruby"/>
     <var name="rust-linter" value="qodana-rust"/>
-    <var name="dart-linter" value="qodana-dart"/>
+    <var name="dart-linter" value="qodana-poly"/>
 
     <!-- Qodana linter images -->
     <var name="jvm-image" value="jetbrains/qodana-jvm:2026.2"/>
@@ -335,7 +335,7 @@
     <var name="ruby-image" value="jetbrains/qodana-ruby:2026.2-eap"/>
     <var name="rust-image" value="jetbrains/qodana-rust:2026.2-eap"/>
     <!-- TODO(QD-2785): confirm final Docker image name/tag once QD-15780 creates the Docker Hub repo -->
-    <var name="dart-image" value="jetbrains/qodana-dart:2026.3-eap"/>
+    <var name="dart-image" value="jetbrains/qodana-poly:2026.3-eap"/>
     <var name="python-image-combined" value="jetbrains/qodana-python&lt;-community&gt;:2026.2-eap"/>
 
     <!-- Extension versions -->

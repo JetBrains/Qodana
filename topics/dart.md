@@ -29,7 +29,7 @@
 <var name="non-root-user" value="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user"/>
 <var name="ide-documentation" value="https://dart.dev/tools/linter-rules"/>
 <!-- TODO(QD-2785): confirm native-mode argument name for Dart (e.g. QDDART) with the dev team. -->
-<var name="native-arg" value="QDDART"/>
+<var name="native-arg" value="QDPOLY"/>
 <var name="teamcity-linter-list" value="Here, select the %qd% linter."/>
 
 <link-summary>%qd% provides inspections for the Dart programming language and Flutter projects.</link-summary>
@@ -113,8 +113,11 @@ The command will be automatically executed before the analysis. For plain Dart p
 
 ## Run Qodana
 
-Native mode is the recommended method for running the %qd% linter. The Docker mode is also supported but
-not recommended.
+The Dart SDK dependency management uses absolute paths that are not cross-compatible between 
+[Docker and native deployment modes](deploy-qodana.md#Deployment+modes). 
+Use native mode to avoid the potential issues with dependency setup in your local development while using %product% CLI. 
+In Docker mode, SDK is not shipped within the `%qd-image%` image, so you should provide it manually by using the 
+[`bootstrap`](configuration-reference.md#Run+custom+commands) option. 
 
 <tabs group="software">
     <tab title="GitHub Actions" group-key="github">
@@ -186,7 +189,11 @@ not recommended.
 {id="dart-inspection-configuration"}
 
 The %qd% linter reads the analysis scope and rules from the [`analysis_options.yaml`](https://dart.dev/tools/analysis) files contained in the repository,
-so any changes to the analysis scope or [ruleset](https://dart.dev/tools/linter-rules#sets) should be made in those files. 
+so any changes to the analysis scope, i.e., included and excluded files and directories or [ruleset](https://dart.dev/tools/linter-rules#sets) should be made in those files. 
+
+> Using the `analysis_options.yaml` file takes precedence over the YAML configuration.
+> A file excluded according to the `analysis_options.yaml` file will not be analyzed even if you include it in the YAML configuration.
+{style="note"}
 
 The only inspection that you can configure via a [YAML file](configuration-reference.md) is the `DartAnalyze` inspection 
 acting as a single toggle for all Dart and Flutter analysis. This inspection is enabled by
@@ -198,15 +205,12 @@ exclude:
   - name: DartAnalyze
 ```
 
-Also, file and directory exclusions work in a [YAML configuration](configuration-reference.md) as an additional filtering layer, but the `analysis_options.yaml` file 
-configuration takes precedence. For example, excluding a file in the `analysis_options.yaml` file and 
-including it in the YAML configuration does not take effect, while excluding a file in 
-the YAML configuration leads to skipping it when reporting the results.
-
 ### Configuring the Flutter SDK
 
 The %qd% linter uses the Flutter SDK available via the `PATH`. To use a specific installation,
 set the `QODANA_FLUTTER_PATH` environment variable to the `bin` directory of your Flutter SDK.
+
+The Docker version of %qd% requires manual configuration of the Flutter/Dart SDK.
 
 ### Enabling the baseline feature
 
