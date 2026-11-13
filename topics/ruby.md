@@ -30,13 +30,6 @@
 
 <link-summary>%qd% is based on %ide% and provides static analysis for Ruby projects.</link-summary>
 
-<note>
-%qd% is currently in Early Access, which means that it may not be reliable, may not work as intended, and may contain errors.
-Any use of the EAP product is at your own risk. Your feedback is very welcome in our 
-<a href="https://youtrack.jetbrains.com/newIssue?project=QD">issue tracker</a> or at
-<a href="mailto:qodana-support@jetbrains.com">qodana-support@jetbrains.com</a>.
-</note>
-
 All %product% linters are based on JetBrains IDEs designed for particular programming languages and frameworks. To analyze
 Ruby projects, you can use the following linter:
 
