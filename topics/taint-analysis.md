@@ -336,11 +336,11 @@ capabilities explained below.
 ##### Set the number of traces
 
 <link-summary>
-By default, taint analysis is configured for monitoring one hundred (100) traces at a time. You can override this
+By default, taint analysis is configured for monitoring two thousand (2000) traces at a time. You can override this
 using the 'dfa.analysis.rml.max.traces.count=&lt;number&gt;' property.
 </link-summary>
 
-By default, taint analysis is configured for monitoring one hundred (100) traces at a time. You can override this
+By default, taint analysis is configured for monitoring two thousand (2000) traces at a time. You can override this
 using the `dfa.analysis.rml.max.traces.count=<number>` property, for example:
 
 <tabs group="cli-settings">
