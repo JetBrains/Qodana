@@ -13,20 +13,20 @@ chronological list of all significant [%cloud%](cloud-quickstart.md) updates.
 
 <link-summary>Dart language analysis is available in version 2026.3 of %product%.</link-summary>
 
-Starting from version 2026.3, %product% supports Dart  and Flutter code analysis. The details are available in the [](dart.md) section.
+Starting from version 2026.3, %product% supports Dart and Flutter code analysis. The details are available in the [](dart.md) section.
 
 ### Post-quantum cryptography inspections for .NET
 
 <link-summary>The %dotnet% linter supports post-quantum cryptography inspections starting from version 2026.3 of %product%.</link-summary>
 
-The %dotnet% linter supports post-quantum cryptography inspections starting from version 2026.3 of %product%.
+The [%dotnet%](dotnet.md) linter now supports post-quantum cryptography inspections.
 The details are available in the [](post-quantum-cryptography.md) and [](dotnet.md) sections of the documentation.
 
 ### Spring support for security analysis
 
 <link-summary>Version 2026.3 of %product% supports Spring security analysis.</link-summary>
 
-%product% supports Spring security analysis starting from version 2026.3. 
+%product% supports Spring security analysis for the [%jvm%](jvm.md) linter.  
 The details are available in the [](taint-analysis.md#Spring+support) section of the documentation.
 
 ## Qodana Cloud
