@@ -46,35 +46,46 @@ Starting from version 2026.3 of %product%, the taint analysis feature can analyz
 framework behavior. The feature is available in the qodana-jvm linter. Supported Spring flows include entry points, 
 request inputs, authentication sources, response sinks, persistence/repository flows, and dispatch behavior.
 
-The Spring benchmark includes repository-related flow paths. Spring-mapped handlers can trigger analysis, and 
-request-related inputs like `Authentication.getName()` and `Authentication.getPrincipal()` are treated as taint sources. 
-This also improves coverage of authentication and persistence traces.
-Response handling recognizes `@ResponseBody`, `@RestController`, and `ResponseEntity`, as well as selects HTML responses 
-from `produces` with method values overriding class values. Without `produces`, it treats String response bodies as 
-possible HTML output. View names are not response sinks. For `ResponseEntity`, it marks the body passed to `BodyBuilder.body`.
+The following table summarizes the Spring flows that taint analysis supports:
 
-This feature is based on the Relational Modeling Language (RML) taint model, which is used by our static analysis framework.
-The frontends mark taint sources, sinks, and sanitizers in the IR. Each frontend converts source code to a common 
-intermediate representation (IR). The RML solver tracks taint through method calls and fields as described below:
+| Flow category | Role in taint analysis | Elements / examples | Notes |
+|---------------|------------------------|---------------------|-------|
+| Entry points | Trigger / source | Spring-mapped handlers, secured methods, message listeners | Can start a taint flow; callback support can run without a web handler |
+| Request inputs | Taint source | Request-related inputs | Recognized as user-controlled input |
+| Authentication | Taint source | `Authentication.getName()`, `Authentication.getPrincipal()`, principal sources | Improves authentication trace coverage |
+| Messaging | Taint source | Message listener sources | Publishers connected to listeners; taint preserved through Reactor payloads |
+| Persistence / repository | Propagation (source–sink across requests) | Repository-related flow paths | Dispatcher connects repository writes to reads in later requests |
+| Response handling | Taint sink | `@ResponseBody`, `@RestController`, `ResponseEntity`, `BodyBuilder.body` | HTML responses selected from `produces` (method values override class values); without `produces`, String response bodies treated as possible HTML output |
+| Reactive types | Propagation | `Mono`, `Flux` calls (factories and terminal calls) | Methods selected by return or receiver type |
 
-<!-- The diagram below will be redrawn -->
+#### Supported annotations
 
-<img src="RML-taint-analysis.png" width="706" border-effect="line" thumbnail="true"/>
+The model resolves meta-annotations and composed annotations for all supported annotations.
 
-Both frontends provide annotations, resolved types, methods, and fields through the common IR. `SpringRmlModel` runs the 
-Spring scripts. `FrameworkRmlModel` applies their sources, sinks, propagation rules, callbacks, and repository state to 
-the IR. The regular taint analysis then follows method bodies and library models.
+| Category | Annotations |
+| --- | --- |
+| Controllers | `@Controller`, `@RestController` |
+| Request mappings | `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@PatchMapping`, `@DeleteMapping` |
+| Request parameters and inputs | `@RequestParam`, `@PathVariable`, `@RequestHeader`, `@CookieValue`, `@RequestBody`, `@ModelAttribute`, `@MatrixVariable`, `@RequestAttribute`, `@RequestPart`, `@SessionAttribute`, `@Valid` (`jakarta.validation.Valid`, `javax.validation.Valid`) |
+| Components and configuration | `@ConfigurationProperties`, `@Bean`, `@Service` |
+| Message and event listeners | `@KafkaListener`, `@RabbitListener`, `@JmsListener`, `@EventListener` |
+| Security | `@AuthenticationPrincipal`, `@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed` (`jakarta.annotation.security.RolesAllowed`, `javax.annotation.security.RolesAllowed`) |
+| Persistence | `@Entity` (`jakarta.persistence.Entity`, `javax.persistence.Entity`) |
 
-The scripts select request, message listener, and principal sources. They connect publishers to listeners and preserve 
-taint through Reactor payloads. Each frontend maps framework sources and sinks to its enabled rules. Existing sanitizers 
-therefore apply to the same vulnerability categories.
 
-The RML selects methods by their return or receiver type and propagates taint through Mono and Flux calls. It covers factories and terminal calls.
+#### Known limitations
 
-The dispatcher creates shared component instances and separate instances for repository fields. It calls entry points 
-in a loop, which connects repository writes to reads in later requests. Handlers, secured methods, and message listeners 
-can start this flow. Callback support can run without a web handler. Generated dispatcher steps stay out of user traces. 
-The trace keeps the original source, repository call, entity field, and sink location.
+- **`@AliasFor` attribute values**: The model does not resolve attribute values mapped through `@AliasFor`.
+- **Transactions and rollback**: The model does not interpret `@Transactional`. It does not model transaction boundaries or rollback behavior.
+- **Lifecycle and validation callbacks**: The model does not schedule Spring bean lifecycle callbacks. It does not invoke model producers or Spring `Validator` implementations.
+- **Bean selection rules**: The model does not implement full Spring bean selection rules such as qualifiers, profiles, or conditional beans.
+- **Query predicates**: The model merges repository rows across requests without evaluating query filters or SQL conditions.
+- **Security authorization logic**: The model does not evaluate authorization decisions or `SecurityFilterChain` rules.
+- **Reactor schedulers**: The model tracks payload taint, but does not model schedulers, timing, or back pressure.
+- **Application JAR method bodies**: The model does not scan application JAR method bodies for sources or sinks.
+- **MVC view names**: The model does not treat returned view name strings as response sinks.
+- **Callback routing fallback**: When a message destination is unknown, the model can connect any listener of the same kind.
+
 
 ### Default behavior in IntelliJ IDEA
 
