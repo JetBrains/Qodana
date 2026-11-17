@@ -332,7 +332,12 @@ Here you can find answers to frequently asked questions about %instance% licensi
 <chapter id="faq-licensing-license-difference" title="What is the difference between the Ultimate and Ultimate Plus licenses?" default-state="collapsed" collapsible="true">
 <p>Compared to the Ultimate license, the Ultimate Plus license provides the following additional features:</p>
 <list>
+    <li><a href="global-configuration.md"/></li>
+    <li><a href="experimental-api.md"/></li>
+    <li><a href="insights.md"/></li>
     <li><a href="license-audit.topic">License Audit</a></li>
+    <li><a href="cloud-api.md"/></li>
+    <li><a href="cloud-sso.md"/></li>
     <li><a href="taint-analysis.md">Taint Analysis</a></li>
     <li><a href="vulnerability-checker.md">Vulnerability Checker</a></li>
 </list>

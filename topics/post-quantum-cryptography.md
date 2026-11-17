@@ -25,7 +25,7 @@ requirements and identifies a broader range of vulnerabilities.
 
 | Inspection group / NIST PQC security category | Description                                                                 | Reference benchmark (defines the category)                   |
 |-----------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------|
-| `PqcMinLevel1` / non-compliant with NIST PQC                             | Pre-quantum and legacy cryptography vulnerabilities                         | Key search on a block cipher with a 128-bit key (AES-128)    |
+| `PqcMinLevel1` / non-compliant with NIST PQC                             | Pre-quantum and legacy cryptography vulnerabilities. Enabled by default by the `qodana.starter` and `qodana.recommended` [inspection profiles](inspection-profiles.md)                         | Key search on a block cipher with a 128-bit key (AES-128)    |
 | `PqcMinLevel2` / 1                            | `PqcMinLevel1` + baseline post-quantum algorithms                           | Collision search on a 256-bit hash function (SHA-256)        |
 | `PqcMinLevel3` / 2                            | `PqcMinLevel2` + standard-strength post-quantum algorithms                  | Key search on a block cipher with a 192-bit key (AES-192)    |
 | `PqcMinLevel4` / 3                            | `PqcMinLevel3` + high-strength post-quantum algorithms                      | Collision search on a 384-bit hash function (SHA3-384)       |

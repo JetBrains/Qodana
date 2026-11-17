@@ -213,7 +213,6 @@ to the sink.
 
 <img src="taint-analysis-step-navigation.gif" alt="Navigating steps between a source and a sink" width="793" border-effect="line"/>
 
-
 #### Configure function calls
 
 <link-summary>
@@ -322,7 +321,22 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
         enabled: true
   ]]>
 </code-block>
+    <p>You can also configure the analysis depth using the <code>globalAnalysisDepth</code> option of the 
+        <code>JvmTaintAnalysis</code> inspection:</p>
+        <code-block lang="yaml"><![CDATA[
+            version: "1.0"
+            linter: qodana-jvm
+            profile:
+              name: qodana.recommended
+              inspections:
+                - inspection: JvmTaintAnalysis
+                  enabled: true
+                  options:
+                    globalAnalysisDepth: <LOW|MEDIUM|HIGH>
+        ]]>
+        </code-block>
   </tab>
+<p>Higher analysis depth requires more resources and increases the analysis time.</p>
 </tabs>
 </snippet>
 

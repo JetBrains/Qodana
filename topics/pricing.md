@@ -177,7 +177,7 @@ Here, C and C++ inspections are applicable for projects containing `.sln` files.
 
 | Feature                                    | Community | Ultimate  | Ultimate Plus | 
 |--------------------------------------------|-----------|-----------|---------------|
-| Detailed historical data storage           | 30 days   | 180 days  | Unlimited     |
+| Detailed historical data storage           | 30 days   | 180 days  | 365 days     |
 | Number of [projects](cloud-projects.topic) | Unlimited | Unlimited | Unlimited     |
 | Number of [teams](cloud-teams.topic)       | 1         | Unlimited | Unlimited     |
 | Lines of code                              | Unlimited | Unlimited | Unlimited     |

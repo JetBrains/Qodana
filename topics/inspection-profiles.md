@@ -67,6 +67,7 @@ Out of the box, you can use the following %product% profiles:
                 Flaky inspections that are still available in IDEs were removed from %product% linters.
             </li>
         </list>
+            <p>This is the profile configured by the %cloud% wizard.</p>
         </td>
     </tr>
     <tr>
@@ -906,5 +907,4 @@ The following examples show how you can invoke your custom profiles using the
 * Profile by the path `%\path%` from the command-line option `--profile-path %\path%`
 * Profile with the name `%\name%` from `qodana.yaml`
 * Profile by the path `%\path%` from `qodana.yaml`
-* Profile mounted to `/data/profile.xml`
-* Fall back to using the default `qodana.recommended` profile.
+* Fall back to using the default `qodana.starter` profile.
