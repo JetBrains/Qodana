@@ -518,8 +518,8 @@ This table contains the list of options that can be configured using the `inputs
 | `commit-message`                               | Commit message used when Quick-Fixes are applied                                                                                                                                            | `Apply quick-fixes by Qodana`     | 
 | `os`                                           | Operating system used for running pipelines, required for pre-configuration. Could accept the `linux`, `windows` or `mac` values                                                            | `linux`                           |
 | `image`                                        | Linux-only option. The image used for job execution. Required since version 2026.1                                                                                                          | `docker:27.5.1`                   |
-| `windows-tags`                                 | Windows-only option. Custom runner tags used for the job                                                                                                                                    | `- saas-windows-medium-amd64`     |
-| `mac-tags`                                     | macOS-only option. Custom runner tags used for the job                                                                                                                                      | `- saas-macos-medium-m1`          |
+| `windows-tags`                                 | Windows-only option. An array of custom runner tags used for the job                                                                                                                                    | `- saas-windows-medium-amd64`     |
+| `mac-tags`                                     | macOS-only option. An array of custom runner tags used for the job                                                                                                                                      | `- saas-macos-medium-m1`          |
 
 <seealso>
     <category ref="external">
