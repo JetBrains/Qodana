@@ -20,7 +20,7 @@ You can also [request a demo](https://www.jetbrains.com/qodana/request-a-demo/).
 <link-summary>Post-quantum cryptography inspections are categorized into several groups, with some groups corresponding to specific NIST PQC security categories. Each higher category imposes stricter requirements and identifies a broader range of vulnerabilities.</link-summary>
 
 Post-quantum cryptography inspections are categorized into several groups, with some groups corresponding to specific
-[NIST PQC](https://csrc.nist.gov/pubs/ir/8547/ipd) security categories. Each higher category imposes stricter 
+[NIST PQC](https://doi.org/10.6028/NIST.IR.8547) security categories. Each higher category imposes stricter 
 requirements and identifies a broader range of vulnerabilities.
 
 | Inspection group / NIST PQC security category | Description                                                                 | Reference benchmark (defines the category)                   |
