@@ -111,6 +111,16 @@ The command will be automatically executed before the analysis. For plain Dart p
         <p>Follow the instructions from the <a href="https://github.com/JetBrains/qodana-cli">Qodana CLI</a> page on GitHub.</p></tab>
 </tabs>
 
+### Configure the SDK
+
+To analyze plain Dart projects, provide the path to the Dart SDK using the `QODANA_FLUTTER_PATH` environment variable.
+In this case, the Flutter SDK is not required.
+
+To analyze Flutter projects, the %qd% linter uses the Flutter SDK available via the `PATH`. To use a specific installation,
+set the `QODANA_FLUTTER_PATH` environment variable to the `bin` directory of your Flutter SDK.
+
+The Docker version of %qd% requires manual configuration of the Flutter/Dart SDK.
+
 ## Run Qodana
 
 The Dart SDK dependency management uses absolute paths that are not cross-compatible between 
@@ -204,13 +214,6 @@ from the linter, exclude it as follows:
 exclude:
   - name: DartAnalyze
 ```
-
-### Configuring the Flutter SDK
-
-The %qd% linter uses the Flutter SDK available via the `PATH`. To use a specific installation,
-set the `QODANA_FLUTTER_PATH` environment variable to the `bin` directory of your Flutter SDK.
-
-The Docker version of %qd% requires manual configuration of the Flutter/Dart SDK.
 
 ### Enabling the baseline feature
 
