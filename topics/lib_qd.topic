@@ -459,6 +459,7 @@
     <snippet id="qodana-severity-levels">
         <table>
             <tr>
+                <td><a href="taint-analysis.md" anchor="ta-dotnet-intro">Opengrep</a> severity *</td>
                 <td>IDE severity</td>
                 <td filter="for-report">SARIF severity</td>
                 <td filter="for-profile"><a href="qodana-inspection-output.md" anchor="SARIF+severity">SARIF</a> severity</td>
@@ -467,6 +468,7 @@
                 <td>Bitbucket severity</td>
             </tr>
             <tr>
+                <td>CRITICAL</td>
                 <td>ERROR</td>
                 <td>ERROR</td>
                 <td>Critical</td>
@@ -474,6 +476,7 @@
                 <td>High</td>
             </tr>
             <tr>
+                <td>HIGH, ERROR</td>
                 <td>WARNING</td>
                 <td>WARNING</td>
                 <td>High</td>
@@ -481,6 +484,7 @@
                 <td>High</td>
             </tr>
             <tr>
+                <td>MEDIUM, WARNING</td>
                 <td>WEAK WARNING</td>
                 <td>NOTE</td>
                 <td>Moderate</td>
@@ -488,6 +492,7 @@
                 <td>Medium</td>
             </tr>
             <tr>
+                <td>LOW, INFO</td>
                 <td>TYPO</td>
                 <td>NOTE</td>
                 <td>Low</td>
@@ -495,6 +500,7 @@
                 <td>Low</td>
             </tr>
             <tr>
+                <td>INVENTORY, EXPERIMENT</td>
                 <td>INFORMATION</td>
                 <td>NOTE</td>
                 <td>Info</td>
@@ -503,12 +509,14 @@
             </tr>
             <tr>
                 <td>OTHER</td>
+                <td>OTHER</td>
                 <td>NOTE</td>
                 <td>Info</td>
                 <td>Info</td>
                 <td>Info</td>
             </tr>
         </table>
+        <p>* For Opengrep, rules with any other severities will be ignored.</p>
     </snippet>
 
     <snippet id="bitbucket-basic-configuration">

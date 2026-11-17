@@ -126,7 +126,7 @@ configuration of %product%. Once you modify the configuration, it will be update
 
 <link-summary>This table shows the relation between various severities.</link-summary>
 
-<p>This table shows the relation between severities in JetBrains IDEs, SARIF files, and %product% reports.</p>
+This table shows the relation between severities in JetBrains IDEs, SARIF files, [Opengrep rules](taint-analysis.md#ta-dotnet-intro), and %product% reports.
 
 <include from="lib_qd.topic" element-id="qodana-severity-levels" use-filter="for-profile,empty"/>
 

@@ -99,6 +99,7 @@ This means the taint status of the function arguments will be passed to the retu
 To override the default behavior, you can apply [custom configurations](#Configure+function+calls) to specific function calls. 
 
 ### %dotnet%
+{id="ta-dotnet-intro"}
 
 <link-summary>%product% supports rules compatible with Opengrep for configuring the taint analysis.</link-summary>
 
