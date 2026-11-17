@@ -335,8 +335,8 @@ Here, find the **Security Analysis** section and then configure the **Show Probl
                     globalAnalysisDepth: <LOW|MEDIUM|HIGH>
         ]]>
         </code-block>
-  </tab>
 <p>Higher analysis depth requires more resources and increases the analysis time.</p>
+</tab>
 </tabs>
 </snippet>
 
