@@ -243,6 +243,10 @@ To do this, create a [branch protection rule](%branch-protection-rule%) as descr
 
 <anchor name="quality-gate-and-baseline"/>
 
+### Code coverage
+
+<include from="lib_qd.topic" element-id="code-coverage-disabling-for-pull-requests"/>
+
 ## Baseline and quality gate
 
 <link-summary>Extend your GitHub configuration using the baseline and quality gate features.</link-summary>

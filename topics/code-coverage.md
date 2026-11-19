@@ -32,7 +32,7 @@ This feature is available in the following linters:
     <tr>
         <td><a href="js.md">%js%</a></td>
         <td><code>info</code> (LCOV-formatted file)</td>
-        <td><a href="https://jestjs.io/">Jest</a>, <a href="https://vitest.dev/guide/coverage">Vitest</a> or any tool supporting the file format</td>
+        <td><a href="https://jestjs.io/">Jest</a>, <a href="https://vitest.dev/guide/coverage">Vitest,</a> or any tool supporting the file format</td>
     </tr>
     <tr>
         <td><a href="php.md">%php%</a></td>
@@ -68,9 +68,11 @@ This feature is available in the following linters:
 
 %product% relies on the coverage report format rather than a specific 
 coverage tool, which lets you use any tool that produces a specific file format. %product% ingests a report file, analyzes 
-it and visualizes results.
+it, and visualizes results.
 
 For the missing code coverage issues, the predefined threshold in %instance% is currently set to 50%.
+
+By default, %product% also reports files, classes, and functions that were changed in pull requests and are not covered by tests.
 
 Code coverage uses several inspections that are already included in the `qodana.recommended` and `qodana.starter` 
 [default inspection profiles](inspection-profiles.md#inspection-profiles-existing-profiles), so you do not need to enable them:  
@@ -189,6 +191,14 @@ example, for the `JvmCoverageInspection` inspection you can configure the `class
          methodThreshold: 51
          warnMissingCoverage: true
    ```
+
+1. If necessary, disable code coverage reports for pull requests. You can achieve this either way: 
+{id="code-coverage-disable-coverage-for-pull-requests"}
+
+    | YAML configuration | CLI option |
+    |------------|----------|
+    |`reportProblems: false`| `--report-coverage-problems false`|
+
 
 ## Run code coverage
 {id="run-code-coverage"}

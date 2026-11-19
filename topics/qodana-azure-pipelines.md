@@ -199,6 +199,11 @@ This is how you can enable %product% analysis for pull requests:
         </tab>
 </tabs>
 
+### Code coverage
+
+<include from="lib_qd.topic" element-id="code-coverage-disabling-for-pull-requests"/>
+
+
 ## Quality gate and baseline
 
 <link-summary>Learn how to enable the baseline and quality gate features for your projects.</link-summary>

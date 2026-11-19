@@ -32,8 +32,6 @@ Community linters. You can see these sections to learn how to generate the proje
 * The <a href="Quick-start.topic" anchor="quickstart-prerequisites">project setup</a> section explains how to generate a project token when first working with %cloud%.
 * The <a href="cloud-projects.topic" anchor="cloud-manage-projects"/> section explains how to create a project token within an existing %cloud% organization.
 
-
-
 ## Basic configuration
 {id="teamcity-qodana-runner"}
 
@@ -73,6 +71,10 @@ Information about configuring TeamCity for analyzing pull and merge requests is 
 [TeamCity](%TeamCityPullRequests%) documentation portal.
 
 To learn how to analyze specific branches, see the [Trigger Settings](%TeamCityBranches%) section of the TeamCity documentation.
+
+### Code coverage
+
+<include from="lib_qd.topic" element-id="code-coverage-disabling-for-pull-requests"/>
 
 ## Add a configuration script
 {id="add-script"}
