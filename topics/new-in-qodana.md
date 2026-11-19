@@ -29,6 +29,13 @@ The details are available in the [](post-quantum-cryptography.md) and [](dotnet.
 %product% supports Spring security analysis for the [%jvm%](jvm.md) linter.  
 The details are available in the [](taint-analysis.md#Spring+support) section of the documentation.
 
+### Security analysis improvements
+
+<link-summary>Version 2026.3 of %product% provides security improvements for JavaScript, TypeScript, and C#.</link-summary>
+
+Version 2026.3 of %product% includes significant improvements to security inspections for JavaScript, TypeScript, and C#. These 
+improvements provide more accurate analysis results and reduce noise for security teams.
+
 ## Qodana Cloud
 
 <link-summary>The list of monthly %cloud% changes.</link-summary>
