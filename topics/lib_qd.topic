@@ -2645,7 +2645,7 @@
     </snippet>
 
     <snippet id="code-coverage-disabling-for-pull-requests">
-        <p>By default, %product% also reports files, classes, and functions that were changed in pull requests and are not covered by tests.
+        <p>By default, %product% also reports files, classes, and functions that were changed in pull or merge requests and are not covered by tests.
             To learn how to disable the feature, see the
             <a href="code-coverage.md" anchor="code-coverage-disable-coverage-for-pull-requests"/> section for details.</p>
     </snippet>

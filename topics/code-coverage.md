@@ -192,13 +192,12 @@ example, for the `JvmCoverageInspection` inspection you can configure the `class
          warnMissingCoverage: true
    ```
 
-1. If necessary, disable code coverage reports for pull requests. You can achieve this either way: 
+1. If necessary, disable code coverage reports for pull or merge requests. 
 {id="code-coverage-disable-coverage-for-pull-requests"}
 
-    | YAML configuration | CLI option |
-    |------------|----------|
-    |`reportProblems: false`| `--report-coverage-problems false`|
-
+   To do that, use the `--report-coverage-problems false` [CLI option](configuration-reference.md#CLI+options).
+   
+   Alternatively, you can do it by using the `reportProblems: false` [YAML option](configuration-reference.md#YAML+configuration); however, in this case you also disable code coverage reports for an entire project, which includes regular analyses.
 
 ## Run code coverage
 {id="run-code-coverage"}

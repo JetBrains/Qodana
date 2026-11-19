@@ -319,6 +319,11 @@ qodana:
 
 The `rules` block of this configuration tells %product% what branches to inspect.
 
+### Code coverage
+
+<include from="lib_qd.topic" element-id="code-coverage-disabling-for-pull-requests"/>
+
+
 
 ## Quick-Fixes
 
