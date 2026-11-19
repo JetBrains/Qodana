@@ -459,7 +459,7 @@
     <snippet id="qodana-severity-levels">
         <table>
             <tr>
-                <td><a href="taint-analysis.md" anchor="ta-dotnet-intro">Opengrep</a> severity *</td>
+                <td><a href="taint-analysis.md" anchor="ta-dotnet-intro">Opengrep</a> severity</td>
                 <td>IDE severity</td>
                 <td filter="for-report">SARIF severity</td>
                 <td filter="for-profile"><a href="qodana-inspection-output.md" anchor="SARIF+severity">SARIF</a> severity</td>
@@ -508,7 +508,7 @@
                 <td>Info</td>
             </tr>
             <tr>
-                <td>OTHER</td>
+                <td>Any other severity&nbsp;*</td>
                 <td>OTHER</td>
                 <td>NOTE</td>
                 <td>Info</td>
