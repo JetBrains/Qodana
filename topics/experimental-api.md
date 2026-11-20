@@ -7,6 +7,7 @@ The experimental API helps you solve the following tasks:
 * Identify dependencies across organization projects
 * Filter [project insights](insights.md) by specific [vulnerability IDs](https://nvd.nist.gov/vuln)
 * Retrieve the latest project report in SARIF format for a specific branch
+* Add [team](cloud-teams.topic) members in bulk
 
 <note>
 The API is experimental, which means no long-term support. Instead, we will deprecate APIs that become obsolete. 
@@ -219,10 +220,131 @@ Here is the description of the accepted parameter:
 
 The API response does not include code snippets or full rule descriptions.
 
+## Add team members
+
+> Be careful when assigning roles to new team members. For more details, see the [](cloud-user-roles.md) section of the %cloud% documentation.
+{style="note"}
+
+To add new team members to a %cloud% team and assign them [%cloud% roles](cloud-user-roles.md), send the following `POST` request:
+
+```cURL
+POST /api/experimental/teams/{id}/members
+```
+
+Here is the description of the accepted parameter:
+
+| Parameter   | Type   | Required  | Description       | Example value |
+|-------------|--------|-----------|-------------------|---------------|
+| `id` | String | Yes   | The ID of the existing %cloud% team | `aBcDe`    |
 
 
+This endpoint does not send invitations via email.
 
+The request accepts a JSON object containing an array of team members, for example:
 
+```JSON
+{
+  "members": [
+    {
+      "email": "viewer1@example.com"
+    },
+    {
+      "email": "editor2@example.com",
+      "role": "EDITOR"
+    },
+    {
+      "email": "admin3@example.com",
+      "role": "ADMIN"
+    }
+  ]
+}
+```
+
+Here is the description of the object fields:
+
+| Field | Type | Required | Description |
+|-----------|------|----------|-------------|
+|`members`| array[object] | Yes | The array containing the list of team members. <br>Accepts up to 1000 entries; exceeding that returns the `400 Bad request` response. |
+|`email`| string | Yes | The email address of the team member. <br>Case insensitive. <br> For duplicate emails, the last entry wins. <br> Deactivated emails and emails that do not belong to organization members are not processed and are returned as unknown. |
+|`role`| string | No | The [role](cloud-user-roles.md) of the team member in %cloud%. <br> Accepts `VIEWER`, `EDITOR`, or `ADMIN`. The `VIEWER` role is assigned by default. <br> Unchanged roles are neither added nor updated. <br> Existing roles can be updated.|
+
+Here is the description of responses:
+
+<table>
+    <tr>
+        <td>Response code</td>
+        <td>Description and examples</td>
+    </tr>
+    <tr>
+        <td><code>200</code></td>
+        <td>
+            <p>Object containing the member statistics:</p>
+        <code-block lang="http">
+        HTTP/2 200 OK
+        content-type: application/json
+        &nbsp;
+        {
+            numMembersAdded: 123,
+            numMembersUpdated: 3,
+            unknownEmails: [
+                "email1@enterprise.com",
+                "email2@enterprise.com"
+            ]
+        }
+        </code-block>
+        <p>Here is the detailed description of the response body:</p>
+            <table>
+                <tr>
+                    <td>Field</td>
+                    <td>Description</td>        
+                </tr>
+                <tr>
+                    <td><code>numMembersAdded</code></td>
+                    <td>Number of added team members</td>        
+                </tr>
+                <tr>
+                    <td><code>numMembersUpdated</code></td>
+                    <td>Number of team members with updated roles</td>        
+                </tr>
+                <tr>
+                    <td><code>unknownEmails</code></td>
+                    <td>Email addresses that were not processed</td>        
+                </tr>
+            </table>
+<p>Here is the description of how the endpoint processes users depending on their status in %cloud%:</p>
+
+| User status in %cloud% organization | Action | Reported under |
+|----------------------|--------|-------------|
+| Active | Add | `numMembersAdded` |
+| Active | Update a role | `numMembersUpdated` |
+| Active | Update a role, keep invited | `numMembersUpdated`  |
+| Invited, not accepted | Update a role, keep invited | `numMembersUpdated`  |
+| Invited, not accepted | Add a pending role | `numMembersAdded` |
+| Deactivated or not a member| Nothing | `unknownEmails`  |
+ </td>
+    </tr>
+    <tr>
+        <td><code>400</code></td>
+        <td>
+        <code-block lang="http">
+            HTTP/2 400 Bad request
+            &nbsp;
+            {
+                "name": "validation_failed",
+                "details": "Too many members provided in the request: 1234, at most 1000 allowed"
+            }
+        </code-block>
+        </td>
+    </tr>
+    <tr>
+        <td><code>404</code></td>
+        <td>
+            <code-block lang="http">
+                HTTP/2 404 Not Found
+            </code-block>
+        </td>
+    </tr>
+</table>
 
 
 
