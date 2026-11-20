@@ -2789,6 +2789,113 @@ coverage:
     </tab>
 </tabs>
 
+#### Disable code coverage
+
+You can disable code coverage reports for pull or merge requests by using the `--report-coverage-problems false` option:
+
+<tabs group="cli-settings">
+    <tab title="Docker image" group-key="docker-image">
+        <code-block lang="shell" prompt="$" emphasize-lines="5">
+            docker run \
+               -v /my/dir/with/coverage:/data/coverage \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               jetbrains/qodana-&lt;image&gt; \
+               --report-coverage-problems false
+        </code-block>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code-block lang="shell" prompt="$" emphasize-lines="4">
+            qodana scan \
+               -v /my/dir/with/coverage:/data/coverage \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               --report-coverage-problems false
+        </code-block>
+    </tab>
+    <tab title="GitHub Actions" group-key="github-actions">
+        <code-block lang="yaml" emphasize-lines="27">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - master # The 'master' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: %action-version%
+                          with:
+                              args: | 
+                                -v /my/dir/with/coverage:/data/coverage
+                                --report-coverage-problems false
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+    </tab>
+    <tab title="Jenkins" group-key="jenkins">
+            <code-block lang="groovy" emphasize-lines="20">
+                pipeline {
+                    environment {
+                        QODANA_TOKEN=credentials('qodana-token')
+                    }
+                    agent {
+                        docker {
+                            args '''
+                              -v "${WORKSPACE}":/data/project
+                              --entrypoint=""
+                              '''
+                            image 'jetbrains/qodana-&lt;image&gt;'
+                        }
+                    }
+                    stages {
+                        stage('Qodana') {
+                            steps {
+                                sh '''
+                                qodana \
+                                -v /my/dir/with/coverage:/data/coverage \
+                                --report-coverage-problems false
+                                '''
+                            }
+                        }
+                    }
+                }
+            </code-block>
+    </tab>
+    <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
+            <code-block lang="yaml" emphasize-lines="7">
+                include:
+                    - component: %gitlab-version%
+                      inputs:
+                          args: |
+                              -v /my/dir/with/coverage:/data/coverage
+                              --linter &lt;linter&gt;
+                              --report-coverage-problems false
+            </code-block>
+    </tab>
+    <tab title="TeamCity" group-key="teamcity">
+        <p>In the runner configuration, find the <ui-path>Additional Docker arguments</ui-path> field and
+            specify the path the file containing code coverage results:</p>
+        <code-block lang="shell">
+                -v /my/dir/with/coverage:/data/coverage
+                --report-coverage-problems false
+            </code-block>
+    </tab>
+</tabs>
+
+Alternatively, you can do it by using the `reportProblems: false` YAML option; however, in this case you also disable 
+code coverage reports for an entire project, which includes regular analyses.
 
 ## Override the run scenario
 
