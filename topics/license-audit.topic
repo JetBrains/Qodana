@@ -187,7 +187,7 @@
             <p>In the <a href="configuration-reference.md">configuration file</a>, you can use the <code>dependencyIgnores</code> option to ignore a license of a specific dependency in your project:</p>
             <code-block lang="yaml">
                 dependencyIgnores:
-                  - name: "aapt2-proto"
+                  - name: "aapt2-pro.*" # Wildcard for the dependency name
                   - name: "dexlib2"
             </code-block>
         </chapter>
@@ -235,12 +235,12 @@
             <p>Using this sample, you can tell %instance% to detect only the <code>CDDL-1.1</code> and
                 <code>GPL-2.0-with-classpath-exception</code> licenses for <code>jaxb-runtime</code> version 2.3.1.
             </p>
-            <p>In this sample, <code>url</code> is optional.</p>
+            <p>In this sample, <code>url</code> is optional. The <code>name</code> and <code>version</code> fields support wildcards.</p>
 
             <code-block lang="yaml">
                 dependencyOverrides:
-                  - name: "jaxb-runtime"
-                    version: "2.3.1"
+                  - name: "jaxb-run.*" # Wildcard for the dependency name
+                    version: ">=2.3.1" # Version range to start from
                     url: "https://github.com/javaee/jaxb-v2"
                     licenses:
                       - key: "CDDL-1.1"
