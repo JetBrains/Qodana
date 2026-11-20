@@ -986,6 +986,17 @@
                 <tr>
                     <td>
                         <code>
+                            --air-gapped
+                        </code>
+                    </td>
+                    <td>
+                        <p>Run in a network with no access to the internet. In this case, %product% does not update the statistics schema
+                            and does not upload statistics. The details are available in the <a href="configuration-reference.md" anchor="configuration-reference-air-gapped-mode"/> chapter.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>
                             --compile-commands &lt;string&gt;
                         </code>
                     </td>

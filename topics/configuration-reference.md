@@ -550,6 +550,122 @@ The `--linter` and `--within-docker false` CLI options also let you configure th
     </tab>
 </tabs>
 
+## Run %product% in air-gapped mode
+{id="configuration-reference-air-gapped-mode"}
+
+Starting with version 2026.3, %product% provides air-gapped mode for networks that have no access to the internet. 
+In this mode, %product% skips the following network calls:
+
+* Statistics schema upload before the analysis
+* Statistics upload after the analysis
+* Requests to JetBrains services like `vulnerability-search.jetbrains.com` and `package-checker`
+* Requests from the `RiderSecurityErrorsInspection`, `VulnerableApi`, and `VulnerablePackage` inspections 
+
+Running %product% in air-gapped mode may affect the performance of the [](vulnerability-checker.md) feature.
+
+You can enable air-gapped mode using the `airGapped` YAML option, for example: 
+
+```yaml
+version: "1.0"
+
+linter: <linter>
+
+airGapped: true
+```
+
+Alternatively, you can use the `--air-gapped` CLI option: 
+
+<tabs group="cli-settings">
+    <tab title="Docker image" group-key="docker-image">
+        <code-block lang="shell" prompt="$" emphasize-lines="4">
+            docker run \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               jetbrains/qodana-&lt;image&gt; \
+               --air-gapped
+        </code-block>
+    </tab>
+    <tab title="Qodana CLI" group-key="qodana-cli">
+        <code-block lang="shell" prompt="$" emphasize-lines="3">
+            qodana scan \
+               -e QODANA_TOKEN="&lt;cloud-project-token&gt;" \
+               --air-gapped
+        </code-block>
+    </tab>
+    <tab title="GitHub Actions" group-key="github-actions">
+        <code-block lang="yaml" emphasize-lines="25">
+            name: Qodana
+            on:
+                workflow_dispatch:
+                pull_request:
+                push:
+                    branches: # Specify your branches here
+                        - main # The 'main' branch
+                        - master # The 'master' branch
+                        - 'releases/*' # The release branches
+            jobs:
+                qodana:
+                    runs-on: ubuntu-latest
+                    permissions:
+                        contents: write
+                        pull-requests: write
+                        checks: write
+                    steps:
+                        - uses: actions/checkout@v3
+                          with:
+                              ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+                              fetch-depth: 0  # a full history is required for pull request analysis
+                        - name: 'Qodana Scan'
+                          uses: %action-version%
+                          with:
+                              args: --air-gapped
+                          env:
+                              QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+        </code-block>
+    </tab>
+    <tab title="Jenkins" group-key="jenkins">
+            <code-block lang="groovy" emphasize-lines="19">
+                pipeline {
+                    environment {
+                        QODANA_TOKEN=credentials('qodana-token')
+                    }
+                    agent {
+                        docker {
+                            args '''
+                              -v "${WORKSPACE}":/data/project
+                              --entrypoint=""
+                              '''
+                            image 'jetbrains/qodana-&lt;image&gt;'
+                        }
+                    }
+                    stages {
+                        stage('Qodana') {
+                            steps {
+                                sh '''
+                                qodana \
+                                --air-gapped
+                                '''
+                            }
+                        }
+                    }
+                }
+            </code-block>
+    </tab>
+    <tab title="GitLab CI/CD" group-key="gitlab-ci-cd">
+            <code-block lang="yaml" emphasize-lines="6">
+                include:
+                    - component: %gitlab-version%
+                      inputs:
+                          args: |
+                              --linter &lt;linter&gt;
+                              --air-gapped
+            </code-block>
+    </tab>
+    <tab title="TeamCity" group-key="teamcity">
+        <p>In the runner configuration, find the <ui-path>Additional Docker arguments</ui-path> field and
+            specify the <code>--air-gapped</code> option.</p>
+    </tab>
+</tabs>
+
 ## Override YAML configuration file
 {id="docker-config-reference-custom-yaml-config"}
 
@@ -2782,7 +2898,7 @@ coverage:
     </tab>
     <tab title="TeamCity" group-key="teamcity">
         <p>In the runner configuration, find the <ui-path>Additional Docker arguments</ui-path> field and
-            specify the path the file containing code coverage results:</p>
+            specify the path to the file containing code coverage results:</p>
         <code-block lang="shell">
                 -v /my/dir/with/coverage:/data/coverage
             </code-block>
@@ -2886,7 +3002,7 @@ You can disable code coverage reports for pull or merge requests by using the `-
     </tab>
     <tab title="TeamCity" group-key="teamcity">
         <p>In the runner configuration, find the <ui-path>Additional Docker arguments</ui-path> field and
-            specify the path the file containing code coverage results:</p>
+            specify the <code>--report-coverage-problems false</code> option:</p>
         <code-block lang="shell">
                 -v /my/dir/with/coverage:/data/coverage
                 --report-coverage-problems false
