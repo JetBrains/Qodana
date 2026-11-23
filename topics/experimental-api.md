@@ -7,7 +7,7 @@ The experimental API helps you solve the following tasks:
 * Identify dependencies across organization projects
 * Filter [project insights](insights.md) by specific [vulnerability IDs](https://nvd.nist.gov/vuln)
 * Retrieve the latest project report in SARIF format for a specific branch
-* Add [team](cloud-teams.topic) members in bulk
+* Create [teams](cloud-teams.topic) and add team members in bulk
 
 <note>
 The API is experimental, which means no long-term support. Instead, we will deprecate APIs that become obsolete. 
@@ -219,6 +219,45 @@ Here is the description of the accepted parameter:
 | `branch` | String | No       | Name of the branch to retrieve the report for. If not specified, the default branch is used | `feature`    |
 
 The API response does not include code snippets or full rule descriptions.
+
+## Create teams
+
+To create new [teams](cloud-teams.topic) in %cloud%, send the following `POST` request:
+
+```cURL
+POST /api/experimental/teams
+```
+
+The request accepts a JSON object containing the team details, for example:
+
+```JSON
+{
+  "name": "My Team",
+  "isPublic": true
+}
+```
+
+Here is the description of the object fields:
+
+| Field | Type | Required | Description |
+|-----------|------|----------|-------------|
+|`name`| string | Yes | The team name is matched ignoring case and spaces. For example, `My Team` and `my-team` are treated as equivalent. |
+|`isPublic`| boolean | No | Controls the team visibility. The default value is `true`. |
+
+The response object contains the team ID in the `id` field:
+
+```HTTP
+HTTP/2 201 Created
+Content-Type: application/json
+
+{
+  "id": "Xb9kQ"
+}
+
+```
+
+You can use this team ID to add team members, as described in the [](#Add+team+members) chapter.
+
 
 ## Add team members
 
