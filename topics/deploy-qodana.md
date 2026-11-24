@@ -84,7 +84,8 @@ systems that provide incomplete support for Docker.
 | [JavaScript and TypeScript](js.md)                               | `%js-linter%`                               |  
 | [C#, F#, VB.NET, JavaScript, TypeScript, C and C++  ](dotnet.md) | `%dotnet-linter%`                           |  
 | [Python, JavaScript, TypeScript](python.md)                      | `%python-linter%` and `%python-co-linter%`  |  
-| [Go](golang.md)                                                  | `%go-linter%`                               |  
+| [Go](golang.md)                                                  | `%go-linter%`                               | 
+|[](dart.md)| `qodana-poly`|
 {id="deploy-qodana-native-mode-table"}
 
 You can run native mode on Linux, macOS, and Microsoft Windows.
