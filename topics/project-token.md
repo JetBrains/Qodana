@@ -1,19 +1,31 @@
-[//]: # (title: Project tokens)
+[//]: # (title: Project and organization tokens)
 
 <link-summary>A project token contains information that Qodana linters use for identification and verification. </link-summary>
 
-Generally available [paid linters](pricing.md#pricing-linters-licenses) require that you use the 
-`QODANA_TOKEN` variable to provide a [project token](cloud-projects.topic#cloud-manage-projects) while running %instance%, 
+Generally available [paid linters](pricing.md#pricing-linters-licenses) require that you identify and verify your %product% usage by means of tokens. This is necessary for
+establishing a connection with %cloud% and subsequent [license verification](#License+verification) and [report collection](#Report+collection). 
+
+Depending on your needs, you can use either a project or an organization token:
+
+| Token type | Description |
+|---|--|
+| [Project token](#Project+token) | You generate and use each separate token for each separate project. <br> Working with multiple projects requires generating and managing multiple project tokens. |
+| [Organization token](#Organization+token) | A single organization-level token lets you get access to all projects in the organization. <br> Compared to project tokens, this requires more configuration. | 
+
+## Project token
+
+While creating a [project in %cloud%](cloud-projects.topic#cloud-manage-projects), you get a project token generated. 
+After then, use the `QODANA_TOKEN` variable to provide a reference to its value in your %product% configuration, 
 for example: 
 
-<tabs>
-    <tab title="Qodana CLI" id="project-token-cli-tab">
+<tabs group="token-tabs">
+    <tab title="Qodana CLI" group-key="token-cli-tab" id="project-token-cli-tab">
         <code-block lang="shell" prompt="$">
             qodana scan \
                -e QODANA_TOKEN="&lt;qodana-cloud-token&gt;"
         </code-block>
     </tab>
-    <tab title="Docker image" id="project-token-docker">
+    <tab title="Docker image" group-key="token-docker-tab" id="project-token-docker-tab">
         <code-block lang="shell" prompt="$">
             docker run \
                -v $(pwd):/data/project/ \
@@ -23,13 +35,43 @@ for example:
     </tab>
 </tabs>
 
-The `QODANA_TOKEN` variable contains information that %instance% linters use for identification and verification.
-Based on this, %instance% establishes a connection with %cloud%.
+## Organization token
 
-To generate a project token, in %cloud% navigate to your [project](cloud-projects.topic) and follow recommendations 
-described in the [](cloud-projects.topic#cloud-manage-projects) section. 
+<link-summary>
+A single organization-level token lets you generate tokens for all projects in the organization.  
+</link-summary>
 
-Below is the description of interaction between %instance% and %cloud% once the connection is established. 
+An organization token gives you access to a [%cloud% organization](cloud-organizations.topic). To identify a specific project within it, you need 
+team and project slugs as shown in the steps below:
+
+<procedure>
+<step>Generate an organization token in %cloud%.</step>
+<step>Get the team slug using either the %cloud% URL like <code>AbCdE</code> from <code>https://qodana.cloud/teams/AbCdE</code>, or the API method described in the <a href="experimental-api.md" anchor="Create+teams"/> chapter. </step> 
+<step>Using the %cloud% URL, get the project slug. For example, this will be <code>AbCde</code> from <code>https://qodana.cloud/projects/AbCde/</code>.</step>
+<step><p>Use the the <code>QODANA_ORG_TOKEN</code> variable to refer to the organization token. 
+Also, use the <code>QODANA_PROJECT_SLUG</code> variable or the <code>projectSlug</code> key in your YAML configuration to refer to the team and project slugs in the <code>[team-slug]:[project-slug]</code> format. For example:</p>
+<tabs group="token-tabs">
+    <tab title="Qodana CLI" group-key="token-cli-tab" id="org-token-cli-tab">
+        <code-block lang="shell" prompt="$"><![CDATA[
+            qodana scan \
+               -e QODANA_ORG_TOKEN="<qodana-organization-token>" \
+               -e QODANA_PROJECT_SLUG="<team-slug>:<project-slug>" \
+        ]]>
+        </code-block>
+    </tab>
+    <tab title="Docker image" group-key="token-docker-tab" id="org-token-docker-tab">
+        <code-block lang="shell" prompt="$"><![CDATA[
+            docker run \
+               -v $(pwd):/data/project/ \
+               -e QODANA_ORG_TOKEN="<qodana-organization-token>" \
+               -e QODANA_PROJECT_SLUG="<team-slug>:<project-slug>" \
+                jetbrains/qodana-<image>        
+        ]]>
+</code-block>
+    </tab>
+</tabs>
+</step>
+</procedure>
 
 ## License verification
 
@@ -52,9 +94,6 @@ You can view actual %instance% reports in an aggregated and handy format, as wel
 keep a historical overview of older %product% reports. 
 </link-summary>
 
-Additionally, your local %instance% report is bound with the project in [%cloud%](cloud-projects.topic). After binding, 
+Your local %instance% report is bound with the project in [%cloud%](cloud-projects.topic). After binding, 
 you can view actual %instance% [reports](cloud-overview-reports.topic) in an aggregated and handy format, as well as 
 keep a historical overview of older %product% reports. 
-
-Once the project token is generated, you can regenerate or delete it as shown in the 
-[](cloud-projects.topic#cloud-manage-projects) section of the %cloud% documentation.
