@@ -69,7 +69,7 @@ the `projectStructure/thirdPartySoftwareList.json` file; otherwise it returns `2
 
 To retrieve project insights by vulnerability IDs, send the following `POST` request:
 
-```cURL
+```HTTP
 POST /api/experimental/organizations/project-insights/query
 ```
 
@@ -208,7 +208,7 @@ combination of project ID and timestamp. If no time range is specified, entries 
 
 To retrieve the latest project report in SARIF format, send the following `GET` request:
 
-```cURL
+```HTTP
 GET /api/experimental/report/latest?branch={branch}
 ```
 
@@ -224,7 +224,7 @@ The API response does not include code snippets or full rule descriptions.
 
 To create new [teams](cloud-teams.topic) in %cloud%, send the following `POST` request:
 
-```cURL
+```HTTP
 POST /api/experimental/teams
 ```
 
@@ -259,6 +259,42 @@ Content-Type: application/json
 You can use this team ID to add team members, as described in the [](#Add+team+members) chapter.
 
 
+## Get teams
+
+To retrieve a list of teams for a specific %cloud% organization, use the following `GET` request:
+
+```HTTP
+GET /api/experimental/teams
+```
+
+The endpoint accepts the following parameters:
+
+| Parameter   | Type   | Required  | Description       | Example value |
+|-------------|--------|-----------|-------------------|---------------|
+| `search` | String | No       | Case-insensitive match on the team name. | `My first team`    |
+| `order` | String | No       | Ascending (`ASC`) or descending (`DESC`) sorting order. Results are sorted by team name, then by team ID. If not specified, the ascending sorting is used. | `DESC`    |
+| `offset` | Integer | No       | Offset from the beginning of the list | `3`    |
+| `limit` | Integer | No       | Number of teams returned per each page | `10`    |
+
+The response contains a paginated list of teams containing the total number of teams, the number of teams limited per page, as well as 
+an array of team IDs and their names, for example:
+
+```HTTP
+HTTP/2 200 OK
+Content-Type: application/json
+
+{
+  "count":231,
+  "next":4,
+  "items":[
+    {"id":"AbCdE","name":"0101 My first team"},
+    {"id":"PqRsT","name":"11 Developers"},
+    {"id":"UvWxY","name":"AI agents"},
+    {"id":"pnPj0","name":"Business intelligence team"}
+  ]
+}
+```
+
 ## Add team members
 
 > Be careful when assigning roles to new team members. For more details, see the [](cloud-user-roles.md) section of the %cloud% documentation.
@@ -266,7 +302,7 @@ You can use this team ID to add team members, as described in the [](#Add+team+m
 
 To add new team members to a %cloud% team and assign them [%cloud% roles](cloud-user-roles.md), send the following `POST` request:
 
-```cURL
+```HTTP
 POST /api/experimental/teams/{id}/members
 ```
 
@@ -281,7 +317,10 @@ This endpoint does not send invitations via email.
 
 The request accepts a JSON object containing an array of team members, for example:
 
-```JSON
+```HTTP
+HTTP/2 201 Created
+Content-Type: application/json
+
 {
   "members": [
     {

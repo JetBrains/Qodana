@@ -190,12 +190,24 @@
             </note>
 
             <p>Using the <ui-path>API token</ui-path> tab, you can generate and manage an organization API token. This token lets you
-            have access to the <a href="cloud-api.md"/> to create <a href="cloud-teams.topic">teams</a>,
+            have access to the %cloud% and experimental APIs. all %cloud% APIs, which includes the <a href="cloud-api.md"/> to create <a href="cloud-teams.topic">teams</a>,
             <a href="cloud-projects.topic">projects</a>, and obtain a list of %cloud% and %premlite% organization users
             using your <a href="ci.md">build pipelines</a>.</p>
 
             <img src="qc-settings-organization-api-token.png" width="706" alt="The API token tab" border-effect="line" thumbnail="true"/>
         </chapter>
+
+        <!--For who and how can these tokens be created? -->
+
+        <!--Is this actual information ? -->
+
+        <!--Is this actual information ? -->
+
+        <p>By default, this tab contains an organization-wide token. You can also create team-scoped API tokens that will
+        be visible to specific teams using the API METHOD THAT SHOULD BE USED HERE .</p>
+
+        <p></p>
+        <p></p>
 
         <chapter id="cloud-organizations-global-configurations" title="Global configurations">
 

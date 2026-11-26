@@ -1086,3 +1086,57 @@ Here is the description of responses:
         </td>
     </tr>
 </table>
+
+## Team-scoped tokens
+
+A team-scoped API token lets you specify teams for which the created token should be accessible, which lets you scope
+the API functionality to specific teams. You can create a scope of up to fifty (50) teams that will be authorized to use a token, 
+and lets you manage access to the API functionality from an entire organization to specified teams.
+
+> The existing organization-wide API tokens remain unchanged and their functionalities are not affected by team-scoped tokens.
+
+To create team-scoped tokens, you should have the `Admin` role on an [organization](cloud-user-roles.md#cloud-user-org-roles-admin) or [team](cloud-user-roles.md#cloud-user-team-roles-admin) level.
+Here, each team `Admin` can create team-scoped tokens for the accessible teams, while an organization `Admin` can create 
+separate team-scope tokens for each team within an organization.
+
+In comparison with organization-wide [API tokens](cloud-organizations.topic#cloud-organizations-api-token), team-scoped 
+tokens have the following properties:
+
+* The created token is shown only once during the creation. After then, you cannot retrieve it.
+* The token scope is frozen during the creation, and you cannot change it after a token is created.
+* The created token cannot manage teams and projects outside the scope specified during the creation.
+* The created token becomes invalid for deleted teams and organizations.
+* Revoking or expiring the token makes immediately blocks it for further usage.
+
+> To get a list of teams within a specific organization, use the [`GET /api/experimental/teams`](experimental-api.md#Get+teams) endpoint of the experimental API.
+
+To create a team-scoped token, send the following `POST` request: 
+
+```cURL
+POST https://qodana.cloud/api/v1/public/organizations/tokens
+```
+
+The endpoint accepts the following parameters: 
+
+<!-- How is the token expiration specified? -->
+
+| Parameter   | Type   | Required  | Description       | Example value |
+|-------------|--------|-----------|-------------------|---------------|
+| `id` | array[string] | Yes   | The list of team IDs the created token should be accessible for | `[aBcDe, UvWxZ]`    |
+| `name` | string | No | Name of the token | `My team-scoped token` |
+|`expiry`| integer | No | Number of days within which the token is valid. The default value is 90 days. Can be extended up to 365 days. | `100` |
+
+
+The response contains the project token value, as well as the list of teams
+that can use the created token: 
+
+```HTTP
+HTTP/2 201 Created
+content-type: application/json
+
+{
+    "name": "{TheTokenName}",
+    "scope": ["AbCdE", "FgHiJ"]
+}
+```
+
