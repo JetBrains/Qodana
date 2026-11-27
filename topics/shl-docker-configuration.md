@@ -518,8 +518,8 @@ Assuming that requirements from the [](shl-introduction.md) and [](#Prepare+your
 `/var/run/docker.sock` Docker socket file for communicating with the Docker engine and Docker Swarm.
 
 > Basically, the deployment process is idempotent: running it on an already deployed system skips existing Docker configurations and
-> redeploys the service stacks from scratch. However, it is recommended to run the `uninstall` Docker command prior to redeploying %premlite%.
-{style="tip"}
+> redeploys the service stacks from scratch.
+> {style="tip"}
 
 By default, %premlite% comes configured with local dependencies for quick Proofs Of Concepts (PoCs) or Proofs of Value (PoV).
 
@@ -535,13 +535,8 @@ Depending on your needs, run the command to deploy %premlite% on your machine:
                 quay.io/jetbrains/qodana-installer-cli:latest \
                 install-app
         </code-block>
-        <p>This configuration creates the default user with the following credentials:</p>
-        <ul>
-            <li>Username: <code>tser@qodana.local</code></li>
-            <li>Password: <code>@wesomeQodana</code></li>
-        </ul>
-         <p>These credentials are publicly known, so you should update them as soon as possible by navigating to 
-            the <code>http://login.qodana.local</code> page.</p>
+        <p>This configuration creates the default <code>tser@qodana.local</code> user and generates the password shown 
+            at the end of the first installation. You can change the password after the first sign-in on the <code>http://login.qodana.local</code> page.</p>
     </tab>
     <tab title="Custom domain and user">
         <code-block lang="Bash" prompt="$">
@@ -609,7 +604,7 @@ After the deployment, make sure that all services reached their desired replica 
 
 ```bash
 docker service ls \
-    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+    --filter label=qodana.jetbrains.self-hosted.select=true
 ```
 {prompt="$"}
 
@@ -662,7 +657,7 @@ having to deploy %premlite% again.
 All credentials are:
 
 * Generated during deployment using cryptographically secure random bytes via `openssl rand`
-* Stored immediately as Docker configs and labeled as `qodana.jetbrains.self-hosted.lite.select=true`
+* Stored immediately as Docker configs and labeled as `qodana.jetbrains.self-hosted.select=true`
 * Mounted read-only into each service container at the path that a service expects
 * Never written to the host filesystem or any log output
 
@@ -671,7 +666,7 @@ credentials and are what the `credentials` command reads.
 
 > If you uninstall (the `uninstall` command) and then reinstall (the `install-app` command), new credentials are generated. 
 > Any external integrations using the old credentials like scripts using MinIO keys must be updated.
-{style="tip"}
+> {style="tip"}
 
 Using the `credentials` command, you can retrieve credentials:
 
@@ -717,7 +712,7 @@ docker run \
 {prompt="$"}
 
 You can filter logs using the <code>--filters</code> parameter and labels described in
-the [](#Configure+Qodana+Self-Hosted) chapter. For example, the `qodana.jetbrains.self-hosted.lite.service` [label](#Labels+related+to+local+dependencies) lets 
+the [](#Configure+Qodana+Self-Hosted) chapter. For example, the `qodana.jetbrains.self-hosted.service` [label](#Labels+related+to+local+dependencies) lets 
 you filter logs by a service type. This label accepts the following values: 
 
 | Value                | Services covered                                                              |
@@ -734,7 +729,7 @@ docker run \
     -v /var/run/docker.sock:/var/run/docker.sock \
     quay.io/jetbrains/qodana-installer-cli:latest \
     logs \
-    --filters "label=qodana.jetbrains.self-hosted.lite.service-type=application"
+    --filters "label=qodana.jetbrains.self-hosted.service-type=application"
 ```
 {prompt="$"}
 
@@ -761,7 +756,7 @@ The commands require that you use absolute paths on the Docker host. %premlite% 
 
 > The `backup` and `restore` commands work only when the `QODANA_DEPENDENCIES_MODE` [dependency mode variable](#Dependency+mode+variables) 
 > is set to `local`, i.e. the default setting. External dependencies must be backed up using their own tooling.
-{style=note"}
+> {style=note"}
 
 If you mount an external filesystem into the %premlite% container like `-v /nas/backups:/backups`, you should still pass 
 the host-side path like `/nas/backups` to the command — not the container-internal path like `/backups`. 
@@ -818,13 +813,16 @@ archive is saved in the destination directory and should be deleted manually bef
 
 > This action completely and irreversibly erases all current volume data before extracting the backup. 
 > Verify the file path and make sure that the archive contains correct data before proceeding.
-{style=warning"}
+> {style=warning"}
 
 To restore from a backup, follow these steps:
 
 <procedure>
     <step>
-        Before restoring, make sure that the backup archive file is available on the Docker host.
+        <p>Run the <code>docker swarm init</code> command.</p>
+    </step>
+    <step>
+        <p>Copy each <code>qodana_self_hosted_*</code> Docker config from the old host, with the same name, value and labels.</p>
     </step>
     <step>
         Run the <a anchor="Deploy+Qodana+Self-Hosted"><code>install-app</code></a> command to create volumes and services. 
@@ -864,12 +862,32 @@ docker run \
 ```
 {prompt="$"}
 
+## Upgrade Qodana Self-Hosted
+
+To upgrade %premlite% follow the procedure:
+
+<procedure>
+    <step>
+<p>Pull the <code>quay.io/jetbrains/qodana-installer-cli:latest</code> Docker image. All commands running this image require the
+<code>/var/run/docker.sock</code> Docker socket file for communicating with the Docker engine and Docker Swarm.</p>    
+    </step>
+    <step>
+    <p>Run the <code>backup</code> command as described in the <a anchor="Backup+and+restore"/> chapter.</p>
+    </step>
+    <step>
+    <p>Using the same environment, run the <code>install-app</code> command as described in the <a anchor="Deploy+Qodana+Self-Hosted"/> chapter.</p>
+    </step>
+</procedure>
+
+This procedure also applies to installations from earlier installer versions. If an earlier version needs more steps, 
+the `install-app` commands will show them.
+
 ## Uninstall %premlite%
 
 <link-summary>Run the 'uninstall' command to remove %premlite% from Docker.</link-summary>
 
-> Because uninstalling deletes all application data stored in Docker volumes, we recommend creating a [backup](#Backup+and+restore) beforehand. 
-{style="warning"}
+> Because uninstalling deletes all application data stored in Docker volumes, we recommend creating a [backup](#Backup+and+restore) beforehand.
+> {style="warning"}
 
 Run the `uninstall` command to remove %premlite% from Docker:
 
@@ -887,6 +905,7 @@ This action removes the following components:
 * Docker service stacks: application services, infrastructure services, supporting tools
 * All Docker configurations created by %premlite% like secrets and service configurations
 * All Docker volumes that are labeled as %product%-managed
+* Credentials
 
 The `qodana_self_hosted` overlay network is not removed because removing and recreating it between deployments on the 
 same host causes Docker Swarm to lose network stability, i.e. containers can no longer resolve each other. 
@@ -929,6 +948,47 @@ User password management is handled through Keycloak. To reset passwords, perfor
 
 Labels and environment variables let you configure %premlite% specifically to your needs. 
 
+### TLS-terminating proxy
+
+To configure a proxy functionality, set the `INGRESS_HTTP_PORT` variable to move Traefik from port 80.
+Also, make the `PUBLIC_URL_SCHEME=https` setting.
+
+The proxy should keep the `Host` header and should not redirect `files.<DOMAIN>` to HTTPS.
+
+Below is a configuration example:
+
+```NGINX
+server {
+    listen 80;
+    listen 443 ssl;
+
+    # Every Qodana hostname: the UI, api., files., login. and lintersapi.
+    server_name qodana.example.com *.qodana.example.com;
+
+    # Your own certificate, for all the hostnames above
+    ssl_certificate     /path/to/certificate.crt;
+    ssl_certificate_key /path/to/certificate.key;
+
+    client_max_body_size 100m;
+    client_header_buffer_size 32k;
+    large_client_header_buffers 4 32k;
+
+    location / {
+        # The port set in INGRESS_HTTP_PORT
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_buffer_size 128k;
+        proxy_buffers 4 256k;
+        proxy_busy_buffers_size 256k;
+    }
+}
+```
+
+
 ### Global labels
 
 <link-summary>%premlite% uses several global labels to mark the managed resources described in this chapter.</link-summary>
@@ -938,14 +998,14 @@ Labels and environment variables let you configure %premlite% specifically to yo
 
 | Label and value                                                                  | Description                                                                                                                                 |
 |----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| `qodana.jetbrains.self-hosted.lite.select=true`                                  | Identify all resources that are part of the %premlite% deployment                                                                           |
-| `qodana.jetbrains.self-hosted.lite.version=${APP_QODANA_SELF_HOSTED_IMAGE_TAG}`  | Display at runtime a %premlite% version that a specific resouce is related to. Dependent on the `APP_QODANA_SELF_HOSTED_IMAGE_TAG` variable |
+| `qodana.jetbrains.self-hosted.select=true`                                  | Identify all resources that are part of the %premlite% deployment                                                                           |
+| `qodana.jetbrains.self-hosted.version=${QODANA_SELF_HOSTED_IMAGE_TAG}`  | Display at runtime a %premlite% version that a specific resouce is related to. Dependent on the `QODANA_SELF_HOSTED_IMAGE_TAG` variable |
 
 For example, you can use global variables to troubleshoot problems connected with service availability, for example:
 
 ```Bash
 docker service ls \
-    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+    --filter label=qodana.jetbrains.self-hosted.select=true
 ```
 {prompt="$"}
 
@@ -980,8 +1040,10 @@ docker run \
 ```
 {prompt="$"}
 
-We recommend that you run the `uninstall` command prior to this command. This will let you remove
-the existing Docker configurations that may contain hostname values.
+We recommend that you run the `uninstall` command before running this command. This lets you remove
+the existing Docker configurations that may contain hostname values. However, note that running this command
+deletes all data, including projects, reports, users and project tokens.
+
 
 ### UI user variables
 
@@ -989,13 +1051,13 @@ the existing Docker configurations that may contain hostname values.
 
 %premlite% creates one user in the `qodana` Keycloak realm that you can override using the following variables: 
 
-| Variable                       | Default         | Description                                                   |
+| Variable                       | Description         | Default value                                                    |
 |--------------------------------|-----------------|---------------------------------------------------------------|
-| `QODANA_DEFAULT_USER_USERNAME` | `tser@<DOMAIN>` | Username and email address                                    |
-| `QODANA_DEFAULT_USER_PASSWORD` | `@wesomeQodana` | Plaintext password — hashed with Argon2id at deployment time  |
+| `QODANA_DEFAULT_USER_USERNAME` | Username and email address  | `tser@<DOMAIN>`                                     |
+| `QODANA_DEFAULT_USER_PASSWORD` | Plaintext password — hashed with Argon2id at deployment time  | None   |
 
 > There is no recovery mechanism for users other than recreating the user via the Keycloak admin console.
-{style="note"}
+> {style="note"}
 
 You can override the user credentials using the following command:
 
@@ -1023,7 +1085,7 @@ The variable accepts the following values:
 
 > The `backup` and `restore` commands are supported only in the `local` mode. For the `remote` 
 > mode, the external services should be backed up and restored by their own tooling.
-{style="note"}
+> {style="note"}
 
 You can override the dependency mode using the following command:
 
@@ -1054,10 +1116,10 @@ Here, each group identifies a specific Docker Swarm stack.
 
 <link-summary>The list of labels related to local dependencies in %premlite%.</link-summary>
 
-The `qodana.jetbrains.self-hosted.lite.dependencies.local=true` and `qodana.jetbrains.self-hosted.lite.service-type=local-dependencies`
+The `qodana.jetbrains.self-hosted.dependencies.local=true` and `qodana.jetbrains.self-hosted.service-type=local-dependencies`
 labels identify resources related to the `qodana_self_hosted_local_dependencies` stack or group.
 
-The `qodana.jetbrains.self-hosted.lite.database.volume.name` label defines the internal name of a volume that will be
+The `qodana.jetbrains.self-hosted.database.volume.name` label defines the internal name of a volume that will be
 mapped to a related stateful service that is part of a certain Docker stack.
 
 You can find out the volume name for a given container using this Docker CLI command:
@@ -1069,13 +1131,13 @@ docker inspect <containerid> \
 {prompt="$"}
 
 To understand the mount point of a specific Docker volume, you can use the
-`qodana.jetbrains.self-hosted.lite.database.volume.path` label.
+`qodana.jetbrains.self-hosted.database.volume.path` label.
 
 #### Labels related to %premlite%
 
 <link-summary>The list of labels related to %premlite%.</link-summary>
 
-The `qodana.jetbrains.self-hosted.lite.service-type=application` label identifies the resources related to the
+The `qodana.jetbrains.self-hosted.service-type=application` label identifies the resources related to the
 `qodana_self_hosted_local_service_tools` stack.
 
 <!-- What are the supporting tools here ? -->
@@ -1084,7 +1146,7 @@ The `qodana.jetbrains.self-hosted.lite.service-type=application` label identifie
 
 <link-summary>The list of labels related to supporting tools in %premlite%.</link-summary>
 
-The `qodana.jetbrains.self-hosted.lite.service-type=supporting-tools` label identifies the resources related to the
+The `qodana.jetbrains.self-hosted.service-type=supporting-tools` label identifies the resources related to the
 `qodana_self_hosted_local_service_tools` stack.
 
 ### Environment variables
@@ -1106,7 +1168,7 @@ The `qodana.jetbrains.self-hosted.lite.service-type=supporting-tools` label iden
 | `LOG_LEVEL`                         | Application logging level                  | `info`                                  |
 | `IDP_SUB_DOMAIN`                    | Subdomain for identity provider (Keycloak) | `login`                                 |
 | `CONTAINER_REGISTRY_URL`            | Container registry URL for pulling images  | `quay.io`                               |
-| `APP_QODANA_SELF_HOSTED_IMAGE_TAG`  | Current version of %premlite%              | `1.22.0-alpha.14`, actual for July 2025 |
+| `QODANA_SELF_HOSTED_IMAGE_TAG`  | Current version of %premlite%              | `1.50.0` |
 | `FRONTEND_MEMORY_LIMIT`             | Memory limit for the Frontend service      | `500`                                   |
 | `OBJECT_STORAGE_PROVIDER`           | Object storage provider type               | `minio`                                 |
 | `MESSAGE_BROKER_PROVIDER`           | Message broker provider (RabbitMQ)         | `rabbitmq`                              |
@@ -1244,7 +1306,7 @@ docker run \
 | Environment variable            | Description                                     | Default value                                 |
 |---------------------------------|-------------------------------------------------|-----------------------------------------------|
 | `INGRESS_CONTAINER_NAME`        | Ingress container image name                    | `jetbrains/qodana-installer-cli-dependencies` |
-| `INGRESS_CONTAINER_TAG`         | Tag for the ingress container (Traefik version) | `traefik-v3.0`                                |
+| `INGRESS_CONTAINER_TAG`         | Tag for the ingress container (Traefik version) | `traefik-v3.6`                                |
 | `INGRESS_SUB_DOMAIN`                | Subdomain for ingress traffic                  | `ingress`                                     |
 
 ##### Database
@@ -1256,7 +1318,7 @@ docker run \
 | `POSTGRES_CONTAINER_IMAGE_NAME` | Postgres container image name                   | `jetbrains/qodana-installer-cli-dependencies` |
 | `POSTGRES_CONTAINER_IMAGE_TAG`  | Tag for the Postgres container image            | `postgres-15.10.0`                            |
 | `POSTGRES_USER`                 | Default Postgres database user                  | `postgres`                                    |
-| `POSTGRES_PASSWORD`             | Password for Postgres user                      | `qodanapassword`                              |
+| `POSTGRES_PASSWORD`             | Password for Postgres user, generated during the deployment                      | None                              |
 | `DB_HOSTNAME`                   | Hostname for the database                       | `postgres`                                    |
 | `DB_PORT`                       | Database port                                   | `5432`                                        |
 
@@ -1269,11 +1331,11 @@ docker run \
 |---------------------------------------------|-----------------------------------------------------|-----------------------------------------------|
 | `MINIO_HOSTNAME`                            | Hostname for MinIO                                  |                                               |
 | `MINIO_REGISTRY_IMAGE_NAME`                 | MinIO registry image name                           | `jetbrains/qodana-installer-cli-dependencies` |
-| `MINIO_REGISTRY_IMAGE_TAG`                  | Tag for the MinIO registry image                    | `minio-RELEASE.2025-01-20T14-49-07Z`          |
+| `MINIO_REGISTRY_IMAGE_TAG`                  | Tag for the MinIO registry image                    | `minio-RELEASE.2025-09-07T16-13-09Z`          |
 | `MINIO_CLIENT_REGISTRY_IMAGE_NAME`          | MinIO client image name                             | `jetbrains/qodana-installer-cli-dependencies` |
-| `MINIO_CLIENT_REGISTRY_IMAGE_TAG`           | Tag for the MinIO client image                      | `minio-mc-RELEASE.2025-01-17T23-25-50Z`       |
-| `MINIO_ROOT_USER`                           | Root user for MinIO instance                        | `qodana`                                      |
-| `MINIO_ROOT_PASSWORD`                       | Root password for MinIO                             | `qodanapassword`                              |
+| `MINIO_CLIENT_REGISTRY_IMAGE_TAG`           | Tag for the MinIO client image                      | `minio-mc-RELEASE.2025-08-13T08-35-41Z`       |
+| `MINIO_ROOT_USER`                           | Root user for MinIO instance, generated during the deployment                        | None                                      |
+| `MINIO_ROOT_PASSWORD`                       | Root password for MinIO, generated during the deployment                              | None                              |
 | `MINIO_API_PORT`                            | Port for MinIO API service                          | `9000`                                        |
 | `MINIO_RESULTS_BUCKET`                      | Bucket name for storing Qodana results              | `qc-results`                                                              |
 | `MINIO_BASELINES_BUCKET`                    | Bucket name for storing Qodana baselines            | `qc-baselines`                                                            |
@@ -1300,7 +1362,7 @@ docker run \
 | Environment variable                | Description                    | Default value                                 |
 |-------------------------------------|--------------------------------|-----------------------------------------------|
 | `KEYCLOAK_REGISTRY_IMAGE_NAME`      | Keycloak registry image name   | `jetbrains/qodana-installer-cli-dependencies` |
-| `KEYCLOAK_REGISTRY_IMAGE_TAG`       | Tag for the Keycloak image     | `keycloak-26.1`                               |
+| `KEYCLOAK_REGISTRY_IMAGE_TAG`       | Tag for the Keycloak image     | `keycloak-26.8.2`                               |
 | `KEYCLOAK_HOSTNAME`                 | Hostname for Keycloak instance | `login.${APP_DOMAIN}`                         |
 | `KEYCLOAK_DB_NAME`                  | Keycloak database name         | `keycloak`                                    |
 
@@ -1348,6 +1410,10 @@ docker run \
 | `REPORT_PROCESSOR_POSTGRES_DB_NAME` | Name of the Report Processor Postgres database  | `qodanadb`                                                                |
 
 
+## Usage statistics
+
+For air-gapped installation of %premlite%, disable usage statistics using the `FUS_ENABLED=false` variable.
+
 ## Known limitations
 
 <link-summary>The list of limitations regarding the current Docker implementation of %premlite%.</link-summary>
@@ -1356,14 +1422,15 @@ This table describes known limitations regarding the current Dockerized implemen
 
 | Limitation                       | Detail                                                                                                                                                       |
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| No HTTPS                         | All communication is plain HTTP. An upstream TLS-terminating proxy is required for production                                                                |
+| No HTTPS                         | All communication is plain HTTP. An upstream [TLS-terminating proxy](#TLS-terminating+proxy) is required for production                                                                |
 | No backup in remote mode         | When the `QODANA_DEPENDENCIES_MODE` is set to `remote`, backup and restore commands are not supported                                                        |
 | Single-node Swarm                | Designed for single-node Docker Swarm. Multi-node deployments require additional volume and network planning                                                 |
-| Domain changes require reinstall | Hostnames are encoded in Docker configs at install time. Changing them requires running the `uninstall` and `install-app` commands                           |
+| Domain changes require reinstall | Hostnames are encoded in Docker configs at install time. Changing them requires running the `uninstall`\* and `install-app` commands                           |
 | No incremental backup            | Each backup is a full volume snapshot                                                                                                                        |
 | Docker configs not in backup     | Generated secrets are stored in Docker's config store, not in the data volume backup. They must be regenerated using the `install-app` command on a new host |
 | Startup time                     | Services continue starting after the installer exits. You should wait for 2–3 minutes before accessing the UI                                                |
 
+\* Running the `uninstall` command deletes all data, including projects, reports, users and project tokens.
 
 ## Troubleshooting
 
@@ -1407,7 +1474,7 @@ Run the following commands to detect the services that are not running:
 
 ```bash
 docker service ls \
-    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+    --filter label=qodana.jetbrains.self-hosted.select=true
 ```
 {prompt="$"}
 
@@ -1462,7 +1529,7 @@ To make sure that Docker configs exist, run the following command:
 
 ```bash
 docker config ls \
-    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+    --filter label=qodana.jetbrains.self-hosted.select=true
 ```
 {prompt="$"}
 
@@ -1474,7 +1541,7 @@ Run the following command to inspect %premlite% volumes:
 
 ```bash
 docker volume ls \
-    --filter label=qodana.jetbrains.self-hosted.lite.select=true
+    --filter label=qodana.jetbrains.self-hosted.select=true
 ```
 {prompt="$"}
 
